@@ -16,7 +16,7 @@ http://www.material-theme.com
 
 ![laptop-full](laptop-full.png)
 
-Buy me a beer: 
+Buy them a beer: 
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=LSF7K29JBPMWU&lc=US&item_name=Material%20Theme%20JetBrains%20Development&item_number=m1&currency_code=NOK&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted)
 
 And him too :*
@@ -69,24 +69,13 @@ There are many ways to change the Material Theme Look and Feel of the IDE:
 - From the `Search Everything`, look for `Material`
 - From the `Quick Switch` panel <kbd>Ctrl+\`</kbd> (Windows: <kbd>Ctrl + ~</kbd>)
 
-There are currently 4 bundled Material themes:
-- **Oceanic Theme** - A nice Oceanic Blue like theme
-- **Darker Theme** - A more classic Dark Theme
-- **Lighter Theme** - A light variation of the theme
-- **Palenight Theme** - A more purplish theme
+There is currently 1 bundled Material themes:
+- **Just Monika** - A nice and only theme
 
-And 3 bundled other themes
-- **Monokai Pro Theme**
-- **Arc Dark Theme**
-- **Atom One Dark Theme**
 
 And you can also disable the theming and revert to the original Darcula, while still keeping Material Theme additions such as the icons and UI components.
 
 -------------------
-
-### Custom Themes
-
-With the ability to set up custom themes, we can even start to host a gallery of custom themes I will add some that are the most popular, or even give the ability to import them. But it's still far away! :)
 
 -----------------
 
@@ -234,14 +223,6 @@ Import the project from the `build.gradle` file and develop as normal.  Make sur
 
 ---------------
 
-## Contribution
-
-Pull requests are appreciated! I can use some help on bugs and features listed in 
-[https://github.com/ChrisRM/material-theme-jetbrains/issues], or you can send me some new ideas!
-
-However, please note that this is a plugin dedicated to replicate the Sublime plugin, so it should coincide with its features and not deviate too much.
-
-----------------
 
 ## Known Issues
 
