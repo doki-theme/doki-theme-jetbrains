@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<!DOCTYPE module PUBLIC
+        "-//Puppy Crawl//DTD Check Configuration 1.2//EN"
+        "http://www.puppycrawl.com/dtds/configuration_1_2.dtd">
+
+<module name="Checker">
+    <property name="severity" value="error"/>
+    <property name="charset" value="UTF-8"/>
+
+    <module name="NewlineAtEndOfFile"/>
+    <module name="FileTabCharacter"/>
+
+    <module name="RegexpSingleline">
+        <property name="format" value="\s+$"/>
+        <property name="minimum" value="0"/>
+        <property name="maximum" value="0"/>
+        <property name="message" value="Line has trailing spaces."/>
+    </module>
+
+    <module name="SuppressionFilter">
+        <property name="file" value="./gradle/suppressions.xml"/>
+    </module>
+
+    <module name="SuppressWarningsFilter"/>
+
+    <module name="TreeWalker">
+        <module name="SuppressionCommentFilter">
+            <property name="offCommentFormat" value="BEGIN GENERATED CODE"/>
+            <property name="onCommentFormat" value="END GENERATED CODE"/>
+        </module>
+        <module name="SuppressWarningsHolder"/>
+        <!-- Checks for Javadoc comments.                     -->
+        <!-- See http://checkstyle.sf.net/config_javadoc.html -->
+        <!-- <module name="JavadocMethod">
+            <property name="logLoadErrors" value="true"/>
+            <property name="suppressLoadErrors" value="true"/>
+        </module>
+        <module name="JavadocType"/>
+        <module name="JavadocVariable"/>
+        <module name="JavadocStyle"/> -->
+
+        <module name="ConstantName">
+            <property name="format" value="^([A-Z][A-Z0-9]*(_[A-Z0-9]+)*)$"/>
+        </module>
+        <module name="LocalFinalVariableName"/>
+        <module name="LocalVariableName"/>
+        <module name="MemberName"/>
+        <module name="MethodName">
+            <property name="format" value="^([a-z][a-zA-Z0-9]*)|(test[a-zA-Z0-9_]+)$"/>
+        </module>
+        <module name="PackageName"/>
+        <module name="ParameterName"/>
+        <module name="StaticVariableName"/>
+        <module name="TypeName"/>
+        <module name="AvoidStarImport">
+            <property name="allowClassImports" value="true"/>
+            <property name="allowStaticMemberImports" value="true"/>
+        </module>
+        <module name="RedundantImport"/>
+        <module name="UnusedImports"/>
+
+        <module name="MethodLength"/>
+        <module name="LineLength">
+            <property name="max" value="140"/>
+        </module>
+
+        <module name="EmptyForIteratorPad"/>
+        <module name="MethodParamPad"/>
+        <module name="NoWhitespaceAfter">
+            <property name="tokens" value="BNOT, DEC, DOT, INC, LNOT, UNARY_MINUS, UNARY_PLUS"/>
+        </module>
+        <module name="NoWhitespaceBefore"/>
+
+        <module name="ParenPad"/>
+        <module name="TypecastParenPad"/>
+        <module name="WhitespaceAfter"/>
+        <module name="WhitespaceAround"/>
+
+        <module name="ModifierOrder"/>
+        <module name="RedundantModifier"/>
+
+
+        <module name="AvoidNestedBlocks"/>
+        <module name="EmptyBlock"/>
+        <module name="LeftCurly"/>
+        <module name="NeedBraces"/>
+        <module name="RightCurly"/>
+
+
+        <module name="EmptyStatement"/>
+        <module name="EqualsHashCode"/>
+        <module name="IllegalInstantiation"/>
+        <module name="MissingSwitchDefault"/>
+        <!--<module name="RedundantThrows">-->
+            <!--<property name="logLoadErrors" value="true"/>-->
+            <!--<property name="suppressLoadErrors" value="true"/>-->
+        <!--</module>-->
+        <module name="SimplifyBooleanExpression"/>
+        <module name="SimplifyBooleanReturn"/>
+
+        <!-- Checks for class design                         -->
+        <!-- See http://checkstyle.sf.net/config_design.html -->
+        <module name="DesignForExtension"/>
+        <module name="FinalClass"/>
+        <module name="HideUtilityClassConstructor"/>
+        <module name="InterfaceIsType"/>
+        <module name="VisibilityModifier"/>
+
+
+        <!-- Miscellaneous other checks.                   -->
+        <!-- See http://checkstyle.sf.net/config_misc.html -->
+        <module name="ArrayTypeStyle"/>
+        <module name="FinalParameters"/>
+        <module name="TodoComment"/>
+        <module name="UpperEll"/>
+
+        <module name="FileContentsHolder"/>
+
+    </module>
+
+</module>

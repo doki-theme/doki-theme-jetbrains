@@ -1,0 +1,55 @@
+sudo: false
+dist: trusty
+language: java
+jdk:
+  - oraclejdk8
+
+env: ORG_GRADLE_PROJECT_downloadIdeaSources=false
+
+branches:
+  only:
+    - master
+    - develop
+
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+
+deploy:
+  provider: script
+  skip_cleanup: true
+  file_glob: true
+  file: "Material Theme-*.zip"
+  script: ORG_GRADLE_PROJECT_publishChannels=eap ORG_GRADLE_PROJECT_version=1.15.2-eap$TRAVIS_BUILD_NUMBER ./gradlew buildPlugin
+  on:
+    branch: develop
+env:
+  global:
+  - ORG_GRADLE_PROJECT_downloadIdeaSources=false
+
+jobs:
+  include:
+    - stage: Deploy EAP
+      script: skip
+      env: ORG_GRADLE_PROJECT_ideaVersion=2017.1
+      deploy:
+        provider: script
+        skip_cleanup: true
+        script: ORG_GRADLE_PROJECT_publishChannels=eap ORG_GRADLE_PROJECT_version=1.15.2-eap$TRAVIS_BUILD_NUMBER ./gradlew :publishPlugin
+        on:
+          branch: develop
+    - stage: Deploy new Release
+      script: skip
+      deploy:
+        provider: script
+        skip_cleanup: true
+        script: ./gradlew publishPlugin
+        on:
+          branch: master
+
+allow_failures:
+    - env: ORG_GRADLE_PROJECT_ideaVersion=LATEST-EAP-SNAPSHOT

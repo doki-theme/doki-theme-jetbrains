@@ -1,0 +1,413 @@
+<!--
+  ~ The MIT License (MIT)
+  ~
+  ~ Copyright (c) 2018 Chris Magnussen and Elior Boukhobza
+  ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy
+  ~ of this software and associated documentation files (the "Software"), to deal
+  ~ in the Software without restriction, including without limitation the rights
+  ~ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  ~ copies of the Software, and to permit persons to whom the Software is
+  ~ furnished to do so, subject to the following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in all
+  ~ copies or substantial portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  ~ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  ~ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  ~ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  ~ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  ~ SOFTWARE.
+  ~
+  ~
+  -->
+
+<idea-plugin>
+    <id>com.chrisrm.idea.MaterialThemeUI</id>
+    <name>Material Theme UI</name>
+    <version>@version@</version>
+    <vendor email="heliosaian@gmail.com" url="https://github.com/mallowigi">Mallowigi</vendor>
+
+    <description><![CDATA[
+        This will add the <a href="https://github.com/equinusocio/material-theme">Material Theme</a> look to your IDE.<br/><br/>
+    ]]></description>
+
+    <!-- Match with 'intellij.version' in build.gradle -->
+    <!--<idea-version since-build="173.2290.1"/>-->
+    <idea-version since-build="173.3655.1"/>
+    <!--<idea-version since-build="171.2953.9" until-build="173.2290.1"/>-->
+
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.lang</depends>
+    <depends optional="true" config-file="php.xml">com.jetbrains.php</depends>
+    <depends optional="true" config-file="ruby.xml">com.intellij.modules.ruby</depends>
+
+    <depends optional="true">com.jetbrains.twig</depends>
+    <depends optional="true" config-file="python.xml">com.intellij.modules.python</depends>
+    <depends optional="true" config-file="clion.xml">com.jetbrains.modules.clion</depends>
+
+
+    <resource-bundle>messages.MaterialThemeBundle</resource-bundle>
+    <resource-bundle>messages.FileColorsBundle</resource-bundle>
+
+    <extensionPoints>
+        <extensionPoint beanClass="com.chrisrm.idea.themes.BundledThemeEP" name="bundledTheme"/>
+    </extensionPoints>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationService serviceImplementation="com.chrisrm.idea.MTConfig"/>
+        <applicationService serviceImplementation="com.chrisrm.idea.MTCustomThemeConfig"/>
+        <applicationService serviceImplementation="com.chrisrm.idea.MTThemeManager"/>
+        <applicationService serviceImplementation="com.chrisrm.idea.MTBundledThemesManager"/>
+
+        <applicationService serviceImplementation="com.chrisrm.idea.icons.tinted.TintedIconsService"/>
+        <applicationConfigurable instance="com.chrisrm.idea.config.MTConfigurable"
+                                 groupId="appearance"
+                                 id="com.chrisrm.idea.config"/>
+        <applicationConfigurable instance="com.chrisrm.idea.config.MTCustomThemeConfigurable"
+                                 groupId="appearance"
+                                 id="com.chrisrm.idea.config.mtCustomThemeConfig"/>
+
+        <projectViewNodeDecorator implementation="com.chrisrm.idea.tree.MTProjectViewNodeDecorator"/>
+        <editorTabTitleProvider implementation="com.chrisrm.idea.tabs.MTEditorUpperTabs" order="first"/>
+        <iconProvider implementation="com.chrisrm.idea.icons.MTHiddenIconProvider" order="first"/>
+        <iconProvider implementation="com.chrisrm.idea.icons.MTFileIconProvider" order="first"/>
+
+        <bundledColorScheme path="/colors/Material Monika"/>
+        <bundledColorScheme path="/colors/Material Lighter"/>
+        <bundledColorScheme path="/colors/Material Oceanic"/>
+        <bundledColorScheme path="/colors/Material Palenight"/>
+        <bundledColorScheme path="/colors/Material Darker"/>
+        <bundledColorScheme path="/colors/Material One Dark"/>
+        <bundledColorScheme path="/colors/Atom One Dark"/>
+        <bundledColorScheme path="/colors/Material Monokai Pro"/>
+        <welcomeFrameProvider implementation="com.chrisrm.idea.ui.MTFlatWelcomeFrameProvider"
+                              order="FIRST"/>
+        <!--<ideRootPaneNorth implementation="com.chrisrm.idea.themes.MTFrameComponentExtension"></ideRootPaneNorth>-->
+
+        <search.optionContributor implementation="com.chrisrm.idea.config.MTOptionContributor"/>
+        <search.topHitProvider implementation="com.chrisrm.idea.config.MTConfigTopHitProvider"/>
+
+        <colorSettingsPage implementation="com.chrisrm.idea.config.MTFileColorsPage"/>
+
+        <webHelpProvider implementation="com.chrisrm.idea.help.MTHelpProvider" id="MTHelpTopic"/>
+    </extensions>
+
+    <application-components>
+        <component>
+            <implementation-class>com.chrisrm.idea.schemes.MTThemesComponent</implementation-class>
+        </component>
+        <component>
+            <implementation-class>com.chrisrm.idea.MTApplicationComponent</implementation-class>
+        </component>
+        <component>
+            <implementation-class>com.chrisrm.idea.MTLafComponent</implementation-class>
+        </component>
+        <component>
+            <implementation-class>com.chrisrm.idea.tabs.MTTabsPainterPatcherComponent</implementation-class>
+        </component>
+        <component>
+            <implementation-class>com.chrisrm.idea.icons.MTIconReplacerComponent</implementation-class>
+        </component>
+        <component>
+            <implementation-class>com.chrisrm.idea.MTCleanupComponent</implementation-class>
+        </component>
+    </application-components>
+
+    <project-components>
+        <component>
+            <implementation-class>com.chrisrm.idea.status.MTStatusBarComponent</implementation-class>
+            <loadForDefaultProject>true</loadForDefaultProject>
+        </component>
+        <component>
+            <implementation-class>com.chrisrm.idea.MTUpdatesComponent</implementation-class>
+        </component>
+        <component>
+            <implementation-class>com.chrisrm.idea.MTTitleBarComponent</implementation-class>
+            <loadForDefaultProject>true</loadForDefaultProject>
+        </component>
+    </project-components>
+
+
+    <actions>
+        <group id="MaterialTheme.ThemeChooser" text="Material Theme Chooser" popup="true"
+               icon="/icons/actions/material-theme.png">
+            <add-to-group group-id="MainToolBar" anchor="last"/>
+
+            <action id="MTMonikaTheme_1" class="com.chrisrm.idea.actions.themes.MTMonikaThemeAction"
+                    text="Just Monika" description="Material Monika"
+                    icon="/icons/actions/themes/material_monkia.png">
+            </action>
+            <action id="MTMonikaTheme_2" class="com.chrisrm.idea.actions.themes.MTMonikaThemeAction"
+                    text="Just Monika" description="Material Monika"
+                    icon="/icons/actions/themes/material_monkia.png">
+            </action>
+            <action id="MTMonikaTheme_3" class="com.chrisrm.idea.actions.themes.MTMonikaThemeAction"
+                    text="Just Monika" description="Material Monika"
+                    icon="/icons/actions/themes/material_monkia.png">
+            </action>
+            <action id="MTMonikaTheme_4" class="com.chrisrm.idea.actions.themes.MTMonikaThemeAction"
+                    text="Just Monika" description="Material Monika"
+                    icon="/icons/actions/themes/material_monkia.png">
+            </action>
+            <action id="MTMonikaTheme_5" class="com.chrisrm.idea.actions.themes.MTMonikaThemeAction"
+                    text="Just Monika" description="Material Monika"
+                    icon="/icons/actions/themes/material_monkia.png">
+            </action>
+            <separator/>
+            <action id="MTMonikaTheme_6" class="com.chrisrm.idea.actions.themes.MTMonikaThemeAction"
+                    text="Just Monika" description="Material Monika"
+                    icon="/icons/actions/themes/material_monkia.png">
+            </action>
+            <action id="MTMonikaTheme_7" class="com.chrisrm.idea.actions.themes.MTMonikaThemeAction"
+                    text="Just Monika" description="Material Monika"
+                    icon="/icons/actions/themes/material_monkia.png">
+            </action>
+            <action id="MTMonikaTheme_8" class="com.chrisrm.idea.actions.themes.MTMonikaThemeAction"
+                    text="Just Monika" description="Material Monika"
+                    icon="/icons/actions/themes/material_monkia.png">
+            </action>
+            <separator/>
+            <action id="MTMonikaTheme_9" class="com.chrisrm.idea.actions.themes.MTMonikaThemeAction"
+                    text="Just Monika" description="Material Monika"
+                    icon="/icons/actions/themes/material_monkia.png">
+            </action>
+            <action id="MTMonikaTheme_10" class="com.chrisrm.idea.actions.themes.MTMonikaThemeAction"
+                    text="Just Monika" description="Material Monika"
+                    icon="/icons/actions/themes/material_monkia.png">
+            </action>
+            <action id="MTMonikaTheme_11" class="com.chrisrm.idea.actions.themes.MTMonikaThemeAction"
+                    text="Just Monika" description="Material Monika"
+                    icon="/icons/actions/themes/material_monkia.png">
+            </action>
+        </group>
+
+        <group id="MaterialTheme.Panels" text="Panel Options" description="Panel Options" popup="true"
+               icon="/icons/actions/layers.png">
+            <add-to-group group-id="MainToolBar" anchor="last"/>
+            <action class="com.chrisrm.idea.actions.MTContrastAction" id="MTContrastAction" text="Toggle Contrast"
+                    icon="/icons/actions/mtContrast.png"
+                    description="Toggle Contrast"/>
+            <action id="MTCompactSidebarAction" class="com.chrisrm.idea.actions.MTCompactSidebarAction"
+                    text="Toggle Compact Sidebar"
+                    description="Toggle Compact Sidebar"
+                    icon="/icons/actions/compactSidebar.png">
+            </action>
+            <action id="MTCompactDropdownsActions" class="com.chrisrm.idea.actions.MTCompactDropdownsAction"
+                    text="Toggle Compact Dropdowns"
+                    description="Toggle Compact Dropdowns"
+                    icon="/icons/actions/compactDropdowns.png">
+            </action>
+            <action id="MTHideFileIconsAction" class="com.chrisrm.idea.actions.MTHideFileIconsAction"
+                    text="Toggle Hide File Icons"
+                    description="Toggle Hide File Icons" icon="/icons/actions/hideFileAction.png">
+            </action>
+            <action id="MTMonochromeIconsAction" class="com.chrisrm.idea.actions.MTMonochromeIconsAction"
+                    text="Toggle Monochrome Icons"
+                    description="Toggle Monochrome Icons" icon="/icons/actions/monochrome.png">
+            </action>
+            <action id="MTCompactStatusBarAction" class="com.chrisrm.idea.actions.MTCompactStatusBarAction"
+                    text="Toggle Compact Status Bar" description="Toggle Compact Status Bar"
+                    icon="/icons/actions/compactStatusBar.png">
+            </action>
+            <action id="MTUpperCaseTabsAction" class="com.chrisrm.idea.actions.MTUpperCaseTabsAction"
+                    text="Toggle Uppercase Tabs" description="Toggle Uppercase Tabs"
+                    icon="/icons/actions/uppercaseTabs.png"/>
+            <action id="MTBiggerTabs" class="com.chrisrm.idea.actions.MTBiggerTabsAction"
+                    text="Set recommended tab height"
+                    description="Increase tab height to a 50px"
+                    icon="/icons/actions/bigTabs.png"/>
+            <action id="MTAddFileColors" class="com.chrisrm.idea.actions.MTAddFileColorsAction"
+                    text="Install Material File Colors"
+                    description="Install Material File Colors"
+                    icon="/icons/actions/fileColors.png"/>
+            <group id="arrowsStyles" text="Arrow Styles" popup="true">
+                <action class="com.chrisrm.idea.actions.arrows.MTMaterialArrows"
+                        id="MTMaterialArrows"
+                        text="Set Material Arrows style"
+                        icon="/icons/actions/arrows/material.png"
+                        description="Set Material Arrows style"/>
+                <action class="com.chrisrm.idea.actions.arrows.MTDarculaArrows"
+                        id="MTDarculaArrows"
+                        text="Set Darcula Arrows style"
+                        icon="/icons/actions/arrows/darcula.png"
+                        description="Set Darcula Arrows style"/>
+                <action class="com.chrisrm.idea.actions.arrows.MTPlusMinusArrows"
+                        id="MTPlusMinusArrows"
+                        text="Set Plus-Minus Arrows style"
+                        icon="/icons/actions/arrows/plusminus.png"
+                        description="Set Plus-Minus Arrows style"/>
+            </group>
+
+        </group>
+
+        <group id="MaterialTheme.Accents" text="Accent Colors" description="Set an accent color" popup="true"
+               icon="/icons/actions/accents/accents.png">
+            <add-to-group group-id="MainToolBar" anchor="last"/>
+            <action id="com.chrisrm.idea.actions.accents.MTTurquoiseAccentAction"
+                    class="com.chrisrm.idea.actions.accents.MTTurquoiseAccentAction"
+                    icon="/icons/actions/accents/accents-turquoise.png"
+                    text="Turquoise Accent Color" description="Change accent color">
+            </action>
+            <action id="com.chrisrm.idea.actions.accents.MTTomatoAccentAction"
+                    class="com.chrisrm.idea.actions.accents.MTTomatoAccentAction"
+                    icon="/icons/actions/accents/accents-tomato.png"
+                    text="Tomato Accent Color" description="Change accent color">
+            </action>
+            <action id="com.chrisrm.idea.actions.accents.MTDaisyAccentAction"
+                    class="com.chrisrm.idea.actions.accents.MTDaisyAccentAction"
+                    icon="/icons/actions/accents/accent-daisy.png"
+                    text="Daisy Accent Color" description="Change accent color">
+            </action>
+            <action id="com.chrisrm.idea.actions.accents.MTLimeAccentAction"
+                    class="com.chrisrm.idea.actions.accents.MTLimeAccentAction"
+                    icon="/icons/actions/accents/accent-lime.png"
+                    text="Lime Accent Color" description="Change accent color">
+            </action>
+            <action id="com.chrisrm.idea.actions.accents.MTAmethystAccentAction"
+                    class="com.chrisrm.idea.actions.accents.MTAmethystAccentAction"
+                    icon="/icons/actions/accents/accent-amethyst.png"
+                    text="Amethyst Accent Color" description="Change accent color">
+            </action>
+            <action id="com.chrisrm.idea.actions.accents.MTBrickAccentAction"
+                    class="com.chrisrm.idea.actions.accents.MTBrickAccentAction"
+                    icon="/icons/actions/accents/accent-brick.png"
+                    text="Brick Accent Color" description="Change accent color">
+            </action>
+            <action id="com.chrisrm.idea.actions.accents.MTOrangeAccentAction"
+                    class="com.chrisrm.idea.actions.accents.MTOrangeAccentAction"
+                    icon="/icons/actions/accents/accent-orange.png"
+                    text="Orange Accent Color" description="Change accent color">
+            </action>
+            <action id="com.chrisrm.idea.actions.accents.MTAcidLimeAccentAction"
+                    class="com.chrisrm.idea.actions.accents.MTAcidLimeAccentAction"
+                    icon="/icons/actions/accents/accent-acidlime.png"
+                    text="Acid Lime Accent Color" description="Change accent color">
+            </action>
+            <action id="com.chrisrm.idea.actions.accents.MTPomegrenateAccentAction"
+                    class="com.chrisrm.idea.actions.accents.MTPomegrenateAccentAction"
+                    icon="/icons/actions/accents/accent-pomegrenate.png"
+                    text="Pomegrenate Accent Color" description="Change accent color">
+            </action>
+            <action id="com.chrisrm.idea.actions.accents.MTDodgerBlueAccentAction"
+                    class="com.chrisrm.idea.actions.accents.MTDodgerBlueAccentAction"
+                    icon="/icons/actions/accents/accent-dodgerblue.png"
+                    text="DodgerBlue Accent Color" description="Change accent color">
+            </action>
+            <action id="com.chrisrm.idea.actions.accents.MTStrawberryAccentAction"
+                    class="com.chrisrm.idea.actions.accents.MTStrawberryAccentAction"
+                    icon="/icons/actions/accents/accent-strawberry.png"
+                    text="Strawberry Accent Color" description="Change accent color">
+            </action>
+            <action id="com.chrisrm.idea.actions.accents.MTTealAccentAction"
+                    class="com.chrisrm.idea.actions.accents.MTTealAccentAction"
+                    icon="/icons/actions/accents/accent-teal.png"
+                    text="Teal Accent Color" description="Change accent color">
+            </action>
+            <action id="com.chrisrm.idea.actions.accents.MTIndigoAccentAction"
+                    class="com.chrisrm.idea.actions.accents.MTIndigoAccentAction"
+                    icon="/icons/actions/accents/accent-indigo.png"
+                    text="Indigo Accent Color" description="Change accent color">
+            </action>
+            <action id="com.chrisrm.idea.actions.accents.MTSkyAccentAction"
+                    class="com.chrisrm.idea.actions.accents.MTSkyAccentAction"
+                    icon="/icons/actions/accents/accent-sky.png"
+                    text="Sky Accent Color" description="Change accent color">
+            </action>
+            <action id="com.chrisrm.idea.actions.accents.MTFuschiaAccentAction"
+                    class="com.chrisrm.idea.actions.accents.MTFuschiaAccentAction"
+                    icon="/icons/actions/accents/accent-fuschia.png"
+                    text="Fuschia Accent Color" description="Change accent color">
+            </action>
+            <action id="com.chrisrm.idea.actions.accents.MTAquamarineAccentAction"
+                    class="com.chrisrm.idea.actions.accents.MTAquamarineAccentAction"
+                    icon="/icons/actions/accents/accent-aquamarine.png"
+                    text="Aquamarine Accent Color" description="Change accent color">
+            </action>
+            <action id="com.chrisrm.idea.actions.accents.MTCyanAccentAction"
+                    class="com.chrisrm.idea.actions.accents.MTCyanAccentAction"
+                    icon="/icons/actions/accents/accent-cyan.png"
+                    text="Cyan Accent Color" description="Change accent color">
+            </action>
+            <action id="com.chrisrm.idea.actions.accents.MTBreakingBadAccentAction"
+                    class="com.chrisrm.idea.actions.accents.MTBreakingBadAccentAction"
+                    icon="/icons/actions/accents/accent-breakingbad.png"
+                    text="Breaking Bad Accent Color" description="Change accent color">
+            </action>
+            <action id="com.chrisrm.idea.actions.accents.MTGoldAccentAction"
+                    class="com.chrisrm.idea.actions.accents.MTGoldAccentAction"
+                    icon="/icons/actions/accents/accent-gold.png"
+                    text="Gold Accent Color" description="Change accent color">
+            </action>
+            <action id="com.chrisrm.idea.actions.accents.MTGraphiteAccentAction"
+                    class="com.chrisrm.idea.actions.accents.MTGraphiteAccentAction"
+                    icon="/icons/actions/accents/accent-graphite.png"
+                    text="Graphite Accent Color" description="Change accent color">
+            </action>
+            <action id="com.chrisrm.idea.actions.accents.MTCoffeeAccentAction"
+                    class="com.chrisrm.idea.actions.accents.MTCoffeeAccentAction"
+                    icon="/icons/actions/accents/accent-coffee.png"
+                    text="Coffee Accent Color" description="Change accent color">
+            </action>
+            <action id="com.chrisrm.idea.actions.accents.MTSlateAccentAction"
+                    class="com.chrisrm.idea.actions.accents.MTSlateAccentAction"
+                    icon="/icons/actions/accents/accent-slate.png"
+                    text="Slate Accent Color" description="Change accent color">
+            </action>
+        </group>
+
+        <group id="MaterialTheme.Components" text="Material Components" description="Material Component Options"
+               popup="true" icon="/icons/actions/components.png">
+            <add-to-group group-id="MainToolBar" anchor="last"/>
+            <action id="MTDisableThemeAction" class="com.chrisrm.idea.actions.MTDisableThemeAction"
+                    text="Toggle Material Theme" description="Toggle Material Theme"
+                    icon="/icons/actions/mtDisableTheme.png"/>
+            <action id="MTDisableComponents" class="com.chrisrm.idea.actions.MTDisableMaterialDesignAction"
+                    text="Toggle Material Components" description="Toggle Material Theme Components"
+                    icon="/icons/actions/mtComponents.png"/>
+            <action id="MTMaterialIconsAction" class="com.chrisrm.idea.actions.MTMaterialIconsAction"
+                    text="Toggle Material Icons" description="Toggle Material Icons"
+                    icon="/icons/actions/compile.png"/>
+            <action id="MTMaterialFontsAction" class="com.chrisrm.idea.actions.MTMaterialFontsAction"
+                    text="Toggle Material Fonts" description="Toggle Material Fonts"
+                    icon="/icons/actions/materialFonts.png"/>
+            <action id="MTToggleProjectViewDecoratorsAction"
+                    class="com.chrisrm.idea.actions.MTToggleProjectViewDecoratorsAction"
+                    text="Toggle Project View Decorators" description="Toggle Project View Decorators"
+                    icon="/icons/actions/mtProjectViewDecorators.png"/>
+            <action id="MTToggleStatusbarIndicatorAction"
+                    class="com.chrisrm.idea.actions.MTToggleStatusbarIndicatorAction"
+                    text="Toggle Status Bar Indicator" description="Toggle Status Bar Indicator"
+                    icon="/icons/actions/mtNoStatus.png"/>
+            <action id="MTToggleDarkTitleBarAction"
+                    class="com.chrisrm.idea.actions.MTDarkTitleBarAction"
+                    text="Toggle Dark Title Bar" description="Toggle Dark Title Bar"
+                    icon="/icons/actions/darkTitleBar.png"/>
+            <action id="MTChangeWallpaperAction"
+                    class="com.chrisrm.idea.actions.MTChangeWallpaperAction"
+                    text="Install Material wallpaper" description="Install Material Wallpaper"
+                    icon="/icons/actions/changeWallpaper.png"/>
+        </group>
+
+        <group id="MaterialTheme.Menu" text="Material Theme" popup="true" icon="/icons/actions/material-theme.png">
+            <reference id="MaterialTheme.ThemeChooser"/>
+            <separator/>
+            <reference id="MaterialTheme.Accents"/>
+            <separator/>
+            <reference id="MaterialTheme.Panels"/>
+            <separator/>
+            <reference id="MaterialTheme.Components"/>
+            <add-to-group group-id="ToolsMenu"/>
+            <add-to-group group-id="ChangeScheme" anchor="after" relative-to-action="MaterialTheme.Menu"/>
+        </group>
+
+
+    </actions>
+
+
+    <change-notes>
+    </change-notes>
+</idea-plugin>
