@@ -282,7 +282,7 @@
         </option>
         <option name="BREAKPOINT_ATTRIBUTES">
             <value>
-                <option name="BACKGROUND" value="8ace4a"/>
+                <option name="BACKGROUND" value="0e3e40"/>
             </value>
         </option>
         <option name="BROWSEWORDATCARET">
@@ -760,20 +760,20 @@
         <option name="DIFF_CONFLICT">
             <value>
                 <option name="FOREGROUND" value="b09bff"/>
-                <option name="BACKGROUND" value="7c4dff"/>
+                <option name="BACKGROUND" value="8c002c"/>
                 <option name="ERROR_STRIPE_COLOR" value="8f5247"/>
             </value>
         </option>
         <option name="DIFF_DELETED">
             <value>
-                <option name="FOREGROUND" value="f2adab"/>
-                <option name="BACKGROUND" value="e53935"/>
+                <option name="FOREGROUND" value="ffffff"/>
+                <option name="BACKGROUND" value="15224c"/>
                 <option name="ERROR_STRIPE_COLOR" value="656e76"/>
             </value>
         </option>
         <option name="DIFF_INSERTED">
             <value>
-                <option name="BACKGROUND" value="91b859"/>
+                <option name="BACKGROUND" value="256f25"/>
                 <option name="ERROR_STRIPE_COLOR" value="447152"/>
             </value>
         </option>
