@@ -143,7 +143,7 @@ public final class MTMonikaTheme extends MTAbstractTheme {
 
   @Override
   protected String getBackgroundColorString() {
-    return "af919b";
+    return "fff8f1";
   }
 
   @Override

@@ -73,7 +73,7 @@
         <option name="FILESTATUS_addedOutside" value="91B859"/>
         <option name="FILESTATUS_changelistConflict" value="d5756c"/>
         <option name="FILESTATUS_modifiedOutside" value="6182b8"/>
-        <option name="GUTTER_BACKGROUND" value="85cc46"/>
+        <option name="GUTTER_BACKGROUND" value="dafc5a"/>
         <option name="INDENT_GUIDE" value="b0bec5"/>
         <option name="INFORMATION_HINT" value="f3f5f6"/>
         <option name="LINE_NUMBERS_COLOR" value="cfd8dc"/>
@@ -3453,7 +3453,7 @@
         <option name="TEXT">
             <value>
                 <option name="FOREGROUND" value="90a4ae"/>
-                <option name="BACKGROUND" value="ebcecb"/>
+                <option name="BACKGROUND" value="ffffff"/>
                 <option name="EFFECT_TYPE" value="5"/>
             </value>
         </option>
