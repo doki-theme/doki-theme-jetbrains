@@ -127,7 +127,6 @@ public final class MTFrameComponentExtension extends IdeRootPaneNorthExtension {
         final Graphics2D g2d = (Graphics2D) g.create();
         g2d.translate(r.x, r.y);
 
-        //        g.setColor(getBackgroundColor());
         g.setColor(UIManager.getColor("ToolBar.background"));
         g.fillRect(0, 0, r.width, r.height * JBUI.scale(2));
         g2d.dispose();

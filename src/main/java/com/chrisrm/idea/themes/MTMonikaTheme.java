@@ -394,7 +394,7 @@ public final class MTMonikaTheme extends MTAbstractTheme {
         "material.branchColor",
         "material.foreground",
         "TitledBorder.titleColor"
-        // wtf
     };
   }
+
 }
