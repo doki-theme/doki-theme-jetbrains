@@ -27,6 +27,7 @@ package com.chrisrm.idea.ui;
 
 import com.intellij.openapi.ui.GraphicsConfig;
 import com.intellij.ui.Gray;
+import com.intellij.ui.JBColor;
 import com.intellij.util.ui.UIUtil;
 import sun.swing.MenuItemLayoutHelper;
 
@@ -67,13 +68,13 @@ public final class MTCheckBoxMenuItemUI extends MTMenuItemUIBase {
     g.translate(lr.getCheckRect().x - 2, lr.getCheckRect().y);
 
     final int sz = 13;
-    g.setPaint(new GradientPaint(sz / 2, 1, Gray._110, sz / 2, sz, Gray._95));
+    g.setPaint(new GradientPaint(sz / 2, 1, JBColor.BLUE, sz / 2, sz, Gray._95));
     g.fillRoundRect(0, 0, sz, sz - 1, 4, 4);
 
-    g.setPaint(new GradientPaint(sz / 2, 1, Gray._120.withAlpha(0x5a), sz / 2, sz, Gray._105.withAlpha(90)));
+    g.setPaint(new GradientPaint(sz / 2, 1, JBColor.BLUE, sz / 2, sz, Gray._105.withAlpha(90)));
     g.drawRoundRect(0, (UIUtil.isUnderDarcula() ? 1 : 0), sz, sz - 1, 4, 4);
 
-    g.setPaint(Gray._40.withAlpha(180));
+    g.setPaint(JBColor.BLUE);
     g.drawRoundRect(0, 0, sz, sz - 1, 4, 4);
 
 

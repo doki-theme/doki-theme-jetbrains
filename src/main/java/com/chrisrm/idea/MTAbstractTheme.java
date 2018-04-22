@@ -208,7 +208,7 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
         "Spinner.background",
         "SplitPane.highlight",
         "Tree.background",
-        //        "Panel.background",
+        "Panel.background",
         "SidePanel.background",
         "DialogWrapper.southPanelDivider",
         "OnePixelDivider.background",

@@ -194,7 +194,9 @@ public final class MTMonikaTheme extends MTAbstractTheme {
         "Table.focusCellBackground",
         "ToolWindow.header.tab.selected.background",
         "ToolWindow.header.tab.selected.active.background",
-        "material.contrast"
+        "material.contrast",
+        "ActionToolbar.background",
+        "Toolbar.background"
     };
   }
 
