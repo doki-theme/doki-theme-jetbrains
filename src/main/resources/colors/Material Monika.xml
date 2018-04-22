@@ -74,9 +74,9 @@
         <option name="FILESTATUS_changelistConflict" value="d5756c"/>
         <option name="FILESTATUS_modifiedOutside" value="6182b8"/>
         <option name="GUTTER_BACKGROUND" value="aadd5d"/>
+        <option name="LINE_NUMBERS_COLOR" value="063d3f"/>
         <option name="INDENT_GUIDE" value="b0bec5"/>
         <option name="INFORMATION_HINT" value="f3f5f6"/>
-        <option name="LINE_NUMBERS_COLOR" value="cfd8dc"/>
         <option name="METHOD_SEPARATORS_COLOR" value="b0bec5"/>
         <option name="MODIFIED_LINES_COLOR" value="ffcb6e"/>
         <option name="MT_ADDED" value="91b859"/>
