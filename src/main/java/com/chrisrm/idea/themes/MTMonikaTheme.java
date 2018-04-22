@@ -29,6 +29,8 @@ package com.chrisrm.idea.themes;
 import com.chrisrm.idea.MTAbstractTheme;
 import org.jetbrains.annotations.NotNull;
 
+import java.awt.*;
+
 public final class MTMonikaTheme extends MTAbstractTheme {
   public static final String BACKGROUND = "FFFFFF"; // 250, 250, 250
   public static final String FOREGROUND = "A7ADB0"; // 167, 173, 176
@@ -353,6 +355,12 @@ public final class MTMonikaTheme extends MTAbstractTheme {
         "material.tab.backgroundColor",
         "material.background"
     };
+  }
+
+  @NotNull
+  @Override
+  public Color getBorderColor() {
+    return Color.getHSBColor(62,91,149);
   }
 
   @Override

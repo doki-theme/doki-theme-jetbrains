@@ -357,7 +357,6 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
         "EditorPane.selectionForeground",
         "Tree.selectionForeground",
         "TableHeader.focusCellForeground",
-        //        "Label.selectedForeground",
         "Button.darcula.selectedButtonForeground"
     };
   }
