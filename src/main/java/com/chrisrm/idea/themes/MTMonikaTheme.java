@@ -32,7 +32,7 @@ import org.jetbrains.annotations.NotNull;
 import java.awt.*;
 
 public final class MTMonikaTheme extends MTAbstractTheme {
-  public static final String BACKGROUND = "FFFFFF"; // 250, 250, 250
+  public static final String BACKGROUND = "fffcfc"; // 250, 250, 250
   public static final String FOREGROUND = "A7ADB0"; // 167, 173, 176
   public static final String CARET = "FFCC00"; // 255, 204, 0
   public static final String BORDER = "E6E6E6"; // 230, 230, 230
@@ -145,7 +145,7 @@ public final class MTMonikaTheme extends MTAbstractTheme {
 
   @Override
   protected String getBackgroundColorString() {
-    return "fff8f1";
+    return "fffcfc";
   }
 
   @Override
