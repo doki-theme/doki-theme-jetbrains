@@ -256,7 +256,7 @@ public final class MTThemeManager {
   public void activate(final MTThemeFacade mtTheme, final boolean switchColorScheme) {
     MTThemeFacade newTheme = mtTheme;
     if (newTheme == null) {
-      newTheme = MTThemes.OCEANIC;
+      newTheme = MTThemes.MONIKA;
     }
 
     MTConfig.getInstance().setSelectedTheme(newTheme);
