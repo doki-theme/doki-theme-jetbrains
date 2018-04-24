@@ -3,3 +3,6 @@ debugger
 git diff
 window color
 ?Code Colors?
+line coverage
+selection background
+tear line
