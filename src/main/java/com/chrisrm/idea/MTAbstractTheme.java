@@ -253,7 +253,6 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
         "RadioButtonMenuItem.foreground",
         "CheckBoxMenuItem.foreground",
         "MenuItem.foreground",
-        //        "OptionPane.foreground",
         "PopupMenu.foreground",
         "Spinner.foreground",
         "TabbedPane.foreground",
