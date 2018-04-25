@@ -105,12 +105,12 @@ public final class MTMonikaTheme extends MTAbstractTheme {
 
   @Override
   protected String getDisabledColorString() {
-    return "ff021a";
+    return "ff021a";//TODO: IMPORTANT
   }
 
   @Override
   protected String getSecondaryBackgroundColorString() {
-    return "d8f26e";
+    return "d8f26e";//TODO: IMPORTANT
   }
 
 

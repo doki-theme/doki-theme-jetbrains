@@ -107,6 +107,7 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
       buildResources(getSelectionForegroundResources(), getSelectionForegroundColorString());
       buildResources(getInactiveResources(), getInactiveColorString());
       buildResources(getSecondaryBackgroundResources(), getSecondaryBackgroundColorString());
+//      buildResources(getSecondaryForegroundResources(), getSecondaryBackgroundColorString());
       buildResources(getDisabledResources(), getDisabledColorString());
       buildResources(getContrastResources(), getContrastColorString());
       buildResources(getTableSelectedResources(), getTableSelectedColorString());

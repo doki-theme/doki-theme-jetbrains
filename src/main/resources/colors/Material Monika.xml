@@ -265,7 +265,8 @@
         <option name="BREADCRUMBS_DEFAULT">
             <value>
                 <option name="FOREGROUND" value="b0bec4"/>
-                <option name="BACKGROUND" value="FFF4F2"/>
+                <option name="BACKGROUND" value="f2ff73"/>
+                <!--TODO: IMPORTANT-->
             </value>
         </option>
         <option name="BREADCRUMBS_HOVERED">
