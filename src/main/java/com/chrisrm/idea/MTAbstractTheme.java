@@ -407,7 +407,9 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
     return new String[]{
         "ToolWindow.header.active.foreground",
         "ToolWindow.header.border.foreground",
-        "List.foreground"
+        "List.foreground",
+        "Button.mt.foreground",
+        "Button.foreground"
     };
   }
 
