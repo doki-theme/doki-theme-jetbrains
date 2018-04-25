@@ -37,8 +37,9 @@ public final class MTMonikaTheme extends MTAbstractTheme {
   public static final String CARET = "FFCC00"; // 255, 204, 0
   public static final String BORDER = "E6E6E6"; // 230, 230, 230
   public static final String TEXT = "A7ADB0"; // 167, 173, 176
-  public static final String SELECTION_BACKGROUND = "546E7A"; // 84, 110, 122
-  public static final String SELECTION_FOREGROUND = "FFFFFF";
+//  todo: important
+  public static final String SELECTION_BACKGROUND = "FFFFFF"; // 84, 110, 122
+  public static final String SELECTION_FOREGROUND = "000000";
   public static final String LABEL = "546E7A"; // 84, 110, 122
   public static final String SUB_LABEL = "B0BEC5"; // 176, 190, 197
   public static final String DISABLED = "e20090";
@@ -76,7 +77,7 @@ public final class MTMonikaTheme extends MTAbstractTheme {
 
   @Override
   protected String getTreeSelectionColorString() {
-    return "546E7A50";
+    return "546E50";
   }
 
   protected String getButtonHighlightColorString() {
@@ -123,14 +124,15 @@ public final class MTMonikaTheme extends MTAbstractTheme {
     return "FFF4F2";
   }
 
+//  todo: imporant
   @Override
   protected String getSelectionForegroundColorString() {
-    return "FFFFFF";
+    return "000000";
   }
 
   @Override
   protected String getSelectionBackgroundColorString() {
-    return "D2D4D5";
+    return "FFFFFF";
   }
 
   @Override
