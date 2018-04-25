@@ -42,7 +42,7 @@ public final class MTMonikaTheme extends MTAbstractTheme {
   public static final String SELECTION_FOREGROUND = "000000";
   public static final String LABEL = "546E7A"; // 84, 110, 122
   public static final String SUB_LABEL = "B0BEC5"; // 176, 190, 197
-  public static final String DISABLED = "e20090";
+  public static final String DISABLED = "81d7f7";//not really important
 
   public static final String SIDEBAR_HEADING = "CFD8DC"; // 207, 216, 220
   public static final String STATUS_LABEL = "90A4AE"; // 144, 164, 174
@@ -106,7 +106,7 @@ public final class MTMonikaTheme extends MTAbstractTheme {
 
   @Override
   protected String getDisabledColorString() {
-    return "ff021a";//TODO: IMPORTANT
+    return "e20090";//TODO: IMPORTANT
   }
 
   @Override
