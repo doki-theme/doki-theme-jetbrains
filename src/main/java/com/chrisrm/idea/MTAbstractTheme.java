@@ -107,7 +107,7 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
       buildResources(getSelectionForegroundResources(), getSelectionForegroundColorString());
       buildResources(getInactiveResources(), getInactiveColorString());
       buildResources(getSecondaryBackgroundResources(), getSecondaryBackgroundColorString());
-//      buildResources(getSecondaryForegroundResources(), getSecondaryBackgroundColorString());
+      buildResources(getSecondaryForegroundResources(), getSecondaryForegroundColorString());
       buildResources(getDisabledResources(), getDisabledColorString());
       buildResources(getContrastResources(), getContrastColorString());
       buildResources(getTableSelectedResources(), getTableSelectedColorString());
@@ -401,9 +401,25 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
   }
 
   /**
+   * Get resources using the secondary background color
+   */
+  protected String[] getSecondaryForegroundResources() {
+    return new String[]{
+        "ToolWindow.header.active.foreground",
+        "ToolWindow.header.border.foreground",
+        "List.foreground"
+    };
+  }
+
+  /**
    * Get the hex code for the secondary background color
    */
   protected abstract String getSecondaryBackgroundColorString();
+
+  //TODO: MAKE ME DEFAULT
+  protected String getSecondaryForegroundColorString(){
+    return "256f25";
+  }
 
   /**
    * Get resources using the disabled color
