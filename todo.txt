@@ -6,3 +6,5 @@ window color
 line coverage
 selection background
 tear line
+selections
+buttons
