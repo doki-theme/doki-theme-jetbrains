@@ -8,4 +8,4 @@ selection background
 tear line
 selections
 buttons
-progress bars
+progress bars that is an accent
