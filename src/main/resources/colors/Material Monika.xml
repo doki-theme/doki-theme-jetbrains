@@ -47,8 +47,8 @@
     <colors>
         <option name="ADDED_LINES_COLOR" value="264b33"/>
         <option name="ANNOTATIONS_COLOR" value="474747"/>
-        <option name="CARET_COLOR" value="ffcc00"/>
-        <option name="CARET_ROW_COLOR" value="ebeeef"/>
+        <option name="CARET_COLOR" value="85cc46"/>
+        <option name="CARET_ROW_COLOR" value="FFFAE3"/>
         <option name="CONSOLE_BACKGROUND_KEY" value="fffcfc"/>
         <option name="DELETED_LINES_COLOR" value="b63b50"/>
         <option name="DOCUMENTATION_COLOR" value="f3f5f6"/>

@@ -108,7 +108,7 @@ public final class MTLafComponent extends JBPanel implements ApplicationComponen
   }
 
   private void installDefaults() {
-    UIManager.put("Caret.width", 2);
+    UIManager.put("Caret.width", 4);
     UIManager.put("Menu.maxGutterIconWidth", 18);
     UIManager.put("MenuItem.maxGutterIconWidth", 18);
     UIManager.put("MenuItem.acceleratorDelimiter", "-");
