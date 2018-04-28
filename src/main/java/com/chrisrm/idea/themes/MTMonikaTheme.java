@@ -37,7 +37,6 @@ public final class MTMonikaTheme extends MTAbstractTheme {
   public static final String CARET = "FFCC00"; // 255, 204, 0
   public static final String BORDER = "E6E6E6"; // 230, 230, 230
   public static final String TEXT = "A7ADB0"; // 167, 173, 176
-//  todo: important
   public static final String SELECTION_BACKGROUND = "FFFFFF"; // 84, 110, 122
   public static final String SELECTION_FOREGROUND = "000000";
   public static final String LABEL = "546E7A"; // 84, 110, 122

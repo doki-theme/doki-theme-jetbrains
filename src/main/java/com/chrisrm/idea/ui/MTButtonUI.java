@@ -205,6 +205,16 @@ public class MTButtonUI extends DarculaButtonUI {
         ObjectUtils.notNull(UIManager.getColor("Button.darcula.color1"), new ColorUIResource(0xeeeeee)));
   }
 
+  //TODO: HAX TO SET BUTTON COLOR
+//  @Override
+//  public void paint(Graphics g, JComponent c) {
+//    if(!isDefaultButton(c)){
+//      Color color = buttonBackground();
+////      c.setBackground(color);
+//    }
+//    super.paint(g, c);
+//  }
+
   @NotNull
   private Color buttonColor1() {
     return MTUiUtils.getColor(UIManager.getColor("Button.mt.color1"),

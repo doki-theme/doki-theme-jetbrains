@@ -91,7 +91,8 @@ public final class MTUiUtils {
 
   public static Color getColor(final Color mtColor, @NotNull final Color darculaColor, @NotNull final Color intellijColor) {
     final Color defaultColor = UIUtil.isUnderDarcula() ? darculaColor : intellijColor;
-    if (MTConfig.getInstance().isMaterialTheme()) {
+    boolean materialTheme = MTConfig.getInstance().isMaterialTheme();
+    if (materialTheme) {
       return ObjectUtils.notNull(mtColor, defaultColor);
     }
     return defaultColor;
