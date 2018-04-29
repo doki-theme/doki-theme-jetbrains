@@ -364,21 +364,6 @@ public final class MTLafComponent extends JBPanel implements ApplicationComponen
           cp.get("java.awt.Dimension"),
           cp.get("int")
       };
-      final CtMethod paintBorder = ctClass.getDeclaredMethod("paintBorder", paintBorderParams);
-      paintBorder.instrument(new ExprEditor() {
-        @Override
-        public void edit(final MethodCall m) throws CannotCompileException {
-          if (m.getMethodName().equals("setColor")) {
-            m.replace("{ $1 = javax.swing.UIManager.getColor(\"Focus.color\"); $_ = $proceed($$); }");
-          } else if (m.getMethodName().equals("draw")) {
-            m.replace("{ if ($1.getBounds().width > 30) { " +
-                "$proceed($$); " +
-                "} else { " +
-                "$0.fillOval(1, 1, $1.getBounds().width - 2, $1.getBounds().height - 2); } " +
-                "}");
-          }
-        }
-      });
 
       // Edit paintborder
       // outdated in EAP 2017.3

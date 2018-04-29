@@ -1,6 +1,7 @@
-breakpoint
+breakpoint (IS A DICKHEAD!)
 debugger
 git diff
+FILE changed status
 window color
 ?Code Colors?
 line coverage
