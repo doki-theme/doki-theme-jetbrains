@@ -52,10 +52,7 @@ public final class MTAddFileColorsAction extends AnAction {
 
   private void addDisabledFileColors(final Project project) {
     final FileColorManager manager = FileColorManager.getInstance(project);
-    manager.addScopeColor(NonProjectFilesScope.NAME, MTOceanicTheme.DISABLED, false);
-    manager.addScopeColor(NonProjectFilesScope.NAME, MTDarkerTheme.DISABLED, false);
-    manager.addScopeColor(NonProjectFilesScope.NAME, MTMonikaTheme.DISABLED, false);
-    manager.addScopeColor(NonProjectFilesScope.NAME, MTPalenightTheme.DISABLED, false);
+    manager.addScopeColor(NonProjectFilesScope.NAME, MTMonikaTheme.NON_PROJECT_FILES, false);
 
     Notify.show(project,
                 "",
