@@ -38,6 +38,7 @@ import com.intellij.openapi.application.ModalityState;
 import com.intellij.openapi.options.ShowSettingsUtil;
 import com.intellij.openapi.project.Project;
 import com.intellij.psi.search.scope.NonProjectFilesScope;
+import com.intellij.psi.search.scope.TestsScope;
 import com.intellij.ui.FileColorManager;
 import org.jetbrains.annotations.NotNull;
 
@@ -53,6 +54,7 @@ public final class MTAddFileColorsAction extends AnAction {
   private void addDisabledFileColors(final Project project) {
     final FileColorManager manager = FileColorManager.getInstance(project);
     manager.addScopeColor(NonProjectFilesScope.NAME, MTMonikaTheme.NON_PROJECT_FILES, false);
+    manager.addScopeColor(TestsScope.NAME, MTMonikaTheme.TEST_FILES, false);
 
     Notify.show(project,
                 "",
