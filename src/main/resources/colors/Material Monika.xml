@@ -283,7 +283,7 @@
                 <option name="BACKGROUND" value="8cb49f"/>
             </value>
         </option>
-        <option name="BREAKPOINT_ATTRIBUTES">
+        <option name="BREAKPOINTLINE_ATTRIBUTES">
             <value>
                 <option name="BACKGROUND" value="57fdff"/>
             </value>
@@ -846,9 +846,10 @@
                 <option name="EFFECT_TYPE" value="4"/>
             </value>
         </option>
+        <!--TODO: NOT IMPORTANT-->
         <option name="EXECUTIONPOINT_ATTRIBUTES">
             <value>
-                <option name="BACKGROUND" value="91b859"/>
+                <option name="BACKGROUND" value="bfbcd6"/>
             </value>
         </option>
         <option name="Enum name">
