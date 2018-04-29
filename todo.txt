@@ -1,6 +1,6 @@
-breakpoint (IS A DICKHEAD!)
-debugger (is a dickhead)
-git diff
+breakpoint (dun)
+debugger
+git diff (happy)
 FILE changed status
 window color
 ?Code Colors?
