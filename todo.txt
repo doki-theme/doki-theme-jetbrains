@@ -1,5 +1,5 @@
 breakpoint (IS A DICKHEAD!)
-debugger
+debugger (is a dickhead)
 git diff
 FILE changed status
 window color

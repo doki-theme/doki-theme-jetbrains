@@ -24,7 +24,7 @@
   ~
   -->
 
-<scheme name="Material Monika" version="142">
+<scheme name="Hej Monika" version="142">
     <option name="FONT_SCALE" value="1.0"/>
     <metaInfo>
         <property name="created">2017-04-10T18:10:53</property>
@@ -36,19 +36,21 @@
     <option name="LINE_SPACING" value="1.4"/>
     <font>
         <option name="EDITOR_FONT_NAME" value="Fira Code"/>
-        <option name="EDITOR_FONT_SIZE" value="12"/>
+        <option name="EDITOR_FONT_SIZE" value="15"/>
     </font>
     <font>
         <option name="EDITOR_FONT_NAME" value="Source Code Pro"/>
-        <option name="EDITOR_FONT_SIZE" value="12"/>
+        <option name="EDITOR_FONT_SIZE" value="15"/>
     </font>
     <option name="CONSOLE_FONT_NAME" value="Menlo"/>
     <option name="CONSOLE_LINE_SPACING" value="1.4"/>
     <colors>
         <option name="ADDED_LINES_COLOR" value="264b33"/>
         <option name="ANNOTATIONS_COLOR" value="474747"/>
-        <option name="CARET_COLOR" value="85cc46"/>
-        <option name="CARET_ROW_COLOR" value="FFFAE3"/>
+        <!--TODO: IMPORTANT-->
+        <option name="CARET_COLOR" value="000000"/>
+        <!--TODO: IMPORTANT-->
+        <option name="CARET_ROW_COLOR" value="def7a5"/>
         <option name="CONSOLE_BACKGROUND_KEY" value="fffcfc"/>
         <option name="DELETED_LINES_COLOR" value="b63b50"/>
         <option name="DOCUMENTATION_COLOR" value="f3f5f6"/>
@@ -73,6 +75,7 @@
         <option name="FILESTATUS_addedOutside" value="91B859"/>
         <option name="FILESTATUS_changelistConflict" value="d5756c"/>
         <option name="FILESTATUS_modifiedOutside" value="6182b8"/>
+        <!--todo: important-->
         <option name="GUTTER_BACKGROUND" value="aadd5d"/>
         <!--todo: important-->
         <option name="LINE_NUMBERS_COLOR" value="063d3f"/>
@@ -770,19 +773,19 @@
         <option name="DIFF_DELETED">
             <value>
                 <option name="FOREGROUND" value="ffffff"/>
-                <option name="BACKGROUND" value="15224c"/>
+                <option name="BACKGROUND" value="afafaf"/>
                 <option name="ERROR_STRIPE_COLOR" value="656e76"/>
             </value>
         </option>
         <option name="DIFF_INSERTED">
             <value>
-                <option name="BACKGROUND" value="256f25"/>
+                <option name="BACKGROUND" value="7be07b"/>
                 <option name="ERROR_STRIPE_COLOR" value="447152"/>
             </value>
         </option>
         <option name="DIFF_MODIFIED">
             <value>
-                <option name="BACKGROUND" value="ffb62c"/>
+                <option name="BACKGROUND" value="ffd17a"/>
                 <option name="ERROR_STRIPE_COLOR" value="43698d"/>
             </value>
         </option>
