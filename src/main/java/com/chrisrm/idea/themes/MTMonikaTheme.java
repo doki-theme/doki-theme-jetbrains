@@ -141,6 +141,7 @@ public final class MTMonikaTheme extends MTAbstractTheme {
     return "7E939E";
   }
 
+  //todo: this may be important
   @Override
   protected String getForegroundColorString() {
     return "546E7A";
