@@ -1,7 +1,7 @@
 breakpoint (dun)
-debugger
+debugger (happy)
 git diff (happy)
-FILE changed status
+FILE changed status (NOT AVAILABLE IN COMMUNITY)
 window color
 ?Code Colors?
 line coverage
