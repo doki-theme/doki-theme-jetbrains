@@ -6,9 +6,9 @@ window color
 ?Code Colors?
 line coverage
 selection background
-tear line
-selections
+tear line (Probably not tear :| )
+selections (HAPPY)
 buttons
-progress bars -that is an accent
+progress bars -that is an accent (HAPPY
 code coverage workflow
 menu bar text color (HAPPY)

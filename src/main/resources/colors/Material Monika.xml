@@ -24,7 +24,7 @@
   ~
   -->
 
-<scheme name="Hej Monika" version="142">
+<scheme name="Hej Hej Monika" version="142">
     <option name="FONT_SCALE" value="1.0"/>
     <metaInfo>
         <property name="created">2017-04-10T18:10:53</property>
@@ -108,13 +108,13 @@
         <option name="RECURSIVE_CALL_ATTRIBUTES" value="574300"/>
         <option name="RIGHT_MARGIN_COLOR" value="e7eaec"/>
         <option name="SELECTED_INDENT_GUIDE" value="8c8c8c"/>
-        <option name="SELECTED_TEARLINE_COLOR" value="616161"/>
         <!--todo: important-->
         <option name="SELECTION_BACKGROUND" value="99eb99"/>
         <option name="SELECTION_FOREGROUND" value="006d09"/>
 
         <option name="SOFT_WRAP_SIGN_COLOR" value="4f6269"/>
-        <option name="TEARLINE_COLOR" value="e7eaec"/>
+        <option name="SELECTED_TEARLINE_COLOR" value="94ff9d"/>
+        <option name="TEARLINE_COLOR" value="94ff9d"/>
         <option name="TOOLTIP" value="FFF4F2"/>
         <option name="VCS_ANNOTATIONS_COLOR_1" value="a7fff8"/>
         <option name="VCS_ANNOTATIONS_COLOR_2" value="8cdcd5"/>
@@ -127,6 +127,11 @@
         <option name="ABSTRACT_CLASS_NAME_ATTRIBUTES">
             <value>
                 <option name="FOREGROUND" value="91b859"/>
+            </value>
+        </option>
+        <option name="FOLDED_TEXT">
+            <value>
+                <option name="FOREGROUND" value="94ff9d"/>
             </value>
         </option>
         <option name="ANNOTATION_ATTRIBUTE_NAME_ATTRIBUTES">
