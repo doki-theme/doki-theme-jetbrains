@@ -109,8 +109,10 @@
         <option name="RIGHT_MARGIN_COLOR" value="e7eaec"/>
         <option name="SELECTED_INDENT_GUIDE" value="8c8c8c"/>
         <option name="SELECTED_TEARLINE_COLOR" value="616161"/>
-        <option name="SELECTION_BACKGROUND" value="cceae7"/>
-        <option name="SELECTION_FOREGROUND" value="263238"/>
+        <!--todo: important-->
+        <option name="SELECTION_BACKGROUND" value="99eb99"/>
+        <option name="SELECTION_FOREGROUND" value="006d09"/>
+
         <option name="SOFT_WRAP_SIGN_COLOR" value="4f6269"/>
         <option name="TEARLINE_COLOR" value="e7eaec"/>
         <option name="TOOLTIP" value="FFF4F2"/>
