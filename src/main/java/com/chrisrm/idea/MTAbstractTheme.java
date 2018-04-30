@@ -301,7 +301,7 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
 
 
   protected String getButtonBackgroundColor(){
-    return "f8ffdd";
+    return "fbffeb";
   }
   /**
    * Get the hex code for the foreground color
