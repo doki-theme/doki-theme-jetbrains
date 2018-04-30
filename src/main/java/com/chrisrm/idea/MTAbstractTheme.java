@@ -102,6 +102,7 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
     try {
       buildResources(getBackgroundResources(), getBackgroundColorString());
       buildResources(getForegroundResources(), getForegroundColorString());
+      buildResources(getMenuItemForegroundResources(), getMenuItemForegroundColor());
       buildResources(getTextResources(), getTextColorString());
       buildResources(getSelectionBackgroundResources(), getSelectionBackgroundColorString());
       buildResources(getSelectionForegroundResources(), getSelectionForegroundColorString());
@@ -129,6 +130,10 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
     } catch (final UnsupportedLookAndFeelException e) {
       e.printStackTrace();
     }
+  }
+
+  protected String getMenuItemForegroundColor() {
+    return "FFFFFF";
   }
 
   /**
@@ -242,8 +247,6 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
         "infoText",
         "controlText",
         "OptionPane.messageForeground",
-        "Menu.foreground",
-        "MenuItem.foreground",
         "Label.foreground",
         "Label.selectedDisabledForeground",
         "CheckBox.foreground",
@@ -254,7 +257,6 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
         "RadioButtonMenuItem.foreground",
         "CheckBoxMenuItem.foreground",
         "MenuItem.foreground",
-        "PopupMenu.foreground",
         "Spinner.foreground",
         "TabbedPane.foreground",
         "TextField.foreground",
@@ -276,6 +278,14 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
         "CheckBox.darcula.borderColor1",
         "RadioButton.darcula.borderColor1",
         "TitledBorder.titleColor"
+    };
+  }
+
+  protected String[] getMenuItemForegroundResources(){
+    return new String[]{
+        "Menu.foreground",
+        "MenuItem.foreground",
+        "PopupMenu.foreground",
     };
   }
 
