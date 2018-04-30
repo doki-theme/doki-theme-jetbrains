@@ -30,6 +30,7 @@ import com.chrisrm.idea.MTAbstractTheme;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
+import java.util.stream.Stream;
 
 public final class MTMonikaTheme extends MTAbstractTheme {
   public static final String BACKGROUND = "fffcfc"; // 250, 250, 250
@@ -331,12 +332,6 @@ public final class MTMonikaTheme extends MTAbstractTheme {
         "StatusBar.topColor",
         "StatusBar.top2Color",
         "StatusBar.bottomColor",
-        "Button.background",
-        "Button.darcula.color1",
-        "Button.darcula.color2",
-        "Button.darcula.disabledText.shadow",
-        "Button.mt.color1",
-        "Button.mt.background",
         "ToolTip.background",
         "Spinner.background",
         "SplitPane.highlight",
@@ -355,10 +350,17 @@ public final class MTMonikaTheme extends MTAbstractTheme {
         "TabbedPane.background",
         "OptionPane.background",
         "ToolWindow.header.background",
-        "ToolWindow.header.closeButton.background",
         "material.tab.backgroundColor",
         "material.background"
     };
+  }
+
+  @Override
+  protected Stream<String> getButtonBackgroundResources() {
+    return Stream.concat(super.getButtonBackgroundResources(), Stream.of(
+        "Button.mt.color1",
+        "Button.mt.background"
+        ));
   }
 
   @NotNull

@@ -45,6 +45,7 @@ import javax.swing.*;
 import javax.swing.plaf.ColorUIResource;
 import java.awt.*;
 import java.io.Serializable;
+import java.util.stream.Stream;
 
 public abstract class MTAbstractTheme implements Serializable, MTThemeable {
   private final String id;
@@ -101,6 +102,7 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
   public final void activate() {
     try {
       buildResources(getBackgroundResources(), getBackgroundColorString());
+      buildResources(getButtonBackgroundResources(), getButtonBackgroundColor());
       buildResources(getForegroundResources(), getForegroundColorString());
       buildResources(getMenuItemForegroundResources(), getMenuItemForegroundColor());
       buildResources(getTextResources(), getTextColorString());
@@ -155,6 +157,10 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
       UIManager.getDefaults().put(resource, PropertiesParser.parseColor(color));
     }
   }
+  private void buildResources(final Stream<String> resources, final String color) {
+    Color o1 = PropertiesParser.parseColor(color);
+    resources.forEach(resource -> UIManager.getDefaults().put(resource, o1));
+  }
 
   //region Theme resources and colors
 
@@ -206,10 +212,6 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
         "StatusBar.topColor",
         "StatusBar.top2Color",
         "StatusBar.bottomColor",
-        "Button.background",
-        "Button.darcula.color1",
-        "Button.darcula.color2",
-        "Button.darcula.disabledText.shadow",
         "ToolTip.background",
         "Spinner.background",
         "SplitPane.highlight",
@@ -222,7 +224,6 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
         "SearchEverywhere.background",
         "CheckBoxMenuItem.background",
         "ToolWindow.header.background",
-        "ToolWindow.header.closeButton.background",
         "material.tab.backgroundColor",
         "TextField.borderColor",
         "TextField.hoverBorderColor",
@@ -289,6 +290,19 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
     };
   }
 
+  protected Stream<String> getButtonBackgroundResources(){
+    return Stream.of(
+        "Button.background",
+        "Button.darcula.color1",
+        "Button.darcula.color2",
+        "Button.darcula.disabledText.shadow",
+        "ToolWindow.header.closeButton.background");
+  }
+
+
+  protected String getButtonBackgroundColor(){
+    return "f8ffdd";
+  }
   /**
    * Get the hex code for the foreground color
    */
