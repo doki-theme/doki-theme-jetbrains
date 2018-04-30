@@ -97,7 +97,7 @@ public final class MTMonikaTheme extends MTAbstractTheme {
 
   @Override
   protected String getTableSelectedColorString() {
-    return "BDE3DF";
+    return "def7a5";
   }
 
   @Override

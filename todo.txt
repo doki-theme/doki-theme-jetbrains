@@ -10,5 +10,5 @@ tear line (Probably not tear :| )
 selections (HAPPY)
 buttons
 progress bars -that is an accent (HAPPY
-code coverage workflow
+code coverage workflow (Happy)
 menu bar text color (HAPPY)
