@@ -108,7 +108,7 @@ public final class MTMonikaTheme extends MTAbstractTheme {
 
   @Override
   protected String getDisabledColorString() {
-    return "e20090";//TODO: IMPORTANT
+    return "000000";//TODO: IMPORTANT
   }
 
   @Override
