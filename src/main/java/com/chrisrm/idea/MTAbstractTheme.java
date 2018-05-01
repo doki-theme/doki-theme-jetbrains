@@ -173,13 +173,10 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
         "window",
         "activeCaption",
         "control",
-        "PopupMenu.translucentBackground",
         "EditorPane.inactiveBackground",
         "Table.background",
         "Table.gridColor",
         "Desktop.background",
-        "PopupMenu.background",
-        "Separator.background",
         "MenuBar.background",
         "MenuBar.disabledBackground",
         "MenuBar.shadow",
@@ -362,8 +359,8 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
   /**
    * Get resources using the selection foreground color
    */
-  protected String[] getSelectionForegroundResources() {
-    return new String[]{
+  protected Stream<String> getSelectionForegroundResources() {
+    return Stream.of(
         "Menu.selectionForeground",
         "Menu.acceleratorSelectionForeground",
         "MenuItem.selectionForeground",
@@ -382,7 +379,7 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
         "Tree.selectionForeground",
         "TableHeader.focusCellForeground",
         "Button.darcula.selectedButtonForeground"
-    };
+    );
   }
 
   /**
@@ -397,7 +394,6 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
     return new String[]{
         "MenuBar.darcula.borderColor",
         "MenuBar.darcula.borderShadowColor",
-        "Separator.foreground",
         "Button.mt.color1",
         "Button.mt.color2",
         "Button.mt.background",

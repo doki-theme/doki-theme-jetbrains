@@ -129,7 +129,7 @@ public final class MTMonikaTheme extends MTAbstractTheme {
 //  todo: imporant
   @Override
   protected String getSelectionForegroundColorString() {
-    return "000000";
+    return "447152";
   }
 
   @Override
@@ -139,7 +139,7 @@ public final class MTMonikaTheme extends MTAbstractTheme {
 
   @Override
   protected String getTextColorString() {
-    return "7E939E";
+    return "4d6e80";
   }
 
   //todo: this may be important
@@ -251,21 +251,23 @@ public final class MTMonikaTheme extends MTAbstractTheme {
   }
 
   @Override
-  protected String[] getSelectionForegroundResources() {
-    return new String[] {
-        "mt.monika.selectionForeground",
-        "Menu.selectionForeground",
-        "Menu.acceleratorSelectionForeground",
-        "MenuItem.selectionForeground",
-        "MenuItem.acceleratorSelectionForeground",
-        "Table.selectionForeground",
-        "TextField.selectionForeground",
-        "PasswordField.selectionForeground",
-        "Button.mt.selectedForeground",
-        "TextArea.selectionForeground",
-        "Label.selectedForeground",
-        "Button.darcula.selectedButtonForeground"
-    };
+  protected Stream<String> getSelectionForegroundResources() {
+    return Stream.of("mt.monika.selectionForeground",
+            "Menu.selectionForeground",
+            "Menu.acceleratorSelectionForeground",
+            "MenuItem.selectionForeground",
+            "MenuItem.acceleratorSelectionForeground",
+            "Table.selectionForeground",
+            "TextField.selectionForeground",
+            "PasswordField.selectionForeground",
+            "Button.mt.selectedForeground",
+            "TextArea.selectionForeground",
+            "Label.selectedForeground",
+            "Button.darcula.selectedButtonForeground",
+            "PopupMenu.background",
+            "Separator.background"
+
+        );
   }
 
   @Override
