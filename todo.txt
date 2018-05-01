@@ -1,16 +1,16 @@
 breakpoint (dun)
 debugger (happy)
 git diff (happy)
-FILE changed status (NOT AVAILABLE IN COMMUNITY)
-window color
-?Code Colors?
-line coverage
+window color (HAPPY)
 selection background(HAPPY)
 tear line (Probably not tear :| )
 selections (HAPPY)
-buttons
+buttons (NEED TO FIND THE WHITE ONE)
 progress bars -that is an accent (HAPPY
 code coverage workflow (Happy)
 menu bar text color (HAPPY)
-
 make ignored file scope lighter (HAPPY)
+
+?Code Colors?
+line coverage
+FILE changed status (NOT AVAILABLE IN COMMUNITY)
