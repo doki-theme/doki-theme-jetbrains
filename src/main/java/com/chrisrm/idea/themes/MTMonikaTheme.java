@@ -53,7 +53,7 @@ public final class MTMonikaTheme extends MTAbstractTheme {
   public static final String BUTTON_SELECTED = "CCEAE7"; // 204, 234, 231
 
   public static final String ACCENT_COLOR = "80CBC4"; // 128, 203, 196
-  public static final String NON_PROJECT_FILES = "f9ff85";
+  public static final String NON_PROJECT_FILES = "fdffce";
   public static final String TEST_FILES = "bbff7e";
 
   public MTMonikaTheme() {

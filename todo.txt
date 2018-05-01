@@ -13,4 +13,4 @@ progress bars -that is an accent (HAPPY
 code coverage workflow (Happy)
 menu bar text color (HAPPY)
 
-make ignored file scope lighter
+make ignored file scope lighter (HAPPY)
