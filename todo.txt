@@ -12,6 +12,7 @@ menu bar text color (HAPPY)
 make ignored file scope lighter (HAPPY)
 
 ?Code Colors?
+ctrl-shift-a selection colors
 line coverage
 FILE changed status (NOT AVAILABLE IN COMMUNITY)
 Find a way to put an image in.
