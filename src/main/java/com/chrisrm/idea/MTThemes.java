@@ -45,7 +45,6 @@ public enum MTThemes implements MTThemeFacade {
   CUSTOM("CUSTOM", new MTCustomTheme()),
   LIGHT_CUSTOM("LIGHT_CUSTOM", new MTLightCustomTheme()),
   MONOKAI("MONOKAI", new MonokaiTheme()),
-  ARC_DARK("ARC_DARK", new ArcDarkTheme()),
   ONE_DARK("ONE_DARK", new OneDarkTheme()),
 
   EXTERNAL("EXTERNAL", new MTCustomTheme());
