@@ -139,7 +139,7 @@
 
             <action id="MTMonikaTheme_1" class="com.chrisrm.idea.actions.themes.MTMonikaThemeAction"
                     text="Just Monika" description="Material Monika"
-                    icon="/icons/actions/themes/material_monkia.png">
+                    icon="/icons/actions/themes/material_monkia@2x.png">
             </action>
             <separator/>
             <action id="MTMonikaTheme_6" class="com.chrisrm.idea.actions.themes.MTMonikaThemeAction"
