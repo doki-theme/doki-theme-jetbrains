@@ -30,6 +30,7 @@ import com.chrisrm.idea.config.BeforeConfigNotifier;
 import com.chrisrm.idea.config.ConfigNotifier;
 import com.chrisrm.idea.config.ui.MTForm;
 import com.chrisrm.idea.messages.MaterialThemeBundle;
+import com.chrisrm.idea.panes.MTWeebPaneUI;
 import com.chrisrm.idea.ui.*;
 import com.chrisrm.idea.utils.IconReplacer;
 import com.chrisrm.idea.utils.MTUiUtils;
@@ -156,6 +157,9 @@ public final class MTLafComponent extends JBPanel implements ApplicationComponen
   private void replaceTextFields() {
     UIManager.put("TextFieldUI", MTTextFieldUI.class.getName());
     UIManager.getDefaults().put(MTTextFieldUI.class.getName(), MTTextFieldUI.class);
+
+    UIManager.put("EditorPaneUI", MTWeebPaneUI.class.getName());
+    UIManager.getDefaults().put(MTWeebPaneUI.class.getName(), MTWeebPaneUI.class);
 
     UIManager.put("PasswordFieldUI", MTPasswordFieldUI.class.getName());
     UIManager.getDefaults().put(MTPasswordFieldUI.class.getName(), MTPasswordFieldUI.class);
