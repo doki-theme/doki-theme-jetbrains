@@ -38,7 +38,6 @@ import java.util.TreeMap;
  * Contains a list of predefined themes and will contain all bundled themes
  */
 public enum MTThemes implements MTThemeFacade {
-  LIGHTER("LIGHTER", new MTLighterTheme()),
   MONIKA("MONIKA", new MTMonikaTheme()),
   LIGHT_CUSTOM("LIGHT_CUSTOM", new MTLightCustomTheme()),
   MONOKAI("MONOKAI", new MonokaiTheme()),
