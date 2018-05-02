@@ -150,9 +150,9 @@
                     text="Natsuki" description="Material Natsuki"
                     icon="/icons/actions/themes/material_natsuki@2x.png">
             </action>
-            <action id="MTMonikaTheme_8" class="com.chrisrm.idea.actions.themes.MTMonikaThemeAction"
-                    text="Yuri" description="Material Monika"
-                    icon="/icons/actions/themes/material_monkia.png">
+            <action id="MTYuri" class="com.chrisrm.idea.actions.themes.MTMonikaThemeAction"
+                    text="Yuri" description="Material Yuri"
+                    icon="/icons/actions/themes/material_yuri@2x.png">
             </action>
         </group>
 
