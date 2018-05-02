@@ -65,7 +65,7 @@ public class MTConfig implements PersistentStateComponent<MTConfig> {
   // They are public so they can be serialized
   public String version;
 
-  public String selectedTheme = MTThemes.OCEANIC.getName();
+  public String selectedTheme = MTThemes.MONIKA.getName();
   public String highlightColor = ACCENT_COLOR;
   public boolean highlightColorEnabled = false;
   public Integer highlightThickness = 2;
@@ -132,7 +132,7 @@ public class MTConfig implements PersistentStateComponent<MTConfig> {
         themeFor = MTThemes.addTheme(MTThemes.fromTheme((MTThemeable) theme));
       }
     }
-    return ObjectUtils.notNull(themeFor, MTThemes.OCEANIC);
+    return ObjectUtils.notNull(themeFor, MTThemes.MONIKA);
   }
 
   public void setSelectedTheme(final MTThemeFacade selectedTheme) {
