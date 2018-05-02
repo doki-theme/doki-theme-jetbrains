@@ -14,3 +14,4 @@ make ignored file scope lighter (HAPPY)
 ?Code Colors?
 line coverage
 FILE changed status (NOT AVAILABLE IN COMMUNITY)
+Find a way to put an image in.

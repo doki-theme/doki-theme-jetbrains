@@ -142,9 +142,9 @@
                     icon="/icons/actions/themes/material_monkia@2x.png">
             </action>
             <separator/>
-            <action id="MTMonikaTheme_6" class="com.chrisrm.idea.actions.themes.MTMonikaThemeAction"
-                    text="Sayori" description="Material Monika"
-                    icon="/icons/actions/themes/material_monkia.png">
+            <action id="MTSayoriTheme" class="com.chrisrm.idea.actions.themes.MTMonikaThemeAction"
+                    text="Sayori" description="Material Sayori"
+                    icon="/icons/actions/themes/material_sayori@2x.png">
             </action>
             <action id="MTMonikaTheme_7" class="com.chrisrm.idea.actions.themes.MTMonikaThemeAction"
                     text="Natsuki" description="Material Monika"
