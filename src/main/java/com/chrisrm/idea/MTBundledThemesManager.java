@@ -85,7 +85,7 @@ public final class MTBundledThemesManager {
     }
 
     final XStream xStream = new XStream(new DomDriver());
-    xStream.alias("mtTheme", MTDarkBundledTheme.class);
+    xStream.alias("mtTheme", MTMonikaBundledTheme.class);
     xStream.alias("color", MTThemeColor.class);
 
     xStream.useAttributeFor(MTThemeColor.class, "id");
@@ -96,13 +96,12 @@ public final class MTBundledThemesManager {
         xStream.getReflectionProvider()
     ));
 
-    xStream.addDefaultImplementation(MTDarkBundledTheme.class, MTBundledTheme.class);
     xStream.addDefaultImplementation(MTMonikaBundledTheme.class, MTBundledTheme.class);
 
     try {
       return (MTBundledTheme) xStream.fromXML(url);
     } catch (final Exception e) {
-      return new MTDarkBundledTheme();
+      return new MTMonikaBundledTheme();
     }
   }
 
@@ -123,7 +122,8 @@ public final class MTBundledThemesManager {
     @Override
     public Object unmarshal(final HierarchicalStreamReader reader, final UnmarshallingContext context) {
       final boolean dark = Boolean.parseBoolean(reader.getAttribute("dark"));
-      final Class<? extends MTBundledTheme> themeClass = dark ? MTDarkBundledTheme.class : MTMonikaBundledTheme.class;
+      //TODO: DIS JANK
+      final Class<? extends MTBundledTheme> themeClass = dark ? MTMonikaBundledTheme.class : MTMonikaBundledTheme.class;
       final Object result = reflectionProvider.newInstance(themeClass);
       return context.convertAnother(result, themeClass, defaultConverter);
     }
