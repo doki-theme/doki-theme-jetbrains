@@ -159,6 +159,13 @@
         <group id="MaterialTheme.Panels" text="Panel Options" description="Panel Options" popup="true"
                icon="/icons/actions/layers.png">
             <add-to-group group-id="MainToolBar" anchor="last"/>
+            <action class="com.chrisrm.idea.actions.MTWeebAction" id="MTWeeb" text="Toggle Weeb Shit"
+                    icon="/icons/actions/themes/material_monkia.png"
+                    description="Toggle Contrast"/>
+            <action id="MTAddFileColors" class="com.chrisrm.idea.actions.MTAddFileColorsAction"
+                    text="Install Material File Colors"
+                    description="Install Material File Colors"
+                    icon="/icons/actions/fileColors.png"/>
             <action class="com.chrisrm.idea.actions.MTContrastAction" id="MTContrastAction" text="Toggle Contrast"
                     icon="/icons/actions/mtContrast.png"
                     description="Toggle Contrast"/>
@@ -191,10 +198,6 @@
                     text="Set recommended tab height"
                     description="Increase tab height to a 50px"
                     icon="/icons/actions/bigTabs.png"/>
-            <action id="MTAddFileColors" class="com.chrisrm.idea.actions.MTAddFileColorsAction"
-                    text="Install Material File Colors"
-                    description="Install Material File Colors"
-                    icon="/icons/actions/fileColors.png"/>
             <group id="arrowsStyles" text="Arrow Styles" popup="true">
                 <action class="com.chrisrm.idea.actions.arrows.MTMaterialArrows"
                         id="MTMaterialArrows"
