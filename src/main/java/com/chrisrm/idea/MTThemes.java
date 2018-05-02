@@ -40,12 +40,9 @@ import java.util.TreeMap;
 public enum MTThemes implements MTThemeFacade {
   LIGHTER("LIGHTER", new MTLighterTheme()),
   MONIKA("MONIKA", new MTMonikaTheme()),
-  CUSTOM("CUSTOM", new MTCustomTheme()),
   LIGHT_CUSTOM("LIGHT_CUSTOM", new MTLightCustomTheme()),
   MONOKAI("MONOKAI", new MonokaiTheme()),
-  ONE_DARK("ONE_DARK", new OneDarkTheme()),
-
-  EXTERNAL("EXTERNAL", new MTCustomTheme());
+  ONE_DARK("ONE_DARK", new OneDarkTheme());
 
   private static final Map<String, MTThemeFacade> THEMES_MAP = new TreeMap<>();
 

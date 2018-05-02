@@ -34,6 +34,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
+ * TODO: MAYBE TRY TO GET SOMETHING OUT OF THIS AND CUSTOM THEME
  * Represents a theme that is parsable from XML
  */
 public class MTDarkBundledTheme extends MTCustomTheme implements Serializable, MTBundledTheme {
