@@ -132,9 +132,10 @@ public final class MTMonikaTheme extends MTAbstractTheme {
     return "447152";
   }
 
+  //todo: important
   @Override
   protected String getSelectionBackgroundColorString() {
-    return "FFFFFF";
+    return "99eb99";
   }
 
   @Override
@@ -252,7 +253,8 @@ public final class MTMonikaTheme extends MTAbstractTheme {
 
   @Override
   protected Stream<String> getSelectionForegroundResources() {
-    return Stream.of("mt.monika.selectionForeground",
+    return Stream.of(
+        "mt.monika.selectionForeground",
             "Menu.selectionForeground",
             "Menu.acceleratorSelectionForeground",
             "MenuItem.selectionForeground",
@@ -276,7 +278,19 @@ public final class MTMonikaTheme extends MTAbstractTheme {
         "mt.monika.selectionBackgroundInactive",
         "mt.monika.selectionInactiveBackground",
         "inactiveCaption",
-        "Button.disabledText"
+        "Button.disabledText",
+        "mt.monika.selectionBackground",
+        "Menu.selectionBackground",
+        "Menu.acceleratorSelectionBackground",
+        "MenuItem.selectionBackground",
+        "MenuItem.acceleratorSelectionBackground",
+        "Table.selectionBackground",
+        "TextField.selectionBackground",
+        "PasswordField.selectionBackground",
+        "Button.mt.selectedBackground",
+        "TextArea.selectionBackground",
+        "Label.selectedBackground",
+        "Button.darcula.selectedButtonBackground"
     };
   }
 
