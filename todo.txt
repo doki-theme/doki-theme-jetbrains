@@ -10,9 +10,9 @@ progress bars -that is an accent (HAPPY
 code coverage workflow (Happy)
 menu bar text color (HAPPY)
 make ignored file scope lighter (HAPPY)
+ctrl-shift-a selection colors (happy)
 
 ?Code Colors?
-ctrl-shift-a selection colors
 line coverage
 FILE changed status (NOT AVAILABLE IN COMMUNITY)
-Find a way to put an image in.
+Find a way to put an image in. (org.intellij.images.editor.actions.SetBackgroundImageDialog has all of the answers)
