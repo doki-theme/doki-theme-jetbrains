@@ -142,15 +142,15 @@
                     icon="/icons/actions/themes/material_monkia@2x.png">
             </action>
             <separator/>
-            <action id="MTSayoriTheme" class="com.chrisrm.idea.actions.themes.MTMonikaThemeAction"
+            <action id="MTSayoriTheme" class="com.chrisrm.idea.actions.themes.MTSayoriThemeAction"
                     text="Sayori" description="Material Sayori"
                     icon="/icons/actions/themes/material_sayori@2x.png">
             </action>
-            <action id="MTNatsukiTheme" class="com.chrisrm.idea.actions.themes.MTMonikaThemeAction"
+            <action id="MTNatsukiTheme" class="com.chrisrm.idea.actions.themes.MTNatsukiThemeAction"
                     text="Natsuki" description="Material Natsuki"
                     icon="/icons/actions/themes/material_natsuki@2x.png">
             </action>
-            <action id="MTYuri" class="com.chrisrm.idea.actions.themes.MTMonikaThemeAction"
+            <action id="MTYuri" class="com.chrisrm.idea.actions.themes.MTYuriThemeAction"
                     text="Yuri" description="Material Yuri"
                     icon="/icons/actions/themes/material_yuri@2x.png">
             </action>
