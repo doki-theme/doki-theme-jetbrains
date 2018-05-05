@@ -67,15 +67,17 @@ public final class WeebShitManager {
   }
 
   private String getImagePath() {
-    return "/webstuff/" + getTheme()
-        .map(theme -> {
-          switch (theme) {
-            default:
-            case MONIKA:
-              return "just_monika.png";
-          }
-        })
-        .orElse("just_monika.png");
+    return this.getClass()
+        .getClassLoader()
+        .getResource("/webstuff/" + getTheme()
+            .map(theme -> {
+              switch (theme) {
+                default:
+                case MONIKA:
+                  return "just_monika.png";
+              }
+            })
+            .orElse("just_monika.png")).getFile();
   }
 
   private void removeWeebShit() {
