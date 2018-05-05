@@ -1,10 +1,18 @@
 package com.chrisrm.idea.actions;
 
 import com.chrisrm.idea.MTThemes;
-import com.intellij.ide.ui.UISettings;
 import com.intellij.ide.util.PropertiesComponent;
+import com.intellij.openapi.wm.impl.IdeBackgroundUtil;
+import org.apache.commons.io.IOUtils;
 
-import java.awt.*;
+import java.io.BufferedInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.stream.Collectors;
@@ -55,14 +63,12 @@ public final class WeebShitManager {
     } else {
       turnOnWeebShit();
     }
-    UISettings.getInstance().fireUISettingsChanged();
-    for (Window window : Window.getWindows()) {
-      window.repaint();
-    }
+    IdeBackgroundUtil.repaintAllWindows();
   }
 
   private void turnOnWeebShit() {
     String imagePath = getImagePath();
+    System.out.println(imagePath);
     String opacity = "75";
     String fill = "plain";//ref -> IdeBackgroundUtil.Fill.PLAIN
     String anchor = "bottom_right";//ref -> IdeBackgroundUtil.Anchor.BOTTOM_RIGHT;
@@ -72,17 +78,40 @@ public final class WeebShitManager {
   }
 
   private String getImagePath() {
-    return this.getClass()
+    String anime = getTheme()
+        .map(theme -> {
+          switch (theme) {
+            default:
+            case MONIKA:
+              return "just_monika.png";
+          }
+        })
+        .orElse("just_monika.png");
+    String animePath = "/webstuff/" + anime;
+    Path weebStuff = Paths.get(".", animePath).toAbsolutePath();
+    if (!Files.exists(weebStuff)) {
+      copyAnimes(animePath, weebStuff);
+    }
+    String s = null;
+    try {
+      s = weebStuff.toRealPath().toString();
+    } catch (IOException ignored) {
+
+    }
+    System.err.println(s);
+    return s;
+  }
+
+  private void copyAnimes(String animePath, Path weebStuff) {
+    InputStream resourceAsStream = this.getClass()
         .getClassLoader()
-        .getResource("/webstuff/" + getTheme()
-            .map(theme -> {
-              switch (theme) {
-                default:
-                case MONIKA:
-                  return "just_monika.png";
-              }
-            })
-            .orElse("just_monika.png")).getFile();
+        .getResourceAsStream(animePath);
+    try (InputStream inputStream = new BufferedInputStream(resourceAsStream);
+         OutputStream bufferedWriter = Files.newOutputStream(weebStuff, StandardOpenOption.CREATE_NEW)) {
+      IOUtils.copy(inputStream, bufferedWriter);
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
   }
 
   private void removeWeebShit() {
@@ -95,7 +124,7 @@ public final class WeebShitManager {
 
 
   public void activate(MTThemes monika) {
-      this.mtThemes = monika;
-      turnOnIfNecessary();
+    this.mtThemes = monika;
+    turnOnIfNecessary();
   }
 }
