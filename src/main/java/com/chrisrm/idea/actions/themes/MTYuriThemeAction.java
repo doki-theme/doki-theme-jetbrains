@@ -30,9 +30,11 @@ import com.chrisrm.idea.MTConfig;
 import com.chrisrm.idea.MTThemeManager;
 import com.chrisrm.idea.MTThemes;
 import com.chrisrm.idea.actions.WeebShitManager;
+import com.chrisrm.idea.actions.accents.MTAmethystAccentAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 
 public final class MTYuriThemeAction extends MTAbstractThemeAction {
+  private final MTAmethystAccentAction mtAmethystAccentAction = new MTAmethystAccentAction();
   @Override
   public boolean isSelected(final AnActionEvent e) {
     return MTConfig.getInstance().getSelectedTheme() == MTThemes.YURI;
@@ -40,6 +42,7 @@ public final class MTYuriThemeAction extends MTAbstractThemeAction {
 
   @Override
   public void setSelected(final AnActionEvent e, final boolean state) {
+    mtAmethystAccentAction.actionPerformed(e);
     MTThemeManager.getInstance().activate(MTThemes.YURI, true);
     WeebShitManager.getInstance().activate(MTThemes.YURI);
   }

@@ -30,9 +30,11 @@ import com.chrisrm.idea.MTConfig;
 import com.chrisrm.idea.MTThemeManager;
 import com.chrisrm.idea.MTThemes;
 import com.chrisrm.idea.actions.WeebShitManager;
+import com.chrisrm.idea.actions.accents.MTFuschiaAccentAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 
 public final class MTNatsukiThemeAction extends MTAbstractThemeAction {
+  private final MTFuschiaAccentAction mtFuschiaAccentAction = new MTFuschiaAccentAction();
   @Override
   public boolean isSelected(final AnActionEvent e) {
     return MTConfig.getInstance().getSelectedTheme() == MTThemes.NATSUKI;
@@ -40,6 +42,7 @@ public final class MTNatsukiThemeAction extends MTAbstractThemeAction {
 
   @Override
   public void setSelected(final AnActionEvent e, final boolean state) {
+    mtFuschiaAccentAction.actionPerformed(e);
     MTThemeManager.getInstance().activate(MTThemes.NATSUKI, true);
     WeebShitManager.getInstance().activate(MTThemes.NATSUKI);
   }
