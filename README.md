@@ -160,7 +160,7 @@ The Accent Color is changing:
 
 ### Project View Decorators
 
-Another feature taken from the Sublime Plugin is the ability to differentiate **opened directories** from closed ones. *"Opened directories"* actually mean directories from the project view whose one of their children is opened in the Editor.
+Another feature taken from the Sublime Plugin is the ability to differentiate **opened directories** from closed ones. *"Opened directories"* actually mean directories from the projectRef view whose one of their children is opened in the Editor.
 
 The plugin is decorating these directories by setting an "outlined" directory icon tinted with the selected *Accent color*.
 
@@ -217,9 +217,9 @@ Keep in touch for new features!
 
 ### Developing using IntelliJ Gradle
 
-You can simplify development process thanks to Intellij's **Gradle plugin**. Install the plugin, restart the IDE and you will be prompted with a window asking if you want to import the project as a Gradle project. After that IntelliJ will download the Gradle Wrapper and the tasks will appear in the Gradle Tool Panel on the right.
+You can simplify development process thanks to Intellij's **Gradle plugin**. Install the plugin, restart the IDE and you will be prompted with a window asking if you want to import the projectRef as a Gradle projectRef. After that IntelliJ will download the Gradle Wrapper and the tasks will appear in the Gradle Tool Panel on the right.
 
-Import the project from the `build.gradle` file and develop as normal.  Make sure you select JDK 8 in the import wizard.  The other defaults are fine.  You can run the above mentioned CLI Gradle tasks directly in the "Gradle" Tool Window, which expands from the right side of the screen.  To debug, find "runIde" in the list, right-click it, and choose Run/Debug.
+Import the projectRef from the `build.gradle` file and develop as normal.  Make sure you select JDK 8 in the import wizard.  The other defaults are fine.  You can run the above mentioned CLI Gradle tasks directly in the "Gradle" Tool Window, which expands from the right side of the screen.  To debug, find "runIde" in the list, right-click it, and choose Run/Debug.
 
 ---------------
 
@@ -281,10 +281,10 @@ Also many thanks to other plugin developers for helping me solving A LOT of issu
 * [Git Toolbox](https://plugins.jetbrains.com/plugin/7499-gittoolbox)
 * [Browse Word At Caret](https://plugins.jetbrains.com/plugin/201-browsewordatcaret)
 * [GitIgnore](https://github.com/hsz/idea-gitignore)
-* [Project Label](https://github.com/drinchev/project-label)
+* [Project Label](https://github.com/drinchev/projectRef-label)
 
 Thanks to all [original plugin contributors](https://github.com/ChrisRM/material-theme-jetbrains/graphs/contributors), [EAP contributors](https://github.com/mallowigi/material-theme-jetbrains-eap/graphs/contributors)
-and a special thanks to the guys at [JetBrains](https://www.jetbrains.com/) for contributing and showing interest in the project!
+and a special thanks to the guys at [JetBrains](https://www.jetbrains.com/) for contributing and showing interest in the projectRef!
 
 ## Color Palette
 

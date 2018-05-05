@@ -117,7 +117,7 @@
         </component>
     </application-components>
 
-    <project-components>
+    <projectRef-components>
         <component>
             <implementation-class>com.chrisrm.idea.status.MTStatusBarComponent</implementation-class>
             <loadForDefaultProject>true</loadForDefaultProject>
@@ -129,7 +129,7 @@
             <implementation-class>com.chrisrm.idea.MTTitleBarComponent</implementation-class>
             <loadForDefaultProject>true</loadForDefaultProject>
         </component>
-    </project-components>
+    </projectRef-components>
 
 
     <actions>

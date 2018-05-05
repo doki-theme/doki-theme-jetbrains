@@ -155,7 +155,7 @@ FIXES:
 - Fix issue with out of bounds settings (https://github.com/ChrisRM/material-theme-jetbrains/issues/552)
 
 ## 1.4.6
-- Setting for changing font to Roboto and bigger font in project view
+- Setting for changing font to Roboto and bigger font in projectRef view
 - Actions for switching arrow style
 - Fix Dark Title bar setting
 
@@ -334,7 +334,7 @@ FIXES:
 - Add more ui icons
 
 ## 0.9.1
-- Remove uppercase bold tabs as a default and fix issue with project settings persistence
+- Remove uppercase bold tabs as a default and fix issue with projectRef settings persistence
 - Revert fix of debugger tab height as it breaks other tabs
 
 ## 0.9.0
@@ -391,7 +391,7 @@ FIXES:
 - Removing bold tabs support
 
 ## 0.7.0.3
-- Changing accent colors now update icons as well (needs close project)
+- Changing accent colors now update icons as well (needs close projectRef)
 - VCS icons
 - Fix Status Indicator cut on Windows (https://github.com/mallowigi/material-theme-jetbrains-eap/issues/89)
 - Fix Project Icon as accent hoverable (https://github.com/mallowigi/material-theme-jetbrains-eap/issues/88)
@@ -499,14 +499,14 @@ This version is more focused on the UI:
 - Fix issue with settings not being saved
 - Fix #92
 - Fix: Do not try to replace all icons, if an icon is not provided use Jetbrains one.
-- Refactor project: put the selected theme in the MTConfig + better folder structure
+- Refactor projectRef: put the selected theme in the MTConfig + better folder structure
 - Add more icons: Access, Word, Powerpoint, Excel, Audio, Video, Elm, Go, Hack, Julia, Pug, Kotlin, Maya, Markup, Premiere, Powershell, Rake, Riot, Stata, Sublime, Vim
 - Fix PHP + JS Code Schemes
 - New: Background image for empty IDE with customization available in options
 - New: Option to hide file icons in the Project View
 - New: Option to disable Material Icons
 - New: Option to disable Project View decorators
-- New: Option to select compact (and not compact) project view
+- New: Option to select compact (and not compact) projectRef view
 - New icons: Akka, Ada, Android
 - New UI Icons
 - Progress indicators
@@ -528,7 +528,7 @@ This version is more focused on the UI:
 
 ## 0.3.0.0
 
-Thanks to @mallowigi for taking the project to the next level. This is all him: 
+Thanks to @mallowigi for taking the projectRef to the next level. This is all him: 
 - Code coverage colors
 - Notification, Information and Documentation popups
 - Fix Python Color schemes
