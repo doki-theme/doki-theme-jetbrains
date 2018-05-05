@@ -44,8 +44,9 @@ public final class WeebShitManager {
   public void toggleWeebShit() {
     boolean weebShitIsOn = isOn.get();
     handleWeebShit(weebShitIsOn);
+    isOn.getAndSet(!weebShitIsOn);
     PropertiesComponent.getInstance()
-        .setValue(WEEB_SHIT_PROPERTY, isOn.getAndSet(!weebShitIsOn));
+        .setValue(WEEB_SHIT_PROPERTY, isOn.get());
   }
 
   private void handleWeebShit(boolean weebShitIsOn) {
