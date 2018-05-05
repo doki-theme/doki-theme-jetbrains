@@ -11,14 +11,14 @@ public final class WeebShitManager {
 
   private final static WeebShitManager instance = new WeebShitManager();
   private static final String WEEB_SHIT_PROPERTY = "WEEB_SHIT_PROPERTY";
-  private Optional<Project> projectRef = Optional.empty();
   private final AtomicBoolean isOn = new AtomicBoolean(false);
-
-  public static WeebShitManager getInstance(){
-    return instance;
-  }
+  private Optional<Project> projectRef = Optional.empty();
 
   private WeebShitManager() {
+  }
+
+  public static WeebShitManager getInstance() {
+    return instance;
   }
 
   public void setProjectRef(Project projectRef) {
@@ -26,6 +26,8 @@ public final class WeebShitManager {
     this.projectRef.ifPresent(project1 -> {
       PropertiesComponent instance = PropertiesComponent.getInstance(project1);
       isOn.getAndSet(instance.getBoolean(WEEB_SHIT_PROPERTY, false));
+      if (isOn.get())
+        turnOnWeebShit(project1);
     });
   }
 
@@ -36,14 +38,26 @@ public final class WeebShitManager {
   public void toggleWeebShit() {
     this.projectRef.ifPresent(project -> {
       boolean weebShitIsOn = isOn.get();
-      if(weebShitIsOn){
-        //turn weeb shit off
-      } else {
-        //turn weeb shit on
-      }
+      handleWeebShit(weebShitIsOn, project);
       PropertiesComponent.getInstance(project)
           .setValue(WEEB_SHIT_PROPERTY, isOn.getAndSet(!weebShitIsOn));
     });
+  }
+
+  private void handleWeebShit(boolean weebShitIsOn, Project project) {
+    if (weebShitIsOn) {
+      removeWeebShit(project);
+    } else {
+      turnOnWeebShit(project);
+    }
+  }
+
+  private void turnOnWeebShit(Project project) {
+
+  }
+
+  private void removeWeebShit(Project project) {
+
   }
 
   public void activate(MTThemes monika) {
