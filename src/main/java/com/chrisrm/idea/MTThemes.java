@@ -38,7 +38,10 @@ import java.util.TreeMap;
  * Contains a list of predefined themes and will contain all bundled themes
  */
 public enum MTThemes implements MTThemeFacade {
-  MONIKA("MONIKA", new MTMonikaTheme());
+  MONIKA("MONIKA", new MTMonikaTheme()),
+  SAYORI("SAYORI", new MTMonikaTheme()),
+  NATSUKI("NATSUKI", new MTMonikaTheme()),
+  YURI("YURI", new MTMonikaTheme());
 
   private static final Map<String, MTThemeFacade> THEMES_MAP = new TreeMap<>();
 
