@@ -24,7 +24,7 @@ public final class WeebShitManager {
 
   private final static WeebShitManager instance = new WeebShitManager();
   private static final String WEEB_SHIT_PROPERTY = "WEEB_SHIT_PROPERTY";
-  private final AtomicBoolean isOn = new AtomicBoolean(false);
+  private final AtomicBoolean isOn = new AtomicBoolean(true);
   private MTThemes mtThemes = MTThemes.MONIKA;
 
   private WeebShitManager() {
@@ -36,7 +36,7 @@ public final class WeebShitManager {
 
   public void setProjectRef() {
     PropertiesComponent instance = PropertiesComponent.getInstance();
-    isOn.getAndSet(instance.getBoolean(WEEB_SHIT_PROPERTY, false));
+    isOn.getAndSet(instance.getBoolean(WEEB_SHIT_PROPERTY, true));
     turnOnIfNecessary();
   }
 
@@ -131,6 +131,8 @@ public final class WeebShitManager {
 
   public void activate(MTThemes monika) {
     this.mtThemes = monika;
+    removeWeebShit();
+    IdeBackgroundUtil.repaintAllWindows();
     turnOnIfNecessary();
   }
 }
