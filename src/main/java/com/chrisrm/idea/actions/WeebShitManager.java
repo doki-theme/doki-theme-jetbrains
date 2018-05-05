@@ -1,5 +1,6 @@
 package com.chrisrm.idea.actions;
 
+import com.chrisrm.idea.MTThemes;
 import com.intellij.openapi.project.Project;
 
 public class WeebShitManager {
@@ -24,6 +25,10 @@ public class WeebShitManager {
   }
 
   public void toggleWeebShit() {
+
+  }
+
+  public void activate(MTThemes monika) {
 
   }
 }

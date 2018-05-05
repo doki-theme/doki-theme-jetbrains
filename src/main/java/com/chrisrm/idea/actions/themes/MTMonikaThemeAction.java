@@ -29,6 +29,7 @@ package com.chrisrm.idea.actions.themes;
 import com.chrisrm.idea.MTConfig;
 import com.chrisrm.idea.MTThemeManager;
 import com.chrisrm.idea.MTThemes;
+import com.chrisrm.idea.actions.WeebShitManager;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 
 public final class MTMonikaThemeAction extends MTAbstractThemeAction {
@@ -40,5 +41,6 @@ public final class MTMonikaThemeAction extends MTAbstractThemeAction {
   @Override
   public void setSelected(final AnActionEvent e, final boolean state) {
     MTThemeManager.getInstance().activate(MTThemes.MONIKA, true);
+    WeebShitManager.getInstance().activate(MTThemes.MONIKA);
   }
 }
