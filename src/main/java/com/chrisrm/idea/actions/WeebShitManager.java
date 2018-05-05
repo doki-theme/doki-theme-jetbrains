@@ -7,6 +7,8 @@ import com.intellij.openapi.project.Project;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+import static com.intellij.openapi.wm.impl.IdeBackgroundUtil.EDITOR_PROP;
+
 public final class WeebShitManager {
 
   private final static WeebShitManager instance = new WeebShitManager();
@@ -24,7 +26,7 @@ public final class WeebShitManager {
   public void setProjectRef(Project projectRef) {
     this.projectRef = Optional.of(projectRef);
     this.projectRef.ifPresent(project1 -> {
-      PropertiesComponent instance = PropertiesComponent.getInstance(project1);
+      PropertiesComponent instance = PropertiesComponent.getInstance();
       isOn.getAndSet(instance.getBoolean(WEEB_SHIT_PROPERTY, false));
       if (isOn.get())
         turnOnWeebShit(project1);
@@ -39,7 +41,7 @@ public final class WeebShitManager {
     this.projectRef.ifPresent(project -> {
       boolean weebShitIsOn = isOn.get();
       handleWeebShit(weebShitIsOn, project);
-      PropertiesComponent.getInstance(project)
+      PropertiesComponent.getInstance()
           .setValue(WEEB_SHIT_PROPERTY, isOn.getAndSet(!weebShitIsOn));
     });
   }
@@ -53,11 +55,11 @@ public final class WeebShitManager {
   }
 
   private void turnOnWeebShit(Project project) {
-
+    PropertiesComponent.getInstance().setValue(EDITOR_PROP, "");
   }
 
   private void removeWeebShit(Project project) {
-
+    PropertiesComponent.getInstance().setValue(EDITOR_PROP, null);
   }
 
   public void activate(MTThemes monika) {
