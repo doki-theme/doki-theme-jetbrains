@@ -21,9 +21,8 @@ public class MTWeebAction extends ToggleAction {
 
   @Override
   public void setSelected(final AnActionEvent e, final boolean state) {
-    Project project = e.getProject();
     WeebShitManager instance = WeebShitManager.getInstance();
-    instance.setProjectRef(project);
+    instance.setProjectRef();
     instance.toggleWeebShit();
     Notification n = new Notification(
         "extras",

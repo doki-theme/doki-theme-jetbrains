@@ -2,8 +2,6 @@ package com.chrisrm.idea.actions;
 
 import com.chrisrm.idea.MTThemes;
 import com.intellij.ide.util.PropertiesComponent;
-import com.intellij.openapi.project.Project;
-import com.intellij.openapi.wm.impl.IdeBackgroundUtil;
 
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -17,7 +15,6 @@ public final class WeebShitManager {
   private final static WeebShitManager instance = new WeebShitManager();
   private static final String WEEB_SHIT_PROPERTY = "WEEB_SHIT_PROPERTY";
   private final AtomicBoolean isOn = new AtomicBoolean(false);
-  private Optional<Project> projectRef = Optional.empty();
   private MTThemes mtThemes = MTThemes.MONIKA;
 
   private WeebShitManager() {
@@ -27,14 +24,11 @@ public final class WeebShitManager {
     return instance;
   }
 
-  public void setProjectRef(Project projectRef) {
-    this.projectRef = Optional.of(projectRef);
-    this.projectRef.ifPresent(project1 -> {
-      PropertiesComponent instance = PropertiesComponent.getInstance();
-      isOn.getAndSet(instance.getBoolean(WEEB_SHIT_PROPERTY, false));
-      if (isOn.get())
-        turnOnWeebShit(project1);
-    });
+  public void setProjectRef() {
+    PropertiesComponent instance = PropertiesComponent.getInstance();
+    isOn.getAndSet(instance.getBoolean(WEEB_SHIT_PROPERTY, false));
+    if (isOn.get())
+      turnOnWeebShit();
   }
 
   public boolean weebShitOn() {
@@ -42,23 +36,21 @@ public final class WeebShitManager {
   }
 
   public void toggleWeebShit() {
-    this.projectRef.ifPresent(project -> {
-      boolean weebShitIsOn = isOn.get();
-      handleWeebShit(weebShitIsOn, project);
-      PropertiesComponent.getInstance()
-          .setValue(WEEB_SHIT_PROPERTY, isOn.getAndSet(!weebShitIsOn));
-    });
+    boolean weebShitIsOn = isOn.get();
+    handleWeebShit(weebShitIsOn);
+    PropertiesComponent.getInstance()
+        .setValue(WEEB_SHIT_PROPERTY, isOn.getAndSet(!weebShitIsOn));
   }
 
-  private void handleWeebShit(boolean weebShitIsOn, Project project) {
+  private void handleWeebShit(boolean weebShitIsOn) {
     if (weebShitIsOn) {
-      removeWeebShit(project);
+      removeWeebShit();
     } else {
-      turnOnWeebShit(project);
+      turnOnWeebShit();
     }
   }
 
-  private void turnOnWeebShit(Project project) {
+  private void turnOnWeebShit() {
     String imagePath = getImagePath();
     String opacity = "75";
     String fill = "plain";//ref -> IdeBackgroundUtil.Fill.PLAIN
@@ -71,7 +63,7 @@ public final class WeebShitManager {
   private String getImagePath() {
     return "/webstuff/" + getTheme()
         .map(theme -> {
-          switch (theme){
+          switch (theme) {
             default:
             case MONIKA:
               return "just_monika.png";
@@ -80,11 +72,11 @@ public final class WeebShitManager {
         .orElse("just_monika.png");
   }
 
-  private void removeWeebShit(Project project) {
+  private void removeWeebShit() {
     PropertiesComponent.getInstance().setValue(EDITOR_PROP, null);
   }
 
-  private Optional<MTThemes> getTheme(){
+  private Optional<MTThemes> getTheme() {
     return Optional.ofNullable(this.mtThemes);
   }
 
