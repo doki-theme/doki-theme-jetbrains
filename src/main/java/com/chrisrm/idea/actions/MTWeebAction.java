@@ -21,16 +21,15 @@ public class MTWeebAction extends AnAction {
   @Override
   public void actionPerformed(AnActionEvent e) {
     Project project = e.getProject();
-    PropertiesComponent instance = PropertiesComponent.getInstance();
-    instance.setValue(IdeBackgroundUtil.FRAME_PROP, null);
-    instance.setValue(IdeBackgroundUtil.EDITOR_PROP, "./icons/actions/themes/material_monkia@2x.png");
+    WeebShitManager instance = WeebShitManager.getInstance();
+    instance.setProject(project);
+    instance.toggleWeebShit();
     Notification n = new Notification(
         "extras",
         "Notice",
-        "Weeb Shit toggled " + Paths.get(".").toAbsolutePath(),
+        String.format("Weeb Shit is %s.", instance.weebShitOn() ? "On":"Off"),
         NotificationType.INFORMATION);
 
     Notifications.Bus.notify(n);
-    IdeBackgroundUtil.repaintAllWindows();
   }
 }
