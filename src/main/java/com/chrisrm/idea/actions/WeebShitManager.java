@@ -1,8 +1,10 @@
 package com.chrisrm.idea.actions;
 
 import com.chrisrm.idea.MTThemes;
+import com.intellij.ide.ui.UISettings;
 import com.intellij.ide.util.PropertiesComponent;
 
+import java.awt.*;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.stream.Collectors;
@@ -47,6 +49,10 @@ public final class WeebShitManager {
       removeWeebShit();
     } else {
       turnOnWeebShit();
+    }
+    UISettings.getInstance().fireUISettingsChanged();
+    for (Window window : Window.getWindows()) {
+      window.repaint();
     }
   }
 
