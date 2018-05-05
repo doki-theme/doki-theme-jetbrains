@@ -78,7 +78,7 @@ public final class WeebShitManager {
   }
 
   private String getImagePath() {
-    String anime = getTheme()
+    String literatureClubMember = getTheme()
         .map(theme -> {
           switch (theme) {
             default:
@@ -87,11 +87,11 @@ public final class WeebShitManager {
           }
         })
         .orElse("just_monika.png");
-    String animePath = "/webstuff/" + anime;
-    Path weebStuff = Paths.get(".", animePath).normalize().toAbsolutePath();
+    String theAnimesPath = "/weebstuff/" + literatureClubMember;
+    Path weebStuff = Paths.get(".", theAnimesPath).normalize().toAbsolutePath();
     if (!Files.exists(weebStuff)) {
       creatDirectories(weebStuff);
-      copyAnimes(animePath, weebStuff);
+      copyAnimes(theAnimesPath, weebStuff);
     }
     return weebStuff.toString();
   }
@@ -104,10 +104,10 @@ public final class WeebShitManager {
     }
   }
 
-  private void copyAnimes(String animePath, Path weebStuff) {
+  private void copyAnimes(String theAnimesPath, Path weebStuff) {
     try (InputStream inputStream = new BufferedInputStream(this.getClass()
         .getClassLoader()
-        .getResourceAsStream(animePath));
+        .getResourceAsStream(theAnimesPath));
          OutputStream bufferedWriter = Files.newOutputStream(weebStuff, StandardOpenOption.CREATE)) {
       IOUtils.copy(inputStream, bufferedWriter);
     } catch (IOException e) {
