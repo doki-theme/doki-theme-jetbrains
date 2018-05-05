@@ -81,6 +81,12 @@ public final class WeebShitManager {
     String literatureClubMember = getTheme()
         .map(theme -> {
           switch (theme) {
+            case SAYORI:
+              return "sayori.png";
+            case YURI:
+              return "yuri.png";
+            case NATSUKI:
+              return "natsuki.png";
             default:
             case MONIKA:
               return "just_monika.png";
