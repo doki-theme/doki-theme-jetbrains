@@ -43,6 +43,7 @@ public final class WeebShitManager {
   private void turnOnIfNecessary() {
     if (isOn.get())
       turnOnWeebShit();
+    IdeBackgroundUtil.repaintAllWindows();
   }
 
   public boolean weebShitOn() {
@@ -68,8 +69,7 @@ public final class WeebShitManager {
 
   private void turnOnWeebShit() {
     String imagePath = getImagePath();
-    System.out.println(imagePath);
-    String opacity = "75";
+    String opacity = "80";
     String fill = "plain";//ref -> IdeBackgroundUtil.Fill.PLAIN
     String anchor = "bottom_right";//ref -> IdeBackgroundUtil.Anchor.BOTTOM_RIGHT;
     String property = Stream.of(imagePath, opacity, fill, anchor)
@@ -90,29 +90,24 @@ public final class WeebShitManager {
     String animePath = "/webstuff/" + anime;
     Path weebStuff = Paths.get(".", animePath).normalize().toAbsolutePath();
     if (!Files.exists(weebStuff)) {
-      try {
-        Files.createDirectories(weebStuff.getParent());
-      } catch (IOException e) {
-        e.printStackTrace();
-      }
+      creatDirectories(weebStuff);
       copyAnimes(animePath, weebStuff);
     }
-    String s = null;
-    try {
-      s = weebStuff.toRealPath().toString();
-    } catch (IOException ignored) {
+    return weebStuff.toString();
+  }
 
+  private void creatDirectories(Path weebStuff) {
+    try {
+      Files.createDirectories(weebStuff.getParent());
+    } catch (IOException e) {
+      e.printStackTrace();
     }
-    System.err.println(s);
-    return s;
   }
 
   private void copyAnimes(String animePath, Path weebStuff) {
-    System.out.println(weebStuff);
-    InputStream resourceAsStream = this.getClass()
+    try (InputStream inputStream = new BufferedInputStream(this.getClass()
         .getClassLoader()
-        .getResourceAsStream(animePath);
-    try (InputStream inputStream = new BufferedInputStream(resourceAsStream);
+        .getResourceAsStream(animePath));
          OutputStream bufferedWriter = Files.newOutputStream(weebStuff, StandardOpenOption.CREATE)) {
       IOUtils.copy(inputStream, bufferedWriter);
     } catch (IOException e) {
@@ -127,7 +122,6 @@ public final class WeebShitManager {
   private Optional<MTThemes> getTheme() {
     return Optional.ofNullable(this.mtThemes);
   }
-
 
   public void activate(MTThemes monika) {
     this.mtThemes = monika;
