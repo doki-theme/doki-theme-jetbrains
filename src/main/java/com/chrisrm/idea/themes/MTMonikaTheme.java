@@ -236,7 +236,7 @@ public final class MTMonikaTheme extends MTDokiDokiTheme {
 
   protected String[] getCaretResources() {
     return new String[] {
-        "mt.monika.caretForeground"
+        "mt.doki.doki.caretForeground"
     };
   }
 
@@ -254,7 +254,7 @@ public final class MTMonikaTheme extends MTDokiDokiTheme {
   @Override
   protected Stream<String> getSelectionForegroundResources() {
     return Stream.of(
-        "mt.monika.selectionForeground",
+        "mt.doki.doki.selectionForeground",
             "Menu.selectionForeground",
             "Menu.acceleratorSelectionForeground",
             "MenuItem.selectionForeground",
@@ -275,11 +275,11 @@ public final class MTMonikaTheme extends MTDokiDokiTheme {
   @Override
   protected String[] getSelectionBackgroundResources() {
     return new String[] {
-        "mt.monika.selectionBackgroundInactive",
-        "mt.monika.selectionInactiveBackground",
+        "mt.doki.doki.selectionBackgroundInactive",
+        "mt.doki.doki.selectionInactiveBackground",
         "inactiveCaption",
         "Button.disabledText",
-        "mt.monika.selectionBackground",
+        "mt.doki.doki.selectionBackground",
         "Menu.selectionBackground",
         "Menu.acceleratorSelectionBackground",
         "MenuItem.selectionBackground",
@@ -309,9 +309,9 @@ public final class MTMonikaTheme extends MTDokiDokiTheme {
   @Override
   protected String[] getBackgroundResources() {
     return new String[] {
-        "mt.monika.background",
-        "mt.monika.textBackground",
-        "mt.monika.inactiveBackground",
+        "mt.doki.doki.background",
+        "mt.doki.doki.textBackground",
+        "mt.doki.doki.inactiveBackground",
         "window",
         "activeCaption",
         "control",
@@ -388,10 +388,10 @@ public final class MTMonikaTheme extends MTDokiDokiTheme {
   @Override
   protected String[] getForegroundResources() {
     return new String[] {
-        "mt.monika.foreground",
-        "mt.monika.textForeground",
-        "mt.monika.selectionForegroundInactive",
-        "mt.monika.selectionInactiveForeground",
+        "mt.doki.doki.foreground",
+        "mt.doki.doki.textForeground",
+        "mt.doki.doki.selectionForegroundInactive",
+        "mt.doki.doki.selectionInactiveForeground",
         "Label.foreground",
         "EditorPane.inactiveForeground",
         "CheckBox.foreground",
