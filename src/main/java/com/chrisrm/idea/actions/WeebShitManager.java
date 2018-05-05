@@ -29,6 +29,10 @@ public final class WeebShitManager {
   public void setProjectRef() {
     PropertiesComponent instance = PropertiesComponent.getInstance();
     isOn.getAndSet(instance.getBoolean(WEEB_SHIT_PROPERTY, false));
+    turnOnIfNecessary();
+  }
+
+  private void turnOnIfNecessary() {
     if (isOn.get())
       turnOnWeebShit();
   }
@@ -90,6 +94,7 @@ public final class WeebShitManager {
 
 
   public void activate(MTThemes monika) {
-
+      this.mtThemes = monika;
+      turnOnIfNecessary();
   }
 }
