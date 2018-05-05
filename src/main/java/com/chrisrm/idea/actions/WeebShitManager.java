@@ -88,8 +88,13 @@ public final class WeebShitManager {
         })
         .orElse("just_monika.png");
     String animePath = "/webstuff/" + anime;
-    Path weebStuff = Paths.get(".", animePath).toAbsolutePath();
+    Path weebStuff = Paths.get(".", animePath).normalize().toAbsolutePath();
     if (!Files.exists(weebStuff)) {
+      try {
+        Files.createDirectories(weebStuff.getParent());
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
       copyAnimes(animePath, weebStuff);
     }
     String s = null;
@@ -103,11 +108,12 @@ public final class WeebShitManager {
   }
 
   private void copyAnimes(String animePath, Path weebStuff) {
+    System.out.println(weebStuff);
     InputStream resourceAsStream = this.getClass()
         .getClassLoader()
         .getResourceAsStream(animePath);
     try (InputStream inputStream = new BufferedInputStream(resourceAsStream);
-         OutputStream bufferedWriter = Files.newOutputStream(weebStuff, StandardOpenOption.CREATE_NEW)) {
+         OutputStream bufferedWriter = Files.newOutputStream(weebStuff, StandardOpenOption.CREATE)) {
       IOUtils.copy(inputStream, bufferedWriter);
     } catch (IOException e) {
       e.printStackTrace();
