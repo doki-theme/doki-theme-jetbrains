@@ -129,13 +129,13 @@ public class MTDokiDokiTheme extends MTAbstractTheme {
 //  todo: imporant
   @Override
   protected String getSelectionForegroundColorString() {
-    return "4471e2";
+    return "447152";
   }
 
   //todo: important
   @Override
   protected String getSelectionBackgroundColorString() {
-    return "99ebf0";
+    return "99eb99";
   }
 
   @Override
