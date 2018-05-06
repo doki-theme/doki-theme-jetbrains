@@ -12,6 +12,7 @@ menu bar text color (HAPPY)
 make ignored file scope lighter (HAPPY)
 ctrl-shift-a selection colors (happy)
 
+above breadcrumbs row highlight
 ?Code Colors?
 line coverage
 FILE changed status (NOT AVAILABLE IN COMMUNITY)
