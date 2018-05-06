@@ -50,7 +50,7 @@
         <!--TODO: IMPORTANT-->
         <option name="CARET_COLOR" value="000000"/>
         <!--TODO: IMPORTANT-->
-        <option name="CARET_ROW_COLOR" value="def7a5"/>
+        <option name="CARET_ROW_COLOR" value="def7fc"/>
         <option name="CONSOLE_BACKGROUND_KEY" value="fffcfc"/>
         <option name="DELETED_LINES_COLOR" value="b63b50"/>
         <option name="DOCUMENTATION_COLOR" value="f3f5f6"/>
@@ -76,9 +76,9 @@
         <option name="FILESTATUS_changelistConflict" value="d5756c"/>
         <option name="FILESTATUS_modifiedOutside" value="6182b8"/>
         <!--todo: important-->
-        <option name="GUTTER_BACKGROUND" value="aadd5d"/>
+        <option name="GUTTER_BACKGROUND" value="aaddff"/>
         <!--todo: important-->
-        <option name="LINEgu_NUMBERS_COLOR" value="063d3f"/>
+        <option name="LINE_NUMBERS_COLOR" value="063db1"/>
         <option name="INDENT_GUIDE" value="b0bec5"/>
         <option name="INFORMATION_HINT" value="f3f5f6"/>
         <option name="METHOD_SEPARATORS_COLOR" value="b0bec5"/>
@@ -109,8 +109,8 @@
         <option name="RIGHT_MARGIN_COLOR" value="e7eaec"/>
         <option name="SELECTED_INDENT_GUIDE" value="8c8c8c"/>
         <!--todo: important-->
-        <option name="SELECTION_BACKGROUND" value="99eb99"/>
-        <option name="SELECTION_FOREGROUND" value="006d09"/>
+        <option name="SELECTION_BACKGROUND" value="99ebe9"/>
+        <option name="SELECTION_FOREGROUND" value="006de7"/>
 
         <option name="SOFT_WRAP_SIGN_COLOR" value="4f6269"/>
         <option name="SELECTED_TEARLINE_COLOR" value="94ff9d"/>
@@ -275,22 +275,23 @@
         </option>
         <option name="BREADCRUMBS_DEFAULT">
             <value>
-                <option name="FOREGROUND" value="f2ff73"/>
-                <option name="BACKGROUND" value="256f25"/>
+                <option name="FOREGROUND" value="d3fdff"/>
+                <option name="BACKGROUND" value="256fce"/>
                 <!--TODO: IMPORTANT-->
             </value>
         </option>
         <option name="BREADCRUMBS_HOVERED">
             <value>
-                <option name="FOREGROUND" value="f7ff7e"/>
-                <option name="BACKGROUND" value="317923"/>
+                <option name="FOREGROUND" value="09ffe7"/>
+                <option name="BACKGROUND" value="3179c9"/>
                 <!--todo: important-->
             </value>
         </option>
+        <!--todo: important-->
         <option name="BREADCRUMBS_INACTIVE">
             <value>
-                <option name="FOREGROUND" value="17431d"/>
-                <option name="BACKGROUND" value="8cb49f"/>
+                <option name="FOREGROUND" value="1743ad"/>
+                <option name="BACKGROUND" value="8cb4e4"/>
             </value>
         </option>
         <option name="BREAKPOINT_ATTRIBUTES">
