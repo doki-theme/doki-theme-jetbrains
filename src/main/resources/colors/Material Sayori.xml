@@ -111,10 +111,10 @@
         <!--todo: important-->
         <option name="SELECTION_BACKGROUND" value="99ebe9"/>
         <option name="SELECTION_FOREGROUND" value="006de7"/>
+        <option name="SELECTED_TEARLINE_COLOR" value="94ffff"/>
+        <option name="TEARLINE_COLOR" value="94ffff"/>
 
         <option name="SOFT_WRAP_SIGN_COLOR" value="4f6269"/>
-        <option name="SELECTED_TEARLINE_COLOR" value="94ff9d"/>
-        <option name="TEARLINE_COLOR" value="94ff9d"/>
         <option name="TOOLTIP" value="FFF4F2"/>
         <option name="VCS_ANNOTATIONS_COLOR_1" value="a7fff8"/>
         <option name="VCS_ANNOTATIONS_COLOR_2" value="8cdcd5"/>
