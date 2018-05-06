@@ -107,6 +107,16 @@ public class MTLightCustomTheme extends MTAbstractTheme {
   }
 
   @Override
+  protected String getMenuBarSelectionForegroundColorString() {
+    return "000000";
+  }
+
+  @Override
+  protected String getMenuBarSelectionBackgroundColorString() {
+    return "ffffff";
+  }
+
+  @Override
   protected String getSelectionBackgroundColorString() {
     return MTCustomThemeConfig.getInstance().getSelectionBackgroundColorString();
   }

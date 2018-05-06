@@ -116,6 +116,8 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
       buildResources(getTableSelectedResources(), getTableSelectedColorString());
       buildResources(getSecondBorderResources(), getSecondBorderColorString());
       buildResources(getHighlightResources(), getHighlightColorString());
+      buildResources(getMenuItemSelectionBackgroundResources(), getMenuBarSelectionBackgroundColorString());
+      buildResources(getMenuItemSelectionForegroundResources(), getMenuBarSelectionForegroundColorString());
 
       buildResources(getTreeSelectionResources(), getTreeSelectionColorString());
       buildResources(getNotificationsResources(), getNotificationsColorString());
@@ -132,6 +134,20 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
     } catch (final UnsupportedLookAndFeelException e) {
       e.printStackTrace();
     }
+  }
+
+  private Stream<String> getMenuItemSelectionForegroundResources() {
+    return Stream.of("MenuItem.selectionForeground",
+        "Menu.acceleratorSelectionForeground",
+        "Menu.selectionForeground",
+        "MenuItem.acceleratorSelectionForeground");
+  }
+
+  private Stream<String> getMenuItemSelectionBackgroundResources() {
+    return Stream.of("Menu.selectionBackground",
+        "Menu.acceleratorSelectionBackground",
+        "MenuItem.acceleratorSelectionBackground",
+        "MenuItem.selectionBackground");
   }
 
   protected String getMenuItemForegroundColor() {
@@ -339,8 +355,6 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
    */
   protected String[] getSelectionBackgroundResources() {
     return new String[]{
-        "Menu.selectionBackground",
-        "MenuItem.selectionBackground",
         "RadioButtonMenuItem.selectionBackground",
         "CheckBoxMenuItem.selectionBackground",
         "EditorPane.selectionBackground",
@@ -361,10 +375,6 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
    */
   protected Stream<String> getSelectionForegroundResources() {
     return Stream.of(
-        "Menu.selectionForeground",
-        "Menu.acceleratorSelectionForeground",
-        "MenuItem.selectionForeground",
-        "MenuItem.acceleratorSelectionForeground",
         "Table.selectionForeground",
         "TextField.selectionForeground",
         "PasswordField.selectionForeground",
@@ -386,6 +396,9 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
    * Get the hex code for the selection foreground color
    */
   protected abstract String getSelectionForegroundColorString();
+
+  protected abstract String getMenuBarSelectionForegroundColorString();
+  protected abstract String getMenuBarSelectionBackgroundColorString();
 
   /**
    * Get resources using the inactive color

@@ -133,6 +133,18 @@ public class MTDokiDokiTheme extends MTAbstractTheme {
     return "447152";
   }
 
+  //  todo: imporant
+  @Override
+  protected String getMenuBarSelectionForegroundColorString() {
+    return "7880a1";
+  }
+
+  //  todo: imporant
+  @Override
+  protected String getMenuBarSelectionBackgroundColorString() {
+    return "ffffff";
+  }
+
   //todo: important
   @Override
   protected String getSelectionBackgroundColorString() {
