@@ -137,20 +137,20 @@
                icon="/icons/actions/material-theme.png">
             <add-to-group group-id="MainToolBar" anchor="last"/>
 
-            <action id="MTMonikaTheme" class="com.chrisrm.idea.actions.themes.MTMonikaThemeAction"
+            <action id="MTMonikaTheme" class="com.chrisrm.idea.actions.themes.literature.club.MTMonikaThemeAction"
                     text="Just Monika" description="Material Monika"
                     icon="/icons/actions/themes/material_monkia@2x.png">
             </action>
             <separator/>
-            <action id="MTSayoriTheme" class="com.chrisrm.idea.actions.themes.MTSayoriThemeAction"
+            <action id="MTSayoriTheme" class="com.chrisrm.idea.actions.themes.literature.club.MTSayoriThemeAction"
                     text="Sayori" description="Material Sayori"
                     icon="/icons/actions/themes/material_sayori@2x.png">
             </action>
-            <action id="MTNatsukiTheme" class="com.chrisrm.idea.actions.themes.MTNatsukiThemeAction"
+            <action id="MTNatsukiTheme" class="com.chrisrm.idea.actions.themes.literature.club.MTNatsukiThemeAction"
                     text="Natsuki" description="Material Natsuki"
                     icon="/icons/actions/themes/material_natsuki@2x.png">
             </action>
-            <action id="MTYuri" class="com.chrisrm.idea.actions.themes.MTYuriThemeAction"
+            <action id="MTYuri" class="com.chrisrm.idea.actions.themes.literature.club.MTYuriThemeAction"
                     text="Yuri" description="Material Yuri"
                     icon="/icons/actions/themes/material_yuri@2x.png">
             </action>

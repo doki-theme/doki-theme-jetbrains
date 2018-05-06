@@ -24,13 +24,14 @@
  *
  */
 
-package com.chrisrm.idea.actions.themes;
+package com.chrisrm.idea.actions.themes.literature.club;
 
 import com.chrisrm.idea.MTConfig;
 import com.chrisrm.idea.MTThemeManager;
 import com.chrisrm.idea.MTThemes;
 import com.chrisrm.idea.actions.WeebShitManager;
 import com.chrisrm.idea.actions.accents.MTBreakingBadAccentAction;
+import com.chrisrm.idea.actions.themes.MTAbstractThemeAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 
 public final class MTMonikaThemeAction extends MTAbstractThemeAction {
