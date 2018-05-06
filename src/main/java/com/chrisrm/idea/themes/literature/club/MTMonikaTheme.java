@@ -24,9 +24,8 @@
  *
  */
 
-package com.chrisrm.idea.themes;
+package com.chrisrm.idea.themes.literature.club;
 
-import com.chrisrm.idea.MTAbstractTheme;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;

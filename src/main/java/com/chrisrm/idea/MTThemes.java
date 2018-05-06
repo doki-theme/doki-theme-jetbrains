@@ -27,6 +27,7 @@
 package com.chrisrm.idea;
 
 import com.chrisrm.idea.themes.*;
+import com.chrisrm.idea.themes.literature.club.MTMonikaTheme;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Collection;

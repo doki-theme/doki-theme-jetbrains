@@ -26,7 +26,7 @@
 
 package com.chrisrm.idea;
 
-import com.chrisrm.idea.themes.MTMonikaTheme;
+import com.chrisrm.idea.themes.literature.club.MTMonikaTheme;
 import com.chrisrm.idea.themes.MTThemeable;
 import com.chrisrm.idea.utils.MTUiUtils;
 import com.chrisrm.idea.utils.PropertiesParser;

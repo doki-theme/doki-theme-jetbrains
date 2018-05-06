@@ -1,4 +1,4 @@
-package com.chrisrm.idea.themes;
+package com.chrisrm.idea.themes.literature.club;
 
 public final class MTSayoriTheme extends MTDokiDokiTheme {
   public MTSayoriTheme() {

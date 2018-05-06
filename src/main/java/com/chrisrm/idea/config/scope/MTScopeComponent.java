@@ -26,7 +26,7 @@
 
 package com.chrisrm.idea.config.scope;
 
-import com.chrisrm.idea.themes.*;
+import com.chrisrm.idea.themes.literature.club.MTMonikaTheme;
 import com.intellij.openapi.components.AbstractProjectComponent;
 import com.intellij.openapi.components.ProjectComponent;
 import com.intellij.openapi.project.Project;
