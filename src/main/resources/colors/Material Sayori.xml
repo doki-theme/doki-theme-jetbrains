@@ -131,7 +131,8 @@
         </option>
         <option name="FOLDED_TEXT">
             <value>
-                <option name="FOREGROUND" value="94ff9d"/>
+                <!--todo:important-->
+                <option name="FOREGROUND" value="94ffff"/>
             </value>
         </option>
         <option name="ANNOTATION_ATTRIBUTE_NAME_ATTRIBUTES">
