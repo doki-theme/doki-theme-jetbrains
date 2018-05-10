@@ -72,6 +72,7 @@ public class MTDokiDokiTheme extends MTAbstractTheme {
     return MTDokiDokiTheme.DISABLED;
   }
 
+  //todo: important
   @Override
   protected String getNotificationsColorString() {
     return "C3E88D";

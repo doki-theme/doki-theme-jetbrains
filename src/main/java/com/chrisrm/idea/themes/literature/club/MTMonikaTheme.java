@@ -56,7 +56,7 @@ public final class MTMonikaTheme extends MTDokiDokiTheme {
   public static final String TEST_FILES = "bbff7e";
 
   public MTMonikaTheme() {
-    super("mt.monika", "Material Monika", false);
+    super("mt.monika", "Just Monika", false);
   }
 
   @NotNull

@@ -76,7 +76,7 @@
         <iconProvider implementation="com.chrisrm.idea.icons.MTHiddenIconProvider" order="first"/>
         <iconProvider implementation="com.chrisrm.idea.icons.MTFileIconProvider" order="first"/>
 
-        <bundledColorScheme path="/colors/Material Monika"/>
+        <bundledColorScheme path="/colors/Just Monika"/>
         <bundledColorScheme path="/colors/Material Sayori"/>
 
         <welcomeFrameProvider implementation="com.chrisrm.idea.ui.MTFlatWelcomeFrameProvider"
@@ -133,7 +133,7 @@
             <add-to-group group-id="MainToolBar" anchor="last"/>
 
             <action id="MTMonikaTheme" class="com.chrisrm.idea.actions.themes.literature.club.MTMonikaThemeAction"
-                    text="Just Monika" description="Material Monika"
+                    text="Just Monika" description="Just Monika"
                     icon="/icons/actions/themes/material_monkia@2x.png">
             </action>
             <separator/>

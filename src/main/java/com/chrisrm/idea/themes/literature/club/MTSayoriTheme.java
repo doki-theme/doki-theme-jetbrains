@@ -44,4 +44,9 @@ public final class MTSayoriTheme extends MTDokiDokiTheme {
   protected String getMenuBarSelectionBackgroundColorString() {
     return "de0a22";
   }
+
+  @Override
+  protected String getNotificationsColorString() {
+    return "c3e8ff";
+  }
 }
