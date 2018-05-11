@@ -154,6 +154,8 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
     return "FFFFFF";
   }
 
+  protected abstract String getEditorTabColorString();
+
   /**
    * Whether the theme is a custom or external one
    */
@@ -656,6 +658,13 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
         ObjectUtils.notNull(UIManager.getColor("darcula.background"), new ColorUIResource(0x3c3f41)),
         ObjectUtils.notNull(UIManager.getColor("intellijlaf.background"), new ColorUIResource(0xe8e8e8)));
     return ObjectUtils.notNull(UIManager.getColor("material.primaryColor"), defaultValue);
+  }
+
+
+  @Override
+  public Color getEditorTabColor() {
+    return ObjectUtils.notNull(Color.decode("#" + getEditorTabColorString().toUpperCase()),
+        new ColorUIResource(0x80cbc4));
   }
 
   /**

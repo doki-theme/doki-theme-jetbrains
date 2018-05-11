@@ -140,4 +140,9 @@ public class MTLightCustomTheme extends MTAbstractTheme {
   public boolean isCustom() {
     return true;
   }
+
+  @Override
+  protected String getEditorTabColorString() {
+    return "FFFFFF";
+  }
 }

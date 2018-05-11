@@ -72,6 +72,11 @@ public class MTDokiDokiTheme extends MTAbstractTheme {
     return MTDokiDokiTheme.DISABLED;
   }
 
+  @Override
+  protected String getEditorTabColorString() {
+    return "def7a5";
+  }
+
   //todo: important
   @Override
   protected String getNotificationsColorString() {

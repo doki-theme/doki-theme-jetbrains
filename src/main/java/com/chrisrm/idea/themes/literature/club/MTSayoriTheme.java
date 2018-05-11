@@ -54,4 +54,9 @@ public final class MTSayoriTheme extends MTDokiDokiTheme {
   protected String getContrastColorString() {
     return "d8f2ff";
   }
+
+  @Override
+  protected String getEditorTabColorString() {
+    return getContrastColorString();
+  }
 }

@@ -386,7 +386,7 @@ public final class MTTabsPainterPatcherComponent implements ApplicationComponent
     public final Color getBackgroundColor() {
       final MTConfig config = MTConfig.getInstance();
       final MTThemeable mtTheme = config.getSelectedTheme().getTheme();
-      return mtTheme.getBackgroundColor();
+      return mtTheme.getEditorTabColor();
     }
 
     public final Color getContrastColor() {
