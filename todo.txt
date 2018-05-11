@@ -15,6 +15,7 @@ monika carot and breakpoint regressed. (not anymore)
 
 ------
 
+editor pane tab background color
 above breadcrumbs row highlight
 ?Code Colors?
 line coverage

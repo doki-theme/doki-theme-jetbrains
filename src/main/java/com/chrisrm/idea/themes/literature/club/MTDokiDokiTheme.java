@@ -218,7 +218,15 @@ public class MTDokiDokiTheme extends MTAbstractTheme {
         "ToolWindow.header.tab.selected.active.background",
         "material.contrast",
         "ActionToolbar.background",
-        "Toolbar.background"
+        "Toolbar.background",
+        "material.tab.backgroundColor",
+        "TabbedPane.mt.tab.background",
+        "TabbedPane.background",
+        "OptionPane.background",
+        "TabbedPane.highlight",
+        "TabbedPane.darkShadow",
+        "TabbedPane.shadow",
+        "TabbedPane.borderColor",
     };
   }
 
@@ -324,30 +332,7 @@ public class MTDokiDokiTheme extends MTAbstractTheme {
   @Override
   protected String[] getBackgroundResources() {
     return new String[] {
-        "mt.monika.background",
-        "mt.monika.textBackground",
-        "mt.monika.inactiveBackground",
-        "window",
-        "activeCaption",
-        "control",
-        "PopupMenu.translucentBackground",
-        "EditorPane.inactiveBackground",
-        "Table.background",
-        "MenuBar.disabledBackground",
-        "MenuBar.shadow",
-        "TabbedPane.highlight",
-        "TabbedPane.darkShadow",
-        "TabbedPane.shadow",
-        "TabbedPane.borderColor",
-        "Desktop.background",
-        "PopupMenu.background",
-        "Separator.background",
-        "MenuBar.background",
-        "Separator.foreground",
-        "TextField.background",
-        "PasswordField.background",
-        "FormattedTextField.background",
-        "TextArea.background",
+
         "CheckBox.darcula.backgroundColor1",
         "CheckBox.darcula.backgroundColor2",
         "CheckBox.darcula.checkSignColor",
@@ -378,10 +363,7 @@ public class MTDokiDokiTheme extends MTAbstractTheme {
         "CheckBox.background",
         "ColorChooser.background",
         "Slider.background",
-        "TabbedPane.background",
-        "OptionPane.background",
         "ToolWindow.header.background",
-        "material.tab.backgroundColor",
         "material.background"
     };
   }

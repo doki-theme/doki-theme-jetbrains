@@ -49,4 +49,9 @@ public final class MTSayoriTheme extends MTDokiDokiTheme {
   protected String getNotificationsColorString() {
     return "c3e8ff";
   }
+
+  @Override
+  protected String getContrastColorString() {
+    return "d8f2ff";
+  }
 }
