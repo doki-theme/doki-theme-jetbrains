@@ -85,8 +85,13 @@ public class MTDokiDokiTheme extends MTAbstractTheme {
 
   //todo:important
   @Override
-  protected String getTreeSelectionColorString() {
+  protected String getTreeSelectionBackgroundColorString() {
     return "546E50";
+  }
+
+  @Override
+  protected String getTreeSelectionForegroundColorString() {
+    return "FFFFFF";
   }
 
   protected String getButtonHighlightColorString() {
@@ -174,9 +179,16 @@ public class MTDokiDokiTheme extends MTAbstractTheme {
   }
 
   @Override
-  protected String[] getTreeSelectionResources() {
+  protected String[] getTreeSelectionBackgroundResources() {
     return new String[] {
         "Tree.selectionBackground"
+    };
+  }
+
+  @Override
+  protected String[] getTreeSelectionForegroundResources() {
+    return new String[] {
+        "Tree.selectionForeground"
     };
   }
 

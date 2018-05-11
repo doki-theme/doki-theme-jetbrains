@@ -31,7 +31,7 @@ public final class MTSayoriTheme extends MTDokiDokiTheme {
   }
 
   @Override
-  protected String getTreeSelectionColorString() {
+  protected String getTreeSelectionBackgroundColorString() {
     return "546eec";
   }
 

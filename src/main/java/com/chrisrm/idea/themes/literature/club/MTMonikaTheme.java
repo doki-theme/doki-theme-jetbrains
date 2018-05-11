@@ -77,7 +77,7 @@ public final class MTMonikaTheme extends MTDokiDokiTheme {
   }
 
   @Override
-  protected String getTreeSelectionColorString() {
+  protected String getTreeSelectionBackgroundColorString() {
     return "546E50";
   }
 
@@ -154,7 +154,7 @@ public final class MTMonikaTheme extends MTDokiDokiTheme {
   }
 
   @Override
-  protected String[] getTreeSelectionResources() {
+  protected String[] getTreeSelectionBackgroundResources() {
     return new String[] {
         "Tree.selectionBackground"
     };

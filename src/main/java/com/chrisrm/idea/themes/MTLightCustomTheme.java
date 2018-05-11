@@ -62,8 +62,13 @@ public class MTLightCustomTheme extends MTAbstractTheme {
   }
 
   @Override
-  protected String getTreeSelectionColorString() {
+  protected String getTreeSelectionBackgroundColorString() {
     return MTCustomThemeConfig.getInstance().getTreeSelectionColorString();
+  }
+
+  @Override
+  protected String getTreeSelectionForegroundColorString() {
+    return "FFFFFF";
   }
 
   @Override

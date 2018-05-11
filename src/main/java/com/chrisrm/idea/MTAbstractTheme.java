@@ -119,7 +119,8 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
       buildResources(getMenuItemSelectionBackgroundResources(), getMenuBarSelectionBackgroundColorString());
       buildResources(getMenuItemSelectionForegroundResources(), getMenuBarSelectionForegroundColorString());
 
-      buildResources(getTreeSelectionResources(), getTreeSelectionColorString());
+      buildResources(getTreeSelectionBackgroundResources(), getTreeSelectionBackgroundColorString());
+      buildResources(getTreeSelectionForegroundResources(), getTreeSelectionForegroundColorString());
       buildResources(getNotificationsResources(), getNotificationsColorString());
       if (isDark()) {
         LafManager.getInstance().setCurrentLookAndFeel(new DarculaLookAndFeelInfo());
@@ -570,9 +571,15 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
   /**
    * Get resources using the tree selected row color
    */
-  protected String[] getTreeSelectionResources() {
+  protected String[] getTreeSelectionBackgroundResources() {
     return new String[]{
         "Tree.selectionBackground"
+
+    };
+  }
+  protected String[] getTreeSelectionForegroundResources() {
+    return new String[]{
+        "Tree.selectionForeground"
 
     };
   }
@@ -580,7 +587,8 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
   /**
    * Get the hex code for the tree selection color
    */
-  protected abstract String getTreeSelectionColorString();
+  protected abstract String getTreeSelectionBackgroundColorString();
+  protected abstract String getTreeSelectionForegroundColorString();
 
   /**
    * Get notifications colors resources
