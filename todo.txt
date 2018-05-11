@@ -14,11 +14,12 @@ ctrl-shift-a selection colors (happy)
 monika carot and breakpoint regressed. (not anymore)
 editor pane tab background color (happy)
 above breadcrumbs row highlight (happy)
+Find a way to put an image in. (HAPPY)
+(org.intellij.images.editor.actions.SetBackgroundImageDialog has all of the answers)
 
 ------
 
+notification title bar.
 ?Code Colors?
 line coverage
 FILE changed status (NOT AVAILABLE IN COMMUNITY)
-Find a way to put an image in. (regressed)
-(org.intellij.images.editor.actions.SetBackgroundImageDialog has all of the answers)
