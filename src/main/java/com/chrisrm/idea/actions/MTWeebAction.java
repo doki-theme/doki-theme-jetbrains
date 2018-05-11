@@ -17,7 +17,6 @@ public class MTWeebAction extends ToggleAction {
   @Override
   public void setSelected(final AnActionEvent e, final boolean state) {
     WeebShitManager instance = WeebShitManager.getInstance();
-    instance.setProjectRef();
     instance.toggleWeebShit();
   }
 }
