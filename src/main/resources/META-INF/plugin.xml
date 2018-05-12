@@ -78,6 +78,7 @@
 
         <bundledColorScheme path="/colors/Just Monika"/>
         <bundledColorScheme path="/colors/Material Sayori"/>
+        <bundledColorScheme path="/colors/Material Natsuki"/>
 
         <welcomeFrameProvider implementation="com.chrisrm.idea.ui.MTFlatWelcomeFrameProvider"
                               order="FIRST"/>

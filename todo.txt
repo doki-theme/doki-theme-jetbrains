@@ -17,9 +17,14 @@ above breadcrumbs row highlight (happy)
 Find a way to put an image in. (HAPPY)
 (org.intellij.images.editor.actions.SetBackgroundImageDialog has all of the answers)
 notification title bar.(HAPPY)
+selected table row color(happy)
+breakpoint color (happy)
 
 ------
 
-?Code Colors?
+search everywhere
+test background (sayori)
+
 line coverage
 FILE changed status (NOT AVAILABLE IN COMMUNITY)
+?Code Colors?
