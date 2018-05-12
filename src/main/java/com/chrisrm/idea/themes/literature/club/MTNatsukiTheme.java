@@ -7,32 +7,32 @@ public final class MTNatsukiTheme extends MTDokiDokiTheme {
 
   @Override
   protected String getBackgroundColorString() {
-    return "fbfcfc";
+    return "fbf4fc";
   }
 
   @Override
   protected String getSecondaryBackgroundColorString() {
-    return "c7f2ff";
+    return "ffceeb";
   }
 
   @Override
   protected String getSecondaryForegroundColorString() {
-    return "256fe2";
+    return "ff6fe2";
   }
 
   @Override
   protected String getSelectionForegroundColorString() {
-    return "256fe2";
+    return "fa6fe2";
   }
 
   @Override
   protected String getSelectionBackgroundColorString() {
-    return "99ebf0";
+    return "ffd5f5";
   }
 
   @Override
   protected String getTreeSelectionBackgroundColorString() {
-    return "546eec";
+    return "ff6eec";
   }
 
   @Override
@@ -42,17 +42,17 @@ public final class MTNatsukiTheme extends MTDokiDokiTheme {
 
   @Override
   protected String getMenuBarSelectionBackgroundColorString() {
-    return "de0a22";
+    return "de0a83";
   }
 
   @Override
   protected String getNotificationsColorString() {
-    return "c3e8ff";
+    return "ffc7ec";
   }
 
   @Override
   protected String getContrastColorString() {
-    return "d8f2ff";
+    return "fdceff";
   }
 
   @Override
