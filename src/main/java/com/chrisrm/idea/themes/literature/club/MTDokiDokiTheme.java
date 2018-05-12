@@ -293,7 +293,6 @@ public class MTDokiDokiTheme extends MTAbstractTheme {
   @Override
   protected Stream<String> getSelectionForegroundResources() {
     return Stream.of(
-//        "mt.monika.selectionForeground",
             "Menu.selectionForeground",
             "Menu.acceleratorSelectionForeground",
             "MenuItem.selectionForeground",
@@ -314,10 +313,6 @@ public class MTDokiDokiTheme extends MTAbstractTheme {
   @Override
   protected String[] getSelectionBackgroundResources() {
     return new String[] {
-        //todo: maybe need these?
-//        "mt.monika.selectionBackgroundInactive",
-//        "mt.monika.selectionInactiveBackground",
-//        "mt.monika.selectionBackground",
         "inactiveCaption",
         "Button.disabledText",
         "Menu.selectionBackground",
