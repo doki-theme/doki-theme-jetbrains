@@ -26,7 +26,7 @@
 
 package com.chrisrm.idea;
 
-import com.chrisrm.idea.themes.MTMonikaTheme;
+import com.chrisrm.idea.themes.literature.club.MTMonikaTheme;
 import com.chrisrm.idea.themes.MTThemeable;
 import com.chrisrm.idea.utils.MTUiUtils;
 import com.chrisrm.idea.utils.PropertiesParser;
@@ -116,8 +116,11 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
       buildResources(getTableSelectedResources(), getTableSelectedColorString());
       buildResources(getSecondBorderResources(), getSecondBorderColorString());
       buildResources(getHighlightResources(), getHighlightColorString());
+      buildResources(getMenuItemSelectionBackgroundResources(), getMenuBarSelectionBackgroundColorString());
+      buildResources(getMenuItemSelectionForegroundResources(), getMenuBarSelectionForegroundColorString());
 
-      buildResources(getTreeSelectionResources(), getTreeSelectionColorString());
+      buildResources(getTreeSelectionBackgroundResources(), getTreeSelectionBackgroundColorString());
+      buildResources(getTreeSelectionForegroundResources(), getTreeSelectionForegroundColorString());
       buildResources(getNotificationsResources(), getNotificationsColorString());
       if (isDark()) {
         LafManager.getInstance().setCurrentLookAndFeel(new DarculaLookAndFeelInfo());
@@ -134,9 +137,25 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
     }
   }
 
+  private Stream<String> getMenuItemSelectionForegroundResources() {
+    return Stream.of("MenuItem.selectionForeground",
+        "Menu.acceleratorSelectionForeground",
+        "Menu.selectionForeground",
+        "MenuItem.acceleratorSelectionForeground");
+  }
+
+  private Stream<String> getMenuItemSelectionBackgroundResources() {
+    return Stream.of("Menu.selectionBackground",
+        "Menu.acceleratorSelectionBackground",
+        "MenuItem.acceleratorSelectionBackground",
+        "MenuItem.selectionBackground");
+  }
+
   protected String getMenuItemForegroundColor() {
     return "FFFFFF";
   }
+
+  protected abstract String getEditorTabColorString();
 
   /**
    * Whether the theme is a custom or external one
@@ -339,8 +358,6 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
    */
   protected String[] getSelectionBackgroundResources() {
     return new String[]{
-        "Menu.selectionBackground",
-        "MenuItem.selectionBackground",
         "RadioButtonMenuItem.selectionBackground",
         "CheckBoxMenuItem.selectionBackground",
         "EditorPane.selectionBackground",
@@ -361,10 +378,6 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
    */
   protected Stream<String> getSelectionForegroundResources() {
     return Stream.of(
-        "Menu.selectionForeground",
-        "Menu.acceleratorSelectionForeground",
-        "MenuItem.selectionForeground",
-        "MenuItem.acceleratorSelectionForeground",
         "Table.selectionForeground",
         "TextField.selectionForeground",
         "PasswordField.selectionForeground",
@@ -386,6 +399,9 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
    * Get the hex code for the selection foreground color
    */
   protected abstract String getSelectionForegroundColorString();
+
+  protected abstract String getMenuBarSelectionForegroundColorString();
+  protected abstract String getMenuBarSelectionBackgroundColorString();
 
   /**
    * Get resources using the inactive color
@@ -555,9 +571,15 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
   /**
    * Get resources using the tree selected row color
    */
-  protected String[] getTreeSelectionResources() {
+  protected String[] getTreeSelectionBackgroundResources() {
     return new String[]{
         "Tree.selectionBackground"
+
+    };
+  }
+  protected String[] getTreeSelectionForegroundResources() {
+    return new String[]{
+        "Tree.selectionForeground"
 
     };
   }
@@ -565,7 +587,8 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
   /**
    * Get the hex code for the tree selection color
    */
-  protected abstract String getTreeSelectionColorString();
+  protected abstract String getTreeSelectionBackgroundColorString();
+  protected abstract String getTreeSelectionForegroundColorString();
 
   /**
    * Get notifications colors resources
@@ -643,6 +666,13 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
         ObjectUtils.notNull(UIManager.getColor("darcula.background"), new ColorUIResource(0x3c3f41)),
         ObjectUtils.notNull(UIManager.getColor("intellijlaf.background"), new ColorUIResource(0xe8e8e8)));
     return ObjectUtils.notNull(UIManager.getColor("material.primaryColor"), defaultValue);
+  }
+
+
+  @Override
+  public Color getEditorTabColor() {
+    return ObjectUtils.notNull(Color.decode("#" + getEditorTabColorString().toUpperCase()),
+        new ColorUIResource(0x80cbc4));
   }
 
   /**

@@ -76,14 +76,9 @@
         <iconProvider implementation="com.chrisrm.idea.icons.MTHiddenIconProvider" order="first"/>
         <iconProvider implementation="com.chrisrm.idea.icons.MTFileIconProvider" order="first"/>
 
-        <bundledColorScheme path="/colors/Material Monika"/>
-        <bundledColorScheme path="/colors/Material Lighter"/>
-        <bundledColorScheme path="/colors/Material Oceanic"/>
-        <bundledColorScheme path="/colors/Material Palenight"/>
-        <bundledColorScheme path="/colors/Material Darker"/>
-        <bundledColorScheme path="/colors/Material One Dark"/>
-        <bundledColorScheme path="/colors/Atom One Dark"/>
-        <bundledColorScheme path="/colors/Material Monokai Pro"/>
+        <bundledColorScheme path="/colors/Just Monika"/>
+        <bundledColorScheme path="/colors/Material Sayori"/>
+
         <welcomeFrameProvider implementation="com.chrisrm.idea.ui.MTFlatWelcomeFrameProvider"
                               order="FIRST"/>
         <!--<ideRootPaneNorth implementation="com.chrisrm.idea.themes.MTFrameComponentExtension"></ideRootPaneNorth>-->
@@ -137,20 +132,20 @@
                icon="/icons/actions/material-theme.png">
             <add-to-group group-id="MainToolBar" anchor="last"/>
 
-            <action id="MTMonikaTheme" class="com.chrisrm.idea.actions.themes.MTMonikaThemeAction"
-                    text="Just Monika" description="Material Monika"
+            <action id="MTMonikaTheme" class="com.chrisrm.idea.actions.themes.literature.club.MTMonikaThemeAction"
+                    text="Just Monika" description="Just Monika"
                     icon="/icons/actions/themes/material_monkia@2x.png">
             </action>
             <separator/>
-            <action id="MTSayoriTheme" class="com.chrisrm.idea.actions.themes.MTSayoriThemeAction"
+            <action id="MTSayoriTheme" class="com.chrisrm.idea.actions.themes.literature.club.MTSayoriThemeAction"
                     text="Sayori" description="Material Sayori"
                     icon="/icons/actions/themes/material_sayori@2x.png">
             </action>
-            <action id="MTNatsukiTheme" class="com.chrisrm.idea.actions.themes.MTNatsukiThemeAction"
+            <action id="MTNatsukiTheme" class="com.chrisrm.idea.actions.themes.literature.club.MTNatsukiThemeAction"
                     text="Natsuki" description="Material Natsuki"
                     icon="/icons/actions/themes/material_natsuki@2x.png">
             </action>
-            <action id="MTYuri" class="com.chrisrm.idea.actions.themes.MTYuriThemeAction"
+            <action id="MTYuri" class="com.chrisrm.idea.actions.themes.literature.club.MTYuriThemeAction"
                     text="Yuri" description="Material Yuri"
                     icon="/icons/actions/themes/material_yuri@2x.png">
             </action>

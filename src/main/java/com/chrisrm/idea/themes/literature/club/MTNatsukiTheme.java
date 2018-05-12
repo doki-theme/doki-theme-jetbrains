@@ -1,7 +1,7 @@
-package com.chrisrm.idea.themes;
+package com.chrisrm.idea.themes.literature.club;
 
 public final class MTNatsukiTheme extends MTDokiDokiTheme {
   public MTNatsukiTheme() {
-    super("mt.monika", "Material Monika", false);
+    super("mt.monika", "Just Monika", false);
   }
 }

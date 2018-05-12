@@ -41,7 +41,6 @@ public final class ContrastResources {
       "EditorPane.background",
       "ToolBar.background",
       "FormattedTextField.background",
-      "TabbedPane.mt.tab.background",
       "ComboBox.background",
       "ComboBox.disabledBackground",
       "ComboBox.arrowFillColor",

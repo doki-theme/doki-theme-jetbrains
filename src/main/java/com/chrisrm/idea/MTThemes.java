@@ -27,6 +27,10 @@
 package com.chrisrm.idea;
 
 import com.chrisrm.idea.themes.*;
+import com.chrisrm.idea.themes.literature.club.MTMonikaTheme;
+import com.chrisrm.idea.themes.literature.club.MTNatsukiTheme;
+import com.chrisrm.idea.themes.literature.club.MTSayoriTheme;
+import com.chrisrm.idea.themes.literature.club.MTYuriTheme;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Collection;
@@ -39,9 +43,9 @@ import java.util.TreeMap;
  */
 public enum MTThemes implements MTThemeFacade {
   MONIKA("MONIKA", new MTMonikaTheme()),
-  SAYORI("SAYORI", new MTMonikaTheme()),
-  NATSUKI("NATSUKI", new MTMonikaTheme()),
-  YURI("YURI", new MTMonikaTheme());
+  SAYORI("SAYORI", new MTSayoriTheme()),
+  NATSUKI("NATSUKI", new MTNatsukiTheme()),
+  YURI("YURI", new MTYuriTheme());
 
   private static final Map<String, MTThemeFacade> THEMES_MAP = new TreeMap<>();
 

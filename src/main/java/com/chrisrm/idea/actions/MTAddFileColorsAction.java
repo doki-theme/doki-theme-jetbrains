@@ -26,7 +26,7 @@
 package com.chrisrm.idea.actions;
 
 import com.chrisrm.idea.messages.MaterialThemeBundle;
-import com.chrisrm.idea.themes.*;
+import com.chrisrm.idea.themes.literature.club.MTMonikaTheme;
 import com.chrisrm.idea.utils.Notify;
 import com.intellij.notification.Notification;
 import com.intellij.notification.NotificationListener;

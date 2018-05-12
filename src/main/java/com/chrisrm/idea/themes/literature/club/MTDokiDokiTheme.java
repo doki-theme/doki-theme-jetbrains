@@ -24,7 +24,7 @@
  *
  */
 
-package com.chrisrm.idea.themes;
+package com.chrisrm.idea.themes.literature.club;
 
 import com.chrisrm.idea.MTAbstractTheme;
 import org.jetbrains.annotations.NotNull;
@@ -32,7 +32,7 @@ import org.jetbrains.annotations.NotNull;
 import java.awt.*;
 import java.util.stream.Stream;
 
-public final class MTMonikaTheme extends MTDokiDokiTheme {
+public class MTDokiDokiTheme extends MTAbstractTheme {
   public static final String BACKGROUND = "fffcfc"; // 250, 250, 250
   public static final String FOREGROUND = "A7ADB0"; // 167, 173, 176
   public static final String CARET = "FFCC00"; // 255, 204, 0
@@ -56,30 +56,42 @@ public final class MTMonikaTheme extends MTDokiDokiTheme {
   public static final String NON_PROJECT_FILES = "fdffce";
   public static final String TEST_FILES = "bbff7e";
 
-  public MTMonikaTheme() {
-    super("mt.monika", "Material Monika", false);
+  public MTDokiDokiTheme(@NotNull String id, String editorColorsScheme, boolean dark) {
+    super(id, editorColorsScheme, dark);
   }
 
   @NotNull
   @Override
   public String getSelectionBackground() {
-    return MTMonikaTheme.SELECTION_BACKGROUND;
+    return MTDokiDokiTheme.SELECTION_BACKGROUND;
   }
 
   @NotNull
   @Override
   public String getDisabled() {
-    return MTMonikaTheme.DISABLED;
+    return MTDokiDokiTheme.DISABLED;
   }
 
+  @Override
+  protected String getEditorTabColorString() {
+    return "def7a5";
+  }
+
+  //todo: important
   @Override
   protected String getNotificationsColorString() {
     return "C3E88D";
   }
 
+  //todo:important
   @Override
-  protected String getTreeSelectionColorString() {
+  protected String getTreeSelectionBackgroundColorString() {
     return "546E50";
+  }
+
+  @Override
+  protected String getTreeSelectionForegroundColorString() {
+    return "FFFFFF";
   }
 
   protected String getButtonHighlightColorString() {
@@ -132,6 +144,18 @@ public final class MTMonikaTheme extends MTDokiDokiTheme {
     return "447152";
   }
 
+  //  todo: imporant
+  @Override
+  protected String getMenuBarSelectionForegroundColorString() {
+    return "7880a1";
+  }
+
+  //  todo: imporant
+  @Override
+  protected String getMenuBarSelectionBackgroundColorString() {
+    return "ffffff";
+  }
+
   //todo: important
   @Override
   protected String getSelectionBackgroundColorString() {
@@ -155,9 +179,16 @@ public final class MTMonikaTheme extends MTDokiDokiTheme {
   }
 
   @Override
-  protected String[] getTreeSelectionResources() {
+  protected String[] getTreeSelectionBackgroundResources() {
     return new String[] {
         "Tree.selectionBackground"
+    };
+  }
+
+  @Override
+  protected String[] getTreeSelectionForegroundResources() {
+    return new String[] {
+        "Tree.selectionForeground"
     };
   }
 
@@ -204,7 +235,15 @@ public final class MTMonikaTheme extends MTDokiDokiTheme {
         "ToolWindow.header.tab.selected.active.background",
         "material.contrast",
         "ActionToolbar.background",
-        "Toolbar.background"
+        "Toolbar.background",
+        "material.tab.backgroundColor",
+        "TabbedPane.mt.tab.background",
+        "TabbedPane.background",
+        "OptionPane.background",
+        "TabbedPane.highlight",
+        "TabbedPane.darkShadow",
+        "TabbedPane.shadow",
+        "TabbedPane.borderColor",
     };
   }
 
@@ -254,7 +293,6 @@ public final class MTMonikaTheme extends MTDokiDokiTheme {
   @Override
   protected Stream<String> getSelectionForegroundResources() {
     return Stream.of(
-        "mt.monika.selectionForeground",
             "Menu.selectionForeground",
             "Menu.acceleratorSelectionForeground",
             "MenuItem.selectionForeground",
@@ -275,11 +313,8 @@ public final class MTMonikaTheme extends MTDokiDokiTheme {
   @Override
   protected String[] getSelectionBackgroundResources() {
     return new String[] {
-        "mt.monika.selectionBackgroundInactive",
-        "mt.monika.selectionInactiveBackground",
         "inactiveCaption",
         "Button.disabledText",
-        "mt.monika.selectionBackground",
         "Menu.selectionBackground",
         "Menu.acceleratorSelectionBackground",
         "MenuItem.selectionBackground",
@@ -320,10 +355,6 @@ public final class MTMonikaTheme extends MTDokiDokiTheme {
         "Table.background",
         "MenuBar.disabledBackground",
         "MenuBar.shadow",
-        "TabbedPane.highlight",
-        "TabbedPane.darkShadow",
-        "TabbedPane.shadow",
-        "TabbedPane.borderColor",
         "Desktop.background",
         "PopupMenu.background",
         "Separator.background",
@@ -363,10 +394,7 @@ public final class MTMonikaTheme extends MTDokiDokiTheme {
         "CheckBox.background",
         "ColorChooser.background",
         "Slider.background",
-        "TabbedPane.background",
-        "OptionPane.background",
         "ToolWindow.header.background",
-        "material.tab.backgroundColor",
         "material.background"
     };
   }

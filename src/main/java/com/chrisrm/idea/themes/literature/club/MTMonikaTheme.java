@@ -24,15 +24,14 @@
  *
  */
 
-package com.chrisrm.idea.themes;
+package com.chrisrm.idea.themes.literature.club;
 
-import com.chrisrm.idea.MTAbstractTheme;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
 import java.util.stream.Stream;
 
-public class MTDokiDokiTheme extends MTAbstractTheme {
+public final class MTMonikaTheme extends MTDokiDokiTheme {
   public static final String BACKGROUND = "fffcfc"; // 250, 250, 250
   public static final String FOREGROUND = "A7ADB0"; // 167, 173, 176
   public static final String CARET = "FFCC00"; // 255, 204, 0
@@ -56,20 +55,20 @@ public class MTDokiDokiTheme extends MTAbstractTheme {
   public static final String NON_PROJECT_FILES = "fdffce";
   public static final String TEST_FILES = "bbff7e";
 
-  public MTDokiDokiTheme(@NotNull String id, String editorColorsScheme, boolean dark) {
-    super(id, editorColorsScheme, dark);
+  public MTMonikaTheme() {
+    super("mt.monika", "Just Monika", false);
   }
 
   @NotNull
   @Override
   public String getSelectionBackground() {
-    return MTDokiDokiTheme.SELECTION_BACKGROUND;
+    return MTMonikaTheme.SELECTION_BACKGROUND;
   }
 
   @NotNull
   @Override
   public String getDisabled() {
-    return MTDokiDokiTheme.DISABLED;
+    return MTMonikaTheme.DISABLED;
   }
 
   @Override
@@ -78,7 +77,7 @@ public class MTDokiDokiTheme extends MTAbstractTheme {
   }
 
   @Override
-  protected String getTreeSelectionColorString() {
+  protected String getTreeSelectionBackgroundColorString() {
     return "546E50";
   }
 
@@ -155,7 +154,7 @@ public class MTDokiDokiTheme extends MTAbstractTheme {
   }
 
   @Override
-  protected String[] getTreeSelectionResources() {
+  protected String[] getTreeSelectionBackgroundResources() {
     return new String[] {
         "Tree.selectionBackground"
     };

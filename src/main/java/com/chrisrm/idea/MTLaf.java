@@ -89,7 +89,6 @@ public final class MTLaf extends DarculaLaf {
       // Replace global settings in custom themes
       final MTThemeable selectedTheme = MTConfig.getInstance().getSelectedTheme().getTheme();
       if (selectedTheme.isCustom()) {
-        // todo replace other properties
         final Color backgroundColorString = selectedTheme.getBackgroundColor();
         final ColorUIResource backgroundColor = new ColorUIResource(backgroundColorString);
         darculaGlobalSettings.put("background", backgroundColor);

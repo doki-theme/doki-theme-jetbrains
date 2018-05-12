@@ -29,7 +29,7 @@ package com.chrisrm.idea.config.scope;
 import com.intellij.psi.search.scope.packageSet.NamedScope;
 
 public class MTLighterNonProjectScope extends NamedScope {
-  public static final String NAME = "Non-Project Files (Material Monika)";
+  public static final String NAME = "Non-Project Files (Just Monika)";
 
   public MTLighterNonProjectScope() {
     super(NAME, new MTNonProjectFiles());

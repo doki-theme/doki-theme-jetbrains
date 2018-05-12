@@ -34,12 +34,6 @@ public final class WeebShitManager {
     return instance;
   }
 
-  public void setProjectRef() {
-    PropertiesComponent instance = PropertiesComponent.getInstance();
-    isOn.getAndSet(instance.getBoolean(WEEB_SHIT_PROPERTY, true));
-    turnOnIfNecessary();
-  }
-
   private void turnOnIfNecessary() {
     if (isOn.get())
       turnOnWeebShit();

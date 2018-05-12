@@ -153,4 +153,6 @@ public interface MTThemeable {
   Icon getIcon();
 
   void setIcon(String icon);
+
+  Color getEditorTabColor();
 }

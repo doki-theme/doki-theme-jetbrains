@@ -24,7 +24,7 @@
   ~
   -->
 
-<scheme name="Hej Hej Monika" version="142">
+<scheme name="Just Monika" version="142">
     <option name="FONT_SCALE" value="1.0"/>
     <metaInfo>
         <property name="created">2017-04-10T18:10:53</property>
@@ -78,7 +78,7 @@
         <!--todo: important-->
         <option name="GUTTER_BACKGROUND" value="aadd5d"/>
         <!--todo: important-->
-        <option name="LINEgu_NUMBERS_COLOR" value="063d3f"/>
+        <option name="LINE_NUMBERS_COLOR" value="063d3f"/>
         <option name="INDENT_GUIDE" value="b0bec5"/>
         <option name="INFORMATION_HINT" value="f3f5f6"/>
         <option name="METHOD_SEPARATORS_COLOR" value="b0bec5"/>
@@ -101,7 +101,6 @@
         <option name="MT_SWITCHED" value="f76d47"/>
         <option name="MT_UNKNOWN" value="e53935"/>
         <option name="MT_modifiedOutside" value="6182b8"/>
-        <option name="NOTIFICATION_BACKGROUND" value="3d1a11"/>
         <option name="NOT_CHANGED" value="a7adb0"/>
         <option name="QUESTION_HINT" value="f3f5f6"/>
         <option name="READONLY_FRAGMENT_BACKGROUND" value=""/>
@@ -109,6 +108,7 @@
         <option name="RIGHT_MARGIN_COLOR" value="e7eaec"/>
         <option name="SELECTED_INDENT_GUIDE" value="8c8c8c"/>
         <!--todo: important-->
+        <option name="NOTIFICATION_BACKGROUND" value="ffbde1"/>
         <option name="SELECTION_BACKGROUND" value="99eb99"/>
         <option name="SELECTION_FOREGROUND" value="006d09"/>
 
