@@ -48,9 +48,9 @@
         <option name="ADDED_LINES_COLOR" value="264b33"/>
         <option name="ANNOTATIONS_COLOR" value="474747"/>
         <!--TODO: IMPORTANT-->
-        <option name="CARET_COLOR" value="ff79c9"/>
+        <option name="CARET_COLOR" value="5336c9"/>
         <!--TODO: IMPORTANT-->
-        <option name="CARET_ROW_COLOR" value="ffe0fc"/>
+        <option name="CARET_ROW_COLOR" value="a877fc"/>
         <option name="CONSOLE_BACKGROUND_KEY" value="fffcfc"/>
         <option name="DELETED_LINES_COLOR" value="b63b50"/>
         <option name="DOCUMENTATION_COLOR" value="f3f5f6"/>
@@ -76,9 +76,9 @@
         <option name="FILESTATUS_changelistConflict" value="d5756c"/>
         <option name="FILESTATUS_modifiedOutside" value="6182b8"/>
         <!--todo: important-->
-        <option name="GUTTER_BACKGROUND" value="ffa7ff"/>
+        <option name="GUTTER_BACKGROUND" value="a7a7ff"/>
         <!--todo: important-->
-        <option name="LINE_NUMBERS_COLOR" value="ee1fb1"/>
+        <option name="LINE_NUMBERS_COLOR" value="b11ffc"/>
         <option name="INDENT_GUIDE" value="b0bec5"/>
         <option name="INFORMATION_HINT" value="f3f5f6"/>
         <option name="METHOD_SEPARATORS_COLOR" value="b0bec5"/>
@@ -108,7 +108,7 @@
         <option name="RIGHT_MARGIN_COLOR" value="e7eaec"/>
         <option name="SELECTED_INDENT_GUIDE" value="8c8c8c"/>
         <!--todo: important-->
-        <option name="NOTIFICATION_BACKGROUND" value="ffbde1"/>
+        <option name="NOTIFICATION_BACKGROUND" value="bd8ae1"/>
         <option name="SELECTION_BACKGROUND" value="f5b4e9"/>
         <option name="SELECTION_FOREGROUND" value="fd53e7"/>
         <option name="SELECTED_TEARLINE_COLOR" value="ff99ff"/>
@@ -132,7 +132,7 @@
         <option name="FOLDED_TEXT">
             <value>
                 <!--todo:important-->
-                <option name="FOREGROUND" value="ff99ff"/>
+                <option name="FOREGROUND" value="aa99ff"/>
             </value>
         </option>
         <option name="ANNOTATION_ATTRIBUTE_NAME_ATTRIBUTES">
@@ -270,21 +270,21 @@
         </option>
         <option name="BREADCRUMBS_CURRENT">
             <value>
-                <option name="FOREGROUND" value="fff3dd"/>
-                <option name="BACKGROUND" value="3a8d2c"/>
+                <option name="FOREGROUND" value="aaafdd"/>
+                <option name="BACKGROUND" value="6b6bce"/>
             </value>
         </option>
         <option name="BREADCRUMBS_DEFAULT">
             <value>
-                <option name="FOREGROUND" value="ffcfff"/>
-                <option name="BACKGROUND" value="f76fce"/>
+                <option name="FOREGROUND" value="cfcfff"/>
+                <option name="BACKGROUND" value="af6fd8"/>
                 <!--TODO: IMPORTANT-->
             </value>
         </option>
         <option name="BREADCRUMBS_HOVERED">
             <value>
-                <option name="FOREGROUND" value="ff00e7"/>
-                <option name="BACKGROUND" value="ff70c9"/>
+                <option name="FOREGROUND" value="c53ce7"/>
+                <option name="BACKGROUND" value="b670ec"/>
                 <!--todo: important-->
             </value>
         </option>
@@ -861,7 +861,7 @@
         <!--TODO:  IMPORTANT-->
         <option name="EXECUTIONPOINT_ATTRIBUTES">
             <value>
-                <option name="BACKGROUND" value="eec0ee"/>
+                <option name="BACKGROUND" value="aa99ee"/>
             </value>
         </option>
         <option name="Enum name">
