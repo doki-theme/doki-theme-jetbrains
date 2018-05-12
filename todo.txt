@@ -19,7 +19,10 @@ Find a way to put an image in. (HAPPY)
 notification title bar.(HAPPY)
 
 ------
-
+selected table row color
+breakpoint color
+search everywhere
+test background (sayori)
 ?Code Colors?
 line coverage
 FILE changed status (NOT AVAILABLE IN COMMUNITY)

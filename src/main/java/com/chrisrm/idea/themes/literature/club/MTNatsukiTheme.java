@@ -7,7 +7,7 @@ public final class MTNatsukiTheme extends MTDokiDokiTheme {
 
   @Override
   protected String getBackgroundColorString() {
-    return "fbf4fc";
+    return "fff3fc";
   }
 
   @Override
@@ -42,7 +42,7 @@ public final class MTNatsukiTheme extends MTDokiDokiTheme {
 
   @Override
   protected String getMenuBarSelectionBackgroundColorString() {
-    return "de0a83";
+    return "d9031a";
   }
 
   @Override
