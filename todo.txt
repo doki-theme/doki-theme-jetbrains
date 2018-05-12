@@ -18,12 +18,13 @@ Find a way to put an image in. (HAPPY)
 (org.intellij.images.editor.actions.SetBackgroundImageDialog has all of the answers)
 notification title bar.(HAPPY)
 selected table row color(happy)
+breakpoint color (happy)
 
 ------
 
-breakpoint color
 search everywhere
 test background (sayori)
-?Code Colors?
+
 line coverage
 FILE changed status (NOT AVAILABLE IN COMMUNITY)
+?Code Colors?
