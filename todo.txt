@@ -19,13 +19,14 @@ Find a way to put an image in. (HAPPYins)
 notification title bar.(HAPPY)
 selected table row color(happy)
 breakpoint color (happy)
+breadcrumbs (happy)
+test background (happy)//lol, it changes everytime it runs
 
 ------
 
-breadcrumbs (sayori, natsuki)
 search everywhere
-test background (sayori)
 
-line coverage
+line coverage makes everything unreadable
+
 FILE changed status (NOT AVAILABLE IN COMMUNITY)
 ?Code Colors?
