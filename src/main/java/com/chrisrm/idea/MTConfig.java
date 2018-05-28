@@ -51,7 +51,7 @@ import java.util.Objects;
 )
 public class MTConfig implements PersistentStateComponent<MTConfig> {
   public static final String DEFAULT_BG =
-      "https://raw.githubusercontent.com/ChrisRM/material-theme-jetbrains/master/src/main/resources/themes/wall.jpg,60";
+      "https://github.com/cyclic-reference/jetbrains-theme/master/src/main/resources/themes/Doki_Doki_Literature_Club.png";
   public static final String ACCENT_COLOR = "80CBC4";
   public static final int MAX_HIGHLIGHT_THICKNESS = 5;
   public static final int MIN_HIGHLIGHT_THICKNESS = 1;

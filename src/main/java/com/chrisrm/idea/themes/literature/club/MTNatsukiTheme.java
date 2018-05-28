@@ -17,7 +17,7 @@ public final class MTNatsukiTheme extends MTDokiDokiTheme {
 
   @Override
   protected String getSecondaryForegroundColorString() {
-    return "ff6fe2";
+    return "b9198d";
   }
 
   @Override

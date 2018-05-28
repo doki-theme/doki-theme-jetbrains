@@ -14,7 +14,7 @@ ctrl-shift-a selection colors (happy)
 monika carot and breakpoint regressed. (not anymore)
 editor pane tab background color (happy)
 above breadcrumbs row highlight (happy)
-Find a way to put an image in. (HAPPY)
+Find a way to put an image in. (HAPPYins)
 (org.intellij.images.editor.actions.SetBackgroundImageDialog has all of the answers)
 notification title bar.(HAPPY)
 selected table row color(happy)
@@ -22,6 +22,7 @@ breakpoint color (happy)
 
 ------
 
+breadcrumbs (sayori, natsuki)
 search everywhere
 test background (sayori)
 
