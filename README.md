@@ -1,6 +1,6 @@
 <div align="center">
 <a href="http://mallowigi.github.io/material-theme-jetbrains-eap">
-<img src="https://dotesports-cdn-prod-tqgiyve.stackpathdns.com/thumbor/DHHaCqqybeEzseUTcU0lRnH1I0g=/1200x0/filters:no_upscale()/https://dotesports-cdn-prod-tqgiyve.stackpathdns.com/article/a43dd49f-7adb-40b7-86f8-33280dc49371.png" alt="Just Monika"></img>
+<img src="https://raw.githubusercontent.com/cyclic-reference/jetbrains-theme/master/src/main/resources/themes/Doki_Doki_Literature_Club.png" alt="Just Monika"></img>
 </a>
 </div>
 
