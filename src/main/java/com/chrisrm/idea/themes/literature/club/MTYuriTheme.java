@@ -7,7 +7,7 @@ public final class MTYuriTheme extends MTDokiDokiTheme {
 
   @Override
   protected String getBackgroundColorString() {
-    return "eaf0fc";
+    return "e8e4ff";
   }
 
   @Override
@@ -17,7 +17,7 @@ public final class MTYuriTheme extends MTDokiDokiTheme {
 
   @Override
   protected String getSecondaryForegroundColorString() {
-    return "b16ffa";
+    return "562474";
   }
 
   @Override

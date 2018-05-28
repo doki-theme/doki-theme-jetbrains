@@ -22,7 +22,6 @@ breakpoint color (happy)
 
 ------
 
-search everywhere selected colors (natsuki, yuri)
 breadcrumbs (sayori, natsuki)
 search everywhere
 test background (sayori)
