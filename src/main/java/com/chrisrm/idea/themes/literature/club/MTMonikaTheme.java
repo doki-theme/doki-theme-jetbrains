@@ -150,7 +150,7 @@ public final class MTMonikaTheme extends MTDokiDokiTheme {
 
   @Override
   protected String getBackgroundColorString() {
-    return "fffcfc";
+    return "f2fadf";
   }
 
   @Override

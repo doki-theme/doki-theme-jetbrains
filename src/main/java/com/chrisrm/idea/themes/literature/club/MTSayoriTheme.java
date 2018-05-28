@@ -7,7 +7,7 @@ public final class MTSayoriTheme extends MTDokiDokiTheme {
 
   @Override
   protected String getBackgroundColorString() {
-    return "fbfcfc";
+    return "f4fbfe";
   }
 
   @Override

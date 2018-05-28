@@ -283,7 +283,7 @@
         </option>
         <option name="BREADCRUMBS_HOVERED">
             <value>
-                <option name="FOREGROUND" value="c53ce7"/>
+                <option name="FOREGROUND" value="ffffff"/>
                 <option name="BACKGROUND" value="b670ec"/>
                 <!--todo: important-->
             </value>
@@ -291,8 +291,8 @@
         <!--todo: important-->
         <option name="BREADCRUMBS_INACTIVE">
             <value>
-                <option name="FOREGROUND" value="ff33ad"/>
-                <option name="BACKGROUND" value="ff8be4"/>
+                <option name="FOREGROUND" value="8833ad"/>
+                <option name="BACKGROUND" value="bb8be4"/>
             </value>
         </option>
         <option name="BREAKPOINT_ATTRIBUTES">
