@@ -1504,12 +1504,12 @@
         </option>
         <option name="LINE_FULL_COVERAGE">
             <value>
-                <option name="BACKGROUND" value="91b859"/>
+                <option name="BACKGROUND" value="eeffd6"/>
             </value>
         </option>
         <option name="LINE_NONE_COVERAGE">
             <value>
-                <option name="BACKGROUND" value="e53935"/>
+                <option name="BACKGROUND" value="fae1ea"/>
                 <option name="EFFECT_TYPE" value="3"/>
             </value>
         </option>

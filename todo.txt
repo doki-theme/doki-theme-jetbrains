@@ -21,12 +21,14 @@ selected table row color(happy)
 breakpoint color (happy)
 breadcrumbs (happy)
 test background (happy)//lol, it changes everytime it runs
+line coverage makes everything unreadable (should be happy meow)
 
 ------
 
-search everywhere
 
-line coverage makes everything unreadable
 
 FILE changed status (NOT AVAILABLE IN COMMUNITY)
 ?Code Colors?
+
+
+search everywhere
