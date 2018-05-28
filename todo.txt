@@ -25,10 +25,8 @@ line coverage makes everything unreadable (should be happy meow)
 
 ------
 
-
-
-FILE changed status (NOT AVAILABLE IN COMMUNITY)
 ?Code Colors?
 
 
 search everywhere
+FILE changed status (NOT AVAILABLE IN COMMUNITY)
