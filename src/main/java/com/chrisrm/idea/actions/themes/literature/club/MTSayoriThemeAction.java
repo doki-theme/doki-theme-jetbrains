@@ -43,6 +43,7 @@ public final class MTSayoriThemeAction extends MTAbstractThemeAction {
 
   @Override
   public void setSelected(final AnActionEvent e, final boolean state) {
+    super.setSelected(e, state);
     mtSkyAccentAction.actionPerformed(e);
     MTThemeManager.getInstance().activate(MTThemes.SAYORI, true);
     WeebShitManager.getInstance().activate(MTThemes.SAYORI);

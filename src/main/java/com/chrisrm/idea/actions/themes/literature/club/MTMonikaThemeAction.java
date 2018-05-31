@@ -43,6 +43,7 @@ public final class MTMonikaThemeAction extends MTAbstractThemeAction {
 
   @Override
   public void setSelected(final AnActionEvent e, final boolean state) {
+    super.setSelected(e, state);
     breakingBadAccentAction.actionPerformed(e);
     MTThemeManager.getInstance().activate(MTThemes.MONIKA, true);
     WeebShitManager.getInstance().activate(MTThemes.MONIKA);

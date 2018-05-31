@@ -27,13 +27,17 @@
 package com.chrisrm.idea.utils;
 
 import com.chrisrm.idea.MTConfig;
+import com.chrisrm.idea.ui.MTActionButtonLook;
+import com.chrisrm.idea.ui.MTNavBarUI;
 import com.google.common.collect.ImmutableMap;
 import com.intellij.codeInsight.hint.ParameterInfoComponent;
 import com.intellij.codeInsight.lookup.impl.LookupCellRenderer;
 import com.intellij.icons.AllIcons;
+import com.intellij.ide.navigationToolbar.ui.NavBarUIManager;
 import com.intellij.ide.ui.laf.darcula.DarculaUIUtil;
 import com.intellij.lang.parameterInfo.ParameterInfoUIContextEx;
 import com.intellij.notification.impl.NotificationsManagerImpl;
+import com.intellij.openapi.actionSystem.ex.ActionButtonLook;
 import com.intellij.openapi.actionSystem.impl.IdeaActionButtonLook;
 import com.intellij.openapi.options.newEditor.SettingsTreeView;
 import com.intellij.openapi.ui.MessageType;
@@ -55,7 +59,7 @@ import com.intellij.vcs.log.ui.highlighters.CurrentBranchHighlighter;
 import com.intellij.vcs.log.ui.highlighters.MergeCommitsHighlighter;
 
 import javax.swing.*;
-import javax.swing.plaf.ColorUIResource;
+import javax.swing.plaf.*;
 import java.awt.*;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -81,6 +85,8 @@ public final class UIReplacer {
       Patcher.patchVCS();
       Patcher.patchSettings();
       Patcher.patchScopes();
+      Patcher.patchNavBar();
+      Patcher.patchIdeaActionButton();
     } catch (final Exception e) {
       e.printStackTrace();
     }
@@ -103,13 +109,14 @@ public final class UIReplacer {
         StaticPatcher.setFinalStatic(Gray.class, "_145", alphaGray);
         //        StaticPatcher.setFinalStatic(Gray.class, "_255", alphaGray);
         StaticPatcher.setFinalStatic(Gray.class, "_201", alphaGray);
-        StaticPatcher.setFinalStatic(Gray.class, "x39", gray.withAlpha(25));
+        //        StaticPatcher.setFinalStatic(Gray.class, "x39", gray.withAlpha(25));
 
         // Quick info border
         StaticPatcher.setFinalStatic(Gray.class, "_90", gray.withAlpha(25));
 
         // Toolbar separators
         StaticPatcher.setFinalStatic(Gray.class, "_111", alphaGray);
+        StaticPatcher.setFinalStatic(Gray.class, "_128", alphaGray);
 
         //        StaticPatcher.setFinalStatic(Gray.class, "_100", alphaGray);
 
@@ -194,6 +201,9 @@ public final class UIReplacer {
     }
 
     static void patchQuickInfo() throws Exception {
+      if (!MTConfig.getInstance().isMaterialTheme()) {
+        return;
+      }
       final String accentColor = MTConfig.getInstance().getAccentColor();
 
       final Field[] fields = ParameterInfoComponent.class.getDeclaredFields();
@@ -208,11 +218,16 @@ public final class UIReplacer {
     }
 
     static void patchAutocomplete() throws Exception {
+      if (!MTConfig.getInstance().isMaterialTheme()) {
+        return;
+      }
       final String accentColor = MTConfig.getInstance().getAccentColor();
       final JBColor jbAccentColor = new JBColor(ColorUtil.fromHex(accentColor), ColorUtil.fromHex(accentColor));
 
       final Color defaultValue = UIUtil.getListSelectionBackground();
-      final Color backgroundSelectedColor = ObjectUtils.notNull(UIManager.getColor("Autocomplete.selectionbackground"), defaultValue);
+      final Color backgroundSelectedColor = ObjectUtils.notNull(UIManager.getColor("Autocomplete.selectionBackground"), defaultValue);
+      final Color backgroundUnfocusedSelectedColor = ObjectUtils.notNull(UIManager.getColor("Autocomplete.selectionUnfocus"), defaultValue);
+
       final Color secondTextColor = ObjectUtils.notNull(UIManager.getColor("Menu.acceleratorForeground"), defaultValue);
 
       final Field[] fields = LookupCellRenderer.class.getDeclaredFields();
@@ -256,9 +271,18 @@ public final class UIReplacer {
 
       final Constructor<MessageType> declaredConstructor = MessageType.class.getDeclaredConstructor(Icon.class, Color.class, Color.class);
       declaredConstructor.setAccessible(true);
-      final Color errorBackground = ObjectUtils.notNull(UIManager.getColor("Notifications.errorBackground"), new ColorUIResource(0x323232));
-      final Color warnBackground = ObjectUtils.notNull(UIManager.getColor("Notifications.warnBackground"), new ColorUIResource(0x323232));
-      final Color infoBackground = ObjectUtils.notNull(UIManager.getColor("Notifications.infoBackground"), new ColorUIResource(0x323232));
+      final Color errorBackground = ObjectUtils.notNull(UIManager.getColor("Notifications.errorBackground"), new JBColor(
+          new ColorUIResource(0xE53935),
+          new ColorUIResource(0x743A3A)
+      ));
+      final Color warnBackground = ObjectUtils.notNull(UIManager.getColor("Notifications.warnBackground"), new JBColor(
+          new ColorUIResource(0xFFB62C),
+          new ColorUIResource(0x7F6C00))
+      );
+      final Color infoBackground = ObjectUtils.notNull(UIManager.getColor("Notifications.infoBackground"), new JBColor(
+          new ColorUIResource(0x91B859),
+          new ColorUIResource(0x356936))
+      );
 
       final JBColor errorBackgroundColor = new JBColor(errorBackground, errorBackground);
       final JBColor warnBackgroundColor = new JBColor(warnBackground, warnBackground);
@@ -400,7 +424,6 @@ public final class UIReplacer {
                                        .toArray();
 
         StaticPatcher.setFinalStatic((Field) objects[0], commitsColor);
-      }
 
       final Field[] fields2 = MergeCommitsHighlighter.class.getDeclaredFields();
       final Object[] objects2 = Arrays.stream(fields2)
@@ -418,8 +441,12 @@ public final class UIReplacer {
       StaticPatcher.setFinalStatic(VcsLogStandardColors.Refs.class, "BRANCH_REF", branchColor);
       StaticPatcher.setFinalStatic(VcsLogStandardColors.Refs.class, "TAG", tagColor);
     }
+    }
 
     public static void patchSettings() throws Exception {
+      if (!MTConfig.getInstance().isMaterialTheme()) {
+        return;
+      }
       final Color accentColor = ColorUtil.fromHex(MTConfig.getInstance().getAccentColor());
 
       final Field[] fields = SettingsTreeView.class.getDeclaredFields();
@@ -431,6 +458,10 @@ public final class UIReplacer {
     }
 
     public static void patchScopes() throws Exception {
+      if (!MTConfig.getInstance().isMaterialTheme()) {
+        return;
+      }
+
       final String disabled = MTConfig.getInstance().getSelectedTheme().getTheme().getDisabled();
       final JBColor disabledColor = new JBColor(ColorUtil.fromHex(disabled), ColorUtil.fromHex(disabled));
 
@@ -442,10 +473,33 @@ public final class UIReplacer {
           .put("Violet", new JBColor(new Color(0xC792EA), new Color(0x2F235F)))
           .put("Yellow", new JBColor(new Color(0xFFCB6B), new Color(0x885522)))
           .put("Theme", disabledColor)
-          .put("Theme", disabledColor)
           .build();
 
-      StaticPatcher.setFinalStatic(FileColorManagerImpl.class, "ourDefaultColors", ourDefaultColors);
+      final Field[] fields = FileColorManagerImpl.class.getDeclaredFields();
+      final Object[] objects = Arrays.stream(fields)
+          .filter(f -> f.getType().equals(Map.class))
+          .toArray();
+
+      StaticPatcher.setFinalStatic((Field) objects[0], ourDefaultColors);
+    }
+
+    public static void patchNavBar() throws Exception {
+      if (MTConfig.getInstance().getIsMaterialDesign()) {
+        StaticPatcher.setFinalStatic(NavBarUIManager.class, "DARCULA", new MTNavBarUI());
+        StaticPatcher.setFinalStatic(NavBarUIManager.class, "COMMON", new MTNavBarUI());
+      }
+    }
+
+    public static void patchIdeaActionButton() throws Exception {
+      if (MTConfig.getInstance().getIsMaterialDesign()) {
+        final Color accentColor = UIManager.getColor("Focus.color");
+        StaticPatcher.setFinalStatic(IdeaActionButtonLook.class, "POPPED_BG", accentColor);
+        StaticPatcher.setFinalStatic(IdeaActionButtonLook.class, "PRESSED_BG", accentColor);
+        StaticPatcher.setFinalStatic(IdeaActionButtonLook.class, "POPPED_BORDER", new JBColor(accentColor, accentColor));
+        StaticPatcher.setFinalStatic(IdeaActionButtonLook.class, "PRESSED_BORDER", new JBColor(accentColor, accentColor));
+
+        StaticPatcher.setFinalStatic(ActionButtonLook.class, "SYSTEM_LOOK", new MTActionButtonLook());
+      }
     }
   }
 

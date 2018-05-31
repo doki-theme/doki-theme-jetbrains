@@ -43,6 +43,7 @@ public final class MTNatsukiThemeAction extends MTAbstractThemeAction {
 
   @Override
   public void setSelected(final AnActionEvent e, final boolean state) {
+    super.setSelected(e, state);
     mtFuschiaAccentAction.actionPerformed(e);
     MTThemeManager.getInstance().activate(MTThemes.NATSUKI, true);
     WeebShitManager.getInstance().activate(MTThemes.NATSUKI);
