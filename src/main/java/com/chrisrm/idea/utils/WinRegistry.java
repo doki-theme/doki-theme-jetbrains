@@ -32,7 +32,7 @@ import java.awt.*;
 
 import static com.sun.jna.platform.win32.WinReg.HKEY_CURRENT_USER;
 
-public final class WinRegistry {
+public class WinRegistry {
   private WinRegistry() {
 
   }

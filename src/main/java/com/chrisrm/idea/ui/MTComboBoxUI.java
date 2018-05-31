@@ -36,14 +36,18 @@ import com.intellij.util.ui.JBUI;
 import com.intellij.util.ui.MacUIUtil;
 import com.intellij.util.ui.UIUtil;
 import org.jetbrains.annotations.NotNull;
-import sun.swing.DefaultLookup;
 
 import javax.swing.*;
-import javax.swing.border.*;
-import javax.swing.plaf.*;
-import javax.swing.plaf.basic.*;
+import javax.swing.border.Border;
+import javax.swing.plaf.ColorUIResource;
+import javax.swing.plaf.ComponentUI;
+import javax.swing.plaf.basic.BasicArrowButton;
+import javax.swing.plaf.basic.BasicComboPopup;
+import javax.swing.plaf.basic.ComboPopup;
 import java.awt.*;
-import java.awt.geom.*;
+import java.awt.geom.Path2D;
+import java.awt.geom.Rectangle2D;
+import java.awt.geom.RoundRectangle2D;
 
 import static com.intellij.ide.ui.laf.darcula.DarculaUIUtil.*;
 
@@ -62,12 +66,6 @@ public final class MTComboBoxUI extends DarculaComboBoxUI implements Border, Err
   public static ComponentUI createUI(final JComponent c) {
     return new MTComboBoxUI(((JComboBox) c));
   }
-
-  //  @Override
-  //  public void installUI(final JComponent c) {
-  //    super.installUI(c);
-  //    comboBox = (JComboBox) c;
-  //  }
 
   @Override
   protected void installDefaults() {
@@ -138,8 +136,8 @@ public final class MTComboBoxUI extends DarculaComboBoxUI implements Border, Err
         c.setForeground(comboBox.getForeground());
         c.setBackground(comboBox.getBackground());
       } else {
-        c.setForeground(DefaultLookup.getColor(comboBox, this, "ComboBox.disabledForeground", null));
-        c.setBackground(DefaultLookup.getColor(comboBox, this, "ComboBox.disabledBackground", null));
+        c.setForeground(UIManager.getColor("ComboBox.disabledForeground", null));
+        c.setBackground(UIManager.getColor("ComboBox.disabledBackground", null));
       }
     }
     // paint selection in table-cell-editor mode correctly
@@ -180,7 +178,7 @@ public final class MTComboBoxUI extends DarculaComboBoxUI implements Border, Err
 
     g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
     g.setRenderingHint(RenderingHints.KEY_STROKE_CONTROL,
-                       MacUIUtil.USE_QUARTZ ? RenderingHints.VALUE_STROKE_PURE : RenderingHints.VALUE_STROKE_NORMALIZE);
+            MacUIUtil.USE_QUARTZ ? RenderingHints.VALUE_STROKE_PURE : RenderingHints.VALUE_STROKE_NORMALIZE);
 
     final float outerArc = arc > 0 ? arc + bw - JBUI.scale(2f) : bw;
     final float rightOuterArc = symmetric ? outerArc : JBUI.scale(6f);
@@ -218,9 +216,9 @@ public final class MTComboBoxUI extends DarculaComboBoxUI implements Border, Err
   public void paintCurrentValueBackground(final Graphics g, final Rectangle bounds, final boolean hasFocus) {
     final Color oldColor = g.getColor();
     if (comboBox.isEnabled()) {
-      g.setColor(DefaultLookup.getColor(comboBox, this, "ComboBox.background", null));
+      g.setColor(UIManager.getColor("ComboBox.background", null));
     } else {
-      g.setColor(ColorUtil.toAlpha(DefaultLookup.getColor(comboBox, this, "ComboBox.disabledBackground", null), 50));
+      g.setColor(ColorUtil.toAlpha(UIManager.getColor("ComboBox.disabledBackground", null), 50));
     }
     g.fillRect(bounds.x, bounds.y, bounds.width, bounds.height);
     g.setColor(oldColor);
@@ -316,9 +314,9 @@ public final class MTComboBoxUI extends DarculaComboBoxUI implements Border, Err
   @Override
   protected Color getArrowButtonFillColor(final Color defaultColor) {
     return MTUiUtils.getColor(
-        UIManager.getColor("ComboBox.arrowFillColor"),
-        ObjectUtils.notNull(UIManager.getColor("ComboBox.darcula.arrowFillColor"), defaultColor),
-        ObjectUtils.notNull(UIManager.getColor("ComboBox.darcula.arrowFillColor"), defaultColor));
+            UIManager.getColor("ComboBox.arrowFillColor"),
+            ObjectUtils.notNull(UIManager.getColor("ComboBox.darcula.arrowFillColor"), defaultColor),
+            ObjectUtils.notNull(UIManager.getColor("ComboBox.darcula.arrowFillColor"), defaultColor));
   }
 
   @Override
@@ -360,8 +358,8 @@ public final class MTComboBoxUI extends DarculaComboBoxUI implements Border, Err
 
       // Paint background to take all component
       final Color background = editor != null && comboBox.isEditable()
-                               ? editor.getBackground()
-                               : UIManager.getColor("ComboBox.background");
+              ? editor.getBackground()
+              : UIManager.getColor("ComboBox.background");
       g.setColor(background);
       g.fillRect(x + JBUI.scale(1), y + JBUI.scale(1), w, h);
       g.setColor(getArrowButtonFillColor(arrowButton.getBackground()));
@@ -384,8 +382,8 @@ public final class MTComboBoxUI extends DarculaComboBoxUI implements Border, Err
         g2.fill(border);
       } else {
         g2.setColor(getBorderColor());
-        g2.setStroke(new BasicStroke(1, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND, 0, new float[] {1,
-            2}, 0));
+        g2.setStroke(new BasicStroke(1, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND, 0, new float[]{1,
+                2}, 0));
         g2.draw(new Rectangle2D.Double(bw, height - bw, width - off, off));
       }
 
@@ -407,11 +405,11 @@ public final class MTComboBoxUI extends DarculaComboBoxUI implements Border, Err
 
   private Color getBorderColor() {
     final Color defaultValue = MTUiUtils.getColor(UIManager.getColor("Separator.foreground"),
-                                                  new ColorUIResource(0x515151),
-                                                  new ColorUIResource(0xcdcdcd));
+            new ColorUIResource(0x515151),
+            new ColorUIResource(0xcdcdcd));
     final Color defaultDisabled = MTUiUtils.getColor(UIManager.getColor("ComboBox.disabledBackground"),
-                                                     new ColorUIResource(0x3c3f41),
-                                                     new ColorUIResource(0xe8e8e8));
+            new ColorUIResource(0x3c3f41),
+            new ColorUIResource(0xe8e8e8));
 
     if (comboBox != null && comboBox.isEnabled()) {
       return ObjectUtils.notNull(UIManager.getColor("TextField.separatorColor"), defaultValue);

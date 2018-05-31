@@ -34,11 +34,11 @@ import com.intellij.util.ui.JBInsets;
 import com.intellij.util.ui.JBUI;
 
 import javax.swing.*;
-import javax.swing.border.*;
-import javax.swing.plaf.*;
-import javax.swing.text.*;
+import javax.swing.border.Border;
+import javax.swing.plaf.UIResource;
+import javax.swing.text.JTextComponent;
 import java.awt.*;
-import java.awt.geom.*;
+import java.awt.geom.Rectangle2D;
 
 /**
  * @author Konstantin Bulenkov
@@ -58,11 +58,11 @@ public final class MTTextBorder extends DarculaTextBorder implements Border, UIR
     } else if (c instanceof JTextField && c.getParent() instanceof ColorPanel) {
       return JBUI.insets(3, 3, 2, 2).asUIResource();
     } else {
-      JBInsets.JBInsetsUIResource insets = JBUI.insets(vOffset, 3, vOffset, 3).asUIResource();
+      final JBInsets.JBInsetsUIResource insets = JBUI.insets(vOffset, 3, vOffset, 3).asUIResource();
       try {
         TextFieldWithPopupHandlerUI.updateBorderInsets(c, insets);
         return insets;
-      } catch (NoSuchMethodError e) {
+      } catch (final NoSuchMethodError e) {
         return insets;
       }
     }
@@ -88,7 +88,7 @@ public final class MTTextBorder extends DarculaTextBorder implements Border, UIR
       } else if (!c.isEnabled()) {
         g.setColor(getBorderColor(c.isEnabled()));
         g2.setStroke(new BasicStroke(1, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND, 0, new float[]{1,
-            2}, 0));
+                2}, 0));
         g2.draw(new Rectangle2D.Double(JBUI.scale(1), height - JBUI.scale(1), width - JBUI.scale(2), JBUI.scale(2)));
       } else {
         final boolean editable = !(c instanceof JTextComponent) || ((JTextComponent) c).isEditable();
