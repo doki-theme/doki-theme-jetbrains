@@ -138,6 +138,7 @@ public class MTDokiDokiTheme extends MTAbstractTheme {
     return "FFF4F2";
   }
 
+
   @Override
   protected String getButtonColorString() {
     return "FFF4F2";
