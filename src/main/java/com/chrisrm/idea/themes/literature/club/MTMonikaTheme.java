@@ -56,7 +56,7 @@ public final class MTMonikaTheme extends MTDokiDokiTheme {
   public static final String TEST_FILES = "bbff7e";
 
   public MTMonikaTheme() {
-    super("mt.monika", "Material Monika", false);
+    super("mt.monika", "Material Monika", false, "Monkia");
   }
 
   @NotNull
@@ -122,6 +122,11 @@ public final class MTMonikaTheme extends MTDokiDokiTheme {
 
   @Override
   protected String getInactiveColorString() {
+    return "FFF4F2";
+  }
+
+  @Override
+  protected String getButtonColorString() {
     return "FFF4F2";
   }
 

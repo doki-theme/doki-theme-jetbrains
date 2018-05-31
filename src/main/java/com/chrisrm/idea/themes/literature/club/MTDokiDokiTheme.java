@@ -56,8 +56,8 @@ public class MTDokiDokiTheme extends MTAbstractTheme {
   public static final String NON_PROJECT_FILES = "fdffce";
   public static final String TEST_FILES = "bbff7e";
 
-  public MTDokiDokiTheme(@NotNull String id, String editorColorsScheme, boolean dark) {
-    super(id, editorColorsScheme, dark);
+  public MTDokiDokiTheme(@NotNull String id, String editorColorsScheme, boolean dark, String thingo) {
+    super(id, editorColorsScheme, dark, thingo);
   }
 
   @NotNull
@@ -135,6 +135,11 @@ public class MTDokiDokiTheme extends MTAbstractTheme {
 
   @Override
   protected String getInactiveColorString() {
+    return "FFF4F2";
+  }
+
+  @Override
+  protected String getButtonColorString() {
     return "FFF4F2";
   }
 

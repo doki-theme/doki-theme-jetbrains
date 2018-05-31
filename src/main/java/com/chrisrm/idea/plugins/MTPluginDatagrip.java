@@ -24,33 +24,31 @@
  *
  */
 
-package com.chrisrm.idea.icons;
+package com.chrisrm.idea.plugins;
 
-import com.chrisrm.idea.MTConfig;
 import com.chrisrm.idea.utils.IconReplacer;
-import com.intellij.icons.AllIcons;
 import com.intellij.openapi.components.ApplicationComponent;
-import com.intellij.util.PlatformIcons;
 import org.jetbrains.annotations.NotNull;
 
-public final class MTIconReplacerComponent implements ApplicationComponent {
+public final class MTPluginDatagrip implements ApplicationComponent {
 
   @Override
   public void initComponent() {
-    if (MTConfig.getInstance().isUseMaterialIcons()) {
-      IconReplacer.replaceIcons(AllIcons.class, "/icons");
-      IconReplacer.replaceIcons(PlatformIcons.class, "");
+    try {
+      final Class<?> iconsClass = Class.forName("icons.DatabaseIcons", false, getClass().getClassLoader());
+      IconReplacer.replaceIcons(iconsClass, "/icons/plugins/datagrip/");
+    } catch (final ClassNotFoundException e) {
+      // Suppress
     }
   }
 
   @Override
   public void disposeComponent() {
-
   }
 
   @Override
   @NotNull
   public String getComponentName() {
-    return "com.chrisrm.idea.icons.MTIconReplacerComponent";
+    return "MTPluginRuby";
   }
 }

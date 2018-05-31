@@ -2,7 +2,7 @@ package com.chrisrm.idea.themes.literature.club;
 
 public final class MTSayoriTheme extends MTDokiDokiTheme {
   public MTSayoriTheme() {
-    super("mt.sayori", "Material Sayori", false);
+    super("mt.sayori", "Material Sayori", false, "Sayori");
   }
 
   @Override
