@@ -103,7 +103,7 @@ public class MTLightCustomTheme extends MTAbstractTheme {
 
   @Override
   protected String getInactiveColorString() {
-    return MTCustomThemeConfig.getInstance().getInactiveColorString();
+    return MTCustomThemeConfig.getInstance().getBackgroundColorString();
   }
 
   @Override
