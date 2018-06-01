@@ -57,7 +57,7 @@ public class MTConfig implements PersistentStateComponent<MTConfig> {
   public static final int MIN_HIGHLIGHT_THICKNESS = 1;
   public static final int MAX_TABS_HEIGHT = 60;
   public static final int MIN_TABS_HEIGHT = 18;
-  public static final int MAX_TREE_INDENT = 10;
+  public static final int MAX_TREE_INDENT = 20;
   public static final int MIN_TREE_INDENT = 0;
   public static final int MAX_SIDEBAR_HEIGHT = 36;
   public static final int MIN_SIDEBAR_HEIGHT = 18;
@@ -65,7 +65,7 @@ public class MTConfig implements PersistentStateComponent<MTConfig> {
   // They are public so they can be serialized
   public String version;
 
-  public String selectedTheme = MTThemes.MONIKA.getName();
+  public String selectedTheme = MTThemes.OCEANIC.getName();
   public String highlightColor = ACCENT_COLOR;
   public boolean highlightColorEnabled = false;
   public Integer highlightThickness = 2;
@@ -100,6 +100,7 @@ public class MTConfig implements PersistentStateComponent<MTConfig> {
   public boolean monochromeIcons = false;
   public boolean upperCaseButtons = true;
   public String accentTitleBarColor = ACCENT_COLOR;
+  public boolean isDecoratedFolders = true;
 
   public MTConfig() {
   }
@@ -178,6 +179,49 @@ public class MTConfig implements PersistentStateComponent<MTConfig> {
                       .configChanged(this);
   }
 
+  /**
+   * Convenience method to reset settings
+   */
+  public void resetSettings() {
+    selectedTheme = MTThemes.OCEANIC.getName();
+    highlightColor = ACCENT_COLOR;
+    highlightColorEnabled = false;
+    highlightThickness = 2;
+    isContrastMode = false;
+    isMaterialDesign = true;
+    isBoldTabs = false;
+    isCustomTreeIndentEnabled = false;
+    customTreeIndent = 6;
+
+    accentColor = ACCENT_COLOR;
+
+    useMaterialIcons = true;
+    useProjectViewDecorators = true;
+    hideFileIcons = false;
+    compactSidebar = false;
+    statusBarTheme = true;
+
+    tabsHeight = 42;
+    isMaterialTheme = true;
+    themedScrollbars = true;
+    isCompactStatusBar = false;
+    isCompactTables = false;
+
+    upperCaseTabs = false;
+    customSidebarHeight = 18;
+    accentScrollbars = true;
+    darkTitleBar = false;
+    arrowsStyle = ArrowsStyles.MATERIAL;
+    useMaterialFont = true;
+    tabOpacity = 50;
+    compactDropdowns = false;
+    monochromeIcons = false;
+    upperCaseButtons = true;
+    accentTitleBarColor = ACCENT_COLOR;
+    isDecoratedFolders = true;
+  }
+
+
   //region Tabs Highlight
 
   /**
@@ -255,6 +299,9 @@ public class MTConfig implements PersistentStateComponent<MTConfig> {
    * @param thickness thickness value
    */
   public void setHighlightThickness(final int thickness) {
+    if (thickness < MIN_HIGHLIGHT_THICKNESS || thickness > MAX_HIGHLIGHT_THICKNESS) {
+      return;
+    }
     highlightThickness = thickness;
   }
 
@@ -339,8 +386,6 @@ public class MTConfig implements PersistentStateComponent<MTConfig> {
   }
   //endregion
 
-  //endregion
-
   //region Material Icons
 
   public boolean isUseMaterialIcons() {
@@ -409,6 +454,9 @@ public class MTConfig implements PersistentStateComponent<MTConfig> {
   }
 
   public void setCustomSidebarHeight(final Integer customSidebarHeight) {
+    if (customSidebarHeight < MIN_SIDEBAR_HEIGHT || customSidebarHeight > MAX_SIDEBAR_HEIGHT) {
+      return;
+    }
     this.customSidebarHeight = customSidebarHeight;
   }
   //endregion
@@ -681,18 +729,18 @@ public class MTConfig implements PersistentStateComponent<MTConfig> {
   }
   //endregion
 
-  //region accent title bar color
-
-  public String getAccentTitleBarColor() {
-    return accentTitleBarColor;
+  // region Decorated Folders
+  public void setIsDecoratedFolders(final boolean isDecoratedFolders) {
+    this.isDecoratedFolders = isDecoratedFolders;
   }
 
-  public void setAccentTitleBarColor(final String accentTitleBarColor) {
-    this.accentTitleBarColor = accentTitleBarColor;
+  public boolean isDecoratedFolders() {
+    return isDecoratedFolders;
   }
 
-  public boolean isAccentTitleBarColorChanged(final Color accentTitleBarColor) {
-    return !Objects.equals(this.accentTitleBarColor, ColorUtil.toHex(accentTitleBarColor));
+  public boolean isDecoratedFoldersChanged(final boolean decoratedFolders) {
+    return isDecoratedFolders != decoratedFolders;
   }
+
   //endregion
 }

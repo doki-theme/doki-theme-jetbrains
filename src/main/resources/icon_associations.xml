@@ -1,31 +1,31 @@
 <!--
-  ~ The MIT License (MIT)
+  ~  The MIT License (MIT)
   ~
-  ~ Copyright (c) 2018 Chris Magnussen and Elior Boukhobza
+  ~  Copyright (c) 2018 Chris Magnussen and Elior Boukhobza
   ~
-  ~ Permission is hereby granted, free of charge, to any person obtaining a copy
-  ~ of this software and associated documentation files (the "Software"), to deal
-  ~ in the Software without restriction, including without limitation the rights
-  ~ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-  ~ copies of the Software, and to permit persons to whom the Software is
-  ~ furnished to do so, subject to the following conditions:
+  ~  Permission is hereby granted, free of charge, to any person obtaining a copy
+  ~  of this software and associated documentation files (the "Software"), to deal
+  ~  in the Software without restriction, including without limitation the rights
+  ~  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  ~  copies of the Software, and to permit persons to whom the Software is
+  ~  furnished to do so, subject to the following conditions:
   ~
-  ~ The above copyright notice and this permission notice shall be included in all
-  ~ copies or substantial portions of the Software.
+  ~  The above copyright notice and this permission notice shall be included in all
+  ~  copies or substantial portions of the Software.
   ~
-  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  ~ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  ~ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-  ~ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  ~ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-  ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-  ~ SOFTWARE.
-  ~
+  ~  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  ~  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  ~  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  ~  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  ~  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  ~  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  ~  SOFTWARE.
   ~
   -->
 
 <associations>
     <associations>
+        <type name="Database" type="Database Element" icon="/icons/files/db.png"/>
         <!-- Custom -->
         <regex name="Github CODE" pattern="CODE_OF_CONDUCT\.md" icon="/icons/files/github.png"/>
         <regex name="Github CONTRIBUTING" pattern="CONTRIBUTING\.md" icon="/icons/files/github.png"/>
@@ -41,7 +41,8 @@
 
         <regex name="Atom" pattern=".*\.atom$" icon="/icons/files/atom.png"/>
         <regex name="AngularJS" pattern=".*angular\.(min\.)?js$" icon="/icons/files/angular.png"/>
-        <regex name="Angular" pattern=".*\.(ng\.html|ng\.js|module\.[tj]s|ng-template)$" icon="/icons/files/angular.png"/>
+        <regex name="Angular" pattern=".*\.(ng\.html|ng\.js|module\.[tj]s|ng-template)$"
+               icon="/icons/files/angular.png"/>
         <regex name="Angular Component" pattern=".*\.component\.[tj]s$" icon="/icons/files/angularcomponent.png"/>
         <regex name="Angular Directive" pattern=".*\.directive\.[tj]s$" icon="/icons/files/angulardirective.png"/>
         <regex name="Angular Guard" pattern=".*\.guard\.[tj]s$" icon="/icons/files/angularguard.png"/>
@@ -57,7 +58,7 @@
         <regex name="Adobe Elements" pattern=".*\.ae(p|t)$" icon="/icons/files/ae.png"/>
         <regex name="Ada" pattern=".*\.ada$" icon="/icons/files/ada.png"/>
         <regex name="Akka" pattern=".*\.akka$" icon="/icons/files/akka.png"/>
-        <regex name="Angular-CLI" pattern="angular-cli\.json$" icon="/icons/files/angular.png"/>
+        <regex name="Angular-CLI" pattern="angular(-cli)?\.json$" icon="/icons/files/angular.png"/>
         <regex name="Android Manifest" pattern="AndroidManifest\.xml$" icon="/icons/files/android.png"/>
         <regex name="Android Main" pattern="MainActivity\.java$" icon="/icons/files/android.png"/>
         <regex name="API Blueprint" pattern=".*\.apib$" icon="/icons/files/apib.png"/>
@@ -77,7 +78,7 @@
         <regex name="Bundler" pattern="Gemfile$" icon="/icons/files/bundle.png"/>
         <regex name="C" pattern=".*\.(c|objc)$" icon="/icons/files/c.png"/>
         <regex name="Cabal" pattern=".*\.cabal" icon="/icons/files/cabal.png"/>
-        <regex name="Cabal Project" pattern="cabal\.projectRef$" icon="/icons/files/cabal.png"/>
+        <regex name="Cabal Project" pattern="cabal\.project$" icon="/icons/files/cabal.png"/>
         <regex name="CakePHP" pattern=".*\.(cake)$" icon="/icons/files/cakephp.png"/>
         <regex name="Class" pattern=".*\.(class|o)$" icon="/icons/files/class.png"/>
         <regex name="ColdFusion" pattern=".*\.(cf)$" icon="/icons/files/cf.png"/>
@@ -203,7 +204,7 @@
         <regex name="OneNote" pattern=".*\.onenote" icon="/icons/files/onenote.png"/>
         <regex name="OpenOffice" pattern=".*\.(odt|odf|ods)$" icon="/icons/files/openoffice.png"/>
         <regex name="Objective-C" pattern=".*\.mm?$" icon="/icons/files/objc.png"/>
-        <regex name="Pascal" pattern=".*(pas|pp|pascal)$" icon="/icons/files/pascal.png"/>
+        <regex name="Pascal" pattern=".*(pas|pascal)$" icon="/icons/files/pascal.png"/>
         <regex name="Patch" pattern=".*\.(patch|meld)$" icon="/icons/files/patch.png"/>
         <regex name="PDF" pattern=".*\.pdf$" icon="/icons/files/pdf.png"/>
         <regex name="Perl" pattern=".*\.(perl|pl|pm)$" icon="/icons/files/perl.png"/>
@@ -222,15 +223,16 @@
         <regex name="Photoshop" pattern=".*\.(psb|psd)$" icon="/icons/files/psd.png"/>
         <regex name="Premiere" pattern=".*\.(prel|prproj|psq)$" icon="/icons/files/premiere.png"/>
         <regex name="Protractor" pattern="protractor\.js(on)?$" icon="/icons/files/protractor.png"/>
-        <regex name="Puppet" pattern=".*\.(puppet|pp)$" icon="/icons/files/puppet.png"/>
+        <regex name="Puppet" pattern=".*\.(puppet|pp|epp)$" icon="/icons/files/puppet.png"/>
         <regex name="Powerpoint" pattern=".*\.(ppt|pptx|pps|ppsx)$" icon="/icons/files/powerpoint.png"/>
         <regex name="PowerShell" pattern=".*\.(powershell|ps1|cmd)$" icon="/icons/files/powershell.png"/>
         <regex name="PureScript" pattern=".*\.(purescript|purs)$" icon="/icons/files/purescript.png"/>
         <regex name="Python" pattern=".*\.(py|python)$" icon="/icons/files/python.png"/>
         <regex name="R" pattern=".*\.r$" icon="/icons/files/r.png"/>
         <regex name="ERB" pattern=".*\.(erb|ru)$" icon="/icons/files/erb.png"/>
-        <regex name="Rails/Rake" pattern=".*(rails|rake)$" icon="/icons/files/rails.png"/>
-        <regex name="Rakefile" pattern="Rakefile" icon="/icons/files/rails.png"/>
+        <regex name="Rails" pattern=".*(rails|rake)$" icon="/icons/files/rails.png"/>
+        <regex name="Rake" pattern=".*rake$" icon="/icons/files/rake.png"/>
+        <regex name="Rakefile" pattern="Rakefile" icon="/icons/files/rake.png"/>
         <regex name="ReasonML" pattern=".*\.rei?" icon="/icons/files/reason.png"/>
         <regex name="RDoc" pattern=".*(rdoc)$" icon="/icons/files/rdoc.png"/>
         <regex name="React" pattern=".*\.react-cli$" icon="/icons/files/react.png"/>
@@ -267,7 +269,7 @@
         <regex name="Symfony" pattern=".*symfony.*$" icon="/icons/files/symfony.png"/>
         <regex name="TCL" pattern=".*\.tcl$" icon="/icons/files/tcl.png"/>
         <regex name="LaTeX" pattern=".*\.tex$" icon="/icons/files/tex.png"/>
-        <regex name="Tern" pattern=".*\.tern-(config|projectRef)$" icon="/icons/files/tern.png"/>
+        <regex name="Tern" pattern=".*\.tern-(config|project)$" icon="/icons/files/tern.png"/>
         <regex name="Java Test" pattern=".*\.(t|T)est\.java$" icon="/icons/files/testjava.png"/>
         <regex name="JS Test" pattern=".*\.(test|spec)\.js$" icon="/icons/files/testjs.png"/>
         <regex name="Python Test" pattern=".*\.(test|spec)\.py$" icon="/icons/files/testpy.png"/>
@@ -290,7 +292,8 @@
         <regex name="Visual Studio" pattern=".*\.(vscode|vssettings).*" icon="/icons/files/vs.png"/>
 
         <regex name="Vue" pattern=".*\.(vue|vuex)$" icon="/icons/files/vue.png"/>
-        <regex name="Webpack" pattern="webpack\.(common|config|dev|prod)\.(js|es|es6|coffee)$" icon="/icons/files/webpack.png"/>
+        <regex name="Webpack" pattern="webpack\.(common|config|dev|prod)\.(js|es|es6|coffee)$"
+               icon="/icons/files/webpack.png"/>
         <regex name="Word" pattern=".*\.(doc|docx|docm|docxml|dotm|dotx|wri|odt|odtx)$" icon="/icons/files/word.png"/>
         <regex name="Windows" pattern=".*\.(bat|exe|dos|ms)$" icon="/icons/files/windows.png"/>
         <regex name="Xamarin" pattern=".*\.xamarin.*$" icon="/icons/files/xamarin.png"/>
