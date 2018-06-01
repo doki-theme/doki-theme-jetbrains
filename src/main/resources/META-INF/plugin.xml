@@ -48,6 +48,7 @@
     <depends optional="true">com.jetbrains.twig</depends>
     <depends optional="true" config-file="python.xml">com.intellij.modules.python</depends>
     <depends optional="true" config-file="clion.xml">com.jetbrains.modules.clion</depends>
+    <depends optional="true" config-file="datagrip.xml">com.intellij.modules.database</depends>
 
 
     <resource-bundle>messages.MaterialThemeBundle</resource-bundle>
@@ -98,6 +99,9 @@
             <implementation-class>com.chrisrm.idea.schemes.MTThemesComponent</implementation-class>
         </component>
         <component>
+            <implementation-class>com.chrisrm.idea.MTHackComponent</implementation-class>
+        </component>
+        <component>
             <implementation-class>com.chrisrm.idea.MTApplicationComponent</implementation-class>
         </component>
         <component>
@@ -114,7 +118,7 @@
         </component>
     </application-components>
 
-    <projectRef-components>
+    <project-components>
         <component>
             <implementation-class>com.chrisrm.idea.status.MTStatusBarComponent</implementation-class>
             <loadForDefaultProject>true</loadForDefaultProject>
@@ -126,7 +130,7 @@
             <implementation-class>com.chrisrm.idea.MTTitleBarComponent</implementation-class>
             <loadForDefaultProject>true</loadForDefaultProject>
         </component>
-    </projectRef-components>
+    </project-components>
 
 
     <actions>
@@ -195,6 +199,10 @@
                     text="Set recommended tab height"
                     description="Increase tab height to a 50px"
                     icon="/icons/actions/bigTabs.png"/>
+            <action id="MTAddFileColors" class="com.chrisrm.idea.actions.MTAddFileColorsAction"
+                    text="Install Material File Colors"
+                    description="Install Material File Colors"
+                    icon="/icons/actions/fileColors.png"/>
             <group id="arrowsStyles" text="Arrow Styles" popup="true">
                 <action class="com.chrisrm.idea.actions.arrows.MTMaterialArrows"
                         id="MTMaterialArrows"
@@ -371,6 +379,7 @@
             <reference id="MaterialTheme.Panels"/>
             <separator/>
             <reference id="MaterialTheme.Components"/>
+            <reference id="ChangeThemeGroup"/>
             <add-to-group group-id="ToolsMenu"/>
             <add-to-group group-id="ChangeScheme" anchor="after" relative-to-action="MaterialTheme.Menu"/>
         </group>
