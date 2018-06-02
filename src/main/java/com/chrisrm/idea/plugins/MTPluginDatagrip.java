@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2017 Chris Magnussen and Elior Boukhobza
+ * Copyright (c) 2018 Chris Magnussen and Elior Boukhobza
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,23 +24,31 @@
  *
  */
 
-package com.chrisrm.idea.ui;
+package com.chrisrm.idea.plugins;
 
-import com.intellij.openapi.components.ServiceManager;
+import com.chrisrm.idea.utils.IconReplacer;
+import com.intellij.openapi.components.ApplicationComponent;
+import org.jetbrains.annotations.NotNull;
 
-import javax.swing.*;
-import javax.swing.plaf.ComponentUI;
+public final class MTPluginDatagrip implements ApplicationComponent {
 
-public final class MTTextFieldFactory {
-  private MTTextFieldFactory() {
-
+  @Override
+  public void initComponent() {
+    try {
+      final Class<?> iconsClass = Class.forName("icons.DatabaseIcons", false, getClass().getClassLoader());
+      IconReplacer.replaceIcons(iconsClass, "/icons/plugins/datagrip/");
+    } catch (final ClassNotFoundException e) {
+      // Suppress
+    }
   }
 
-  public static MTTextFieldFactory getInstance() {
-    return ServiceManager.getService(MTTextFieldFactory.class);
+  @Override
+  public void disposeComponent() {
   }
 
-  public static ComponentUI newInstance(final JComponent c) {
-    return new MTTextFieldUI(c);
+  @Override
+  @NotNull
+  public String getComponentName() {
+    return "MTPluginRuby";
   }
 }

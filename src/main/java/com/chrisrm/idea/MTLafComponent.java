@@ -1,26 +1,25 @@
 /*
- * The MIT License (MIT)
+ *  The MIT License (MIT)
  *
- * Copyright (c) 2018 Chris Magnussen and Elior Boukhobza
+ *  Copyright (c) 2018 Chris Magnussen and Elior Boukhobza
  *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
+ *  Permission is hereby granted, free of charge, to any person obtaining a copy
+ *  of this software and associated documentation files (the "Software"), to deal
+ *  in the Software without restriction, including without limitation the rights
+ *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ *  copies of the Software, and to permit persons to whom the Software is
+ *  furnished to do so, subject to the following conditions:
  *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
+ *  The above copyright notice and this permission notice shall be included in all
+ *  copies or substantial portions of the Software.
  *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- *
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ *  SOFTWARE.
  *
  */
 
@@ -29,55 +28,44 @@ package com.chrisrm.idea;
 import com.chrisrm.idea.config.BeforeConfigNotifier;
 import com.chrisrm.idea.config.ConfigNotifier;
 import com.chrisrm.idea.config.ui.MTForm;
+import com.chrisrm.idea.icons.tinted.TintedIconsService;
 import com.chrisrm.idea.messages.MaterialThemeBundle;
 import com.chrisrm.idea.ui.*;
-import com.chrisrm.idea.utils.IconReplacer;
 import com.chrisrm.idea.utils.MTUiUtils;
 import com.chrisrm.idea.utils.UIReplacer;
-import com.intellij.CommonBundle;
 import com.intellij.icons.AllIcons;
 import com.intellij.ide.ui.LafManager;
-import com.intellij.ide.ui.laf.darcula.ui.DarculaMenuItemBorder;
-import com.intellij.openapi.actionSystem.impl.ChameleonAction;
+import com.intellij.ide.ui.laf.IntelliJTableSelectedCellHighlightBorder;
+import com.intellij.ide.ui.laf.darcula.DarculaTableHeaderBorder;
+import com.intellij.ide.ui.laf.darcula.DarculaTableHeaderUI;
+import com.intellij.ide.ui.laf.darcula.DarculaTableSelectedCellHighlightBorder;
+import com.intellij.ide.ui.laf.darcula.ui.*;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.components.ApplicationComponent;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.project.ProjectManager;
 import com.intellij.openapi.project.ProjectManagerListener;
-import com.intellij.openapi.ui.DialogWrapper;
 import com.intellij.openapi.ui.Messages;
-import com.intellij.openapi.util.IconLoader;
-import com.intellij.openapi.wm.impl.IdeBackgroundUtil;
-import com.intellij.ui.CaptionPanel;
 import com.intellij.ui.components.JBPanel;
+import com.intellij.ui.components.JBScrollBar;
 import com.intellij.util.messages.MessageBusConnection;
 import com.intellij.util.ui.JBUI;
-import javassist.*;
-import javassist.expr.ExprEditor;
-import javassist.expr.MethodCall;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
+import javax.swing.plaf.*;
 
 /**
  * Component for working on the Material Look And Feel
  */
 public final class MTLafComponent extends JBPanel implements ApplicationComponent {
 
-  static {
-    hackTitleLabel();
-    hackIdeaActionButton();
-    hackBackgroundFrame();
-  }
-
   private boolean willRestartIde = false;
   private MessageBusConnection connect;
-  private UIManager.LookAndFeelInfo currentLookAndFeel = LafManager.getInstance().getCurrentLookAndFeel();
 
   public MTLafComponent(final LafManager lafManager) {
     lafManager.addLafManagerListener(source -> installMaterialComponents());
-    lafManager.addLafManagerListener(this::askResetCustomTheme);
   }
 
   /**
@@ -109,6 +97,10 @@ public final class MTLafComponent extends JBPanel implements ApplicationComponen
 
   private void installDefaults() {
     UIManager.put("Caret.width", 2);
+    UIManager.put("Border.width", 2);
+    UIManager.put("Button.arc", 6);
+    UIManager.put("Component.arc", 5);
+
     UIManager.put("Menu.maxGutterIconWidth", 18);
     UIManager.put("MenuItem.maxGutterIconWidth", 18);
     UIManager.put("MenuItem.acceleratorDelimiter", "-");
@@ -119,13 +111,30 @@ public final class MTLafComponent extends JBPanel implements ApplicationComponen
     UIManager.put("CheckBoxMenuItem.borderPainted", false);
     UIManager.put("RadioButtonMenuItem.borderPainted", false);
     UIManager.put("ComboBox.squareButton", true);
-    UIManager.put("Spinner.arrowButtonInsets", "1,1,1,1");
+    UIManager.put("ComboBox.padding", JBUI.insets(1, 5, 1, 5));
+    UIManager.put("CheckBox.border.width", 3);
+    UIManager.put("RadioButton.border.width", 3);
+
+    UIManager.put("HelpTooltip.verticalGap", 4);
+    UIManager.put("HelpTooltip.horizontalGap", 10);
+    UIManager.put("HelpTooltip.maxWidth", 250);
+    UIManager.put("HelpTooltip.xOffset", 1);
+    UIManager.put("HelpTooltip.yOffset", 1);
+
+    UIManager.put("HelpTooltip.defaultTextBorder", JBUI.insets(10, 10, 10, 16));
+    UIManager.put("HelpTooltip.fontSizeDelta", 0);
+    UIManager.put("HelpTooltip.smallTextBorder", JBUI.insets(4, 8, 5, 8));
+
+    UIManager.put("Spinner.arrowButtonInsets", JBUI.insets(1, 1, 1, 1));
     UIManager.put("Spinner.editorBorderPainted", false);
-    UIManager.put("Tree.rightChildIndent", 6);
-    UIManager.put("Notifications.errorBackground", "743A3A");
-    UIManager.put("Notifications.warnBackground", "7F6C00");
-    UIManager.put("Notifications.infoBackground", "356936");
     UIManager.put("ToolWindow.tab.verticalPadding", 5);
+    UIManager.put("ScrollBarUI", JBScrollBar.class.getName());
+    UIManager.put(JBScrollBar.class.getName(), JBScrollBar.class);
+
+    UIManager.put("Focus.activeErrorBorderColor", new ColorUIResource(0xE53935));
+    UIManager.put("Focus.inactiveErrorBorderColor", new ColorUIResource(0x743A3A));
+    UIManager.put("Focus.activeWarningBorderColor", new ColorUIResource(0xFFB62C));
+    UIManager.put("Focus.inactiveWarningBorderColor", new ColorUIResource(0x7F6C00));
 
     if (MTConfig.getInstance().getSelectedTheme().getThemeIsDark()) {
       installDarculaDefaults();
@@ -255,7 +264,6 @@ public final class MTLafComponent extends JBPanel implements ApplicationComponen
   private void replaceTextAreas() {
     UIManager.put("TextAreaUI", MTTextAreaUI.class.getName());
     UIManager.getDefaults().put(MTTextAreaUI.class.getName(), MTTextAreaUI.class);
-
   }
 
   private void replaceTabbedPanes() {
@@ -283,121 +291,96 @@ public final class MTLafComponent extends JBPanel implements ApplicationComponen
   }
 
   private void installDarculaDefaults() {
+    UIManager.put("EditorPaneUI", DarculaEditorPaneUI.class.getName());
+    UIManager.put("TableHeaderUI", DarculaTableHeaderUI.class.getName());
+    UIManager.put("Table.focusSelectedCellHighlightBorder", new DarculaTableSelectedCellHighlightBorder());
+    UIManager.put("TableHeader.cellBorder", new DarculaTableHeaderBorder());
+
+    UIManager.put("CheckBoxMenuItemUI", DarculaCheckBoxMenuItemUI.class.getName());
+    UIManager.put("RadioButtonMenuItemUI", DarculaRadioButtonMenuItemUI.class.getName());
+    UIManager.put("TabbedPaneUI", DarculaTabbedPaneUI.class.getName());
+
+    UIManager.put("TextFieldUI", DarculaTextFieldUI.class.getName());
+    UIManager.put("TextField.border", new DarculaTextBorder());
+    UIManager.put("TextField.darcula.search.icon", "/com/intellij/ide/ui/laf/icons/darcula/search.png");
+    UIManager.put("TextField.darcula.searchWithHistory.icon", "/com/intellij/ide/ui/laf/icons/darcula/searchWithHistory.png");
+    UIManager.put("TextField.darcula.clear.icon", "/com/intellij/ide/ui/laf/icons/darcula/clear.png");
+
+    UIManager.put("PasswordFieldUI", DarculaPasswordFieldUI.class.getName());
+    UIManager.put("PasswordField.border", new DarculaTextBorder());
+    UIManager.put("ProgressBarUI", DarculaProgressBarUI.class.getName());
+    UIManager.put("ProgressBar.border", new DarculaProgressBarBorder());
+    UIManager.put("FormattedTextFieldUI", DarculaTextFieldUI.class.getName());
+    UIManager.put("FormattedTextField.border", new DarculaTextBorder());
+
+    UIManager.put("TextAreaUI", DarculaTextAreaUI.class.getName());
+    UIManager.put("CheckBoxUI", DarculaCheckBoxUI.class.getName());
+
+    UIManager.put("CheckBox.border", new DarculaCheckBoxBorder());
+    UIManager.put("ComboBoxUI", DarculaComboBoxUI.class.getName());
+    UIManager.put("RadioButtonUI", DarculaRadioButtonUI.class.getName());
+    UIManager.put("RadioButton.border", new DarculaCheckBoxBorder());
+
+    UIManager.put("Button.border", new DarculaButtonPainter());
+    UIManager.put("ButtonUI", DarculaButtonUI.class.getName());
+
+    UIManager.put("ToggleButton.border", new DarculaButtonPainter());
+    UIManager.put("ToggleButtonUI", DarculaButtonUI.class.getName());
+
+    UIManager.put("SpinnerUI", DarculaSpinnerUI.class.getName());
+    UIManager.put("Spinner.border", new DarculaSpinnerBorder());
+
+    UIManager.put("TreeUI", DarculaTreeUI.class.getName());
+    UIManager.put("OptionButtonUI", DarculaOptionButtonUI.class.getName());
   }
 
   private void installLightDefaults() {
+    UIManager.put("EditorPaneUI", DarculaEditorPaneUI.class.getName());
+    UIManager.put("TableHeaderUI", DarculaTableHeaderUI.class.getName());
+    UIManager.put("Table.focusSelectedCellHighlightBorder", new IntelliJTableSelectedCellHighlightBorder());
+    UIManager.put("TableHeader.cellBorder", new DarculaTableHeaderBorder());
+
+    UIManager.put("CheckBoxMenuItemUI", DarculaCheckBoxMenuItemUI.class.getName());
+    UIManager.put("RadioButtonMenuItemUI", DarculaRadioButtonMenuItemUI.class.getName());
+    UIManager.put("TabbedPaneUI", DarculaTabbedPaneUI.class.getName());
+
+    UIManager.put("TextFieldUI", DarculaTextFieldUI.class.getName());
+    UIManager.put("TextField.border", new DarculaTextBorder());
+    UIManager.put("TextField.darcula.search.icon", "/com/intellij/ide/ui/laf/icons/search.png");
+    UIManager.put("TextField.darcula.searchWithHistory.icon", "/com/intellij/ide/ui/laf/icons/searchWithHistory.png");
+    UIManager.put("TextField.darcula.clear.icon", "/com/intellij/ide/ui/laf/icons/clear.png");
+
+    UIManager.put("PasswordFieldUI", DarculaPasswordFieldUI.class.getName());
+    UIManager.put("PasswordField.border", new DarculaTextBorder());
+    UIManager.put("ProgressBarUI", DarculaProgressBarUI.class.getName());
+    UIManager.put("ProgressBar.border", new DarculaProgressBarBorder());
+    UIManager.put("FormattedTextFieldUI", DarculaTextFieldUI.class.getName());
+    UIManager.put("FormattedTextField.border", new DarculaTextBorder());
+
+    UIManager.put("TextAreaUI", DarculaTextAreaUI.class.getName());
+    UIManager.put("Tree.paintLines", false);
+
+    UIManager.put("CheckBoxUI", DarculaCheckBoxUI.class.getName());
+    UIManager.put("CheckBox.border", new DarculaCheckBoxBorder());
+    UIManager.put("ComboBoxUI", DarculaComboBoxUI.class.getName());
+    UIManager.put("RadioButtonUI", DarculaRadioButtonUI.class.getName());
+    UIManager.put("RadioButton.border", new DarculaCheckBoxBorder());
+
+    UIManager.put("Button.border", new DarculaButtonPainter());
+    UIManager.put("ButtonUI", DarculaButtonUI.class.getName());
+
+    UIManager.put("ToggleButton.border", new DarculaButtonPainter());
+    UIManager.put("ToggleButtonUI", DarculaButtonUI.class.getName());
+
+    UIManager.put("SpinnerUI", DarculaSpinnerUI.class.getName());
+    UIManager.put("Spinner.border", new DarculaSpinnerBorder());
+
+    UIManager.put("TreeUI", DarculaTreeUI.class.getName());
+    UIManager.put("OptionButtonUI", DarculaOptionButtonUI.class.getName());
   }
 
   private Icon getIcon(final String icon) {
-    return IconLoader.getIcon(icon + ".png");
-  }
-
-  private static void hackBackgroundFrame() {
-    // Hack method
-    try {
-      final ClassPool cp = new ClassPool(true);
-      cp.insertClassPath(new ClassClassPath(IdeBackgroundUtil.class));
-      final CtClass ctClass = cp.get("com.intellij.openapi.wm.impl.IdePanePanel");
-
-      final CtMethod paintBorder = ctClass.getDeclaredMethod("getBackground");
-      paintBorder.instrument(new ExprEditor() {
-        @Override
-        public void edit(final MethodCall m) throws CannotCompileException {
-          if (m.getMethodName().equals("getIdeBackgroundColor")) {
-            m.replace("{ $_ = javax.swing.UIManager.getColor(\"Viewport.background\"); }");
-          }
-        }
-      });
-      ctClass.toClass();
-    } catch (final Exception e) {
-      e.printStackTrace();
-    }
-  }
-
-  /**
-   * For better dialog titles (since I have no idea how to know when dialogs appear, I can't attach events so I'm directly hacking
-   * the source code). I hate doing this.
-   */
-  public static void hackTitleLabel() {
-    // Hack method
-    try {
-      final ClassPool cp = new ClassPool(true);
-      cp.insertClassPath(new ClassClassPath(CaptionPanel.class));
-      final CtClass ctClass = cp.get("com.intellij.ui.TitlePanel");
-      final CtConstructor declaredConstructor = ctClass.getDeclaredConstructor(new CtClass[]{
-          cp.get("javax.swing.Icon"),
-          cp.get("javax.swing" +
-              ".Icon")});
-      declaredConstructor.instrument(new ExprEditor() {
-        @Override
-        public void edit(final MethodCall m) throws CannotCompileException {
-          if (m.getMethodName().equals("empty")) {
-            // Replace insets
-            m.replace("{ $1 = 10; $2 = 10; $3 = 10; $4 = 10; $_ = $proceed($$); }");
-          } else if (m.getMethodName().equals("setHorizontalAlignment")) {
-            // Set title at the left
-            m.replace("{ $1 = javax.swing.SwingConstants.LEFT; $_ = $proceed($$); }");
-          } else if (m.getMethodName().equals("setBorder")) {
-            // Bigger heading
-            m.replace("{ $_ = $proceed($$); myLabel.setFont(myLabel.getFont().deriveFont(1, com.intellij.util.ui.JBUI.scale(16.0f))); }");
-          }
-        }
-      });
-      ctClass.toClass();
-    } catch (final Exception e) {
-      e.printStackTrace();
-    }
-  }
-
-  /**
-   * Change Look and feel of Action buttons
-   */
-  private static void hackIdeaActionButton() {
-    try {
-      final ClassPool cp = new ClassPool(true);
-      cp.insertClassPath(new ClassClassPath(ChameleonAction.class));
-      final CtClass ctClass = cp.get("com.intellij.openapi.actionSystem.impl.IdeaActionButtonLook");
-
-      // Edit paintborder
-      final CtClass[] paintBorderParams = new CtClass[]{
-          cp.get("java.awt.Graphics"),
-          cp.get("java.awt.Dimension"),
-          cp.get("int")
-      };
-
-      // Edit paintborder
-      // outdated in EAP 2017.3
-      final CtMethod paintBackground = ctClass.getDeclaredMethod("paintBackground");
-      paintBackground.instrument(new ExprEditor() {
-        @Override
-        public void edit(final MethodCall m) throws CannotCompileException {
-          if (m.getMethodName().equals("paintBackground")) {
-            m.replace("{ }");
-          }
-        }
-      });
-
-      ctClass.toClass();
-
-      final CtClass comboBoxActionButtonClass = cp.get("com.intellij.openapi.actionSystem.ex.ComboBoxAction$ComboBoxButton");
-      final CtMethod paint = comboBoxActionButtonClass.getDeclaredMethod("paint");
-      paint.instrument(new ExprEditor() {
-        @Override
-        public void edit(final MethodCall m) throws CannotCompileException {
-          if (m.getMethodName().equals("drawRoundRect")) {
-            m.replace("{ $2 = $4; $5 = 0; $6 = 0; $_ = $proceed($$); }");
-          } else if (m.getMethodName().equals("setPaint")) {
-            final String color = "javax.swing.UIManager.getColor(\"TextField.selectedSeparatorColor\")";
-
-            m.replace("{ $1 = $1 instanceof com.intellij.ui.JBColor && myMouseInside ? " + color + " : $1; $_ = $proceed($$); }");
-          }
-        }
-      });
-
-      comboBoxActionButtonClass.toClass();
-    } catch (final Exception e) {
-      e.printStackTrace();
-    }
+    return TintedIconsService.getIcon(icon + ".png");
   }
 
   @Override
@@ -460,45 +443,12 @@ public final class MTLafComponent extends JBPanel implements ApplicationComponen
    * @param mtConfig
    */
   private void onSettingsChanged(final MTConfig mtConfig) {
-    // Trigger file icons and statuses update
     MTThemeManager.getInstance().updateFileIcons();
-    IconReplacer.applyFilter();
+    MTTreeUI.resetIcons();
+    MTSelectedTreePainter.resetCache();
 
     if (willRestartIde) {
       MTUiUtils.restartIde();
     }
-  }
-
-  /**
-   * Ask for resetting custom theme colors when the LafManager is switched from or to dark mode
-   *
-   * @param source
-   */
-  private void askResetCustomTheme(final LafManager source) {
-    // If switched look and feel and asking for reset (default true)
-    if (source.getCurrentLookAndFeel() != currentLookAndFeel && !MTCustomThemeConfig.getInstance().isDoNotAskAgain()) {
-      final int dialog = Messages.showOkCancelDialog(
-          MaterialThemeBundle.message("mt.resetCustomTheme.message"),
-          MaterialThemeBundle.message("mt.resetCustomTheme.title"),
-          CommonBundle.getOkButtonText(),
-          CommonBundle.getCancelButtonText(),
-          Messages.getQuestionIcon(),
-          new DialogWrapper.DoNotAskOption.Adapter() {
-            @Override
-            public void rememberChoice(final boolean isSelected, final int exitCode) {
-              if (exitCode != -1) {
-                MTCustomThemeConfig.getInstance().setDoNotAskAgain(isSelected);
-              }
-            }
-          });
-
-      if (dialog == Messages.YES) {
-        MTCustomThemeConfig.getInstance().setDefaultValues();
-        currentLookAndFeel = source.getCurrentLookAndFeel();
-
-        MTThemeManager.getInstance().activate();
-      }
-    }
-    currentLookAndFeel = source.getCurrentLookAndFeel();
   }
 }

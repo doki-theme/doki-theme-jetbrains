@@ -44,7 +44,12 @@ import java.awt.*;
 public final class MTTreeUI extends WideSelectionTreeUI {
   private static final Border LIST_SELECTION_BACKGROUND_PAINTER = UIManager.getBorder("List.sourceListSelectionBackgroundPainter");
   private static final Border LIST_FOCUSED_SELECTION_BACKGROUND_PAINTER = UIManager.getBorder("List" +
-      ".sourceListFocusedSelectionBackgroundPainter");
+          ".sourceListFocusedSelectionBackgroundPainter");
+
+  public static Icon treeCollapsedIcon;
+  public static Icon treeExpandedIcon;
+  public static Icon treeSelectedCollapsedIcon;
+  public static Icon treeSelectedExpandedIcon;
 
   public MTTreeUI() {
     super(true, Conditions.alwaysFalse());
@@ -52,6 +57,13 @@ public final class MTTreeUI extends WideSelectionTreeUI {
 
   public static ComponentUI createUI(final JComponent c) {
     return new MTTreeUI();
+  }
+
+  public static void resetIcons() {
+    treeCollapsedIcon = null;
+    treeExpandedIcon = null;
+    treeSelectedCollapsedIcon = null;
+    treeSelectedExpandedIcon = null;
   }
 
   @Override
@@ -85,11 +97,6 @@ public final class MTTreeUI extends WideSelectionTreeUI {
         rowGraphics.setColor(bg);
         rowGraphics.fillRect(xOffset + thickness, bounds.y, containerWidth, bounds.height);
       }
-      //        else {
-      //          rowGraphics.setColor(background);
-      //          rowGraphics.fillRect(xOffset, bounds.y, containerWidth, bounds.height);
-      //        }
-
       super.paintRow(rowGraphics, clipBounds, insets, bounds, path, row, isExpanded, hasBeenExpanded, isLeaf);
       rowGraphics.dispose();
     } else {
@@ -161,7 +168,7 @@ public final class MTTreeUI extends WideSelectionTreeUI {
     // Draw icons if not a leaf and either hasn't been loaded,
     // or the model child count is > 0.
     if (!isLeaf && (!hasBeenExpanded ||
-        treeModel.getChildCount(value) > 0)) {
+            treeModel.getChildCount(value) > 0)) {
       final int middleXOfKnob;
       middleXOfKnob = bounds.x - getRightChildIndent() + 1;
       final int middleYOfKnob = bounds.y + (bounds.height / 2);
@@ -190,8 +197,8 @@ public final class MTTreeUI extends WideSelectionTreeUI {
     final int height = Math.max(selectedIcon.getIconWidth(), notSelectedIcon.getIconWidth());
 
     return new CenteredIcon(expanded ? (white ? getTreeSelectedExpandedIcon() : getTreeExpandedIcon())
-                                     : (white ? getTreeSelectedCollapsedIcon() : getTreeCollapsedIcon()),
-        width, height, false);
+            : (white ? getTreeSelectedCollapsedIcon() : getTreeCollapsedIcon()),
+            width, height, false);
   }
 
   private String getAccentColor() {
@@ -199,22 +206,34 @@ public final class MTTreeUI extends WideSelectionTreeUI {
   }
 
   private Icon getTreeCollapsedIcon() {
-    final String newPath = MTConfig.getInstance().getArrowsStyle().getCollapsedIcon();
-    return TintedIconsService.getIcon(newPath + ".png", getAccentColor());
+    if (treeCollapsedIcon == null) {
+      final String newPath = MTConfig.getInstance().getArrowsStyle().getCollapsedIcon();
+      treeCollapsedIcon = TintedIconsService.getIcon(newPath + ".png", getAccentColor());
+    }
+    return treeCollapsedIcon;
   }
 
   private Icon getTreeExpandedIcon() {
-    final String newPath = MTConfig.getInstance().getArrowsStyle().getExpandedIcon();
-    return TintedIconsService.getIcon(newPath + ".png", getAccentColor());
+    if (treeExpandedIcon == null) {
+      final String newPath = MTConfig.getInstance().getArrowsStyle().getExpandedIcon();
+      treeExpandedIcon = TintedIconsService.getIcon(newPath + ".png", getAccentColor());
+    }
+    return treeExpandedIcon;
   }
 
   private Icon getTreeSelectedCollapsedIcon() {
-    final String newPath = MTConfig.getInstance().getArrowsStyle().getCollapsedIcon();
-    return TintedIconsService.getIcon(newPath + "_selected.png", getAccentColor());
+    if (treeSelectedCollapsedIcon == null) {
+      final String newPath = MTConfig.getInstance().getArrowsStyle().getCollapsedIcon();
+      treeSelectedCollapsedIcon = TintedIconsService.getIcon(newPath + "_selected.png", getAccentColor());
+    }
+    return treeSelectedCollapsedIcon;
   }
 
   private Icon getTreeSelectedExpandedIcon() {
-    final String newPath = MTConfig.getInstance().getArrowsStyle().getExpandedIcon();
-    return TintedIconsService.getIcon(newPath + "_selected.png", getAccentColor());
+    if (treeSelectedExpandedIcon == null) {
+      final String newPath = MTConfig.getInstance().getArrowsStyle().getExpandedIcon();
+      treeSelectedExpandedIcon = TintedIconsService.getIcon(newPath + "_selected.png", getAccentColor());
+    }
+    return treeSelectedExpandedIcon;
   }
 }

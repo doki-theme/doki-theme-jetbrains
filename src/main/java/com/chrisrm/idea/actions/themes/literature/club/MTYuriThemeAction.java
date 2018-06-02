@@ -43,6 +43,7 @@ public final class MTYuriThemeAction extends MTAbstractThemeAction {
 
   @Override
   public void setSelected(final AnActionEvent e, final boolean state) {
+    super.setSelected(e, state);
     mtAmethystAccentAction.actionPerformed(e);
     MTThemeManager.getInstance().activate(MTThemes.YURI, true);
     WeebShitManager.getInstance().activate(MTThemes.YURI);
