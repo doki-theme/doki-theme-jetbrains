@@ -146,33 +146,29 @@ public final class UIReplacer {
         final Field[] captionFields = CaptionPanel.class.getDeclaredFields();
         // CNT_COLOR, BND_COLOR
         Arrays.stream(captionFields).filter(f -> f.getType().equals(Color.class))
-            .forEach(field -> setFeild(contrastColor, field));
+            .forEach(field -> setField(contrastColor, field));
 
         // TOP, BOTTOM FLICK ACTIVE AND PASSIVE
         final JBColor jbColor = new JBColor(color, color);
         Arrays.stream(captionFields).filter(f -> f.getType().equals(JBColor.class))
-            .forEach(field -> setFeild(jbColor, field));
+            .forEach(field -> setField(jbColor, field));
       }
 
       final Field[] fields = DarculaUIUtil.class.getDeclaredFields();
-      final Object[] objects = Arrays.stream(fields)
-          .filter(f -> f.getType().equals(Color.class))
-          .toArray();
-
       final Color accentColor = ColorUtil.toAlpha(ColorUtil.fromHex(MTConfig.getInstance().getAccentColor()), 100);
       final JBColor accentJBColor = new JBColor(accentColor, accentColor);
       // REGULAR/GRAPHITE
-      StaticPatcher.setFinalStatic((Field) objects[12], accentJBColor);
-      StaticPatcher.setFinalStatic((Field) objects[13], accentJBColor);
-      //      StaticPatcher.setFinalStatic((Field) objects[1], accentJBColor);
+      Arrays.stream(fields)
+          .filter(f -> f.getType().equals(Color.class))
+          .skip(11)
+          .forEach(field -> setField(accentJBColor, field));
 
       // Action button
       final Field[] fields2 = IdeaActionButtonLook.class.getDeclaredFields();
-      final Object[] objects2 = Arrays.stream(fields2)
+      Arrays.stream(fields2)
           .filter(f -> f.getType().equals(Color.class))
-          .toArray();
-
-      StaticPatcher.setFinalStatic((Field) objects2[1], accentJBColor);
+          .skip(1)
+          .forEach(field -> setField(accentJBColor, field));
     }
 
     static void patchMemoryIndicator() throws Exception {
@@ -498,7 +494,7 @@ public final class UIReplacer {
     }
   }
 
-  private static void setFeild(Color jbColor, Field field) {
+  private static void setField(Color jbColor, Field field) {
     try {
       StaticPatcher.setFinalStatic(field, jbColor);
     } catch (Exception e) {
