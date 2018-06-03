@@ -4,7 +4,7 @@
 
 # Doki Doki Theme for Jetbrains
 
-This is a [Material Theme](https://github.com/equinusocio/material-theme) port of both the IDE and Color scheme for JetBrains products.
+This is a [DDLC Theme](https://github.com/equinusocio/material-theme) port of both the IDE and Color scheme for JetBrains products.
 
 Plugin page:
 https://plugins.jetbrains.com/plugin/8006-material-theme-ui

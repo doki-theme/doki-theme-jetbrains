@@ -25,13 +25,13 @@
   -->
 
 <idea-plugin>
-    <id>com.chrisrm.idea.MaterialThemeUI</id>
-    <name>Material Theme UI</name>
+    <id>io.acari.DDLCTheme</id>
+    <name>Doki Doki Literature Club Theme</name>
     <version>@version@</version>
-    <vendor email="heliosaian@gmail.com" url="https://github.com/mallowigi">Mallowigi</vendor>
+    <vendor email="alexsimons9999@gmail.com" url="https://github.com/cyclic-reference">cyclic-reference</vendor>
 
     <description><![CDATA[
-        This will add the <a href="https://github.com/equinusocio/material-theme">Material Theme</a> look to your IDE.<br/><br/>
+        This will add the <a href="https://github.com/cyclic-reference/jetbrains-themee">DDLC Theme</a> look to your IDE.<br/><br/>
     ]]></description>
 
     <!-- Match with 'intellij.version' in build.gradle -->
@@ -134,7 +134,7 @@
 
 
     <actions>
-        <group id="MaterialTheme.ThemeChooser" text="Material Theme Chooser" popup="true"
+        <group id="MaterialTheme.ThemeChooser" text="DDLC Theme Chooser" popup="true"
                icon="/icons/actions/material-theme.png">
             <add-to-group group-id="MainToolBar" anchor="last"/>
 
@@ -160,11 +160,11 @@
         <group id="MaterialTheme.Panels" text="Panel Options" description="Panel Options" popup="true"
                icon="/icons/actions/layers.png">
             <add-to-group group-id="MainToolBar" anchor="last"/>
-            <action class="com.chrisrm.idea.actions.MTWeebAction" id="MTWeeb" text="Toggle Weeb Shit"
+            <action class="com.chrisrm.idea.actions.MTWeebAction" id="MTWeeb" text="Toggle Club Member"
                     icon="/icons/actions/themes/material_monkia.png"
                     description="Toggle Contrast"/>
             <action id="MTAddFileColors" class="com.chrisrm.idea.actions.MTAddFileColorsAction"
-                    text="Install Material File Colors"
+                    text="Install DDLC File Colors"
                     description="Install Material File Colors"
                     icon="/icons/actions/fileColors.png"/>
             <action class="com.chrisrm.idea.actions.MTContrastAction" id="MTContrastAction" text="Toggle Contrast"
@@ -199,10 +199,6 @@
                     text="Set recommended tab height"
                     description="Increase tab height to a 50px"
                     icon="/icons/actions/bigTabs.png"/>
-            <action id="MTAddFileColors" class="com.chrisrm.idea.actions.MTAddFileColorsAction"
-                    text="Install Material File Colors"
-                    description="Install Material File Colors"
-                    icon="/icons/actions/fileColors.png"/>
             <group id="arrowsStyles" text="Arrow Styles" popup="true">
                 <action class="com.chrisrm.idea.actions.arrows.MTMaterialArrows"
                         id="MTMaterialArrows"
@@ -342,10 +338,10 @@
                popup="true" icon="/icons/actions/components.png">
             <add-to-group group-id="MainToolBar" anchor="last"/>
             <action id="MTDisableThemeAction" class="com.chrisrm.idea.actions.MTDisableThemeAction"
-                    text="Toggle Material Theme" description="Toggle Material Theme"
+                    text="Toggle DDLC Theme" description="Toggle DDLC Theme"
                     icon="/icons/actions/mtDisableTheme.png"/>
             <action id="MTDisableComponents" class="com.chrisrm.idea.actions.MTDisableMaterialDesignAction"
-                    text="Toggle Material Components" description="Toggle Material Theme Components"
+                    text="Toggle DDCL Components" description="Toggle DDLC Theme Components"
                     icon="/icons/actions/mtComponents.png"/>
             <action id="MTMaterialIconsAction" class="com.chrisrm.idea.actions.MTMaterialIconsAction"
                     text="Toggle Material Icons" description="Toggle Material Icons"
@@ -371,7 +367,7 @@
                     icon="/icons/actions/changeWallpaper.png"/>
         </group>
 
-        <group id="MaterialTheme.Menu" text="Material Theme" popup="true" icon="/icons/actions/material-theme.png">
+        <group id="MaterialTheme.Menu" text="DDLC Theme" popup="true" icon="/icons/actions/material-theme.png">
             <reference id="MaterialTheme.ThemeChooser"/>
             <separator/>
             <reference id="MaterialTheme.Accents"/>
