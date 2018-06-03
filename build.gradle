@@ -129,7 +129,7 @@ version = System.getenv("pluginVersion") ?: pluginVersion
 intellij {
     pluginName 'DDLC Theme'
     type type
-    version '182.2757.3'
+    version '181.5087.20'
     downloadSources true
     updateSinceUntilBuild true
 
