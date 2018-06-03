@@ -58,7 +58,7 @@ import com.intellij.vcs.log.ui.highlighters.CurrentBranchHighlighter;
 import com.intellij.vcs.log.ui.highlighters.MergeCommitsHighlighter;
 
 import javax.swing.*;
-import javax.swing.plaf.*;
+import javax.swing.plaf.ColorUIResource;
 import java.awt.*;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -144,25 +144,21 @@ public final class UIReplacer {
 
         // Captions
         final Field[] captionFields = CaptionPanel.class.getDeclaredFields();
-        final Object[] captionObjects = Arrays.stream(captionFields).filter(f -> f.getType().equals(Color.class)).toArray();
-        final Object[] captionObjects2 = Arrays.stream(captionFields).filter(f -> f.getType().equals(JBColor.class)).toArray();
-
         // CNT_COLOR, BND_COLOR
-        StaticPatcher.setFinalStatic((Field) captionObjects[0], contrastColor);
-        StaticPatcher.setFinalStatic((Field) captionObjects[1], contrastColor);
+        Arrays.stream(captionFields).filter(f -> f.getType().equals(Color.class))
+            .forEach(field -> setFeild(contrastColor, field));
 
         // TOP, BOTTOM FLICK ACTIVE AND PASSIVE
         final JBColor jbColor = new JBColor(color, color);
-        StaticPatcher.setFinalStatic((Field) captionObjects2[0], jbColor);
-        StaticPatcher.setFinalStatic((Field) captionObjects2[1], jbColor);
-        StaticPatcher.setFinalStatic((Field) captionObjects2[2], jbColor);
-        StaticPatcher.setFinalStatic((Field) captionObjects2[3], jbColor);
+        Arrays.stream(captionFields).filter(f -> f.getType().equals(JBColor.class))
+            .forEach(field -> setFeild(jbColor, field));
       }
 
       final Field[] fields = DarculaUIUtil.class.getDeclaredFields();
       final Object[] objects = Arrays.stream(fields)
-              .filter(f -> f.getType().equals(Color.class))
-              .toArray();
+          .filter(f -> f.getType().equals(Color.class))
+          .toArray();
+
       final Color accentColor = ColorUtil.toAlpha(ColorUtil.fromHex(MTConfig.getInstance().getAccentColor()), 100);
       final JBColor accentJBColor = new JBColor(accentColor, accentColor);
       // REGULAR/GRAPHITE
@@ -173,8 +169,8 @@ public final class UIReplacer {
       // Action button
       final Field[] fields2 = IdeaActionButtonLook.class.getDeclaredFields();
       final Object[] objects2 = Arrays.stream(fields2)
-              .filter(f -> f.getType().equals(Color.class))
-              .toArray();
+          .filter(f -> f.getType().equals(Color.class))
+          .toArray();
 
       StaticPatcher.setFinalStatic((Field) objects2[1], accentJBColor);
     }
@@ -192,8 +188,8 @@ public final class UIReplacer {
 
         final Field[] fields = MemoryUsagePanel.class.getDeclaredFields();
         final Object[] objects = Arrays.stream(fields)
-                .filter(f -> f.getType().equals(Color.class))
-                .toArray();
+            .filter(f -> f.getType().equals(Color.class))
+            .toArray();
         StaticPatcher.setFinalStatic((Field) objects[0], usedColor);
         StaticPatcher.setFinalStatic((Field) objects[1], unusedColor);
       }
@@ -207,13 +203,13 @@ public final class UIReplacer {
 
       final Field[] fields = ParameterInfoComponent.class.getDeclaredFields();
       final Object[] objects = Arrays.stream(fields)
-              .filter(f -> f.getType().equals(Map.class))
-              .toArray();
+          .filter(f -> f.getType().equals(Map.class))
+          .toArray();
 
       StaticPatcher.setFinalStatic((Field) objects[0], ImmutableMap.of(
-              ParameterInfoUIContextEx.Flag.HIGHLIGHT, "b color=" + accentColor,
-              ParameterInfoUIContextEx.Flag.DISABLE, "font color=gray",
-              ParameterInfoUIContextEx.Flag.STRIKEOUT, "strike"));
+          ParameterInfoUIContextEx.Flag.HIGHLIGHT, "b color=" + accentColor,
+          ParameterInfoUIContextEx.Flag.DISABLE, "font color=gray",
+          ParameterInfoUIContextEx.Flag.STRIKEOUT, "strike"));
     }
 
     static void patchAutocomplete() throws Exception {
@@ -231,8 +227,8 @@ public final class UIReplacer {
 
       final Field[] fields = LookupCellRenderer.class.getDeclaredFields();
       final Object[] objects = Arrays.stream(fields)
-              .filter(f -> f.getType().equals(Color.class))
-              .toArray();
+          .filter(f -> f.getType().equals(Color.class))
+          .toArray();
 
       StaticPatcher.setFinalStatic((Field) objects[2], secondTextColor);
       // SELECTED BACKGROUND COLOR
@@ -271,16 +267,16 @@ public final class UIReplacer {
       final Constructor<MessageType> declaredConstructor = MessageType.class.getDeclaredConstructor(Icon.class, Color.class, Color.class);
       declaredConstructor.setAccessible(true);
       final Color errorBackground = ObjectUtils.notNull(UIManager.getColor("Notifications.errorBackground"), new JBColor(
-              new ColorUIResource(0xE53935),
-              new ColorUIResource(0x743A3A)
+          new ColorUIResource(0xE53935),
+          new ColorUIResource(0x743A3A)
       ));
       final Color warnBackground = ObjectUtils.notNull(UIManager.getColor("Notifications.warnBackground"), new JBColor(
-              new ColorUIResource(0xFFB62C),
-              new ColorUIResource(0x7F6C00))
+          new ColorUIResource(0xFFB62C),
+          new ColorUIResource(0x7F6C00))
       );
       final Color infoBackground = ObjectUtils.notNull(UIManager.getColor("Notifications.infoBackground"), new JBColor(
-              new ColorUIResource(0x91B859),
-              new ColorUIResource(0x356936))
+          new ColorUIResource(0x91B859),
+          new ColorUIResource(0x356936))
       );
 
       final JBColor errorBackgroundColor = new JBColor(errorBackground, errorBackground);
@@ -288,18 +284,18 @@ public final class UIReplacer {
       final JBColor infoBackgroundColor = new JBColor(infoBackground, infoBackground);
 
       final MessageType errorType = declaredConstructor.newInstance(
-              AllIcons.General.NotificationError,
-              errorBackgroundColor,
-              errorBackgroundColor);
+          AllIcons.General.NotificationError,
+          errorBackgroundColor,
+          errorBackgroundColor);
 
       final MessageType warnType = declaredConstructor.newInstance(
-              AllIcons.General.NotificationWarning,
-              warnBackgroundColor,
-              warnBackgroundColor);
+          AllIcons.General.NotificationWarning,
+          warnBackgroundColor,
+          warnBackgroundColor);
       final MessageType infoType = declaredConstructor.newInstance(
-              AllIcons.General.NotificationInfo,
-              infoBackgroundColor,
-              infoBackgroundColor);
+          AllIcons.General.NotificationInfo,
+          infoBackgroundColor,
+          infoBackgroundColor);
 
       StaticPatcher.setFinalStatic(MessageType.class, "ERROR", errorType);
       StaticPatcher.setFinalStatic(MessageType.class, "INFO", infoType);
@@ -419,15 +415,15 @@ public final class UIReplacer {
 
         final Field[] fields = CurrentBranchHighlighter.class.getDeclaredFields();
         final Object[] objects = Arrays.stream(fields)
-                .filter(f -> f.getType().equals(JBColor.class))
-                .toArray();
+            .filter(f -> f.getType().equals(JBColor.class))
+            .toArray();
 
         StaticPatcher.setFinalStatic((Field) objects[0], commitsColor);
 
         final Field[] fields2 = MergeCommitsHighlighter.class.getDeclaredFields();
         final Object[] objects2 = Arrays.stream(fields2)
-                .filter(f -> f.getType().equals(JBColor.class))
-                .toArray();
+            .filter(f -> f.getType().equals(JBColor.class))
+            .toArray();
 
         final Color accentColor = ColorUtil.fromHex(MTConfig.getInstance().getAccentColor());
         final Color mergeCommitsColor = new JBColor(accentColor, accentColor);
@@ -450,8 +446,8 @@ public final class UIReplacer {
 
       final Field[] fields = SettingsTreeView.class.getDeclaredFields();
       final Object[] objects = Arrays.stream(fields)
-              .filter(f -> f.getType().equals(Color.class))
-              .toArray();
+          .filter(f -> f.getType().equals(Color.class))
+          .toArray();
 
       StaticPatcher.setFinalStatic((Field) objects[1], accentColor);
     }
@@ -465,19 +461,19 @@ public final class UIReplacer {
       final JBColor disabledColor = new JBColor(ColorUtil.fromHex(disabled), ColorUtil.fromHex(disabled));
 
       final Map<String, Color> ourDefaultColors = ContainerUtil.<String, Color>immutableMapBuilder()
-              .put("Blue", new JBColor(new Color(0x82AAFF), new Color(0x2E425F)))
-              .put("Green", new JBColor(new Color(0xC3E88D), new Color(0x4B602F)))
-              .put("Orange", new JBColor(new Color(0xF78C6C), new Color(0x904028)))
-              .put("Rose", new JBColor(new Color(0xFF5370), new Color(0x5F1818)))
-              .put("Violet", new JBColor(new Color(0xC792EA), new Color(0x2F235F)))
-              .put("Yellow", new JBColor(new Color(0xFFCB6B), new Color(0x885522)))
-              .put("Theme", disabledColor)
-              .build();
+          .put("Blue", new JBColor(new Color(0x82AAFF), new Color(0x2E425F)))
+          .put("Green", new JBColor(new Color(0xC3E88D), new Color(0x4B602F)))
+          .put("Orange", new JBColor(new Color(0xF78C6C), new Color(0x904028)))
+          .put("Rose", new JBColor(new Color(0xFF5370), new Color(0x5F1818)))
+          .put("Violet", new JBColor(new Color(0xC792EA), new Color(0x2F235F)))
+          .put("Yellow", new JBColor(new Color(0xFFCB6B), new Color(0x885522)))
+          .put("Theme", disabledColor)
+          .build();
 
       final Field[] fields = FileColorManagerImpl.class.getDeclaredFields();
       final Object[] objects = Arrays.stream(fields)
-              .filter(f -> f.getType().equals(Map.class))
-              .toArray();
+          .filter(f -> f.getType().equals(Map.class))
+          .toArray();
 
       StaticPatcher.setFinalStatic((Field) objects[0], ourDefaultColors);
     }
@@ -499,6 +495,14 @@ public final class UIReplacer {
 
         StaticPatcher.setFinalStatic(ActionButtonLook.class, "SYSTEM_LOOK", new MTActionButtonLook());
       }
+    }
+  }
+
+  private static void setFeild(Color jbColor, Field field) {
+    try {
+      StaticPatcher.setFinalStatic(field, jbColor);
+    } catch (Exception e) {
+      e.printStackTrace();
     }
   }
 
@@ -525,9 +529,9 @@ public final class UIReplacer {
     @Override
     protected void paint(final Graphics2D g, final int newX, final int newY, final int newWidth, final int newHeight) {
       int x = newX,
-              y = newY,
-              width = newWidth,
-              height = newHeight;
+          y = newY,
+          width = newWidth,
+          height = newHeight;
 
       if (myOffset > 0) {
         x += myOffset;
