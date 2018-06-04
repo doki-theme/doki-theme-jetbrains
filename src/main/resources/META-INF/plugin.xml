@@ -357,14 +357,6 @@
                     class="com.chrisrm.idea.actions.MTToggleStatusbarIndicatorAction"
                     text="Toggle Status Bar Indicator" description="Toggle Status Bar Indicator"
                     icon="/icons/actions/mtNoStatus.png"/>
-            <action id="MTToggleDarkTitleBarAction"
-                    class="com.chrisrm.idea.actions.MTDarkTitleBarAction"
-                    text="Toggle Dark Title Bar" description="Toggle Dark Title Bar"
-                    icon="/icons/actions/darkTitleBar.png"/>
-            <action id="MTChangeWallpaperAction"
-                    class="com.chrisrm.idea.actions.MTChangeWallpaperAction"
-                    text="Install Material wallpaper" description="Install Material Wallpaper"
-                    icon="/icons/actions/changeWallpaper.png"/>
         </group>
 
         <group id="MaterialTheme.Menu" text="DDLC Theme" popup="true" icon="/icons/actions/material-theme.png">
