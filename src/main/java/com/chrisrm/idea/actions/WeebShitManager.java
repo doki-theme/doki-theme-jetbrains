@@ -27,8 +27,11 @@ public final class WeebShitManager {
   private static final String WEEB_SHIT_PROPERTY = "WEEB_SHIT_PROPERTY";
   private static final String SAVED_THEME = "CLUB_MEMBER_THEME_PROPERTY";
   private final AtomicBoolean isOn = new AtomicBoolean(true);
-  private final AtomicBoolean isInitialized = new AtomicBoolean(false);
-  private MTThemes mtThemes = MTThemes.MONIKA;
+  private MTThemes currentTheme = getPreviousTheme();
+
+  private static MTThemes getPreviousTheme() {
+    return MTThemes.getTheme(PropertiesComponent.getInstance().getValue(SAVED_THEME));
+  }
 
   private WeebShitManager() {
   }
@@ -38,16 +41,9 @@ public final class WeebShitManager {
   }
 
   private void turnOnIfNecessary() {
-    if(!isInitialized.getAndSet(true)){
-      this.mtThemes = getPreviousTheme();
-    }
     if (isOn.get())
       turnOnWeebShit();
     IdeBackgroundUtil.repaintAllWindows();
-  }
-
-  private MTThemes getPreviousTheme() {
-    return MTThemes.getTheme(PropertiesComponent.getInstance().getValue(SAVED_THEME));
   }
 
   public boolean weebShitOn() {
@@ -133,11 +129,11 @@ public final class WeebShitManager {
   }
 
   private Optional<MTThemes> getTheme() {
-    return Optional.ofNullable(this.mtThemes);
+    return Optional.ofNullable(this.currentTheme);
   }
 
   public void activate(MTThemes monika) {
-    this.mtThemes = monika;
+    this.currentTheme = monika;
     removeWeebShit();
     IdeBackgroundUtil.repaintAllWindows();
     turnOnIfNecessary();
