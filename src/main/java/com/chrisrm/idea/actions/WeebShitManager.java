@@ -72,6 +72,9 @@ public final class WeebShitManager {
     String opacity = "80";
     String fill = "plain";//ref -> IdeBackgroundUtil.Fill.PLAIN
     String anchor = "bottom_right";//ref -> IdeBackgroundUtil.Anchor.BOTTOM_RIGHT;
+
+    //org.intellij.images.editor.actions.SetBackgroundImageDialog has all of the answers
+    //as to why this looks this way
     String property = Stream.of(imagePath, opacity, fill, anchor)
         .collect(Collectors.joining(","));
     PropertiesComponent.getInstance().setValue(EDITOR_PROP, property);

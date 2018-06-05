@@ -30,12 +30,13 @@ import com.chrisrm.idea.MTConfig;
 import com.chrisrm.idea.MTThemeManager;
 import com.chrisrm.idea.MTThemes;
 import com.chrisrm.idea.actions.WeebShitManager;
+import com.chrisrm.idea.actions.accents.MTCyanAccentAction;
 import com.chrisrm.idea.actions.accents.MTSkyAccentAction;
 import com.chrisrm.idea.actions.themes.MTAbstractThemeAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 
 public final class MTSayoriThemeAction extends MTAbstractThemeAction {
-  private final MTSkyAccentAction mtSkyAccentAction = new MTSkyAccentAction();
+  private final MTCyanAccentAction mtSkyAccentAction = new MTCyanAccentAction();
   @Override
   public boolean isSelected(final AnActionEvent e) {
     return MTConfig.getInstance().getSelectedTheme() == MTThemes.SAYORI;
