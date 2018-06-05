@@ -35,9 +35,7 @@
     ]]></description>
 
     <!-- Match with 'intellij.version' in build.gradle -->
-    <!--<idea-version since-build="173.2290.1"/>-->
     <idea-version since-build="173.3655.1"/>
-    <!--<idea-version since-build="171.2953.9" until-build="173.2290.1"/>-->
 
 
     <depends>com.intellij.modules.platform</depends>
@@ -84,7 +82,6 @@
 
         <welcomeFrameProvider implementation="com.chrisrm.idea.ui.MTFlatWelcomeFrameProvider"
                               order="FIRST"/>
-        <!--<ideRootPaneNorth implementation="com.chrisrm.idea.themes.MTFrameComponentExtension"></ideRootPaneNorth>-->
 
         <search.optionContributor implementation="com.chrisrm.idea.config.MTOptionContributor"/>
         <search.topHitProvider implementation="com.chrisrm.idea.config.MTConfigTopHitProvider"/>

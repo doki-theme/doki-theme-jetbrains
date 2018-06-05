@@ -27,9 +27,9 @@ public final class WeebShitManager {
   private static final String WEEB_SHIT_PROPERTY = "WEEB_SHIT_PROPERTY";
   private static final String SAVED_THEME = "CLUB_MEMBER_THEME_PROPERTY";
   private final AtomicBoolean isOn = new AtomicBoolean(true);
-  private MTThemes currentTheme = getPreviousTheme();
+  private MTThemes currentTheme = getSavedTheme();
 
-  private static MTThemes getPreviousTheme() {
+  private static MTThemes getSavedTheme() {
     return MTThemes.getTheme(PropertiesComponent.getInstance().getValue(SAVED_THEME));
   }
 
@@ -99,7 +99,7 @@ public final class WeebShitManager {
           }
         })
         .orElse("just_monika.png");
-    String theAnimesPath = "/weebstuff/" + literatureClubMember;
+    String theAnimesPath = "/club_members/" + literatureClubMember;
     Path weebStuff = Paths.get(".", theAnimesPath).normalize().toAbsolutePath();
     if (!Files.exists(weebStuff)) {
       creatDirectories(weebStuff);
