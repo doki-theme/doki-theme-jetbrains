@@ -11,12 +11,12 @@ public class MTWeebAction extends ToggleAction {
 
   @Override
   public boolean isSelected(final AnActionEvent e) {
-    return WeebShitManager.getInstance().weebShitOn();
+    return ClubMemberManager.getInstance().weebShitOn();
   }
 
   @Override
   public void setSelected(final AnActionEvent e, final boolean state) {
-    WeebShitManager instance = WeebShitManager.getInstance();
+    ClubMemberManager instance = ClubMemberManager.getInstance();
     instance.toggleWeebShit();
   }
 }

@@ -20,11 +20,11 @@ import java.util.stream.Stream;
 
 import static com.intellij.openapi.wm.impl.IdeBackgroundUtil.EDITOR_PROP;
 
-//club member stuff
-public final class WeebShitManager {
+//ie Monika
+public final class ClubMemberManager {
 
-  private final static WeebShitManager instance = new WeebShitManager();
-  private static final String WEEB_SHIT_PROPERTY = "WEEB_SHIT_PROPERTY";
+  private final static ClubMemberManager instance = new ClubMemberManager();
+  private static final String CLUB_MEMBER_ON = "CLUB_MEMBER_ON";
   private static final String SAVED_THEME = "CLUB_MEMBER_THEME_PROPERTY";
   private final AtomicBoolean isOn = new AtomicBoolean(true);
   private MTThemes currentTheme = getSavedTheme();
@@ -33,10 +33,10 @@ public final class WeebShitManager {
     return MTThemes.getTheme(PropertiesComponent.getInstance().getValue(SAVED_THEME));
   }
 
-  private WeebShitManager() {
+  private ClubMemberManager() {
   }
 
-  public static WeebShitManager getInstance() {
+  public static ClubMemberManager getInstance() {
     return instance;
   }
 
@@ -55,7 +55,7 @@ public final class WeebShitManager {
     handleWeebShit(weebShitIsOn);
     isOn.getAndSet(!weebShitIsOn);
     PropertiesComponent.getInstance()
-        .setValue(WEEB_SHIT_PROPERTY, isOn.get());
+        .setValue(CLUB_MEMBER_ON, isOn.get());
   }
 
   private void handleWeebShit(boolean weebShitIsOn) {
