@@ -139,11 +139,6 @@ intellij {
         changeNotes file("$projectDir/docs/CHANGELOG.html").text
         untilBuild System.getenv("pluginUntilBuild") ?: untilBuildP
     }
-
-    publishPlugin {
-        username System.getenv("publishUsername") ?: publishUsername
-        password System.getenv("publishPassword") ?: publishPassword
-    }
 }
 compileKotlin {
     kotlinOptions {
