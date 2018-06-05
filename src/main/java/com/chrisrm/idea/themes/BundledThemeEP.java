@@ -32,7 +32,7 @@ import com.intellij.util.xmlb.annotations.Attribute;
 
 public class BundledThemeEP extends AbstractExtensionPointBean {
   public static final ExtensionPointName<BundledThemeEP> EP_NAME =
-      ExtensionPointName.create("com.chrisrm.idea.MaterialThemeUI.bundledTheme");
+      ExtensionPointName.create("io.acari.DDLCTheme.bundledTheme");
 
   @Attribute("path")
   public String path;

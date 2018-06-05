@@ -90,7 +90,7 @@ public final class MTThemeManager {
 
   private static String getSettingsPrefix() {
     final PluginId pluginId = PluginManager.getPluginByClassName(MTAbstractTheme.class.getName());
-    return pluginId == null ? "com.chrisrm.idea.MaterialThemeUI" : pluginId.getIdString();
+    return pluginId == null ? "io.acari.DDLCTheme" : pluginId.getIdString();
   }
 
   //region Action Toggles

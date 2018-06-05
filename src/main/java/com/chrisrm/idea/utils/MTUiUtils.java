@@ -140,25 +140,23 @@ public final class MTUiUtils {
   }
 
   public static String getVersion() {
-    final IdeaPluginDescriptor plugin = getPlugin();
-    if (plugin != null) {
-      return plugin.getVersion();
-    }
-    return "1.3.0";
+     return getPlugin()
+             .map(IdeaPluginDescriptor::getVersion)
+             .orElse("1.0.0");//todo:should be updated erry release :)
   }
 
-  private static String getPluginId() {
+  private static Optional<String> getPluginId() {
     final Map<String, PluginId> registeredIds = PluginId.getRegisteredIds();
-    final Optional<Map.Entry<String, PluginId>> pluginIdEntry = registeredIds.entrySet()
-                                                                             .stream()
-                                                                             .filter(e -> e.getKey().contains("MaterialThemeUI"))
-                                                                             .findFirst();
-
-    return pluginIdEntry.isPresent() ? String.valueOf(pluginIdEntry.get().getValue()) : null;
+    return registeredIds.entrySet()
+                       .stream()
+                       .filter(e -> e.getKey().contains("DDLCTheme"))
+                        .map(Map.Entry::getValue)
+                        .map(String::valueOf)
+                       .findFirst();
   }
 
-  private static IdeaPluginDescriptor getPlugin() {
-    return PluginManager.getPlugin(PluginId.getId("com.chrisrm.idea.MaterialThemeUI"));
+  private static Optional<IdeaPluginDescriptor> getPlugin() {
+    return Optional.ofNullable(PluginManager.getPlugin(PluginId.getId("io.acari.DDLCTheme")));
   }
 
   public static int colorToDword(final Color c) {
