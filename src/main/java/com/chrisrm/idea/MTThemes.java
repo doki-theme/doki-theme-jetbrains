@@ -33,9 +33,9 @@ import com.chrisrm.idea.themes.literature.club.MTSayoriTheme;
 import com.chrisrm.idea.themes.literature.club.MTYuriTheme;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Collection;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 /**
  * Facade for accessing internal theme's methods.
@@ -47,13 +47,9 @@ public enum MTThemes implements MTThemeFacade {
   NATSUKI("NATSUKI", new MTNatsukiTheme()),
   YURI("YURI", new MTYuriTheme());
 
-  private static final Map<String, MTThemeFacade> THEMES_MAP = new TreeMap<>();
-
-  static {
-    for (final MTThemeFacade theme : values()) {
-      THEMES_MAP.put(theme.getName(), theme);
-    }
-  }
+  private static final Map<String, MTThemeFacade> THEMES_MAP = Arrays.stream(values())
+      .collect(Collectors.toMap(MTThemes::getName,
+          Function.identity(),(a,b)->a, TreeMap::new));
 
   /**
    * The name of the theme (uppercase)
@@ -112,6 +108,14 @@ public enum MTThemes implements MTThemeFacade {
     return THEMES_MAP.get(themeID);
   }
 
+  private static final Map<String, MTThemes> BETTER_THEME_MAP =  Arrays.stream(values())
+      .collect(Collectors.toMap(MTThemes::getName,
+          Function.identity(),(a,b)->a, HashMap::new));
+
+  public static MTThemes getTheme(final String themeID) {
+    return BETTER_THEME_MAP.getOrDefault(themeID, MONIKA);
+  }
+
   /**
    * Add a new theme to the enum
    *
@@ -127,9 +131,6 @@ public enum MTThemes implements MTThemeFacade {
   /**
    * Get the list of all themes (native + bundled)
    */
-  public static Collection<MTThemeFacade> getAllThemes() {
-    return THEMES_MAP.values();
-  }
 
   /**
    * Generate a themeFacade from a theme
