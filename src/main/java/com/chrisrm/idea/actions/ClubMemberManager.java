@@ -3,7 +3,6 @@ package com.chrisrm.idea.actions;
 import com.chrisrm.idea.MTThemes;
 import com.intellij.ide.util.PropertiesComponent;
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil;
-import org.apache.commons.io.IOUtils;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
@@ -121,9 +120,18 @@ public final class ClubMemberManager {
         .getClassLoader()
         .getResourceAsStream(theAnimesPath));
          OutputStream bufferedWriter = Files.newOutputStream(weebStuff, StandardOpenOption.CREATE)) {
-      IOUtils.copy(inputStream, bufferedWriter);
+      copy(inputStream, bufferedWriter);
     } catch (IOException e) {
       e.printStackTrace();
+    }
+  }
+
+  private static final int BUFFER_SIZE = 8 * 1024;
+  private void copy(InputStream inputStream, OutputStream bufferedWriter) throws IOException {
+    byte[] buffer = new byte[BUFFER_SIZE];
+    int bytesRead;
+    while ((bytesRead = inputStream.read(buffer)) != -1) {
+      bufferedWriter.write(buffer, 0, bytesRead);
     }
   }
 
