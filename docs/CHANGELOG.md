@@ -1,7 +1,7 @@
 # Changelog
 ----
 
-## 0.1.2-beta
+## 0.2.0-beta
 - Testing plugin publishing
 - New Color Schemes for each Club Member (Not Final)
 - Fixed issue with WebStorm not showing club members.

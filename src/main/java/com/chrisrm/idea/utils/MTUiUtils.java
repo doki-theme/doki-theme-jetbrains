@@ -142,7 +142,7 @@ public final class MTUiUtils {
   public static String getVersion() {
      return getPlugin()
              .map(IdeaPluginDescriptor::getVersion)
-             .orElse("DDLC Theme");//todo:should be updated erry release :)
+             .orElse("0.2.0-beta");//todo:should be updated erry release :)
   }
 
   private static Optional<String> getPluginId() {
