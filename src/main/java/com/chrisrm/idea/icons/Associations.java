@@ -36,6 +36,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.io.Serializable;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -43,7 +44,7 @@ import java.util.List;
  */
 public final class Associations implements Serializable {
 
-  private List<Association> associations;
+  private List<Association> associations = new ArrayList<>();
 
   public List<Association> getAssociations() {
     return associations;
