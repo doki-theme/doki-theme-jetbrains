@@ -133,6 +133,11 @@ intellij {
     downloadSources true
     updateSinceUntilBuild true
 
+    publishPlugin {
+        username System.getenv("pluginUsername")
+        password System.getenv("pluginPassword")
+    }
+
     patchPluginXml {
         version "$version"
         sinceBuild System.getenv("pluginSinceBuild") ?: sinceBuildP
