@@ -29,5 +29,7 @@ Code Colors (NEEDS TEST TIME)
 
 Migrate back to using a fork.
 git diff for conflict and addtions for monika are un readable
+club members get hidden if all editory tabs are closed
 search everywhere
 FILE changed status (NOT AVAILABLE IN COMMUNITY)
+
