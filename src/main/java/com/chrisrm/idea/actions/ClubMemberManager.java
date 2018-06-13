@@ -12,6 +12,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.nio.file.attribute.BasicFileAttributeView;
+import java.nio.file.attribute.BasicFileAttributes;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.stream.Collectors;
@@ -100,11 +102,22 @@ public final class ClubMemberManager {
         .orElse("just_monika.png");
     String theAnimesPath = "/club_members/" + literatureClubMember;
     Path weebStuff = Paths.get(".", theAnimesPath).normalize().toAbsolutePath();
-    if (!Files.exists(weebStuff)) {
+    if (!Files.exists(weebStuff) || hasNoContents(weebStuff)) {
       creatDirectories(weebStuff);
       copyAnimes(theAnimesPath, weebStuff);
     }
     return weebStuff.toString();
+  }
+
+  private boolean hasNoContents(Path weebStuff) {
+    BasicFileAttributeView fileAttributeView = Files.getFileAttributeView(weebStuff, BasicFileAttributeView.class);
+    try {
+      BasicFileAttributes basicFileAttributes = fileAttributeView.readAttributes();
+      return basicFileAttributes.size() < 100L;
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    return true;
   }
 
   private void creatDirectories(Path weebStuff) {
