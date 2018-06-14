@@ -51,7 +51,7 @@ public class MTMenuItemUIBase extends DarculaMenuItemUIBase {
                                       final MenuSelectionManager manager) {
     final Point p = e.getPoint();
     if (p.x >= 0 && p.x < item.getWidth() &&
-            p.y >= 0 && p.y < item.getHeight()) {
+        p.y >= 0 && p.y < item.getHeight()) {
       if (e.getID() == MouseEvent.MOUSE_RELEASED) {
         manager.clearSelectedPath();
         item.doClick(0);
@@ -86,11 +86,11 @@ public class MTMenuItemUIBase extends DarculaMenuItemUIBase {
     JBInsets.removeFrom(viewRect, mi.getInsets());
 
     final MenuItemLayoutHelper lh = new MenuItemLayoutHelper(mi, checkIcon,
-            arrowIcon, viewRect, defaultTextIconGap, "-",
-            // move to java 1.7
-            mi.getComponentOrientation().isLeftToRight(), mi.getFont(),
-            acceleratorFont, MenuItemLayoutHelper.useCheckAndArrow(menuItem),
-            getPropertyPrefix());
+        arrowIcon, viewRect, defaultTextIconGap, "-", //todo[kb] use protected field BasicMenuItemUI.acceleratorDelimiter when we
+        // move to java 1.7
+        mi.getComponentOrientation().isLeftToRight(), mi.getFont(),
+        acceleratorFont, MenuItemLayoutHelper.useCheckAndArrow(menuItem),
+        getPropertyPrefix());
     final MenuItemLayoutHelper.LayoutResult lr = lh.layoutMenuItem();
 
     paintBackground(g, mi, background);
@@ -127,7 +127,7 @@ public class MTMenuItemUIBase extends DarculaMenuItemUIBase {
 
       if (icon != null) {
         icon.paintIcon(lh.getMenuItem(), g, lr.getIconRect().x,
-                lr.getIconRect().y);
+            lr.getIconRect().y);
         g.setColor(holdc);
       }
     }
@@ -147,14 +147,14 @@ public class MTMenuItemUIBase extends DarculaMenuItemUIBase {
     if (lh.getCheckIcon() != null) {
       final ButtonModel model = lh.getMenuItem().getModel();
       if (model.isArmed() || (lh.getMenuItem() instanceof JMenu
-              && model.isSelected())) {
+          && model.isSelected())) {
         g.setColor(foreground);
       } else {
         g.setColor(holdc);
       }
       if (lh.useCheckAndArrow()) {
         lh.getCheckIcon().paintIcon(lh.getMenuItem(), g,
-                lr.getCheckRect().x, lr.getCheckRect().y);
+            lr.getCheckRect().x, lr.getCheckRect().y);
       }
       g.setColor(holdc);
     }
@@ -171,30 +171,30 @@ public class MTMenuItemUIBase extends DarculaMenuItemUIBase {
         if (disabledForeground != null) {
           g.setColor(disabledForeground);
           SwingUtilities2.drawString(lh.getMenuItem(), g,
-                  lh.getAccText(), lr.getAccRect().x,
-                  lr.getAccRect().y + lh.getAccFontMetrics().getAscent());
+              lh.getAccText(), lr.getAccRect().x,
+              lr.getAccRect().y + lh.getAccFontMetrics().getAscent());
         } else {
           g.setColor(lh.getMenuItem().getBackground().brighter());
           SwingUtilities2.drawString(lh.getMenuItem(), g,
-                  lh.getAccText(), lr.getAccRect().x,
-                  lr.getAccRect().y + lh.getAccFontMetrics().getAscent());
+              lh.getAccText(), lr.getAccRect().x,
+              lr.getAccRect().y + lh.getAccFontMetrics().getAscent());
           g.setColor(lh.getMenuItem().getBackground().darker());
           SwingUtilities2.drawString(lh.getMenuItem(), g,
-                  lh.getAccText(), lr.getAccRect().x - 1,
-                  lr.getAccRect().y + lh.getFontMetrics().getAscent() - 1);
+              lh.getAccText(), lr.getAccRect().x - 1,
+              lr.getAccRect().y + lh.getFontMetrics().getAscent() - 1);
         }
       } else {
         // *** paint the accText normally
         if (model.isArmed()
-                || (lh.getMenuItem() instanceof JMenu
-                && model.isSelected())) {
+            || (lh.getMenuItem() instanceof JMenu
+            && model.isSelected())) {
           g.setColor(acceleratorSelectionForeground);
         } else {
           g.setColor(acceleratorForeground);
         }
         SwingUtilities2.drawString(lh.getMenuItem(), g, lh.getAccText(),
-                lr.getAccRect().x, lr.getAccRect().y +
-                        lh.getAccFontMetrics().getAscent());
+            lr.getAccRect().x, lr.getAccRect().y +
+                lh.getAccFontMetrics().getAscent());
       }
     }
   }
@@ -221,12 +221,12 @@ public class MTMenuItemUIBase extends DarculaMenuItemUIBase {
     if (lh.getArrowIcon() != null) {
       final ButtonModel model = lh.getMenuItem().getModel();
       if (model.isArmed() || (lh.getMenuItem() instanceof JMenu
-              && model.isSelected())) {
+          && model.isSelected())) {
         g.setColor(foreground);
       }
       if (lh.useCheckAndArrow()) {
         lh.getArrowIcon().paintIcon(lh.getMenuItem(), g,
-                lr.getArrowRect().x, lr.getArrowRect().y);
+            lr.getArrowRect().x, lr.getArrowRect().y);
       }
     }
   }

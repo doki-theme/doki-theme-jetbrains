@@ -133,7 +133,7 @@ public final class MTStatusWidget extends JComponent implements CustomStatusBarW
   public Dimension getPreferredSize() {
     final String themeName = mtConfig.getSelectedTheme().getThemeColorScheme();
     final int width = getFontMetrics(MTUiUtils.getWidgetFont()).charsWidth(themeName.toCharArray(), 0,
-            themeName.length()) + 2 * MTUiUtils.PADDING;
+        themeName.length()) + 2 * MTUiUtils.PADDING;
     return new Dimension(width, JBUI.scale(MTUiUtils.HEIGHT));
   }
 

@@ -25,12 +25,12 @@
 
 package com.chrisrm.idea;
 
+import com.chrisrm.idea.icons.IconReplacer;
 import com.chrisrm.idea.messages.MaterialThemeBundle;
 import com.chrisrm.idea.themes.MTThemeable;
 import com.chrisrm.idea.themes.lists.AccentResources;
 import com.chrisrm.idea.themes.lists.ContrastResources;
 import com.chrisrm.idea.themes.lists.FontResources;
-import com.chrisrm.idea.utils.IconReplacer;
 import com.chrisrm.idea.utils.MTUiUtils;
 import com.chrisrm.idea.utils.UIReplacer;
 import com.chrisrm.idea.utils.WinRegistry;
@@ -378,11 +378,13 @@ public final class MTThemeManager {
     final FontUIResource uiFont = new FontUIResource(fontFace, Font.PLAIN, fontSize);
     final FontUIResource textFont = new FontUIResource("Serif", Font.PLAIN, fontSize);
 
-    final String monospaceFont = ObjectUtils.notNull(EditorColorsManager.getInstance().getGlobalScheme().getEditorFontName(), "DejaVu Sans Mono");
+    final String monospaceFont = ObjectUtils.notNull(EditorColorsManager.getInstance().getGlobalScheme().getEditorFontName(), "Fira Code");
     final FontUIResource monoFont = new FontUIResource(monospaceFont, Font.PLAIN, fontSize);
 
+    // Keep old style and size
     for (final String fontResource : FontResources.FONT_RESOURCES) {
-      uiDefaults.put(fontResource, uiFont);
+      final Font curFont = uiDefaults.getFont(fontResource);
+      uiDefaults.put(fontResource, uiFont.deriveFont(curFont.getStyle(), curFont.getSize()));
     }
 
     uiDefaults.put("PasswordField.font", monoFont);
@@ -394,6 +396,7 @@ public final class MTThemeManager {
   private void applyFonts() {
     final UISettings uiSettings = UISettings.getInstance();
     final UIDefaults lookAndFeelDefaults = UIManager.getLookAndFeelDefaults();
+    final int treeFontSize = MTConfig.getInstance().getTreeFontSize();
 
     final boolean useMaterialFont = MTConfig.getInstance().isUseMaterialFont();
     toggleBiggerFont(useMaterialFont);
@@ -405,6 +408,12 @@ public final class MTThemeManager {
       if (roboto != null) {
         applyCustomFonts(lookAndFeelDefaults, MTThemeManager.DEFAULT_FONT, JBUI.scale(MTThemeManager.DEFAULT_FONT_SIZE));
       }
+    }
+
+    if (MTConfig.getInstance().isTreeFontSizeEnabled()) {
+      // Tree font size
+      final Font font = UIManager.getFont("Tree.font");
+      lookAndFeelDefaults.put("Tree.font", font.deriveFont((float) treeFontSize));
     }
   }
   //endregion
@@ -448,8 +457,8 @@ public final class MTThemeManager {
     final MTConfig mtConfig = MTConfig.getInstance();
 
     if (mtConfig.isCustomTreeIndentEnabled) {
-      UIManager.put("Tree.leftChildIndent", (mtConfig.customTreeIndent / 2) + JBUI.scale(7));
-      UIManager.put("Tree.rightChildIndent", (mtConfig.customTreeIndent / 2) + JBUI.scale(4));
+      UIManager.put("Tree.leftChildIndent", mtConfig.getLeftTreeIndent());
+      UIManager.put("Tree.rightChildIndent", mtConfig.getRightTreeIndent());
     } else {
       UIManager.put("Tree.leftChildIndent", (MTThemeManager.DEFAULT_INDENT / 2) + JBUI.scale(7));
       UIManager.put("Tree.rightChildIndent", (MTThemeManager.DEFAULT_INDENT / 2) + JBUI.scale(4));

@@ -214,18 +214,22 @@ public final class MTProgressBarUI extends DarculaProgressBarUI {
     }
   }
 
+  @Override
   protected Color getStartColor() {
     return ColorUtil.fromHex(MTConfig.getInstance().getAccentColor()).brighter().brighter();
   }
 
+  @Override
   protected Color getEndColor() {
     return ColorUtil.fromHex(MTConfig.getInstance().getAccentColor());
   }
 
+  @Override
   protected Color getFinishedColor() {
     return ColorUtil.fromHex(MTConfig.getInstance().getAccentColor());
   }
 
+  @Override
   protected Color getRemainderColor() {
     return REMAINDER_COLOR;
   }

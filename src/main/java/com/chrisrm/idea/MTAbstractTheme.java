@@ -62,12 +62,21 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
 
   @Override
   @Nullable
-  public Icon getIcon() {
+  public final Icon getIcon() {
     return icon != null ? IconLoader.getIcon(icon) : IconUtil.getEmptyIcon(true);
   }
 
   @Override
-  public void setIcon(final String icon) {
+  public final void setIcon(final String icon) {
+    this.icon = icon;
+  }
+
+  protected MTAbstractTheme(@NotNull final String id,
+                            final String editorColorsScheme,
+                            final boolean dark,
+                            final String name,
+                            final String icon) {
+    this(id, editorColorsScheme, dark, name);
     this.icon = icon;
   }
 

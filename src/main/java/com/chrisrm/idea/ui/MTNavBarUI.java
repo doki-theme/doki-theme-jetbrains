@@ -35,8 +35,8 @@ import gnu.trove.THashMap;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.geom.Path2D;
-import java.awt.image.BufferedImage;
+import java.awt.geom.*;
+import java.awt.image.*;
 import java.util.HashMap;
 import java.util.Map;
 

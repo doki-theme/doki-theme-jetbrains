@@ -73,50 +73,15 @@ public final class MTConfigurable extends MTConfigurableBase<MTForm, MTConfig> i
 
   @Override
   protected void setFormState(final MTForm mtForm, final MTConfig mtConfig) {
-    getForm().setHighlightColor(mtConfig.getHighlightColor());
-    getForm().setHighlightColorEnabled(mtConfig.isHighlightColorEnabled());
-    getForm().setHighlightThickness(mtConfig.getHighlightThickness());
-    getForm().setIsContrastMode(mtConfig.getIsContrastMode());
-    getForm().setIsMaterialDesign(mtConfig.getIsMaterialDesign());
-    getForm().setIsBoldTabs(mtConfig.getIsBoldTabs());
-    getForm().setTabsHeight(mtConfig.getTabsHeight());
-    getForm().setIsCustomTreeIndent(mtConfig.isCustomTreeIndent());
-    getForm().setCustomTreeIndent(mtConfig.getCustomTreeIndent());
-    getForm().setIsUpperCaseTabs(mtConfig.isUpperCaseTabs());
-
-    getForm().setIsUseMaterialIcons(mtConfig.isUseMaterialIcons());
-    getForm().setUseProjectViewDecorators(mtConfig.isUseProjectViewDecorators());
-    getForm().setHideFileIcons(mtConfig.getHideFileIcons());
-    getForm().setIsCompactSidebar(mtConfig.isCompactSidebar());
-    getForm().setIsCompactStatusBar(mtConfig.isCompactStatusBar());
-    getForm().setIsCompactTables(mtConfig.isCompactTables());
-    getForm().setIsStatusBarTheme(mtConfig.isStatusBarTheme());
-    getForm().setIsMaterialTheme(mtConfig.isMaterialTheme());
-    getForm().setCustomSidebarHeight(mtConfig.getCustomSidebarHeight());
-    getForm().setArrowsStyle(mtConfig.getArrowsStyle());
-    getForm().setUseMaterialFont(mtConfig.isUseMaterialFont());
-    getForm().setDecoratedFolders(mtConfig.isDecoratedFolders());
-
-    getForm().setIsThemedScrollbars(mtConfig.isThemedScrollbars());
-    getForm().setIsAccentScrollbars(mtConfig.isAccentScrollbars());
-
-    getForm().setIsDarkTitleBar(mtConfig.isDarkTitleBar());
-
-    getForm().setCustomAccentColor(ColorUtil.fromHex(mtConfig.getAccentColor()));
-
-    getForm().setTabOpacity(mtConfig.getTabOpacity());
-
-    getForm().setIsCompactDropdowns(mtConfig.isCompactDropdowns());
-    getForm().setIsMonochromeIcons(mtConfig.isMonochromeIcons());
-    getForm().setIsUppercaseButtons(mtConfig.isUpperCaseButtons());
-
-    getForm().afterStateSet();
+    getForm().setFormState(mtConfig);
   }
 
   @Override
   protected void doApply(final MTForm mtForm, final MTConfig mtConfig) {
     mtConfig.fireBeforeChanged(getForm());
+    mtConfig.setSettingsSelectedTab(getForm().getSelectedTabIndex());
 
+    mtConfig.setSelectedTheme(getForm().getTheme());
     mtConfig.setHighlightColor(getForm().getHighlightColor());
     mtConfig.setHighlightColorEnabled(getForm().getHighlightColorEnabled());
     mtConfig.setHighlightThickness(getForm().getHighlightThickness());
@@ -125,7 +90,10 @@ public final class MTConfigurable extends MTConfigurableBase<MTForm, MTConfig> i
     mtConfig.setIsBoldTabs(getForm().getIsBoldTabs());
     mtConfig.setTabsHeight(getForm().getTabsHeight());
     mtConfig.setIsCustomTreeIndent(getForm().isCustomTreeIndent());
-    mtConfig.setCustomTreeIndent(getForm().getCustomTreeIndent());
+    mtConfig.setRightTreeIndent(getForm().getRightTreeIndent());
+    mtConfig.setLeftTreeIndent(getForm().getLeftTreeIndent());
+    mtConfig.setTreeFontSize(getForm().getTreeFontSize());
+    mtConfig.setTreeFontSizeEnabled(getForm().isTreeFontSizeEnabled());
     mtConfig.setIsUpperCaseTabs(getForm().isUpperCaseTabs());
 
     mtConfig.setUseMaterialIcons(getForm().isUseMaterialIcons());
@@ -144,7 +112,7 @@ public final class MTConfigurable extends MTConfigurableBase<MTForm, MTConfig> i
 
     mtConfig.setThemedScrollbars(getForm().isThemedScrollbars());
     mtConfig.setAccentScrollbars(getForm().isAccentScrollbars());
-
+    mtConfig.setFileStatusColorsEnabled(getForm().isFileStatusColors());
     mtConfig.setDarkTitleBar(getForm().isDarkTitleBar());
 
     mtConfig.setTabOpacity(getForm().getTabOpacity());
@@ -161,6 +129,7 @@ public final class MTConfigurable extends MTConfigurableBase<MTForm, MTConfig> i
   @Override
   protected boolean checkModified(final MTForm mtForm, final MTConfig mtConfig) {
     boolean modified = mtConfig.isHighlightColorChanged(getForm().getHighlightColor());
+    modified = modified || mtConfig.isSelectedThemeChanged(getForm().getTheme());
     modified = modified || mtConfig.isHighlightColorEnabledChanged(getForm().getHighlightColorEnabled());
     modified = modified || mtConfig.isHighlightThicknessChanged(getForm().getHighlightThickness());
     modified = modified || mtConfig.isContrastModeChanged(getForm().getIsContrastMode());
@@ -169,7 +138,10 @@ public final class MTConfigurable extends MTConfigurableBase<MTForm, MTConfig> i
     modified = modified || mtConfig.isTabsHeightChanged(getForm().getTabsHeight());
 
     modified = modified || mtConfig.isCustomTreeIndentChanged(getForm().isCustomTreeIndent());
-    modified = modified || mtConfig.customTreeIndentChanged(getForm().getCustomTreeIndent());
+    modified = modified || mtConfig.rightTreeIndentChanged(getForm().getRightTreeIndent());
+    modified = modified || mtConfig.leftTreeIndentChanged(getForm().getLeftTreeIndent());
+    modified = modified || mtConfig.treeFontSizeChanged(getForm().getTreeFontSize());
+    modified = modified || mtConfig.isTreeFontSizeEnabledChanged(getForm().isTreeFontSizeEnabled());
     modified = modified || mtConfig.isUpperCaseTabsChanged(getForm().isUpperCaseTabs());
 
     modified = modified || mtConfig.isMaterialIconsChanged(getForm().isUseMaterialIcons());
@@ -185,7 +157,7 @@ public final class MTConfigurable extends MTConfigurableBase<MTForm, MTConfig> i
 
     modified = modified || mtConfig.isThemedScrollbarsChanged(getForm().isThemedScrollbars());
     modified = modified || mtConfig.isAccentScrollbarsChanged(getForm().isAccentScrollbars());
-
+    modified = modified || mtConfig.isFileStatusColorsEnabledChanged(getForm().isFileStatusColors());
     modified = modified || mtConfig.isDarkTitleBarChanged(getForm().isDarkTitleBar());
     modified = modified || mtConfig.isDecoratedFoldersChanged(getForm().isDecoratedFolders());
 

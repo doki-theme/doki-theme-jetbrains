@@ -86,21 +86,6 @@ public interface MTThemeable {
   Color getBackgroundColor();
 
   /**
-   * The theme's border color
-   *
-   * @return
-   */
-  @NotNull
-  Color getBorderColor();
-
-  /**
-   * The theme's default border thickness
-   *
-   * @return
-   */
-  int getBorderThickness();
-
-  /**
    * The theme's contrast color
    *
    * @return
@@ -153,6 +138,4 @@ public interface MTThemeable {
   Icon getIcon();
 
   void setIcon(String icon);
-
-  Color getEditorTabColor();
 }

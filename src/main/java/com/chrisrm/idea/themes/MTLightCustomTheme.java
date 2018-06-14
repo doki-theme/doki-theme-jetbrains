@@ -1,26 +1,25 @@
 /*
- * The MIT License (MIT)
+ *  The MIT License (MIT)
  *
- * Copyright (c) 2018 Chris Magnussen and Elior Boukhobza
+ *  Copyright (c) 2018 Chris Magnussen and Elior Boukhobza
  *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
+ *  Permission is hereby granted, free of charge, to any person obtaining a copy
+ *  of this software and associated documentation files (the "Software"), to deal
+ *  in the Software without restriction, including without limitation the rights
+ *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ *  copies of the Software, and to permit persons to whom the Software is
+ *  furnished to do so, subject to the following conditions:
  *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
+ *  The above copyright notice and this permission notice shall be included in all
+ *  copies or substantial portions of the Software.
  *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- *
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ *  SOFTWARE.
  *
  */
 
@@ -40,7 +39,7 @@ public class MTLightCustomTheme extends MTAbstractTheme {
   public static final String DISABLED = "eae8e8";
 
   public MTLightCustomTheme() {
-    super("mt.light_custom", "Material Light Custom", false);
+    super("mt.light_custom", "Material Light Custom", false, "Light Custom", "/icons/actions/themes/light_custom.png");
   }
 
   @NotNull
@@ -55,20 +54,14 @@ public class MTLightCustomTheme extends MTAbstractTheme {
     return MTLightCustomTheme.DISABLED;
   }
 
-
   @Override
   protected String getNotificationsColorString() {
     return MTCustomThemeConfig.getInstance().getNotificationsColorString();
   }
 
   @Override
-  protected String getTreeSelectionBackgroundColorString() {
+  protected String getTreeSelectionColorString() {
     return MTCustomThemeConfig.getInstance().getTreeSelectionColorString();
-  }
-
-  @Override
-  protected String getTreeSelectionForegroundColorString() {
-    return "FFFFFF";
   }
 
   @Override
@@ -102,23 +95,13 @@ public class MTLightCustomTheme extends MTAbstractTheme {
   }
 
   @Override
-  protected String getInactiveColorString() {
-    return MTCustomThemeConfig.getInstance().getBackgroundColorString();
+  protected String getButtonColorString() {
+    return MTCustomThemeConfig.getInstance().getButtonColorString();
   }
 
   @Override
   protected String getSelectionForegroundColorString() {
     return MTCustomThemeConfig.getInstance().getSelectionForegroundColorString();
-  }
-
-  @Override
-  protected String getMenuBarSelectionForegroundColorString() {
-    return "000000";
-  }
-
-  @Override
-  protected String getMenuBarSelectionBackgroundColorString() {
-    return "ffffff";
   }
 
   @Override
@@ -144,10 +127,5 @@ public class MTLightCustomTheme extends MTAbstractTheme {
   @Override
   public boolean isCustom() {
     return true;
-  }
-
-  @Override
-  protected String getEditorTabColorString() {
-    return "FFFFFF";
   }
 }

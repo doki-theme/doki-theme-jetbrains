@@ -91,8 +91,7 @@ public final class MTUiUtils {
 
   public static Color getColor(final Color mtColor, @NotNull final Color darculaColor, @NotNull final Color intellijColor) {
     final Color defaultColor = UIUtil.isUnderDarcula() ? darculaColor : intellijColor;
-    boolean materialTheme = MTConfig.getInstance().isMaterialTheme();
-    if (materialTheme) {
+    if (MTConfig.getInstance().isMaterialTheme()) {
       return ObjectUtils.notNull(mtColor, defaultColor);
     }
     return defaultColor;
@@ -167,5 +166,8 @@ public final class MTUiUtils {
   public static Color dwordToColor(final int windowsColor) {
     final Color color = new Color(windowsColor);
     return new Color(color.getBlue(), color.getGreen(), color.getRed());
+  }
+  public static Object getPluginName() {
+    return "DDLC Theme UI";
   }
 }

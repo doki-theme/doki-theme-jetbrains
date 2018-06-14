@@ -79,20 +79,20 @@ public final class MTSliderUI extends MetalSliderUI {
 
   private Color getThumbColor() {
     return MTUiUtils.getColor(UIManager.getColor("Slider.thumb"),
-            MetalLookAndFeel.getControlShadow(),
-            MetalLookAndFeel.getControlShadow());
+        MetalLookAndFeel.getControlShadow(),
+        MetalLookAndFeel.getControlShadow());
   }
 
   private Color getTrackColor() {
     return MTUiUtils.getColor(UIManager.getColor("Slider.track"),
-            MetalLookAndFeel.getControlHighlight(),
-            MetalLookAndFeel.getControlHighlight());
+        MetalLookAndFeel.getControlHighlight(),
+        MetalLookAndFeel.getControlHighlight());
   }
 
   private Color getTrackDisabledColor() {
     return MTUiUtils.getColor(UIManager.getColor("Slider.trackDisabled"),
-            MetalLookAndFeel.getControlShadow(),
-            MetalLookAndFeel.getControlShadow());
+        MetalLookAndFeel.getControlShadow(),
+        MetalLookAndFeel.getControlShadow());
   }
 
   private boolean isLeftToRight(final Component c) {
@@ -118,7 +118,7 @@ public final class MTSliderUI extends MetalSliderUI {
     } else {
       if (leftToRight) {
         trackLeft = (trackRect.width - getThumbOverhang()) -
-                getTrackWidth();
+            getTrackWidth();
         trackRight = (trackRect.width - getThumbOverhang()) - 1;
       } else {
         trackLeft = getThumbOverhang();
@@ -130,7 +130,7 @@ public final class MTSliderUI extends MetalSliderUI {
     if (slider.isEnabled()) {
       g.setColor(getTrackColor());
       g.fillRect(trackLeft, trackTop,
-              (trackRight - trackLeft) - 1, (trackBottom - trackTop) - 1);
+          (trackRight - trackLeft) - 1, (trackBottom - trackTop) - 1);
 
       //      g.setColor(Color.RED);
       //      g.drawLine(trackLeft + 1, trackBottom, trackRight, trackBottom);
@@ -142,7 +142,7 @@ public final class MTSliderUI extends MetalSliderUI {
     } else {
       g.setColor(getTrackDisabledColor());
       g.fillRect(trackLeft, trackTop,
-              (trackRight - trackLeft) - 1, (trackBottom - trackTop) - 1);
+          (trackRight - trackLeft) - 1, (trackBottom - trackTop) - 1);
     }
 
     // Draw the fill
@@ -188,7 +188,7 @@ public final class MTSliderUI extends MetalSliderUI {
 
         g.setColor(getThumbColor());
         g.fillRect(fillLeft, fillTop,
-                fillRight - fillLeft, fillBottom - fillTop);
+            fillRight - fillLeft, fillBottom - fillTop);
       } else {
         g.setColor(MetalLookAndFeel.getControlShadow());
         g.fillRect(fillLeft, fillTop, fillRight - fillLeft, fillBottom - fillTop);

@@ -32,6 +32,7 @@ import com.chrisrm.idea.config.ui.MTForm;
 import com.chrisrm.idea.themes.MTThemeable;
 import com.chrisrm.idea.themes.models.MTBundledTheme;
 import com.intellij.openapi.application.ApplicationManager;
+import com.intellij.openapi.application.ApplicationNamesInfo;
 import com.intellij.openapi.components.PersistentStateComponent;
 import com.intellij.openapi.components.ServiceManager;
 import com.intellij.openapi.components.State;
@@ -43,6 +44,9 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.awt.*;
+import java.rmi.server.UID;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 @State(
@@ -57,10 +61,12 @@ public class MTConfig implements PersistentStateComponent<MTConfig> {
   public static final int MIN_HIGHLIGHT_THICKNESS = 1;
   public static final int MAX_TABS_HEIGHT = 60;
   public static final int MIN_TABS_HEIGHT = 18;
-  public static final int MAX_TREE_INDENT = 20;
+  public static final int MAX_TREE_INDENT = 40;
   public static final int MIN_TREE_INDENT = 0;
   public static final int MAX_SIDEBAR_HEIGHT = 36;
   public static final int MIN_SIDEBAR_HEIGHT = 18;
+  public static final int MIN_FONT_SIZE = 6;
+  public static final int MAX_FONT_SIZE = 24;
 
   // They are public so they can be serialized
   public String version;
@@ -73,7 +79,8 @@ public class MTConfig implements PersistentStateComponent<MTConfig> {
   public boolean isMaterialDesign = true;
   public boolean isBoldTabs = false;
   public boolean isCustomTreeIndentEnabled = false;
-  public Integer customTreeIndent = 6;
+  public Integer rightTreeIndent = 10;
+  public Integer leftTreeIndent = 6;
 
   public String accentColor = ACCENT_COLOR;
 
@@ -101,6 +108,12 @@ public class MTConfig implements PersistentStateComponent<MTConfig> {
   public boolean upperCaseButtons = true;
   public String accentTitleBarColor = ACCENT_COLOR;
   public boolean isDecoratedFolders = true;
+  public int treeFontSize = 12;
+  public Integer settingsSelectedTab = 0;
+  public boolean fileStatusColorsEnabled = false;
+  public String userId = new UID().toString();
+  public boolean allowDataCollection = false;
+  public boolean treeFontSizeEnabled = false;
 
   public MTConfig() {
   }
@@ -114,9 +127,58 @@ public class MTConfig implements PersistentStateComponent<MTConfig> {
     return ServiceManager.getService(MTConfig.class);
   }
 
+  public Map asProperties() {
+    return getNativeProperties();
+  }
+
+  @NotNull
+  private Map getNativeProperties() {
+    final HashMap<String, Object> hashMap = new HashMap<>();
+    hashMap.put("IDE", ApplicationNamesInfo.getInstance().getFullProductName());
+    hashMap.put("version", version);
+    hashMap.put("selectedTheme", selectedTheme);
+    hashMap.put("userId", userId);
+    hashMap.put("highlightColor", highlightColor);
+    hashMap.put("highlightThickness", highlightThickness);
+    hashMap.put("isContrastMode", isContrastMode);
+    hashMap.put("isMaterialDesign", isMaterialDesign);
+    hashMap.put("isBoldTabs", isBoldTabs);
+    hashMap.put("isCustomTreeIndentEnabled", isCustomTreeIndentEnabled);
+    hashMap.put("rightTreeIndent", rightTreeIndent);
+    hashMap.put("leftTreeIndent", leftTreeIndent);
+    hashMap.put("accentColor", accentColor);
+    hashMap.put("useMaterialIcons", useMaterialIcons);
+    hashMap.put("useProjectViewDecorators", useProjectViewDecorators);
+    hashMap.put("hideFileIcons", hideFileIcons);
+    hashMap.put("compactSidebar", compactSidebar);
+    hashMap.put("statusBarTheme", statusBarTheme);
+    hashMap.put("tabsHeight", tabsHeight);
+    hashMap.put("isMaterialTheme", isMaterialTheme);
+    hashMap.put("themedScrollbars", themedScrollbars);
+    hashMap.put("isCompactStatusBar", isCompactStatusBar);
+    hashMap.put("isCompactTables", isCompactTables);
+    hashMap.put("upperCaseTabs", upperCaseTabs);
+    hashMap.put("customSidebarHeight", customSidebarHeight);
+    hashMap.put("accentScrollbars", accentScrollbars);
+    hashMap.put("darkTitleBar", darkTitleBar);
+    hashMap.put("arrowsStyle", arrowsStyle);
+    hashMap.put("useMaterialFont", useMaterialFont);
+    hashMap.put("tabOpacity", tabOpacity);
+    hashMap.put("compactDropdowns", compactDropdowns);
+    hashMap.put("monochromeIcons", monochromeIcons);
+    hashMap.put("upperCaseButtons", upperCaseButtons);
+    hashMap.put("isDecoratedFolders", isDecoratedFolders);
+    hashMap.put("treeFontSizeEnabled", treeFontSizeEnabled);
+    hashMap.put("treeFontSize", treeFontSize);
+    hashMap.put("fileStatusColorsEnabled", fileStatusColorsEnabled);
+
+    return hashMap;
+  }
+
   public boolean needsRestart(final MTForm form) {
     boolean modified = isMaterialDesignChanged(form.getIsMaterialDesign());
-    modified = modified || isUpperCaseButtonsChanged(form.getIsUpperCaseButtons());
+    modified = modified || treeFontSizeChanged(form.getTreeFontSize());
+    modified = modified || isTreeFontSizeEnabledChanged(form.isTreeFontSizeEnabled());
     modified = modified || isThemedScrollbarsChanged(form.isThemedScrollbars());
     modified = modified || isMaterialIconsChanged(form.isUseMaterialIcons());
     modified = modified || isMaterialThemeChanged(form.getIsMaterialTheme());
@@ -166,8 +228,8 @@ public class MTConfig implements PersistentStateComponent<MTConfig> {
    */
   public void fireBeforeChanged(final MTForm form) {
     ApplicationManager.getApplication().getMessageBus()
-                      .syncPublisher(BeforeConfigNotifier.BEFORE_CONFIG_TOPIC)
-                      .beforeConfigChanged(this, form);
+        .syncPublisher(BeforeConfigNotifier.BEFORE_CONFIG_TOPIC)
+        .beforeConfigChanged(this, form);
   }
 
   /**
@@ -175,8 +237,8 @@ public class MTConfig implements PersistentStateComponent<MTConfig> {
    */
   public void fireChanged() {
     ApplicationManager.getApplication().getMessageBus()
-                      .syncPublisher(ConfigNotifier.CONFIG_TOPIC)
-                      .configChanged(this);
+        .syncPublisher(ConfigNotifier.CONFIG_TOPIC)
+        .configChanged(this);
   }
 
   /**
@@ -191,7 +253,8 @@ public class MTConfig implements PersistentStateComponent<MTConfig> {
     isMaterialDesign = true;
     isBoldTabs = false;
     isCustomTreeIndentEnabled = false;
-    customTreeIndent = 6;
+    rightTreeIndent = 6;
+    leftTreeIndent = 6;
 
     accentColor = ACCENT_COLOR;
 
@@ -219,8 +282,31 @@ public class MTConfig implements PersistentStateComponent<MTConfig> {
     upperCaseButtons = true;
     accentTitleBarColor = ACCENT_COLOR;
     isDecoratedFolders = true;
+    treeFontSize = 12;
+    treeFontSizeEnabled = false;
+    fileStatusColorsEnabled = true;
   }
 
+  public String getVersion() {
+    return version;
+  }
+
+  /**
+   * Quick doc
+   *
+   * @param version
+   */
+  public void setVersion(final String version) {
+    this.version = version;
+  }
+
+  public boolean isSelectedThemeChanged(final MTThemeFacade theme) {
+    return !selectedTheme.equals(theme.getName());
+  }
+
+  public String getDefaultBackground() {
+    return DEFAULT_BG;
+  }
 
   //region Tabs Highlight
 
@@ -508,20 +594,32 @@ public class MTConfig implements PersistentStateComponent<MTConfig> {
 
   //region Custom Tree Indents
 
-  public int getCustomTreeIndent() {
-    return customTreeIndent;
+  public int getRightTreeIndent() {
+    return rightTreeIndent;
   }
 
-  public void setCustomTreeIndent(final Integer customTreeIndent) {
-    this.customTreeIndent = customTreeIndent;
+  public void setRightTreeIndent(final Integer rightTreeIndent) {
+    this.rightTreeIndent = rightTreeIndent;
+  }
+
+  public int getLeftTreeIndent() {
+    return leftTreeIndent;
+  }
+
+  public void setLeftTreeIndent(final Integer leftTreeIndent) {
+    this.leftTreeIndent = leftTreeIndent;
   }
 
   public boolean isCustomTreeIndent() {
     return isCustomTreeIndentEnabled;
   }
 
-  public boolean customTreeIndentChanged(final int customTreeIndent) {
-    return this.customTreeIndent != customTreeIndent;
+  public boolean rightTreeIndentChanged(final int rightTreeIndent) {
+    return this.rightTreeIndent != rightTreeIndent;
+  }
+
+  public boolean leftTreeIndentChanged(final int leftTreeIndent) {
+    return this.leftTreeIndent != leftTreeIndent;
   }
 
   public void setIsCustomTreeIndent(final boolean isCustomTreeIndent) {
@@ -590,10 +688,6 @@ public class MTConfig implements PersistentStateComponent<MTConfig> {
   }
   //endregion
 
-  public String getDefaultBackground() {
-    return DEFAULT_BG;
-  }
-
   //region Uppercase tabs
 
   public boolean isUpperCaseTabs() {
@@ -623,19 +717,6 @@ public class MTConfig implements PersistentStateComponent<MTConfig> {
     return this.darkTitleBar != darkTitleBar;
   }
   //endregion
-
-  public String getVersion() {
-    return version;
-  }
-
-  /**
-   * Quick doc
-   *
-   * @param version
-   */
-  public void setVersion(final String version) {
-    this.version = version;
-  }
 
   // region arrows styles
 
@@ -741,6 +822,71 @@ public class MTConfig implements PersistentStateComponent<MTConfig> {
   public boolean isDecoratedFoldersChanged(final boolean decoratedFolders) {
     return isDecoratedFolders != decoratedFolders;
   }
-
   //endregion
+
+  // region Tree Font Size
+  public int getTreeFontSize() {
+    return treeFontSize;
+  }
+
+  public void setTreeFontSize(final int treeFontSize) {
+    this.treeFontSize = treeFontSize;
+  }
+
+  public boolean treeFontSizeChanged(final Integer treeFontSize) {
+    return this.treeFontSize != treeFontSize;
+  }
+
+  public boolean isTreeFontSizeEnabled() {
+    return treeFontSizeEnabled;
+  }
+
+  public void setTreeFontSizeEnabled(final boolean treeFontSizeEnabled) {
+    this.treeFontSizeEnabled = treeFontSizeEnabled;
+  }
+
+  public boolean isTreeFontSizeEnabledChanged(final boolean treeFontSizeEnabled) {
+    return this.treeFontSizeEnabled != treeFontSizeEnabled;
+  }
+  // endregion
+
+  //region File Status Colors
+  public boolean isFileStatusColorsEnabled() {
+    return fileStatusColorsEnabled;
+  }
+
+  public void setFileStatusColorsEnabled(final boolean enabled) {
+    fileStatusColorsEnabled = enabled;
+  }
+
+  public boolean isFileStatusColorsEnabledChanged(final boolean fileStatusColors) {
+    return fileStatusColorsEnabled != fileStatusColors;
+  }
+  //endregion
+
+  //region Settings Selected Tab
+  public void setSettingsSelectedTab(final Integer settingsSelectedTab) {
+    this.settingsSelectedTab = settingsSelectedTab;
+  }
+
+  public Integer getSettingsSelectedTab() {
+    return settingsSelectedTab;
+  }
+  //endregion
+
+  public String getUserId() {
+    return userId;
+  }
+
+  public void setUserId(final String userId) {
+    this.userId = userId;
+  }
+
+  public boolean isDisallowDataCollection() {
+    return !allowDataCollection;
+  }
+
+  public void setAllowDataCollection(final boolean allowDataCollection) {
+    this.allowDataCollection = allowDataCollection;
+  }
 }

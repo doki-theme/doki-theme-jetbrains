@@ -44,7 +44,7 @@ import java.awt.*;
 public final class MTTreeUI extends WideSelectionTreeUI {
   private static final Border LIST_SELECTION_BACKGROUND_PAINTER = UIManager.getBorder("List.sourceListSelectionBackgroundPainter");
   private static final Border LIST_FOCUSED_SELECTION_BACKGROUND_PAINTER = UIManager.getBorder("List" +
-          ".sourceListFocusedSelectionBackgroundPainter");
+      ".sourceListFocusedSelectionBackgroundPainter");
 
   public static Icon treeCollapsedIcon;
   public static Icon treeExpandedIcon;
@@ -168,7 +168,7 @@ public final class MTTreeUI extends WideSelectionTreeUI {
     // Draw icons if not a leaf and either hasn't been loaded,
     // or the model child count is > 0.
     if (!isLeaf && (!hasBeenExpanded ||
-            treeModel.getChildCount(value) > 0)) {
+        treeModel.getChildCount(value) > 0)) {
       final int middleXOfKnob;
       middleXOfKnob = bounds.x - getRightChildIndent() + 1;
       final int middleYOfKnob = bounds.y + (bounds.height / 2);
@@ -197,8 +197,8 @@ public final class MTTreeUI extends WideSelectionTreeUI {
     final int height = Math.max(selectedIcon.getIconWidth(), notSelectedIcon.getIconWidth());
 
     return new CenteredIcon(expanded ? (white ? getTreeSelectedExpandedIcon() : getTreeExpandedIcon())
-            : (white ? getTreeSelectedCollapsedIcon() : getTreeCollapsedIcon()),
-            width, height, false);
+                                     : (white ? getTreeSelectedCollapsedIcon() : getTreeCollapsedIcon()),
+        width, height, false);
   }
 
   private String getAccentColor() {

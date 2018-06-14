@@ -28,7 +28,6 @@ package com.chrisrm.idea.ui;
 import com.intellij.openapi.ui.GraphicsConfig;
 import com.intellij.ui.ColorUtil;
 import com.intellij.ui.Gray;
-import com.intellij.ui.JBColor;
 import sun.swing.MenuItemLayoutHelper;
 
 import javax.swing.*;
@@ -72,12 +71,12 @@ public final class MTRadioButtonMenuItemUI extends MTMenuItemUIBase {
 
     //setup AA for lines
     final Color bg = lh.getMenuItem().getBackground();
-    g.setPaint(new GradientPaint(0, 0, JBColor.BLUE,
+    g.setPaint(new GradientPaint(0, 0, ColorUtil.shift(bg, 1.5),
         0, 16, ColorUtil.shift(bg, 1.2)));
 
     g.fillOval(0, 1, w - 1, h - 1);
 
-    g.setPaint(new GradientPaint(w / 2, 1, JBColor.BLUE, w / 2, h, Gray._100.withAlpha(90)));
+    g.setPaint(new GradientPaint(w / 2, 1, Gray._160.withAlpha(90), w / 2, h, Gray._100.withAlpha(90)));
     g.drawOval(0, 2, w - 1, h - 1);
 
     g.setPaint(Gray._40.withAlpha(200));

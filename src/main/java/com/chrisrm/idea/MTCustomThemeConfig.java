@@ -1,26 +1,25 @@
 /*
- * The MIT License (MIT)
+ *  The MIT License (MIT)
  *
- * Copyright (c) 2018 Chris Magnussen and Elior Boukhobza
+ *  Copyright (c) 2018 Chris Magnussen and Elior Boukhobza
  *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
+ *  Permission is hereby granted, free of charge, to any person obtaining a copy
+ *  of this software and associated documentation files (the "Software"), to deal
+ *  in the Software without restriction, including without limitation the rights
+ *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ *  copies of the Software, and to permit persons to whom the Software is
+ *  furnished to do so, subject to the following conditions:
  *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
+ *  The above copyright notice and this permission notice shall be included in all
+ *  copies or substantial portions of the Software.
  *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- *
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ *  SOFTWARE.
  *
  */
 
@@ -38,13 +37,13 @@ import com.intellij.ui.ColorUtil;
 import com.intellij.util.xmlb.XmlSerializerUtil;
 import org.jetbrains.annotations.NotNull;
 
-import javax.swing.plaf.ColorUIResource;
+import javax.swing.plaf.*;
 import java.awt.*;
 import java.util.Objects;
 
 @State(
-        name = "MaterialCustomThemeConfig",
-        storages = @Storage("material_custom_theme.xml")
+    name = "MaterialCustomThemeConfig",
+    storages = @Storage("material_custom_theme.xml")
 )
 public final class MTCustomThemeConfig implements PersistentStateComponent<MTCustomThemeConfig> {
 
@@ -81,8 +80,8 @@ public final class MTCustomThemeConfig implements PersistentStateComponent<MTCus
 
   public void fireChanged() {
     ApplicationManager.getApplication().getMessageBus()
-            .syncPublisher(CustomConfigNotifier.CONFIG_TOPIC)
-            .customConfigChanged(this);
+        .syncPublisher(CustomConfigNotifier.CONFIG_TOPIC)
+        .customConfigChanged(this);
   }
 
   /**
@@ -90,47 +89,47 @@ public final class MTCustomThemeConfig implements PersistentStateComponent<MTCus
    */
   public void setDefaultValues() {
     setNotificationsColor(MTUiUtils.lightOrDark(
-            MTCustomThemeConfig.MTCustomDefaults.notificationsColor,
-            MTCustomThemeConfig.MTLightCustomDefaults.notificationsColor));
+        MTCustomThemeConfig.MTCustomDefaults.notificationsColor,
+        MTCustomThemeConfig.MTLightCustomDefaults.notificationsColor));
     setSecondBorderColor(MTUiUtils.lightOrDark(
-            MTCustomThemeConfig.MTCustomDefaults.secondBorderColor,
-            MTCustomThemeConfig.MTLightCustomDefaults.secondBorderColor));
+        MTCustomThemeConfig.MTCustomDefaults.secondBorderColor,
+        MTCustomThemeConfig.MTLightCustomDefaults.secondBorderColor));
     setContrastColor(MTUiUtils.lightOrDark(
-            MTCustomThemeConfig.MTCustomDefaults.contrastColor,
-            MTCustomThemeConfig.MTLightCustomDefaults.contrastColor));
+        MTCustomThemeConfig.MTCustomDefaults.contrastColor,
+        MTCustomThemeConfig.MTLightCustomDefaults.contrastColor));
     setDisabledColor(MTUiUtils.lightOrDark(
-            MTCustomThemeConfig.MTCustomDefaults.disabledColor,
-            MTCustomThemeConfig.MTLightCustomDefaults.disabledColor));
+        MTCustomThemeConfig.MTCustomDefaults.disabledColor,
+        MTCustomThemeConfig.MTLightCustomDefaults.disabledColor));
     setSecondaryBackgroundColor(MTUiUtils.lightOrDark(
-            MTCustomThemeConfig.MTCustomDefaults.secondaryBackgroundColor,
-            MTCustomThemeConfig.MTLightCustomDefaults.secondaryBackgroundColor));
+        MTCustomThemeConfig.MTCustomDefaults.secondaryBackgroundColor,
+        MTCustomThemeConfig.MTLightCustomDefaults.secondaryBackgroundColor));
     setButtonColor(MTUiUtils.lightOrDark(
-            MTCustomThemeConfig.MTCustomDefaults.buttonColor,
-            MTCustomThemeConfig.MTLightCustomDefaults.buttonColor));
+        MTCustomThemeConfig.MTCustomDefaults.buttonColor,
+        MTCustomThemeConfig.MTLightCustomDefaults.buttonColor));
     setSelectionBackgroundColor(MTUiUtils.lightOrDark(
-            MTCustomThemeConfig.MTCustomDefaults.selectionBackgroundColor,
-            MTCustomThemeConfig.MTLightCustomDefaults.selectionBackgroundColor));
+        MTCustomThemeConfig.MTCustomDefaults.selectionBackgroundColor,
+        MTCustomThemeConfig.MTLightCustomDefaults.selectionBackgroundColor));
     setSelectionForegroundColor(MTUiUtils.lightOrDark(
-            MTCustomThemeConfig.MTCustomDefaults.selectionForegroundColor,
-            MTCustomThemeConfig.MTLightCustomDefaults.selectionForegroundColor));
+        MTCustomThemeConfig.MTCustomDefaults.selectionForegroundColor,
+        MTCustomThemeConfig.MTLightCustomDefaults.selectionForegroundColor));
     setTableSelectedColor(MTUiUtils.lightOrDark(
-            MTCustomThemeConfig.MTCustomDefaults.tableSelectedColor,
-            MTCustomThemeConfig.MTLightCustomDefaults.tableSelectedColor));
+        MTCustomThemeConfig.MTCustomDefaults.tableSelectedColor,
+        MTCustomThemeConfig.MTLightCustomDefaults.tableSelectedColor));
     setTextColor(MTUiUtils.lightOrDark(
-            MTCustomThemeConfig.MTCustomDefaults.textColor,
-            MTCustomThemeConfig.MTLightCustomDefaults.textColor));
+        MTCustomThemeConfig.MTCustomDefaults.textColor,
+        MTCustomThemeConfig.MTLightCustomDefaults.textColor));
     setTreeSelectionColor(MTUiUtils.lightOrDark(
-            MTCustomThemeConfig.MTCustomDefaults.treeSelectionColor,
-            MTCustomThemeConfig.MTLightCustomDefaults.treeSelectionColor));
+        MTCustomThemeConfig.MTCustomDefaults.treeSelectionColor,
+        MTCustomThemeConfig.MTLightCustomDefaults.treeSelectionColor));
     setHighlightColor(MTUiUtils.lightOrDark(
-            MTCustomThemeConfig.MTCustomDefaults.highlightColor,
-            MTCustomThemeConfig.MTLightCustomDefaults.highlightColor));
+        MTCustomThemeConfig.MTCustomDefaults.highlightColor,
+        MTCustomThemeConfig.MTLightCustomDefaults.highlightColor));
     setForegroundColor(MTUiUtils.lightOrDark(
-            MTCustomThemeConfig.MTCustomDefaults.foregroundColor,
-            MTCustomThemeConfig.MTLightCustomDefaults.foregroundColor));
+        MTCustomThemeConfig.MTCustomDefaults.foregroundColor,
+        MTCustomThemeConfig.MTLightCustomDefaults.foregroundColor));
     setBackgroundColor(MTUiUtils.lightOrDark(
-            MTCustomThemeConfig.MTCustomDefaults.backgroundColor,
-            MTCustomThemeConfig.MTLightCustomDefaults.backgroundColor));
+        MTCustomThemeConfig.MTCustomDefaults.backgroundColor,
+        MTCustomThemeConfig.MTLightCustomDefaults.backgroundColor));
   }
 
   public Color getNotificationsColor() {
