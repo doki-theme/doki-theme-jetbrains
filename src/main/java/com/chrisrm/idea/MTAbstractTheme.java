@@ -711,7 +711,6 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
   }
 
 
-  @Override
   public Color getEditorTabColor() {
     return ObjectUtils.notNull(Color.decode("#" + getEditorTabColorString().toUpperCase()),
         new ColorUIResource(0x80cbc4));
@@ -746,7 +745,6 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
   /**
    * Get border color custom property
    */
-  @Override
   @NotNull
   public Color getBorderColor() {
     return ObjectUtils.notNull(UIManager.getColor("material.tab.borderColor"), new ColorUIResource(0x80cbc4));
@@ -755,7 +753,6 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
   /**
    * Get border thickness custom property
    */
-  @Override
   public int getBorderThickness() {
     return ObjectUtils.notNull(UIManager.getInt("material.tab.borderThickness"), 2);
   }
