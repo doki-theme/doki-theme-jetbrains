@@ -32,7 +32,7 @@
 
     <description><![CDATA[
         Built on top of <a href="https://plugins.jetbrains.com/plugin/8006-material-theme-ui">Material UI</a><br/>
-        This will add the <a href="https://github.com/cyclic-reference/jetbrains-theme">DDLC Theme</a> look to your IDE.<br/><br/><br/><div align="center"><img src="https://raw.githubusercontent.com/cyclic-reference/jetbrains-theme/master/src/main/resources/themes/Doki_Doki_Literature_Club.png" alt="DDLC"></img></div>
+        This will add the <a href="https://github.com/cyclic-reference/jetbrains-theme">DDLC Theme</a> look to your IDE.<br/><br/><br/><div align="center"><img src="https://raw.githubusercontent.com/cyclic-reference/jetbrains-theme/master/src/main/resources/themes/DDLC_LOGO.png" alt="DDLC"></img></div>
     ]]></description>
 
     <!-- Match with 'intellij.version' in build.gradle -->
