@@ -33,6 +33,7 @@ import com.chrisrm.idea.themes.literature.club.MTSayoriTheme;
 import com.chrisrm.idea.themes.literature.club.MTYuriTheme;
 import org.jetbrains.annotations.NotNull;
 
+import javax.swing.*;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;

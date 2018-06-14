@@ -55,11 +55,15 @@ public class MTLightCustomTheme extends MTAbstractTheme {
   }
 
   @Override
+  protected String getEditorTabColorString() {
+    return null;
+  }
+
+  @Override
   protected String getNotificationsColorString() {
     return MTCustomThemeConfig.getInstance().getNotificationsColorString();
   }
 
-  @Override
   protected String getTreeSelectionColorString() {
     return MTCustomThemeConfig.getInstance().getTreeSelectionColorString();
   }
@@ -67,6 +71,16 @@ public class MTLightCustomTheme extends MTAbstractTheme {
   @Override
   protected String getHighlightColorString() {
     return MTCustomThemeConfig.getInstance().getHighlightColorString();
+  }
+
+  @Override
+  protected String getTreeSelectionBackgroundColorString() {
+    return null;
+  }
+
+  @Override
+  protected String getTreeSelectionForegroundColorString() {
+    return null;
   }
 
   @Override
@@ -94,7 +108,6 @@ public class MTLightCustomTheme extends MTAbstractTheme {
     return MTCustomThemeConfig.getInstance().getSecondaryBackgroundColorString();
   }
 
-  @Override
   protected String getButtonColorString() {
     return MTCustomThemeConfig.getInstance().getButtonColorString();
   }
@@ -102,6 +115,21 @@ public class MTLightCustomTheme extends MTAbstractTheme {
   @Override
   protected String getSelectionForegroundColorString() {
     return MTCustomThemeConfig.getInstance().getSelectionForegroundColorString();
+  }
+
+  @Override
+  protected String getMenuBarSelectionForegroundColorString() {
+    return null;
+  }
+
+  @Override
+  protected String getMenuBarSelectionBackgroundColorString() {
+    return null;
+  }
+
+  @Override
+  protected String getInactiveColorString() {
+    return null;
   }
 
   @Override
