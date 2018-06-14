@@ -86,7 +86,7 @@ public class MTMenuItemUIBase extends DarculaMenuItemUIBase {
     JBInsets.removeFrom(viewRect, mi.getInsets());
 
     final MenuItemLayoutHelper lh = new MenuItemLayoutHelper(mi, checkIcon,
-        arrowIcon, viewRect, defaultTextIconGap, "-", //todo[kb] use protected field BasicMenuItemUI.acceleratorDelimiter when we
+        arrowIcon, viewRect, defaultTextIconGap, "-",
         // move to java 1.7
         mi.getComponentOrientation().isLeftToRight(), mi.getFont(),
         acceleratorFont, MenuItemLayoutHelper.useCheckAndArrow(menuItem),

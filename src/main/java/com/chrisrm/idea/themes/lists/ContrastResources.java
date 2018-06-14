@@ -42,7 +42,6 @@ public final class ContrastResources {
       "FormattedTextField.background",
       "TabbedPane.mt.tab.background",
       "ComboBox.background",
-      //      "ComboBox.disabledBackground",
       "ComboBox.arrowFillColor",
       "window",
       "activeCaption",

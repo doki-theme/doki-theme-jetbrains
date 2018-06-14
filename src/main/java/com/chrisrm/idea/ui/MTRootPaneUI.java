@@ -47,7 +47,6 @@ public final class MTRootPaneUI extends DarculaRootPaneUI {
       LookAndFeel.uninstallBorder(root);
     } else {
       root.setBorder(JBUI.Borders.customLine(JBColor.WHITE, 1, 1, 1, 1));
-      //LookAndFeel.installBorder(root, "RootPane.border");
     }
   }
 }

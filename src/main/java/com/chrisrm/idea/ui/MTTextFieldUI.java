@@ -130,11 +130,6 @@ public final class MTTextFieldUI extends TextFieldWithPopupHandlerUI {
     }
   }
 
-  //  @Override
-  //  protected Icon getSearchIcon(final boolean hovered, final boolean clickable) {
-  //    return IconLoader.findIcon(clickable ? "/icons/darcula/searchFieldWithHistory.png" : "/icons/darcula/searchField.png");
-  //  }
-
   @Override
   protected int getSearchIconPreferredSpace() {
     final Icon icon = getSearchIcon(true, true);
