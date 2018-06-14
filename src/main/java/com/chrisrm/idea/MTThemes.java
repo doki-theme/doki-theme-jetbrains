@@ -33,6 +33,7 @@ import com.chrisrm.idea.themes.literature.club.MTSayoriTheme;
 import com.chrisrm.idea.themes.literature.club.MTYuriTheme;
 import org.jetbrains.annotations.NotNull;
 
+import javax.swing.*;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -99,6 +100,11 @@ public enum MTThemes implements MTThemeFacade {
     return getName();
   }
 
+  @Override
+  public Icon getIcon() {
+    return mtTheme.getIcon();
+  }
+
   /**
    * Find for a native theme or a bundled theme by its id
    *
@@ -131,6 +137,9 @@ public enum MTThemes implements MTThemeFacade {
   /**
    * Get the list of all themes (native + bundled)
    */
+  public static Collection<MTThemeFacade> getAllThemes() {
+    return THEMES_MAP.values();
+  }
 
   /**
    * Generate a themeFacade from a theme
@@ -171,6 +180,11 @@ public enum MTThemes implements MTThemeFacade {
       @Override
       public String getThemeId() {
         return theme.getThemeId();
+      }
+
+      @Override
+      public Icon getIcon() {
+        return theme.getIcon();
       }
     };
   }

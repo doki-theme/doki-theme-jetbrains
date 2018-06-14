@@ -1,13 +1,17 @@
 # Changelog
 ----
 
-## 0.2.0-beta
+# 0.3.0-beta
+- Fork is now up to date with version [2.4.0.3](https://github.com/cyclic-reference/material-theme-jetbrains/releases/tag/v2.4.0.1-2018.1)
+    - This means tha the google analytics is in here as well 
+
+# 0.2.0-beta
 - Testing plugin publishing
 - New Color Schemes for each Club Member (Not Final)
 - Fixed issue with WebStorm not showing club members.
 
-## 0.1.1-beta
+# 0.1.1-beta
 - Better plugin links :)
 
-## 0.1.0-beta
+# 0.1.0-beta
 - Release

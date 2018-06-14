@@ -81,7 +81,7 @@ public final class MTSpinnerUI extends DarculaSpinnerUI {
 
   @Override
   protected JButton createButton(@MagicConstant(intValues = {SwingConstants.NORTH,
-          SwingConstants.SOUTH}) final int direction,
+      SwingConstants.SOUTH}) final int direction,
                                  final String name) {
     final JButton button = createArrow(direction);
     button.setName(name);
@@ -99,7 +99,7 @@ public final class MTSpinnerUI extends DarculaSpinnerUI {
   protected void paintArrowButton(final Graphics g,
                                   final BasicArrowButton button,
                                   @MagicConstant(intValues = {SwingConstants.NORTH,
-                                          SwingConstants.SOUTH}) final int direction) {
+                                      SwingConstants.SOUTH}) final int direction) {
     final int y = direction == SwingConstants.NORTH ? button.getHeight() - 6 : 2;
     button.paintTriangle(g, (button.getWidth() - 8) / 2 - 1, y, 0, direction, spinner.isEnabled());
   }
@@ -111,7 +111,7 @@ public final class MTSpinnerUI extends DarculaSpinnerUI {
   }
 
   private JButton createArrow(@MagicConstant(intValues = {SwingConstants.NORTH,
-          SwingConstants.SOUTH}) final int direction) {
+      SwingConstants.SOUTH}) final int direction) {
     final Color shadow = UIUtil.getPanelBackground();
     final Color enabledColor = new JBColor(Gray._255, UIUtil.getLabelForeground());
     final Color disabledColor = new JBColor(Gray._200, UIUtil.getLabelForeground().darker());
@@ -140,17 +140,17 @@ public final class MTSpinnerUI extends DarculaSpinnerUI {
         switch (direction) {
           case SOUTH:
             g.fillPolygon(new int[]{0,
-                    w,
-                    mid}, new int[]{1,
-                    1,
-                    h}, 3);
+                w,
+                mid}, new int[]{1,
+                1,
+                h}, 3);
             break;
           case NORTH:
             g.fillPolygon(new int[]{0,
-                    w,
-                    mid}, new int[]{h - 1,
-                    h - 1,
-                    0}, 3);
+                w,
+                mid}, new int[]{h - 1,
+                h - 1,
+                0}, 3);
             break;
           case WEST:
           case EAST:

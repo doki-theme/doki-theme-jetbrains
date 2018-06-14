@@ -96,9 +96,9 @@ public final class MTCheckBoxUI extends DarculaCheckBoxUI {
     JBInsets.removeFrom(viewRect, c.getInsets());
 
     final String text = SwingUtilities.layoutCompoundLabel(c, fm, b.getText(), getDefaultIcon(),
-            b.getVerticalAlignment(), b.getHorizontalAlignment(),
-            b.getVerticalTextPosition(), b.getHorizontalTextPosition(),
-            viewRect, iconRect, textRect, b.getIconTextGap());
+        b.getVerticalAlignment(), b.getHorizontalAlignment(),
+        b.getVerticalTextPosition(), b.getHorizontalTextPosition(),
+        viewRect, iconRect, textRect, b.getIconTextGap());
 
     //background
     if (c.isOpaque()) {
@@ -137,7 +137,7 @@ public final class MTCheckBoxUI extends DarculaCheckBoxUI {
 
       g.translate(x, y);
       final Paint paint = UIUtil.getGradientPaint(w / 2, 0, b.getBackground().brighter(),
-              w / 2, h, b.getBackground());
+          w / 2, h, b.getBackground());
       g.setPaint(paint);
       final int fillOffset = JBUI.scale(1);
       g.fillRect(fillOffset, fillOffset, w - 2 * fillOffset, h - 2 * fillOffset);
@@ -210,9 +210,9 @@ public final class MTCheckBoxUI extends DarculaCheckBoxUI {
       } else {
         g.setColor(b.isEnabled() ? b.getForeground() : getDisabledTextColor());
         SwingUtilities2.drawStringUnderlineCharAt(c, g, text,
-                b.getDisplayedMnemonicIndex(),
-                textRect.x,
-                textRect.y + fm.getAscent());
+            b.getDisplayedMnemonicIndex(),
+            textRect.x,
+            textRect.y + fm.getAscent());
       }
     }
   }
@@ -253,12 +253,12 @@ public final class MTCheckBoxUI extends DarculaCheckBoxUI {
 
   protected Color getBorderColor(final boolean enabled, final boolean selected) {
     return enabled ? getColor("borderColor1", Gray._120.withAlpha(0x5a), selected)
-            : getColor("disabledBorderColor1", Gray._120.withAlpha(90), selected);
+                   : getColor("disabledBorderColor1", Gray._120.withAlpha(90), selected);
   }
 
   protected Color getBorderColorSelected(final boolean enabled, final boolean selected) {
     return enabled ? getColor("borderColor.selected", Gray._120.withAlpha(0x5a), selected)
-            : getColor("disabledBorderColor.selected", Gray._120.withAlpha(90), selected);
+                   : getColor("disabledBorderColor.selected", Gray._120.withAlpha(90), selected);
   }
 
   protected Color getBackgroundColor1(final boolean selected) {
@@ -267,17 +267,17 @@ public final class MTCheckBoxUI extends DarculaCheckBoxUI {
 
   protected Color getCheckSignColor(final boolean enabled) {
     return enabled ? getColor("checkSignColor", Gray._170, true)
-            : getColor("checkSignColorDisabled", Gray._120, true);
+                   : getColor("checkSignColorDisabled", Gray._120, true);
   }
 
   protected Color getShadowColor(final boolean enabled) {
     return enabled ? getColor("shadowColor", Gray._30, true)
-            : getColor("shadowColorDisabled", Gray._60, true);
+                   : getColor("shadowColorDisabled", Gray._60, true);
   }
 
   protected Color getFocusedBackgroundColor1(final boolean armed, final boolean selected) {
     return armed ? getColor("focusedArmed.backgroundColor1", Gray._100, selected)
-            : getColor("focused.backgroundColor1", Gray._120, selected);
+                 : getColor("focused.backgroundColor1", Gray._120, selected);
   }
 
 }

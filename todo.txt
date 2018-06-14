@@ -27,7 +27,8 @@ Code Colors (NEEDS TEST TIME)
 ------
 
 
-Migrate back to using a fork.
+Migrate back to using a fork. (do not need to)
+loading indicator is not very visible.
 git diff for conflict and addtions for monika are un readable
 club members get hidden if all editory tabs are closed
 code completion window needs to be readable/part of the color scheme

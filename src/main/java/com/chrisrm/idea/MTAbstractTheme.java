@@ -62,12 +62,21 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
 
   @Override
   @Nullable
-  public Icon getIcon() {
+  public final Icon getIcon() {
     return icon != null ? IconLoader.getIcon(icon) : IconUtil.getEmptyIcon(true);
   }
 
   @Override
-  public void setIcon(final String icon) {
+  public final void setIcon(final String icon) {
+    this.icon = icon;
+  }
+
+  protected MTAbstractTheme(@NotNull final String id,
+                            final String editorColorsScheme,
+                            final boolean dark,
+                            final String name,
+                            final String icon) {
+    this(id, editorColorsScheme, dark, name);
     this.icon = icon;
   }
 
@@ -702,7 +711,6 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
   }
 
 
-  @Override
   public Color getEditorTabColor() {
     return ObjectUtils.notNull(Color.decode("#" + getEditorTabColorString().toUpperCase()),
         new ColorUIResource(0x80cbc4));
@@ -737,7 +745,6 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
   /**
    * Get border color custom property
    */
-  @Override
   @NotNull
   public Color getBorderColor() {
     return ObjectUtils.notNull(UIManager.getColor("material.tab.borderColor"), new ColorUIResource(0x80cbc4));
@@ -746,7 +753,6 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
   /**
    * Get border thickness custom property
    */
-  @Override
   public int getBorderThickness() {
     return ObjectUtils.notNull(UIManager.getInt("material.tab.borderThickness"), 2);
   }

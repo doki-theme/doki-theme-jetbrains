@@ -61,5 +61,6 @@ public class FontResources {
       "TitledBorder.font",
       "ToolBar.font",
       "ToolTip.font",
-      "Tree.font"};
+      "Tree.font"
+  };
 }
