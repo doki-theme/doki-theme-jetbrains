@@ -4,19 +4,40 @@
 
 # Doki Doki Theme for Jetbrains
 
-This is a [DDLC Theme](https://github.com/equinusocio/material-theme) port of both the IDE and Color scheme for JetBrains products.
-
 Plugin page:
-https://plugins.jetbrains.com/plugin/8006-material-theme-ui
+https://plugins.jetbrains.com/plugin/10804-doki-doki-literature-club-theme
 
-![laptop-full](laptop-full.png)
+![Sayori](assets/sayori.png)
 
-This is a forked Repo
+Getting Set Up
 ---
+## Choosing the right club member
 
-## [Fork](https://github.com/ChrisRM/material-theme-jetbrains)
+By default, once the plugin is installed, the default color scheme is currently applied.
+Depriving you of the full DDLC experience.
 
-Kept up to date... mostly!
+To alleviate your issues just go to 
+
+#### Tools -> DDLC Theme -> DDLC Theme Chooser
+
+![Pick your club member](assets/chooser.png)
+
+And pick out your _favorite_ club member.
 
 
-todo: more stuffs
+## DDLC Chibis
+
+By default, the theme automatically gives you your favorite club member in the bottom right-hand corner.
+
+If you ever need to be productive, you can hide them using the panel option
+
+#### Tools -> DDLC Theme -> Panel Options -> Toggle Club Member
+![Toggle](assets/toggle.png)
+
+> Be sure to install the DDLC file colors as well!
+
+## [Please visit the fork source for more information](https://github.com/ChrisRM/material-theme-jetbrains)
+
+Enjoy!
+---
+![Just Monika](assets/just_monika.jpg)
