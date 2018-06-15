@@ -22,11 +22,11 @@ breakpoint color (happy)
 breadcrumbs (happy)
 test background (happy)//lol, it changes everytime it runs
 line coverage makes everything unreadable (should be happy meow)
-Code Colors (NEEDS TEST TIME)
 
 ------
+THINGS TODO:
 
-
+Code Colors (NEEDS TEST TIME)
 Migrate back to using a fork. (do not need to)
 loading indicator is not very visible.
 git diff for conflict and addtions for monika are un readable
