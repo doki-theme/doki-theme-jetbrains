@@ -1,6 +1,11 @@
 # Changelog
 ----
 
+# 0.3.1-beta
+- Readable file differences
+- Slight change to Monika's editor colors
+- Better VCS line changed colors. 
+
 # 0.3.0-beta
 - Fork is now up to date with version [2.4.0.3](https://github.com/cyclic-reference/material-theme-jetbrains/releases/tag/v2.4.0.1-2018.1)
     - This means tha the google analytics is in here as well 
