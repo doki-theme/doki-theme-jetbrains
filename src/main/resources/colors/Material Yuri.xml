@@ -45,14 +45,15 @@
     <option name="CONSOLE_FONT_NAME" value="Menlo"/>
     <option name="CONSOLE_LINE_SPACING" value="1.4"/>
     <colors>
-        <option name="ADDED_LINES_COLOR" value="264b33"/>
-        <option name="ANNOTATIONS_COLOR" value="474747"/>
+        <option name="ADDED_LINES_COLOR" value="96FD96"/>
+        <option name="MODIFIED_LINES_COLOR" value="FFF2A1"/>
+        <option name="DELETED_LINES_COLOR" value="EBEBEB"/>
+        <option name="ANNOTATIONS_COLOR" value="FF0069"/>
         <!--TODO: IMPORTANT-->
         <option name="CARET_COLOR" value="5336c9"/>
         <!--TODO: IMPORTANT-->
         <option name="CARET_ROW_COLOR" value="e6d6ff"/>
         <option name="CONSOLE_BACKGROUND_KEY" value="fffcfc"/>
-        <option name="DELETED_LINES_COLOR" value="b63b50"/>
         <option name="DOCUMENTATION_COLOR" value="f3f5f6"/>
         <option name="FILESTATUS_ADDED" value="B8006E"/>
         <option name="FILESTATUS_COPIED" value="B8006E"/>
@@ -82,7 +83,6 @@
         <option name="INDENT_GUIDE" value="604375"/>
         <option name="INFORMATION_HINT" value="f3f5f6"/>
         <option name="METHOD_SEPARATORS_COLOR" value="604375"/>
-        <option name="MODIFIED_LINES_COLOR" value="ffcb6e"/>
         <option name="MT_ADDED" value="B8006E"/>
         <option name="MT_DELETED" value="54009A"/>
         <option name="MT_HIJACKED" value="FF6100"/>
