@@ -45,8 +45,8 @@
     <option name="CONSOLE_FONT_NAME" value="Menlo"/>
     <option name="CONSOLE_LINE_SPACING" value="1.4"/>
     <colors>
-        <option name="ADDED_LINES_COLOR" value="B6F5FF"/>
-        <option name="MODIFIED_LINES_COLOR" value="FFF2A1"/>
+        <option name="ADDED_LINES_COLOR" value="D3FAFF"/>
+        <option name="MODIFIED_LINES_COLOR" value="BFFFC1"/>
         <option name="DELETED_LINES_COLOR" value="EBEBEB"/>
         <option name="ANNOTATIONS_COLOR" value="E98753"/>
         <!--TODO: IMPORTANT-->
@@ -786,13 +786,13 @@
         </option>
         <option name="DIFF_INSERTED">
             <value>
-                <option name="BACKGROUND" value="B6F5FF"/>
+                <option name="BACKGROUND" value="D3FAFF"/>
                 <option name="ERROR_STRIPE_COLOR" value="447152"/>
             </value>
         </option>
         <option name="DIFF_MODIFIED">
             <value>
-                <option name="BACKGROUND" value="FFF2A1"/>
+                <option name="BACKGROUND" value="BFFFC1"/>
                 <option name="ERROR_STRIPE_COLOR" value="43698d"/>
             </value>
         </option>
