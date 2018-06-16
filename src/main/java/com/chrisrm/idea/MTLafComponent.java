@@ -46,6 +46,8 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.project.ProjectManager;
 import com.intellij.openapi.project.ProjectManagerListener;
 import com.intellij.openapi.ui.Messages;
+import com.intellij.openapi.util.IconLoader;
+import com.intellij.openapi.util.registry.Registry;
 import com.intellij.ui.components.JBPanel;
 import com.intellij.ui.components.JBScrollBar;
 import com.intellij.util.messages.MessageBusConnection;
@@ -92,7 +94,12 @@ public final class MTLafComponent extends JBPanel implements ApplicationComponen
       replaceTextAreas();
       replaceTabbedPanes();
       replaceIcons();
+      modifyRegistry();
     }
+  }
+
+  private void modifyRegistry() {
+    Registry.get("ide.balloon.shadow.size").setValue(0);
   }
 
   private void installDefaults() {
@@ -288,6 +295,10 @@ public final class MTLafComponent extends JBPanel implements ApplicationComponen
     UIManager.put("FileView.fileIcon", AllIcons.FileTypes.Unknown);
     UIManager.put("Table.ascendingSortIcon", AllIcons.General.SplitUp);
     UIManager.put("Table.descendingSortIcon", AllIcons.General.SplitDown);
+
+    UIManager.put("TextField.darcula.searchWithHistory.icon", IconLoader.getIcon("/icons/darcula/searchWithHistory.png"));
+    UIManager.put("TextField.darcula.search.icon", IconLoader.getIcon("/icons/darcula/search.png"));
+    UIManager.put("TextField.darcula.clear.icon", IconLoader.getIcon("/icons/darcula/clear.png"));
   }
 
   private void installDarculaDefaults() {
@@ -302,9 +313,6 @@ public final class MTLafComponent extends JBPanel implements ApplicationComponen
 
     UIManager.put("TextFieldUI", DarculaTextFieldUI.class.getName());
     UIManager.put("TextField.border", new DarculaTextBorder());
-    UIManager.put("TextField.darcula.search.icon", "/com/intellij/ide/ui/laf/icons/darcula/search.png");
-    UIManager.put("TextField.darcula.searchWithHistory.icon", "/com/intellij/ide/ui/laf/icons/darcula/searchWithHistory.png");
-    UIManager.put("TextField.darcula.clear.icon", "/com/intellij/ide/ui/laf/icons/darcula/clear.png");
 
     UIManager.put("PasswordFieldUI", DarculaPasswordFieldUI.class.getName());
     UIManager.put("PasswordField.border", new DarculaTextBorder());
@@ -346,9 +354,6 @@ public final class MTLafComponent extends JBPanel implements ApplicationComponen
 
     UIManager.put("TextFieldUI", DarculaTextFieldUI.class.getName());
     UIManager.put("TextField.border", new DarculaTextBorder());
-    UIManager.put("TextField.darcula.search.icon", "/com/intellij/ide/ui/laf/icons/search.png");
-    UIManager.put("TextField.darcula.searchWithHistory.icon", "/com/intellij/ide/ui/laf/icons/searchWithHistory.png");
-    UIManager.put("TextField.darcula.clear.icon", "/com/intellij/ide/ui/laf/icons/clear.png");
 
     UIManager.put("PasswordFieldUI", DarculaPasswordFieldUI.class.getName());
     UIManager.put("PasswordField.border", new DarculaTextBorder());
@@ -382,6 +387,9 @@ public final class MTLafComponent extends JBPanel implements ApplicationComponen
   }
 
   private Icon getIcon(final String icon) {
+    if (icon == null) {
+      return IconLoader.getTransparentIcon(AllIcons.Mac.Tree_white_down_arrow, 0);
+    }
     return TintedIconsService.getIcon(icon + ".png");
   }
 

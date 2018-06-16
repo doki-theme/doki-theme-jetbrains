@@ -396,7 +396,7 @@ public final class MTThemeManager {
   private void applyFonts() {
     final UISettings uiSettings = UISettings.getInstance();
     final UIDefaults lookAndFeelDefaults = UIManager.getLookAndFeelDefaults();
-    final int treeFontSize = MTConfig.getInstance().getTreeFontSize();
+    final int treeFontSize = JBUI.scale(MTConfig.getInstance().getTreeFontSize());
 
     final boolean useMaterialFont = MTConfig.getInstance().isUseMaterialFont();
     toggleBiggerFont(useMaterialFont);
@@ -483,7 +483,6 @@ public final class MTThemeManager {
   }
 
   private void toggleBiggerFont(final boolean isEnabled) {
-    Registry.get("bigger.font.in.project.view").setValue(isEnabled);
   }
   //endregion
 

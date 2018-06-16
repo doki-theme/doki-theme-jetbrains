@@ -60,8 +60,8 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
   private String name;
   private String icon;
 
+  @NotNull
   @Override
-  @Nullable
   public final Icon getIcon() {
     return icon != null ? IconLoader.getIcon(icon) : IconUtil.getEmptyIcon(true);
   }
@@ -148,7 +148,6 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
       }
       JBColor.setDark(isDark());
       IconLoader.setUseDarkIcons(isDark());
-
     } catch (final UnsupportedLookAndFeelException e) {
       e.printStackTrace();
     }
