@@ -3390,7 +3390,7 @@
         </option>
         <option name="Scala XML tag name">
             <value>
-                <option name="FOREGROUND" value="4DBD57"/>
+                <option name="FOREGROUND" value="ff355b"/>
             </value>
         </option>
         <option name="ScalaDoc @param value">
@@ -3583,7 +3583,7 @@
         </option>
         <option name="XML_TAG_NAME">
             <value>
-                <option name="FOREGROUND" value="4DBD57"/>
+                <option name="FOREGROUND" value="ff355b"/>
             </value>
         </option>
         <option name="XPATH.XPATH_NAME">
