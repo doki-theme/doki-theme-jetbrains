@@ -4,7 +4,9 @@
 
 # Doki Doki Theme for Jetbrains
 
-### Will you write your way into her heart?
+<div align="center">
+    <h3 styles="color: pink"> Will you write your way into her heart?</h3>
+</div>
 
 ---
 
