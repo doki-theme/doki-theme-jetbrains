@@ -1,6 +1,10 @@
 # Changelog
 ----
 
+# 0.4.0-beta
+
+- Now up to date with [2.4.1](https://github.com/cyclic-reference/material-theme-jetbrains/releases/tag/v2.4.1-2018.1)
+
 # 0.3.1-beta
 - Readable file differences
 - Slight change to Monika's editor colors
