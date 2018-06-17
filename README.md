@@ -6,6 +6,8 @@
 
 ### Will you write your way into her heart?
 
+---
+
 Plugin page:
 https://plugins.jetbrains.com/plugin/10804-doki-doki-literature-club-theme
 
