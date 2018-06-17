@@ -218,6 +218,7 @@ public final class UIReplacer {
       final Color defaultValue = UIUtil.getListSelectionBackground();
       final Color backgroundSelectedColor = ObjectUtils.notNull(UIManager.getColor("Autocomplete.selectionBackground"), defaultValue);
       final Color foregroundSelectedColor = ObjectUtils.notNull(UIManager.getColor("Autocomplete.selectionForeground"), defaultValue);
+      final Color foregroundGreyedSelectedColor = ObjectUtils.notNull(UIManager.getColor("Autocomplete.selectionForegroundGreyed"), defaultValue);
       final Color backgroundColor = ObjectUtils.notNull(UIManager.getColor("Autocomplete.background"), defaultValue);
       final Color foregroundColor = ObjectUtils.notNull(UIManager.getColor("Autocomplete.foreground"), defaultValue);
       final Color backgroundUnfocusedSelectedColor = ObjectUtils.notNull(UIManager.getColor("Autocomplete.selectionUnfocus"), defaultValue);
@@ -237,6 +238,7 @@ public final class UIReplacer {
       // SELECTED NON FOCUSED BACKGROUND COLOR
       StaticPatcher.setFinalStatic((Field) objects[4], backgroundUnfocusedSelectedColor);
       StaticPatcher.setFinalStatic((Field) objects[5], foregroundSelectedColor);
+      StaticPatcher.setFinalStatic((Field) objects[6], foregroundGreyedSelectedColor);
 
       // Completion foreground color
       StaticPatcher.setFinalStatic((Field) objects[7], jbAccentColor);
