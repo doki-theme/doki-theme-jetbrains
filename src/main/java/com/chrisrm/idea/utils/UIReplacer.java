@@ -216,26 +216,30 @@ public final class UIReplacer {
       final JBColor jbAccentColor = new JBColor(ColorUtil.fromHex(accentColor), ColorUtil.fromHex(accentColor));
 
       final Color defaultValue = UIUtil.getListSelectionBackground();
-      final Color backgroundSelectedColor = ObjectUtils.notNull(UIManager.getColor("Autocomplete.selectionBackground"), defaultValue);
-      final Color backgroundUnfocusedSelectedColor = ObjectUtils.notNull(UIManager.getColor("Autocomplete.selectionUnfocus"), defaultValue);
-
-      final Color secondTextColor = ObjectUtils.notNull(UIManager.getColor("Menu.acceleratorForeground"), defaultValue);
+      final Color autocompleteSelectionBackground = ObjectUtils.notNull(UIManager.getColor("Autocomplete.selectionBackground"), defaultValue);
+      final Color autocompleteSelectionForeground = ObjectUtils.notNull(UIManager.getColor("Autocomplete.selectionForeground"), defaultValue);
+      final Color autocompleteSelectionForegroundGreyed = ObjectUtils.notNull(UIManager.getColor("Autocomplete.selectionForegroundGreyed"), defaultValue);
+      final Color autoCompleteBackground = ObjectUtils.notNull(UIManager.getColor("Autocomplete.background"), defaultValue);
+      final Color autocompleteForeground = ObjectUtils.notNull(UIManager.getColor("Autocomplete.foreground"), defaultValue);
+      final Color autocompleteSelectionUnfocused = ObjectUtils.notNull(UIManager.getColor("Autocomplete.selectionUnfocus"), defaultValue);
+      final Color autocompleteSelectedBackgroundColor = ObjectUtils.notNull(UIManager.getColor("Autocomplete.selectedGreyedForeground"), defaultValue);
+      final Color autocompletePrefixForegroundColor = ObjectUtils.notNull(UIManager.getColor("Autocomplete.prefixForeground"), defaultValue);
+      final Color autocompleteSelectedPrefixForegroundColor = ObjectUtils.notNull(UIManager.getColor("Autocomplete.selectedPrefixForeground"), defaultValue);
 
       final Field[] fields = LookupCellRenderer.class.getDeclaredFields();
-      final Object[] objects = Arrays.stream(fields)
+      final Object[] colorFields = Arrays.stream(fields)
           .filter(f -> f.getType().equals(Color.class))
           .toArray();
 
-      StaticPatcher.setFinalStatic((Field) objects[2], secondTextColor);
-      // SELECTED BACKGROUND COLOR
-      StaticPatcher.setFinalStatic((Field) objects[3], backgroundSelectedColor);
-      // SELECTED NON FOCUSED BACKGROUND COLOR
-      StaticPatcher.setFinalStatic((Field) objects[4], backgroundUnfocusedSelectedColor);
-
-      // Completion foreground color
-      StaticPatcher.setFinalStatic((Field) objects[7], jbAccentColor);
-      // Selected completion foregronud color
-      StaticPatcher.setFinalStatic((Field) objects[8], jbAccentColor);
+      StaticPatcher.setFinalStatic((Field) colorFields[0], autoCompleteBackground);
+      StaticPatcher.setFinalStatic((Field) colorFields[1], autocompleteForeground);
+      StaticPatcher.setFinalStatic((Field) colorFields[2], autocompleteSelectedBackgroundColor);
+      StaticPatcher.setFinalStatic((Field) colorFields[3], autocompleteSelectionBackground);
+      StaticPatcher.setFinalStatic((Field) colorFields[4], autocompleteSelectionUnfocused);
+      StaticPatcher.setFinalStatic((Field) colorFields[5], autocompleteSelectionForeground);
+      StaticPatcher.setFinalStatic((Field) colorFields[6], autocompleteSelectionForegroundGreyed);
+      StaticPatcher.setFinalStatic((Field) colorFields[7], autocompletePrefixForegroundColor);
+      StaticPatcher.setFinalStatic((Field) colorFields[8], autocompleteSelectedPrefixForegroundColor);
     }
 
     static void patchNotifications() throws Exception {
