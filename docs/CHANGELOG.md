@@ -1,6 +1,10 @@
 # Changelog
 ----
 
+# 0.4.2-beta
+
+- Increased usability of Sayori's theme when comparing differences.
+
 # 0.4.1-beta
 
 - Increased usability of the code lookup/autocomplete window.
