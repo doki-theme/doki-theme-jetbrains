@@ -3,6 +3,7 @@ package com.chrisrm.idea.actions;
 import com.chrisrm.idea.MTThemes;
 import com.intellij.ide.util.PropertiesComponent;
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
@@ -20,6 +21,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static com.intellij.openapi.wm.impl.IdeBackgroundUtil.EDITOR_PROP;
+import static com.intellij.openapi.wm.impl.IdeBackgroundUtil.FRAME_PROP;
 
 //ie Monika
 public final class ClubMemberManager {
@@ -69,23 +71,49 @@ public final class ClubMemberManager {
   }
 
   private void turnOnWeebShit() {
-    String imagePath = getImagePath();
-    String opacity = "80";
-    String fill = "plain";//ref -> IdeBackgroundUtil.Fill.PLAIN
-    String anchor = "bottom_right";//ref -> IdeBackgroundUtil.Anchor.BOTTOM_RIGHT;
 
-    //org.intellij.images.editor.actions.SetBackgroundImageDialog has all of the answers
-    //as to why this looks this way
-    String property = Stream.of(imagePath, opacity, fill, anchor)
-        .collect(Collectors.joining(","));
-    PropertiesComponent.getInstance().setValue(EDITOR_PROP, property);
+    setProperty(getImagePath(),
+        "80",
+        IdeBackgroundUtil.Fill.PLAIN.name(),
+        IdeBackgroundUtil.Anchor.BOTTOM_RIGHT.name(),
+        EDITOR_PROP);
+    setProperty(getFrameBackground(),
+        "80",
+        IdeBackgroundUtil.Fill.SCALE.name(),
+        IdeBackgroundUtil.Anchor.CENTER.name(),
+        FRAME_PROP);
+
     PropertiesComponent.getInstance().setValue(SAVED_THEME, getTheme()
         .map(MTThemes::getName)
         .orElseGet(MTThemes.MONIKA::getName));
   }
 
+  private String getFrameBackground() {
+    return "https://raw.githubusercontent.com/cyclic-reference/ddlc-jetbrains-theme/master/src/main/resources/themes/" + getLiteratureClubMember();
+  }
+
+  private void setProperty(String imagePath, String opacity, String fill, String anchor, String editorProp) {
+    //org.intellij.images.editor.actions.SetBackgroundImageDialog has all of the answers
+    //as to why this looks this way
+    String property = Stream.of(imagePath, opacity, fill, anchor)
+        .collect(Collectors.joining(","));
+    PropertiesComponent.getInstance().setValue(editorProp, property);
+  }
+
   private String getImagePath() {
-    String literatureClubMember = getTheme()
+    String literatureClubMember = getLiteratureClubMember();
+    String theAnimesPath = "/club_members/" + literatureClubMember;
+    Path weebStuff = Paths.get(".", theAnimesPath).normalize().toAbsolutePath();
+    if (!Files.exists(weebStuff) || hasNoContents(weebStuff)) {
+      creatDirectories(weebStuff);
+      copyAnimes(theAnimesPath, weebStuff);
+    }
+    return weebStuff.toString();
+  }
+
+  @NotNull
+  private String getLiteratureClubMember() {
+    return getTheme()
         .map(theme -> {
           switch (theme) {
             case SAYORI:
@@ -100,13 +128,6 @@ public final class ClubMemberManager {
           }
         })
         .orElse("just_monika.png");
-    String theAnimesPath = "/club_members/" + literatureClubMember;
-    Path weebStuff = Paths.get(".", theAnimesPath).normalize().toAbsolutePath();
-    if (!Files.exists(weebStuff) || hasNoContents(weebStuff)) {
-      creatDirectories(weebStuff);
-      copyAnimes(theAnimesPath, weebStuff);
-    }
-    return weebStuff.toString();
   }
 
   private boolean hasNoContents(Path weebStuff) {
