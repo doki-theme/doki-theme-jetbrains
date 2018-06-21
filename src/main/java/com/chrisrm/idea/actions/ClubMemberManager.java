@@ -1,6 +1,5 @@
 package com.chrisrm.idea.actions;
 
-import com.chrisrm.idea.MTConfig;
 import com.chrisrm.idea.MTThemes;
 import com.intellij.ide.util.PropertiesComponent;
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil;
@@ -90,7 +89,7 @@ public final class ClubMemberManager {
   }
 
   private String getFrameBackground() {
-    return "https://raw.githubusercontent.com/cyclic-reference/ddlc-jetbrains-theme/master/src/main/resources/themes/" + getLiteratureClubMember();
+    return "https://raw.githubusercontent.com/cyclic-reference/ddlc-jetbrains-theme/frameImages/src/main/resources/themes/" + getLiteratureClubMember();
   }
 
   private void setProperty(String imagePath, String opacity, String fill, String anchor, String editorProp) {
