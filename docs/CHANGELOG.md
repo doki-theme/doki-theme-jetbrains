@@ -1,6 +1,10 @@
 # Changelog
 ----
 
+# 0.4.3
+
+- Editor frames now have images of your current club member of choice.
+
 # 0.4.2-beta
 
 - Increased usability of Sayori's theme when comparing differences.
