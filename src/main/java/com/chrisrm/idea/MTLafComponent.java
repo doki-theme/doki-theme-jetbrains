@@ -35,6 +35,8 @@ import com.chrisrm.idea.utils.MTUiUtils;
 import com.chrisrm.idea.utils.UIReplacer;
 import com.intellij.icons.AllIcons;
 import com.intellij.ide.ui.LafManager;
+import com.intellij.ide.ui.UISettings;
+import com.intellij.ide.ui.UISettingsListener;
 import com.intellij.ide.ui.laf.IntelliJTableSelectedCellHighlightBorder;
 import com.intellij.ide.ui.laf.darcula.DarculaTableHeaderBorder;
 import com.intellij.ide.ui.laf.darcula.DarculaTableHeaderUI;
@@ -56,7 +58,9 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
-import javax.swing.plaf.*;
+import javax.swing.plaf.ColorUIResource;
+
+import static com.chrisrm.idea.icons.IconReplacer.applyFilter;
 
 /**
  * Component for working on the Material Look And Feel
@@ -142,6 +146,13 @@ public final class MTLafComponent extends JBPanel implements ApplicationComponen
     UIManager.put("Focus.inactiveErrorBorderColor", new ColorUIResource(0x743A3A));
     UIManager.put("Focus.activeWarningBorderColor", new ColorUIResource(0xFFB62C));
     UIManager.put("Focus.inactiveWarningBorderColor", new ColorUIResource(0x7F6C00));
+
+    UIManager.put("TabbedPane.selectedLabelShift", 0);
+    UIManager.put("TabbedPane.labelShift", 0);
+    UIManager.put("TabbedPane.tabsOverlapBorder", true);
+    UIManager.put("TabbedPane.tabHeight", 32);
+    UIManager.put("TabbedPane.tabSelectionHeight", 2);
+    UIManager.put("TabbedPane.tabFillStyle", "underline");
 
     if (MTConfig.getInstance().getSelectedTheme().getThemeIsDark()) {
       installDarculaDefaults();
@@ -402,8 +413,13 @@ public final class MTLafComponent extends JBPanel implements ApplicationComponen
 
     // Listen for changes on the settings
     connect = ApplicationManager.getApplication().getMessageBus().connect();
+    connect.subscribe(UISettingsListener.TOPIC, this::onSettingsChanged);
     connect.subscribe(ConfigNotifier.CONFIG_TOPIC, this::onSettingsChanged);
     connect.subscribe(BeforeConfigNotifier.BEFORE_CONFIG_TOPIC, (this::onBeforeSettingsChanged));
+  }
+
+  private void onSettingsChanged(final UISettings uiSettings) {
+    applyFilter();
   }
 
   @Override
