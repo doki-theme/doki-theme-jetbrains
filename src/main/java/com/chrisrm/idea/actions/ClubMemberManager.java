@@ -89,7 +89,7 @@ public final class ClubMemberManager {
   }
 
   private String getFrameBackground() {
-    return "https://raw.githubusercontent.com/cyclic-reference/ddlc-jetbrains-theme/frameImages/src/main/resources/themes/" + getLiteratureClubMember();
+    return "https://raw.githubusercontent.com/cyclic-reference/ddlc-jetbrains-theme/master/src/main/resources/themes/" + getLiteratureClubMember();
   }
 
   private void setProperty(String imagePath, String opacity, String fill, String anchor, String editorProp) {
