@@ -1,6 +1,10 @@
 # Changelog
 ----
 
+# 0.4.4
+
+- Updated to upstreams' version of 2.4.1.2
+
 # 0.4.3
 
 - Editor frames now have images of your current club member of choice.
