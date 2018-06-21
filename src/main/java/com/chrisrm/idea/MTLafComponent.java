@@ -35,6 +35,8 @@ import com.chrisrm.idea.utils.MTUiUtils;
 import com.chrisrm.idea.utils.UIReplacer;
 import com.intellij.icons.AllIcons;
 import com.intellij.ide.ui.LafManager;
+import com.intellij.ide.ui.UISettings;
+import com.intellij.ide.ui.UISettingsListener;
 import com.intellij.ide.ui.laf.IntelliJTableSelectedCellHighlightBorder;
 import com.intellij.ide.ui.laf.darcula.DarculaTableHeaderBorder;
 import com.intellij.ide.ui.laf.darcula.DarculaTableHeaderUI;
