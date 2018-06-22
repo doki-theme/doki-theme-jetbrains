@@ -1,9 +1,13 @@
 # Changelog
 ----
 
+# 0.4.5
+
+- Enhanced lookup window usability.
+
 # 0.4.4
 
-- Updated to upstreams' version of 2.4.1.2
+- Updated to upstreams' version of 2.4.1.2.
 
 # 0.4.3
 
