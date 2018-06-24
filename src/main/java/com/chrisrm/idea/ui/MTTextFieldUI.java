@@ -56,13 +56,6 @@ public final class MTTextFieldUI extends TextFieldWithPopupHandlerUI {
     return new MTTextFieldUI((JTextField) c);
   }
 
-  @Override
-  protected int getMinimumHeight() {
-    final Insets i = getComponent().getInsets();
-    return DarculaEditorTextFieldBorder.isComboBoxEditor(getComponent()) ?
-           JBUI.scale(18) : JBUI.scale(16) + i.top + i.bottom;
-  }
-
   protected Rectangle getDrawingRect() {
     final JTextComponent c = getComponent();
     final JBInsets i = JBInsets.create(c.getInsets());
