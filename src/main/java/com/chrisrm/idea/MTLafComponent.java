@@ -349,6 +349,7 @@ public final class MTLafComponent extends JBPanel implements ApplicationComponen
     UIManager.put("SpinnerUI", DarculaSpinnerUI.class.getName());
     UIManager.put("Spinner.border", new DarculaSpinnerBorder());
 
+    UIManager.put("TreeUI", DarculaTreeUI.class.getName());
     UIManager.put("OptionButtonUI", DarculaOptionButtonUI.class.getName());
   }
 
@@ -390,6 +391,7 @@ public final class MTLafComponent extends JBPanel implements ApplicationComponen
     UIManager.put("SpinnerUI", DarculaSpinnerUI.class.getName());
     UIManager.put("Spinner.border", new DarculaSpinnerBorder());
 
+    UIManager.put("TreeUI", DarculaTreeUI.class.getName());
     UIManager.put("OptionButtonUI", DarculaOptionButtonUI.class.getName());
     UIManager.put("InternalFrameUI", DarculaInternalFrameUI.class.getName());
     UIManager.put("RootPaneUI", DarculaRootPaneUI.class.getName());
