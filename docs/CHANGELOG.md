@@ -1,6 +1,10 @@
 # Changelog
 ----
 
+# 0.4.6
+
+- Color coordination for themes should remain consistent for intellij 2018.2+ :)
+
 # 0.4.5
 
 - Enhanced lookup window usability.
