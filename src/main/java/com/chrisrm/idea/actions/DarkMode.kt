@@ -11,7 +11,7 @@ class DarkMode {
     companion object {
 
         private var isOn = false
-        private val SAVED_STATE = "DARK_MODE_ON"
+        private const val SAVED_STATE = "DARK_MODE_ON"
 
         init {
             isOn = PropertiesComponent.getInstance().getValue(SAVED_STATE)?.toBoolean() ?: false

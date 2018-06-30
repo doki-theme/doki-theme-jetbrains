@@ -7,7 +7,7 @@ import com.chrisrm.idea.themes.literature.club.MTDokiDokiTheme
  */
 class JustMonikaTheme: MTDokiDokiTheme("just.monika", "Just Monika", true, "Monika") {
 
-    override fun getBackgroundColorString(): String = "e8e4ff"
+    override fun getBackgroundColorString(): String = "1C230D"
 
     override fun getSecondaryBackgroundColorString(): String = "bbb8ff"
 
