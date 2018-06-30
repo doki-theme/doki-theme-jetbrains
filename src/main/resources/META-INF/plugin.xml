@@ -78,6 +78,7 @@
         <iconProvider implementation="com.chrisrm.idea.icons.MTFileIconProvider" order="first"/>
 
         <bundledColorScheme path="/colors/Material Monika"/>
+        <bundledColorScheme path="/colors/Just Monika"/>
         <bundledColorScheme path="/colors/Material Sayori"/>
         <bundledColorScheme path="/colors/Material Natsuki"/>
         <bundledColorScheme path="/colors/Material Yuri"/>
