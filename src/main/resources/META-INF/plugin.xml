@@ -137,7 +137,7 @@
                icon="/icons/actions/material-theme.png">
             <add-to-group group-id="MainToolBar" anchor="last"/>
 
-            <action id="MTMonikaTheme" class="com.chrisrm.idea.actions.themes.literature.club.MTMonikaThemeAction"
+            <action id="MTMonikaTheme" class="com.chrisrm.idea.actions.themes.literature.club.JustMonikaThemeAction"
                     text="Just Monika" description="Just Monika"
                     icon="/icons/actions/themes/material_monkia@2x.png">
             </action>
@@ -162,13 +162,13 @@
             <action class="com.chrisrm.idea.actions.MTWeebAction" id="MTWeeb" text="Toggle Club Member"
                     icon="/icons/actions/themes/material_monkia.png"
                     description="Toggle Contrast"/>
+            <action class="com.chrisrm.idea.actions.DarkModeAction" id="DarkMode" text="Toggle Dark Mode"
+                    icon="/icons/actions/themes/material_monkia.png"
+                    description="Toggle Dark Mode"/>
             <action id="MTAddFileColors" class="com.chrisrm.idea.actions.MTAddFileColorsAction"
                     text="Install DDLC File Colors"
                     description="Install Material File Colors"
                     icon="/icons/actions/mt/fileColors.svg"/>
-            <action class="com.chrisrm.idea.actions.MTContrastAction" id="MTContrastAction" text="Toggle Contrast"
-                    icon="/icons/actions/mt/contrast.svg"
-                    description="Toggle Contrast"/>
             <action id="MTCompactSidebarAction" class="com.chrisrm.idea.actions.MTCompactSidebarAction"
                     text="Toggle Compact Sidebar"
                     description="Toggle Compact Sidebar"

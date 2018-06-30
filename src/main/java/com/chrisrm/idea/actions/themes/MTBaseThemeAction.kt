@@ -24,28 +24,41 @@
  *
  */
 
-package com.chrisrm.idea.actions.themes.literature.club;
+package com.chrisrm.idea.actions.themes
 
-import com.chrisrm.idea.MTConfig;
-import com.chrisrm.idea.MTThemeManager;
-import com.chrisrm.idea.MTThemes;
-import com.chrisrm.idea.actions.ClubMemberManager;
-import com.chrisrm.idea.actions.accents.MTBreakingBadAccentAction;
-import com.chrisrm.idea.actions.themes.MTAbstractThemeAction;
-import com.intellij.openapi.actionSystem.AnActionEvent;
+import com.chrisrm.idea.MTConfig
+import com.chrisrm.idea.tree.MTProjectViewNodeDecorator
+import com.chrisrm.idea.ui.MTButtonUI
+import com.chrisrm.idea.ui.MTTreeUI
+import com.intellij.openapi.actionSystem.AnActionEvent
+import com.intellij.openapi.actionSystem.ToggleAction
 
-public final class MTMonikaThemeAction extends MTAbstractThemeAction {
-  private final MTBreakingBadAccentAction breakingBadAccentAction = new MTBreakingBadAccentAction();
-  @Override
-  public boolean isSelected(final AnActionEvent e) {
-    return MTConfig.getInstance().getSelectedTheme() == MTThemes.MONIKA;
-  }
+abstract class MTBaseThemeAction : ToggleAction() {
 
-  @Override
-  public void setSelected(final AnActionEvent e, final boolean state) {
-    super.setSelected(e, state);
-    breakingBadAccentAction.actionPerformed(e);
-    MTThemeManager.getInstance().activate(MTThemes.MONIKA, true);
-    ClubMemberManager.getInstance().activate(MTThemes.MONIKA);
-  }
+    override fun setSelected(e: AnActionEvent, state: Boolean) =
+            MTBaseThemeAction.setSelected(e, state)
+
+    /**
+     * Set button disabled if material theme is disabled
+     *
+     * @param e
+     */
+    override fun update(e: AnActionEvent) = MTBaseThemeAction.update(e)
+
+    companion object : ToggleThemeAction {
+        override fun setSelected(e: AnActionEvent, state: Boolean) {
+            MTTreeUI.resetIcons()
+            MTButtonUI.resetCache()
+            MTProjectViewNodeDecorator.resetCache()
+        }
+    }
+}
+
+interface ToggleThemeAction {
+
+    fun setSelected(e: AnActionEvent, state: Boolean)
+
+    fun update(e: AnActionEvent) {
+        e.presentation.isEnabled = MTConfig.getInstance().isMaterialTheme()
+    }
 }

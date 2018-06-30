@@ -24,31 +24,31 @@
  *
  */
 
-package com.chrisrm.idea.actions.themes;
+package com.chrisrm.idea.actions.themes.literature.club
 
-import com.chrisrm.idea.MTConfig;
-import com.chrisrm.idea.tree.MTProjectViewNodeDecorator;
-import com.chrisrm.idea.ui.MTButtonUI;
-import com.chrisrm.idea.ui.MTTreeUI;
-import com.intellij.openapi.actionSystem.AnActionEvent;
-import com.intellij.openapi.actionSystem.ToggleAction;
+import com.chrisrm.idea.MTConfig
+import com.chrisrm.idea.MTThemeManager
+import com.chrisrm.idea.MTThemes
+import com.chrisrm.idea.actions.ClubMemberManager
+import com.chrisrm.idea.actions.accents.MTBreakingBadAccentAction
+import com.chrisrm.idea.actions.themes.MTBaseThemeAction
+import com.chrisrm.idea.actions.themes.ToggleThemeAction
+import com.intellij.openapi.actionSystem.AnActionEvent
 
-public abstract class MTAbstractThemeAction extends ToggleAction {
+class JustMonikaThemeAction : MTBaseThemeAction() {
 
-  @Override
-  public void setSelected(final AnActionEvent e, final boolean state) {
-    MTTreeUI.resetIcons();
-    MTButtonUI.resetCache();
-    MTProjectViewNodeDecorator.resetCache();
-  }
+    override fun isSelected(e: AnActionEvent) =
+            MTConfig.getInstance().getSelectedTheme() === MTThemes.MONIKA
 
-  /**
-   * Set button disabled if material theme is disabled
-   *
-   * @param e
-   */
-  @Override
-  public void update(final AnActionEvent e) {
-    e.getPresentation().setEnabled(MTConfig.getInstance().isMaterialTheme());
-  }
+    override fun setSelected(e: AnActionEvent, state: Boolean) =
+            JustMonikaThemeAction.setSelected(e, state)
+
+    companion object : ToggleThemeAction {
+        private val breakingBadAccentAction = MTBreakingBadAccentAction()
+        override fun setSelected(e: AnActionEvent, state: Boolean) {
+            breakingBadAccentAction.actionPerformed(e)
+            MTThemeManager.getInstance().activate(MTThemes.MONIKA, true)
+            ClubMemberManager.getInstance().activate(MTThemes.MONIKA)
+        }
+    }
 }

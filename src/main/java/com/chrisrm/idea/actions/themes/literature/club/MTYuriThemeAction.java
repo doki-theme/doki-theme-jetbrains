@@ -31,10 +31,10 @@ import com.chrisrm.idea.MTThemeManager;
 import com.chrisrm.idea.MTThemes;
 import com.chrisrm.idea.actions.ClubMemberManager;
 import com.chrisrm.idea.actions.accents.MTAmethystAccentAction;
-import com.chrisrm.idea.actions.themes.MTAbstractThemeAction;
+import com.chrisrm.idea.actions.themes.MTBaseThemeAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 
-public final class MTYuriThemeAction extends MTAbstractThemeAction {
+public final class MTYuriThemeAction extends MTBaseThemeAction {
   private final MTAmethystAccentAction mtAmethystAccentAction = new MTAmethystAccentAction();
   @Override
   public boolean isSelected(final AnActionEvent e) {

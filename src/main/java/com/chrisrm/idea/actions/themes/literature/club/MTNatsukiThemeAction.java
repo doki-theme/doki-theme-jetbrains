@@ -31,10 +31,10 @@ import com.chrisrm.idea.MTThemeManager;
 import com.chrisrm.idea.MTThemes;
 import com.chrisrm.idea.actions.ClubMemberManager;
 import com.chrisrm.idea.actions.accents.MTFuschiaAccentAction;
-import com.chrisrm.idea.actions.themes.MTAbstractThemeAction;
+import com.chrisrm.idea.actions.themes.MTBaseThemeAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 
-public final class MTNatsukiThemeAction extends MTAbstractThemeAction {
+public final class MTNatsukiThemeAction extends MTBaseThemeAction {
   private final MTFuschiaAccentAction mtFuschiaAccentAction = new MTFuschiaAccentAction();
   @Override
   public boolean isSelected(final AnActionEvent e) {
