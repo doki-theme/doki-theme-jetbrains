@@ -9,23 +9,23 @@ class JustMonikaTheme: MTDokiDokiTheme("just.monika", "Just Monika", true, "Moni
 
     override fun getBackgroundColorString(): String = "1C230D"
 
-    override fun getSecondaryBackgroundColorString(): String = "bbb8ff"
+    override fun getSecondaryBackgroundColorString(): String = "C3FF99"
 
-    override fun getSecondaryForegroundColorString(): String = "562474"
+    override fun getSecondaryForegroundColorString(): String = "237417"
 
-    override fun getSelectionForegroundColorString(): String = "c06fff"
+    override fun getSelectionForegroundColorString(): String = "5FC652"
 
-    override fun getSelectionBackgroundColorString(): String = "e4caff"
+    override fun getSelectionBackgroundColorString(): String = "ACFFAF"
 
-    override fun getTreeSelectionBackgroundColorString(): String = "d3a5fa"
+    override fun getTreeSelectionBackgroundColorString(): String = "65B564"
 
     override fun getMenuBarSelectionForegroundColorString(): String = "ffffff"
 
-    override fun getMenuBarSelectionBackgroundColorString(): String = "7c0e9d"
+    override fun getMenuBarSelectionBackgroundColorString(): String = "2D9D04"
 
-    override fun getNotificationsColorString(): String = "d3ceff"
+    override fun getNotificationsColorString(): String = "76B87B"
 
-    override fun getContrastColorString(): String = "ccaaff"
+    override fun getContrastColorString(): String = "ADFF8D"
 
     override fun getEditorTabColorString(): String = contrastColorString
 }
