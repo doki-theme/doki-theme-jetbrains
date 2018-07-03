@@ -32,6 +32,7 @@ import com.chrisrm.idea.themes.literature.club.MTMonikaTheme;
 import com.chrisrm.idea.themes.literature.club.MTNatsukiTheme;
 import com.chrisrm.idea.themes.literature.club.MTSayoriTheme;
 import com.chrisrm.idea.themes.literature.club.MTYuriTheme;
+import com.chrisrm.idea.themes.literature.club.dark.DeletedCharacterTheme;
 import com.chrisrm.idea.themes.literature.club.dark.JustMonikaTheme;
 import org.jetbrains.annotations.NotNull;
 
@@ -46,7 +47,7 @@ import java.util.stream.Collectors;
  */
 public enum MTThemes implements MTThemeFacade {
   MONIKA("MONIKA", new MTMonikaTheme(), new JustMonikaTheme()),
-  SAYORI("SAYORI", new MTSayoriTheme(), new JustMonikaTheme()),
+  SAYORI("SAYORI", new MTSayoriTheme(), new DeletedCharacterTheme()),
   NATSUKI("NATSUKI", new MTNatsukiTheme(), new JustMonikaTheme()),
   YURI("YURI", new MTYuriTheme(), new JustMonikaTheme());
 
