@@ -143,7 +143,7 @@
                     icon="/icons/actions/themes/material_monkia@2x.png">
             </action>
             <separator/>
-            <action id="MTSayoriTheme" class="com.chrisrm.idea.actions.themes.literature.club.MTSayoriThemeAction"
+            <action id="MTSayoriTheme" class="com.chrisrm.idea.actions.themes.literature.club.SayoriThemeAction"
                     text="Sayori" description="Material Sayori"
                     icon="/icons/actions/themes/material_sayori@2x.png">
             </action>

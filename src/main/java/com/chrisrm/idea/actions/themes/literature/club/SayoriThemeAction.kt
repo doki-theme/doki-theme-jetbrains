@@ -24,28 +24,31 @@
  *
  */
 
-package com.chrisrm.idea.actions.themes.literature.club;
+package com.chrisrm.idea.actions.themes.literature.club
 
-import com.chrisrm.idea.MTConfig;
-import com.chrisrm.idea.MTThemeManager;
-import com.chrisrm.idea.MTThemes;
-import com.chrisrm.idea.actions.ClubMemberManager;
-import com.chrisrm.idea.actions.accents.MTCyanAccentAction;
-import com.chrisrm.idea.actions.themes.MTBaseThemeAction;
-import com.intellij.openapi.actionSystem.AnActionEvent;
+import com.chrisrm.idea.MTConfig
+import com.chrisrm.idea.MTThemeManager
+import com.chrisrm.idea.MTThemes
+import com.chrisrm.idea.actions.ClubMemberManager
+import com.chrisrm.idea.actions.accents.MTCyanAccentAction
+import com.chrisrm.idea.actions.themes.MTBaseThemeAction
+import com.chrisrm.idea.actions.themes.ToggleThemeAction
+import com.intellij.openapi.actionSystem.AnActionEvent
 
-public final class MTSayoriThemeAction extends MTBaseThemeAction {
-  private final MTCyanAccentAction mtSkyAccentAction = new MTCyanAccentAction();
-  @Override
-  public boolean isSelected(final AnActionEvent e) {
-    return MTConfig.getInstance().getSelectedTheme() == MTThemes.SAYORI;
-  }
+class SayoriThemeAction : MTBaseThemeAction() {
 
-  @Override
-  public void setSelected(final AnActionEvent e, final boolean state) {
-    super.setSelected(e, state);
-    mtSkyAccentAction.actionPerformed(e);
-    MTThemeManager.getInstance().activate(MTThemes.SAYORI, true);
-    ClubMemberManager.getInstance().activate(MTThemes.SAYORI);
-  }
+    override fun isSelected(e: AnActionEvent) =
+            MTConfig.getInstance().getSelectedTheme() === MTThemes.SAYORI
+
+    override fun setSelected(e: AnActionEvent, state: Boolean) =
+            SayoriThemeAction.setSelected(e, state)
+
+    companion object : ToggleThemeAction {
+        private val mtCyanAccentAction = MTCyanAccentAction()
+        override fun setSelected(e: AnActionEvent, state: Boolean) {
+            mtCyanAccentAction.actionPerformed(e)
+            MTThemeManager.getInstance().activate(MTThemes.SAYORI, true)
+            ClubMemberManager.getInstance().activate(MTThemes.SAYORI)
+        }
+    }
 }
