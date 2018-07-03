@@ -45,9 +45,9 @@
     <option name="CONSOLE_FONT_NAME" value="Menlo"/>
     <option name="CONSOLE_LINE_SPACING" value="1.4"/>
     <colors>
-        <option name="ADDED_LINES_COLOR" value="457886"/>
-        <option name="MODIFIED_LINES_COLOR" value="496C49"/>
-        <option name="DELETED_LINES_COLOR" value="919191"/>
+        <option name="ADDED_LINES_COLOR" value="203952"/>
+        <option name="MODIFIED_LINES_COLOR" value="296C2A"/>
+        <option name="DELETED_LINES_COLOR" value="656565"/>
         <option name="ANNOTATIONS_COLOR" value="E98753"/>
         <!--TODO: IMPORTANT-->
         <option name="CARET_COLOR" value="000000"/>
@@ -779,20 +779,20 @@
         </option>
         <option name="DIFF_DELETED">
             <value>
-                <option name="FOREGROUND" value="A3A3A3"/>
-                <option name="BACKGROUND" value="919191"/>
+                <option name="FOREGROUND" value="656565"/>
+                <option name="BACKGROUND" value="565656"/>
                 <option name="ERROR_STRIPE_COLOR" value="656e76"/>
             </value>
         </option>
         <option name="DIFF_INSERTED">
             <value>
-                <option name="BACKGROUND" value="457886"/>
-                <option name="ERROR_STRIPE_COLOR" value="447152"/>
+                <option name="BACKGROUND" value="203952"/>
+                <option name="ERROR_STRIPE_COLOR" value="227125"/>
             </value>
         </option>
         <option name="DIFF_MODIFIED">
             <value>
-                <option name="BACKGROUND" value="496C49"/>
+                <option name="BACKGROUND" value="296C2A"/>
                 <option name="ERROR_STRIPE_COLOR" value="43698d"/>
             </value>
         </option>
