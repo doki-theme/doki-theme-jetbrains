@@ -35,3 +35,5 @@ code completion window needs to be readable/part of the color scheme
 search everywhere
 FILE changed status (NOT AVAILABLE IN COMMUNITY)
 search everywhere on webstorm selection looks wonky.
+
+file scope colors
