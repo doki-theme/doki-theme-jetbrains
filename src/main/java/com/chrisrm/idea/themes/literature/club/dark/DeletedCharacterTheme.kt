@@ -11,21 +11,21 @@ class DeletedCharacterTheme: MTDokiDokiTheme("deleted.character", "Š̸̎̋̐͒
 
     override fun getSecondaryBackgroundColorString(): String = "50A2C7"
 
-    override fun getSecondaryForegroundColorString(): String = "237417"
+    override fun getSecondaryForegroundColorString(): String = "157174"
 
-    override fun getSelectionForegroundColorString(): String = "5FC652"
+    override fun getSelectionForegroundColorString(): String = "9CF5FF"
 
-    override fun getSelectionBackgroundColorString(): String = "ACFFAF"
+    override fun getSelectionBackgroundColorString(): String = "5C9AC6"
 
-    override fun getTreeSelectionBackgroundColorString(): String = "65B564"
+    override fun getTreeSelectionBackgroundColorString(): String = "5E72B5"
 
     override fun getMenuBarSelectionForegroundColorString(): String = "ffffff"
 
-    override fun getMenuBarSelectionBackgroundColorString(): String = "2D9D04"
+    override fun getMenuBarSelectionBackgroundColorString(): String = "0A039D"
 
-    override fun getNotificationsColorString(): String = "76B87B"
+    override fun getNotificationsColorString(): String = "5E94B8"
 
-    override fun getContrastColorString(): String = "ADFF8D"
+    override fun getContrastColorString(): String = "9ABBFF"
 
 
     override fun getEditorTabColorString(): String = contrastColorString
