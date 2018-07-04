@@ -41,8 +41,8 @@
     <option name="CONSOLE_FONT_NAME" value="Menlo"/>
     <option name="CONSOLE_LINE_SPACING" value="1.4"/>
     <colors>
-        <option name="ADDED_LINES_COLOR" value="203952"/>
-        <option name="MODIFIED_LINES_COLOR" value="296C2A"/>
+        <option name="ADDED_LINES_COLOR" value="255826"/>
+        <option name="MODIFIED_LINES_COLOR" value="285C7B"/>
         <option name="DELETED_LINES_COLOR" value="656565"/>
         <option name="ANNOTATIONS_COLOR" value="E98753"/>
         <!--TODO: IMPORTANT-->
@@ -770,28 +770,28 @@
         </option>
         <option name="DIFF_CONFLICT">
             <value>
-                <option name="FOREGROUND" value="FFA9BF"/>
-                <option name="BACKGROUND" value="FF8984"/>
+                <option name="FOREGROUND" value="984C4C"/>
+                <option name="BACKGROUND" value="94596A"/>
                 <option name="ERROR_STRIPE_COLOR" value="8f5247"/>
             </value>
         </option>
         <option name="DIFF_DELETED">
             <value>
-                <option name="FOREGROUND" value="ffffff"/>
-                <option name="BACKGROUND" value="EBEBEB"/>
+                <option name="FOREGROUND" value="656565"/>
+                <option name="BACKGROUND" value="565656"/>
                 <option name="ERROR_STRIPE_COLOR" value="656e76"/>
             </value>
         </option>
         <option name="DIFF_INSERTED">
             <value>
-                <option name="BACKGROUND" value="D0FDC9"/>
-                <option name="ERROR_STRIPE_COLOR" value="447152"/>
+                <option name="BACKGROUND" value="255826"/>
+                <option name="ERROR_STRIPE_COLOR" value="43698d"/>
             </value>
         </option>
         <option name="DIFF_MODIFIED">
             <value>
-                <option name="BACKGROUND" value="D8F8FF"/>
-                <option name="ERROR_STRIPE_COLOR" value="43698d"/>
+                <option name="BACKGROUND" value="285C7B"/>
+                <option name="ERROR_STRIPE_COLOR" value="227125"/>
             </value>
         </option>
         <option name="DUPLICATE_FROM_SERVER">
