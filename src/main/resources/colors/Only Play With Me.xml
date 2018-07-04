@@ -77,9 +77,9 @@
         <option name="FILESTATUS_changelistConflict" value="d5756c"/>
         <option name="FILESTATUS_modifiedOutside" value="B846A1"/>
         <!--todo: important-->
-        <option name="GUTTER_BACKGROUND" value="ffa7ff"/>
+        <option name="GUTTER_BACKGROUND" value="A21575"/>
         <!--todo: important-->
-        <option name="LINE_NUMBERS_COLOR" value="ee1fb1"/>
+        <option name="LINE_NUMBERS_COLOR" value="ffa7ff"/>
         <option name="INDENT_GUIDE" value="A57498"/>
         <option name="INFORMATION_HINT" value="f3f5f6"/>
         <option name="METHOD_SEPARATORS_COLOR" value="A57498"/>
