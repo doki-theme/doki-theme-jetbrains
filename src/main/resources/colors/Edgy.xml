@@ -774,28 +774,28 @@
         </option>
         <option name="DIFF_CONFLICT">
             <value>
-                <option name="FOREGROUND" value="FFA9BF"/>
-                <option name="BACKGROUND" value="FF8984"/>
+                <option name="BACKGROUND" value="7A4252"/>
+                <option name="FOREGROUND" value="6F3737"/>
                 <option name="ERROR_STRIPE_COLOR" value="8f5247"/>
             </value>
         </option>
         <option name="DIFF_DELETED">
             <value>
-                <option name="FOREGROUND" value="ffffff"/>
-                <option name="BACKGROUND" value="EBEBEB"/>
+                <option name="BACKGROUND" value="3C3C3C"/>
+                <option name="FOREGROUND" value="4B4B4B"/>
                 <option name="ERROR_STRIPE_COLOR" value="656e76"/>
             </value>
         </option>
         <option name="DIFF_INSERTED">
             <value>
-                <option name="BACKGROUND" value="D0FDC9"/>
-                <option name="ERROR_STRIPE_COLOR" value="447152"/>
+                <option name="BACKGROUND" value="1A351A"/>
+                <option name="ERROR_STRIPE_COLOR" value="43698d"/>
             </value>
         </option>
         <option name="DIFF_MODIFIED">
             <value>
-                <option name="BACKGROUND" value="EEC5FF"/>
-                <option name="ERROR_STRIPE_COLOR" value="43698d"/>
+                <option name="BACKGROUND" value="43306C"/>
+                <option name="ERROR_STRIPE_COLOR" value="6C3271"/>
             </value>
         </option>
         <option name="DUPLICATE_FROM_SERVER">
