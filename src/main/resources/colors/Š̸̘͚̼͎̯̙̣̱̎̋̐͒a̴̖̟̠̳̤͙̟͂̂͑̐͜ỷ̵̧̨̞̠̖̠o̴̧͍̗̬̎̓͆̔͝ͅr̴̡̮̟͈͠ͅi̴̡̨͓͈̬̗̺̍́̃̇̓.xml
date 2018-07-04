@@ -111,7 +111,7 @@
         <option name="TEARLINE_COLOR" value="94ffff"/>
 
         <option name="SOFT_WRAP_SIGN_COLOR" value="4f6269"/>
-        <option name="TOOLTIP" value="FFF4F2"/>
+        <option name="TOOLTIP" value="12131f"/>
         <option name="VCS_ANNOTATIONS_COLOR_1" value="a7fff8"/>
         <option name="VCS_ANNOTATIONS_COLOR_2" value="8cdcd5"/>
         <option name="VCS_ANNOTATIONS_COLOR_3" value="ffffff"/>
@@ -3465,7 +3465,7 @@
         <option name="TEXT">
             <value>
                 <option name="FOREGROUND" value="42608D"/>
-                <option name="BACKGROUND" value="212121"/>
+                <option name="BACKGROUND" value="1c1e21"/>
                 <option name="EFFECT_TYPE" value="5"/>
             </value>
         </option>
