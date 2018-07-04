@@ -52,7 +52,7 @@
         <!--TODO: IMPORTANT-->
         <option name="CARET_COLOR" value="5336c9"/>
         <!--TODO: IMPORTANT-->
-        <option name="CARET_ROW_COLOR" value="e6d6ff"/>
+        <option name="CARET_ROW_COLOR" value="8A72B0"/>
         <option name="CONSOLE_BACKGROUND_KEY" value="fffcfc"/>
         <option name="DOCUMENTATION_COLOR" value="f3f5f6"/>
         <option name="FILESTATUS_ADDED" value="B8006E"/>
@@ -77,9 +77,9 @@
         <option name="FILESTATUS_changelistConflict" value="d5756c"/>
         <option name="FILESTATUS_modifiedOutside" value="6182b8"/>
         <!--todo: important-->
-        <option name="GUTTER_BACKGROUND" value="a7a7ff"/>
+        <option name="GUTTER_BACKGROUND" value="b11ffc"/>
         <!--todo: important-->
-        <option name="LINE_NUMBERS_COLOR" value="b11ffc"/>
+        <option name="LINE_NUMBERS_COLOR" value="a7a7ff"/>
         <option name="INDENT_GUIDE" value="604375"/>
         <option name="INFORMATION_HINT" value="f3f5f6"/>
         <option name="METHOD_SEPARATORS_COLOR" value="604375"/>
