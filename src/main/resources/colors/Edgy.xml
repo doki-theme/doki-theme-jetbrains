@@ -58,7 +58,7 @@
         <option name="FILESTATUS_ADDED" value="B8006E"/>
         <option name="FILESTATUS_COPIED" value="B8006E"/>
         <option name="FILESTATUS_DELETED" value="808080"/>
-        <option name="FILESTATUS_HIJACKED" value="FF6100"/>
+        <option name="FILESTATUS_HIJACKED" value="FF7A29"/>
         <option name="FILESTATUS_IDEA_FILESTATUS_DELETED_FROM_FILE_SYSTEM" value="808080"/>
         <option name="FILESTATUS_IDEA_FILESTATUS_IGNORED" value="ab7967"/>
         <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_BOTH_CONFLICTS" value="d5756c"/>
@@ -85,7 +85,7 @@
         <option name="METHOD_SEPARATORS_COLOR" value="604375"/>
         <option name="MT_ADDED" value="B8006E"/>
         <option name="MT_DELETED" value="54009A"/>
-        <option name="MT_HIJACKED" value="FF6100"/>
+        <option name="MT_HIJACKED" value="FF7A29"/>
         <option name="MT_IDEA_FILESTATUS_IGNORED" value="ab7967"/>
         <option name="MT_IDEA_FILESTATUS_MERGED_WITH_BOTH_CONFLICTS" value="e53935"/>
         <option name="MT_IDEA_FILESTATUS_MERGED_WITH_CONFLICTS" value="e53935"/>
@@ -96,7 +96,7 @@
         <option name="MT_NOT_CHANGED" value="634A8D"/>
         <option name="MT_NOT_CHANGED_IMMEDIATE" value="8D28B5"/>
         <option name="MT_NOT_CHANGED_RECURSIVE" value="8D28B5"/>
-        <option name="MT_OBSOLETE" value="FF6100"/>
+        <option name="MT_OBSOLETE" value="FF7A29"/>
         <option name="MT_SUPPRESSED" value="634A8D"/>
         <option name="MT_SWITCHED" value="54009A"/>
         <option name="MT_UNKNOWN" value="e53935"/>
@@ -120,7 +120,7 @@
         <option name="VCS_ANNOTATIONS_COLOR_2" value="8cdcd5"/>
         <option name="VCS_ANNOTATIONS_COLOR_3" value="ffffff"/>
         <option name="VCS_ANNOTATIONS_COLOR_4" value="ff0a79"/>
-        <option name="VCS_ANNOTATIONS_COLOR_5" value="FF6100"/>
+        <option name="VCS_ANNOTATIONS_COLOR_5" value="FF7A29"/>
         <option name="WHITESPACES" value="cfd8dc"/>
     </colors>
     <attributes>
@@ -142,7 +142,7 @@
         </option>
         <option name="ANNOTATION_NAME_ATTRIBUTES">
             <value>
-                <option name="FOREGROUND" value="FF6100"/>
+                <option name="FOREGROUND" value="FF7A29"/>
             </value>
         </option>
         <option name="APACHE_CONFIG.ARG_LEXEM">
@@ -1482,7 +1482,7 @@
         </option>
         <option name="KOTLIN_ANNOTATION">
             <value>
-                <option name="FOREGROUND" value="FF6100"/>
+                <option name="FOREGROUND" value="FF7A29"/>
             </value>
         </option>
         <option name="KOTLIN_DYNAMIC_PROPERTY_CALL">
@@ -3173,7 +3173,7 @@
         </option>
         <option name="Scala Annotation attribute name">
             <value>
-                <option name="FOREGROUND" value="FF6100"/>
+                <option name="FOREGROUND" value="FF7A29"/>
             </value>
         </option>
         <option name="Scala Annotation name">
