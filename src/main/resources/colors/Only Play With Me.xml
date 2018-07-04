@@ -52,7 +52,7 @@
         <!--TODO: IMPORTANT-->
         <option name="CARET_COLOR" value="ff79c9"/>
         <!--TODO: IMPORTANT-->
-        <option name="CARET_ROW_COLOR" value="ffe0fc"/>
+        <option name="CARET_ROW_COLOR" value="4D2339"/>
         <option name="CONSOLE_BACKGROUND_KEY" value="261f22"/>
         <option name="DOCUMENTATION_COLOR" value="f3f5f6"/>
         <option name="FILESTATUS_ADDED" value="CD368F"/>
@@ -77,7 +77,7 @@
         <option name="FILESTATUS_changelistConflict" value="d5756c"/>
         <option name="FILESTATUS_modifiedOutside" value="E055C4"/>
         <!--todo: important-->
-        <option name="GUTTER_BACKGROUND" value="A21575"/>
+        <option name="GUTTER_BACKGROUND" value="98146E"/>
         <!--todo: important-->
         <option name="LINE_NUMBERS_COLOR" value="ffa7ff"/>
         <option name="INDENT_GUIDE" value="CF93C0"/>
@@ -93,11 +93,11 @@
         <option name="MT_IGNORE.PROJECT_VIEW.IGNORED" value="ab7967"/>
         <option name="MT_MERGED" value="945eb8"/>
         <option name="MT_MODIFIED" value="D55ED4"/>
-        <option name="MT_NOT_CHANGED" value="8D3A74"/>
+        <option name="MT_NOT_CHANGED" value="C648AB"/>
         <option name="MT_NOT_CHANGED_IMMEDIATE" value="D55ED4"/>
         <option name="MT_NOT_CHANGED_RECURSIVE" value="D55ED4"/>
         <option name="MT_OBSOLETE" value="FF71CC"/>
-        <option name="MT_SUPPRESSED" value="8D3A74"/>
+        <option name="MT_SUPPRESSED" value="C648AB"/>
         <option name="MT_SWITCHED" value="D4008D"/>
         <option name="MT_UNKNOWN" value="e53935"/>
         <option name="MT_modifiedOutside" value="E055C4"/>
@@ -1622,7 +1622,7 @@
         </option>
         <option name="MARKDOWN.TEXT">
             <value>
-                <option name="FOREGROUND" value="8D3A74"/>
+                <option name="FOREGROUND" value="C648AB"/>
             </value>
         </option>
         <option name="MARKDOWN_AUTO_LINK">
@@ -1808,7 +1808,7 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.ABBREVIATION_EXPANDED_TEXT">
             <value>
-                <option name="FOREGROUND" value="8D3A74"/>
+                <option name="FOREGROUND" value="C648AB"/>
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.ABBREVIATION_SHORT_TEXT">
@@ -1858,7 +1858,7 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.DEFINITION_TERM">
             <value>
-                <option name="FOREGROUND" value="8D3A74"/>
+                <option name="FOREGROUND" value="C648AB"/>
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.EMOJI_ID">
@@ -1927,7 +1927,7 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.ITALIC">
             <value>
-                <option name="FOREGROUND" value="8D3A74"/>
+                <option name="FOREGROUND" value="C648AB"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -2008,23 +2008,23 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.STRIKETHROUGH">
             <value>
-                <option name="FOREGROUND" value="8D3A74"/>
-                <option name="EFFECT_COLOR" value="8D3A74"/>
+                <option name="FOREGROUND" value="C648AB"/>
+                <option name="EFFECT_COLOR" value="C648AB"/>
                 <option name="EFFECT_TYPE" value="3"/>
             </value>
         </option>
 
         <option name="MARKDOWN_NAVIGATOR.SUBSCRIPT">
             <value>
-                <option name="FOREGROUND" value="8D3A74"/>
-                <option name="EFFECT_COLOR" value="8D3A74"/>
+                <option name="FOREGROUND" value="C648AB"/>
+                <option name="EFFECT_COLOR" value="C648AB"/>
                 <option name="EFFECT_TYPE" value="5"/>
             </value>
         </option>
 
         <option name="MARKDOWN_NAVIGATOR.TABLE">
             <value>
-                <option name="FOREGROUND" value="8D3A74"/>
+                <option name="FOREGROUND" value="C648AB"/>
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_CAPTION">
@@ -2039,24 +2039,24 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_REVEN_CEVEN">
             <value>
-                <option name="FOREGROUND" value="8D3A74"/>
+                <option name="FOREGROUND" value="C648AB"/>
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_REVEN_CODD">
             <value>
-                <option name="FOREGROUND" value="8D3A74"/>
+                <option name="FOREGROUND" value="C648AB"/>
             </value>
         </option>
 
         <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_RODD_CEVEN">
             <value>
-                <option name="FOREGROUND" value="8D3A74"/>
+                <option name="FOREGROUND" value="C648AB"/>
             </value>
         </option>
 
         <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_RODD_CODD">
             <value>
-                <option name="FOREGROUND" value="8D3A74"/>
+                <option name="FOREGROUND" value="C648AB"/>
             </value>
         </option>
 
@@ -2084,12 +2084,12 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_ROW_EVEN">
             <value>
-                <option name="FOREGROUND" value="8D3A74"/>
+                <option name="FOREGROUND" value="C648AB"/>
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_ROW_ODD">
             <value>
-                <option name="FOREGROUND" value="8D3A74"/>
+                <option name="FOREGROUND" value="C648AB"/>
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_SEPARATOR">
@@ -2119,13 +2119,13 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.TEXT">
             <value>
-                <option name="FOREGROUND" value="8D3A74"/>
+                <option name="FOREGROUND" value="C648AB"/>
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.UNDERLINE">
             <value>
-                <option name="FOREGROUND" value="8D3A74"/>
-                <option name="EFFECT_COLOR" value="8D3A74"/>
+                <option name="FOREGROUND" value="C648AB"/>
+                <option name="EFFECT_COLOR" value="C648AB"/>
                 <option name="EFFECT_TYPE" value="1"/>
             </value>
         </option>
@@ -3468,7 +3468,7 @@
         </option>
         <option name="TEXT">
             <value>
-                <option name="FOREGROUND" value="8D3A74"/>
+                <option name="FOREGROUND" value="C648AB"/>
                 <option name="BACKGROUND" value="261f22"/>
                 <option name="EFFECT_TYPE" value="5"/>
             </value>
