@@ -33,6 +33,7 @@ import com.chrisrm.idea.themes.literature.club.MTNatsukiTheme;
 import com.chrisrm.idea.themes.literature.club.MTSayoriTheme;
 import com.chrisrm.idea.themes.literature.club.MTYuriTheme;
 import com.chrisrm.idea.themes.literature.club.dark.DeletedCharacterTheme;
+import com.chrisrm.idea.themes.literature.club.dark.EdgyTheme;
 import com.chrisrm.idea.themes.literature.club.dark.JustMonikaTheme;
 import com.chrisrm.idea.themes.literature.club.dark.OnlyPlayWithMeTheme;
 import org.jetbrains.annotations.NotNull;
@@ -50,7 +51,7 @@ public enum MTThemes implements MTThemeFacade {
   MONIKA("MONIKA", new MTMonikaTheme(), new JustMonikaTheme()),
   SAYORI("SAYORI", new MTSayoriTheme(), new DeletedCharacterTheme()),
   NATSUKI("NATSUKI", new MTNatsukiTheme(), new OnlyPlayWithMeTheme()),
-  YURI("YURI", new MTYuriTheme(), new JustMonikaTheme());
+  YURI("YURI", new MTYuriTheme(), new EdgyTheme());
 
   private static final Map<String, MTThemeFacade> THEMES_MAP = Arrays.stream(values())
       .collect(Collectors.toMap(MTThemes::getName,

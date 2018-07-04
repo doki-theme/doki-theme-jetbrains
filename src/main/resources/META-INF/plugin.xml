@@ -84,6 +84,7 @@
         <bundledColorScheme path="/colors/Material Natsuki"/>
         <bundledColorScheme path="/colors/Only Play With Me"/>
         <bundledColorScheme path="/colors/Material Yuri"/>
+        <bundledColorScheme path="/colors/Edgy"/>
 
         <welcomeFrameProvider implementation="com.chrisrm.idea.ui.MTFlatWelcomeFrameProvider"
                               order="FIRST"/>
@@ -153,7 +154,7 @@
                     text="Natsuki" description="Material Natsuki"
                     icon="/icons/actions/themes/material_natsuki@2x.png">
             </action>
-            <action id="MTYuri" class="com.chrisrm.idea.actions.themes.literature.club.MTYuriThemeAction"
+            <action id="MTYuri" class="com.chrisrm.idea.actions.themes.literature.club.YuriThemeAction"
                     text="Yuri" description="Material Yuri"
                     icon="/icons/actions/themes/material_yuri@2x.png">
             </action>
