@@ -5,7 +5,7 @@ import com.chrisrm.idea.themes.literature.club.MTDokiDokiTheme
 /**
  * C̸̮͙̭̀h̷̯̯̋͊̅ä̶̠̟̝́ȑ̸̟̝̪̇a̵̞̙͝c̴̩͝t̵̳͉̆ẻ̴̫r̸̨̢͑ ̷̡̛̛͍͐n̶̡͚̻̽o̵͈͌̈͝t̴̻͚͑̏̽ ̴̰͌f̷̫͛ò̴̠̺̝ú̵̧̲̘̐̚ṅ̸̠̠̰d̵̦͎̲͠͠
  */
-class DeletedCharacterTheme: MTDokiDokiTheme("deleted.character", "Š̸̘͚̼͎̯̙̣̱̎̋̐͒a̴̖̟̠̳̤͙̟͂̂͑̐͜ỷ̵̧̨̞̠̖̠o̴̧͍̗̬̎̓͆̔͝ͅr̴̡̮̟͈͠ͅi̴̡̨͓͈̬̗̺̍́̃̇̓", true, "D̶̯̘̻͖̅̔͝e̴̯͉̞̟͑͂͋͒l̴̛̪̆̓ȩ̶̼̖̲́͝t̶͙͉̉͐͊ë̷̞̍̈d̷͔̹͇̓͆̎̒ ̶̪͌͠͝Ć̵̱̲̓̾̌ḫ̶̀a̴̼̱̮̬͉͌̉̽r̶̳̥̮͎̐͒ȁ̶̝͈̖̤̀̇̈́c̶̹̳̖̞̫̿̆̐͆͝t̵͍͈͍͋ę̷̮̜̖͒r̵̭̠̽̀") {
+class DeletedCharacterTheme: MTDokiDokiTheme("deleted.character", "Š̸̘͚̼͎̯̙̣̱̎̋̐͒a̴̖̟̠̳̤͙̟͂̂͑̐͜ỷ̵̧̨̞̠̖̠o̴̧͍̗̬̎̓͆̔͝ͅr̴̡̮̟͈͠ͅi̴̡̨͓͈̬̗̺̍́̃̇̓", true, "Š̸̘͚̼͎̯̙̣̱̎̋̐͒a̴̖̟̠̳̤͙̟͂̂͑̐͜ỷ̵̧̨̞̠̖̠o̴̧͍̗̬̎̓͆̔͝ͅr̴̡̮̟͈͠ͅi̴̡̨͓͈̬̗̺̍́̃̇̓") {
 
     override fun getBackgroundColorString(): String = "0A1523"
 
