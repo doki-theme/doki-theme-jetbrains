@@ -45,9 +45,9 @@
     <option name="CONSOLE_FONT_NAME" value="Menlo"/>
     <option name="CONSOLE_LINE_SPACING" value="1.4"/>
     <colors>
-        <option name="ADDED_LINES_COLOR" value="D0FDC9"/>
-        <option name="MODIFIED_LINES_COLOR" value="FFC3EE"/>
-        <option name="DELETED_LINES_COLOR" value="EBEBEB"/>
+        <option name="ADDED_LINES_COLOR" value="1A351A"/>
+        <option name="MODIFIED_LINES_COLOR" value="6C3866"/>
+        <option name="DELETED_LINES_COLOR" value="3C3C3C"/>
         <option name="ANNOTATIONS_COLOR" value="FF0069"/>
         <!--TODO: IMPORTANT-->
         <option name="CARET_COLOR" value="ff79c9"/>
@@ -774,28 +774,28 @@
         </option>
         <option name="DIFF_CONFLICT">
             <value>
-                <option name="FOREGROUND" value="FFA9BF"/>
-                <option name="BACKGROUND" value="FF8984"/>
+                <option name="BACKGROUND" value="7A4252"/>
+                <option name="FOREGROUND" value="6F3737"/>
                 <option name="ERROR_STRIPE_COLOR" value="8f5247"/>
             </value>
         </option>
         <option name="DIFF_DELETED">
             <value>
-                <option name="FOREGROUND" value="ffffff"/>
-                <option name="BACKGROUND" value="EBEBEB"/>
+                <option name="BACKGROUND" value="3C3C3C"/>
+                <option name="FOREGROUND" value="4B4B4B"/>
                 <option name="ERROR_STRIPE_COLOR" value="656e76"/>
             </value>
         </option>
         <option name="DIFF_INSERTED">
             <value>
-                <option name="BACKGROUND" value="D0FDC9"/>
-                <option name="ERROR_STRIPE_COLOR" value="447152"/>
+                <option name="BACKGROUND" value="1A351A"/>
+                <option name="ERROR_STRIPE_COLOR" value="43698d"/>
             </value>
         </option>
         <option name="DIFF_MODIFIED">
             <value>
-                <option name="BACKGROUND" value="FFC3EE"/>
-                <option name="ERROR_STRIPE_COLOR" value="43698d"/>
+                <option name="BACKGROUND" value="6C3866"/>
+                <option name="ERROR_STRIPE_COLOR" value="714068"/>
             </value>
         </option>
         <option name="DUPLICATE_FROM_SERVER">
