@@ -82,6 +82,7 @@
         <bundledColorScheme path="/colors/Material Sayori"/>
         <bundledColorScheme path="/colors/Š̸̘͚̼͎̯̙̣̱̎̋̐͒a̴̖̟̠̳̤͙̟͂̂͑̐͜ỷ̵̧̨̞̠̖̠o̴̧͍̗̬̎̓͆̔͝ͅr̴̡̮̟͈͠ͅi̴̡̨͓͈̬̗̺̍́̃̇̓"/>
         <bundledColorScheme path="/colors/Material Natsuki"/>
+        <bundledColorScheme path="/colors/Only Play With Me"/>
         <bundledColorScheme path="/colors/Material Yuri"/>
 
         <welcomeFrameProvider implementation="com.chrisrm.idea.ui.MTFlatWelcomeFrameProvider"
