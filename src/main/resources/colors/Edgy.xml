@@ -45,9 +45,9 @@
     <option name="CONSOLE_FONT_NAME" value="Menlo"/>
     <option name="CONSOLE_LINE_SPACING" value="1.4"/>
     <colors>
-        <option name="ADDED_LINES_COLOR" value="D0FDC9"/>
-        <option name="MODIFIED_LINES_COLOR" value="EEC5FF"/>
-        <option name="DELETED_LINES_COLOR" value="EBEBEB"/>
+        <option name="ADDED_LINES_COLOR" value="1A351A"/>
+        <option name="MODIFIED_LINES_COLOR" value="43306C"/>
+        <option name="DELETED_LINES_COLOR" value="3C3C3C"/>
         <option name="ANNOTATIONS_COLOR" value="FF0069"/>
         <!--TODO: IMPORTANT-->
         <option name="CARET_COLOR" value="5336c9"/>
