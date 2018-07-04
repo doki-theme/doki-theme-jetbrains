@@ -148,7 +148,7 @@
                     text="Sayori" description="Material Sayori"
                     icon="/icons/actions/themes/material_sayori@2x.png">
             </action>
-            <action id="MTNatsukiTheme" class="com.chrisrm.idea.actions.themes.literature.club.MTNatsukiThemeAction"
+            <action id="MTNatsukiTheme" class="com.chrisrm.idea.actions.themes.literature.club.NatsukiThemeAction"
                     text="Natsuki" description="Material Natsuki"
                     icon="/icons/actions/themes/material_natsuki@2x.png">
             </action>
