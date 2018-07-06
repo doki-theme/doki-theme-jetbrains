@@ -38,3 +38,9 @@ FILE changed status (NOT AVAILABLE IN COMMUNITY)
 search everywhere on webstorm selection looks wonky.
 
 file scope colors
+
+
+
+
+DARK THEME TODO:
+Lookup window colors :|||||||||||||||
