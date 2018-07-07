@@ -48,7 +48,7 @@
         <!--TODO: IMPORTANT-->
         <option name="CARET_COLOR" value="000000"/>
         <!--TODO: IMPORTANT-->
-        <option name="CARET_ROW_COLOR" value="44546F"/>
+        <option name="CARET_ROW_COLOR" value="37435A"/>
         <option name="CONSOLE_BACKGROUND_KEY" value="1c1e21"/>
         <option name="DOCUMENTATION_COLOR" value="f3f5f6"/>
         <option name="FILESTATUS_ADDED" value="5EB800"/>
@@ -105,8 +105,8 @@
         <option name="SELECTED_INDENT_GUIDE" value="8c8c8c"/>
         <!--todo: important-->
         <option name="NOTIFICATION_BACKGROUND" value="ffbde1"/>
-        <option name="SELECTION_BACKGROUND" value="99ebe9"/>
-        <option name="SELECTION_FOREGROUND" value="006de7"/>
+        <option name="SELECTION_BACKGROUND" value="006de7"/>
+        <option name="SELECTION_FOREGROUND" value="99ebe9"/>
         <option name="SELECTED_TEARLINE_COLOR" value="A5FFF8"/>
         <option name="TEARLINE_COLOR" value="A5FFF8"/>
 

@@ -44,3 +44,6 @@ file scope colors
 
 DARK THEME TODO:
 Lookup window colors :|||||||||||||||
+    - sayori
+    - natsuky
+    - yuri
