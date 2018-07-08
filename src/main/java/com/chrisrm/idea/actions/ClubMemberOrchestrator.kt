@@ -135,13 +135,14 @@ object ClubMemberOrchestrator {
     }
 
     private fun getFrameBackground(): String {
-        return "https://raw.githubusercontent.com/cyclic-reference/ddlc-jetbrains-theme/master/src/main/resources/themes/" + getLiteratureClubMember()
+        return "https://raw.githubusercontent.com/cyclic-reference/ddlc-jetbrains-theme/theDarkSide/src/main/resources/themes/" + getLiteratureClubMember()
     }
 
     private fun setProperty(imagePath: String, opacity: String, fill: String, anchor: String, editorProp: String) {
         //org.intellij.images.editor.actions.SetBackgroundImageDialog has all of the answers
         //as to why this looks this way
         val property = listOf(imagePath, opacity, fill, anchor).reduceRight { a, b -> "$a, $b" }
+        println(property)
         PropertiesComponent.getInstance().setValue(editorProp, property)
     }
 
