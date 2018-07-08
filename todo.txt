@@ -39,9 +39,8 @@ search everywhere on webstorm selection looks wonky.
 
 file scope colors
 
-
-
-
 DARK THEME TODO:
     - Frame background
     - Chibis
+    - Make sure that non-eap version is happy
+
