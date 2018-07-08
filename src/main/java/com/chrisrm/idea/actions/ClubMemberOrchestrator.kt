@@ -34,7 +34,16 @@ object ClubMemberOrchestrator {
     }
 
     fun activate(theme: MTThemes) {
+        this.currentTheme = theme
+        removeWeebShit()
+        IdeBackgroundUtil.repaintAllWindows()
+        turnOnIfNecessary()
+    }
 
+    private fun turnOnIfNecessary() {
+        if (isOn.get())
+            turnOnWeebShit()
+        IdeBackgroundUtil.repaintAllWindows()
     }
 
     private fun setOnStatus(weebShitIsOn: Boolean) {
@@ -75,14 +84,14 @@ object ClubMemberOrchestrator {
         val literatureClubMember = getLiteratureClubMember()
         val theAnimesPath = "/club_members/$literatureClubMember"
         val weebStuff = Paths.get(".", theAnimesPath).normalize().toAbsolutePath()
-        if (!Files.exists(weebStuff) || hasNoContents(weebStuff)) {
+        if (!Files.exists(weebStuff) || checksumMatches(weebStuff)) {
             createDirectories(weebStuff)
             copyAnimes(theAnimesPath, weebStuff)
         }
         return weebStuff.toString()
     }
 
-    private fun hasNoContents(weebStuff: Path): Boolean {
+    private fun checksumMatches(weebStuff: Path): Boolean {
         val fileAttributeView = Files.getFileAttributeView(weebStuff, BasicFileAttributeView::class.java)
         try {
             val basicFileAttributes = fileAttributeView.readAttributes()
@@ -117,12 +126,7 @@ object ClubMemberOrchestrator {
     }
 
     private fun getLiteratureClubMember() =
-            when (getTheme()) {
-                MTThemes.SAYORI -> "sayori.png"
-                MTThemes.YURI -> "yuri.png"
-                MTThemes.NATSUKI -> "natsuki.png"
-                MTThemes.MONIKA -> "just_monika.png"
-            }
+            getTheme().literatureClubMember
 
     private fun getTheme(): MTThemes {
         return this.currentTheme

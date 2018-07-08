@@ -85,6 +85,10 @@ public enum MTThemes implements MTThemeFacade {
     return DarkMode.isOn() ? darkTheme : mtTheme;
   }
 
+  public String getLiteratureClubMember () {
+    return getTheme().getClubMember();
+  }
+
   @Override
   public boolean getThemeIsDark() {
     return getTheme().isDark();

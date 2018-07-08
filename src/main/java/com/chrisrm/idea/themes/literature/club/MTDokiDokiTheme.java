@@ -60,6 +60,11 @@ public class MTDokiDokiTheme extends MTAbstractTheme {
     super(id, editorColorsScheme, dark, thingo);
   }
 
+  @Override
+  public String getClubMember() {
+    return "just_monika.png";
+  }
+
   @NotNull
   @Override
   public String getSelectionBackground() {
