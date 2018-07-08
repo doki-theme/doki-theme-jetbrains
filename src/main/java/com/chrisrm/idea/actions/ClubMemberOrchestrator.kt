@@ -11,7 +11,7 @@ import java.io.IOException
 import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.Paths
-import java.nio.file.StandardOpenOption
+import java.nio.file.StandardOpenOption.*
 import java.nio.file.attribute.BasicFileAttributeView
 import java.util.concurrent.atomic.AtomicBoolean
 
@@ -39,6 +39,8 @@ object ClubMemberOrchestrator {
         IdeBackgroundUtil.repaintAllWindows()
         turnOnIfNecessary()
     }
+
+    fun weebShitOn(): Boolean = isOn.get()
 
     private fun turnOnIfNecessary() {
         if (isOn.get())
@@ -84,12 +86,14 @@ object ClubMemberOrchestrator {
         val literatureClubMember = getLiteratureClubMember()
         val theAnimesPath = "/club_members/$literatureClubMember"
         val weebStuff = Paths.get(".", theAnimesPath).normalize().toAbsolutePath()
-        if (!Files.exists(weebStuff) || checksumMatches(weebStuff)) {
+        if (shouldLoadLocally(weebStuff)) {
             createDirectories(weebStuff)
             copyAnimes(theAnimesPath, weebStuff)
         }
         return weebStuff.toString()
     }
+
+    private fun shouldLoadLocally(weebStuff: Path) = !Files.exists(weebStuff) || checksumMatches(weebStuff)
 
     private fun checksumMatches(weebStuff: Path): Boolean {
         val fileAttributeView = Files.getFileAttributeView(weebStuff, BasicFileAttributeView::class.java)
@@ -99,7 +103,6 @@ object ClubMemberOrchestrator {
         } catch (e: IOException) {
             e.printStackTrace()
         }
-
         return true
     }
 
@@ -116,7 +119,7 @@ object ClubMemberOrchestrator {
             BufferedInputStream(this.javaClass
                     .classLoader
                     .getResourceAsStream(theAnimesPath)).use { inputStream ->
-                Files.newOutputStream(weebStuff, StandardOpenOption.CREATE).use { bufferedWriter ->
+                Files.newOutputStream(weebStuff, CREATE, TRUNCATE_EXISTING).use { bufferedWriter ->
                     IOUtils.copy(inputStream, bufferedWriter)
                 }
             }
@@ -139,7 +142,6 @@ object ClubMemberOrchestrator {
         //org.intellij.images.editor.actions.SetBackgroundImageDialog has all of the answers
         //as to why this looks this way
         val property = listOf(imagePath, opacity, fill, anchor).reduceRight { a, b -> "$a, $b" }
-        println(property)
         PropertiesComponent.getInstance().setValue(editorProp, property)
     }
 
