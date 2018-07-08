@@ -156,7 +156,7 @@ object ClubMemberOrchestrator {
                             propertyKey: String) {
         //org.intellij.images.editor.actions.SetBackgroundImageDialog has all of the answers
         //as to why this looks this way
-        val propertyValue = listOf(imagePath, opacity, fill, anchor).reduceRight { a, b -> "$a, $b" }
+        val propertyValue = listOf(imagePath, opacity, fill, anchor).reduceRight { a, b -> "$a,$b" }
 
         setPropertyValue(propertyKey, propertyValue)
     }
