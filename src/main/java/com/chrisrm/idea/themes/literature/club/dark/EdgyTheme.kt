@@ -2,9 +2,12 @@ package com.chrisrm.idea.themes.literature.club.dark
 
 import com.chrisrm.idea.themes.literature.club.MTDokiDokiTheme
 
+//todo: should probably rename these to something more expected :|
 class EdgyTheme: MTDokiDokiTheme("yuri.dark", "Edgy", true, "Yuri") {
 
     override fun getBackgroundColorString(): String = "0A1523"
+
+    override fun getClubMember(): String = "yuri_dark.png"
 
     override fun getSecondaryBackgroundColorString(): String = "50A2C7"
 
