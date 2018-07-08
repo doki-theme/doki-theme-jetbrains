@@ -29,24 +29,19 @@ public final class ClubMemberManager {
   private final static ClubMemberManager instance = new ClubMemberManager();
   private static final String CLUB_MEMBER_ON = "CLUB_MEMBER_ON";
   private static final String SAVED_THEME = "CLUB_MEMBER_THEME_PROPERTY";
+  private static final int BUFFER_SIZE = 8 * 1024;
   private final AtomicBoolean isOn = new AtomicBoolean(true);
   private MTThemes currentTheme = getSavedTheme();
+
+  private ClubMemberManager() {
+  }
 
   private static MTThemes getSavedTheme() {
     return MTThemes.getTheme(PropertiesComponent.getInstance().getValue(SAVED_THEME));
   }
 
-  private ClubMemberManager() {
-  }
-
   public static ClubMemberManager getInstance() {
     return instance;
-  }
-
-  private void turnOnIfNecessary() {
-    if (isOn.get())
-      turnOnWeebShit();
-    IdeBackgroundUtil.repaintAllWindows();
   }
 
   public boolean weebShitOn() {
@@ -59,6 +54,19 @@ public final class ClubMemberManager {
     isOn.getAndSet(!weebShitIsOn);
     PropertiesComponent.getInstance()
         .setValue(CLUB_MEMBER_ON, isOn.get());
+  }
+
+  public void activate(MTThemes monika) {
+    this.currentTheme = monika;
+    removeWeebShit();
+    IdeBackgroundUtil.repaintAllWindows();
+    turnOnIfNecessary();
+  }
+
+  private void turnOnIfNecessary() {
+    if (isOn.get())
+      turnOnWeebShit();
+    IdeBackgroundUtil.repaintAllWindows();
   }
 
   private void handleWeebShit(boolean weebShitIsOn) {
@@ -160,7 +168,6 @@ public final class ClubMemberManager {
     }
   }
 
-  private static final int BUFFER_SIZE = 8 * 1024;
   private void copy(InputStream inputStream, OutputStream bufferedWriter) throws IOException {
     byte[] buffer = new byte[BUFFER_SIZE];
     int bytesRead;
@@ -175,12 +182,5 @@ public final class ClubMemberManager {
 
   private Optional<MTThemes> getTheme() {
     return Optional.ofNullable(this.currentTheme);
-  }
-
-  public void activate(MTThemes monika) {
-    this.currentTheme = monika;
-    removeWeebShit();
-    IdeBackgroundUtil.repaintAllWindows();
-    turnOnIfNecessary();
   }
 }
