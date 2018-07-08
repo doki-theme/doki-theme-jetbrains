@@ -11,7 +11,8 @@ import java.io.IOException
 import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.Paths
-import java.nio.file.StandardOpenOption.*
+import java.nio.file.StandardOpenOption.CREATE
+import java.nio.file.StandardOpenOption.TRUNCATE_EXISTING
 import java.nio.file.attribute.BasicFileAttributeView
 import java.util.concurrent.atomic.AtomicBoolean
 
@@ -50,12 +51,11 @@ object ClubMemberOrchestrator {
 
     private fun setOnStatus(weebShitIsOn: Boolean) {
         isOn.getAndSet(!weebShitIsOn)
-        PropertiesComponent.getInstance()
-                .setValue(CLUB_MEMBER_ON, isOn.get())
+        setPropertyValue(CLUB_MEMBER_ON, isOn.get())
     }
 
     private fun removeWeebShit() {
-        PropertiesComponent.getInstance().setValue(EDITOR_PROP, null)
+        PropertiesComponent.getInstance().unsetValue(EDITOR_PROP)
     }
 
     private fun handleWeebShit(weebShitIsOn: Boolean) {
@@ -79,7 +79,17 @@ object ClubMemberOrchestrator {
                 IdeBackgroundUtil.Anchor.CENTER.name,
                 FRAME_PROP)
 
-        PropertiesComponent.getInstance().setValue(SAVED_THEME, getTheme().getName())
+        setPropertyValue(SAVED_THEME, getTheme().getName())
+    }
+
+    private fun setPropertyValue(propertyKey: String, propertyValue: String) {
+        PropertiesComponent.getInstance().unsetValue(propertyKey)
+        PropertiesComponent.getInstance().setValue(propertyKey, propertyValue)
+    }
+
+    private fun setPropertyValue(propertyKey: String, propertyValue: Boolean) {
+        PropertiesComponent.getInstance().unsetValue(propertyKey)
+        PropertiesComponent.getInstance().setValue(propertyKey, propertyValue)
     }
 
     private fun getImagePath(): String {
@@ -93,7 +103,8 @@ object ClubMemberOrchestrator {
         return weebStuff.toString()
     }
 
-    private fun shouldLoadLocally(weebStuff: Path) = !Files.exists(weebStuff) || checksumMatches(weebStuff)
+    private fun shouldLoadLocally(weebStuff: Path) =
+            !Files.exists(weebStuff) || checksumMatches(weebStuff)
 
     private fun checksumMatches(weebStuff: Path): Boolean {
         val fileAttributeView = Files.getFileAttributeView(weebStuff, BasicFileAttributeView::class.java)
@@ -128,7 +139,8 @@ object ClubMemberOrchestrator {
         }
     }
 
-    private fun getLiteratureClubMember() = getTheme().literatureClubMember
+    private fun getLiteratureClubMember() =
+            getTheme().literatureClubMember
 
     private fun getTheme(): MTThemes {
         return this.currentTheme
@@ -138,12 +150,15 @@ object ClubMemberOrchestrator {
         return "https://raw.githubusercontent.com/cyclic-reference/ddlc-jetbrains-theme/theDarkSide/src/main/resources/themes/" + getLiteratureClubMember()
     }
 
-    private fun setProperty(imagePath: String, opacity: String, fill: String, anchor: String, editorProp: String) {
+    private fun setProperty(imagePath: String,
+                            opacity: String,
+                            fill: String, anchor: String,
+                            propertyKey: String) {
         //org.intellij.images.editor.actions.SetBackgroundImageDialog has all of the answers
         //as to why this looks this way
-        val property = listOf(imagePath, opacity, fill, anchor).reduceRight { a, b -> "$a, $b" }
-        println(property)
-        PropertiesComponent.getInstance().setValue(editorProp, property)
+        val propertyValue = listOf(imagePath, opacity, fill, anchor).reduceRight { a, b -> "$a, $b" }
+
+        setPropertyValue(propertyKey, propertyValue)
     }
 
 }
