@@ -79,7 +79,6 @@ public final class ClubMemberManager {
   }
 
   private void turnOnWeebShit() {
-
     setProperty(getImagePath(),
         "80",
         IdeBackgroundUtil.Fill.PLAIN.name(),
