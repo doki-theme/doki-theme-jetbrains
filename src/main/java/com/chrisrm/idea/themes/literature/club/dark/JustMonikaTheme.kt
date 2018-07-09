@@ -11,13 +11,13 @@ class JustMonikaTheme: MTDokiDokiTheme("just.monika", "Just Monika", true, "Moni
 
     override fun getClubMember(): String = "only_monika.png"
 
-    override fun getSecondaryBackgroundColorString(): String = "C3FF99"
+    override fun getSecondaryBackgroundColorString(): String = "1a1e12"
 
-    override fun getSecondaryForegroundColorString(): String = "237417"
+    override fun getSecondaryForegroundColorString(): String = "6f9a65"
 
-    override fun getSelectionForegroundColorString(): String = "5FC652"
+    override fun getSelectionForegroundColorString(): String = "afd1a3"
 
-    override fun getSelectionBackgroundColorString(): String = "ACFFAF"
+    override fun getSelectionBackgroundColorString(): String = "6f9a65"
 
     override fun getTreeSelectionBackgroundColorString(): String = "65B564"
 
@@ -27,7 +27,7 @@ class JustMonikaTheme: MTDokiDokiTheme("just.monika", "Just Monika", true, "Moni
 
     override fun getNotificationsColorString(): String = "76B87B"
 
-    override fun getContrastColorString(): String = "ADFF8D"
+    override fun getContrastColorString(): String = "71AC58"
 
 
     override fun getEditorTabColorString(): String = contrastColorString
