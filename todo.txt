@@ -43,3 +43,31 @@ DARK THEME TODO:
     - Chibis
     - Make sure that non-eap version is happy
 
+
+Things that changed in the eap:
+    - Plugin header panel
+    - Darcula Button Painter
+    - Darcula Button UI
+    - Darcula Checkbox Border
+    - Darcula Checkbox UI
+    - Darcula Combo Box UI
+    - Darculaa Editory Text Field Border
+    - Darcula Menubar Border
+    - Darcula Option Button UI
+    - Darcula Password Field
+    - Darcula Radio Button Border
+    - Darcula Spinner Border
+    - Darcula Spinner UI
+    - Darcula Tabbed Pane UI
+    - Darcula
+    - Darcula
+    - Darcula
+    - Darcula
+    - Darcula
+    - Darcula
+    - Darcula
+    - Darcula
+    - Darcula
+    - Darcula
+    - Darcula
+

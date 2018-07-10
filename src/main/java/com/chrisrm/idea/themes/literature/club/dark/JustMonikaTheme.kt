@@ -32,3 +32,19 @@ class JustMonikaTheme: MTDokiDokiTheme("just.monika", "Just Monika", true, "Moni
 
     override fun getEditorTabColorString(): String = contrastColorString
 }
+
+//IntelliJ IDEA 2018.1.5 EAP (Ultimate Edition)
+//Build #IU-181.5281.6, built on May 23, 2018
+//Licensed to Alex Simons
+//Subscription is active until February 20, 2019
+//JRE: 1.8.0_152-release-1136-b39 amd64
+//JVM: OpenJDK 64-Bit Server VM by JetBrains s.r.o
+//Linux 4.13.0-45-generic
+
+//IntelliJ IDEA 2018.2 EAP (Ultimate Edition)
+//Build #IU-182.3569.1, built on July 3, 2018
+//IntelliJ IDEA EAP User
+//Expiration date: August 2, 2018
+//JRE: 1.8.0_152-release-1226-b7 amd64
+//JVM: OpenJDK 64-Bit Server VM by JetBrains s.r.o
+//Linux 4.13.0-45-generic
