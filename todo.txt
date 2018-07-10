@@ -42,6 +42,14 @@ file scope colors
 DARK THEME TODO:
     - Chibis
     - Make sure that non-eap version is happy
+        - buttons are currently light
+        - Menu bar highlight wonky
+        - Disabled color wonky
+        - Tree selection wonky
+        - Search everywhere background wonky
+        - Foreground needs to be changed.
+        - Code coverage is bad.
+        - Table selection is bad.
 
 
 Things that changed in the eap:
