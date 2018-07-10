@@ -81,9 +81,9 @@ Things that changed in the eap:
     - intellijlaf_native.properties
     - LafManagerImpl
     - AppearanceConfigurable
-    -
-    -
-    -
+    - ColorUtil
+    - JBColor
+    - JBUI
     -
     -
     -
