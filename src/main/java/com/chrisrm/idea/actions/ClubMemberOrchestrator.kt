@@ -147,7 +147,7 @@ object ClubMemberOrchestrator {
     }
 
     private fun getFrameBackground(): String {
-        return "https://raw.githubusercontent.com/cyclic-reference/ddlc-jetbrains-theme/theDarkSide/src/main/resources/themes/" + getLiteratureClubMember()
+        return "https://raw.githubusercontent.com/cyclic-reference/ddlc-jetbrains-theme/master/src/main/resources/themes/" + getLiteratureClubMember()
     }
 
     private fun setProperty(imagePath: String,
