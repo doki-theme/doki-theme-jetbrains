@@ -59,15 +59,43 @@ Things that changed in the eap:
     - Darcula Spinner Border
     - Darcula Spinner UI
     - Darcula Tabbed Pane UI
-    - Darcula
-    - Darcula
-    - Darcula
-    - Darcula
-    - Darcula
-    - Darcula
-    - Darcula
-    - Darcula
-    - Darcula
-    - Darcula
-    - Darcula
+    - Darcula Text Border
+    - Darcula Text Field UI
+    - TextFieldWithPopupHandlerUI
+    - darcula.properties
+    - darcula_mac.properties
+    - darcula_windows.properties
+    - DarculaLaf
+    - DarculaUIUtil
+    - IntelliJButtonBorder
+    - IntelliJCheckBoxUI
+    - MacIntelliJButtonBorder
+    - MacIntelliJButtonUI
+    - MacIntellijCheckboxUI
+    - MacIntelliJComboBoxBorder
+    - MacIntelliJComboBoxUI
+    - WinIntellijButtonBorder
+    - WinIntellijCheckboxUI
+    - WinIntellijComboBoxUI
+    - Intellijlaf_linux.properties
+    - intellijlaf_native.properties
+    - LafManagerImpl
+    - AppearanceConfigurable
+    -
+    -
+    -
+    -
+    -
+    -
+    -
+    -
+    -
+    -
+    -
+    -
+    -
+    -
+    -
+    -
+    -
 
