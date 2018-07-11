@@ -92,18 +92,4 @@ Things that changed in the eap:
     - ColorUtil
     - JBColor
     - JBUI
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
 
