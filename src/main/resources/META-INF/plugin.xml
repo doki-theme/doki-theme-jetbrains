@@ -167,7 +167,7 @@
                     icon="/icons/actions/themes/material_monkia.png"
                     description="Toggle Contrast"/>
             <action class="com.chrisrm.idea.actions.DarkModeAction" id="DarkMode" text="Toggle Dark Mode"
-                    icon="/icons/actions/themes/material_monkia.png"
+                    icon="/icons/actions/themes/material_monkia_dark.png"
                     description="Toggle Dark Mode"/>
             <action id="MTAddFileColors" class="com.chrisrm.idea.actions.MTAddFileColorsAction"
                     text="Install DDLC File Colors"
