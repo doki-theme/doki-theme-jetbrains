@@ -111,20 +111,21 @@ public final class ClubMemberManager {
     return weebStuff.toString();
   }
 
+  // It is a good thing that I am refactoring this :)
   @NotNull
   private String getLiteratureClubMember() {
     return getTheme()
         .map(theme -> {
           switch (theme) {
             case SAYORI:
-              return "sayori.png";
+              return JoyManager.INSTANCE.isOn() ?  "sayori.png" : "sayori_joy.png";
             case YURI:
-              return "yuri.png";
+              return JoyManager.INSTANCE.isOn() ?  "yuri.png" : "yuri_joy.png";
             case NATSUKI:
-              return "natsuki.png";
+              return JoyManager.INSTANCE.isOn() ?  "natsuki.png" : "natsuki_joy.png";
             default:
             case MONIKA:
-              return "just_monika.png";
+              return JoyManager.INSTANCE.isOn() ?  "just_monika.png" : "just_monika_joy.png";
           }
         })
         .orElse("just_monika.png");
