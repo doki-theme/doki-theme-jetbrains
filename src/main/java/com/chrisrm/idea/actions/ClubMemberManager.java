@@ -118,14 +118,14 @@ public final class ClubMemberManager {
         .map(theme -> {
           switch (theme) {
             case SAYORI:
-              return JoyManager.INSTANCE.isOn() ?  "sayori.png" : "sayori_joy.png";
+              return !JoyManager.isOn() ?  "sayori.png" : "sayori_joy.png";
             case YURI:
-              return JoyManager.INSTANCE.isOn() ?  "yuri.png" : "yuri_joy.png";
+              return !JoyManager.isOn() ?  "yuri.png" : "yuri_joy.png";
             case NATSUKI:
-              return JoyManager.INSTANCE.isOn() ?  "natsuki.png" : "natsuki_joy.png";
+              return !JoyManager.isOn() ?  "natsuki.png" : "natsuki_joy.png";
             default:
             case MONIKA:
-              return JoyManager.INSTANCE.isOn() ?  "just_monika.png" : "just_monika_joy.png";
+              return !JoyManager.isOn() ?  "just_monika.png" : "just_monika_joy.png";
           }
         })
         .orElse("just_monika.png");
