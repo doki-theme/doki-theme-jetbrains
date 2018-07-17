@@ -166,6 +166,9 @@
                     text="Install DDLC File Colors"
                     description="Install Material File Colors"
                     icon="/icons/actions/mt/fileColors.svg"/>
+            <action class="com.chrisrm.idea.actions.JoyAction" id="DDLCJoy" text="Toggle Joyfulness"
+                    icon="/icons/actions/material-theme.png"
+                    description="Toggle Joyfulness"/>
             <action class="com.chrisrm.idea.actions.MTContrastAction" id="MTContrastAction" text="Toggle Contrast"
                     icon="/icons/actions/mt/contrast.svg"
                     description="Toggle Contrast"/>
