@@ -3,10 +3,7 @@ package com.chrisrm.idea.actions
 import com.chrisrm.idea.MTConfig
 import com.chrisrm.idea.MTThemes
 import com.chrisrm.idea.actions.themes.MTAbstractThemeAction
-import com.chrisrm.idea.utils.IconCache
-import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
-import com.intellij.openapi.actionSystem.ToggleAction
 
 /**
  * Forged in the flames of battle by alex.
