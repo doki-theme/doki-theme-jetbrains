@@ -162,48 +162,14 @@
             <action class="com.chrisrm.idea.actions.MTWeebAction" id="MTWeeb" text="Toggle Club Member"
                     icon="/icons/actions/themes/material_monkia.png"
                     description="Toggle Contrast"/>
-            <action id="MTAddFileColors" class="com.chrisrm.idea.actions.MTAddFileColorsAction"
-                    text="Install DDLC File Colors"
-                    description="Install Material File Colors"
-                    icon="/icons/actions/mt/fileColors.svg"/>
             <action class="com.chrisrm.idea.actions.JoyAction" id="DDLCJoy"
                     text="Toggle Joyfulness"
                     icon="/icons/actions/mt/joy.png"
                     description="Toggle Joyfulness"/>
-            <action class="com.chrisrm.idea.actions.MTContrastAction" id="MTContrastAction" text="Toggle Contrast"
-                    icon="/icons/actions/mt/contrast.svg"
-                    description="Toggle Contrast"/>
-            <action id="MTCompactSidebarAction" class="com.chrisrm.idea.actions.MTCompactSidebarAction"
-                    text="Toggle Compact Sidebar"
-                    description="Toggle Compact Sidebar"
-                    icon="/icons/actions/mt/compactSidebar.svg">
-            </action>
-            <action id="MTCompactDropdownsActions" class="com.chrisrm.idea.actions.MTCompactDropdownsAction"
-                    text="Toggle Compact Dropdowns"
-                    description="Toggle Compact Dropdowns"
-                    icon="/icons/actions/mt/compactDropdowns.svg">
-            </action>
-            <action id="MTHideFileIconsAction" class="com.chrisrm.idea.actions.MTHideFileIconsAction"
-                    text="Toggle Hide File Icons"
-                    description="Toggle Hide File Icons"
-                    icon="/icons/actions/mt/hideFileAction.svg">
-            </action>
-            <action id="MTMonochromeIconsAction" class="com.chrisrm.idea.actions.MTMonochromeIconsAction"
-                    text="Toggle Monochrome Icons"
-                    description="Toggle Monochrome Icons"
-                    icon="/icons/actions/mt/monochrome.svg">
-            </action>
-            <action id="MTCompactStatusBarAction" class="com.chrisrm.idea.actions.MTCompactStatusBarAction"
-                    text="Toggle Compact Status Bar" description="Toggle Compact Status Bar"
-                    icon="/icons/actions/mt/compactStatusBar.svg">
-            </action>
-            <action id="MTUpperCaseTabsAction" class="com.chrisrm.idea.actions.MTUpperCaseTabsAction"
-                    text="Toggle Uppercase Tabs" description="Toggle Uppercase Tabs"
-                    icon="/icons/actions/mt/uppercaseTabs.svg"/>
-            <action id="MTBiggerTabs" class="com.chrisrm.idea.actions.MTBiggerTabsAction"
-                    text="Set recommended tab height"
-                    description="Increase tab height to a 50px"
-                    icon="/icons/actions/bigTabs.png"/>
+            <action id="MTAddFileColors" class="com.chrisrm.idea.actions.MTAddFileColorsAction"
+                    text="Install DDLC File Colors"
+                    description="Install DDLC File Colors"
+                    icon="/icons/actions/mt/fileColors.svg"/>
             <group id="arrowsStyles" text="Arrow Styles" popup="true">
                 <action class="com.chrisrm.idea.actions.arrows.MTMaterialArrows"
                         id="MTMaterialArrows"
