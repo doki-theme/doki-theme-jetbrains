@@ -1,13 +1,9 @@
 package com.chrisrm.idea.actions;
 
+import com.chrisrm.idea.actions.themes.MTAbstractThemeAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
-import com.intellij.openapi.actionSystem.ToggleAction;
 
-public class MTWeebAction extends ToggleAction {
-
-  public MTWeebAction() {
-    super("Some Weeb Shit.");
-  }
+public class MTWeebAction extends MTAbstractThemeAction {
 
   @Override
   public boolean isSelected(final AnActionEvent e) {
