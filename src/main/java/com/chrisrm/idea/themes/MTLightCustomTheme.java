@@ -44,6 +44,12 @@ public class MTLightCustomTheme extends MTAbstractTheme {
 
   @NotNull
   @Override
+  public String getClubMember() {
+    return "just_monika.png";
+  }
+
+  @NotNull
+  @Override
   public String getSelectionBackground() {
     return MTLightCustomTheme.SELECTION_BACKGROUND;
   }

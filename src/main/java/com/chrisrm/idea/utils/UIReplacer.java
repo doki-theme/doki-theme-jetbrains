@@ -222,7 +222,7 @@ public final class UIReplacer {
       final Color autoCompleteBackground = ObjectUtils.notNull(UIManager.getColor("Autocomplete.background"), defaultValue);
       final Color autocompleteForeground = ObjectUtils.notNull(UIManager.getColor("Autocomplete.foreground"), defaultValue);
       final Color autocompleteSelectionUnfocused = ObjectUtils.notNull(UIManager.getColor("Autocomplete.selectionUnfocus"), defaultValue);
-      final Color autocompleteSelectedBackgroundColor = ObjectUtils.notNull(UIManager.getColor("Autocomplete.selectedGreyedForeground"), defaultValue);
+      final Color autocompleteSelectedGreyedForeground = ObjectUtils.notNull(UIManager.getColor("Autocomplete.selectedGreyedForeground"), defaultValue);
       final Color autocompletePrefixForegroundColor = ObjectUtils.notNull(UIManager.getColor("Autocomplete.prefixForeground"), defaultValue);
       final Color autocompleteSelectedPrefixForegroundColor = ObjectUtils.notNull(UIManager.getColor("Autocomplete.selectedPrefixForeground"), defaultValue);
 
@@ -233,13 +233,13 @@ public final class UIReplacer {
 
       StaticPatcher.setFinalStatic((Field) colorFields[0], autoCompleteBackground);
       StaticPatcher.setFinalStatic((Field) colorFields[1], autocompleteForeground);
-      StaticPatcher.setFinalStatic((Field) colorFields[2], autocompleteSelectedBackgroundColor);
-      StaticPatcher.setFinalStatic((Field) colorFields[3], autocompleteSelectionBackground);
-      StaticPatcher.setFinalStatic((Field) colorFields[4], autocompleteSelectionUnfocused);
-      StaticPatcher.setFinalStatic((Field) colorFields[5], autocompleteSelectionForeground);
-      StaticPatcher.setFinalStatic((Field) colorFields[6], autocompleteSelectionForegroundGreyed);
-      StaticPatcher.setFinalStatic((Field) colorFields[7], autocompletePrefixForegroundColor);
-      StaticPatcher.setFinalStatic((Field) colorFields[8], autocompleteSelectedPrefixForegroundColor);
+      StaticPatcher.setFinalStatic((Field) colorFields[2], autocompleteSelectedGreyedForeground);//grayed fore ground
+      StaticPatcher.setFinalStatic((Field) colorFields[3], autocompleteSelectionBackground);//selected background color
+      StaticPatcher.setFinalStatic((Field) colorFields[4], autocompleteSelectionUnfocused);//selected non focused background color
+      StaticPatcher.setFinalStatic((Field) colorFields[5], autocompleteSelectionForeground);//selected foreground color
+      StaticPatcher.setFinalStatic((Field) colorFields[6], autocompleteSelectionForegroundGreyed);//selected grayed foreground color
+      StaticPatcher.setFinalStatic((Field) colorFields[7], autocompletePrefixForegroundColor);//prefix foreground color
+      StaticPatcher.setFinalStatic((Field) colorFields[8], autocompleteSelectedPrefixForegroundColor);//selected prefix foreground color
     }
 
     static void patchNotifications() throws Exception {

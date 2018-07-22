@@ -24,31 +24,31 @@
  *
  */
 
-package com.chrisrm.idea.actions.themes;
+package com.chrisrm.idea.actions.themes.literature.club
 
-import com.chrisrm.idea.MTConfig;
-import com.chrisrm.idea.tree.MTProjectViewNodeDecorator;
-import com.chrisrm.idea.ui.MTButtonUI;
-import com.chrisrm.idea.ui.MTTreeUI;
-import com.intellij.openapi.actionSystem.AnActionEvent;
-import com.intellij.openapi.actionSystem.ToggleAction;
+import com.chrisrm.idea.MTConfig
+import com.chrisrm.idea.MTThemeManager
+import com.chrisrm.idea.MTThemes
+import com.chrisrm.idea.actions.ClubMemberOrchestrator
+import com.chrisrm.idea.actions.accents.MTCyanAccentAction
+import com.chrisrm.idea.actions.themes.MTBaseThemeAction
+import com.chrisrm.idea.actions.themes.ToggleThemeAction
+import com.intellij.openapi.actionSystem.AnActionEvent
 
-public abstract class MTAbstractThemeAction extends ToggleAction {
+class SayoriThemeAction : MTBaseThemeAction() {
 
-  @Override
-  public void setSelected(final AnActionEvent e, final boolean state) {
-    MTTreeUI.resetIcons();
-    MTButtonUI.resetCache();
-    MTProjectViewNodeDecorator.resetCache();
-  }
+    override fun isSelected(e: AnActionEvent) =
+            MTConfig.getInstance().getSelectedTheme() === MTThemes.SAYORI
 
-  /**
-   * Set button disabled if material theme is disabled
-   *
-   * @param e
-   */
-  @Override
-  public void update(final AnActionEvent e) {
-    e.getPresentation().setEnabled(MTConfig.getInstance().isMaterialTheme());
-  }
+    override fun setSelected(e: AnActionEvent, state: Boolean) =
+            SayoriThemeAction.setSelected(e, state)
+
+    companion object : ToggleThemeAction {
+        private val mtCyanAccentAction = MTCyanAccentAction()
+        override fun setSelected(e: AnActionEvent, state: Boolean) {
+            mtCyanAccentAction.actionPerformed(e)
+            MTThemeManager.getInstance().activate(MTThemes.SAYORI, true)
+            ClubMemberOrchestrator.activate(MTThemes.SAYORI)
+        }
+    }
 }

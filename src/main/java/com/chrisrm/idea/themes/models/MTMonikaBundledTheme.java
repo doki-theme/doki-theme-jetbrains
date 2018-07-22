@@ -62,6 +62,12 @@ public class MTMonikaBundledTheme extends MTLightCustomTheme implements Serializ
     return "mt.light_custom";
   }
 
+  @NotNull
+  @Override
+  public String getClubMember() {
+    return super.getClubMember();
+  }
+
   private static final String NOTIFICATIONS_COLOR = "80cbc4";
   private static final String TREE_SELECTION_COLOR = "546E7A50";
   private static final String HIGHLIGHT_COLOR = "D2D4D5";

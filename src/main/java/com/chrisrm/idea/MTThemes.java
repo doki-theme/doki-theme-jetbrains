@@ -26,11 +26,16 @@
 
 package com.chrisrm.idea;
 
+import com.chrisrm.idea.actions.DarkMode;
 import com.chrisrm.idea.themes.*;
 import com.chrisrm.idea.themes.literature.club.MTMonikaTheme;
 import com.chrisrm.idea.themes.literature.club.MTNatsukiTheme;
 import com.chrisrm.idea.themes.literature.club.MTSayoriTheme;
 import com.chrisrm.idea.themes.literature.club.MTYuriTheme;
+import com.chrisrm.idea.themes.literature.club.dark.DeletedCharacterTheme;
+import com.chrisrm.idea.themes.literature.club.dark.EdgyTheme;
+import com.chrisrm.idea.themes.literature.club.dark.JustMonikaTheme;
+import com.chrisrm.idea.themes.literature.club.dark.OnlyPlayWithMeTheme;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
@@ -43,10 +48,10 @@ import java.util.stream.Collectors;
  * Contains a list of predefined themes and will contain all bundled themes
  */
 public enum MTThemes implements MTThemeFacade {
-  MONIKA("MONIKA", new MTMonikaTheme()),
-  SAYORI("SAYORI", new MTSayoriTheme()),
-  NATSUKI("NATSUKI", new MTNatsukiTheme()),
-  YURI("YURI", new MTYuriTheme());
+  MONIKA("MONIKA", new MTMonikaTheme(), new JustMonikaTheme()),
+  SAYORI("SAYORI", new MTSayoriTheme(), new DeletedCharacterTheme()),
+  NATSUKI("NATSUKI", new MTNatsukiTheme(), new OnlyPlayWithMeTheme()),
+  YURI("YURI", new MTYuriTheme(), new EdgyTheme());
 
   private static final Map<String, MTThemeFacade> THEMES_MAP = Arrays.stream(values())
       .collect(Collectors.toMap(MTThemes::getName,
@@ -60,27 +65,33 @@ public enum MTThemes implements MTThemeFacade {
    * The instance of MTThemeable
    */
   private final transient MTThemeable mtTheme;
+  private final transient MTThemeable darkTheme;
 
-  MTThemes(final String name, final MTAbstractTheme mtTheme) {
+  MTThemes(final String name, final MTAbstractTheme mtTheme, MTAbstractTheme darkTheme) {
     this.name = name;
     this.mtTheme = mtTheme;
+    this.darkTheme = darkTheme;
   }
 
   @NotNull
   @Override
   public String getThemeColorScheme() {
-    return mtTheme.getEditorColorsScheme();
+    return getTheme().getEditorColorsScheme();
   }
 
   @NotNull
   @Override
   public MTThemeable getTheme() {
-    return mtTheme;
+    return DarkMode.isOn() ? darkTheme : mtTheme;
+  }
+
+  public String getLiteratureClubMember () {
+    return getTheme().getClubMember();
   }
 
   @Override
   public boolean getThemeIsDark() {
-    return mtTheme.isDark();
+    return getTheme().isDark();
   }
 
   @NotNull
@@ -91,7 +102,7 @@ public enum MTThemes implements MTThemeFacade {
 
   @Override
   public String getThemeName() {
-    return mtTheme.getName();
+    return getTheme().getName();
   }
 
   @NotNull
@@ -102,7 +113,7 @@ public enum MTThemes implements MTThemeFacade {
 
   @Override
   public Icon getIcon() {
-    return mtTheme.getIcon();
+    return getTheme().getIcon();
   }
 
   /**
@@ -195,6 +206,6 @@ public enum MTThemes implements MTThemeFacade {
   }
 
   public boolean isCustom() {
-    return mtTheme.isCustom();
+    return getTheme().isCustom();
   }
 }

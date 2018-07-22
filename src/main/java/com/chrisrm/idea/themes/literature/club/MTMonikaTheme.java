@@ -59,6 +59,11 @@ public final class MTMonikaTheme extends MTDokiDokiTheme {
     super("mt.monika", "Material Monika", false, "Monkia");
   }
 
+  @Override
+  public String getClubMember() {
+    return "just_monika.png";
+  }
+
   @NotNull
   @Override
   public String getSelectionBackground() {

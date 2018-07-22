@@ -24,28 +24,30 @@
  *
  */
 
-package com.chrisrm.idea.actions.themes.literature.club;
+package com.chrisrm.idea.actions.themes.literature.club
 
-import com.chrisrm.idea.MTConfig;
-import com.chrisrm.idea.MTThemeManager;
-import com.chrisrm.idea.MTThemes;
-import com.chrisrm.idea.actions.ClubMemberManager;
-import com.chrisrm.idea.actions.accents.MTBreakingBadAccentAction;
-import com.chrisrm.idea.actions.themes.MTAbstractThemeAction;
-import com.intellij.openapi.actionSystem.AnActionEvent;
+import com.chrisrm.idea.MTConfig
+import com.chrisrm.idea.MTThemeManager
+import com.chrisrm.idea.MTThemes
+import com.chrisrm.idea.actions.ClubMemberOrchestrator
+import com.chrisrm.idea.actions.accents.MTFuschiaAccentAction
+import com.chrisrm.idea.actions.themes.MTBaseThemeAction
+import com.chrisrm.idea.actions.themes.ToggleThemeAction
+import com.intellij.openapi.actionSystem.AnActionEvent
 
-public final class MTMonikaThemeAction extends MTAbstractThemeAction {
-  private final MTBreakingBadAccentAction breakingBadAccentAction = new MTBreakingBadAccentAction();
-  @Override
-  public boolean isSelected(final AnActionEvent e) {
-    return MTConfig.getInstance().getSelectedTheme() == MTThemes.MONIKA;
-  }
+class NatsukiThemeAction : MTBaseThemeAction() {
+    override fun isSelected(e: AnActionEvent): Boolean =
+            MTConfig.getInstance().getSelectedTheme() === MTThemes.NATSUKI
 
-  @Override
-  public void setSelected(final AnActionEvent e, final boolean state) {
-    super.setSelected(e, state);
-    breakingBadAccentAction.actionPerformed(e);
-    MTThemeManager.getInstance().activate(MTThemes.MONIKA, true);
-    ClubMemberManager.getInstance().activate(MTThemes.MONIKA);
-  }
+    override fun setSelected(e: AnActionEvent, state: Boolean) =
+            NatsukiThemeAction.setSelected(e, state)
+
+    companion object : ToggleThemeAction {
+        private val mtFuschiaAccentAction = MTFuschiaAccentAction()
+        override fun setSelected(e: AnActionEvent, state: Boolean) {
+            mtFuschiaAccentAction.actionPerformed(e)
+            MTThemeManager.getInstance().activate(MTThemes.NATSUKI, true)
+            ClubMemberOrchestrator.activate(MTThemes.NATSUKI)
+        }
+    }
 }

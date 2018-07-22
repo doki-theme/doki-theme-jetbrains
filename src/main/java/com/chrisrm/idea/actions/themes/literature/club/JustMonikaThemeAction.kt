@@ -24,28 +24,31 @@
  *
  */
 
-package com.chrisrm.idea.actions.themes.literature.club;
+package com.chrisrm.idea.actions.themes.literature.club
 
-import com.chrisrm.idea.MTConfig;
-import com.chrisrm.idea.MTThemeManager;
-import com.chrisrm.idea.MTThemes;
-import com.chrisrm.idea.actions.ClubMemberManager;
-import com.chrisrm.idea.actions.accents.MTCyanAccentAction;
-import com.chrisrm.idea.actions.themes.MTAbstractThemeAction;
-import com.intellij.openapi.actionSystem.AnActionEvent;
+import com.chrisrm.idea.MTConfig
+import com.chrisrm.idea.MTThemeManager
+import com.chrisrm.idea.MTThemes
+import com.chrisrm.idea.actions.ClubMemberOrchestrator
+import com.chrisrm.idea.actions.accents.MTBreakingBadAccentAction
+import com.chrisrm.idea.actions.themes.MTBaseThemeAction
+import com.chrisrm.idea.actions.themes.ToggleThemeAction
+import com.intellij.openapi.actionSystem.AnActionEvent
 
-public final class MTSayoriThemeAction extends MTAbstractThemeAction {
-  private final MTCyanAccentAction mtSkyAccentAction = new MTCyanAccentAction();
-  @Override
-  public boolean isSelected(final AnActionEvent e) {
-    return MTConfig.getInstance().getSelectedTheme() == MTThemes.SAYORI;
-  }
+class JustMonikaThemeAction : MTBaseThemeAction() {
 
-  @Override
-  public void setSelected(final AnActionEvent e, final boolean state) {
-    super.setSelected(e, state);
-    mtSkyAccentAction.actionPerformed(e);
-    MTThemeManager.getInstance().activate(MTThemes.SAYORI, true);
-    ClubMemberManager.getInstance().activate(MTThemes.SAYORI);
-  }
+    override fun isSelected(e: AnActionEvent) =
+            MTConfig.getInstance().getSelectedTheme() === MTThemes.MONIKA
+
+    override fun setSelected(e: AnActionEvent, state: Boolean) =
+            JustMonikaThemeAction.setSelected(e, state)
+
+    companion object : ToggleThemeAction {
+        private val breakingBadAccentAction = MTBreakingBadAccentAction()
+        override fun setSelected(e: AnActionEvent, state: Boolean) {
+            breakingBadAccentAction.actionPerformed(e)
+            MTThemeManager.getInstance().activate(MTThemes.MONIKA, true)
+            ClubMemberOrchestrator.activate(MTThemes.MONIKA)
+        }
+    }
 }
