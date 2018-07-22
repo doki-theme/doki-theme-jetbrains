@@ -64,6 +64,8 @@ public final class MTMonikaTheme extends MTDokiDokiTheme {
     return "just_monika.png";
   }
 
+
+
   @NotNull
   @Override
   public String getSelectionBackground() {

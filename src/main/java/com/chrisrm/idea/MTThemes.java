@@ -27,6 +27,7 @@
 package com.chrisrm.idea;
 
 import com.chrisrm.idea.actions.DarkMode;
+import com.chrisrm.idea.actions.JoyManager;
 import com.chrisrm.idea.themes.*;
 import com.chrisrm.idea.themes.literature.club.MTMonikaTheme;
 import com.chrisrm.idea.themes.literature.club.MTNatsukiTheme;
@@ -86,7 +87,7 @@ public enum MTThemes implements MTThemeFacade {
   }
 
   public String getLiteratureClubMember () {
-    return getTheme().getClubMember();
+    return JoyManager.isOn() ? getTheme().joyfulClubMember() : getTheme().getClubMember();
   }
 
   @Override

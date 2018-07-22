@@ -6,6 +6,8 @@ class MTNatsukiTheme : MTDokiDokiTheme("mt.natsuki", "Material Natsuki", false, 
 
     override fun getClubMember(): String = "natsuki.png"
 
+    override fun joyfulClubMember(): String = "natsuki_joy.png"
+
     override fun getSecondaryBackgroundColorString(): String = "ffceeb"
 
     override fun getSecondaryForegroundColorString(): String = "b9198d"

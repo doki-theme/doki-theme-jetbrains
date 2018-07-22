@@ -9,6 +9,8 @@ class EdgyTheme: MTDokiDokiTheme("yuri.dark", "Edgy", true, "Yuri") {
 
     override fun getClubMember(): String = "yuri_dark.png"
 
+    override fun joyfulClubMember(): String = "yuri.png"
+
     override fun getSecondaryBackgroundColorString(): String = "50A2C7"
 
     override fun getSecondaryForegroundColorString(): String = "157174"

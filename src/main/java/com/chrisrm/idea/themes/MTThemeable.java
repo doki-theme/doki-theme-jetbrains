@@ -50,6 +50,9 @@ public interface MTThemeable {
 
   @NotNull
   String getClubMember();
+
+  @NotNull
+  String joyfulClubMember();
   /**
    * Change the theme's name
    *

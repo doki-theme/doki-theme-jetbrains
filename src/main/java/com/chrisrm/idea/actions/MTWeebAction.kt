@@ -1,9 +1,9 @@
 package com.chrisrm.idea.actions
 
+import com.chrisrm.idea.actions.themes.MTBaseThemeAction
 import com.intellij.openapi.actionSystem.AnActionEvent
-import com.intellij.openapi.actionSystem.ToggleAction
 
-class MTWeebAction : ToggleAction("Some Weeb Shit.") {
+class MTWeebAction : MTBaseThemeAction() {
 
     override fun isSelected(e: AnActionEvent): Boolean =
             ClubMemberOrchestrator.weebShitOn()

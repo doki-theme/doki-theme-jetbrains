@@ -67,6 +67,12 @@ public class MTDokiDokiTheme extends MTAbstractTheme {
 
   @NotNull
   @Override
+  public String joyfulClubMember() {
+    return "just_monika_joy.png";
+  }
+
+  @NotNull
+  @Override
   public String getSelectionBackground() {
     return MTDokiDokiTheme.SELECTION_BACKGROUND;
   }

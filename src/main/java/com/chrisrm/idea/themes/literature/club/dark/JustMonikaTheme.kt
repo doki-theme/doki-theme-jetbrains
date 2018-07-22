@@ -11,6 +11,8 @@ class JustMonikaTheme: MTDokiDokiTheme("just.monika", "Just Monika", true, "Moni
 
     override fun getClubMember(): String = "only_monika.png"
 
+    override fun joyfulClubMember(): String = "just_monika.png"
+
     override fun getSecondaryBackgroundColorString(): String = "1a1e12"
 
     override fun getSecondaryForegroundColorString(): String = "6f9a65"

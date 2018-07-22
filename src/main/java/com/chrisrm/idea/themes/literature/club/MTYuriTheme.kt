@@ -6,6 +6,8 @@ class MTYuriTheme : MTDokiDokiTheme("mt.yuri", "Material Yuri", false, "Yuri") {
 
     override fun getClubMember(): String = "yuri.png"
 
+    override fun joyfulClubMember(): String = "yuri_joy.png"
+
     override fun getSecondaryBackgroundColorString(): String = "bbb8ff"
 
     override fun getSecondaryForegroundColorString(): String = "562474"

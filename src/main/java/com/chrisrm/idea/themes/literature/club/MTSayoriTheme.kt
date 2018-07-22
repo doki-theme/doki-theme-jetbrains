@@ -6,6 +6,8 @@ class MTSayoriTheme : MTDokiDokiTheme("mt.sayori", "Material Sayori", false, "Sa
 
     override fun getClubMember(): String = "sayori.png"
 
+    override fun joyfulClubMember(): String = "sayori_joy.png"
+
     override fun getSecondaryBackgroundColorString(): String = "c7f2ff"
 
     override fun getSecondaryForegroundColorString(): String = "256fe2"
