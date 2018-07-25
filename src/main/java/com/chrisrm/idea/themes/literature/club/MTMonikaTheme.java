@@ -32,7 +32,7 @@ import java.awt.*;
 import java.util.stream.Stream;
 
 public final class MTMonikaTheme extends MTDokiDokiTheme {
-  public static final String BACKGROUND = "fffcfc"; // 250, 250, 250
+  public static final String BACKGROUND = "fffcfc";
   public static final String FOREGROUND = "A7ADB0"; // 167, 173, 176
   public static final String CARET = "FFCC00"; // 255, 204, 0
   public static final String BORDER = "E6E6E6"; // 230, 230, 230
