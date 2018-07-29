@@ -35,18 +35,13 @@ import com.chrisrm.idea.actions.themes.literature.club.MTNatsukiThemeAction;
 import com.chrisrm.idea.actions.themes.literature.club.MTSayoriThemeAction;
 import com.chrisrm.idea.actions.themes.literature.club.MTYuriThemeAction;
 import com.intellij.ide.customize.AbstractCustomizeWizardStep;
-import com.intellij.openapi.actionSystem.*;
-import com.intellij.openapi.project.Project;
 import com.intellij.ui.components.JBScrollPane;
 import net.miginfocom.swing.MigLayout;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.InputEvent;
 import java.util.ResourceBundle;
 
 /**
@@ -138,7 +133,7 @@ public class MTWizardThemesPanel extends AbstractCustomizeWizardStep {
           justMonikaPanel.setLayout(new BoxLayout(justMonikaPanel, BoxLayout.Y_AXIS));
 
           //---- justMonikaButton ----
-          justMonikaButton.setText("Oceanic");
+          justMonikaButton.setText("Just Monika");
           justMonikaButton.setHorizontalAlignment(SwingConstants.LEFT);
           justMonikaButton.setActionCommand(bundle.getString("MTWizardThemesPanel.justMonikaButton.actionCommand"));
           justMonikaButton.addActionListener(this::justMonikaButtonActionPerformed);

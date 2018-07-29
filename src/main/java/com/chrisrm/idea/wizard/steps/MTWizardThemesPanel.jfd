@@ -22,19 +22,19 @@ new FormModel {
 					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class javax.swing.BoxLayout ) {
 						"axis": 1
 					} ) {
-						name: "oceanicPanel"
+						name: "justMonikaPanel"
 						"border": &EmptyBorder0 new javax.swing.border.EmptyBorder( 5, 5, 5, 5 )
 						add( new FormComponent( "javax.swing.JRadioButton" ) {
-							name: "oceanicButton"
+							name: "justMonikaButton"
 							"text": "Just Monika"
 							"$buttonGroup": new FormReference( "selectedTheme" )
 							"horizontalAlignment": 2
-							"actionCommand": new FormMessage( null, "MTWizardThemesPanel.oceanicButton.actionCommand" )
-							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "oceanicButtonActionPerformed", true ) )
+							"actionCommand": new FormMessage( null, "MTWizardThemesPanel.justMonikaButton.actionCommand" )
+							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "justMonikaButtonActionPerformed", true ) )
 						} )
 						add( new FormComponent( "javax.swing.JLabel" ) {
-							name: "oceanicLabel"
-							"icon": new com.jformdesigner.model.SwingIcon( 0, "/wizard/oceanic.png" )
+							name: "justMonikaLabel"
+							"icon": new com.jformdesigner.model.SwingIcon( 0, "/wizard/justMonika.png" )
 						} )
 					}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
 						"value": "cell 0 0"
