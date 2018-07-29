@@ -61,7 +61,7 @@ public final class MTStatusWidget extends JButton implements CustomStatusBarWidg
     addActionListener(e -> {
       System.gc();
       ApplicationManager.getApplication().invokeLater(() -> ShowSettingsUtil.getInstance().showSettingsDialog(
-          project, "Material Theme"), ModalityState.NON_MODAL);
+          project, "DDLC Theme"), ModalityState.NON_MODAL);
     });
   }
 
