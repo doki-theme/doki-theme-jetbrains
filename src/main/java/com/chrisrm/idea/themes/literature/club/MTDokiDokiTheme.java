@@ -75,13 +75,13 @@ public class MTDokiDokiTheme extends MTAbstractTheme {
   @Override
   public String getAccentColor() {
 //    todo: this
-    return null;
+    return "c6ff00";
   }
 
   @Override
   public String getExcludedColor() {
 //    todo: this
-    return null;
+    return "7E7E7E";
   }
 
   @Override
@@ -123,7 +123,7 @@ public class MTDokiDokiTheme extends MTAbstractTheme {
   @Override
   public String getTreeSelectionColorString() {
 //    TODO: THIS
-    return null;
+    return "546e50";
   }
 
   @Override

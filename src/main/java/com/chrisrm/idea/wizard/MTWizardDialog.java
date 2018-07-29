@@ -44,7 +44,7 @@ import java.util.List;
 
 public class MTWizardDialog extends CustomizeIDEWizardDialog implements ActionListener {
 
-  public static final String MT_IS_SHOWN_WIZARD = "mt.isShownWizard";
+  public static final String MT_IS_SHOWN_WIZARD = "ddlc.isShownWizard.v1.0";
   private Field myNextButtonField;
   private Field myBackButtonField;
   private Field mySkipButtonField;
@@ -56,7 +56,7 @@ public class MTWizardDialog extends CustomizeIDEWizardDialog implements ActionLi
 
   public MTWizardDialog(final MTWizardStepsProvider stepsProvider) {
     super(stepsProvider);
-    setTitle("Material Theme Wizard");
+    setTitle("DDLC Theme Wizard");
     getPeer().setAppIcons();
     configCopy = (MTConfig) MTConfig.getInstance().clone();
 
