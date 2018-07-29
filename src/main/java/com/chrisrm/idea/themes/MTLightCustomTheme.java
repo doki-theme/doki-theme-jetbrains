@@ -77,12 +77,12 @@ public class MTLightCustomTheme extends MTAbstractTheme {
 
   @Override
   public String getTreeSelectionBackgroundColorString() {
-    return null;
+    return "CCCCCC";
   }
 
   @Override
   public String getTreeSelectionForegroundColorString() {
-    return null;
+    return "CCCCCC";
   }
 
   @Override

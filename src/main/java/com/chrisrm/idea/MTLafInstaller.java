@@ -52,7 +52,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Properties;
-//todo: make sure that eveything that was in the component made it here :)
+
 public class MTLafInstaller {
   protected final MTConfig mtConfig;
   protected final MTLaf mtDarkLaf;

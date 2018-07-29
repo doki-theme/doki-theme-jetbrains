@@ -131,7 +131,7 @@ public enum MTThemes implements MTThemeFacade {
 
   private static final Map<String, MTThemes> BETTER_THEME_MAP =  Arrays.stream(values())
       .collect(Collectors.toMap(MTThemes::getName,
-          Function.identity(),(a,b)->a, HashMap::new));
+          Function.identity(),(a,__)->a, HashMap::new));
 
   public static MTThemes getTheme(final String themeID) {
     return BETTER_THEME_MAP.getOrDefault(themeID, MONIKA);

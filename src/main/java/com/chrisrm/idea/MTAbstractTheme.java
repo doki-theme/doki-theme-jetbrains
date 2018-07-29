@@ -90,7 +90,7 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
 
   @NotNull
   private static String getDefaultID(final boolean dark) {
-    return dark ? "mt.custom" : "mt.light_custom";
+    return dark ? "mt.monika" : "mt.monika";
   }
 
   @NotNull
@@ -126,8 +126,7 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
       buildResources(getTextResources(), contrastifyForeground(getTextColorString()));
       buildResources(getSelectionBackgroundResources(), getSelectionBackgroundColorString());
       buildResources(getSelectionForegroundResources(), getSelectionForegroundColorString());
-//      todo probably not needed
-//      buildResources(getButtonColorResource(), getButtonColorString());
+
       buildResources(getInactiveResources(), getInactiveColorString());
       buildResources(getSecondaryBackgroundResources(), getSecondaryBackgroundColorString());
       buildResources(getSecondaryForegroundResources(), getSecondaryForegroundColorString());

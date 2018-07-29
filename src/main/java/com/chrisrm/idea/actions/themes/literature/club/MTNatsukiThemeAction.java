@@ -44,7 +44,6 @@ public final class MTNatsukiThemeAction extends MTAbstractThemeAction {
   @Override
   public void setSelected(final AnActionEvent e, final boolean state) {
     super.setSelected(e, state);
-    selectionActivation();
   }
 
   public void selectionActivation() {

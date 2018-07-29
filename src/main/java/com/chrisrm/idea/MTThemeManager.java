@@ -67,6 +67,7 @@ import javax.swing.text.html.StyleSheet;
 import java.awt.*;
 import java.lang.reflect.Field;
 import java.net.URL;
+import java.util.Arrays;
 
 import static com.chrisrm.idea.MTHackComponent.BOLD_TABS;
 import static com.chrisrm.idea.MTHackComponent.TABS_HEIGHT;
@@ -250,6 +251,8 @@ public final class MTThemeManager {
     applyAccents();
     setBoldTabs();
 
+    patchRootlessFrames();
+
     LafManager.getInstance().updateUI();
 
     applyFonts();
@@ -262,6 +265,17 @@ public final class MTThemeManager {
     IconReplacer.applyFilter();
 
     UIReplacer.patchUI();
+  }
+
+  private void patchRootlessFrames() {
+    Arrays.stream(Frame.getFrames())
+        .map(Frame::getOwnedWindows)
+        .flatMap(Arrays::stream)
+        .filter(window -> window instanceof RootPaneContainer)
+        .map(window -> (RootPaneContainer) window)
+        .filter(rootPaneContainer -> rootPaneContainer.getRootPane() == null)
+        .forEach(System.out::println);
+
   }
 
   private void switchScheme(final MTThemeFacade mtTheme, final boolean switchColorScheme) {
