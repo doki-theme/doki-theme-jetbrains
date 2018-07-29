@@ -30,9 +30,12 @@ import com.chrisrm.idea.MTConfig;
 import com.chrisrm.idea.MTThemeFacade;
 import com.chrisrm.idea.MTThemes;
 import com.chrisrm.idea.config.MTCustomThemeConfigurable;
+import com.chrisrm.idea.config.MTFileColorsPage;
 import com.chrisrm.idea.messages.MaterialThemeBundle;
 import com.intellij.CommonBundle;
+import com.intellij.application.options.colors.ColorAndFontOptions;
 import com.intellij.ide.DataManager;
+import com.intellij.openapi.options.SearchableConfigurable;
 import com.intellij.openapi.options.ex.Settings;
 import com.intellij.openapi.ui.ComboBox;
 import com.intellij.openapi.ui.Messages;
@@ -48,6 +51,7 @@ import org.jetbrains.annotations.NotNull;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class MTForm implements MTFormUI {
@@ -57,6 +61,7 @@ public class MTForm implements MTFormUI {
   private SpinnerModel rightTreeIndentModel;
   private SpinnerModel customSidebarHeightModel;
   private SpinnerModel treeFontSizeModel;
+  private SpinnerNumberModel indicatorThicknessSpinnerModel;
 
   // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
   // Generated using JFormDesigner non-commercial license
@@ -68,6 +73,7 @@ public class MTForm implements MTFormUI {
   private JCheckBox isContrastModeCheckbox;
   private JLabel customAccentColorLabel;
   private ColorPanel customAccentColorChooser;
+  private JCheckBox overrideAccentCheckbox;
   private LinkLabel fileColorsLink;
   private JComponent tabSep;
   private JTabbedPane tabbedPane1;
@@ -101,6 +107,9 @@ public class MTForm implements MTFormUI {
   private JSpinner rightSpinner;
   private JLabel arrowsStyleLabel;
   private ComboBox<ArrowsStyles> arrowsStyleComboBox;
+  private JLabel selectedIndicatorLabel;
+  private ComboBox<IndicatorStyles> indicatorStyleComboBox;
+  private JSpinner indicatorThicknessSpinner;
   private JCheckBox boldTabs;
   private JCheckBox fontSizeCheckbox;
   private JSpinner fontSizeSpinner;
@@ -109,17 +118,19 @@ public class MTForm implements MTFormUI {
   private JCheckBox upperCaseButtonsCheckbox;
   private JCheckBox accentScrollbarsCheckbox;
   private JCheckBox themedScrollbarsCheckbox;
+  private JCheckBox highContrastCheckbox;
   private JPanel featuresPanel;
   private JLabel featuresDesc;
-  private JCheckBox materialThemeCheckbox;
   private JCheckBox useMaterialFontCheckbox;
+  private JCheckBox materialThemeCheckbox;
   private JCheckBox isMaterialDesignCheckbox;
   private JCheckBox fileColorsCheckbox;
+  private LinkLabel fileStatusColorsLink;
   private JPanel otherTweaksPanel;
   private JLabel tweaksDesc;
-  private JCheckBox darkTitleBarCheckbox;
   private JCheckBox isProjectViewDecoratorsCheckbox;
   private JCheckBox isThemeInStatusCheckbox;
+  private JCheckBox darkTitleBarCheckbox;
   private JSeparator separator1;
   private JButton resetDefaultsButton;
   // GEN-END:variables
@@ -140,8 +151,8 @@ public class MTForm implements MTFormUI {
     final int customSidebarHeight = valueInRange(config.getCustomSidebarHeight(), MTConfig.MIN_SIDEBAR_HEIGHT, MTConfig.MAX_SIDEBAR_HEIGHT);
     final int treeFontSize = valueInRange(config.getTreeFontSize(), MTConfig.MIN_FONT_SIZE, MTConfig.MAX_FONT_SIZE);
 
-    highlightSpinnerModel = new SpinnerNumberModel(highlightThickness, MTConfig.MIN_HIGHLIGHT_THICKNESS, MTConfig.MAX_HIGHLIGHT_THICKNESS,
-        1);
+    highlightSpinnerModel = new SpinnerNumberModel(highlightThickness, MTConfig.MIN_HIGHLIGHT_THICKNESS,
+        MTConfig.MAX_HIGHLIGHT_THICKNESS, 1);
     highlightSpinner.setModel(highlightSpinnerModel);
     tabsHeightSpinnerModel = new SpinnerNumberModel(tabsHeight, MTConfig.MIN_TABS_HEIGHT, MTConfig.MAX_TABS_HEIGHT, 1);
     tabHeightSpinner.setModel(tabsHeightSpinnerModel);
@@ -153,6 +164,9 @@ public class MTForm implements MTFormUI {
     customSidebarSpinner.setModel(customSidebarHeightModel);
     treeFontSizeModel = new SpinnerNumberModel(treeFontSize, MTConfig.MIN_FONT_SIZE, MTConfig.MAX_FONT_SIZE, 1);
     fontSizeSpinner.setModel(treeFontSizeModel);
+    indicatorThicknessSpinnerModel = new SpinnerNumberModel(highlightThickness, MTConfig.MIN_INDICATOR_THICKNESS,
+        MTConfig.MAX_INDICATOR_THICKNESS, 1);
+    indicatorThicknessSpinner.setModel(indicatorThicknessSpinnerModel);
   }
 
   @Override
@@ -162,7 +176,6 @@ public class MTForm implements MTFormUI {
 
   @Override
   public void afterStateSet() {
-
   }
 
   @Override
@@ -400,6 +413,26 @@ public class MTForm implements MTFormUI {
   }
   //endregion
 
+  //region Indicator Styles
+  public void setIndicatorStyle(final IndicatorStyles arrowsStyle) {
+    indicatorStyleComboBox.setSelectedItem(arrowsStyle);
+  }
+
+  public IndicatorStyles getIndicatorStyle() {
+    return (IndicatorStyles) indicatorStyleComboBox.getSelectedItem();
+  }
+  //endregion
+
+  //region Indicator Thickness
+  public Integer getIndicatorThickness() {
+    return (Integer) indicatorThicknessSpinner.getValue();
+  }
+
+  public void setIndicatorThickness(final Integer indicatorThickness) {
+    indicatorThicknessSpinner.setValue(indicatorThickness);
+  }
+  //endregion
+
   //region Uppercase buttons
   public void setIsUppercaseButtons(final boolean upperCaseButtons) {
     upperCaseButtonsCheckbox.setSelected(upperCaseButtons);
@@ -417,7 +450,11 @@ public class MTForm implements MTFormUI {
 
   public void setIsMaterialDesign(final boolean isMaterialDesign) {
     isMaterialDesignCheckbox.setSelected(isMaterialDesign);
+    enableDisableCompactStatusBar(isMaterialDesign);
+    enableDisableCompactTableCells(isMaterialDesign);
+    enableDisableDropdownLists(isMaterialDesign);
   }
+
   //endregion
 
   //region Material Icons
@@ -530,6 +567,26 @@ public class MTForm implements MTFormUI {
     return tabbedPane1.getSelectedIndex();
   }
 
+  //region High Contrast
+  public boolean isHighContrast() {
+    return highContrastCheckbox.isSelected();
+  }
+
+  public void setIsHighContrast(final boolean isHighContrast) {
+    highContrastCheckbox.setSelected(isHighContrast);
+  }
+  //endregion
+
+  //region Override accents
+  public boolean isOverrideAccents() {
+    return overrideAccentCheckbox.isSelected();
+  }
+
+  public void setIsOverrideAccents(final boolean isOverrideAccents) {
+    overrideAccentCheckbox.setSelected(isOverrideAccents);
+  }
+  //endregion
+
   //region Enabled listeners
   private void enableDisableFileIcons(final boolean isMaterialIconsSet) {
     hideFileIconsCheckbox.setEnabled(isMaterialIconsSet);
@@ -554,6 +611,18 @@ public class MTForm implements MTFormUI {
 
   private void enableDisableTreeFontSize(final boolean isTreeFontSize) {
     fontSizeSpinner.setEnabled(isTreeFontSize);
+  }
+
+  private void enableDisableCompactStatusBar(final boolean isMaterialDesign) {
+    isCompactStatusbarCheckbox.setEnabled(isMaterialDesign);
+  }
+
+  private void enableDisableCompactTableCells(final boolean isMaterialDesign) {
+    isCompactTablesCheckbox.setEnabled(isMaterialDesign);
+  }
+
+  private void enableDisableDropdownLists(final boolean isMaterialDesign) {
+    compactDropdownsCheckbox.setEnabled(isMaterialDesign);
   }
   //endregion
 
@@ -584,6 +653,17 @@ public class MTForm implements MTFormUI {
       final int dialog = Messages.showOkCancelDialog(
           MaterialThemeBundle.message("mt.windowsTitleBar.message"),
           MaterialThemeBundle.message("mt.windowsTitleBar.title"),
+          CommonBundle.getOkButtonText(),
+          CommonBundle.getCancelButtonText(),
+          Messages.getWarningIcon());
+
+      if (dialog == Messages.CANCEL) {
+        darkTitleBarCheckbox.setSelected(false);
+      }
+    } else if (SystemInfo.isMac && darkTitleBarCheckbox.isSelected()) {
+      final int dialog = Messages.showOkCancelDialog(
+          MaterialThemeBundle.message("mt.macTitleBar.message"),
+          MaterialThemeBundle.message("mt.macTitleBar.title"),
           CommonBundle.getOkButtonText(),
           CommonBundle.getCancelButtonText(),
           Messages.getWarningIcon());
@@ -638,6 +718,9 @@ public class MTForm implements MTFormUI {
     setCustomSidebarHeight(mtConfig.getCustomSidebarHeight());
     setIsTreeFontSizeEnabled(mtConfig.isTreeFontSizeEnabled());
     setArrowsStyle(mtConfig.getArrowsStyle());
+    setIndicatorStyle(mtConfig.getIndicatorStyle());
+    setIndicatorThickness(mtConfig.getIndicatorThickness());
+
     setUseMaterialFont(mtConfig.isUseMaterialFont());
     setDecoratedFolders(mtConfig.isDecoratedFolders());
 
@@ -653,6 +736,9 @@ public class MTForm implements MTFormUI {
     setIsCompactDropdowns(mtConfig.isCompactDropdowns());
     setIsMonochromeIcons(mtConfig.isMonochromeIcons());
     setIsUppercaseButtons(mtConfig.isUpperCaseButtons());
+
+    setIsHighContrast(mtConfig.getIsHighContrast());
+    setIsOverrideAccents(mtConfig.isOverrideAccentColor());
 
     afterStateSet();
   }
@@ -672,6 +758,7 @@ public class MTForm implements MTFormUI {
     isContrastModeCheckbox = new JCheckBox();
     customAccentColorLabel = new JLabel();
     customAccentColorChooser = new ColorPanel();
+    overrideAccentCheckbox = new JCheckBox();
     fileColorsLink = new LinkLabel();
     tabSep = compFactory.createSeparator(bundle.getString("MTForm.tabSep.text"));
     tabbedPane1 = new JTabbedPane();
@@ -708,6 +795,10 @@ public class MTForm implements MTFormUI {
     rightSpinner = new JSpinner();
     arrowsStyleLabel = new JLabel();
     arrowsStyleComboBox = new ComboBox<>();
+    selectedIndicatorLabel = new JLabel();
+    indicatorStyleComboBox = new ComboBox<>();
+    final JLabel indicatorThicknessLabel = new JLabel();
+    indicatorThicknessSpinner = new JSpinner();
     boldTabs = new JCheckBox();
     fontSizeCheckbox = new JCheckBox();
     fontSizeSpinner = new JSpinner();
@@ -716,17 +807,19 @@ public class MTForm implements MTFormUI {
     upperCaseButtonsCheckbox = new JCheckBox();
     accentScrollbarsCheckbox = new JCheckBox();
     themedScrollbarsCheckbox = new JCheckBox();
+    highContrastCheckbox = new JCheckBox();
     featuresPanel = new JPanel();
     featuresDesc = compFactory.createLabel(bundle.getString("MTForm.featuresDesc.textWithMnemonic"));
-    materialThemeCheckbox = new JCheckBox();
     useMaterialFontCheckbox = new JCheckBox();
+    materialThemeCheckbox = new JCheckBox();
     isMaterialDesignCheckbox = new JCheckBox();
     fileColorsCheckbox = new JCheckBox();
+    fileStatusColorsLink = new LinkLabel();
     otherTweaksPanel = new JPanel();
     tweaksDesc = compFactory.createLabel(bundle.getString("MTForm.tweaksDesc.textWithMnemonic"));
-    darkTitleBarCheckbox = new JCheckBox();
     isProjectViewDecoratorsCheckbox = new JCheckBox();
     isThemeInStatusCheckbox = new JCheckBox();
+    darkTitleBarCheckbox = new JCheckBox();
     separator1 = new JSeparator();
     resetDefaultsButton = new JButton();
 
@@ -762,7 +855,8 @@ public class MTForm implements MTFormUI {
             // rows
             "[]" +
                 "[]" +
-                "[grow]" +
+                "[grow]0" +
+                "[]" +
                 "[]"));
 
         //---- selectedThemeLabel ----
@@ -793,10 +887,16 @@ public class MTForm implements MTFormUI {
         customAccentColorChooser.setPreferredSize(new Dimension(61, 26));
         mainSettingsPanel.add(customAccentColorChooser, "cell 1 2,alignx right,growx 0");
 
+        //---- overrideAccentCheckbox ----
+        overrideAccentCheckbox.setText(bundle.getString("MTForm.overrideAccentCheckbox.text"));
+        overrideAccentCheckbox.setFont(overrideAccentCheckbox.getFont().deriveFont(overrideAccentCheckbox.getFont().getSize() - 1f));
+        overrideAccentCheckbox.setToolTipText(bundle.getString("MTForm.overrideAccentCheckbox.toolTipText"));
+        mainSettingsPanel.add(overrideAccentCheckbox, "cell 0 3,gapx 20");
+
         //---- fileColorsLink ----
         fileColorsLink.setText(bundle.getString("MTForm.fileColorsLink.text"));
         fileColorsLink.setForeground(UIManager.getColor("link.foreground"));
-        mainSettingsPanel.add(fileColorsLink, "cell 0 3 2 1");
+        mainSettingsPanel.add(fileColorsLink, "cell 0 4 2 1");
       }
       content.add(mainSettingsPanel, "cell 0 1");
       content.add(tabSep, "cell 0 2,aligny center,growy 0,gapx 16,gapy 10 10");
@@ -951,6 +1051,9 @@ public class MTForm implements MTFormUI {
                   "[]" +
                   "[]" +
                   "[]" +
+                  "[]" +
+                  "[]" +
+                  "[]" +
                   "[]"));
 
           //---- projectViewDesc ----
@@ -1002,20 +1105,37 @@ public class MTForm implements MTFormUI {
           arrowsStyleComboBox.setToolTipText(bundle.getString("MTForm.arrowsStyleLabel.toolTipText"));
           projectViewPanel.add(arrowsStyleComboBox, "cell 1 3,align right center,grow 0 0,width 120:120:120");
 
+          //---- selectedIndicatorLabel ----
+          selectedIndicatorLabel.setText(bundle.getString("MTForm.selectedIndicatorLabel.text"));
+          selectedIndicatorLabel.setToolTipText(bundle.getString("MTForm.selectedIndicatorLabel.toolTipText"));
+          projectViewPanel.add(selectedIndicatorLabel, "cell 0 4");
+
+          //---- indicatorStyleComboBox ----
+          indicatorStyleComboBox.setToolTipText(bundle.getString("MTForm.indicatorStyleComboBox.toolTipText"));
+          projectViewPanel.add(indicatorStyleComboBox, "cell 1 4,align right center,grow 0 0,width 120:120:120");
+
+          //---- indicatorThicknessLabel ----
+          indicatorThicknessLabel.setHorizontalTextPosition(SwingConstants.LEADING);
+          indicatorThicknessLabel.setLabelFor(highlightSpinner);
+          indicatorThicknessLabel.setText(bundle.getString("MTForm.indicatorThicknessLabel.text"));
+          indicatorThicknessLabel.setToolTipText(bundle.getString("MTForm.indicatorThicknessLabel.toolTipText"));
+          projectViewPanel.add(indicatorThicknessLabel, "pad 0 16 0 0,cell 0 5");
+          projectViewPanel.add(indicatorThicknessSpinner, "cell 1 5,alignx right,growx 0");
+
           //---- boldTabs ----
           boldTabs.setLabel(bundle.getString("mt.boldtabs"));
           boldTabs.setText(bundle.getString("mt.boldtabs"));
           boldTabs.setToolTipText(bundle.getString("mt.boldtabs.tooltip"));
-          projectViewPanel.add(boldTabs, "cell 0 4,align left center,grow 0 0");
+          projectViewPanel.add(boldTabs, "cell 0 6,align left center,grow 0 0");
 
           //---- fontSizeCheckbox ----
           fontSizeCheckbox.setText(bundle.getString("MTForm.fontSizeCheckbox.text"));
           fontSizeCheckbox.addActionListener(e -> fontSizeCheckboxActionPerformed(e));
-          projectViewPanel.add(fontSizeCheckbox, "cell 0 5");
+          projectViewPanel.add(fontSizeCheckbox, "cell 0 7");
 
           //---- fontSizeSpinner ----
           fontSizeSpinner.setToolTipText(bundle.getString("MTForm.fontSizeSpinner.toolTipText"));
-          projectViewPanel.add(fontSizeSpinner, "cell 1 5,align right center,grow 0 0,width 80:80:80");
+          projectViewPanel.add(fontSizeSpinner, "cell 1 7,align right center,grow 0 0,width 80:80:80");
         }
         tabbedPane1.addTab(bundle.getString("MTForm.projectViewPanel.border"), projectViewPanel);
 
@@ -1028,6 +1148,7 @@ public class MTForm implements MTFormUI {
               "[fill]",
               // rows
               "[]" +
+                  "[]" +
                   "[]" +
                   "[]" +
                   "[]"));
@@ -1050,6 +1171,11 @@ public class MTForm implements MTFormUI {
           themedScrollbarsCheckbox.setText(bundle.getString("MTForm.themedScrollbarsCheckbox.text"));
           themedScrollbarsCheckbox.setToolTipText(bundle.getString("MTForm.themedScrollbarsCheckbox.toolTipText"));
           componentsPanel.add(themedScrollbarsCheckbox, "cell 0 3");
+
+          //---- highContrastCheckbox ----
+          highContrastCheckbox.setText(bundle.getString("MTForm.highContrastCheckbox.text"));
+          highContrastCheckbox.setToolTipText(bundle.getString("MTForm.highContrastCheckbox.toolTipText"));
+          componentsPanel.add(highContrastCheckbox, "cell 0 4");
         }
         tabbedPane1.addTab(bundle.getString("MTForm.componentsPanel.tab.title"), componentsPanel);
 
@@ -1059,7 +1185,8 @@ public class MTForm implements MTFormUI {
           featuresPanel.setLayout(new MigLayout(
               "fillx,hidemode 3,align left top",
               // columns
-              "[fill]",
+              "[fill]" +
+                  "[fill]",
               // rows
               "[]" +
                   "[]" +
@@ -1071,15 +1198,15 @@ public class MTForm implements MTFormUI {
           featuresDesc.setForeground(UIManager.getColor("Label.disabledForeground"));
           featuresPanel.add(featuresDesc, "cell 0 0");
 
-          //---- materialThemeCheckbox ----
-          materialThemeCheckbox.setText(bundle.getString("MTForm.materialThemeCheckbox.text"));
-          materialThemeCheckbox.setToolTipText(bundle.getString("MTForm.materialThemeCheckbox.toolTipText"));
-          featuresPanel.add(materialThemeCheckbox, "cell 0 2,align left center,grow 0 0");
-
           //---- useMaterialFontCheckbox ----
           useMaterialFontCheckbox.setText(bundle.getString("MTForm.useMaterialFontCheckbox.text"));
           useMaterialFontCheckbox.setToolTipText(bundle.getString("MTForm.useMaterialFontCheckbox.tooltipText"));
           featuresPanel.add(useMaterialFontCheckbox, "cell 0 1,align left center,grow 0 0");
+
+          //---- materialThemeCheckbox ----
+          materialThemeCheckbox.setText(bundle.getString("MTForm.materialThemeCheckbox.text"));
+          materialThemeCheckbox.setToolTipText(bundle.getString("MTForm.materialThemeCheckbox.toolTipText"));
+          featuresPanel.add(materialThemeCheckbox, "cell 0 2,align left center,grow 0 0");
 
           //---- isMaterialDesignCheckbox ----
           isMaterialDesignCheckbox.setLabel(bundle.getString("MTForm.isMaterialDesignCheckbox.label"));
@@ -1091,6 +1218,11 @@ public class MTForm implements MTFormUI {
           fileColorsCheckbox.setText(bundle.getString("MTForm.fileColorsCheckbox.text"));
           fileColorsCheckbox.setToolTipText(bundle.getString("MTForm.fileColorsCheckbox.toolTipText"));
           featuresPanel.add(fileColorsCheckbox, "cell 0 4");
+
+          //---- fileStatusColorsLink ----
+          fileStatusColorsLink.setText(bundle.getString("MTForm.fileStatusColorsLink.text"));
+          fileStatusColorsLink.setForeground(UIManager.getColor("link.foreground"));
+          featuresPanel.add(fileStatusColorsLink, "cell 1 4");
         }
         tabbedPane1.addTab(bundle.getString("MTForm.featuresPanel.border"), featuresPanel);
 
@@ -1111,22 +1243,22 @@ public class MTForm implements MTFormUI {
           tweaksDesc.setForeground(UIManager.getColor("Label.disabledForeground"));
           otherTweaksPanel.add(tweaksDesc, "cell 0 0");
 
-          //---- darkTitleBarCheckbox ----
-          darkTitleBarCheckbox.setText(bundle.getString("MTForm.darkTitleBarCheckbox.text"));
-          darkTitleBarCheckbox.setToolTipText(bundle.getString("MTForm.darkTitleBarCheckbox.toolTipText"));
-          darkTitleBarCheckbox.addActionListener(e -> isDarkTitleBarActionPerformed(e));
-          otherTweaksPanel.add(darkTitleBarCheckbox, "cell 0 1,align left center,grow 0 0");
-
           //---- isProjectViewDecoratorsCheckbox ----
           isProjectViewDecoratorsCheckbox.setText(bundle.getString("MTForm.projectViewDecorators"));
           isProjectViewDecoratorsCheckbox.setToolTipText(bundle.getString("MTForm.projectViewDecorators.tooltip"));
           isProjectViewDecoratorsCheckbox.addActionListener(e -> isProjectViewDecoratorsCheckboxActionPerformed(e));
-          otherTweaksPanel.add(isProjectViewDecoratorsCheckbox, "cell 0 2,align left center,grow 0 0");
+          otherTweaksPanel.add(isProjectViewDecoratorsCheckbox, "cell 0 1,align left center,grow 0 0");
 
           //---- isThemeInStatusCheckbox ----
           isThemeInStatusCheckbox.setText(bundle.getString("MTForm.themeStatus"));
           isThemeInStatusCheckbox.setToolTipText(bundle.getString("MTForm.themeStatus.tooltip"));
-          otherTweaksPanel.add(isThemeInStatusCheckbox, "cell 0 3,align left center,grow 0 0");
+          otherTweaksPanel.add(isThemeInStatusCheckbox, "cell 0 2,align left center,grow 0 0");
+
+          //---- darkTitleBarCheckbox ----
+          darkTitleBarCheckbox.setText(bundle.getString("MTForm.darkTitleBarCheckbox.text"));
+          darkTitleBarCheckbox.setToolTipText(bundle.getString("MTForm.darkTitleBarCheckbox.toolTipText"));
+          darkTitleBarCheckbox.addActionListener(e -> isDarkTitleBarActionPerformed(e));
+          otherTweaksPanel.add(darkTitleBarCheckbox, "cell 0 3,align left center,grow 0 0");
         }
         tabbedPane1.addTab(bundle.getString("MTForm.otherTweaksPanel.border"), otherTweaksPanel);
       }
@@ -1141,19 +1273,12 @@ public class MTForm implements MTFormUI {
     }
     // JFormDesigner - End of component initialization  //GEN-END:initComponents
 
-    if (SystemInfo.isWin10OrNewer) {
-      darkTitleBarCheckbox.setText(bundle.getString("MTForm.darkTitleBarCheckbox.text"));
-      darkTitleBarCheckbox.setToolTipText(bundle.getString("MTForm.darkTitleBarCheckbox.toolTipText"));
-    } else if (SystemInfo.isMac) {
-      darkTitleBarCheckbox.setText(bundle.getString("MTForm.darkTitleBarCheckbox.textMac"));
-      darkTitleBarCheckbox.setToolTipText(bundle.getString("MTForm.darkTitleBarCheckbox.toolTipTextMac"));
-    } else {
-      darkTitleBarCheckbox.setText(bundle.getString("MTForm.darkTitleBarCheckbox.text"));
-      darkTitleBarCheckbox.setToolTipText(bundle.getString("MTForm.darkTitleBarCheckbox.toolTipText"));
+    if ((SystemInfo.isWin10OrNewer) || SystemInfo.isMac) {
+      darkTitleBarCheckbox.setEnabled(true);
     }
 
     // Themes
-    themeComboBox.setModel(new DefaultComboBoxModel<>(MTThemes.values()));
+    themeComboBox.setModel(new DefaultComboBoxModel<>(MTThemes.getAllThemes()));
     themeComboBox.setRenderer(new ListCellRendererWrapper<MTThemeFacade>() {
       @Override
       public void customize(final JList list, final MTThemeFacade value, final int index, final boolean selected, final boolean hasFocus) {
@@ -1181,11 +1306,26 @@ public class MTForm implements MTFormUI {
       }
     });
 
+    // Indicator
+    indicatorStyleComboBox.setModel(new DefaultComboBoxModel<>(IndicatorStyles.values()));
+
     fileColorsLink.setListener((aSource, aLinkData) -> {
       final Settings settings = Settings.KEY.getData(DataManager.getInstance().getDataContext(content));
 
       if (settings != null) {
         settings.select(settings.find(MTCustomThemeConfigurable.class));
+      }
+    }, null);
+
+    fileStatusColorsLink.setListener((aSource, aLinkData) -> {
+      final Settings settings = Settings.KEY.getData(DataManager.getInstance().getDataContext(content));
+
+      if (settings != null) {
+        final SearchableConfigurable subConfigurable =
+            Objects.requireNonNull(settings.find(ColorAndFontOptions.class)).findSubConfigurable(MTFileColorsPage.class);
+        if (subConfigurable != null) {
+          settings.select(subConfigurable);
+        }
       }
     }, null);
   }

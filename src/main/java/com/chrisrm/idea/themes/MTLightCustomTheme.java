@@ -21,11 +21,13 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  *  SOFTWARE.
  *
+ *
  */
 
 package com.chrisrm.idea.themes;
 
 import com.chrisrm.idea.MTAbstractTheme;
+import com.chrisrm.idea.MTConfig;
 import com.chrisrm.idea.MTCustomThemeConfig;
 import org.jetbrains.annotations.NotNull;
 
@@ -39,7 +41,7 @@ public class MTLightCustomTheme extends MTAbstractTheme {
   public static final String DISABLED = "eae8e8";
 
   public MTLightCustomTheme() {
-    super("mt.light_custom", "Material Light Custom", false, "Light Custom", "/icons/actions/themes/light_custom.png");
+    super("mt.light_custom", "Material Light Custom", false, "Light Custom", "/icons/actions/themes/light_custom.svg");
   }
 
   @NotNull
@@ -155,5 +157,20 @@ public class MTLightCustomTheme extends MTAbstractTheme {
   @Override
   public boolean isCustom() {
     return true;
+  }
+
+  @Override
+  public String getAccentColor() {
+    return MTConfig.getInstance().getAccentColor();
+  }
+
+  @Override
+  public String getExcludedColor() {
+    return DISABLED;
+  }
+
+  @Override
+  public int getOrder() {
+    return 10;
   }
 }

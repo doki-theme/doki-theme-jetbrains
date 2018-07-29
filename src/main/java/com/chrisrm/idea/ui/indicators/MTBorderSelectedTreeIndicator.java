@@ -23,14 +23,19 @@
  *
  */
 
-import com.chrisrm.idea.MTAnalytics;
-import com.chrisrm.idea.MTConfig;
-import com.intellij.openapi.actionSystem.AnAction;
-import com.intellij.openapi.actionSystem.AnActionEvent;
+package com.chrisrm.idea.ui.indicators;
 
-public class MixPanel extends AnAction {
+import java.awt.*;
+
+public final class MTBorderSelectedTreeIndicator extends MTSelectedTreeIndicatorImpl {
+
   @Override
-  public void actionPerformed(final AnActionEvent e) {
-    MTAnalytics.getInstance().track("Config", MTConfig.getInstance().asProperties());
+  public void paintBorder(final Component c, final Graphics g, final int x, final int y, final int width, final int height) {
+    final Color oldColor = g.getColor();
+    final int thickness = getThickness();
+    g.setColor(getHighlightColor());
+    g.fillRect(x, y, thickness, height);
+    g.setColor(oldColor);
   }
+
 }

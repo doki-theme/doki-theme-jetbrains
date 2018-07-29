@@ -30,7 +30,9 @@ import com.chrisrm.idea.MTConfig;
 import com.intellij.icons.AllIcons;
 import com.intellij.openapi.components.ApplicationComponent;
 import com.intellij.util.PlatformIcons;
+import icons.DvcsImplIcons;
 import icons.ImagesIcons;
+import icons.VcsLogIcons;
 import org.jetbrains.annotations.NotNull;
 
 public final class MTIconReplacerComponent implements ApplicationComponent {
@@ -41,6 +43,8 @@ public final class MTIconReplacerComponent implements ApplicationComponent {
       IconReplacer.replaceIcons(AllIcons.class, "/icons", "");
       IconReplacer.replaceIcons(ImagesIcons.class, "/icons/images", "/org/intellij/images/icons");
       IconReplacer.replaceIcons(PlatformIcons.class, "", "");
+      IconReplacer.replaceIcons(DvcsImplIcons.class, "/icons/plugins/vcs", "/icons");
+      IconReplacer.replaceIcons(VcsLogIcons.class, "/icons/plugins/vcs", "/icons");
     }
   }
 

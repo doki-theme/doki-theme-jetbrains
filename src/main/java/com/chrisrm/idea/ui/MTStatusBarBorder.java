@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2017 Chris Magnussen and Elior Boukhobza
+ * Copyright (c) 2018 Chris Magnussen and Elior Boukhobza
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -27,52 +27,38 @@
 package com.chrisrm.idea.ui;
 
 import com.chrisrm.idea.MTConfig;
-import com.intellij.ui.ColorUtil;
-import com.intellij.util.ui.JBUI;
+import com.intellij.util.ui.UIUtil;
 
 import javax.swing.border.Border;
+import javax.swing.plaf.InsetsUIResource;
+import javax.swing.plaf.UIResource;
 import java.awt.*;
 
-public final class MTSelectedTreePainter implements Border {
+public class MTStatusBarBorder implements Border, UIResource {
 
-  private static Color highlightColor;
-  private static int highlightThickness;
+  public static final int DEFAULT_PADDING = 8;
 
   @Override
   public void paintBorder(final Component c, final Graphics g, final int x, final int y, final int width, final int height) {
-    final Color oldColor = g.getColor();
-    int i;
+    final Graphics2D g2d = (Graphics2D) g.create();
+    final Color background = UIUtil.getPanelBackground();
 
-    final int thickness = getThickness();
-    g.setColor(getHighlightColor());
-    for (i = 0; i < thickness; i++) {
-      g.drawLine(x + i, y + 1, x + i, height + y - 1);
-    }
-    g.setColor(oldColor);
-  }
+    g2d.setColor(background);
+    g2d.fillRect(0, 0, width, height);
 
-  private Color getHighlightColor() {
-    if (highlightColor == null) {
-      highlightColor = ColorUtil.fromHex(MTConfig.getInstance().getAccentColor());
-    }
-    return highlightColor;
-  }
-
-  private int getThickness() {
-    if (highlightThickness == 0) {
-      highlightThickness = MTConfig.getInstance().getHighlightThickness();
-    }
-    return highlightThickness;
-  }
-
-  public static void resetCache() {
-    highlightThickness = 0;
-    highlightColor = null;
+    g2d.dispose();
   }
 
   @Override
   public Insets getBorderInsets(final Component c) {
-    return JBUI.insetsLeft(getThickness());
+    return getInsets();
+  }
+
+  public Insets getInsets() {
+    final boolean compactStatusBar = MTConfig.getInstance().isCompactStatusBar();
+    final int padding = compactStatusBar ? 0 : DEFAULT_PADDING;
+
+    return new InsetsUIResource(padding, 0, padding, 0);
   }
 
   @Override

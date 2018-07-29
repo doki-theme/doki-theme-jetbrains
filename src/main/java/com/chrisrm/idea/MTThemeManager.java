@@ -21,6 +21,7 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  *  SOFTWARE.
  *
+ *
  */
 
 package com.chrisrm.idea;
@@ -52,8 +53,6 @@ import com.intellij.openapi.ui.Messages;
 import com.intellij.openapi.util.IconLoader;
 import com.intellij.openapi.util.SystemInfo;
 import com.intellij.openapi.util.registry.Registry;
-import com.intellij.openapi.wm.WindowManager;
-import com.intellij.openapi.wm.impl.status.IdeStatusBarImpl;
 import com.intellij.ui.ColorUtil;
 import com.intellij.ui.JBColor;
 import com.intellij.util.ObjectUtils;
@@ -62,8 +61,9 @@ import com.intellij.util.ui.UIUtil;
 import sun.awt.AppContext;
 
 import javax.swing.*;
-import javax.swing.plaf.*;
-import javax.swing.text.html.*;
+import javax.swing.plaf.FontUIResource;
+import javax.swing.text.html.HTMLEditorKit;
+import javax.swing.text.html.StyleSheet;
 import java.awt.*;
 import java.lang.reflect.Field;
 import java.net.URL;
@@ -79,7 +79,6 @@ public final class MTThemeManager {
   public static final int DEFAULT_INDENT = 6;
   public static final int DEFAULT_FONT_SIZE = 12;
   public static final String DEFAULT_FONT = "Roboto";
-  public static final int DEFAULT_STATUSBAR_PADDING = 8;
 
   public MTThemeManager() {
   }
@@ -123,11 +122,15 @@ public final class MTThemeManager {
     applyContrast(true);
   }
 
+  public void toggleHighContrast() {
+    final MTConfig mtConfig = MTConfig.getInstance();
+    mtConfig.setIsHighContrast(!mtConfig.getIsHighContrast());
+    MTThemeManager.getInstance().activate();
+  }
+
   public void toggleCompactStatusBar() {
     final boolean compactStatusBar = MTConfig.getInstance().isCompactStatusBar();
     MTConfig.getInstance().setIsCompactStatusBar(!compactStatusBar);
-
-    setStatusBarBorders();
   }
 
   public void toggleHideFileIcons() {
@@ -203,29 +206,6 @@ public final class MTThemeManager {
   }
   //endregion
 
-  //region Status bar support
-
-  /**
-   * Change status bar borders
-   */
-  public void setStatusBarBorders() {
-    final boolean compactSidebar = MTConfig.getInstance().isCompactStatusBar();
-
-    ApplicationManager.getApplication().invokeLater(() -> {
-      final JFrame visibleFrame = WindowManager.getInstance().findVisibleFrame();
-      if (visibleFrame == null) {
-        return;
-      }
-      final JComponent component = visibleFrame.getRootPane();
-      if (component != null) {
-        final IdeStatusBarImpl ideStatusBar = UIUtil.findComponentOfType(component, IdeStatusBarImpl.class);
-        if (ideStatusBar != null) {
-          ideStatusBar.setBorder(compactSidebar ? JBUI.Borders.empty() : JBUI.Borders.empty(MTThemeManager.DEFAULT_STATUSBAR_PADDING, 0));
-        }
-      }
-    });
-  }
-  //endregion
 
   //region Theme activation and deactivation
 
@@ -263,9 +243,6 @@ public final class MTThemeManager {
     newTheme.getTheme().activate();
     switchScheme(newTheme, switchColorScheme);
 
-    // Because the DarculaInstaller overrides this
-    final EditorColorsScheme currentScheme = EditorColorsManager.getInstance().getGlobalScheme();
-
     PropertiesComponent.getInstance().setValue(getSettingsPrefix() + ".theme", newTheme.getThemeId());
     applyContrast(false);
     applyCompactSidebar(false);
@@ -273,18 +250,7 @@ public final class MTThemeManager {
     applyAccents();
     setBoldTabs();
 
-    // We need this to update parts of the UI that do not change
-    if (UIUtil.isUnderDarcula()) {
-      DarculaInstaller.uninstall();
-      DarculaInstaller.install();
-    } else {
-      DarculaInstaller.uninstall();
-      DarculaInstaller.install();
-    }
     LafManager.getInstance().updateUI();
-
-    // Because the DarculaInstaller overrides this
-    EditorColorsManager.getInstance().setGlobalScheme(currentScheme);
 
     applyFonts();
 
@@ -299,12 +265,17 @@ public final class MTThemeManager {
   }
 
   private void switchScheme(final MTThemeFacade mtTheme, final boolean switchColorScheme) {
+    final EditorColorsManager editorColorsManager = EditorColorsManager.getInstance();
     if (switchColorScheme) {
-      final EditorColorsScheme themeScheme = EditorColorsManager.getInstance().getScheme(mtTheme.getThemeColorScheme());
+      final EditorColorsScheme themeScheme = editorColorsManager.getScheme(mtTheme.getThemeColorScheme());
       if (themeScheme != null) {
-        EditorColorsManager.getInstance().setGlobalScheme(themeScheme);
+        editorColorsManager.setGlobalScheme(themeScheme);
       }
     }
+    // Need to trigger a change otherwise the ui will get stuck. Yes this sucks
+    final EditorColorsScheme globalScheme = editorColorsManager.getGlobalScheme();
+    editorColorsManager.setGlobalScheme(editorColorsManager.getScheme("Darcula"));
+    editorColorsManager.setGlobalScheme(globalScheme);
   }
 
   public void applyAccents() {
@@ -315,6 +286,8 @@ public final class MTThemeManager {
     }
     // override for transparency
     UIManager.put("Focus.color", ColorUtil.toAlpha(accentColorColor, 70));
+
+    patchStyledEditorKit();
   }
 
   public void askForRestart() {
@@ -384,13 +357,13 @@ public final class MTThemeManager {
     // Keep old style and size
     for (final String fontResource : FontResources.FONT_RESOURCES) {
       final Font curFont = uiDefaults.getFont(fontResource);
-      uiDefaults.put(fontResource, uiFont.deriveFont(curFont.getStyle(), curFont.getSize()));
+      UIManager.put(fontResource, uiFont.deriveFont(curFont.getStyle(), curFont.getSize()));
     }
 
-    uiDefaults.put("PasswordField.font", monoFont);
-    uiDefaults.put("TextArea.font", monoFont);
-    uiDefaults.put("TextPane.font", textFont);
-    uiDefaults.put("EditorPane.font", textFont);
+    UIManager.put("PasswordField.font", monoFont);
+    UIManager.put("TextArea.font", monoFont);
+    UIManager.put("TextPane.font", textFont);
+    UIManager.put("EditorPane.font", textFont);
   }
 
   private void applyFonts() {
@@ -542,7 +515,7 @@ public final class MTThemeManager {
    */
   private void reloadUI() {
     try {
-      UIManager.setLookAndFeel(new MTLaf(MTConfig.getInstance().getSelectedTheme().getTheme()));
+      UIManager.setLookAndFeel(new MTLightLaf(MTConfig.getInstance().getSelectedTheme().getTheme()));
 
       applyFonts();
 
@@ -559,9 +532,7 @@ public final class MTThemeManager {
 
   public void themeTitleBar() {
     final boolean isDarkTitleOn = MTConfig.getInstance().isMaterialTheme() && MTConfig.getInstance().isDarkTitleBar();
-    if (SystemInfo.isMac) {
-      themeMacTitleBar(isDarkTitleOn);
-    } else if (SystemInfo.isWin10OrNewer && isDarkTitleOn) {
+    if (SystemInfo.isWin10OrNewer && isDarkTitleOn) {
       // Write in the registry
       themeWindowsTitleBar();
     }
@@ -575,12 +546,6 @@ public final class MTThemeManager {
     final Color backgroundColor = MTConfig.getInstance().getSelectedTheme().getTheme().getBackgroundColor();
 
     WinRegistry.writeTitleColor(backgroundColor);
-  }
-
-  public void restoreTitleBar() {
-    if (SystemInfo.isMac) {
-      Registry.get("ide.mac.allowDarkWindowDecorations").setValue(false);
-    }
   }
 
   public int getTitleColor() {
