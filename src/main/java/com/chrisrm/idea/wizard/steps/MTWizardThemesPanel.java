@@ -30,15 +30,10 @@
 
 package com.chrisrm.idea.wizard.steps;
 
-import com.chrisrm.idea.MTConfig;
-import com.chrisrm.idea.MTThemeFacade;
-import com.chrisrm.idea.MTThemeManager;
-import com.chrisrm.idea.MTThemes;
 import com.chrisrm.idea.actions.themes.literature.club.MTMonikaThemeAction;
 import com.chrisrm.idea.actions.themes.literature.club.MTNatsukiThemeAction;
 import com.chrisrm.idea.actions.themes.literature.club.MTSayoriThemeAction;
 import com.chrisrm.idea.actions.themes.literature.club.MTYuriThemeAction;
-import com.chrisrm.idea.themes.literature.club.MTNatsukiTheme;
 import com.intellij.ide.customize.AbstractCustomizeWizardStep;
 import com.intellij.openapi.actionSystem.*;
 import com.intellij.openapi.project.Project;
@@ -69,28 +64,28 @@ public class MTWizardThemesPanel extends AbstractCustomizeWizardStep {
 
   @Override
   protected String getHTMLHeader() {
-    return "<html><body><h2>Select a UI theme</h2>&nbsp;</body></html>";
+    return "<html><body><h2>Select a Club Member</h2>&nbsp;</body></html>";
   }
 
 
   private final MTMonikaThemeAction mtMonikaThemeAction = new MTMonikaThemeAction();
   private void justMonikaButtonActionPerformed(final ActionEvent e) {
-    mtMonikaThemeAction.setSelected(event, true);
+    mtMonikaThemeAction.selectionActivation();
   }
 
   private final MTSayoriThemeAction mtSayoriThemeAction = new MTSayoriThemeAction();
   private void sayoriButtonActionPerformed(final ActionEvent e) {
-    mtSayoriThemeAction.setSelected(event, true);
+    mtSayoriThemeAction.selectionActivation();
   }
 
   private final MTNatsukiThemeAction mtNatsukiThemeAction = new MTNatsukiThemeAction();
   private void natsukiButtonActionPerformed(final ActionEvent e) {
-    mtNatsukiThemeAction.setSelected(event, true);
+    mtNatsukiThemeAction.selectionActivation();
   }
 
   private final MTYuriThemeAction mtYuriThemeAction = new MTYuriThemeAction();
   private void yuriButtonActionPerformed(final ActionEvent e) {
-    mtYuriThemeAction.setSelected(event, true);
+    mtYuriThemeAction.selectionActivation();
   }
 
   private void initComponents() {
@@ -235,82 +230,4 @@ public class MTWizardThemesPanel extends AbstractCustomizeWizardStep {
   private JRadioButton yuriButton;
   private JLabel yuriLabel;
   // JFormDesigner - End of variables declaration  //GEN-END:variables
-  private final AnActionEvent event = new AnActionEvent(null, null, null,null,null, 1){
-    @Override
-    public InputEvent getInputEvent() {
-      return super.getInputEvent();
-    }
-
-    @Nullable
-    @Override
-    public Project getProject() {
-      return super.getProject();
-    }
-
-    @NotNull
-    @Override
-    public DataContext getDataContext() {
-      return super.getDataContext();
-    }
-
-    @Nullable
-    @Override
-    public <T> T getData(@NotNull DataKey<T> key) {
-      return super.getData(key);
-    }
-
-    @NotNull
-    @Override
-    public <T> T getRequiredData(@NotNull DataKey<T> key) {
-      return super.getRequiredData(key);
-    }
-
-    @NotNull
-    @Override
-    public String getPlace() {
-      return super.getPlace();
-    }
-
-    @Override
-    public boolean isFromActionToolbar() {
-      return super.isFromActionToolbar();
-    }
-
-    @Override
-    public boolean isFromContextMenu() {
-      return super.isFromContextMenu();
-    }
-
-    @NotNull
-    @Override
-    public Presentation getPresentation() {
-      return super.getPresentation();
-    }
-
-    @Override
-    public int getModifiers() {
-      return super.getModifiers();
-    }
-
-    @NotNull
-    @Override
-    public ActionManager getActionManager() {
-      return super.getActionManager();
-    }
-
-    @Override
-    public void setInjectedContext(boolean worksInInjected) {
-      super.setInjectedContext(worksInInjected);
-    }
-
-    @Override
-    public boolean isInInjectedContext() {
-      return super.isInInjectedContext();
-    }
-
-    @Override
-    public void accept(@NotNull AnActionEventVisitor visitor) {
-      super.accept(visitor);
-    }
-  };
 }

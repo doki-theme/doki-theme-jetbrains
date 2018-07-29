@@ -37,6 +37,10 @@ public abstract class MTAbstractThemeAction extends ToggleAction {
 
   @Override
   public void setSelected(final AnActionEvent e, final boolean state) {
+    selectionActivation();
+  }
+
+  public void selectionActivation() {
     MTTreeUI.resetIcons();
     MTButtonUI.resetCache();
     MTProjectViewNodeDecorator.resetCache();

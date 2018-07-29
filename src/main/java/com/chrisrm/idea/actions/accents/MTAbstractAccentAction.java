@@ -40,6 +40,10 @@ public abstract class MTAbstractAccentAction extends AnAction {
 
   @Override
   public final void actionPerformed(final AnActionEvent e) {
+    setAccentToTheme();
+  }
+
+  public void setAccentToTheme() {
     MTSelectedTreeIndicatorImpl.resetCache();
     MTConfig.getInstance().setAccentColor(getAccentColor());
     MTThemeManager.getInstance().applyAccents();

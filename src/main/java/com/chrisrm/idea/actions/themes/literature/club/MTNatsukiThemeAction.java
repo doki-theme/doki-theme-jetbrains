@@ -44,7 +44,12 @@ public final class MTNatsukiThemeAction extends MTAbstractThemeAction {
   @Override
   public void setSelected(final AnActionEvent e, final boolean state) {
     super.setSelected(e, state);
-    mtFuschiaAccentAction.actionPerformed(e);
+    selectionActivation();
+  }
+
+  public void selectionActivation() {
+    super.selectionActivation();
+    mtFuschiaAccentAction.setAccentToTheme();
     MTThemeManager.getInstance().activate(MTThemes.NATSUKI, true);
     ClubMemberManager.getInstance().activate(MTThemes.NATSUKI);
   }

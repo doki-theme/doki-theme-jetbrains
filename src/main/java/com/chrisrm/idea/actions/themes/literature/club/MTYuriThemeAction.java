@@ -44,7 +44,13 @@ public final class MTYuriThemeAction extends MTAbstractThemeAction {
   @Override
   public void setSelected(final AnActionEvent e, final boolean state) {
     super.setSelected(e, state);
-    mtAmethystAccentAction.actionPerformed(e);
+    selectionActivation();
+  }
+
+  @Override
+  public void selectionActivation() {
+    super.selectionActivation();
+    mtAmethystAccentAction.setAccentToTheme();
     MTThemeManager.getInstance().activate(MTThemes.YURI, true);
     ClubMemberManager.getInstance().activate(MTThemes.YURI);
   }
