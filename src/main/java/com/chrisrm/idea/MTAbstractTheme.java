@@ -26,8 +26,8 @@
 
 package com.chrisrm.idea;
 
-import com.chrisrm.idea.themes.literature.club.MTMonikaTheme;
 import com.chrisrm.idea.themes.MTThemeable;
+import com.chrisrm.idea.themes.literature.club.MTMonikaTheme;
 import com.chrisrm.idea.utils.MTUiUtils;
 import com.chrisrm.idea.utils.PropertiesParser;
 import com.intellij.ide.ui.laf.IntelliJLookAndFeelInfo;
@@ -126,7 +126,8 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
       buildResources(getTextResources(), contrastifyForeground(getTextColorString()));
       buildResources(getSelectionBackgroundResources(), getSelectionBackgroundColorString());
       buildResources(getSelectionForegroundResources(), getSelectionForegroundColorString());
-      buildResources(getButtonColorResource(), getButtonColorString());
+//      todo probably not needed
+//      buildResources(getButtonColorResource(), getButtonColorString());
       buildResources(getInactiveResources(), getInactiveColorString());
       buildResources(getSecondaryBackgroundResources(), getSecondaryBackgroundColorString());
       buildResources(getSecondaryForegroundResources(), getSecondaryForegroundColorString());
@@ -264,7 +265,8 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
   @NotNull
   @Override
   public String getSelectionBackground() {
-    return dark ? MTCustomTheme.SELECTION_BACKGROUND : MTLightCustomTheme.SELECTION_BACKGROUND;
+    //todo: when dark theme comes in!!!!!
+    return dark ? MTMonikaTheme.SELECTION_BACKGROUND : MTMonikaTheme.SELECTION_BACKGROUND;
   }
 
   /**
@@ -273,7 +275,8 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
   @NotNull
   @Override
   public String getDisabled() {
-    return dark ? MTCustomTheme.DISABLED : MTLightCustomTheme.DISABLED;
+    //todo: when dark theme comes in!!!!!
+    return dark ? MTMonikaTheme.DISABLED : MTMonikaTheme.DISABLED;
   }
 
   /**
@@ -339,7 +342,7 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
     } else {
       return ColorUtil.toHex(ColorUtil.darker(ColorUtil.fromHex(colorString), HC_FG_TONES));
     }
-    }
+  }
 
   private Color contrastifyForeground(final Color color) {
     final boolean isHighContrast = MTConfig.getInstance().getIsHighContrast();
@@ -371,7 +374,7 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
     final boolean isHighContrast = MTConfig.getInstance().getIsHighContrast();
     if (!isHighContrast) {
       return color;
-  }
+    }
 
     if (isDark()) {
       return ColorUtil.darker(color, HC_BG_TONES);
@@ -465,7 +468,7 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
   /**
    * Get the hex code for the background color
    */
-  protected abstract String getBackgroundColorString();
+  public abstract String getBackgroundColorString();
 
   /**
    * Get resources using the foreground color
@@ -519,7 +522,7 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
     };
   }
 
-  protected String[] getMenuItemForegroundResources(){
+  protected String[] getMenuItemForegroundResources() {
     return new String[]{
         "Menu.foreground",
         "MenuItem.foreground",
@@ -527,7 +530,7 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
     };
   }
 
-  protected Stream<String> getButtonBackgroundResources(){
+  protected Stream<String> getButtonBackgroundResources() {
     return Stream.of(
         "Button.background",
         "Button.darcula.color1",
@@ -537,13 +540,14 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
   }
 
 
-  protected String getButtonBackgroundColor(){
+  protected String getButtonBackgroundColor() {
     return "fbffeb";
   }
+
   /**
    * Get the hex code for the foreground color
    */
-  protected abstract String getForegroundColorString();
+  public abstract String getForegroundColorString();
 
   /**
    * Get resources using the label color
@@ -573,7 +577,7 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
   /**
    * Get the hex code for the text color
    */
-  protected abstract String getTextColorString();
+  public abstract String getTextColorString();
 
   /**
    * Get resources using the selection background color
@@ -595,7 +599,7 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
   /**
    * Get the hex code for the selection background color
    */
-  protected abstract String getSelectionBackgroundColorString();
+  public abstract String getSelectionBackgroundColorString();
 
   /**
    * Get resources using the selection foreground color
@@ -623,9 +627,10 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
   /**
    * Get the hex code for the selection foreground color
    */
-  protected abstract String getSelectionForegroundColorString();
+  public abstract String getSelectionForegroundColorString();
 
   protected abstract String getMenuBarSelectionForegroundColorString();
+
   protected abstract String getMenuBarSelectionBackgroundColorString();
 
   /**
@@ -677,10 +682,10 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
   /**
    * Get the hex code for the secondary background color
    */
-  protected abstract String getSecondaryBackgroundColorString();
+  public abstract String getSecondaryBackgroundColorString();
 
   //TODO: MAKE ME DEFAULT
-  protected String getSecondaryForegroundColorString(){
+  protected String getSecondaryForegroundColorString() {
     return "256f25";
   }
 
@@ -713,7 +718,7 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
   /**
    * Get the hex code for the disabled color
    */
-  protected abstract String getDisabledColorString();
+  public abstract String getDisabledColorString();
 
   /**
    * Get resources using the contrast color
@@ -734,7 +739,7 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
   /**
    * Get the hex code for the contrast color
    */
-  protected abstract String getContrastColorString();
+  public abstract String getContrastColorString();
 
   /**
    * Get resources using the table/button selection color
@@ -760,7 +765,7 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
   /**
    * Get the hex code for the table selected color
    */
-  protected abstract String getTableSelectedColorString();
+  public abstract String getTableSelectedColorString();
 
   /**
    * Get resources using the second border color
@@ -783,7 +788,7 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
   /**
    * Get the hex code for the second border color
    */
-  protected abstract String getSecondBorderColorString();
+  public abstract String getSecondBorderColorString();
 
   /**
    * Get resources using the highlight color
@@ -809,7 +814,7 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
   /**
    * Get the hex code for the highlight color
    */
-  protected abstract String getHighlightColorString();
+  public abstract String getHighlightColorString();
 
   /**
    * Get resources using the tree selected row color
@@ -820,6 +825,7 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
 
     };
   }
+
   protected String[] getTreeSelectionForegroundResources() {
     return new String[]{
         "Tree.selectionForeground"
@@ -830,8 +836,9 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
   /**
    * Get the hex code for the tree selection color
    */
-  protected abstract String getTreeSelectionBackgroundColorString();
-  protected abstract String getTreeSelectionForegroundColorString();
+  public abstract String getTreeSelectionBackgroundColorString();
+
+  public abstract String getTreeSelectionForegroundColorString();
 
   /**
    * Get notifications colors resources
@@ -846,7 +853,7 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
   /**
    * Get the hex code for the notifications color
    */
-  protected abstract String getNotificationsColorString();
+  public abstract String getNotificationsColorString();
   //endregion
 
   /**
@@ -858,7 +865,12 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
   private void buildResources(final String[] resources, final String color) {
     for (final String resource : resources) {
       UIManager.getDefaults().put(resource, PropertiesParser.parseColor(color));
+    }
   }
+
+  private void buildResources(final Stream<String> resources, final String color) {
+    Color o1 = PropertiesParser.parseColor(color);
+    resources.forEach(resource -> UIManager.getDefaults().put(resource, o1));
   }
 
   private void buildNotificationsColors() {

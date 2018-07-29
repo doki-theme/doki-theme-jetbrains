@@ -57,100 +57,100 @@ public class MTLightCustomTheme extends MTAbstractTheme {
   }
 
   @Override
-  protected String getEditorTabColorString() {
+  public String getEditorTabColorString() {
     return null;
   }
 
   @Override
-  protected String getNotificationsColorString() {
+  public String getNotificationsColorString() {
     return MTCustomThemeConfig.getInstance().getNotificationsColorString();
   }
 
-  protected String getTreeSelectionColorString() {
+  public String getTreeSelectionColorString() {
     return MTCustomThemeConfig.getInstance().getTreeSelectionColorString();
   }
 
   @Override
-  protected String getHighlightColorString() {
+  public String getHighlightColorString() {
     return MTCustomThemeConfig.getInstance().getHighlightColorString();
   }
 
   @Override
-  protected String getTreeSelectionBackgroundColorString() {
+  public String getTreeSelectionBackgroundColorString() {
     return null;
   }
 
   @Override
-  protected String getTreeSelectionForegroundColorString() {
+  public String getTreeSelectionForegroundColorString() {
     return null;
   }
 
   @Override
-  protected String getSecondBorderColorString() {
+  public String getSecondBorderColorString() {
     return MTCustomThemeConfig.getInstance().getSecondBorderColorString();
   }
 
   @Override
-  protected String getTableSelectedColorString() {
+  public String getTableSelectedColorString() {
     return MTCustomThemeConfig.getInstance().getTableSelectedColorString();
   }
 
   @Override
-  protected String getContrastColorString() {
+  public String getContrastColorString() {
     return MTCustomThemeConfig.getInstance().getContrastColorString();
   }
 
   @Override
-  protected String getDisabledColorString() {
+  public String getDisabledColorString() {
     return MTCustomThemeConfig.getInstance().getDisabledColorString();
   }
 
   @Override
-  protected String getSecondaryBackgroundColorString() {
+  public String getSecondaryBackgroundColorString() {
     return MTCustomThemeConfig.getInstance().getSecondaryBackgroundColorString();
   }
 
-  protected String getButtonColorString() {
+  public String getButtonColorString() {
     return MTCustomThemeConfig.getInstance().getButtonColorString();
   }
 
   @Override
-  protected String getSelectionForegroundColorString() {
+  public String getSelectionForegroundColorString() {
     return MTCustomThemeConfig.getInstance().getSelectionForegroundColorString();
   }
 
   @Override
-  protected String getMenuBarSelectionForegroundColorString() {
+  public String getMenuBarSelectionForegroundColorString() {
     return null;
   }
 
   @Override
-  protected String getMenuBarSelectionBackgroundColorString() {
+  public String getMenuBarSelectionBackgroundColorString() {
     return null;
   }
 
   @Override
-  protected String getInactiveColorString() {
+  public String getInactiveColorString() {
     return null;
   }
 
   @Override
-  protected String getSelectionBackgroundColorString() {
+  public String getSelectionBackgroundColorString() {
     return MTCustomThemeConfig.getInstance().getSelectionBackgroundColorString();
   }
 
   @Override
-  protected String getTextColorString() {
+  public String getTextColorString() {
     return MTCustomThemeConfig.getInstance().getTextColorString();
   }
 
   @Override
-  protected String getForegroundColorString() {
+  public String getForegroundColorString() {
     return MTCustomThemeConfig.getInstance().getForegroundColorString();
   }
 
   @Override
-  protected String getBackgroundColorString() {
+  public String getBackgroundColorString() {
     return MTCustomThemeConfig.getInstance().getBackgroundColorString();
   }
 

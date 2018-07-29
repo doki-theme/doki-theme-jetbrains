@@ -6,57 +6,57 @@ public final class MTSayoriTheme extends MTDokiDokiTheme {
   }
 
   @Override
-  protected String getBackgroundColorString() {
+  public String getBackgroundColorString() {
     return "f4fbfe";
   }
 
   @Override
-  protected String getSecondaryBackgroundColorString() {
+  public String getSecondaryBackgroundColorString() {
     return "c7f2ff";
   }
 
   @Override
-  protected String getSecondaryForegroundColorString() {
+  public String getSecondaryForegroundColorString() {
     return "256fe2";
   }
 
   @Override
-  protected String getSelectionForegroundColorString() {
+  public String getSelectionForegroundColorString() {
     return "256fe2";
   }
 
   @Override
-  protected String getSelectionBackgroundColorString() {
+  public String getSelectionBackgroundColorString() {
     return "99ebf0";
   }
 
   @Override
-  protected String getTreeSelectionBackgroundColorString() {
+  public String getTreeSelectionBackgroundColorString() {
     return "546eec";
   }
 
   @Override
-  protected String getMenuBarSelectionForegroundColorString() {
+  public String getMenuBarSelectionForegroundColorString() {
     return "ffffff";
   }
 
   @Override
-  protected String getMenuBarSelectionBackgroundColorString() {
+  public String getMenuBarSelectionBackgroundColorString() {
     return "de0a22";
   }
 
   @Override
-  protected String getNotificationsColorString() {
+  public String getNotificationsColorString() {
     return "c3e8ff";
   }
 
   @Override
-  protected String getContrastColorString() {
+  public String getContrastColorString() {
     return "d8f2ff";
   }
 
   @Override
-  protected String getEditorTabColorString() {
+  public String getEditorTabColorString() {
     return getContrastColorString();
   }
 }
