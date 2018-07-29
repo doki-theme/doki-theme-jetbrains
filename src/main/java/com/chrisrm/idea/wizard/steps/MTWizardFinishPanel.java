@@ -64,7 +64,7 @@ public class MTWizardFinishPanel extends AbstractCustomizeWizardStep {
   @Nullable
   @Override
   protected String getHTMLFooter() {
-    return "You can always change your settings at Settings | Appearance | Material Theme";
+    return "You can always change your settings at Settings | Appearance | DDLC Theme";
   }
 
   private void initComponents() {
