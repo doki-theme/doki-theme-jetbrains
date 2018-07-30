@@ -44,7 +44,12 @@ public final class MTSayoriThemeAction extends MTAbstractThemeAction {
   @Override
   public void setSelected(final AnActionEvent e, final boolean state) {
     super.setSelected(e, state);
-    mtSkyAccentAction.actionPerformed(e);
+  }
+
+  @Override
+  public void selectionActivation() {
+    super.selectionActivation();
+    mtSkyAccentAction.setAccentToTheme();
     MTThemeManager.getInstance().activate(MTThemes.SAYORI, true);
     ClubMemberManager.getInstance().activate(MTThemes.SAYORI);
   }

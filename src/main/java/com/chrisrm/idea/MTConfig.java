@@ -21,6 +21,7 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  *  SOFTWARE.
  *
+ *
  */
 
 package com.chrisrm.idea;
@@ -28,9 +29,9 @@ package com.chrisrm.idea;
 import com.chrisrm.idea.config.BeforeConfigNotifier;
 import com.chrisrm.idea.config.ConfigNotifier;
 import com.chrisrm.idea.config.ui.ArrowsStyles;
+import com.chrisrm.idea.config.ui.IndicatorStyles;
 import com.chrisrm.idea.config.ui.MTForm;
-import com.chrisrm.idea.themes.MTThemeable;
-import com.chrisrm.idea.themes.models.MTBundledTheme;
+import com.intellij.openapi.application.ApplicationInfo;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.application.ApplicationNamesInfo;
 import com.intellij.openapi.components.PersistentStateComponent;
@@ -53,12 +54,14 @@ import java.util.Objects;
     name = "MaterialThemeConfig",
     storages = @Storage("material_theme.xml")
 )
-public class MTConfig implements PersistentStateComponent<MTConfig> {
+public class MTConfig implements PersistentStateComponent<MTConfig>, Cloneable {
   public static final String DEFAULT_BG =
       "https://github.com/cyclic-reference/jetbrains-theme/master/src/main/resources/themes/Doki_Doki_Literature_Club.png";
   public static final String ACCENT_COLOR = "80CBC4";
   public static final int MAX_HIGHLIGHT_THICKNESS = 5;
   public static final int MIN_HIGHLIGHT_THICKNESS = 1;
+  public static final int MAX_INDICATOR_THICKNESS = 5;
+  public static final int MIN_INDICATOR_THICKNESS = 1;
   public static final int MAX_TABS_HEIGHT = 60;
   public static final int MIN_TABS_HEIGHT = 18;
   public static final int MAX_TREE_INDENT = 40;
@@ -101,6 +104,7 @@ public class MTConfig implements PersistentStateComponent<MTConfig> {
   public boolean accentScrollbars = true;
   public boolean darkTitleBar = false;
   public ArrowsStyles arrowsStyle = ArrowsStyles.MATERIAL;
+  public IndicatorStyles indicatorStyle = IndicatorStyles.BORDER;
   public boolean useMaterialFont = true;
   public int tabOpacity = 50;
   public boolean compactDropdowns = false;
@@ -110,12 +114,20 @@ public class MTConfig implements PersistentStateComponent<MTConfig> {
   public boolean isDecoratedFolders = true;
   public int treeFontSize = 12;
   public Integer settingsSelectedTab = 0;
-  public boolean fileStatusColorsEnabled = false;
+  public boolean fileStatusColorsEnabled = true;
   public String userId = new UID().toString();
   public boolean allowDataCollection = false;
   public boolean treeFontSizeEnabled = false;
+  public boolean isHighContrast = false;
+  public Integer indicatorThickness = 2;
+  public boolean overrideAccentColor = false;
 
   public MTConfig() {
+  }
+
+  @Override
+  public Object clone() {
+    return XmlSerializerUtil.createCopy(this);
   }
 
   /**
@@ -131,10 +143,27 @@ public class MTConfig implements PersistentStateComponent<MTConfig> {
     return getNativeProperties();
   }
 
+  public boolean isOverrideAccentColor() {
+    return overrideAccentColor;
+  }
+
+  public void setOverrideAccentColor(final boolean overrideAccentColor) {
+    this.overrideAccentColor = overrideAccentColor;
+  }
+
+  public boolean isOverrideAccentColorChanged(final boolean overrideAccents) {
+    return overrideAccentColor != overrideAccents;
+  }
+
+  public void copyFrom(final MTConfig configCopy) {
+    XmlSerializerUtil.copyBean(configCopy, this);
+  }
+
   @NotNull
   private Map getNativeProperties() {
     final HashMap<String, Object> hashMap = new HashMap<>();
     hashMap.put("IDE", ApplicationNamesInfo.getInstance().getFullProductName());
+    hashMap.put("IDEVersion", ApplicationInfo.getInstance().getBuild().getBaselineVersion());
     hashMap.put("version", version);
     hashMap.put("selectedTheme", selectedTheme);
     hashMap.put("userId", userId);
@@ -162,6 +191,8 @@ public class MTConfig implements PersistentStateComponent<MTConfig> {
     hashMap.put("accentScrollbars", accentScrollbars);
     hashMap.put("darkTitleBar", darkTitleBar);
     hashMap.put("arrowsStyle", arrowsStyle);
+    hashMap.put("indicatorStyles", indicatorStyle);
+    hashMap.put("indicatorThickness", indicatorThickness);
     hashMap.put("useMaterialFont", useMaterialFont);
     hashMap.put("tabOpacity", tabOpacity);
     hashMap.put("compactDropdowns", compactDropdowns);
@@ -171,6 +202,8 @@ public class MTConfig implements PersistentStateComponent<MTConfig> {
     hashMap.put("treeFontSizeEnabled", treeFontSizeEnabled);
     hashMap.put("treeFontSize", treeFontSize);
     hashMap.put("fileStatusColorsEnabled", fileStatusColorsEnabled);
+    hashMap.put("isHighContrast", isHighContrast);
+    hashMap.put("overrideAccentColor", overrideAccentColor);
 
     return hashMap;
   }
@@ -187,14 +220,13 @@ public class MTConfig implements PersistentStateComponent<MTConfig> {
     return modified;
   }
 
+  /**
+   * Return the selected theme by eventually loads it if not loaded yet
+   *
+   * @return
+   */
   public MTThemeFacade getSelectedTheme() {
     MTThemeFacade themeFor = MTThemes.getThemeFor(selectedTheme);
-    if (themeFor == null) {
-      final MTBundledTheme theme = MTBundledThemesManager.getInstance().findTheme(selectedTheme);
-      if (theme != null) {
-        themeFor = MTThemes.addTheme(MTThemes.fromTheme((MTThemeable) theme));
-      }
-    }
     return ObjectUtils.notNull(themeFor, MTThemes.MONIKA);
   }
 
@@ -217,7 +249,7 @@ public class MTConfig implements PersistentStateComponent<MTConfig> {
    * @param state the MTConfig instance
    */
   @Override
-  public void loadState(final MTConfig state) {
+  public void loadState(@NotNull final MTConfig state) {
     XmlSerializerUtil.copyBean(state, this);
   }
 
@@ -275,6 +307,8 @@ public class MTConfig implements PersistentStateComponent<MTConfig> {
     accentScrollbars = true;
     darkTitleBar = false;
     arrowsStyle = ArrowsStyles.MATERIAL;
+    indicatorStyle = IndicatorStyles.BORDER;
+    indicatorThickness = 2;
     useMaterialFont = true;
     tabOpacity = 50;
     compactDropdowns = false;
@@ -285,6 +319,8 @@ public class MTConfig implements PersistentStateComponent<MTConfig> {
     treeFontSize = 12;
     treeFontSizeEnabled = false;
     fileStatusColorsEnabled = true;
+    isHighContrast = false;
+    overrideAccentColor = false;
   }
 
   public String getVersion() {
@@ -733,6 +769,35 @@ public class MTConfig implements PersistentStateComponent<MTConfig> {
   }
   // endregion
 
+  // region indicator styles
+  public IndicatorStyles getIndicatorStyle() {
+    return indicatorStyle;
+  }
+
+  public void setIndicatorStyle(final IndicatorStyles indicatorStyle) {
+    this.indicatorStyle = indicatorStyle;
+  }
+
+  public boolean isIndicatorStyleChanged(final IndicatorStyles indicatorStyle) {
+    return this.indicatorStyle != indicatorStyle;
+  }
+  // endregion
+
+  // region indicator thickness
+
+  public Integer getIndicatorThickness() {
+    return indicatorThickness;
+  }
+
+  public void setIndicatorThickness(final int indicatorThickness) {
+    this.indicatorThickness = indicatorThickness;
+  }
+
+  public boolean isIndicatorThicknessChanged(final int indicatorThickness) {
+    return this.indicatorThickness != indicatorThickness;
+  }
+  // endregion
+
   // region use material fonts
 
   public void setUseMaterialFont(final boolean useMaterialFont) {
@@ -862,6 +927,21 @@ public class MTConfig implements PersistentStateComponent<MTConfig> {
   public boolean isFileStatusColorsEnabledChanged(final boolean fileStatusColors) {
     return fileStatusColorsEnabled != fileStatusColors;
   }
+  //endregion
+
+  //region High Contrast
+  public void setIsHighContrast(final boolean isHighContrast) {
+    this.isHighContrast = isHighContrast;
+  }
+
+  public boolean getIsHighContrast() {
+    return isHighContrast;
+  }
+
+  public boolean isHighContrastChanged(final boolean isHighContrast) {
+    return this.isHighContrast != isHighContrast;
+  }
+
   //endregion
 
   //region Settings Selected Tab

@@ -44,7 +44,12 @@ public final class MTMonikaThemeAction extends MTAbstractThemeAction {
   @Override
   public void setSelected(final AnActionEvent e, final boolean state) {
     super.setSelected(e, state);
-    breakingBadAccentAction.actionPerformed(e);
+  }
+
+  @Override
+  public void selectionActivation() {
+    super.selectionActivation();
+    breakingBadAccentAction.setAccentToTheme();
     MTThemeManager.getInstance().activate(MTThemes.MONIKA, true);
     ClubMemberManager.getInstance().activate(MTThemes.MONIKA);
   }
