@@ -151,9 +151,6 @@ public class MTLafInstaller {
 
     defaults.put("TextFieldUI", DarculaTextFieldUI.class.getName());
     defaults.put("TextField.border", new DarculaTextBorder());
-    //    defaults.put("TextField.darcula.search.icon", "/com/intellij/ide/ui/laf/icons/darcula/search.png");
-    //    defaults.put("TextField.darcula.searchWithHistory.icon", "/com/intellij/ide/ui/laf/icons/darcula/searchWithHistory.png");
-    //    defaults.put("TextField.darcula.clear.icon", "/com/intellij/ide/ui/laf/icons/darcula/clear.png");
 
     defaults.put("PasswordFieldUI", DarculaPasswordFieldUI.class.getName());
     defaults.put("PasswordField.border", new DarculaTextBorder());
@@ -200,9 +197,6 @@ public class MTLafInstaller {
 
     defaults.put("TextFieldUI", DarculaTextFieldUI.class.getName());
     defaults.put("TextField.border", new DarculaTextBorder());
-    //    defaults.put("TextField.darcula.search.icon", "/com/intellij/ide/ui/laf/icons/search.png");
-    //    defaults.put("TextField.darcula.searchWithHistory.icon", "/com/intellij/ide/ui/laf/icons/searchWithHistory.png");
-    //    defaults.put("TextField.darcula.clear.icon", "/com/intellij/ide/ui/laf/icons/clear.png");
 
     defaults.put("PasswordFieldUI", DarculaPasswordFieldUI.class.getName());
     defaults.put("PasswordField.border", new DarculaTextBorder());
@@ -384,7 +378,6 @@ public class MTLafInstaller {
     defaults.put("Tree.collapsedIcon", collapsedIcon);
     defaults.put("Tree.expandedIcon", expandedIcon);
     defaults.put("Menu.arrowIcon", collapsedIcon);
-    //    defaults.put("MenuItem.arrowIcon", collapsedIcon);
     defaults.put("RadioButtonMenuItem.arrowIcon", collapsedIcon);
     defaults.put("CheckBoxMenuItem.arrowIcon", collapsedIcon);
 
@@ -440,7 +433,6 @@ public class MTLafInstaller {
 
       // Replace global settings in custom themes
       final MTThemeable selectedTheme = MTConfig.getInstance().getSelectedTheme().getTheme();
-      //      if (selectedTheme.isCustom()) {
       // todo replace other properties
       final Color backgroundColorString = selectedTheme.getBackgroundColor();
       final ColorUIResource backgroundColor = new ColorUIResource(backgroundColorString);
@@ -453,7 +445,6 @@ public class MTLafInstaller {
       darculaGlobalSettings.put("foreground", foregroundColor);
       darculaGlobalSettings.put("textForeground", foregroundColor);
       darculaGlobalSettings.put("inactiveForeground", foregroundColor);
-      //      }
 
       for (final Object key: defaults.keySet()) {
         if (key instanceof String && ((String) key).contains(".")) {

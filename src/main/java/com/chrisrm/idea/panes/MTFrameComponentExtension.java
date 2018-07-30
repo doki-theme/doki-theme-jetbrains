@@ -92,7 +92,6 @@ public final class MTFrameComponentExtension extends IdeRootPaneNorthExtension {
 
   private Component buildMTPanel() {
     myBar = new JPanel(true);
-    //    myWrapperPanel.putClientProperty("MTBarPanel", myBar);
 
     final JPanel panel = new JPanel(new BorderLayout()) {
       @Override

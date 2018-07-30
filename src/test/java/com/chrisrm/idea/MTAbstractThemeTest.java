@@ -26,7 +26,6 @@
 
 package com.chrisrm.idea;
 
-import com.chrisrm.idea.themes.MTCustomTheme;
 import com.chrisrm.idea.themes.MTLightCustomTheme;
 import com.intellij.ide.ui.laf.LafManagerImpl;
 import com.intellij.ui.JBColor;
