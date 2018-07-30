@@ -1,6 +1,12 @@
 # Changelog
 ----
 
+# 0.5.0
+
+- Now up to date with [v2.7.0](https://github.com/ChrisRM/material-theme-jetbrains/releases/tag/v2.7.0)
+    - 2018.2 Build Support!
+    - Theme Wizard!
+    
 # 0.4.7
 
 - The chibis now have toggleable emotions!
