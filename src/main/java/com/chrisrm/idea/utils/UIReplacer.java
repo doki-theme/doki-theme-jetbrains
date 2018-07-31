@@ -21,6 +21,7 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  *  SOFTWARE.
  *
+ *
  */
 
 package com.chrisrm.idea.utils;
@@ -33,7 +34,7 @@ import com.intellij.codeInsight.hint.ParameterInfoComponent;
 import com.intellij.codeInsight.lookup.impl.LookupCellRenderer;
 import com.intellij.icons.AllIcons;
 import com.intellij.ide.navigationToolbar.ui.NavBarUIManager;
-import com.intellij.ide.ui.laf.darcula.DarculaUIUtil;
+import com.intellij.ide.plugins.PluginManagerConfigurableNew;
 import com.intellij.lang.parameterInfo.ParameterInfoUIContextEx;
 import com.intellij.notification.impl.NotificationsManagerImpl;
 import com.intellij.openapi.actionSystem.ex.ActionButtonLook;
@@ -73,7 +74,7 @@ public final class UIReplacer {
   public static void patchUI() {
     try {
       Patcher.patchTables();
-      Patcher.patchStatusBar();
+      Patcher.patchGrays();
       Patcher.patchPanels();
       Patcher.patchMemoryIndicator();
       Patcher.patchQuickInfo();
@@ -86,6 +87,7 @@ public final class UIReplacer {
       Patcher.patchScopes();
       Patcher.patchNavBar();
       Patcher.patchIdeaActionButton();
+      Patcher.patchPluginPage();
     } catch (final Exception e) {
       e.printStackTrace();
     }
@@ -98,7 +100,7 @@ public final class UIReplacer {
       }
     }
 
-    static void patchStatusBar() throws Exception {
+    static void patchGrays() throws Exception {
       if (MTConfig.getInstance().isMaterialTheme()) {
         // Replace Gray with a clear and transparent color
         final Gray gray = Gray._85;
@@ -106,30 +108,15 @@ public final class UIReplacer {
         StaticPatcher.setFinalStatic(Gray.class, "_85", alphaGray);
         StaticPatcher.setFinalStatic(Gray.class, "_40", alphaGray);
         StaticPatcher.setFinalStatic(Gray.class, "_145", alphaGray);
-        //        StaticPatcher.setFinalStatic(Gray.class, "_255", alphaGray);
         StaticPatcher.setFinalStatic(Gray.class, "_201", alphaGray);
-        //        StaticPatcher.setFinalStatic(Gray.class, "x39", gray.withAlpha(25));
 
         // Quick info border
         StaticPatcher.setFinalStatic(Gray.class, "_90", gray.withAlpha(25));
 
-        // Toolbar separators
-        StaticPatcher.setFinalStatic(Gray.class, "_111", alphaGray);
-        StaticPatcher.setFinalStatic(Gray.class, "_128", alphaGray);
-
-        //        StaticPatcher.setFinalStatic(Gray.class, "_100", alphaGray);
 
         // tool window color
         final boolean dark = MTConfig.getInstance().getSelectedTheme().getThemeIsDark();
         StaticPatcher.setFinalStatic(Gray.class, "_15", dark ? Gray._15.withAlpha(255) : Gray._200.withAlpha(15));
-        // This thing doesnt work on compiled jars...
-        final Class<?> clazz = Class.forName("com.intellij.openapi.wm.impl.status.StatusBarUI$BackgroundPainter");
-
-        final Color topColor = ObjectUtils.notNull(UIManager.getColor("StatusBar.topColor"), new Color(0xcccccc));
-        StaticPatcher.setFinalStatic(clazz, "BORDER_TOP_COLOR", topColor.brighter().brighter());
-        StaticPatcher.setFinalStatic(clazz, "BORDER2_TOP_COLOR", UIManager.getColor("StatusBar.topColor2"));
-        StaticPatcher.setFinalStatic(clazz, "BORDER_BOTTOM_COLOR", UIManager.getColor("StatusBar.bottomColor"));
-        StaticPatcher.setFinalStatic(SettingsTreeView.class, "FOREGROUND", UIManager.getColor("Tree.foreground"));
       }
     }
 
@@ -144,31 +131,22 @@ public final class UIReplacer {
 
         // Captions
         final Field[] captionFields = CaptionPanel.class.getDeclaredFields();
-        // CNT_COLOR, BND_COLOR
-        Arrays.stream(captionFields).filter(f -> f.getType().equals(Color.class))
-            .forEach(field -> setField(contrastColor, field));
+        final Object[] captionObjects = Arrays.stream(captionFields).filter(f -> f.getType().equals(Color.class)).toArray();
 
-        // TOP, BOTTOM FLICK ACTIVE AND PASSIVE
-        final JBColor jbColor = new JBColor(color, color);
-        Arrays.stream(captionFields).filter(f -> f.getType().equals(JBColor.class))
-            .forEach(field -> setField(jbColor, field));
+        // CNT_COLOR, BND_COLOR
+        StaticPatcher.setFinalStatic((Field) captionObjects[0], contrastColor);
+        StaticPatcher.setFinalStatic((Field) captionObjects[1], contrastColor);
       }
 
-      final Field[] fields = DarculaUIUtil.class.getDeclaredFields();
       final Color accentColor = ColorUtil.toAlpha(ColorUtil.fromHex(MTConfig.getInstance().getAccentColor()), 100);
       final JBColor accentJBColor = new JBColor(accentColor, accentColor);
-      // REGULAR/GRAPHITE
-      Arrays.stream(fields)
-          .filter(f -> f.getType().equals(Color.class))
-          .skip(11)
-          .forEach(field -> setField(accentJBColor, field));
-
       // Action button
       final Field[] fields2 = IdeaActionButtonLook.class.getDeclaredFields();
-      Arrays.stream(fields2)
+      final Object[] objects2 = Arrays.stream(fields2)
           .filter(f -> f.getType().equals(Color.class))
-          .skip(1)
-          .forEach(field -> setField(accentJBColor, field));
+                                      .toArray();
+
+      StaticPatcher.setFinalStatic((Field) objects2[1], accentJBColor);
     }
 
     static void patchMemoryIndicator() throws Exception {
@@ -320,7 +298,6 @@ public final class UIReplacer {
     static void patchScrollbars() throws Exception {
       final boolean isTransparentScrollbars = MTConfig.getInstance().isThemedScrollbars();
       final boolean accentScrollbars = MTConfig.getInstance().isAccentScrollbars();
-      final Color accent = ColorUtil.fromHex(MTConfig.getInstance().getAccentColor());
       final Class<?> scrollPainterClass = Class.forName("com.intellij.ui.components.ScrollPainter");
 
       if (isTransparentScrollbars) {
@@ -388,7 +365,13 @@ public final class UIReplacer {
         }
       }
 
+      final Color accent;
       if (accentScrollbars) {
+        accent = ColorUtil.fromHex(MTConfig.getInstance().getAccentColor());
+      } else {
+        accent = Gray.xA6;
+      }
+
         final MyScrollPainter myScrollPainter = new MyScrollPainter(2, .28f, .27f, accent, accent);
         final Class<?> scrollPainterClass1 = Class.forName("com.intellij.ui.components.ScrollPainter$Thumb");
         final Class<?> scrollPainterClass2 = Class.forName("com.intellij.ui.components.ScrollPainter$EditorThumb");
@@ -406,7 +389,6 @@ public final class UIReplacer {
         StaticPatcher.setFinalStatic(scrollPainterClass3, "DARCULA", myScrollPainter);
         StaticPatcher.setFinalStatic(scrollPainterClass3, "DEFAULT", myScrollPainter);
       }
-    }
 
     public static void patchVCS() throws Exception {
       if (MTConfig.getInstance().isMaterialTheme()) {
@@ -457,7 +439,7 @@ public final class UIReplacer {
         return;
       }
 
-      final String disabled = MTConfig.getInstance().getSelectedTheme().getTheme().getDisabled();
+      final String disabled = MTConfig.getInstance().getSelectedTheme().getTheme().getExcludedColor();
       final JBColor disabledColor = new JBColor(ColorUtil.fromHex(disabled), ColorUtil.fromHex(disabled));
 
       final Map<String, Color> ourDefaultColors = ContainerUtil.<String, Color>immutableMapBuilder()
@@ -496,13 +478,24 @@ public final class UIReplacer {
         StaticPatcher.setFinalStatic(ActionButtonLook.class, "SYSTEM_LOOK", new MTActionButtonLook());
       }
     }
-  }
 
-  private static void setField(Color jbColor, Field field) {
-    try {
-      StaticPatcher.setFinalStatic(field, jbColor);
-    } catch (Exception e) {
-      e.printStackTrace();
+    public static void patchPluginPage() throws Exception {
+      if (!MTConfig.getInstance().isMaterialTheme()) {
+        return;
+  }
+      final Color accentColor = ColorUtil.fromHex(MTConfig.getInstance().getAccentColor());
+
+      StaticPatcher.setFinalStatic(PluginManagerConfigurableNew.class, "MAIN_BG_COLOR", UIUtil.getPanelBackground());
+      StaticPatcher.setFinalStatic(PluginManagerConfigurableNew.class, "DisabledColor", UIUtil.getLabelDisabledForeground());
+      StaticPatcher.setFinalStatic(PluginManagerConfigurableNew.class, "WhiteForeground", UIUtil.getLabelForeground());
+      StaticPatcher.setFinalStatic(PluginManagerConfigurableNew.class, "WhiteBackground", UIUtil.getLabelBackground());
+      StaticPatcher.setFinalStatic(PluginManagerConfigurableNew.class, "BlueColor", accentColor);
+      StaticPatcher.setFinalStatic(PluginManagerConfigurableNew.class, "GreenColor", accentColor);
+      StaticPatcher.setFinalStatic(PluginManagerConfigurableNew.class, "GreenFocusedBackground", ColorUtil.brighter(accentColor, 4));
+
+      final Class<?> CellPluginComponentCls = Class.forName("com.intellij.ide.plugins.PluginManagerConfigurableNew$CellPluginComponent");
+      StaticPatcher.setFinalStatic(CellPluginComponentCls, "HOVER_COLOR", UIUtil.getListSelectionBackground());
+      StaticPatcher.setFinalStatic(CellPluginComponentCls, "GRAY_COLOR", UIUtil.getLabelForeground());
     }
   }
 

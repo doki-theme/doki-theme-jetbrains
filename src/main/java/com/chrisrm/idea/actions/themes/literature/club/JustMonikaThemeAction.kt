@@ -26,29 +26,8 @@
 
 package com.chrisrm.idea.actions.themes.literature.club
 
-import com.chrisrm.idea.MTConfig
-import com.chrisrm.idea.MTThemeManager
 import com.chrisrm.idea.MTThemes
-import com.chrisrm.idea.actions.ClubMemberOrchestrator
 import com.chrisrm.idea.actions.accents.MTBreakingBadAccentAction
-import com.chrisrm.idea.actions.themes.MTBaseThemeAction
-import com.chrisrm.idea.actions.themes.ToggleThemeAction
-import com.intellij.openapi.actionSystem.AnActionEvent
+import com.chrisrm.idea.actions.themes.ClubMemberThemeAction
 
-class JustMonikaThemeAction : MTBaseThemeAction() {
-
-    override fun isSelected(e: AnActionEvent) =
-            MTConfig.getInstance().getSelectedTheme() === MTThemes.MONIKA
-
-    override fun setSelected(e: AnActionEvent, state: Boolean) =
-            JustMonikaThemeAction.setSelected(e, state)
-
-    companion object : ToggleThemeAction {
-        private val breakingBadAccentAction = MTBreakingBadAccentAction()
-        override fun setSelected(e: AnActionEvent, state: Boolean) {
-            breakingBadAccentAction.actionPerformed(e)
-            MTThemeManager.getInstance().activate(MTThemes.MONIKA, true)
-            ClubMemberOrchestrator.activate(MTThemes.MONIKA)
-        }
-    }
-}
+class JustMonikaThemeAction : ClubMemberThemeAction(MTThemes.MONIKA, MTBreakingBadAccentAction())

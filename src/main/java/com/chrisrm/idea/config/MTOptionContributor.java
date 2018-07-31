@@ -87,9 +87,15 @@ public final class MTOptionContributor extends SearchableOptionContributor {
                          displayName, true);
     processor.addOptions(MaterialThemeBundle.message("MTForm.fontSizeCheckbox.text"), null, displayName, MTConfigurable.ID,
                          displayName, true);
+    processor.addOptions(MaterialThemeBundle.message("MTForm.highContrastCheckbox.text"), null, displayName, MTConfigurable.ID,
+                         displayName, true);
     processor.addOptions(MaterialThemeBundle.message("MTForm.selectedThemeLabel.text"), null, displayName, MTConfigurable.ID,
                          displayName, true);
     processor.addOptions(MaterialThemeBundle.message("MTForm.arrowsStyleLabel.text"), null, displayName, MTConfigurable.ID,
+                         displayName, true);
+    processor.addOptions(MaterialThemeBundle.message("MTForm.selectedIndicatorLabel.text"), null, displayName, MTConfigurable.ID,
+                         displayName, true);
+    processor.addOptions(MaterialThemeBundle.message("MTForm.indicatorThicknessLabel.text"), null, displayName, MTConfigurable.ID,
                          displayName, true);
   }
 }

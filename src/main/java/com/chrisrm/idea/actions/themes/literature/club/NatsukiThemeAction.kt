@@ -26,28 +26,8 @@
 
 package com.chrisrm.idea.actions.themes.literature.club
 
-import com.chrisrm.idea.MTConfig
-import com.chrisrm.idea.MTThemeManager
 import com.chrisrm.idea.MTThemes
-import com.chrisrm.idea.actions.ClubMemberOrchestrator
 import com.chrisrm.idea.actions.accents.MTFuschiaAccentAction
-import com.chrisrm.idea.actions.themes.MTBaseThemeAction
-import com.chrisrm.idea.actions.themes.ToggleThemeAction
-import com.intellij.openapi.actionSystem.AnActionEvent
+import com.chrisrm.idea.actions.themes.ClubMemberThemeAction
 
-class NatsukiThemeAction : MTBaseThemeAction() {
-    override fun isSelected(e: AnActionEvent): Boolean =
-            MTConfig.getInstance().getSelectedTheme() === MTThemes.NATSUKI
-
-    override fun setSelected(e: AnActionEvent, state: Boolean) =
-            NatsukiThemeAction.setSelected(e, state)
-
-    companion object : ToggleThemeAction {
-        private val mtFuschiaAccentAction = MTFuschiaAccentAction()
-        override fun setSelected(e: AnActionEvent, state: Boolean) {
-            mtFuschiaAccentAction.actionPerformed(e)
-            MTThemeManager.getInstance().activate(MTThemes.NATSUKI, true)
-            ClubMemberOrchestrator.activate(MTThemes.NATSUKI)
-        }
-    }
-}
+class NatsukiThemeAction : ClubMemberThemeAction(MTThemes.NATSUKI, MTFuschiaAccentAction())

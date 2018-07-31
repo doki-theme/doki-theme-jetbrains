@@ -27,38 +27,48 @@
 package com.chrisrm.idea.actions.themes
 
 import com.chrisrm.idea.MTConfig
+import com.chrisrm.idea.MTThemeManager
+import com.chrisrm.idea.MTThemes
+import com.chrisrm.idea.actions.ClubMemberOrchestrator
+import com.chrisrm.idea.actions.accents.MTAbstractAccentAction
 import com.chrisrm.idea.tree.MTProjectViewNodeDecorator
 import com.chrisrm.idea.ui.MTButtonUI
 import com.chrisrm.idea.ui.MTTreeUI
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.ToggleAction
 
-abstract class MTBaseThemeAction : ToggleAction() {
 
-    override fun setSelected(e: AnActionEvent, state: Boolean) =
-            MTBaseThemeAction.setSelected(e, state)
-
-    /**
-     * Set button disabled if material theme is disabled
-     *
-     * @param e
-     */
-    override fun update(e: AnActionEvent) = MTBaseThemeAction.update(e)
-
-    companion object : ToggleThemeAction {
-        override fun setSelected(e: AnActionEvent, state: Boolean) {
-            MTTreeUI.resetIcons()
-            MTButtonUI.resetCache()
-            MTProjectViewNodeDecorator.resetCache()
-        }
+open class ClubMemberThemeAction(private val theme: MTThemes,
+                                 private val accentAction: MTAbstractAccentAction) : BaseThemeAction() {
+    override fun selectionActivation() {
+        super.selectionActivation()
+        accentAction.setAccentToTheme()
+        MTThemeManager.getInstance().activate(theme, true)
+        ClubMemberOrchestrator.activate(theme)
     }
+
+    override fun isSelected(e: AnActionEvent?): Boolean =
+            MTConfig.getInstance().getSelectedTheme() === theme
+
 }
 
-interface ToggleThemeAction {
+abstract class BaseThemeAction : ToggleAction() {
 
-    fun setSelected(e: AnActionEvent, state: Boolean)
+    override fun setSelected(e: AnActionEvent?, state: Boolean) {
+        selectionActivation()
+    }
 
-    fun update(e: AnActionEvent) {
+    open fun selectionActivation() {
+        MTTreeUI.resetIcons()
+        MTButtonUI.resetCache()
+        MTProjectViewNodeDecorator.resetCache()
+    }
+
+    override fun isSelected(e: AnActionEvent?): Boolean {
+        return false
+    }
+
+    override fun update(e: AnActionEvent) {
         e.presentation.isEnabled = MTConfig.getInstance().isMaterialTheme()
     }
 }

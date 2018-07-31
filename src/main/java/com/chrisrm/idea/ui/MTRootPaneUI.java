@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2017 Chris Magnussen and Elior Boukhobza
+ * Copyright (c) 2018 Chris Magnussen and Elior Boukhobza
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -26,27 +26,50 @@
 
 package com.chrisrm.idea.ui;
 
+import com.chrisrm.idea.MTConfig;
 import com.intellij.ide.ui.laf.darcula.ui.DarculaRootPaneUI;
-import com.intellij.ui.JBColor;
-import com.intellij.util.ui.JBUI;
+import com.intellij.openapi.util.SystemInfo;
+import com.intellij.openapi.util.registry.Registry;
 
 import javax.swing.*;
+import javax.swing.plaf.ComponentUI;
+import javax.swing.plaf.basic.BasicRootPaneUI;
 
 /**
  * Created by chris on 26/03/16.
- *
- * @project Material Theme UI
  */
 public final class MTRootPaneUI extends DarculaRootPaneUI {
+  public static ComponentUI createUI(final JComponent c) {
+    return isCustomDecoration() ? new MTRootPaneUI() : createDefaultWindowsRootPaneUI();
+  }
+
+  private static boolean isCustomDecoration() {
+    return SystemInfo.isMac;
+  }
+
+  private static ComponentUI createDefaultWindowsRootPaneUI() {
+    try {
+      return (ComponentUI) Class.forName("com.sun.java.swing.plaf.windows.WindowsRootPaneUI").newInstance();
+    } catch (final Exception e) {
+      return new BasicRootPaneUI();
+    }
+  }
 
   @Override
-  public void installBorder(final JRootPane root) {
-    int style = root.getWindowDecorationStyle();
+  public void installUI(final JComponent c) {
+    super.installUI(c);
+    final boolean themeIsDark = MTConfig.getInstance().getSelectedTheme().getThemeIsDark();
+    final boolean darkTitleBar = MTConfig.getInstance().isDarkTitleBar();
+    final boolean allowDarkWindowDecorations = Registry.get("ide.mac.allowDarkWindowDecorations").asBoolean();
 
-    if (style == JRootPane.NONE) {
-      LookAndFeel.uninstallBorder(root);
+    if (SystemInfo.isMac) {
+      if (darkTitleBar) {
+        c.putClientProperty("jetbrains.awt.windowDarkAppearance", themeIsDark);
+        c.putClientProperty("jetbrains.awt.transparentTitleBarAppearance", true);
     } else {
-      root.setBorder(JBUI.Borders.customLine(JBColor.WHITE, 1, 1, 1, 1));
+        c.putClientProperty("jetbrains.awt.windowDarkAppearance", themeIsDark && allowDarkWindowDecorations);
+        c.putClientProperty("jetbrains.awt.transparentTitleBarAppearance", false);
+      }
     }
   }
 }

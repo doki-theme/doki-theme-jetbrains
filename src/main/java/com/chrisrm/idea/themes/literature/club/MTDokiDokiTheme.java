@@ -84,131 +84,154 @@ public class MTDokiDokiTheme extends MTAbstractTheme {
   }
 
   @Override
-  protected String getEditorTabColorString() {
+  public String getAccentColor() {
+//    todo: this
+    return "c6ff00";
+  }
+
+  @Override
+  public String getExcludedColor() {
+//    todo: this
+    return "7E7E7E";
+  }
+
+  @Override
+  public int getOrder() {
+    return 0;
+  }
+
+  @Override
+  public String getEditorTabColorString() {
     return "def7a5";
   }
 
   //todo: important
   @Override
-  protected String getNotificationsColorString() {
+  public String getNotificationsColorString() {
     return "C3E88D";
   }
 
   //todo:important
   @Override
-  protected String getTreeSelectionBackgroundColorString() {
+  public String getTreeSelectionBackgroundColorString() {
     return "546E50";
   }
 
   @Override
-  protected String getTreeSelectionForegroundColorString() {
+  public String getTreeSelectionForegroundColorString() {
     return "FFFFFF";
   }
 
-  protected String getButtonHighlightColorString() {
+  public String getButtonHighlightColorString() {
     return "F2F1F1";
   }
 
   @Override
-  protected String getHighlightColorString() {
+  public String getHighlightColorString() {
     return "425B67";
   }
 
   @Override
-  protected String getSecondBorderColorString() {
+  public String getTreeSelectionColorString() {
+//    TODO: THIS
+    return "546e50";
+  }
+
+  @Override
+  public String getSecondBorderColorString() {
     return "d3e1e8";
   }
 
   @Override
-  protected String getTableSelectedColorString() {
+  public String getTableSelectedColorString() {
     return "def7a5";
   }
 
   @Override
-  protected String getContrastColorString() {
+  public String getContrastColorString() {
     return "F4F4F4";
   }
 
   @Override
-  protected String getDisabledColorString() {
+  public String getDisabledColorString() {
     return "000000";//TODO: IMPORTANT
   }
 
   @Override
-  protected String getSecondaryBackgroundColorString() {
+  public String getSecondaryBackgroundColorString() {
     return "d8f26e";//TODO: IMPORTANT
   }
 
 
-  protected String getCaretColorString() {
+  public String getCaretColorString() {
     return "FFCC00";
   }
 
   @Override
-  protected String getInactiveColorString() {
+  public String getInactiveColorString() {
     return "FFF4F2";
   }
 
 
-  protected String getButtonColorString() {
+  public String getButtonColorString() {
     return "FFF4F2";
   }
 
 //  todo: imporant
   @Override
-  protected String getSelectionForegroundColorString() {
+  public String getSelectionForegroundColorString() {
     return "447152";
   }
 
   //  todo: imporant
   @Override
-  protected String getMenuBarSelectionForegroundColorString() {
+  public String getMenuBarSelectionForegroundColorString() {
     return "7880a1";
   }
 
   //  todo: imporant
   @Override
-  protected String getMenuBarSelectionBackgroundColorString() {
+  public String getMenuBarSelectionBackgroundColorString() {
     return "ffffff";
   }
 
   //todo: important
   @Override
-  protected String getSelectionBackgroundColorString() {
+  public String getSelectionBackgroundColorString() {
     return "99eb99";
   }
 
   @Override
-  protected String getTextColorString() {
+  public String getTextColorString() {
     return "4d6e80";
   }
 
   //todo: this may be important
   @Override
-  protected String getForegroundColorString() {
+  public String getForegroundColorString() {
     return "546E7A";
   }
 
   @Override
-  protected String getBackgroundColorString() {
+  public String getBackgroundColorString() {
     return "fffcfc";
   }
 
   @Override
-  protected String[] getTreeSelectionBackgroundResources() {
+  public String[] getTreeSelectionBackgroundResources() {
     return new String[] {
         "Tree.selectionBackground"
     };
   }
 
   @Override
-  protected String[] getTreeSelectionForegroundResources() {
+  public String[] getTreeSelectionForegroundResources() {
     return new String[] {
         "Tree.selectionForeground"
     };
   }
 
-  protected String[] getButtonHighlightResources() {
+  public String[] getButtonHighlightResources() {
     return new String[] {
         "Button.mt.color2",
         "Button.mt.selection.color2"
@@ -216,7 +239,7 @@ public class MTDokiDokiTheme extends MTAbstractTheme {
   }
 
   @Override
-  protected String[] getHighlightResources() {
+  public String[] getHighlightResources() {
     return new String[] {
         "Focus.color",
         "TextField.separatorColor",
@@ -225,7 +248,7 @@ public class MTDokiDokiTheme extends MTAbstractTheme {
   }
 
   @Override
-  protected String[] getSecondBorderResources() {
+  public String[] getSecondBorderResources() {
     return new String[] {
         "TabbedPane.highlight",
         "TabbedPane.selected",
@@ -234,7 +257,7 @@ public class MTDokiDokiTheme extends MTAbstractTheme {
   }
 
   @Override
-  protected String[] getTableSelectedResources() {
+  public String[] getTableSelectedResources() {
     return new String[] {
         "ProgressBar.halfColor",
         "MemoryIndicator.unusedColor"
@@ -242,7 +265,7 @@ public class MTDokiDokiTheme extends MTAbstractTheme {
   }
 
   @Override
-  protected String[] getContrastResources() {
+  public String[] getContrastResources() {
     return new String[] {
         "Table.stripedBackground",
         "ScrollBar.thumb",
@@ -264,7 +287,7 @@ public class MTDokiDokiTheme extends MTAbstractTheme {
   }
 
   @Override
-  protected String[] getDisabledResources() {
+  public String[] getDisabledResources() {
     return new String[] {
         "MenuItem.disabledForeground",
         "ComboBox.disabledForeground"
@@ -272,7 +295,7 @@ public class MTDokiDokiTheme extends MTAbstractTheme {
   }
 
   @Override
-  protected String[] getSecondaryBackgroundResources() {
+  public String[] getSecondaryBackgroundResources() {
     return new String[] {
         "Separator.foreground",
         "TextField.separatorColorDisabled",
@@ -289,14 +312,14 @@ public class MTDokiDokiTheme extends MTAbstractTheme {
     };
   }
 
-  protected String[] getCaretResources() {
+  public String[] getCaretResources() {
     return new String[] {
         "mt.monika.caretForeground"
     };
   }
 
   @Override
-  protected String[] getInactiveResources() {
+  public String[] getInactiveResources() {
     return new String[] {
         "Table.gridColor",
         "MenuBar.darcula.borderColor",
@@ -307,7 +330,7 @@ public class MTDokiDokiTheme extends MTAbstractTheme {
   }
 
   @Override
-  protected Stream<String> getSelectionForegroundResources() {
+  public Stream<String> getSelectionForegroundResources() {
     return Stream.of(
             "Menu.selectionForeground",
             "Menu.acceleratorSelectionForeground",
@@ -327,7 +350,7 @@ public class MTDokiDokiTheme extends MTAbstractTheme {
   }
 
   @Override
-  protected String[] getSelectionBackgroundResources() {
+  public String[] getSelectionBackgroundResources() {
     return new String[] {
         "inactiveCaption",
         "Button.disabledText",
@@ -346,7 +369,7 @@ public class MTDokiDokiTheme extends MTAbstractTheme {
   }
 
   @Override
-  protected String[] getTextResources() {
+  public String[] getTextResources() {
     return new String[] {
         "Menu.acceleratorForeground",
         "MenuItem.acceleratorForeground",
@@ -358,7 +381,7 @@ public class MTDokiDokiTheme extends MTAbstractTheme {
   }
 
   @Override
-  protected String[] getBackgroundResources() {
+  public String[] getBackgroundResources() {
     return new String[] {
         "mt.monika.background",
         "mt.monika.textBackground",
@@ -416,7 +439,7 @@ public class MTDokiDokiTheme extends MTAbstractTheme {
   }
 
   @Override
-  protected Stream<String> getButtonBackgroundResources() {
+  public Stream<String> getButtonBackgroundResources() {
     return Stream.concat(super.getButtonBackgroundResources(), Stream.of(
         "Button.mt.color1",
         "Button.mt.background"
@@ -424,13 +447,12 @@ public class MTDokiDokiTheme extends MTAbstractTheme {
   }
 
   @NotNull
-  @Override
   public Color getBorderColor() {
     return Color.getHSBColor(62,91,149);
   }
 
   @Override
-  protected String[] getForegroundResources() {
+  public String[] getForegroundResources() {
     return new String[] {
         "mt.monika.foreground",
         "mt.monika.textForeground",

@@ -117,6 +117,21 @@ public enum MTThemes implements MTThemeFacade {
     return getTheme().getIcon();
   }
 
+  @Override
+  public String getAccentColor() {
+    return mtTheme.getAccentColor();
+  }
+
+  @Override
+  public String getExcludedColor() {
+    return mtTheme.getExcludedColor();
+  }
+
+  @Override
+  public int getOrder() {
+    return mtTheme.getOrder();
+  }
+
   /**
    * Find for a native theme or a bundled theme by its id
    *
@@ -128,7 +143,7 @@ public enum MTThemes implements MTThemeFacade {
 
   private static final Map<String, MTThemes> BETTER_THEME_MAP =  Arrays.stream(values())
       .collect(Collectors.toMap(MTThemes::getName,
-          Function.identity(),(a,b)->a, HashMap::new));
+          Function.identity(),(a,__)->a, HashMap::new));
 
   public static MTThemes getTheme(final String themeID) {
     return BETTER_THEME_MAP.getOrDefault(themeID, MONIKA);
@@ -149,8 +164,10 @@ public enum MTThemes implements MTThemeFacade {
   /**
    * Get the list of all themes (native + bundled)
    */
-  public static Collection<MTThemeFacade> getAllThemes() {
-    return THEMES_MAP.values();
+  public static Vector<MTThemeFacade> getAllThemes() {
+    final Vector<MTThemeFacade> mtThemeFacades = new Vector<>(THEMES_MAP.values());
+    mtThemeFacades.sort(Comparator.comparingInt(MTThemeFacade::getOrder));
+    return mtThemeFacades;
   }
 
   /**
@@ -197,6 +214,21 @@ public enum MTThemes implements MTThemeFacade {
       @Override
       public Icon getIcon() {
         return theme.getIcon();
+      }
+
+      @Override
+      public String getAccentColor() {
+        return theme.getAccentColor();
+      }
+
+      @Override
+      public String getExcludedColor() {
+        return theme.getExcludedColor();
+      }
+
+      @Override
+      public int getOrder() {
+        return 100;
       }
     };
   }

@@ -26,29 +26,8 @@
 
 package com.chrisrm.idea.actions.themes.literature.club
 
-import com.chrisrm.idea.MTConfig
-import com.chrisrm.idea.MTThemeManager
 import com.chrisrm.idea.MTThemes
-import com.chrisrm.idea.actions.ClubMemberOrchestrator
 import com.chrisrm.idea.actions.accents.MTAmethystAccentAction
-import com.chrisrm.idea.actions.themes.MTBaseThemeAction
-import com.chrisrm.idea.actions.themes.ToggleThemeAction
-import com.intellij.openapi.actionSystem.AnActionEvent
+import com.chrisrm.idea.actions.themes.ClubMemberThemeAction
 
-class YuriThemeAction : MTBaseThemeAction() {
-
-    override fun isSelected(e: AnActionEvent): Boolean =
-            MTConfig.getInstance().getSelectedTheme() === MTThemes.YURI
-
-    override fun setSelected(e: AnActionEvent, state: Boolean) =
-            YuriThemeAction.setSelected(e, state)
-
-    companion object : ToggleThemeAction {
-        private val mtAmethystAccentAction = MTAmethystAccentAction()
-        override fun setSelected(e: AnActionEvent, state: Boolean) {
-            mtAmethystAccentAction.actionPerformed(e)
-            MTThemeManager.getInstance().activate(MTThemes.YURI, true)
-            ClubMemberOrchestrator.activate(MTThemes.YURI)
-        }
-    }
-}
+class YuriThemeAction : ClubMemberThemeAction(MTThemes.YURI, MTAmethystAccentAction())
