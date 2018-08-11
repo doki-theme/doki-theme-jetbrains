@@ -2,16 +2,14 @@
 ✂ ---------------- ✂ ----------------- ✂ ---------------- ✂ ---------------- 
 When submitting a feature or enhancement request:
 
-1. Explain briefly what the enhancement is and why you think it would be useful.
-2. Provide any other necessary or useful information regarding your issue, such as (code) examples or related links.
+1. Briefly what your cool idea is and why you think it would be cool/useful :).
+
 
 ---
 
-When submitting a bug report, first, read the README and check if this is a known issue.
+When submitting a bug report, first, check on the Github issues if a similar issue has been posted.
 
-Then, check on the Github issues if a similar issue has been posted.
-
-If nothing of the sort, please follow the following template:
+If it is new please follow the following template (thanks for being on top of it!):
 ✂ ---------------- ✂ ----------------- ✂ ---------------- ✂ ---------------- 
 
 ### Summary
