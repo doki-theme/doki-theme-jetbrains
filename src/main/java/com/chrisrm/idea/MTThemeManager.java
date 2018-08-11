@@ -234,7 +234,7 @@ public final class MTThemeManager {
    */
   public void activate(final MTThemeFacade mtTheme, final boolean switchColorScheme) {
     MTThemeFacade newTheme = mtTheme;
-    if (newTheme == null) {
+    if (newTheme == null)
       newTheme = MTThemes.MONIKA;
     }
 
