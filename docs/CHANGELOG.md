@@ -1,6 +1,11 @@
 # Changelog
 ----
 
+# 0.5.2
+
+- Added Club Member Chibi Support on Windows!
+- More able to hide the background image when club members are toggled.
+
 # 0.5.1
 
 - Changed "Monkia" to "Monika"
