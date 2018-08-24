@@ -180,6 +180,7 @@ public final class ClubMemberManager {
 
   private void removeWeebShit() {
     PropertiesComponent.getInstance().setValue(EDITOR_PROP, null);
+    PropertiesComponent.getInstance().setValue(FRAME_PROP, null);
   }
 
   private Optional<MTThemes> getTheme() {
