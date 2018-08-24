@@ -29,6 +29,7 @@ public final class ClubMemberManager {
   private final static ClubMemberManager instance = new ClubMemberManager();
   private static final String CLUB_MEMBER_ON = "CLUB_MEMBER_ON";
   private static final String SAVED_THEME = "CLUB_MEMBER_THEME_PROPERTY";
+  public static final String RESOURCES_DIRECTORY = "https://raw.githubusercontent.com/cyclic-reference/ddlc-jetbrains-theme/master/src/main/resources";
   private final AtomicBoolean isOn = new AtomicBoolean(true);
   private MTThemes currentTheme = getSavedTheme();
 
@@ -89,7 +90,11 @@ public final class ClubMemberManager {
   }
 
   private String getFrameBackground() {
-    return "https://raw.githubusercontent.com/cyclic-reference/ddlc-jetbrains-theme/master/src/main/resources/themes/" + getLiteratureClubMember();
+    return RESOURCES_DIRECTORY + "/themes/" + getLiteratureClubMember();
+  }
+
+  private String getClubMemberFallback() {
+    return RESOURCES_DIRECTORY + "/club_members/" + getLiteratureClubMember();
   }
 
   private void setProperty(String imagePath, String opacity, String fill, String anchor, String editorProp) {
@@ -106,7 +111,8 @@ public final class ClubMemberManager {
     Path weebStuff = Paths.get(".", theAnimesPath).normalize().toAbsolutePath();
     if (!Files.exists(weebStuff) || hasNoContents(weebStuff)) {
       creatDirectories(weebStuff);
-      copyAnimes(theAnimesPath, weebStuff);
+      return copyAnimes(theAnimesPath, weebStuff)
+          .orElseGet(this::getClubMemberFallback);
     }
     return weebStuff.toString();
   }
@@ -150,14 +156,16 @@ public final class ClubMemberManager {
     }
   }
 
-  private void copyAnimes(String theAnimesPath, Path weebStuff) {
+  private Optional<String> copyAnimes(String theAnimesPath, Path weebStuff) {
     try (InputStream inputStream = new BufferedInputStream(this.getClass()
         .getClassLoader()
         .getResourceAsStream(theAnimesPath));
          OutputStream bufferedWriter = Files.newOutputStream(weebStuff, StandardOpenOption.CREATE)) {
       copy(inputStream, bufferedWriter);
+      return Optional.of(weebStuff)
+          .map(Path::toString);
     } catch (IOException e) {
-      e.printStackTrace();
+      return Optional.empty();
     }
   }
 
@@ -172,6 +180,7 @@ public final class ClubMemberManager {
 
   private void removeWeebShit() {
     PropertiesComponent.getInstance().setValue(EDITOR_PROP, null);
+    PropertiesComponent.getInstance().setValue(FRAME_PROP, null);
   }
 
   private Optional<MTThemes> getTheme() {
