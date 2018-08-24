@@ -1,6 +1,10 @@
 # Changelog
 ----
 
+# 0.5.1
+
+- Changed "Monkia" to "Monika"
+    
 # 0.5.0
 
 - Now up to date with [v2.7.0](https://github.com/ChrisRM/material-theme-jetbrains/releases/tag/v2.7.0)
