@@ -35,6 +35,7 @@ import com.chrisrm.idea.actions.themes.MTAbstractThemeAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 
 public final class MTMonikaThemeAction extends MTAbstractThemeAction {
+
   private final MTBreakingBadAccentAction breakingBadAccentAction = new MTBreakingBadAccentAction();
   @Override
   public boolean isSelected(final AnActionEvent e) {
@@ -52,5 +53,10 @@ public final class MTMonikaThemeAction extends MTAbstractThemeAction {
     breakingBadAccentAction.setAccentToTheme();
     MTThemeManager.getInstance().activate(MTThemes.MONIKA, true);
     ClubMemberManager.getInstance().activate(MTThemes.MONIKA);
+  }
+
+  @Override
+  protected MTThemes getTheme() {
+    return MTThemes.MONIKA;
   }
 }

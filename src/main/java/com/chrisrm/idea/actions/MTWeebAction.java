@@ -1,5 +1,6 @@
 package com.chrisrm.idea.actions;
 
+import com.chrisrm.idea.MTThemes;
 import com.chrisrm.idea.actions.themes.MTAbstractThemeAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 
@@ -14,5 +15,11 @@ public class MTWeebAction extends MTAbstractThemeAction {
   public void setSelected(final AnActionEvent e, final boolean state) {
     ClubMemberManager instance = ClubMemberManager.getInstance();
     instance.toggleWeebShit();
+  }
+
+  // :|
+  @Override
+  protected MTThemes getTheme() {
+    return MTThemes.MONIKA;
   }
 }

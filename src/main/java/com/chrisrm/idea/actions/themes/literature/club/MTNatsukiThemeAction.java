@@ -52,4 +52,10 @@ public final class MTNatsukiThemeAction extends MTAbstractThemeAction {
     MTThemeManager.getInstance().activate(MTThemes.NATSUKI, true);
     ClubMemberManager.getInstance().activate(MTThemes.NATSUKI);
   }
+
+
+  @Override
+  protected MTThemes getTheme() {
+    return MTThemes.NATSUKI;
+  }
 }
