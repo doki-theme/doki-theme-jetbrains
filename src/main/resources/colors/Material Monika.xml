@@ -48,7 +48,6 @@
         <option name="ADDED_LINES_COLOR" value="D3FAFF"/>
         <option name="MODIFIED_LINES_COLOR" value="BFFFC1"/>
         <option name="DELETED_LINES_COLOR" value="EBEBEB"/>
-        <option name="ANNOTATIONS_COLOR" value="E98753"/>
         <!--TODO: IMPORTANT-->
         <option name="CARET_COLOR" value="000000"/>
         <!--TODO: IMPORTANT-->
@@ -116,11 +115,12 @@
         <option name="SELECTED_TEARLINE_COLOR" value="94ff9d"/>
         <option name="TEARLINE_COLOR" value="94ff9d"/>
         <option name="TOOLTIP" value="FFF4F2"/>
-        <option name="VCS_ANNOTATIONS_COLOR_1" value="a7fff8"/>
-        <option name="VCS_ANNOTATIONS_COLOR_2" value="8cdcd5"/>
-        <option name="VCS_ANNOTATIONS_COLOR_3" value="ffffff"/>
-        <option name="VCS_ANNOTATIONS_COLOR_4" value="ff0a79"/>
-        <option name="VCS_ANNOTATIONS_COLOR_5" value="E98753"/>
+        <option name="ANNOTATIONS_COLOR" value="1A341A"/>
+        <option name="VCS_ANNOTATIONS_COLOR_1" value="73D6C8"/>
+        <option name="VCS_ANNOTATIONS_COLOR_2" value="93D674"/>
+        <option name="VCS_ANNOTATIONS_COLOR_3" value="19D669"/>
+        <option name="VCS_ANNOTATIONS_COLOR_4" value="B5D612"/>
+        <option name="VCS_ANNOTATIONS_COLOR_5" value="6DE291"/>
         <option name="WHITESPACES" value="cfd8dc"/>
     </colors>
     <attributes>

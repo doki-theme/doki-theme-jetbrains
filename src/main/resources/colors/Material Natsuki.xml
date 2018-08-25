@@ -48,7 +48,6 @@
         <option name="ADDED_LINES_COLOR" value="D0FDC9"/>
         <option name="MODIFIED_LINES_COLOR" value="FFC3EE"/>
         <option name="DELETED_LINES_COLOR" value="EBEBEB"/>
-        <option name="ANNOTATIONS_COLOR" value="FF0069"/>
         <!--TODO: IMPORTANT-->
         <option name="CARET_COLOR" value="ff79c9"/>
         <!--TODO: IMPORTANT-->
@@ -116,11 +115,12 @@
 
         <option name="SOFT_WRAP_SIGN_COLOR" value="4f6269"/>
         <option name="TOOLTIP" value="FFF4F2"/>
-        <option name="VCS_ANNOTATIONS_COLOR_1" value="a7fff8"/>
-        <option name="VCS_ANNOTATIONS_COLOR_2" value="8cdcd5"/>
-        <option name="VCS_ANNOTATIONS_COLOR_3" value="ffffff"/>
-        <option name="VCS_ANNOTATIONS_COLOR_4" value="ff0a79"/>
-        <option name="VCS_ANNOTATIONS_COLOR_5" value="BE18FF"/>
+        <option name="ANNOTATIONS_COLOR" value="341C2B"/>
+        <option name="VCS_ANNOTATIONS_COLOR_1" value="D67EC0"/>
+        <option name="VCS_ANNOTATIONS_COLOR_2" value="D39FD6"/>
+        <option name="VCS_ANNOTATIONS_COLOR_3" value="D65588"/>
+        <option name="VCS_ANNOTATIONS_COLOR_4" value="D57BD6"/>
+        <option name="VCS_ANNOTATIONS_COLOR_5" value="E2A4DB"/>
         <option name="WHITESPACES" value="cfd8dc"/>
     </colors>
     <attributes>
