@@ -26,6 +26,7 @@
 
 package com.chrisrm.idea.actions.themes
 
+import com.chrisrm.idea.MTAnalytics
 import com.chrisrm.idea.MTConfig
 import com.chrisrm.idea.MTThemeManager
 import com.chrisrm.idea.MTThemes
@@ -45,6 +46,7 @@ open class ClubMemberThemeAction(private val theme: MTThemes,
         accentAction.setAccentToTheme()
         MTThemeManager.getInstance().activate(theme, true)
         ClubMemberOrchestrator.activate(theme)
+        MTAnalytics.getInstance().track(MTAnalytics.SELECT_THEME, theme);
     }
 
     override fun isSelected(e: AnActionEvent?): Boolean =

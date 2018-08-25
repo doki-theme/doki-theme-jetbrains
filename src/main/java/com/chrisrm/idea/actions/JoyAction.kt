@@ -18,5 +18,4 @@ class JoyAction: BaseThemeAction() {
         val selectedTheme = MTConfig.getInstance().getSelectedTheme() as MTThemes
         ClubMemberOrchestrator.activate(selectedTheme)
     }
-    override fun getTheme(): MTThemes = MTThemes.MONIKA
 }
