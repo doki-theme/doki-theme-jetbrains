@@ -9,6 +9,8 @@ import com.intellij.openapi.actionSystem.AnActionEvent
  * Forged in the flames of battle by alex.
  */
 class JoyAction: MTAbstractThemeAction() {
+    override fun getTheme(): MTThemes = MTThemes.MONIKA
+
     override fun isSelected(e: AnActionEvent?) = JoyManager.isOn()
 
     // todo: will need to integrate with the new stuff on master.

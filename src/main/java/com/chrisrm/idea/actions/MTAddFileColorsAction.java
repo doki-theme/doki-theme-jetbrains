@@ -25,6 +25,7 @@
 
 package com.chrisrm.idea.actions;
 
+import com.chrisrm.idea.MTAnalytics;
 import com.chrisrm.idea.messages.MaterialThemeBundle;
 import com.chrisrm.idea.themes.literature.club.MTMonikaTheme;
 import com.chrisrm.idea.utils.Notify;
@@ -68,5 +69,7 @@ public final class MTAddFileColorsAction extends AnAction {
                         "File Colors"), ModalityState.NON_MODAL);
                   }
                 });
+
+    MTAnalytics.getInstance().track(MTAnalytics.ADD_FILE_COLORS);
   }
 }

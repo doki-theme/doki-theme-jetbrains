@@ -53,4 +53,10 @@ public final class MTYuriThemeAction extends MTAbstractThemeAction {
     MTThemeManager.getInstance().activate(MTThemes.YURI, true);
     ClubMemberManager.getInstance().activate(MTThemes.YURI);
   }
+
+
+  @Override
+  protected MTThemes getTheme() {
+    return MTThemes.YURI;
+  }
 }

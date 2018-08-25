@@ -46,7 +46,7 @@ import com.intellij.util.ui.UIUtil;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
-import javax.swing.plaf.ColorUIResource;
+import javax.swing.plaf.*;
 import java.awt.*;
 import java.io.IOException;
 import java.io.InputStream;
@@ -180,6 +180,8 @@ public class MTLafInstaller {
     defaults.put("OptionButtonUI", DarculaOptionButtonUI.class.getName());
     defaults.put("grayFilter", new UIUtil.GrayFilter(-100, -100, 100));
     defaults.put("text.grayFilter", new UIUtil.GrayFilter(-15, -10, 100));
+
+    defaults.put("RootPaneUI", DarculaRootPaneUI.class.getName());
   }
 
   protected void installLightDefaults(final UIDefaults defaults) {

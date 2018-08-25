@@ -53,4 +53,10 @@ public final class MTSayoriThemeAction extends MTAbstractThemeAction {
     MTThemeManager.getInstance().activate(MTThemes.SAYORI, true);
     ClubMemberManager.getInstance().activate(MTThemes.SAYORI);
   }
+
+
+  @Override
+  protected MTThemes getTheme() {
+    return MTThemes.SAYORI;
+  }
 }
