@@ -29,7 +29,6 @@ package com.chrisrm.idea.config.ui;
 import com.chrisrm.idea.icons.tinted.TintedIconsService;
 import com.intellij.icons.AllIcons;
 import com.intellij.openapi.util.IconLoader;
-import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
 
@@ -69,7 +68,6 @@ public enum ArrowsStyles {
     return collapsedIcon;
   }
 
-  @NotNull
   public Icon getIcon() {
     final String icon = getCollapsedIcon();
     if (icon == null) {

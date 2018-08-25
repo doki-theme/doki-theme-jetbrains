@@ -42,7 +42,18 @@ public final class Notify {
    *
    * @param project  current project
    */
-  public static final String CHANNEL = "MATERIAL_THEME";
+  public static final String CHANNEL = "DDLC_THEME";
+
+  public static void showUpdate(@NotNull final Project project, final NotificationListener listener) {
+    show(
+        project,
+        MaterialThemeBundle.message("notification.update.title", MTUiUtils.getVersion()),
+        MaterialThemeBundle.message("notification.update.content"),
+        CHANNEL + "_UPDATE",
+        NotificationType.INFORMATION,
+        listener
+    );
+  }
 
   public static void showUpdate(@NotNull final Project project) {
     show(

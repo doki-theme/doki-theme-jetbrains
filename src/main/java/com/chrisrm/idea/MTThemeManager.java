@@ -47,6 +47,7 @@ import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.components.ServiceManager;
 import com.intellij.openapi.editor.colors.EditorColorsManager;
 import com.intellij.openapi.editor.colors.EditorColorsScheme;
+import com.intellij.openapi.editor.colors.impl.AppEditorFontOptions;
 import com.intellij.openapi.extensions.PluginId;
 import com.intellij.openapi.fileTypes.ex.FileTypeManagerEx;
 import com.intellij.openapi.ui.Messages;
@@ -61,15 +62,15 @@ import com.intellij.util.ui.UIUtil;
 import sun.awt.AppContext;
 
 import javax.swing.*;
-import javax.swing.plaf.FontUIResource;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
+import javax.swing.plaf.*;
+import javax.swing.text.html.*;
 import java.awt.*;
 import java.lang.reflect.Field;
 import java.net.URL;
 
 import static com.chrisrm.idea.MTHackComponent.BOLD_TABS;
 import static com.chrisrm.idea.MTHackComponent.TABS_HEIGHT;
+import static com.intellij.ide.ui.laf.LafManagerImpl.installMacOSXFonts;
 
 public final class MTThemeManager {
 
@@ -352,7 +353,8 @@ public final class MTThemeManager {
     final FontUIResource uiFont = new FontUIResource(fontFace, Font.PLAIN, fontSize);
     final FontUIResource textFont = new FontUIResource("Serif", Font.PLAIN, fontSize);
 
-    final String monospaceFont = ObjectUtils.notNull(EditorColorsManager.getInstance().getGlobalScheme().getEditorFontName(), "Fira Code");
+    final String editorFontName = AppEditorFontOptions.getInstance().getFontPreferences().getFontFamily();
+    final String monospaceFont = ObjectUtils.notNull(editorFontName, "Fira Code");
     final FontUIResource monoFont = new FontUIResource(monospaceFont, Font.PLAIN, fontSize);
 
     // Keep old style and size
@@ -381,6 +383,10 @@ public final class MTThemeManager {
       final Font roboto = MTUiUtils.findFont(MTThemeManager.DEFAULT_FONT);
       if (roboto != null) {
         applyCustomFonts(lookAndFeelDefaults, MTThemeManager.DEFAULT_FONT, JBUI.scale(MTThemeManager.DEFAULT_FONT_SIZE));
+      }
+    } else {
+      if (SystemInfo.isMacOSYosemite) {
+        installMacOSXFonts(UIManager.getLookAndFeelDefaults());
       }
     }
 
