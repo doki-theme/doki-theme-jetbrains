@@ -1,6 +1,10 @@
 # Changelog
 ----
 
+# 0.5.3
+
+- Version control annotations are now actually usable.
+
 # 0.5.2
 
 - Added Club Member Chibi Support on Windows!
