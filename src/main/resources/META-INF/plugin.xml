@@ -143,7 +143,7 @@
 
             <action id="MTMonikaTheme" class="com.chrisrm.idea.actions.themes.literature.club.JustMonikaThemeAction"
                     text="Just Monika" description="Just Monika"
-                    icon="/icons/actions/themes/material_monkia@2x.png">
+                    icon="/icons/actions/themes/material_monika@2x.png">
             </action>
             <separator/>
             <action id="MTSayoriTheme" class="com.chrisrm.idea.actions.themes.literature.club.SayoriThemeAction"
@@ -164,7 +164,7 @@
                icon="/icons/actions/mt/layers.svg">
             <add-to-group group-id="MainToolBar" anchor="last"/>
             <action class="com.chrisrm.idea.actions.MTWeebAction" id="MTWeeb" text="Toggle Club Member"
-                    icon="/icons/actions/themes/material_monkia.png"
+                    icon="/icons/actions/themes/material_monika.png"
                     description="Toggle Contrast"/>
             <action class="com.chrisrm.idea.actions.DarkModeAction" id="DarkMode" text="Toggle Dark Mode"
                     icon="/icons/actions/themes/material_monkia_dark.png"

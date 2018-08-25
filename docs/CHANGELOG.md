@@ -1,6 +1,19 @@
 # Changelog
 ----
 
+# 0.5.3
+
+- Version control annotations are now actually usable.
+
+# 0.5.2
+
+- Added Club Member Chibi Support on Windows!
+- More able to hide the background image when club members are toggled.
+
+# 0.5.1
+
+- Changed "Monkia" to "Monika"
+    
 # 0.5.0
 
 - Now up to date with [v2.7.0](https://github.com/ChrisRM/material-theme-jetbrains/releases/tag/v2.7.0)
