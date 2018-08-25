@@ -1,6 +1,10 @@
 # Changelog
 ----
 
+# 0.6.0
+
+- Up to date with upstream's version 2.8.2 
+
 # 0.5.3
 
 - Version control annotations are now actually usable.
