@@ -29,7 +29,7 @@ class DeletedCharacterTheme: MTDokiDokiTheme("deleted.character", "Deleted Chara
 
     override fun getNotificationsColorString(): String = "5E94B8"
 
-    override fun getContrastColorString(): String = "9ABBFF"
+    override fun getContrastColorString(): String = "5E6E92"
 
 
     override fun getEditorTabColorString(): String = contrastColorString

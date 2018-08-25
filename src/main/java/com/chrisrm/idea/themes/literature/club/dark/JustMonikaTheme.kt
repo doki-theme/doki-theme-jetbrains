@@ -29,7 +29,7 @@ class JustMonikaTheme: MTDokiDokiTheme("just.monika", "Just Monika", true, "Moni
 
     override fun getNotificationsColorString(): String = "76B87B"
 
-    override fun getContrastColorString(): String = "71AC58"
+    override fun getContrastColorString(): String = "4A7B3D"
 
 
     override fun getEditorTabColorString(): String = contrastColorString
