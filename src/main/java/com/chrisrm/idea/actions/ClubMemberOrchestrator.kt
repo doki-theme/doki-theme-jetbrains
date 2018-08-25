@@ -14,6 +14,7 @@ import java.nio.file.Paths
 import java.nio.file.StandardOpenOption.CREATE
 import java.nio.file.StandardOpenOption.TRUNCATE_EXISTING
 import java.nio.file.attribute.BasicFileAttributeView
+import java.util.*
 import java.util.concurrent.atomic.AtomicBoolean
 
 /**
@@ -22,6 +23,8 @@ import java.util.concurrent.atomic.AtomicBoolean
 object ClubMemberOrchestrator {
     private const val CLUB_MEMBER_ON = "CLUB_MEMBER_ON"
     private const val SAVED_THEME = "CLUB_MEMBER_THEME_PROPERTY"
+    private const val RESOURCES_DIRECTORY = "https://raw.githubusercontent.com/cyclic-reference/ddlc-jetbrains-theme/master/src/main/resources"
+
     private val isOn = AtomicBoolean(true)
     private var currentTheme = getSavedTheme()
 
@@ -56,6 +59,7 @@ object ClubMemberOrchestrator {
 
     private fun removeWeebShit() {
         PropertiesComponent.getInstance().unsetValue(EDITOR_PROP)
+        PropertiesComponent.getInstance().unsetValue(FRAME_PROP)
     }
 
     private fun handleWeebShit(weebShitIsOn: Boolean) {
@@ -98,7 +102,8 @@ object ClubMemberOrchestrator {
         val weebStuff = Paths.get(".", theAnimesPath).normalize().toAbsolutePath()
         if (shouldLoadLocally(weebStuff)) {
             createDirectories(weebStuff)
-            copyAnimes(theAnimesPath, weebStuff)
+            return copyAnimes(theAnimesPath, weebStuff)
+                    .orElseGet(this::getClubMemberFallback)
         }
         return weebStuff.toString()
     }
@@ -125,19 +130,21 @@ object ClubMemberOrchestrator {
         }
     }
 
-    private fun copyAnimes(theAnimesPath: String, weebStuff: Path) {
-        try {
-            BufferedInputStream(this.javaClass
-                    .classLoader
-                    .getResourceAsStream(theAnimesPath)).use { inputStream ->
-                Files.newOutputStream(weebStuff, CREATE, TRUNCATE_EXISTING).use { bufferedWriter ->
-                    IOUtils.copy(inputStream, bufferedWriter)
+    private fun copyAnimes(theAnimesPath: String, weebStuff: Path) =
+            try {
+                BufferedInputStream(this.javaClass
+                        .classLoader
+                        .getResourceAsStream(theAnimesPath)).use { inputStream ->
+                    Files.newOutputStream(weebStuff, CREATE, TRUNCATE_EXISTING).use { bufferedWriter ->
+                        IOUtils.copy(inputStream, bufferedWriter)
+                    }
                 }
+                Optional.of(weebStuff)
+                        .map { it.toString() }
+            } catch (e: IOException) {
+                Optional.empty<String>()
             }
-        } catch (e: IOException) {
-            e.printStackTrace()
-        }
-    }
+
 
     private fun getLiteratureClubMember() =
             getTheme().literatureClubMember
@@ -147,7 +154,11 @@ object ClubMemberOrchestrator {
     }
 
     private fun getFrameBackground(): String {
-        return "https://raw.githubusercontent.com/cyclic-reference/ddlc-jetbrains-theme/master/src/main/resources/themes/" + getLiteratureClubMember()
+        return RESOURCES_DIRECTORY + "/themes/" + getLiteratureClubMember()
+    }
+
+    private fun getClubMemberFallback(): String {
+        return RESOURCES_DIRECTORY + "/club_members/" + getLiteratureClubMember()
     }
 
     private fun setProperty(imagePath: String,
