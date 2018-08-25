@@ -1249,20 +1249,20 @@
         </option>
         <option name="INLINE_PARAMETER_HINT">
             <value>
-                <option name="FOREGROUND" value="546E7A"/>
-                <option name="BACKGROUND" value="F4F4F4"/>
+                <option name="FOREGROUND" value="9789CE"/>
+                <option name="BACKGROUND" value="371259"/>
             </value>
         </option>
         <option name="INLINE_PARAMETER_HINT_CURRENT">
             <value>
-                <option name="FOREGROUND" value="ffffff"/>
-                <option name="BACKGROUND" value="3F51B5"/>
+                <option name="FOREGROUND" value="9789CE"/>
+                <option name="BACKGROUND" value="371259"/>
             </value>
         </option>
         <option name="INLINE_PARAMETER_HINT_HIGHLIGHTED">
             <value>
-                <option name="FOREGROUND" value="546E7A"/>
-                <option name="BACKGROUND" value="D2D4D5"/>
+                <option name="FOREGROUND" value="9789CE"/>
+                <option name="BACKGROUND" value="371259"/>
             </value>
         </option>
         <option name="INSTANCE_FIELD_ATTRIBUTES">
@@ -3113,7 +3113,7 @@
         <option name="ReSharper.HINT">
             <value>
                 <option name="FOREGROUND" value="808080"/>
-                <option name="EFFECT_COLOR" value="B02FDF"/>
+                <option name="EFFECT_COLOR" value="38174F"/>
                 <option name="EFFECT_TYPE" value="5"/>
             </value>
         </option>
