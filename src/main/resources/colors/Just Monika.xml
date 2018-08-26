@@ -80,7 +80,7 @@
         <!--todo: important -->
         <option name="LINE_NUMBERS_COLOR" value="aadd5d"/>
         <option name="INDENT_GUIDE" value="6D8765"/>
-        <option name="INFORMATION_HINT" value="f3f5f6"/>
+        <option name="INFORMATION_HINT" value="1B361B"/>
         <option name="METHOD_SEPARATORS_COLOR" value="6D8765"/>
         <option name="MT_ADDED" value="5EB800"/>
         <option name="MT_DELETED" value="48C200"/>
@@ -3136,7 +3136,7 @@
                 <option name="FOREGROUND" value="48C200"/>
             </value>
         </option>
-        <option name="SEARCH_RESULT_ATTRIBUTES">
+        <option name="SEARCH_RESULT_ATTRIBUTEnS">
             <value>
                 <option name="BACKGROUND" value="09290E"/>
             </value>
