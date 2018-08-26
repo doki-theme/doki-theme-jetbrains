@@ -343,7 +343,11 @@ public class MTDokiDokiTheme extends MTAbstractTheme {
             "Label.selectedForeground",
             "Button.darcula.selectedButtonForeground",
             "PopupMenu.background",
-            "Separator.background"
+            "Separator.background",
+            "Button.darcula.selectedButtonForeground",
+            "PasswordField.selectionForeground",
+            "TextField.selectionForeground",
+            "TextArea.selectionForeground"
 
         );
   }
@@ -363,7 +367,11 @@ public class MTDokiDokiTheme extends MTAbstractTheme {
         "Button.mt.selectedBackground",
         "TextArea.selectionBackground",
         "Label.selectedBackground",
-        "Button.darcula.selectedButtonBackground"
+        "Button.darcula.selectedButtonBackground",
+        "PasswordField.selectionBackground",
+        "TextField.selectionBackground",
+        "TextArea.selectionBackground",
+        "TabbedPane.selected"
     };
   }
 

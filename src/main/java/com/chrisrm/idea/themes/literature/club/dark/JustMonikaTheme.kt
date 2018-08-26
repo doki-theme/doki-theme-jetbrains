@@ -17,11 +17,11 @@ class JustMonikaTheme: MTDokiDokiTheme("just.monika", "Just Monika", true, "Moni
 
     override fun getSecondaryForegroundColorString(): String = "6f9a65"
 
-    override fun getSelectionForegroundColorString(): String = "afd1a3"
+    override fun getSelectionForegroundColorString(): String = "FFFFFF"
 
-    override fun getSelectionBackgroundColorString(): String = "6f9a65"
+    override fun getSelectionBackgroundColorString(): String = "628759"
 
-    override fun getTreeSelectionBackgroundColorString(): String = "65B564"
+    override fun getTreeSelectionBackgroundColorString(): String = "3D7B3D"
 
     override fun getMenuBarSelectionForegroundColorString(): String = "ffffff"
 

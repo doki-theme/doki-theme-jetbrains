@@ -572,7 +572,6 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
         "textInactiveText",
         "infoText",
         "controlText",
-        "Notifications.foreground",
         "OptionPane.messageForeground",
         "MenuItem.acceleratorForeground",
         "TextField.separatorColorDisabled",
