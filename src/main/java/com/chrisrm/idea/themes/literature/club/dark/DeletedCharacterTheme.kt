@@ -31,5 +31,12 @@ class DeletedCharacterTheme: MTDokiDokiTheme("deleted.character", "Deleted Chara
 
     override fun getContrastColorString(): String = "1B323F"
 
+    override fun getButtonBackgroundColor(): String = contrastColorString
+
+    override fun getButtonForegroundColor(): String = "26A8E8"
+
+    override fun getTextColorString(): String = "6BB2CE"
+
     override fun getEditorTabColorString(): String = contrastColorString
+
 }

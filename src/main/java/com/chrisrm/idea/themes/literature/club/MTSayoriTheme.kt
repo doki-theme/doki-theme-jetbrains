@@ -27,4 +27,8 @@ class MTSayoriTheme : MTDokiDokiTheme("mt.sayori", "Material Sayori", false, "Sa
     override fun getContrastColorString(): String = "d8f2ff"
 
     override fun getEditorTabColorString(): String = contrastColorString
+
+    override fun getButtonBackgroundColor(): String = contrastColorString
+
+    override fun getButtonForegroundColor(): String = "00559A"
 }
