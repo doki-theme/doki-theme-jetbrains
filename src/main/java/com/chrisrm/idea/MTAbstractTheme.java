@@ -121,6 +121,7 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
       IconLoader.setUseDarkIcons(isDark());
       buildResources(getBackgroundResources(), contrastifyBackground(getBackgroundColorString()));
       buildResources(getButtonBackgroundResources(), getButtonBackgroundColor());
+      buildResources(getButtonForegroundResources(), getButtonForegroundColor());
       buildResources(getForegroundResources(), getForegroundColorString());
       buildResources(getMenuItemForegroundResources(), getMenuItemForegroundColor());
       buildResources(getTextResources(), contrastifyForeground(getTextColorString()));
@@ -160,6 +161,10 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
     } catch (final UnsupportedLookAndFeelException e) {
       e.printStackTrace();
     }
+  }
+
+  public String getButtonForegroundColor() {
+    return "C700A5";
   }
 
   //region Getters/Setters
@@ -538,6 +543,14 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
         "ToolWindow.header.closeButton.background");
   }
 
+  protected Stream<String> getButtonForegroundResources() {
+    return Stream.of(
+        "Button.foreground",
+        "Button.mt.foreground",
+        "Button.mt.selectedButtonForeground",
+        "ToolWindow.header.closeButton.foreground");
+  }
+
 
   protected String getButtonBackgroundColor() {
     return "fbffeb";
@@ -566,8 +579,6 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
         "material.tagColor",
         "material.primaryColor",
         "SearchEverywhere.shortcutForeground",
-        "Button.foreground",
-        "Button.mt.foreground",
         "HelpTooltip.shortcutTextColor",
         "Tree.foreground"
     };
@@ -672,9 +683,7 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
     return new String[]{
         "ToolWindow.header.active.foreground",
         "ToolWindow.header.border.foreground",
-        "List.foreground",
-        "Button.mt.foreground",
-        "Button.foreground"
+        "List.foreground"
     };
   }
 

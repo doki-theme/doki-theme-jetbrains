@@ -31,6 +31,9 @@ class JustMonikaTheme: MTDokiDokiTheme("just.monika", "Just Monika", true, "Moni
 
     override fun getContrastColorString(): String = "244020"
 
+    override fun getButtonBackgroundColor(): String = contrastColorString
+
+    override fun getButtonForegroundColor(): String = "6f9a65"
 
     override fun getEditorTabColorString(): String = contrastColorString
 }
