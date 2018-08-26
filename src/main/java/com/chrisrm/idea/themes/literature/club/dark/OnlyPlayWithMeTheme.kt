@@ -8,7 +8,7 @@ class OnlyPlayWithMeTheme: MTDokiDokiTheme("natsuki.dark", "Only Play With Me", 
 
     override fun getClubMember(): String = "natsuki_dark.png"
 
-    override fun joyfulClubMember(): String = "natsuki.png"
+    override fun joyfulClubMember(): String = "natsuki_dark_joy.png"
 
     override fun getSecondaryBackgroundColorString(): String = "50A2C7"
 
