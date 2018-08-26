@@ -225,9 +225,7 @@ public final class MTButtonUI extends DarculaButtonUI {
   @NotNull
   private Color buttonFg() {
     if (buttonFg == null) {
-      Color color = UIManager.getColor("Button.mt.foreground");
-      System.out.println("primary mt" + color);
-      buttonFg = MTUiUtils.getColor(color,
+      buttonFg = MTUiUtils.getColor(UIManager.getColor("Button.mt.foreground"),
                                     ObjectUtils.notNull(UIManager.getColor("Button.darcula.foreground"), new ColorUIResource(0xbbbbbb)),
                                     ObjectUtils.notNull(UIManager.getColor("Button.darcula.foreground"), new ColorUIResource(0x000000)));
     }
@@ -236,9 +234,7 @@ public final class MTButtonUI extends DarculaButtonUI {
 
   private Color buttonPrimaryFg() {
     if (buttonPrimaryFg == null) {
-      Color color = UIManager.getColor("Button.mt.foreground");
-      System.out.println("primary mtmt " + color);
-      final Color foregroundColor = MTUiUtils.getColor(color,
+      final Color foregroundColor = MTUiUtils.getColor(UIManager.getColor("Button.mt.foreground"),
                                                        ObjectUtils.notNull(UIManager.getColor("Button.darcula.foreground"),
                                                                            new ColorUIResource(0xbbbbbb)),
                                                        ObjectUtils.notNull(UIManager.getColor("Button.darcula.foreground"),
