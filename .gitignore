@@ -11,6 +11,8 @@ out/
 build/
 classes/
 
+club_members/
+
 #gradle.properties
 *.icls
 src/test/resources/

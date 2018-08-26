@@ -3138,8 +3138,7 @@
         </option>
         <option name="SEARCH_RESULT_ATTRIBUTES">
             <value>
-                <!--<option name="FOREGROUND" value="1e3445" />-->
-                <option name="BACKGROUND" value="eae8e8"/>
+                <option name="BACKGROUND" value="09290E"/>
             </value>
         </option>
         <option name="SLIM_FILTER" baseAttributes="DEFAULT_LABEL"/>
