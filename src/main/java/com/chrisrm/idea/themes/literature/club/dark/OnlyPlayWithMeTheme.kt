@@ -14,27 +14,27 @@ class OnlyPlayWithMeTheme: MTDokiDokiTheme("natsuki.dark", "Only Play With Me", 
 
     override fun getSecondaryForegroundColorString(): String = "157174"
 
-    override fun getSelectionForegroundColorString(): String = "9CF5FF"
+    override fun getSelectionForegroundColorString(): String = "984C7C"
 
-    override fun getSelectionBackgroundColorString(): String = "5C9AC6"
+    override fun getSelectionBackgroundColorString(): String = "5D2960"
 
-    override fun getTreeSelectionBackgroundColorString(): String = "5E72B5"
+    override fun getTreeSelectionBackgroundColorString(): String = "B54E8E"
 
     override fun getMenuBarSelectionForegroundColorString(): String = "ffffff"
 
-    override fun getMenuBarSelectionBackgroundColorString(): String = "0A039D"
+    override fun getMenuBarSelectionBackgroundColorString(): String = "9D0064"
 
-    override fun getNotificationsColorString(): String = "5E94B8"
+    override fun getNotificationsColorString(): String = "9F4584"
 
     override fun getContrastColorString(): String = "5D3652"
 
     override fun getButtonBackgroundColor(): String = contrastColorString
 
-    override fun getButtonForegroundColor(): String = "26A8E8"
+    override fun getButtonForegroundColor(): String = "E85EDB"
 
-    override fun getForegroundColorString(): String = "2687C6"
+    override fun getForegroundColorString(): String = "C64B7D"
 
-    override fun getTextColorString(): String = "6BB2CE"
+    override fun getTextColorString(): String = "C566BE"
 
     override fun getEditorTabColorString(): String = contrastColorString
 }
