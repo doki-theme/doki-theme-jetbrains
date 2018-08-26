@@ -79,7 +79,7 @@
 
         <bundledColorScheme path="/colors/Monika"/>
         <bundledColorScheme path="/colors/Just Monika"/>
-        <bundledColorScheme path="/colors/Material Sayori"/>
+        <bundledColorScheme path="/colors/Sayori"/>
         <bundledColorScheme path="/colors/Deleted Character"/>
         <bundledColorScheme path="/colors/Material Natsuki"/>
         <bundledColorScheme path="/colors/Only Play With Me"/>
@@ -146,8 +146,8 @@
                     icon="/icons/actions/themes/material_monika@2x.png">
             </action>
             <separator/>
-            <action id="MTSayoriTheme" class="com.chrisrm.idea.actions.themes.literature.club.SayoriThemeAction"
-                    text="Sayori" description="Material Sayori"
+            <action id="SayoriTheme" class="com.chrisrm.idea.actions.themes.literature.club.SayoriThemeAction"
+                    text="Sayori" description="Sayori"
                     icon="/icons/actions/themes/material_sayori@2x.png">
             </action>
             <action id="MTNatsukiTheme" class="com.chrisrm.idea.actions.themes.literature.club.NatsukiThemeAction"

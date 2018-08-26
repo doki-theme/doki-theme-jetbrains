@@ -31,7 +31,7 @@ import com.chrisrm.idea.actions.JoyManager;
 import com.chrisrm.idea.themes.*;
 import com.chrisrm.idea.themes.literature.club.MonikaTheme;
 import com.chrisrm.idea.themes.literature.club.MTNatsukiTheme;
-import com.chrisrm.idea.themes.literature.club.MTSayoriTheme;
+import com.chrisrm.idea.themes.literature.club.SayoriTheme;
 import com.chrisrm.idea.themes.literature.club.MTYuriTheme;
 import com.chrisrm.idea.themes.literature.club.dark.DeletedCharacterTheme;
 import com.chrisrm.idea.themes.literature.club.dark.EdgyTheme;
@@ -50,7 +50,7 @@ import java.util.stream.Collectors;
  */
 public enum MTThemes implements MTThemeFacade {
   MONIKA("MONIKA", new MonikaTheme(), new JustMonikaTheme()),
-  SAYORI("SAYORI", new MTSayoriTheme(), new DeletedCharacterTheme()),
+  SAYORI("SAYORI", new SayoriTheme(), new DeletedCharacterTheme()),
   NATSUKI("NATSUKI", new MTNatsukiTheme(), new OnlyPlayWithMeTheme()),
   YURI("YURI", new MTYuriTheme(), new EdgyTheme());
 
