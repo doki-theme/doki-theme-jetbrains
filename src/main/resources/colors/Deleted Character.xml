@@ -1502,18 +1502,18 @@
         </option>
         <option name="LINE_FULL_COVERAGE">
             <value>
-                <option name="BACKGROUND" value="eeffd6"/>
+                <option name="BACKGROUND" value="356030"/>
             </value>
         </option>
         <option name="LINE_NONE_COVERAGE">
             <value>
-                <option name="BACKGROUND" value="fae1ea"/>
+                <option name="BACKGROUND" value="673E41"/>
                 <option name="EFFECT_TYPE" value="3"/>
             </value>
         </option>
         <option name="LINE_PARTIAL_COVERAGE">
             <value>
-                <option name="BACKGROUND" value="38526b"/>
+                <option name="BACKGROUND" value="25354B"/>
             </value>
         </option>
         <option name="LOG_ERROR_OUTPUT">
