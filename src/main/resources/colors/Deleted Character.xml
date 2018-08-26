@@ -770,8 +770,8 @@
         </option>
         <option name="DIFF_CONFLICT">
             <value>
-                <option name="BACKGROUND" value="7A4252"/>
-                <option name="FOREGROUND" value="6F3737"/>
+                <option name="BACKGROUND" value="5D323F"/>
+                <option name="FOREGROUND" value="572A2A"/>
                 <option name="ERROR_STRIPE_COLOR" value="8f5247"/>
             </value>
         </option>
@@ -1513,7 +1513,7 @@
         </option>
         <option name="LINE_PARTIAL_COVERAGE">
             <value>
-                <option name="BACKGROUND" value="25354B"/>
+                <option name="BACKGROUND" vwalue="25354B"/>
             </value>
         </option>
         <option name="LOG_ERROR_OUTPUT">
