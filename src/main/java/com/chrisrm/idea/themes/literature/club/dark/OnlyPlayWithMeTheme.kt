@@ -12,7 +12,7 @@ class OnlyPlayWithMeTheme: MTDokiDokiTheme("natsuki.dark", "Only Play With Me", 
 
     override fun getSecondaryBackgroundColorString(): String = "330A2B                          "
 
-    override fun getSecondaryForegroundColorString(): String = "157174"
+    override fun getSecondaryForegroundColorString(): String = "743764"
 
     override fun getSelectionForegroundColorString(): String = "984C7C"
 
