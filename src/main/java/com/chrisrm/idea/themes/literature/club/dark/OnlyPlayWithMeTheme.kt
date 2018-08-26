@@ -4,7 +4,7 @@ import com.chrisrm.idea.themes.literature.club.MTDokiDokiTheme
 
 class OnlyPlayWithMeTheme: MTDokiDokiTheme("natsuki.dark", "Only Play With Me", true, "Natsuki") {
 
-    override fun getBackgroundColorString(): String = "0A1523"
+    override fun getBackgroundColorString(): String = "24071D"
 
     override fun getClubMember(): String = "natsuki_dark.png"
 
