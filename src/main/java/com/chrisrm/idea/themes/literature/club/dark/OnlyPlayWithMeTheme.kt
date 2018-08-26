@@ -28,6 +28,13 @@ class OnlyPlayWithMeTheme: MTDokiDokiTheme("natsuki.dark", "Only Play With Me", 
 
     override fun getContrastColorString(): String = "5D3652"
 
+    override fun getButtonBackgroundColor(): String = contrastColorString
+
+    override fun getButtonForegroundColor(): String = "26A8E8"
+
+    override fun getForegroundColorString(): String = "2687C6"
+
+    override fun getTextColorString(): String = "6BB2CE"
 
     override fun getEditorTabColorString(): String = contrastColorString
 }
