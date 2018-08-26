@@ -122,7 +122,7 @@
         <option name="VCS_ANNOTATIONS_COLOR_4" value="82990D"/>
         <option name="VCS_ANNOTATIONS_COLOR_5" value="5CB872"/>
         <option name="WHITESPACES" value="cfd8dc"/>
-    </colors>
+    </colors>i
     <attributes>
         <option name="ABSTRACT_CLASS_NAME_ATTRIBUTES">
             <value>
@@ -1248,19 +1248,19 @@
         <option name="INLINE_PARAMETER_HINT">
             <value>
                 <option name="FOREGROUND" value="8FDD9D"/>
-                <option name="BACKGROUND" value="323C37"/>
+                <option name="BACKGROUND" value="222824"/>
             </value>
         </option>
         <option name="INLINE_PARAMETER_HINT_CURRENT">
             <value>
                 <option name="FOREGROUND" value="8FDD9D"/>
-                <option name="BACKGROUND" value="323C37"/>
+                <option name="BACKGROUND" value="222824"/>
             </value>
         </option>
         <option name="INLINE_PARAMETER_HINT_HIGHLIGHTED">
             <value>
                 <option name="FOREGROUND" value="8FDD9D"/>
-                <option name="BACKGROUND" value="323C37"/>
+                <option name="BACKGROUND" value="222824"/>
             </value>
         </option>
         <option name="INSTANCE_FIELD_ATTRIBUTES">

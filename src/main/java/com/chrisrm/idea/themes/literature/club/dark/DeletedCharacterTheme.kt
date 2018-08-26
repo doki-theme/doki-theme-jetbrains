@@ -19,7 +19,7 @@ class DeletedCharacterTheme: MTDokiDokiTheme("deleted.character", "Deleted Chara
 
     override fun getSelectionForegroundColorString(): String = "9CF5FF"
 
-    override fun getSelectionBackgroundColorString(): String = "5C9AC6"
+    override fun getSelectionBackgroundColorString(): String = "324964"
 
     override fun getTreeSelectionBackgroundColorString(): String = "5E72B5"
 
