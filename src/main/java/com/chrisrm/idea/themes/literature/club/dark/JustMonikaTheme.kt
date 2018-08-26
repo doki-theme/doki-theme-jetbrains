@@ -27,7 +27,7 @@ class JustMonikaTheme: MTDokiDokiTheme("just.monika", "Just Monika", true, "Moni
 
     override fun getMenuBarSelectionBackgroundColorString(): String = "2D9D04"
 
-    override fun getNotificationsColorString(): String = "76B87B"
+    override fun getNotificationsColorString(): String = "407645"
 
     override fun getContrastColorString(): String = "244020"
 
