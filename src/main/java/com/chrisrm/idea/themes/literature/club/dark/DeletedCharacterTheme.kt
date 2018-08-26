@@ -11,9 +11,9 @@ class DeletedCharacterTheme: MTDokiDokiTheme("deleted.character", "Deleted Chara
 
     override fun getClubMember(): String = "sayori_dark.png"
 
-    override fun joyfulClubMember(): String = "sayori.png"
+    override fun joyfulClubMember(): String = "sayori_dark_joy.png"
 
-    override fun getSecondaryBackgroundColorString(): String = "50A2C7"
+    override fun getSecondaryBackgroundColorString(): String = "111B28"
 
     override fun getSecondaryForegroundColorString(): String = "157174"
 
@@ -34,6 +34,8 @@ class DeletedCharacterTheme: MTDokiDokiTheme("deleted.character", "Deleted Chara
     override fun getButtonBackgroundColor(): String = contrastColorString
 
     override fun getButtonForegroundColor(): String = "26A8E8"
+
+    override fun getForegroundColorString(): String = "2687C6"
 
     override fun getTextColorString(): String = "6BB2CE"
 
