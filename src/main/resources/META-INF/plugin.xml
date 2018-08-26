@@ -141,7 +141,7 @@
                icon="/icons/actions/material-theme.png">
             <add-to-group group-id="MainToolBar" anchor="last"/>
 
-            <action id="MTMonikaTheme" class="com.chrisrm.idea.actions.themes.literature.club.JustMonikaThemeAction"
+            <action id="MonikaTheme" class="com.chrisrm.idea.actions.themes.literature.club.JustMonikaThemeAction"
                     text="Just Monika" description="Just Monika"
                     icon="/icons/actions/themes/material_monika@2x.png">
             </action>

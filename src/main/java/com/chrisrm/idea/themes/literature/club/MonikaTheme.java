@@ -31,7 +31,7 @@ import org.jetbrains.annotations.NotNull;
 import java.awt.*;
 import java.util.stream.Stream;
 
-public final class MTMonikaTheme extends MTDokiDokiTheme {
+public final class MonikaTheme extends MTDokiDokiTheme {
   public static final String BACKGROUND = "fffcfc";
   public static final String FOREGROUND = "A7ADB0"; // 167, 173, 176
   public static final String CARET = "FFCC00"; // 255, 204, 0
@@ -55,7 +55,7 @@ public final class MTMonikaTheme extends MTDokiDokiTheme {
   public static final String NON_PROJECT_FILES = "fdffce";
   public static final String TEST_FILES = "bbff7e";
 
-  public  MTMonikaTheme() {
+  public MonikaTheme() {
     super("mt.monika", "Monika", false, "Monika");
   }
 
@@ -69,13 +69,13 @@ public final class MTMonikaTheme extends MTDokiDokiTheme {
   @NotNull
   @Override
   public String getSelectionBackground() {
-    return MTMonikaTheme.SELECTION_BACKGROUND;
+    return MonikaTheme.SELECTION_BACKGROUND;
   }
 
   @NotNull
   @Override
   public String getDisabled() {
-    return MTMonikaTheme.DISABLED;
+    return MonikaTheme.DISABLED;
   }
 
   @Override

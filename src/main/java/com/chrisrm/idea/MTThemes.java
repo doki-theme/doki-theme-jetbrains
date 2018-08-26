@@ -29,7 +29,7 @@ package com.chrisrm.idea;
 import com.chrisrm.idea.actions.DarkMode;
 import com.chrisrm.idea.actions.JoyManager;
 import com.chrisrm.idea.themes.*;
-import com.chrisrm.idea.themes.literature.club.MTMonikaTheme;
+import com.chrisrm.idea.themes.literature.club.MonikaTheme;
 import com.chrisrm.idea.themes.literature.club.MTNatsukiTheme;
 import com.chrisrm.idea.themes.literature.club.MTSayoriTheme;
 import com.chrisrm.idea.themes.literature.club.MTYuriTheme;
@@ -49,7 +49,7 @@ import java.util.stream.Collectors;
  * Contains a list of predefined themes and will contain all bundled themes
  */
 public enum MTThemes implements MTThemeFacade {
-  MONIKA("MONIKA", new MTMonikaTheme(), new JustMonikaTheme()),
+  MONIKA("MONIKA", new MonikaTheme(), new JustMonikaTheme()),
   SAYORI("SAYORI", new MTSayoriTheme(), new DeletedCharacterTheme()),
   NATSUKI("NATSUKI", new MTNatsukiTheme(), new OnlyPlayWithMeTheme()),
   YURI("YURI", new MTYuriTheme(), new EdgyTheme());

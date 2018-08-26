@@ -26,7 +26,7 @@
 
 package com.chrisrm.idea.config.scope;
 
-import com.chrisrm.idea.themes.literature.club.MTMonikaTheme;
+import com.chrisrm.idea.themes.literature.club.MonikaTheme;
 import com.intellij.openapi.components.AbstractProjectComponent;
 import com.intellij.openapi.components.ProjectComponent;
 import com.intellij.openapi.project.Project;
@@ -55,6 +55,6 @@ public final class MTScopeComponent extends AbstractProjectComponent implements 
    */
   private void addDisabledFileColors() {
     final FileColorManager manager = FileColorManager.getInstance(myProject);
-    manager.addScopeColor(NonProjectFilesScope.NAME, MTMonikaTheme.DISABLED, false);
+    manager.addScopeColor(NonProjectFilesScope.NAME, MonikaTheme.DISABLED, false);
   }
 }

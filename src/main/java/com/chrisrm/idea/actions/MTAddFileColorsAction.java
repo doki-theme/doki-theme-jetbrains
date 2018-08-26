@@ -27,7 +27,7 @@ package com.chrisrm.idea.actions;
 
 import com.chrisrm.idea.MTAnalytics;
 import com.chrisrm.idea.messages.MaterialThemeBundle;
-import com.chrisrm.idea.themes.literature.club.MTMonikaTheme;
+import com.chrisrm.idea.themes.literature.club.MonikaTheme;
 import com.chrisrm.idea.utils.Notify;
 import com.intellij.notification.Notification;
 import com.intellij.notification.NotificationListener;
@@ -54,8 +54,8 @@ public final class MTAddFileColorsAction extends AnAction {
 
   private void addDisabledFileColors(final Project project) {
     final FileColorManager manager = FileColorManager.getInstance(project);
-    manager.addScopeColor(NonProjectFilesScope.NAME, MTMonikaTheme.NON_PROJECT_FILES, false);
-    manager.addScopeColor(TestsScope.NAME, MTMonikaTheme.TEST_FILES, false);
+    manager.addScopeColor(NonProjectFilesScope.NAME, MonikaTheme.NON_PROJECT_FILES, false);
+    manager.addScopeColor(TestsScope.NAME, MonikaTheme.TEST_FILES, false);
 
     Notify.show(project,
                 "",

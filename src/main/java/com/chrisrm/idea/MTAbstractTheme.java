@@ -27,7 +27,7 @@
 package com.chrisrm.idea;
 
 import com.chrisrm.idea.themes.MTThemeable;
-import com.chrisrm.idea.themes.literature.club.MTMonikaTheme;
+import com.chrisrm.idea.themes.literature.club.MonikaTheme;
 import com.chrisrm.idea.utils.MTUiUtils;
 import com.chrisrm.idea.utils.PropertiesParser;
 import com.intellij.ide.ui.laf.IntelliJLookAndFeelInfo;
@@ -270,7 +270,7 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
   @Override
   public String getSelectionBackground() {
     //todo: when dark theme comes in!!!!!
-    return dark ? MTMonikaTheme.SELECTION_BACKGROUND : MTMonikaTheme.SELECTION_BACKGROUND;
+    return dark ? MonikaTheme.SELECTION_BACKGROUND : MonikaTheme.SELECTION_BACKGROUND;
   }
 
   /**
@@ -280,7 +280,7 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
   @Override
   public String getDisabled() {
     //todo: when dark theme comes in!!!!!
-    return dark ? MTMonikaTheme.DISABLED : MTMonikaTheme.DISABLED;
+    return dark ? MonikaTheme.DISABLED : MonikaTheme.DISABLED;
   }
 
   /**
