@@ -1,9 +1,8 @@
 <div align="center">
-<img src="https://raw.githubusercontent.com/cyclic-reference/jetbrains-theme/master/src/main/resources/themes/Doki_Doki_Literature_Club.png" alt="Just Monika"></img>
+<img src="https://raw.githubusercontent.com/cyclic-reference/jetbrains-theme/master/src/main/resources/wizard/logo.png" alt="Just Monika"></img>
 </div>
 
-# Doki Doki Theme for Jetbrains
-
+---
 <div align="center">
     <h3 styles="color: pink"> Will you write your way into her heart?</h3>
 </div>
