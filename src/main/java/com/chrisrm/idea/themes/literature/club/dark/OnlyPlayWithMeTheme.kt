@@ -4,7 +4,7 @@ import com.chrisrm.idea.themes.literature.club.MTDokiDokiTheme
 
 class OnlyPlayWithMeTheme: MTDokiDokiTheme("natsuki.dark", "Only Play With Me", true, "Natsuki") {
 
-    override fun getBackgroundColorString(): String = "24071D"
+    override fun getBackgroundColorString(): String = "240E1E"
 
     override fun getClubMember(): String = "natsuki_dark.png"
 
@@ -12,7 +12,7 @@ class OnlyPlayWithMeTheme: MTDokiDokiTheme("natsuki.dark", "Only Play With Me", 
 
     override fun getSecondaryBackgroundColorString(): String = "330A2B                          "
 
-    override fun getSecondaryForegroundColorString(): String = "743764"
+    override fun getSecondaryForegroundColorString(): String = "BB47A8"
 
     override fun getSelectionForegroundColorString(): String = "984C7C"
 
@@ -32,9 +32,9 @@ class OnlyPlayWithMeTheme: MTDokiDokiTheme("natsuki.dark", "Only Play With Me", 
 
     override fun getButtonForegroundColor(): String = "E85EDB"
 
-    override fun getForegroundColorString(): String = "C64B7D"
+    override fun getForegroundColorString(): String = "DC508F"
 
-    override fun getTextColorString(): String = "C566BE"
+    override fun getTextColorString(): String = "F085E9"
 
     override fun getEditorTabColorString(): String = contrastColorString
 }
