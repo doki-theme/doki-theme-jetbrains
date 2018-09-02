@@ -1513,7 +1513,7 @@
         </option>
         <option name="LINE_PARTIAL_COVERAGE">
             <value>
-                <option name="BACKGROUND" vwalue="25354B"/>
+                <option name="BACKGROUND" value="25354B"/>
             </value>
         </option>
         <option name="LOG_ERROR_OUTPUT">
