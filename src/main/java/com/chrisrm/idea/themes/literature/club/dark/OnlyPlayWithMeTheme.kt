@@ -22,11 +22,11 @@ class OnlyPlayWithMeTheme: MTDokiDokiTheme("natsuki.dark", "Only Play With Me", 
 
     override fun getMenuBarSelectionForegroundColorString(): String = "ffffff"
 
-    override fun getMenuBarSelectionBackgroundColorString(): String = "9D0064"
+    override fun getMenuBarSelectionBackgroundColorSroutring(): String = "9D0064"
 
     override fun getNotificationsColorString(): String = "9F4584"
 
-    override fun getContrastColorString(): String = "5D3652"
+    override fun getContrastColorString(): String = "56324C"
 
     override fun getButtonBackgroundColor(): String = contrastColorString
 
