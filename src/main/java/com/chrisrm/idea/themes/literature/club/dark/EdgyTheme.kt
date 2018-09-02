@@ -13,7 +13,7 @@ class EdgyTheme: MTDokiDokiTheme("yuri.dark", "Edgy", true, "Yuri") {
 
     override fun getSecondaryBackgroundColorString(): String = "412D62"
 
-    override fun getSecondaryForegroundColorString(): String = "8F3DB5"
+    override fun getSecondaryForegroundColorString(): String = "9965BC"
 
     override fun getSelectionForegroundColorString(): String = "B39EFF"
 
