@@ -24,7 +24,7 @@ class OnlyPlayWithMeTheme: MTDokiDokiTheme("natsuki.dark", "Only Play With Me", 
 
     override fun getMenuBarSelectionBackgroundColorString(): String = "9D0064"
 
-    override fun getNotificationsColorString(): String = "9F4584"
+    override fun getNotificationsColorString(): String = "562447"
 
     override fun getContrastColorString(): String = "56324C"
 
@@ -34,7 +34,7 @@ class OnlyPlayWithMeTheme: MTDokiDokiTheme("natsuki.dark", "Only Play With Me", 
 
     override fun getForegroundColorString(): String = "DC508F"
 
-    override fun getTextColorString(): String = "F085E9"
+    override fun getTextColorString(): String = "FF78BA"
 
     override fun getEditorTabColorString(): String = contrastColorString
 }
