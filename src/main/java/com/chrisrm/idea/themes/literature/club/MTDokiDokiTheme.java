@@ -356,7 +356,7 @@ public class MTDokiDokiTheme extends MTAbstractTheme {
   public String[] getSelectionBackgroundResources() {
     return new String[] {
         "inactiveCaption",
-        "Button.disabledText",
+//        "Button.disabledText",
         "Menu.selectionBackground",
         "Menu.acceleratorSelectionBackground",
         "MenuItem.selectionBackground",
