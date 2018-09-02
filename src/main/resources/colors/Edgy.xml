@@ -53,7 +53,7 @@
         <!--TODO: IMPORTANT-->
         <option name="CARET_ROW_COLOR" value="443161"/>
         <option name="CONSOLE_BACKGROUND_KEY" value="2b2331"/>
-        <option name="DOCUMENTATION_COLOR" value="f3f5f6"/>
+        <option name="DOCUMENTATION_COLOR" value="3E295B"/>
         <option name="FILESTATUS_ADDED" value="FD75B0"/>
         <option name="FILESTATUS_COPIED" value="FD75B0"/>
         <option name="FILESTATUS_DELETED" value="808080"/>
@@ -80,7 +80,7 @@
         <!--todo: important-->
         <option name="LINE_NUMBERS_COLOR" value="a7a7ff"/>
         <option name="INDENT_GUIDE" value="946CB2"/>
-        <option name="INFORMATION_HINT" value="f3f5f6"/>
+        <option name="INFORMATION_HINT" value="3E295B"/>
         <option name="METHOD_SEPARATORS_COLOR" value="946CB2"/>
         <option name="MT_ADDED" value="FD75B0"/>
         <option name="MT_DELETED" value="D371F1"/>
@@ -101,7 +101,7 @@
         <option name="MT_UNKNOWN" value="e53935"/>
         <option name="MT_modifiedOutside" value="BC92DC"/>
         <option name="NOT_CHANGED" value="a7adb0"/>
-        <option name="QUESTION_HINT" value="f3f5f6"/>
+        <option name="QUESTION_HINT" value="3E295B"/>
         <option name="READONLY_FRAGMENT_BACKGROUND" value=""/>
         <option name="RECURSIVE_CALL_ATTRIBUTES" value="574300"/>
         <option name="RIGHT_MARGIN_COLOR" value="e7eaec"/>
@@ -114,7 +114,7 @@
         <option name="TEARLINE_COLOR" value="ce98ff"/>
 
         <option name="SOFT_WRAP_SIGN_COLOR" value="4f6269"/>
-        <option name="TOOLTIP" value="FFF4F2"/>
+        <option name="TOOLTIP" value="3E295B"/>
         <option name="ANNOTATIONS_COLOR" value="3B235A"/>
         <option name="VCS_ANNOTATIONS_COLOR_1" value="694796"/>
         <option name="VCS_ANNOTATIONS_COLOR_2" value="745D89"/>
