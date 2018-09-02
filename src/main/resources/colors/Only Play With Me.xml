@@ -53,7 +53,7 @@
         <!--TODO: IMPORTANT-->
         <option name="CARET_ROW_COLOR" value="4D2339"/>
         <option name="CONSOLE_BACKGROUND_KEY" value="20191A"/>
-        <option name="DOCUMENTATION_COLOR" value="f3f5f6"/>
+        <option name="DOCUMENTATION_COLOR" value="5B1D44"/>
         <option name="FILESTATUS_ADDED" value="CD368F"/>
         <option name="FILESTATUS_COPIED" value="CD368F"/>
         <option name="FILESTATUS_DELETED" value="808080"/>
@@ -74,13 +74,13 @@
         <option name="FILESTATUS_UNKNOWN" value="f77669"/>
         <option name="FILESTATUS_addedOutside" value="CD368F"/>
         <option name="FILESTATUS_changelistConflict" value="d5756c"/>
-        <option name="FILESTATUS_modifiedOutside" value="E055C4"/>
+        <option name="FILESTATUS_modifiedOutside" value="DB89BE"/>
         <!--todo: important-->
         <option name="GUTTER_BACKGROUND" value="550D3B"/>
         <!--todo: important-->
         <option name="LINE_NUMBERS_COLOR" value="ffa7ff"/>
         <option name="INDENT_GUIDE" value="CF93C0"/>
-        <option name="INFORMATION_HINT" value="f3f5f6"/>
+        <option name="INFORMATION_HINT" value="5B1D44"/>
         <option name="METHOD_SEPARATORS_COLOR" value="CF93C0"/>
         <option name="MT_ADDED" value="CD368F"/>
         <option name="MT_DELETED" value="E46BD3"/>
@@ -99,9 +99,9 @@
         <option name="MT_SUPPRESSED" value="C648AB"/>
         <option name="MT_SWITCHED" value="E46BD3"/>
         <option name="MT_UNKNOWN" value="e53935"/>
-        <option name="MT_modifiedOutside" value="E055C4"/>
+        <option name="MT_modifiedOutside" value="DB89BE"/>
         <option name="NOT_CHANGED" value="a7adb0"/>
-        <option name="QUESTION_HINT" value="f3f5f6"/>
+        <option name="QUESTION_HINT" value="5B1D44"/>
         <option name="READONLY_FRAGMENT_BACKGROUND" value=""/>
         <option name="RECURSIVE_CALL_ATTRIBUTES" value="574300"/>
         <option name="RIGHT_MARGIN_COLOR" value="e7eaec"/>
@@ -114,7 +114,7 @@
         <option name="TEARLINE_COLOR" value="ff99ff"/>
 
         <option name="SOFT_WRAP_SIGN_COLOR" value="4f6269"/>
-        <option name="TOOLTIP" value="FFF4F2"/>
+        <option name="TOOLTIP" value="5B1D44"/>
         <option name="ANNOTATIONS_COLOR" value="D674B1"/>
         <option name="VCS_ANNOTATIONS_COLOR_1" value="744468"/>
         <option name="VCS_ANNOTATIONS_COLOR_2" value="725674"/>
@@ -212,7 +212,7 @@
         </option>
         <option name="BASH.EXTERNAL_COMMAND">
             <value>
-                <option name="FOREGROUND" value="E055C4"/>
+                <option name="FOREGROUND" value="DB89BE"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -283,7 +283,7 @@
         </option>
         <option name="BREADCRUMBS_HOVERED">
             <value>
-                <option name="FOREGROUND" value="940086"/>
+                <option name="FOREGROUND" value="CC5FC0"/>
                 <option name="BACKGROUND" value="7D3E61"/>
                 <!--todo: important-->
             </value>
@@ -370,7 +370,7 @@
         </option>
         <option name="COFFEESCRIPT.FUNCTION_NAME">
             <value>
-                <option name="FOREGROUND" value="E055C4"/>
+                <option name="FOREGROUND" value="DB89BE"/>
             </value>
         </option>
         <option name="COFFEESCRIPT.GLOBAL_VARIABLE">
@@ -476,7 +476,7 @@
         </option>
         <option name="CONSOLE_USER_INPUT">
             <value>
-                <option name="FOREGROUND" value="E055C4"/>
+                <option name="FOREGROUND" value="DB89BE"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -502,12 +502,12 @@
         </option>
         <option name="CSS.FUNCTION">
             <value>
-                <option name="FOREGROUND" value="E055C4"/>
+                <option name="FOREGROUND" value="DB89BE"/>
             </value>
         </option>
         <option name="CSS.HASH">
             <value>
-                <option name="FOREGROUND" value="E055C4"/>
+                <option name="FOREGROUND" value="DB89BE"/>
             </value>
         </option>
         <option name="CSS.IDENT">
@@ -527,7 +527,7 @@
         </option>
         <option name="CSS.PSEUDO">
             <value>
-                <option name="FOREGROUND" value="E055C4"/>
+                <option name="FOREGROUND" value="DB89BE"/>
             </value>
         </option>
         <option name="CSS.TAG_NAME">
@@ -650,12 +650,12 @@
         </option>
         <option name="DEFAULT_FUNCTION_CALL">
             <value>
-                <option name="FOREGROUND" value="E055C4"/>
+                <option name="FOREGROUND" value="DB89BE"/>
             </value>
         </option>
         <option name="DEFAULT_FUNCTION_DECLARATION">
             <value>
-                <option name="FOREGROUND" value="E055C4"/>
+                <option name="FOREGROUND" value="DB89BE"/>
             </value>
         </option>
         <option name="DEFAULT_IDENTIFIER">
@@ -699,7 +699,7 @@
         </option>
         <option name="DEFAULT_METADATA">
             <value>
-                <option name="FOREGROUND" value="E055C4"/>
+                <option name="FOREGROUND" value="DB89BE"/>
             </value>
         </option>
         <option name="DEFAULT_NUMBER">
@@ -724,7 +724,7 @@
         </option>
         <option name="DEFAULT_PREDEFINED_SYMBOL">
             <value>
-                <option name="FOREGROUND" value="E055C4"/>
+                <option name="FOREGROUND" value="DB89BE"/>
             </value>
         </option>
         <option name="DEFAULT_SEMICOLON">
@@ -740,7 +740,7 @@
         </option>
         <option name="DEFAULT_STATIC_METHOD">
             <value>
-                <option name="FOREGROUND" value="E055C4"/>
+                <option name="FOREGROUND" value="DB89BE"/>
             </value>
         </option>
         <option name="DEFAULT_STRING">
@@ -919,7 +919,7 @@
         </option>
         <option name="GO_BUILTIN_FUNCTION">
             <value>
-                <option name="FOREGROUND" value="E055C4"/>
+                <option name="FOREGROUND" value="DB89BE"/>
             </value>
         </option>
         <option name="GO_BUILTIN_TYPE_REFERENCE">
@@ -956,7 +956,7 @@
         </option>
         <option name="GO_EXPORTED_FUNCTION">
             <value>
-                <option name="FOREGROUND" value="E055C4"/>
+                <option name="FOREGROUND" value="DB89BE"/>
             </value>
         </option>
         <option name="GO_FUNCTION_PARAMETER">
@@ -995,7 +995,7 @@
         </option>
         <option name="GO_LOCAL_FUNCTION">
             <value>
-                <option name="FOREGROUND" value="E055C4"/>
+                <option name="FOREGROUND" value="DB89BE"/>
             </value>
         </option>
         <option name="GO_LOCAL_VARIABLE">
@@ -1312,7 +1312,7 @@
         </option>
         <option name="JS.DECORATOR">
             <value>
-                <option name="FOREGROUND" value="E055C4"/>
+                <option name="FOREGROUND" value="DB89BE"/>
             </value>
         </option>
         <option name="JS.BADCHARACTER">
@@ -1375,7 +1375,7 @@
         </option>
         <option name="JS.GLOBAL_FUNCTION">
             <value>
-                <option name="FOREGROUND" value="E055C4"/>
+                <option name="FOREGROUND" value="DB89BE"/>
             </value>
         </option>
         <option name="JS.GLOBAL_VARIABLE">
@@ -1385,7 +1385,7 @@
         </option>
         <option name="JS.INSTANCE_MEMBER_FUNCTION">
             <value>
-                <option name="FOREGROUND" value="E055C4"/>
+                <option name="FOREGROUND" value="DB89BE"/>
             </value>
         </option>
         <option name="JS.INSTANCE_MEMBER_VARIABLE">
@@ -1460,7 +1460,7 @@
         </option>
         <option name="JS.STATIC_MEMBER_FUNCTION">
             <value>
-                <option name="FOREGROUND" value="E055C4"/>
+                <option name="FOREGROUND" value="DB89BE"/>
             </value>
         </option>
         <option name="JS.STATIC_MEMBER_VARIABLE">
@@ -1633,13 +1633,13 @@
         </option>
         <option name="MARKDOWN_BLOCK_QUOTE">
             <value>
-                <option name="FOREGROUND" value="E055C4"/>
+                <option name="FOREGROUND" value="DB89BE"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
         <option name="MARKDOWN_BLOCK_QUOTE_MARKER">
             <value>
-                <option name="FOREGROUND" value="E055C4"/>
+                <option name="FOREGROUND" value="DB89BE"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -1764,7 +1764,7 @@
         </option>
         <option name="MARKDOWN_LINK_TEXT">
             <value>
-                <option name="FOREGROUND" value="E055C4"/>
+                <option name="FOREGROUND" value="DB89BE"/>
                 <option name="EFFECT_TYPE" value="1"/>
             </value>
         </option>
@@ -1905,7 +1905,7 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.HTML_ENTITY">
             <value>
-                <option name="FOREGROUND" value="E055C4"/>
+                <option name="FOREGROUND" value="DB89BE"/>
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.IMAGE">
@@ -1934,13 +1934,13 @@
 
         <option name="MARKDOWN_NAVIGATOR.JEKYLL_FRONT_MATTER_MARKER">
             <value>
-                <option name="FOREGROUND" value="E055C4"/>
+                <option name="FOREGROUND" value="DB89BE"/>
                 <option name="EFFECT_TYPE" value="5"/>
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.JEKYLL_TAG_MARKER">
             <value>
-                <option name="FOREGROUND" value="E055C4"/>
+                <option name="FOREGROUND" value="DB89BE"/>
                 <option name="EFFECT_TYPE" value="5"/>
             </value>
         </option>
@@ -2062,13 +2062,13 @@
 
         <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_REVEN_CEVEN">
             <value>
-                <option name="FOREGROUND" value="E055C4"/>
+                <option name="FOREGROUND" value="DB89BE"/>
             </value>
         </option>
 
         <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_REVEN_CODD">
             <value>
-                <option name="FOREGROUND" value="E055C4"/>
+                <option name="FOREGROUND" value="DB89BE"/>
             </value>
         </option>
 
@@ -2132,7 +2132,7 @@
 
         <option name="MARKDOWN_NAVIGATOR.VERBATIM">
             <value>
-                <option name="FOREGROUND" value="E055C4"/>
+                <option name="FOREGROUND" value="DB89BE"/>
                 <option name="EFFECT_TYPE" value="5"/>
             </value>
         </option>
@@ -2160,7 +2160,7 @@
         </option>
         <option name="Method call">
             <value>
-                <option name="FOREGROUND" value="E055C4"/>
+                <option name="FOREGROUND" value="DB89BE"/>
             </value>
         </option>
         <option name="NOT_TOP_FRAME_ATTRIBUTES">
@@ -2248,7 +2248,7 @@
         </option>
         <option name="OC.FUNCTION">
             <value>
-                <option name="FOREGROUND" value="E055C4"/>
+                <option name="FOREGROUND" value="DB89BE"/>
             </value>
         </option>
         <option name="OC.GENERIC_PARAMETER">
@@ -2295,7 +2295,7 @@
         </option>
         <option name="OC.MACRONAME">
             <value>
-                <option name="FOREGROUND" value="E055C4"/>
+                <option name="FOREGROUND" value="DB89BE"/>
                 <option name="FONT_TYPE" value="1"/>
             </value>
         </option>
@@ -2306,7 +2306,7 @@
         </option>
         <option name="OC.MESSAGE_ARGUMENT">
             <value>
-                <option name="FOREGROUND" value="E055C4"/>
+                <option name="FOREGROUND" value="DB89BE"/>
             </value>
         </option>
         <option name="OC.NAMESPACE_LIKE">
@@ -2482,12 +2482,12 @@
         </option>
         <option name="PHP_FUNCTION">
             <value>
-                <option name="FOREGROUND" value="E055C4"/>
+                <option name="FOREGROUND" value="DB89BE"/>
             </value>
         </option>
         <option name="PHP_FUNCTION_CALL">
             <value>
-                <option name="FOREGROUND" value="E055C4"/>
+                <option name="FOREGROUND" value="DB89BE"/>
             </value>
         </option>
         <option name="PHP_HEREDOC_CONTENT">
@@ -2514,7 +2514,7 @@
         </option>
         <option name="PHP_INSTANCE_METHOD">
             <value>
-                <option name="FOREGROUND" value="E055C4"/>
+                <option name="FOREGROUND" value="DB89BE"/>
             </value>
         </option>
         <option name="PHP_INTERFACE">
@@ -2555,7 +2555,7 @@
         </option>
         <option name="PHP_PREDEFINED SYMBOL">
             <value>
-                <option name="FOREGROUND" value="E055C4"/>
+                <option name="FOREGROUND" value="DB89BE"/>
             </value>
         </option>
         <option name="PHP_SCRIPTING_BACKGROUND">
@@ -2576,7 +2576,7 @@
         </option>
         <option name="PHP_STATIC_METHOD">
             <value>
-                <option name="FOREGROUND" value="E055C4"/>
+                <option name="FOREGROUND" value="DB89BE"/>
             </value>
         </option>
         <option name="PHP_STRING">
@@ -2620,7 +2620,7 @@
         </option>
         <option name="PY.BUILTIN_NAME">
             <value>
-                <option name="FOREGROUND" value="E055C4"/>
+                <option name="FOREGROUND" value="DB89BE"/>
             </value>
         </option>
         <option name="PY.CLASS_DEFINITION">
@@ -2636,7 +2636,7 @@
         </option>
         <option name="PY.DECORATOR">
             <value>
-                <option name="FOREGROUND" value="E055C4"/>
+                <option name="FOREGROUND" value="DB89BE"/>
             </value>
         </option>
         <option name="PY.DOC_COMMENT">
@@ -2657,7 +2657,7 @@
         </option>
         <option name="PY.FUNC_DEFINITION">
             <value>
-                <option name="FOREGROUND" value="E055C4"/>
+                <option name="FOREGROUND" value="DB89BE"/>
                 <option name="EFFECT_TYPE" value="1"/>
             </value>
         </option>
@@ -2706,7 +2706,7 @@
         </option>
         <option name="PY.PREDEFINED_DEFINITION">
             <value>
-                <option name="FOREGROUND" value="E055C4"/>
+                <option name="FOREGROUND" value="DB89BE"/>
             </value>
         </option>
         <option name="PY.PREDEFINED_USAGE">
@@ -2774,7 +2774,7 @@
         </option>
         <option name="QL_FUNCTION">
             <value>
-                <option name="FOREGROUND" value="E055C4"/>
+                <option name="FOREGROUND" value="DB89BE"/>
             </value>
         </option>
         <option name="QL_ID_VARIABLE">
@@ -2984,12 +2984,12 @@
         </option>
         <option name="RUBY_METHOD_NAME">
             <value>
-                <option name="FOREGROUND" value="E055C4"/>
+                <option name="FOREGROUND" value="DB89BE"/>
             </value>
         </option>
         <option name="RUBY_NTH_REF">
             <value>
-                <option name="FOREGROUND" value="E055C4"/>
+                <option name="FOREGROUND" value="DB89BE"/>
             </value>
         </option>
         <option name="RUBY_NUMBER">
@@ -3059,7 +3059,7 @@
         </option>
         <option name="ReSharper.ASP_NET_MVC_ACTION">
             <value>
-                <option name="FOREGROUND" value="E055C4"/>
+                <option name="FOREGROUND" value="DB89BE"/>
                 <option name="EFFECT_TYPE" value="1"/>
             </value>
         </option>
@@ -3107,7 +3107,7 @@
         </option>
         <option name="ReSharper.EXTENSION_METHOD_IDENTIFIER">
             <value>
-                <option name="FOREGROUND" value="E055C4"/>
+                <option name="FOREGROUND" value="DB89BE"/>
             </value>
         </option>
         <option name="ReSharper.HINT">
@@ -3129,7 +3129,7 @@
         </option>
         <option name="SASS_MIXIN">
             <value>
-                <option name="FOREGROUND" value="E055C4"/>
+                <option name="FOREGROUND" value="DB89BE"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -3219,7 +3219,7 @@
         </option>
         <option name="Scala Class method call">
             <value>
-                <option name="FOREGROUND" value="E055C4"/>
+                <option name="FOREGROUND" value="DB89BE"/>
             </value>
         </option>
         <option name="Scala Colon">
@@ -3267,7 +3267,7 @@
         </option>
         <option name="Scala Local method call">
             <value>
-                <option name="FOREGROUND" value="E055C4"/>
+                <option name="FOREGROUND" value="DB89BE"/>
             </value>
         </option>
         <option name="Scala Local value">
@@ -3282,7 +3282,7 @@
         </option>
         <option name="Scala Method declaration">
             <value>
-                <option name="FOREGROUND" value="E055C4"/>
+                <option name="FOREGROUND" value="DB89BE"/>
             </value>
         </option>
         <option name="Scala Number">
@@ -3297,7 +3297,7 @@
         </option>
         <option name="Scala Object method call">
             <value>
-                <option name="FOREGROUND" value="E055C4"/>
+                <option name="FOREGROUND" value="DB89BE"/>
             </value>
         </option>
         <option name="Scala Parameter">
@@ -3440,7 +3440,7 @@
         </option>
         <option name="Static method access">
             <value>
-                <option name="FOREGROUND" value="E055C4"/>
+                <option name="FOREGROUND" value="DB89BE"/>
             </value>
         </option>
         <option name="Static property reference ID">
