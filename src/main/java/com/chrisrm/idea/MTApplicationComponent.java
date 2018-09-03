@@ -62,11 +62,11 @@ public final class MTApplicationComponent implements ApplicationComponent {
   }
 
   private void checkWizard() {
-//      final boolean isWizardShown = PropertiesComponent.getInstance().getBoolean(MT_IS_SHOWN_WIZARD);
-//      if (!isWizardShown) {
+      final boolean isWizardShown = PropertiesComponent.getInstance().getBoolean(MT_IS_SHOWN_WIZARD);
+      if (!isWizardShown) {
         new MTWizardDialog(new MTWizardStepsProvider()).show();
-//        PropertiesComponent.getInstance().setValue(MT_IS_SHOWN_WIZARD, true);
-//      }
+        PropertiesComponent.getInstance().setValue(MT_IS_SHOWN_WIZARD, true);
+      }
   }
 
   /**
