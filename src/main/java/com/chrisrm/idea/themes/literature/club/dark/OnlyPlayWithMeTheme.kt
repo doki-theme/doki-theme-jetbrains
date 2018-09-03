@@ -39,4 +39,6 @@ class OnlyPlayWithMeTheme: MTDokiDokiTheme("natsuki.dark", "Only Play With Me", 
     override fun getEditorTabColorString(): String = contrastColorString
 
     override fun getNonProjectFileScopeColor(): String = "2a1b1f"
+
+    override fun getTestScope(): String = "0f2a00"
 }
