@@ -127,6 +127,10 @@
             <loadForDefaultProject>true</loadForDefaultProject>
         </component>
         <component>
+            <implementation-class>com.chrisrm.idea.DDLCFileScopeComponent</implementation-class>
+            <loadForDefaultProject>true</loadForDefaultProject>
+        </component>
+        <component>
             <implementation-class>com.chrisrm.idea.MTUpdatesComponent</implementation-class>
         </component>
         <component>
