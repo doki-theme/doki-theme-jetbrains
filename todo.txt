@@ -25,6 +25,13 @@ test background (happy)//lol, it changes everytime it runs
 line coverage makes everything unreadable (should be happy meow)
 Migrate back to using a fork. (do not need to)
 git diff for conflict and additions for monika are un readable
+file scope colors
+    - dark yuri 272132
+    - dark natsuki 2a1b1f
+    - dark sayori 151c1b
+    - just monika 262b18
+
+
 
 ------
 THINGS TODO:
@@ -36,12 +43,6 @@ search everywhere
 FILE changed status (NOT AVAILABLE IN COMMUNITY)
 search everywhere on webstorm selection looks wonky.
 
-file scope colors
-    - dark yuri 272132
-    - dark natsuki 2a1b1f
-    - dark sayori 151c1b
-    - just monika 262b18
-
-
 DARK THEME TODO:
+    - Need to update wizard.
     - Chibis
