@@ -70,13 +70,13 @@ public class MTWizardThemesPanel extends AbstractCustomizeWizardStep {
     justMonikaThemeAction.selectionActivation();
   }
   private void onlyMonikaButtonActionPerformed(final ActionEvent e) {
-    DarkMode.turnOff();
+    DarkMode.turnOn();
     justMonikaThemeAction.selectionActivation();
   }
 
   private final SayoriThemeAction sayoriThemeAction = new SayoriThemeAction();
   private void deletedCharacterButtonActionPerformed(final ActionEvent e) {
-    DarkMode.turnOff();
+    DarkMode.turnOn();
     sayoriThemeAction.selectionActivation();
   }
   private void sayoriButtonActionPerformed(final ActionEvent e) {
@@ -86,7 +86,7 @@ public class MTWizardThemesPanel extends AbstractCustomizeWizardStep {
 
   private final NatsukiThemeAction natsukiThemeAction = new NatsukiThemeAction();
   private void onlyPlayWithMeButtonActionPerformed(final ActionEvent e) {
-    DarkMode.turnOff();
+    DarkMode.turnOn();
     natsukiThemeAction.selectionActivation();
   }
   private void natsukiButtonActionPerformed(final ActionEvent e) {
@@ -96,7 +96,7 @@ public class MTWizardThemesPanel extends AbstractCustomizeWizardStep {
 
   private final YuriThemeAction yuriThemeAction = new YuriThemeAction();
   private void edgyButtonActionPerformed(final ActionEvent e) {
-    DarkMode.turnOff();
+    DarkMode.turnOn();
     yuriThemeAction.selectionActivation();
   }
   private void yuriButtonActionPerformed(final ActionEvent e) {
