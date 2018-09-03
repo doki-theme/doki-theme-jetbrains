@@ -44,4 +44,6 @@ class DeletedCharacterTheme: MTDokiDokiTheme("deleted.character", "Deleted Chara
     override fun getNonProjectFileScopeColor(): String = "151c1b"
 
     override fun getTestScope(): String = "0f2a00"
+
+    override fun getSecondBorderColorString(): String = "1B467C"
 }

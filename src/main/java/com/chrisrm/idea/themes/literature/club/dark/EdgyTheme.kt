@@ -44,4 +44,6 @@ class EdgyTheme: MTDokiDokiTheme("yuri.dark", "Edgy", true, "Yuri") {
     override fun getNonProjectFileScopeColor(): String = "272132"
 
     override fun getTestScope(): String = "0f2a00"
+
+    override fun getSecondBorderColorString(): String = "50237C"
 }

@@ -44,4 +44,6 @@ class JustMonikaTheme: MTDokiDokiTheme("just.monika", "Just Monika", true, "Moni
     override fun getNonProjectFileScopeColor(): String = "262b18"
 
     override fun getTestScope(): String = "0f2a00"
+
+    override fun getSecondBorderColorString(): String = "297C16"
 }
