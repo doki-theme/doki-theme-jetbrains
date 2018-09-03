@@ -178,55 +178,6 @@ public class MTWizardThemesPanel extends AbstractCustomizeWizardStep {
         }
         grid.add(justMonikaPanel, "cell 0 0");
 
-        //======== sayoriLayout ========
-        {
-          sayoriLayout.setBorder(new EmptyBorder(5, 5, 5, 5));
-          sayoriLayout.setLayout(new BoxLayout(sayoriLayout, BoxLayout.Y_AXIS));
-
-          //---- sayoriButton ----
-          sayoriButton.setText(bundle.getString("MTWizardThemesPanel.sayoriButton.text"));
-          sayoriButton.setHorizontalAlignment(SwingConstants.LEFT);
-          sayoriButton.addActionListener(this::sayoriButtonActionPerformed);
-          sayoriLayout.add(sayoriButton);
-
-          //---- sayoriLabel ----
-          sayoriLabel.setIcon(new ImageIcon(getClass().getResource("/wizard/sayori.png")));
-          sayoriLayout.add(sayoriLabel);
-        }
-        grid.add(sayoriLayout, "cell 1 0,align center center,grow 0 0");
-
-        //======== natsukiPanel ========
-        {
-          natsukiPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
-          natsukiPanel.setLayout(new BoxLayout(natsukiPanel, BoxLayout.Y_AXIS));
-
-          //---- natsukiButton ----
-          natsukiButton.setText(bundle.getString("MTWizardThemesPanel.natsukiButton.text"));
-          natsukiButton.addActionListener(this::natsukiButtonActionPerformed);
-          natsukiPanel.add(natsukiButton);
-
-          //---- natsukiLabel ----
-          natsukiLabel.setIcon(new ImageIcon(getClass().getResource("/wizard/natsuki.png")));
-          natsukiPanel.add(natsukiLabel);
-        }
-        grid.add(natsukiPanel, "cell 0 1,align center center,grow 0 0");
-
-        //======== yuriPanel ========
-        {
-          yuriPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
-          yuriPanel.setLayout(new BoxLayout(yuriPanel, BoxLayout.Y_AXIS));
-
-          //---- yuriButton ----
-          yuriButton.setText(bundle.getString("MTWizardThemesPanel.yuriButton.text"));
-          yuriButton.addActionListener(this::yuriButtonActionPerformed);
-          yuriPanel.add(yuriButton);
-
-          //---- yuriLabel ----
-          yuriLabel.setIcon(new ImageIcon(getClass().getResource("/wizard/yuri.png")));
-          yuriPanel.add(yuriLabel);
-        }
-        grid.add(yuriPanel, "cell 1 1,align center center,grow 0 0");
-
         //======== onlyMonikaPanel ========
         {
           onlyMonikaPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -243,9 +194,26 @@ public class MTWizardThemesPanel extends AbstractCustomizeWizardStep {
           onlyMonikaLabel.setIcon(new ImageIcon(getClass().getResource("/wizard/onlyMonika.png")));
           onlyMonikaPanel.add(onlyMonikaLabel);
         }
-        grid.add(onlyMonikaPanel, "cell 0 0");
+        grid.add(onlyMonikaPanel, "cell 1 0,align center center,grow 0 0");
 
         //======== sayoriLayout ========
+        {
+          sayoriLayout.setBorder(new EmptyBorder(5, 5, 5, 5));
+          sayoriLayout.setLayout(new BoxLayout(sayoriLayout, BoxLayout.Y_AXIS));
+
+          //---- sayoriButton ----
+          sayoriButton.setText(bundle.getString("MTWizardThemesPanel.sayoriButton.text"));
+          sayoriButton.setHorizontalAlignment(SwingConstants.LEFT);
+          sayoriButton.addActionListener(this::sayoriButtonActionPerformed);
+          sayoriLayout.add(sayoriButton);
+
+          //---- sayoriLabel ----
+          sayoriLabel.setIcon(new ImageIcon(getClass().getResource("/wizard/sayori.png")));
+          sayoriLayout.add(sayoriLabel);
+        }
+        grid.add(sayoriLayout, "cell 0 1,align center center,grow 0 0");
+
+        //======== deletedCharacterLayout ========
         {
           deletedCharacterLayout.setBorder(new EmptyBorder(5, 5, 5, 5));
           deletedCharacterLayout.setLayout(new BoxLayout(deletedCharacterLayout, BoxLayout.Y_AXIS));
@@ -260,7 +228,23 @@ public class MTWizardThemesPanel extends AbstractCustomizeWizardStep {
           deletedCharacterLabel.setIcon(new ImageIcon(getClass().getResource("/wizard/deletedCharacter.png")));
           deletedCharacterLayout.add(deletedCharacterLabel);
         }
-        grid.add(deletedCharacterLayout, "cell 1 0,align center center,grow 0 0");
+        grid.add(deletedCharacterLayout, "cell 1 1,align center center,grow 0 0");
+
+        //======== natsukiPanel ========
+        {
+          natsukiPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+          natsukiPanel.setLayout(new BoxLayout(natsukiPanel, BoxLayout.Y_AXIS));
+
+          //---- natsukiButton ----
+          natsukiButton.setText(bundle.getString("MTWizardThemesPanel.natsukiButton.text"));
+          natsukiButton.addActionListener(this::natsukiButtonActionPerformed);
+          natsukiPanel.add(natsukiButton);
+
+          //---- natsukiLabel ----
+          natsukiLabel.setIcon(new ImageIcon(getClass().getResource("/wizard/natsuki.png")));
+          natsukiPanel.add(natsukiLabel);
+        }
+        grid.add(natsukiPanel, "cell 0 2,align center center,grow 0 0");
 
         //======== onlyPlayWithMePanel ========
         {
@@ -276,7 +260,23 @@ public class MTWizardThemesPanel extends AbstractCustomizeWizardStep {
           onlyPlayWithMeLabel.setIcon(new ImageIcon(getClass().getResource("/wizard/onlyPlayWithMe.png")));
           onlyPlayWithMePanel.add(onlyPlayWithMeLabel);
         }
-        grid.add(onlyPlayWithMePanel, "cell 0 1,align center center,grow 0 0");
+        grid.add(onlyPlayWithMePanel, "cell 1 2,align center center,grow 0 0");
+
+        //======== yuriPanel ========
+        {
+          yuriPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+          yuriPanel.setLayout(new BoxLayout(yuriPanel, BoxLayout.Y_AXIS));
+
+          //---- yuriButton ----
+          yuriButton.setText(bundle.getString("MTWizardThemesPanel.yuriButton.text"));
+          yuriButton.addActionListener(this::yuriButtonActionPerformed);
+          yuriPanel.add(yuriButton);
+
+          //---- yuriLabel ----
+          yuriLabel.setIcon(new ImageIcon(getClass().getResource("/wizard/yuri.png")));
+          yuriPanel.add(yuriLabel);
+        }
+        grid.add(yuriPanel, "cell 0 3,align center center,grow 0 0");
 
         //======== edgyPanel ========
         {
@@ -292,7 +292,7 @@ public class MTWizardThemesPanel extends AbstractCustomizeWizardStep {
           edgyLabel.setIcon(new ImageIcon(getClass().getResource("/wizard/edgy.png")));
           edgyPanel.add(edgyLabel);
         }
-        grid.add(edgyPanel, "cell 1 1,align center center,grow 0 0");
+        grid.add(edgyPanel, "cell 1 3,align center center,grow 0 0");
 
       }
       scrollPane.setViewportView(grid);
