@@ -25,7 +25,7 @@ class DeletedCharacterTheme: MTDokiDokiTheme("deleted.character", "Deleted Chara
 
     override fun getMenuBarSelectionForegroundColorString(): String = "ffffff"
 
-    override fun getMenuBarSelectionBackgroundColorString(): String = "0A039D"
+    override fun getMenuBarSelectionBackgroundColorString(): String = "7C081A"
 
     override fun getNotificationsColorString(): String = "335063"
 
