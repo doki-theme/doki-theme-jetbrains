@@ -882,8 +882,8 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
   }
 
   private void buildNotificationsColors() {
-    UIManager.put("Notifications.errorBackground", new JBColor(new ColorUIResource(0xef5350), new ColorUIResource(0xb71c1c)));
-    UIManager.put("Notifications.warnBackground", new JBColor(new ColorUIResource(0xFFD54F), new ColorUIResource(0xFFF59D)));
-    UIManager.put("Notifications.infoBackground", new JBColor(new ColorUIResource(0x66BB6A), new ColorUIResource(0x1B5E20)));
+    UIManager.put("Notifications.errorBackground", new JBColor(new ColorUIResource(0xef5350), new ColorUIResource(0x4E0C05)));
+    UIManager.put("Notifications.warnBackground", new JBColor(new ColorUIResource(0xFFD54F), new ColorUIResource(0x4E3C0D)));
+    UIManager.put("Notifications.infoBackground", new JBColor(new ColorUIResource(0x66BB6A), new ColorUIResource(0x113215)));
   }
 }
