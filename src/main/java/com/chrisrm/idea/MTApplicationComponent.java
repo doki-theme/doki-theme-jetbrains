@@ -34,6 +34,8 @@ import com.intellij.openapi.components.ApplicationComponent;
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
 
+import static com.chrisrm.idea.wizard.MTWizardDialog.MT_IS_SHOWN_WIZARD;
+
 public final class MTApplicationComponent implements ApplicationComponent {
   public static final String SHOW_STATISTICS_AGREEMENT = "mt.showStatisticsAgreement";
   private boolean updated;
@@ -60,11 +62,11 @@ public final class MTApplicationComponent implements ApplicationComponent {
   }
 
   private void checkWizard() {
-    final boolean isWizardShown = MTConfig.getInstance().getIsWizardShown();
-    if (!isWizardShown) {
-      new MTWizardDialog(new MTWizardStepsProvider()).show();
-      MTConfig.getInstance().setIsWizardShown(true);
-    }
+//      final boolean isWizardShown = PropertiesComponent.getInstance().getBoolean(MT_IS_SHOWN_WIZARD);
+//      if (!isWizardShown) {
+        new MTWizardDialog(new MTWizardStepsProvider()).show();
+//        PropertiesComponent.getInstance().setValue(MT_IS_SHOWN_WIZARD, true);
+//      }
   }
 
   /**

@@ -22,8 +22,24 @@ class DarkMode {
 
         fun toggle() {
             isOn = isOn.not()
+            setState()
+        }
+
+        fun setState() {
             PropertiesComponent.getInstance()
                     .setValue(SAVED_STATE, isOn)
+        }
+
+        @JvmStatic
+        fun turnOn() {
+            isOn = true
+            setState()
+        }
+
+        @JvmStatic
+        fun turnOff() {
+            isOn = false
+            setState()
         }
     }
 }

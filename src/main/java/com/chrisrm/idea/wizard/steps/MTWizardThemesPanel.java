@@ -30,6 +30,7 @@
 
 package com.chrisrm.idea.wizard.steps;
 
+import com.chrisrm.idea.actions.DarkMode;
 import com.chrisrm.idea.actions.themes.literature.club.JustMonikaThemeAction;
 import com.chrisrm.idea.actions.themes.literature.club.NatsukiThemeAction;
 import com.chrisrm.idea.actions.themes.literature.club.SayoriThemeAction;
@@ -65,21 +66,41 @@ public class MTWizardThemesPanel extends AbstractCustomizeWizardStep {
 
   private final JustMonikaThemeAction justMonikaThemeAction = new JustMonikaThemeAction();
   private void justMonikaButtonActionPerformed(final ActionEvent e) {
+    DarkMode.turnOff();
+    justMonikaThemeAction.selectionActivation();
+  }
+  private void onlyMonikaButtonActionPerformed(final ActionEvent e) {
+    DarkMode.turnOff();
     justMonikaThemeAction.selectionActivation();
   }
 
   private final SayoriThemeAction sayoriThemeAction = new SayoriThemeAction();
+  private void deletedCharacterButtonActionPerformed(final ActionEvent e) {
+    DarkMode.turnOff();
+    sayoriThemeAction.selectionActivation();
+  }
   private void sayoriButtonActionPerformed(final ActionEvent e) {
+    DarkMode.turnOff();
     sayoriThemeAction.selectionActivation();
   }
 
   private final NatsukiThemeAction natsukiThemeAction = new NatsukiThemeAction();
+  private void onlyPlayWithMeButtonActionPerformed(final ActionEvent e) {
+    DarkMode.turnOff();
+    natsukiThemeAction.selectionActivation();
+  }
   private void natsukiButtonActionPerformed(final ActionEvent e) {
+    DarkMode.turnOff();
     natsukiThemeAction.selectionActivation();
   }
 
   private final YuriThemeAction yuriThemeAction = new YuriThemeAction();
+  private void edgyButtonActionPerformed(final ActionEvent e) {
+    DarkMode.turnOff();
+    yuriThemeAction.selectionActivation();
+  }
   private void yuriButtonActionPerformed(final ActionEvent e) {
+    DarkMode.turnOff();
     yuriThemeAction.selectionActivation();
   }
 
@@ -101,6 +122,18 @@ public class MTWizardThemesPanel extends AbstractCustomizeWizardStep {
     yuriPanel = new JPanel();
     yuriButton = new JRadioButton();
     yuriLabel = new JLabel();
+    onlyMonikaPanel = new JPanel();
+    onlyMonikaButton = new JRadioButton();
+    onlyMonikaLabel = new JLabel();
+    deletedCharacterLayout = new JPanel();
+    deletedCharacterButton = new JRadioButton();
+    deletedCharacterLabel = new JLabel();
+    onlyPlayWithMePanel = new JPanel();
+    onlyPlayWithMeButton = new JRadioButton();
+    onlyPlayWithMeLabel = new JLabel();
+    edgyPanel = new JPanel();
+    edgyButton = new JRadioButton();
+    edgyLabel = new JLabel();
 
     //======== this ========
     setLayout(new BorderLayout());
@@ -194,6 +227,73 @@ public class MTWizardThemesPanel extends AbstractCustomizeWizardStep {
         }
         grid.add(yuriPanel, "cell 1 1,align center center,grow 0 0");
 
+        //======== onlyMonikaPanel ========
+        {
+          onlyMonikaPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+          onlyMonikaPanel.setLayout(new BoxLayout(onlyMonikaPanel, BoxLayout.Y_AXIS));
+
+          //---- onlyMonikaButton ----
+          onlyMonikaButton.setText("Just Monika");
+          onlyMonikaButton.setHorizontalAlignment(SwingConstants.LEFT);
+          onlyMonikaButton.setActionCommand(bundle.getString("MTWizardThemesPanel.onlyMonikaButton.text"));
+          onlyMonikaButton.addActionListener(this::onlyMonikaButtonActionPerformed);
+          onlyMonikaPanel.add(onlyMonikaButton);
+
+          //---- onlyMonikaLabel ----
+          onlyMonikaLabel.setIcon(new ImageIcon(getClass().getResource("/wizard/onlyMonika.png")));
+          onlyMonikaPanel.add(onlyMonikaLabel);
+        }
+        grid.add(onlyMonikaPanel, "cell 0 0");
+
+        //======== sayoriLayout ========
+        {
+          deletedCharacterLayout.setBorder(new EmptyBorder(5, 5, 5, 5));
+          deletedCharacterLayout.setLayout(new BoxLayout(deletedCharacterLayout, BoxLayout.Y_AXIS));
+
+          //---- deletedCharacterButton ----
+          deletedCharacterButton.setText(bundle.getString("MTWizardThemesPanel.deletedCharacterButton.text"));
+          deletedCharacterButton.setHorizontalAlignment(SwingConstants.LEFT);
+          deletedCharacterButton.addActionListener(this::deletedCharacterButtonActionPerformed);
+          deletedCharacterLayout.add(deletedCharacterButton);
+
+          //---- deletedCharacterLabel ----
+          deletedCharacterLabel.setIcon(new ImageIcon(getClass().getResource("/wizard/deletedCharacter.png")));
+          deletedCharacterLayout.add(deletedCharacterLabel);
+        }
+        grid.add(deletedCharacterLayout, "cell 1 0,align center center,grow 0 0");
+
+        //======== onlyPlayWithMePanel ========
+        {
+          onlyPlayWithMePanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+          onlyPlayWithMePanel.setLayout(new BoxLayout(onlyPlayWithMePanel, BoxLayout.Y_AXIS));
+
+          //---- onlyPlayWithMeButton ----
+          onlyPlayWithMeButton.setText(bundle.getString("MTWizardThemesPanel.onlyPlayWithMeButton.text"));
+          onlyPlayWithMeButton.addActionListener(this::onlyPlayWithMeButtonActionPerformed);
+          onlyPlayWithMePanel.add(onlyPlayWithMeButton);
+
+          //---- onlyPlayWithMeLabel ----
+          onlyPlayWithMeLabel.setIcon(new ImageIcon(getClass().getResource("/wizard/onlyPlayWithMe.png")));
+          onlyPlayWithMePanel.add(onlyPlayWithMeLabel);
+        }
+        grid.add(onlyPlayWithMePanel, "cell 0 1,align center center,grow 0 0");
+
+        //======== edgyPanel ========
+        {
+          edgyPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+          edgyPanel.setLayout(new BoxLayout(edgyPanel, BoxLayout.Y_AXIS));
+
+          //---- edgyButton ----
+          edgyButton.setText(bundle.getString("MTWizardThemesPanel.edgyButton.text"));
+          edgyButton.addActionListener(this::edgyButtonActionPerformed);
+          edgyPanel.add(edgyButton);
+
+          //---- edgyLabel ----
+          edgyLabel.setIcon(new ImageIcon(getClass().getResource("/wizard/edgy.png")));
+          edgyPanel.add(edgyLabel);
+        }
+        grid.add(edgyPanel, "cell 1 1,align center center,grow 0 0");
+
       }
       scrollPane.setViewportView(grid);
     }
@@ -205,6 +305,10 @@ public class MTWizardThemesPanel extends AbstractCustomizeWizardStep {
     selectedTheme.add(sayoriButton);
     selectedTheme.add(natsukiButton);
     selectedTheme.add(yuriButton);
+    selectedTheme.add(onlyMonikaButton);
+    selectedTheme.add(deletedCharacterButton);
+    selectedTheme.add(onlyPlayWithMeButton);
+    selectedTheme.add(edgyButton);
     // JFormDesigner - End of component initialization  //GEN-END:initComponents
   }
 
@@ -224,5 +328,17 @@ public class MTWizardThemesPanel extends AbstractCustomizeWizardStep {
   private JPanel yuriPanel;
   private JRadioButton yuriButton;
   private JLabel yuriLabel;
+  private JPanel onlyMonikaPanel;
+  private JRadioButton onlyMonikaButton;
+  private JLabel onlyMonikaLabel;
+  private JPanel deletedCharacterLayout;
+  private JRadioButton deletedCharacterButton;
+  private JLabel deletedCharacterLabel;
+  private JPanel onlyPlayWithMePanel;
+  private JRadioButton onlyPlayWithMeButton;
+  private JLabel onlyPlayWithMeLabel;
+  private JPanel edgyPanel;
+  private JRadioButton edgyButton;
+  private JLabel edgyLabel;
   // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

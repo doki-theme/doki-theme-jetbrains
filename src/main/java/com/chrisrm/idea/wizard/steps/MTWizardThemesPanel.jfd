@@ -94,6 +94,81 @@ new FormModel {
 					}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
 						"value": "cell 1 1,align center center,grow 0 0"
 					} )
+					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class javax.swing.BoxLayout ) {
+						"axis": 1
+					} ) {
+						name: "onlyMonikaPanel"
+						"border": &EmptyBorder0 new javax.swing.border.EmptyBorder( 5, 5, 5, 5 )
+						add( new FormComponent( "javax.swing.JRadioButton" ) {
+							name: "onlyMonikaButton"
+							"text": "Only Monika"
+							"$buttonGroup": new FormReference( "selectedTheme" )
+							"horizontalAlignment": 2
+							"actionCommand": new FormMessage( null, "MTWizardThemesPanel.onlyMonikaButton.text" )
+							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "onlyMonikaButtonActionPerformed", true ) )
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "onlyMonikaLabel"
+							"icon": new com.jformdesigner.model.SwingIcon( 0, "/wizard/onlyMonika.png" )
+						} )
+					}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+						"value": "cell 0 0"
+					} )
+					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class javax.swing.BoxLayout ) {
+						"axis": 1
+					} ) {
+						name: "deletedCharacterLayout"
+						"border": #EmptyBorder0
+						add( new FormComponent( "javax.swing.JRadioButton" ) {
+							name: "deletedCharacterButton"
+							"text": new FormMessage( null, "MTWizardThemesPanel.deletedCharacterButton.text" )
+							"$buttonGroup": new FormReference( "selectedTheme" )
+							"horizontalAlignment": 2
+							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "deletedCharacterButtonActionPerformed", true ) )
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "deletedCharacterLabel"
+							"icon": new com.jformdesigner.model.SwingIcon( 0, "/wizard/deletedCharacter.png" )
+						} )
+					}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+						"value": "cell 1 0,align center center,grow 0 0"
+					} )
+					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class javax.swing.BoxLayout ) {
+						"axis": 1
+					} ) {
+						name: "onlyPlayWithMePanel"
+						"border": #EmptyBorder0
+						add( new FormComponent( "javax.swing.JRadioButton" ) {
+							name: "onlyPlayWithMeButton"
+							"text": new FormMessage( null, "MTWizardThemesPanel.onlyPlayWithMeButton.text" )
+							"$buttonGroup": new FormReference( "selectedTheme" )
+							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "onlyPlayWithMeButtonActionPerformed", true ) )
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "onlyPlayWithMeLabel"
+							"icon": new com.jformdesigner.model.SwingIcon( 0, "/wizard/onlyPlayWithMe.png" )
+						} )
+					}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+						"value": "cell 0 1,align center center,grow 0 0"
+					} )
+					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class javax.swing.BoxLayout ) {
+						"axis": 1
+					} ) {
+						name: "edgyPanel"
+						"border": #EmptyBorder0
+						add( new FormComponent( "javax.swing.JRadioButton" ) {
+							name: "edgyButton"
+							"text": new FormMessage( null, "MTWizardThemesPanel.edgyButton.text" )
+							"$buttonGroup": new FormReference( "selectedTheme" )
+							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "edgyButtonActionPerformed", true ) )
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "edgyLabel"
+							"icon": new com.jformdesigner.model.SwingIcon( 0, "/wizard/edgy.png" )
+						} )
+					}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+						"value": "cell 1 1,align center center,grow 0 0"
+					} )
 				} )
 			}, new FormLayoutConstraints( class java.lang.String ) {
 				"value": "Center"
