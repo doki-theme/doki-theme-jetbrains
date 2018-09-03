@@ -119,27 +119,27 @@ public enum MTThemes implements MTThemeFacade {
 
   @Override
   public String getAccentColor() {
-    return mtTheme.getAccentColor();
+    return getTheme().getAccentColor();
   }
 
   @Override
   public String getExcludedColor() {
-    return mtTheme.getExcludedColor();
+    return getTheme().getExcludedColor();
   }
 
   @Override
   public int getOrder() {
-    return mtTheme.getOrder();
+    return getTheme().getOrder();
   }
 
   @Override
   public String getNonProjectFileScopeColor() {
-    return mtTheme.getNonProjectFileScopeColor();
+    return getTheme().getNonProjectFileScopeColor();
   }
 
   @Override
   public String getTestScope() {
-    return mtTheme.getTestScope();
+    return getTheme().getTestScope();
   }
 
   /**

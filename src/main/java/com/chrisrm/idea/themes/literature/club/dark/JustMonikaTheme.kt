@@ -40,4 +40,6 @@ class JustMonikaTheme: MTDokiDokiTheme("just.monika", "Just Monika", true, "Moni
     override fun getTextColorString(): String = "F9F9F9"
 
     override fun getEditorTabColorString(): String = contrastColorString
+
+    override fun getNonProjectFileScopeColor(): String = "262b18"
 }

@@ -29,7 +29,6 @@ import com.chrisrm.idea.MTAnalytics
 import com.chrisrm.idea.MTConfig
 import com.chrisrm.idea.messages.MaterialThemeBundle
 import com.chrisrm.idea.utils.Notify
-import com.google.common.collect.Lists
 import com.intellij.notification.Notification
 import com.intellij.notification.NotificationListener
 import com.intellij.notification.NotificationType

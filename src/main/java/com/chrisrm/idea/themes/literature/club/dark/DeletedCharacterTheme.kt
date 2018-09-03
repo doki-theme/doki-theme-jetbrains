@@ -41,4 +41,5 @@ class DeletedCharacterTheme: MTDokiDokiTheme("deleted.character", "Deleted Chara
 
     override fun getEditorTabColorString(): String = contrastColorString
 
+    override fun getNonProjectFileScopeColor(): String = "151c1b"
 }

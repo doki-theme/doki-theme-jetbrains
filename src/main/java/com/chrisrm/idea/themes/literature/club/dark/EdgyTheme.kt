@@ -41,5 +41,7 @@ class EdgyTheme: MTDokiDokiTheme("yuri.dark", "Edgy", true, "Yuri") {
 
     override fun getTextColorString(): String = "916ACE"
 
+    override fun getNonProjectFileScopeColor(): String = "272132"
+
 
 }
