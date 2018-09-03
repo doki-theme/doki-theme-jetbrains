@@ -37,6 +37,8 @@ class EdgyTheme: MTDokiDokiTheme("yuri.dark", "Edgy", true, "Yuri") {
 
     override fun getForegroundColorString(): String = "917DEA"
 
+    override fun getDisabled(): String = "17C704"
+
     override fun getTextColorString(): String = "916ACE"
 
 

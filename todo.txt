@@ -37,6 +37,11 @@ FILE changed status (NOT AVAILABLE IN COMMUNITY)
 search everywhere on webstorm selection looks wonky.
 
 file scope colors
+    - dark yuri 272132
+    - dark natsuki 2a1b1f
+    - dark sayori 151c1b
+    - just monika 262b18
+
 
 DARK THEME TODO:
     - Chibis
