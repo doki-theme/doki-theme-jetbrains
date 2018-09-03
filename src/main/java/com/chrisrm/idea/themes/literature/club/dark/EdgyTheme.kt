@@ -27,13 +27,13 @@ class EdgyTheme: MTDokiDokiTheme("yuri.dark", "Edgy", true, "Yuri") {
 
     override fun getNotificationsColorString(): String = "36274E"
 
-    override fun getContrastColorString(): String = "3C2855"
+    override fun getContrastColorString(): String = "473960"
 
     override fun getEditorTabColorString(): String = contrastColorString
 
     override fun getButtonBackgroundColor(): String = contrastColorString
 
-    override fun getButtonForegroundColor(): String = "8262E9"
+    override fun getButtonForegroundColor(): String = "7469C7"
 
     override fun getForegroundColorString(): String = "917DEA"
 
