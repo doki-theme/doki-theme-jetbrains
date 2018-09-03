@@ -127,7 +127,7 @@
             <loadForDefaultProject>true</loadForDefaultProject>
         </component>
         <component>
-            <implementation-class>com.chrisrm.idea.DDLCFileScopeComponent</implementation-class>
+            <implementation-class>com.chrisrm.idea.DDLCProjectInitializationComponent</implementation-class>
             <loadForDefaultProject>true</loadForDefaultProject>
         </component>
         <component>
