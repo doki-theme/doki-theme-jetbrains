@@ -132,6 +132,16 @@ public enum MTThemes implements MTThemeFacade {
     return mtTheme.getOrder();
   }
 
+  @Override
+  public String getNonProjectFileScopeColor() {
+    return mtTheme.getNonProjectFileScopeColor();
+  }
+
+  @Override
+  public String getTestScope() {
+    return mtTheme.getTestScope();
+  }
+
   /**
    * Find for a native theme or a bundled theme by its id
    *
@@ -229,6 +239,16 @@ public enum MTThemes implements MTThemeFacade {
       @Override
       public int getOrder() {
         return 100;
+      }
+
+      @Override
+      public String getNonProjectFileScopeColor() {
+        return theme.getNonProjectFileScopeColor();
+      }
+
+      @Override
+      public String getTestScope() {
+        return theme.getTestScope();
       }
     };
   }

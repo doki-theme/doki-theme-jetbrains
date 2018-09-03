@@ -108,6 +108,16 @@ public class MTMonikaBundledTheme extends MTLightCustomTheme implements Serializ
     return themeId;
   }
 
+  @Override
+  public String getNonProjectFileScopeColor() {
+    return null;
+  }
+
+  @Override
+  public String getTestScope() {
+    return null;
+  }
+
   public void setThemeId(final String themeId) {
     this.themeId = themeId;
   }

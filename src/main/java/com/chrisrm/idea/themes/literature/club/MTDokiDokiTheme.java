@@ -101,6 +101,16 @@ public class MTDokiDokiTheme extends MTAbstractTheme {
   }
 
   @Override
+  public String getNonProjectFileScopeColor() {
+    return MonikaTheme.NON_PROJECT_FILES;
+  }
+
+  @Override
+  public String getTestScope() {
+    return MonikaTheme.TEST_FILES;
+  }
+
+  @Override
   public String getEditorTabColorString() {
     return "def7a5";
   }

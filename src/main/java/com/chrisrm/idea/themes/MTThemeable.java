@@ -237,4 +237,8 @@ public interface MTThemeable {
    * @return
    */
   int getOrder();
+
+  String getNonProjectFileScopeColor();
+
+  String getTestScope();
 }

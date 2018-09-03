@@ -185,4 +185,14 @@ public class MTLightCustomTheme extends MTAbstractTheme {
   public int getOrder() {
     return 10;
   }
+
+  @Override
+  public String getNonProjectFileScopeColor() {
+    return null;
+  }
+
+  @Override
+  public String getTestScope() {
+    return null;
+  }
 }

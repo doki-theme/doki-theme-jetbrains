@@ -31,6 +31,7 @@ import com.chrisrm.idea.MTConfig
 import com.chrisrm.idea.MTThemeManager
 import com.chrisrm.idea.MTThemes
 import com.chrisrm.idea.actions.ClubMemberOrchestrator
+import com.chrisrm.idea.actions.MTAddFileColorsAction
 import com.chrisrm.idea.actions.accents.MTAbstractAccentAction
 import com.chrisrm.idea.tree.MTProjectViewNodeDecorator
 import com.chrisrm.idea.ui.MTButtonUI
@@ -41,12 +42,19 @@ import com.intellij.openapi.actionSystem.ToggleAction
 
 open class ClubMemberThemeAction(private val theme: MTThemes,
                                  private val accentAction: MTAbstractAccentAction) : BaseThemeAction() {
+    private val mtAddFileColorsAction = MTAddFileColorsAction()
+
     override fun selectionActivation() {
         super.selectionActivation()
         accentAction.setAccentToTheme()
         MTThemeManager.getInstance().activate(theme, true)
         ClubMemberOrchestrator.activate(theme)
         MTAnalytics.getInstance().track(MTAnalytics.SELECT_THEME, theme);
+    }
+
+    override fun projectSpecificActivation(e: AnActionEvent?) {
+        super.projectSpecificActivation(e)
+        mtAddFileColorsAction.setFileScopes(e?.project)
     }
 
     override fun isSelected(e: AnActionEvent?): Boolean =
@@ -58,6 +66,11 @@ abstract class BaseThemeAction : ToggleAction() {
 
     override fun setSelected(e: AnActionEvent?, state: Boolean) {
         selectionActivation()
+        projectSpecificActivation(e)
+    }
+
+    open fun projectSpecificActivation(e: AnActionEvent?){
+        //lul dunno
     }
 
     open fun selectionActivation() {

@@ -110,4 +110,8 @@ public interface MTThemeFacade {
    * @return
    */
   int getOrder();
+
+  String getNonProjectFileScopeColor();
+
+  String getTestScope();
 }

@@ -26,6 +26,8 @@
 package com.chrisrm.idea.actions;
 
 import com.chrisrm.idea.MTAnalytics;
+import com.chrisrm.idea.MTConfig;
+import com.chrisrm.idea.MTThemeFacade;
 import com.chrisrm.idea.messages.MaterialThemeBundle;
 import com.chrisrm.idea.themes.literature.club.MonikaTheme;
 import com.chrisrm.idea.utils.Notify;
@@ -53,9 +55,7 @@ public final class MTAddFileColorsAction extends AnAction {
   }
 
   private void addDisabledFileColors(final Project project) {
-    final FileColorManager manager = FileColorManager.getInstance(project);
-    manager.addScopeColor(NonProjectFilesScope.NAME, MonikaTheme.NON_PROJECT_FILES, false);
-    manager.addScopeColor(TestsScope.NAME, MonikaTheme.TEST_FILES, false);
+    setFileScopes(project);
 
     Notify.show(project,
                 "",
@@ -71,5 +71,15 @@ public final class MTAddFileColorsAction extends AnAction {
                 });
 
     MTAnalytics.getInstance().track(MTAnalytics.ADD_FILE_COLORS);
+  }
+
+  public void setFileScopes(Project project) {
+    final FileColorManager manager = FileColorManager.getInstance(project);
+    MTThemeFacade selectedTheme = MTConfig.getInstance().getSelectedTheme();
+    manager.addScopeColor(NonProjectFilesScope.NAME, selectedTheme.getNonProjectFileScopeColor(), false);
+    manager.addScopeColor(TestsScope.NAME, selectedTheme.getTestScope(), false);
+    manager.addScopeColor("Local Unit Tests", selectedTheme.getTestScope(), false);
+//    String message = AndroidBundle.message("android.test.run.configuration.type.name");
+    manager.addScopeColor("Android Instrumented Tests", selectedTheme.getTestScope(), false);
   }
 }
