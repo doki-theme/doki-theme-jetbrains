@@ -11,10 +11,10 @@ import com.intellij.openapi.actionSystem.AnActionEvent
 class JoyAction: MTAbstractThemeAction() {
     override fun getTheme(): MTThemes = MTThemes.MONIKA
 
-    override fun isSelected(e: AnActionEvent?) = JoyManager.isOn()
+    override fun isSelected(e: AnActionEvent) = JoyManager.isOn()
 
     // todo: will need to integrate with the new stuff on master.
-    override fun setSelected(e: AnActionEvent?, state: Boolean) {
+    override fun setSelected(e: AnActionEvent, state: Boolean) {
         JoyManager.toggle()
         val selectedTheme = MTConfig.getInstance().getSelectedTheme() as? MTThemes
         ClubMemberManager.getInstance().activate(selectedTheme)

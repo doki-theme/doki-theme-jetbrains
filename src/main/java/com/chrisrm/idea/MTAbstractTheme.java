@@ -429,6 +429,7 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
         "ComboBox.background",
         "ComboBox.disabledBackground",
         "ComboBox.arrowFillColor",
+        "ComboBox.darcula.arrowButtonBackground",
         "RadioButton.darcula.selectionDisabledColor",
         "StatusBar.topColor",
         "StatusBar.top2Color",
@@ -731,6 +732,11 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
         "ScrollBar.thumb",
         "EditorPane.background",
         "ToolBar.background",
+        "Popup.Header.inactiveBackground",
+        "Popup.Toolbar.background",
+        "Popup.Border.color",
+        "Popup.Toolbar.Border.color",
+        "SearchEverywhere.SearchField.background",
         "material.contrast"
     };
   }
