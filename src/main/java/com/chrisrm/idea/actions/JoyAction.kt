@@ -3,7 +3,6 @@ package com.chrisrm.idea.actions
 import com.chrisrm.idea.MTConfig
 import com.chrisrm.idea.MTThemes
 import com.chrisrm.idea.actions.themes.BaseThemeAction
-import com.chrisrm.idea.actions.themes.ClubMemberThemeAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 
 /**
