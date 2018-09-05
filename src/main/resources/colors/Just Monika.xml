@@ -792,8 +792,8 @@
         </option>
         <option name="DIFF_MODIFIED">
             <value>
-                <option name="BACKGROUND" value="296C2A"/>
-                <option name="ERROR_STRIPE_COLOR" value="43698d"/>
+                <option name="BACKGROUND" value="204B21"/>
+                <option name="ERROR_STRIPE_COLOR" value="344C69"/>
             </value>
         </option>
         <option name="DUPLICATE_FROM_SERVER">
