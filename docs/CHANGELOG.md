@@ -1,6 +1,10 @@
 # Changelog
 ----
 
+# 0.6.1
+
+- Up to date with upstream's version 2.8.3
+
 # 0.6.0
 
 - Up to date with upstream's version 2.8.2 
