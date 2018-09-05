@@ -52,24 +52,24 @@ open class ClubMemberThemeAction(private val theme: MTThemes,
         MTAnalytics.getInstance().track(MTAnalytics.SELECT_THEME, theme);
     }
 
-    override fun projectSpecificActivation(e: AnActionEvent?) {
+    override fun projectSpecificActivation(e: AnActionEvent) {
         super.projectSpecificActivation(e)
-        mtAddFileColorsAction.setFileScopes(e?.project)
+        mtAddFileColorsAction.setFileScopes(e.project)
     }
 
-    override fun isSelected(e: AnActionEvent?): Boolean =
+    override fun isSelected(e: AnActionEvent): Boolean =
             MTConfig.getInstance().getSelectedTheme() === theme
 
 }
 
 abstract class BaseThemeAction : ToggleAction() {
 
-    override fun setSelected(e: AnActionEvent?, state: Boolean) {
+    override fun setSelected(e: AnActionEvent, state: Boolean) {
         selectionActivation()
         projectSpecificActivation(e)
     }
 
-    open fun projectSpecificActivation(e: AnActionEvent?){
+    open fun projectSpecificActivation(e: AnActionEvent){
         //lul dunno
     }
 
@@ -79,7 +79,7 @@ abstract class BaseThemeAction : ToggleAction() {
         MTProjectViewNodeDecorator.resetCache()
     }
 
-    override fun isSelected(e: AnActionEvent?): Boolean {
+    override fun isSelected(e: AnActionEvent): Boolean {
         return false
     }
 
