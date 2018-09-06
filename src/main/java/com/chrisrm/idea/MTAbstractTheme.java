@@ -443,8 +443,6 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
         "Spinner.background",
         "SplitPane.highlight",
         "Tree.background",
-        "Popup.Header.inactiveBackground",
-        "Popup.Header.activeBackground",
         "Popup.Border.inactiveColor",
         "Popup.inactiveBorderColor",
         "Popup.preferences.background",
