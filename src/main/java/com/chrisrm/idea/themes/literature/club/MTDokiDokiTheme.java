@@ -293,6 +293,8 @@ public class MTDokiDokiTheme extends MTAbstractTheme {
         "TabbedPane.darkShadow",
         "TabbedPane.shadow",
         "TabbedPane.borderColor",
+        "Popup.Header.inactiveBackground",
+        "Popup.Header.activeBackground",
     };
   }
 
