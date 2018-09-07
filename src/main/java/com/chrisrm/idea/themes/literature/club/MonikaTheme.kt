@@ -29,7 +29,7 @@ package com.chrisrm.idea.themes.literature.club
 import java.awt.Color
 import java.util.stream.Stream
 
-class MonikaTheme : DokiDokiTheme("mt.monika", "Monika", false, "Monika") {
+class MonikaTheme : DokiDokiTheme("monika", "Monika", false, "Monika") {
 
     override fun getClubMember(): String = "just_monika.png"
 
