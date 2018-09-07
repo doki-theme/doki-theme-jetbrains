@@ -1,6 +1,6 @@
 package com.chrisrm.idea.themes.literature.club
 
-class MTYuriTheme : MTDokiDokiTheme("mt.yuri", "Material Yuri", false, "Yuri") {
+class YuriTheme : MTDokiDokiTheme("mt.yuri", "Material Yuri", false, "Yuri") {
 
     override fun getBackgroundColorString(): String = "e8e4ff"
 
@@ -27,4 +27,8 @@ class MTYuriTheme : MTDokiDokiTheme("mt.yuri", "Material Yuri", false, "Yuri") {
     override fun getContrastColorString(): String = "ccaaff"
 
     override fun getEditorTabColorString(): String = contrastColorString
+
+    override fun getButtonBackgroundColor(): String = contrastColorString
+
+    override fun getButtonForegroundColor(): String = "6B1C9A"
 }
