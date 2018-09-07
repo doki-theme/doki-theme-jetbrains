@@ -613,7 +613,7 @@
         </option>
         <option name="DEFAULT_CONSTANT">
             <value>
-                <option name="FOREGROUND" value="ff14ff"/>
+                <option name="FOREGROUND" value="F751F9"/>
             </value>
         </option>
         <option name="DEFAULT_DOC_COMMENT">
@@ -734,7 +734,7 @@
         </option>
         <option name="DEFAULT_STATIC_FIELD">
             <value>
-                <option name="FOREGROUND" value="ff14ff"/>
+                <option name="FOREGROUND" value="F751F9"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -914,7 +914,7 @@
         </option>
         <option name="GO_BUILTIN_CONSTANT">
             <value>
-                <option name="FOREGROUND" value="ff14ff"/>
+                <option name="FOREGROUND" value="F751F9"/>
             </value>
         </option>
         <option name="GO_BUILTIN_FUNCTION">
@@ -990,7 +990,7 @@
         </option>
         <option name="GO_LOCAL_CONSTANT">
             <value>
-                <option name="FOREGROUND" value="ff14ff"/>
+                <option name="FOREGROUND" value="F751F9"/>
             </value>
         </option>
         <option name="GO_LOCAL_FUNCTION">
@@ -1025,7 +1025,7 @@
         </option>
         <option name="GO_PACKAGE_EXPORTED_CONSTANT">
             <value>
-                <option name="FOREGROUND" value="ff14ff"/>
+                <option name="FOREGROUND" value="F751F9"/>
             </value>
         </option>
         <option name="GO_PACKAGE_LOCAL_STRUCT">
@@ -2456,7 +2456,7 @@
         </option>
         <option name="PHP_CONSTANT">
             <value>
-                <option name="FOREGROUND" value="ff14ff"/>
+                <option name="FOREGROUND" value="F751F9"/>
             </value>
         </option>
         <option name="PHP_DOC_COMMENT_ID">
@@ -2570,7 +2570,7 @@
         </option>
         <option name="PHP_STATIC_FIELD">
             <value>
-                <option name="FOREGROUND" value="ff14ff"/>
+                <option name="FOREGROUND" value="F751F9"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -2897,12 +2897,12 @@
         </option>
         <option name="RUBY_CONSTANT">
             <value>
-                <option name="FOREGROUND" value="ff14ff"/>
+                <option name="FOREGROUND" value="F751F9"/>
             </value>
         </option>
         <option name="RUBY_CONSTANT_DECLARATION">
             <value>
-                <option name="FOREGROUND" value="ff14ff"/>
+                <option name="FOREGROUND" value="F751F9"/>
             </value>
         </option>
         <option name="RUBY_CVAR">
@@ -3434,7 +3434,7 @@
         </option>
         <option name="Static field">
             <value>
-                <option name="FOREGROUND" value="ff14ff"/>
+                <option name="FOREGROUND" value="F751F9"/>
                 <option name="EFFECT_TYPE" value="1"/>
             </value>
         </option>
