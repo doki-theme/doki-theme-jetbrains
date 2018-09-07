@@ -1,11 +1,11 @@
 package com.chrisrm.idea.themes.literature.club.dark
 
-import com.chrisrm.idea.themes.literature.club.MTDokiDokiTheme
+import com.chrisrm.idea.themes.literature.club.DokiDokiTheme
 
 /**
  * Forged in the flames of battle by alex.
  */
-class JustMonikaTheme: MTDokiDokiTheme("just.monika", "Just Monika", true, "Monika") {
+class JustMonikaTheme: DokiDokiTheme("just.monika", "Just Monika", true, "Monika") {
 
     override fun getBackgroundColorString(): String = "1C230D"
 

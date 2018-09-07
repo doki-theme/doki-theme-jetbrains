@@ -1,8 +1,8 @@
 package com.chrisrm.idea.themes.literature.club.dark
 
-import com.chrisrm.idea.themes.literature.club.MTDokiDokiTheme
+import com.chrisrm.idea.themes.literature.club.DokiDokiTheme
 
-class OnlyPlayWithMeTheme: MTDokiDokiTheme("natsuki.dark", "Only Play With Me", true, "Natsuki") {
+class OnlyPlayWithMeTheme: DokiDokiTheme("natsuki.dark", "Only Play With Me", true, "Natsuki") {
 
     override fun getBackgroundColorString(): String = "240E1E"
 

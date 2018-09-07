@@ -1,6 +1,6 @@
 package com.chrisrm.idea.themes.literature.club
 
-class YuriTheme : MTDokiDokiTheme("mt.yuri", "Material Yuri", false, "Yuri") {
+class YuriTheme : DokiDokiTheme("mt.yuri", "Material Yuri", false, "Yuri") {
 
     override fun getBackgroundColorString(): String = "e8e4ff"
 

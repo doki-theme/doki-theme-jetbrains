@@ -32,7 +32,7 @@ import org.jetbrains.annotations.NotNull;
 import java.awt.*;
 import java.util.stream.Stream;
 
-public class MTDokiDokiTheme extends MTAbstractTheme {
+public class DokiDokiTheme extends MTAbstractTheme {
   public static final String BACKGROUND = "fffcfc"; // 250, 250, 250
   public static final String FOREGROUND = "A7ADB0"; // 167, 173, 176
   public static final String CARET = "FFCC00"; // 255, 204, 0
@@ -56,7 +56,7 @@ public class MTDokiDokiTheme extends MTAbstractTheme {
   public static final String NON_PROJECT_FILES = "fdffce";
   public static final String TEST_FILES = "bbff7e";
 
-  public MTDokiDokiTheme(@NotNull String id, String editorColorsScheme, boolean dark, String thingo) {
+  public DokiDokiTheme(@NotNull String id, String editorColorsScheme, boolean dark, String thingo) {
     super(id, editorColorsScheme, dark, thingo);
   }
 
@@ -74,13 +74,13 @@ public class MTDokiDokiTheme extends MTAbstractTheme {
   @NotNull
   @Override
   public String getSelectionBackground() {
-    return MTDokiDokiTheme.SELECTION_BACKGROUND;
+    return DokiDokiTheme.SELECTION_BACKGROUND;
   }
 
   @NotNull
   @Override
   public String getDisabled() {
-    return MTDokiDokiTheme.DISABLED;
+    return DokiDokiTheme.DISABLED;
   }
 
   @Override
