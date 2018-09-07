@@ -270,7 +270,7 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
   @Override
   public String getSelectionBackground() {
     //todo: when dark theme comes in!!!!!
-    return dark ? MonikaTheme.SELECTION_BACKGROUND : MonikaTheme.SELECTION_BACKGROUND;
+    return dark ? MonikaTheme.Companion.getSELECTION_BACKGROUND() : MonikaTheme.Companion.getSELECTION_BACKGROUND();
   }
 
   /**
@@ -280,7 +280,7 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
   @Override
   public String getDisabled() {
     //todo: when dark theme comes in!!!!!
-    return dark ? MonikaTheme.DISABLED : MonikaTheme.DISABLED;
+    return dark ? MonikaTheme.Companion.getDISABLED() : MonikaTheme.Companion.getDISABLED();
   }
 
   /**

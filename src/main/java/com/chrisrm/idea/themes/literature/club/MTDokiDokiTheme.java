@@ -102,12 +102,12 @@ public class MTDokiDokiTheme extends MTAbstractTheme {
 
   @Override
   public String getNonProjectFileScopeColor() {
-    return MonikaTheme.NON_PROJECT_FILES;
+    return MonikaTheme.Companion.getNON_PROJECT_FILES();
   }
 
   @Override
   public String getTestScope() {
-    return MonikaTheme.TEST_FILES;
+    return MonikaTheme.Companion.getTEST_FILES();
   }
 
   @Override
@@ -368,7 +368,6 @@ public class MTDokiDokiTheme extends MTAbstractTheme {
   public String[] getSelectionBackgroundResources() {
     return new String[] {
         "inactiveCaption",
-//        "Button.disabledText",
         "Menu.selectionBackground",
         "Menu.acceleratorSelectionBackground",
         "MenuItem.selectionBackground",
