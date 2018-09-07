@@ -1,6 +1,6 @@
 package com.chrisrm.idea.themes.literature.club
 
-class MTNatsukiTheme : MTDokiDokiTheme("mt.natsuki", "Material Natsuki", false, "Natsuki") {
+class NatsukiTheme : MTDokiDokiTheme("mt.natsuki", "Material Natsuki", false, "Natsuki") {
 
     override fun getBackgroundColorString(): String = "fff3fc"
 
@@ -27,4 +27,6 @@ class MTNatsukiTheme : MTDokiDokiTheme("mt.natsuki", "Material Natsuki", false, 
     override fun getContrastColorString(): String = "fdceff"
 
     override fun getEditorTabColorString(): String = contrastColorString
+
+    override fun getButtonBackgroundColor(): String = contrastColorString
 }
