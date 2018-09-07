@@ -377,6 +377,7 @@ public class DokiDokiTheme extends MTAbstractTheme {
         "PasswordField.selectionBackground",
         "Button.mt.selectedBackground",
         "TextArea.selectionBackground",
+        "SearchEverywhere.Tab.selected.background",
         "Label.selectedBackground",
         "Button.darcula.selectedButtonBackground",
         "PasswordField.selectionBackground",
