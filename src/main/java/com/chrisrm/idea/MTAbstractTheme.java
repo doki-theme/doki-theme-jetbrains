@@ -90,7 +90,7 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
 
   @NotNull
   private static String getDefaultID(final boolean dark) {
-    return dark ? "mt.monika" : "mt.monika";
+    return dark ? "monika" : "monika";
   }
 
   @NotNull

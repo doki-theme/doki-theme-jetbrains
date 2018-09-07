@@ -42,7 +42,7 @@ public class MTMonikaBundledTheme extends MTLightCustomTheme implements Serializ
   private String themeId;
 
   public MTMonikaBundledTheme() {
-    this("mt.monika", "External Theme", true);
+    this("monika", "External Theme", true);
   }
 
   protected MTMonikaBundledTheme(@NotNull final String id,

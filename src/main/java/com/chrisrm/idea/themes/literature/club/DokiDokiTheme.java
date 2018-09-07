@@ -326,7 +326,7 @@ public class DokiDokiTheme extends MTAbstractTheme {
 
   public String[] getCaretResources() {
     return new String[] {
-        "mt.monika.caretForeground"
+        "monika.caretForeground"
     };
   }
 
@@ -402,9 +402,9 @@ public class DokiDokiTheme extends MTAbstractTheme {
   @Override
   public String[] getBackgroundResources() {
     return new String[] {
-        "mt.monika.background",
-        "mt.monika.textBackground",
-        "mt.monika.inactiveBackground",
+        "monika.background",
+        "monika.textBackground",
+        "monika.inactiveBackground",
         "window",
         "activeCaption",
         "control",
@@ -473,10 +473,10 @@ public class DokiDokiTheme extends MTAbstractTheme {
   @Override
   public String[] getForegroundResources() {
     return new String[] {
-        "mt.monika.foreground",
-        "mt.monika.textForeground",
-        "mt.monika.selectionForegroundInactive",
-        "mt.monika.selectionInactiveForeground",
+        "monika.foreground",
+        "monika.textForeground",
+        "monika.selectionForegroundInactive",
+        "monika.selectionInactiveForeground",
         "Label.foreground",
         "EditorPane.inactiveForeground",
         "CheckBox.foreground",
