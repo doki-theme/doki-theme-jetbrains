@@ -1,6 +1,6 @@
 package com.chrisrm.idea.themes.literature.club
 
-class SayoriTheme : DokiDokiTheme("mt.sayori", "Sayori", false, "Sayori") {
+class SayoriTheme : DokiDokiTheme("sayori", "Sayori", false, "Sayori") {
 
     override fun getBackgroundColorString(): String = "f4fbfe"
 
