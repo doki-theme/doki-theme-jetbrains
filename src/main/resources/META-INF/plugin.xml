@@ -81,7 +81,7 @@
         <bundledColorScheme path="/colors/Just Monika"/>
         <bundledColorScheme path="/colors/Sayori"/>
         <bundledColorScheme path="/colors/Deleted Character"/>
-        <bundledColorScheme path="/colors/Material Natsuki"/>
+        <bundledColorScheme path="/colors/Natsuki"/>
         <bundledColorScheme path="/colors/Only Play With Me"/>
         <bundledColorScheme path="/colors/Yuri"/>
         <bundledColorScheme path="/colors/Edgy"/>
@@ -155,7 +155,7 @@
                     icon="/icons/actions/themes/material_sayori@2x.png">
             </action>
             <action id="MTNatsukiTheme" class="com.chrisrm.idea.actions.themes.literature.club.NatsukiThemeAction"
-                    text="Natsuki" description="Material Natsuki"
+                    text="Natsuki" description="Natsuki"
                     icon="/icons/actions/themes/material_natsuki@2x.png">
             </action>
             <action id="MTYuri" class="com.chrisrm.idea.actions.themes.literature.club.YuriThemeAction"

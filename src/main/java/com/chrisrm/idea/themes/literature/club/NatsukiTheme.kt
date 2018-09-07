@@ -1,6 +1,6 @@
 package com.chrisrm.idea.themes.literature.club
 
-class NatsukiTheme : DokiDokiTheme("mt.natsuki", "Material Natsuki", false, "Natsuki") {
+class NatsukiTheme : DokiDokiTheme("natsuki", "Natsuki", false, "Natsuki") {
 
     override fun getBackgroundColorString(): String = "fff3fc"
 
