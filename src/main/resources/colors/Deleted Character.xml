@@ -2932,7 +2932,7 @@
         <option name="RUBY_HEREDOC_CONTENT">
             <value>
                 <option name="FOREGROUND" value="86A5C8"/>
-                <option name="BACKGROUND" value="FFF4F2"/>
+                <option name="BACKGROUND" value="1B323F"/>
                 <option name="EFFECT_TYPE" value="5"/>
             </value>
         </option>
@@ -3381,7 +3381,7 @@
         <option name="Scala XML tag data">
             <value>
                 <option name="FOREGROUND" value="86A5C8"/>
-                <option name="BACKGROUND" value="FFF4F2"/>
+                <option name="BACKGROUND" value="1B323F"/>
                 <option name="EFFECT_TYPE" value="5"/>
             </value>
         </option>
@@ -3558,7 +3558,7 @@
         </option>
         <option name="WRITE_SEARCH_RESULT_ATTRIBUTES">
             <value>
-                <option name="BACKGROUND" value="FFF4F2"/>
+                <option name="BACKGROUND" value="1B323F"/>
             </value>
         </option>
         <option name="WRONG_REFERENCES_ATTRIBUTES">
@@ -3610,7 +3610,7 @@
         <option name="YAML_SCALAR_VALUE">
             <value>
                 <option name="FOREGROUND" value="3090DF"/>
-                <option name="BACKGROUND" value="FFF4F2"/>
+                <option name="BACKGROUND" value="1B323F"/>
                 <option name="EFFECT_TYPE" value="5"/>
             </value>
         </option>
