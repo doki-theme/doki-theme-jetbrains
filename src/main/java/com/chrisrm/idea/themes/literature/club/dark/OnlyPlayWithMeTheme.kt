@@ -43,4 +43,6 @@ class OnlyPlayWithMeTheme: DokiDokiTheme("natsuki.dark", "Only Play With Me", tr
     override fun getTestScope(): String = "0f2a00"
 
     override fun getSecondBorderColorString(): String = "5A1943"
+
+    override fun getDisabledColorString(): String = "232323"
 }

@@ -46,4 +46,6 @@ class EdgyTheme: DokiDokiTheme("yuri.dark", "Edgy", true, "Yuri") {
     override fun getTestScope(): String = "0f2a00"
 
     override fun getSecondBorderColorString(): String = "50237C"
+
+    override fun getDisabledColorString(): String = "000000"
 }

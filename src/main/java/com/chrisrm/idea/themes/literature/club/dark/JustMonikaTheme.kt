@@ -46,4 +46,6 @@ class JustMonikaTheme: DokiDokiTheme("just.monika", "Just Monika", true, "Monika
     override fun getTestScope(): String = "0f2a00"
 
     override fun getSecondBorderColorString(): String = "297C16"
+
+    override fun getDisabledColorString(): String = "505050"
 }

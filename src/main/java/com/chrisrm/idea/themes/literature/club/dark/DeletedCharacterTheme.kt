@@ -46,4 +46,6 @@ class DeletedCharacterTheme: DokiDokiTheme("deleted.character", "Deleted Charact
     override fun getTestScope(): String = "0f2a00"
 
     override fun getSecondBorderColorString(): String = "1B467C"
+
+    override fun getDisabledColorString(): String = "232323"
 }
