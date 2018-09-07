@@ -2,6 +2,7 @@ package com.chrisrm.idea.actions
 
 import com.chrisrm.idea.MTConfig
 import com.chrisrm.idea.MTThemes
+import com.chrisrm.idea.actions.themes.BaseThemeAction
 import com.chrisrm.idea.actions.themes.literature.club.JustMonikaThemeAction
 import com.chrisrm.idea.actions.themes.literature.club.NatsukiThemeAction
 import com.chrisrm.idea.actions.themes.literature.club.SayoriThemeAction
@@ -17,7 +18,7 @@ private val YuriThemeAction = YuriThemeAction()
 /**
  * Forged in the flames of battle by alex.
  */
-class DarkModeAction : ToggleAction("SPOILERS!!!") {
+class DarkModeAction : BaseThemeAction() {
 
     override fun isSelected(e: AnActionEvent) = DarkMode.isOn()
 
