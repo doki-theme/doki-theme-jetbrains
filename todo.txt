@@ -33,6 +33,8 @@ file scope colors
 
 code completion window needs to be readable/part of the color scheme
 search everywhere on webstorm selection looks wonky.
+Dark theme todo completed:
+    - Chibis
 
 ------
 THINGS TODO:
@@ -44,7 +46,7 @@ FILE changed status
 
 DARK THEME TODO:
     - Need to update wizard.
-    - Chibis
+    - Need to update dark monika panel
     - Dark separator color.
 
 misc
