@@ -9,7 +9,7 @@ class EdgyTheme: DokiDokiTheme("yuri.dark", "Edgy", true, "Yuri") {
 
     override fun getClubMember(): String = "yuri_dark.png"
 
-    override fun joyfulClubMember(): String = "yuri.png"
+    override fun joyfulClubMember(): String = "yuri_dark_joy.png"
 
     override fun getSecondaryBackgroundColorString(): String = "412D62"
 
