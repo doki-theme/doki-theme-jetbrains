@@ -46,7 +46,7 @@ FILE changed status
 
 DARK THEME TODO:
     - Need to update wizard.
-    - Need to update dark monika panel
+    - Need to update dark monika panel and chibi
     - Dark separator color.
 
 misc
