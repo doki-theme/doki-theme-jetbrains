@@ -354,13 +354,11 @@ public class DokiDokiTheme extends MTAbstractTheme {
             "TextArea.selectionForeground",
             "Label.selectedForeground",
             "Button.darcula.selectedButtonForeground",
-            "PopupMenu.background",
             "Separator.background",
             "Button.darcula.selectedButtonForeground",
             "PasswordField.selectionForeground",
             "TextField.selectionForeground",
             "TextArea.selectionForeground"
-
         );
   }
 
@@ -414,7 +412,6 @@ public class DokiDokiTheme extends MTAbstractTheme {
         "MenuBar.disabledBackground",
         "MenuBar.shadow",
         "Desktop.background",
-        "PopupMenu.background",
         "Separator.background",
         "MenuBar.background",
         "Separator.foreground",

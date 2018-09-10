@@ -404,7 +404,6 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
         "Table.background",
         "Table.gridColor",
         "Desktop.background",
-        "PopupMenu.background",
         "Separator.background",
         "MenuBar.background",
         "MenuBar.disabledBackground",
