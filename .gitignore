@@ -1,8 +1,6 @@
 # macOS
 .DS_Store
 
-club_members/
-
 # IntelliJ
 out/
 .idea/
