@@ -7,7 +7,7 @@ import com.chrisrm.idea.themes.literature.club.DokiDokiTheme
  */
 class DeletedCharacterTheme: DokiDokiTheme("deleted.character", "Deleted Character", true, "Š̸̘͚̼͎̯̙̣̱̎̋̐͒a̴̖̟̠̳̤͙̟͂̂͑̐͜ỷ̵̧̨̞̠̖̠o̴̧͍̗̬̎̓͆̔͝ͅr̴̡̮̟͈͠ͅi̴̡̨͓͈̬̗̺̍́̃̇̓") {
 
-    override fun getBackgroundColorString(): String = "0A1523"
+    override fun getBackgroundColorString(): String = "0E1D31"
 
     override fun getClubMember(): String = "sayori_dark.png"
 
