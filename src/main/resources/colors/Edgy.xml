@@ -115,12 +115,12 @@
 
         <option name="SOFT_WRAP_SIGN_COLOR" value="4f6269"/>
         <option name="TOOLTIP" value="3E295B"/>
-        <option name="ANNOTATIONS_COLOR" value="3B235A"/>
-        <option name="VCS_ANNOTATIONS_COLOR_1" value="694796"/>
-        <option name="VCS_ANNOTATIONS_COLOR_2" value="745D89"/>
-        <option name="VCS_ANNOTATIONS_COLOR_3" value="773D9C"/>
+        <option name="ANNOTATIONS_COLOR" value="231334"/>
+        <option name="VCS_ANNOTATIONS_COLOR_1" value="9369D6"/>
+        <option name="VCS_ANNOTATIONS_COLOR_2" value="B591D6"/>
+        <option name="VCS_ANNOTATIONS_COLOR_3" value="A651D6"/>
         <option name="VCS_ANNOTATIONS_COLOR_4" value="7C5DD6"/>
-        <option name="VCS_ANNOTATIONS_COLOR_5" value="6B6689"/>
+        <option name="VCS_ANNOTATIONS_COLOR_5" value="B1A8E2"/>
         <option name="WHITESPACES" value="cfd8dc"/>
     </colors>
     <attributes>
