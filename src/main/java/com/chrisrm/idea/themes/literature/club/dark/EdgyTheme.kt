@@ -19,7 +19,7 @@ class EdgyTheme: DokiDokiTheme("yuri.dark", "Edgy", true, "Yuri") {
 
     override fun getSelectionBackgroundColorString(): String = "442463"
 
-    override fun getTreeSelectionBackgroundColorString(): String = "442463"
+    override fun getTreeSelectionBackgroundColorString(): String = "65318F"
 
     override fun getMenuBarSelectionForegroundColorString(): String = "ffffff"
 
