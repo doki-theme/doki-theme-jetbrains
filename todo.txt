@@ -36,7 +36,8 @@ search everywhere on webstorm selection looks wonky.
 Dark theme todo completed:
     - Chibis
     - Need to update dark monika panel and chibi
-
+    - Need to update wizard.
+    - Dark separator color.
 ------
 THINGS TODO:
 
@@ -45,9 +46,6 @@ loading indicator is not very visible.
 search everywhere
 FILE changed status
 
-DARK THEME TODO:
-    - Need to update wizard.
-    - Dark separator color.
 
 misc
 ----
