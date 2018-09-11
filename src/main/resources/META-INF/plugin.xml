@@ -177,10 +177,6 @@
                     text="Toggle Joyfulness"
                     icon="/icons/actions/mt/joy.png"
                     description="Toggle Joyfulness"/>
-            <action id="MTAddFileColors" class="com.chrisrm.idea.actions.MTAddFileColorsAction"
-                    text="Install DDLC File Colors"
-                    description="Install DDLC File Colors"
-                    icon="/icons/actions/mt/fileColors.svg"/>
             <group id="arrowsStyles" text="Arrow Styles" popup="true">
                 <action class="com.chrisrm.idea.actions.arrows.MTMaterialArrows"
                         id="MTMaterialArrows"
