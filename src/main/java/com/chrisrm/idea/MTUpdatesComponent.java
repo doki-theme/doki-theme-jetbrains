@@ -88,16 +88,17 @@ public final class MTUpdatesComponent extends AbstractProjectComponent {
     }
 
     // Show agreement
-    if (!application.isAgreementShown()) {
-      final Notification notification = createStatsNotification(
-          (notification1, event) -> {
-            MTConfig.getInstance().setAllowDataCollection(event.getEventType().equals(HyperlinkEvent.EventType.ACTIVATED));
-            PropertiesComponent.getInstance().setValue(MTApplicationComponent.SHOW_STATISTICS_AGREEMENT, true);
-            notification1.expire();
-          });
-
-      Notifications.Bus.notify(notification, myProject);
-    }
+    //    todo: bring back when figured out how to darcula button overrid
+//    if (!application.isAgreementShown()) {
+//      final Notification notification = createStatsNotification(
+//          (notification1, event) -> {
+//            MTConfig.getInstance().setAllowDataCollection(event.getEventType().equals(HyperlinkEvent.EventType.ACTIVATED));
+//            PropertiesComponent.getInstance().setValue(MTApplicationComponent.SHOW_STATISTICS_AGREEMENT, true);
+//            notification1.expire();
+//          });
+//
+//      Notifications.Bus.notify(notification, myProject);
+//    }
   }
 
   public Notification createStatsNotification(@Nullable final NotificationListener listener) {
