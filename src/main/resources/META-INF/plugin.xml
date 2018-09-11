@@ -174,9 +174,9 @@
                     icon="/icons/actions/themes/material_monkia_dark.png"
                     description="Toggle Dark Mode"/>
             <action class="com.chrisrm.idea.actions.JoyAction" id="DDLCJoy"
-                    text="Toggle Joyfulness"
+                    text="Swap Chibi"
                     icon="/icons/actions/mt/joy.png"
-                    description="Toggle Joyfulness"/>
+                    description="Swap Chibi"/>
             <group id="arrowsStyles" text="Arrow Styles" popup="true">
                 <action class="com.chrisrm.idea.actions.arrows.MTMaterialArrows"
                         id="MTMaterialArrows"
