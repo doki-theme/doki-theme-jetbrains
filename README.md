@@ -14,14 +14,13 @@ https://plugins.jetbrains.com/plugin/10804-doki-doki-literature-club-theme
 
 #### Contributions and fun ideas are encouraged!
 
-## [Please visit the fork source for more information](https://github.com/ChrisRM/material-theme-jetbrains)
+![Just Monika](assets/screenshots/just_monika_background_normal.png)
 
-##### You can also see the [project wiki](https://github.com/cyclic-reference/ddlc-jetbrains-theme/wiki) for ddlc theme specific information!
-
-![Sayori](assets/sayori.png)
-
-![Natsuki](assets/natsuki.png)
+![Only Monika](assets/screenshots/only_monika_background_normal.png)
 
 Enjoy!
 ---
-![Just Monika](assets/just_monika.jpg)
+
+##### You can also see the [project wiki](https://github.com/cyclic-reference/ddlc-jetbrains-theme/wiki) for ddlc theme specific information!
+
+## [Please visit the fork source for more information](https://github.com/ChrisRM/material-theme-jetbrains)
