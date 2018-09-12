@@ -20,7 +20,6 @@ https://plugins.jetbrains.com/plugin/10804-doki-doki-literature-club-theme
 
 Enjoy!
 ---
-
 ##### You can also see the [project wiki](https://github.com/cyclic-reference/ddlc-jetbrains-theme/wiki) for ddlc theme specific information!
 
 ## [Please visit the fork source for more information](https://github.com/ChrisRM/material-theme-jetbrains)
