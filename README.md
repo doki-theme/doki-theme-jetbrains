@@ -18,7 +18,7 @@ https://plugins.jetbrains.com/plugin/10804-doki-doki-literature-club-theme
 
 ![Only Monika](assets/screenshots/only_monika_background_normal.png)
 
-# [More Screenshots](theme_album.md)
+# [More Screenshots!!](theme_album.md)
 
 Enjoy!
 ---
