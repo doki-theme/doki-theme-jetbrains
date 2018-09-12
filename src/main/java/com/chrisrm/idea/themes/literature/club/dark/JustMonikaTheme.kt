@@ -21,7 +21,7 @@ class JustMonikaTheme: DokiDokiTheme("just.monika", "Just Monika", true, "Monika
 
     override fun getSelectionBackgroundColorString(): String = "30432B"
 
-    override fun getTreeSelectionBackgroundColorString(): String = "3D7B3D"
+    override fun getTreeSelectionBackgroundColorString(): String = "2A692C"
 
     override fun getMenuBarSelectionForegroundColorString(): String = "000000"
 
