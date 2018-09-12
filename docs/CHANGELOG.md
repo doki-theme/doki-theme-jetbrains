@@ -1,6 +1,17 @@
 # Changelog
 ----
 
+# 1.0.0
+
+- Dark Themes are now available!!
+    - Your favorite club member now has a light and dark theme!
+    - Simply just `Toggle Dark Mode` to switch between light and dark!
+    - Dark Chibi's can be swapped using `Swap Chibi` (for less yandere club members).
+- The Menu and Right Click Drop down windows no longer have different color separators.
+- `Toggle Joyfulness` became `Swap Chibi`
+- Automatic File Scope color application.
+- Enhanced Light Theme Contrast (Most notably title headers and primary buttons) 
+
 # 0.6.1
 
 - Up to date with upstream's version 2.8.3
