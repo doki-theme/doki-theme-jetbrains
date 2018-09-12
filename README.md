@@ -18,6 +18,8 @@ https://plugins.jetbrains.com/plugin/10804-doki-doki-literature-club-theme
 
 ![Only Monika](assets/screenshots/only_monika_background_normal.png)
 
+# [More Screenshots](theme_album.md)
+
 Enjoy!
 ---
 ##### You can also see the [project wiki](https://github.com/cyclic-reference/ddlc-jetbrains-theme/wiki) for ddlc theme specific information!
