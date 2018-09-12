@@ -21,7 +21,7 @@ class DeletedCharacterTheme: DokiDokiTheme("deleted.character", "Deleted Charact
 
     override fun getSelectionBackgroundColorString(): String = "324964"
 
-    override fun getTreeSelectionBackgroundColorString(): String = "5E72B5"
+    override fun getTreeSelectionBackgroundColorString(): String = "1D358C"
 
     override fun getMenuBarSelectionForegroundColorString(): String = "ffffff"
 
@@ -41,9 +41,9 @@ class DeletedCharacterTheme: DokiDokiTheme("deleted.character", "Deleted Charact
 
     override fun getEditorTabColorString(): String = contrastColorString
 
-    override fun getNonProjectFileScopeColor(): String = "151c1b"
+    override fun getNonProjectFileScopeColor(): String = "102121"
 
-    override fun getTestScope(): String = "0f2a00"
+    override fun getTestScope(): String = "0c3118"
 
     override fun getSecondBorderColorString(): String = "1B467C"
 
