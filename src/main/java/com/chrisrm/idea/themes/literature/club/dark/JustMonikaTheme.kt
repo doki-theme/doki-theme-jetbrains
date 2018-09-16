@@ -1,11 +1,12 @@
 package com.chrisrm.idea.themes.literature.club.dark
 
 import com.chrisrm.idea.themes.literature.club.DokiDokiTheme
+import java.util.stream.Stream
 
 /**
  * Forged in the flames of battle by alex.
  */
-class JustMonikaTheme: DokiDokiTheme("just.monika", "Just Monika", true, "Monika") {
+class JustMonikaTheme : DokiDokiTheme("just.monika", "Just Monika", true, "Monika") {
 
     override fun getBackgroundColorString(): String = "1C230D"
 
@@ -48,4 +49,17 @@ class JustMonikaTheme: DokiDokiTheme("just.monika", "Just Monika", true, "Monika
     override fun getSecondBorderColorString(): String = "297C16"
 
     override fun getDisabledColorString(): String = "505050"
+
+    override fun getPropertyStream(): Stream<Pair<String, String>> {
+        return Stream.of(
+                Pair("just.monika.background", "1a1e12"),
+                Pair("Panel.background", "302521"),
+                Pair("Menu.foreground", "fffefd"),
+                Pair("PopupMenu.background", "331d1b"),
+                Pair("Menu.background", "331d1b"),
+                Pair("MenuBar.background", "331d1b"),
+                Pair("Menu.acceleratorForeground", "ffffff"),
+                Pair("MenuBar.foreground", "fffefd")
+        )
+    }
 }

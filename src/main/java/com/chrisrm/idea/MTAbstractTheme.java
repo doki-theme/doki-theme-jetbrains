@@ -110,7 +110,7 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
    * Activate the theme by overriding UIManager with the theme resources and by setting the relevant Look and feel
    */
   @Override
-  public final void activate() {
+  public void activate() {
     try {
       if (isDark()) {
         LafManagerImpl.getTestInstance().setCurrentLookAndFeel(new DarculaLookAndFeelInfo());

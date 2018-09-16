@@ -27,8 +27,11 @@
 package com.chrisrm.idea.themes.literature.club;
 
 import com.chrisrm.idea.MTAbstractTheme;
+import com.chrisrm.idea.utils.PropertiesParser;
+import kotlin.Pair;
 import org.jetbrains.annotations.NotNull;
 
+import javax.swing.*;
 import java.awt.*;
 import java.util.stream.Stream;
 
@@ -58,6 +61,19 @@ public class DokiDokiTheme extends MTAbstractTheme {
 
   public DokiDokiTheme(@NotNull String id, String editorColorsScheme, boolean dark, String thingo) {
     super(id, editorColorsScheme, dark, thingo);
+  }
+
+  public Stream<Pair<String, String>> getPropertyStream() {
+    return Stream.empty();
+  }
+
+  @Override
+  public void activate() {
+    super.activate();
+
+    getPropertyStream()
+        .map(pair -> new Pair<>(pair.getFirst(), PropertiesParser.parseColor(pair.getSecond())))
+        .forEach(propertyColorPair -> UIManager.getDefaults().put(propertyColorPair.getFirst(), propertyColorPair.getSecond()));
   }
 
   @Override
