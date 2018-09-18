@@ -50,6 +50,9 @@ class DeletedCharacterTheme : DokiDokiTheme("deleted.character", "Deleted Charac
 
     override fun getDisabledColorString(): String = "232323"
 
+    /**
+     * TODO: DO NOT NEED TO DO THIS, THE INCLUSION OF A _window.properties file fixes this :|
+     */
     override fun getPropertyStream(): Stream<Pair<String, String>> {
         return Stream.of(
                 Pair("deleted.character.background", "12131f"),
