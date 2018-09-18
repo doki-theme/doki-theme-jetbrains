@@ -33,10 +33,10 @@ class MonikaTheme : DokiDokiTheme("monika", "Monika", false, "Monika") {
 
     override fun getClubMember(): String = "just_monika.png"
 
+
     override fun getSelectionBackground(): String = MonikaTheme.SELECTION_BACKGROUND
 
     override fun getButtonForegroundColor(): String = "14610D"
-
     override fun getDisabled(): String = MonikaTheme.DISABLED
 
     override fun getNotificationsColorString(): String = "C3E88D"

@@ -70,7 +70,6 @@ public class DokiDokiTheme extends MTAbstractTheme {
   @Override
   public void activate() {
     super.activate();
-
     getPropertyStream()
         .map(pair -> new Pair<>(pair.getFirst(), PropertiesParser.parseColor(pair.getSecond())))
         .forEach(propertyColorPair -> UIManager.getDefaults().put(propertyColorPair.getFirst(), propertyColorPair.getSecond()));
