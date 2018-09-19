@@ -38,7 +38,8 @@ public class MTWizardStepsProvider implements CustomizeIDEWizardStepsProvider {
   public void initSteps(final CustomizeIDEWizardDialog wizardDialog, final List<AbstractCustomizeWizardStep> steps) {
     steps.add(new MTWizardWelcomePanel());
     steps.add(new MTWizardThemesPanel());
-    steps.add(new MTWizardOtherOptionsPanel());
+//    todo: bring back
+//    steps.add(new MTWizardOtherOptionsPanel());
     steps.add(new MTWizardFinishPanel());
   }
 }

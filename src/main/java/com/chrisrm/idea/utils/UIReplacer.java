@@ -487,7 +487,7 @@ public final class UIReplacer {
       final Color accentColor = ColorUtil.fromHex(MTConfig.getInstance().getAccentColor());
 
       LegacySupportUtility.INSTANCE.invokeClassSafely(
-              "com.intellij.ide.ui.laf.darcula.ui.DarculaOptionButtonUI",
+              "com.intellij.ide.plugins.PluginManagerConfigurableNew",
               () -> {
                 StaticPatcher.setFinalStatic(PluginManagerConfigurableNew.class, "MAIN_BG_COLOR", UIUtil.getPanelBackground());
                 StaticPatcher.setFinalStatic(PluginManagerConfigurableNew.class, "DisabledColor", UIUtil.getLabelDisabledForeground());
