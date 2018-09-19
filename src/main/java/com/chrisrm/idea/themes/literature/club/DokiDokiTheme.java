@@ -354,7 +354,6 @@ public class DokiDokiTheme extends MTAbstractTheme {
             "TextArea.selectionForeground",
             "Label.selectedForeground",
             "Button.darcula.selectedButtonForeground",
-            "Separator.background",
             "Button.darcula.selectedButtonForeground",
             "PasswordField.selectionForeground",
             "TextField.selectionForeground",

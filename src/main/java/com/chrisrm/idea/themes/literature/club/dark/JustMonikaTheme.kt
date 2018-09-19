@@ -5,7 +5,7 @@ import com.chrisrm.idea.themes.literature.club.DokiDokiTheme
 /**
  * Forged in the flames of battle by alex.
  */
-class JustMonikaTheme: DokiDokiTheme("just.monika", "Just Monika", true, "Monika") {
+class JustMonikaTheme : DokiDokiTheme("just.monika", "Just Monika", true, "Monika") {
 
     override fun getBackgroundColorString(): String = "1C230D"
 

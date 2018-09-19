@@ -1,6 +1,11 @@
 # Changelog
 ----
 
+# 1.1.0
+
+- Windows Support!
+    - Running the plugin in any JetBrains IDE now looks like it should (less grey, more color)
+
 # 1.0.0
 
 - Dark Themes are now available!!

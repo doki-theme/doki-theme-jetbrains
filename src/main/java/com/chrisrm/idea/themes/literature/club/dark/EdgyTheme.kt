@@ -3,7 +3,7 @@ package com.chrisrm.idea.themes.literature.club.dark
 import com.chrisrm.idea.themes.literature.club.DokiDokiTheme
 
 //todo: should probably rename these to something more expected :|
-class EdgyTheme: DokiDokiTheme("yuri.dark", "Edgy", true, "Yuri") {
+class EdgyTheme : DokiDokiTheme("yuri.dark", "Edgy", true, "Yuri") {
 
     override fun getBackgroundColorString(): String = "322A45"
 
