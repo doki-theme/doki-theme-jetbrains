@@ -30,6 +30,7 @@ import com.chrisrm.idea.themes.MTThemeable;
 import com.chrisrm.idea.themes.literature.club.MonikaTheme;
 import com.chrisrm.idea.utils.MTUiUtils;
 import com.chrisrm.idea.utils.PropertiesParser;
+import com.intellij.ide.ui.LafManager;
 import com.intellij.ide.ui.laf.IntelliJLookAndFeelInfo;
 import com.intellij.ide.ui.laf.LafManagerImpl;
 import com.intellij.ide.ui.laf.darcula.DarculaLookAndFeelInfo;
@@ -112,11 +113,7 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
   @Override
   public final void activate() {
     try {
-      if (isDark()) {
-        LafManagerImpl.getTestInstance().setCurrentLookAndFeel(new DarculaLookAndFeelInfo());
-      } else {
-        LafManagerImpl.getTestInstance().setCurrentLookAndFeel(new IntelliJLookAndFeelInfo());
-      }
+      activateLookAndFeel();
       JBColor.setDark(isDark());
       IconLoader.setUseDarkIcons(isDark());
       buildResources(getBackgroundResources(), contrastifyBackground(getBackgroundColorString()));
@@ -160,6 +157,28 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
       IconLoader.setUseDarkIcons(isDark());
     } catch (final UnsupportedLookAndFeelException e) {
       e.printStackTrace();
+    }
+  }
+
+  private void activateLookAndFeel() {
+    try {
+      if (isDark()) {
+        LafManagerImpl.getTestInstance().setCurrentLookAndFeel(new DarculaLookAndFeelInfo());
+      } else {
+        LafManagerImpl.getTestInstance().setCurrentLookAndFeel(new IntelliJLookAndFeelInfo());
+      }
+    } catch (NoSuchMethodError error){
+        try {
+            if (isDark()) {
+                LafManager.getInstance().setCurrentLookAndFeel(new DarculaLookAndFeelInfo());
+                UIManager.setLookAndFeel(new MTDarkLaf(this));
+            } else {
+                LafManager.getInstance().setCurrentLookAndFeel(new IntelliJLookAndFeelInfo());
+                UIManager.setLookAndFeel(new MTLightLaf(this));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
   }
 
