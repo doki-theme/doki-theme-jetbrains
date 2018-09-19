@@ -1,7 +1,5 @@
 package com.chrisrm.idea.themes.literature.club
 
-import java.util.stream.Stream
-
 class SayoriTheme : DokiDokiTheme("sayori", "Sayori", false, "Sayori") {
 
     override fun getBackgroundColorString(): String = "f4fbfe"

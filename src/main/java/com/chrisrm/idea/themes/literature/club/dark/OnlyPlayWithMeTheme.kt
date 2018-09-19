@@ -1,7 +1,6 @@
 package com.chrisrm.idea.themes.literature.club.dark
 
 import com.chrisrm.idea.themes.literature.club.DokiDokiTheme
-import java.util.stream.Stream
 
 class OnlyPlayWithMeTheme : DokiDokiTheme("natsuki.dark", "Only Play With Me", true, "Natsuki") {
 
@@ -26,8 +25,6 @@ class OnlyPlayWithMeTheme : DokiDokiTheme("natsuki.dark", "Only Play With Me", t
   override fun getMenuBarSelectionBackgroundColorString(): String = "9D0064"
 
   override fun getNotificationsColorString(): String = "562447"
-
-  override fun getSelectionBackground(): String = "FF4800"
 
   override fun getContrastColorString(): String = "56324C"
 

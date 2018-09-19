@@ -1,7 +1,6 @@
 package com.chrisrm.idea.themes.literature.club.dark
 
 import com.chrisrm.idea.themes.literature.club.DokiDokiTheme
-import java.util.stream.Stream
 
 //todo: should probably rename these to something more expected :|
 class EdgyTheme : DokiDokiTheme("yuri.dark", "Edgy", true, "Yuri") {

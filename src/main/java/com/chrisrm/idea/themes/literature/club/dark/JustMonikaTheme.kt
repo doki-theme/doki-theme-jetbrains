@@ -1,7 +1,6 @@
 package com.chrisrm.idea.themes.literature.club.dark
 
 import com.chrisrm.idea.themes.literature.club.DokiDokiTheme
-import java.util.stream.Stream
 
 /**
  * Forged in the flames of battle by alex.

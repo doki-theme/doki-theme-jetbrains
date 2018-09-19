@@ -1,7 +1,5 @@
 package com.chrisrm.idea.themes.literature.club
 
-import java.util.stream.Stream
-
 class NatsukiTheme : DokiDokiTheme("natsuki", "Natsuki", false, "Natsuki") {
 
     override fun getBackgroundColorString(): String = "fff3fc"
