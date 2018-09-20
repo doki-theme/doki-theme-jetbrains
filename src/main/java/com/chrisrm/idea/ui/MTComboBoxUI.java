@@ -24,8 +24,10 @@
  */
 package com.chrisrm.idea.ui;
 
+import com.chrisrm.idea.LegacySupportUtility;
 import com.chrisrm.idea.MTConfig;
 import com.chrisrm.idea.utils.MTUiUtils;
+import com.intellij.ide.ui.laf.darcula.DarculaUIUtil;
 import com.intellij.ide.ui.laf.darcula.ui.DarculaComboBoxUI;
 import com.intellij.openapi.ui.ErrorBorderCapable;
 import com.intellij.ui.ColorUtil;
@@ -106,9 +108,27 @@ public final class MTComboBoxUI extends DarculaComboBoxUI implements Border, Err
           g2.setRenderingHint(RenderingHints.KEY_STROKE_CONTROL, RenderingHints.VALUE_STROKE_NORMALIZE);
           g2.translate(r.x, r.y);
 
-          final float bw = BW.getFloat();
-          final float lw = LW.getFloat();
-          final float arc = COMPONENT_ARC.getFloat() - bw - lw;
+          final float bw =
+                  LegacySupportUtility.INSTANCE.useFieldSafely(
+                          DarculaUIUtil.class,
+                          "BW",
+                          BW::getFloat,
+                          DarculaUIUtil::bw);
+
+          final float lw =
+                  LegacySupportUtility.INSTANCE.useFieldSafely(
+                  DarculaUIUtil.class,
+                  "LW",
+                  ()->LW.getFloat(),
+                  ()->DarculaUIUtil.lw(g2));
+
+          float aFloat =
+                  LegacySupportUtility.INSTANCE.useFieldSafely(
+                          DarculaUIUtil.class,
+                          "COMPONENT_ARC",
+                          COMPONENT_ARC::getFloat,
+                          DarculaUIUtil::arc);
+          final float arc = aFloat - bw - lw;
 
           final Path2D innerShape = new Path2D.Float();
           innerShape.moveTo(lw, bw + lw);
@@ -184,7 +204,12 @@ public final class MTComboBoxUI extends DarculaComboBoxUI implements Border, Err
       g2.setRenderingHint(RenderingHints.KEY_STROKE_CONTROL, RenderingHints.VALUE_STROKE_NORMALIZE);
       g2.translate(r.x, r.y);
 
-      final float bw = BW.getFloat();
+      final float bw =
+              LegacySupportUtility.INSTANCE.useFieldSafely(
+              DarculaUIUtil.class,
+              "BW",
+              BW::getFloat,
+              DarculaUIUtil::bw);
 
       final boolean editable = comboBox.isEnabled() && editor != null && comboBox.isEditable();
       g2.setColor(editable ? editor.getBackground() : comboBox.isEnabled() ? comboBox.getBackground() : getNonEditableBackground());
@@ -281,7 +306,12 @@ public final class MTComboBoxUI extends DarculaComboBoxUI implements Border, Err
       JBInsets.removeFrom(r, JBUI.insets(1));
       g2.translate(x, y);
 
-      final float bw = BW.getFloat();
+      final float bw =
+              LegacySupportUtility.INSTANCE.useFieldSafely(
+              DarculaUIUtil.class,
+              "BW",
+              BW::getFloat,
+              DarculaUIUtil::bw);
 
       final Object op = comboBox.getClientProperty("JComponent.outline");
       if (op != null) {
