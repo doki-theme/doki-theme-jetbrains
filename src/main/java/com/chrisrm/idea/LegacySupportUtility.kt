@@ -4,14 +4,6 @@ import com.chrisrm.idea.legacy.Runner
 
 object LegacySupportUtility {
 
-    fun invokeClassSafely(clasName: String, runSafely: () -> Void) {
-        try {
-            Class.forName(clasName)
-            runSafely()
-        } catch (ignored: ClassNotFoundException) {
-        }
-    }
-
     fun invokeClassSafely(clasName: String, runSafely: Runner) {
         try {
             Class.forName(clasName)
@@ -19,4 +11,18 @@ object LegacySupportUtility {
         } catch (ignored: Exception) {
         }
     }
+
+    fun <C, T> invokeMethodSafely(clazz: Class<C>,
+                                  method: String,
+                                  runSafely: () -> T,
+                                  orElseGet: () -> T,
+                                  vararg paratemers: Class<*>) =
+            try {
+                clazz.getDeclaredMethod(method, *paratemers)
+                runSafely()
+            } catch (ignored: Exception) {
+                orElseGet()
+            }
 }
+
+
