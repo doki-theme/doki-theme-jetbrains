@@ -112,22 +112,23 @@ public final class MTComboBoxUI extends DarculaComboBoxUI implements Border, Err
                   LegacySupportUtility.INSTANCE.useFieldSafely(
                           DarculaUIUtil.class,
                           "BW",
-                          BW::getFloat,
-                          DarculaUIUtil::bw);
+                          ()->BW.getFloat(),
+                          ()-> (float) JBUI.scale(2));
 
           final float lw =
                   LegacySupportUtility.INSTANCE.useFieldSafely(
                   DarculaUIUtil.class,
                   "LW",
                   ()->LW.getFloat(),
-                  ()->DarculaUIUtil.lw(g2));
+                  ()->UIUtil.isJreHiDPI(g2) ? JBUI.scale(0.5f) : 1.0f);
 
+          BasicArrowButton basicArrowButton = this;
           float aFloat =
                   LegacySupportUtility.INSTANCE.useFieldSafely(
                           DarculaUIUtil.class,
                           "COMPONENT_ARC",
-                          COMPONENT_ARC::getFloat,
-                          DarculaUIUtil::arc);
+                          () -> COMPONENT_ARC.getFloat(),
+                          () -> JBUI.scale(5.0f));
           final float arc = aFloat - bw - lw;
 
           final Path2D innerShape = new Path2D.Float();
@@ -208,8 +209,8 @@ public final class MTComboBoxUI extends DarculaComboBoxUI implements Border, Err
               LegacySupportUtility.INSTANCE.useFieldSafely(
               DarculaUIUtil.class,
               "BW",
-              BW::getFloat,
-              DarculaUIUtil::bw);
+                      ()->BW.getFloat(),
+                      () -> (float)JBUI.scale(2));
 
       final boolean editable = comboBox.isEnabled() && editor != null && comboBox.isEditable();
       g2.setColor(editable ? editor.getBackground() : comboBox.isEnabled() ? comboBox.getBackground() : getNonEditableBackground());
@@ -310,8 +311,8 @@ public final class MTComboBoxUI extends DarculaComboBoxUI implements Border, Err
               LegacySupportUtility.INSTANCE.useFieldSafely(
               DarculaUIUtil.class,
               "BW",
-              BW::getFloat,
-              DarculaUIUtil::bw);
+                      ()->BW.getFloat(),
+                      () -> (float) JBUI.scale(2));
 
       final Object op = comboBox.getClientProperty("JComponent.outline");
       if (op != null) {
