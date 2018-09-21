@@ -46,7 +46,7 @@ import static com.intellij.util.ui.JBUI.scale;
 public final class MTTextFieldUI extends TextFieldWithPopupHandlerUI {
 
   public MTTextFieldUI(final JTextField textField) {
-    super();
+    super(textField);
   }
 
   public MTTextFieldUI(final JComponent c) {
