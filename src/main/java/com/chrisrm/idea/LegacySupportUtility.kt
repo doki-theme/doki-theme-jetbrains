@@ -24,6 +24,17 @@ object LegacySupportUtility {
         }
     }
 
+    fun <T> orGetLegacy(clazz: String,
+                        runSafely: () -> T,
+                        orElseGet: () -> T) =
+            try {
+                Class.forName(clazz)
+                runSafely()
+            } catch (ignored: Throwable) {
+                orElseGet()
+            }
+
+
     fun <C, T> invokeMethodSafely(clazz: Class<C>,
                                   method: String,
                                   runSafely: () -> T,
@@ -35,7 +46,6 @@ object LegacySupportUtility {
             } catch (ignored: Throwable) {
                 orElseGet()
             }
-
 
     fun <C, T> useFieldSafely(clazz: Class<C>,
                               method: String,

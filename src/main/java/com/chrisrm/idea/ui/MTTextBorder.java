@@ -24,6 +24,7 @@
  */
 package com.chrisrm.idea.ui;
 
+import com.chrisrm.idea.LegacySupportUtility;
 import com.intellij.ide.ui.laf.darcula.ui.DarculaTextBorder;
 import com.intellij.ide.ui.laf.darcula.ui.TextFieldWithPopupHandlerUI;
 import com.intellij.ui.ColorPanel;
@@ -49,14 +50,34 @@ public final class MTTextBorder extends DarculaTextBorder implements Border, UIR
   @Override
   public Insets getBorderInsets(final Component c) {
     final int vOffset = TextFieldWithPopupHandlerUI.isSearchField(c) ? 6 : 8;
+    int leftInsetOffset = LegacySupportUtility.INSTANCE.orGetLegacy(
+            "com.intellij.ide.ui.laf.darcula.ui.DarculaOptionButtonUI",
+            () -> 4,
+            () -> 26
+    );
+    int rightInsetOffset = LegacySupportUtility.INSTANCE.orGetLegacy(
+            "com.intellij.ide.ui.laf.darcula.ui.DarculaOptionButtonUI",
+            () -> 4,
+            () -> 23
+    );
     if (TextFieldWithPopupHandlerUI.isSearchFieldWithHistoryPopup(c)) {
-      return JBUI.insets(vOffset, 4, vOffset, 4).asUIResource();
+      return JBUI.insets(vOffset, leftInsetOffset, vOffset, rightInsetOffset).asUIResource();
     } else if (TextFieldWithPopupHandlerUI.isSearchField(c)) {
-      return JBUI.insets(vOffset, 4, vOffset, 4).asUIResource();
+      return JBUI.insets(vOffset, leftInsetOffset, vOffset, rightInsetOffset).asUIResource();
     } else if (c instanceof JTextField && c.getParent() instanceof ColorPanel) {
       return JBUI.insets(3, 3, 2, 2).asUIResource();
     } else {
-      final JBInsets.JBInsetsUIResource insets = JBUI.insets(vOffset, 4).asUIResource();
+      leftInsetOffset = LegacySupportUtility.INSTANCE.orGetLegacy(
+              "com.intellij.ide.ui.laf.darcula.ui.DarculaOptionButtonUI",
+              () -> 4,
+              () -> 3
+      );
+      rightInsetOffset = LegacySupportUtility.INSTANCE.orGetLegacy(
+              "com.intellij.ide.ui.laf.darcula.ui.DarculaOptionButtonUI",
+              () -> 4,
+              () -> 3
+      );
+      final JBInsets.JBInsetsUIResource insets = JBUI.insets(vOffset, leftInsetOffset, vOffset, rightInsetOffset).asUIResource();
       try {
         TextFieldWithPopupHandlerUI.updateBorderInsets(c, insets);
         return insets;
