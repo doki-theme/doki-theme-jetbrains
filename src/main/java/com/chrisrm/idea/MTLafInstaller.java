@@ -178,10 +178,10 @@ public class MTLafInstaller {
     defaults.put("Spinner.border", new DarculaSpinnerBorder());
 
     defaults.put("TreeUI", DarculaTreeUI.class.getName());
-      LegacySupportUtility.INSTANCE.invokeClassSafely(
-              "com.intellij.ide.ui.laf.darcula.ui.DarculaOptionButtonUI",
-              () -> defaults.put("OptionButtonUI", DarculaOptionButtonUI.class.getName())
-      );
+  LegacySupportUtility.INSTANCE.invokeClassSafely(
+          "com.intellij.ide.ui.laf.darcula.ui.DarculaOptionButtonUI",
+          () -> defaults.put("OptionButtonUI", DarculaOptionButtonUI.class.getName())
+  );
 
     LegacySupportUtility.INSTANCE.invokeClassSafely(
           "com.intellij.util.ui.GrayFilter",

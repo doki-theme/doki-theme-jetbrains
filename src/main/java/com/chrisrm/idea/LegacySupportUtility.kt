@@ -12,6 +12,18 @@ object LegacySupportUtility {
         }
     }
 
+    fun orRunLegacy(clasName: String,
+                    runCurrent: Runner,
+                    runLegacy: Runner
+    ) {
+        try {
+            Class.forName(clasName)
+            runCurrent.run()// :|
+        } catch (ignored: Throwable) {
+            runLegacy.run()
+        }
+    }
+
     fun <C, T> invokeMethodSafely(clazz: Class<C>,
                                   method: String,
                                   runSafely: () -> T,
