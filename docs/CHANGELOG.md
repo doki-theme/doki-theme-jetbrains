@@ -1,6 +1,11 @@
 # Changelog
 ----
 
+# 1.2.0
+
+- Android Studio Support!
+    - Running the plugin in the most up to date actually works (unlike when I said it worked when it actually didn't ;)
+    
 # 1.1.0
 
 - Windows Support!
