@@ -112,8 +112,31 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
    */
   @Override
   public final void activate() {
+
     try {
-      activateLookAndFeel();
+      if (isDark()) {
+        LegacySupportUtility.INSTANCE.invokeVoidMethodSafely(
+                LafManagerImpl.class,
+                "getTestInstance",
+                ()-> LafManagerImpl.getTestInstance().setCurrentLookAndFeel(new DarculaLookAndFeelInfo()),
+                ()-> {
+                  LafManager.getInstance().setCurrentLookAndFeel(new DarculaLookAndFeelInfo());
+                  UIManager.setLookAndFeel(new MTDarkLaf(this));
+                }
+        );
+
+      } else {
+        LegacySupportUtility.INSTANCE.invokeVoidMethodSafely(
+                LafManagerImpl.class,
+                "getTestInstance",
+                ()-> LafManagerImpl.getTestInstance().setCurrentLookAndFeel(new IntelliJLookAndFeelInfo()),
+                ()-> {
+                  LafManager.getInstance().setCurrentLookAndFeel(new IntelliJLookAndFeelInfo());
+                  UIManager.setLookAndFeel(new MTLightLaf(this));
+                }
+        );
+
+      }
       JBColor.setDark(isDark());
       IconLoader.setUseDarkIcons(isDark());
       buildResources(getBackgroundResources(), contrastifyBackground(getBackgroundColorString()));
@@ -157,28 +180,6 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
       IconLoader.setUseDarkIcons(isDark());
     } catch (final UnsupportedLookAndFeelException e) {
       e.printStackTrace();
-    }
-  }
-
-  private void activateLookAndFeel() {
-    try {
-      if (isDark()) {
-        LafManagerImpl.getTestInstance().setCurrentLookAndFeel(new DarculaLookAndFeelInfo());
-      } else {
-        LafManagerImpl.getTestInstance().setCurrentLookAndFeel(new IntelliJLookAndFeelInfo());
-      }
-    } catch (NoSuchMethodError error){
-        try {
-            if (isDark()) {
-                LafManager.getInstance().setCurrentLookAndFeel(new DarculaLookAndFeelInfo());
-                UIManager.setLookAndFeel(new MTDarkLaf(this));
-            } else {
-                LafManager.getInstance().setCurrentLookAndFeel(new IntelliJLookAndFeelInfo());
-                UIManager.setLookAndFeel(new MTLightLaf(this));
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
   }
 

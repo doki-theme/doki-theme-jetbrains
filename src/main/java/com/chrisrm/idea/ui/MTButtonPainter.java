@@ -29,11 +29,9 @@ import com.intellij.ide.ui.laf.darcula.DarculaUIUtil;
 import com.intellij.ide.ui.laf.darcula.ui.DarculaButtonPainter;
 import com.intellij.openapi.actionSystem.ActionToolbar;
 import com.intellij.util.ui.JBUI;
-import com.intellij.util.ui.UIUtil;
 
 import java.awt.*;
 
-import static com.intellij.ide.ui.laf.darcula.DarculaUIUtil.LW;
 
 /**
  * @author Konstantin Bulenkov
@@ -59,7 +57,7 @@ public class MTButtonPainter extends DarculaButtonPainter {
             ()->
               c.getParent() instanceof ActionToolbar ?
                 JBUI.insets(4, 16, 4, 16) :
-                JBUI.insets(6, 12, 6, 12).asUIResource()
+                JBUI.insets(6, 16, 6, 16).asUIResource()
             );
     }
 

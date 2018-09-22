@@ -122,14 +122,12 @@ public final class MTComboBoxUI extends DarculaComboBoxUI implements Border, Err
                   ()->LW.getFloat(),
                   ()->UIUtil.isJreHiDPI(g2) ? JBUI.scale(0.5f) : 1.0f);
 
-          BasicArrowButton basicArrowButton = this;
-          float aFloat =
-                  LegacySupportUtility.INSTANCE.useFieldSafely(
+          float arcValue = LegacySupportUtility.INSTANCE.useFieldSafely(
                           DarculaUIUtil.class,
                           "COMPONENT_ARC",
                           () -> COMPONENT_ARC.getFloat(),
                           () -> JBUI.scale(5.0f));
-          final float arc = aFloat - bw - lw;
+          final float arc = arcValue - bw - lw;
 
           final Path2D innerShape = new Path2D.Float();
           innerShape.moveTo(lw, bw + lw);

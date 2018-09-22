@@ -40,8 +40,6 @@ import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.basic.BasicHTML;
 import javax.swing.text.View;
 import java.awt.*;
-import java.lang.reflect.Method;
-
 /**
  * @author Konstantin Bulenkov
  */
@@ -152,7 +150,6 @@ public final class MTCheckBoxUI extends DarculaCheckBoxUI {
       final boolean armed = b.getModel().isArmed();
 
       final int rad = JBUI.scale(2);
-
       Boolean overrideBg =
               LegacySupportUtility.INSTANCE.invokeMethodSafely(
               getClass(),

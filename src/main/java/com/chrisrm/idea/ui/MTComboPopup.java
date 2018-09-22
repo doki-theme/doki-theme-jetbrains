@@ -61,7 +61,7 @@ class MTComboPopup extends BasicComboPopup implements ComboPopup {
               LegacySupportUtility.INSTANCE.invokeMethodSafely(
                       ComboBoxWithWidePopup.class,
                       "getMinimumPopupWidth",
-                      ()->((ComboBoxWithWidePopup) comboBox).getMinimumPopupWidth(),
+                      ()-> ((ComboBoxWithWidePopup) comboBox).getMinimumPopupWidth(),
                       ()->20
               );
       final Insets insets = getInsets();
@@ -99,7 +99,7 @@ class MTComboPopup extends BasicComboPopup implements ComboPopup {
             DarculaUIUtil.class,
             "BW",
             ()->BW.getFloat(),
-            ()-> (float) JBUI.scale(2));;
+            ()-> (float) JBUI.scale(2));
     final float lw = JBUI.scale(0.5f);
 
     g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
