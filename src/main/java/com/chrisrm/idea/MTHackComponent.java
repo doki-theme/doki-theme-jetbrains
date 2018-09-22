@@ -207,7 +207,7 @@ public class MTHackComponent implements ApplicationComponent {
   /**
    * "I don't know who you are.
    * I don't know what you want.
-   * If you are looking for encapsulation I can tell you I don't have have access right now,
+   * If you are looking for classes that are closed to modifications I can tell you I don't have have access right now,
    * but what I do have are a very particular set of skills.
    * Skills I have acquired over a very long career.
    * Skills that make me a nightmare for people like you.
