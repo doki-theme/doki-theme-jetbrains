@@ -26,8 +26,10 @@
 
 package com.chrisrm.idea.ui;
 
+import com.chrisrm.idea.LegacySupportUtility;
 import com.chrisrm.idea.MTConfig;
 import com.chrisrm.idea.utils.MTUiUtils;
+import com.intellij.ide.ui.laf.darcula.DarculaUIUtil;
 import com.intellij.openapi.ui.ComboBoxWithWidePopup;
 import com.intellij.util.ObjectUtils;
 import com.intellij.util.ui.JBUI;
@@ -55,7 +57,13 @@ class MTComboPopup extends BasicComboPopup implements ComboPopup {
   public void show(final Component invoker, final int x, final int y) {
     if (comboBox instanceof ComboBoxWithWidePopup) {
       final Dimension popupSize = comboBox.getSize();
-      final int minPopupWidth = ((ComboBoxWithWidePopup) comboBox).getMinimumPopupWidth();
+      final int minPopupWidth =
+              LegacySupportUtility.INSTANCE.invokeMethodSafely(
+                      ComboBoxWithWidePopup.class,
+                      "getMinimumPopupWidth",
+                      ()-> ((ComboBoxWithWidePopup) comboBox).getMinimumPopupWidth(),
+                      ()->20
+              );
       final Insets insets = getInsets();
 
       popupSize.width = Math.max(popupSize.width, minPopupWidth);
@@ -87,7 +95,11 @@ class MTComboPopup extends BasicComboPopup implements ComboPopup {
    * @param height
    */
   private void doPaint(final Graphics2D g, final int width, final int height) {
-    float bw = BW.get();
+    float bw = LegacySupportUtility.INSTANCE.useFieldSafely(
+            DarculaUIUtil.class,
+            "BW",
+            ()->BW.getFloat(),
+            ()-> (float) JBUI.scale(2));
     final float lw = JBUI.scale(0.5f);
 
     g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);

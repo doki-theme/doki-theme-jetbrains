@@ -178,9 +178,18 @@ public class MTLafInstaller {
     defaults.put("Spinner.border", new DarculaSpinnerBorder());
 
     defaults.put("TreeUI", DarculaTreeUI.class.getName());
-    defaults.put("OptionButtonUI", DarculaOptionButtonUI.class.getName());
-    defaults.put("grayFilter", new UIUtil.GrayFilter(-100, -100, 100));
-    defaults.put("text.grayFilter", new UIUtil.GrayFilter(-15, -10, 100));
+  LegacySupportUtility.INSTANCE.invokeClassSafely(
+          "com.intellij.ide.ui.laf.darcula.ui.DarculaOptionButtonUI",
+          () -> defaults.put("OptionButtonUI", DarculaOptionButtonUI.class.getName())
+  );
+
+    LegacySupportUtility.INSTANCE.invokeClassSafely(
+          "com.intellij.util.ui.GrayFilter",
+          () -> {
+              defaults.put("grayFilter", new UIUtil.GrayFilter(-100, -100, 100));
+              defaults.put("text.grayFilter", new UIUtil.GrayFilter(-15, -10, 100));
+          }
+    );
 
     defaults.put("RootPaneUI", DarculaRootPaneUI.class.getName());
   }
@@ -227,11 +236,21 @@ public class MTLafInstaller {
     defaults.put("Spinner.border", new DarculaSpinnerBorder());
 
     defaults.put("TreeUI", DarculaTreeUI.class.getName());
-    defaults.put("OptionButtonUI", DarculaOptionButtonUI.class.getName());
+    LegacySupportUtility.INSTANCE.invokeClassSafely(
+        "com.intellij.ide.ui.laf.darcula.ui.DarculaOptionButtonUI",
+        () -> defaults.put("OptionButtonUI", DarculaOptionButtonUI.class.getName())
+    );
+
     defaults.put("InternalFrameUI", DarculaInternalFrameUI.class.getName());
     defaults.put("RootPaneUI", DarculaRootPaneUI.class.getName());
-    defaults.put("grayFilter", new UIUtil.GrayFilter(80, -35, 100));
-    defaults.put("text.grayFilter", new UIUtil.GrayFilter(20, 0, 100));
+
+    LegacySupportUtility.INSTANCE.invokeClassSafely(
+      "com.intellij.util.ui.GrayFilter",
+      () -> {
+          defaults.put("grayFilter", new UIUtil.GrayFilter(80, -35, 100));
+          defaults.put("text.grayFilter", new UIUtil.GrayFilter(20, 0, 100));
+      }
+    );
   }
 
   /**
@@ -245,8 +264,14 @@ public class MTLafInstaller {
 
     defaults.put("Button.border", new MTButtonPainter());
 
-    defaults.put("OptionButtonUI", MTOptionButtonUI.class.getName());
-    defaults.put(MTOptionButtonUI.class.getName(), MTOptionButtonUI.class);
+    LegacySupportUtility.INSTANCE.invokeClassSafely(
+      "com.intellij.ide.ui.laf.darcula.ui.DarculaOptionButtonUI",
+      () -> {
+          defaults.put("OptionButtonUI", MTOptionButtonUI.class.getName());
+          defaults.put(MTOptionButtonUI.class.getName(), MTOptionButtonUI.class);
+          }
+    );
+
 
     defaults.put("OnOffButtonUI", MTOnOffButtonUI.class.getName());
     defaults.put(MTOnOffButtonUI.class.getName(), MTOnOffButtonUI.class);

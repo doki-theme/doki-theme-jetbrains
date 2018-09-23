@@ -30,6 +30,7 @@ import com.chrisrm.idea.themes.MTThemeable;
 import com.chrisrm.idea.themes.literature.club.MonikaTheme;
 import com.chrisrm.idea.utils.MTUiUtils;
 import com.chrisrm.idea.utils.PropertiesParser;
+import com.intellij.ide.ui.LafManager;
 import com.intellij.ide.ui.laf.IntelliJLookAndFeelInfo;
 import com.intellij.ide.ui.laf.LafManagerImpl;
 import com.intellij.ide.ui.laf.darcula.DarculaLookAndFeelInfo;
@@ -111,11 +112,30 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
    */
   @Override
   public final void activate() {
+
     try {
       if (isDark()) {
-        LafManagerImpl.getTestInstance().setCurrentLookAndFeel(new DarculaLookAndFeelInfo());
+        LegacySupportUtility.INSTANCE.invokeVoidMethodSafely(
+                LafManagerImpl.class,
+                "getTestInstance",
+                ()-> LafManagerImpl.getTestInstance().setCurrentLookAndFeel(new DarculaLookAndFeelInfo()),
+                ()-> {
+                  LafManager.getInstance().setCurrentLookAndFeel(new DarculaLookAndFeelInfo());
+                  UIManager.setLookAndFeel(new MTDarkLaf(this));
+                }
+        );
+
       } else {
-        LafManagerImpl.getTestInstance().setCurrentLookAndFeel(new IntelliJLookAndFeelInfo());
+        LegacySupportUtility.INSTANCE.invokeVoidMethodSafely(
+                LafManagerImpl.class,
+                "getTestInstance",
+                ()-> LafManagerImpl.getTestInstance().setCurrentLookAndFeel(new IntelliJLookAndFeelInfo()),
+                ()-> {
+                  LafManager.getInstance().setCurrentLookAndFeel(new IntelliJLookAndFeelInfo());
+                  UIManager.setLookAndFeel(new MTLightLaf(this));
+                }
+        );
+
       }
       JBColor.setDark(isDark());
       IconLoader.setUseDarkIcons(isDark());

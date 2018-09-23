@@ -141,7 +141,7 @@ public final class MTUiUtils {
   public static String getVersion() {
      return getPlugin()
              .map(IdeaPluginDescriptor::getVersion)
-             .orElse("1.1.0");//todo:should be updated erry release :)
+             .orElse("1.2.0");//todo:should be updated erry release :)
   }
 
   private static Optional<String> getPluginId() {
