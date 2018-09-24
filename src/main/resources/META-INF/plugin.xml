@@ -105,6 +105,9 @@
             <implementation-class>com.chrisrm.idea.MTHackComponent</implementation-class>
         </component>
         <component>
+            <implementation-class>com.chrisrm.idea.DDLCHackComponent</implementation-class>
+        </component>
+        <component>
             <implementation-class>com.chrisrm.idea.MTApplicationComponent</implementation-class>
         </component>
         <component>

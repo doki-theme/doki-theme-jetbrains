@@ -29,7 +29,6 @@ package com.chrisrm.idea;
 import com.intellij.ide.navigationToolbar.NavBarIdeView;
 import com.intellij.ide.plugins.PluginManagerConfigurable;
 import com.intellij.ide.util.PropertiesComponent;
-import com.intellij.ide.util.TipPanel;
 import com.intellij.openapi.actionSystem.impl.ChameleonAction;
 import com.intellij.openapi.components.ApplicationComponent;
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil;
@@ -62,7 +61,6 @@ public class MTHackComponent implements ApplicationComponent {
         hackDarculaTabsPainter();
         hackPluginManagerNew();
         hackIntelliJFailures();
-        hackTipOfTheDay();
     }
 
     public MTHackComponent() {
@@ -197,29 +195,6 @@ public class MTHackComponent implements ApplicationComponent {
                 public void edit(final MethodCall m) throws CannotCompileException {
                     if (m.getMethodName().equals("getIdeBackgroundColor")) {
                         m.replace("{ $_ = javax.swing.UIManager.getColor(\"Viewport.background\"); }");
-                    }
-                }
-            });
-            ctClass.toClass();
-        } catch (final Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-
-    private static void hackTipOfTheDay() {
-        // Hack method
-        try {
-            final ClassPool cp = new ClassPool(true);
-            cp.insertClassPath(new ClassClassPath(TipPanel.class));
-            final CtClass ctClass = cp.get("com.intellij.ide.util.TipDialog");
-
-            final CtMethod init = ctClass.getDeclaredMethod("initialize");
-            init.instrument(new ExprEditor() {
-                @Override
-                public void edit(final MethodCall m) throws CannotCompileException {
-                    if (m.getMethodName().equals("message")) {
-                        m.replace("{ $_ = \"Monika's Writing Tip of the Day\"; }");
                     }
                 }
             });
