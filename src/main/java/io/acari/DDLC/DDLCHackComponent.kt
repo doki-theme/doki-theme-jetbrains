@@ -40,7 +40,6 @@ object DDLCHackComponent : ApplicationComponent {
         }
     }
 
-    //todo: make the tips show up at least once after this :)
     private fun hackTipPanel() {
         try {
             val cp = ClassPool(true)
