@@ -11,7 +11,7 @@
 
 ### Theme Not Working?
 
-> Currently only DDLC UI or Material UI can be active. Please enable one and disable the other, sorry for the inconvience. I am working on getting the to play nice together.
+> Currently only DDLC UI or Material UI can be active. Please enable one and disable the other, sorry for the inconvience. I am working on getting them to play nice together.
 
 Plugin page:
 https://plugins.jetbrains.com/plugin/10804-doki-doki-literature-club-theme
