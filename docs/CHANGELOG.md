@@ -1,6 +1,10 @@
 # Changelog
 ----
 
+# 1.2.3
+
+- When editing a non-project file (in dark mode), it is to easy to distinguish that you are currently doing that.
+
 # 1.2.2
 
 - When at a paused breakpoint and navigating the call stack, the execution point now to conforms to the color scheme of the current club member.
