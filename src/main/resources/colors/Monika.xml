@@ -859,7 +859,7 @@
         <!--TODO:  IMPORTANT-->
         <option name="EXECUTIONPOINT_ATTRIBUTES">
             <value>
-                <option name="BACKGROUND" value="eeeeee"/>
+                <option name="BACKGROUND" value="CAE9EE"/>
             </value>
         </option>
         <option name="Enum name">
@@ -2163,7 +2163,7 @@
         </option>
         <option name="NOT_TOP_FRAME_ATTRIBUTES">
             <value>
-                <option name="BACKGROUND" value="b2ccd6"/>
+                <option name="BACKGROUND" value="D4F5FA"/>
             </value>
         </option>
         <option name="NOT_USED_ELEMENT_ATTRIBUTES">
