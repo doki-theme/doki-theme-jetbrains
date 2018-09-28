@@ -1,6 +1,10 @@
 # Changelog
 ----
 
+# 1.2.2
+
+- When at a paused breakpoint and navigating the call stack, the execution point now to conforms to the color scheme of the current club member.
+
 # 1.2.1
 
 > Sometimes, when you're writing a poem - or a story - your brain gets fixated on a specific point. If you try so hard to make it perfect, then you'll never make any progress. Just force yourself to get something down on the paper, and tidy it up later! Another way to think about it is this: if you keep your pen in the same spot for too long, you'll just get a big dark puddle of ink. So just move your hand, and go with the flow!
