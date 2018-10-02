@@ -9,9 +9,9 @@
 
 ---
 
-### Theme Not Working?
-
-> Currently only DDLC UI or Material UI can be active. Please enable one and disable the other, sorry for the inconvience. I am working on getting them to play nice together.
+# I need help! 
+# [Please see this page for help!](https://github.com/cyclic-reference/ddlc-jetbrains-theme/wiki/Trouble-Shooting!)
+## Theme Not Working? Things do not work the way I expect them to work!
 
 Plugin page:
 https://plugins.jetbrains.com/plugin/10804-doki-doki-literature-club-theme
