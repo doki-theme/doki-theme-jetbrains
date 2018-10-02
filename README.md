@@ -9,9 +9,8 @@
 
 ---
 
-# I need help! 
+# Theme Not Working? Things do not work the way I expect them to work!
 # [Please see this page for help!](https://github.com/cyclic-reference/ddlc-jetbrains-theme/wiki/Trouble-Shooting!)
-## Theme Not Working? Things do not work the way I expect them to work!
 
 Plugin page:
 https://plugins.jetbrains.com/plugin/10804-doki-doki-literature-club-theme
