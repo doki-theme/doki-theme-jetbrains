@@ -55,12 +55,12 @@ public class MTWizardChibiPanel extends AbstractCustomizeWizardStep {
 
   @Override
   protected String getTitle() {
-    return "Club Members";
+    return "Chibi Activation";
   }
 
   @Override
   protected String getHTMLHeader() {
-    return "<html><body><h2>Select a Club Member</h2>&nbsp;</body></html>";
+    return "<html><body><h2>Do you want Chibis?</h2>&nbsp;</body></html>";
   }
 
 
