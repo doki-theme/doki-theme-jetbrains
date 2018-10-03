@@ -28,6 +28,16 @@ object ClubMemberOrchestrator {
     private val isOn = AtomicBoolean(false)
     private var currentTheme = getSavedTheme()
 
+    init {
+        isOn.getAndSet(PropertiesComponent.getInstance()
+                .getBoolean(CLUB_MEMBER_ON))
+        if(isOn.get()){
+            activateWeebShit()
+        } else {
+            deactivateWeebShit()
+        }
+    }
+
     private fun getSavedTheme(): MTThemes =
             MTThemes.getTheme(PropertiesComponent.getInstance().getValue(SAVED_THEME))
 
@@ -40,16 +50,18 @@ object ClubMemberOrchestrator {
     fun activate(theme: MTThemes) {
         this.currentTheme = theme
         removeWeebShit()
-        IdeBackgroundUtil.repaintAllWindows()
         turnOnIfNecessary()
     }
 
     fun weebShitOn(): Boolean = isOn.get()
 
+    fun activateWeebShit() = turnOnWeebShit()
+
+    fun deactivateWeebShit() = removeWeebShit()
+
     private fun turnOnIfNecessary() {
         if (isOn.get())
             turnOnWeebShit()
-        IdeBackgroundUtil.repaintAllWindows()
     }
 
     private fun setOnStatus(weebShitIsOn: Boolean) {
@@ -60,6 +72,7 @@ object ClubMemberOrchestrator {
     private fun removeWeebShit() {
         PropertiesComponent.getInstance().unsetValue(EDITOR_PROP)
         PropertiesComponent.getInstance().unsetValue(FRAME_PROP)
+        IdeBackgroundUtil.repaintAllWindows()
     }
 
     private fun handleWeebShit(weebShitIsOn: Boolean) {
@@ -68,7 +81,6 @@ object ClubMemberOrchestrator {
         } else {
             turnOnWeebShit()
         }
-        IdeBackgroundUtil.repaintAllWindows()
     }
 
     private fun turnOnWeebShit() {
@@ -84,6 +96,7 @@ object ClubMemberOrchestrator {
                 FRAME_PROP)
 
         setPropertyValue(SAVED_THEME, getTheme().getName())
+        IdeBackgroundUtil.repaintAllWindows()
     }
 
     private fun setPropertyValue(propertyKey: String, propertyValue: String) {
