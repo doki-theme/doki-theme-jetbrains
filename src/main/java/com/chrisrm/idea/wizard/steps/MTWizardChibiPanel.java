@@ -30,6 +30,7 @@
 
 package com.chrisrm.idea.wizard.steps;
 
+import com.chrisrm.idea.actions.ClubMemberOrchestrator;
 import com.intellij.ide.customize.AbstractCustomizeWizardStep;
 import com.intellij.ui.components.JBScrollPane;
 import net.miginfocom.swing.MigLayout;
@@ -55,14 +56,15 @@ public class MTWizardChibiPanel extends AbstractCustomizeWizardStep {
 
   @Override
   protected String getHTMLHeader() {
-    return "<html><body><h2>Do you want Chibis?</h2>&nbsp;</body></html>";
+    return "<html><body><h2>Do you want Chibis?</h2>&nbsp;<br/><h3>Head's Up: Activating Chibis will require special steps to remove the images once the plugin is uninstalled!</body></html>";
   }
 
 
   private void justMonikaButtonActionPerformed(final ActionEvent e) {
+      ClubMemberOrchestrator.INSTANCE.deactivateWeebShit();
   }
   private void onlyMonikaButtonActionPerformed(final ActionEvent e) {
-
+      ClubMemberOrchestrator.INSTANCE.activateWeebShit();
   }
 
   private void initComponents() {
@@ -109,7 +111,8 @@ public class MTWizardChibiPanel extends AbstractCustomizeWizardStep {
           justMonikaPanel.setLayout(new BoxLayout(justMonikaPanel, BoxLayout.Y_AXIS));
 
           //---- justMonikaButton ----
-          justMonikaButton.setText("Just Monika");
+          justMonikaButton.setText("No, I do not want Chibis.");
+          justMonikaButton.setSelected(!ClubMemberOrchestrator.INSTANCE.weebShitOn());
           justMonikaButton.setHorizontalAlignment(SwingConstants.LEFT);
           justMonikaButton.setActionCommand(bundle.getString("MTWizardThemesPanel.justMonikaButton.actionCommand"));
           justMonikaButton.addActionListener(this::justMonikaButtonActionPerformed);
@@ -127,7 +130,8 @@ public class MTWizardChibiPanel extends AbstractCustomizeWizardStep {
           onlyMonikaPanel.setLayout(new BoxLayout(onlyMonikaPanel, BoxLayout.Y_AXIS));
 
           //---- onlyMonikaButton ----
-          onlyMonikaButton.setText("Just Monika");
+          onlyMonikaButton.setText("Yes! Chibis please!");
+          onlyMonikaButton.setSelected(ClubMemberOrchestrator.INSTANCE.weebShitOn());
           onlyMonikaButton.setHorizontalAlignment(SwingConstants.LEFT);
           onlyMonikaButton.setActionCommand(bundle.getString("MTWizardThemesPanel.onlyMonikaButton.text"));
           onlyMonikaButton.addActionListener(this::onlyMonikaButtonActionPerformed);
