@@ -74,36 +74,6 @@ public class MTWizardChibiPanel extends AbstractCustomizeWizardStep {
     justMonikaThemeAction.selectionActivation();
   }
 
-  private final SayoriThemeAction sayoriThemeAction = new SayoriThemeAction();
-  private void deletedCharacterButtonActionPerformed(final ActionEvent e) {
-    DarkMode.turnOn();
-    sayoriThemeAction.selectionActivation();
-  }
-  private void sayoriButtonActionPerformed(final ActionEvent e) {
-    DarkMode.turnOff();
-    sayoriThemeAction.selectionActivation();
-  }
-
-  private final NatsukiThemeAction natsukiThemeAction = new NatsukiThemeAction();
-  private void onlyPlayWithMeButtonActionPerformed(final ActionEvent e) {
-    DarkMode.turnOn();
-    natsukiThemeAction.selectionActivation();
-  }
-  private void natsukiButtonActionPerformed(final ActionEvent e) {
-    DarkMode.turnOff();
-    natsukiThemeAction.selectionActivation();
-  }
-
-  private final YuriThemeAction yuriThemeAction = new YuriThemeAction();
-  private void edgyButtonActionPerformed(final ActionEvent e) {
-    DarkMode.turnOn();
-    yuriThemeAction.selectionActivation();
-  }
-  private void yuriButtonActionPerformed(final ActionEvent e) {
-    DarkMode.turnOff();
-    yuriThemeAction.selectionActivation();
-  }
-
   private void initComponents() {
     // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
     // Generated using JFormDesigner non-commercial license
@@ -113,27 +83,9 @@ public class MTWizardChibiPanel extends AbstractCustomizeWizardStep {
     justMonikaPanel = new JPanel();
     justMonikaButton = new JRadioButton();
     justMonikaLabel = new JLabel();
-    sayoriLayout = new JPanel();
-    sayoriButton = new JRadioButton();
-    sayoriLabel = new JLabel();
-    natsukiPanel = new JPanel();
-    natsukiButton = new JRadioButton();
-    natsukiLabel = new JLabel();
-    yuriPanel = new JPanel();
-    yuriButton = new JRadioButton();
-    yuriLabel = new JLabel();
     onlyMonikaPanel = new JPanel();
     onlyMonikaButton = new JRadioButton();
     onlyMonikaLabel = new JLabel();
-    deletedCharacterLayout = new JPanel();
-    deletedCharacterButton = new JRadioButton();
-    deletedCharacterLabel = new JLabel();
-    onlyPlayWithMePanel = new JPanel();
-    onlyPlayWithMeButton = new JRadioButton();
-    onlyPlayWithMeLabel = new JLabel();
-    edgyPanel = new JPanel();
-    edgyButton = new JRadioButton();
-    edgyLabel = new JLabel();
 
     //======== this ========
     setLayout(new BorderLayout());
@@ -196,103 +148,35 @@ public class MTWizardChibiPanel extends AbstractCustomizeWizardStep {
         }
         grid.add(onlyMonikaPanel, "cell 1 0,align center center,grow 0 0");
 
-        //======== sayoriLayout ========
         {
-          sayoriLayout.setBorder(new EmptyBorder(5, 5, 5, 5));
-          sayoriLayout.setLayout(new BoxLayout(sayoriLayout, BoxLayout.Y_AXIS));
 
-          //---- sayoriButton ----
-          sayoriButton.setText(bundle.getString("MTWizardThemesPanel.sayoriButton.text"));
-          sayoriButton.setHorizontalAlignment(SwingConstants.LEFT);
-          sayoriButton.addActionListener(this::sayoriButtonActionPerformed);
-          sayoriLayout.add(sayoriButton);
 
-          //---- sayoriLabel ----
-          sayoriLabel.setIcon(new ImageIcon(getClass().getResource("/wizard/sayori.png")));
-          sayoriLayout.add(sayoriLabel);
         }
-        grid.add(sayoriLayout, "cell 0 1,align center center,grow 0 0");
 
-        //======== deletedCharacterLayout ========
         {
-          deletedCharacterLayout.setBorder(new EmptyBorder(5, 5, 5, 5));
-          deletedCharacterLayout.setLayout(new BoxLayout(deletedCharacterLayout, BoxLayout.Y_AXIS));
 
-          //---- deletedCharacterButton ----
-          deletedCharacterButton.setText(bundle.getString("MTWizardThemesPanel.deletedCharacterButton.text"));
-          deletedCharacterButton.setHorizontalAlignment(SwingConstants.LEFT);
-          deletedCharacterButton.addActionListener(this::deletedCharacterButtonActionPerformed);
-          deletedCharacterLayout.add(deletedCharacterButton);
 
-          //---- deletedCharacterLabel ----
-          deletedCharacterLabel.setIcon(new ImageIcon(getClass().getResource("/wizard/deletedCharacter.png")));
-          deletedCharacterLayout.add(deletedCharacterLabel);
         }
-        grid.add(deletedCharacterLayout, "cell 1 1,align center center,grow 0 0");
 
-        //======== natsukiPanel ========
         {
-          natsukiPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
-          natsukiPanel.setLayout(new BoxLayout(natsukiPanel, BoxLayout.Y_AXIS));
 
-          //---- natsukiButton ----
-          natsukiButton.setText(bundle.getString("MTWizardThemesPanel.natsukiButton.text"));
-          natsukiButton.addActionListener(this::natsukiButtonActionPerformed);
-          natsukiPanel.add(natsukiButton);
 
-          //---- natsukiLabel ----
-          natsukiLabel.setIcon(new ImageIcon(getClass().getResource("/wizard/natsuki.png")));
-          natsukiPanel.add(natsukiLabel);
         }
-        grid.add(natsukiPanel, "cell 0 2,align center center,grow 0 0");
 
-        //======== onlyPlayWithMePanel ========
         {
-          onlyPlayWithMePanel.setBorder(new EmptyBorder(5, 5, 5, 5));
-          onlyPlayWithMePanel.setLayout(new BoxLayout(onlyPlayWithMePanel, BoxLayout.Y_AXIS));
 
-          //---- onlyPlayWithMeButton ----
-          onlyPlayWithMeButton.setText(bundle.getString("MTWizardThemesPanel.onlyPlayWithMeButton.text"));
-          onlyPlayWithMeButton.addActionListener(this::onlyPlayWithMeButtonActionPerformed);
-          onlyPlayWithMePanel.add(onlyPlayWithMeButton);
 
-          //---- onlyPlayWithMeLabel ----
-          onlyPlayWithMeLabel.setIcon(new ImageIcon(getClass().getResource("/wizard/onlyPlayWithMe.png")));
-          onlyPlayWithMePanel.add(onlyPlayWithMeLabel);
         }
-        grid.add(onlyPlayWithMePanel, "cell 1 2,align center center,grow 0 0");
 
-        //======== yuriPanel ========
         {
-          yuriPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
-          yuriPanel.setLayout(new BoxLayout(yuriPanel, BoxLayout.Y_AXIS));
 
-          //---- yuriButton ----
-          yuriButton.setText(bundle.getString("MTWizardThemesPanel.yuriButton.text"));
-          yuriButton.addActionListener(this::yuriButtonActionPerformed);
-          yuriPanel.add(yuriButton);
 
-          //---- yuriLabel ----
-          yuriLabel.setIcon(new ImageIcon(getClass().getResource("/wizard/yuri.png")));
-          yuriPanel.add(yuriLabel);
         }
-        grid.add(yuriPanel, "cell 0 3,align center center,grow 0 0");
 
-        //======== edgyPanel ========
         {
-          edgyPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
-          edgyPanel.setLayout(new BoxLayout(edgyPanel, BoxLayout.Y_AXIS));
 
-          //---- edgyButton ----
-          edgyButton.setText(bundle.getString("MTWizardThemesPanel.edgyButton.text"));
-          edgyButton.addActionListener(this::edgyButtonActionPerformed);
-          edgyPanel.add(edgyButton);
 
-          //---- edgyLabel ----
-          edgyLabel.setIcon(new ImageIcon(getClass().getResource("/wizard/edgy.png")));
-          edgyPanel.add(edgyLabel);
         }
-        grid.add(edgyPanel, "cell 1 3,align center center,grow 0 0");
 
       }
       scrollPane.setViewportView(grid);
@@ -302,13 +186,7 @@ public class MTWizardChibiPanel extends AbstractCustomizeWizardStep {
     //---- selectedTheme ----
     final ButtonGroup selectedTheme = new ButtonGroup();
     selectedTheme.add(justMonikaButton);
-    selectedTheme.add(sayoriButton);
-    selectedTheme.add(natsukiButton);
-    selectedTheme.add(yuriButton);
     selectedTheme.add(onlyMonikaButton);
-    selectedTheme.add(deletedCharacterButton);
-    selectedTheme.add(onlyPlayWithMeButton);
-    selectedTheme.add(edgyButton);
     // JFormDesigner - End of component initialization  //GEN-END:initComponents
   }
 
@@ -319,26 +197,8 @@ public class MTWizardChibiPanel extends AbstractCustomizeWizardStep {
   private JPanel justMonikaPanel;
   private JRadioButton justMonikaButton;
   private JLabel justMonikaLabel;
-  private JPanel sayoriLayout;
-  private JRadioButton sayoriButton;
-  private JLabel sayoriLabel;
-  private JPanel natsukiPanel;
-  private JRadioButton natsukiButton;
-  private JLabel natsukiLabel;
-  private JPanel yuriPanel;
-  private JRadioButton yuriButton;
-  private JLabel yuriLabel;
   private JPanel onlyMonikaPanel;
   private JRadioButton onlyMonikaButton;
   private JLabel onlyMonikaLabel;
-  private JPanel deletedCharacterLayout;
-  private JRadioButton deletedCharacterButton;
-  private JLabel deletedCharacterLabel;
-  private JPanel onlyPlayWithMePanel;
-  private JRadioButton onlyPlayWithMeButton;
-  private JLabel onlyPlayWithMeLabel;
-  private JPanel edgyPanel;
-  private JRadioButton edgyButton;
-  private JLabel edgyLabel;
   // JFormDesigner - End of variables declaration  //GEN-END:variables
 }
