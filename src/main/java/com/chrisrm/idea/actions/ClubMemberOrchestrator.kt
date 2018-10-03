@@ -25,7 +25,7 @@ object ClubMemberOrchestrator {
     private const val SAVED_THEME = "CLUB_MEMBER_THEME_PROPERTY"
     private const val RESOURCES_DIRECTORY = "https://raw.githubusercontent.com/cyclic-reference/ddlc-jetbrains-theme/master/src/main/resources"
 
-    private val isOn = AtomicBoolean(true)
+    private val isOn = AtomicBoolean(false)
     private var currentTheme = getSavedTheme()
 
     private fun getSavedTheme(): MTThemes =
