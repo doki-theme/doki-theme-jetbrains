@@ -30,7 +30,9 @@
 
 package com.chrisrm.idea.wizard.steps;
 
+import com.chrisrm.idea.actions.ClubMemberOrchestrator;
 import com.chrisrm.idea.actions.DarkMode;
+import com.chrisrm.idea.actions.MTWeebAction;
 import com.chrisrm.idea.actions.themes.literature.club.JustMonikaThemeAction;
 import com.chrisrm.idea.actions.themes.literature.club.NatsukiThemeAction;
 import com.chrisrm.idea.actions.themes.literature.club.SayoriThemeAction;
@@ -64,14 +66,10 @@ public class MTWizardChibiPanel extends AbstractCustomizeWizardStep {
   }
 
 
-  private final JustMonikaThemeAction justMonikaThemeAction = new JustMonikaThemeAction();
   private void justMonikaButtonActionPerformed(final ActionEvent e) {
-    DarkMode.turnOff();
-    justMonikaThemeAction.selectionActivation();
   }
   private void onlyMonikaButtonActionPerformed(final ActionEvent e) {
-    DarkMode.turnOn();
-    justMonikaThemeAction.selectionActivation();
+
   }
 
   private void initComponents() {
