@@ -41,6 +41,8 @@ object ClubMemberOrchestrator {
     private fun getSavedTheme(): MTThemes =
             MTThemes.getTheme(PropertiesComponent.getInstance().getValue(SAVED_THEME))
 
+    fun currentActiveTheme() = currentTheme;
+
     fun toggleWeebShit() {
         val weebShitIsOn = isOn.get()
         handleWeebShit(weebShitIsOn)

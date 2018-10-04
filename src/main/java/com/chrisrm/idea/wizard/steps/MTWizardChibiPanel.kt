@@ -30,17 +30,18 @@
 
 package com.chrisrm.idea.wizard.steps
 
+import com.chrisrm.idea.MTThemes
 import com.chrisrm.idea.actions.ClubMemberOrchestrator
+import com.chrisrm.idea.actions.DarkMode
 import com.intellij.ide.customize.AbstractCustomizeWizardStep
 import com.intellij.ui.components.JBScrollPane
 import net.miginfocom.swing.MigLayout
-
+import java.awt.BorderLayout
+import java.awt.Dimension
+import java.awt.event.ActionEvent
+import java.util.*
 import javax.swing.*
 import javax.swing.border.EmptyBorder
-import java.awt.*
-import java.awt.event.ActionEvent
-import java.awt.event.ActionListener
-import java.util.ResourceBundle
 
 class MTWizardChibiPanel : AbstractCustomizeWizardStep() {
 
@@ -63,9 +64,18 @@ class MTWizardChibiPanel : AbstractCustomizeWizardStep() {
         return "Chibi Activation"
     }
 
-    override fun getHTMLHeader(): String {
-        return "<html><body><h2>Do you want Chibis?</h2>&nbsp;<br/><h3>Head's Up: Activating Chibis will require special steps to remove the images once the plugin is uninstalled!</h3></body></html>"
-    }
+    private fun getSpecialMessage() =
+            if (DarkMode.isOn() && ClubMemberOrchestrator.currentActiveTheme() != MTThemes.MONIKA)
+                """
+                <h4>Note: I see you have dark mode on! "Use Tools -> Panel Options -> Swap Chibi" to make your club member more desirable anytime :)</h4>
+                """.trimIndent() else ""
+
+    override fun getHTMLHeader(): String =
+            """<html><body>
+                <h2>Do you want Chibis?</h2>&nbsp;<br/>
+                <h3>Head's Up: Activating Chibis will require special steps to remove the images once the plugin is uninstalled!</h3>
+                ${getSpecialMessage()}
+                </body></html>""".trimIndent()
 
 
     private fun justMonikaButtonActionPerformed(e: ActionEvent) {
