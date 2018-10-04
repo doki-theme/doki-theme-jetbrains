@@ -94,7 +94,11 @@ class MTWizardThemesPanel : AbstractCustomizeWizardStep() {
     }
 
     override fun getHTMLHeader(): String {
-        return "<html><body><h2>Select a Club Member</h2>&nbsp;</body></html>"
+        return """<html>
+            <body>
+            <h2>Choose your <span style="font-weight: bold">favorite</span> Club Member: </h2>&nbsp;
+            <h3>Sayori, Natsuki, Yuri, or <span style="font-weight: bold">just Monika</span>.</h3>
+            </body></html>""".trimIndent()
     }
 
     private fun justMonikaButtonActionPerformed(e: ActionEvent) {
@@ -216,7 +220,7 @@ class MTWizardThemesPanel : AbstractCustomizeWizardStep() {
                     onlyMonikaPanel!!.layout = BoxLayout(onlyMonikaPanel, BoxLayout.Y_AXIS)
 
                     //---- onlyMonikaButton ----
-                    onlyMonikaButton!!.text = "Just Monika"
+                    onlyMonikaButton!!.text = "Only Monika"
                     onlyMonikaButton!!.horizontalAlignment = SwingConstants.LEFT
                     onlyMonikaButton!!.actionCommand = bundle.getString("MTWizardThemesPanel.onlyMonikaButton.text")
                     onlyMonikaButton!!.addActionListener { this.onlyMonikaButtonActionPerformed(it) }
