@@ -37,13 +37,13 @@ import com.intellij.ide.customize.AbstractCustomizeWizardStep
 import com.intellij.ui.components.JBScrollPane
 import com.intellij.ui.components.labels.LinkLabel
 import net.miginfocom.swing.MigLayout
-
-import javax.swing.*
-import java.awt.*
+import java.awt.Desktop
+import java.awt.Font
 import java.io.IOException
 import java.net.URI
 import java.net.URISyntaxException
-import java.util.ResourceBundle
+import java.util.*
+import javax.swing.*
 
 /**
  * @author Elior Boukhobza
@@ -166,23 +166,6 @@ class MTWizardFinishPanel : AbstractCustomizeWizardStep() {
                 summarySummary!!.font = summarySummary!!.font.deriveFont(summarySummary!!.font.size + 5f)
                 content!!.add(summarySummary!!, "cell 0 4,alignx center,growx 0")
 
-                if(!DarkMode.isOn() && ClubMemberOrchestrator.currentActiveTheme() != MTThemes.MONIKA){
-                    content!!.add(vSpacer1!!, "cell 0 5")
-                    //---- disclaimer ----
-                    disclaimer!!.text = bundle.getString("MTWizardFinishPanel.disclaimer.text")
-                    disclaimer!!.font = disclaimer!!.font.deriveFont(disclaimer!!.font.size)
-                    content!!.add(disclaimer!!, "cell 0 6")
-                    //---- disclaimerTwo ----
-                    disclaimerTwo!!.text = bundle.getString("MTWizardFinishPanel.disclaimerTwo.text")
-                    disclaimerTwo!!.font = disclaimerTwo!!.font.deriveFont(disclaimerTwo!!.font.size)
-                    content!!.add(disclaimerTwo!!, "cell 0 7")
-                } else {
-                    try {
-                        content!!.remove(10)
-                        content!!.remove(10)
-                        content!!.remove(10)
-                    } catch (throwable: Throwable){}
-                }
             }
             scrollPane!!.setViewportView(content)
         }
@@ -230,4 +213,28 @@ class MTWizardFinishPanel : AbstractCustomizeWizardStep() {
 
     }
     // JFormDesigner - End of variables declaration  //GEN-END:variables
+
+    override fun beforeShown(forward: Boolean) {
+        super.beforeShown(forward)
+        if (!DarkMode.isOn() && ClubMemberOrchestrator.currentActiveTheme() != MTThemes.MONIKA) {
+            content!!.add(vSpacer1!!, "cell 0 5")
+            val bundle = ResourceBundle.getBundle("messages.MTWizardBundle")
+            //---- disclaimer ----
+            disclaimer!!.text = bundle.getString("MTWizardFinishPanel.disclaimer.text")
+            disclaimer!!.font = disclaimer!!.font.deriveFont(disclaimer!!.font.size)
+            content!!.add(disclaimer!!, "cell 0 6")
+            //---- disclaimerTwo ----
+            disclaimerTwo!!.text = bundle.getString("MTWizardFinishPanel.disclaimerTwo.text")
+            disclaimerTwo!!.font = disclaimerTwo!!.font.deriveFont(disclaimerTwo!!.font.size)
+            content!!.add(disclaimerTwo!!, "cell 0 7")
+        } else {
+            try {
+                content!!.remove(10)
+                content!!.remove(9)
+                content!!.remove(8)
+            } catch (throwable: Throwable) {
+            }
+        }
+        scrollPane!!.setViewportView(content)
+    }
 }
