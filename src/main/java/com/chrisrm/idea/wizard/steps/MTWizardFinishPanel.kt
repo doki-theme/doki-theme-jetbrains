@@ -30,6 +30,9 @@
 
 package com.chrisrm.idea.wizard.steps
 
+import com.chrisrm.idea.MTThemes
+import com.chrisrm.idea.actions.ClubMemberOrchestrator
+import com.chrisrm.idea.actions.DarkMode
 import com.intellij.ide.customize.AbstractCustomizeWizardStep
 import com.intellij.ui.components.JBScrollPane
 import com.intellij.ui.components.labels.LinkLabel
@@ -60,6 +63,8 @@ class MTWizardFinishPanel : AbstractCustomizeWizardStep() {
     private var openCollLink: LinkLabel<Any>? = null
     private var vSpacer1: JPanel? = null
     private var summarySummary: JLabel? = null
+    private var disclaimer: JLabel? = null
+    private var disclaimerTwo: JLabel? = null
 
     init {
         initComponents()
@@ -92,6 +97,8 @@ class MTWizardFinishPanel : AbstractCustomizeWizardStep() {
         openCollLink = LinkLabel()
         vSpacer1 = JPanel(null)
         summarySummary = JLabel()
+        disclaimer = JLabel()
+        disclaimerTwo = JLabel()
 
         //======== this ========
         layout = BoxLayout(this, BoxLayout.X_AXIS)
@@ -112,7 +119,11 @@ class MTWizardFinishPanel : AbstractCustomizeWizardStep() {
                                 "[]para" +
                                 "[]para" +
                                 "[]" +
-                                "[]")
+                                "[]" +
+                                "[]" +
+                                "[]" +
+                                "[]"
+                )
 
                 //---- summary ----
                 summary!!.text = bundle.getString("MTWizardFinishPanel.summary.text")
@@ -154,6 +165,22 @@ class MTWizardFinishPanel : AbstractCustomizeWizardStep() {
                 summarySummary!!.text = bundle.getString("MTWizardFinishPanel.summarySummary.text")
                 summarySummary!!.font = summarySummary!!.font.deriveFont(summarySummary!!.font.size + 5f)
                 content!!.add(summarySummary!!, "cell 0 4,alignx center,growx 0")
+
+                if(!DarkMode.isOn() && ClubMemberOrchestrator.currentActiveTheme() != MTThemes.MONIKA){
+                    content!!.add(vSpacer1!!, "cell 0 5")
+                    //---- disclaimer ----
+                    disclaimer!!.text = bundle.getString("MTWizardFinishPanel.disclaimer.text")
+                    disclaimer!!.font = disclaimer!!.font.deriveFont(disclaimer!!.font.size)
+                    content!!.add(disclaimer!!, "cell 0 6")
+                    //---- disclaimerTwo ----
+                    disclaimerTwo!!.text = bundle.getString("MTWizardFinishPanel.disclaimerTwo.text")
+                    disclaimerTwo!!.font = disclaimerTwo!!.font.deriveFont(disclaimerTwo!!.font.size)
+                    content!!.add(disclaimerTwo!!, "cell 0 7")
+                } else {
+                    content!!.remove(10)
+                    content!!.remove(10)
+                    content!!.remove(10)
+                }
             }
             scrollPane!!.setViewportView(content)
         }

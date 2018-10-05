@@ -80,6 +80,18 @@ new FormModel {
 					}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
 						"value": "cell 0 4,alignx center,growx 0"
 					} )
+					add( new FormComponent( "com.jformdesigner.designer.wrapper.VSpacer" ) {
+						name: "vSpacer1"
+					}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+						"value": "cell 0 5"
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "disclaimer"
+						"text": new FormMessage( null, "MTWizardFinishPanel.disclaimer.text" )
+						"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 3, false )
+					}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+						"value": "cell 0 6"
+					} )
 				} )
 			} )
 		}, new FormLayoutConstraints( null ) {
