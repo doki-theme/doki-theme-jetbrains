@@ -177,9 +177,11 @@ class MTWizardFinishPanel : AbstractCustomizeWizardStep() {
                     disclaimerTwo!!.font = disclaimerTwo!!.font.deriveFont(disclaimerTwo!!.font.size)
                     content!!.add(disclaimerTwo!!, "cell 0 7")
                 } else {
-                    content!!.remove(10)
-                    content!!.remove(10)
-                    content!!.remove(10)
+                    try {
+                        content!!.remove(10)
+                        content!!.remove(10)
+                        content!!.remove(10)
+                    } catch (throwable: Throwable){}
                 }
             }
             scrollPane!!.setViewportView(content)
