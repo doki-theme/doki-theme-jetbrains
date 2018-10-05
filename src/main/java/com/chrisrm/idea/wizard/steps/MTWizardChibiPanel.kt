@@ -49,12 +49,12 @@ class MTWizardChibiPanel : AbstractCustomizeWizardStep() {
     // Generated using JFormDesigner non-commercial license
     private var scrollPane: JBScrollPane? = null
     private var grid: JPanel? = null
-    private var justMonikaPanel: JPanel? = null
-    private var justMonikaButton: JRadioButton? = null
-    private var justMonikaLabel: JLabel? = null
-    private var onlyMonikaPanel: JPanel? = null
-    private var onlyMonikaButton: JRadioButton? = null
-    private var onlyMonikaLabel: JLabel? = null
+    private var noChibisPanel: JPanel? = null
+    private var noChibisButton: JRadioButton? = null
+    private var noChibisLabel: JLabel? = null
+    private var yesChibisPanel: JPanel? = null
+    private var yesChibisButton: JRadioButton? = null
+    private var yesChibisLabel: JLabel? = null
 
     init {
         initComponents()
@@ -78,26 +78,25 @@ class MTWizardChibiPanel : AbstractCustomizeWizardStep() {
                 </body></html>""".trimIndent()
 
 
-    private fun justMonikaButtonActionPerformed(e: ActionEvent) {
+    private fun noChibisButtonActionPerformed(e: ActionEvent) {
         ClubMemberOrchestrator.deactivateWeebShit()
     }
 
-    private fun onlyMonikaButtonActionPerformed(e: ActionEvent) {
+    private fun yesChibisButtonActionPerformed(e: ActionEvent) {
         ClubMemberOrchestrator.activateWeebShit()
     }
 
     private fun initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner non-commercial license
-        val bundle = ResourceBundle.getBundle("messages.MTWizardBundle")
         scrollPane = JBScrollPane()
         grid = JPanel()
-        justMonikaPanel = JPanel()
-        justMonikaButton = JRadioButton()
-        justMonikaLabel = JLabel()
-        onlyMonikaPanel = JPanel()
-        onlyMonikaButton = JRadioButton()
-        onlyMonikaLabel = JLabel()
+        noChibisPanel = JPanel()
+        noChibisButton = JRadioButton()
+        noChibisLabel = JLabel()
+        yesChibisPanel = JPanel()
+        yesChibisButton = JRadioButton()
+        yesChibisLabel = JLabel()
 
         //======== this ========
         layout = BorderLayout()
@@ -123,74 +122,43 @@ class MTWizardChibiPanel : AbstractCustomizeWizardStep() {
                                 "[]" +
                                 "[]")
 
-                //======== justMonikaPanel ========
+                //======== noChibisPanel ========
                 run {
-                    justMonikaPanel!!.border = EmptyBorder(5, 5, 5, 5)
-                    justMonikaPanel!!.layout = BoxLayout(justMonikaPanel, BoxLayout.Y_AXIS)
+                    noChibisPanel!!.border = EmptyBorder(5, 5, 5, 5)
+                    noChibisPanel!!.layout = BoxLayout(noChibisPanel, BoxLayout.Y_AXIS)
 
-                    //---- justMonikaButton ----
-                    justMonikaButton!!.text = "No, I do not want Chibis."
-                    justMonikaButton!!.isSelected = !ClubMemberOrchestrator.weebShitOn()
-                    justMonikaButton!!.horizontalAlignment = SwingConstants.LEFT
-                    justMonikaButton!!.actionCommand = bundle.getString("MTWizardThemesPanel.justMonikaButton.actionCommand")
-                    justMonikaButton!!.addActionListener { this.justMonikaButtonActionPerformed(it) }
-                    justMonikaPanel!!.add(justMonikaButton)
+                    //---- noChibisButton ----
+                    noChibisButton!!.text = "No, I do not want Chibis."
+                    noChibisButton!!.isSelected = !ClubMemberOrchestrator.weebShitOn()
+                    noChibisButton!!.horizontalAlignment = SwingConstants.LEFT
+                    noChibisButton!!.actionCommand = "noChibis"
+                    noChibisButton!!.addActionListener { this.noChibisButtonActionPerformed(it) }
+                    noChibisPanel!!.add(noChibisButton)
 
-                    //---- justMonikaLabel ----
-                    justMonikaLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/justMonika.png"))
-                    justMonikaPanel!!.add(justMonikaLabel)
+                    //---- noChibisLabel ----
+                    noChibisLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/justMonika.png"))
+                    noChibisPanel!!.add(noChibisLabel)
                 }
-                grid!!.add(justMonikaPanel!!, "cell 0 0")
+                grid!!.add(noChibisPanel!!, "cell 0 0")
 
-                //======== onlyMonikaPanel ========
+                //======== yesChibisPanel ========
                 run {
-                    onlyMonikaPanel!!.border = EmptyBorder(5, 5, 5, 5)
-                    onlyMonikaPanel!!.layout = BoxLayout(onlyMonikaPanel, BoxLayout.Y_AXIS)
+                    yesChibisPanel!!.border = EmptyBorder(5, 5, 5, 5)
+                    yesChibisPanel!!.layout = BoxLayout(yesChibisPanel, BoxLayout.Y_AXIS)
 
-                    //---- onlyMonikaButton ----
-                    onlyMonikaButton!!.text = "Yes! Chibis please!"
-                    onlyMonikaButton!!.isSelected = ClubMemberOrchestrator.weebShitOn()
-                    onlyMonikaButton!!.horizontalAlignment = SwingConstants.LEFT
-                    onlyMonikaButton!!.actionCommand = bundle.getString("MTWizardThemesPanel.onlyMonikaButton.text")
-                    onlyMonikaButton!!.addActionListener { this.onlyMonikaButtonActionPerformed(it) }
-                    onlyMonikaPanel!!.add(onlyMonikaButton)
+                    //---- yesChibisButton ----
+                    yesChibisButton!!.text = "Yes! Chibis please!"
+                    yesChibisButton!!.isSelected = ClubMemberOrchestrator.weebShitOn()
+                    yesChibisButton!!.horizontalAlignment = SwingConstants.LEFT
+                    yesChibisButton!!.actionCommand = "yesChibis"
+                    yesChibisButton!!.addActionListener { this.yesChibisButtonActionPerformed(it) }
+                    yesChibisPanel!!.add(yesChibisButton)
 
-                    //---- onlyMonikaLabel ----
-                    onlyMonikaLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/onlyMonika.png"))
-                    onlyMonikaPanel!!.add(onlyMonikaLabel)
+                    //---- yesChibisLabel ----
+                    yesChibisLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/onlyMonika.png"))
+                    yesChibisPanel!!.add(yesChibisLabel)
                 }
-                grid!!.add(onlyMonikaPanel!!, "cell 1 0,align center center,grow 0 0")
-
-                run {
-
-
-                }
-
-                run {
-
-
-                }
-
-                run {
-
-
-                }
-
-                run {
-
-
-                }
-
-                run {
-
-
-                }
-
-                run {
-
-
-                }
-
+                grid!!.add(yesChibisPanel!!, "cell 1 0,align center center,grow 0 0")
             }
             scrollPane!!.setViewportView(grid)
         }
@@ -198,8 +166,8 @@ class MTWizardChibiPanel : AbstractCustomizeWizardStep() {
 
         //---- selectedTheme ----
         val selectedTheme = ButtonGroup()
-        selectedTheme.add(justMonikaButton)
-        selectedTheme.add(onlyMonikaButton)
+        selectedTheme.add(noChibisButton)
+        selectedTheme.add(yesChibisButton)
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
     // JFormDesigner - End of variables declaration  //GEN-END:variables
