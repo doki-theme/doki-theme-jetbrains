@@ -30,6 +30,8 @@
 
 package com.chrisrm.idea.wizard.steps
 
+import com.chrisrm.idea.MTThemes
+import com.chrisrm.idea.actions.ClubMemberOrchestrator
 import com.chrisrm.idea.actions.DarkMode
 import com.chrisrm.idea.actions.themes.literature.club.JustMonikaThemeAction
 import com.chrisrm.idea.actions.themes.literature.club.NatsukiThemeAction
@@ -87,6 +89,26 @@ class MTWizardThemesPanel : AbstractCustomizeWizardStep() {
 
     init {
         initComponents()
+        initRadioButton()
+    }
+
+    private fun initRadioButton(){
+        val darkMode = DarkMode.isOn()
+        when (ClubMemberOrchestrator.currentActiveTheme()) {
+            MTThemes.MONIKA ->
+                if (darkMode) onlyMonikaButtonActionPerformed(null)
+            else  justMonikaButtonActionPerformed(null)
+            MTThemes.SAYORI ->
+                if (darkMode) deletedCharacterButtonActionPerformed(null)
+            else  sayoriButtonActionPerformed(null)
+            MTThemes.NATSUKI ->
+                if (darkMode) onlyPlayWithMeButtonActionPerformed(null)
+            else  natsukiButtonActionPerformed(null)
+            MTThemes.YURI ->
+                if (darkMode) edgyButtonActionPerformed(null)
+            else  yuriButtonActionPerformed(null)
+        }
+
     }
 
     override fun getTitle(): String {
@@ -101,44 +123,52 @@ class MTWizardThemesPanel : AbstractCustomizeWizardStep() {
             </body></html>""".trimIndent()
     }
 
-    private fun justMonikaButtonActionPerformed(e: ActionEvent) {
+    private fun justMonikaButtonActionPerformed(e: ActionEvent?) {
         DarkMode.turnOff()
         justMonikaThemeAction.selectionActivation()
+        justMonikaButton!!.isSelected = true
     }
 
-    private fun onlyMonikaButtonActionPerformed(e: ActionEvent) {
+    private fun onlyMonikaButtonActionPerformed(e: ActionEvent?) {
         DarkMode.turnOn()
         justMonikaThemeAction.selectionActivation()
+        onlyMonikaButton!!.isSelected = true
     }
 
-    private fun deletedCharacterButtonActionPerformed(e: ActionEvent) {
+    private fun deletedCharacterButtonActionPerformed(e: ActionEvent?) {
         DarkMode.turnOn()
         sayoriThemeAction.selectionActivation()
+        deletedCharacterButton!!.isSelected = true
     }
 
-    private fun sayoriButtonActionPerformed(e: ActionEvent) {
+    private fun sayoriButtonActionPerformed(e: ActionEvent?) {
         DarkMode.turnOff()
         sayoriThemeAction.selectionActivation()
+        sayoriButton!!.isSelected = true
     }
 
-    private fun onlyPlayWithMeButtonActionPerformed(e: ActionEvent) {
+    private fun onlyPlayWithMeButtonActionPerformed(e: ActionEvent?) {
         DarkMode.turnOn()
         natsukiThemeAction.selectionActivation()
+        onlyPlayWithMeButton!!.isSelected = true
     }
 
-    private fun natsukiButtonActionPerformed(e: ActionEvent) {
+    private fun natsukiButtonActionPerformed(e: ActionEvent?) {
         DarkMode.turnOff()
         natsukiThemeAction.selectionActivation()
+        natsukiButton!!.isSelected = true
     }
 
-    private fun edgyButtonActionPerformed(e: ActionEvent) {
+    private fun edgyButtonActionPerformed(e: ActionEvent?) {
         DarkMode.turnOn()
         yuriThemeAction.selectionActivation()
+        edgyButton!!.isSelected = true
     }
 
-    private fun yuriButtonActionPerformed(e: ActionEvent) {
+    private fun yuriButtonActionPerformed(e: ActionEvent?) {
         DarkMode.turnOff()
         yuriThemeAction.selectionActivation()
+        yuriButton!!.isSelected = true
     }
 
     private fun initComponents() {
@@ -348,4 +378,7 @@ class MTWizardThemesPanel : AbstractCustomizeWizardStep() {
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
     // JFormDesigner - End of variables declaration  //GEN-END:variables
+
+
+
 }
