@@ -57,9 +57,15 @@ object ClubMemberOrchestrator {
 
     fun weebShitOn(): Boolean = isOn.get()
 
-    fun activateWeebShit() = turnOnWeebShit()
+    fun activateWeebShit(){
+        turnOnWeebShit()
+        setOnStatus(true)
+    }
 
-    fun deactivateWeebShit() = removeWeebShit()
+    fun deactivateWeebShit(){
+        removeWeebShit()
+        setOnStatus(false)
+    }
 
     private fun turnOnIfNecessary() {
         if (isOn.get())
@@ -68,21 +74,20 @@ object ClubMemberOrchestrator {
 
     private fun setOnStatus(weebShitIsOn: Boolean) {
         isOn.getAndSet(weebShitIsOn)
-        setPropertyValue(CLUB_MEMBER_ON, isOn.get())
+        setPropertyValue(CLUB_MEMBER_ON, weebShitIsOn)
     }
 
     private fun removeWeebShit() {
         PropertiesComponent.getInstance().unsetValue(EDITOR_PROP)
         PropertiesComponent.getInstance().unsetValue(FRAME_PROP)
-        setOnStatus(false)
         IdeBackgroundUtil.repaintAllWindows()
     }
 
     private fun handleWeebShit(weebShitIsOn: Boolean) {
         if (weebShitIsOn) {
-            removeWeebShit()
+            deactivateWeebShit()
         } else {
-            turnOnWeebShit()
+            activateWeebShit()
         }
     }
 
@@ -99,7 +104,6 @@ object ClubMemberOrchestrator {
                 FRAME_PROP)
 
         setPropertyValue(SAVED_THEME, getTheme().getName())
-        setOnStatus(true)
         IdeBackgroundUtil.repaintAllWindows()
     }
 
