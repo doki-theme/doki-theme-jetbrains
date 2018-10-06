@@ -136,7 +136,7 @@ class MTWizardChibiPanel : AbstractCustomizeWizardStep() {
                     noChibisPanel!!.add(noChibisButton)
 
                     //---- noChibisLabel ----
-                    noChibisLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/justMonika.png"))
+                    noChibisLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/chibis/justMonika.png"))
                     noChibisPanel!!.add(noChibisLabel)
                 }
                 grid!!.add(noChibisPanel!!, "cell 0 0")
@@ -155,10 +155,10 @@ class MTWizardChibiPanel : AbstractCustomizeWizardStep() {
                     yesChibisPanel!!.add(yesChibisButton)
 
                     //---- yesChibisLabel ----
-                    yesChibisLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/onlyMonika.png"))
+                    yesChibisLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/chibis/onlyMonika.png"))
                     yesChibisPanel!!.add(yesChibisLabel)
                 }
-                grid!!.add(yesChibisPanel!!, "cell 1 0,align center center,grow 0 0")
+                grid!!.add(yesChibisPanel!!, "cell 1 0")
             }
             scrollPane!!.setViewportView(grid)
         }

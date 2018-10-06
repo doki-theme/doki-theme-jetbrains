@@ -161,7 +161,7 @@ object ClubMemberOrchestrator {
             }
 
 
-    private fun getLiteratureClubMember() =
+    fun getLiteratureClubMember() =
             getTheme().literatureClubMember
 
     private fun getTheme(): MTThemes {
