@@ -39,7 +39,6 @@ import net.miginfocom.swing.MigLayout
 import java.awt.BorderLayout
 import java.awt.Dimension
 import java.awt.event.ActionEvent
-import java.util.*
 import javax.swing.*
 import javax.swing.border.EmptyBorder
 
@@ -136,7 +135,7 @@ class MTWizardChibiPanel : AbstractCustomizeWizardStep() {
                     noChibisPanel!!.add(noChibisButton)
 
                     //---- noChibisLabel ----
-                    noChibisLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/chibis/justMonika.png"))
+                    noChibisLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/chibis/just_monika.png"))
                     noChibisPanel!!.add(noChibisLabel)
                 }
                 grid!!.add(noChibisPanel!!, "cell 0 0")
