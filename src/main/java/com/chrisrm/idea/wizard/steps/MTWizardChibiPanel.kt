@@ -170,4 +170,10 @@ class MTWizardChibiPanel : AbstractCustomizeWizardStep() {
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
     // JFormDesigner - End of variables declaration  //GEN-END:variables
+
+
+
+
+
+
 }

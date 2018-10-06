@@ -90,6 +90,10 @@ public enum MTThemes implements MTThemeFacade {
     return JoyManager.isOn() ? getTheme().joyfulClubMember() : getTheme().getClubMember();
   }
 
+  public String getNormalClubMember () {
+    return  getTheme().getClubMember();
+  }
+
   @Override
   public boolean getThemeIsDark() {
     return getTheme().isDark();
