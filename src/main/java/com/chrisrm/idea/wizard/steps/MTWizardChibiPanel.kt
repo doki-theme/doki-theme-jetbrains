@@ -121,43 +121,6 @@ class MTWizardChibiPanel : AbstractCustomizeWizardStep() {
                                 "[]" +
                                 "[]")
 
-                //======== noChibisPanel ========
-                run {
-                    noChibisPanel!!.border = EmptyBorder(5, 5, 5, 5)
-                    noChibisPanel!!.layout = BoxLayout(noChibisPanel, BoxLayout.Y_AXIS)
-
-                    //---- noChibisButton ----
-                    noChibisButton!!.text = "No, I do not want Chibis."
-                    noChibisButton!!.isSelected = !ClubMemberOrchestrator.weebShitOn()
-                    noChibisButton!!.horizontalAlignment = SwingConstants.LEFT
-                    noChibisButton!!.actionCommand = "noChibis"
-                    noChibisButton!!.addActionListener { this.noChibisButtonActionPerformed(it) }
-                    noChibisPanel!!.add(noChibisButton)
-
-                    //---- noChibisLabel ----
-                    noChibisLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/chibis/just_monika.png"))
-                    noChibisPanel!!.add(noChibisLabel)
-                }
-                grid!!.add(noChibisPanel!!, "cell 0 0")
-
-                //======== yesChibisPanel ========
-                run {
-                    yesChibisPanel!!.border = EmptyBorder(5, 5, 5, 5)
-                    yesChibisPanel!!.layout = BoxLayout(yesChibisPanel, BoxLayout.Y_AXIS)
-
-                    //---- yesChibisButton ----
-                    yesChibisButton!!.text = "Yes! Chibis please!"
-                    yesChibisButton!!.isSelected = ClubMemberOrchestrator.weebShitOn()
-                    yesChibisButton!!.horizontalAlignment = SwingConstants.LEFT
-                    yesChibisButton!!.actionCommand = "yesChibis"
-                    yesChibisButton!!.addActionListener { this.yesChibisButtonActionPerformed(it) }
-                    yesChibisPanel!!.add(yesChibisButton)
-
-                    //---- yesChibisLabel ----
-                    yesChibisLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/chibis/only_monika.png"))
-                    yesChibisPanel!!.add(yesChibisLabel)
-                }
-                grid!!.add(yesChibisPanel!!, "cell 1 0")
             }
             scrollPane!!.setViewportView(grid)
         }
@@ -172,8 +135,52 @@ class MTWizardChibiPanel : AbstractCustomizeWizardStep() {
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 
 
+    override fun beforeShown(forward: Boolean) {
+        super.beforeShown(forward)
+        try{
+            grid!!.remove(1)
+            grid!!.remove(0)
+        }catch (throwable: Throwable){}
 
+        val clubMemberPostFix = ClubMemberOrchestrator.getNormalClubMember()
 
+        //======== noChibisPanel ========
+        run {
+            noChibisPanel!!.border = EmptyBorder(5, 5, 5, 5)
+            noChibisPanel!!.layout = BoxLayout(noChibisPanel, BoxLayout.Y_AXIS)
 
+            //---- noChibisButton ----
+            noChibisButton!!.text = "No, I do not want Chibis."
+            noChibisButton!!.isSelected = !ClubMemberOrchestrator.weebShitOn()
+            noChibisButton!!.horizontalAlignment = SwingConstants.LEFT
+            noChibisButton!!.actionCommand = "noChibis"
+            noChibisButton!!.addActionListener { this.noChibisButtonActionPerformed(it) }
+            noChibisPanel!!.add(noChibisButton)
 
+            //---- noChibisLabel ----
+            noChibisLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/chibis/$clubMemberPostFix"))
+            noChibisPanel!!.add(noChibisLabel)
+        }
+        grid!!.add(noChibisPanel!!, "cell 0 0")
+
+        //======== yesChibisPanel ========
+        run {
+            yesChibisPanel!!.border = EmptyBorder(5, 5, 5, 5)
+            yesChibisPanel!!.layout = BoxLayout(yesChibisPanel, BoxLayout.Y_AXIS)
+
+            //---- yesChibisButton ----
+            yesChibisButton!!.text = "Yes! Chibis please!"
+            yesChibisButton!!.isSelected = ClubMemberOrchestrator.weebShitOn()
+            yesChibisButton!!.horizontalAlignment = SwingConstants.LEFT
+            yesChibisButton!!.actionCommand = "yesChibis"
+            yesChibisButton!!.addActionListener { this.yesChibisButtonActionPerformed(it) }
+            yesChibisPanel!!.add(yesChibisButton)
+
+            //---- yesChibisLabel ----
+            yesChibisLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/chibis/chibi_$clubMemberPostFix"))
+            yesChibisPanel!!.add(yesChibisLabel)
+        }
+        grid!!.add(yesChibisPanel!!, "cell 1 0")
+
+    }
 }
