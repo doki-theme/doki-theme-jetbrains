@@ -83,7 +83,6 @@ public class MTConfig implements PersistentStateComponent<MTConfig>, Cloneable {
   public boolean isContrastMode = false;
   public boolean isMaterialDesign = true;
   public boolean isBoldTabs = false;
-  public boolean isClubMemberOn = false;
   public boolean isCustomTreeIndentEnabled = false;
   public Integer rightTreeIndent = 10;
   public Integer leftTreeIndent = 6;
@@ -188,7 +187,6 @@ public class MTConfig implements PersistentStateComponent<MTConfig>, Cloneable {
     hashMap.put("isContrastMode", isContrastMode);
     hashMap.put("isMaterialDesign", isMaterialDesign);
     hashMap.put("isBoldTabs", isBoldTabs);
-    hashMap.put("isClubMemberOn", isClubMemberOn);
     hashMap.put("isCustomTreeIndentEnabled", isCustomTreeIndentEnabled);
     hashMap.put("rightTreeIndent", rightTreeIndent);
     hashMap.put("leftTreeIndent", leftTreeIndent);
@@ -237,7 +235,6 @@ public class MTConfig implements PersistentStateComponent<MTConfig>, Cloneable {
     hashMap.put("isContrastMode", isContrastMode);
     hashMap.put("isMaterialDesign", isMaterialDesign);
     hashMap.put("isBoldTabs", isBoldTabs);
-    hashMap.put("isClubMemberOn", isClubMemberOn);
     hashMap.put("isCustomTreeIndentEnabled", isCustomTreeIndentEnabled);
     hashMap.put("rightTreeIndent", rightTreeIndent);
     hashMap.put("leftTreeIndent", leftTreeIndent);
@@ -350,7 +347,6 @@ public class MTConfig implements PersistentStateComponent<MTConfig>, Cloneable {
     isContrastMode = false;
     isMaterialDesign = true;
     isBoldTabs = false;
-    isClubMemberOn = false;
     isCustomTreeIndentEnabled = false;
     rightTreeIndent = 6;
     leftTreeIndent = 6;
@@ -557,20 +553,6 @@ public class MTConfig implements PersistentStateComponent<MTConfig>, Cloneable {
 
   public boolean isBoldTabsChanged(final boolean isBoldTabs) {
     return this.isBoldTabs != isBoldTabs;
-  }
-  //endregion
-  //region Bold Tabs
-
-  public boolean getIsClubMemberOn() {
-    return isClubMemberOn;
-  }
-
-  public void setIsClubMemberOn(final boolean isClubMemberOn) {
-    this.isClubMemberOn = isClubMemberOn;
-  }
-
-  public boolean isClubMemberOnChanged(final boolean isClubMemberOn) {
-    return this.isClubMemberOn != isClubMemberOn;
   }
   //endregion
 
