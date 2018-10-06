@@ -47,7 +47,6 @@ object ClubMemberOrchestrator {
     fun toggleWeebShit() {
         val weebShitIsOn = isOn.get()
         handleWeebShit(weebShitIsOn)
-        setOnStatus(weebShitIsOn)
     }
 
     fun activate(theme: MTThemes) {
@@ -68,13 +67,14 @@ object ClubMemberOrchestrator {
     }
 
     private fun setOnStatus(weebShitIsOn: Boolean) {
-        isOn.getAndSet(!weebShitIsOn)
+        isOn.getAndSet(weebShitIsOn)
         setPropertyValue(CLUB_MEMBER_ON, isOn.get())
     }
 
     private fun removeWeebShit() {
         PropertiesComponent.getInstance().unsetValue(EDITOR_PROP)
         PropertiesComponent.getInstance().unsetValue(FRAME_PROP)
+        setOnStatus(false)
         IdeBackgroundUtil.repaintAllWindows()
     }
 
@@ -99,6 +99,7 @@ object ClubMemberOrchestrator {
                 FRAME_PROP)
 
         setPropertyValue(SAVED_THEME, getTheme().getName())
+        setOnStatus(true)
         IdeBackgroundUtil.repaintAllWindows()
     }
 
