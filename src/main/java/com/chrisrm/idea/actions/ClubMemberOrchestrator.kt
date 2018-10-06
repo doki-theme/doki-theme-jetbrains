@@ -1,5 +1,6 @@
 package com.chrisrm.idea.actions
 
+import com.chrisrm.idea.MTConfig
 import com.chrisrm.idea.MTThemes
 import com.intellij.ide.util.PropertiesComponent
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil
@@ -25,50 +26,69 @@ object ClubMemberOrchestrator {
     private const val SAVED_THEME = "CLUB_MEMBER_THEME_PROPERTY"
     private const val RESOURCES_DIRECTORY = "https://raw.githubusercontent.com/cyclic-reference/ddlc-jetbrains-theme/master/src/main/resources"
 
-    private val isOn = AtomicBoolean(true)
+    private val isOn = AtomicBoolean(false)
     private var currentTheme = getSavedTheme()
 
+    init {
+        isOn.getAndSet(PropertiesComponent.getInstance()
+                .getBoolean(CLUB_MEMBER_ON))
+        if(isOn.get()){
+            activateWeebShit()
+        } else {
+            deactivateWeebShit()
+        }
+    }
+
     private fun getSavedTheme(): MTThemes =
-            MTThemes.getTheme(PropertiesComponent.getInstance().getValue(SAVED_THEME))
+        MTConfig.getInstance().getSelectedTheme() as MTThemes
+
+    fun currentActiveTheme() = currentTheme
 
     fun toggleWeebShit() {
         val weebShitIsOn = isOn.get()
         handleWeebShit(weebShitIsOn)
-        setOnStatus(weebShitIsOn)
     }
 
     fun activate(theme: MTThemes) {
         this.currentTheme = theme
         removeWeebShit()
-        IdeBackgroundUtil.repaintAllWindows()
         turnOnIfNecessary()
     }
 
     fun weebShitOn(): Boolean = isOn.get()
 
+    fun activateWeebShit(){
+        turnOnWeebShit()
+        setOnStatus(true)
+    }
+
+    fun deactivateWeebShit(){
+        removeWeebShit()
+        setOnStatus(false)
+    }
+
     private fun turnOnIfNecessary() {
         if (isOn.get())
             turnOnWeebShit()
-        IdeBackgroundUtil.repaintAllWindows()
     }
 
     private fun setOnStatus(weebShitIsOn: Boolean) {
-        isOn.getAndSet(!weebShitIsOn)
-        setPropertyValue(CLUB_MEMBER_ON, isOn.get())
+        isOn.getAndSet(weebShitIsOn)
+        setPropertyValue(CLUB_MEMBER_ON, weebShitIsOn)
     }
 
     private fun removeWeebShit() {
         PropertiesComponent.getInstance().unsetValue(EDITOR_PROP)
         PropertiesComponent.getInstance().unsetValue(FRAME_PROP)
+        IdeBackgroundUtil.repaintAllWindows()
     }
 
     private fun handleWeebShit(weebShitIsOn: Boolean) {
         if (weebShitIsOn) {
-            removeWeebShit()
+            deactivateWeebShit()
         } else {
-            turnOnWeebShit()
+            activateWeebShit()
         }
-        IdeBackgroundUtil.repaintAllWindows()
     }
 
     private fun turnOnWeebShit() {
@@ -84,6 +104,7 @@ object ClubMemberOrchestrator {
                 FRAME_PROP)
 
         setPropertyValue(SAVED_THEME, getTheme().getName())
+        IdeBackgroundUtil.repaintAllWindows()
     }
 
     private fun setPropertyValue(propertyKey: String, propertyValue: String) {
@@ -148,6 +169,8 @@ object ClubMemberOrchestrator {
 
     private fun getLiteratureClubMember() =
             getTheme().literatureClubMember
+
+    fun getNormalClubMember() = getTheme().normalClubMember
 
     private fun getTheme(): MTThemes {
         return this.currentTheme
