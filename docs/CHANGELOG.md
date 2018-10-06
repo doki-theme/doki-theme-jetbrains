@@ -1,6 +1,12 @@
 # Changelog
 ----
 
+# 1.3.0
+
+- Updated the initial user experience to let you know that the chibis will stick around when you uninstall the plugin
+- More remembering your preference as to when you want the club members enabled or not.
+- Chibis and Background images are no longer on by default (if you have them on now you should be okay :) 
+
 # 1.2.3
 
 - When editing a non-project file (in dark mode), it is to easy to distinguish that you are currently doing that.
