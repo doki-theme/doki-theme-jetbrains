@@ -154,7 +154,7 @@ class MTWizardChibiPanel : AbstractCustomizeWizardStep() {
                     yesChibisPanel!!.add(yesChibisButton)
 
                     //---- yesChibisLabel ----
-                    yesChibisLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/chibis/onlyMonika.png"))
+                    yesChibisLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/chibis/only_monika.png"))
                     yesChibisPanel!!.add(yesChibisLabel)
                 }
                 grid!!.add(yesChibisPanel!!, "cell 1 0")
