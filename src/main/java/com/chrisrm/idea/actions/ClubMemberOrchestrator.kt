@@ -6,6 +6,7 @@ import com.intellij.ide.util.PropertiesComponent
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil.EDITOR_PROP
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil.FRAME_PROP
+import com.intellij.util.io.isFile
 import org.apache.commons.io.IOUtils
 import java.io.BufferedInputStream
 import java.io.IOException
@@ -120,13 +121,22 @@ object ClubMemberOrchestrator {
     private fun getImagePath(): String {
         val literatureClubMember = getLiteratureClubMember()
         val theAnimesPath = "/club_members/$literatureClubMember"
-        val weebStuff = Paths.get(".", theAnimesPath).normalize().toAbsolutePath()
+        val weebStuff = Paths.get(getLocalClubMemberParentDirectory(), theAnimesPath).normalize().toAbsolutePath()
         if (shouldLoadLocally(weebStuff)) {
             createDirectories(weebStuff)
             return copyAnimes(theAnimesPath, weebStuff)
                     .orElseGet(this::getClubMemberFallback)
         }
         return weebStuff.toString()
+    }
+
+    private fun getLocalClubMemberParentDirectory(): String {
+        val property = System.getProperties()["jb.vmOptionsFile"] as? String ?: System.getProperties()["idea.config.path"] as? String
+        if(property != null){
+            val directory = Paths.get(property)
+            return if(directory.isFile()) { directory.parent} else { directory }.toAbsolutePath().toString()
+        }
+        return "."
     }
 
     private fun shouldLoadLocally(weebStuff: Path) =
