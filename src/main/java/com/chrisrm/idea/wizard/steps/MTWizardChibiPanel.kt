@@ -77,11 +77,11 @@ class MTWizardChibiPanel : AbstractCustomizeWizardStep() {
                 </body></html>""".trimIndent()
 
 
-    private fun noChibisButtonActionPerformed(e: ActionEvent) {
+    private fun noChibisButtonActionPerformed() {
         ClubMemberOrchestrator.deactivateWeebShit()
     }
 
-    private fun yesChibisButtonActionPerformed(e: ActionEvent) {
+    private fun yesChibisButtonActionPerformed() {
         ClubMemberOrchestrator.activateWeebShit()
     }
 
@@ -154,7 +154,7 @@ class MTWizardChibiPanel : AbstractCustomizeWizardStep() {
             noChibisButton!!.isSelected = !ClubMemberOrchestrator.weebShitOn()
             noChibisButton!!.horizontalAlignment = SwingConstants.LEFT
             noChibisButton!!.actionCommand = "noChibis"
-            noChibisButton!!.addActionListener { this.noChibisButtonActionPerformed(it) }
+            noChibisButton!!.addActionListener { this.noChibisButtonActionPerformed() }
             noChibisPanel!!.add(noChibisButton)
 
             //---- noChibisLabel ----
@@ -173,7 +173,7 @@ class MTWizardChibiPanel : AbstractCustomizeWizardStep() {
             yesChibisButton!!.isSelected = ClubMemberOrchestrator.weebShitOn()
             yesChibisButton!!.horizontalAlignment = SwingConstants.LEFT
             yesChibisButton!!.actionCommand = "yesChibis"
-            yesChibisButton!!.addActionListener { this.yesChibisButtonActionPerformed(it) }
+            yesChibisButton!!.addActionListener { this.yesChibisButtonActionPerformed() }
             yesChibisPanel!!.add(yesChibisButton)
 
             //---- yesChibisLabel ----

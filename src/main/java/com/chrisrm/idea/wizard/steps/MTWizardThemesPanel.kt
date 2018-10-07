@@ -96,17 +96,17 @@ class MTWizardThemesPanel : AbstractCustomizeWizardStep() {
         val darkMode = DarkMode.isOn()
         when (ClubMemberOrchestrator.currentActiveTheme()) {
             MTThemes.MONIKA ->
-                if (darkMode) onlyMonikaButtonActionPerformed(null)
-            else  justMonikaButtonActionPerformed(null)
+                if (darkMode) onlyMonikaButtonActionPerformed()
+            else  justMonikaButtonActionPerformed()
             MTThemes.SAYORI ->
-                if (darkMode) deletedCharacterButtonActionPerformed(null)
-            else  sayoriButtonActionPerformed(null)
+                if (darkMode) deletedCharacterButtonActionPerformed()
+            else  sayoriButtonActionPerformed()
             MTThemes.NATSUKI ->
-                if (darkMode) onlyPlayWithMeButtonActionPerformed(null)
-            else  natsukiButtonActionPerformed(null)
+                if (darkMode) onlyPlayWithMeButtonActionPerformed()
+            else  natsukiButtonActionPerformed()
             MTThemes.YURI ->
-                if (darkMode) edgyButtonActionPerformed(null)
-            else  yuriButtonActionPerformed(null)
+                if (darkMode) edgyButtonActionPerformed()
+            else  yuriButtonActionPerformed()
         }
 
     }
@@ -123,49 +123,49 @@ class MTWizardThemesPanel : AbstractCustomizeWizardStep() {
             </body></html>""".trimIndent()
     }
 
-    private fun justMonikaButtonActionPerformed(e: ActionEvent?) {
+    private fun justMonikaButtonActionPerformed() {
         DarkMode.turnOff()
         justMonikaThemeAction.selectionActivation()
         justMonikaButton!!.isSelected = true
     }
 
-    private fun onlyMonikaButtonActionPerformed(e: ActionEvent?) {
+    private fun onlyMonikaButtonActionPerformed() {
         DarkMode.turnOn()
         justMonikaThemeAction.selectionActivation()
         onlyMonikaButton!!.isSelected = true
     }
 
-    private fun deletedCharacterButtonActionPerformed(e: ActionEvent?) {
+    private fun deletedCharacterButtonActionPerformed() {
         DarkMode.turnOn()
         sayoriThemeAction.selectionActivation()
         deletedCharacterButton!!.isSelected = true
     }
 
-    private fun sayoriButtonActionPerformed(e: ActionEvent?) {
+    private fun sayoriButtonActionPerformed() {
         DarkMode.turnOff()
         sayoriThemeAction.selectionActivation()
         sayoriButton!!.isSelected = true
     }
 
-    private fun onlyPlayWithMeButtonActionPerformed(e: ActionEvent?) {
+    private fun onlyPlayWithMeButtonActionPerformed() {
         DarkMode.turnOn()
         natsukiThemeAction.selectionActivation()
         onlyPlayWithMeButton!!.isSelected = true
     }
 
-    private fun natsukiButtonActionPerformed(e: ActionEvent?) {
+    private fun natsukiButtonActionPerformed() {
         DarkMode.turnOff()
         natsukiThemeAction.selectionActivation()
         natsukiButton!!.isSelected = true
     }
 
-    private fun edgyButtonActionPerformed(e: ActionEvent?) {
+    private fun edgyButtonActionPerformed() {
         DarkMode.turnOn()
         yuriThemeAction.selectionActivation()
         edgyButton!!.isSelected = true
     }
 
-    private fun yuriButtonActionPerformed(e: ActionEvent?) {
+    private fun yuriButtonActionPerformed() {
         DarkMode.turnOff()
         yuriThemeAction.selectionActivation()
         yuriButton!!.isSelected = true
@@ -235,7 +235,7 @@ class MTWizardThemesPanel : AbstractCustomizeWizardStep() {
                     justMonikaButton!!.text = "Just Monika"
                     justMonikaButton!!.horizontalAlignment = SwingConstants.LEFT
                     justMonikaButton!!.actionCommand = bundle.getString("MTWizardThemesPanel.justMonikaButton.actionCommand")
-                    justMonikaButton!!.addActionListener { this.justMonikaButtonActionPerformed(it) }
+                    justMonikaButton!!.addActionListener { this.justMonikaButtonActionPerformed() }
                     justMonikaPanel!!.add(justMonikaButton)
 
                     //---- justMonikaLabel ----
@@ -253,7 +253,7 @@ class MTWizardThemesPanel : AbstractCustomizeWizardStep() {
                     onlyMonikaButton!!.text = "Only Monika"
                     onlyMonikaButton!!.horizontalAlignment = SwingConstants.LEFT
                     onlyMonikaButton!!.actionCommand = bundle.getString("MTWizardThemesPanel.onlyMonikaButton.text")
-                    onlyMonikaButton!!.addActionListener { this.onlyMonikaButtonActionPerformed(it) }
+                    onlyMonikaButton!!.addActionListener { this.onlyMonikaButtonActionPerformed() }
                     onlyMonikaPanel!!.add(onlyMonikaButton)
 
                     //---- onlyMonikaLabel ----
@@ -270,7 +270,7 @@ class MTWizardThemesPanel : AbstractCustomizeWizardStep() {
                     //---- sayoriButton ----
                     sayoriButton!!.text = bundle.getString("MTWizardThemesPanel.sayoriButton.text")
                     sayoriButton!!.horizontalAlignment = SwingConstants.LEFT
-                    sayoriButton!!.addActionListener { this.sayoriButtonActionPerformed(it) }
+                    sayoriButton!!.addActionListener { this.sayoriButtonActionPerformed() }
                     sayoriLayout!!.add(sayoriButton)
 
                     //---- sayoriLabel ----
@@ -287,7 +287,7 @@ class MTWizardThemesPanel : AbstractCustomizeWizardStep() {
                     //---- deletedCharacterButton ----
                     deletedCharacterButton!!.text = bundle.getString("MTWizardThemesPanel.deletedCharacterButton.text")
                     deletedCharacterButton!!.horizontalAlignment = SwingConstants.LEFT
-                    deletedCharacterButton!!.addActionListener { this.deletedCharacterButtonActionPerformed(it) }
+                    deletedCharacterButton!!.addActionListener { this.deletedCharacterButtonActionPerformed() }
                     deletedCharacterLayout!!.add(deletedCharacterButton)
 
                     //---- deletedCharacterLabel ----
@@ -303,7 +303,7 @@ class MTWizardThemesPanel : AbstractCustomizeWizardStep() {
 
                     //---- natsukiButton ----
                     natsukiButton!!.text = bundle.getString("MTWizardThemesPanel.natsukiButton.text")
-                    natsukiButton!!.addActionListener { this.natsukiButtonActionPerformed(it) }
+                    natsukiButton!!.addActionListener { this.natsukiButtonActionPerformed() }
                     natsukiPanel!!.add(natsukiButton)
 
                     //---- natsukiLabel ----
@@ -319,7 +319,7 @@ class MTWizardThemesPanel : AbstractCustomizeWizardStep() {
 
                     //---- onlyPlayWithMeButton ----
                     onlyPlayWithMeButton!!.text = bundle.getString("MTWizardThemesPanel.onlyPlayWithMeButton.text")
-                    onlyPlayWithMeButton!!.addActionListener { this.onlyPlayWithMeButtonActionPerformed(it) }
+                    onlyPlayWithMeButton!!.addActionListener { this.onlyPlayWithMeButtonActionPerformed() }
                     onlyPlayWithMePanel!!.add(onlyPlayWithMeButton)
 
                     //---- onlyPlayWithMeLabel ----
@@ -335,7 +335,7 @@ class MTWizardThemesPanel : AbstractCustomizeWizardStep() {
 
                     //---- yuriButton ----
                     yuriButton!!.text = bundle.getString("MTWizardThemesPanel.yuriButton.text")
-                    yuriButton!!.addActionListener { this.yuriButtonActionPerformed(it) }
+                    yuriButton!!.addActionListener { this.yuriButtonActionPerformed() }
                     yuriPanel!!.add(yuriButton)
 
                     //---- yuriLabel ----
@@ -351,7 +351,7 @@ class MTWizardThemesPanel : AbstractCustomizeWizardStep() {
 
                     //---- edgyButton ----
                     edgyButton!!.text = bundle.getString("MTWizardThemesPanel.edgyButton.text")
-                    edgyButton!!.addActionListener { this.edgyButtonActionPerformed(it) }
+                    edgyButton!!.addActionListener { this.edgyButtonActionPerformed() }
                     edgyPanel!!.add(edgyButton)
 
                     //---- edgyLabel ----
