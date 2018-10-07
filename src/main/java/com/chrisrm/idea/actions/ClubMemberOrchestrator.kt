@@ -121,23 +121,29 @@ object ClubMemberOrchestrator {
     private fun getImagePath(): String {
         val literatureClubMember = getLiteratureClubMember()
         val theAnimesPath = "/club_members/$literatureClubMember"
-        val weebStuff = Paths.get(getLocalClubMemberParentDirectory(), theAnimesPath).normalize().toAbsolutePath()
-        if (shouldLoadLocally(weebStuff)) {
-            createDirectories(weebStuff)
-            return copyAnimes(theAnimesPath, weebStuff)
-                    .orElseGet(this::getClubMemberFallback)
-        }
-        return weebStuff.toString()
+        return getLocalClubMemberParentDirectory()
+            .map { localParentDirectory ->
+                val weebStuff = Paths.get(localParentDirectory, theAnimesPath).normalize().toAbsolutePath()
+                if (shouldLoadLocally(weebStuff)) {
+                    createDirectories(weebStuff)
+                    copyAnimes(theAnimesPath, weebStuff)
+                        .orElseGet(this::getClubMemberFallback)
+                } else {
+                    weebStuff.toString()
+                }
+            }.orElseGet {
+                getClubMemberFallback()
+            }
     }
 
-    private fun getLocalClubMemberParentDirectory(): String {
-        val property = System.getProperties()["jb.vmOptionsFile"] as? String ?: System.getProperties()["idea.config.path"] as? String
-        if(property != null){
-            val directory = Paths.get(property)
-            return if(directory.isFile()) { directory.parent} else { directory }.toAbsolutePath().toString()
-        }
-        return "."
-    }
+    private fun getLocalClubMemberParentDirectory(): Optional<String> =
+        Optional.ofNullable(System.getProperties()["jb.vmOptionsFile"] as? String ?: System.getProperties()["idea.config.path"] as? String)
+            .map {
+                property ->
+                val directory = Paths.get(property)
+                if(directory.isFile()) { directory.parent} else { directory }.toAbsolutePath().toString()
+            }
+
 
     private fun shouldLoadLocally(weebStuff: Path) =
             !Files.exists(weebStuff) || checksumMatches(weebStuff)
