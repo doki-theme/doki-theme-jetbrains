@@ -89,6 +89,9 @@ class MTWizardThemesPanel : AbstractCustomizeWizardStep() {
 
     init {
         initComponents()
+    }
+
+    override fun beforeShown(forward: Boolean) {
         initRadioButton()
     }
 

@@ -1,5 +1,6 @@
 package com.chrisrm.idea.actions
 
+import com.chrisrm.idea.MTConfig
 import com.chrisrm.idea.MTThemes
 import com.intellij.ide.util.PropertiesComponent
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil
@@ -39,9 +40,9 @@ object ClubMemberOrchestrator {
     }
 
     private fun getSavedTheme(): MTThemes =
-            MTThemes.getTheme(PropertiesComponent.getInstance().getValue(SAVED_THEME))
+        MTConfig.getInstance().getSelectedTheme() as MTThemes
 
-    fun currentActiveTheme() = currentTheme;
+    fun currentActiveTheme() = currentTheme
 
     fun toggleWeebShit() {
         val weebShitIsOn = isOn.get()
