@@ -1,6 +1,11 @@
 # Changelog
 ----
 
+# 1.3.1
+
+- Updated the location as to where local chibis are stored.
+    - You should no longer find a random club_member directory in places it should not be :)
+
 # 1.3.0
 
 - Updated the initial user experience to let you know that the chibis will stick around when you uninstall the plugin
@@ -21,7 +26,7 @@
 
 # 1.2.0
 
-- Android Studio Support!
+- Android Studio 3.1 Support!
     - Running the plugin in the most up to date actually works (unlike when I said it worked when it actually didn't ;)
     
 # 1.1.0
