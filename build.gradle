@@ -131,6 +131,7 @@ intellij {
     type 'IU'
 //    version 'LATEST-EAP-SNAPSHOT'
     version '182.4323.46'
+    alternativeIdePath idePath
     downloadSources true
     updateSinceUntilBuild true
 
