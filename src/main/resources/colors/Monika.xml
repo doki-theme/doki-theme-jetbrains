@@ -772,8 +772,8 @@
         </option>
         <option name="DIFF_CONFLICT">
             <value>
-                <option name="FOREGROUND" value="FF8984"/>
-                <option name="BACKGROUND" value="FFA9BF"/>
+                <option name="FOREGROUND" value="FFB6AE"/>
+                <option name="BACKGROUND" value="FFC3C8"/>
                 <option name="ERROR_STRIPE_COLOR" value="8f5247"/>
             </value>
         </option>
