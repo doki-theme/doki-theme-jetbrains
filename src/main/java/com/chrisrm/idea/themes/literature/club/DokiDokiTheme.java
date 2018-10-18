@@ -311,7 +311,6 @@ public class DokiDokiTheme extends MTAbstractTheme {
     return new String[] {
         "Separator.foreground",
         "TextField.separatorColorDisabled",
-        "TextField.inactiveForeground",
         "PasswordField.inactiveForeground",
         "Button.darcula.selection.color1",
         "Button.darcula.selection.color2",
@@ -389,6 +388,7 @@ public class DokiDokiTheme extends MTAbstractTheme {
     return new String[] {
         "Menu.acceleratorForeground",
         "MenuItem.acceleratorForeground",
+        "TextField.inactiveForeground",
         "material.tagColor",
         "material.primaryColor",
         "SearchEverywhere.shortcutForeground",
