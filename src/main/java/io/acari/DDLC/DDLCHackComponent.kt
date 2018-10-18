@@ -55,8 +55,10 @@ object DDLCHackComponent : ApplicationComponent {
 
     private fun hackLegacyTip(ctClass: CtClass) {
         try {
-            val declaredConstructor = ctClass.getDeclaredConstructor(emptyArray())
-            declaredConstructor.insertAfter("setTitle(\"Monika's Writing Tip of the Day\");")
+            val declaredConstructor = ctClass.constructors
+            declaredConstructor.forEach {
+                it.insertAfter("this.setTitle(\"Monika's Writing Tip of the Day\");")
+            }
             ctClass.toClass()
         } catch (e: Throwable) {
             e.printStackTrace()
