@@ -75,7 +75,7 @@ class MonikaTheme : DokiDokiTheme("monika", "Monika", false, "Monika") {
 
     override fun getBackgroundColorString(): String = "f2fadf"
 
-    override fun getTreeSelectionBackgroundResources(): Array<String> = arrayOf("Tree.selectionBackground")
+    override fun getTreeSelectionBackgroundResources(): Array<String> = arrayOf("Tree.selectionBackground", "TextField.inactiveForeground")
 
     override fun getButtonHighlightResources(): Array<String> = arrayOf("Button.mt.color2", "Button.mt.selection.color2")
 
@@ -87,7 +87,7 @@ class MonikaTheme : DokiDokiTheme("monika", "Monika", false, "Monika") {
 
     override fun getDisabledResources(): Array<String> = arrayOf("MenuItem.disabledForeground", "ComboBox.disabledForeground")
 
-    override fun getSecondaryBackgroundResources(): Array<String> = arrayOf("Separator.foreground", "TextField.separatorColorDisabled", "TextField.inactiveForeground", "PasswordField.inactiveForeground", "Button.darcula.selection.color1", "Button.darcula.selection.color2", "Button.mt.selection.color1", "List.background", "ToolWindow.header.active.background", "ToolWindow.header.border.background", "material.disabled", "material.mergeCommits")
+    override fun getSecondaryBackgroundResources(): Array<String> = arrayOf("Separator.foreground", "TextField.separatorColorDisabled", "PasswordField.inactiveForeground", "Button.darcula.selection.color1", "Button.darcula.selection.color2", "Button.mt.selection.color1", "List.background", "ToolWindow.header.active.background", "ToolWindow.header.border.background", "material.disabled", "material.mergeCommits")
 
     override fun getCaretResources(): Array<String> = arrayOf("monika.caretForeground")
 
