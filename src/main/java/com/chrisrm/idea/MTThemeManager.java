@@ -67,8 +67,8 @@ import javax.swing.text.html.*;
 import java.awt.*;
 import java.lang.reflect.Field;
 import java.net.URL;
+import java.util.Locale;
 
-import static com.chrisrm.idea.MTHackComponent.BOLD_TABS;
 import static com.chrisrm.idea.MTHackComponent.TABS_HEIGHT;
 import static com.intellij.ide.ui.laf.LafManagerImpl.installMacOSXFonts;
 
@@ -76,10 +76,10 @@ public final class MTThemeManager {
 
   public static final int DEFAULT_SIDEBAR_HEIGHT = 28;
   public static final int DEFAULT_TAB_HEIGHT = 24;
-  public static final boolean DEFAULT_IS_BOLD_TABS = false;
   public static final int DEFAULT_INDENT = 6;
-  public static final int DEFAULT_FONT_SIZE = 12;
-  public static final String DEFAULT_FONT = "Roboto";
+  public static final int DEFAULT_FONT_SIZE = JBUI.scale(12);
+  public static final String DEFAULT_FONT = "Roboto Material";
+  public static final String DEFAULT_MONO_FONT = "Fira Code";
 
   public MTThemeManager() {
   }
@@ -249,7 +249,6 @@ public final class MTThemeManager {
     applyCompactSidebar(false);
     applyCustomTreeIndent();
     applyAccents();
-    setBoldTabs();
 
 
     LafManager.getInstance().updateUI();
@@ -348,25 +347,59 @@ public final class MTThemeManager {
    * @param fontFace
    * @param fontSize
    */
-  private void applyCustomFonts(final UIDefaults uiDefaults, final String fontFace, final int fontSize) {
+  private void applySettingsFont(final UIDefaults uiDefaults, final String fontFace, final int fontSize) {
     uiDefaults.put("Tree.ancestorInputMap", null);
-    final FontUIResource uiFont = new FontUIResource(fontFace, Font.PLAIN, fontSize);
-    final FontUIResource textFont = new FontUIResource("Serif", Font.PLAIN, fontSize);
+    final FontUIResource font = UIUtil.getFontWithFallback(fontFace, Font.PLAIN, fontSize);
+    final FontUIResource uiFont = font;
+    final FontUIResource textFont = font;
 
     final String editorFontName = AppEditorFontOptions.getInstance().getFontPreferences().getFontFamily();
-    final String monospaceFont = ObjectUtils.notNull(editorFontName, "Fira Code");
+    final String monospaceFont = ObjectUtils.notNull(editorFontName, DEFAULT_MONO_FONT);
     final FontUIResource monoFont = new FontUIResource(monospaceFont, Font.PLAIN, fontSize);
 
     // Keep old style and size
     for (final String fontResource : FontResources.FONT_RESOURCES) {
-      final Font curFont = uiDefaults.getFont(fontResource);
-      UIManager.put(fontResource, uiFont.deriveFont(curFont.getStyle(), curFont.getSize()));
+      final Font curFont = ObjectUtils.notNull(uiDefaults.getFont(fontResource), uiFont);
+      uiDefaults.put(fontResource, uiFont.deriveFont(curFont.getStyle(), curFont.getSize()));
     }
 
-    UIManager.put("PasswordField.font", monoFont);
-    UIManager.put("TextArea.font", monoFont);
-    UIManager.put("TextPane.font", textFont);
-    UIManager.put("EditorPane.font", textFont);
+    uiDefaults.put("PasswordField.font", monoFont);
+    uiDefaults.put("TextArea.font", monoFont);
+    uiDefaults.put("TextPane.font", textFont);
+    uiDefaults.put("EditorPane.font", textFont);
+  }
+
+  private void applyMaterialFonts(final UIDefaults uiDefaults) {
+    uiDefaults.put("Tree.ancestorInputMap", null);
+
+    final String language = Locale.getDefault().getLanguage();
+    final boolean cjkLocale =
+        (Locale.CHINESE.getLanguage().equals(language) ||
+         Locale.JAPANESE.getLanguage().equals(language) ||
+         Locale.KOREAN.getLanguage().equals(language));
+
+    FontUIResource font = UIUtil.getFontWithFallback(DEFAULT_FONT, Font.PLAIN, DEFAULT_FONT_SIZE);
+    if (cjkLocale) {
+      font = UIUtil.getFontWithFallback("Noto Sans", Font.PLAIN, DEFAULT_FONT_SIZE);
+    }
+
+    final FontUIResource uiFont = font;
+    final FontUIResource textFont = font;
+
+    final String editorFontName = AppEditorFontOptions.getInstance().getFontPreferences().getFontFamily();
+    final String monospaceFont = ObjectUtils.notNull(editorFontName, DEFAULT_MONO_FONT);
+    final FontUIResource monoFont = new FontUIResource(monospaceFont, Font.PLAIN, DEFAULT_FONT_SIZE);
+
+    // Keep old style and size
+    for (final String fontResource : FontResources.FONT_RESOURCES) {
+      final Font curFont = ObjectUtils.notNull(uiDefaults.getFont(fontResource), uiFont);
+      uiDefaults.put(fontResource, uiFont.deriveFont(curFont.getStyle(), curFont.getSize()));
+    }
+
+    uiDefaults.put("PasswordField.font", monoFont);
+    uiDefaults.put("TextArea.font", monoFont);
+    uiDefaults.put("TextPane.font", textFont);
+    uiDefaults.put("EditorPane.font", textFont);
   }
 
   private void applyFonts() {
@@ -375,25 +408,21 @@ public final class MTThemeManager {
     final int treeFontSize = JBUI.scale(MTConfig.getInstance().getTreeFontSize());
 
     final boolean useMaterialFont = MTConfig.getInstance().isUseMaterialFont();
-    toggleBiggerFont(useMaterialFont);
 
     if (uiSettings.getOverrideLafFonts()) {
-      applyCustomFonts(lookAndFeelDefaults, uiSettings.getFontFace(), uiSettings.getFontSize());
+      applySettingsFont(lookAndFeelDefaults, uiSettings.getFontFace(), uiSettings.getFontSize());
     } else if (useMaterialFont) {
-      final Font roboto = MTUiUtils.findFont(MTThemeManager.DEFAULT_FONT);
-      if (roboto != null) {
-        applyCustomFonts(lookAndFeelDefaults, MTThemeManager.DEFAULT_FONT, JBUI.scale(MTThemeManager.DEFAULT_FONT_SIZE));
-      }
+      applyMaterialFonts(lookAndFeelDefaults);
     } else {
       if (SystemInfo.isMacOSYosemite) {
-        installMacOSXFonts(UIManager.getLookAndFeelDefaults());
+        installMacOSXFonts(lookAndFeelDefaults);
       }
     }
 
     if (MTConfig.getInstance().isTreeFontSizeEnabled()) {
       // Tree font size
-      final Font font = UIManager.getFont("Tree.font");
-      UIManager.put("Tree.font", font.deriveFont((float) treeFontSize));
+      final Font font = lookAndFeelDefaults.getFont("Tree.font");
+      lookAndFeelDefaults.put("Tree.font", font.deriveFont((float) treeFontSize));
     }
   }
   //endregion
@@ -462,8 +491,6 @@ public final class MTThemeManager {
     }
   }
 
-  private void toggleBiggerFont(final boolean isEnabled) {
-  }
   //endregion
 
   //region Accents supports
@@ -510,11 +537,6 @@ public final class MTThemeManager {
     MTConfig.getInstance().setTabsHeight(newTabsHeight);
     setTabsHeight();
   }
-
-  public void setBoldTabs() {
-    PropertiesComponent.getInstance().setValue(BOLD_TABS, MTConfig.getInstance().isUpperCaseTabs(), MTThemeManager.DEFAULT_IS_BOLD_TABS);
-  }
-
   //endregion
 
   /**

@@ -88,7 +88,7 @@ public final class MTConfigurable extends MTConfigurableBase<MTForm, MTConfig> i
     mtConfig.setHighlightThickness(getForm().getHighlightThickness());
     mtConfig.setIsContrastMode(getForm().getIsContrastMode());
     mtConfig.setIsMaterialDesign(getForm().getIsMaterialDesign());
-    mtConfig.setIsBoldTabs(getForm().getIsBoldTabs());
+    mtConfig.setIsStyledDirectories(getForm().isStyledDirectories());
     mtConfig.setTabsHeight(getForm().getTabsHeight());
     mtConfig.setIsCustomTreeIndent(getForm().isCustomTreeIndent());
     mtConfig.setRightTreeIndent(getForm().getRightTreeIndent());
@@ -104,6 +104,7 @@ public final class MTConfigurable extends MTConfigurableBase<MTForm, MTConfig> i
     mtConfig.setIsStatusBarTheme(getForm().isStatusBarTheme());
     mtConfig.setIsCompactStatusBar(getForm().isCompactStatusBar());
     mtConfig.setIsCompactTables(getForm().isCompactTables());
+    mtConfig.setFileIcons(getForm().isFileIcons());
     mtConfig.setIsDecoratedFolders(getForm().isDecoratedFolders());
 
     mtConfig.setIsMaterialTheme(getForm().getIsMaterialTheme());
@@ -127,6 +128,7 @@ public final class MTConfigurable extends MTConfigurableBase<MTForm, MTConfig> i
     mtConfig.setAccentColor(ColorUtil.toHex(getForm().getCustomAccentColor()));
     mtConfig.setIsHighContrast(getForm().isHighContrast());
     mtConfig.setOverrideAccentColor(getForm().isOverrideAccents());
+    mtConfig.setIsTabsShadow(getForm().isTabsShadow());
 
     mtConfig.fireChanged();
   }
@@ -139,7 +141,7 @@ public final class MTConfigurable extends MTConfigurableBase<MTForm, MTConfig> i
     modified = modified || mtConfig.isHighlightThicknessChanged(getForm().getHighlightThickness());
     modified = modified || mtConfig.isContrastModeChanged(getForm().getIsContrastMode());
     modified = modified || mtConfig.isMaterialDesignChanged(getForm().getIsMaterialDesign());
-    modified = modified || mtConfig.isBoldTabsChanged(getForm().getIsBoldTabs());
+    modified = modified || mtConfig.isStyledDirectoriesChanged(getForm().isStyledDirectories());
     modified = modified || mtConfig.isTabsHeightChanged(getForm().getTabsHeight());
 
     modified = modified || mtConfig.isCustomTreeIndentChanged(getForm().isCustomTreeIndent());
@@ -164,6 +166,7 @@ public final class MTConfigurable extends MTConfigurableBase<MTForm, MTConfig> i
     modified = modified || mtConfig.isAccentScrollbarsChanged(getForm().isAccentScrollbars());
     modified = modified || mtConfig.isFileStatusColorsEnabledChanged(getForm().isFileStatusColors());
     modified = modified || mtConfig.isDarkTitleBarChanged(getForm().isDarkTitleBar());
+    modified = modified || mtConfig.isFileIconsChanged(getForm().isFileIcons());
     modified = modified || mtConfig.isDecoratedFoldersChanged(getForm().isDecoratedFolders());
 
     modified = modified || mtConfig.isAccentColorChanged(getForm().getCustomAccentColor());
@@ -179,6 +182,8 @@ public final class MTConfigurable extends MTConfigurableBase<MTForm, MTConfig> i
     modified = modified || mtConfig.isHighContrastChanged(getForm().isHighContrast());
 
     modified = modified || mtConfig.isOverrideAccentColorChanged(getForm().isOverrideAccents());
+    modified = modified || mtConfig.isTabsShadowChanged(getForm().isTabsShadow());
+
 
     return modified;
   }

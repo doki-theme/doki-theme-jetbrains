@@ -27,30 +27,60 @@
 package com.chrisrm.idea.icons;
 
 import com.chrisrm.idea.MTConfig;
+import com.chrisrm.idea.icons.patchers.*;
 import com.intellij.icons.AllIcons;
 import com.intellij.openapi.components.ApplicationComponent;
-import com.intellij.util.PlatformIcons;
-import icons.DvcsImplIcons;
-import icons.ImagesIcons;
-import icons.VcsLogIcons;
+import com.intellij.openapi.util.IconLoader;
 import org.jetbrains.annotations.NotNull;
 
 public final class MTIconReplacerComponent implements ApplicationComponent {
 
+  static {
+    IconLoader.installPathPatcher(new AccentTintedIconsPatcher());
+    IconLoader.installPathPatcher(new ThemedTintedIconsPatcher());
+  }
+
   @Override
   public void initComponent() {
     if (MTConfig.getInstance().isUseMaterialIcons()) {
-      IconReplacer.replaceIcons(AllIcons.class, "/icons", "");
-      IconReplacer.replaceIcons(ImagesIcons.class, "/icons/images", "/org/intellij/images/icons");
-      IconReplacer.replaceIcons(PlatformIcons.class, "", "");
-      IconReplacer.replaceIcons(DvcsImplIcons.class, "/icons/plugins/vcs", "/icons");
-      IconReplacer.replaceIcons(VcsLogIcons.class, "/icons/plugins/vcs", "/icons");
+      IconReplacer.replaceIcons(AllIcons.class, "/icons");
     }
+
+    IconLoader.installPathPatcher(new AllIconsPatcher());
+    IconLoader.installPathPatcher(new ImagesIconsPatcher());
+    IconLoader.installPathPatcher(new VCSIconsPatcher());
+    IconLoader.installPathPatcher(new GradleIconsPatcher());
+    IconLoader.installPathPatcher(new TasksIconsPatcher());
+    IconLoader.installPathPatcher(new MavenIconsPatcher());
+    IconLoader.installPathPatcher(new TerminalIconsPatcher());
+    IconLoader.installPathPatcher(new BuildToolsIconsPatcher());
+    IconLoader.installPathPatcher(new RemoteServersIconsPatcher());
+    IconLoader.installPathPatcher(new DatabaseToolsIconsPatcher());
+
+    IconLoader.installPathPatcher(new PHPIconsPatcher());
+    IconLoader.installPathPatcher(new PythonIconsPatcher());
+    IconLoader.installPathPatcher(new CythonIconsPatcher());
+    IconLoader.installPathPatcher(new MakoIconsPatcher());
+    IconLoader.installPathPatcher(new JinjaIconsPatcher());
+    IconLoader.installPathPatcher(new FlaskIconsPatcher());
+    IconLoader.installPathPatcher(new DjangoIconsPatcher());
+    IconLoader.installPathPatcher(new ChameleonIconsPatcher());
+
+    IconLoader.installPathPatcher(new RubyIconsPatcher());
+
+    IconLoader.installPathPatcher(new GolandIconsPatcher());
+    IconLoader.installPathPatcher(new DataGripIconsPatcher());
+    IconLoader.installPathPatcher(new CLionIconsPatcher());
+    IconLoader.installPathPatcher(new AppCodeIconsPatcher());
+    IconLoader.installPathPatcher(new RestClientIconsPatcher());
   }
 
   @Override
   public void disposeComponent() {
+    AccentTintedIconsPatcher.clearCache();
+    ThemedTintedIconsPatcher.clearCache();
 
+    MTIconPatcher.clearCache();
   }
 
   @Override

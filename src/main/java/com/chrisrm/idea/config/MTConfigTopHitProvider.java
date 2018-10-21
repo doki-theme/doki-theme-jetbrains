@@ -49,7 +49,7 @@ public final class MTConfigTopHitProvider extends OptionsTopHitProvider {
   private static final Collection<OptionDescription> OPTION_DESCRIPTIONS = Collections.unmodifiableCollection(Arrays.asList(
       option(messageIde("mt.contrast"), "getIsContrastMode", "setIsContrastMode"),
       option(messageIde("mt.materialdesign"), "getIsMaterialDesign", "setIsMaterialDesign"),
-      option(messageIde("mt.boldtabs"), "getIsBoldTabs", "setIsBoldTabs"),
+      option(messageIde("mt.boldtabs"), "getIsStyledDirectories", "setIsStyledDirectories"),
       option(messageIde("MTForm.isUpperCaseTabsCheckbox.text"), "isUpperCaseTabs", "setIsUpperCaseTabs"),
 
       option(messageIde("MTForm.customTreeIndentCheckbox.text"), "isCustomTreeIndent", "setIsCustomTreeIndent"),
@@ -67,6 +67,7 @@ public final class MTConfigTopHitProvider extends OptionsTopHitProvider {
       option(messageIde("MTForm.themeStatus"), "isStatusBarTheme", "setIsStatusBarTheme"),
       option(messageIde("MTForm.materialThemeCheckbox.text"), "isMaterialTheme", "setIsMaterialTheme"),
       option(messageIde("MTForm.decoratedFoldersCheckbox.text"), "isDecoratedFolders", "setIsDecoratedFolders"),
+      option(messageIde("MTForm.isFileIconsCheckbox.text"), "isFileIcons", "setIsFileIcons"),
 
       option(messageIde("MTForm.themedScrollbarsCheckbox.text"), "isThemedScrollbars", "setThemedScrollbars"),
       option(messageIde("MTForm.accentScrollbarsCheckbox.text"), "isAccentScrollbars", "setAccentScrollbars"),
@@ -74,6 +75,7 @@ public final class MTConfigTopHitProvider extends OptionsTopHitProvider {
       option(messageIde("MTForm.fileColorsCheckbox.text"), "isFileStatusColorsEnabled", "setFileStatusColorsEnabled"),
 
       option(messageIde("MTForm.highContrastCheckbox.text"), "isHighContrast", "setIsHighContrast"),
+      option(messageIde("MTForm.tabShadowCheckbox.text"), "isTabsShadow", "setIsTabsShadow"),
 
       option(messageIde("MTForm.darkTitleBarCheckbox.text"), "isDarkTitleBar", "setDarkTitleBar")
 

@@ -66,24 +66,25 @@ public class MTLafInstaller {
   }
 
   protected void installMTDefaults(final UIDefaults defaults) {
+    replaceStatusBar(defaults);
+    replaceTree(defaults);
+    replaceSelectedIndicator(defaults);
+    replaceDropdowns(defaults);
+    replaceTableHeaders(defaults);
+    replaceIcons(defaults);
+    replaceRootPane(defaults);
+
     if (mtConfig.getIsMaterialDesign()) {
       replaceButtons(defaults);
       replaceTextFields(defaults);
-      replaceDropdowns(defaults);
       replaceProgressBar(defaults);
-      replaceTree(defaults);
-      replaceSelectedIndicator(defaults);
-      replaceTableHeaders(defaults);
       replaceTables(defaults);
-      replaceStatusBar(defaults);
       replaceSpinners(defaults);
       replaceCheckboxes(defaults);
       replaceRadioButtons(defaults);
       replaceSliders(defaults);
       replaceTextAreas(defaults);
       replaceTabbedPanes(defaults);
-      replaceIcons(defaults);
-      replaceRootPane(defaults);
       modifyRegistry(defaults);
     }
   }
@@ -91,6 +92,8 @@ public class MTLafInstaller {
   protected void installDefaults(final UIDefaults defaults) {
     defaults.put("Caret.width", 2);
     defaults.put("Border.width", 2);
+    defaults.put("CellEditor.border.width", 2);
+
     defaults.put("Button.arc", 6);
     defaults.put("Component.arc", 0);
 
@@ -100,7 +103,7 @@ public class MTLafInstaller {
     defaults.put("MenuItem.border", new DarculaMenuItemBorder());
     defaults.put("Menu.border", new DarculaMenuItemBorder());
     defaults.put("TextArea.caretBlinkRate", 500);
-    defaults.put("Table.cellNoFocusBorder", JBUI.insets(10, 2, 10, 2));
+    defaults.put("Table.cellNoFocusBorder", JBUI.insets(4, 4, 4, 4));
     defaults.put("CheckBoxMenuItem.borderPainted", false);
     defaults.put("RadioButtonMenuItem.borderPainted", false);
     defaults.put("ComboBox.squareButton", true);
@@ -114,9 +117,10 @@ public class MTLafInstaller {
     defaults.put("HelpTooltip.xOffset", 1);
     defaults.put("HelpTooltip.yOffset", 1);
 
-    defaults.put("HelpTooltip.defaultTextBorder", JBUI.insets(10, 10, 10, 16));
+    defaults.put("HelpTooltip.defaultTextBorderInsets", JBUI.insets(10, 10, 10, 16));
     defaults.put("HelpTooltip.fontSizeDelta", 0);
-    defaults.put("HelpTooltip.smallTextBorder", JBUI.insets(4, 8, 5, 8));
+    defaults.put("HelpTooltip.smallTextBorderInsets", JBUI.insets(4, 8, 5, 8));
+    defaults.put("ValidationTooltip.maxWidth", 384);
 
     defaults.put("Spinner.arrowButtonInsets", JBUI.insets(1, 1, 1, 1));
     defaults.put("Spinner.editorBorderPainted", false);
@@ -129,6 +133,7 @@ public class MTLafInstaller {
     defaults.put("Focus.activeWarningBorderColor", new ColorUIResource(0xFFB62C));
     defaults.put("Focus.inactiveWarningBorderColor", new ColorUIResource(0x7F6C00));
 
+    defaults.put("TabbedPane.tabAreaInsets", JBUI.insets(0));
     defaults.put("TabbedPane.selectedLabelShift", 0);
     defaults.put("TabbedPane.labelShift", 0);
     defaults.put("TabbedPane.tabsOverlapBorder", true);
@@ -393,6 +398,7 @@ public class MTLafInstaller {
 
   private void replaceTabbedPanes(final UIDefaults defaults) {
     defaults.put("TabbedPane.tabInsets", JBUI.insets(5, 10, 5, 10));
+    defaults.put("TabbedPane.selectedTabPadInsets", JBUI.insets(0));
     defaults.put("TabbedPane.contentBorderInsets", JBUI.insets(3, 1, 1, 1));
 
     defaults.put("TabbedPaneUI", MTTabbedPaneUI.class.getName());
@@ -400,14 +406,14 @@ public class MTLafInstaller {
   }
 
   private void replaceIcons(final UIDefaults defaults) {
-    final Icon collapsedIcon = getIcon(MTConfig.getInstance().getArrowsStyle().getCollapsedIcon());
-    final Icon expandedIcon = getIcon(MTConfig.getInstance().getArrowsStyle().getExpandedIcon());
+    final Icon expandIcon = MTConfig.getInstance().getArrowsStyle().getExpandIcon();
+    final Icon collapseIcon = MTConfig.getInstance().getArrowsStyle().getCollapseIcon();
 
-    defaults.put("Tree.collapsedIcon", collapsedIcon);
-    defaults.put("Tree.expandedIcon", expandedIcon);
-    defaults.put("Menu.arrowIcon", collapsedIcon);
-    defaults.put("RadioButtonMenuItem.arrowIcon", collapsedIcon);
-    defaults.put("CheckBoxMenuItem.arrowIcon", collapsedIcon);
+    defaults.put("Tree.collapsedIcon", expandIcon);
+    defaults.put("Tree.expandedIcon", collapseIcon);
+    defaults.put("Menu.arrowIcon", expandIcon);
+    defaults.put("RadioButtonMenuItem.arrowIcon", expandIcon);
+    defaults.put("CheckBoxMenuItem.arrowIcon", expandIcon);
 
     defaults.put("FileView.fileIcon", AllIcons.FileTypes.Unknown);
     defaults.put("Table.ascendingSortIcon", AllIcons.General.SplitUp);
@@ -422,13 +428,6 @@ public class MTLafInstaller {
     Registry.get("ide.balloon.shadow.size").setValue(0);
   }
 
-  private Icon getIcon(final String icon) {
-    if (icon == null) {
-      return IconLoader.getTransparentIcon(AllIcons.Mac.Tree_white_down_arrow, 0);
-    }
-    return TintedIconsService.getIcon(icon + ".png");
-  }
-
   protected String getPrefix() {
     return theme.getId();
   }
@@ -437,13 +436,11 @@ public class MTLafInstaller {
     final Properties properties = new Properties();
     final String osSuffix = SystemInfo.isMac ? "mac" : SystemInfo.isWindows ? "windows" : "linux";
     try {
-      String primaryPropertyFile = getPrefix() + ".properties";
-      InputStream stream = getPropertyFile(primaryPropertyFile);
+      InputStream stream = getClass().getResourceAsStream(getPrefix() + ".properties");
       properties.load(stream);
       stream.close();
 
-      String osSpecificPropertyFile = getPrefix() + "_" + osSuffix + ".properties";
-      stream = getPropertyFile(osSpecificPropertyFile);
+      stream = getClass().getResourceAsStream(getPrefix() + "_" + osSuffix + ".properties");
       properties.load(stream);
       stream.close();
 
@@ -493,11 +490,6 @@ public class MTLafInstaller {
     } catch (final IOException e) {
       e.printStackTrace();
     }
-  }
-
-  private InputStream getPropertyFile(String primaryPropertyFile) {
-    return Optional.ofNullable(getClass().getResourceAsStream(primaryPropertyFile))
-        .orElseThrow(() -> new DDLCException("Unable to load property " + primaryPropertyFile + " check your shit before you wreck your shit!"));
   }
 
   protected Object parseValue(final String key, @NotNull final String value) {
