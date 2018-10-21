@@ -130,7 +130,7 @@ intellij {
     pluginName 'DDLC Theme'
     type 'IU'
 //    version 'LATEST-EAP-SNAPSHOT'
-    version '182.4323.46'
+    version '182.4505.7'
     alternativeIdePath idePath
     downloadSources true
     updateSinceUntilBuild true
