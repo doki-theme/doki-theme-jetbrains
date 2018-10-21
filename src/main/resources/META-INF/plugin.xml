@@ -41,14 +41,6 @@
 
     <depends>com.intellij.modules.platform</depends>
     <depends>com.intellij.modules.lang</depends>
-    <depends optional="true" config-file="php.xml">com.jetbrains.php</depends>
-    <depends optional="true" config-file="ruby.xml">com.intellij.modules.ruby</depends>
-
-    <depends optional="true">com.jetbrains.twig</depends>
-    <depends optional="true" config-file="python.xml">com.intellij.modules.python</depends>
-    <depends optional="true" config-file="clion.xml">com.jetbrains.modules.clion</depends>
-    <depends optional="true" config-file="datagrip.xml">com.intellij.modules.database</depends>
-
 
     <resource-bundle>messages.MaterialThemeBundle</resource-bundle>
     <resource-bundle>messages.FileColorsBundle</resource-bundle>
@@ -75,8 +67,10 @@
         <projectViewNodeDecorator implementation="com.chrisrm.idea.tree.MTProjectViewNodeDecorator"/>
         <editorTabTitleProvider implementation="com.chrisrm.idea.tabs.MTEditorUpperTabs" order="first"/>
         <editorTabColorProvider implementation="io.acari.DDLC.tabs.DDLCEditorTabColorProvider" order="first"/>
-        <iconProvider implementation="com.chrisrm.idea.icons.MTHiddenIconProvider" order="first"/>
-        <iconProvider implementation="com.chrisrm.idea.icons.MTFileIconProvider" order="first"/>
+        <iconProvider implementation="com.chrisrm.idea.icons.MTHiddenIconProvider" order="first"
+                      id="MTHiddenIconProvider"/>
+        <iconProvider implementation="com.chrisrm.idea.icons.MTFileIconProvider" order="first"
+                      id="MTFileIconProvider"/>
 
         <bundledColorScheme path="/colors/Monika"/>
         <bundledColorScheme path="/colors/Just Monika"/>
