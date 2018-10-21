@@ -145,7 +145,7 @@
 
 
     <actions>
-        <group id="MaterialTheme.ThemeChooser" text="DDLC Theme Chooser" popup="true"
+        <group id="DDLC.ThemeChooser" text="DDLC Themes" popup="true"
                icon="/icons/actions/material-theme.png">
             <add-to-group group-id="MainToolBar" anchor="last"/>
 
@@ -168,8 +168,8 @@
             </action>
         </group>
 
-        <group id="MaterialTheme.Panels" text="Panel Options" description="Panel Options" popup="true"
-               icon="/icons/actions/mt/layers.svg">
+        <group id="DDLC.Panels" text="DDLC Options" description="Panel Options" popup="true"
+               icon="/icons/actions/mt/pen.svg">
             <add-to-group group-id="MainToolBar" anchor="last"/>
             <action class="com.chrisrm.idea.actions.MTWeebAction" id="MTWeeb" text="Toggle Club Member"
                     icon="/icons/actions/themes/material_monika.png"
@@ -221,160 +221,13 @@
 
         </group>
 
-        <group id="MaterialTheme.Accents" text="Accent Colors" description="Set an accent color" popup="true"
-               icon="/icons/actions/mt/accents.svg">
-            <add-to-group group-id="MainToolBar" anchor="last"/>
-            <action id="com.chrisrm.idea.actions.accents.MTTurquoiseAccentAction"
-                    class="com.chrisrm.idea.actions.accents.MTTurquoiseAccentAction"
-                    icon="/icons/actions/accents/accent-turquoise.svg"
-                    text="Turquoise Accent Color" description="Change accent color">
-            </action>
-            <action id="com.chrisrm.idea.actions.accents.MTTomatoAccentAction"
-                    class="com.chrisrm.idea.actions.accents.MTTomatoAccentAction"
-                    icon="/icons/actions/accents/accent-tomato.svg"
-                    text="Tomato Accent Color" description="Change accent color">
-            </action>
-            <action id="com.chrisrm.idea.actions.accents.MTDaisyAccentAction"
-                    class="com.chrisrm.idea.actions.accents.MTDaisyAccentAction"
-                    icon="/icons/actions/accents/accent-daisy.svg"
-                    text="Daisy Accent Color" description="Change accent color">
-            </action>
-            <action id="com.chrisrm.idea.actions.accents.MTLimeAccentAction"
-                    class="com.chrisrm.idea.actions.accents.MTLimeAccentAction"
-                    icon="/icons/actions/accents/accent-lime.svg"
-                    text="Lime Accent Color" description="Change accent color">
-            </action>
-            <action id="com.chrisrm.idea.actions.accents.MTAmethystAccentAction"
-                    class="com.chrisrm.idea.actions.accents.MTAmethystAccentAction"
-                    icon="/icons/actions/accents/accent-amethyst.svg"
-                    text="Amethyst Accent Color" description="Change accent color">
-            </action>
-            <action id="com.chrisrm.idea.actions.accents.MTBrickAccentAction"
-                    class="com.chrisrm.idea.actions.accents.MTBrickAccentAction"
-                    icon="/icons/actions/accents/accent-brick.svg"
-                    text="Brick Accent Color" description="Change accent color">
-            </action>
-            <action id="com.chrisrm.idea.actions.accents.MTOrangeAccentAction"
-                    class="com.chrisrm.idea.actions.accents.MTOrangeAccentAction"
-                    icon="/icons/actions/accents/accent-orange.svg"
-                    text="Orange Accent Color" description="Change accent color">
-            </action>
-            <action id="com.chrisrm.idea.actions.accents.MTAcidLimeAccentAction"
-                    class="com.chrisrm.idea.actions.accents.MTAcidLimeAccentAction"
-                    icon="/icons/actions/accents/accent-acidlime.svg"
-                    text="Acid Lime Accent Color" description="Change accent color">
-            </action>
-            <action id="com.chrisrm.idea.actions.accents.MTPomegrenateAccentAction"
-                    class="com.chrisrm.idea.actions.accents.MTPomegrenateAccentAction"
-                    icon="/icons/actions/accents/accent-pomegrenate.svg"
-                    text="Pomegrenate Accent Color" description="Change accent color">
-            </action>
-            <action id="com.chrisrm.idea.actions.accents.MTDodgerBlueAccentAction"
-                    class="com.chrisrm.idea.actions.accents.MTDodgerBlueAccentAction"
-                    icon="/icons/actions/accents/accent-dodgerblue.svg"
-                    text="DodgerBlue Accent Color" description="Change accent color">
-            </action>
-            <action id="com.chrisrm.idea.actions.accents.MTStrawberryAccentAction"
-                    class="com.chrisrm.idea.actions.accents.MTStrawberryAccentAction"
-                    icon="/icons/actions/accents/accent-strawberry.svg"
-                    text="Strawberry Accent Color" description="Change accent color">
-            </action>
-            <action id="com.chrisrm.idea.actions.accents.MTTealAccentAction"
-                    class="com.chrisrm.idea.actions.accents.MTTealAccentAction"
-                    icon="/icons/actions/accents/accent-teal.svg"
-                    text="Teal Accent Color" description="Change accent color">
-            </action>
-            <action id="com.chrisrm.idea.actions.accents.MTIndigoAccentAction"
-                    class="com.chrisrm.idea.actions.accents.MTIndigoAccentAction"
-                    icon="/icons/actions/accents/accent-indigo.svg"
-                    text="Indigo Accent Color" description="Change accent color">
-            </action>
-            <action id="com.chrisrm.idea.actions.accents.MTSkyAccentAction"
-                    class="com.chrisrm.idea.actions.accents.MTSkyAccentAction"
-                    icon="/icons/actions/accents/accent-sky.svg"
-                    text="Sky Accent Color" description="Change accent color">
-            </action>
-            <action id="com.chrisrm.idea.actions.accents.MTFuschiaAccentAction"
-                    class="com.chrisrm.idea.actions.accents.MTFuschiaAccentAction"
-                    icon="/icons/actions/accents/accent-fuschia.svg"
-                    text="Fuschia Accent Color" description="Change accent color">
-            </action>
-            <action id="com.chrisrm.idea.actions.accents.MTAquamarineAccentAction"
-                    class="com.chrisrm.idea.actions.accents.MTAquamarineAccentAction"
-                    icon="/icons/actions/accents/accent-aquamarine.svg"
-                    text="Aquamarine Accent Color" description="Change accent color">
-            </action>
-            <action id="com.chrisrm.idea.actions.accents.MTCyanAccentAction"
-                    class="com.chrisrm.idea.actions.accents.MTCyanAccentAction"
-                    icon="/icons/actions/accents/accent-cyan.svg"
-                    text="Cyan Accent Color" description="Change accent color">
-            </action>
-            <action id="com.chrisrm.idea.actions.accents.MTBreakingBadAccentAction"
-                    class="com.chrisrm.idea.actions.accents.MTBreakingBadAccentAction"
-                    icon="/icons/actions/accents/accent-breakingbad.svg"
-                    text="Breaking Bad Accent Color" description="Change accent color">
-            </action>
-            <action id="com.chrisrm.idea.actions.accents.MTGoldAccentAction"
-                    class="com.chrisrm.idea.actions.accents.MTGoldAccentAction"
-                    icon="/icons/actions/accents/accent-gold.svg"
-                    text="Gold Accent Color" description="Change accent color">
-            </action>
-            <action id="com.chrisrm.idea.actions.accents.MTGraphiteAccentAction"
-                    class="com.chrisrm.idea.actions.accents.MTGraphiteAccentAction"
-                    icon="/icons/actions/accents/accent-graphite.svg"
-                    text="Graphite Accent Color" description="Change accent color">
-            </action>
-            <action id="com.chrisrm.idea.actions.accents.MTCoffeeAccentAction"
-                    class="com.chrisrm.idea.actions.accents.MTCoffeeAccentAction"
-                    icon="/icons/actions/accents/accent-coffee.svg"
-                    text="Coffee Accent Color" description="Change accent color">
-            </action>
-            <action id="com.chrisrm.idea.actions.accents.MTSlateAccentAction"
-                    class="com.chrisrm.idea.actions.accents.MTSlateAccentAction"
-                    icon="/icons/actions/accents/accent-slate.svg"
-                    text="Slate Accent Color" description="Change accent color">
-            </action>
-        </group>
-
-        <group id="MaterialTheme.Components" text="DDLC Theme Options" description="DDLC Theme Options"
-               popup="true" icon="/icons/actions/mt/components.svg">
-            <add-to-group group-id="MainToolBar" anchor="last"/>
-            <action id="MTDisableThemeAction" class="com.chrisrm.idea.actions.MTDisableThemeAction"
-                    text="Toggle DDLC Theme" description="Toggle DDLC Theme"
-                    icon="/icons/actions/mt/disableTheme.png"/>
-            <action id="MTDisableComponents" class="com.chrisrm.idea.actions.MTDisableMaterialDesignAction"
-                    text="Toggle DDLC Components" description="Toggle DDLC Theme Components"
-                    icon="/icons/actions/mt/mtComponents.svg"/>
-            <action id="MTMaterialIconsAction" class="com.chrisrm.idea.actions.MTMaterialIconsAction"
-                    text="Toggle Material Icons" description="Toggle Material Icons"
-                    icon="/icons/actions/compile.png"/>
-            <action id="MTMaterialFontsAction" class="com.chrisrm.idea.actions.MTMaterialFontsAction"
-                    text="Toggle Material Fonts" description="Toggle Material Fonts"
-                    icon="/icons/actions/mt/materialFonts.svg"/>
-            <action id="MTToggleProjectViewDecoratorsAction"
-                    class="com.chrisrm.idea.actions.MTToggleProjectViewDecoratorsAction"
-                    text="Toggle Project View Decorators" description="Toggle Project View Decorators"
-                    icon="/icons/actions/mt/projectViewDecorators.svg"/>
-            <action id="MTToggleStatusbarIndicatorAction"
-                    class="com.chrisrm.idea.actions.MTToggleStatusbarIndicatorAction"
-                    text="Toggle Status Bar Indicator" description="Toggle Status Bar Indicator"
-                    icon="/icons/actions/mt/noStatus.svg"/>
-            <action id="MTToggleDarkTitleBarAction"
-                    class="com.chrisrm.idea.actions.MTDarkTitleBarAction"
-                    text="Toggle Dark Title Bar" description="Toggle Dark Title Bar"
-                    icon="/icons/actions/mt/darkTitleBar.svg"/>
-        </group>
-
-        <group id="MaterialTheme.Menu" text="DDLC Theme" popup="true" icon="/icons/actions/material-theme.png">
-            <reference id="MaterialTheme.ThemeChooser"/>
+        <group id="DDLC.Menu" text="DDLC Theme" popup="true" icon="/icons/actions/material-theme.png">
+            <reference id="DDLC.ThemeChooser"/>
             <separator/>
-            <reference id="MaterialTheme.Accents"/>
+            <reference id="DDLC.Panels"/>
             <separator/>
-            <reference id="MaterialTheme.Panels"/>
-            <separator/>
-            <reference id="MaterialTheme.Components"/>
             <add-to-group group-id="ToolsMenu"/>
-            <add-to-group group-id="ChangeScheme" anchor="after" relative-to-action="MaterialTheme.Menu"/>
+            <add-to-group group-id="ChangeScheme" anchor="after" relative-to-action="DDLC.Menu"/>
         </group>
 
 

@@ -1,6 +1,15 @@
 # Changelog
 ----
 
+# 1.3.2
+
+- A bunch of small tweaks!
+    - Monika's Writing Tip of the Day works the same throughout all ides!
+    - Inactive text in the IDE now is readable.
+    - Natsuki's light theme's dropdown row selections look the same on all operating systems.
+    - Removed unnecessary DDLC Toolbar options.
+        - You can still fully configure the plugin in the advanced settings (eg. "Settings -> Appearance & Display -> DDLC Theme").   
+
 # 1.3.1
 
 - Updated the location as to where local chibis are stored.
