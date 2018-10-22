@@ -72,9 +72,6 @@ public class ThemedTintedIconsPatcher extends IconPathPatcher {
   @Nullable
   @Override
   public String patchPath(final String path, final ClassLoader classLoader) {
-    //    if (getInstance() == null || !getInstance().isUseMaterialIcons()) {
-    //      return null;
-    //    }
     final String vPath = path.replace(".svg", "").replace(".png", "");
 
     if (CACHE.containsKey(vPath)) {

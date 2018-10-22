@@ -48,6 +48,7 @@ import java.awt.*;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
+import java.util.Optional;
 import java.util.Properties;
 
 public class MTLafInstaller {
@@ -394,11 +395,13 @@ public class MTLafInstaller {
     final Properties properties = new Properties();
     final String osSuffix = SystemInfo.isMac ? "mac" : SystemInfo.isWindows ? "windows" : "linux";
     try {
-      InputStream stream = getClass().getResourceAsStream(getPrefix() + ".properties");
+      String primaryPropertyFile = getPrefix() + ".properties";
+      InputStream stream = getPropertyFile(primaryPropertyFile);
       properties.load(stream);
       stream.close();
 
-      stream = getClass().getResourceAsStream(getPrefix() + "_" + osSuffix + ".properties");
+      String osSpecificPropertyFile = getPrefix() + "_" + osSuffix + ".properties";
+      stream = getPropertyFile(osSpecificPropertyFile);
       properties.load(stream);
       stream.close();
 
@@ -448,6 +451,11 @@ public class MTLafInstaller {
     } catch (final IOException e) {
       e.printStackTrace();
     }
+  }
+
+  private InputStream getPropertyFile(String primaryPropertyFile) {
+    return Optional.ofNullable(getClass().getResourceAsStream(primaryPropertyFile))
+        .orElseThrow(() -> new DDLCException("Unable to load property " + primaryPropertyFile + " check your shit before you wreck your shit!"));
   }
 
   public Object parseValue(final String key, @NotNull final String value) {

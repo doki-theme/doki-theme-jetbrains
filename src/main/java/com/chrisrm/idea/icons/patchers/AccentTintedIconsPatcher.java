@@ -61,7 +61,7 @@ public class AccentTintedIconsPatcher extends IconPathPatcher {
     REPLACEMENTS.put("/general/hideLeftPartHover", "MTIcons.General.HideLeftPartHover");
     REPLACEMENTS.put("/general/hideRightHover", "MTIcons.General.HideRightHover");
     REPLACEMENTS.put("/general/hideRightPartHover", "MTIcons.General.HideRightHover");
-    //
+
     REPLACEMENTS.put("/general/inline_edit_hovered", "MTIcons.General.InlineEditHovered");
     REPLACEMENTS.put("/general/inspectionsError", "MTIcons.General.InspectionsError");
     REPLACEMENTS.put("/general/modified", "MTIcons.General.Modified");
@@ -99,7 +99,6 @@ public class AccentTintedIconsPatcher extends IconPathPatcher {
     REPLACEMENTS.put("/process/step_11", "MTIcons.Process.Step11");
     REPLACEMENTS.put("/process/step_12", "MTIcons.Process.Step12");
     REPLACEMENTS.put("/process/step_mask", "MTIcons.Process.StepMask");
-    //    REPLACEMENTS.put("/process/step_passive", "MTIcons.Process.StepMask");
 
     REPLACEMENTS.put("/process/big/step_1", "MTIcons.Process.BigStep1");
     REPLACEMENTS.put("/process/big/step_2", "MTIcons.Process.BigStep2");
@@ -114,7 +113,6 @@ public class AccentTintedIconsPatcher extends IconPathPatcher {
     REPLACEMENTS.put("/process/big/step_11", "MTIcons.Process.BigStep11");
     REPLACEMENTS.put("/process/big/step_12", "MTIcons.Process.BigStep12");
     REPLACEMENTS.put("/process/big/step_mask", "MTIcons.Process.BigStepMask");
-    //    REPLACEMENTS.put("/process/big/step_passive", "MTIcons.Process.BigStepMask");
 
     REPLACEMENTS.put("/process/progressPauseHover", "MTIcons.Process.ProgressPauseHover");
     REPLACEMENTS.put("/process/progressPauseSmallHover", "MTIcons.Process.ProgressPauseSmallHover");
@@ -135,9 +133,6 @@ public class AccentTintedIconsPatcher extends IconPathPatcher {
   @Nullable
   @Override
   public String patchPath(final String path, final ClassLoader classLoader) {
-    //    if (getInstance() == null || !getInstance().isUseMaterialIcons()) {
-    //      return null;
-    //    }
     final String vPath = path.replace(".svg", "").replace(".png", "");
 
     if (CACHE.containsKey(vPath)) {

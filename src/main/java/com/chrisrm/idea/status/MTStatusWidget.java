@@ -56,7 +56,6 @@ public final class MTStatusWidget extends JButton implements CustomStatusBarWidg
 
     setOpaque(false);
     setFocusable(false);
-    //    setBorder(StatusBarWidget.WidgetBorder.INSTANCE);
     repaint();
     updateUI();
 
