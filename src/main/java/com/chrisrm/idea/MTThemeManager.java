@@ -21,7 +21,6 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  *  SOFTWARE.
  *
- *
  */
 
 package com.chrisrm.idea;
@@ -77,8 +76,8 @@ public final class MTThemeManager {
   public static final int DEFAULT_SIDEBAR_HEIGHT = 28;
   public static final int DEFAULT_TAB_HEIGHT = 24;
   public static final int DEFAULT_INDENT = 6;
-  public static final int DEFAULT_FONT_SIZE = JBUI.scale(12);
-  public static final String DEFAULT_FONT = "Roboto Material";
+  public static final int DEFAULT_FONT_SIZE = JBUI.scale(13);
+  public static final String DEFAULT_FONT = "Roboto";
   public static final String DEFAULT_MONO_FONT = "Fira Code";
 
   public MTThemeManager() {
@@ -217,7 +216,6 @@ public final class MTThemeManager {
     final MTThemeFacade mtTheme = MTConfig.getInstance().getSelectedTheme();
     if (!MTConfig.getInstance().isMaterialTheme()) {
       removeTheme(mtTheme);
-      applyAccents();
       return;
     }
 
@@ -302,7 +300,7 @@ public final class MTThemeManager {
   }
 
   /**
-   * Completely remove theme
+   * Remove the Material Theme and install the default theme
    *
    * @param mtTheme
    */
@@ -310,11 +308,14 @@ public final class MTThemeManager {
     try {
       resetContrast();
 
+      // Still create the MT Look and Feels in order to retrieve some of the components
       if (UIUtil.isUnderDarcula()) {
         UIManager.setLookAndFeel(new DarculaLaf());
       } else {
         UIManager.setLookAndFeel(new IntelliJLaf());
       }
+      final MTLafInstaller mtLafInstaller = new MTLafInstaller();
+      mtLafInstaller.installMTDefaults(UIManager.getDefaults());
 
       JBColor.setDark(mtTheme.getThemeIsDark());
       IconLoader.setUseDarkIcons(mtTheme.getThemeIsDark());
@@ -335,6 +336,17 @@ public final class MTThemeManager {
       UIManager.put("material.tab.borderColor", null);
       UIManager.put("material.tab.borderThickness", null);
       UIManager.put("material.contrast", null);
+
+      // Apply other settings
+      themeTitleBar();
+      applyCompactSidebar(false);
+      applyCustomTreeIndent();
+      applyAccents();
+
+      // Finally reapply Icon filters and UIReplacer patches
+      LafManager.getInstance().updateUI();
+      IconReplacer.applyFilter();
+      UIReplacer.patchUI();
     } catch (final UnsupportedLookAndFeelException e) {
       e.printStackTrace();
     }
@@ -407,7 +419,7 @@ public final class MTThemeManager {
     final UIDefaults lookAndFeelDefaults = UIManager.getLookAndFeelDefaults();
     final int treeFontSize = JBUI.scale(MTConfig.getInstance().getTreeFontSize());
 
-    final boolean useMaterialFont = MTConfig.getInstance().isUseMaterialFont();
+    final boolean useMaterialFont = Registry.get("bigger.font.in.project.view").asBoolean();
 
     if (uiSettings.getOverrideLafFonts()) {
       applySettingsFont(lookAndFeelDefaults, uiSettings.getFontFace(), uiSettings.getFontSize());
@@ -544,7 +556,7 @@ public final class MTThemeManager {
    */
   private void reloadUI() {
     try {
-      UIManager.setLookAndFeel(new MTLightLaf(MTConfig.getInstance().getSelectedTheme().getTheme()));
+      UIManager.setLookAndFeel(new MTDarkLaf(MTConfig.getInstance().getSelectedTheme().getTheme()));
 
       applyFonts();
 
@@ -560,7 +572,7 @@ public final class MTThemeManager {
   //region Title bar support
 
   public void themeTitleBar() {
-    final boolean isDarkTitleOn = MTConfig.getInstance().isMaterialTheme() && MTConfig.getInstance().isDarkTitleBar();
+    final boolean isDarkTitleOn = MTConfig.getInstance().isDarkTitleBar();
     if (SystemInfo.isWin10OrNewer && isDarkTitleOn) {
       // Write in the registry
       themeWindowsTitleBar();

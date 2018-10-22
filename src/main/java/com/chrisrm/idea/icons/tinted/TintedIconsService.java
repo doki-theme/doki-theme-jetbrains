@@ -21,7 +21,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  *
- *
  */
 
 package com.chrisrm.idea.icons.tinted;
@@ -34,6 +33,7 @@ import com.intellij.ui.ColorUtil;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
+import javax.swing.plaf.*;
 import java.awt.*;
 import java.util.Arrays;
 import java.util.List;
@@ -168,7 +168,11 @@ public final class TintedIconsService {
   
   @NotNull
   public static Icon getThemedIcon(@NotNull final String newPath) {
-    final Color folderColor = MTConfig.getInstance().getSelectedTheme().getTheme().getPrimaryColor();
+    Color folderColor = MTConfig.getInstance().getSelectedTheme().getTheme().getPrimaryColor();
+    if (!MTConfig.getInstance().isMaterialTheme()) {
+      folderColor = new ColorUIResource(0xA1ACB3);
+    }
+
     return new TintedIcon(IconLoader.getIcon(newPath), folderColor, newPath);
   }
   

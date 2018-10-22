@@ -21,7 +21,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  *
- *
  */
 
 package com.chrisrm.idea.icons;
@@ -140,7 +139,7 @@ public final class MTFileIconProvider extends IconProvider implements DumbAware 
 
     try {
       final String iconPath = association.getIcon();
-      icon = new DirIcon(IconLoader.getIcon("/icons/foldersOpen" + iconPath), IconLoader.getIcon("/icons/folders" + iconPath));
+      icon = new DirIcon(IconLoader.getIcon("/icons/folders" + iconPath), IconLoader.getIcon("/icons/foldersOpen" + iconPath));
     } catch (final Exception e) {
       e.printStackTrace();
     }
