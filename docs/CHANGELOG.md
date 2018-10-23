@@ -1,6 +1,11 @@
 # Changelog
 ----
 
+# 1.4.0
+
+- Now up do date with Material UI version 2.9.5!
+    - New and Fixes for Material Icons is the most noticeable. 
+
 # 1.3.2
 
 - A bunch of small tweaks!
