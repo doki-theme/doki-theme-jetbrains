@@ -21,6 +21,7 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  *  SOFTWARE.
  *
+ *
  */
 
 package com.chrisrm.idea.status;
@@ -33,6 +34,7 @@ import com.intellij.openapi.options.ShowSettingsUtil;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.wm.CustomStatusBarWidget;
 import com.intellij.openapi.wm.StatusBar;
+import com.intellij.ui.ColorUtil;
 import com.intellij.util.ui.JBUI;
 import com.intellij.util.ui.UIUtil;
 import org.jetbrains.annotations.NotNull;
@@ -40,13 +42,13 @@ import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.font.*;
-import java.awt.image.*;
+import java.awt.font.TextAttribute;
+import java.awt.image.BufferedImage;
 import java.text.AttributedString;
 
 public final class MTStatusWidget extends JButton implements CustomStatusBarWidget {
   public static final int DEFAULT_FONT_SIZE = JBUI.scale(11);
-  private final MTConfig mtConfig;
+  private MTConfig mtConfig;
   private Image myBufferedImage;
 
   MTStatusWidget(final Project project) {
@@ -54,15 +56,11 @@ public final class MTStatusWidget extends JButton implements CustomStatusBarWidg
 
     setOpaque(false);
     setFocusable(false);
-    //    setBorder(StatusBarWidget.WidgetBorder.INSTANCE);
     repaint();
     updateUI();
 
-    addActionListener(e -> {
-      System.gc();
-      ApplicationManager.getApplication().invokeLater(() -> ShowSettingsUtil.getInstance().showSettingsDialog(
-          project, "DDLC Theme"), ModalityState.NON_MODAL);
-    });
+    addActionListener(e -> ApplicationManager.getApplication().invokeLater(() -> ShowSettingsUtil.getInstance().showSettingsDialog(
+        project, "DDLC Theme"), ModalityState.NON_MODAL));
   }
 
   @Override
@@ -95,6 +93,7 @@ public final class MTStatusWidget extends JButton implements CustomStatusBarWidg
   @Override
   public void updateUI() {
     super.updateUI();
+    mtConfig = MTConfig.getInstance();
     myBufferedImage = null;
     setFont(MTUiUtils.getWidgetFont());
   }
@@ -102,6 +101,8 @@ public final class MTStatusWidget extends JButton implements CustomStatusBarWidg
   @Override
   public void paintComponent(final Graphics g) {
     final String themeName = mtConfig.getSelectedTheme().getTheme().getName();
+    final Color accentColor = ColorUtil.fromHex(mtConfig.getAccentColor());
+    final int accentDiameter = JBUI.scale(MTUiUtils.HEIGHT - 2);
 
     if (myBufferedImage == null) {
       final Dimension size = getSize();
@@ -124,12 +125,16 @@ public final class MTStatusWidget extends JButton implements CustomStatusBarWidg
 
       // background
       g2.setColor(mtConfig.getSelectedTheme().getTheme().getContrastColor());
-      g2.fillRoundRect(0, 0, size.width, JBUI.scale(MTUiUtils.HEIGHT), arcs.width, arcs.height);
+      g2.fillRoundRect(0, 0, size.width + accentDiameter - JBUI.scale(arcs.width), JBUI.scale(MTUiUtils.HEIGHT), arcs.width, arcs.height);
 
       // label
       g2.setColor(UIUtil.getLabelForeground());
       g2.setFont(getFont());
-      g2.drawString(as.getIterator(), (size.width - nameWidth) / 2, nameHeight + (size.height - nameHeight) / 2 - JBUI.scale(1));
+      g2.drawString(as.getIterator(), (size.width - accentDiameter - nameWidth) / 2,
+          nameHeight + (size.height - nameHeight) / 2 - JBUI.scale(1));
+
+      g2.setColor(accentColor);
+      g2.fillOval(size.width - JBUI.scale(MTUiUtils.HEIGHT), JBUI.scale(1), accentDiameter, accentDiameter);
       g2.dispose();
     }
 
@@ -141,7 +146,8 @@ public final class MTStatusWidget extends JButton implements CustomStatusBarWidg
     final String themeName = mtConfig.getSelectedTheme().getThemeColorScheme();
     final int width = getFontMetrics(MTUiUtils.getWidgetFont()).charsWidth(themeName.toCharArray(), 0,
                                                                            themeName.length()) + 2 * MTUiUtils.PADDING;
-    return new Dimension(width, JBUI.scale(MTUiUtils.HEIGHT));
+    final int accentDiameter = JBUI.scale(MTUiUtils.HEIGHT);
+    return new Dimension(width + accentDiameter, accentDiameter);
   }
 
   @Override

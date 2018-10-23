@@ -32,6 +32,7 @@ import com.intellij.ide.util.PropertiesComponent;
 import com.intellij.openapi.actionSystem.impl.ChameleonAction;
 import com.intellij.openapi.components.ApplicationComponent;
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil;
+import com.intellij.openapi.wm.impl.IdeFocusManagerImpl;
 import com.intellij.openapi.wm.impl.ToolWindowImpl;
 import com.intellij.openapi.wm.impl.welcomeScreen.FlatWelcomeFrameProvider;
 import com.intellij.ui.CaptionPanel;
@@ -61,12 +62,27 @@ public class MTHackComponent implements ApplicationComponent {
         hackDarculaTabsPainter();
         hackPluginManagerNew();
         hackIntelliJFailures();
+    hackProjectViewBorder();
     }
 
-    public MTHackComponent() {
-        PropertiesComponent.getInstance().setValue(TABS_HEIGHT, 25, 24);
-        PropertiesComponent.getInstance().setValue(BOLD_TABS, false, true);
-        PropertiesComponent.getInstance().setValue(BORDER_POPUP, true, false);
+  private static void hackProjectViewBorder() {
+    try {
+      final ClassPool cp = new ClassPool(true);
+      cp.insertClassPath(new ClassClassPath(IdeFocusManagerImpl.class));
+      final CtClass ctClass2 = cp.get("com.intellij.openapi.wm.impl.InternalDecorator$InnerPanelBorder");
+      final CtMethod method = ctClass2.getDeclaredMethod("paintBorder");
+      method.instrument(new ExprEditor() {
+        @Override
+        public void edit(final MethodCall m) throws CannotCompileException {
+          if (m.getMethodName().equals("setColor")) {
+            m.replace("{ $1 = javax.swing.UIManager.getColor(\"Panel.background\"); $_ = $proceed($$); }");
+          }
+        }
+      });
+      ctClass2.toClass();
+    } catch (final Exception e) {
+      e.printStackTrace();
+    }
     }
 
     private static void hackIntelliJFailures() {
@@ -139,6 +155,11 @@ public class MTHackComponent implements ApplicationComponent {
             e.printStackTrace();
         }
     }
+
+  public MTHackComponent() {
+    PropertiesComponent.getInstance().setValue(TABS_HEIGHT, 25, 24);
+    PropertiesComponent.getInstance().setValue(BORDER_POPUP, true, false);
+  }
 
     private static void hackPopupBorder() {
         try {
@@ -329,28 +350,6 @@ public class MTHackComponent implements ApplicationComponent {
             });
 
             ctClass.toClass();
-
-            final CtClass ctClass1 = cp.get("com.intellij.ui.tabs.impl.JBEditorTabs");
-            final CtMethod useBoldLabels = ctClass1.getDeclaredMethod("useBoldLabels");
-            useBoldLabels.instrument(new ExprEditor() {
-                @Override
-                public void edit(final FieldAccess f) throws CannotCompileException {
-                    if (f.getFieldName().equals("isMac")) {
-                        f.replace("{ $_ = true; }");
-                    }
-                }
-
-                @Override
-                public void edit(final MethodCall m) throws CannotCompileException {
-                    if (m.getMethodName().equals("is")) {
-                        final String code = String.format("com.intellij.ide.util.PropertiesComponent.getInstance().getBoolean(\"%s\", false)",
-                                BOLD_TABS);
-                        m.replace(String.format("{ $_ = %s; }", code));
-                    }
-                }
-            });
-
-            ctClass1.toClass();
         } catch (final Exception e) {
             e.printStackTrace();
         }

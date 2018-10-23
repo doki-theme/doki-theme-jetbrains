@@ -34,6 +34,7 @@ import com.intellij.openapi.application.Application;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.application.impl.ApplicationImpl;
 import com.intellij.openapi.extensions.PluginId;
+import com.intellij.ui.ColorUtil;
 import com.intellij.util.ObjectUtils;
 import com.intellij.util.ui.JBUI;
 import com.intellij.util.ui.UIUtil;
@@ -89,6 +90,22 @@ public final class MTUiUtils {
     return UIUtil.isUnderDarcula() ? darkColor : lightColor;
   }
 
+  public static Color brighter(final Color color, final int tones) {
+    if (UIUtil.isUnderDarcula()) {
+      return ColorUtil.brighter(color, tones);
+    } else {
+      return ColorUtil.darker(color, tones);
+    }
+  }
+
+  public static Color darker(final Color color, final int tones) {
+    if (UIUtil.isUnderDarcula()) {
+      return ColorUtil.darker(color, tones);
+    } else {
+      return ColorUtil.brighter(color, tones);
+    }
+  }
+
   public static Color getColor(final Color mtColor, @NotNull final Color darculaColor, @NotNull final Color intellijColor) {
     final Color defaultColor = UIUtil.isUnderDarcula() ? darculaColor : intellijColor;
     if (MTConfig.getInstance().isMaterialTheme()) {
@@ -141,7 +158,7 @@ public final class MTUiUtils {
   public static String getVersion() {
      return getPlugin()
              .map(IdeaPluginDescriptor::getVersion)
-             .orElse("1.3.2");//todo:should be updated erry release :)
+             .orElse("1.4.0");//todo:should be updated erry release :)
   }
 
   private static Optional<String> getPluginId() {

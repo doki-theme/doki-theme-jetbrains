@@ -26,33 +26,25 @@
 
 package com.chrisrm.idea.config.ui;
 
-import com.chrisrm.idea.icons.tinted.TintedIconsService;
+import com.chrisrm.idea.config.ui.arrows.*;
 import com.intellij.icons.AllIcons;
 import com.intellij.openapi.util.IconLoader;
 
 import javax.swing.*;
 
 public enum ArrowsStyles {
-  MATERIAL("Material", "/icons/mac/tree_white_right_arrow", "/icons/mac/tree_white_down_arrow"),
-  DARCULA("Darcula", "/icons/mac/darcula/tree_white_right_arrow", "/icons/mac/darcula/tree_white_down_arrow"),
-  PLUSMINUS("Plus-Minus", "/icons/mac/plusminus/plus", "/icons/mac/plusminus/minus"),
-  NONE("None");
+  MATERIAL("Material", new MaterialArrowsStyle()),
+  DARCULA("Darcula", new DarculaArrowsStyle()),
+  PLUSMINUS("Plus-Minus", new PlusMinusArrowsStyle()),
+  NONE("None", new NoneArrowsStyle());
 
 
   private final String type;
-  private final String expandedIcon;
-  private final String collapsedIcon;
+  private final ArrowsStyle arrowsStyle;
 
-  ArrowsStyles(final String type, final String expandedIcon, final String collapsedIcon) {
+  ArrowsStyles(final String type, final ArrowsStyle arrowsStyle) {
     this.type = type;
-    this.expandedIcon = expandedIcon;
-    this.collapsedIcon = collapsedIcon;
-  }
-
-  ArrowsStyles(final String type) {
-    this.type = type;
-    expandedIcon = null;
-    collapsedIcon = null;
+    this.arrowsStyle = arrowsStyle;
   }
 
   @Override
@@ -60,19 +52,27 @@ public enum ArrowsStyles {
     return type;
   }
 
-  public String getCollapsedIcon() {
-    return expandedIcon;
+  public Icon getExpandIcon() {
+    return arrowsStyle.getExpandIcon();
   }
 
-  public String getExpandedIcon() {
-    return collapsedIcon;
+  public Icon getCollapseIcon() {
+    return arrowsStyle.getCollapseIcon();
+  }
+
+  public Icon getSelectedExpandIcon() {
+    return arrowsStyle.getSelectedExpandIcon();
+  }
+
+  public Icon getSelectedCollapseIcon() {
+    return arrowsStyle.getSelectedCollapseIcon();
   }
 
   public Icon getIcon() {
-    final String icon = getCollapsedIcon();
+    final Icon icon = getExpandIcon();
     if (icon == null) {
       return IconLoader.getTransparentIcon(AllIcons.Mac.Tree_white_down_arrow, 0);
     }
-    return TintedIconsService.getIcon(icon + ".png");
+    return icon;
   }
 }

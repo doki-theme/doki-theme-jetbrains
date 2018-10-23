@@ -41,6 +41,8 @@ Dark theme todo completed:
 ------
 THINGS TODO:
 
+Rating Stars
+
 Code Colors (NEEDS TEST TIME)
 loading indicator is not very visible.
 search everywhere

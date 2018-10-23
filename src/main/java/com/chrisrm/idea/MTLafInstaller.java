@@ -21,12 +21,10 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  *
- *
  */
 
 package com.chrisrm.idea;
 
-import com.chrisrm.idea.icons.tinted.TintedIconsService;
 import com.chrisrm.idea.themes.MTThemeable;
 import com.chrisrm.idea.ui.*;
 import com.chrisrm.idea.ui.indicators.MTSelectedTreePainter;
@@ -35,7 +33,6 @@ import com.intellij.icons.AllIcons;
 import com.intellij.ide.ui.laf.IntelliJTableSelectedCellHighlightBorder;
 import com.intellij.ide.ui.laf.darcula.DarculaTableHeaderBorder;
 import com.intellij.ide.ui.laf.darcula.DarculaTableHeaderUI;
-import com.intellij.ide.ui.laf.darcula.DarculaTableSelectedCellHighlightBorder;
 import com.intellij.ide.ui.laf.darcula.ui.*;
 import com.intellij.openapi.util.IconLoader;
 import com.intellij.openapi.util.SystemInfo;
@@ -59,38 +56,47 @@ public class MTLafInstaller {
   protected final MTLaf mtDarkLaf;
   private final MTThemeable theme;
 
+  public MTLafInstaller() {
+    mtConfig = MTConfig.getInstance();
+    mtDarkLaf = null;
+    theme = null;
+  }
+
   public MTLafInstaller(final MTLaf mtDarkLaf, final MTThemeable theme) {
     mtConfig = MTConfig.getInstance();
     this.mtDarkLaf = mtDarkLaf;
     this.theme = theme;
   }
 
-  protected void installMTDefaults(final UIDefaults defaults) {
+  public void installMTDefaults(final UIDefaults defaults) {
+    replaceStatusBar(defaults);
+    replaceTree(defaults);
+    replaceSelectedIndicator(defaults);
+    replaceDropdowns(defaults);
+    replaceTableHeaders(defaults);
+    replaceIcons(defaults);
+    replaceRootPane(defaults);
+
     if (mtConfig.getIsMaterialDesign()) {
       replaceButtons(defaults);
       replaceTextFields(defaults);
-      replaceDropdowns(defaults);
       replaceProgressBar(defaults);
-      replaceTree(defaults);
-      replaceSelectedIndicator(defaults);
-      replaceTableHeaders(defaults);
       replaceTables(defaults);
-      replaceStatusBar(defaults);
       replaceSpinners(defaults);
       replaceCheckboxes(defaults);
       replaceRadioButtons(defaults);
       replaceSliders(defaults);
       replaceTextAreas(defaults);
       replaceTabbedPanes(defaults);
-      replaceIcons(defaults);
-      replaceRootPane(defaults);
       modifyRegistry(defaults);
     }
   }
 
-  protected void installDefaults(final UIDefaults defaults) {
+  public void installDefaults(final UIDefaults defaults) {
     defaults.put("Caret.width", 2);
     defaults.put("Border.width", 2);
+    defaults.put("CellEditor.border.width", 2);
+
     defaults.put("Button.arc", 6);
     defaults.put("Component.arc", 0);
 
@@ -100,7 +106,7 @@ public class MTLafInstaller {
     defaults.put("MenuItem.border", new DarculaMenuItemBorder());
     defaults.put("Menu.border", new DarculaMenuItemBorder());
     defaults.put("TextArea.caretBlinkRate", 500);
-    defaults.put("Table.cellNoFocusBorder", JBUI.insets(10, 2, 10, 2));
+    defaults.put("Table.cellNoFocusBorder", JBUI.insets(4, 4, 4, 4));
     defaults.put("CheckBoxMenuItem.borderPainted", false);
     defaults.put("RadioButtonMenuItem.borderPainted", false);
     defaults.put("ComboBox.squareButton", true);
@@ -114,9 +120,10 @@ public class MTLafInstaller {
     defaults.put("HelpTooltip.xOffset", 1);
     defaults.put("HelpTooltip.yOffset", 1);
 
-    defaults.put("HelpTooltip.defaultTextBorder", JBUI.insets(10, 10, 10, 16));
+    defaults.put("HelpTooltip.defaultTextBorderInsets", JBUI.insets(10, 10, 10, 16));
     defaults.put("HelpTooltip.fontSizeDelta", 0);
-    defaults.put("HelpTooltip.smallTextBorder", JBUI.insets(4, 8, 5, 8));
+    defaults.put("HelpTooltip.smallTextBorderInsets", JBUI.insets(4, 8, 5, 8));
+    defaults.put("ValidationTooltip.maxWidth", 384);
 
     defaults.put("Spinner.arrowButtonInsets", JBUI.insets(1, 1, 1, 1));
     defaults.put("Spinner.editorBorderPainted", false);
@@ -129,6 +136,7 @@ public class MTLafInstaller {
     defaults.put("Focus.activeWarningBorderColor", new ColorUIResource(0xFFB62C));
     defaults.put("Focus.inactiveWarningBorderColor", new ColorUIResource(0x7F6C00));
 
+    defaults.put("TabbedPane.tabAreaInsets", JBUI.insets(0));
     defaults.put("TabbedPane.selectedLabelShift", 0);
     defaults.put("TabbedPane.labelShift", 0);
     defaults.put("TabbedPane.tabsOverlapBorder", true);
@@ -137,51 +145,9 @@ public class MTLafInstaller {
     defaults.put("TabbedPane.tabFillStyle", "underline");
   }
 
-  protected void installDarculaDefaults(final UIDefaults defaults) {
+  public void installDarculaDefaults(final UIDefaults defaults) {
     defaults.put("darcula.primary", new ColorUIResource(0x3c3f41));
     defaults.put("darcula.contrastColor", new ColorUIResource(0x262626));
-
-    defaults.put("EditorPaneUI", DarculaEditorPaneUI.class.getName());
-    defaults.put("TableHeaderUI", DarculaTableHeaderUI.class.getName());
-    defaults.put("Table.focusSelectedCellHighlightBorder", new DarculaTableSelectedCellHighlightBorder());
-    defaults.put("TableHeader.cellBorder", new DarculaTableHeaderBorder());
-
-    defaults.put("CheckBoxMenuItemUI", DarculaCheckBoxMenuItemUI.class.getName());
-    defaults.put("RadioButtonMenuItemUI", DarculaRadioButtonMenuItemUI.class.getName());
-    defaults.put("TabbedPaneUI", DarculaTabbedPaneUI.class.getName());
-
-    defaults.put("TextFieldUI", DarculaTextFieldUI.class.getName());
-    defaults.put("TextField.border", new DarculaTextBorder());
-
-    defaults.put("PasswordFieldUI", DarculaPasswordFieldUI.class.getName());
-    defaults.put("PasswordField.border", new DarculaTextBorder());
-    defaults.put("ProgressBarUI", DarculaProgressBarUI.class.getName());
-    defaults.put("ProgressBar.border", new DarculaProgressBarBorder());
-    defaults.put("FormattedTextFieldUI", DarculaTextFieldUI.class.getName());
-    defaults.put("FormattedTextField.border", new DarculaTextBorder());
-
-    defaults.put("TextAreaUI", DarculaTextAreaUI.class.getName());
-    defaults.put("CheckBoxUI", DarculaCheckBoxUI.class.getName());
-
-    defaults.put("CheckBox.border", new DarculaCheckBoxBorder());
-    defaults.put("ComboBoxUI", DarculaComboBoxUI.class.getName());
-    defaults.put("RadioButtonUI", DarculaRadioButtonUI.class.getName());
-    defaults.put("RadioButton.border", new DarculaCheckBoxBorder());
-
-    defaults.put("Button.border", new DarculaButtonPainter());
-    defaults.put("ButtonUI", DarculaButtonUI.class.getName());
-
-    defaults.put("ToggleButton.border", new DarculaButtonPainter());
-    defaults.put("ToggleButtonUI", DarculaButtonUI.class.getName());
-
-    defaults.put("SpinnerUI", DarculaSpinnerUI.class.getName());
-    defaults.put("Spinner.border", new DarculaSpinnerBorder());
-
-    defaults.put("TreeUI", DarculaTreeUI.class.getName());
-  LegacySupportUtility.INSTANCE.invokeClassSafely(
-          "com.intellij.ide.ui.laf.darcula.ui.DarculaOptionButtonUI",
-          () -> defaults.put("OptionButtonUI", DarculaOptionButtonUI.class.getName())
-  );
 
     LegacySupportUtility.INSTANCE.invokeClassSafely(
           "com.intellij.util.ui.GrayFilter",
@@ -190,8 +156,6 @@ public class MTLafInstaller {
               defaults.put("text.grayFilter", new UIUtil.GrayFilter(-15, -10, 100));
           }
     );
-
-    defaults.put("RootPaneUI", DarculaRootPaneUI.class.getName());
   }
 
   protected void installLightDefaults(final UIDefaults defaults) {
@@ -393,6 +357,7 @@ public class MTLafInstaller {
 
   private void replaceTabbedPanes(final UIDefaults defaults) {
     defaults.put("TabbedPane.tabInsets", JBUI.insets(5, 10, 5, 10));
+    defaults.put("TabbedPane.selectedTabPadInsets", JBUI.insets(0));
     defaults.put("TabbedPane.contentBorderInsets", JBUI.insets(3, 1, 1, 1));
 
     defaults.put("TabbedPaneUI", MTTabbedPaneUI.class.getName());
@@ -400,14 +365,14 @@ public class MTLafInstaller {
   }
 
   private void replaceIcons(final UIDefaults defaults) {
-    final Icon collapsedIcon = getIcon(MTConfig.getInstance().getArrowsStyle().getCollapsedIcon());
-    final Icon expandedIcon = getIcon(MTConfig.getInstance().getArrowsStyle().getExpandedIcon());
+    final Icon expandIcon = MTConfig.getInstance().getArrowsStyle().getExpandIcon();
+    final Icon collapseIcon = MTConfig.getInstance().getArrowsStyle().getCollapseIcon();
 
-    defaults.put("Tree.collapsedIcon", collapsedIcon);
-    defaults.put("Tree.expandedIcon", expandedIcon);
-    defaults.put("Menu.arrowIcon", collapsedIcon);
-    defaults.put("RadioButtonMenuItem.arrowIcon", collapsedIcon);
-    defaults.put("CheckBoxMenuItem.arrowIcon", collapsedIcon);
+    defaults.put("Tree.collapsedIcon", expandIcon);
+    defaults.put("Tree.expandedIcon", collapseIcon);
+    defaults.put("Menu.arrowIcon", expandIcon);
+    defaults.put("RadioButtonMenuItem.arrowIcon", expandIcon);
+    defaults.put("CheckBoxMenuItem.arrowIcon", expandIcon);
 
     defaults.put("FileView.fileIcon", AllIcons.FileTypes.Unknown);
     defaults.put("Table.ascendingSortIcon", AllIcons.General.SplitUp);
@@ -422,14 +387,7 @@ public class MTLafInstaller {
     Registry.get("ide.balloon.shadow.size").setValue(0);
   }
 
-  private Icon getIcon(final String icon) {
-    if (icon == null) {
-      return IconLoader.getTransparentIcon(AllIcons.Mac.Tree_white_down_arrow, 0);
-    }
-    return TintedIconsService.getIcon(icon + ".png");
-  }
-
-  protected String getPrefix() {
+  public String getPrefix() {
     return theme.getId();
   }
 
@@ -500,7 +458,7 @@ public class MTLafInstaller {
         .orElseThrow(() -> new DDLCException("Unable to load property " + primaryPropertyFile + " check your shit before you wreck your shit!"));
   }
 
-  protected Object parseValue(final String key, @NotNull final String value) {
+  public Object parseValue(final String key, @NotNull final String value) {
     return PropertiesParser.parseValue(key, value);
   }
 }
