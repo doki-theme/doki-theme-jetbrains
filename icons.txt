@@ -1,0 +1,11 @@
+Folders
+    - Module
+    - Directory
+    - Packages
+    - External Library
+    - Classpath jars
+    - Intellij Project
+
+Build
+Save Icon
+
