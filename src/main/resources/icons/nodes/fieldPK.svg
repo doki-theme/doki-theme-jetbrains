@@ -1,7 +1,56 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
-        "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"
-     version="1.1" width="16px" height="16px" fill="#FDD835"
-     viewBox="0 0 24 24">
-    <path d="M7,14A2,2 0 0,1 5,12A2,2 0 0,1 7,10A2,2 0 0,1 9,12A2,2 0 0,1 7,14M12.65,10C11.83,7.67 9.61,6 7,6A6,6 0 0,0 1,12A6,6 0 0,0 7,18C9.61,18 11.83,16.33 12.65,14H17V18H21V14H23V10H12.65Z"/>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   width="16px"
+   height="16px"
+   fill="#FDD835"
+   viewBox="0 0 24 24"
+   id="svg4"
+   sodipodi:docname="fieldPK.svg"
+   inkscape:version="0.92.3 (unknown)">
+  <metadata
+     id="metadata10">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs8" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="861"
+     inkscape:window-height="491"
+     id="namedview6"
+     showgrid="false"
+     inkscape:zoom="5.2149125"
+     inkscape:cx="1.5657104"
+     inkscape:cy="6.62052"
+     inkscape:window-x="1203"
+     inkscape:window-y="716"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg4" />
+  <path
+     style="stroke-width:0.66666669"
+     d="M 4.6660156 4 A 4 4 0 0 0 0.66601562 8 A 4 4 0 0 0 4.6660156 12 C 6.4060156 12 7.8869271 10.887318 8.4335938 9.3339844 L 11.333984 9.3339844 L 11.333984 12 L 14 12 L 14 9.3339844 L 15.333984 9.3339844 L 15.333984 6.6660156 L 8.4335938 6.6660156 C 7.8869271 5.1126823 6.4060156 4 4.6660156 4 z M 3.2148438 6.296875 C 3.3530772 6.2838255 3.5035026 6.2944756 3.6679688 6.3320312 C 4.0832236 6.4269046 4.3568477 6.5680454 4.5449219 6.6738281 A 1.3333333 1.3333333 0 0 1 4.6660156 6.6660156 A 1.3333333 1.3333333 0 0 1 4.9140625 6.6914062 C 5.0964871 6.5868904 5.3820453 6.4325519 5.8222656 6.3320312 C 7.1379768 6.0315863 7.644996 7.4822985 6.8691406 8.5761719 C 6.1760114 9.3720905 5.4562149 9.738049 4.7460938 10.208984 C 4.0359538 9.738049 3.3161582 9.3720899 2.6230469 8.5761719 C 1.9441723 7.6190327 2.2472096 6.3882217 3.2148438 6.296875 z "
+     transform="scale(1.5)"
+     id="path2" />
 </svg>
