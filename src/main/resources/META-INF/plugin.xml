@@ -140,7 +140,7 @@
 
     <actions>
         <group id="DDLC.ThemeChooser" text="DDLC Themes" popup="true"
-               icon="/icons/actions/material-theme.png">
+               icon="/icons/ddlc/ddlcTheme.svg">
             <add-to-group group-id="MainToolBar" anchor="last"/>
 
             <action id="MonikaTheme" class="com.chrisrm.idea.actions.themes.literature.club.JustMonikaThemeAction"
