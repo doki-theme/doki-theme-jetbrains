@@ -1,7 +1,56 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
-        "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"
-     version="1.1" width="13px" height="13px" fill="#26A69A"
-     viewBox="0 0 24 24">
-    <path d="M22,4H14L12,2H6A2,2 0 0,0 4,4V16A2,2 0 0,0 6,18H22A2,2 0 0,0 24,16V6A2,2 0 0,0 22,4M2,6H0V11H0V20A2,2 0 0,0 2,22H20V20H2V6Z"/>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   width="13px"
+   height="13px"
+   fill="#26A69A"
+   viewBox="0 0 24 24"
+   id="svg68"
+   sodipodi:docname="toolWindowFiles.svg"
+   inkscape:version="0.92.3 (unknown)">
+  <metadata
+     id="metadata74">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs72" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="863"
+     inkscape:window-height="491"
+     id="namedview70"
+     showgrid="false"
+     inkscape:zoom="18.153846"
+     inkscape:cx="7.4006712"
+     inkscape:cy="7.9585951"
+     inkscape:window-x="67"
+     inkscape:window-y="27"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg68" />
+  <path
+     style="stroke-width:0.54166669"
+     d="M 3.25 1.0839844 A 1.0833333 1.0833333 0 0 0 2.1660156 2.1660156 L 2.1660156 8.6660156 A 1.0833333 1.0833333 0 0 0 3.25 9.75 L 11.916016 9.75 A 1.0833333 1.0833333 0 0 0 13 8.6660156 L 13 3.25 A 1.0833333 1.0833333 0 0 0 11.916016 2.1660156 L 7.5839844 2.1660156 L 6.5 1.0839844 L 3.25 1.0839844 z M 0 3.25 L 0 5.9589844 L 0 10.833984 A 1.0833333 1.0833333 0 0 0 1.0839844 11.916016 L 10.833984 11.916016 L 10.833984 10.833984 L 1.0839844 10.833984 L 1.0839844 3.25 L 0 3.25 z M 7.6640625 4.3867188 C 7.7779476 4.3759678 7.9035653 4.3831219 8.0390625 4.4140625 C 8.5092151 4.5214785 8.8303401 4.7346822 8.9257812 4.7871094 C 9.0211606 4.7346349 9.3443 4.5214181 9.8144531 4.4140625 C 10.898415 4.166538 11.314978 5.3624738 10.675781 6.2636719 C 10.10474 6.9193973 9.5108219 7.22139 8.9257812 7.609375 C 8.3407255 7.22139 7.7487615 6.9193968 7.1777344 6.2636719 C 6.618437 5.4751236 6.8668671 4.4619756 7.6640625 4.3867188 z "
+     transform="scale(1.8461538)"
+     id="path66" />
 </svg>
