@@ -215,7 +215,7 @@
 
         </group>
 
-        <group id="DDLC.Menu" text="DDLC Theme" popup="true" icon="/icons/actions/material-theme.png">
+        <group id="DDLC.Menu" text="DDLC Theme" popup="true" icon="/icons/ddlc/ddlcTheme.svg">
             <reference id="DDLC.ThemeChooser"/>
             <separator/>
             <reference id="DDLC.Panels"/>
