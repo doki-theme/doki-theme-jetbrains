@@ -358,5 +358,6 @@
         <regex name="Javascript" pattern=".*\.(js|es6|es)$" icon="/icons/files/js.svg"/>
         <regex name="JSON" pattern=".*\.(json|cson)$" icon="/icons/files/json.svg"/>
         <!--<regex name="Any" pattern=".*" icon="/icons/files/default.svg"/>-->
+        <regex name="Doki-Doki" pattern="(doki|ddlc|DDLC|DOKI)" icon="/icons/files/ddlcIcon.svg"/>
     </associations>
 </associations>
