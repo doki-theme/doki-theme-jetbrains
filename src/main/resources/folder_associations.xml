@@ -33,6 +33,7 @@
         <regex name="circleci" pattern="^\.?circleci$" icon="/circleci.svg"/>
         <regex name="config" pattern="^(config|conf|environments?|env)$" icon="/config.svg"/>
         <regex name="controllers" pattern="^(controllers?|ctrls?)$" icon="/controllers.svg"/>
+        <regex name="doki-doki" pattern="(ddlc|DDLC|DOKI|doki)" icon="/ddlc.svg"/>
         <regex name="components" pattern="^(components?|modules?)$" icon="/components.svg"/>
         <regex name="coverage" pattern="^coverage$" icon="/coverage.svg"/>
         <regex name="db" pattern="^(db|migrate|sql|database)$" icon="/db.svg"/>
