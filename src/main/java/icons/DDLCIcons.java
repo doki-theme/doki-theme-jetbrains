@@ -16,6 +16,12 @@ public class DDLCIcons {
         return IconLoader.findIcon(path);
     }
 
+
+    public static class Actions {
+        public static Icon CloseHovered = TintedIconsService.getAccentIcon("/icons/ddlc/actions/closeHovered.svg");
+        public static Icon CloseNewHovered = TintedIconsService.getAccentIcon("/icons/ddlc/actions/closeNewHovered.svg");
+    }
+
     public static class Ide {
         public static Icon Rating = TintedIconsService.getAccentIcon("/icons/ddlc/ide/rating.svg");
         public static Icon Rating1 = TintedIconsService.getAccentIcon("/icons/ddlc/ide/rating1.svg");

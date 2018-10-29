@@ -41,8 +41,8 @@ import java.util.List;
 public final class TintedIconsService {
   
   public static final String[] TINTED_ICONS = new String[]{
-      "/icons/actions/closeHovered.svg",
-      "/icons/actions/closeNewHovered.svg",
+      "/icons/ddlc/actions/closeHovered.svg",
+      "/icons/ddlc/actions/closeNewHovered.svg",
       "/icons/general/expandAllHover.svg",
       "/icons/general/expandComponentHover.svg",
       "/icons/general/collapseAllHover.svg",
@@ -62,11 +62,11 @@ public final class TintedIconsService {
       "/icons/general/modified.svg",
       "/icons/general/openDiskHover.svg",
       "/icons/general/projectConfigurable.svg",
-      "/icons/ide/rating.svg",
-      "/icons/ide/rating1.svg",
-      "/icons/ide/rating2.svg",
-      "/icons/ide/rating3.svg",
-      "/icons/ide/rating4.svg",
+      "/icons/ddlc/ide/rating.svg",
+      "/icons/ddlc/ide/rating1.svg",
+      "/icons/ddlc/ide/rating2.svg",
+      "/icons/ddlc/ide/rating3.svg",
+      "/icons/ddlc/ide/rating4.svg",
       "/icons/mac/tree_white_down_arrow_selected.svg",
       "/icons/mac/tree_white_right_arrow_selected.svg",
       "/icons/mac/material/down_selected.svg",

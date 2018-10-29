@@ -46,8 +46,8 @@ public class AccentTintedIconsPatcher extends IconPathPatcher {
   private MTConfig instance;
 
   private static synchronized void replaceSVGs() {
-    REPLACEMENTS.put("/actions/closeHovered", "MTIcons.Actions.CloseHovered");
-    REPLACEMENTS.put("/actions/closeNewHovered", "MTIcons.Actions.CloseNewHovered");
+    REPLACEMENTS.put("/actions/closeHovered", "DDLCIcons.Actions.CloseHovered");
+    REPLACEMENTS.put("/actions/closeNewHovered", "DDLCIcons.Actions.CloseNewHovered");
 
     REPLACEMENTS.put("/general/expandComponentHover", "MTIcons.General.ExpandComponentHover");
     REPLACEMENTS.put("/general/collapseComponentHover", "MTIcons.General.CollapseComponentHover");
