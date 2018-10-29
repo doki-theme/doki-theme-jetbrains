@@ -1,5 +1,6 @@
 package icons;
 
+import com.chrisrm.idea.icons.tinted.TintedIconsService;
 import com.intellij.openapi.util.IconLoader;
 
 import javax.swing.*;
@@ -13,5 +14,13 @@ public class DDLCIcons {
 
     private static Icon load(final String path) {
         return IconLoader.findIcon(path);
+    }
+
+    public static class Ide {
+        public static Icon Rating = TintedIconsService.getAccentIcon("/icons/ddlc/ide/rating.svg");
+        public static Icon Rating1 = TintedIconsService.getAccentIcon("/icons/ddlc/ide/rating1.svg");
+        public static Icon Rating2 = TintedIconsService.getAccentIcon("/icons/ddlc/ide/rating2.svg");
+        public static Icon Rating3 = TintedIconsService.getAccentIcon("/icons/ddlc/ide/rating3.svg");
+        public static Icon Rating4 = TintedIconsService.getAccentIcon("/icons/ddlc/ide/rating4.svg");
     }
 }

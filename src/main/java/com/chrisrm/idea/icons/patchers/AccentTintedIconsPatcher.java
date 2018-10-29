@@ -67,11 +67,11 @@ public class AccentTintedIconsPatcher extends IconPathPatcher {
     REPLACEMENTS.put("/general/modified", "MTIcons.General.Modified");
     REPLACEMENTS.put("/general/openDiskHover", "MTIcons.General.OpenDiskHover");
 
-    REPLACEMENTS.put("/ide/rating", "MTIcons.Ide.Rating");
-    REPLACEMENTS.put("/ide/rating1", "MTIcons.Ide.Rating1");
-    REPLACEMENTS.put("/ide/rating2", "MTIcons.Ide.Rating2");
-    REPLACEMENTS.put("/ide/rating3", "MTIcons.Ide.Rating3");
-    REPLACEMENTS.put("/ide/rating4", "MTIcons.Ide.Rating4");
+    REPLACEMENTS.put("/ide/rating", "DDLCIcons.Ide.Rating");
+    REPLACEMENTS.put("/ide/rating1", "DDLCIcons.Ide.Rating1");
+    REPLACEMENTS.put("/ide/rating2", "DDLCIcons.Ide.Rating2");
+    REPLACEMENTS.put("/ide/rating3", "DDLCIcons.Ide.Rating3");
+    REPLACEMENTS.put("/ide/rating4", "DDLCIcons.Ide.Rating4");
 
     REPLACEMENTS.put("/mac/tree_white_down_arrow_selected", "MTIcons.Arrows.MaterialDownSelected");
     REPLACEMENTS.put("/mac/tree_white_right_arrow_selected", "MTIcons.Arrows.MaterialRightSelected");
