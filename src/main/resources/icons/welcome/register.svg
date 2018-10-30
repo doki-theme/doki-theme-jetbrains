@@ -1,7 +1,56 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
-        "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"
-     version="1.1" width="32px" height="32px" fill="#FDD835"
-     viewBox="0 0 24 24">
-    <path d="M22,18V22H18V19H15V16H12L9.74,13.74C9.19,13.91 8.61,14 8,14A6,6 0 0,1 2,8A6,6 0 0,1 8,2A6,6 0 0,1 14,8C14,8.61 13.91,9.19 13.74,9.74L22,18M7,5A2,2 0 0,0 5,7A2,2 0 0,0 7,9A2,2 0 0,0 9,7A2,2 0 0,0 7,5Z"/>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   width="32px"
+   height="32px"
+   fill="#FDD835"
+   viewBox="0 0 24 24"
+   id="svg4"
+   sodipodi:docname="register.svg"
+   inkscape:version="0.92.3 (unknown)">
+  <metadata
+     id="metadata10">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs8" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="873"
+     inkscape:window-height="491"
+     id="namedview6"
+     showgrid="false"
+     inkscape:zoom="7.375"
+     inkscape:cx="14.954728"
+     inkscape:cy="14.736752"
+     inkscape:window-x="1263"
+     inkscape:window-y="141"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg4" />
+  <path
+     style="stroke-width:1.33333337"
+     d="M 10.666016 2.6660156 C 6.2477376 2.6660156 2.6660156 6.2477376 2.6660156 10.666016 C 2.6660156 15.084293 6.2477376 18.666016 10.666016 18.666016 C 11.479349 18.666016 12.252995 18.546979 12.986328 18.320312 L 16 21.333984 L 20 21.333984 L 20 25.333984 L 24 25.333984 L 24 29.333984 L 29.333984 29.333984 L 29.333984 24 L 18.320312 12.986328 C 18.546979 12.252995 18.666016 11.479349 18.666016 10.666016 C 18.666016 6.2477376 15.084293 2.6660156 10.666016 2.6660156 z M 9.7128906 6.2421875 C 10.269929 6.2912076 10.820151 6.6026618 11.263672 7.2480469 C 11.879163 8.1438947 12.089773 8.9880777 12.167969 9.2207031 C 12.40621 9.2793151 13.26366 9.4192121 14.207031 9.9589844 C 16.382042 11.203441 15.248055 13.819604 12.8125 14.337891 C 10.864692 14.553252 9.4216443 14.14834 7.859375 13.898438 C 7.7022434 13.259182 7.5264614 12.635167 7.3710938 11.992188 C 7.1530412 11.089791 6.9819379 10.141915 7.0136719 8.9980469 C 7.2309739 7.2999567 8.487407 6.1343433 9.7128906 6.2421875 z "
+     transform="scale(0.75)"
+     id="path2" />
 </svg>

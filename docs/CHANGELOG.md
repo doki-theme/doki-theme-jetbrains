@@ -1,6 +1,10 @@
 # Changelog
 ----
 
+# 1.5.0
+
+- More Doki-Doki inspired IDE icons! 💕
+
 # 1.4.0
 
 - Now up do date with Material UI version 2.9.5!

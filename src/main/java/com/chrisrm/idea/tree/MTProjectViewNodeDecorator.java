@@ -40,6 +40,7 @@ import com.intellij.packageDependencies.ui.PackageDependenciesNode;
 import com.intellij.ui.ColorUtil;
 import com.intellij.ui.ColoredTreeCellRenderer;
 import com.intellij.util.PlatformIcons;
+import icons.DDLCIcons;
 import icons.MTIcons;
 
 import javax.swing.*;
@@ -114,13 +115,13 @@ public final class MTProjectViewNodeDecorator implements ProjectViewNodeDecorato
       final Icon openedIcon = ((DirIcon) Objects.requireNonNull(data.getIcon(true))).getOpenedIcon();
       data.setIcon(openedIcon);
     } else if (ProjectRootManager.getInstance(project).getFileIndex().isExcluded(file)) {
-      data.setIcon(MTIcons.EXCLUDED);
+      data.setIcon(DDLCIcons.EXCLUDED);
     } else if (ProjectRootsUtil.isModuleContentRoot(file, project)) {
-      data.setIcon(MTIcons.MODULE);
+      data.setIcon(DDLCIcons.MODULE);
     } else if (ProjectRootsUtil.isInSource(file, project)) {
-      data.setIcon(MTIcons.SOURCE);
+      data.setIcon(DDLCIcons.SOURCE);
     } else if (ProjectRootsUtil.isInTestSource(file, project)) {
-      data.setIcon(MTIcons.TEST);
+      data.setIcon(DDLCIcons.TEST);
     } else if (Objects.equals(data.getIcon(false), PlatformIcons.PACKAGE_ICON)) {
       //      Looks like an open directory anyway
       data.setIcon(PlatformIcons.PACKAGE_ICON);
