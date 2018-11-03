@@ -38,39 +38,13 @@ Dark theme todo completed:
     - Need to update dark monika panel and chibi
     - Need to update wizard.
     - Dark separator color.
+Rating Stars
+
 ------
 THINGS TODO:
 
-Rating Stars
 
 Code Colors (NEEDS TEST TIME)
 loading indicator is not very visible.
 search everywhere
 FILE changed status
-
-
-misc
-----
-
-things that where added to color xml
-
-<option name="NOT_CHANGED" value="616161"/>
-<option name="MT_IGNORE.PROJECT_VIEW.IGNORED" value="ab7967"/>
-
-<option name="DEFAULT_REASSIGNED_LOCAL_VARIABLE">
-            <value>
-                <option name="FOREGROUND" value="d19a66"/>
-                <option name="EFFECT_COLOR" value="d19a66"/>
-                <option name="EFFECT_TYPE" value="1"/>
-            </value>
-        </option>
-        <option name="DEFAULT_REASSIGNED_PARAMETER">
-            <value>
-                <option name="FOREGROUND" value="abb2bf"/>
-                <option name="EFFECT_COLOR" value="abb2bf"/>
-                <option name="EFFECT_TYPE" value="1"/>
-            </value>
-        </option>
-
-
-need to get windows properties
