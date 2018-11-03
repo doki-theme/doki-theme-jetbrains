@@ -38,6 +38,8 @@ Dark theme todo completed:
     - Need to update dark monika panel and chibi
     - Need to update wizard.
     - Dark separator color.
+
+yolo
 ------
 THINGS TODO:
 
