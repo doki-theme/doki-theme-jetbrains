@@ -1,6 +1,10 @@
 # Changelog
 ----
 
+# 1.5.1
+
+- Progress Indicators now conform more to the icon update.
+
 # 1.5.0
 
 - More Doki-Doki inspired IDE icons! 💕
