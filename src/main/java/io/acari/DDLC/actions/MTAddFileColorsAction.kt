@@ -23,7 +23,7 @@
  *
  */
 
-package com.chrisrm.idea.actions
+package io.acari.DDLC.actions
 
 import com.chrisrm.idea.MTAnalytics
 import com.chrisrm.idea.MTConfig

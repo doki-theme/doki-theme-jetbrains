@@ -31,7 +31,7 @@ import com.chrisrm.idea.MTConfig
 import com.chrisrm.idea.MTThemeManager
 import com.chrisrm.idea.MTThemes
 import io.acari.DDLC.actions.ClubMemberOrchestrator
-import com.chrisrm.idea.actions.MTAddFileColorsAction
+import io.acari.DDLC.actions.MTAddFileColorsAction
 import com.chrisrm.idea.actions.accents.MTAbstractAccentAction
 import com.chrisrm.idea.tree.MTProjectViewNodeDecorator
 import com.chrisrm.idea.ui.MTButtonUI

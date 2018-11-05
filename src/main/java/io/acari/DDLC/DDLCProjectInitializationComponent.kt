@@ -1,6 +1,6 @@
 package io.acari.DDLC
 
-import com.chrisrm.idea.actions.MTAddFileColorsAction
+import io.acari.DDLC.actions.MTAddFileColorsAction
 import com.intellij.ide.GeneralSettings
 import com.intellij.ide.util.PropertiesComponent
 import com.intellij.ide.util.TipDialog
