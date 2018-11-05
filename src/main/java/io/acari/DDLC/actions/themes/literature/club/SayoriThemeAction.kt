@@ -24,10 +24,9 @@
  *
  */
 
-package com.chrisrm.idea.actions.themes.literature.club
+package io.acari.DDLC.actions.themes.literature.club
 
 import com.chrisrm.idea.MTThemes
 import com.chrisrm.idea.actions.accents.MTCyanAccentAction
-import com.chrisrm.idea.actions.themes.ClubMemberThemeAction
 
 class SayoriThemeAction : ClubMemberThemeAction(MTThemes.SAYORI, MTCyanAccentAction())

@@ -143,20 +143,20 @@
                icon="/icons/ddlc/ddlcTheme.svg">
             <add-to-group group-id="MainToolBar" anchor="last"/>
 
-            <action id="MonikaTheme" class="com.chrisrm.idea.actions.themes.literature.club.JustMonikaThemeAction"
+            <action id="MonikaTheme" class="io.acari.DDLC.actions.themes.literature.club.JustMonikaThemeAction"
                     text="Just Monika" description="Just Monika"
                     icon="/icons/actions/themes/material_monika@2x.png">
             </action>
             <separator/>
-            <action id="SayoriTheme" class="com.chrisrm.idea.actions.themes.literature.club.SayoriThemeAction"
+            <action id="SayoriTheme" class="io.acari.DDLC.actions.themes.literature.club.SayoriThemeAction"
                     text="Sayori" description="Sayori"
                     icon="/icons/actions/themes/material_sayori@2x.png">
             </action>
-            <action id="MTNatsukiTheme" class="com.chrisrm.idea.actions.themes.literature.club.NatsukiThemeAction"
+            <action id="MTNatsukiTheme" class="io.acari.DDLC.actions.themes.literature.club.NatsukiThemeAction"
                     text="Natsuki" description="Natsuki"
                     icon="/icons/actions/themes/material_natsuki@2x.png">
             </action>
-            <action id="MTYuri" class="com.chrisrm.idea.actions.themes.literature.club.YuriThemeAction"
+            <action id="MTYuri" class="io.acari.DDLC.actions.themes.literature.club.YuriThemeAction"
                     text="Yuri" description="Yuri"
                     icon="/icons/actions/themes/material_yuri@2x.png">
             </action>

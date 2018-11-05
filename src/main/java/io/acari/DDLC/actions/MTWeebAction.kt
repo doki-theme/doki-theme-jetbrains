@@ -1,6 +1,6 @@
 package io.acari.DDLC.actions
 
-import com.chrisrm.idea.actions.themes.BaseThemeAction
+import io.acari.DDLC.actions.themes.literature.club.BaseThemeAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 
 class MTWeebAction : BaseThemeAction() {

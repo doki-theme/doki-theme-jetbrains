@@ -24,7 +24,7 @@
  *
  */
 
-package com.chrisrm.idea.actions.themes
+package io.acari.DDLC.actions.themes.literature.club
 
 import com.chrisrm.idea.MTAnalytics
 import com.chrisrm.idea.MTConfig

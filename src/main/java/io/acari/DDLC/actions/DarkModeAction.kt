@@ -2,11 +2,11 @@ package io.acari.DDLC.actions
 
 import com.chrisrm.idea.MTConfig
 import com.chrisrm.idea.MTThemes
-import com.chrisrm.idea.actions.themes.BaseThemeAction
-import com.chrisrm.idea.actions.themes.literature.club.JustMonikaThemeAction
-import com.chrisrm.idea.actions.themes.literature.club.NatsukiThemeAction
-import com.chrisrm.idea.actions.themes.literature.club.SayoriThemeAction
-import com.chrisrm.idea.actions.themes.literature.club.YuriThemeAction
+import io.acari.DDLC.actions.themes.literature.club.BaseThemeAction
+import io.acari.DDLC.actions.themes.literature.club.JustMonikaThemeAction
+import io.acari.DDLC.actions.themes.literature.club.NatsukiThemeAction
+import io.acari.DDLC.actions.themes.literature.club.SayoriThemeAction
+import io.acari.DDLC.actions.themes.literature.club.YuriThemeAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 
 private val JustMonikaThemeAction = JustMonikaThemeAction()

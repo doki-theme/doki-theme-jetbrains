@@ -33,10 +33,10 @@ package com.chrisrm.idea.wizard.steps
 import com.chrisrm.idea.MTThemes
 import io.acari.DDLC.actions.ClubMemberOrchestrator
 import io.acari.DDLC.actions.DarkMode
-import com.chrisrm.idea.actions.themes.literature.club.JustMonikaThemeAction
-import com.chrisrm.idea.actions.themes.literature.club.NatsukiThemeAction
-import com.chrisrm.idea.actions.themes.literature.club.SayoriThemeAction
-import com.chrisrm.idea.actions.themes.literature.club.YuriThemeAction
+import io.acari.DDLC.actions.themes.literature.club.JustMonikaThemeAction
+import io.acari.DDLC.actions.themes.literature.club.NatsukiThemeAction
+import io.acari.DDLC.actions.themes.literature.club.SayoriThemeAction
+import io.acari.DDLC.actions.themes.literature.club.YuriThemeAction
 import com.intellij.ide.customize.AbstractCustomizeWizardStep
 import com.intellij.ui.components.JBScrollPane
 import net.miginfocom.swing.MigLayout

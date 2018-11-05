@@ -24,10 +24,9 @@
  *
  */
 
-package com.chrisrm.idea.actions.themes.literature.club
+package io.acari.DDLC.actions.themes.literature.club
 
 import com.chrisrm.idea.MTThemes
-import com.chrisrm.idea.actions.accents.MTBreakingBadAccentAction
-import com.chrisrm.idea.actions.themes.ClubMemberThemeAction
+import com.chrisrm.idea.actions.accents.MTFuschiaAccentAction
 
-class JustMonikaThemeAction : ClubMemberThemeAction(MTThemes.MONIKA, MTBreakingBadAccentAction())
+class NatsukiThemeAction : ClubMemberThemeAction(MTThemes.NATSUKI, MTFuschiaAccentAction())
