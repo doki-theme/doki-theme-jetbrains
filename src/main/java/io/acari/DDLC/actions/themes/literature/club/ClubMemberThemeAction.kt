@@ -31,7 +31,7 @@ import com.chrisrm.idea.MTConfig
 import com.chrisrm.idea.MTThemeManager
 import com.chrisrm.idea.MTThemes
 import io.acari.DDLC.actions.ClubMemberOrchestrator
-import io.acari.DDLC.actions.MTAddFileColorsAction
+import io.acari.DDLC.actions.DDLCAddFileColorsAction
 import com.chrisrm.idea.actions.accents.MTAbstractAccentAction
 import com.chrisrm.idea.tree.MTProjectViewNodeDecorator
 import com.chrisrm.idea.ui.MTButtonUI
@@ -42,7 +42,7 @@ import com.intellij.openapi.actionSystem.ToggleAction
 
 open class ClubMemberThemeAction(private val theme: MTThemes,
                                  private val accentAction: MTAbstractAccentAction) : BaseThemeAction() {
-    private val mtAddFileColorsAction = MTAddFileColorsAction()
+    private val mtAddFileColorsAction = DDLCAddFileColorsAction()
 
     override fun selectionActivation() {
         super.selectionActivation()

@@ -1,6 +1,6 @@
 package io.acari.DDLC
 
-import io.acari.DDLC.actions.MTAddFileColorsAction
+import io.acari.DDLC.actions.DDLCAddFileColorsAction
 import com.intellij.ide.GeneralSettings
 import com.intellij.ide.util.PropertiesComponent
 import com.intellij.ide.util.TipDialog
@@ -14,7 +14,7 @@ import java.util.*
  */
 class DDLCProjectInitializationComponent(project: Project?) : AbstractProjectComponent(project) {
     val random = Random(Instant.now().epochSecond / 100)
-    private val mtAddFileColorsAction = MTAddFileColorsAction()
+    private val mtAddFileColorsAction = DDLCAddFileColorsAction()
 
     override fun getComponentName(): String {
         return "DDLCProjectInitializationComponent"

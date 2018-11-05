@@ -46,7 +46,7 @@ import com.intellij.ui.tabs.FileColorsModel
 import java.util.stream.Collectors
 import javax.swing.event.HyperlinkEvent
 
-class MTAddFileColorsAction : AnAction() {
+class DDLCAddFileColorsAction : AnAction() {
 
     override fun actionPerformed(e: AnActionEvent) {
         addDisabledFileColors(e.project)
