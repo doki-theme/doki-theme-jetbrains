@@ -1,4 +1,4 @@
-package com.chrisrm.idea
+package io.acari.DDLC
 
 import com.chrisrm.idea.actions.MTAddFileColorsAction
 import com.intellij.ide.GeneralSettings
