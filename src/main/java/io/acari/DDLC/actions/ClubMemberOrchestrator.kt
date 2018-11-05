@@ -1,4 +1,4 @@
-package com.chrisrm.idea.actions
+package io.acari.DDLC.actions
 
 import com.chrisrm.idea.MTConfig
 import com.chrisrm.idea.MTThemes
@@ -51,7 +51,7 @@ object ClubMemberOrchestrator {
     }
 
     fun activate(theme: MTThemes) {
-        this.currentTheme = theme
+        currentTheme = theme
         removeWeebShit()
         turnOnIfNecessary()
     }
@@ -132,7 +132,7 @@ object ClubMemberOrchestrator {
                     weebStuff.toString()
                 }
             }.orElseGet {
-                getClubMemberFallback()
+                    getClubMemberFallback()
             }
     }
 
@@ -189,7 +189,7 @@ object ClubMemberOrchestrator {
     fun getNormalClubMember() = getTheme().normalClubMember
 
     private fun getTheme(): MTThemes {
-        return this.currentTheme
+        return currentTheme
     }
 
     private fun getFrameBackground(): String {

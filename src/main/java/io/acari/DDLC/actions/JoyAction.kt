@@ -1,4 +1,4 @@
-package com.chrisrm.idea.actions
+package io.acari.DDLC.actions
 
 import com.chrisrm.idea.MTConfig
 import com.chrisrm.idea.MTThemes

@@ -165,13 +165,13 @@
         <group id="DDLC.Panels" text="DDLC Options" description="Panel Options" popup="true"
                icon="/icons/actions/mt/pen.svg">
             <add-to-group group-id="MainToolBar" anchor="last"/>
-            <action class="com.chrisrm.idea.actions.MTWeebAction" id="MTWeeb" text="Toggle Club Member"
+            <action class="io.acari.DDLC.actions.MTWeebAction" id="MTWeeb" text="Toggle Club Member"
                     icon="/icons/actions/themes/material_monika.png"
                     description="Toggle Contrast"/>
-            <action class="com.chrisrm.idea.actions.DarkModeAction" id="DarkMode" text="Toggle Dark Mode"
+            <action class="io.acari.DDLC.actions.DarkModeAction" id="DarkMode" text="Toggle Dark Mode"
                     icon="/icons/actions/themes/material_monkia_dark.png"
                     description="Toggle Dark Mode"/>
-            <action class="com.chrisrm.idea.actions.JoyAction" id="DDLCJoy"
+            <action class="io.acari.DDLC.actions.JoyAction" id="DDLCJoy"
                     text="Swap Chibi"
                     icon="/icons/actions/mt/joy.png"
                     description="Swap Chibi"/>

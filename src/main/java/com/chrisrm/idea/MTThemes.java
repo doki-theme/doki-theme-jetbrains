@@ -26,8 +26,8 @@
 
 package com.chrisrm.idea;
 
-import com.chrisrm.idea.actions.DarkMode;
-import com.chrisrm.idea.actions.JoyManager;
+import io.acari.DDLC.actions.DarkMode;
+import io.acari.DDLC.actions.JoyManager;
 import com.chrisrm.idea.themes.*;
 import com.chrisrm.idea.themes.literature.club.MonikaTheme;
 import com.chrisrm.idea.themes.literature.club.NatsukiTheme;

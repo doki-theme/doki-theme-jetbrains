@@ -1,4 +1,4 @@
-package com.chrisrm.idea.actions
+package io.acari.DDLC.actions
 
 import com.chrisrm.idea.MTConfig
 import com.chrisrm.idea.MTThemes
@@ -8,7 +8,6 @@ import com.chrisrm.idea.actions.themes.literature.club.NatsukiThemeAction
 import com.chrisrm.idea.actions.themes.literature.club.SayoriThemeAction
 import com.chrisrm.idea.actions.themes.literature.club.YuriThemeAction
 import com.intellij.openapi.actionSystem.AnActionEvent
-import com.intellij.openapi.actionSystem.ToggleAction
 
 private val JustMonikaThemeAction = JustMonikaThemeAction()
 private val SayoriThemeAction = SayoriThemeAction()

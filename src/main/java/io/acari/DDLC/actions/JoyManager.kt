@@ -1,4 +1,4 @@
-package com.chrisrm.idea.actions
+package io.acari.DDLC.actions
 
 import com.intellij.ide.util.PropertiesComponent
 

@@ -1,7 +1,6 @@
-package com.chrisrm.idea.actions
+package io.acari.DDLC.actions
 
 import com.chrisrm.idea.actions.themes.BaseThemeAction
-import com.chrisrm.idea.actions.themes.ClubMemberThemeAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 
 class MTWeebAction : BaseThemeAction() {

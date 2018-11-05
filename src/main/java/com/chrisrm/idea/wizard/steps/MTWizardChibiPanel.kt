@@ -31,14 +31,13 @@
 package com.chrisrm.idea.wizard.steps
 
 import com.chrisrm.idea.MTThemes
-import com.chrisrm.idea.actions.ClubMemberOrchestrator
-import com.chrisrm.idea.actions.DarkMode
+import io.acari.DDLC.actions.ClubMemberOrchestrator
+import io.acari.DDLC.actions.DarkMode
 import com.intellij.ide.customize.AbstractCustomizeWizardStep
 import com.intellij.ui.components.JBScrollPane
 import net.miginfocom.swing.MigLayout
 import java.awt.BorderLayout
 import java.awt.Dimension
-import java.awt.event.ActionEvent
 import javax.swing.*
 import javax.swing.border.EmptyBorder
 

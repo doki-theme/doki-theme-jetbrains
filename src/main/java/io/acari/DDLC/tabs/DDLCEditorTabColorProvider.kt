@@ -1,6 +1,6 @@
 package io.acari.DDLC.tabs
 
-import com.chrisrm.idea.actions.DarkMode
+import io.acari.DDLC.actions.DarkMode
 import com.intellij.openapi.fileEditor.impl.EditorTabColorProvider
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.io.FileUtil
