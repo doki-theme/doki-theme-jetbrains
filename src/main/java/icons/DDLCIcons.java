@@ -47,13 +47,6 @@ public class DDLCIcons {
         public static Icon StepMask = TintedIconsService.getAccentIcon("/icons/ddlc/process/step_mask.svg");
         public static Icon StepPassive = TintedIconsService.getAccentIcon("/icons/ddlc/process/step_passive.svg");
 
-        public static Icon ProgressPauseHover = TintedIconsService.getAccentIcon("/icons/ddlc/process/progressPauseHover.svg");
-        public static Icon ProgressPauseSmallHover = TintedIconsService.getAccentIcon("/icons/ddlc/process/progressPauseSmallHover.svg");
-        public static Icon ProgressResumeHover = TintedIconsService.getAccentIcon("/icons/ddlc/process/progressResumeHover.svg");
-        public static Icon ProgressResumeSmallHover = TintedIconsService.getAccentIcon("/icons/ddlc/process/progressResumeSmallHover.svg");
-        public static Icon StopHover = TintedIconsService.getAccentIcon("/icons/ddlc/process/stopHovered.svg");
-        public static Icon StopSmallHover = TintedIconsService.getAccentIcon("/icons/ddlc/process/stopSmallHovered.svg");
-
         public static Icon BigStep1 = TintedIconsService.getAccentIcon("/icons/ddlc/process/big/step_1.svg");
         public static Icon BigStep2 = TintedIconsService.getAccentIcon("/icons/ddlc/process/big/step_2.svg");
         public static Icon BigStep3 = TintedIconsService.getAccentIcon("/icons/ddlc/process/big/step_3.svg");
