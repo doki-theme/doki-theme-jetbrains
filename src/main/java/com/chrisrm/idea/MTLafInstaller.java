@@ -40,6 +40,7 @@ import com.intellij.openapi.util.registry.Registry;
 import com.intellij.ui.components.JBScrollBar;
 import com.intellij.util.ui.JBUI;
 import com.intellij.util.ui.UIUtil;
+import io.acari.DDLC.DDLCException;//todo: figure out how to handle dis.
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
