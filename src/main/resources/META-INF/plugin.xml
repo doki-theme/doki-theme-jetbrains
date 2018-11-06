@@ -103,6 +103,9 @@
             <implementation-class>io.acari.DDLC.DDLCHackComponent</implementation-class>
         </component>
         <component>
+            <implementation-class>io.acari.DDLC.chibi.DDLCChibiComponent</implementation-class>
+        </component>
+        <component>
             <implementation-class>com.chrisrm.idea.MTApplicationComponent</implementation-class>
         </component>
         <component>
