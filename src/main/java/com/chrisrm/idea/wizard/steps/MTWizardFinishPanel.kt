@@ -31,7 +31,7 @@
 package com.chrisrm.idea.wizard.steps
 
 import com.chrisrm.idea.MTThemes
-import com.chrisrm.idea.actions.ClubMemberOrchestrator
+import io.acari.DDLC.actions.ClubMemberOrchestrator
 import com.chrisrm.idea.actions.DarkMode
 import com.intellij.ide.customize.AbstractCustomizeWizardStep
 import com.intellij.ui.components.JBScrollPane

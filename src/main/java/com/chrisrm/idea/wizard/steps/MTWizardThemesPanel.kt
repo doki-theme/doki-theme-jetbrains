@@ -31,7 +31,7 @@
 package com.chrisrm.idea.wizard.steps
 
 import com.chrisrm.idea.MTThemes
-import com.chrisrm.idea.actions.ClubMemberOrchestrator
+import io.acari.DDLC.actions.ClubMemberOrchestrator
 import com.chrisrm.idea.actions.DarkMode
 import com.chrisrm.idea.actions.themes.literature.club.JustMonikaThemeAction
 import com.chrisrm.idea.actions.themes.literature.club.NatsukiThemeAction
@@ -42,7 +42,6 @@ import com.intellij.ui.components.JBScrollPane
 import net.miginfocom.swing.MigLayout
 import java.awt.BorderLayout
 import java.awt.Dimension
-import java.awt.event.ActionEvent
 import java.util.*
 import javax.swing.*
 import javax.swing.border.EmptyBorder
