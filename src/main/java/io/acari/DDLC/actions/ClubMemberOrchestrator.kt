@@ -27,12 +27,11 @@ object ClubMemberOrchestrator {
     private const val SAVED_THEME = "CLUB_MEMBER_THEME_PROPERTY"
     private const val RESOURCES_DIRECTORY = "https://raw.githubusercontent.com/cyclic-reference/ddlc-jetbrains-theme/master/src/main/resources"
 
-    private val isOn = AtomicBoolean(false)
+    private val isOn = AtomicBoolean(true)
     private var currentTheme = getSavedTheme()
 
     init {
-        isOn.getAndSet(PropertiesComponent.getInstance()
-                .getBoolean(CLUB_MEMBER_ON))
+        isOn.getAndSet(MTConfig.getInstance().areClubMembersOn)
         if(isOn.get()){
             activateWeebShit()
         } else {
@@ -79,8 +78,7 @@ object ClubMemberOrchestrator {
     }
 
     private fun removeWeebShit() {
-        PropertiesComponent.getInstance().unsetValue(EDITOR_PROP)
-        PropertiesComponent.getInstance().unsetValue(FRAME_PROP)
+        MTConfig.getInstance().setAreClubMembersOn(false)
         IdeBackgroundUtil.repaintAllWindows()
     }
 
@@ -109,13 +107,11 @@ object ClubMemberOrchestrator {
     }
 
     private fun setPropertyValue(propertyKey: String, propertyValue: String) {
-        PropertiesComponent.getInstance().unsetValue(propertyKey)
-        PropertiesComponent.getInstance().setValue(propertyKey, propertyValue)
+
     }
 
     private fun setPropertyValue(propertyKey: String, propertyValue: Boolean) {
-        PropertiesComponent.getInstance().unsetValue(propertyKey)
-        PropertiesComponent.getInstance().setValue(propertyKey, propertyValue)
+
     }
 
     private fun getImagePath(): String {

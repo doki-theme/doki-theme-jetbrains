@@ -36,7 +36,7 @@ class DDLCProjectInitializationComponent(project: Project?) : AbstractProjectCom
 
         val frame = WindowManager.getInstance().getFrame(this.myProject)
         val ideFrame = WindowManager.getInstance().getIdeFrame(this.myProject)
-        
+
     }
 
     private fun shouldShowAgain() = random.nextLong() % 42 == 0L
