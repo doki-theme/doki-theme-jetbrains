@@ -12,6 +12,16 @@ class DDLCChibiPane(private val rootPane: JFrame) : JPanel() {
         isOpaque = false
         isVisible = false
         layout = null
-        //install painters
+        DDLCChibiPainters.initEditorPainters(this)
+        DDLCChibiPainters.initFramePainters(this)
+    }
+}
+
+object DDLCChibiPainters {
+    fun initFramePainters(ddlcChibiPane: DDLCChibiPane) {
+
+    }
+    fun initEditorPainters(ddlcChibiPane: DDLCChibiPane) {
+
     }
 }
