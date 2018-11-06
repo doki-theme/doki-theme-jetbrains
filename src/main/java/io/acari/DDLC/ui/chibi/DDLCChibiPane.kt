@@ -2,6 +2,7 @@ package io.acari.DDLC.ui.chibi
 
 import com.intellij.openapi.ui.AbstractPainter
 import com.intellij.openapi.ui.Painter
+import com.intellij.util.containers.ContainerUtil
 import java.awt.Component
 import java.awt.Graphics2D
 import java.awt.Image
@@ -33,7 +34,7 @@ class DDLCChibiPane(private val rootPane: JFrame) : JPanel() {
                     paneKey
                 }, { DDLCPaintersManager(this) }))
 
-        DDLCChibiPainters.initEditorPainters(this)
+        DDLCChibiPainters.initEditorPainters(this, namedPainters[EDITOR]!!)
         DDLCChibiPainters.initFramePainters(this)
     }
 }
@@ -43,21 +44,28 @@ object DDLCChibiPainters {
 
     }
 
-    fun initEditorPainters(ddlcChibiPane: DDLCChibiPane) {
-        ImagePainter()
+    fun initEditorPainters(ddlcChibiPane: DDLCChibiPane, ddlcPaintersManager: DDLCPaintersManager) {
+        ddlcPaintersManager.addPainter(ImagePainter())
     }
 }
 
 class DDLCPaintersManager(private val rootComponent: JComponent) : Painter.Listener {
+    private val myPainters = ContainerUtil.newLinkedHashSet<Painter>()
+    private val myPainter2Component = ContainerUtil.newLinkedHashMap<Painter, Component>()
 
     override fun onNeedsRepaint(painter: Painter?, dirtyComponent: JComponent?) =
             if (dirtyComponent != null && dirtyComponent.isShowing) {
-                val rec = SwingUtilities.convertRectangle(dirtyComponent, dirtyComponent.bounds, myRootComponent)
+                val rec = SwingUtilities.convertRectangle(dirtyComponent, dirtyComponent.bounds, rootComponent)
                 rootComponent.repaint(rec)
             } else {
                 rootComponent.repaint()
             }
 
+    fun addPainter(painter: Painter) {
+        myPainters.add(painter)
+        myPainter2Component[painter] = rootComponent
+        painter.addListener(this)
+    }
 }
 
 class ImagePainter(private val image: Image? = null,
