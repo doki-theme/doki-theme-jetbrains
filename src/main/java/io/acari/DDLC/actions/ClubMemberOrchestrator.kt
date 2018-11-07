@@ -4,8 +4,6 @@ import com.chrisrm.idea.MTConfig
 import com.chrisrm.idea.MTThemes
 import com.intellij.ide.util.PropertiesComponent
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil
-import com.intellij.openapi.wm.impl.IdeBackgroundUtil.EDITOR_PROP
-import com.intellij.openapi.wm.impl.IdeBackgroundUtil.FRAME_PROP
 import com.intellij.util.io.isFile
 import org.apache.commons.io.IOUtils
 import java.io.BufferedInputStream
@@ -23,6 +21,8 @@ import java.util.concurrent.atomic.AtomicBoolean
  * Forged in the flames of battle by alex.
  */
 object ClubMemberOrchestrator {
+    const val DDLC_CHIBI_PROP = "io.acari.ddlc.chibi"
+    const val DDLC_BACKGROUND_PROP = "io.acari.ddlc.background"
     private const val CLUB_MEMBER_ON = "CLUB_MEMBER_ON"
     private const val SAVED_THEME = "CLUB_MEMBER_THEME_PROPERTY"
     private const val RESOURCES_DIRECTORY = "https://raw.githubusercontent.com/cyclic-reference/ddlc-jetbrains-theme/master/src/main/resources"
@@ -78,7 +78,8 @@ object ClubMemberOrchestrator {
     }
 
     private fun removeWeebShit() {
-        MTConfig.getInstance().setAreClubMembersOn(false)
+        PropertiesComponent.getInstance().unsetValue(DDLC_CHIBI_PROP)
+        PropertiesComponent.getInstance().unsetValue(DDLC_BACKGROUND_PROP)
         IdeBackgroundUtil.repaintAllWindows()
     }
 
@@ -95,23 +96,25 @@ object ClubMemberOrchestrator {
                 "80",
                 IdeBackgroundUtil.Fill.PLAIN.name,
                 IdeBackgroundUtil.Anchor.BOTTOM_RIGHT.name,
-                EDITOR_PROP)
+                DDLC_CHIBI_PROP)
         setProperty(getFrameBackground(),
                 "80",
                 IdeBackgroundUtil.Fill.SCALE.name,
                 IdeBackgroundUtil.Anchor.CENTER.name,
-                FRAME_PROP)
+                DDLC_BACKGROUND_PROP)
 
         setPropertyValue(SAVED_THEME, getTheme().getName())
         IdeBackgroundUtil.repaintAllWindows()
     }
 
     private fun setPropertyValue(propertyKey: String, propertyValue: String) {
-
+        PropertiesComponent.getInstance().unsetValue(propertyKey)
+        PropertiesComponent.getInstance().setValue(propertyKey, propertyValue)
     }
 
     private fun setPropertyValue(propertyKey: String, propertyValue: Boolean) {
-
+        PropertiesComponent.getInstance().unsetValue(propertyKey)
+        PropertiesComponent.getInstance().setValue(propertyKey, propertyValue)
     }
 
     private fun getImagePath(): String {
