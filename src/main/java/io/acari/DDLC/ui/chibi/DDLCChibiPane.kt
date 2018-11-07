@@ -3,10 +3,7 @@ package io.acari.DDLC.ui.chibi
 import com.intellij.openapi.ui.AbstractPainter
 import com.intellij.openapi.ui.Painter
 import com.intellij.util.containers.ContainerUtil
-import java.awt.Component
-import java.awt.Graphics2D
-import java.awt.Image
-import java.awt.Insets
+import java.awt.*
 import java.util.stream.Collectors
 import javax.swing.JComponent
 import javax.swing.JFrame
@@ -22,7 +19,7 @@ class DDLCChibiPane(private val rootPane: JFrame) : JPanel() {
         val EMPTY_FRAME = "EMPTY_FRAME"
     }
 
-    private lateinit var namedPainters: Map<String, DDLCPaintersManager>
+    private lateinit var namedPainters: Map<String, DDLCPaintersHelper>
 
     init {
         isOpaque = false
@@ -32,10 +29,14 @@ class DDLCChibiPane(private val rootPane: JFrame) : JPanel() {
                 .stream()
                 .collect(Collectors.toMap({ paneKey ->
                     paneKey
-                }, { DDLCPaintersManager(this) }))
+                }, { DDLCPaintersHelper(this) }))
 
         DDLCChibiPainters.initEditorPainters(this, namedPainters[EDITOR]!!)
         DDLCChibiPainters.initFramePainters(this)
+    }
+
+    override fun paintComponent(p0: Graphics?) {
+
     }
 }
 
@@ -44,12 +45,12 @@ object DDLCChibiPainters {
 
     }
 
-    fun initEditorPainters(ddlcChibiPane: DDLCChibiPane, ddlcPaintersManager: DDLCPaintersManager) {
-        ddlcPaintersManager.addPainter(ImagePainter())
+    fun initEditorPainters(ddlcChibiPane: DDLCChibiPane, ddlcPaintersHelper: DDLCPaintersHelper) {
+        ddlcPaintersHelper.addPainter(ImagePainter())
     }
 }
 
-class DDLCPaintersManager(private val rootComponent: JComponent) : Painter.Listener {
+class DDLCPaintersHelper(private val rootComponent: JComponent) : Painter.Listener {
     private val myPainters = ContainerUtil.newLinkedHashSet<Painter>()
     private val myPainter2Component = ContainerUtil.newLinkedHashMap<Painter, Component>()
 
@@ -70,6 +71,8 @@ class DDLCPaintersManager(private val rootComponent: JComponent) : Painter.Liste
 
 class ImagePainter(private val image: Image? = null,
                    private val insets: Insets? = null) : AbstractPainter() {
+
+
     override fun executePaint(component: Component, g: Graphics2D) {
 //        paintThatShit(component, g, image, insets)
     }
