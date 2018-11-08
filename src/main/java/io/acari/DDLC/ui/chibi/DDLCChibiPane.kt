@@ -68,19 +68,3 @@ class DDLCPaintersHelper(private val rootComponent: JComponent) : Painter.Listen
         painter.addListener(this)
     }
 }
-
-class ImagePainter(private val image: Image? = null,
-                   private val insets: Insets? = null) : AbstractPainter() {
-
-
-    override fun executePaint(component: Component, g: Graphics2D) {
-//        paintThatShit(component, g, image, insets)
-    }
-
-    fun paintThatShit(component: Component,
-                      graphics2D: Graphics2D,
-                      image: Image,
-                      insets: Insets) {
-
-    }
-}
