@@ -46,7 +46,7 @@ object DDLCChibiPainters {
     }
 
     fun initEditorPainters(ddlcChibiPane: DDLCChibiPane, ddlcPaintersHelper: DDLCPaintersHelper) {
-        ddlcPaintersHelper.addPainter(ImagePainter())
+//        ddlcPaintersHelper.addPainter(ImagePainter())
     }
 }
 
