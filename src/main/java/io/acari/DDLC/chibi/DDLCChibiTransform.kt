@@ -48,7 +48,9 @@ class DDLCChibiTransform : PairFunction<JComponent, Graphics2D, Graphics2D> {
     }
 
     fun withFrameBackground(g: Graphics2D, c: JComponent): Graphics2D = g
-    fun withEditorBackground(g: Graphics2D, c: JComponent): Graphics2D = g
+    fun withEditorBackground(g: Graphics2D, c: JComponent): Graphics2D {
+        return g
+    }
 }
 
 fun getComponentType(component: JComponent): String? {

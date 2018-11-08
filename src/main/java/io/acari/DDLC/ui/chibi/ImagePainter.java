@@ -1,25 +1,39 @@
 package io.acari.DDLC.ui.chibi;
 
+import com.intellij.openapi.application.ApplicationManager;
+import com.intellij.openapi.application.ModalityState;
+import com.intellij.openapi.application.PathManager;
+import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.AbstractPainter;
 import com.intellij.openapi.ui.GraphicsConfig;
+import com.intellij.openapi.util.Comparing;
+import com.intellij.openapi.util.io.FileUtil;
+import com.intellij.openapi.util.text.StringUtil;
+import com.intellij.openapi.wm.IdeFrame;
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil;
+import com.intellij.util.ImageLoader;
 import com.intellij.util.containers.ContainerUtil;
 import com.intellij.util.ui.JBUI;
 import com.intellij.util.ui.UIUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.*;
+import java.io.File;
+import java.net.URL;
 import java.util.Iterator;
+import java.util.Locale;
 import java.util.Map;
 
 import static com.intellij.openapi.wm.impl.IdeBackgroundUtil.Anchor.*;
 import static com.intellij.openapi.wm.impl.IdeBackgroundUtil.Fill.SCALE;
 import static com.intellij.openapi.wm.impl.IdeBackgroundUtil.Fill.TILE;
+import static com.intellij.openapi.wm.impl.IdeBackgroundUtil.getBackgroundSpec;
 import static io.acari.DDLC.ui.chibi.PaintersHelper.ADJUST_ALPHA;
 
 public class ImagePainter extends AbstractPainter {
@@ -229,9 +243,86 @@ public class ImagePainter extends AbstractPainter {
     }
   }
 
+  Image image;
+  float alpha;
+  Insets insets;
+  IdeBackgroundUtil.Fill fillType;
+  IdeBackgroundUtil.Anchor anchor;
+  String propertyName;
+  JComponent rootComponent;
+  String current;
+
+  public ImagePainter(String propertyName, JComponent rootComponent) {
+    this.propertyName = propertyName;
+    this.rootComponent = rootComponent;
+  }
+
   @Override
   public void executePaint(Component component, Graphics2D g) {
-    // TODO: 11/8/18
+    executePaint(g, component, image, fillType, anchor, alpha, insets);
+  }
+
+  boolean ensureImageLoaded() {
+    IdeFrame frame = UIUtil.getParentOfType(IdeFrame.class, rootComponent);
+    Project project = frame == null ? null : frame.getProject();
+    String value = getBackgroundSpec(project, propertyName);
+    if (!Comparing.equal(value, current)) {
+      current = value;
+      loadImageAsync(value);
+      // keep the current image for a while
+    }
+    return image != null;
+  }
+
+  private void resetImage(String value, Image newImage, float newAlpha, IdeBackgroundUtil.Fill newFill, IdeBackgroundUtil.Anchor newAnchor) {
+    if (!Comparing.equal(current, value)) return;
+    boolean prevOk = image != null;
+    clearImages(-1);
+    image = newImage;
+    insets = JBUI.emptyInsets();
+    alpha = newAlpha;
+    fillType = newFill;
+    anchor = newAnchor;
+    boolean newOk = newImage != null;
+    if (prevOk || newOk) {
+      ModalityState modalityState = ModalityState.stateForComponent(rootComponent);
+      if (modalityState.dominates(ModalityState.NON_MODAL)) {
+        UIUtil.getActiveWindow().repaint();
+      }
+      else {
+        IdeBackgroundUtil.repaintAllWindows();
+      }
+    }
+  }
+
+  private void loadImageAsync(@Nullable String propertyValue) {
+    String[] parts = (propertyValue != null ? propertyValue : propertyName + ".png").split(",");
+    float newAlpha = Math.abs(Math.min(StringUtil.parseInt(parts.length > 1 ? parts[1] : "", 10) / 100f, 1f));
+    IdeBackgroundUtil.Fill newFillType = StringUtil.parseEnum(parts.length > 2 ? parts[2].toUpperCase(Locale.ENGLISH) : "", SCALE, IdeBackgroundUtil.Fill.class);
+    IdeBackgroundUtil.Anchor newAnchor = StringUtil.parseEnum(parts.length > 3 ? parts[3].toUpperCase(Locale.ENGLISH) : "", CENTER, IdeBackgroundUtil.Anchor.class);
+    String flip = parts.length > 4 ? parts[4] : "none";
+    boolean flipH = "flipHV".equals(flip) || "flipH".equals(flip);
+    boolean flipV = "flipHV".equals(flip) || "flipV".equals(flip);
+    String filePath = parts[0];
+    if (StringUtil.isEmpty(filePath)) {
+      resetImage(propertyValue, null, newAlpha, newFillType, newAnchor);
+      return;
+    }
+    try {
+      URL url = filePath.contains("://") ? new URL(filePath) :
+          (FileUtil.isAbsolutePlatformIndependent(filePath)
+              ? new File(filePath)
+              : new File(PathManager.getConfigPath(), filePath)).toURI().toURL();
+      ModalityState modalityState = ModalityState.stateForComponent(rootComponent);
+      ApplicationManager.getApplication().executeOnPooledThread(() -> {
+        BufferedImageFilter flipFilter = flipV || flipH ? flipFilter(flipV, flipH) : null;
+        Image m = ImageLoader.loadFromUrl(url, true, true, new ImageFilter[]{flipFilter}, JBUI.ScaleContext.create());
+        ApplicationManager.getApplication().invokeLater(() -> resetImage(propertyValue, m, newAlpha, newFillType, newAnchor), modalityState);
+      });
+    }
+    catch (Exception e) {
+      resetImage(propertyValue, null, newAlpha, newFillType, newAnchor);
+    }
   }
 
 }
