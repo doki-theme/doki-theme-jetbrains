@@ -22,11 +22,11 @@ import javax.swing.*
  * Forged in the flames of battle by alex.
  */
 class DDLCChibiTransform : PairFunction<JComponent, Graphics2D, Graphics2D> {
+    private val initializedComponents = HashSet<IdeGlassPaneImpl>()
     private val painters = listOf(DDLC_CHIBI_PROP, DDLC_BACKGROUND_PROP)
-    private var initialized = false
     override fun `fun`(c: JComponent, g: Graphics2D): Graphics2D {
         val glassPane = c.rootPane.glassPane
-        if (glassPane is IdeGlassPaneImpl && !initialized) {
+        if (glassPane is IdeGlassPaneImpl && !initializedComponents.contains(glassPane)) {
             IdeGlassPaneImpl::class.java.declaredMethods.stream()
                     .filter { it.name == "getNamedPainters" }.findFirst()
                     .ifPresent { getNamedPaintersMethod ->
@@ -46,7 +46,7 @@ class DDLCChibiTransform : PairFunction<JComponent, Graphics2D, Graphics2D> {
                                             initWallpaperPainterMethod.isAccessible = true
                                             initWallpaperPainterMethod.invoke(null, painterName, painter)//this is stupid ._.
                                         }
-                                initialized = true
+                                initializedComponents.add(glassPane)
                             }
                         }
                     }
@@ -54,8 +54,7 @@ class DDLCChibiTransform : PairFunction<JComponent, Graphics2D, Graphics2D> {
         }
         return when (getComponentType(c)) {
             "frame" -> withFrameBackground(g, c)
-            "editor" -> withEditorBackground(g, c)
-            else -> g
+            else -> withEditorBackground(g, c)
         }
     }
 
