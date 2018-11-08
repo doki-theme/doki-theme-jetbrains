@@ -40,7 +40,6 @@ import com.intellij.openapi.util.registry.Registry;
 import com.intellij.ui.components.JBScrollBar;
 import com.intellij.util.ui.JBUI;
 import com.intellij.util.ui.UIUtil;
-import io.acari.DDLC.ui.DDLCRootPaneUI;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
@@ -207,7 +206,7 @@ public class MTLafInstaller {
     );
 
     defaults.put("InternalFrameUI", DarculaInternalFrameUI.class.getName());
-    defaults.put("RootPaneUI", DDLCRootPaneUI.class.getName());
+    defaults.put("RootPaneUI", DarculaRootPaneUI.class.getName());
 
     LegacySupportUtility.INSTANCE.invokeClassSafely(
       "com.intellij.util.ui.GrayFilter",
@@ -347,8 +346,8 @@ public class MTLafInstaller {
   }
 
   private void replaceRootPane(final UIDefaults defaults) {
-    defaults.put("RootPaneUI", DDLCRootPaneUI.class.getName());
-    defaults.put(DDLCRootPaneUI.class.getName(), DDLCRootPaneUI.class);
+    defaults.put("RootPaneUI", MTRootPaneUI.class.getName());
+    defaults.put(MTRootPaneUI.class.getName(), MTRootPaneUI.class);
   }
 
   private void replaceTextAreas(final UIDefaults defaults) {

@@ -6,7 +6,6 @@ import com.intellij.ide.util.PropertiesComponent
 import com.intellij.ide.util.TipDialog
 import com.intellij.openapi.components.AbstractProjectComponent
 import com.intellij.openapi.project.Project
-import com.intellij.openapi.wm.WindowManager
 import java.time.Instant
 import java.util.*
 
@@ -32,10 +31,6 @@ class DDLCProjectInitializationComponent(project: Project?) : AbstractProjectCom
                 showMonikasWritingTipOfTheDay(timesTipsChosen)
             }
         }
-
-        val frame = WindowManager.getInstance().getFrame(this.myProject)!!
-        val ideFrame = WindowManager.getInstance().getIdeFrame(this.myProject)
-
     }
 
     private fun shouldShowAgain() = random.nextLong() % 42 == 0L
