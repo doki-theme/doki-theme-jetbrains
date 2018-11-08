@@ -7,7 +7,6 @@ import com.intellij.ide.util.TipDialog
 import com.intellij.openapi.components.AbstractProjectComponent
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.wm.WindowManager
-import io.acari.DDLC.ui.chibi.DDLCChibiPane
 import java.time.Instant
 import java.util.*
 
@@ -35,7 +34,6 @@ class DDLCProjectInitializationComponent(project: Project?) : AbstractProjectCom
         }
 
         val frame = WindowManager.getInstance().getFrame(this.myProject)!!
-        DDLCChibiPane(frame)
         val ideFrame = WindowManager.getInstance().getIdeFrame(this.myProject)
 
     }
