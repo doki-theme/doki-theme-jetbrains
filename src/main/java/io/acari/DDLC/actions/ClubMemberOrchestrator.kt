@@ -25,7 +25,6 @@ object ClubMemberOrchestrator {
     const val DDLC_CHIBI_PROP = "io.acari.ddlc.chibi"
     const val DDLC_BACKGROUND_PROP = "io.acari.ddlc.background"
     private val oldChibiProps = listOf(EDITOR_PROP, FRAME_PROP)
-    private const val CLUB_MEMBER_ON = "CLUB_MEMBER_ON"
     private const val SAVED_THEME = "CLUB_MEMBER_THEME_PROPERTY"
     private const val RESOURCES_DIRECTORY = "https://raw.githubusercontent.com/cyclic-reference/ddlc-jetbrains-theme/master/src/main/resources"
 
@@ -49,6 +48,13 @@ object ClubMemberOrchestrator {
     fun currentActiveTheme() = currentTheme
 
 
+    fun setChibiLevel(chibiLevel: ChibiLevel) {
+        this.chibiLevel = chibiLevel
+        MTConfig.getInstance().setChibiLevel(chibiLevel)
+    }
+
+    fun currentChibiLevel() = chibiLevel
+
     fun activate(theme: MTThemes) {
         currentTheme = theme
         removeWeebShit()
@@ -57,37 +63,16 @@ object ClubMemberOrchestrator {
 
     fun weebShitOn(): Boolean = chibiLevel != ChibiLevel.OFF
 
-    fun activateWeebShit(){
-        turnOnWeebShit()
-    }
-
-    fun deactivateWeebShit(){
-        removeWeebShit()
-
-    }
 
     private fun turnOnIfNecessary() {
         if (weebShitOn())
             turnOnWeebShit()
     }
 
-    private fun setOnStatus(chibiLevel: ChibiLevel) {
-        this.chibiLevel = chibiLevel
-        MTConfig.getInstance().setChibiLevel(chibiLevel)
-    }
-
     private fun removeWeebShit() {
         PropertiesComponent.getInstance().unsetValue(DDLC_CHIBI_PROP)
         PropertiesComponent.getInstance().unsetValue(DDLC_BACKGROUND_PROP)
         IdeBackgroundUtil.repaintAllWindows()
-    }
-
-    private fun handleWeebShit(weebShitIsOn: Boolean) {
-        if (weebShitIsOn) {
-            deactivateWeebShit()
-        } else {
-            activateWeebShit()
-        }
     }
 
     private fun turnOnWeebShit() {
@@ -107,11 +92,6 @@ object ClubMemberOrchestrator {
     }
 
     private fun setPropertyValue(propertyKey: String, propertyValue: String) {
-        PropertiesComponent.getInstance().unsetValue(propertyKey)
-        PropertiesComponent.getInstance().setValue(propertyKey, propertyValue)
-    }
-
-    private fun setPropertyValue(propertyKey: String, propertyValue: Boolean) {
         PropertiesComponent.getInstance().unsetValue(propertyKey)
         PropertiesComponent.getInstance().setValue(propertyKey, propertyValue)
     }
@@ -208,11 +188,5 @@ object ClubMemberOrchestrator {
 
         setPropertyValue(propertyKey, propertyValue)
     }
-
-    fun setChibiLevel(chibiLevel: ChibiLevel) {
-        this.chibiLevel = chibiLevel
-    }
-
-    fun currentChibiLevel() = chibiLevel
 
 }
