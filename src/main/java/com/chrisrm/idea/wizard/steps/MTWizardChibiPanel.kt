@@ -35,7 +35,7 @@ import io.acari.DDLC.chibi.ChibiOrchestrator
 import com.chrisrm.idea.actions.DarkMode
 import com.intellij.ide.customize.AbstractCustomizeWizardStep
 import com.intellij.ui.components.JBScrollPane
-import io.acari.DDLC.actions.ChibiLevel
+import io.acari.DDLC.chibi.ChibiLevel
 import net.miginfocom.swing.MigLayout
 import java.awt.BorderLayout
 import java.awt.Dimension

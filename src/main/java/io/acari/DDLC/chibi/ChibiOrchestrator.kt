@@ -7,7 +7,6 @@ import com.intellij.openapi.wm.impl.IdeBackgroundUtil
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil.EDITOR_PROP
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil.FRAME_PROP
 import com.intellij.util.io.isFile
-import io.acari.DDLC.actions.ChibiLevel
 import org.apache.commons.io.IOUtils
 import java.io.BufferedInputStream
 import java.io.IOException
