@@ -17,7 +17,6 @@ import java.nio.file.StandardOpenOption.CREATE
 import java.nio.file.StandardOpenOption.TRUNCATE_EXISTING
 import java.nio.file.attribute.BasicFileAttributeView
 import java.util.*
-import java.util.concurrent.atomic.AtomicBoolean
 
 /**
  * Forged in the flames of battle by alex.
@@ -30,17 +29,12 @@ object ClubMemberOrchestrator {
     private const val SAVED_THEME = "CLUB_MEMBER_THEME_PROPERTY"
     private const val RESOURCES_DIRECTORY = "https://raw.githubusercontent.com/cyclic-reference/ddlc-jetbrains-theme/master/src/main/resources"
 
-    private val isOn = AtomicBoolean(true)
+    private var chibiLevel = ChibiLevel.OVER9000
     private var currentTheme = getSavedTheme()
 
     init {
         removeLegacyProperties()
-        isOn.getAndSet(MTConfig.getInstance().areClubMembersOn)
-        if(isOn.get()){
-            activateWeebShit()
-        } else {
-            deactivateWeebShit()
-        }
+        setChibiLevel(MTConfig.getInstance().getChibiLevel())
     }
 
     private fun removeLegacyProperties() {
@@ -54,10 +48,6 @@ object ClubMemberOrchestrator {
 
     fun currentActiveTheme() = currentTheme
 
-    fun toggleWeebShit() {
-        val weebShitIsOn = isOn.get()
-        handleWeebShit(weebShitIsOn)
-    }
 
     fun activate(theme: MTThemes) {
         currentTheme = theme
@@ -65,26 +55,25 @@ object ClubMemberOrchestrator {
         turnOnIfNecessary()
     }
 
-    fun weebShitOn(): Boolean = isOn.get()
+    fun weebShitOn(): Boolean = chibiLevel != ChibiLevel.OFF
 
     fun activateWeebShit(){
         turnOnWeebShit()
-        setOnStatus(true)
     }
 
     fun deactivateWeebShit(){
         removeWeebShit()
-        setOnStatus(false)
+
     }
 
     private fun turnOnIfNecessary() {
-        if (isOn.get())
+        if (weebShitOn())
             turnOnWeebShit()
     }
 
-    private fun setOnStatus(weebShitIsOn: Boolean) {
-        isOn.getAndSet(weebShitIsOn)
-        setPropertyValue(CLUB_MEMBER_ON, weebShitIsOn)
+    private fun setOnStatus(chibiLevel: ChibiLevel) {
+        this.chibiLevel = chibiLevel
+        MTConfig.getInstance().setChibiLevel(chibiLevel)
     }
 
     private fun removeWeebShit() {
@@ -219,8 +208,6 @@ object ClubMemberOrchestrator {
 
         setPropertyValue(propertyKey, propertyValue)
     }
-
-    private var chibiLevel = ChibiLevel.OVER9000
 
     fun setChibiLevel(chibiLevel: ChibiLevel) {
         this.chibiLevel = chibiLevel

@@ -11,6 +11,5 @@ class MTWeebAction : BaseThemeAction() {
 
     override fun setSelected(e: AnActionEvent, state: Boolean) {
         super.setSelected(e, state)
-        ClubMemberOrchestrator.toggleWeebShit()
     }
 }
