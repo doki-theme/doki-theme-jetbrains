@@ -16,6 +16,6 @@ class JoyAction: BaseThemeAction() {
         super.setSelected(e, state)
         JoyManager.toggle()
         val selectedTheme = MTConfig.getInstance().getSelectedTheme() as MTThemes
-        ChibiOrchestrator.activate(selectedTheme)
+        ChibiOrchestrator.activateChibiForTheme(selectedTheme)
     }
 }

@@ -48,7 +48,7 @@ open class ClubMemberThemeAction(private val theme: MTThemes,
         super.selectionActivation()
         accentAction.setAccentToTheme()
         MTThemeManager.getInstance().activate(theme, true)
-        ChibiOrchestrator.activate(theme)
+        ChibiOrchestrator.activateChibiForTheme(theme)
         MTAnalytics.getInstance().track(MTAnalytics.SELECT_THEME, theme);
     }
 

@@ -56,7 +56,7 @@ object ChibiOrchestrator {
 
     fun currentChibiLevel() = chibiLevel
 
-    fun activate(theme: MTThemes) {
+    fun activateChibiForTheme(theme: MTThemes) {
         currentTheme = theme
         removeWeebShit()
         turnOnIfNecessary()
@@ -165,7 +165,7 @@ object ChibiOrchestrator {
     private fun getLiteratureClubMember() =
             getTheme().literatureClubMember
 
-    fun getNormalClubMember() = getTheme().normalClubMember
+    fun getNormalClubMember() = getTheme().normalClubMember!!
 
     private fun getTheme(): MTThemes {
         return currentTheme
