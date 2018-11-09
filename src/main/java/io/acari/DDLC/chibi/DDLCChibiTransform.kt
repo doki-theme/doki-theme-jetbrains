@@ -5,6 +5,7 @@ import com.intellij.openapi.editor.ex.EditorGutterComponentEx
 import com.intellij.openapi.editor.impl.EditorComponentImpl
 import com.intellij.openapi.fileEditor.impl.EditorsSplitters
 import com.intellij.openapi.wm.StatusBar
+import com.intellij.openapi.wm.impl.IdeBackgroundUtil.TARGET_PROP
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil.withNamedPainters
 import com.intellij.openapi.wm.impl.IdeGlassPaneImpl
 import com.intellij.openapi.wm.impl.ToolWindowHeader
@@ -12,6 +13,7 @@ import com.intellij.ui.components.JBLoadingPanel
 import com.intellij.ui.components.JBPanelWithEmptyText
 import com.intellij.ui.tabs.JBTabs
 import com.intellij.util.PairFunction
+import com.intellij.util.containers.ContainerUtil
 import com.intellij.util.containers.stream
 import io.acari.DDLC.actions.ClubMemberOrchestrator.DDLC_BACKGROUND_PROP
 import io.acari.DDLC.actions.ClubMemberOrchestrator.DDLC_CHIBI_PROP
@@ -54,6 +56,7 @@ class DDLCChibiTransform : PairFunction<JComponent, Graphics2D, Graphics2D> {
         }
         return when (getComponentType(c)) {
             "frame" -> withFrameBackground(g, c)
+            null -> g
             else -> withEditorBackground(g, c)
         }
     }
@@ -62,9 +65,18 @@ class DDLCChibiTransform : PairFunction<JComponent, Graphics2D, Graphics2D> {
             withNamedPainters(g, DDLC_BACKGROUND_PROP, c)
 
     private fun withEditorBackground(g: Graphics2D, c: JComponent): Graphics2D =
-            withNamedPainters(g, DDLC_CHIBI_PROP, c)
+            if (suppressBackground(c)) g
+            else withNamedPainters(g, DDLC_CHIBI_PROP, c)
 }
 
+private fun suppressBackground(component: JComponent): Boolean {
+    val type = getComponentType(component) ?: return false
+    val spec = System.getProperty(TARGET_PROP, "*")
+    val allInclusive = spec.startsWith("*")
+    return allInclusive && spec.contains("-$type") || !allInclusive && !spec.contains(type)
+}
+
+private val ourKnownNames = ContainerUtil.newHashSet("navbar", "terminal")
 
 fun getComponentType(component: JComponent): String? {
     return when (component) {
@@ -83,6 +95,7 @@ fun getComponentType(component: JComponent): String? {
         is JBTabs -> "tabs"
         is ToolWindowHeader -> "title"
         is JBPanelWithEmptyText -> "panel"
+        is JPanel -> if (ourKnownNames.contains(component.name)) component.name else null
         else -> null
     }
 }
