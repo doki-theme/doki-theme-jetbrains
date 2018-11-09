@@ -172,15 +172,15 @@
                    icon="/icons/actions/themes/material_monika.png">
                 <action id="ChibiOff" class="io.acari.DDLC.actions.NoChibiAction"
                         text="No Windows" description="No Windows"
-                        icon="/icons/actions/themes/material_monika@2x.png">
+                        icon="/icons/actions/cancel.svg">
                 </action>
                 <action id="ChibiOn" class="io.acari.DDLC.actions.SomeChibiAction"
                         text="Some Windows" description="Some Windows"
-                        icon="/icons/actions/themes/material_monika@2x.png">
+                        icon="/icons/codeStyle/mac/AddNewSectionRule.svg">
                 </action>
                 <action id="ChibiAll" class="io.acari.DDLC.actions.AllChibiAction"
                         text="All Windwos" description="All Windwos"
-                        icon="/icons/actions/themes/material_monika@2x.png">
+                        icon="/icons/codeStyle/AddNewSectionRule.svg">
                 </action>
                 <separator/>
             </group>
