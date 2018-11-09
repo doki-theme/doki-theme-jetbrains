@@ -64,7 +64,6 @@ object ChibiOrchestrator {
 
     fun weebShitOn(): Boolean = chibiLevel != ChibiLevel.OFF
 
-
     private fun turnOnIfNecessary() {
         if (weebShitOn())
             turnOnWeebShit()
