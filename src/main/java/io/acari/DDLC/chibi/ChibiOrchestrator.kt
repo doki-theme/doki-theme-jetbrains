@@ -28,7 +28,7 @@ object ChibiOrchestrator {
     private const val SAVED_THEME = "CLUB_MEMBER_THEME_PROPERTY"
     private const val RESOURCES_DIRECTORY = "https://raw.githubusercontent.com/cyclic-reference/ddlc-jetbrains-theme/master/src/main/resources"
 
-    private var chibiLevel = ChibiLevel.OVER9000
+    private var chibiLevel = ChibiLevel.ON
     private var currentTheme = getSavedTheme()
 
     init {

@@ -139,6 +139,7 @@ class MTWizardChibiPanel : AbstractCustomizeWizardStep() {
         val selectedTheme = ButtonGroup()
         selectedTheme.add(noChibisButton)
         selectedTheme.add(yesChibisButton)
+        selectedTheme.add(allTheChibisButton)
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
     // JFormDesigner - End of variables declaration  //GEN-END:variables
@@ -147,6 +148,7 @@ class MTWizardChibiPanel : AbstractCustomizeWizardStep() {
     override fun beforeShown(forward: Boolean) {
         super.beforeShown(forward)
         try{
+            grid!!.remove(2)
             grid!!.remove(1)
             grid!!.remove(0)
         }catch (throwable: Throwable){}
