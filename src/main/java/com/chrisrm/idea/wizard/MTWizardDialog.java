@@ -45,6 +45,7 @@ import java.util.List;
 public class MTWizardDialog extends CustomizeIDEWizardDialog implements ActionListener {
 
   public static final String MT_IS_SHOWN_WIZARD = "ddlc.isShownWizard.v2.1";
+  public static final String PREVIOUS_WIZARD = "ddlc.isShownWizard.v2.0";
   private Field myNextButtonField;
   private Field myBackButtonField;
   private Field mySkipButtonField;
