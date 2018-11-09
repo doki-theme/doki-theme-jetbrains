@@ -63,6 +63,7 @@ class DDLCChibiTransform : PairFunction<JComponent, Graphics2D, Graphics2D> {
             "editor" -> {
                 val editor = (c as? EditorComponentImpl)?.editor
                         ?: if (c is EditorGutterComponentEx) CommonDataKeys.EDITOR.getData(c as DataProvider) else null
+                //todo: need to handle the dumb
                 if (editor != null && g::class.java.name != "MyGraphics" && java.lang.Boolean.TRUE == EditorTextField.SUPPLEMENTARY_KEY.get(editor)) g
                 else withEditorBackground(g, c)
             }
