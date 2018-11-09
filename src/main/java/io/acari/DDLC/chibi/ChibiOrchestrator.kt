@@ -1,4 +1,4 @@
-package io.acari.DDLC.actions
+package io.acari.DDLC.chibi
 
 import com.chrisrm.idea.MTConfig
 import com.chrisrm.idea.MTThemes
@@ -7,6 +7,7 @@ import com.intellij.openapi.wm.impl.IdeBackgroundUtil
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil.EDITOR_PROP
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil.FRAME_PROP
 import com.intellij.util.io.isFile
+import io.acari.DDLC.actions.ChibiLevel
 import org.apache.commons.io.IOUtils
 import java.io.BufferedInputStream
 import java.io.IOException
@@ -49,7 +50,7 @@ object ChibiOrchestrator {
 
 
     fun setChibiLevel(chibiLevel: ChibiLevel) {
-        this.chibiLevel = chibiLevel
+        ChibiOrchestrator.chibiLevel = chibiLevel
         MTConfig.getInstance().setChibiLevel(chibiLevel)
     }
 

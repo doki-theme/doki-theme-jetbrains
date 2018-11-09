@@ -2,7 +2,7 @@ package com.chrisrm.idea.actions
 
 import com.chrisrm.idea.actions.themes.BaseThemeAction
 import com.intellij.openapi.actionSystem.AnActionEvent
-import io.acari.DDLC.actions.ChibiOrchestrator
+import io.acari.DDLC.chibi.ChibiOrchestrator
 
 class MTWeebAction : BaseThemeAction() {
 

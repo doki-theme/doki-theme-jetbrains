@@ -30,7 +30,7 @@ import com.chrisrm.idea.MTAnalytics
 import com.chrisrm.idea.MTConfig
 import com.chrisrm.idea.MTThemeManager
 import com.chrisrm.idea.MTThemes
-import io.acari.DDLC.actions.ChibiOrchestrator
+import io.acari.DDLC.chibi.ChibiOrchestrator
 import com.chrisrm.idea.actions.MTAddFileColorsAction
 import com.chrisrm.idea.actions.accents.MTAbstractAccentAction
 import com.chrisrm.idea.tree.MTProjectViewNodeDecorator

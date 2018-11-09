@@ -31,7 +31,7 @@
 package com.chrisrm.idea.wizard.steps
 
 import com.chrisrm.idea.MTThemes
-import io.acari.DDLC.actions.ChibiOrchestrator
+import io.acari.DDLC.chibi.ChibiOrchestrator
 import com.chrisrm.idea.actions.DarkMode
 import com.chrisrm.idea.actions.themes.literature.club.JustMonikaThemeAction
 import com.chrisrm.idea.actions.themes.literature.club.NatsukiThemeAction

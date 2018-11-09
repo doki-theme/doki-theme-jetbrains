@@ -22,9 +22,8 @@ import com.intellij.util.containers.ContainerUtil
 import com.intellij.util.containers.stream
 import com.intellij.util.ui.UIUtil
 import io.acari.DDLC.actions.ChibiLevel
-import io.acari.DDLC.actions.ChibiOrchestrator
-import io.acari.DDLC.actions.ChibiOrchestrator.DDLC_BACKGROUND_PROP
-import io.acari.DDLC.actions.ChibiOrchestrator.DDLC_CHIBI_PROP
+import io.acari.DDLC.chibi.ChibiOrchestrator.DDLC_BACKGROUND_PROP
+import io.acari.DDLC.chibi.ChibiOrchestrator.DDLC_CHIBI_PROP
 import java.awt.Color
 import java.awt.Graphics2D
 import javax.swing.*
