@@ -53,6 +53,9 @@ class MTWizardChibiPanel : AbstractCustomizeWizardStep() {
     private var yesChibisPanel: JPanel? = null
     private var yesChibisButton: JRadioButton? = null
     private var yesChibisLabel: JLabel? = null
+    private var allTheChibisPanel: JPanel? = null
+    private var allTheChibisButton: JRadioButton? = null
+    private var allTheChibisLabel: JLabel? = null
 
     init {
         initComponents()
@@ -70,7 +73,7 @@ class MTWizardChibiPanel : AbstractCustomizeWizardStep() {
 
     override fun getHTMLHeader(): String =
             """<html><body>
-                <h2>Do you want Chibis?</h2>&nbsp;<br/>
+                <h2>Do you want Chibis and how many?</h2>&nbsp;<br/>
                 ${getSpecialMessage()}
                 </body></html>""".trimIndent()
 
@@ -80,6 +83,10 @@ class MTWizardChibiPanel : AbstractCustomizeWizardStep() {
     }
 
     private fun yesChibisButtonActionPerformed() {
+        ClubMemberOrchestrator.activateWeebShit()
+    }
+
+    private fun allTheChibisButtonActionPerformed() {
         ClubMemberOrchestrator.activateWeebShit()
     }
 
@@ -94,6 +101,9 @@ class MTWizardChibiPanel : AbstractCustomizeWizardStep() {
         yesChibisPanel = JPanel()
         yesChibisButton = JRadioButton()
         yesChibisLabel = JLabel()
+        allTheChibisPanel = JPanel()
+        allTheChibisButton = JRadioButton()
+        allTheChibisLabel = JLabel()
 
         //======== this ========
         layout = BorderLayout()
@@ -167,7 +177,7 @@ class MTWizardChibiPanel : AbstractCustomizeWizardStep() {
             yesChibisPanel!!.layout = BoxLayout(yesChibisPanel, BoxLayout.Y_AXIS)
 
             //---- yesChibisButton ----
-            yesChibisButton!!.text = "Yes! Chibis please!"
+            yesChibisButton!!.text = "Yes! I want Chibis in SOME windows!"
             yesChibisButton!!.isSelected = ClubMemberOrchestrator.weebShitOn()
             yesChibisButton!!.horizontalAlignment = SwingConstants.LEFT
             yesChibisButton!!.actionCommand = "yesChibis"
@@ -179,6 +189,25 @@ class MTWizardChibiPanel : AbstractCustomizeWizardStep() {
             yesChibisPanel!!.add(yesChibisLabel)
         }
         grid!!.add(yesChibisPanel!!, "cell 1 0")
+
+        //======== allTheChibisPanel ========
+        run {
+            allTheChibisPanel!!.border = EmptyBorder(5, 5, 5, 5)
+            allTheChibisPanel!!.layout = BoxLayout(allTheChibisPanel, BoxLayout.Y_AXIS)
+
+            //---- allTheChibisButton ----
+            allTheChibisButton!!.text = "OH YEAH! I want Chibis in ALL windows!"
+            allTheChibisButton!!.isSelected = ClubMemberOrchestrator.weebShitOn()
+            allTheChibisButton!!.horizontalAlignment = SwingConstants.LEFT
+            allTheChibisButton!!.actionCommand = "allTheChibis"
+            allTheChibisButton!!.addActionListener { this.allTheChibisButtonActionPerformed() }
+            allTheChibisPanel!!.add(allTheChibisButton)
+
+            //---- allTheChibisLabel ----
+            allTheChibisLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/chibis/chibi_$clubMemberPostFix"))
+            allTheChibisPanel!!.add(allTheChibisLabel)
+        }
+        grid!!.add(allTheChibisPanel!!, "cell 2 0")
 
     }
 }
