@@ -5,7 +5,9 @@ import com.intellij.openapi.actionSystem.CommonDataKeys
 import com.intellij.openapi.actionSystem.DataProvider
 import com.intellij.openapi.editor.ex.EditorGutterComponentEx
 import com.intellij.openapi.editor.impl.EditorComponentImpl
+import com.intellij.openapi.editor.impl.EditorImpl
 import com.intellij.openapi.fileEditor.impl.EditorsSplitters
+import com.intellij.openapi.util.Condition
 import com.intellij.openapi.wm.StatusBar
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil.TARGET_PROP
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil.withNamedPainters
@@ -18,8 +20,10 @@ import com.intellij.ui.tabs.JBTabs
 import com.intellij.util.PairFunction
 import com.intellij.util.containers.ContainerUtil
 import com.intellij.util.containers.stream
+import com.intellij.util.ui.UIUtil
 import io.acari.DDLC.actions.ClubMemberOrchestrator.DDLC_BACKGROUND_PROP
 import io.acari.DDLC.actions.ClubMemberOrchestrator.DDLC_CHIBI_PROP
+import java.awt.Color
 import java.awt.Graphics2D
 import javax.swing.*
 
@@ -59,15 +63,39 @@ class DDLCChibiTransform : PairFunction<JComponent, Graphics2D, Graphics2D> {
         }
         return when (getComponentType(c)) {
             "frame" -> withFrameBackground(g, c)
-            null, "viewport" -> g
+            null -> g
             "editor" -> {
                 val editor = (c as? EditorComponentImpl)?.editor
                         ?: if (c is EditorGutterComponentEx) CommonDataKeys.EDITOR.getData(c as DataProvider) else null
-                //todo: need to handle the dumb
-                if (editor != null && g::class.java.name != "MyGraphics" && java.lang.Boolean.TRUE == EditorTextField.SUPPLEMENTARY_KEY.get(editor)) g
+                if (editor != null && g::class.java.name.contains("MyGraphics").not() && java.lang.Boolean.TRUE == EditorTextField.SUPPLEMENTARY_KEY.get(editor)) g
+                else if (c is EditorComponentImpl && (editor as EditorImpl).isDumb)
+                    g
                 else withEditorBackground(g, c)
             }
-            else -> withEditorBackground(g, c)
+            else -> {
+                val gg = withEditorBackground(g, c)
+                if (gg::class.java.name.contains("MyGraphics")) {
+                    val view = if (c is JViewport) c.view else c
+                    val selection1 = when (view) {
+                        is JTree -> UIUtil.getTreeSelectionBackground()
+                        is JList<*> -> UIUtil.getListSelectionBackground()
+                        is JTable -> UIUtil.getTableSelectionBackground()
+                        else -> null
+                    }
+                    val selection2 = when (view) {
+                        is JTree -> UIUtil.getTreeUnfocusedSelectionBackground()
+                        is JList<*> -> UIUtil.getListUnfocusedSelectionBackground()
+                        is JTable -> UIUtil.getTableUnfocusedSelectionBackground()
+                        else -> null
+                    }
+
+                    val preservation = Condition<Color> { color -> color === selection1 || color === selection2 }
+                    val preservedField = gg::class.java.getDeclaredField("preserved")
+                    preservedField.isAccessible = true
+                    preservedField.set(gg, preservation)
+                }
+                return gg
+            }
         }
     }
 
