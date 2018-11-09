@@ -96,7 +96,7 @@ fun getComponentType(component: JComponent): String? {
         is ToolWindowHeader -> "title"
         is JBPanelWithEmptyText -> "panel"
         is JPanel -> if (ourKnownNames.contains(component.name)) component.name else null
-        else -> null
+        else -> if(component.javaClass.name == "Stripe") "stripe" else null
     }
 }
 
