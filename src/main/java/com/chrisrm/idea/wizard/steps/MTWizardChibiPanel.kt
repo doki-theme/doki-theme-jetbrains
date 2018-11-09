@@ -71,7 +71,6 @@ class MTWizardChibiPanel : AbstractCustomizeWizardStep() {
     override fun getHTMLHeader(): String =
             """<html><body>
                 <h2>Do you want Chibis?</h2>&nbsp;<br/>
-                <h3>Head's Up: Activating Chibis will require special steps to remove the images once the plugin is uninstalled!</h3>
                 ${getSpecialMessage()}
                 </body></html>""".trimIndent()
 
