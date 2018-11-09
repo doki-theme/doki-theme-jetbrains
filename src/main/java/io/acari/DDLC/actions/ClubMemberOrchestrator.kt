@@ -4,6 +4,8 @@ import com.chrisrm.idea.MTConfig
 import com.chrisrm.idea.MTThemes
 import com.intellij.ide.util.PropertiesComponent
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil
+import com.intellij.openapi.wm.impl.IdeBackgroundUtil.EDITOR_PROP
+import com.intellij.openapi.wm.impl.IdeBackgroundUtil.FRAME_PROP
 import com.intellij.util.io.isFile
 import org.apache.commons.io.IOUtils
 import java.io.BufferedInputStream
@@ -23,6 +25,7 @@ import java.util.concurrent.atomic.AtomicBoolean
 object ClubMemberOrchestrator {
     const val DDLC_CHIBI_PROP = "io.acari.ddlc.chibi"
     const val DDLC_BACKGROUND_PROP = "io.acari.ddlc.background"
+    private val oldChibiProps = listOf(EDITOR_PROP, FRAME_PROP)
     private const val CLUB_MEMBER_ON = "CLUB_MEMBER_ON"
     private const val SAVED_THEME = "CLUB_MEMBER_THEME_PROPERTY"
     private const val RESOURCES_DIRECTORY = "https://raw.githubusercontent.com/cyclic-reference/ddlc-jetbrains-theme/master/src/main/resources"
@@ -31,11 +34,18 @@ object ClubMemberOrchestrator {
     private var currentTheme = getSavedTheme()
 
     init {
+        removeLegacyProperties()
         isOn.getAndSet(MTConfig.getInstance().areClubMembersOn)
         if(isOn.get()){
             activateWeebShit()
         } else {
             deactivateWeebShit()
+        }
+    }
+
+    fun removeLegacyProperties() {
+        oldChibiProps.forEach {
+            PropertiesComponent.getInstance().unsetValue(it)
         }
     }
 
