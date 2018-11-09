@@ -1,6 +1,8 @@
 package io.acari.DDLC.chibi
 
 import com.intellij.openapi.actionSystem.ActionToolbar
+import com.intellij.openapi.actionSystem.CommonDataKeys
+import com.intellij.openapi.actionSystem.DataProvider
 import com.intellij.openapi.editor.ex.EditorGutterComponentEx
 import com.intellij.openapi.editor.impl.EditorComponentImpl
 import com.intellij.openapi.fileEditor.impl.EditorsSplitters
@@ -9,6 +11,7 @@ import com.intellij.openapi.wm.impl.IdeBackgroundUtil.TARGET_PROP
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil.withNamedPainters
 import com.intellij.openapi.wm.impl.IdeGlassPaneImpl
 import com.intellij.openapi.wm.impl.ToolWindowHeader
+import com.intellij.ui.EditorTextField
 import com.intellij.ui.components.JBLoadingPanel
 import com.intellij.ui.components.JBPanelWithEmptyText
 import com.intellij.ui.tabs.JBTabs
@@ -57,6 +60,12 @@ class DDLCChibiTransform : PairFunction<JComponent, Graphics2D, Graphics2D> {
         return when (getComponentType(c)) {
             "frame" -> withFrameBackground(g, c)
             null -> g
+            "editor" -> {
+                val editor = (c as? EditorComponentImpl)?.editor
+                        ?: if (c is EditorGutterComponentEx) CommonDataKeys.EDITOR.getData(c as DataProvider) else null
+                if (editor != null && g::class.java.name != "MyGraphics" && java.lang.Boolean.TRUE == EditorTextField.SUPPLEMENTARY_KEY.get(editor)) g
+                else withEditorBackground(g, c)
+            }
             else -> withEditorBackground(g, c)
         }
     }
@@ -96,7 +105,7 @@ fun getComponentType(component: JComponent): String? {
         is ToolWindowHeader -> "title"
         is JBPanelWithEmptyText -> "panel"
         is JPanel -> if (ourKnownNames.contains(component.name)) component.name else null
-        else -> if(component.javaClass.name == "Stripe") "stripe" else null
+        else -> if (component.javaClass.name == "Stripe") "stripe" else null
     }
 }
 

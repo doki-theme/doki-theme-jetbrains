@@ -43,7 +43,7 @@ object ClubMemberOrchestrator {
         }
     }
 
-    fun removeLegacyProperties() {
+    private fun removeLegacyProperties() {
         oldChibiProps.forEach {
             PropertiesComponent.getInstance().unsetValue(it)
         }
