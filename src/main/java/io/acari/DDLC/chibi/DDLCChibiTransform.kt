@@ -59,7 +59,7 @@ class DDLCChibiTransform : PairFunction<JComponent, Graphics2D, Graphics2D> {
         }
         return when (getComponentType(c)) {
             "frame" -> withFrameBackground(g, c)
-            null -> g
+            null, "viewport" -> g
             "editor" -> {
                 val editor = (c as? EditorComponentImpl)?.editor
                         ?: if (c is EditorGutterComponentEx) CommonDataKeys.EDITOR.getData(c as DataProvider) else null
