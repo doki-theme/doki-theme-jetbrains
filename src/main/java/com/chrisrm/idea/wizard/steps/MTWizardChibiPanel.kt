@@ -35,6 +35,7 @@ import io.acari.DDLC.actions.ClubMemberOrchestrator
 import com.chrisrm.idea.actions.DarkMode
 import com.intellij.ide.customize.AbstractCustomizeWizardStep
 import com.intellij.ui.components.JBScrollPane
+import io.acari.DDLC.actions.ChibiLevel
 import net.miginfocom.swing.MigLayout
 import java.awt.BorderLayout
 import java.awt.Dimension
@@ -79,15 +80,15 @@ class MTWizardChibiPanel : AbstractCustomizeWizardStep() {
 
 
     private fun noChibisButtonActionPerformed() {
-        ClubMemberOrchestrator.deactivateWeebShit()
+        ClubMemberOrchestrator.setChibiLevel(ChibiLevel.OFF)
     }
 
     private fun yesChibisButtonActionPerformed() {
-        ClubMemberOrchestrator.activateWeebShit()
+        ClubMemberOrchestrator.setChibiLevel(ChibiLevel.ON)
     }
 
     private fun allTheChibisButtonActionPerformed() {
-        ClubMemberOrchestrator.activateWeebShit()
+        ClubMemberOrchestrator.setChibiLevel(ChibiLevel.OVER9000)
     }
 
     private fun initComponents() {
@@ -159,7 +160,7 @@ class MTWizardChibiPanel : AbstractCustomizeWizardStep() {
 
             //---- noChibisButton ----
             noChibisButton!!.text = "No, I do not want Chibis."
-            noChibisButton!!.isSelected = !ClubMemberOrchestrator.weebShitOn()
+            noChibisButton!!.isSelected = ClubMemberOrchestrator.currentChibiLevel() == ChibiLevel.OFF
             noChibisButton!!.horizontalAlignment = SwingConstants.LEFT
             noChibisButton!!.actionCommand = "noChibis"
             noChibisButton!!.addActionListener { this.noChibisButtonActionPerformed() }
@@ -178,7 +179,7 @@ class MTWizardChibiPanel : AbstractCustomizeWizardStep() {
 
             //---- yesChibisButton ----
             yesChibisButton!!.text = "Yes! I want Chibis in SOME windows!"
-            yesChibisButton!!.isSelected = ClubMemberOrchestrator.weebShitOn()
+            yesChibisButton!!.isSelected = ClubMemberOrchestrator.currentChibiLevel() == ChibiLevel.ON
             yesChibisButton!!.horizontalAlignment = SwingConstants.LEFT
             yesChibisButton!!.actionCommand = "yesChibis"
             yesChibisButton!!.addActionListener { this.yesChibisButtonActionPerformed() }
@@ -197,7 +198,7 @@ class MTWizardChibiPanel : AbstractCustomizeWizardStep() {
 
             //---- allTheChibisButton ----
             allTheChibisButton!!.text = "OH YEAH! I want Chibis in ALL windows!"
-            allTheChibisButton!!.isSelected = ClubMemberOrchestrator.weebShitOn()
+            allTheChibisButton!!.isSelected = ClubMemberOrchestrator.currentChibiLevel() == ChibiLevel.OVER9000
             allTheChibisButton!!.horizontalAlignment = SwingConstants.LEFT
             allTheChibisButton!!.actionCommand = "allTheChibis"
             allTheChibisButton!!.addActionListener { this.allTheChibisButtonActionPerformed() }

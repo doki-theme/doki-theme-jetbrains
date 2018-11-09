@@ -220,4 +220,12 @@ object ClubMemberOrchestrator {
         setPropertyValue(propertyKey, propertyValue)
     }
 
+    private var chibiLevel = ChibiLevel.OVER9000
+
+    fun setChibiLevel(chibiLevel: ChibiLevel) {
+        this.chibiLevel = chibiLevel
+    }
+
+    fun currentChibiLevel() = chibiLevel
+
 }
