@@ -4,7 +4,7 @@ import com.chrisrm.idea.MTConfig
 import com.chrisrm.idea.MTThemes
 import com.chrisrm.idea.actions.themes.BaseThemeAction
 import com.intellij.openapi.actionSystem.AnActionEvent
-import io.acari.DDLC.actions.ClubMemberOrchestrator
+import io.acari.DDLC.actions.ChibiOrchestrator
 
 /**
  * Forged in the flames of battle by alex.
@@ -16,6 +16,6 @@ class JoyAction: BaseThemeAction() {
         super.setSelected(e, state)
         JoyManager.toggle()
         val selectedTheme = MTConfig.getInstance().getSelectedTheme() as MTThemes
-        ClubMemberOrchestrator.activate(selectedTheme)
+        ChibiOrchestrator.activate(selectedTheme)
     }
 }

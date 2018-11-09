@@ -21,7 +21,7 @@ import java.util.*
 /**
  * Forged in the flames of battle by alex.
  */
-object ClubMemberOrchestrator {
+object ChibiOrchestrator {
     const val DDLC_CHIBI_PROP = "io.acari.ddlc.chibi"
     const val DDLC_BACKGROUND_PROP = "io.acari.ddlc.background"
     private val oldChibiProps = listOf(EDITOR_PROP, FRAME_PROP)

@@ -31,7 +31,7 @@
 package com.chrisrm.idea.wizard.steps
 
 import com.chrisrm.idea.MTThemes
-import io.acari.DDLC.actions.ClubMemberOrchestrator
+import io.acari.DDLC.actions.ChibiOrchestrator
 import com.chrisrm.idea.actions.DarkMode
 import com.chrisrm.idea.actions.themes.literature.club.JustMonikaThemeAction
 import com.chrisrm.idea.actions.themes.literature.club.NatsukiThemeAction
@@ -96,7 +96,7 @@ class MTWizardThemesPanel : AbstractCustomizeWizardStep() {
 
     private fun initRadioButton(){
         val darkMode = DarkMode.isOn()
-        when (ClubMemberOrchestrator.currentActiveTheme()) {
+        when (ChibiOrchestrator.currentActiveTheme()) {
             MTThemes.MONIKA ->
                 if (darkMode) onlyMonikaButtonActionPerformed()
             else  justMonikaButtonActionPerformed()

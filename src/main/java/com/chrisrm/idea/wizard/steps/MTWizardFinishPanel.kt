@@ -31,7 +31,7 @@
 package com.chrisrm.idea.wizard.steps
 
 import com.chrisrm.idea.MTThemes
-import io.acari.DDLC.actions.ClubMemberOrchestrator
+import io.acari.DDLC.actions.ChibiOrchestrator
 import com.chrisrm.idea.actions.DarkMode
 import com.intellij.ide.customize.AbstractCustomizeWizardStep
 import com.intellij.ui.components.JBScrollPane
@@ -216,7 +216,7 @@ class MTWizardFinishPanel : AbstractCustomizeWizardStep() {
 
     override fun beforeShown(forward: Boolean) {
         super.beforeShown(forward)
-        if (!DarkMode.isOn() && ClubMemberOrchestrator.currentActiveTheme() != MTThemes.MONIKA) {
+        if (!DarkMode.isOn() && ChibiOrchestrator.currentActiveTheme() != MTThemes.MONIKA) {
             content!!.add(vSpacer1!!, "cell 0 5")
             val bundle = ResourceBundle.getBundle("messages.MTWizardBundle")
             //---- disclaimer ----

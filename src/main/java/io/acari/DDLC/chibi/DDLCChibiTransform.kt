@@ -22,9 +22,9 @@ import com.intellij.util.containers.ContainerUtil
 import com.intellij.util.containers.stream
 import com.intellij.util.ui.UIUtil
 import io.acari.DDLC.actions.ChibiLevel
-import io.acari.DDLC.actions.ClubMemberOrchestrator
-import io.acari.DDLC.actions.ClubMemberOrchestrator.DDLC_BACKGROUND_PROP
-import io.acari.DDLC.actions.ClubMemberOrchestrator.DDLC_CHIBI_PROP
+import io.acari.DDLC.actions.ChibiOrchestrator
+import io.acari.DDLC.actions.ChibiOrchestrator.DDLC_BACKGROUND_PROP
+import io.acari.DDLC.actions.ChibiOrchestrator.DDLC_CHIBI_PROP
 import java.awt.Color
 import java.awt.Graphics2D
 import javax.swing.*
@@ -67,7 +67,7 @@ class DDLCChibiTransform : PairFunction<JComponent, Graphics2D, Graphics2D> {
             "frame" -> withFrameBackground(g, c)
             null -> g
             "viewport" ->
-                if (ClubMemberOrchestrator.currentChibiLevel() == ChibiLevel.OVER9000) withEditorBackground(g, c)
+                if (ChibiOrchestrator.currentChibiLevel() == ChibiLevel.OVER9000) withEditorBackground(g, c)
                 else g
             "editor" -> {
                 val editor = (c as? EditorComponentImpl)?.editor

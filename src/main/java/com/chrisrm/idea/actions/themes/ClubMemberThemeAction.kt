@@ -30,7 +30,7 @@ import com.chrisrm.idea.MTAnalytics
 import com.chrisrm.idea.MTConfig
 import com.chrisrm.idea.MTThemeManager
 import com.chrisrm.idea.MTThemes
-import io.acari.DDLC.actions.ClubMemberOrchestrator
+import io.acari.DDLC.actions.ChibiOrchestrator
 import com.chrisrm.idea.actions.MTAddFileColorsAction
 import com.chrisrm.idea.actions.accents.MTAbstractAccentAction
 import com.chrisrm.idea.tree.MTProjectViewNodeDecorator
@@ -48,7 +48,7 @@ open class ClubMemberThemeAction(private val theme: MTThemes,
         super.selectionActivation()
         accentAction.setAccentToTheme()
         MTThemeManager.getInstance().activate(theme, true)
-        ClubMemberOrchestrator.activate(theme)
+        ChibiOrchestrator.activate(theme)
         MTAnalytics.getInstance().track(MTAnalytics.SELECT_THEME, theme);
     }
 

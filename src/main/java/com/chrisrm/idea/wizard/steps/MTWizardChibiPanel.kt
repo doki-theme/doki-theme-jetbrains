@@ -31,7 +31,7 @@
 package com.chrisrm.idea.wizard.steps
 
 import com.chrisrm.idea.MTThemes
-import io.acari.DDLC.actions.ClubMemberOrchestrator
+import io.acari.DDLC.actions.ChibiOrchestrator
 import com.chrisrm.idea.actions.DarkMode
 import com.intellij.ide.customize.AbstractCustomizeWizardStep
 import com.intellij.ui.components.JBScrollPane
@@ -67,7 +67,7 @@ class MTWizardChibiPanel : AbstractCustomizeWizardStep() {
     }
 
     private fun getSpecialMessage() =
-            if (DarkMode.isOn() && ClubMemberOrchestrator.currentActiveTheme() != MTThemes.MONIKA)
+            if (DarkMode.isOn() && ChibiOrchestrator.currentActiveTheme() != MTThemes.MONIKA)
                 """
                 <h4>Note: I see you have dark mode on! "Use Tools -> Panel Options -> Swap Chibi" to make your club member less c̟̺̱̱̪o͚̲̹̼͘r̡̭̤̭̼̟̭̜r͇͚u̘̰͝p͓̝͍̻̩̩t̼̣̙͍͍e͕̹͙̟̬̮͟ͅd̻ anytime :)</h4>
                 """.trimIndent() else ""
@@ -80,15 +80,15 @@ class MTWizardChibiPanel : AbstractCustomizeWizardStep() {
 
 
     private fun noChibisButtonActionPerformed() {
-        ClubMemberOrchestrator.setChibiLevel(ChibiLevel.OFF)
+        ChibiOrchestrator.setChibiLevel(ChibiLevel.OFF)
     }
 
     private fun yesChibisButtonActionPerformed() {
-        ClubMemberOrchestrator.setChibiLevel(ChibiLevel.ON)
+        ChibiOrchestrator.setChibiLevel(ChibiLevel.ON)
     }
 
     private fun allTheChibisButtonActionPerformed() {
-        ClubMemberOrchestrator.setChibiLevel(ChibiLevel.OVER9000)
+        ChibiOrchestrator.setChibiLevel(ChibiLevel.OVER9000)
     }
 
     private fun initComponents() {
@@ -151,7 +151,7 @@ class MTWizardChibiPanel : AbstractCustomizeWizardStep() {
             grid!!.remove(0)
         }catch (throwable: Throwable){}
 
-        val clubMemberPostFix = ClubMemberOrchestrator.getNormalClubMember()
+        val clubMemberPostFix = ChibiOrchestrator.getNormalClubMember()
 
         //======== noChibisPanel ========
         run {
@@ -160,7 +160,7 @@ class MTWizardChibiPanel : AbstractCustomizeWizardStep() {
 
             //---- noChibisButton ----
             noChibisButton!!.text = "No, I do not want Chibis."
-            noChibisButton!!.isSelected = ClubMemberOrchestrator.currentChibiLevel() == ChibiLevel.OFF
+            noChibisButton!!.isSelected = ChibiOrchestrator.currentChibiLevel() == ChibiLevel.OFF
             noChibisButton!!.horizontalAlignment = SwingConstants.LEFT
             noChibisButton!!.actionCommand = "noChibis"
             noChibisButton!!.addActionListener { this.noChibisButtonActionPerformed() }
@@ -179,7 +179,7 @@ class MTWizardChibiPanel : AbstractCustomizeWizardStep() {
 
             //---- yesChibisButton ----
             yesChibisButton!!.text = "Yes! I want Chibis in SOME windows!"
-            yesChibisButton!!.isSelected = ClubMemberOrchestrator.currentChibiLevel() == ChibiLevel.ON
+            yesChibisButton!!.isSelected = ChibiOrchestrator.currentChibiLevel() == ChibiLevel.ON
             yesChibisButton!!.horizontalAlignment = SwingConstants.LEFT
             yesChibisButton!!.actionCommand = "yesChibis"
             yesChibisButton!!.addActionListener { this.yesChibisButtonActionPerformed() }
@@ -198,7 +198,7 @@ class MTWizardChibiPanel : AbstractCustomizeWizardStep() {
 
             //---- allTheChibisButton ----
             allTheChibisButton!!.text = "OH YEAH! I want Chibis in ALL windows!"
-            allTheChibisButton!!.isSelected = ClubMemberOrchestrator.currentChibiLevel() == ChibiLevel.OVER9000
+            allTheChibisButton!!.isSelected = ChibiOrchestrator.currentChibiLevel() == ChibiLevel.OVER9000
             allTheChibisButton!!.horizontalAlignment = SwingConstants.LEFT
             allTheChibisButton!!.actionCommand = "allTheChibis"
             allTheChibisButton!!.addActionListener { this.allTheChibisButtonActionPerformed() }
