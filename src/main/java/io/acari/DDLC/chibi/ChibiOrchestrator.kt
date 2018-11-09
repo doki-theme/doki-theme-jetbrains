@@ -51,12 +51,17 @@ object ChibiOrchestrator {
     fun setChibiLevel(chibiLevel: ChibiLevel) {
         ChibiOrchestrator.chibiLevel = chibiLevel
         MTConfig.getInstance().setChibiLevel(chibiLevel)
+        updateChibi()
     }
 
     fun currentChibiLevel() = chibiLevel
 
     fun activateChibiForTheme(theme: MTThemes) {
         currentTheme = theme
+        updateChibi()
+    }
+
+    private fun updateChibi() {
         removeWeebShit()
         turnOnIfNecessary()
     }
