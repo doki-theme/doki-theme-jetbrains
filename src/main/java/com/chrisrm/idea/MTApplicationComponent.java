@@ -41,6 +41,8 @@ import java.awt.*;
 import java.io.InputStream;
 import java.net.URL;
 
+import static com.chrisrm.idea.wizard.MTWizardDialog.MT_IS_SHOWN_WIZARD;
+
 public final class MTApplicationComponent implements ApplicationComponent {
   public static final String SHOW_STATISTICS_AGREEMENT = "mt.showStatisticsAgreement";
   private boolean updated;
@@ -115,10 +117,10 @@ public final class MTApplicationComponent implements ApplicationComponent {
   }
 
   private void checkWizard() {
-    final boolean isWizardShown = MTConfig.getInstance().getIsWizardShown();
+    final boolean isWizardShown = PropertiesComponent.getInstance().getBoolean(MT_IS_SHOWN_WIZARD);
     if (!isWizardShown) {
       new MTWizardDialog(new MTWizardStepsProvider()).show();
-      MTConfig.getInstance().setIsWizardShown(true);
+      PropertiesComponent.getInstance().setValue(MT_IS_SHOWN_WIZARD, true);
     }
   }
 
