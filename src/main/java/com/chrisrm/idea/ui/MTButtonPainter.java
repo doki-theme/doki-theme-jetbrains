@@ -24,7 +24,7 @@
  */
 package com.chrisrm.idea.ui;
 
-import com.chrisrm.idea.LegacySupportUtility;
+import io.acari.DDLC.LegacySupportUtility;
 import com.intellij.ide.ui.laf.darcula.DarculaUIUtil;
 import com.intellij.ide.ui.laf.darcula.ui.DarculaButtonPainter;
 import com.intellij.openapi.actionSystem.ActionToolbar;

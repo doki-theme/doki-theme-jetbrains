@@ -25,7 +25,7 @@
  */
 package com.chrisrm.idea.ui;
 
-import com.chrisrm.idea.LegacySupportUtility;
+import io.acari.DDLC.LegacySupportUtility;
 import com.intellij.ide.ui.laf.darcula.ui.DarculaCheckBoxUI;
 import com.intellij.openapi.ui.GraphicsConfig;
 import com.intellij.ui.Gray;

@@ -39,6 +39,7 @@ import com.intellij.ui.CaptionPanel;
 import com.intellij.ui.tabs.TabInfo;
 import com.intellij.ui.tabs.impl.JBEditorTabs;
 import com.intellij.util.ui.JBSwingUtilities;
+import io.acari.DDLC.LegacySupportUtility;
 import javassist.*;
 import javassist.expr.ExprEditor;
 import javassist.expr.FieldAccess;

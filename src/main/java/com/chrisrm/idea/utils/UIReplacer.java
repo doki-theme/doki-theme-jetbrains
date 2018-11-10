@@ -26,7 +26,7 @@
 
 package com.chrisrm.idea.utils;
 
-import com.chrisrm.idea.LegacySupportUtility;
+import io.acari.DDLC.LegacySupportUtility;
 import com.chrisrm.idea.MTConfig;
 import com.chrisrm.idea.ui.MTActionButtonLook;
 import com.chrisrm.idea.ui.MTNavBarUI;

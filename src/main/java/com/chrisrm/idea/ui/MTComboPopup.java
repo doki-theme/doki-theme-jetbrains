@@ -26,7 +26,7 @@
 
 package com.chrisrm.idea.ui;
 
-import com.chrisrm.idea.LegacySupportUtility;
+import io.acari.DDLC.LegacySupportUtility;
 import com.chrisrm.idea.MTConfig;
 import com.chrisrm.idea.utils.MTUiUtils;
 import com.intellij.ide.ui.laf.darcula.DarculaUIUtil;

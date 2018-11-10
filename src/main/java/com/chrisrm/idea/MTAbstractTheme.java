@@ -27,6 +27,7 @@
 package com.chrisrm.idea;
 
 import com.chrisrm.idea.themes.MTThemeable;
+import io.acari.DDLC.LegacySupportUtility;
 import io.acari.DDLC.themes.light.MonikaTheme;
 import com.chrisrm.idea.utils.MTUiUtils;
 import com.chrisrm.idea.utils.PropertiesParser;

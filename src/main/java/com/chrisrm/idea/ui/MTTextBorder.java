@@ -24,7 +24,7 @@
  */
 package com.chrisrm.idea.ui;
 
-import com.chrisrm.idea.LegacySupportUtility;
+import io.acari.DDLC.LegacySupportUtility;
 import com.intellij.ide.ui.laf.darcula.ui.DarculaTextBorder;
 import com.intellij.ide.ui.laf.darcula.ui.TextFieldWithPopupHandlerUI;
 import com.intellij.ui.ColorPanel;
