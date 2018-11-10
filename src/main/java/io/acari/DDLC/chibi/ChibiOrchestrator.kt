@@ -23,6 +23,7 @@ import java.util.*
  */
 object ChibiOrchestrator {
     const val DDLC_CHIBI_PROP = "io.acari.ddlc.chibi"
+    private const val CLUB_MEMBER_ON = "CLUB_MEMBER_ON"
     const val DDLC_BACKGROUND_PROP = "io.acari.ddlc.background"
     private val oldChibiProps = listOf(EDITOR_PROP, FRAME_PROP)
     private const val SAVED_THEME = "CLUB_MEMBER_THEME_PROPERTY"
@@ -32,8 +33,21 @@ object ChibiOrchestrator {
     private var currentTheme = getSavedTheme()
 
     init {
+        checkLegacyChibiToggle()
         removeLegacyProperties()
         setChibiLevel(MTConfig.getInstance().getChibiLevel())
+    }
+
+    private fun checkLegacyChibiToggle() {
+        if(PropertiesComponent.getInstance().isValueSet(CLUB_MEMBER_ON)){
+            val clubMemberOn = PropertiesComponent.getInstance().getBoolean(CLUB_MEMBER_ON)
+            if(clubMemberOn){
+                setChibiLevel(ChibiLevel.ON)
+            } else {
+                setChibiLevel(ChibiLevel.OFF)
+            }
+            PropertiesComponent.getInstance().unsetValue(CLUB_MEMBER_ON)
+        }
     }
 
     private fun removeLegacyProperties() {
