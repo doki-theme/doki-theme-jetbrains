@@ -1,11 +1,14 @@
 package io.acari.DDLC
 
+import com.chrisrm.idea.MTConfig
 import io.acari.DDLC.actions.DDLCAddFileColorsAction
 import com.intellij.ide.GeneralSettings
 import com.intellij.ide.util.PropertiesComponent
 import com.intellij.ide.util.TipDialog
 import com.intellij.openapi.components.AbstractProjectComponent
 import com.intellij.openapi.project.Project
+import io.acari.DDLC.wizard.DDLCWizardDialog
+import io.acari.DDLC.wizard.DDLCWizardStepsProvider
 import java.time.Instant
 import java.util.*
 
@@ -15,6 +18,19 @@ import java.util.*
 class DDLCProjectInitializationComponent(project: Project?) : AbstractProjectComponent(project) {
     val random = Random(Instant.now().epochSecond / 100)
     private val mtAddFileColorsAction = DDLCAddFileColorsAction()
+
+    override fun initComponent() {
+        super.initComponent()
+        checkWizard()
+    }
+
+    private fun checkWizard() {
+        val isWizardShown = MTConfig.getInstance().getIsWizardShown()
+        if (!isWizardShown) {
+            DDLCWizardDialog(DDLCWizardStepsProvider()).show()
+            MTConfig.getInstance().setIsWizardShown(true)
+        }
+    }
 
     override fun getComponentName(): String {
         return "DDLCProjectInitializationComponent"

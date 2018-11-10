@@ -52,8 +52,6 @@ public final class MTApplicationComponent implements ApplicationComponent {
       MTConfig.getInstance().setVersion(MTUiUtils.getVersion());
     }
 
-    checkWizard();
-
     initAnalytics();
 
     installFonts();
@@ -111,14 +109,6 @@ public final class MTApplicationComponent implements ApplicationComponent {
       MTAnalytics.getInstance().track(MTAnalytics.CONFIG, MTConfig.getInstance().asJson());
     } catch (final JSONException e) {
       e.printStackTrace();
-    }
-  }
-
-  private void checkWizard() {
-    final boolean isWizardShown = MTConfig.getInstance().getIsWizardShown();
-    if (!isWizardShown) {
-      new DDLCWizardDialog(new DDLCWizardStepsProvider()).show();
-      MTConfig.getInstance().setIsWizardShown(true);
     }
   }
 
