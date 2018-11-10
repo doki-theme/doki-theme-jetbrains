@@ -179,7 +179,7 @@
                         icon="/icons/codeStyle/mac/AddNewSectionRule.svg">
                 </action>
                 <action id="ChibiAll" class="io.acari.DDLC.actions.AllChibiAction"
-                        text="All Windwos" description="All Windwos"
+                        text="All Windows" description="All Windows"
                         icon="/icons/codeStyle/AddNewSectionRule.svg">
                 </action>
                 <separator/>
