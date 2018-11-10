@@ -26,9 +26,9 @@
 
 package com.chrisrm.idea.config.ui;
 
+import com.chrisrm.idea.DDLCThemeFacade;
+import com.chrisrm.idea.DDLCThemes;
 import com.chrisrm.idea.MTConfig;
-import com.chrisrm.idea.MTThemeFacade;
-import com.chrisrm.idea.MTThemes;
 import com.chrisrm.idea.config.MTCustomThemeConfigurable;
 import com.chrisrm.idea.config.MTFileColorsPage;
 import com.chrisrm.idea.messages.MaterialThemeBundle;
@@ -69,7 +69,7 @@ public class MTForm implements MTFormUI {
   private JComponent settingsSep;
   private JPanel mainSettingsPanel;
   private JLabel selectedThemeLabel;
-  private ComboBox<MTThemeFacade> themeComboBox;
+  private ComboBox<DDLCThemeFacade> themeComboBox;
   private JCheckBox isContrastModeCheckbox;
   private JCheckBox highContrastCheckbox;
   private JLabel customAccentColorLabel;
@@ -187,11 +187,11 @@ public class MTForm implements MTFormUI {
 
   //region Selected Theme
 
-  public MTThemeFacade getTheme() {
-    return (MTThemeFacade) themeComboBox.getSelectedItem();
+  public DDLCThemeFacade getTheme() {
+    return (DDLCThemeFacade) themeComboBox.getSelectedItem();
   }
 
-  public void setTheme(final MTThemeFacade selectedTheme) {
+  public void setTheme(final DDLCThemeFacade selectedTheme) {
     themeComboBox.setSelectedItem(selectedTheme);
   }
   //endregion
@@ -1323,10 +1323,10 @@ public class MTForm implements MTFormUI {
     }
 
     // Themes
-    themeComboBox.setModel(new DefaultComboBoxModel<>(MTThemes.getAllThemes()));
-    themeComboBox.setRenderer(new ListCellRendererWrapper<MTThemeFacade>() {
+    themeComboBox.setModel(new DefaultComboBoxModel<>(DDLCThemes.getAllThemes()));
+    themeComboBox.setRenderer(new ListCellRendererWrapper<DDLCThemeFacade>() {
       @Override
-      public void customize(final JList list, final MTThemeFacade value, final int index, final boolean selected, final boolean hasFocus) {
+      public void customize(final JList list, final DDLCThemeFacade value, final int index, final boolean selected, final boolean hasFocus) {
         final Icon baseIcon;
         if (value == null) {
           return;

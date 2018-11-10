@@ -74,15 +74,15 @@ public final class MTBundledThemesManager {
     }
 
     for (final MTBundledTheme mtBundledTheme : bundledThemes.values()) {
-      if (MTThemes.getThemeFor(mtBundledTheme.getId()) == null) {
-        MTThemes.addTheme(MTThemes.fromTheme(mtBundledTheme));
+      if (DDLCThemes.getThemeFor(mtBundledTheme.getId()) == null) {
+        DDLCThemes.addTheme(DDLCThemes.fromTheme(mtBundledTheme));
       }
     }
 
   }
 
   public MTThemeable getActiveTheme() {
-    final MTThemeFacade selectedTheme = MTConfig.getInstance().getSelectedTheme();
+    final DDLCThemeFacade selectedTheme = MTConfig.getInstance().getSelectedTheme();
     return selectedTheme.getTheme();
   }
 

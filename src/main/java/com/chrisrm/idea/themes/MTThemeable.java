@@ -32,7 +32,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Interface for MTThemes and MTBundledThemes
+ * Interface for DDLCThemes and MTBundledThemes
  */
 public interface MTThemeable {
   /**

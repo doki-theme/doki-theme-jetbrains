@@ -76,7 +76,7 @@ public class MTConfig implements PersistentStateComponent<MTConfig>, Cloneable {
   // They are public so they can be serialized
   public String version;
 
-  public String selectedTheme = MTThemes.MONIKA.getName();
+  public String selectedTheme = DDLCThemes.MONIKA.getName();
   public String highlightColor = ACCENT_COLOR;
   public boolean highlightColorEnabled = false;
   public Integer highlightThickness = 2;
@@ -174,7 +174,7 @@ public class MTConfig implements PersistentStateComponent<MTConfig>, Cloneable {
    * Convenience method to reset settings
    */
   public void resetSettings() {
-    selectedTheme = MTThemes.MONIKA.getName();
+    selectedTheme = DDLCThemes.MONIKA.getName();
     highlightColor = ACCENT_COLOR;
     highlightColorEnabled = false;
     highlightThickness = 2;
@@ -239,12 +239,12 @@ public class MTConfig implements PersistentStateComponent<MTConfig>, Cloneable {
    *
    * @return
    */
-  public MTThemeFacade getSelectedTheme() {
-    final MTThemeFacade themeFor = MTThemes.getThemeFor(selectedTheme);
-    return ObjectUtils.notNull(themeFor, MTThemes.MONIKA);
+  public DDLCThemeFacade getSelectedTheme() {
+    final DDLCThemeFacade themeFor = DDLCThemes.getThemeFor(selectedTheme);
+    return ObjectUtils.notNull(themeFor, DDLCThemes.MONIKA);
   }
 
-  public void setSelectedTheme(final MTThemeFacade selectedTheme) {
+  public void setSelectedTheme(final DDLCThemeFacade selectedTheme) {
     this.selectedTheme = selectedTheme.getThemeId();
   }
 
@@ -401,7 +401,7 @@ public class MTConfig implements PersistentStateComponent<MTConfig>, Cloneable {
     this.version = version;
   }
 
-  public boolean isSelectedThemeChanged(final MTThemeFacade theme) {
+  public boolean isSelectedThemeChanged(final DDLCThemeFacade theme) {
     return !selectedTheme.equals(theme.getName());
   }
 

@@ -30,7 +30,7 @@
 
 package io.acari.DDLC.wizard.steps
 
-import com.chrisrm.idea.MTThemes
+import com.chrisrm.idea.DDLCThemes
 import io.acari.DDLC.actions.ClubMemberOrchestrator
 import io.acari.DDLC.actions.DarkMode
 import com.intellij.ide.customize.AbstractCustomizeWizardStep
@@ -216,7 +216,7 @@ class DDLCWizardFinishPanel : AbstractCustomizeWizardStep() {
 
     override fun beforeShown(forward: Boolean) {
         super.beforeShown(forward)
-        if (!DarkMode.isOn() && ClubMemberOrchestrator.currentActiveTheme() != MTThemes.MONIKA) {
+        if (!DarkMode.isOn() && ClubMemberOrchestrator.currentActiveTheme() != DDLCThemes.MONIKA) {
             content!!.add(vSpacer1!!, "cell 0 5")
             val bundle = ResourceBundle.getBundle("messages.DDLCWizardBundle")
             //---- disclaimer ----

@@ -1,7 +1,7 @@
 package io.acari.DDLC.actions
 
 import com.chrisrm.idea.MTConfig
-import com.chrisrm.idea.MTThemes
+import com.chrisrm.idea.DDLCThemes
 import com.intellij.ide.util.PropertiesComponent
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil.EDITOR_PROP
@@ -40,8 +40,8 @@ object ClubMemberOrchestrator {
         }
     }
 
-    private fun getSavedTheme(): MTThemes =
-        MTConfig.getInstance().getSelectedTheme() as MTThemes
+    private fun getSavedTheme(): DDLCThemes =
+        MTConfig.getInstance().getSelectedTheme() as DDLCThemes
 
     fun currentActiveTheme() = currentTheme
 
@@ -50,7 +50,7 @@ object ClubMemberOrchestrator {
         handleWeebShit(weebShitIsOn)
     }
 
-    fun activate(theme: MTThemes) {
+    fun activate(theme: DDLCThemes) {
         currentTheme = theme
         removeWeebShit()
         turnOnIfNecessary()
@@ -188,7 +188,7 @@ object ClubMemberOrchestrator {
 
     fun getNormalClubMember() = getTheme().normalClubMember
 
-    private fun getTheme(): MTThemes {
+    private fun getTheme(): DDLCThemes {
         return currentTheme
     }
 

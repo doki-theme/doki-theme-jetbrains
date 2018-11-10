@@ -29,7 +29,7 @@ package io.acari.DDLC.actions.themes.literature.club
 import com.chrisrm.idea.MTAnalytics
 import com.chrisrm.idea.MTConfig
 import com.chrisrm.idea.MTThemeManager
-import com.chrisrm.idea.MTThemes
+import com.chrisrm.idea.DDLCThemes
 import io.acari.DDLC.actions.ClubMemberOrchestrator
 import io.acari.DDLC.actions.DDLCAddFileColorsAction
 import com.chrisrm.idea.actions.accents.MTAbstractAccentAction
@@ -40,7 +40,7 @@ import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.ToggleAction
 
 
-open class ClubMemberThemeAction(private val theme: MTThemes,
+open class ClubMemberThemeAction(private val theme: DDLCThemes,
                                  private val accentAction: MTAbstractAccentAction) : BaseThemeAction() {
     private val mtAddFileColorsAction = DDLCAddFileColorsAction()
 

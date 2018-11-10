@@ -49,14 +49,14 @@ import java.util.stream.Collectors;
  * Facade for accessing internal theme's methods.
  * Contains a list of predefined themes and will contain all bundled themes
  */
-public enum MTThemes implements MTThemeFacade {
+public enum DDLCThemes implements DDLCThemeFacade {
   MONIKA("MONIKA", new MonikaTheme(), new JustMonikaTheme()),
   SAYORI("SAYORI", new SayoriTheme(), new DeletedCharacterTheme()),
   NATSUKI("NATSUKI", new NatsukiTheme(), new OnlyPlayWithMeTheme()),
   YURI("YURI", new YuriTheme(), new EdgyTheme());
 
-  private static final Map<String, MTThemeFacade> THEMES_MAP = Arrays.stream(values())
-      .collect(Collectors.toMap(MTThemes::getName,
+  private static final Map<String, DDLCThemeFacade> THEMES_MAP = Arrays.stream(values())
+      .collect(Collectors.toMap(DDLCThemes::getName,
           Function.identity(),(a,b)->a, TreeMap::new));
 
   /**
@@ -69,7 +69,7 @@ public enum MTThemes implements MTThemeFacade {
   private final transient MTThemeable mtTheme;
   private final transient MTThemeable darkTheme;
 
-  MTThemes(final String name, final DDLCAbstractTheme mtTheme, DDLCAbstractTheme darkTheme) {
+  DDLCThemes(final String name, final DDLCAbstractTheme mtTheme, DDLCAbstractTheme darkTheme) {
     this.name = name;
     this.mtTheme = mtTheme;
     this.darkTheme = darkTheme;
@@ -152,15 +152,15 @@ public enum MTThemes implements MTThemeFacade {
    *
    * @param themeID
    */
-  public static MTThemeFacade getThemeFor(final String themeID) {
+  public static DDLCThemeFacade getThemeFor(final String themeID) {
     return THEMES_MAP.get(themeID);
   }
 
-  private static final Map<String, MTThemes> BETTER_THEME_MAP =  Arrays.stream(values())
-      .collect(Collectors.toMap(MTThemes::getName,
+  private static final Map<String, DDLCThemes> BETTER_THEME_MAP =  Arrays.stream(values())
+      .collect(Collectors.toMap(DDLCThemes::getName,
           Function.identity(),(a,__)->a, HashMap::new));
 
-  public static MTThemes getTheme(final String themeID) {
+  public static DDLCThemes getTheme(final String themeID) {
     return BETTER_THEME_MAP.getOrDefault(themeID, MONIKA);
   }
 
@@ -169,7 +169,7 @@ public enum MTThemes implements MTThemeFacade {
    *
    * @param themesInterface
    */
-  public static MTThemeFacade addTheme(final MTThemeFacade themesInterface) {
+  public static DDLCThemeFacade addTheme(final DDLCThemeFacade themesInterface) {
     if (!THEMES_MAP.containsKey(themesInterface.getThemeId())) {
       THEMES_MAP.put(themesInterface.getThemeId(), themesInterface);
     }
@@ -179,10 +179,10 @@ public enum MTThemes implements MTThemeFacade {
   /**
    * Get the list of all themes (native + bundled)
    */
-  public static Vector<MTThemeFacade> getAllThemes() {
-    final Vector<MTThemeFacade> mtThemeFacades = new Vector<>(THEMES_MAP.values());
-    mtThemeFacades.sort(Comparator.comparingInt(MTThemeFacade::getOrder));
-    return mtThemeFacades;
+  public static Vector<DDLCThemeFacade> getAllThemes() {
+    final Vector<DDLCThemeFacade> DDLCThemeFacades = new Vector<>(THEMES_MAP.values());
+    DDLCThemeFacades.sort(Comparator.comparingInt(DDLCThemeFacade::getOrder));
+    return DDLCThemeFacades;
   }
 
   /**
@@ -190,8 +190,8 @@ public enum MTThemes implements MTThemeFacade {
    *
    * @param theme
    */
-  public static MTThemeFacade fromTheme(final MTThemeable theme) {
-    return new MTThemeFacade() {
+  public static DDLCThemeFacade fromTheme(final MTThemeable theme) {
+    return new DDLCThemeFacade() {
       @NotNull
       @Override
       public String getThemeColorScheme() {

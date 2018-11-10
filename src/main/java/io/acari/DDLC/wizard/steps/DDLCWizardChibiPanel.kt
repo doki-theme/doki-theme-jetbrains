@@ -30,7 +30,7 @@
 
 package io.acari.DDLC.wizard.steps
 
-import com.chrisrm.idea.MTThemes
+import com.chrisrm.idea.DDLCThemes
 import io.acari.DDLC.actions.ClubMemberOrchestrator
 import io.acari.DDLC.actions.DarkMode
 import com.intellij.ide.customize.AbstractCustomizeWizardStep
@@ -63,7 +63,7 @@ class DDLCWizardChibiPanel : AbstractCustomizeWizardStep() {
     }
 
     private fun getSpecialMessage() =
-            if (DarkMode.isOn() && ClubMemberOrchestrator.currentActiveTheme() != MTThemes.MONIKA)
+            if (DarkMode.isOn() && ClubMemberOrchestrator.currentActiveTheme() != DDLCThemes.MONIKA)
                 """
                 <h4>Note: I see you have dark mode on! "Use Tools -> Panel Options -> Swap Chibi" to make your club member less c̟̺̱̱̪o͚̲̹̼͘r̡̭̤̭̼̟̭̜r͇͚u̘̰͝p͓̝͍̻̩̩t̼̣̙͍͍e͕̹͙̟̬̮͟ͅd̻ anytime :)</h4>
                 """.trimIndent() else ""

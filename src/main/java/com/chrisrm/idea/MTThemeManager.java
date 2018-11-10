@@ -214,7 +214,7 @@ public final class MTThemeManager {
    * Activate selected theme or deactivate current
    */
   public void activate() {
-    final MTThemeFacade mtTheme = MTConfig.getInstance().getSelectedTheme();
+    final DDLCThemeFacade mtTheme = MTConfig.getInstance().getSelectedTheme();
     if (!MTConfig.getInstance().isMaterialTheme()) {
       removeTheme(mtTheme);
       return;
@@ -223,7 +223,7 @@ public final class MTThemeManager {
     activate(mtTheme, false);
   }
 
-  public void activate(final MTThemeFacade mtTheme) {
+  public void activate(final DDLCThemeFacade mtTheme) {
     activate(mtTheme, false);
   }
 
@@ -232,10 +232,10 @@ public final class MTThemeManager {
    *
    * @param mtTheme
    */
-  public void activate(final MTThemeFacade mtTheme, final boolean switchColorScheme) {
-    MTThemeFacade newTheme = mtTheme;
+  public void activate(final DDLCThemeFacade mtTheme, final boolean switchColorScheme) {
+    DDLCThemeFacade newTheme = mtTheme;
     if (newTheme == null){
-      newTheme = MTThemes.MONIKA;
+      newTheme = DDLCThemes.MONIKA;
     }
 
     MTConfig.getInstance().setSelectedTheme(newTheme);
@@ -264,7 +264,7 @@ public final class MTThemeManager {
     UIReplacer.patchUI();
   }
 
-  private void switchScheme(final MTThemeFacade mtTheme, final boolean switchColorScheme) {
+  private void switchScheme(final DDLCThemeFacade mtTheme, final boolean switchColorScheme) {
     final EditorColorsManager editorColorsManager = EditorColorsManager.getInstance();
     if (switchColorScheme) {
       final EditorColorsScheme themeScheme = editorColorsManager.getScheme(mtTheme.getThemeColorScheme());
@@ -305,7 +305,7 @@ public final class MTThemeManager {
    *
    * @param mtTheme
    */
-  private void removeTheme(final MTThemeFacade mtTheme) {
+  private void removeTheme(final DDLCThemeFacade mtTheme) {
     try {
       resetContrast();
 

@@ -35,7 +35,7 @@ import javax.swing.*;
 /**
  * Interface for the selected theme
  */
-public interface MTThemeFacade {
+public interface DDLCThemeFacade {
   /**
    * The internal theme's color scheme
    *

@@ -1,7 +1,7 @@
 package io.acari.DDLC.actions
 
 import com.chrisrm.idea.MTConfig
-import com.chrisrm.idea.MTThemes
+import com.chrisrm.idea.DDLCThemes
 import io.acari.DDLC.actions.themes.literature.club.BaseThemeAction
 import io.acari.DDLC.actions.themes.literature.club.JustMonikaThemeAction
 import io.acari.DDLC.actions.themes.literature.club.NatsukiThemeAction
@@ -24,10 +24,10 @@ class DarkModeAction : BaseThemeAction() {
     override fun setSelected(e: AnActionEvent, state: Boolean) {
         DarkMode.toggle()
         when (MTConfig.getInstance().getSelectedTheme()) {
-            MTThemes.MONIKA -> JustMonikaThemeAction.setSelected(e, state)
-            MTThemes.SAYORI -> SayoriThemeAction.setSelected(e, state)
-            MTThemes.NATSUKI -> NatsukiThemeAction.setSelected(e, state)
-            MTThemes.YURI -> YuriThemeAction.setSelected(e, state)
+            DDLCThemes.MONIKA -> JustMonikaThemeAction.setSelected(e, state)
+            DDLCThemes.SAYORI -> SayoriThemeAction.setSelected(e, state)
+            DDLCThemes.NATSUKI -> NatsukiThemeAction.setSelected(e, state)
+            DDLCThemes.YURI -> YuriThemeAction.setSelected(e, state)
         }
     }
 
