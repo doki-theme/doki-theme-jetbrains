@@ -26,12 +26,12 @@
 
 package com.chrisrm.idea.themes;
 
-import com.chrisrm.idea.MTAbstractTheme;
+import com.chrisrm.idea.DDLCAbstractTheme;
 import com.chrisrm.idea.MTConfig;
 import com.chrisrm.idea.MTCustomThemeConfig;
 import org.jetbrains.annotations.NotNull;
 
-public class MTLightCustomTheme extends MTAbstractTheme {
+public class DDLCLightCustomTheme extends DDLCAbstractTheme {
   public static final String BACKGROUND = "FAFAFA"; // 250, 250, 250
   public static final String FOREGROUND = "A7ADB0"; // 167, 173, 176
   public static final String TEXT = "A7ADB0"; // 167, 173, 176
@@ -40,7 +40,7 @@ public class MTLightCustomTheme extends MTAbstractTheme {
   public static final String LABEL = "546E7A"; // 84, 110, 122
   public static final String DISABLED = "eae8e8";
 
-  public MTLightCustomTheme() {
+  public DDLCLightCustomTheme() {
     super("mt.light_custom", "Material Light Custom", false, "Light Custom", "/icons/actions/themes/light_custom.svg");
   }
 
@@ -59,13 +59,13 @@ public class MTLightCustomTheme extends MTAbstractTheme {
   @NotNull
   @Override
   public String getSelectionBackground() {
-    return MTLightCustomTheme.SELECTION_BACKGROUND;
+    return DDLCLightCustomTheme.SELECTION_BACKGROUND;
   }
 
   @NotNull
   @Override
   public String getDisabled() {
-    return MTLightCustomTheme.DISABLED;
+    return DDLCLightCustomTheme.DISABLED;
   }
 
   @Override

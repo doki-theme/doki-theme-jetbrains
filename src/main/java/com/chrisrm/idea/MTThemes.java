@@ -68,7 +68,7 @@ public enum MTThemes implements MTThemeFacade {
   private final transient MTThemeable mtTheme;
   private final transient MTThemeable darkTheme;
 
-  MTThemes(final String name, final MTAbstractTheme mtTheme, MTAbstractTheme darkTheme) {
+  MTThemes(final String name, final DDLCAbstractTheme mtTheme, DDLCAbstractTheme darkTheme) {
     this.name = name;
     this.mtTheme = mtTheme;
     this.darkTheme = darkTheme;

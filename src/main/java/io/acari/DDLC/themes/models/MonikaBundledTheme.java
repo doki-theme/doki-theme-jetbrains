@@ -26,7 +26,7 @@
 
 package io.acari.DDLC.themes.models;
 
-import com.chrisrm.idea.themes.MTLightCustomTheme;
+import com.chrisrm.idea.themes.DDLCLightCustomTheme;
 import com.chrisrm.idea.themes.models.MTBundledTheme;
 import com.chrisrm.idea.themes.models.MTThemeColor;
 import com.intellij.util.ObjectUtils;
@@ -39,7 +39,7 @@ import java.util.List;
  * TODO: MAYBE TRY TO GET SOMETHING OUT OF THIS AND CUSTOM THEME
  * Represents a theme that is parsable from XML
  */
-public class MonikaBundledTheme extends MTLightCustomTheme implements Serializable, MTBundledTheme {
+public class MonikaBundledTheme extends DDLCLightCustomTheme implements Serializable, MTBundledTheme {
   private List<MTThemeColor> colors;
   private String themeId;
 

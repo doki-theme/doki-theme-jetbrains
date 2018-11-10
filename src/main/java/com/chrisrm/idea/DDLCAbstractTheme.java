@@ -48,7 +48,7 @@ import java.awt.*;
 import java.io.Serializable;
 import java.util.stream.Stream;
 
-public abstract class MTAbstractTheme implements Serializable, MTThemeable {
+public abstract class DDLCAbstractTheme implements Serializable, MTThemeable {
   public static final ColorUIResource DEFAULT_BORDER_COLOR = new ColorUIResource(0x80cbc4);
   public static final ColorUIResource DEFAULT_CONTRAST = new ColorUIResource(0x1E272C);
   public static final ColorUIResource DEFAULT_FOREGROUND = new ColorUIResource(0xB0BEC5);
@@ -63,29 +63,29 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
   private String name;
   private String icon;
 
-  public MTAbstractTheme(final boolean dark) {
+  public DDLCAbstractTheme(final boolean dark) {
     this(getDefaultID(dark), getDefaultColorScheme(dark), dark);
   }
 
-  protected MTAbstractTheme(@NotNull final String id,
-                            final String editorColorsScheme,
-                            final boolean dark) {
+  protected DDLCAbstractTheme(@NotNull final String id,
+                              final String editorColorsScheme,
+                              final boolean dark) {
     this.id = id;
     this.editorColorsScheme = editorColorsScheme;
     this.dark = dark;
     name = id;
   }
 
-  protected MTAbstractTheme(@NotNull final String id,
-                            final String editorColorsScheme,
-                            final boolean dark,
-                            final String name,
-                            final String icon) {
+  protected DDLCAbstractTheme(@NotNull final String id,
+                              final String editorColorsScheme,
+                              final boolean dark,
+                              final String name,
+                              final String icon) {
     this(id, editorColorsScheme, dark, name);
     this.icon = icon;
   }
 
-  protected MTAbstractTheme(@NotNull final String id, final String editorColorsScheme, final boolean dark, final String name) {
+  protected DDLCAbstractTheme(@NotNull final String id, final String editorColorsScheme, final boolean dark, final String name) {
     this(id, editorColorsScheme, dark);
     this.name = name;
   }

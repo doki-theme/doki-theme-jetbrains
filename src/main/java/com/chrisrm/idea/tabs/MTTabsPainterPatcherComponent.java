@@ -53,7 +53,7 @@ import org.jetbrains.annotations.NotNull;
 import java.awt.*;
 import java.lang.reflect.Field;
 
-import static com.chrisrm.idea.MTAbstractTheme.DEFAULT_BORDER_COLOR;
+import static com.chrisrm.idea.DDLCAbstractTheme.DEFAULT_BORDER_COLOR;
 
 /**
  * Patch the Tabs Component to get the Material Design style

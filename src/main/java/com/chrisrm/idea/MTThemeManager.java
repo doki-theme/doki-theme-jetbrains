@@ -88,7 +88,7 @@ public final class MTThemeManager {
   }
 
   private static String getSettingsPrefix() {
-    final PluginId pluginId = PluginManager.getPluginByClassName(MTAbstractTheme.class.getName());
+    final PluginId pluginId = PluginManager.getPluginByClassName(DDLCAbstractTheme.class.getName());
     return pluginId == null ? "io.acari.DDLCTheme" : pluginId.getIdString();
   }
 
