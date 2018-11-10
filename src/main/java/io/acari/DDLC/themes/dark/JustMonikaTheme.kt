@@ -1,6 +1,6 @@
-package com.chrisrm.idea.themes.literature.club.dark
+package io.acari.DDLC.themes.dark
 
-import com.chrisrm.idea.themes.literature.club.DokiDokiTheme
+import io.acari.DDLC.themes.DokiDokiTheme
 
 /**
  * Forged in the flames of battle by alex.

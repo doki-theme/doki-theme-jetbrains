@@ -27,7 +27,7 @@
 package com.chrisrm.idea;
 
 import com.chrisrm.idea.themes.MTThemeable;
-import com.chrisrm.idea.themes.literature.club.MonikaTheme;
+import io.acari.DDLC.themes.light.MonikaTheme;
 import com.chrisrm.idea.utils.MTUiUtils;
 import com.chrisrm.idea.utils.PropertiesParser;
 import com.intellij.ide.ui.LafManager;

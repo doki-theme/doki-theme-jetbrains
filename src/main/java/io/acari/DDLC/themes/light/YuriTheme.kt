@@ -1,4 +1,6 @@
-package com.chrisrm.idea.themes.literature.club
+package io.acari.DDLC.themes.light
+
+import io.acari.DDLC.themes.DokiDokiTheme
 
 class YuriTheme : DokiDokiTheme("yuri", "Yuri", false, "Yuri") {
 

@@ -1,6 +1,6 @@
-package com.chrisrm.idea.themes.literature.club.dark
+package io.acari.DDLC.themes.dark
 
-import com.chrisrm.idea.themes.literature.club.DokiDokiTheme
+import io.acari.DDLC.themes.DokiDokiTheme
 
 //todo: should probably rename these to something more expected :|
 class EdgyTheme : DokiDokiTheme("yuri.dark", "Edgy", true, "Yuri") {

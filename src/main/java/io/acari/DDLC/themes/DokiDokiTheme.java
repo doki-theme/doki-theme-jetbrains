@@ -24,9 +24,10 @@
  *
  */
 
-package com.chrisrm.idea.themes.literature.club;
+package io.acari.DDLC.themes;
 
 import com.chrisrm.idea.MTAbstractTheme;
+import io.acari.DDLC.themes.light.MonikaTheme;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
