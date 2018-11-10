@@ -24,12 +24,12 @@
  *
  */
 
-package com.chrisrm.idea.wizard;
+package io.acari.DDLC.wizard;
 
-import com.chrisrm.idea.wizard.steps.DDLCWizardChibiPanel;
-import com.chrisrm.idea.wizard.steps.DDLCWizardFinishPanel;
-import com.chrisrm.idea.wizard.steps.DDLCWizardThemesPanel;
-import com.chrisrm.idea.wizard.steps.DDLCWizardWelcomePanel;
+import io.acari.DDLC.wizard.steps.DDLCWizardChibiPanel;
+import io.acari.DDLC.wizard.steps.DDLCWizardFinishPanel;
+import io.acari.DDLC.wizard.steps.DDLCWizardThemesPanel;
+import io.acari.DDLC.wizard.steps.DDLCWizardWelcomePanel;
 import com.intellij.ide.customize.AbstractCustomizeWizardStep;
 import com.intellij.ide.customize.CustomizeIDEWizardDialog;
 import com.intellij.ide.customize.CustomizeIDEWizardStepsProvider;

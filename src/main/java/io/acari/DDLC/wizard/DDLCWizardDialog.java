@@ -24,7 +24,7 @@
  *
  */
 
-package com.chrisrm.idea.wizard;
+package io.acari.DDLC.wizard;
 
 import com.chrisrm.idea.MTConfig;
 import com.chrisrm.idea.MTThemeManager;

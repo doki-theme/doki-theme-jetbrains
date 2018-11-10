@@ -27,8 +27,8 @@
 package com.chrisrm.idea.actions;
 
 import com.chrisrm.idea.MTAnalytics;
-import com.chrisrm.idea.wizard.DDLCWizardDialog;
-import com.chrisrm.idea.wizard.DDLCWizardStepsProvider;
+import io.acari.DDLC.wizard.DDLCWizardDialog;
+import io.acari.DDLC.wizard.DDLCWizardStepsProvider;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.project.DumbAware;

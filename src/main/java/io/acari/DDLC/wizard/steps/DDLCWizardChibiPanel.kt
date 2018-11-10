@@ -28,7 +28,7 @@
  * Created by JFormDesigner on Fri Jun 29 18:52:29 IDT 2018
  */
 
-package com.chrisrm.idea.wizard.steps
+package io.acari.DDLC.wizard.steps
 
 import com.chrisrm.idea.MTThemes
 import io.acari.DDLC.actions.ClubMemberOrchestrator

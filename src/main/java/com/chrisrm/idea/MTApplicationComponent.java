@@ -26,8 +26,8 @@
 package com.chrisrm.idea;
 
 import com.chrisrm.idea.utils.MTUiUtils;
-import com.chrisrm.idea.wizard.DDLCWizardDialog;
-import com.chrisrm.idea.wizard.DDLCWizardStepsProvider;
+import io.acari.DDLC.wizard.DDLCWizardDialog;
+import io.acari.DDLC.wizard.DDLCWizardStepsProvider;
 import com.intellij.ide.util.PropertiesComponent;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.components.ApplicationComponent;
