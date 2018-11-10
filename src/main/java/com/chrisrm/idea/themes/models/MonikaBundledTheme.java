@@ -37,17 +37,17 @@ import java.util.List;
  * TODO: MAYBE TRY TO GET SOMETHING OUT OF THIS AND CUSTOM THEME
  * Represents a theme that is parsable from XML
  */
-public class MTMonikaBundledTheme extends MTLightCustomTheme implements Serializable, MTBundledTheme {
+public class MonikaBundledTheme extends MTLightCustomTheme implements Serializable, MTBundledTheme {
   private List<MTThemeColor> colors;
   private String themeId;
 
-  public MTMonikaBundledTheme() {
+  public MonikaBundledTheme() {
     this("monika", "External Theme", true);
   }
 
-  protected MTMonikaBundledTheme(@NotNull final String id,
-                                 @NotNull final String editorColorsScheme,
-                                 final boolean dark) {
+  protected MonikaBundledTheme(@NotNull final String id,
+                               @NotNull final String editorColorsScheme,
+                               final boolean dark) {
     super();
   }
 
