@@ -26,7 +26,7 @@
 
 package com.chrisrm.idea.themes;
 
-import com.chrisrm.idea.DDLCAbstractTheme;
+import io.acari.DDLC.DDLCAbstractTheme;
 import com.chrisrm.idea.MTConfig;
 import com.chrisrm.idea.MTCustomThemeConfig;
 import org.jetbrains.annotations.NotNull;

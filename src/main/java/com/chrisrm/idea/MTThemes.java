@@ -26,6 +26,7 @@
 
 package com.chrisrm.idea;
 
+import io.acari.DDLC.DDLCAbstractTheme;
 import io.acari.DDLC.actions.DarkMode;
 import io.acari.DDLC.actions.JoyManager;
 import com.chrisrm.idea.themes.*;

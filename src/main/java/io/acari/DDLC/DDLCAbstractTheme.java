@@ -24,8 +24,12 @@
  *
  */
 
-package com.chrisrm.idea;
+package io.acari.DDLC;
 
+import com.chrisrm.idea.MTConfig;
+import com.chrisrm.idea.MTDarkLaf;
+import com.chrisrm.idea.MTLightLaf;
+import com.chrisrm.idea.MTThemeManager;
 import com.chrisrm.idea.themes.MTThemeable;
 import io.acari.DDLC.LegacySupportUtility;
 import io.acari.DDLC.themes.light.MonikaTheme;

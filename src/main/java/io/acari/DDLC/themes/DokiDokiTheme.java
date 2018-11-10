@@ -26,7 +26,7 @@
 
 package io.acari.DDLC.themes;
 
-import com.chrisrm.idea.DDLCAbstractTheme;
+import io.acari.DDLC.DDLCAbstractTheme;
 import io.acari.DDLC.themes.light.MonikaTheme;
 import org.jetbrains.annotations.NotNull;
 

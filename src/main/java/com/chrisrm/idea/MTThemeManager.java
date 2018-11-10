@@ -58,6 +58,7 @@ import com.intellij.ui.JBColor;
 import com.intellij.util.ObjectUtils;
 import com.intellij.util.ui.JBUI;
 import com.intellij.util.ui.UIUtil;
+import io.acari.DDLC.DDLCAbstractTheme;
 import sun.awt.AppContext;
 
 import javax.swing.*;
