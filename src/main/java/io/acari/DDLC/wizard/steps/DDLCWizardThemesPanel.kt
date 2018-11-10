@@ -176,7 +176,7 @@ class DDLCWizardThemesPanel : AbstractCustomizeWizardStep() {
     private fun initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner non-commercial license
-        val bundle = ResourceBundle.getBundle("messages.MTWizardBundle")
+        val bundle = ResourceBundle.getBundle("messages.DDLCWizardBundle")
         scrollPane = JBScrollPane()
         grid = JPanel()
         justMonikaPanel = JPanel()

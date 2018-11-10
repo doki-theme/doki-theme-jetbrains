@@ -58,7 +58,7 @@ public class DDLCWizardWelcomePanel extends AbstractCustomizeWizardStep {
   private void initComponents() {
     // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
     // Generated using JFormDesigner non-commercial license
-    final ResourceBundle bundle = ResourceBundle.getBundle("messages.MTWizardBundle");
+    final ResourceBundle bundle = ResourceBundle.getBundle("messages.DDLCWizardBundle");
     icon = new JLabel();
     scrollPane1 = new JScrollPane();
     textArea2 = new JTextArea();
@@ -79,7 +79,7 @@ public class DDLCWizardWelcomePanel extends AbstractCustomizeWizardStep {
       scrollPane1.setBorder(null);
 
       //---- textArea2 ----
-      textArea2.setText(bundle.getString("MTWizardWelcomePanel.textArea2.text"));
+      textArea2.setText(bundle.getString("DDLCWizardWelcomePanel.textArea2.text"));
       textArea2.setWrapStyleWord(true);
       textArea2.setLineWrap(true);
       textArea2.setFont(UIManager.getFont("Label.font"));

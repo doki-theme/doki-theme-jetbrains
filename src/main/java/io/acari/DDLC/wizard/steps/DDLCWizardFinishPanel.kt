@@ -85,7 +85,7 @@ class DDLCWizardFinishPanel : AbstractCustomizeWizardStep() {
     private fun initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner non-commercial license
-        val bundle = ResourceBundle.getBundle("messages.MTWizardBundle")
+        val bundle = ResourceBundle.getBundle("messages.DDLCWizardBundle")
         scrollPane = JBScrollPane()
         content = JPanel()
         summary = JTextArea()
@@ -218,7 +218,7 @@ class DDLCWizardFinishPanel : AbstractCustomizeWizardStep() {
         super.beforeShown(forward)
         if (!DarkMode.isOn() && ClubMemberOrchestrator.currentActiveTheme() != MTThemes.MONIKA) {
             content!!.add(vSpacer1!!, "cell 0 5")
-            val bundle = ResourceBundle.getBundle("messages.MTWizardBundle")
+            val bundle = ResourceBundle.getBundle("messages.DDLCWizardBundle")
             //---- disclaimer ----
             disclaimer!!.text = bundle.getString("DDLCWizardFinishPanel.disclaimer.text")
             disclaimer!!.font = disclaimer!!.font.deriveFont(disclaimer!!.font.size)
