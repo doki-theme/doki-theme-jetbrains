@@ -38,6 +38,8 @@ import com.thoughtworks.xstream.converters.reflection.ReflectionProvider;
 import com.thoughtworks.xstream.io.HierarchicalStreamReader;
 import com.thoughtworks.xstream.io.HierarchicalStreamWriter;
 import com.thoughtworks.xstream.io.xml.DomDriver;
+import io.acari.DDLC.DDLCThemeFacade;
+import io.acari.DDLC.DDLCThemes;
 import io.acari.DDLC.themes.models.MonikaBundledTheme;
 
 import java.net.URL;

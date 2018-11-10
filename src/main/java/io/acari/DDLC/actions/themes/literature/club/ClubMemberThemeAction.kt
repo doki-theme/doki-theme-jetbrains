@@ -29,7 +29,7 @@ package io.acari.DDLC.actions.themes.literature.club
 import com.chrisrm.idea.MTAnalytics
 import com.chrisrm.idea.MTConfig
 import com.chrisrm.idea.MTThemeManager
-import com.chrisrm.idea.DDLCThemes
+import io.acari.DDLC.DDLCThemes
 import io.acari.DDLC.actions.ClubMemberOrchestrator
 import io.acari.DDLC.actions.DDLCAddFileColorsAction
 import com.chrisrm.idea.actions.accents.MTAbstractAccentAction

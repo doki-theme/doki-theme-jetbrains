@@ -1,7 +1,7 @@
 package io.acari.DDLC.actions
 
 import com.chrisrm.idea.MTConfig
-import com.chrisrm.idea.DDLCThemes
+import io.acari.DDLC.DDLCThemes
 import io.acari.DDLC.actions.themes.literature.club.BaseThemeAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 

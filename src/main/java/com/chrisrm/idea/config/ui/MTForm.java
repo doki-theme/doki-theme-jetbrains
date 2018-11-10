@@ -26,8 +26,8 @@
 
 package com.chrisrm.idea.config.ui;
 
-import com.chrisrm.idea.DDLCThemeFacade;
-import com.chrisrm.idea.DDLCThemes;
+import io.acari.DDLC.DDLCThemeFacade;
+import io.acari.DDLC.DDLCThemes;
 import com.chrisrm.idea.MTConfig;
 import com.chrisrm.idea.config.MTCustomThemeConfigurable;
 import com.chrisrm.idea.config.MTFileColorsPage;

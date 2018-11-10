@@ -24,7 +24,7 @@
  *
  */
 
-package com.chrisrm.idea;
+package io.acari.DDLC;
 
 import com.chrisrm.idea.themes.MTThemeable;
 import org.jetbrains.annotations.NotNull;

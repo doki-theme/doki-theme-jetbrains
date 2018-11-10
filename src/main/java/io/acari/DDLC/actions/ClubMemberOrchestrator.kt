@@ -1,7 +1,7 @@
 package io.acari.DDLC.actions
 
 import com.chrisrm.idea.MTConfig
-import com.chrisrm.idea.DDLCThemes
+import io.acari.DDLC.DDLCThemes
 import com.intellij.ide.util.PropertiesComponent
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil.EDITOR_PROP

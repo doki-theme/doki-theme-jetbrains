@@ -41,6 +41,8 @@ import com.intellij.openapi.components.Storage;
 import com.intellij.ui.ColorUtil;
 import com.intellij.util.ObjectUtils;
 import com.intellij.util.xmlb.XmlSerializerUtil;
+import io.acari.DDLC.DDLCThemeFacade;
+import io.acari.DDLC.DDLCThemes;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.json.JSONException;

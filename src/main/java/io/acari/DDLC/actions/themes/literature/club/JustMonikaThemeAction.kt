@@ -26,7 +26,7 @@
 
 package io.acari.DDLC.actions.themes.literature.club
 
-import com.chrisrm.idea.DDLCThemes
+import io.acari.DDLC.DDLCThemes
 import com.chrisrm.idea.actions.accents.MTBreakingBadAccentAction
 
 class JustMonikaThemeAction : ClubMemberThemeAction(DDLCThemes.MONIKA, MTBreakingBadAccentAction())

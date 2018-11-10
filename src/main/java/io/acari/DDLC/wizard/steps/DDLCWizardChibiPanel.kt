@@ -30,7 +30,7 @@
 
 package io.acari.DDLC.wizard.steps
 
-import com.chrisrm.idea.DDLCThemes
+import io.acari.DDLC.DDLCThemes
 import io.acari.DDLC.actions.ClubMemberOrchestrator
 import io.acari.DDLC.actions.DarkMode
 import com.intellij.ide.customize.AbstractCustomizeWizardStep
