@@ -40,19 +40,20 @@ import java.util.Vector;
  * Contains a list of predefined themes and will contain all bundled themes
  */
 public enum MTThemes implements MTThemeFacade {
-  OCEANIC("OCEANIC", new MTOceanicTheme()),
-  DARKER("DARKER", new MTDarkerTheme()),
-  LIGHTER("LIGHTER", new MTLighterTheme()),
-  PALENIGHT("PALENIGHT", new MTPalenightTheme()),
-  DEEPOCEAN("DEEPOCEAN", new MTDeepOceanTheme()),
-  CUSTOM("CUSTOM", new MTCustomTheme()),
-  LIGHT_CUSTOM("LIGHT_CUSTOM", new MTLightCustomTheme()),
-  MONOKAI("MONOKAI", new MonokaiTheme()),
-  ARC_DARK("ARC_DARK", new ArcDarkTheme()),
-  ONE_DARK("ONE_DARK", new OneDarkTheme()),
-  ONE_LIGHT("ONE_LIGHT", new OneLightTheme()),
-  SOLARIZED_DARK("SOLARIZED_DARK", new SolarizedDarkTheme()),
-  SOLARIZED_LIGHT("SOLARIZED_LIGHT", new SolarizedLightTheme());
+  A(null, null);
+//  OCEANIC("OCEANIC", new MTOceanicTheme()),
+//  DARKER("DARKER", new MTDarkerTheme()),
+//  LIGHTER("LIGHTER", new MTLighterTheme()),
+//  PALENIGHT("PALENIGHT", new MTPalenightTheme()),
+//  DEEPOCEAN("DEEPOCEAN", new MTDeepOceanTheme()),
+//  CUSTOM("CUSTOM", new MTCustomTheme()),
+//  LIGHT_CUSTOM("LIGHT_CUSTOM", new MTLightCustomTheme()),
+//  MONOKAI("MONOKAI", new MonokaiTheme()),
+//  ARC_DARK("ARC_DARK", new ArcDarkTheme()),
+//  ONE_DARK("ONE_DARK", new OneDarkTheme()),
+//  ONE_LIGHT("ONE_LIGHT", new OneLightTheme()),
+//  SOLARIZED_DARK("SOLARIZED_DARK", new SolarizedDarkTheme()),
+//  SOLARIZED_LIGHT("SOLARIZED_LIGHT", new SolarizedLightTheme());
 
   //  EXTERNAL("EXTERNAL", new MTCustomTheme());
 
