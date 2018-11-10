@@ -26,8 +26,8 @@
 package com.chrisrm.idea;
 
 import com.chrisrm.idea.utils.MTUiUtils;
-import com.chrisrm.idea.wizard.MTWizardDialog;
-import com.chrisrm.idea.wizard.MTWizardStepsProvider;
+import com.chrisrm.idea.wizard.DDLCWizardDialog;
+import com.chrisrm.idea.wizard.DDLCWizardStepsProvider;
 import com.intellij.ide.util.PropertiesComponent;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.components.ApplicationComponent;
@@ -117,7 +117,7 @@ public final class MTApplicationComponent implements ApplicationComponent {
   private void checkWizard() {
     final boolean isWizardShown = MTConfig.getInstance().getIsWizardShown();
     if (!isWizardShown) {
-      new MTWizardDialog(new MTWizardStepsProvider()).show();
+      new DDLCWizardDialog(new DDLCWizardStepsProvider()).show();
       MTConfig.getInstance().setIsWizardShown(true);
     }
   }

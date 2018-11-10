@@ -48,7 +48,7 @@ import javax.swing.*
 /**
  * @author Elior Boukhobza
  */
-class MTWizardFinishPanel : AbstractCustomizeWizardStep() {
+class DDLCWizardFinishPanel : AbstractCustomizeWizardStep() {
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     // Generated using JFormDesigner non-commercial license
@@ -126,7 +126,7 @@ class MTWizardFinishPanel : AbstractCustomizeWizardStep() {
                 )
 
                 //---- summary ----
-                summary!!.text = bundle.getString("MTWizardFinishPanel.summary.text")
+                summary!!.text = bundle.getString("DDLCWizardFinishPanel.summary.text")
                 summary!!.font = Font("Roboto", summary!!.font.style, summary!!.font.size + 3)
                 summary!!.background = UIManager.getColor("Panel.background")
                 summary!!.isEditable = false
@@ -134,16 +134,16 @@ class MTWizardFinishPanel : AbstractCustomizeWizardStep() {
                 content!!.add(summary!!, "cell 0 0")
 
                 //---- summaryLabel ----
-                summaryLabel!!.text = bundle.getString("MTWizardFinishPanel.summaryLabel.text")
+                summaryLabel!!.text = bundle.getString("DDLCWizardFinishPanel.summaryLabel.text")
                 content!!.add(summaryLabel!!, "cell 0 1")
 
                 //---- docLink ----
-                docLink!!.text = bundle.getString("MTWizardFinishPanel.docLink.text")
+                docLink!!.text = bundle.getString("DDLCWizardFinishPanel.docLink.text")
                 docLink!!.icon = null
                 content!!.add(docLink!!, "cell 0 1")
 
                 //---- paypalLabel ----
-                paypalLabel!!.text = bundle.getString("MTWizardFinishPanel.paypalLabel.text")
+                paypalLabel!!.text = bundle.getString("DDLCWizardFinishPanel.paypalLabel.text")
                 content!!.add(paypalLabel!!, "cell 0 2")
 
                 //---- paypalLink ----
@@ -162,7 +162,7 @@ class MTWizardFinishPanel : AbstractCustomizeWizardStep() {
                 content!!.add(vSpacer1!!, "cell 0 3")
 
                 //---- summarySummary ----
-                summarySummary!!.text = bundle.getString("MTWizardFinishPanel.summarySummary.text")
+                summarySummary!!.text = bundle.getString("DDLCWizardFinishPanel.summarySummary.text")
                 summarySummary!!.font = summarySummary!!.font.deriveFont(summarySummary!!.font.size + 5f)
                 content!!.add(summarySummary!!, "cell 0 4,alignx center,growx 0")
 
@@ -220,11 +220,11 @@ class MTWizardFinishPanel : AbstractCustomizeWizardStep() {
             content!!.add(vSpacer1!!, "cell 0 5")
             val bundle = ResourceBundle.getBundle("messages.MTWizardBundle")
             //---- disclaimer ----
-            disclaimer!!.text = bundle.getString("MTWizardFinishPanel.disclaimer.text")
+            disclaimer!!.text = bundle.getString("DDLCWizardFinishPanel.disclaimer.text")
             disclaimer!!.font = disclaimer!!.font.deriveFont(disclaimer!!.font.size)
             content!!.add(disclaimer!!, "cell 0 6")
             //---- disclaimerTwo ----
-            disclaimerTwo!!.text = bundle.getString("MTWizardFinishPanel.disclaimerTwo.text")
+            disclaimerTwo!!.text = bundle.getString("DDLCWizardFinishPanel.disclaimerTwo.text")
             disclaimerTwo!!.font = disclaimerTwo!!.font.deriveFont(disclaimerTwo!!.font.size)
             content!!.add(disclaimerTwo!!, "cell 0 7")
         } else {

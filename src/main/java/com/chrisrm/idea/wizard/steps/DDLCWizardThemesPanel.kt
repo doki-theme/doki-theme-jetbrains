@@ -46,7 +46,7 @@ import java.util.*
 import javax.swing.*
 import javax.swing.border.EmptyBorder
 
-class MTWizardThemesPanel : AbstractCustomizeWizardStep() {
+class DDLCWizardThemesPanel : AbstractCustomizeWizardStep() {
 
 
     private val justMonikaThemeAction = JustMonikaThemeAction()
@@ -236,7 +236,7 @@ class MTWizardThemesPanel : AbstractCustomizeWizardStep() {
                     //---- justMonikaButton ----
                     justMonikaButton!!.text = "Just Monika"
                     justMonikaButton!!.horizontalAlignment = SwingConstants.LEFT
-                    justMonikaButton!!.actionCommand = bundle.getString("MTWizardThemesPanel.justMonikaButton.actionCommand")
+                    justMonikaButton!!.actionCommand = bundle.getString("DDLCWizardThemesPanel.justMonikaButton.actionCommand")
                     justMonikaButton!!.addActionListener { this.justMonikaButtonActionPerformed() }
                     justMonikaPanel!!.add(justMonikaButton)
 
@@ -254,7 +254,7 @@ class MTWizardThemesPanel : AbstractCustomizeWizardStep() {
                     //---- onlyMonikaButton ----
                     onlyMonikaButton!!.text = "Only Monika"
                     onlyMonikaButton!!.horizontalAlignment = SwingConstants.LEFT
-                    onlyMonikaButton!!.actionCommand = bundle.getString("MTWizardThemesPanel.onlyMonikaButton.text")
+                    onlyMonikaButton!!.actionCommand = bundle.getString("DDLCWizardThemesPanel.onlyMonikaButton.text")
                     onlyMonikaButton!!.addActionListener { this.onlyMonikaButtonActionPerformed() }
                     onlyMonikaPanel!!.add(onlyMonikaButton)
 
@@ -270,7 +270,7 @@ class MTWizardThemesPanel : AbstractCustomizeWizardStep() {
                     sayoriLayout!!.layout = BoxLayout(sayoriLayout, BoxLayout.Y_AXIS)
 
                     //---- sayoriButton ----
-                    sayoriButton!!.text = bundle.getString("MTWizardThemesPanel.sayoriButton.text")
+                    sayoriButton!!.text = bundle.getString("DDLCWizardThemesPanel.sayoriButton.text")
                     sayoriButton!!.horizontalAlignment = SwingConstants.LEFT
                     sayoriButton!!.addActionListener { this.sayoriButtonActionPerformed() }
                     sayoriLayout!!.add(sayoriButton)
@@ -287,7 +287,7 @@ class MTWizardThemesPanel : AbstractCustomizeWizardStep() {
                     deletedCharacterLayout!!.layout = BoxLayout(deletedCharacterLayout, BoxLayout.Y_AXIS)
 
                     //---- deletedCharacterButton ----
-                    deletedCharacterButton!!.text = bundle.getString("MTWizardThemesPanel.deletedCharacterButton.text")
+                    deletedCharacterButton!!.text = bundle.getString("DDLCWizardThemesPanel.deletedCharacterButton.text")
                     deletedCharacterButton!!.horizontalAlignment = SwingConstants.LEFT
                     deletedCharacterButton!!.addActionListener { this.deletedCharacterButtonActionPerformed() }
                     deletedCharacterLayout!!.add(deletedCharacterButton)
@@ -304,7 +304,7 @@ class MTWizardThemesPanel : AbstractCustomizeWizardStep() {
                     natsukiPanel!!.layout = BoxLayout(natsukiPanel, BoxLayout.Y_AXIS)
 
                     //---- natsukiButton ----
-                    natsukiButton!!.text = bundle.getString("MTWizardThemesPanel.natsukiButton.text")
+                    natsukiButton!!.text = bundle.getString("DDLCWizardThemesPanel.natsukiButton.text")
                     natsukiButton!!.addActionListener { this.natsukiButtonActionPerformed() }
                     natsukiPanel!!.add(natsukiButton)
 
@@ -320,7 +320,7 @@ class MTWizardThemesPanel : AbstractCustomizeWizardStep() {
                     onlyPlayWithMePanel!!.layout = BoxLayout(onlyPlayWithMePanel, BoxLayout.Y_AXIS)
 
                     //---- onlyPlayWithMeButton ----
-                    onlyPlayWithMeButton!!.text = bundle.getString("MTWizardThemesPanel.onlyPlayWithMeButton.text")
+                    onlyPlayWithMeButton!!.text = bundle.getString("DDLCWizardThemesPanel.onlyPlayWithMeButton.text")
                     onlyPlayWithMeButton!!.addActionListener { this.onlyPlayWithMeButtonActionPerformed() }
                     onlyPlayWithMePanel!!.add(onlyPlayWithMeButton)
 
@@ -336,7 +336,7 @@ class MTWizardThemesPanel : AbstractCustomizeWizardStep() {
                     yuriPanel!!.layout = BoxLayout(yuriPanel, BoxLayout.Y_AXIS)
 
                     //---- yuriButton ----
-                    yuriButton!!.text = bundle.getString("MTWizardThemesPanel.yuriButton.text")
+                    yuriButton!!.text = bundle.getString("DDLCWizardThemesPanel.yuriButton.text")
                     yuriButton!!.addActionListener { this.yuriButtonActionPerformed() }
                     yuriPanel!!.add(yuriButton)
 
@@ -352,7 +352,7 @@ class MTWizardThemesPanel : AbstractCustomizeWizardStep() {
                     edgyPanel!!.layout = BoxLayout(edgyPanel, BoxLayout.Y_AXIS)
 
                     //---- edgyButton ----
-                    edgyButton!!.text = bundle.getString("MTWizardThemesPanel.edgyButton.text")
+                    edgyButton!!.text = bundle.getString("DDLCWizardThemesPanel.edgyButton.text")
                     edgyButton!!.addActionListener { this.edgyButtonActionPerformed() }
                     edgyPanel!!.add(edgyButton)
 

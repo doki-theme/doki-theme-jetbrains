@@ -41,7 +41,7 @@ import java.awt.Dimension
 import javax.swing.*
 import javax.swing.border.EmptyBorder
 
-class MTWizardChibiPanel : AbstractCustomizeWizardStep() {
+class DDLCWizardChibiPanel : AbstractCustomizeWizardStep() {
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     // Generated using JFormDesigner non-commercial license

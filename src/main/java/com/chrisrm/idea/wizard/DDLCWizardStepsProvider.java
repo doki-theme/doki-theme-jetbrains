@@ -26,22 +26,22 @@
 
 package com.chrisrm.idea.wizard;
 
-import com.chrisrm.idea.wizard.steps.MTWizardChibiPanel;
-import com.chrisrm.idea.wizard.steps.MTWizardFinishPanel;
-import com.chrisrm.idea.wizard.steps.MTWizardThemesPanel;
-import com.chrisrm.idea.wizard.steps.MTWizardWelcomePanel;
+import com.chrisrm.idea.wizard.steps.DDLCWizardChibiPanel;
+import com.chrisrm.idea.wizard.steps.DDLCWizardFinishPanel;
+import com.chrisrm.idea.wizard.steps.DDLCWizardThemesPanel;
+import com.chrisrm.idea.wizard.steps.DDLCWizardWelcomePanel;
 import com.intellij.ide.customize.AbstractCustomizeWizardStep;
 import com.intellij.ide.customize.CustomizeIDEWizardDialog;
 import com.intellij.ide.customize.CustomizeIDEWizardStepsProvider;
 
 import java.util.List;
 
-public class MTWizardStepsProvider implements CustomizeIDEWizardStepsProvider {
+public class DDLCWizardStepsProvider implements CustomizeIDEWizardStepsProvider {
     @Override
     public void initSteps(final CustomizeIDEWizardDialog wizardDialog, final List<AbstractCustomizeWizardStep> steps) {
-        steps.add(new MTWizardWelcomePanel());
-        steps.add(new MTWizardThemesPanel());
-        steps.add(new MTWizardChibiPanel());
-        steps.add(new MTWizardFinishPanel());
+        steps.add(new DDLCWizardWelcomePanel());
+        steps.add(new DDLCWizardThemesPanel());
+        steps.add(new DDLCWizardChibiPanel());
+        steps.add(new DDLCWizardFinishPanel());
     }
 }

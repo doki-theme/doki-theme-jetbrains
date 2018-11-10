@@ -40,8 +40,8 @@ import java.util.ResourceBundle;
 /**
  * @author Elior Boukhobza
  */
-public class MTWizardWelcomePanel extends AbstractCustomizeWizardStep {
-  public MTWizardWelcomePanel() {
+public class DDLCWizardWelcomePanel extends AbstractCustomizeWizardStep {
+  public DDLCWizardWelcomePanel() {
     initComponents();
   }
 

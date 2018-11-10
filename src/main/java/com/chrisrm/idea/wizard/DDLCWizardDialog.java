@@ -42,7 +42,7 @@ import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.List;
 
-public class MTWizardDialog extends CustomizeIDEWizardDialog implements ActionListener {
+public class DDLCWizardDialog extends CustomizeIDEWizardDialog implements ActionListener {
 
   public static final String MT_IS_SHOWN_WIZARD = "ddlc.isShownWizard.v2.0";
   private Field myNextButtonField;
@@ -54,7 +54,7 @@ public class MTWizardDialog extends CustomizeIDEWizardDialog implements ActionLi
   private Field myContentPanelField;
   private final MTConfig configCopy;
 
-  public MTWizardDialog(final MTWizardStepsProvider stepsProvider) {
+  public DDLCWizardDialog(final DDLCWizardStepsProvider stepsProvider) {
     super(stepsProvider);
     setTitle("DDLC Theme Wizard");
     getPeer().setAppIcons();
