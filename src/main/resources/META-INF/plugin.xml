@@ -152,11 +152,11 @@
                     text="Sayori" description="Sayori"
                     icon="/icons/actions/themes/material_sayori@2x.png">
             </action>
-            <action id="MTNatsukiTheme" class="io.acari.DDLC.actions.themes.literature.club.NatsukiThemeAction"
+            <action id="NatsukiTheme" class="io.acari.DDLC.actions.themes.literature.club.NatsukiThemeAction"
                     text="Natsuki" description="Natsuki"
                     icon="/icons/actions/themes/material_natsuki@2x.png">
             </action>
-            <action id="MTYuri" class="io.acari.DDLC.actions.themes.literature.club.YuriThemeAction"
+            <action id="Yuri" class="io.acari.DDLC.actions.themes.literature.club.YuriThemeAction"
                     text="Yuri" description="Yuri"
                     icon="/icons/actions/themes/material_yuri@2x.png">
             </action>
