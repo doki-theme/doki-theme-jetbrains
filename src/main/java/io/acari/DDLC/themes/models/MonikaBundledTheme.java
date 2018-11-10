@@ -24,9 +24,11 @@
  *
  */
 
-package com.chrisrm.idea.themes.models;
+package io.acari.DDLC.themes.models;
 
 import com.chrisrm.idea.themes.MTLightCustomTheme;
+import com.chrisrm.idea.themes.models.MTBundledTheme;
+import com.chrisrm.idea.themes.models.MTThemeColor;
 import com.intellij.util.ObjectUtils;
 import org.jetbrains.annotations.NotNull;
 
