@@ -1,4 +1,4 @@
-package com.chrisrm.idea.legacy;
+package io.acari.DDLC.legacy;
 
 @FunctionalInterface
 public interface Runner {

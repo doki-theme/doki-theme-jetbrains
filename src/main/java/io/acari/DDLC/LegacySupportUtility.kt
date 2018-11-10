@@ -1,6 +1,6 @@
 package io.acari.DDLC
 
-import com.chrisrm.idea.legacy.Runner
+import io.acari.DDLC.legacy.Runner
 
 object LegacySupportUtility {
 
@@ -47,10 +47,10 @@ object LegacySupportUtility {
             }
 
     fun <C> invokeVoidMethodSafely(clazz: Class<C>,
-                                  method: String,
-                                  runSafely: Runner,
-                                  orElseGet: Runner,
-                                  vararg paratemers: Class<*>) =
+                                   method: String,
+                                   runSafely: Runner,
+                                   orElseGet: Runner,
+                                   vararg paratemers: Class<*>) =
             try {
                 clazz.getDeclaredMethod(method, *paratemers)
                 runSafely.run()
