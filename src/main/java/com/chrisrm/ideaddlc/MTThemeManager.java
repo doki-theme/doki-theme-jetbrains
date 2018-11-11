@@ -242,6 +242,7 @@ public final class MTThemeManager {
     }
 
     DDLCConfig.getInstance().setSelectedTheme(newTheme);
+    MTConfig.getInstance().deactivateMaterialTheme();
 
     newTheme.getTheme().activate();
     switchScheme(newTheme, switchColorScheme);

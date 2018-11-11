@@ -31,6 +31,7 @@ import com.chrisrm.ideaddlc.config.ui.MTForm;
 import com.chrisrm.ideaddlc.messages.MaterialThemeBundle;
 import com.intellij.openapi.options.SearchableConfigurable;
 import com.intellij.ui.ColorUtil;
+import io.acari.DDLC.DDLCConfig;
 import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.NotNull;
 

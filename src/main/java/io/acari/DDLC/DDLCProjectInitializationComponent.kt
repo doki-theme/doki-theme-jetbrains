@@ -1,12 +1,12 @@
 package io.acari.DDLC
 
 import com.chrisrm.ideaddlc.MTConfig
-import io.acari.DDLC.actions.DDLCAddFileColorsAction
 import com.intellij.ide.GeneralSettings
 import com.intellij.ide.util.PropertiesComponent
 import com.intellij.ide.util.TipDialog
 import com.intellij.openapi.components.AbstractProjectComponent
 import com.intellij.openapi.project.Project
+import io.acari.DDLC.actions.DDLCAddFileColorsAction
 import io.acari.DDLC.wizard.DDLCWizardDialog
 import io.acari.DDLC.wizard.DDLCWizardStepsProvider
 import java.time.Instant
@@ -18,10 +18,12 @@ import java.util.*
 class DDLCProjectInitializationComponent(project: Project?) : AbstractProjectComponent(project) {
     val random = Random(Instant.now().epochSecond / 100)
     private val mtAddFileColorsAction = DDLCAddFileColorsAction()
+    private val mtConfig = MTConfig.getInstance()
 
     override fun initComponent() {
         super.initComponent()
-        checkWizard()
+        if (!mtConfig.isMateriaThemeActive)
+            checkWizard()
     }
 
     private fun checkWizard() {
@@ -37,16 +39,19 @@ class DDLCProjectInitializationComponent(project: Project?) : AbstractProjectCom
     }
 
     override fun projectOpened() {
-        mtAddFileColorsAction.setFileScopes(this.myProject)
-        if(!GeneralSettings.getInstance().isShowTipsOnStartup()){
-            val timesTipsChosen = PropertiesComponent.getInstance().getInt(WRITING_TIP_OF_THE_DAY, 0)
-            if (timesTipsChosen < 1) {
-                GeneralSettings.getInstance().setShowTipsOnStartup(true)
-                showMonikasWritingTipOfTheDay(timesTipsChosen)
-            } else if (timesTipsChosen < 2 && shouldShowAgain()) {
-                showMonikasWritingTipOfTheDay(timesTipsChosen)
+        if(!mtConfig.isMateriaThemeActive){
+            mtAddFileColorsAction.setFileScopes(this.myProject)
+            if(!GeneralSettings.getInstance().isShowTipsOnStartup()){
+                val timesTipsChosen = PropertiesComponent.getInstance().getInt(WRITING_TIP_OF_THE_DAY, 0)
+                if (timesTipsChosen < 1) {
+                    GeneralSettings.getInstance().setShowTipsOnStartup(true)
+                    showMonikasWritingTipOfTheDay(timesTipsChosen)
+                } else if (timesTipsChosen < 2 && shouldShowAgain()) {
+                    showMonikasWritingTipOfTheDay(timesTipsChosen)
+                }
             }
         }
+
    }
 
     private fun shouldShowAgain() = random.nextLong() % 42 == 0L

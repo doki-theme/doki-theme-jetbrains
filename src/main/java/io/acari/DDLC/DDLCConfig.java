@@ -66,6 +66,7 @@ public class DDLCConfig implements PersistentStateComponent<DDLCConfig>, Cloneab
   public String selectedTheme = DDLCThemes.MONIKA.getName();
 
   public boolean isWizardShown = false;
+  public boolean isFirstTime = true;
 
   public DDLCConfig() {
   }
@@ -82,6 +83,14 @@ public class DDLCConfig implements PersistentStateComponent<DDLCConfig>, Cloneab
    */
   public static DDLCConfig getInstance() {
     return ServiceManager.getService(DDLCConfig.class);
+  }
+
+  public boolean isFirstTime() {
+    return isFirstTime;
+  }
+
+  public void setFirstTime(boolean firstTime) {
+    isFirstTime = firstTime;
   }
 
   public Map asProperties() {
@@ -170,6 +179,7 @@ public class DDLCConfig implements PersistentStateComponent<DDLCConfig>, Cloneab
     hashMap.put("IDEVersion", ApplicationInfo.getInstance().getBuild().getBaselineVersion());
     hashMap.put("version", version);
     hashMap.put("selectedTheme", selectedTheme);
+    hashMap.put("isFirstTime", isFirstTime);
 
 
     return hashMap;
@@ -181,6 +191,7 @@ public class DDLCConfig implements PersistentStateComponent<DDLCConfig>, Cloneab
     hashMap.put("IDEVersion", ApplicationInfo.getInstance().getBuild().getBaselineVersion());
     hashMap.put("version", version);
     hashMap.put("selectedTheme", selectedTheme);
+    hashMap.put("isFirstTime", isFirstTime);
 
 
     return hashMap;
