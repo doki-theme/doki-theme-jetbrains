@@ -26,9 +26,9 @@
 
 package io.acari.DDLC.themes.models;
 
-import com.chrisrm.idea.themes.DDLCLightCustomTheme;
-import com.chrisrm.idea.themes.models.MTBundledTheme;
-import com.chrisrm.idea.themes.models.MTThemeColor;
+import com.chrisrm.ideaddlc.themes.DDLCLightCustomTheme;
+import com.chrisrm.ideaddlc.themes.models.MTBundledTheme;
+import com.chrisrm.ideaddlc.themes.models.MTThemeColor;
 import com.intellij.util.ObjectUtils;
 import org.jetbrains.annotations.NotNull;
 

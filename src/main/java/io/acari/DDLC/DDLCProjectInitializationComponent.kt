@@ -1,6 +1,6 @@
 package io.acari.DDLC
 
-import com.chrisrm.idea.MTConfig
+import com.chrisrm.ideaddlc.MTConfig
 import io.acari.DDLC.actions.DDLCAddFileColorsAction
 import com.intellij.ide.GeneralSettings
 import com.intellij.ide.util.PropertiesComponent

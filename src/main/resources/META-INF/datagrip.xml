@@ -26,7 +26,7 @@
 <idea-plugin>
     <application-components>
         <component>
-            <implementation-class>com.chrisrm.idea.plugins.MTPluginDatagrip</implementation-class>
+            <implementation-class>com.chrisrm.ideaddlc.plugins.MTPluginDatagrip</implementation-class>
         </component>
     </application-components>
 </idea-plugin>

@@ -26,16 +26,16 @@
 
 package io.acari.DDLC.actions.themes.literature.club
 
-import com.chrisrm.idea.MTAnalytics
-import com.chrisrm.idea.MTConfig
-import com.chrisrm.idea.MTThemeManager
+import com.chrisrm.ideaddlc.MTAnalytics
+import com.chrisrm.ideaddlc.MTConfig
+import com.chrisrm.ideaddlc.MTThemeManager
 import io.acari.DDLC.DDLCThemes
 import io.acari.DDLC.actions.ClubMemberOrchestrator
 import io.acari.DDLC.actions.DDLCAddFileColorsAction
-import com.chrisrm.idea.actions.accents.MTAbstractAccentAction
-import com.chrisrm.idea.tree.MTProjectViewNodeDecorator
-import com.chrisrm.idea.ui.MTButtonUI
-import com.chrisrm.idea.ui.MTTreeUI
+import com.chrisrm.ideaddlc.actions.accents.MTAbstractAccentAction
+import com.chrisrm.ideaddlc.tree.MTProjectViewNodeDecorator
+import com.chrisrm.ideaddlc.ui.MTButtonUI
+import com.chrisrm.ideaddlc.ui.MTTreeUI
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.ToggleAction
 

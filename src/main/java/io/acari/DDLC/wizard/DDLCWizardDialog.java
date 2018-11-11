@@ -26,8 +26,8 @@
 
 package io.acari.DDLC.wizard;
 
-import com.chrisrm.idea.MTConfig;
-import com.chrisrm.idea.MTThemeManager;
+import com.chrisrm.ideaddlc.MTConfig;
+import com.chrisrm.ideaddlc.MTThemeManager;
 import com.intellij.ide.customize.AbstractCustomizeWizardStep;
 import com.intellij.ide.customize.CustomizeIDEWizardDialog;
 import com.intellij.openapi.ui.popup.util.PopupUtil;

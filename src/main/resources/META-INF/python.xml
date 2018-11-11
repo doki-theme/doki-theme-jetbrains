@@ -27,7 +27,7 @@
 <idea-plugin>
     <application-components>
         <component>
-            <implementation-class>com.chrisrm.idea.plugins.MTPluginPython</implementation-class>
+            <implementation-class>com.chrisrm.ideaddlc.plugins.MTPluginPython</implementation-class>
         </component>
     </application-components>
 </idea-plugin>

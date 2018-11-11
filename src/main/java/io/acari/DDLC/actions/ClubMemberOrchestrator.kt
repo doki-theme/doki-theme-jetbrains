@@ -1,6 +1,6 @@
 package io.acari.DDLC.actions
 
-import com.chrisrm.idea.MTConfig
+import com.chrisrm.ideaddlc.MTConfig
 import io.acari.DDLC.DDLCThemes
 import com.intellij.ide.util.PropertiesComponent
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil
@@ -137,7 +137,7 @@ object ClubMemberOrchestrator {
     }
 
     private fun getLocalClubMemberParentDirectory(): Optional<String> =
-        Optional.ofNullable(System.getProperties()["jb.vmOptionsFile"] as? String ?: System.getProperties()["idea.config.path"] as? String)
+        Optional.ofNullable(System.getProperties()["jb.vmOptionsFile"] as? String ?: System.getProperties()["ideaddlc.config.path"] as? String)
             .map {
                 property ->
                 val directory = Paths.get(property)

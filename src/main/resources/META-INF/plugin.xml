@@ -46,30 +46,30 @@
     <resource-bundle>messages.FileColorsBundle</resource-bundle>
 
     <extensionPoints>
-        <extensionPoint beanClass="com.chrisrm.idea.themes.BundledThemeEP" name="bundledTheme"/>
+        <extensionPoint beanClass="com.chrisrm.ideaddlc.themes.BundledThemeEP" name="bundledTheme"/>
     </extensionPoints>
 
     <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="com.chrisrm.idea.MTConfig"/>
-        <applicationService serviceImplementation="com.chrisrm.idea.MTCustomThemeConfig"/>
-        <applicationService serviceImplementation="com.chrisrm.idea.MTThemeManager"/>
-        <applicationService serviceImplementation="com.chrisrm.idea.MTBundledThemesManager"/>
-        <applicationService serviceImplementation="com.chrisrm.idea.MTAnalytics"/>
+        <applicationService serviceImplementation="com.chrisrm.ideaddlc.MTConfig"/>
+        <applicationService serviceImplementation="com.chrisrm.ideaddlc.MTCustomThemeConfig"/>
+        <applicationService serviceImplementation="com.chrisrm.ideaddlc.MTThemeManager"/>
+        <applicationService serviceImplementation="com.chrisrm.ideaddlc.MTBundledThemesManager"/>
+        <applicationService serviceImplementation="com.chrisrm.ideaddlc.MTAnalytics"/>
 
-        <applicationService serviceImplementation="com.chrisrm.idea.icons.tinted.TintedIconsService"/>
-        <applicationConfigurable instance="com.chrisrm.idea.config.MTConfigurable"
+        <applicationService serviceImplementation="com.chrisrm.ideaddlc.icons.tinted.TintedIconsService"/>
+        <applicationConfigurable instance="com.chrisrm.ideaddlc.config.MTConfigurable"
                                  groupId="appearance"
-                                 id="com.chrisrm.idea.config"/>
-        <applicationConfigurable instance="com.chrisrm.idea.config.MTCustomThemeConfigurable"
+                                 id="com.chrisrm.ideaddlc.config"/>
+        <applicationConfigurable instance="com.chrisrm.ideaddlc.config.MTCustomThemeConfigurable"
                                  groupId="appearance"
-                                 id="com.chrisrm.idea.config.mtCustomThemeConfig"/>
+                                 id="com.chrisrm.ideaddlc.config.mtCustomThemeConfig"/>
 
-        <projectViewNodeDecorator implementation="com.chrisrm.idea.tree.MTProjectViewNodeDecorator"/>
-        <editorTabTitleProvider implementation="com.chrisrm.idea.tabs.MTEditorUpperTabs" order="first"/>
+        <projectViewNodeDecorator implementation="com.chrisrm.ideaddlc.tree.MTProjectViewNodeDecorator"/>
+        <editorTabTitleProvider implementation="com.chrisrm.ideaddlc.tabs.MTEditorUpperTabs" order="first"/>
         <editorTabColorProvider implementation="io.acari.DDLC.tabs.DDLCEditorTabColorProvider" order="first"/>
-        <iconProvider implementation="com.chrisrm.idea.icons.MTHiddenIconProvider" order="first"
+        <iconProvider implementation="com.chrisrm.ideaddlc.icons.MTHiddenIconProvider" order="first"
                       id="MTHiddenIconProvider"/>
-        <iconProvider implementation="com.chrisrm.idea.icons.MTFileIconProvider" order="first"
+        <iconProvider implementation="com.chrisrm.ideaddlc.icons.MTFileIconProvider" order="first"
                       id="MTFileIconProvider"/>
 
         <bundledColorScheme path="/colors/Monika"/>
@@ -81,47 +81,47 @@
         <bundledColorScheme path="/colors/Yuri"/>
         <bundledColorScheme path="/colors/Edgy"/>
 
-        <welcomeFrameProvider implementation="com.chrisrm.idea.ui.MTFlatWelcomeFrameProvider"
+        <welcomeFrameProvider implementation="com.chrisrm.ideaddlc.ui.MTFlatWelcomeFrameProvider"
                               order="FIRST"/>
 
-        <search.optionContributor implementation="com.chrisrm.idea.config.MTOptionContributor"/>
-        <search.topHitProvider implementation="com.chrisrm.idea.config.MTConfigTopHitProvider"/>
+        <search.optionContributor implementation="com.chrisrm.ideaddlc.config.MTOptionContributor"/>
+        <search.topHitProvider implementation="com.chrisrm.ideaddlc.config.MTConfigTopHitProvider"/>
 
-        <colorSettingsPage implementation="com.chrisrm.idea.config.MTFileColorsPage"/>
+        <colorSettingsPage implementation="com.chrisrm.ideaddlc.config.MTFileColorsPage"/>
 
-        <webHelpProvider implementation="com.chrisrm.idea.help.MTHelpProvider" id="MTHelpTopic"/>
+        <webHelpProvider implementation="com.chrisrm.ideaddlc.help.MTHelpProvider" id="MTHelpTopic"/>
     </extensions>
 
     <application-components>
         <component>
-            <implementation-class>com.chrisrm.idea.schemes.MTThemesComponent</implementation-class>
+            <implementation-class>com.chrisrm.ideaddlc.schemes.MTThemesComponent</implementation-class>
         </component>
         <component>
-            <implementation-class>com.chrisrm.idea.MTHackComponent</implementation-class>
+            <implementation-class>com.chrisrm.ideaddlc.MTHackComponent</implementation-class>
         </component>
         <component>
             <implementation-class>io.acari.DDLC.DDLCHackComponent</implementation-class>
         </component>
         <component>
-            <implementation-class>com.chrisrm.idea.MTApplicationComponent</implementation-class>
+            <implementation-class>com.chrisrm.ideaddlc.MTApplicationComponent</implementation-class>
         </component>
         <component>
-            <implementation-class>com.chrisrm.idea.MTLafComponent</implementation-class>
+            <implementation-class>com.chrisrm.ideaddlc.MTLafComponent</implementation-class>
         </component>
         <component>
-            <implementation-class>com.chrisrm.idea.tabs.MTTabsPainterPatcherComponent</implementation-class>
+            <implementation-class>com.chrisrm.ideaddlc.tabs.MTTabsPainterPatcherComponent</implementation-class>
         </component>
         <component>
-            <implementation-class>com.chrisrm.idea.icons.MTIconReplacerComponent</implementation-class>
+            <implementation-class>com.chrisrm.ideaddlc.icons.MTIconReplacerComponent</implementation-class>
         </component>
         <component>
-            <implementation-class>com.chrisrm.idea.MTCleanupComponent</implementation-class>
+            <implementation-class>com.chrisrm.ideaddlc.MTCleanupComponent</implementation-class>
         </component>
     </application-components>
 
     <project-components>
         <component>
-            <implementation-class>com.chrisrm.idea.status.MTStatusBarComponent</implementation-class>
+            <implementation-class>com.chrisrm.ideaddlc.status.MTStatusBarComponent</implementation-class>
             <loadForDefaultProject>true</loadForDefaultProject>
         </component>
         <component>
@@ -129,10 +129,10 @@
             <loadForDefaultProject>true</loadForDefaultProject>
         </component>
         <component>
-            <implementation-class>com.chrisrm.idea.MTUpdatesComponent</implementation-class>
+            <implementation-class>com.chrisrm.ideaddlc.MTUpdatesComponent</implementation-class>
         </component>
         <component>
-            <implementation-class>com.chrisrm.idea.MTTitleBarComponent</implementation-class>
+            <implementation-class>com.chrisrm.ideaddlc.MTTitleBarComponent</implementation-class>
             <loadForDefaultProject>true</loadForDefaultProject>
         </component>
     </project-components>
@@ -176,38 +176,38 @@
                     icon="/icons/actions/mt/joy.png"
                     description="Swap Chibi"/>
             <group id="arrowsStyles" text="Arrow Styles" popup="true">
-                <action class="com.chrisrm.idea.actions.arrows.MTMaterialArrows"
+                <action class="com.chrisrm.ideaddlc.actions.arrows.MTMaterialArrows"
                         id="MTMaterialArrows"
                         text="Set Material Arrows style"
                         icon="/icons/actions/arrows/material.svg"
                         description="Set Material Arrows style"/>
-                <action class="com.chrisrm.idea.actions.arrows.MTDarculaArrows"
+                <action class="com.chrisrm.ideaddlc.actions.arrows.MTDarculaArrows"
                         id="MTDarculaArrows"
                         text="Set Darcula Arrows style"
                         icon="/icons/actions/arrows/darcula.svg"
                         description="Set Darcula Arrows style"/>
-                <action class="com.chrisrm.idea.actions.arrows.MTPlusMinusArrows"
+                <action class="com.chrisrm.ideaddlc.actions.arrows.MTPlusMinusArrows"
                         id="MTPlusMinusArrows"
                         text="Set Plus-Minus Arrows style"
                         icon="/icons/actions/arrows/plusminus.svg"
                         description="Set Plus-Minus Arrows style"/>
-                <action class="com.chrisrm.idea.actions.arrows.MTNoneArrows"
+                <action class="com.chrisrm.ideaddlc.actions.arrows.MTNoneArrows"
                         id="MTNoneArrows"
                         text="Set No Arrows style"
                         description="Remove all arrows in trees"/>
             </group>
             <group id="indicatorStyles" text="Indicator Styles" popup="true">
-                <action class="com.chrisrm.idea.actions.indicators.MTBorderIndicators"
+                <action class="com.chrisrm.ideaddlc.actions.indicators.MTBorderIndicators"
                         id="MTBorderIndicators"
                         text="Set Border Indicators style"
                         icon="/icons/actions/indicators/border.svg"
                         description="Set Border Indicators style"/>
-                <action class="com.chrisrm.idea.actions.indicators.MTDotIndicators"
+                <action class="com.chrisrm.ideaddlc.actions.indicators.MTDotIndicators"
                         id="MTDotIndicators"
                         text="Set Dot Indicators style"
                         icon="/icons/actions/indicators/dot.svg"
                         description="Set Dot Indicators style"/>
-                <action class="com.chrisrm.idea.actions.indicators.MTNoneIndicators"
+                <action class="com.chrisrm.ideaddlc.actions.indicators.MTNoneIndicators"
                         id="MTNoneIndicators"
                         text="Set No Indicators style"
                         description="Remove the selected indicators in trees"/>

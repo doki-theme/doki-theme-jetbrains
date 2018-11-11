@@ -1,6 +1,6 @@
 package io.acari.DDLC.actions
 
-import com.chrisrm.idea.MTConfig
+import com.chrisrm.ideaddlc.MTConfig
 import io.acari.DDLC.DDLCThemes
 import io.acari.DDLC.actions.themes.literature.club.BaseThemeAction
 import io.acari.DDLC.actions.themes.literature.club.JustMonikaThemeAction

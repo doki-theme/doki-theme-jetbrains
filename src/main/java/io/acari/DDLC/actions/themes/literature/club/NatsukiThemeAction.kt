@@ -27,6 +27,6 @@
 package io.acari.DDLC.actions.themes.literature.club
 
 import io.acari.DDLC.DDLCThemes
-import com.chrisrm.idea.actions.accents.MTFuschiaAccentAction
+import com.chrisrm.ideaddlc.actions.accents.MTFuschiaAccentAction
 
 class NatsukiThemeAction : ClubMemberThemeAction(DDLCThemes.NATSUKI, MTFuschiaAccentAction())

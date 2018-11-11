@@ -26,7 +26,7 @@
 
 package io.acari.DDLC;
 
-import com.chrisrm.idea.themes.MTThemeable;
+import com.chrisrm.ideaddlc.themes.MTThemeable;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 

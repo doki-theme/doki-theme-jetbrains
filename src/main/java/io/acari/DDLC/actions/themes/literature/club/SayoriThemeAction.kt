@@ -27,6 +27,6 @@
 package io.acari.DDLC.actions.themes.literature.club
 
 import io.acari.DDLC.DDLCThemes
-import com.chrisrm.idea.actions.accents.MTCyanAccentAction
+import com.chrisrm.ideaddlc.actions.accents.MTCyanAccentAction
 
 class SayoriThemeAction : ClubMemberThemeAction(DDLCThemes.SAYORI, MTCyanAccentAction())

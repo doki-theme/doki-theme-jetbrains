@@ -26,15 +26,14 @@
 
 package io.acari.DDLC;
 
-import com.chrisrm.idea.MTConfig;
-import com.chrisrm.idea.MTDarkLaf;
-import com.chrisrm.idea.MTLightLaf;
-import com.chrisrm.idea.MTThemeManager;
-import com.chrisrm.idea.themes.MTThemeable;
-import io.acari.DDLC.LegacySupportUtility;
+import com.chrisrm.ideaddlc.MTConfig;
+import com.chrisrm.ideaddlc.MTDarkLaf;
+import com.chrisrm.ideaddlc.MTLightLaf;
+import com.chrisrm.ideaddlc.MTThemeManager;
+import com.chrisrm.ideaddlc.themes.MTThemeable;
 import io.acari.DDLC.themes.light.MonikaTheme;
-import com.chrisrm.idea.utils.MTUiUtils;
-import com.chrisrm.idea.utils.PropertiesParser;
+import com.chrisrm.ideaddlc.utils.MTUiUtils;
+import com.chrisrm.ideaddlc.utils.PropertiesParser;
 import com.intellij.ide.ui.LafManager;
 import com.intellij.ide.ui.laf.IntelliJLookAndFeelInfo;
 import com.intellij.ide.ui.laf.LafManagerImpl;

@@ -25,10 +25,10 @@
 
 package io.acari.DDLC.actions
 
-import com.chrisrm.idea.MTAnalytics
-import com.chrisrm.idea.MTConfig
-import com.chrisrm.idea.messages.MaterialThemeBundle
-import com.chrisrm.idea.utils.Notify
+import com.chrisrm.ideaddlc.MTAnalytics
+import com.chrisrm.ideaddlc.MTConfig
+import com.chrisrm.ideaddlc.messages.MaterialThemeBundle
+import com.chrisrm.ideaddlc.utils.Notify
 import com.intellij.notification.Notification
 import com.intellij.notification.NotificationListener
 import com.intellij.notification.NotificationType
