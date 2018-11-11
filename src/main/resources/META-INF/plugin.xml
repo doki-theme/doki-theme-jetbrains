@@ -51,6 +51,7 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <applicationService serviceImplementation="com.chrisrm.ideaddlc.MTConfig"/>
+        <applicationService serviceImplementation="io.acari.DDLC.DDLCConfig"/>
         <applicationService serviceImplementation="com.chrisrm.ideaddlc.MTCustomThemeConfig"/>
         <applicationService serviceImplementation="com.chrisrm.ideaddlc.MTThemeManager"/>
         <applicationService serviceImplementation="com.chrisrm.ideaddlc.MTBundledThemesManager"/>

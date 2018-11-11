@@ -25,7 +25,7 @@ class DDLCProjectInitializationComponent(project: Project?) : AbstractProjectCom
     }
 
     private fun checkWizard() {
-        val isWizardShown = MTConfig.getInstance().getIsWizardShown()
+        val isWizardShown = DDLCConfig.getInstance().getIsWizardShown()
         if (!isWizardShown) {
             DDLCWizardDialog(DDLCWizardStepsProvider()).show()
             MTConfig.getInstance().setIsWizardShown(true)
