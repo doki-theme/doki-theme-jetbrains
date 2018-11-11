@@ -51,7 +51,7 @@ public final class MTStatusBarComponent extends AbstractProjectComponent {
   @NotNull
   @Override
   public String getComponentName() {
-    return "MTStatusBarComponent";
+    return "DDLCStatusBarComponent";
   }
 
   @Override
