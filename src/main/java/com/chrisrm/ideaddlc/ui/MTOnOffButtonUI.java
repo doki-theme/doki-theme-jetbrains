@@ -34,6 +34,7 @@ import com.intellij.util.ui.GraphicsUtil;
 import com.intellij.util.ui.JBDimension;
 import com.intellij.util.ui.JBInsets;
 import com.intellij.util.ui.JBUI;
+import io.acari.DDLC.DDLCConfig;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -95,7 +96,7 @@ public class MTOnOffButtonUI extends BasicToggleButtonUI {
       return;
     }
 
-    final MTThemeable theme = MTConfig.getInstance().getSelectedTheme().getTheme();
+    final MTThemeable theme = DDLCConfig.getInstance().getSelectedTheme().getTheme();
     final Color bgColor = theme.getForegroundColor();
     final Color thumbColor = bgColor.brighter().brighter();
     final Color accentColor = ColorUtil.fromHex(MTConfig.getInstance().getAccentColor());
