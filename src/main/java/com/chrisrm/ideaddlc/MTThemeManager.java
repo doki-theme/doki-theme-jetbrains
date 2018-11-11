@@ -517,7 +517,7 @@ public final class MTThemeManager {
   private void patchStyledEditorKit() {
     final UIDefaults defaults = UIManager.getLookAndFeelDefaults();
     final MTConfig mtConfig = MTConfig.getInstance();
-    final MTThemeable selectedTheme = mtConfig.getSelectedTheme().getTheme();
+    final MTThemeable selectedTheme = DDLCConfig.getInstance().getSelectedTheme().getTheme();
 
     // Load css
     final URL url = selectedTheme.getClass().getResource(selectedTheme.getId() + (JBUI.isUsrHiDPI() ? "@2x.css" : ".css"));

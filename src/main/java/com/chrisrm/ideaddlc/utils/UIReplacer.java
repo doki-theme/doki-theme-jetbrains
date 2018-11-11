@@ -26,6 +26,7 @@
 
 package com.chrisrm.ideaddlc.utils;
 
+import io.acari.DDLC.DDLCConfig;
 import io.acari.DDLC.LegacySupportUtility;
 import com.chrisrm.ideaddlc.MTConfig;
 import com.chrisrm.ideaddlc.ui.MTActionButtonLook;
@@ -116,7 +117,7 @@ public final class UIReplacer {
 
 
         // tool window color
-        final boolean dark = MTConfig.getInstance().getSelectedTheme().getThemeIsDark();
+        final boolean dark = DDLCConfig.getInstance().getSelectedTheme().getThemeIsDark();
         StaticPatcher.setFinalStatic(Gray.class, "_15", dark ? Gray._15.withAlpha(255) : Gray._200.withAlpha(15));
       }
     }
@@ -440,7 +441,7 @@ public final class UIReplacer {
         return;
       }
 
-      final String disabled = MTConfig.getInstance().getSelectedTheme().getTheme().getExcludedColor();
+      final String disabled = DDLCConfig.getInstance().getSelectedTheme().getTheme().getExcludedColor();
       final JBColor disabledColor = new JBColor(ColorUtil.fromHex(disabled), ColorUtil.fromHex(disabled));
 
       final Map<String, Color> ourDefaultColors = ContainerUtil.<String, Color>immutableMapBuilder()
