@@ -26,6 +26,7 @@
 
 package com.chrisrm.ideaddlc.config.ui;
 
+import io.acari.DDLC.DDLCConfig;
 import io.acari.DDLC.DDLCThemeFacade;
 import io.acari.DDLC.DDLCThemes;
 import com.chrisrm.ideaddlc.MTConfig;
@@ -710,14 +711,14 @@ public class MTForm implements MTFormUI {
         Messages.getWarningIcon());
     if (answer == Messages.YES) {
       MTConfig.getInstance().resetSettings();
-      setFormState(MTConfig.getInstance());
+      setFormState(MTConfig.getInstance(), DDLCConfig.getInstance());
     }
   }
 
-  public void setFormState(final MTConfig mtConfig) {
+  public void setFormState(final MTConfig mtConfig, DDLCConfig ddlcConfig) {
     setSelectedTabIndex(mtConfig.getSettingsSelectedTab());
 
-    setTheme(mtConfig.getSelectedTheme());
+    setTheme(ddlcConfig.getSelectedTheme());
     setHighlightColor(mtConfig.getHighlightColor());
     setHighlightColorEnabled(mtConfig.isHighlightColorEnabled());
     setHighlightThickness(mtConfig.getHighlightThickness());

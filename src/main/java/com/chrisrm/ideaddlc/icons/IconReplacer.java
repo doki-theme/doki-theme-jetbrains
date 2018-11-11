@@ -33,6 +33,7 @@ import com.chrisrm.ideaddlc.icons.tinted.TintedIconsService;
 import com.chrisrm.ideaddlc.utils.MTUiUtils;
 import com.chrisrm.ideaddlc.utils.StaticPatcher;
 import com.intellij.openapi.util.IconLoader;
+import io.acari.DDLC.DDLCConfig;
 
 import javax.swing.*;
 import java.awt.*;
@@ -89,7 +90,7 @@ public final class IconReplacer {
   public static void applyFilter() {
     final boolean monochromeIcons = MTConfig.getInstance().isMonochromeIcons();
     if (monochromeIcons) {
-      final Color primaryColor = MTUiUtils.brighter(MTConfig.getInstance().getSelectedTheme().getTheme().getPrimaryColor(),
+      final Color primaryColor = MTUiUtils.brighter(DDLCConfig.getInstance().getSelectedTheme().getTheme().getPrimaryColor(),
           6);
       IconLoader.setFilter(new ColorizeFilter(primaryColor));
     } else {

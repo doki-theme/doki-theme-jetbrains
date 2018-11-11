@@ -38,6 +38,7 @@ import com.chrisrm.ideaddlc.ui.MTButtonUI
 import com.chrisrm.ideaddlc.ui.MTTreeUI
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.ToggleAction
+import io.acari.DDLC.DDLCConfig
 
 
 open class ClubMemberThemeAction(private val theme: DDLCThemes,
@@ -58,7 +59,7 @@ open class ClubMemberThemeAction(private val theme: DDLCThemes,
     }
 
     override fun isSelected(e: AnActionEvent): Boolean =
-            MTConfig.getInstance().getSelectedTheme() === theme
+            DDLCConfig.getInstance().getSelectedTheme() === theme
 
 }
 

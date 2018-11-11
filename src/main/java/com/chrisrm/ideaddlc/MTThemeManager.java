@@ -59,6 +59,7 @@ import com.intellij.util.ObjectUtils;
 import com.intellij.util.ui.JBUI;
 import com.intellij.util.ui.UIUtil;
 import io.acari.DDLC.DDLCAbstractTheme;
+import io.acari.DDLC.DDLCConfig;
 import io.acari.DDLC.DDLCThemeFacade;
 import io.acari.DDLC.DDLCThemes;
 import sun.awt.AppContext;
@@ -216,7 +217,7 @@ public final class MTThemeManager {
    * Activate selected theme or deactivate current
    */
   public void activate() {
-    final DDLCThemeFacade mtTheme = MTConfig.getInstance().getSelectedTheme();
+    final DDLCThemeFacade mtTheme = DDLCConfig.getInstance().getSelectedTheme();
     if (!MTConfig.getInstance().isMaterialTheme()) {
       removeTheme(mtTheme);
       return;
@@ -240,7 +241,7 @@ public final class MTThemeManager {
       newTheme = DDLCThemes.MONIKA;
     }
 
-    MTConfig.getInstance().setSelectedTheme(newTheme);
+    DDLCConfig.getInstance().setSelectedTheme(newTheme);
 
     newTheme.getTheme().activate();
     switchScheme(newTheme, switchColorScheme);
@@ -451,7 +452,7 @@ public final class MTThemeManager {
    */
   private void applyContrast(final boolean reloadUI) {
     final boolean apply = MTConfig.getInstance().getIsContrastMode();
-    final MTThemeable mtTheme = MTConfig.getInstance().getSelectedTheme().getTheme();
+    final MTThemeable mtTheme = DDLCConfig.getInstance().getSelectedTheme().getTheme();
     for (final String resource : ContrastResources.CONTRASTED_RESOURCES) {
       final Color contrastedColor = apply ? mtTheme.getContrastColor() : mtTheme.getBackgroundColor();
       UIManager.put(resource, contrastedColor);
@@ -559,7 +560,7 @@ public final class MTThemeManager {
    */
   private void reloadUI() {
     try {
-      UIManager.setLookAndFeel(new MTDarkLaf(MTConfig.getInstance().getSelectedTheme().getTheme()));
+      UIManager.setLookAndFeel(new MTDarkLaf(DDLCConfig.getInstance().getSelectedTheme().getTheme()));
 
       applyFonts();
 
@@ -587,7 +588,7 @@ public final class MTThemeManager {
   }
 
   public void themeWindowsTitleBar() {
-    final Color backgroundColor = MTConfig.getInstance().getSelectedTheme().getTheme().getBackgroundColor();
+    final Color backgroundColor = DDLCConfig.getInstance().getSelectedTheme().getTheme().getBackgroundColor();
 
     WinRegistry.writeTitleColor(backgroundColor);
   }

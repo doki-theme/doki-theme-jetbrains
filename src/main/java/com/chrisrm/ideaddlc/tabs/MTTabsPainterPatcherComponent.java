@@ -46,6 +46,7 @@ import com.intellij.util.ReflectionUtil;
 import com.intellij.util.messages.MessageBus;
 import com.intellij.util.messages.MessageBusConnection;
 import com.intellij.util.ui.UIUtil;
+import io.acari.DDLC.DDLCConfig;
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;
 import org.jetbrains.annotations.NotNull;
@@ -64,13 +65,15 @@ public final class MTTabsPainterPatcherComponent implements ApplicationComponent
 
   private final MTThemeable theme;
   private final MTConfig config;
+  private final DDLCConfig configDDLC;
   private final Field pathField;
   private final Field fillPathField;
   private final Field labelPathField;
 
   public MTTabsPainterPatcherComponent() throws ClassNotFoundException, NoSuchFieldException {
+    this.configDDLC = DDLCConfig.getInstance();
     config = MTConfig.getInstance();
-    theme = config.getSelectedTheme().getTheme();
+    theme = configDDLC.getSelectedTheme().getTheme();
 
     // Get the shapeinfo class because it is protected
     final Class<?> clazz = Class.forName("com.intellij.ui.tabs.impl.JBTabsImpl$ShapeInfo");
@@ -380,14 +383,14 @@ public final class MTTabsPainterPatcherComponent implements ApplicationComponent
 
     @Override
     public final Color getBackgroundColor() {
-      final MTConfig config = MTConfig.getInstance();
+      final DDLCConfig config = DDLCConfig.getInstance();
       final MTThemeable mtTheme = config.getSelectedTheme().getTheme();
       return mtTheme.getBackgroundColor();
     }
 
     public final Color getContrastColor() {
       final MTConfig config = MTConfig.getInstance();
-      final MTThemeable mtTheme = config.getSelectedTheme().getTheme();
+      final MTThemeable mtTheme = DDLCConfig.getInstance().getSelectedTheme().getTheme();
       return config.getIsContrastMode() ? mtTheme.getContrastColor() : mtTheme.getBackgroundColor();
     }
 

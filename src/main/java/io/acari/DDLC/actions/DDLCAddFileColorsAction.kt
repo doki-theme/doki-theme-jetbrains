@@ -43,6 +43,7 @@ import com.intellij.psi.search.scope.TestsScope
 import com.intellij.ui.FileColorManager
 import com.intellij.ui.tabs.FileColorManagerImpl
 import com.intellij.ui.tabs.FileColorsModel
+import io.acari.DDLC.DDLCConfig
 import java.util.stream.Collectors
 import javax.swing.event.HyperlinkEvent
 
@@ -73,7 +74,7 @@ class DDLCAddFileColorsAction : AnAction() {
     }
 
     fun setFileScopes(project: Project?) {
-        val selectedTheme = MTConfig.getInstance().getSelectedTheme()
+        val selectedTheme = DDLCConfig.getInstance().getSelectedTheme()
         val scopes = listOf(
                 Pair(NonProjectFilesScope.NAME, selectedTheme.nonProjectFileScopeColor),
                 Pair(TestsScope.NAME, selectedTheme.testScope),

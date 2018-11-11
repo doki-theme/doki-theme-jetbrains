@@ -7,6 +7,7 @@ import com.intellij.openapi.wm.impl.IdeBackgroundUtil
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil.EDITOR_PROP
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil.FRAME_PROP
 import com.intellij.util.io.isFile
+import io.acari.DDLC.DDLCConfig
 import org.apache.commons.io.IOUtils
 import java.io.BufferedInputStream
 import java.io.IOException
@@ -41,7 +42,7 @@ object ClubMemberOrchestrator {
     }
 
     private fun getSavedTheme(): DDLCThemes =
-        MTConfig.getInstance().getSelectedTheme() as DDLCThemes
+        DDLCConfig.getInstance().getSelectedTheme() as DDLCThemes
 
     fun currentActiveTheme() = currentTheme
 

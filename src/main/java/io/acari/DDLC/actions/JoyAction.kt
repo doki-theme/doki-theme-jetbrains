@@ -4,6 +4,7 @@ import com.chrisrm.ideaddlc.MTConfig
 import io.acari.DDLC.DDLCThemes
 import io.acari.DDLC.actions.themes.literature.club.BaseThemeAction
 import com.intellij.openapi.actionSystem.AnActionEvent
+import io.acari.DDLC.DDLCConfig
 
 /**
  * Forged in the flames of battle by alex.
@@ -14,7 +15,7 @@ class JoyAction: BaseThemeAction() {
     override fun setSelected(e: AnActionEvent, state: Boolean) {
         super.setSelected(e, state)
         JoyManager.toggle()
-        val selectedTheme = MTConfig.getInstance().getSelectedTheme() as DDLCThemes
+        val selectedTheme = DDLCConfig.getInstance().getSelectedTheme() as DDLCThemes
         ClubMemberOrchestrator.activate(selectedTheme)
     }
 }

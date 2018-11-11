@@ -74,7 +74,7 @@ public final class MTConfigurable extends MTConfigurableBase<MTForm, MTConfig> i
 
   @Override
   protected void setFormState(final MTForm mtForm, final MTConfig mtConfig) {
-    getForm().setFormState(mtConfig);
+    getForm().setFormState(mtConfig, DDLCConfig.getInstance());
   }
 
   @Override

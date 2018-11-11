@@ -8,6 +8,7 @@ import io.acari.DDLC.actions.themes.literature.club.NatsukiThemeAction
 import io.acari.DDLC.actions.themes.literature.club.SayoriThemeAction
 import io.acari.DDLC.actions.themes.literature.club.YuriThemeAction
 import com.intellij.openapi.actionSystem.AnActionEvent
+import io.acari.DDLC.DDLCConfig
 
 private val JustMonikaThemeAction = JustMonikaThemeAction()
 private val SayoriThemeAction = SayoriThemeAction()
@@ -23,7 +24,7 @@ class DarkModeAction : BaseThemeAction() {
 
     override fun setSelected(e: AnActionEvent, state: Boolean) {
         DarkMode.toggle()
-        when (MTConfig.getInstance().getSelectedTheme()) {
+        when (DDLCConfig.getInstance().getSelectedTheme()) {
             DDLCThemes.MONIKA -> JustMonikaThemeAction.setSelected(e, state)
             DDLCThemes.SAYORI -> SayoriThemeAction.setSelected(e, state)
             DDLCThemes.NATSUKI -> NatsukiThemeAction.setSelected(e, state)
