@@ -26,7 +26,6 @@
 package io.acari.DDLC.actions
 
 import com.chrisrm.ideaddlc.MTAnalytics
-import com.chrisrm.ideaddlc.MTConfig
 import com.chrisrm.ideaddlc.messages.MaterialThemeBundle
 import com.chrisrm.ideaddlc.utils.Notify
 import com.intellij.notification.Notification
@@ -44,6 +43,7 @@ import com.intellij.ui.FileColorManager
 import com.intellij.ui.tabs.FileColorManagerImpl
 import com.intellij.ui.tabs.FileColorsModel
 import io.acari.DDLC.DDLCConfig
+import java.lang.reflect.Constructor
 import java.util.stream.Collectors
 import javax.swing.event.HyperlinkEvent
 
@@ -73,7 +73,18 @@ class DDLCAddFileColorsAction : AnAction() {
         MTAnalytics.getInstance().track(MTAnalytics.ADD_FILE_COLORS)
     }
 
+    fun removeFileScopes(project: Project?) {
+        if (project != null)
+            replaceFileScopes(project) { a, b -> emptyList() }
+    }
+
     fun setFileScopes(project: Project?) {
+        if (project != null)
+            replaceFileScopes(project, this::mutableList)
+
+    }
+
+    fun replaceFileScopes(project: Project?, scopeGenerator: (List<Pair<String, String>>, Constructor<out Any>) -> List<Any>) {
         val selectedTheme = DDLCConfig.getInstance().getSelectedTheme()
         val scopes = listOf(
                 Pair(NonProjectFilesScope.NAME, selectedTheme.nonProjectFileScopeColor),
@@ -102,17 +113,17 @@ class DDLCAddFileColorsAction : AnAction() {
             val fileColorConfiguration = Class.forName("com.intellij.ui.tabs.FileColorConfiguration")
             val constructor = fileColorConfiguration.getDeclaredConstructor(String::class.java, String::class.java)
             constructor.isAccessible = true
-            val collect: List<Any> = scopes.stream().map { constructor.newInstance(it.first, it.second) }
-                    .collect(Collectors.toList())
+            val collect: List<Any> = scopeGenerator(scopes, constructor)
             val setConfig = FileColorsModel::class.java.getDeclaredMethod("setConfigurations", List::class.java, Boolean::class.java)
             setConfig.invoke(model, collect, false)
         } catch (e: Exception) {
             e.printStackTrace()
             val manager = FileColorManager.getInstance(project!!)
             scopes.forEach { manager.addScopeColor(it.first, it.second, false) }
-
-
         }
-
     }
+
+    fun mutableList(scopes: List<Pair<String, String>>, constructor: Constructor<out Any>) =
+            scopes.stream().map { constructor.newInstance(it.first, it.second) }
+                    .collect(Collectors.toList())
 }

@@ -50,6 +50,9 @@ class DDLCProjectInitializationComponent(project: Project?) : AbstractProjectCom
                     showMonikasWritingTipOfTheDay(timesTipsChosen)
                 }
             }
+        } else {
+            //todo: should probably check to se if the material file scopes are installed
+            mtAddFileColorsAction.removeFileScopes(this.myProject)
         }
 
    }
