@@ -7,6 +7,7 @@ import com.intellij.openapi.wm.impl.IdeBackgroundUtil
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil.EDITOR_PROP
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil.FRAME_PROP
 import com.intellij.util.io.isFile
+import io.acari.DDLC.DDLCHackComponent
 import org.apache.commons.io.IOUtils
 import java.io.BufferedInputStream
 import java.io.IOException
@@ -34,8 +35,14 @@ object ChibiOrchestrator {
 
     init {
         checkLegacyChibiToggle()
+        DDLCHackComponent.enableDDLCBackground()
         removeLegacyProperties()
         setChibiLevel(MTConfig.getInstance().getChibiLevel())
+    }
+
+    @JvmStatic
+    fun getBackgroundImage(){
+        System.err.println("hax worked bruv!")
     }
 
     private fun checkLegacyChibiToggle() {
