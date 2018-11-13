@@ -3,6 +3,8 @@ package io.acari.DDLC
 import com.intellij.ide.util.ChooseElementsDialog
 import com.intellij.ide.util.ExportToFileUtil
 import com.intellij.openapi.components.ApplicationComponent
+import com.intellij.openapi.fileEditor.impl.EditorComposite
+import io.acari.DDLC.chibi.ChibiOrchestrator
 import javassist.CannotCompileException
 import javassist.ClassClassPath
 import javassist.ClassPool
@@ -15,6 +17,49 @@ object DDLCHackComponent : ApplicationComponent {
 
   init {
     createMonikasWritingTipOfTheDay()
+    enableChibis()
+  }
+
+  private fun enableChibis() {
+    hackBackgroundPaintingComponent()
+  }
+
+  /**
+   * Enables the ability to use the editor property
+   * but also allows prevents the chibi from staying after installation.
+   *
+   *
+   * Enables the ability to use the frame property
+   * but also allows prevents the background image from staying after installation.
+   */
+  private fun hackBackgroundPaintingComponent() {
+    try {
+      val cp = ClassPool(true)
+      cp.insertClassPath(ClassClassPath(EditorComposite::class.java))
+      val ctClass2 = cp.get("com.intellij.openapi.wm.impl.IdeBackgroundUtil")
+      val method = ctClass2.getDeclaredMethod("withFrameBackground")
+      method.instrument(object : ExprEditor() {
+        @Throws(CannotCompileException::class)
+        override fun edit(m: MethodCall?) {
+          if (m!!.methodName == "withNamedPainters") {
+            m.replace("{ \$2 = \"${ChibiOrchestrator.DDLC_BACKGROUND_PROP}\"; \$_ = \$proceed(\$\$); }")
+          }
+        }
+      })
+      val editorBackgroundMethod = ctClass2.getDeclaredMethod("withEditorBackground")
+      editorBackgroundMethod.instrument(object : ExprEditor() {
+        @Throws(CannotCompileException::class)
+        override fun edit(m: MethodCall?) {
+          if (m!!.methodName == "withNamedPainters") {
+            m.replace("{ \$2 = \"${ChibiOrchestrator.DDLC_CHIBI_PROP}\"; \$_ = \$proceed(\$\$); }")
+          }
+        }
+      })
+      ctClass2.toClass()
+    } catch (e: Exception) {
+      e.printStackTrace()
+    }
+
   }
 
   private fun createMonikasWritingTipOfTheDay() {
