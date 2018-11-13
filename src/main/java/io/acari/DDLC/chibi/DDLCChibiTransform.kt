@@ -85,46 +85,47 @@ class DDLCChibiTransform : PairFunction<JComponent, Graphics2D, Graphics2D> {
           }
 
     }
-    return when (getComponentType(c)) {
-      "frame" ->
-        withFrameBackground(g, c)
-      null -> g
-      "viewport" ->
-        if (ChibiOrchestrator.currentChibiLevel() == ChibiLevel.OVER9000) withEditorBackground(g, c)
-        else g
-      "editor" -> {
-        val editor = (c as? EditorComponentImpl)?.editor
-            ?: if (c is EditorGutterComponentEx) CommonDataKeys.EDITOR.getData(c as DataProvider) else null
-        if (editor != null && g::class.java.name.contains("MyGraphics").not() && java.lang.Boolean.TRUE == EditorTextField.SUPPLEMENTARY_KEY.get(editor)) g
-        else if (c is EditorComponentImpl && (editor as EditorImpl).isDumb)
-          g
-        else withEditorBackground(g, c)
-      }
-      else -> {
-        val gg = withEditorBackground(g, c)
-        if (gg::class.java.name.contains("MyGraphics")) {
-          val view = if (c is JViewport) c.view else c
-          val selection1 = when (view) {
-            is JTree -> UIUtil.getTreeSelectionBackground()
-            is JList<*> -> UIUtil.getListSelectionBackground()
-            is JTable -> UIUtil.getTableSelectionBackground()
-            else -> null
-          }
-          val selection2 = when (view) {
-            is JTree -> UIUtil.getTreeUnfocusedSelectionBackground()
-            is JList<*> -> UIUtil.getListUnfocusedSelectionBackground()
-            is JTable -> UIUtil.getTableUnfocusedSelectionBackground()
-            else -> null
-          }
-
-          val preservation = Condition<Color> { color -> color === selection1 || color === selection2 }
-          val preservedField = gg::class.java.getDeclaredField("preserved")
-          preservedField.isAccessible = true
-          preservedField.set(gg, preservation)
-        }
-        return gg
-      }
-    }
+    return g
+//    return when (getComponentType(c)) {
+//      "frame" ->
+//        withFrameBackground(g, c)
+//      null -> g
+//      "viewport" ->
+//        if (ChibiOrchestrator.currentChibiLevel() == ChibiLevel.OVER9000) withEditorBackground(g, c)
+//        else g
+//      "editor" -> {
+//        val editor = (c as? EditorComponentImpl)?.editor
+//            ?: if (c is EditorGutterComponentEx) CommonDataKeys.EDITOR.getData(c as DataProvider) else null
+//        if (editor != null && g::class.java.name.contains("MyGraphics").not() && java.lang.Boolean.TRUE == EditorTextField.SUPPLEMENTARY_KEY.get(editor)) g
+//        else if (c is EditorComponentImpl && (editor as EditorImpl).isDumb)
+//          g
+//        else withEditorBackground(g, c)
+//      }
+//      else -> {
+//        val gg = withEditorBackground(g, c)
+//        if (gg::class.java.name.contains("MyGraphics")) {
+//          val view = if (c is JViewport) c.view else c
+//          val selection1 = when (view) {
+//            is JTree -> UIUtil.getTreeSelectionBackground()
+//            is JList<*> -> UIUtil.getListSelectionBackground()
+//            is JTable -> UIUtil.getTableSelectionBackground()
+//            else -> null
+//          }
+//          val selection2 = when (view) {
+//            is JTree -> UIUtil.getTreeUnfocusedSelectionBackground()
+//            is JList<*> -> UIUtil.getListUnfocusedSelectionBackground()
+//            is JTable -> UIUtil.getTableUnfocusedSelectionBackground()
+//            else -> null
+//          }
+//
+//          val preservation = Condition<Color> { color -> color === selection1 || color === selection2 }
+//          val preservedField = gg::class.java.getDeclaredField("preserved")
+//          preservedField.isAccessible = true
+//          preservedField.set(gg, preservation)
+//        }
+//        return gg
+//      }
+//    }
   }
 
   private fun withFrameBackground(g: Graphics2D, c: JComponent): Graphics2D =

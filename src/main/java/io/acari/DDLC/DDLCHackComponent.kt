@@ -55,6 +55,16 @@ object DDLCHackComponent : ApplicationComponent {
           }
         }
       })
+
+      val isEditorBackgroundImageSetMethod = ctClass2.getDeclaredMethod("isEditorBackgroundImageSet")
+      isEditorBackgroundImageSetMethod.instrument(object : ExprEditor() {
+        @Throws(CannotCompileException::class)
+        override fun edit(m: MethodCall?) {
+          if (m!!.methodName == "getBackgroundSpec") {
+            m.replace("{ \$2 = \"${ChibiOrchestrator.DDLC_CHIBI_PROP}\"; \$_ = \$proceed(\$\$); }")
+          }
+        }
+      })
       ctClass2.toClass()
     } catch (e: Exception) {
       e.printStackTrace()
