@@ -3,10 +3,10 @@ package io.acari.DDLC
 import com.intellij.ide.util.ChooseElementsDialog
 import com.intellij.ide.util.ExportToFileUtil
 import com.intellij.openapi.components.ApplicationComponent
-import com.intellij.openapi.fileEditor.impl.EditorComposite
-import com.intellij.openapi.wm.impl.IdeBackgroundUtil
-import io.acari.DDLC.chibi.ChibiOrchestrator
-import javassist.*
+import javassist.CannotCompileException
+import javassist.ClassClassPath
+import javassist.ClassPool
+import javassist.CtClass
 import javassist.expr.ExprEditor
 import javassist.expr.MethodCall
 
@@ -15,50 +15,6 @@ object DDLCHackComponent : ApplicationComponent {
 
   init {
     createMonikasWritingTipOfTheDay()
-  }
-
-  fun enableDDLCBackground() {
-//    hackFrameMethod()
-  }
-
-  private fun hackFrameMethod() {
-    try {
-      val cp = ClassPool.getDefault()
-      cp.insertClassPath(ClassClassPath(EditorComposite::class.java))
-      val ctClass = cp.get("com.intellij.openapi.wm.impl.IdeBackgroundUtil")
-//      ctClass.instrument(object : ExprEditor() {
-//        @Throws(CannotCompileException::class)
-//        override fun edit(m: MethodCall?) {
-//          if (m!!.methodName == "withFrameBackground") {
-//            m.replace("{ \$_ = \$proceed(\$\$); }")
-//          }
-//        }
-//      })
-      val withFrameString = "withFrameBackground"
-      val withFrameMethod = ctClass.getDeclaredMethod(withFrameString)
-//      withFrameMethod.name = "$withFrameString\$impl"
-//      val hackedWithFrameMethod = CtNewMethod.copy(withFrameMethod, withFrameString, ctClass, null)
-//      hackedWithFrameMethod.setBody("""
-//                  {
-//                    System.err.println("hax success");
-//                    if (suppressBackground($2)) return (java.awt.Graphics2D)$1;
-//                    return withNamedPainters($1, "io.acari.ddlc.background", $2);
-//                  }
-//            """.trimIndent())
-//      ctClass.addMethod(hackedWithFrameMethod)
-      withFrameMethod.instrument(object : ExprEditor() {
-        @Throws(CannotCompileException::class)
-        override fun edit(m: MethodCall?) {
-          if (m!!.methodName == "withNamedPainters") {
-            m.replace("{ \$2 = \"io.acari.ddlc.background\"; System.err.println(\"h4444x\"); \$_ = \$proceed(\$\$); }")
-          }
-        }
-      })
-      ctClass.writeFile()
-//      ctClass.toClass()
-    } catch (e: Throwable) {
-      e.printStackTrace()
-    }
   }
 
   private fun createMonikasWritingTipOfTheDay() {
