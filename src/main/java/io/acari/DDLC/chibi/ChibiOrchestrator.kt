@@ -38,11 +38,6 @@ object ChibiOrchestrator {
     setChibiLevel(MTConfig.getInstance().getChibiLevel())
   }
 
-  @JvmStatic
-  fun getBackgroundImage() {
-    System.err.println("hax worked bruv!")
-  }
-
   private fun checkLegacyChibiToggle() {
     if (PropertiesComponent.getInstance().isValueSet(CLUB_MEMBER_ON)) {
       val clubMemberOn = PropertiesComponent.getInstance().getBoolean(CLUB_MEMBER_ON)
