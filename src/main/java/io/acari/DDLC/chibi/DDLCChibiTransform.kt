@@ -39,52 +39,52 @@ class DDLCChibiTransform : PairFunction<JComponent, Graphics2D, Graphics2D> {
   private val painters = listOf(DDLC_CHIBI_PROP, DDLC_BACKGROUND_PROP)
   override fun `fun`(c: JComponent, g: Graphics2D): Graphics2D {
     val glassPane = c.rootPane.glassPane
-    if (glassPane is IdeGlassPaneImpl && !initializedComponents.contains(glassPane)) {
-      IdeGlassPaneImpl::class.java.declaredMethods.stream()
-          .filter { it.name == "getNamedPainters" }.findFirst()
-          .ifPresent { getNamedPaintersMethod ->
-            getNamedPaintersMethod.isAccessible = true
-            val myNamedPaintersField = IdeGlassPaneImpl::class.java
-                .getDeclaredField("myNamedPainters")
-            myNamedPaintersField.isAccessible = true
-            painters.forEach { painterName ->
-              val painter = getNamedPaintersMethod.invoke(glassPane, painterName)
-              if (painter != null) {
-                val paintersHelper =
-                    Class.forName("com.intellij.openapi.wm.impl.PaintersHelper")
-                paintersHelper.declaredMethods.stream()
-                    .filter { it.name == "initWallpaperPainter" }
-                    .findFirst()
-                    .ifPresent { initWallpaperPainterMethod ->
-                      initWallpaperPainterMethod.isAccessible = true
-                      initWallpaperPainterMethod.invoke(null, painterName, painter)//this is stupid ._.
-                      if (painterName == DDLC_BACKGROUND_PROP) {
-                        val extraFramePainter = object : AbstractPainter() {
-                          internal var p = ServiceManager.getService(EditorEmptyTextPainter::class.java) as EditorEmptyTextPainter
-
-                          override fun needsRepaint(): Boolean {
-                            return true
-                          }
-
-                          override fun executePaint(component: Component, g: Graphics2D) {
-                            this.p.paintEmptyText(component as JComponent, g)
-                          }
-                        }
-                        paintersHelper.declaredMethods.stream()
-                            .filter { it.name == "addPainter" }
-                            .findFirst()
-                            .ifPresent {
-                              it.isAccessible = true
-                              it.invoke(painter, extraFramePainter, null)
-                            }
-                      }
-                    }
-                initializedComponents.add(glassPane)
-              }
-            }
-          }
-
-    }
+//    if (glassPane is IdeGlassPaneImpl && !initializedComponents.contains(glassPane)) {
+//      IdeGlassPaneImpl::class.java.declaredMethods.stream()
+//          .filter { it.name == "getNamedPainters" }.findFirst()
+//          .ifPresent { getNamedPaintersMethod ->
+//            getNamedPaintersMethod.isAccessible = true
+//            val myNamedPaintersField = IdeGlassPaneImpl::class.java
+//                .getDeclaredField("myNamedPainters")
+//            myNamedPaintersField.isAccessible = true
+//            painters.forEach { painterName ->
+//              val painter = getNamedPaintersMethod.invoke(glassPane, painterName)
+//              if (painter != null) {
+//                val paintersHelper =
+//                    Class.forName("com.intellij.openapi.wm.impl.PaintersHelper")
+//                paintersHelper.declaredMethods.stream()
+//                    .filter { it.name == "initWallpaperPainter" }
+//                    .findFirst()
+//                    .ifPresent { initWallpaperPainterMethod ->
+//                      initWallpaperPainterMethod.isAccessible = true
+//                      initWallpaperPainterMethod.invoke(null, painterName, painter)//this is stupid ._.
+//                      if (painterName == DDLC_BACKGROUND_PROP) {
+//                        val extraFramePainter = object : AbstractPainter() {
+//                          internal var p = ServiceManager.getService(EditorEmptyTextPainter::class.java) as EditorEmptyTextPainter
+//
+//                          override fun needsRepaint(): Boolean {
+//                            return true
+//                          }
+//
+//                          override fun executePaint(component: Component, g: Graphics2D) {
+//                            this.p.paintEmptyText(component as JComponent, g)
+//                          }
+//                        }
+//                        paintersHelper.declaredMethods.stream()
+//                            .filter { it.name == "addPainter" }
+//                            .findFirst()
+//                            .ifPresent {
+//                              it.isAccessible = true
+//                              it.invoke(painter, extraFramePainter, null)
+//                            }
+//                      }
+//                    }
+//                initializedComponents.add(glassPane)
+//              }
+//            }
+//          }
+//
+//    }
     return g
 //    return when (getComponentType(c)) {
 //      "frame" ->
