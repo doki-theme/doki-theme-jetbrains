@@ -53,7 +53,6 @@ public class MTHackComponent implements ApplicationComponent {
 
     static {
         hackTitleLabel();
-        hackBackground();
         hackIdeaActionButton();
         hackBackgroundFrame();
         hackTabsGetHeight();
@@ -67,25 +66,6 @@ public class MTHackComponent implements ApplicationComponent {
     hackProjectViewBorder();
     }
 
-    private static void hackBackground(){
-        try {
-            final ClassPool cp = new ClassPool(true);
-            cp.insertClassPath(new ClassClassPath(EditorComposite.class));
-            final CtClass ctClass2 = cp.get("com.intellij.openapi.wm.impl.IdeBackgroundUtil");
-            final CtMethod method = ctClass2.getDeclaredMethod("withFrameBackground");
-            method.instrument(new ExprEditor() {
-                @Override
-                public void edit(final MethodCall m) throws CannotCompileException {
-                    if (m.getMethodName().equals("withNamedPainters")) {
-                        m.replace("{ $2 = \"io.acari.ddlc.background\"; System.err.println(\"h4444x\"); $_ = $proceed($$); }");
-                    }
-                }
-            });
-            ctClass2.toClass();
-        } catch (final Exception e) {
-            e.printStackTrace();
-        }
-    }
   private static void hackProjectViewBorder() {
     try {
       final ClassPool cp = new ClassPool(true);
