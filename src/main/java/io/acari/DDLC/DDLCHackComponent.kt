@@ -18,7 +18,7 @@ object DDLCHackComponent : ApplicationComponent {
   }
 
   fun enableDDLCBackground() {
-    hackFrameMethod()
+//    hackFrameMethod()
   }
 
   private fun hackFrameMethod() {
@@ -49,7 +49,7 @@ object DDLCHackComponent : ApplicationComponent {
       withFrameMethod.instrument(object : ExprEditor() {
         @Throws(CannotCompileException::class)
         override fun edit(m: MethodCall?) {
-          if (m!!.methodName == "message") {
+          if (m!!.methodName == "withNamedPainters") {
             m.replace("{ \$2 = \"io.acari.ddlc.background\"; System.err.println(\"h4444x\"); \$_ = \$proceed(\$\$); }")
           }
         }
