@@ -39,93 +39,92 @@ class DDLCChibiTransform : PairFunction<JComponent, Graphics2D, Graphics2D> {
   private val painters = listOf(DDLC_CHIBI_PROP, DDLC_BACKGROUND_PROP)
   override fun `fun`(c: JComponent, g: Graphics2D): Graphics2D {
     val glassPane = c.rootPane.glassPane
-//    if (glassPane is IdeGlassPaneImpl && !initializedComponents.contains(glassPane)) {
-//      IdeGlassPaneImpl::class.java.declaredMethods.stream()
-//          .filter { it.name == "getNamedPainters" }.findFirst()
-//          .ifPresent { getNamedPaintersMethod ->
-//            getNamedPaintersMethod.isAccessible = true
-//            val myNamedPaintersField = IdeGlassPaneImpl::class.java
-//                .getDeclaredField("myNamedPainters")
-//            myNamedPaintersField.isAccessible = true
-//            painters.forEach { painterName ->
-//              val painter = getNamedPaintersMethod.invoke(glassPane, painterName)
-//              if (painter != null) {
-//                val paintersHelper =
-//                    Class.forName("com.intellij.openapi.wm.impl.PaintersHelper")
-//                paintersHelper.declaredMethods.stream()
-//                    .filter { it.name == "initWallpaperPainter" }
-//                    .findFirst()
-//                    .ifPresent { initWallpaperPainterMethod ->
-//                      initWallpaperPainterMethod.isAccessible = true
-//                      initWallpaperPainterMethod.invoke(null, painterName, painter)//this is stupid ._.
-//                      if (painterName == DDLC_BACKGROUND_PROP) {
-//                        val extraFramePainter = object : AbstractPainter() {
-//                          internal var p = ServiceManager.getService(EditorEmptyTextPainter::class.java) as EditorEmptyTextPainter
-//
-//                          override fun needsRepaint(): Boolean {
-//                            return true
-//                          }
-//
-//                          override fun executePaint(component: Component, g: Graphics2D) {
-//                            this.p.paintEmptyText(component as JComponent, g)
-//                          }
-//                        }
-//                        paintersHelper.declaredMethods.stream()
-//                            .filter { it.name == "addPainter" }
-//                            .findFirst()
-//                            .ifPresent {
-//                              it.isAccessible = true
-//                              it.invoke(painter, extraFramePainter, null)
-//                            }
-//                      }
-//                    }
-//                initializedComponents.add(glassPane)
-//              }
-//            }
-//          }
-//
-//    }
-    return g
-//    return when (getComponentType(c)) {
-//      "frame" ->
-//        withFrameBackground(g, c)
-//      null -> g
-//      "viewport" ->
-//        if (ChibiOrchestrator.currentChibiLevel() == ChibiLevel.OVER9000) withEditorBackground(g, c)
-//        else g
-//      "editor" -> {
-//        val editor = (c as? EditorComponentImpl)?.editor
-//            ?: if (c is EditorGutterComponentEx) CommonDataKeys.EDITOR.getData(c as DataProvider) else null
-//        if (editor != null && g::class.java.name.contains("MyGraphics").not() && java.lang.Boolean.TRUE == EditorTextField.SUPPLEMENTARY_KEY.get(editor)) g
-//        else if (c is EditorComponentImpl && (editor as EditorImpl).isDumb)
-//          g
-//        else withEditorBackground(g, c)
-//      }
-//      else -> {
-//        val gg = withEditorBackground(g, c)
-//        if (gg::class.java.name.contains("MyGraphics")) {
-//          val view = if (c is JViewport) c.view else c
-//          val selection1 = when (view) {
-//            is JTree -> UIUtil.getTreeSelectionBackground()
-//            is JList<*> -> UIUtil.getListSelectionBackground()
-//            is JTable -> UIUtil.getTableSelectionBackground()
-//            else -> null
-//          }
-//          val selection2 = when (view) {
-//            is JTree -> UIUtil.getTreeUnfocusedSelectionBackground()
-//            is JList<*> -> UIUtil.getListUnfocusedSelectionBackground()
-//            is JTable -> UIUtil.getTableUnfocusedSelectionBackground()
-//            else -> null
-//          }
-//
-//          val preservation = Condition<Color> { color -> color === selection1 || color === selection2 }
-//          val preservedField = gg::class.java.getDeclaredField("preserved")
-//          preservedField.isAccessible = true
-//          preservedField.set(gg, preservation)
-//        }
-//        return gg
-//      }
-//    }
+    if (glassPane is IdeGlassPaneImpl && !initializedComponents.contains(glassPane)) {
+      IdeGlassPaneImpl::class.java.declaredMethods.stream()
+          .filter { it.name == "getNamedPainters" }.findFirst()
+          .ifPresent { getNamedPaintersMethod ->
+            getNamedPaintersMethod.isAccessible = true
+            val myNamedPaintersField = IdeGlassPaneImpl::class.java
+                .getDeclaredField("myNamedPainters")
+            myNamedPaintersField.isAccessible = true
+            painters.forEach { painterName ->
+              val painter = getNamedPaintersMethod.invoke(glassPane, painterName)
+              if (painter != null) {
+                val paintersHelper =
+                    Class.forName("com.intellij.openapi.wm.impl.PaintersHelper")
+                paintersHelper.declaredMethods.stream()
+                    .filter { it.name == "initWallpaperPainter" }
+                    .findFirst()
+                    .ifPresent { initWallpaperPainterMethod ->
+                      initWallpaperPainterMethod.isAccessible = true
+                      initWallpaperPainterMethod.invoke(null, painterName, painter)//this is stupid ._.
+                      if (painterName == DDLC_BACKGROUND_PROP) {
+                        val extraFramePainter = object : AbstractPainter() {
+                          internal var p = ServiceManager.getService(EditorEmptyTextPainter::class.java) as EditorEmptyTextPainter
+
+                          override fun needsRepaint(): Boolean {
+                            return true
+                          }
+
+                          override fun executePaint(component: Component, g: Graphics2D) {
+                            this.p.paintEmptyText(component as JComponent, g)
+                          }
+                        }
+                        paintersHelper.declaredMethods.stream()
+                            .filter { it.name == "addPainter" }
+                            .findFirst()
+                            .ifPresent {
+                              it.isAccessible = true
+                              it.invoke(painter, extraFramePainter, null)
+                            }
+                      }
+                    }
+                initializedComponents.add(glassPane)
+              }
+            }
+          }
+
+    }
+    return when (getComponentType(c)) {
+      "frame" ->
+        withFrameBackground(g, c)
+      null -> g
+      "viewport" ->
+        if (ChibiOrchestrator.currentChibiLevel() == ChibiLevel.OVER9000) withEditorBackground(g, c)
+        else g
+      "editor" -> {
+        val editor = (c as? EditorComponentImpl)?.editor
+            ?: if (c is EditorGutterComponentEx) CommonDataKeys.EDITOR.getData(c as DataProvider) else null
+        if (editor != null && g::class.java.name.contains("MyGraphics").not() && java.lang.Boolean.TRUE == EditorTextField.SUPPLEMENTARY_KEY.get(editor)) g
+        else if (c is EditorComponentImpl && (editor as EditorImpl).isDumb)
+          g
+        else withEditorBackground(g, c)
+      }
+      else -> {
+        val gg = withEditorBackground(g, c)
+        if (gg::class.java.name.contains("MyGraphics")) {
+          val view = if (c is JViewport) c.view else c
+          val selection1 = when (view) {
+            is JTree -> UIUtil.getTreeSelectionBackground()
+            is JList<*> -> UIUtil.getListSelectionBackground()
+            is JTable -> UIUtil.getTableSelectionBackground()
+            else -> null
+          }
+          val selection2 = when (view) {
+            is JTree -> UIUtil.getTreeUnfocusedSelectionBackground()
+            is JList<*> -> UIUtil.getListUnfocusedSelectionBackground()
+            is JTable -> UIUtil.getTableUnfocusedSelectionBackground()
+            else -> null
+          }
+
+          val preservation = Condition<Color> { color -> color === selection1 || color === selection2 }
+          val preservedField = gg::class.java.getDeclaredField("preserved")
+          preservedField.isAccessible = true
+          preservedField.set(gg, preservation)
+        }
+        return gg
+      }
+    }
   }
 
   private fun withFrameBackground(g: Graphics2D, c: JComponent): Graphics2D =
