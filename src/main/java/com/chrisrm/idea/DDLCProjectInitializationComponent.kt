@@ -31,7 +31,7 @@ class DDLCProjectInitializationComponent(project: Project?) : AbstractProjectCom
                 showMonikasWritingTipOfTheDay(timesTipsChosen)
             }
         }
-   }
+    }
 
     private fun shouldShowAgain() = random.nextLong() % 42 == 0L
 

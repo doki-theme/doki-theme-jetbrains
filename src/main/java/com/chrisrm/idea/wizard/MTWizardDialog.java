@@ -85,13 +85,6 @@ public class MTWizardDialog extends CustomizeIDEWizardDialog implements ActionLi
   }
 
   private void extractPrivateFields() {
-    //      myNextButtonField = ReflectionUtil.findField(CustomizeIDEWizardDialog.class, JButton.class, "myNextButton");
-    //      myBackButtonField = ReflectionUtil.findField(CustomizeIDEWizardDialog.class, JButton.class, "myBackButton");
-    //      mySkipButtonField = ReflectionUtil.findField(CustomizeIDEWizardDialog.class, JButton.class, "mySkipButton");
-    //      myIndexField = ReflectionUtil.findField(CustomizeIDEWizardDialog.class, int.class, "myIndex");
-    //      myCardLayoutField = ReflectionUtil.findField(CustomizeIDEWizardDialog.class, JBCardLayout.class, "myCardLayout");
-    //      myStepsField = ReflectionUtil.findField(CustomizeIDEWizardDialog.class, List.class, "mySteps");
-    //      myContentPanelField = ReflectionUtil.findField(CustomizeIDEWizardDialog.class, JPanel.class, "myContentPanel");
     final Field[] fields = CustomizeIDEWizardDialog.class.getDeclaredFields();
     final Object[] buttons = Arrays.stream(fields)
                                    .filter(f -> f.getType().equals(JButton.class))
@@ -118,8 +111,6 @@ public class MTWizardDialog extends CustomizeIDEWizardDialog implements ActionLi
   private void initCurrentStep() {
     try {
       final JButton myNextButton = (JButton) myNextButtonField.get(this);
-      //      final JButton myBackButton = (JButton) myBackButtonField.get(this);
-      //      final JButton mySkipButton = (JButton) mySkipButtonField.get(this);
       final int myIndex = (int) myIndexField.get(this);
       final List<AbstractCustomizeWizardStep> mySteps = (List<AbstractCustomizeWizardStep>) myStepsField.get(this);
 

@@ -31,14 +31,14 @@
 package com.chrisrm.idea.wizard.steps
 
 import com.chrisrm.idea.MTThemes
-import com.chrisrm.idea.actions.ClubMemberOrchestrator
+import io.acari.DDLC.chibi.ChibiOrchestrator
 import com.chrisrm.idea.actions.DarkMode
 import com.intellij.ide.customize.AbstractCustomizeWizardStep
 import com.intellij.ui.components.JBScrollPane
+import io.acari.DDLC.chibi.ChibiLevel
 import net.miginfocom.swing.MigLayout
 import java.awt.BorderLayout
 import java.awt.Dimension
-import java.awt.event.ActionEvent
 import javax.swing.*
 import javax.swing.border.EmptyBorder
 
@@ -64,7 +64,7 @@ class MTWizardChibiPanel : AbstractCustomizeWizardStep() {
     }
 
     private fun getSpecialMessage() =
-            if (DarkMode.isOn() && ClubMemberOrchestrator.currentActiveTheme() != MTThemes.MONIKA)
+            if (DarkMode.isOn() && ChibiOrchestrator.currentActiveTheme() != MTThemes.MONIKA)
                 """
                 <h4>Note: I see you have dark mode on! "Use Tools -> Panel Options -> Swap Chibi" to make your club member less c̟̺̱̱̪o͚̲̹̼͘r̡̭̤̭̼̟̭̜r͇͚u̘̰͝p͓̝͍̻̩̩t̼̣̙͍͍e͕̹͙̟̬̮͟ͅd̻ anytime :)</h4>
                 """.trimIndent() else ""
@@ -72,17 +72,16 @@ class MTWizardChibiPanel : AbstractCustomizeWizardStep() {
     override fun getHTMLHeader(): String =
             """<html><body>
                 <h2>Do you want Chibis?</h2>&nbsp;<br/>
-                <h3>Head's Up: Activating Chibis will require special steps to remove the images once the plugin is uninstalled!</h3>
                 ${getSpecialMessage()}
                 </body></html>""".trimIndent()
 
 
     private fun noChibisButtonActionPerformed() {
-        ClubMemberOrchestrator.deactivateWeebShit()
+        ChibiOrchestrator.setChibiLevel(ChibiLevel.OFF)
     }
 
     private fun yesChibisButtonActionPerformed() {
-        ClubMemberOrchestrator.activateWeebShit()
+        ChibiOrchestrator.setChibiLevel(ChibiLevel.ON)
     }
 
     private fun initComponents() {
@@ -142,7 +141,7 @@ class MTWizardChibiPanel : AbstractCustomizeWizardStep() {
             grid!!.remove(0)
         }catch (throwable: Throwable){}
 
-        val clubMemberPostFix = ClubMemberOrchestrator.getNormalClubMember()
+        val clubMemberPostFix = ChibiOrchestrator.getNormalClubMember()
 
         //======== noChibisPanel ========
         run {
@@ -151,7 +150,7 @@ class MTWizardChibiPanel : AbstractCustomizeWizardStep() {
 
             //---- noChibisButton ----
             noChibisButton!!.text = "No, I do not want Chibis."
-            noChibisButton!!.isSelected = !ClubMemberOrchestrator.weebShitOn()
+            noChibisButton!!.isSelected = ChibiOrchestrator.currentChibiLevel() == ChibiLevel.OFF
             noChibisButton!!.horizontalAlignment = SwingConstants.LEFT
             noChibisButton!!.actionCommand = "noChibis"
             noChibisButton!!.addActionListener { this.noChibisButtonActionPerformed() }
@@ -170,7 +169,7 @@ class MTWizardChibiPanel : AbstractCustomizeWizardStep() {
 
             //---- yesChibisButton ----
             yesChibisButton!!.text = "Yes! Chibis please!"
-            yesChibisButton!!.isSelected = ClubMemberOrchestrator.weebShitOn()
+            yesChibisButton!!.isSelected = ChibiOrchestrator.currentChibiLevel() == ChibiLevel.ON
             yesChibisButton!!.horizontalAlignment = SwingConstants.LEFT
             yesChibisButton!!.actionCommand = "yesChibis"
             yesChibisButton!!.addActionListener { this.yesChibisButtonActionPerformed() }

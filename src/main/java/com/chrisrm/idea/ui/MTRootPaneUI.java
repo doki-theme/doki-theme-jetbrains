@@ -38,7 +38,7 @@ import javax.swing.plaf.basic.BasicRootPaneUI;
 /**
  * Created by chris on 26/03/16.
  */
-public final class MTRootPaneUI extends DarculaRootPaneUI {
+public class MTRootPaneUI extends DarculaRootPaneUI {
   public static ComponentUI createUI(final JComponent c) {
     return isCustomDecoration() ? new MTRootPaneUI() : createDefaultWindowsRootPaneUI();
   }

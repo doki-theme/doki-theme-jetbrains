@@ -1,6 +1,11 @@
 # Changelog
 ----
 
+# 1.6.0
+
+- Enhanced UnInstallation Experience.
+    - When you choose to uninstall/deactivate the plugin, DDLC artifacts will no longer remain in your IDE. (No more special steps)
+
 # 1.5.1
 
 - Progress Indicators now conform more to the icon update.

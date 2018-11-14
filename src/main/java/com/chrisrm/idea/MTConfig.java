@@ -41,6 +41,7 @@ import com.intellij.openapi.components.Storage;
 import com.intellij.ui.ColorUtil;
 import com.intellij.util.ObjectUtils;
 import com.intellij.util.xmlb.XmlSerializerUtil;
+import io.acari.DDLC.chibi.ChibiLevel;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.json.JSONException;
@@ -83,6 +84,7 @@ public class MTConfig implements PersistentStateComponent<MTConfig>, Cloneable {
   public boolean isContrastMode = false;
   public boolean isMaterialDesign = true;
   public boolean isStyledDirectories = false;
+  public String chibiLevel = ChibiLevel.ON.name();
   public boolean isCustomTreeIndentEnabled = false;
   public Integer rightTreeIndent = 10;
   public Integer leftTreeIndent = 6;
@@ -170,6 +172,16 @@ public class MTConfig implements PersistentStateComponent<MTConfig>, Cloneable {
   }
   //endregion
 
+
+  public void setChibiLevel(final ChibiLevel chibiLevel) {
+    this.chibiLevel = chibiLevel.name();
+  }
+
+  public ChibiLevel getChibiLevel() {
+    return ChibiLevel.valueOf(chibiLevel);
+  }
+
+
   /**
    * Convenience method to reset settings
    */
@@ -205,6 +217,7 @@ public class MTConfig implements PersistentStateComponent<MTConfig>, Cloneable {
     darkTitleBar = false;
     arrowsStyle = ArrowsStyles.MATERIAL;
     indicatorStyle = IndicatorStyles.BORDER;
+    chibiLevel = ChibiLevel.ON.name();
     indicatorThickness = 2;
     useMaterialFont = true;
     tabOpacity = 50;
@@ -312,6 +325,7 @@ public class MTConfig implements PersistentStateComponent<MTConfig>, Cloneable {
     hashMap.put("tabsHeight", tabsHeight);
     hashMap.put("isMaterialTheme", isMaterialTheme);
     hashMap.put("themedScrollbars", themedScrollbars);
+    hashMap.put("chibiLevel", chibiLevel);
     hashMap.put("isCompactStatusBar", isCompactStatusBar);
     hashMap.put("isCompactTables", isCompactTables);
     hashMap.put("upperCaseTabs", upperCaseTabs);
@@ -371,6 +385,7 @@ public class MTConfig implements PersistentStateComponent<MTConfig>, Cloneable {
     hashMap.put("arrowsStyle", arrowsStyle);
     hashMap.put("indicatorStyles", indicatorStyle);
     hashMap.put("indicatorThickness", indicatorThickness);
+    hashMap.put("chibiLevel", chibiLevel);
     hashMap.put("useMaterialFont", useMaterialFont);
     hashMap.put("tabOpacity", tabOpacity);
     hashMap.put("compactDropdowns", compactDropdowns);
