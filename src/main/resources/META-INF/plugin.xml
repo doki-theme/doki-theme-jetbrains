@@ -103,9 +103,6 @@
             <implementation-class>io.acari.DDLC.DDLCHackComponent</implementation-class>
         </component>
         <component>
-            <implementation-class>io.acari.DDLC.chibi.DDLCChibiComponent</implementation-class>
-        </component>
-        <component>
             <implementation-class>com.chrisrm.idea.MTApplicationComponent</implementation-class>
         </component>
         <component>
@@ -177,10 +174,6 @@
                 <action id="ChibiOn" class="io.acari.DDLC.actions.SomeChibiAction"
                         text="Some Windows" description="Some Windows"
                         icon="/icons/codeStyle/mac/AddNewSectionRule.svg">
-                </action>
-                <action id="ChibiAll" class="io.acari.DDLC.actions.AllChibiAction"
-                        text="All Windows" description="All Windows"
-                        icon="/icons/codeStyle/AddNewSectionRule.svg">
                 </action>
                 <separator/>
             </group>

@@ -54,9 +54,6 @@ class MTWizardChibiPanel : AbstractCustomizeWizardStep() {
     private var yesChibisPanel: JPanel? = null
     private var yesChibisButton: JRadioButton? = null
     private var yesChibisLabel: JLabel? = null
-    private var allTheChibisPanel: JPanel? = null
-    private var allTheChibisButton: JRadioButton? = null
-    private var allTheChibisLabel: JLabel? = null
 
     init {
         initComponents()
@@ -74,7 +71,7 @@ class MTWizardChibiPanel : AbstractCustomizeWizardStep() {
 
     override fun getHTMLHeader(): String =
             """<html><body>
-                <h2>Do you want Chibis and how many?</h2>&nbsp;<br/>
+                <h2>Do you want Chibis?</h2>&nbsp;<br/>
                 ${getSpecialMessage()}
                 </body></html>""".trimIndent()
 
@@ -85,10 +82,6 @@ class MTWizardChibiPanel : AbstractCustomizeWizardStep() {
 
     private fun yesChibisButtonActionPerformed() {
         ChibiOrchestrator.setChibiLevel(ChibiLevel.ON)
-    }
-
-    private fun allTheChibisButtonActionPerformed() {
-        ChibiOrchestrator.setChibiLevel(ChibiLevel.OVER9000)
     }
 
     private fun initComponents() {
@@ -102,9 +95,6 @@ class MTWizardChibiPanel : AbstractCustomizeWizardStep() {
         yesChibisPanel = JPanel()
         yesChibisButton = JRadioButton()
         yesChibisLabel = JLabel()
-        allTheChibisPanel = JPanel()
-        allTheChibisButton = JRadioButton()
-        allTheChibisLabel = JLabel()
 
         //======== this ========
         layout = BorderLayout()
@@ -139,7 +129,6 @@ class MTWizardChibiPanel : AbstractCustomizeWizardStep() {
         val selectedTheme = ButtonGroup()
         selectedTheme.add(noChibisButton)
         selectedTheme.add(yesChibisButton)
-        selectedTheme.add(allTheChibisButton)
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
     // JFormDesigner - End of variables declaration  //GEN-END:variables
@@ -148,7 +137,6 @@ class MTWizardChibiPanel : AbstractCustomizeWizardStep() {
     override fun beforeShown(forward: Boolean) {
         super.beforeShown(forward)
         try{
-            grid!!.remove(2)
             grid!!.remove(1)
             grid!!.remove(0)
         }catch (throwable: Throwable){}
@@ -180,7 +168,7 @@ class MTWizardChibiPanel : AbstractCustomizeWizardStep() {
             yesChibisPanel!!.layout = BoxLayout(yesChibisPanel, BoxLayout.Y_AXIS)
 
             //---- yesChibisButton ----
-            yesChibisButton!!.text = "Yes! I want Chibis in SOME windows!"
+            yesChibisButton!!.text = "Yes! Chibis please!"
             yesChibisButton!!.isSelected = ChibiOrchestrator.currentChibiLevel() == ChibiLevel.ON
             yesChibisButton!!.horizontalAlignment = SwingConstants.LEFT
             yesChibisButton!!.actionCommand = "yesChibis"
@@ -192,25 +180,6 @@ class MTWizardChibiPanel : AbstractCustomizeWizardStep() {
             yesChibisPanel!!.add(yesChibisLabel)
         }
         grid!!.add(yesChibisPanel!!, "cell 1 0")
-
-        //======== allTheChibisPanel ========
-        run {
-            allTheChibisPanel!!.border = EmptyBorder(5, 5, 5, 5)
-            allTheChibisPanel!!.layout = BoxLayout(allTheChibisPanel, BoxLayout.Y_AXIS)
-
-            //---- allTheChibisButton ----
-            allTheChibisButton!!.text = "OH YEAH! I want Chibis in ALL windows!"
-            allTheChibisButton!!.isSelected = ChibiOrchestrator.currentChibiLevel() == ChibiLevel.OVER9000
-            allTheChibisButton!!.horizontalAlignment = SwingConstants.LEFT
-            allTheChibisButton!!.actionCommand = "allTheChibis"
-            allTheChibisButton!!.addActionListener { this.allTheChibisButtonActionPerformed() }
-            allTheChibisPanel!!.add(allTheChibisButton)
-
-            //---- allTheChibisLabel ----
-            allTheChibisLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/chibis/chibi_$clubMemberPostFix"))
-            allTheChibisPanel!!.add(allTheChibisLabel)
-        }
-        grid!!.add(allTheChibisPanel!!, "cell 2 0")
 
     }
 }

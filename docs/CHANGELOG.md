@@ -5,13 +5,6 @@
 
 - Enhanced UnInstallation Experience.
     - When you choose to uninstall/deactivate the plugin, DDLC artifacts will no longer remain in your IDE. (No more special steps)
-- Added the ability to choose how many windows have a chibi in the bottom right-hand corner.
-  Levels can be adjusted in the **DDLC Options Pane** (Tools -> DDLC Theme -> DDLC Options -> Chibi Options)
-    - **No Windows** - No windows will have a chibi and the background image will not be present.
-    - **Some Windows** - Most of the windows that had a chibi in the previous versions will retain their chibi.
-    - **All Windows** - Hardcore mode, almost all windows will have chibi in the bottom right-hand corner.
-    
-    
 
 # 1.5.1
 
