@@ -65,6 +65,32 @@ object DDLCHackComponent : ApplicationComponent {
           }
         }
       })
+
+
+      val initEditorPaintersMethod = ctClass2.getDeclaredMethod("initEditorPainters")
+      initEditorPaintersMethod.instrument(object : ExprEditor() {
+        @Throws(CannotCompileException::class)
+        override fun edit(m: MethodCall?) {
+          if (m!!.methodName == "initWallpaperPainter") {
+            m.replace("{ \$1 = \"${ChibiOrchestrator.DDLC_CHIBI_PROP}\"; \$_ = \$proceed(\$\$); }")
+          } else if (m.methodName == "getNamedPainters") {
+            m.replace("{ \$1 = \"${ChibiOrchestrator.DDLC_CHIBI_PROP}\"; \$_ = \$proceed(\$\$); }")
+          }
+        }
+      })
+
+      val initFramePaintersMethod = ctClass2.getDeclaredMethod("initFramePainters")
+      initFramePaintersMethod.instrument(object : ExprEditor() {
+        @Throws(CannotCompileException::class)
+        override fun edit(m: MethodCall?) {
+          if (m!!.methodName == "initWallpaperPainter") {
+            m.replace("{ \$1 = \"${ChibiOrchestrator.DDLC_BACKGROUND_PROP}\"; \$_ = \$proceed(\$\$); }")
+          } else if (m.methodName == "getNamedPainters") {
+            m.replace("{ \$1 = \"${ChibiOrchestrator.DDLC_BACKGROUND_PROP}\"; \$_ = \$proceed(\$\$); }")
+          }
+        }
+      })
+
       ctClass2.toClass()
     } catch (e: Exception) {
       e.printStackTrace()
