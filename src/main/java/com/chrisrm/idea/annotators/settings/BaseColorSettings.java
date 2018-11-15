@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2017 Chris Magnussen and Elior Boukhobza
+ * Copyright (c) 2018 Chris Magnussen and Elior Boukhobza
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,33 +24,20 @@
  *
  */
 
-package com.chrisrm.idea.icons;
+package com.chrisrm.idea.annotators.settings;
 
-import java.io.Serializable;
+import com.intellij.lang.Language;
+import com.intellij.openapi.fileTypes.SyntaxHighlighter;
+import com.intellij.openapi.fileTypes.SyntaxHighlighterFactory;
+import com.intellij.openapi.options.colors.ColorSettingsPage;
+import com.intellij.psi.codeStyle.DisplayPrioritySortable;
 
-/**
- * Represent an association of a name with an icon
- */
-public abstract class Association implements Serializable {
-
-  private String name;
-  private String icon;
-
-  public final String getIcon() {
-    return this.icon;
+abstract class BaseColorSettings implements ColorSettingsPage, DisplayPrioritySortable {
+  static SyntaxHighlighter getSyntaxHighlighterWithFallback(final Language lang) {
+    final SyntaxHighlighter syntaxHighlighter = SyntaxHighlighterFactory.getSyntaxHighlighter(lang, null, null);
+    if (syntaxHighlighter == null) {
+      return SyntaxHighlighterFactory.getSyntaxHighlighter(Language.ANY, null, null);
+    }
+    return syntaxHighlighter;
   }
-
-  public final void setIcon(final String icon) {
-    this.icon = icon;
-  }
-
-  public final String getName() {
-    return name;
-  }
-
-  public final void setName(final String name) {
-    this.name = name;
-  }
-
-  public abstract boolean matches(FileInfo file);
 }

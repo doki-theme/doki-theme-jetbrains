@@ -90,6 +90,13 @@
         <colorSettingsPage implementation="com.chrisrm.idea.config.MTFileColorsPage"/>
 
         <webHelpProvider implementation="com.chrisrm.idea.help.MTHelpProvider" id="MTHelpTopic"/>
+        <annotator language="JavaScript" implementationClass="com.chrisrm.idea.annotators.JSAnnotator"/>
+        <annotator language="TypeScript" implementationClass="com.chrisrm.idea.annotators.TSAnnotator"/>
+        <annotator language="JAVA" implementationClass="com.chrisrm.idea.annotators.JavaAnnotator"/>
+
+        <colorSettingsPage implementation="com.chrisrm.idea.annotators.settings.JSColorSettings"/>
+        <colorSettingsPage implementation="com.chrisrm.idea.annotators.settings.TSColorSettings"/>
+        <colorSettingsPage implementation="com.chrisrm.idea.annotators.settings.JavaColorSettings"/>
     </extensions>
 
     <application-components>

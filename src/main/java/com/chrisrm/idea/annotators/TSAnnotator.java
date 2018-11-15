@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2017 Chris Magnussen and Elior Boukhobza
+ * Copyright (c) 2018 Chris Magnussen and Elior Boukhobza
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,31 +24,29 @@
  *
  */
 
-package com.chrisrm.idea.icons;
+package com.chrisrm.idea.annotators;
 
-import java.util.regex.Pattern;
+import com.intellij.openapi.editor.DefaultLanguageHighlighterColors;
+import com.intellij.openapi.editor.colors.TextAttributesKey;
+import com.intellij.psi.PsiElement;
+import com.intellij.util.ObjectUtils;
+import org.jetbrains.annotations.NotNull;
 
-/**
- * Association for Regular Expressions
- */
-public final class RegexAssociation extends Association {
-
-  private String pattern;
-  private transient Pattern compiledPattern;
+public class TSAnnotator extends BaseAnnotator {
+  private static final TextAttributesKey JSKEYWORD = ObjectUtils.notNull(TextAttributesKey.find("JS.KEYWORD"),
+      DefaultLanguageHighlighterColors.KEYWORD);
+  public static final TextAttributesKey PRIVATE = TextAttributesKey.createTextAttributesKey("TS.PRIVATE_PUBLIC", JSKEYWORD);
 
   @Override
-  public boolean matches(final FileInfo file) {
-    if (compiledPattern == null) {
-      compiledPattern = Pattern.compile(pattern, Pattern.CASE_INSENSITIVE);
+  public TextAttributesKey getKeywordKind(@NotNull final PsiElement element) {
+    TextAttributesKey kind = null;
+    switch (element.getText()) {
+      case "public":
+      case "protected":
+      case "private":
+        kind = PRIVATE;
+        break;
     }
-    return compiledPattern.matcher(file.getName()).matches();
-  }
-
-  public String getPattern() {
-    return pattern;
-  }
-
-  public void setPattern(final String pattern) {
-    this.pattern = pattern;
+    return kind;
   }
 }
