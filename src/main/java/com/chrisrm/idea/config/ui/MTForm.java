@@ -1255,7 +1255,7 @@ public class MTForm implements MTFormUI {
           //---- useMaterialFontCheckbox ----
           useMaterialFontCheckbox.setText(bundle.getString("MTForm.useMaterialFontCheckbox.text"));
           useMaterialFontCheckbox.setToolTipText(bundle.getString("MTForm.useMaterialFontCheckbox.tooltipText"));
-          useMaterialFontCheckbox.addActionListener(e -> useMaterialFontCheckboxActionPerformed(e));
+          useMaterialFontCheckbox.addActionListener(this::useMaterialFontCheckboxActionPerformed);
           featuresPanel.add(useMaterialFontCheckbox, "cell 0 1,align left center,grow 0 0");
 
           //---- materialThemeCheckbox ----
