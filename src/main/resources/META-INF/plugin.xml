@@ -172,9 +172,18 @@
         <group id="DDLC.Panels" text="DDLC Options" description="Panel Options" popup="true"
                icon="/icons/actions/mt/pen.svg">
             <add-to-group group-id="MainToolBar" anchor="last"/>
-            <action class="com.chrisrm.idea.actions.MTWeebAction" id="MTWeeb" text="Toggle Club Member"
-                    icon="/icons/actions/themes/material_monika.png"
-                    description="Toggle Contrast"/>
+            <group id="DDLCWeebShit" text="Chibi Options" popup="true"
+                   icon="/icons/actions/themes/material_monika.png">
+                <action id="ChibiOff" class="io.acari.DDLC.actions.NoChibiAction"
+                        text="No Windows" description="No Windows"
+                        icon="/icons/actions/cancel.svg">
+                </action>
+                <action id="ChibiOn" class="io.acari.DDLC.actions.SomeChibiAction"
+                        text="Some Windows" description="Some Windows"
+                        icon="/icons/codeStyle/mac/AddNewSectionRule.svg">
+                </action>
+                <separator/>
+            </group>
             <action class="com.chrisrm.idea.actions.DarkModeAction" id="DarkMode" text="Toggle Dark Mode"
                     icon="/icons/actions/themes/material_monkia_dark.png"
                     description="Toggle Dark Mode"/>
