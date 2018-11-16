@@ -1,6 +1,18 @@
 # Changelog
 ----
 
+# 1.6.1
+
+- Updated Material UI Core to v2.10.6 
+    - Small Syntax highlight fixes
+    - More File icons
+    - Less font issues
+
+# 1.6.0
+
+- Enhanced UnInstallation Experience.
+    - When you choose to uninstall/deactivate the plugin, DDLC artifacts will no longer remain in your IDE. (No more special steps)
+
 # 1.5.1
 
 - Progress Indicators now conform more to the icon update.

@@ -29,16 +29,16 @@ package io.acari.DDLC.actions.themes.literature.club
 import com.chrisrm.ideaddlc.MTAnalytics
 import com.chrisrm.ideaddlc.MTConfig
 import com.chrisrm.ideaddlc.MTThemeManager
-import io.acari.DDLC.DDLCThemes
-import io.acari.DDLC.actions.ClubMemberOrchestrator
-import io.acari.DDLC.actions.DDLCAddFileColorsAction
 import com.chrisrm.ideaddlc.actions.accents.MTAbstractAccentAction
+import io.acari.DDLC.DDLCThemes
+import io.acari.DDLC.actions.DDLCAddFileColorsAction
 import com.chrisrm.ideaddlc.tree.MTProjectViewNodeDecorator
 import com.chrisrm.ideaddlc.ui.MTButtonUI
 import com.chrisrm.ideaddlc.ui.MTTreeUI
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.ToggleAction
 import io.acari.DDLC.DDLCConfig
+import io.acari.DDLC.chibi.ChibiOrchestrator
 
 
 open class ClubMemberThemeAction(private val theme: DDLCThemes,
@@ -49,7 +49,7 @@ open class ClubMemberThemeAction(private val theme: DDLCThemes,
         super.selectionActivation()
         accentAction.setAccentToTheme()
         MTThemeManager.getInstance().activate(theme, true)
-        ClubMemberOrchestrator.activate(theme)
+        ChibiOrchestrator.activateChibiForTheme(theme)
         MTAnalytics.getInstance().track(MTAnalytics.SELECT_THEME, theme);
     }
 

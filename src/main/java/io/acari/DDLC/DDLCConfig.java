@@ -38,9 +38,9 @@ import com.intellij.openapi.components.PersistentStateComponent;
 import com.intellij.openapi.components.ServiceManager;
 import com.intellij.openapi.components.State;
 import com.intellij.openapi.components.Storage;
-import com.intellij.ui.ColorUtil;
 import com.intellij.util.ObjectUtils;
 import com.intellij.util.xmlb.XmlSerializerUtil;
+import io.acari.DDLC.chibi.ChibiLevel;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.json.JSONException;
@@ -62,6 +62,7 @@ public class DDLCConfig implements PersistentStateComponent<DDLCConfig>, Cloneab
 
   // They are public so they can be serialized
   public String version;
+  public String chibiLevel = ChibiLevel.ON.name();
 
   public String selectedTheme = DDLCThemes.MONIKA.getName();
 
@@ -163,6 +164,16 @@ public class DDLCConfig implements PersistentStateComponent<DDLCConfig>, Cloneab
 //                      .beforeConfigChanged(this, form);
   }
 
+
+  public void setChibiLevel(final ChibiLevel chibiLevel) {
+    this.chibiLevel = chibiLevel.name();
+  }
+
+  public ChibiLevel getChibiLevel() {
+    return ChibiLevel.valueOf(chibiLevel);
+  }
+
+
   /**
    * Fire an event to the application bus that the settings have changed
    */
@@ -180,6 +191,7 @@ public class DDLCConfig implements PersistentStateComponent<DDLCConfig>, Cloneab
     hashMap.put("version", version);
     hashMap.put("selectedTheme", selectedTheme);
     hashMap.put("isFirstTime", isFirstTime);
+    hashMap.put("chibiLevel", chibiLevel);
 
 
     return hashMap;
@@ -192,6 +204,8 @@ public class DDLCConfig implements PersistentStateComponent<DDLCConfig>, Cloneab
     hashMap.put("version", version);
     hashMap.put("selectedTheme", selectedTheme);
     hashMap.put("isFirstTime", isFirstTime);
+    hashMap.put("chibiLevel", chibiLevel);
+
 
 
     return hashMap;

@@ -31,7 +31,7 @@
 package io.acari.DDLC.wizard.steps
 
 import io.acari.DDLC.DDLCThemes
-import io.acari.DDLC.actions.ClubMemberOrchestrator
+import io.acari.DDLC.chibi.ChibiOrchestrator
 import io.acari.DDLC.actions.DarkMode
 import io.acari.DDLC.actions.themes.literature.club.JustMonikaThemeAction
 import io.acari.DDLC.actions.themes.literature.club.NatsukiThemeAction
@@ -96,7 +96,7 @@ class DDLCWizardThemesPanel : AbstractCustomizeWizardStep() {
 
     private fun initRadioButton(){
         val darkMode = DarkMode.isOn()
-        when (ClubMemberOrchestrator.currentActiveTheme()) {
+        when (ChibiOrchestrator.currentActiveTheme()) {
             DDLCThemes.MONIKA ->
                 if (darkMode) onlyMonikaButtonActionPerformed()
             else  justMonikaButtonActionPerformed()

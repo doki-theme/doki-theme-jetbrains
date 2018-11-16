@@ -31,7 +31,7 @@
 package io.acari.DDLC.wizard.steps
 
 import io.acari.DDLC.DDLCThemes
-import io.acari.DDLC.actions.ClubMemberOrchestrator
+import io.acari.DDLC.chibi.ChibiOrchestrator
 import io.acari.DDLC.actions.DarkMode
 import com.intellij.ide.customize.AbstractCustomizeWizardStep
 import com.intellij.ui.components.JBScrollPane
@@ -216,7 +216,7 @@ class DDLCWizardFinishPanel : AbstractCustomizeWizardStep() {
 
     override fun beforeShown(forward: Boolean) {
         super.beforeShown(forward)
-        if (!DarkMode.isOn() && ClubMemberOrchestrator.currentActiveTheme() != DDLCThemes.MONIKA) {
+        if (!DarkMode.isOn() && ChibiOrchestrator.currentActiveTheme() != DDLCThemes.MONIKA) {
             content!!.add(vSpacer1!!, "cell 0 5")
             val bundle = ResourceBundle.getBundle("messages.DDLCWizardBundle")
             //---- disclaimer ----

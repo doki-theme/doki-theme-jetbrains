@@ -110,7 +110,10 @@ public class MTConfig implements PersistentStateComponent<MTConfig>, Cloneable {
   public boolean darkTitleBar = false;
   public ArrowsStyles arrowsStyle = ArrowsStyles.MATERIAL;
   public IndicatorStyles indicatorStyle = IndicatorStyles.BORDER;
+  @Deprecated
   public boolean useMaterialFont = true;
+  public boolean useMaterialFont2 = false;
+
   public int tabOpacity = 50;
   public boolean compactDropdowns = false;
   public boolean monochromeIcons = false;
@@ -173,6 +176,8 @@ public class MTConfig implements PersistentStateComponent<MTConfig>, Cloneable {
   }
   //endregion
 
+
+
   /**
    * Convenience method to reset settings
    */
@@ -209,7 +214,7 @@ public class MTConfig implements PersistentStateComponent<MTConfig>, Cloneable {
     arrowsStyle = ArrowsStyles.MATERIAL;
     indicatorStyle = IndicatorStyles.BORDER;
     indicatorThickness = 2;
-    useMaterialFont = true;
+    useMaterialFont2 = false;
     tabOpacity = 50;
     compactDropdowns = false;
     monochromeIcons = false;
@@ -227,6 +232,7 @@ public class MTConfig implements PersistentStateComponent<MTConfig>, Cloneable {
 
   public boolean needsRestart(final MTForm form) {
     boolean modified = isMaterialDesignChanged(form.getIsMaterialDesign());
+    modified = modified || isUseMaterialFontChanged(form.getUseMaterialFont());
     modified = modified || treeFontSizeChanged(form.getTreeFontSize());
     modified = modified || isTreeFontSizeEnabledChanged(form.isTreeFontSizeEnabled());
     modified = modified || isThemedScrollbarsChanged(form.isThemedScrollbars());
@@ -332,7 +338,7 @@ public class MTConfig implements PersistentStateComponent<MTConfig>, Cloneable {
     hashMap.put("arrowsStyle", arrowsStyle);
     hashMap.put("indicatorStyles", indicatorStyle);
     hashMap.put("indicatorThickness", indicatorThickness);
-    hashMap.put("useMaterialFont", useMaterialFont);
+    hashMap.put("useMaterialFont", useMaterialFont2);
     hashMap.put("tabOpacity", tabOpacity);
     hashMap.put("compactDropdowns", compactDropdowns);
     hashMap.put("monochromeIcons", monochromeIcons);
@@ -382,7 +388,7 @@ public class MTConfig implements PersistentStateComponent<MTConfig>, Cloneable {
     hashMap.put("arrowsStyle", arrowsStyle);
     hashMap.put("indicatorStyles", indicatorStyle);
     hashMap.put("indicatorThickness", indicatorThickness);
-    hashMap.put("useMaterialFont", useMaterialFont);
+    hashMap.put("useMaterialFont", useMaterialFont2);
     hashMap.put("tabOpacity", tabOpacity);
     hashMap.put("compactDropdowns", compactDropdowns);
     hashMap.put("monochromeIcons", monochromeIcons);
@@ -905,15 +911,15 @@ public class MTConfig implements PersistentStateComponent<MTConfig>, Cloneable {
   // region use material fonts
 
   public void setUseMaterialFont(final boolean useMaterialFont) {
-    this.useMaterialFont = useMaterialFont;
+    useMaterialFont2 = useMaterialFont;
   }
 
   public boolean isUseMaterialFont() {
-    return useMaterialFont;
+    return useMaterialFont2;
   }
 
   public boolean isUseMaterialFontChanged(final boolean useMaterialFont) {
-    return this.useMaterialFont != useMaterialFont;
+    return useMaterialFont2 != useMaterialFont;
   }
   //endregion
 

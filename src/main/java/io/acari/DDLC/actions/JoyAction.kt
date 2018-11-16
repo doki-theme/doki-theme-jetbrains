@@ -1,9 +1,9 @@
 package io.acari.DDLC.actions
 
-import com.chrisrm.ideaddlc.MTConfig
 import io.acari.DDLC.DDLCThemes
 import io.acari.DDLC.actions.themes.literature.club.BaseThemeAction
 import com.intellij.openapi.actionSystem.AnActionEvent
+import io.acari.DDLC.chibi.ChibiOrchestrator
 import io.acari.DDLC.DDLCConfig
 
 /**
@@ -16,6 +16,6 @@ class JoyAction: BaseThemeAction() {
         super.setSelected(e, state)
         JoyManager.toggle()
         val selectedTheme = DDLCConfig.getInstance().getSelectedTheme() as DDLCThemes
-        ClubMemberOrchestrator.activate(selectedTheme)
+        ChibiOrchestrator.activateChibiForTheme(selectedTheme)
     }
 }
