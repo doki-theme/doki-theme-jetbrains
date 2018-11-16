@@ -60,6 +60,7 @@ public class DDLCConfig implements PersistentStateComponent<DDLCConfig>, Cloneab
   public static final String DEFAULT_BG =
       "https://github.com/cyclic-reference/jetbrains-theme/master/src/main/resources/themes/Doki_Doki_Literature_Club.png";
 
+  // todo: should pick up off of legacy config to see if the wizard has been shown
   // They are public so they can be serialized
   public String version;
   public String chibiLevel = ChibiLevel.ON.name();
