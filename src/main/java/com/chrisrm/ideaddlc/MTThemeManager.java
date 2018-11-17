@@ -72,6 +72,7 @@ import java.lang.reflect.Field;
 import java.net.URL;
 import java.util.Locale;
 
+import static com.chrisrm.ideaddlc.MTConfig.WE_USING_DDLC_BOIS;
 import static com.chrisrm.ideaddlc.MTHackComponent.TABS_HEIGHT;
 import static com.intellij.ide.ui.laf.LafManagerImpl.installMacOSXFonts;
 
@@ -242,7 +243,7 @@ public final class MTThemeManager {
     }
 
     DDLCConfig.getInstance().setSelectedTheme(newTheme);
-    MTConfig.getInstance().deactivateMaterialTheme();
+    MTConfig.getInstance().setSelectedTheme(WE_USING_DDLC_BOIS);
 
     newTheme.getTheme().activate();
     switchScheme(newTheme, switchColorScheme);

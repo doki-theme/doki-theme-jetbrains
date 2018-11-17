@@ -111,6 +111,6 @@ public final class MTUpdatesComponent extends AbstractProjectComponent {
   @NotNull
   @Override
   public String getComponentName() {
-    return "MTUpdatesComponent";
+    return "DDLCMTUpdatesComponent";
   }
 }
