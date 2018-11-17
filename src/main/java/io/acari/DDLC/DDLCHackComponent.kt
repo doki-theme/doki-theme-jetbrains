@@ -1,9 +1,7 @@
 package io.acari.DDLC
 
-import com.chrisrm.ideaddlc.MTConfig
 import com.intellij.ide.util.ChooseElementsDialog
 import com.intellij.ide.util.ExportToFileUtil
-import com.intellij.ide.util.PropertiesComponent
 import com.intellij.openapi.components.ApplicationComponent
 import com.intellij.openapi.fileEditor.impl.EditorComposite
 import io.acari.DDLC.chibi.ChibiOrchestrator
@@ -17,39 +15,10 @@ import javassist.expr.MethodCall
 
 object DDLCHackComponent : ApplicationComponent {
 
-    const val MATERIAL_THEME_PROP = "com.chrisrm.idea.MaterialThemeUI.theme"
 
     init {
         createMonikasWritingTipOfTheDay()
         enableChibis()
-        enableMaterialDetection()
-    }
-
-    @JvmStatic
-    fun isDDLCActive() = PropertiesComponent.getInstance().getValue(MATERIAL_THEME_PROP, MTConfig.WE_USING_DDLC_BOIS) == MTConfig.WE_USING_DDLC_BOIS
-
-    private fun enableMaterialDetection() {
-        hackOtherMaterialConfig()
-    }
-
-    private fun hackOtherMaterialConfig() {
-        try {
-            val cp = ClassPool(true)
-            Class.forName("com.chrisrm.idea.MTAbstractTheme")
-            val ctClass = cp.get("com.chrisrm.idea.MTConfig")
-            val init = ctClass.getDeclaredMethod("setSelectedTheme")
-            init.instrument(object : ExprEditor() {
-                @Throws(CannotCompileException::class)
-                override fun edit(m: MethodCall?) {
-                    if (m!!.methodName == "getThemeId") {
-                        m.replace("{ System.out.println(\"hax from the past\"); \$_ = \$proceed(\$\$); }")
-                    }
-                }
-            })
-            ctClass.writeFile()
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
     }
 
     private fun enableChibis() {

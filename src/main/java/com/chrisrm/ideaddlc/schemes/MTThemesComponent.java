@@ -27,7 +27,6 @@
 package com.chrisrm.ideaddlc.schemes;
 
 import com.chrisrm.ideaddlc.MTBundledThemesManager;
-import com.chrisrm.ideaddlc.MTConfig;
 import com.chrisrm.ideaddlc.MTThemeManager;
 import com.chrisrm.ideaddlc.config.ConfigNotifier;
 import com.chrisrm.ideaddlc.config.CustomConfigNotifier;
@@ -35,7 +34,6 @@ import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.components.ApplicationComponent;
 import com.intellij.util.messages.MessageBusConnection;
 import io.acari.DDLC.DDLCConfig;
-import io.acari.DDLC.DDLCHackComponent;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -64,7 +62,7 @@ public final class MTThemesComponent implements ApplicationComponent {
   public void activateTheme() {
     DDLCConfig ddlcConfig = DDLCConfig.getInstance();
     boolean firstTime = ddlcConfig.isFirstTime();
-    if(DDLCHackComponent.isDDLCActive() || firstTime) {
+    if(MTThemeManager.isDDLCActive() || firstTime) {
       MTThemeManager.getInstance().activate();
       if(firstTime){
         ddlcConfig.setFirstTime(false);

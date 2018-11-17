@@ -1,6 +1,7 @@
 package io.acari.DDLC
 
 import com.chrisrm.ideaddlc.MTConfig
+import com.chrisrm.ideaddlc.MTThemeManager
 import com.intellij.ide.GeneralSettings
 import com.intellij.ide.util.PropertiesComponent
 import com.intellij.ide.util.TipDialog
@@ -21,7 +22,7 @@ class DDLCProjectInitializationComponent(project: Project?) : AbstractProjectCom
 
     override fun initComponent() {
         super.initComponent()
-        if (DDLCHackComponent.isDDLCActive())
+        if (MTThemeManager.isDDLCActive())
             checkWizard()
     }
 
@@ -38,7 +39,7 @@ class DDLCProjectInitializationComponent(project: Project?) : AbstractProjectCom
     }
 
     override fun projectOpened() {
-        if(DDLCHackComponent.isDDLCActive()){
+        if(MTThemeManager.isDDLCActive()){
             mtAddFileColorsAction.setFileScopes(this.myProject)
             if(!GeneralSettings.getInstance().isShowTipsOnStartup()){
                 val timesTipsChosen = PropertiesComponent.getInstance().getInt(WRITING_TIP_OF_THE_DAY, 0)

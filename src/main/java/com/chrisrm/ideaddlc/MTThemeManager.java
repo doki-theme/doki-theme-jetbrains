@@ -75,7 +75,6 @@ import java.util.Locale;
 import static com.chrisrm.ideaddlc.MTConfig.WE_USING_DDLC_BOIS;
 import static com.chrisrm.ideaddlc.MTHackComponent.TABS_HEIGHT;
 import static com.intellij.ide.ui.laf.LafManagerImpl.installMacOSXFonts;
-import static io.acari.DDLC.DDLCHackComponent.MATERIAL_THEME_PROP;
 
 public final class MTThemeManager {
 
@@ -85,8 +84,19 @@ public final class MTThemeManager {
   public static final int DEFAULT_FONT_SIZE = JBUI.scale(13);
   public static final String DEFAULT_FONT = "Roboto";
   public static final String DEFAULT_MONO_FONT = "Fira Code";
+  private static String MATERIAL_THEME_PROP = "com.chrisrm.idea.MaterialThemeUI.theme";
+
 
   public MTThemeManager() {
+      LafManager.getInstance().addLafManagerListener(lafManager -> {
+        if(!UIManager.getLookAndFeel().getDescription().contains("DDLC")){
+          PropertiesComponent.getInstance().setValue(MATERIAL_THEME_PROP, MTConfig.WE_AINT_USING_DDLC_BOIS);
+        }
+      });
+  }
+
+  public static boolean isDDLCActive(){
+    return PropertiesComponent.getInstance().getValue(MATERIAL_THEME_PROP, MTConfig.WE_USING_DDLC_BOIS).equals(MTConfig.WE_USING_DDLC_BOIS);
   }
 
   public static MTThemeManager getInstance() {
@@ -253,7 +263,6 @@ public final class MTThemeManager {
     applyCompactSidebar(false);
     applyCustomTreeIndent();
     applyAccents();
-
 
     LafManager.getInstance().updateUI();
 

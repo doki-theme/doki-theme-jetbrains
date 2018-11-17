@@ -56,7 +56,7 @@ public final class MTDarkLaf extends DarculaLaf implements MTLaf {
 
   @Override
   public String getDescription() {
-    return "Dark Material";
+    return "Dark DDLC";
   }
 
   /**

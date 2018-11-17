@@ -56,7 +56,7 @@ public class MTLightLaf extends IntelliJLaf implements MTLaf {
 
   @Override
   public String getDescription() {
-    return "Light Material";
+    return "Light DDLC";
   }
 
 
