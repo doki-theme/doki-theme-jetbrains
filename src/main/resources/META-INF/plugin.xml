@@ -125,6 +125,9 @@
         <component>
             <implementation-class>com.chrisrm.ideaddlc.MTCleanupComponent</implementation-class>
         </component>
+        <component>
+            <implementation-class>io.acari.DDLC.DDLCApplicationInitializationComponent</implementation-class>
+        </component>
     </application-components>
 
     <project-components>

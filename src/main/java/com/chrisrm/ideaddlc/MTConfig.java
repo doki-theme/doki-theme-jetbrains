@@ -55,7 +55,7 @@ import java.util.Map;
 import java.util.Objects;
 
 @State(
-    name = "MaterialThemeConfig",
+    name = "MaterialDDLCThemeConfig",
     storages = @Storage("material_theme.xml")
 )
 public class MTConfig implements PersistentStateComponent<MTConfig>, Cloneable {
