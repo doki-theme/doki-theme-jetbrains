@@ -35,6 +35,7 @@ import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.components.ApplicationComponent;
 import com.intellij.util.messages.MessageBusConnection;
 import io.acari.DDLC.DDLCConfig;
+import io.acari.DDLC.DDLCHackComponent;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -63,7 +64,7 @@ public final class MTThemesComponent implements ApplicationComponent {
   public void activateTheme() {
     DDLCConfig ddlcConfig = DDLCConfig.getInstance();
     boolean firstTime = ddlcConfig.isFirstTime();
-    if(!MTConfig.getInstance().isMateriaThemeActive() || firstTime) {
+    if(DDLCHackComponent.isDDLCActive() || firstTime) {
       MTThemeManager.getInstance().activate();
       if(firstTime){
         ddlcConfig.setFirstTime(false);

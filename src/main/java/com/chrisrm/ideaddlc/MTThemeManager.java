@@ -75,6 +75,7 @@ import java.util.Locale;
 import static com.chrisrm.ideaddlc.MTConfig.WE_USING_DDLC_BOIS;
 import static com.chrisrm.ideaddlc.MTHackComponent.TABS_HEIGHT;
 import static com.intellij.ide.ui.laf.LafManagerImpl.installMacOSXFonts;
+import static io.acari.DDLC.DDLCHackComponent.MATERIAL_THEME_PROP;
 
 public final class MTThemeManager {
 
@@ -243,12 +244,11 @@ public final class MTThemeManager {
     }
 
     DDLCConfig.getInstance().setSelectedTheme(newTheme);
-    MTConfig.getInstance().setSelectedTheme(WE_USING_DDLC_BOIS);
+    PropertiesComponent.getInstance().setValue(MATERIAL_THEME_PROP, WE_USING_DDLC_BOIS);
 
     newTheme.getTheme().activate();
     switchScheme(newTheme, switchColorScheme);
 
-    PropertiesComponent.getInstance().setValue(getSettingsPrefix() + ".theme", newTheme.getThemeId());
     applyContrast(false);
     applyCompactSidebar(false);
     applyCustomTreeIndent();

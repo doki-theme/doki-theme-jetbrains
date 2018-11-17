@@ -18,11 +18,10 @@ import java.util.*
 class DDLCProjectInitializationComponent(project: Project?) : AbstractProjectComponent(project) {
     val random = Random(Instant.now().epochSecond / 100)
     private val mtAddFileColorsAction = DDLCAddFileColorsAction()
-    private val mtConfig = MTConfig.getInstance()
 
     override fun initComponent() {
         super.initComponent()
-        if (!mtConfig.isMateriaThemeActive)
+        if (DDLCHackComponent.isDDLCActive())
             checkWizard()
     }
 
@@ -39,7 +38,7 @@ class DDLCProjectInitializationComponent(project: Project?) : AbstractProjectCom
     }
 
     override fun projectOpened() {
-        if(!mtConfig.isMateriaThemeActive){
+        if(DDLCHackComponent.isDDLCActive()){
             mtAddFileColorsAction.setFileScopes(this.myProject)
             if(!GeneralSettings.getInstance().isShowTipsOnStartup()){
                 val timesTipsChosen = PropertiesComponent.getInstance().getInt(WRITING_TIP_OF_THE_DAY, 0)

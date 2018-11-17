@@ -257,10 +257,6 @@ public class MTConfig implements PersistentStateComponent<MTConfig>, Cloneable {
     this.selectedTheme = selectedTheme.getThemeId();
   }
 
-  public void setSelectedTheme(final String selectedTheme) {
-    this.selectedTheme = selectedTheme;
-  }
-
   public boolean isMateriaThemeActive(){
     return !this.selectedTheme.equals(WE_USING_DDLC_BOIS);
   }
