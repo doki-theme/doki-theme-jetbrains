@@ -7,6 +7,11 @@ import io.acari.DDLC.wizard.DDLCWizardDialog
 import io.acari.DDLC.wizard.DDLCWizardStepsProvider
 
 class DDLCApplicationInitializationComponent: ApplicationComponent {
+
+    init {
+//        MTThemeManager.restoreState()
+    }
+
     override fun initComponent() {
         super.initComponent()
         if (MTThemeManager.isDDLCActive())
@@ -17,7 +22,7 @@ class DDLCApplicationInitializationComponent: ApplicationComponent {
         val isWizardShown = DDLCConfig.getInstance().getIsWizardShown()
         if (!isWizardShown) {
             DDLCWizardDialog(DDLCWizardStepsProvider()).show()
-            MTConfig.getInstance().setIsWizardShown(true)
+            DDLCConfig.getInstance().setIsWizardShown(true)
         }
     }
 }
