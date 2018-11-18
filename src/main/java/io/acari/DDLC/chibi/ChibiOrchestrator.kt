@@ -1,5 +1,6 @@
 package io.acari.DDLC.chibi
 
+import com.chrisrm.ideaddlc.MTThemeManager
 import com.intellij.ide.util.PropertiesComponent
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil.EDITOR_PROP
@@ -36,6 +37,14 @@ object ChibiOrchestrator {
         checkLegacyChibiToggle()
         removeLegacyProperties()
         setChibiLevel(DDLCConfig.getInstance().getChibiLevel())
+        //todo: need to actually register the object
+        MTThemeManager.addMaterialThemeActivatedListener {
+            if(it){
+                removeWeebShit()
+            } else {
+                turnOnIfNecessary()
+            }
+        }
     }
 
     private fun checkLegacyChibiToggle() {
@@ -210,5 +219,7 @@ object ChibiOrchestrator {
 
         setPropertyValue(propertyKey, propertyValue)
     }
+
+    fun initialize() {}
 
 }

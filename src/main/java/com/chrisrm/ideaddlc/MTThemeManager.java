@@ -55,6 +55,7 @@ import com.intellij.openapi.util.SystemInfo;
 import com.intellij.openapi.util.registry.Registry;
 import com.intellij.ui.ColorUtil;
 import com.intellij.ui.JBColor;
+import com.intellij.util.Consumer;
 import com.intellij.util.ObjectUtils;
 import com.intellij.util.ui.JBUI;
 import com.intellij.util.ui.UIUtil;
@@ -67,6 +68,8 @@ import javax.swing.text.html.*;
 import java.awt.*;
 import java.lang.reflect.Field;
 import java.net.URL;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Locale;
 
 import static com.chrisrm.ideaddlc.MTConfig.WE_USING_DDLC_BOIS;
@@ -89,8 +92,16 @@ public final class MTThemeManager {
         LafManager.getInstance().addLafManagerListener(lafManager -> {
           if(!UIManager.getLookAndFeel().getDescription().contains("DDLC")){
             PropertiesComponent.getInstance().setValue(MATERIAL_THEME_PROP, MTConfig.WE_AINT_USING_DDLC_BOIS);
+            mtUIActivationListeners.forEach(consumer -> consumer.consume(true));
+          } else {
+            mtUIActivationListeners.forEach(consumer -> consumer.consume(false));
           }
         }));
+  }
+
+  private static List<Consumer<Boolean>> mtUIActivationListeners = new LinkedList<>();
+  public static void addMaterialThemeActivatedListener(Consumer<Boolean> callback){
+    mtUIActivationListeners.add(callback);
   }
 
   public static boolean isDDLCActive(){

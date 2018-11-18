@@ -101,6 +101,7 @@ public final class MTStatusWidget extends JButton implements CustomStatusBarWidg
     setFont(MTUiUtils.getWidgetFont());
   }
 
+//  todo: should probably not show when mt theme has been activated.
   @Override
   public void paintComponent(final Graphics g) {
     final String themeName = ddlcConfig.getSelectedTheme().getTheme().getName();
