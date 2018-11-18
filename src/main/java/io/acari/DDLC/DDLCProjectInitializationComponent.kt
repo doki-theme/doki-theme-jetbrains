@@ -34,7 +34,7 @@ class DDLCProjectInitializationComponent(project: Project?) : AbstractProjectCom
                 }
             }
         } else {
-            //todo: should probably check to se if the material file scopes are installed
+            //todo: should probably check to se if the material file scopes are installed (when somebody complains)
             mtAddFileColorsAction.removeFileScopes(this.myProject)
         }
 

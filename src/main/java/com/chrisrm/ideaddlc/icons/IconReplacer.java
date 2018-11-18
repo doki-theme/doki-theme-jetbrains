@@ -71,8 +71,6 @@ public final class IconReplacer {
             StaticPatcher.setFinalStatic(field, newIcon);
           }
         } catch (final Exception e) {
-          // suppress
-          //          e.printStackTrace();
         }
       }
     }
@@ -111,9 +109,7 @@ public final class IconReplacer {
         if (path != null && path.contains("!")) {
           path = path.substring(path.lastIndexOf(33) + 1);
 
-          //          if (iconsRootPath.contains("plugins")) {
           path = path.replace(removedPath, "");
-          //          }
 
           path = iconsRootPath + path;
         }

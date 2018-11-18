@@ -40,6 +40,8 @@ public final class MTIconReplacerComponent implements ApplicationComponent {
     IconLoader.installPathPatcher(new ThemedTintedIconsPatcher());
   }
 
+
+  //todo: ddlc icons need to stay when material ui is active.
   @Override
   public void initComponent() {
     if (MTConfig.getInstance().isUseMaterialIcons()) {
