@@ -58,10 +58,7 @@ import com.intellij.ui.JBColor;
 import com.intellij.util.ObjectUtils;
 import com.intellij.util.ui.JBUI;
 import com.intellij.util.ui.UIUtil;
-import io.acari.DDLC.DDLCAbstractTheme;
-import io.acari.DDLC.DDLCConfig;
-import io.acari.DDLC.DDLCThemeFacade;
-import io.acari.DDLC.DDLCThemes;
+import io.acari.DDLC.*;
 import sun.awt.AppContext;
 
 import javax.swing.*;
@@ -88,15 +85,16 @@ public final class MTThemeManager {
 
 
   public MTThemeManager() {
-      LafManager.getInstance().addLafManagerListener(lafManager -> {
-        if(!UIManager.getLookAndFeel().getDescription().contains("DDLC")){
-          PropertiesComponent.getInstance().setValue(MATERIAL_THEME_PROP, MTConfig.WE_AINT_USING_DDLC_BOIS);
-        }
-      });
+    DDLCApplicationInitializationComponent.Companion.addInitializationListener(()->
+        LafManager.getInstance().addLafManagerListener(lafManager -> {
+          if(!UIManager.getLookAndFeel().getDescription().contains("DDLC")){
+            PropertiesComponent.getInstance().setValue(MATERIAL_THEME_PROP, MTConfig.WE_AINT_USING_DDLC_BOIS);
+          }
+        }));
   }
 
   public static boolean isDDLCActive(){
-    return PropertiesComponent.getInstance().getValue(MATERIAL_THEME_PROP, MTConfig.WE_USING_DDLC_BOIS).equals(MTConfig.WE_USING_DDLC_BOIS) || isActiveOnStartup;
+    return PropertiesComponent.getInstance().getValue(MATERIAL_THEME_PROP, MTConfig.WE_USING_DDLC_BOIS).equals(MTConfig.WE_USING_DDLC_BOIS);
   }
 
   public static MTThemeManager getInstance() {
@@ -608,13 +606,6 @@ public final class MTThemeManager {
     return WinRegistry.getTitleColor();
   }
 
-  private static boolean isActiveOnStartup = false;
-  public static void holdStartupState() {
-    isActiveOnStartup = isDDLCActive();
-  }
-  public static void releaseStartupState() {
-    isActiveOnStartup = false;
-  }
 
   //endregion
 }

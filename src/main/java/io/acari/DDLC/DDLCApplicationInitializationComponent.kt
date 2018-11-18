@@ -4,11 +4,17 @@ import com.chrisrm.ideaddlc.MTThemeManager
 import com.intellij.openapi.components.ApplicationComponent
 import io.acari.DDLC.wizard.DDLCWizardDialog
 import io.acari.DDLC.wizard.DDLCWizardStepsProvider
+import java.util.*
 
 class DDLCApplicationInitializationComponent : ApplicationComponent {
   companion object {
-    init {
-      MTThemeManager.holdStartupState()
+    private val listeners = LinkedList<Runnable>()
+
+    fun addInitializationListener(callback: Runnable){
+      listeners.add(callback)
+    }
+    fun notifyListeners(){
+      listeners.forEach { it.run() }
     }
   }
 
@@ -16,6 +22,8 @@ class DDLCApplicationInitializationComponent : ApplicationComponent {
     super.initComponent()
     if (MTThemeManager.isDDLCActive())
       checkWizard()
+
+    notifyListeners()
   }
 
   private fun checkWizard() {

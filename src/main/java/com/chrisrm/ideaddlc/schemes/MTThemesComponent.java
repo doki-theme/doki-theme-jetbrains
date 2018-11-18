@@ -63,7 +63,6 @@ public final class MTThemesComponent implements ApplicationComponent {
     DDLCConfig ddlcConfig = DDLCConfig.getInstance();
     boolean firstTime = ddlcConfig.isFirstTime();
     if(MTThemeManager.isDDLCActive() || firstTime) {
-      MTThemeManager.releaseStartupState();
       MTThemeManager.getInstance().activate();
       if(firstTime){
         ddlcConfig.setFirstTime(false);
