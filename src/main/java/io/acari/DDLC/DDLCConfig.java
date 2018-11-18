@@ -27,6 +27,7 @@
 package io.acari.DDLC;
 
 import com.chrisrm.ideaddlc.config.ui.MTForm;
+import com.intellij.ide.util.PropertiesComponent;
 import com.intellij.openapi.application.ApplicationInfo;
 import com.intellij.openapi.application.ApplicationNamesInfo;
 import com.intellij.openapi.components.PersistentStateComponent;
@@ -36,6 +37,7 @@ import com.intellij.openapi.components.Storage;
 import com.intellij.util.ObjectUtils;
 import com.intellij.util.xmlb.XmlSerializerUtil;
 import io.acari.DDLC.chibi.ChibiLevel;
+import io.acari.DDLC.wizard.DDLCWizardDialog;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.json.JSONException;
@@ -52,7 +54,6 @@ public class DDLCConfig implements PersistentStateComponent<DDLCConfig>, Cloneab
     public static final String DEFAULT_BG =
             "https://github.com/cyclic-reference/jetbrains-theme/master/src/main/resources/themes/Doki_Doki_Literature_Club.png";
 
-    // todo: should pick up off of legacy config to see if the wizard has been shown
     // They are public so they can be serialized
     public String version;
     public String chibiLevel = ChibiLevel.ON.name();
@@ -223,7 +224,19 @@ public class DDLCConfig implements PersistentStateComponent<DDLCConfig>, Cloneab
 
 
     public boolean getIsWizardShown() {
-        return isWizardShown;
+        return isWizardShown || legacyWizardShown();
+    }
+
+    private boolean legacyWizardShown(){
+        PropertiesComponent propertiesComponent = PropertiesComponent.getInstance();
+        boolean legacyWizardShown = propertiesComponent
+            .getBoolean(DDLCWizardDialog.MT_IS_SHOWN_WIZARD, false);
+        if(legacyWizardShown){
+            setIsWizardShown(true);
+            propertiesComponent.unsetValue(DDLCWizardDialog.MT_IS_SHOWN_WIZARD);
+
+        }
+        return legacyWizardShown;
     }
 
     public void setIsWizardShown(final boolean isWizardShown) {
