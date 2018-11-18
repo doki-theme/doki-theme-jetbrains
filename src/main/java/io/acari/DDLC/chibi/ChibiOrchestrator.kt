@@ -31,7 +31,7 @@ object ChibiOrchestrator {
     private const val RESOURCES_DIRECTORY = "https://raw.githubusercontent.com/cyclic-reference/ddlc-jetbrains-theme/master/src/main/resources"
 
     private var chibiLevel = ChibiLevel.ON
-    private var currentTheme = getSavedTheme()
+    private var currentTheme =  lazy { getSavedTheme() }
 
     init {
         checkLegacyChibiToggle()
@@ -39,7 +39,7 @@ object ChibiOrchestrator {
         setChibiLevel(DDLCConfig.getInstance().getChibiLevel())
         //todo: need to actually register the object
         MTThemeManager.addMaterialThemeActivatedListener {
-            if(it){
+            if (it) {
                 removeWeebShit()
             } else {
                 turnOnIfNecessary()
@@ -80,7 +80,7 @@ object ChibiOrchestrator {
     fun currentChibiLevel() = chibiLevel
 
     fun activateChibiForTheme(theme: DDLCThemes) {
-        currentTheme = theme
+        currentTheme =  lazy {theme }
         updateChibi()
     }
 
@@ -198,7 +198,7 @@ object ChibiOrchestrator {
     fun getNormalClubMember() = getTheme().normalClubMember!!
 
     private fun getTheme(): DDLCThemes {
-        return currentTheme
+        return currentTheme.value
     }
 
     private fun getFrameBackground(): String {
@@ -219,7 +219,5 @@ object ChibiOrchestrator {
 
         setPropertyValue(propertyKey, propertyValue)
     }
-
-    fun initialize() {}
 
 }

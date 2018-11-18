@@ -293,7 +293,6 @@ public abstract class DDLCAbstractTheme implements Serializable, MTThemeable {
   @NotNull
   @Override
   public String getSelectionBackground() {
-    //todo: when dark theme comes in!!!!!
     return dark ? MonikaTheme.Companion.getSELECTION_BACKGROUND() : MonikaTheme.Companion.getSELECTION_BACKGROUND();
   }
 
@@ -303,7 +302,6 @@ public abstract class DDLCAbstractTheme implements Serializable, MTThemeable {
   @NotNull
   @Override
   public String getDisabled() {
-    //todo: when dark theme comes in!!!!!
     return dark ? MonikaTheme.Companion.getDISABLED() : MonikaTheme.Companion.getDISABLED();
   }
 
