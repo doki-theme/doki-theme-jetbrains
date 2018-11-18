@@ -1,28 +1,28 @@
 package io.acari.DDLC
 
-import com.chrisrm.ideaddlc.MTConfig
 import com.chrisrm.ideaddlc.MTThemeManager
 import com.intellij.openapi.components.ApplicationComponent
 import io.acari.DDLC.wizard.DDLCWizardDialog
 import io.acari.DDLC.wizard.DDLCWizardStepsProvider
 
-class DDLCApplicationInitializationComponent: ApplicationComponent {
-
+class DDLCApplicationInitializationComponent : ApplicationComponent {
+  companion object {
     init {
-//        MTThemeManager.restoreState()
+      MTThemeManager.holdStartupState()
     }
+  }
 
-    override fun initComponent() {
-        super.initComponent()
-        if (MTThemeManager.isDDLCActive())
-            checkWizard()
-    }
+  override fun initComponent() {
+    super.initComponent()
+    if (MTThemeManager.isDDLCActive())
+      checkWizard()
+  }
 
-    private fun checkWizard() {
-        val isWizardShown = DDLCConfig.getInstance().getIsWizardShown()
-        if (!isWizardShown) {
-            DDLCWizardDialog(DDLCWizardStepsProvider()).show()
-            DDLCConfig.getInstance().setIsWizardShown(true)
-        }
+  private fun checkWizard() {
+    val isWizardShown = DDLCConfig.getInstance().getIsWizardShown()
+    if (!isWizardShown) {
+      DDLCWizardDialog(DDLCWizardStepsProvider()).show()
+      DDLCConfig.getInstance().setIsWizardShown(true)
     }
+  }
 }

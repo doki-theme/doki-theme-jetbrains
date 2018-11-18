@@ -84,7 +84,7 @@ public final class MTThemeManager {
   public static final int DEFAULT_FONT_SIZE = JBUI.scale(13);
   public static final String DEFAULT_FONT = "Roboto";
   public static final String DEFAULT_MONO_FONT = "Fira Code";
-  private static String MATERIAL_THEME_PROP = "com.chrisrm.idea.MaterialThemeUI.theme";
+  private static String MATERIAL_THEME_PROP = "io.acari.ddlc.DDLCTheme.active.status";
 
 
   public MTThemeManager() {
@@ -96,7 +96,7 @@ public final class MTThemeManager {
   }
 
   public static boolean isDDLCActive(){
-    return PropertiesComponent.getInstance().getValue(MATERIAL_THEME_PROP, MTConfig.WE_USING_DDLC_BOIS).equals(MTConfig.WE_USING_DDLC_BOIS);
+    return PropertiesComponent.getInstance().getValue(MATERIAL_THEME_PROP, MTConfig.WE_USING_DDLC_BOIS).equals(MTConfig.WE_USING_DDLC_BOIS) || isActiveOnStartup;
   }
 
   public static MTThemeManager getInstance() {
@@ -606,6 +606,14 @@ public final class MTThemeManager {
 
   public int getTitleColor() {
     return WinRegistry.getTitleColor();
+  }
+
+  private static boolean isActiveOnStartup = false;
+  public static void holdStartupState() {
+    isActiveOnStartup = isDDLCActive();
+  }
+  public static void releaseStartupState() {
+    isActiveOnStartup = false;
   }
 
   //endregion
