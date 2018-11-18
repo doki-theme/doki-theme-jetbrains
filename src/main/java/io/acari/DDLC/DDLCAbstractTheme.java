@@ -709,7 +709,6 @@ public abstract class DDLCAbstractTheme implements Serializable, MTThemeable {
    */
   public abstract String getSecondaryBackgroundColorString();
 
-  //TODO: MAKE ME DEFAULT
   protected String getSecondaryForegroundColorString() {
     return "256f25";
   }

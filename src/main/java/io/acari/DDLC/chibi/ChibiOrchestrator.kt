@@ -37,7 +37,6 @@ object ChibiOrchestrator {
         checkLegacyChibiToggle()
         removeLegacyProperties()
         setChibiLevel(DDLCConfig.getInstance().getChibiLevel())
-        //todo: need to actually register the object
         MTThemeManager.addMaterialThemeActivatedListener {
             if (it) {
                 removeWeebShit()
