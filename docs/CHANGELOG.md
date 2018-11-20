@@ -1,6 +1,10 @@
 # Changelog
 ----
 
+# 1.7.0
+
+- All known progress indicators now conform more to the icon update
+    
 # 1.6.1
 
 - Updated Material UI Core to v2.10.6 
