@@ -19,6 +19,7 @@ object DDLCHackComponent : ApplicationComponent {
     init {
         createMonikasWritingTipOfTheDay()
         enableChibis()
+        DDLCIconHackComponent.toString()
     }
 
     private fun enableChibis() {
