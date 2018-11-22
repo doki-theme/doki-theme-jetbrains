@@ -111,7 +111,8 @@ public final class IconReplacer {
 
           path = path.replace(removedPath, "");
 
-          path = iconsRootPath + (!path.startsWith("/") ? "/":"") + path;
+          String separation = !(path.startsWith("/") || iconsRootPath.endsWith("/")) ? "/" : "";
+          path = iconsRootPath + separation + path;
         }
 
         // Try to load the image (can be svg)
