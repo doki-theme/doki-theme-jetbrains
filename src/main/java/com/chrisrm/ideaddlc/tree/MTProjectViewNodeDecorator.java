@@ -26,6 +26,7 @@
 package com.chrisrm.ideaddlc.tree;
 
 import com.chrisrm.ideaddlc.MTConfig;
+import com.chrisrm.ideaddlc.MTThemeManager;
 import com.chrisrm.ideaddlc.icons.DirIcon;
 import com.intellij.ide.projectView.PresentationData;
 import com.intellij.ide.projectView.ProjectViewNode;
@@ -69,18 +70,20 @@ public final class MTProjectViewNodeDecorator implements ProjectViewNodeDecorato
 
   @Override
   public void decorate(final ProjectViewNode node, final PresentationData data) {
-    final VirtualFile file = node.getVirtualFile();
-    final Project project = node.getProject();
+    if(MTThemeManager.isDDLCActive()){
+      final VirtualFile file = node.getVirtualFile();
+      final Project project = node.getProject();
 
-    // Color file status
-    if (file != null) {
-      if (MTConfig.getInstance().getIsStyledDirectories()) {
-        // Color file status
-        applyDirectoriesColor(data, file);
-      }
+      // Color file status
+      if (file != null) {
+        if (MTConfig.getInstance().getIsStyledDirectories()) {
+          // Color file status
+          applyDirectoriesColor(data, file);
+        }
 
-      if (MTConfig.getInstance().isUseProjectViewDecorators()) {
-        setOpenOrClosedIcon(data, file, project);
+        if (MTConfig.getInstance().isUseProjectViewDecorators()) {
+          setOpenOrClosedIcon(data, file, project);
+        }
       }
     }
   }
