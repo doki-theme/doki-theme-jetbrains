@@ -26,6 +26,7 @@
 package com.chrisrm.ideaddlc.status;
 
 import com.chrisrm.ideaddlc.MTConfig;
+import com.chrisrm.ideaddlc.MTThemeManager;
 import com.chrisrm.ideaddlc.config.ConfigNotifier;
 import com.intellij.openapi.Disposable;
 import com.intellij.openapi.application.ApplicationManager;
