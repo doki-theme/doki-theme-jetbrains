@@ -44,10 +44,11 @@ public final class MTIconReplacerComponent implements ApplicationComponent {
   //todo: ddlc icons need to stay when material ui is active.
   @Override
   public void initComponent() {
-    if (MTConfig.getInstance().isUseMaterialIcons()) {
-      IconReplacer.replaceIcons(AllIcons.class, "/icons");
-    }
+    useDDLCIcons();
+  }
 
+  public static void useDDLCIcons() {
+    IconReplacer.replaceIcons(AllIcons.class, "/icons");
     IconLoader.installPathPatcher(new AllIconsPatcher());
     IconLoader.installPathPatcher(new ImagesIconsPatcher());
     IconLoader.installPathPatcher(new VCSIconsPatcher());

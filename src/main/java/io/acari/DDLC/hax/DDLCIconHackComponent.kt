@@ -1,6 +1,7 @@
 package io.acari.DDLC.hax
 
 import com.chrisrm.ideaddlc.MTThemeManager
+import com.chrisrm.ideaddlc.icons.MTIconReplacerComponent
 import com.intellij.openapi.util.IconLoader
 import com.intellij.openapi.util.IconPathPatcher
 import io.acari.DDLC.DDLCApplicationInitializationComponent
@@ -19,15 +20,16 @@ object DDLCIconHackComponent {
 
   private fun activatePatchers(materialThemeActive: Boolean) {
     harvestIconPatchers()
+    iconReplacements.addAll(iconBucket)
     when (materialThemeActive && mtIconReplacers.isNotEmpty()) {
       true -> {
         iconReplacements.addAll(mtIconReplacers)
       }
       false -> {
         iconReplacements.addAll(ddlcIconReplacers)
+        MTIconReplacerComponent.useDDLCIcons()
       }
     }
-    iconReplacements.addAll(iconBucket)
   }
 
   private val mtIconReplacers = HashSet<IconPathPatcher>()

@@ -116,4 +116,9 @@ public abstract class MTIconPatcher extends IconPathPatcher {
     }
     return instance;
   }
+
+
+  public int hashCode(){
+    return this.getClass().getName().hashCode();
+  }
 }
