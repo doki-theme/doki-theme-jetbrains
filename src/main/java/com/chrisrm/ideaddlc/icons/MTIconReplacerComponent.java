@@ -27,10 +27,12 @@
 package com.chrisrm.ideaddlc.icons;
 
 import com.chrisrm.ideaddlc.MTConfig;
+import com.chrisrm.ideaddlc.MTThemeManager;
 import com.chrisrm.ideaddlc.icons.patchers.*;
 import com.intellij.icons.AllIcons;
 import com.intellij.openapi.components.ApplicationComponent;
 import com.intellij.openapi.util.IconLoader;
+import io.acari.DDLC.DDLCConfig;
 import org.jetbrains.annotations.NotNull;
 
 public final class MTIconReplacerComponent implements ApplicationComponent {
@@ -44,7 +46,9 @@ public final class MTIconReplacerComponent implements ApplicationComponent {
   //todo: ddlc icons need to stay when material ui is active.
   @Override
   public void initComponent() {
-    useDDLCIcons();
+    if(MTThemeManager.isDDLCActive()){
+      useDDLCIcons();
+    }
   }
 
   public static void useDDLCIcons() {
