@@ -2,6 +2,7 @@ package io.acari.DDLC
 
 import com.chrisrm.ideaddlc.MTThemeManager
 import com.intellij.openapi.components.ApplicationComponent
+import io.acari.DDLC.chibi.ChibiOrchestrator
 import io.acari.DDLC.wizard.DDLCWizardDialog
 import io.acari.DDLC.wizard.DDLCWizardStepsProvider
 import java.util.*
@@ -20,6 +21,7 @@ class DDLCApplicationInitializationComponent : ApplicationComponent {
 
   override fun initComponent() {
     super.initComponent()
+    ChibiOrchestrator.init()
     if (MTThemeManager.isDDLCActive())
       checkWizard()
 

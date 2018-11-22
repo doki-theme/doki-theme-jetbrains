@@ -36,11 +36,13 @@ object ChibiOrchestrator {
     init {
         checkLegacyChibiToggle()
         removeLegacyProperties()
-        setChibiLevel(DDLCConfig.getInstance().getChibiLevel())
+        if(MTThemeManager.isDDLCActive()){
+            setChibiLevel(DDLCConfig.getInstance().getChibiLevel())
+        }
         MTThemeManager.addMaterialThemeActivatedListener {
             if (it) {
                 removeWeebShit()
-            } else {
+            } else if(MTThemeManager.isDDLCActive()) {
                 turnOnIfNecessary()
             }
         }
@@ -217,6 +219,9 @@ object ChibiOrchestrator {
         val propertyValue = listOf(imagePath, opacity, fill, anchor).reduceRight { a, b -> "$a,$b" }
 
         setPropertyValue(propertyKey, propertyValue)
+    }
+
+    fun init() {
     }
 
 }
