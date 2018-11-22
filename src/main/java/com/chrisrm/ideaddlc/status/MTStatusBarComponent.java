@@ -27,15 +27,23 @@
 package com.chrisrm.ideaddlc.status;
 
 import com.chrisrm.ideaddlc.MTConfig;
+import com.chrisrm.ideaddlc.MTThemeManager;
 import com.intellij.openapi.components.AbstractProjectComponent;
 import com.intellij.openapi.project.Project;
 import org.jetbrains.annotations.NotNull;
 
 public final class MTStatusBarComponent extends AbstractProjectComponent {
   private MTStatusBarManager statusBarWidget;
+  private boolean initalized = false;
 
   public MTStatusBarComponent(@NotNull final Project project) {
     super(project);
+    MTThemeManager.addMaterialThemeActivatedListener(materialActive->{
+      if(!(materialActive || initalized)){
+        initalized = true;
+        statusBarWidget.install();
+      }
+    });
   }
 
   @Override
@@ -56,7 +64,7 @@ public final class MTStatusBarComponent extends AbstractProjectComponent {
 
   @Override
   public void projectOpened() {
-    if (MTConfig.getInstance().isStatusBarTheme()) {
+    if (MTConfig.getInstance().isStatusBarTheme() && MTThemeManager.isDDLCActive()) {
       statusBarWidget.install();
     }
   }
