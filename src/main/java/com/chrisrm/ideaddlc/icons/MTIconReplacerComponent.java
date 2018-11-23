@@ -49,7 +49,9 @@ public final class MTIconReplacerComponent implements ApplicationComponent {
   }
 
   public static void useDDLCIcons() {
+    System.out.println("start replace");
     IconReplacer.replaceIcons(AllIcons.class, "/icons");
+    System.out.println("end replace");
     IconLoader.installPathPatcher(new AllIconsPatcher());
     IconLoader.installPathPatcher(new ImagesIconsPatcher());
     IconLoader.installPathPatcher(new VCSIconsPatcher());

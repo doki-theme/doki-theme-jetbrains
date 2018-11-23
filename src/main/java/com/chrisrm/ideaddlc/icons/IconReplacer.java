@@ -56,6 +56,7 @@ public final class IconReplacer {
           final Object value = field.get(null);
           final Class byClass = value.getClass();
 
+          System.out.println(byClass.getName());
           if (byClass.getName().endsWith("$ByClass")) {
             StaticPatcher.setFieldValue(value, "myCallerClass", IconReplacer.class);
             StaticPatcher.setFieldValue(value, "myWasComputed", Boolean.FALSE);
@@ -67,10 +68,12 @@ public final class IconReplacer {
               StaticPatcher.setFinalStatic(field, newIcon);
             }
           } else if (byClass.getName().endsWith("TintedIcon")) {
+            //cannot cast com.chrisrm.ideaddlc.icons.tinted.TintedIcon
             final Icon newIcon = TintedIconsService.getIcon(((TintedIcon) value).getPath(), accentColor);
             StaticPatcher.setFinalStatic(field, newIcon);
           }
         } catch (final Exception e) {
+          System.out.println(e.getLocalizedMessage());
         }
       }
     }

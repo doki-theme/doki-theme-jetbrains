@@ -48,4 +48,4 @@ Code Colors (NEEDS TEST TIME)
 search everywhere
 FILE changed status
 
-close editor tab icon. 
+close editor tab icon.
