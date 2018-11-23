@@ -26,7 +26,7 @@
 
 package com.chrisrm.ideaddlc.icons;
 
-import com.chrisrm.ideaddlc.MTConfig;
+import com.chrisrm.ideaddlc.MTThemeManager;
 import com.chrisrm.ideaddlc.icons.patchers.*;
 import com.intellij.icons.AllIcons;
 import com.intellij.openapi.components.ApplicationComponent;
@@ -41,13 +41,15 @@ public final class MTIconReplacerComponent implements ApplicationComponent {
   }
 
 
-  //todo: ddlc icons need to stay when material ui is active.
   @Override
   public void initComponent() {
-    if (MTConfig.getInstance().isUseMaterialIcons()) {
-      IconReplacer.replaceIcons(AllIcons.class, "/icons");
+    if(MTThemeManager.isDDLCActive()){
+      useDDLCIcons();
     }
+  }
 
+  public static void useDDLCIcons() {
+    IconReplacer.replaceIcons(AllIcons.class, "/icons");
     IconLoader.installPathPatcher(new AllIconsPatcher());
     IconLoader.installPathPatcher(new ImagesIconsPatcher());
     IconLoader.installPathPatcher(new VCSIconsPatcher());

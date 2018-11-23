@@ -1,4 +1,4 @@
-package io.acari.DDLC
+package io.acari.DDLC.hax
 
 import com.intellij.ide.util.ChooseElementsDialog
 import com.intellij.ide.util.ExportToFileUtil
@@ -19,6 +19,7 @@ object DDLCHackComponent : ApplicationComponent {
     init {
         createMonikasWritingTipOfTheDay()
         enableChibis()
+        DDLCIconHackComponent.toString()
     }
 
     private fun enableChibis() {

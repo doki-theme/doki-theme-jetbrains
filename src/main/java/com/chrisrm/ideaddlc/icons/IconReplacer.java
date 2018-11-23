@@ -38,6 +38,7 @@ import io.acari.DDLC.DDLCConfig;
 import javax.swing.*;
 import java.awt.*;
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.net.URL;
 
@@ -66,11 +67,20 @@ public final class IconReplacer {
               final Icon newIcon = TintedIconsService.getIcon(newPath, accentColor);
               StaticPatcher.setFinalStatic(field, newIcon);
             }
-          } else if (byClass.getName().endsWith("TintedIcon")) {
-            final Icon newIcon = TintedIconsService.getIcon(((TintedIcon) value).getPath(), accentColor);
-            StaticPatcher.setFinalStatic(field, newIcon);
+          } else {
+            boolean tintedIcon = byClass.getName().endsWith("TintedIcon");
+            if (tintedIcon) {
+              Method getPath = value.getClass().getDeclaredMethod("getPath");
+              String path = (String) getPath.invoke(value);
+              if(!byClass.getName().contains("ddlc")){
+                path = TintedIconsService.MATERIAL_TINTED_ICONS_MAPPING.getOrDefault(path, path);
+              }
+              final Icon newIcon = TintedIconsService.getIcon(path, accentColor);
+              StaticPatcher.setFinalStatic(field, newIcon);
+            }
           }
         } catch (final Exception e) {
+          System.out.println(e.getLocalizedMessage());
         }
       }
     }
@@ -111,7 +121,8 @@ public final class IconReplacer {
 
           path = path.replace(removedPath, "");
 
-          path = iconsRootPath + path;
+          String separation = !(path.startsWith("/") || iconsRootPath.endsWith("/")) ? "/" : "";
+          path = iconsRootPath + separation + path;
         }
 
         // Try to load the image (can be svg)

@@ -27,7 +27,7 @@ object ChibiOrchestrator {
     private const val CLUB_MEMBER_ON = "CLUB_MEMBER_ON"
     const val DDLC_BACKGROUND_PROP = "io.acari.ddlc.background"
     private val oldChibiProps = listOf(EDITOR_PROP, FRAME_PROP)
-    private const val SAVED_THEME = "CLUB_MEMBER_THEME_PROPERTY"
+    public const val SAVED_THEME = "CLUB_MEMBER_THEME_PROPERTY"
     private const val RESOURCES_DIRECTORY = "https://raw.githubusercontent.com/cyclic-reference/ddlc-jetbrains-theme/master/src/main/resources"
 
     private var chibiLevel = ChibiLevel.ON
@@ -36,11 +36,13 @@ object ChibiOrchestrator {
     init {
         checkLegacyChibiToggle()
         removeLegacyProperties()
-        setChibiLevel(DDLCConfig.getInstance().getChibiLevel())
+        if(MTThemeManager.isDDLCActive()){
+            setChibiLevel(DDLCConfig.getInstance().getChibiLevel())
+        }
         MTThemeManager.addMaterialThemeActivatedListener {
             if (it) {
                 removeWeebShit()
-            } else {
+            } else if(MTThemeManager.isDDLCActive()) {
                 turnOnIfNecessary()
             }
         }
@@ -217,6 +219,9 @@ object ChibiOrchestrator {
         val propertyValue = listOf(imagePath, opacity, fill, anchor).reduceRight { a, b -> "$a,$b" }
 
         setPropertyValue(propertyKey, propertyValue)
+    }
+
+    fun init() {
     }
 
 }

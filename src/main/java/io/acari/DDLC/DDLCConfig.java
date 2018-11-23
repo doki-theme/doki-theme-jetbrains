@@ -45,6 +45,10 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
+import java.util.function.Function;
+
+import static io.acari.DDLC.chibi.ChibiOrchestrator.SAVED_THEME;
 
 @State(
         name = "DokiDokiThemeConfig",
@@ -58,7 +62,7 @@ public class DDLCConfig implements PersistentStateComponent<DDLCConfig>, Cloneab
     public String version;
     public String chibiLevel = ChibiLevel.ON.name();
 
-    public String selectedTheme = DDLCThemes.MONIKA.getName();
+    public String selectedTheme = "";
 
     public boolean isWizardShown = false;
     public boolean isFirstTime = true;
@@ -120,7 +124,10 @@ public class DDLCConfig implements PersistentStateComponent<DDLCConfig>, Cloneab
      */
     public DDLCThemeFacade getSelectedTheme() {
         final DDLCThemeFacade themeFor = DDLCThemes.getThemeFor(selectedTheme);
-        return ObjectUtils.notNull(themeFor, DDLCThemes.MONIKA);
+        return Optional.ofNullable(themeFor)
+            .orElseGet(()->Optional.ofNullable(PropertiesComponent.getInstance().getValue(SAVED_THEME))
+            .map(DDLCThemes::getThemeFor)
+            .orElse(DDLCThemes.MONIKA));
     }
 
     public void setSelectedTheme(final DDLCThemeFacade selectedTheme) {
@@ -180,7 +187,7 @@ public class DDLCConfig implements PersistentStateComponent<DDLCConfig>, Cloneab
         hashMap.put("IDE", ApplicationNamesInfo.getInstance().getFullProductName());
         hashMap.put("IDEVersion", ApplicationInfo.getInstance().getBuild().getBaselineVersion());
         hashMap.put("version", version);
-        hashMap.put("selectedTheme", selectedTheme);
+        hashMap.put("selectedTheme", getSelectedTheme());
         hashMap.put("isFirstTime", isFirstTime);
         hashMap.put("chibiLevel", chibiLevel);
 
@@ -193,7 +200,7 @@ public class DDLCConfig implements PersistentStateComponent<DDLCConfig>, Cloneab
         hashMap.put("IDE", ApplicationNamesInfo.getInstance().getFullProductName());
         hashMap.put("IDEVersion", ApplicationInfo.getInstance().getBuild().getBaselineVersion());
         hashMap.put("version", version);
-        hashMap.put("selectedTheme", selectedTheme);
+        hashMap.put("selectedTheme", getSelectedTheme());
         hashMap.put("isFirstTime", isFirstTime);
         hashMap.put("chibiLevel", chibiLevel);
 
@@ -212,10 +219,6 @@ public class DDLCConfig implements PersistentStateComponent<DDLCConfig>, Cloneab
      */
     public void setVersion(final String version) {
         this.version = version;
-    }
-
-    public boolean isSelectedThemeChanged(final DDLCThemeFacade theme) {
-        return !selectedTheme.equals(theme.getName());
     }
 
     public String getDefaultBackground() {

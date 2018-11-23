@@ -108,7 +108,7 @@
             <implementation-class>com.chrisrm.ideaddlc.MTHackComponent</implementation-class>
         </component>
         <component>
-            <implementation-class>io.acari.DDLC.DDLCHackComponent</implementation-class>
+            <implementation-class>io.acari.DDLC.hax.DDLCHackComponent</implementation-class>
         </component>
         <component>
             <implementation-class>com.chrisrm.ideaddlc.MTApplicationComponent</implementation-class>
