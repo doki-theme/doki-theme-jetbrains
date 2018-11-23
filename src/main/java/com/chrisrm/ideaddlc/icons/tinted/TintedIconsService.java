@@ -31,6 +31,7 @@ import com.intellij.openapi.components.ServiceManager;
 import com.intellij.openapi.util.IconLoader;
 import com.intellij.ui.ColorUtil;
 import io.acari.DDLC.DDLCConfig;
+import kotlin.Pair;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
@@ -38,8 +39,52 @@ import javax.swing.plaf.*;
 import java.awt.*;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public final class TintedIconsService {
+
+  public static final Map<String, String> MATERIAL_TINTED_ICONS_MAPPING =
+      Stream.of("/icons/process/step_1.svg",
+          "/icons/process/step_2.svg",
+          "/icons/process/step_3.svg",
+          "/icons/process/step_4.svg",
+          "/icons/process/step_5.svg",
+          "/icons/process/step_6.svg",
+          "/icons/process/step_7.svg",
+          "/icons/process/step_8.svg",
+          "/icons/process/step_9.svg",
+          "/icons/process/step_10.svg",
+          "/icons/process/step_11.svg",
+          "/icons/process/step_12.svg",
+          "/icons/process/big/step_1.svg",
+          "/icons/process/big/step_2.svg",
+          "/icons/process/big/step_3.svg",
+          "/icons/process/big/step_4.svg",
+          "/icons/process/big/step_5.svg",
+          "/icons/process/big/step_6.svg",
+          "/icons/process/big/step_7.svg",
+          "/icons/process/big/step_8.svg",
+          "/icons/process/big/step_9.svg",
+          "/icons/process/big/step_10.svg",
+          "/icons/process/big/step_11.svg",
+          "/icons/process/big/step_12.svg",
+          "/icons/process/step_mask.svg",
+          "/icons/process/big/step_mask.svg",
+          "/icons/process/step_passive.svg",
+          "/icons/process/big/step_passive.svg",
+          "/icons/ide/rating.svg",
+          "/icons/ide/rating1.svg",
+          "/icons/ide/rating2.svg",
+          "/icons/ide/rating3.svg",
+          "/icons/ide/rating4.svg",
+          "/icons/actions/closeHovered.svg",
+          "/icons/actions/closeNewHovered.svg")
+      .map(iconPath -> new Pair<>(iconPath, iconPath.replace("/icons/", "/icons/ddlc/")))
+      .collect(Collectors.toMap(Pair::getFirst, Pair::getSecond));
+
   
   public static final String[] TINTED_ICONS = new String[]{
       "/icons/ddlc/actions/closeHovered.svg",

@@ -38,6 +38,7 @@ import io.acari.DDLC.DDLCConfig;
 import javax.swing.*;
 import java.awt.*;
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.net.URL;
 
@@ -56,7 +57,6 @@ public final class IconReplacer {
           final Object value = field.get(null);
           final Class byClass = value.getClass();
 
-          System.out.println(byClass.getName());
           if (byClass.getName().endsWith("$ByClass")) {
             StaticPatcher.setFieldValue(value, "myCallerClass", IconReplacer.class);
             StaticPatcher.setFieldValue(value, "myWasComputed", Boolean.FALSE);
@@ -67,10 +67,17 @@ public final class IconReplacer {
               final Icon newIcon = TintedIconsService.getIcon(newPath, accentColor);
               StaticPatcher.setFinalStatic(field, newIcon);
             }
-          } else if (byClass.getName().endsWith("TintedIcon")) {
-            //cannot cast com.chrisrm.ideaddlc.icons.tinted.TintedIcon
-            final Icon newIcon = TintedIconsService.getIcon(((TintedIcon) value).getPath(), accentColor);
-            StaticPatcher.setFinalStatic(field, newIcon);
+          } else {
+            boolean tintedIcon = byClass.getName().endsWith("TintedIcon");
+            if (tintedIcon) {
+              Method getPath = value.getClass().getDeclaredMethod("getPath");
+              String path = (String) getPath.invoke(value);
+              if(!byClass.getName().contains("ddlc")){
+                path = TintedIconsService.MATERIAL_TINTED_ICONS_MAPPING.getOrDefault(path, path);
+              }
+              final Icon newIcon = TintedIconsService.getIcon(path, accentColor);
+              StaticPatcher.setFinalStatic(field, newIcon);
+            }
           }
         } catch (final Exception e) {
           System.out.println(e.getLocalizedMessage());
