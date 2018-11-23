@@ -1,18 +1,14 @@
 package io.acari.DDLC
 
 import com.chrisrm.ideaddlc.MTThemeManager
-import com.chrisrm.ideaddlc.icons.MTIconReplacerComponent
 import com.intellij.ide.GeneralSettings
 import com.intellij.ide.util.PropertiesComponent
 import com.intellij.ide.util.TipDialog
 import com.intellij.openapi.components.AbstractProjectComponent
 import com.intellij.openapi.project.Project
 import io.acari.DDLC.actions.DDLCAddFileColorsAction
-import io.reactivex.Observable
-import io.reactivex.schedulers.Schedulers
 import java.time.Instant
 import java.util.*
-import java.util.concurrent.TimeUnit
 
 /**
  * Forged in the flames of battle by alex.
@@ -27,12 +23,7 @@ class DDLCProjectInitializationComponent(project: Project?) : AbstractProjectCom
 
     override fun projectOpened() {
         if(MTThemeManager.isDDLCActive()){
-            Observable.interval(TimeUnit.MILLISECONDS.convert(5, TimeUnit.SECONDS),
-                1000L, TimeUnit.MILLISECONDS, Schedulers.single())
-                .take(1)
-                .subscribe {
-                    println("doing the deed")
-                }
+            MTThemeManager.getInstance().activate()
             mtAddFileColorsAction.setFileScopes(this.myProject)
             if(!GeneralSettings.getInstance().isShowTipsOnStartup()){
                 val timesTipsChosen = PropertiesComponent.getInstance().getInt(WRITING_TIP_OF_THE_DAY, 0)
