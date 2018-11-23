@@ -27,7 +27,7 @@ object ChibiOrchestrator {
     private const val CLUB_MEMBER_ON = "CLUB_MEMBER_ON"
     const val DDLC_BACKGROUND_PROP = "io.acari.ddlc.background"
     private val oldChibiProps = listOf(EDITOR_PROP, FRAME_PROP)
-    private const val SAVED_THEME = "CLUB_MEMBER_THEME_PROPERTY"
+    public const val SAVED_THEME = "CLUB_MEMBER_THEME_PROPERTY"
     private const val RESOURCES_DIRECTORY = "https://raw.githubusercontent.com/cyclic-reference/ddlc-jetbrains-theme/master/src/main/resources"
 
     private var chibiLevel = ChibiLevel.ON
