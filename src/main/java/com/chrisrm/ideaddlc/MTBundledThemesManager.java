@@ -42,13 +42,21 @@ import io.acari.DDLC.DDLCConfig;
 import io.acari.DDLC.DDLCThemeFacade;
 import io.acari.DDLC.DDLCThemes;
 import io.acari.DDLC.themes.models.MonikaBundledTheme;
+import org.jetbrains.annotations.NonNls;
+import org.jetbrains.annotations.NotNull;
 
+
+import javax.swing.*;
+import java.io.IOException;
 import java.net.URL;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
-import static com.chrisrm.ideaddlc.themes.BundledThemeEP.EP_NAME;
-
+/**
+ * Manages the Bundled themes (external themes)
+ */
 public final class MTBundledThemesManager {
   private final Map<String, MTBundledTheme> bundledThemes = new HashMap<>();
 

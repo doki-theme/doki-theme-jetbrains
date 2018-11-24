@@ -26,11 +26,14 @@
 
 package com.chrisrm.ideaddlc;
 
-import com.chrisrm.ideaddlc.config.BeforeConfigNotifier;
-import com.chrisrm.ideaddlc.config.ConfigNotifier;
-import com.chrisrm.ideaddlc.config.ui.ArrowsStyles;
-import com.chrisrm.ideaddlc.config.ui.IndicatorStyles;
-import com.chrisrm.ideaddlc.config.ui.MTForm;
+import com.chrisrm.idea.config.MTBaseConfig;
+import com.chrisrm.idea.config.ui.ArrowsStyles;
+import com.chrisrm.idea.config.ui.IndicatorStyles;
+import com.chrisrm.idea.config.ui.MTForm;
+import com.chrisrm.idea.listeners.ConfigNotifier;
+import com.chrisrm.idea.themes.MTThemeFacade;
+import com.chrisrm.idea.themes.MTThemes;
+import com.chrisrm.idea.utils.MTAccents;
 import com.intellij.openapi.application.ApplicationInfo;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.application.ApplicationNamesInfo;
@@ -43,6 +46,8 @@ import com.intellij.util.ObjectUtils;
 import com.intellij.util.xmlb.XmlSerializerUtil;
 import io.acari.DDLC.DDLCThemeFacade;
 import io.acari.DDLC.DDLCThemes;
+import com.intellij.util.xmlb.annotations.Property;
+import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.json.JSONException;
@@ -54,6 +59,16 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+@SuppressWarnings( {"ClassWithTooManyFields",
+    "ClassWithTooManyMethods",
+    "OverlyComplexClass",
+    "WeakerAccess",
+    "PackageVisibleField",
+    "RedundantFieldInitialization",
+    "MethodParameterOfConcreteClass",
+    "MethodReturnOfConcreteClass",
+    "OverlyLongMethod",
+    "PublicMethodNotExposedInInterface"})
 @State(
     name = "MaterialDDLCThemeConfig",
     storages = @Storage("material_theme.xml")
