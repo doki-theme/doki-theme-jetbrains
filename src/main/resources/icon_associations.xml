@@ -21,7 +21,6 @@
   ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   ~ SOFTWARE.
   ~
-  ~
   -->
 
 <associations>
@@ -36,8 +35,8 @@
 
         <regex name="ES6" pattern=".*\.es6$" icon="/icons/files/angular.svg"/>
         <regex name="Photoshop" pattern=".*\.psd$" icon="/icons/files/psd.svg"/>
-        <regex name="Plugin" pattern="^plugin.xml$" icon="/icons/nodes/plugin.svg"/>
-        <regex name="Prefs" pattern="^.*\.prefs$" icon="/icons/files/config.svg"/>
+        <regex name="Plugin" pattern="^plugin.xml$" icon="/icons/nodes/plugin.png"/>
+        <regex name="Prefs" pattern="^.*\.prefs$" icon="/icons/nodes/config.png"/>
         <type name="Images" type="Images" icon="/icons/files/image.svg"/>
         <type name="SVG" type="SVG" icon="/icons/files/svg.svg"/>
 
@@ -172,7 +171,7 @@
         <regex name="JS Map" pattern=".*\.js\.map$" icon="/icons/files/jsmap.svg"/>
         <regex name="Jade/Pug" pattern=".*\.(jade|pug)$" icon="/icons/files/pug.svg"/>
         <regex name="Jekyll" pattern=".*_config\.yml$" icon="/icons/files/jekyll.svg"/>
-        <regex name="Jenkins" pattern="^(j|J)enkinsfile$" icon="/icons/files/jenkins.svg"/>
+        <regex name="Jenkins" pattern="^(j|J)enkinsfile(.*)$" icon="/icons/files/jenkins.svg"/>
         <regex name="Jest" pattern=".*jest\.config$" icon="/icons/files/jest.svg"/>
         <regex name="Jinja" pattern=".*\.(jinja|j2|jnj)" icon="/icons/files/jinja.svg"/>
         <regex name="Joomla" pattern=".*\.smarty$" icon="/icons/files/joomla.svg"/>
@@ -252,8 +251,8 @@
         <regex name="Raml" pattern=".*\.(raml)$" icon="/icons/files/raml.svg"/>
         <regex name="ERB" pattern=".*\.(erb|ru)$" icon="/icons/files/erb.svg"/>
         <regex name="Rails" pattern=".*(rails)$" icon="/icons/files/rails.svg"/>
-        <regex name="Rake" pattern=".*rake$" icon="/icons/files/rake.svg"/>
-        <regex name="Rakefile" pattern="Rakefile" icon="/icons/files/rake.svg"/>
+        <regex name="Rake" pattern=".*rake$" icon="/icons/files/rake.png"/>
+        <regex name="Rakefile" pattern="Rakefile" icon="/icons/files/rake.png"/>
         <regex name="Razor" pattern=".*(cshtml)$" icon="/icons/files/razor.svg"/>
         <regex name="ReasonML" pattern=".*\.rei?" icon="/icons/files/reason.svg"/>
         <regex name="RDoc" pattern=".*(rdoc)$" icon="/icons/files/rdoc.svg"/>
@@ -301,11 +300,11 @@
         <regex name="TCL" pattern=".*\.tcl$" icon="/icons/files/tcl.svg"/>
         <regex name="LaTeX" pattern=".*\.tex$" icon="/icons/files/tex.svg"/>
         <regex name="Tern" pattern=".*\.tern-(config|project)$" icon="/icons/files/tern.svg"/>
-        <regex name="Java Test" pattern=".*(t|T)est\.java$" icon="/icons/files/testjava.svg"/>
-        <regex name="JS Test" pattern=".*(test|Test|Spec|spec)\.js$" icon="/icons/files/testjs.svg"/>
-        <regex name="Python Test" pattern=".*(test|Test|Spec|spec)\.py$" icon="/icons/files/testpy.svg"/>
-        <regex name="Ruby Test" pattern=".*(test|spec)\.rb$" icon="/icons/files/testruby.svg"/>
-        <regex name="TS Test" pattern=".*\.(test|Test|Spec|spec)\.ts$" icon="/icons/files/testts.svg"/>
+        <regex name="Java Test" pattern=".*\.(t|T)est\.java$" icon="/icons/files/testjava.svg"/>
+        <regex name="JS Test" pattern=".*\.(test|spec)\.js$" icon="/icons/files/testjs.svg"/>
+        <regex name="Python Test" pattern=".*\.(test|spec)\.py$" icon="/icons/files/testpy.svg"/>
+        <regex name="Ruby Test" pattern=".*\.(test|spec)\.rb$" icon="/icons/files/testruby.svg"/>
+        <regex name="TS Test" pattern=".*\.(test|spec)\.ts$" icon="/icons/files/testts.svg"/>
         <regex name="Textile" pattern=".*\.textile" icon="/icons/files/textile.svg"/>
         <regex name="Textmate" pattern=".*\.(tmPreferences|tmTheme)" icon="/icons/files/textmate.svg"/>
         <regex name="Tomcat" pattern=".*tomcat.*" icon="/icons/files/tomcat.svg"/>
@@ -337,6 +336,7 @@
         <regex name="Yarn" pattern="(.*yarn(\.lock|rc)$|.*\.yarnclean$)" icon="/icons/files/yarn.svg"/>
         <!-- These take the least priority -->
         <regex name="Preferences" pattern=".*\.(ini|config|env|cfg)$" icon="/icons/files/preferences.svg"/>
+        <regex name="Envs" pattern=".*\.env\.(.*)$" icon="/icons/files/preferences.svg"/>
         <regex name="Binary" pattern="^[^.]+$" icon="/icons/files/binary.svg"/>
 
         <regex name="Font" pattern=".*\.(ttf|ttc|pfb|pfm|otf|dfont|pfa|afm|eot|woff2?)$"
