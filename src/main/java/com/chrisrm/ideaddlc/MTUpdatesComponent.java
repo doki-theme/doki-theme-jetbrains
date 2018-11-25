@@ -28,12 +28,15 @@ package com.chrisrm.ideaddlc;
 
 import com.chrisrm.ideaddlc.utils.MTStatisticsNotification;
 import com.chrisrm.ideaddlc.utils.Notify;
+import com.chrisrm.ideaddlc.utils.MTUiUtils;
 import com.intellij.ide.BrowserUtil;
 import com.intellij.ide.util.PropertiesComponent;
 import com.intellij.notification.Notification;
 import com.intellij.notification.NotificationListener;
-import com.intellij.openapi.components.AbstractProjectComponent;
+import com.intellij.notification.Notifications;
+import com.intellij.openapi.components.ProjectComponent;
 import com.intellij.openapi.project.Project;
+import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.json.JSONException;
@@ -42,27 +45,44 @@ import org.json.JSONObject;
 import javax.swing.event.HyperlinkEvent;
 import java.net.URL;
 
-public final class MTUpdatesComponent extends AbstractProjectComponent {
-  private MTApplicationComponent application;
+import static com.chrisrm.idea.notifications.MTStatisticsNotification.ALLOW;
 
-  protected MTUpdatesComponent(final Project project) {
-    super(project);
+/**
+ * Component for showing update notification
+ */
+public final class MTUpdatesComponent implements ProjectComponent {
+  @NonNls
+  private MTConfig config;
+
+  @NotNull
+  private final Project myProject;
+
+  private static final String SHOW_STATISTICS_AGREEMENT = "mt.showStatisticsAgreement";
+
+
+  /**
+   * Instantiates a new Mt updates component.
+   *
+   * @param project the project
+   */
+  private MTUpdatesComponent(@NotNull final Project project) {
+    myProject = project;
   }
 
   /**
    * Open Paypal/OpenCollective link and add event
    *
-   * @param notification
-   * @param event
+   * @param notification The notification
+   * @param event        The click to link event
    */
   private static void onPaypalClick(final Notification notification, final HyperlinkEvent event) {
     final URL url = event.getURL();
 
     try {
-      final JSONObject props = new JSONObject();
+      @NonNls final JSONObject props = new JSONObject();
       props.put("Url", url);
 
-      MTAnalytics.getInstance().track(MTAnalytics.UPDATE_NOTIFICATION, props);
+      MTAnalytics.getInstance().trackWithData(MTAnalytics.UPDATE_NOTIFICATION, props);
     } catch (final JSONException ignored) {
     }
 
@@ -77,12 +97,18 @@ public final class MTUpdatesComponent extends AbstractProjectComponent {
 
   @Override
   public void initComponent() {
-    application = MTApplicationComponent.getInstance();
+    config = MTConfig.getInstance();
   }
 
   @Override
   public void projectOpened() {
-    if (application.isUpdated()) {
+    // Show new version notification
+    @NonNls final String pluginVersion = MTUiUtils.getVersion();
+    final boolean updated = !pluginVersion.equals(config.getVersion());
+
+    // Show notification update
+    if (updated) {
+      config.setVersion(pluginVersion);
       Notify.showUpdate(myProject, MTUpdatesComponent::onPaypalClick);
     }
 
@@ -100,18 +126,32 @@ public final class MTUpdatesComponent extends AbstractProjectComponent {
 //    }
   }
 
-  public Notification createStatsNotification(@Nullable final NotificationListener listener) {
+  /**
+   * Create a stats notification.
+   *
+   * @param listener the listener
+   * @return the notification
+   */
+  private static Notification createStatsNotification(@Nullable final NotificationListener listener) {
     return new MTStatisticsNotification(listener);
   }
 
   @Override
   public void disposeComponent() {
-    application = null;
   }
 
+  @NonNls
   @NotNull
   @Override
   public String getComponentName() {
     return "DDLCMTUpdatesComponent";
+  }
+  /**
+   * Checks that the statistics agreement popup has been displayed
+   *
+   * @return true if displayed
+   */
+  private static boolean isAgreementShown() {
+    return PropertiesComponent.getInstance().isValueSet(SHOW_STATISTICS_AGREEMENT);
   }
 }

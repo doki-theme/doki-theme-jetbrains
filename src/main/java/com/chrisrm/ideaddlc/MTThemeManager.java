@@ -60,6 +60,7 @@ import com.intellij.util.ObjectUtils;
 import com.intellij.util.ui.JBUI;
 import com.intellij.util.ui.UIUtil;
 import io.acari.DDLC.*;
+import org.jetbrains.annotations.NonNls;
 import sun.awt.AppContext;
 
 import javax.swing.*;
@@ -75,6 +76,8 @@ import java.util.Locale;
 import static com.chrisrm.ideaddlc.MTHackComponent.TABS_HEIGHT;
 import static com.intellij.ide.ui.laf.LafManagerImpl.installMacOSXFonts;
 
+@SuppressWarnings( {"ClassWithTooManyMethods",
+    "DuplicateStringLiteralInspection", "UtilityClassCanBeEnum"})
 public final class MTThemeManager {
 
   public static final String WE_USING_DDLC_BOIS = "WE USING DDLC BOIS";
@@ -85,6 +88,12 @@ public final class MTThemeManager {
   public static final int DEFAULT_FONT_SIZE = JBUI.scale(13);
   public static final String DEFAULT_FONT = "Roboto";
   public static final String DEFAULT_MONO_FONT = "Fira Code";
+  @NonNls
+  private static final String RETINA = "@2x.css";
+  @NonNls
+  private static final String NON_RETINA = ".css";
+  @NonNls
+  private static final String DARCULA = "darcula";
   private static String MATERIAL_THEME_PROP = "io.acari.ddlc.DDLCTheme.active.status";
 
 
@@ -248,16 +257,13 @@ public final class MTThemeManager {
     activate(mtTheme, false);
   }
 
-  public void activate(final DDLCThemeFacade mtTheme) {
-    activate(mtTheme, false);
-  }
-
   /**
-   * Activate theme
+   * Activate theme and switch color scheme
    *
-   * @param mtTheme
+   * @param mtTheme           the mt theme
+   * @param switchColorScheme whether to switch color scheme
    */
-  public void activate(final DDLCThemeFacade mtTheme, final boolean switchColorScheme) {
+  public static void activate(final DDLCThemeFacade mtTheme, final boolean switchColorScheme) {
     DDLCThemeFacade newTheme = mtTheme;
     if (newTheme == null){
       newTheme = DDLCThemes.MONIKA;
@@ -269,23 +275,34 @@ public final class MTThemeManager {
     newTheme.getTheme().activate();
     switchScheme(newTheme, switchColorScheme);
 
+    // Save a reference to the theme
+    IconLoader.clearCache();
+
+    // apply different settings
+
     applyContrast(false);
     applyCompactSidebar(false);
     applyCustomTreeIndent();
-    applyAccents();
+    applyMenusHeight();
+    applyAccents(false);
 
     LafManager.getInstance().updateUI();
 
     applyFonts();
+    themeTitleBar();
+    applyCompactToolWindowHeaders();
 
     // Documentation styles
     patchStyledEditorKit();
 
-    themeTitleBar();
+    // Monochrome filter and co
+    IconManager.applyFilter();
+    LafManager.getInstance().updateUI();
 
-    IconReplacer.applyFilter();
 
     UIReplacer.patchUI();
+
+    fireThemeChanged(newTheme);
   }
 
   private void switchScheme(final DDLCThemeFacade mtTheme, final boolean switchColorScheme) {
@@ -344,7 +361,6 @@ public final class MTThemeManager {
 
       JBColor.setDark(mtTheme.getThemeIsDark());
       IconLoader.setUseDarkIcons(mtTheme.getThemeIsDark());
-      PropertiesComponent.getInstance().unsetValue(getSettingsPrefix() + ".theme");
 
       // We need this to update parts of the UI that do not change
       if (UIUtil.isUnderDarcula()) {

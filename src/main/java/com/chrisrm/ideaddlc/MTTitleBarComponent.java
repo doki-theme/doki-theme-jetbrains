@@ -26,21 +26,32 @@
 package com.chrisrm.ideaddlc;
 
 import com.chrisrm.ideaddlc.config.ConfigNotifier;
+import com.chrisrm.ideaddlc.listeners.CustomConfigNotifier;
 import com.intellij.openapi.application.ApplicationManager;
-import com.intellij.openapi.components.AbstractProjectComponent;
 import com.intellij.openapi.components.ProjectComponent;
-import com.intellij.openapi.project.Project;
 import com.intellij.util.messages.MessageBusConnection;
-import org.jetbrains.annotations.NotNull;
 
-public final class MTTitleBarComponent extends AbstractProjectComponent implements ProjectComponent {
+/**
+ * Component managing the title bar
+ */
+public final class MTTitleBarComponent implements ProjectComponent {
+  private final MessageBusConnection connect;
 
-  public MTTitleBarComponent(@NotNull final Project project) {
-    super(project);
-
+  /**
+   * Instantiates a new Mt title bar component.
+   */
+  @SuppressWarnings("AnonymousInnerClassMayBeStatic")
+  public MTTitleBarComponent() {
     // Listen for changes on the settings
-    final MessageBusConnection connect = ApplicationManager.getApplication().getMessageBus().connect();
-    connect.subscribe(ConfigNotifier.CONFIG_TOPIC, mtConfig -> setDarkTitleBar());
+    connect = ApplicationManager.getApplication().getMessageBus().connect();
+    connect.subscribe(ConfigNotifier.CONFIG_TOPIC, new ConfigNotifier() {
+      @Override
+      public void configChanged(final MTConfig mtConfig) {
+        setDarkTitleBar();
+      }
+    });
+
+    connect.subscribe(CustomConfigNotifier.CONFIG_TOPIC, mtCustomThemeConfig -> setDarkTitleBar());
   }
 
   @Override
@@ -48,11 +59,16 @@ public final class MTTitleBarComponent extends AbstractProjectComponent implemen
     setDarkTitleBar();
   }
 
-  private void setDarkTitleBar() {
+  /**
+   * Activate dark title bar
+   */
+  @SuppressWarnings("WeakerAccess")
+  static void setDarkTitleBar() {
     MTThemeManager.getInstance().themeTitleBar();
   }
 
   @Override
   public void disposeComponent() {
+    connect.disconnect();
   }
 }
