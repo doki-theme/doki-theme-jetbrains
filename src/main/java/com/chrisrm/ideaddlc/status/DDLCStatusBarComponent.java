@@ -32,11 +32,11 @@ import com.intellij.openapi.components.AbstractProjectComponent;
 import com.intellij.openapi.project.Project;
 import org.jetbrains.annotations.NotNull;
 
-public final class MTStatusBarComponent extends AbstractProjectComponent {
+public final class DDLCStatusBarComponent extends AbstractProjectComponent {
   private MTStatusBarManager statusBarWidget;
   private boolean initalized = false;
 
-  public MTStatusBarComponent(@NotNull final Project project) {
+  public DDLCStatusBarComponent(@NotNull final Project project) {
     super(project);
     MTThemeManager.addMaterialThemeActivatedListener(materialActive->{
       if(!(materialActive || initalized)){
