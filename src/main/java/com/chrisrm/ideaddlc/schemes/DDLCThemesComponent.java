@@ -39,7 +39,7 @@ import org.jetbrains.annotations.NotNull;
 /**
  * Component for switching Material Themes
  */
-public final class MTThemesComponent implements ApplicationComponent {
+public final class DDLCThemesComponent implements ApplicationComponent {
 
   private MessageBusConnection connect;
 
@@ -78,6 +78,6 @@ public final class MTThemesComponent implements ApplicationComponent {
   @Override
   @NotNull
   public String getComponentName() {
-    return "MTThemesComponent";
+    return "DDLCThemesComponent";
   }
 }
