@@ -27,11 +27,10 @@
 package com.chrisrm.ideaddlc.tabs;
 
 import com.chrisrm.ideaddlc.MTConfig;
-import com.chrisrm.ideaddlc.MTThemeManager;
-import com.chrisrm.ideaddlc.config.ConfigNotifier;
 import com.chrisrm.ideaddlc.themes.MTThemeable;
+import com.chrisrm.ideaddlc.utils.MTAccents;
 import com.intellij.openapi.application.ex.ApplicationManagerEx;
-import com.intellij.openapi.components.ApplicationComponent;
+import com.intellij.openapi.components.BaseComponent;
 import com.intellij.openapi.fileEditor.FileEditor;
 import com.intellij.openapi.fileEditor.FileEditorManagerEvent;
 import com.intellij.openapi.fileEditor.FileEditorManagerListener;
@@ -61,19 +60,15 @@ import static io.acari.DDLC.DDLCAbstractTheme.DEFAULT_BORDER_COLOR;
  *
  * @author Dennis.Ushakov
  */
-public final class MTTabsPainterPatcherComponent implements ApplicationComponent {
+public final class MTTabsPainterPatcherComponent implements BaseComponent {
 
-  private final MTThemeable theme;
   private final MTConfig config;
-  private final DDLCConfig configDDLC;
   private final Field pathField;
   private final Field fillPathField;
   private final Field labelPathField;
 
   public MTTabsPainterPatcherComponent() throws ClassNotFoundException, NoSuchFieldException {
-    this.configDDLC = DDLCConfig.getInstance();
     config = MTConfig.getInstance();
-    theme = configDDLC.getSelectedTheme().getTheme();
 
     // Get the shapeinfo class because it is protected
     final Class<?> clazz = Class.forName("com.intellij.ui.tabs.impl.JBTabsImpl$ShapeInfo");
@@ -115,16 +110,10 @@ public final class MTTabsPainterPatcherComponent implements ApplicationComponent
         }
       }
     });
-
-    // Listen to option save to set tab height
-    setTabsHeight();
-    connect.subscribe(ConfigNotifier.CONFIG_TOPIC, mtConfig -> setTabsHeight());
   }
 
   /**
    * Patch tabsPainter
-   *
-   * @param component
    */
   private void patchPainter(final JBEditorTabs component) {
     final JBEditorTabsPainter painter = ReflectionUtil.getField(JBEditorTabs.class, component, JBEditorTabsPainter.class, "myDarkPainter");
@@ -224,7 +213,7 @@ public final class MTTabsPainterPatcherComponent implements ApplicationComponent
     }
   }
 
-  private void drawBottomShadow(final MTTabsPainter tabsPainter,
+  private static void drawBottomShadow(final MTTabsPainter tabsPainter,
                                 final Graphics2D g2d,
                                 final ShapeTransform path,
                                 final ShapeTransform labelPath,
@@ -232,7 +221,7 @@ public final class MTTabsPainterPatcherComponent implements ApplicationComponent
     final int h = labelPath.getMaxY();
     final int w = path.getMaxX();
 
-    final Color bg = tabsPainter.getContrastColor().darker();
+    final Color bg = MTTabsPainter.getContrastColor().darker();
     g2d.setColor(bg);
     g2d.drawLine(0, h + 1, w, h + 1);
 
@@ -253,14 +242,14 @@ public final class MTTabsPainterPatcherComponent implements ApplicationComponent
     g2d.drawLine(0, h + 5, w, h + 5);
   }
 
-  private void drawTopShadow(final MTTabsPainter tabsPainter,
+  private static void drawTopShadow(final MTTabsPainter tabsPainter,
                              final Graphics2D g2d,
                              final ShapeTransform path,
                              final ShapeTransform labelPath, final Rectangle rect) {
     final int w = path.getMaxX();
     final int h = rect.y;
 
-    final Color bg = tabsPainter.getContrastColor().darker();
+    final Color bg = MTTabsPainter.getContrastColor().darker();
     g2d.setColor(bg);
     g2d.drawLine(0, h - 1, w, h - 1);
 
@@ -281,7 +270,7 @@ public final class MTTabsPainterPatcherComponent implements ApplicationComponent
     g2d.drawLine(0, h - 5, w, h - 5);
   }
 
-  private void drawRightShadow(final MTTabsPainter tabsPainter,
+  private static void drawRightShadow(final MTTabsPainter tabsPainter,
                                final Graphics2D g2d,
                                final ShapeTransform path,
                                final ShapeTransform labelPath,
@@ -289,7 +278,7 @@ public final class MTTabsPainterPatcherComponent implements ApplicationComponent
     final int h = path.getMaxY();
     final int w = rect.width;
 
-    final Color bg = tabsPainter.getContrastColor().darker();
+    final Color bg = MTTabsPainter.getContrastColor().darker();
     g2d.setColor(bg);
     g2d.drawLine(w + 1, 0, w + 1, h);
 
@@ -310,7 +299,7 @@ public final class MTTabsPainterPatcherComponent implements ApplicationComponent
     g2d.drawLine(w + 5, 0, w + 5, h);
   }
 
-  private void drawLeftShadow(final MTTabsPainter tabsPainter,
+  private static void drawLeftShadow(final MTTabsPainter tabsPainter,
                               final Graphics2D g2d,
                               final ShapeTransform path,
                               final ShapeTransform labelPath,
@@ -319,7 +308,7 @@ public final class MTTabsPainterPatcherComponent implements ApplicationComponent
     final int w = rect.x;
 
 
-    final Color bg = tabsPainter.getContrastColor().darker();
+    final Color bg = MTTabsPainter.getContrastColor().darker();
     g2d.setColor(bg);
     g2d.drawLine(w - 1, 0, w - 1, h);
 
@@ -340,26 +329,22 @@ public final class MTTabsPainterPatcherComponent implements ApplicationComponent
     g2d.drawLine(w - 5, 0, w - 5, h);
   }
 
-  private void paintOnLeft(final int borderThickness, final Graphics2D g2d, final Rectangle rect) {
+  private static void paintOnLeft(final int borderThickness, final Graphics2D g2d, final Rectangle rect) {
     g2d.fillRect(rect.x + rect.width - borderThickness + 1, rect.y, borderThickness, rect.height);
   }
 
-  private void paintOnRight(final int borderThickness, final Graphics2D g2d, final Rectangle rect) {
+  private static void paintOnRight(final int borderThickness, final Graphics2D g2d, final Rectangle rect) {
     g2d.fillRect(rect.x, rect.y, borderThickness, rect.height);
   }
 
-  private void paintOnBottom(final int borderThickness, final Graphics2D g2d, final Rectangle rect) {
+  private static void paintOnBottom(final int borderThickness, final Graphics2D g2d, final Rectangle rect) {
     g2d.fillRect(rect.x, rect.y + rect.height - borderThickness + 1, rect.width, borderThickness);
     g2d.setColor(UIUtil.CONTRAST_BORDER_COLOR);
     g2d.drawLine(Math.max(0, rect.x - 1), rect.y, rect.x + rect.width, rect.y);
   }
 
-  private void paintOnTop(final int borderThickness, final Graphics2D g2d, final Rectangle rect) {
+  private static void paintOnTop(final int borderThickness, final Graphics2D g2d, final Rectangle rect) {
     g2d.fillRect(rect.x, rect.y - 1, rect.width, borderThickness);
-  }
-
-  private void setTabsHeight() {
-    MTThemeManager.getInstance().setTabsHeight();
   }
 
   public static class MTTabsPainter extends DefaultEditorTabsPainter {
@@ -367,11 +352,11 @@ public final class MTTabsPainterPatcherComponent implements ApplicationComponent
       super(null);
     }
 
-    public MTTabsPainter(final JBEditorTabs tabs) {
+    MTTabsPainter(final JBEditorTabs tabs) {
       super(tabs);
     }
 
-    public final void fillSelectionAndBorder(final Graphics2D g,
+    final void fillSelectionAndBorder(final Graphics2D g,
                                              final ShapeTransform selectedShape,
                                              final Color tabColor,
                                              final int x,
@@ -388,13 +373,13 @@ public final class MTTabsPainterPatcherComponent implements ApplicationComponent
       return mtTheme.getBackgroundColor();
     }
 
-    public final Color getContrastColor() {
+    public static final Color getContrastColor() {
       final MTConfig config = MTConfig.getInstance();
       final MTThemeable mtTheme = DDLCConfig.getInstance().getSelectedTheme().getTheme();
       return config.getIsContrastMode() ? mtTheme.getContrastColor() : mtTheme.getBackgroundColor();
     }
 
-    public final JBEditorTabs getTabsComponent() {
+    final JBEditorTabs getTabsComponent() {
       return myTabs;
     }
 

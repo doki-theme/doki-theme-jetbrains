@@ -26,13 +26,13 @@
 package com.chrisrm.ideaddlc.schemes;
 
 import com.chrisrm.ideaddlc.MTConfig;
+import com.chrisrm.ideaddlc.config.MTFileColorsPage;
 import com.chrisrm.ideaddlc.messages.FileColorsBundle;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.editor.colors.ColorKey;
 import com.intellij.openapi.editor.colors.EditorColorsManager;
 import com.intellij.openapi.editor.colors.EditorColorsScheme;
 import com.intellij.openapi.editor.colors.impl.AbstractColorsScheme;
-import com.intellij.openapi.editor.colors.impl.EditorColorsManagerImpl;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.project.ProjectManager;
 import com.intellij.openapi.vcs.FileStatus;
@@ -45,11 +45,11 @@ import java.awt.*;
 import java.util.HashMap;
 import java.util.Objects;
 
-import static com.chrisrm.ideaddlc.config.MTFileColorsPage.DIRECTORIES;
-
-public final class MTFileColors {
+@SuppressWarnings("ContinueStatement")
+public enum MTFileColors {
+  DEFAULT;
   public static final String MT_PREFIX = "FILESTATUS_";
-  private static HashMap<FileStatus, ColorKey> fileStatusColorKeyHashMap;
+  private static final HashMap<FileStatus, ColorKey> COLOR_KEYS = new HashMap<>(18);
 
   static {
     initFileColors();
@@ -71,13 +71,14 @@ public final class MTFileColors {
     return EditorColorsManager.getInstance().getSchemeForCurrentUITheme();
   }
 
+  @SuppressWarnings("MethodWithMultipleLoops")
   public static void applyFileStatuses() {
     if (!MTConfig.getInstance().isFileStatusColorsEnabled()) {
       return;
     }
 
     final EditorColorsScheme defaultScheme = getCurrentSchemeForCurrentUITheme();
-    final EditorColorsScheme globalScheme = EditorColorsManagerImpl.getInstance().getGlobalScheme();
+    final EditorColorsScheme globalScheme = EditorColorsManager.getInstance().getGlobalScheme();
     final FileStatus[] allFileStatuses = FileStatusFactory.getInstance().getAllFileStatuses();
 
     for (final FileStatus allFileStatus : allFileStatuses) {
@@ -91,14 +92,14 @@ public final class MTFileColors {
   }
 
   public static void applyStyleDirectories() {
-    if (!MTConfig.getInstance().getIsStyledDirectories()) {
+    if (!MTConfig.getInstance().isStyledDirectories()) {
       return;
     }
 
     final EditorColorsScheme defaultScheme = getCurrentSchemeForCurrentUITheme();
-    final EditorColorsScheme globalScheme = EditorColorsManagerImpl.getInstance().getGlobalScheme();
+    final EditorColorsScheme globalScheme = EditorColorsManager.getInstance().getGlobalScheme();
 
-    defaultScheme.setAttributes(DIRECTORIES, globalScheme.getAttributes(DIRECTORIES));
+    defaultScheme.setAttributes(MTFileColorsPage.DIRECTORIES, globalScheme.getAttributes(MTFileColorsPage.DIRECTORIES));
     ((AbstractColorsScheme) defaultScheme).setSaveNeeded(true);
 
     for (final Project project : ProjectManager.getInstance().getOpenProjects()) {
@@ -107,7 +108,6 @@ public final class MTFileColors {
   }
 
   public static void initFileColors() {
-    fileStatusColorKeyHashMap = new HashMap<>(18);
     // Load all registered file statuses and read their colors from the properties
     final FileStatus[] allFileStatuses = FileStatusFactory.getInstance().getAllFileStatuses();
     for (final FileStatus allFileStatus : allFileStatuses) {
@@ -122,31 +122,28 @@ public final class MTFileColors {
         final Color color = ColorUtil.fromHex(property == null ? originalColorString : property);
 
         // 2b. Set in the map the custom/default file color
-        fileStatusColorKeyHashMap.put(allFileStatus, ColorKey.createColorKey(MT_PREFIX + allFileStatus.getId(), color));
+        COLOR_KEYS.put(allFileStatus, ColorKey.createColorKey(MT_PREFIX + allFileStatus.getId(), color));
       } else {
         // 3. If there is no default file color
         // 3a. Get custom file color from the bundle
         final String property = FileColorsBundle.messageOrDefault("material.file." + allFileStatus.getId().toLowerCase(), "-1");
         // If not found do not add the color to the map
         if (Objects.equals(property, "-1")) {
-          fileStatusColorKeyHashMap.put(allFileStatus, ColorKey.createColorKey(MT_PREFIX + allFileStatus.getId()));
+          COLOR_KEYS.put(allFileStatus, ColorKey.createColorKey(MT_PREFIX + allFileStatus.getId()));
           continue;
         }
 
         // 3b. add custom color to the map
         final Color color = ColorUtil.fromHex(property);
-        fileStatusColorKeyHashMap.put(allFileStatus, ColorKey.createColorKey(MT_PREFIX + allFileStatus.getId(), color));
+        COLOR_KEYS.put(allFileStatus, ColorKey.createColorKey(MT_PREFIX + allFileStatus.getId(), color));
       }
     }
-  }
-
-  private MTFileColors() {
   }
 
   public static Color get(final FileStatus status) {
     final EditorColorsScheme globalScheme = EditorColorsManager.getInstance().getGlobalScheme();
 
-    final ColorKey colorKey = MTFileColors.fileStatusColorKeyHashMap.get(status);
+    final ColorKey colorKey = COLOR_KEYS.get(status);
     if (colorKey != null) {
       return globalScheme.getColor(colorKey);
     }
@@ -155,6 +152,6 @@ public final class MTFileColors {
   }
 
   public static ColorKey getColorKey(final FileStatus status) {
-    return MTFileColors.fileStatusColorKeyHashMap.get(status);
+    return COLOR_KEYS.get(status);
   }
 }

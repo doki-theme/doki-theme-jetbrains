@@ -26,8 +26,8 @@
 
 package com.chrisrm.ideaddlc.messages;
 
+import com.intellij.AbstractBundle;
 import com.intellij.CommonBundle;
-import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.PropertyKey;
 
@@ -36,45 +36,23 @@ import java.util.ResourceBundle;
 /**
  * Messages Bundle for Material Theme
  */
-public final class FileColorsBundle {
+public final class FileColorsBundle extends AbstractBundle {
+  private static final String BUNDLE = "messages.FileColorsBundle";
+  private static final ResourceBundle RESOURCE_BUNDLE = ResourceBundle.getBundle(BUNDLE);
+  private static final FileColorsBundle INSTANCE = new FileColorsBundle();
 
-  @NonNls
-  public static final String PATH_TO_BUNDLE = "messages.FileColorsBundle";
-
-  @NotNull
-  private static final ResourceBundle BUNDLE = ResourceBundle.getBundle(PATH_TO_BUNDLE);
-
-  /**
-   * Prevent instantiation
-   */
   private FileColorsBundle() {
-
+    super(BUNDLE);
   }
 
-  /**
-   * Get a message from the resource bundle
-   *
-   * @param key
-   * @param params
-   * @return the message
-   */
-  public static String message(@NotNull @PropertyKey(resourceBundle = PATH_TO_BUNDLE) final String key,
-                               @NotNull final Object... params) {
-    return CommonBundle.message(BUNDLE, key, params);
+  public static String message(@NotNull @PropertyKey(resourceBundle = BUNDLE) final String key, @NotNull final Object... params) {
+    return INSTANCE.getMessage(key, params);
   }
 
-  /**
-   * Get a message from the resource bundle or return a default message
-   *
-   * @param key
-   * @param defaultValue
-   * @param params
-   * @return the message or default
-   */
-  public static String messageOrDefault(@NotNull @PropertyKey(resourceBundle = PATH_TO_BUNDLE) final String key,
+  public static String messageOrDefault(@NotNull @PropertyKey(resourceBundle = BUNDLE) final String key,
                                         final String defaultValue,
                                         final Object... params) {
-    return CommonBundle.messageOrDefault(BUNDLE, key, defaultValue, params);
+    return CommonBundle.messageOrDefault(RESOURCE_BUNDLE, key, defaultValue, params);
   }
 
 
