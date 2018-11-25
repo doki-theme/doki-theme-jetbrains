@@ -24,7 +24,7 @@
  *
  */
 
-package com.chrisrm.ideaddlc;
+package com.chrisrm.idea;
 
 import com.chrisrm.idea.messages.MaterialThemeBundle;
 import com.intellij.openapi.application.ApplicationInfo;
@@ -148,23 +148,23 @@ public final class MTAnalytics {
     try {
       final JSONObject props = new JSONObject();
       props.put(event, value);
-      final JSONObject sentEvent = messageBuilder.event(userId, event, props);
-      final ClientDelivery delivery = new ClientDelivery();
-      delivery.addMessage(sentEvent);
-
-      mixpanel.deliver(delivery);
-
-    } catch (final IOException | JSONException e) {
+      trackWithData(event, props);
+    } catch (final JSONException e) {
       isOffline = true;
     }
   }
 
-  public void identify() {
+  /**
+   * Identify an user
+   */
+  @SuppressWarnings({"FeatureEnvy",
+      "DuplicateStringLiteralInspection"})
+  private void identify() {
     if (MTConfig.getInstance().isDisallowDataCollection() || isOffline) {
       return;
     }
     try {
-      final JSONObject props = new JSONObject();
+      @NonNls final JSONObject props = new JSONObject();
       props.put("IDE", ApplicationNamesInfo.getInstance().getFullProductName());
       props.put("IDEVersion", ApplicationInfo.getInstance().getBuild().getBaselineVersion());
       props.put("version", MTConfig.getInstance().getVersion());
@@ -176,7 +176,10 @@ public final class MTAnalytics {
     }
   }
 
-  public void ping() {
+  /**
+   * Test connection
+   */
+  private void ping() {
     try {
       final JSONObject props = new JSONObject();
       final JSONObject update = messageBuilder.set(userId, props);

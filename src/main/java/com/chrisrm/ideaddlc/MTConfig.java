@@ -73,10 +73,12 @@ import java.util.Objects;
     name = "MaterialDDLCThemeConfig",
     storages = @Storage("material_theme.xml")
 )
-public class MTConfig implements PersistentStateComponent<MTConfig>, Cloneable {
-  public static final String DEFAULT_BG =
+public final class MTConfig implements PersistentStateComponent<MTConfig>,
+    MTBaseConfig<MTForm, MTConfig>, Cloneable {
+  //region CONSTANTS
+  private static final String DEFAULT_BG =
       "https://github.com/cyclic-reference/jetbrains-theme/master/src/main/resources/themes/Doki_Doki_Literature_Club.png";
-  public static final String ACCENT_COLOR = "80CBC4";
+  static final String ACCENT_COLOR = MTAccents.FUCHSIA.getHexColor();
   public static final int MAX_HIGHLIGHT_THICKNESS = 5;
   public static final int MIN_HIGHLIGHT_THICKNESS = 1;
   public static final int MAX_INDICATOR_THICKNESS = 5;
