@@ -28,21 +28,29 @@ package com.chrisrm.ideaddlc.actions.indicators;
 
 import com.chrisrm.ideaddlc.MTAnalytics;
 import com.chrisrm.ideaddlc.MTConfig;
+import com.chrisrm.ideaddlc.actions.MTToggleAction;
 import com.chrisrm.ideaddlc.config.ui.IndicatorStyles;
 import com.chrisrm.ideaddlc.ui.MTTreeUI;
-import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.impl.ActionToolbarImpl;
+import org.jetbrains.annotations.NotNull;
 
-public abstract class MTAbstractIndicatorsAction extends AnAction {
+public abstract class MTAbstractIndicatorsAction extends MTToggleAction {
+  private final MTConfig mtConfig = MTConfig.getInstance();
 
   @Override
-  public final void actionPerformed(final AnActionEvent e) {
+  public final boolean isSelected(@NotNull final AnActionEvent e) {
+    return mtConfig.getIndicatorStyle() == getIndicatorStyle();
+  }
+
+  @Override
+  public final void setSelected(@NotNull final AnActionEvent e, final boolean state) {
     final IndicatorStyles indicatorStyle = getIndicatorStyle();
-    MTConfig.getInstance().setIndicatorStyle(indicatorStyle);
+    mtConfig.setIndicatorStyle(indicatorStyle);
+
     MTTreeUI.resetIcons();
     ActionToolbarImpl.updateAllToolbarsImmediately();
-    MTAnalytics.getInstance().track(MTAnalytics.INDICATOR_STYLE, indicatorStyle);
+    MTAnalytics.getInstance().trackValue(MTAnalytics.INDICATOR_STYLE, indicatorStyle);
   }
 
   /**

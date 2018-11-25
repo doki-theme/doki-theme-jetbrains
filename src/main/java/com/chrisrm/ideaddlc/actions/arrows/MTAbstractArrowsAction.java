@@ -27,22 +27,30 @@ package com.chrisrm.ideaddlc.actions.arrows;
 
 import com.chrisrm.ideaddlc.MTAnalytics;
 import com.chrisrm.ideaddlc.MTConfig;
+import com.chrisrm.ideaddlc.actions.MTToggleAction;
 import com.chrisrm.ideaddlc.config.ui.ArrowsStyles;
 import com.chrisrm.ideaddlc.ui.MTTreeUI;
-import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.impl.ActionToolbarImpl;
+import org.jetbrains.annotations.NotNull;
 
-public abstract class MTAbstractArrowsAction extends AnAction {
+public abstract class MTAbstractArrowsAction extends MTToggleAction {
+
+  private final MTConfig mtConfig = MTConfig.getInstance();
 
   @Override
-  public final void actionPerformed(final AnActionEvent e) {
+  public final boolean isSelected(@NotNull final AnActionEvent e) {
+    return mtConfig.getArrowsStyle() == getArrowsStyle();
+  }
+
+  @Override
+  public final void setSelected(@NotNull final AnActionEvent e, final boolean state) {
     final ArrowsStyles arrowsStyle = getArrowsStyle();
-    MTConfig.getInstance().setArrowsStyle(arrowsStyle);
+    mtConfig.setArrowsStyle(arrowsStyle);
+
     MTTreeUI.resetIcons();
     ActionToolbarImpl.updateAllToolbarsImmediately();
-    MTAnalytics.getInstance().track(MTAnalytics.ARROWS_STYLE, arrowsStyle);
-
+    MTAnalytics.getInstance().trackValue(MTAnalytics.ARROWS_STYLE, arrowsStyle);
   }
 
   /**

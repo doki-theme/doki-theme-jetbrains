@@ -36,10 +36,11 @@ import com.intellij.psi.PsiComment;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.impl.source.tree.LeafPsiElement;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
-public abstract class BaseAnnotator implements Annotator {
+abstract class BaseAnnotator implements Annotator {
   @Override
-  public void annotate(@NotNull final PsiElement element, @NotNull final AnnotationHolder holder) {
+  public final void annotate(@NotNull final PsiElement element, @NotNull final AnnotationHolder holder) {
 
     if (element instanceof LeafPsiElement && !(element.getParent() instanceof PsiComment)) {
       final TextAttributesKey kind = getKeywordKind(element);
@@ -54,5 +55,6 @@ public abstract class BaseAnnotator implements Annotator {
     }
   }
 
+  @Nullable
   protected abstract TextAttributesKey getKeywordKind(@NotNull PsiElement element);
 }

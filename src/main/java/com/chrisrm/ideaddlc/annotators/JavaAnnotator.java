@@ -31,8 +31,10 @@ import com.intellij.openapi.editor.colors.TextAttributesKey;
 import com.intellij.psi.PsiElement;
 import com.intellij.util.ObjectUtils;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
-public class JavaAnnotator extends BaseAnnotator {
+@SuppressWarnings( {"DuplicateStringLiteralInspection", "SwitchStatement", "HardCodedStringLiteral"})
+public final class JavaAnnotator extends BaseAnnotator {
 
   public static final TextAttributesKey JAVA_KEYWORD = ObjectUtils.notNull(TextAttributesKey.find("JAVA_KEYWORD"),
       DefaultLanguageHighlighterColors.KEYWORD);
@@ -40,6 +42,7 @@ public class JavaAnnotator extends BaseAnnotator {
   public static final TextAttributesKey STATIC_FINAL = TextAttributesKey.createTextAttributesKey("JAVA.STATIC_FINAL", JAVA_KEYWORD);
   public static final TextAttributesKey THIS_SUPER = TextAttributesKey.createTextAttributesKey("JAVA.THIS_SUPER", JAVA_KEYWORD);
 
+  @Nullable
   @Override
   protected TextAttributesKey getKeywordKind(@NotNull final PsiElement element) {
     TextAttributesKey kind = null;
@@ -56,6 +59,8 @@ public class JavaAnnotator extends BaseAnnotator {
       case "this":
       case "super":
         kind = THIS_SUPER;
+        break;
+      default:
         break;
     }
     return kind;
