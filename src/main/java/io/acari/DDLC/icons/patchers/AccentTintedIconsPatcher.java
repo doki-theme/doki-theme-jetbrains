@@ -24,7 +24,7 @@
  *
  */
 
-package com.chrisrm.ideaddlc.icons.patchers;
+package io.acari.DDLC.icons.patchers;
 
 import com.chrisrm.ideaddlc.MTConfig;
 import com.intellij.openapi.util.IconPathPatcher;
