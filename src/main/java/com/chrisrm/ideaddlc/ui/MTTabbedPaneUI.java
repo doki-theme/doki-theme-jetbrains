@@ -21,26 +21,36 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  *  SOFTWARE.
  *
+ *
  */
 
 package com.chrisrm.ideaddlc.ui;
 
-import com.intellij.util.ObjectUtils;
-import sun.swing.SwingUtilities2;
+import com.chrisrm.ideaddlc.MTConfig;
+import com.intellij.ide.ui.laf.darcula.ui.DarculaTabbedPaneUI;
+import com.intellij.util.ui.JBUI;
 
 import javax.swing.*;
-import javax.swing.plaf.*;
-import javax.swing.plaf.basic.*;
-import javax.swing.text.*;
+import javax.swing.plaf.ComponentUI;
 import java.awt.*;
 
-public class MTTabbedPaneUI extends BasicTabbedPaneUI {
+public final class MTTabbedPaneUI extends DarculaTabbedPaneUI {
+
+  private final MTConfig config = MTConfig.getInstance();
+
+  @SuppressWarnings({"MethodOverridesStaticMethodOfSuperclass",
+      "unused"})
   public static ComponentUI createUI(final JComponent c) {
     return new MTTabbedPaneUI();
   }
 
+  private static Color getTabForeground(final boolean isSelected) {
+    return isSelected ? UIManager.getColor("TabbedPane.selectedForeground") : UIManager.getColor("TabbedPane.foreground");
+  }
+
+  @SuppressWarnings("SwitchStatement")
   @Override
-  protected void paintTabBackground(final Graphics g,
+  protected void paintTabBorder(final Graphics g,
                                     final int tabPlacement,
                                     final int tabIndex,
                                     final int x,
@@ -48,56 +58,85 @@ public class MTTabbedPaneUI extends BasicTabbedPaneUI {
                                     final int w,
                                     final int h,
                                     final boolean isSelected) {
+    final int highlightThickness = JBUI.scale(config.getHighlightThickness());
+
     if (isSelected) {
-      super.paintTabBackground(g, tabPlacement, tabIndex, x, y, w, h, true);
-      return;
-    }
-    final Color color = ObjectUtils.notNull(UIManager.getColor("TabbedPane.mt.tab.background"), tabPane.getBackground());
-    g.setColor(color);
+      g.setColor(getIndicatorColor());
+
+      final int offset;
     switch (tabPlacement) {
       case LEFT:
-        g.fillRect(x + 1, y + 1, w - 1, h - 3);
+          offset = highlightThickness;
+          g.fillRect(x + w - offset, y, highlightThickness, h);
         break;
       case RIGHT:
-        g.fillRect(x, y + 1, w - 2, h - 3);
+          g.fillRect(x, y, highlightThickness, h);
         break;
       case BOTTOM:
-        g.fillRect(x + 1, y, w - 3, h - 1);
+          g.fillRect(x, y, w, highlightThickness);
         break;
       case TOP:
       default:
-        g.fillRect(x + 1, y + 1, w - 3, h - 1);
+          offset = highlightThickness;
+          g.fillRect(x, y + h - offset, w, highlightThickness);
+          break;
+      }
     }
   }
 
+  @SuppressWarnings("ProhibitedExceptionCaught")
   @Override
-  protected void paintText(final Graphics g, final int tabPlacement,
-                           final Font font, final FontMetrics metrics, final int tabIndex,
-                           final String title, final Rectangle textRect,
+  protected void layoutLabel(final int tabPlacement,
+                             final FontMetrics metrics,
+                             final int tabIndex,
+                             final String title,
+                             final Icon icon,
+                             final Rectangle tabRect,
+                             final Rectangle iconRect,
+                             final Rectangle textRect,
                            final boolean isSelected) {
+    super.layoutLabel(tabPlacement, metrics, tabIndex, title, icon, tabRect, iconRect, textRect, isSelected);
 
-    g.setFont(font);
-
-    final View v = getTextViewForTab(tabIndex);
-    if (v != null) {
-      // html
-      v.paint(g, textRect);
-    } else {
-      // plain text
-      final int mnemIndex = tabPane.getDisplayedMnemonicIndexAt(tabIndex);
-
-      if (tabPane.isEnabled() && tabPane.isEnabledAt(tabIndex)) {
-        final Color selectedFg = UIManager.getColor("TabbedPane.selectedForeground");
-        final Color fg = isSelected ? selectedFg : tabPane.getForegroundAt(tabIndex);
-
-        g.setColor(fg);
-        SwingUtilities2.drawStringUnderlineCharAt(tabPane, g, title, mnemIndex, textRect.x, textRect.y + metrics.getAscent());
-      } else { // tab disabled
-        g.setColor(tabPane.getBackgroundAt(tabIndex).brighter());
-        SwingUtilities2.drawStringUnderlineCharAt(tabPane, g, title, mnemIndex, textRect.x, textRect.y + metrics.getAscent());
-        g.setColor(tabPane.getBackgroundAt(tabIndex).darker());
-        SwingUtilities2.drawStringUnderlineCharAt(tabPane, g, title, mnemIndex, textRect.x - 1, textRect.y + metrics.getAscent() - 1);
+    try {
+      final JLabel tabLabel = (JLabel) tabPane.getTabComponentAt(tabIndex);
+      if (tabLabel == null) {
+        return;
       }
+      // Set selected tab foreground
+      tabLabel.setForeground(getTabForeground(isSelected));
+      // Set tabs uppercase
+      setTabTitle(tabLabel, title);
+    } catch (final IndexOutOfBoundsException ignored) {
     }
+  }
+
+  /**
+   * Set the tab title case according to settings (uppercase tabs)
+   */
+  private void setTabTitle(final JLabel tabLabel, final String title) {
+    final boolean upperCaseTabs = config.isUpperCaseTabs();
+    if (upperCaseTabs) {
+      final String newTitle = title.toUpperCase();
+      tabLabel.setFont(tabLabel.getFont().deriveFont(Font.BOLD));
+      tabLabel.setText(newTitle);
+    }
+  }
+
+  /**
+   * Get the selected tab color according to the settings
+   */
+  private Color getIndicatorColor() {
+    final Color accentColor = UIManager.getColor("TabbedPane.selectedСolor");
+    final Color customColor = config.getHighlightColor();
+
+    if (!tabPane.isEnabled()) {
+      return JBUI.CurrentTheme.TabbedPane.DISABLED_SELECTED_COLOR;
+      }
+    return config.isHighlightColorEnabled() ? customColor : accentColor;
+    }
+
+  @Override
+  protected int calculateTabHeight(final int tabPlacement, final int tabIndex, final int fontHeight) {
+    return JBUI.scale(config.getTabsHeight() + 6);
   }
 }

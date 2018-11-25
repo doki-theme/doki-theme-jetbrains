@@ -212,7 +212,7 @@ public final class MTButtonUI extends DarculaButtonUI {
   }
 
   @NotNull
-  private Color buttonBackground() {
+  private static Color buttonBackground() {
     if (buttonBg == null) {
       buttonBg = MTUiUtils.getColor(UIManager.getColor("Button.mt.background"),
                                     ObjectUtils.notNull(UIManager.getColor("Button.darcula.color1"), new ColorUIResource(0x555a5c)),
@@ -222,7 +222,7 @@ public final class MTButtonUI extends DarculaButtonUI {
   }
 
   @NotNull
-  private Color buttonFg() {
+  private static Color buttonFg() {
     if (buttonFg == null) {
       buttonFg = MTUiUtils.getColor(UIManager.getColor("Button.mt.foreground"),
                                     ObjectUtils.notNull(UIManager.getColor("Button.darcula.foreground"), new ColorUIResource(0xbbbbbb)),
@@ -231,7 +231,7 @@ public final class MTButtonUI extends DarculaButtonUI {
     return buttonFg;
   }
 
-  private Color buttonPrimaryFg() {
+  private static Color buttonPrimaryFg() {
     if (buttonPrimaryFg == null) {
       final Color foregroundColor = MTUiUtils.getColor(UIManager.getColor("Button.mt.foreground"),
                                                        ObjectUtils.notNull(UIManager.getColor("Button.darcula.foreground"),
@@ -245,7 +245,7 @@ public final class MTButtonUI extends DarculaButtonUI {
   }
 
   @NotNull
-  private Color buttonSelectFg() {
+  private static Color buttonSelectFg() {
     if (buttonSelectFg == null) {
       buttonSelectFg = MTUiUtils.getColor(UIManager.getColor("Button.mt.selectedForeground"),
                                           ObjectUtils.notNull(UIManager.getColor("Button.darcula.selectedButtonForeground"),
@@ -257,7 +257,7 @@ public final class MTButtonUI extends DarculaButtonUI {
   }
 
   @NotNull
-  private Color buttonSelectPrimaryColor() {
+  private static Color buttonSelectPrimaryColor() {
     if (buttonSelectPrimary == null) {
       buttonSelectPrimary = MTUiUtils.getColor(UIManager.getColor("Button.mt.primary.color"),
           ObjectUtils.notNull(UIManager.getColor("Button.darcula.selection.color1"),
@@ -269,7 +269,7 @@ public final class MTButtonUI extends DarculaButtonUI {
   }
 
   @NotNull
-  private Color buttonSelectColor3() {
+  private static Color buttonSelectColor3() {
     if (buttonSelectHover == null) {
       final Color color = MTUiUtils.getColor(UIManager.getColor("Button.mt.selection.color1"),
                                              ObjectUtils.notNull(UIManager.getColor("Button.darcula.selection.color1"),

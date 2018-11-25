@@ -89,7 +89,7 @@ public final class MTComboBoxUI extends DarculaComboBoxUI implements Border, Err
 
   @Override
   protected JButton createArrowButton() {
-    if (!config.getIsMaterialDesign()) {
+    if (!config.isMaterialDesign()) {
       return super.createArrowButton();
     }
 
@@ -189,7 +189,7 @@ public final class MTComboBoxUI extends DarculaComboBoxUI implements Border, Err
 
   @Override
   public void paint(final Graphics g, final JComponent c) {
-    if (!config.getIsMaterialDesign()) {
+    if (!config.isMaterialDesign()) {
       super.paint(g, c);
       return;
     }
@@ -299,7 +299,7 @@ public final class MTComboBoxUI extends DarculaComboBoxUI implements Border, Err
     if (!(c instanceof JComponent)) {
       return;
     }
-    if (!config.getIsMaterialDesign()) {
+    if (!config.isMaterialDesign()) {
       super.paintBorder(c, g, x, y, width, height);
       return;
     }
