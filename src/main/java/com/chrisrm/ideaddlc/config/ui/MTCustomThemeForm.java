@@ -28,16 +28,26 @@ package com.chrisrm.ideaddlc.config.ui;
 import com.chrisrm.ideaddlc.MTCustomThemeConfig;
 import com.chrisrm.ideaddlc.utils.MTUiUtils;
 import com.intellij.ui.ColorPanel;
+import com.intellij.ui.ColorUtil;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
-import com.intellij.uiDesigner.core.Spacer;
 
 import javax.swing.*;
-import javax.swing.border.EtchedBorder;
-import javax.swing.border.TitledBorder;
+import javax.swing.border.*;
+import javax.swing.plaf.*;
 import java.awt.*;
 import java.util.ResourceBundle;
 
+@SuppressWarnings( {"OverlyLongMethod",
+    "UseDPIAwareInsets",
+    "MagicNumber",
+    "DuplicateStringLiteralInspection",
+    "FieldCanBeLocal",
+    "OverlyLongLambda",
+    "ClassWithTooManyFields",
+    "PublicMethodNotExposedInInterface",
+    "Duplicates",
+    "ClassWithTooManyMethods"})
 public final class MTCustomThemeForm implements MTFormUI {
   @Override
   public void init() {
@@ -59,59 +69,104 @@ public final class MTCustomThemeForm implements MTFormUI {
 
   }
 
-  public void setBackgroundColor(final Color backgroundColor) {
+  @SuppressWarnings( {"OverlyComplexMethod",
+      "FeatureEnvy"})
+  @Override
+  public boolean isModified(final MTBaseConfig config) {
+    final MTCustomThemeConfig customThemeConfig = (MTCustomThemeConfig) config;
+    boolean modified = customThemeConfig.isBackgroundColorChanged(getBackgroundColor());
+    modified = modified || customThemeConfig.isForegroundColorChanged(getForegroundColor());
+    modified = modified || customThemeConfig.isTextColorChanged(getTextColor());
+    modified = modified || customThemeConfig.isSelectionBackgroundColorChanged(getSelectionForegroundColor());
+    modified = modified || customThemeConfig.isSelectionForegroundColorChanged(getSelectionForegroundColor());
+    modified = modified || customThemeConfig.isButtonColorChanged(getButtonColor());
+    modified = modified || customThemeConfig.isSecondaryBackgroundColorChanged(getSecondaryBackgroundColor());
+    modified = modified || customThemeConfig.isDisabledColorChanged(getDisabledColor());
+    modified = modified || customThemeConfig.isContrastColorChanged(getContrastColor());
+    modified = modified || customThemeConfig.isTableSelectionColorChanged(getTableSelectedColor());
+    modified = modified || customThemeConfig.isSecondBorderColorChanged(getSecondBorderColor());
+    modified = modified || customThemeConfig.isHighlightColorChanged(getHighlightColor());
+    modified = modified || customThemeConfig.isTreeSelectionColorChanged(getTreeSelectionColor());
+    modified = modified || customThemeConfig.isNotificationsColorChanged(getNotificationsColor());
+
+    return modified;
+  }
+
+  @SuppressWarnings("FeatureEnvy")
+  @Override
+  public void setFormState(final MTBaseConfig config) {
+    final MTCustomThemeConfig customThemeConfig = (MTCustomThemeConfig) config;
+    setBackgroundColor(customThemeConfig.getBackgroundColor());
+    setForegroundColor(customThemeConfig.getForegroundColor());
+    setTextColor(customThemeConfig.getTextColor());
+    setContrastColor(customThemeConfig.getContrastColor());
+    setDisabledColor(customThemeConfig.getDisabledColor());
+    setButtonColor(customThemeConfig.getButtonColor());
+    setSecondaryBackgroundColor(customThemeConfig.getSecondaryBackgroundColor());
+    setSecondBorderColor(customThemeConfig.getSecondBorderColor());
+    setSelectionBackgroundColor(customThemeConfig.getSelectionBackgroundColor());
+    setSelectionForegroundColor(customThemeConfig.getSelectionForegroundColor());
+    setTableSelectedColor(customThemeConfig.getTableSelectedColor());
+    setTreeSelectionColor(customThemeConfig.getTreeSelectionColor());
+    setHighlightColor(customThemeConfig.getHighlightColor());
+    setNotificationsColor(customThemeConfig.getNotificationsColor());
+
+    afterStateSet();
+  }
+
+  private void setBackgroundColor(final Color backgroundColor) {
     this.backgroundColor.setSelectedColor(backgroundColor);
   }
 
-  public void setForegroundColor(final Color foregroundColor) {
+  private void setForegroundColor(final Color foregroundColor) {
     this.foregroundColor.setSelectedColor(foregroundColor);
   }
 
-  public void setTextColor(final Color labelColor) {
+  private void setTextColor(final Color labelColor) {
     this.labelColor.setSelectedColor(labelColor);
   }
 
-  public void setSelectionBackgroundColor(final Color selectionBackgroundColor) {
+  private void setSelectionBackgroundColor(final Color selectionBackgroundColor) {
     this.selectionBackgroundColor.setSelectedColor(selectionBackgroundColor);
   }
 
-  public void setSelectionForegroundColor(final Color selectionForegroundColor) {
+  private void setSelectionForegroundColor(final Color selectionForegroundColor) {
     this.selectionForegroundColor.setSelectedColor(selectionForegroundColor);
   }
 
-  public void setButtonColor(final Color buttonColor) {
+  private void setButtonColor(final Color buttonColor) {
     this.buttonColor.setSelectedColor(buttonColor);
   }
 
-  public void setSecondaryBackgroundColor(final Color listBackgroundColor) {
+  private void setSecondaryBackgroundColor(final Color listBackgroundColor) {
     this.listBackgroundColor.setSelectedColor(listBackgroundColor);
   }
 
-  public void setDisabledColor(final Color disabledColor) {
+  private void setDisabledColor(final Color disabledColor) {
     this.disabledColor.setSelectedColor(disabledColor);
   }
 
-  public void setContrastColor(final Color contrastColor) {
+  private void setContrastColor(final Color contrastColor) {
     this.contrastColor.setSelectedColor(contrastColor);
   }
 
-  public void setTableSelectedColor(final Color tableSelectionColor) {
+  private void setTableSelectedColor(final Color tableSelectionColor) {
     this.tableSelectionColor.setSelectedColor(tableSelectionColor);
   }
 
-  public void setSecondBorderColor(final Color miscColor1) {
+  private void setSecondBorderColor(final Color miscColor1) {
     this.miscColor1.setSelectedColor(miscColor1);
   }
 
-  public void setHighlightColor(final Color miscColor2) {
+  private void setHighlightColor(final Color miscColor2) {
     this.miscColor2.setSelectedColor(miscColor2);
   }
 
-  public void setTreeSelectionColor(final Color treeSelectionColor) {
+  private void setTreeSelectionColor(final Color treeSelectionColor) {
     this.treeSelectionColor.setSelectedColor(treeSelectionColor);
   }
 
-  public void setNotificationsColor(final Color notificationsColor) {
+  private void setNotificationsColor(final Color notificationsColor) {
     this.notificationsColor.setSelectedColor(notificationsColor);
   }
 
@@ -178,6 +233,8 @@ public final class MTCustomThemeForm implements MTFormUI {
     content = new JPanel();
     final JPanel panel1 = new JPanel();
     explLabel = new JLabel();
+    expTextArea = new JTextArea();
+    separator1 = new JSeparator();
     backgroundColorLabel = new JLabel();
     backgroundColor = new ColorPanel();
     foregroundColorLabel = new JLabel();
@@ -207,7 +264,6 @@ public final class MTCustomThemeForm implements MTFormUI {
     notificationsLabel = new JLabel();
     notificationsColor = new ColorPanel();
     resetTabDefaultsBtn = new JButton();
-    final Spacer vSpacer1 = new Spacer();
 
     //======== content ========
     {
@@ -220,7 +276,7 @@ public final class MTCustomThemeForm implements MTFormUI {
       //======== panel1 ========
       {
         panel1.setBorder(new TitledBorder(new EtchedBorder(), bundle.getString("MTForm.customColorsTitle")));
-        panel1.setLayout(new GridLayoutManager(16, 2, new Insets(0, 3, 0, 0), -1, -1));
+        panel1.setLayout(new GridLayoutManager(18, 2, new Insets(0, 3, 0, 0), -1, -1));
 
         //---- explLabel ----
         explLabel.setText(bundle.getString("MTForm.explLabel.text"));
@@ -231,15 +287,33 @@ public final class MTCustomThemeForm implements MTFormUI {
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
             null, null, null));
 
+        //---- expTextArea ----
+        expTextArea.setBackground(UIManager.getColor("Panel.background"));
+        expTextArea.setEditable(false);
+        expTextArea.setFont(UIManager.getFont("Panel.font"));
+        expTextArea.setText(bundle.getString("MTForm.expTextArea.text"));
+        expTextArea.setRows(2);
+        expTextArea.setWrapStyleWord(true);
+        panel1.add(expTextArea, new GridConstraints(1, 0, 1, 1,
+                                                    GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE,
+                                                    GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
+                                                    GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
+                                                    null, null, null));
+        panel1.add(separator1, new GridConstraints(2, 0, 1, 1,
+                                                   GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE,
+                                                   GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
+                                                   GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
+                                                   null, null, null));
+
         //---- backgroundColorLabel ----
         backgroundColorLabel.setText(bundle.getString("MTColorForm.background"));
         backgroundColorLabel.setToolTipText(bundle.getString("MTCustomThemeForm.backgroundColor.toolTipText"));
-        panel1.add(backgroundColorLabel, new GridConstraints(1, 0, 1, 1,
+        panel1.add(backgroundColorLabel, new GridConstraints(3, 0, 1, 1,
             GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
             null, null, null));
-        panel1.add(backgroundColor, new GridConstraints(1, 1, 1, 1,
+        panel1.add(backgroundColor, new GridConstraints(3, 1, 1, 1,
             GridConstraints.ANCHOR_EAST, GridConstraints.FILL_NONE,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
@@ -248,12 +322,12 @@ public final class MTCustomThemeForm implements MTFormUI {
         //---- foregroundColorLabel ----
         foregroundColorLabel.setText(bundle.getString("MTForm.foregroundColorLabel.text"));
         foregroundColorLabel.setToolTipText(bundle.getString("MTForm.foregroundColorLabel.toolTipText"));
-        panel1.add(foregroundColorLabel, new GridConstraints(2, 0, 1, 1,
+        panel1.add(foregroundColorLabel, new GridConstraints(4, 0, 1, 1,
             GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
             null, null, null));
-        panel1.add(foregroundColor, new GridConstraints(2, 1, 1, 1,
+        panel1.add(foregroundColor, new GridConstraints(4, 1, 1, 1,
             GridConstraints.ANCHOR_EAST, GridConstraints.FILL_NONE,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
@@ -262,12 +336,12 @@ public final class MTCustomThemeForm implements MTFormUI {
         //---- labelColorLabel ----
         labelColorLabel.setText(bundle.getString("MTForm.labelColorLabel.text"));
         labelColorLabel.setToolTipText(bundle.getString("MTForm.labelColorLabel.toolTipText"));
-        panel1.add(labelColorLabel, new GridConstraints(3, 0, 1, 1,
+        panel1.add(labelColorLabel, new GridConstraints(5, 0, 1, 1,
             GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
             null, null, null));
-        panel1.add(labelColor, new GridConstraints(3, 1, 1, 1,
+        panel1.add(labelColor, new GridConstraints(5, 1, 1, 1,
             GridConstraints.ANCHOR_EAST, GridConstraints.FILL_NONE,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
@@ -276,12 +350,12 @@ public final class MTCustomThemeForm implements MTFormUI {
         //---- selectionBackgroundColorLabel ----
         selectionBackgroundColorLabel.setText(bundle.getString("MTForm.selectionBackgroundColorLabel.text"));
         selectionBackgroundColorLabel.setToolTipText(bundle.getString("MTForm.selectionBackgroundColorLabel.toolTipText"));
-        panel1.add(selectionBackgroundColorLabel, new GridConstraints(4, 0, 1, 1,
+        panel1.add(selectionBackgroundColorLabel, new GridConstraints(6, 0, 1, 1,
             GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
             null, null, null));
-        panel1.add(selectionBackgroundColor, new GridConstraints(4, 1, 1, 1,
+        panel1.add(selectionBackgroundColor, new GridConstraints(6, 1, 1, 1,
             GridConstraints.ANCHOR_EAST, GridConstraints.FILL_NONE,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
@@ -290,12 +364,12 @@ public final class MTCustomThemeForm implements MTFormUI {
         //---- selectionForegroundColorLabel ----
         selectionForegroundColorLabel.setText(bundle.getString("MTForm.selectionForegroundColorLabel.text"));
         selectionForegroundColorLabel.setToolTipText(bundle.getString("MTForm.selectionForegroundColorLabel.toolTipText"));
-        panel1.add(selectionForegroundColorLabel, new GridConstraints(5, 0, 1, 1,
+        panel1.add(selectionForegroundColorLabel, new GridConstraints(7, 0, 1, 1,
             GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
             null, null, null));
-        panel1.add(selectionForegroundColor, new GridConstraints(5, 1, 1, 1,
+        panel1.add(selectionForegroundColor, new GridConstraints(7, 1, 1, 1,
             GridConstraints.ANCHOR_EAST, GridConstraints.FILL_NONE,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
@@ -304,12 +378,12 @@ public final class MTCustomThemeForm implements MTFormUI {
         //---- buttonColorLabel ----
         buttonColorLabel.setText(bundle.getString("MTForm.buttonColorLabel.text"));
         buttonColorLabel.setToolTipText(bundle.getString("MTForm.buttonColorLabel.toolTipText"));
-        panel1.add(buttonColorLabel, new GridConstraints(6, 0, 1, 1,
+        panel1.add(buttonColorLabel, new GridConstraints(8, 0, 1, 1,
             GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
             null, null, null));
-        panel1.add(buttonColor, new GridConstraints(6, 1, 1, 1,
+        panel1.add(buttonColor, new GridConstraints(8, 1, 1, 1,
             GridConstraints.ANCHOR_EAST, GridConstraints.FILL_NONE,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
@@ -318,12 +392,12 @@ public final class MTCustomThemeForm implements MTFormUI {
         //---- listBackgroundColorLabel ----
         listBackgroundColorLabel.setText(bundle.getString("MTForm.listBackgroundColorLabel.text"));
         listBackgroundColorLabel.setToolTipText(bundle.getString("MTForm.listBackgroundColorLabel.toolTipText"));
-        panel1.add(listBackgroundColorLabel, new GridConstraints(7, 0, 1, 1,
+        panel1.add(listBackgroundColorLabel, new GridConstraints(9, 0, 1, 1,
             GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
             null, null, null));
-        panel1.add(listBackgroundColor, new GridConstraints(7, 1, 1, 1,
+        panel1.add(listBackgroundColor, new GridConstraints(9, 1, 1, 1,
             GridConstraints.ANCHOR_EAST, GridConstraints.FILL_NONE,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
@@ -332,12 +406,12 @@ public final class MTCustomThemeForm implements MTFormUI {
         //---- disabledColorLabel ----
         disabledColorLabel.setText(bundle.getString("MTForm.disabledColorLabel.text"));
         disabledColorLabel.setToolTipText(bundle.getString("MTForm.disabledColorLabel.toolTipText"));
-        panel1.add(disabledColorLabel, new GridConstraints(8, 0, 1, 1,
+        panel1.add(disabledColorLabel, new GridConstraints(10, 0, 1, 1,
             GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
             null, null, null));
-        panel1.add(disabledColor, new GridConstraints(8, 1, 1, 1,
+        panel1.add(disabledColor, new GridConstraints(10, 1, 1, 1,
             GridConstraints.ANCHOR_EAST, GridConstraints.FILL_NONE,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
@@ -346,12 +420,12 @@ public final class MTCustomThemeForm implements MTFormUI {
         //---- contrastColorLabel ----
         contrastColorLabel.setText(bundle.getString("MTForm.contrastColorLabel.text"));
         contrastColorLabel.setToolTipText(bundle.getString("MTForm.contrastColorLabel.toolTipText"));
-        panel1.add(contrastColorLabel, new GridConstraints(9, 0, 1, 1,
+        panel1.add(contrastColorLabel, new GridConstraints(11, 0, 1, 1,
             GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
             null, null, null));
-        panel1.add(contrastColor, new GridConstraints(9, 1, 1, 1,
+        panel1.add(contrastColor, new GridConstraints(11, 1, 1, 1,
             GridConstraints.ANCHOR_EAST, GridConstraints.FILL_NONE,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
@@ -360,12 +434,12 @@ public final class MTCustomThemeForm implements MTFormUI {
         //---- tableSelectionColorLabel ----
         tableSelectionColorLabel.setText(bundle.getString("MTForm.tableSelectionColorLabel.text"));
         tableSelectionColorLabel.setToolTipText(bundle.getString("MTForm.tableSelectionColorLabel.toolTipText"));
-        panel1.add(tableSelectionColorLabel, new GridConstraints(10, 0, 1, 1,
+        panel1.add(tableSelectionColorLabel, new GridConstraints(12, 0, 1, 1,
             GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
             null, null, null));
-        panel1.add(tableSelectionColor, new GridConstraints(10, 1, 1, 1,
+        panel1.add(tableSelectionColor, new GridConstraints(12, 1, 1, 1,
             GridConstraints.ANCHOR_EAST, GridConstraints.FILL_NONE,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
@@ -374,12 +448,12 @@ public final class MTCustomThemeForm implements MTFormUI {
         //---- miscColorLabel ----
         miscColorLabel.setText(bundle.getString("MTForm.miscColorLabel.text"));
         miscColorLabel.setToolTipText(bundle.getString("MTForm.miscColorLabel.toolTipText"));
-        panel1.add(miscColorLabel, new GridConstraints(11, 0, 1, 1,
+        panel1.add(miscColorLabel, new GridConstraints(13, 0, 1, 1,
             GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
             null, null, null));
-        panel1.add(miscColor1, new GridConstraints(11, 1, 1, 1,
+        panel1.add(miscColor1, new GridConstraints(13, 1, 1, 1,
             GridConstraints.ANCHOR_EAST, GridConstraints.FILL_NONE,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
@@ -388,12 +462,12 @@ public final class MTCustomThemeForm implements MTFormUI {
         //---- miscColorLabel2 ----
         miscColorLabel2.setText(bundle.getString("MTForm.miscColorLabel2.text"));
         miscColorLabel2.setToolTipText(bundle.getString("MTForm.miscColorLabel2.toolTipText"));
-        panel1.add(miscColorLabel2, new GridConstraints(12, 0, 1, 1,
+        panel1.add(miscColorLabel2, new GridConstraints(14, 0, 1, 1,
             GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
             null, null, null));
-        panel1.add(miscColor2, new GridConstraints(12, 1, 1, 1,
+        panel1.add(miscColor2, new GridConstraints(14, 1, 1, 1,
             GridConstraints.ANCHOR_EAST, GridConstraints.FILL_NONE,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
@@ -402,12 +476,12 @@ public final class MTCustomThemeForm implements MTFormUI {
         //---- treeSelectionLabel ----
         treeSelectionLabel.setText(bundle.getString("MTForm.treeSelectionLabel.text"));
         treeSelectionLabel.setToolTipText(bundle.getString("MTForm.treeSelectionLabel.toolTipText"));
-        panel1.add(treeSelectionLabel, new GridConstraints(13, 0, 1, 1,
+        panel1.add(treeSelectionLabel, new GridConstraints(15, 0, 1, 1,
             GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
             null, null, null));
-        panel1.add(treeSelectionColor, new GridConstraints(13, 1, 1, 1,
+        panel1.add(treeSelectionColor, new GridConstraints(15, 1, 1, 1,
             GridConstraints.ANCHOR_EAST, GridConstraints.FILL_NONE,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
@@ -416,12 +490,12 @@ public final class MTCustomThemeForm implements MTFormUI {
         //---- notificationsLabel ----
         notificationsLabel.setText(bundle.getString("MTForm.notificationsLabel.text"));
         notificationsLabel.setToolTipText(bundle.getString("MTForm.notificationsLabel.toolTipText"));
-        panel1.add(notificationsLabel, new GridConstraints(14, 0, 1, 1,
+        panel1.add(notificationsLabel, new GridConstraints(16, 0, 1, 1,
             GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
             null, null, null));
-        panel1.add(notificationsColor, new GridConstraints(14, 1, 1, 1,
+        panel1.add(notificationsColor, new GridConstraints(16, 1, 1, 1,
             GridConstraints.ANCHOR_EAST, GridConstraints.FILL_NONE,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
@@ -430,8 +504,8 @@ public final class MTCustomThemeForm implements MTFormUI {
         //---- resetTabDefaultsBtn ----
         resetTabDefaultsBtn.setText(bundle.getString("mt.resetCustomTheme.title"));
         resetTabDefaultsBtn.setToolTipText(bundle.getString("mt.resetdefaults.tooltip"));
-        panel1.add(resetTabDefaultsBtn, new GridConstraints(15, 0, 1, 1,
-            GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL,
+        panel1.add(resetTabDefaultsBtn, new GridConstraints(17, 0, 1, 1,
+                                                            GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
             null, null, null));
@@ -441,11 +515,6 @@ public final class MTCustomThemeForm implements MTFormUI {
           GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
           GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
           null, null, null));
-      content.add(vSpacer1, new GridConstraints(1, 0, 1, 1,
-          GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL,
-          GridConstraints.SIZEPOLICY_CAN_SHRINK,
-          GridConstraints.SIZEPOLICY_CAN_GROW | GridConstraints.SIZEPOLICY_WANT_GROW,
-          null, null, null));
     }
     // JFormDesigner - End of component initialization  //GEN-END:initComponents
   }
@@ -454,6 +523,8 @@ public final class MTCustomThemeForm implements MTFormUI {
   // Generated using JFormDesigner non-commercial license
   private JPanel content;
   private JLabel explLabel;
+  private JTextArea expTextArea;
+  private JSeparator separator1;
   private JLabel backgroundColorLabel;
   private ColorPanel backgroundColor;
   private JLabel foregroundColorLabel;
@@ -485,53 +556,100 @@ public final class MTCustomThemeForm implements MTFormUI {
   private JButton resetTabDefaultsBtn;
   // JFormDesigner - End of variables declaration  //GEN-END:variables
 
+  @SuppressWarnings("FeatureEnvy")
   public MTCustomThemeForm() {
     initComponents();
 
     // Reset tab defaults
     resetTabDefaultsBtn.addActionListener(e -> {
       setNotificationsColor(MTUiUtils.lightOrDark(
-          MTCustomThemeConfig.MTCustomDefaults.notificationsColor,
-          MTCustomThemeConfig.MTLightCustomDefaults.notificationsColor));
+          MTCustomDefaults.notificationsColor,
+          MTLightCustomDefaults.notificationsColor));
       setSecondBorderColor(MTUiUtils.lightOrDark(
-          MTCustomThemeConfig.MTCustomDefaults.secondBorderColor,
-          MTCustomThemeConfig.MTLightCustomDefaults.secondBorderColor));
+          MTCustomDefaults.secondBorderColor,
+          MTLightCustomDefaults.secondBorderColor));
       setContrastColor(MTUiUtils.lightOrDark(
-          MTCustomThemeConfig.MTCustomDefaults.contrastColor,
-          MTCustomThemeConfig.MTLightCustomDefaults.contrastColor));
+          MTCustomDefaults.contrastColor,
+          MTLightCustomDefaults.contrastColor));
       setDisabledColor(MTUiUtils.lightOrDark(
-          MTCustomThemeConfig.MTCustomDefaults.disabledColor,
-          MTCustomThemeConfig.MTLightCustomDefaults.disabledColor));
+          MTCustomDefaults.disabledColor,
+          MTLightCustomDefaults.disabledColor));
       setSecondaryBackgroundColor(MTUiUtils.lightOrDark(
-          MTCustomThemeConfig.MTCustomDefaults.secondaryBackgroundColor,
-          MTCustomThemeConfig.MTLightCustomDefaults.secondaryBackgroundColor));
+          MTCustomDefaults.secondaryBackgroundColor,
+          MTLightCustomDefaults.secondaryBackgroundColor));
       setButtonColor(MTUiUtils.lightOrDark(
-          MTCustomThemeConfig.MTCustomDefaults.buttonColor,
-          MTCustomThemeConfig.MTLightCustomDefaults.buttonColor));
+          MTCustomDefaults.buttonColor,
+          MTLightCustomDefaults.buttonColor));
       setSelectionBackgroundColor(MTUiUtils.lightOrDark(
-          MTCustomThemeConfig.MTCustomDefaults.selectionBackgroundColor,
-          MTCustomThemeConfig.MTLightCustomDefaults.selectionBackgroundColor));
+          MTCustomDefaults.selectionBackgroundColor,
+          MTLightCustomDefaults.selectionBackgroundColor));
       setSelectionForegroundColor(MTUiUtils.lightOrDark(
-          MTCustomThemeConfig.MTCustomDefaults.selectionForegroundColor,
-          MTCustomThemeConfig.MTLightCustomDefaults.selectionForegroundColor));
+          MTCustomDefaults.selectionForegroundColor,
+          MTLightCustomDefaults.selectionForegroundColor));
       setTableSelectedColor(MTUiUtils.lightOrDark(
-          MTCustomThemeConfig.MTCustomDefaults.tableSelectedColor,
-          MTCustomThemeConfig.MTLightCustomDefaults.tableSelectedColor));
+          MTCustomDefaults.tableSelectedColor,
+          MTLightCustomDefaults.tableSelectedColor));
       setTextColor(MTUiUtils.lightOrDark(
-          MTCustomThemeConfig.MTCustomDefaults.textColor,
-          MTCustomThemeConfig.MTLightCustomDefaults.textColor));
+          MTCustomDefaults.textColor,
+          MTLightCustomDefaults.textColor));
       setTreeSelectionColor(MTUiUtils.lightOrDark(
-          MTCustomThemeConfig.MTCustomDefaults.treeSelectionColor,
-          MTCustomThemeConfig.MTLightCustomDefaults.treeSelectionColor));
+          MTCustomDefaults.treeSelectionColor,
+          MTLightCustomDefaults.treeSelectionColor));
       setHighlightColor(MTUiUtils.lightOrDark(
-          MTCustomThemeConfig.MTCustomDefaults.highlightColor,
-          MTCustomThemeConfig.MTLightCustomDefaults.highlightColor));
+          MTCustomDefaults.highlightColor,
+          MTLightCustomDefaults.highlightColor));
       setForegroundColor(MTUiUtils.lightOrDark(
-          MTCustomThemeConfig.MTCustomDefaults.foregroundColor,
-          MTCustomThemeConfig.MTLightCustomDefaults.foregroundColor));
+          MTCustomDefaults.foregroundColor,
+          MTLightCustomDefaults.foregroundColor));
       setBackgroundColor(MTUiUtils.lightOrDark(
-          MTCustomThemeConfig.MTCustomDefaults.backgroundColor,
-          MTCustomThemeConfig.MTLightCustomDefaults.backgroundColor));
+          MTCustomDefaults.backgroundColor,
+          MTLightCustomDefaults.backgroundColor));
     });
+  }
+
+  /**
+   * Default colors for Custom theme
+   */
+  @SuppressWarnings( {
+      "PublicInnerClass",
+      "ClassWithTooManyFields"})
+  public enum MTCustomDefaults {;
+    public static final ColorUIResource notificationsColor = new ColorUIResource(0x323232);
+    public static final Color treeSelectionColor = ColorUtil.toAlpha(new ColorUIResource(0x546E7A), 50);
+    public static final ColorUIResource highlightColor = new ColorUIResource(0x425B67);
+    public static final ColorUIResource secondBorderColor = new ColorUIResource(0x2A373E);
+    public static final ColorUIResource tableSelectedColor = new ColorUIResource(0x314549);
+    public static final ColorUIResource contrastColor = new ColorUIResource(0x1E272C);
+    public static final ColorUIResource disabledColor = new ColorUIResource(0x415967);
+    public static final ColorUIResource secondaryBackgroundColor = new ColorUIResource(0x32424A);
+    public static final ColorUIResource buttonColor = new ColorUIResource(0x2E3C43);
+    public static final ColorUIResource selectionForegroundColor = new ColorUIResource(0xFFFFFF);
+    public static final ColorUIResource selectionBackgroundColor = new ColorUIResource(0x546E7A);
+    public static final ColorUIResource textColor = new ColorUIResource(0x607D8B);
+    public static final ColorUIResource foregroundColor = new ColorUIResource(0xB0BEC5);
+    public static final ColorUIResource backgroundColor = new ColorUIResource(0x263238);
+  }
+
+  /**
+   * Default colors for Light custom theme
+   */
+  @SuppressWarnings( {
+      "PublicInnerClass",
+      "ClassWithTooManyFields"})
+  public enum MTLightCustomDefaults {;
+    public static final ColorUIResource notificationsColor = new ColorUIResource(0x80cbc4);
+    public static final Color treeSelectionColor = ColorUtil.toAlpha(new ColorUIResource(0x546E7A), 50);
+    public static final ColorUIResource highlightColor = new ColorUIResource(0xD2D4D5);
+    public static final ColorUIResource secondBorderColor = new ColorUIResource(0xd3e1e8);
+    public static final ColorUIResource tableSelectedColor = new ColorUIResource(0xD2D4D5);
+    public static final ColorUIResource contrastColor = new ColorUIResource(0xF4F4F4);
+    public static final ColorUIResource disabledColor = new ColorUIResource(0xD2D4D5);
+    public static final ColorUIResource secondaryBackgroundColor = new ColorUIResource(0xeae8e8);
+    public static final ColorUIResource buttonColor = new ColorUIResource(0xF3F4F5);
+    public static final ColorUIResource selectionForegroundColor = new ColorUIResource(0xFFFFFF);
+    public static final ColorUIResource selectionBackgroundColor = new ColorUIResource(0x546E7A);
+    public static final ColorUIResource textColor = new ColorUIResource(0x94A7B0);
+    public static final ColorUIResource foregroundColor = new ColorUIResource(0x546E7A);
+    public static final ColorUIResource backgroundColor = new ColorUIResource(0xFAFAFA);
   }
 }
