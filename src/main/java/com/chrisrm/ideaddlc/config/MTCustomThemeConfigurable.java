@@ -29,11 +29,11 @@ package com.chrisrm.ideaddlc.config;
 import com.chrisrm.ideaddlc.MTCustomThemeConfig;
 import com.chrisrm.ideaddlc.config.ui.MTCustomThemeForm;
 import com.chrisrm.ideaddlc.messages.MaterialThemeBundle;
+import com.chrisrm.idea.utils.MTUiUtils;
 import com.intellij.openapi.options.SearchableConfigurable;
 import org.jetbrains.annotations.Nls;
+import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
-
-import static com.chrisrm.ideaddlc.utils.MTUiUtils.HELP_PREFIX;
 
 public final class MTCustomThemeConfigurable extends MTConfigurableBase<MTCustomThemeForm, MTCustomThemeConfig>
     implements SearchableConfigurable {
@@ -53,79 +53,37 @@ public final class MTCustomThemeConfigurable extends MTConfigurableBase<MTCustom
     return MaterialThemeBundle.message("mt.settings.customTheme");
   }
 
+  @NonNls
   @NotNull
   @Override
   public String getHelpTopic() {
-    return HELP_PREFIX + "." + HELP_ID;
+    return MTUiUtils.HELP_PREFIX + "." + HELP_ID;
   }
 
   @Override
-  protected void setFormState(final MTCustomThemeForm mtForm, final MTCustomThemeConfig mtConfig) {
-    mtForm.setBackgroundColor(mtConfig.getBackgroundColor());
-    mtForm.setForegroundColor(mtConfig.getForegroundColor());
-    mtForm.setTextColor(mtConfig.getTextColor());
-    mtForm.setContrastColor(mtConfig.getContrastColor());
-    mtForm.setDisabledColor(mtConfig.getDisabledColor());
-    mtForm.setButtonColor(mtConfig.getButtonColor());
-    mtForm.setSecondaryBackgroundColor(mtConfig.getSecondaryBackgroundColor());
-    mtForm.setSecondBorderColor(mtConfig.getSecondBorderColor());
-    mtForm.setSelectionBackgroundColor(mtConfig.getSelectionBackgroundColor());
-    mtForm.setSelectionForegroundColor(mtConfig.getSelectionForegroundColor());
-    mtForm.setTableSelectedColor(mtConfig.getTableSelectedColor());
-    mtForm.setTreeSelectionColor(mtConfig.getTreeSelectionColor());
-    mtForm.setHighlightColor(mtConfig.getHighlightColor());
-    mtForm.setNotificationsColor(mtConfig.getNotificationsColor());
-
-    mtForm.afterStateSet();
+  protected void setFormState(final MTCustomThemeForm form, @NotNull final MTCustomThemeConfig config) {
+    form.setFormState(config);
   }
 
+  @NotNull
   @Override
   protected MTCustomThemeConfig getConfig() {
     return MTCustomThemeConfig.getInstance();
   }
 
+  @NotNull
   @Override
   protected MTCustomThemeForm createForm() {
     return new MTCustomThemeForm();
   }
 
   @Override
-  protected void doApply(final MTCustomThemeForm mtForm, final MTCustomThemeConfig mtConfig) {
-    mtConfig.setBackgroundColor(mtForm.getBackgroundColor());
-    mtConfig.setForegroundColor(mtForm.getForegroundColor());
-    mtConfig.setTextColor(mtForm.getTextColor());
-    mtConfig.setSelectionBackgroundColor(mtForm.getSelectionBackgroundColor());
-    mtConfig.setSelectionForegroundColor(mtForm.getSelectionForegroundColor());
-    mtConfig.setButtonColor(mtForm.getButtonColor());
-    mtConfig.setSecondaryBackgroundColor(mtForm.getSecondaryBackgroundColor());
-    mtConfig.setDisabledColor(mtForm.getDisabledColor());
-    mtConfig.setContrastColor(mtForm.getContrastColor());
-    mtConfig.setTableSelectedColor(mtForm.getTableSelectedColor());
-    mtConfig.setSecondBorderColor(mtForm.getSecondBorderColor());
-    mtConfig.setHighlightColor(mtForm.getHighlightColor());
-    mtConfig.setTreeSelectionColor(mtForm.getTreeSelectionColor());
-    mtConfig.setNotificationsColor(mtForm.getNotificationsColor());
-
-    mtConfig.fireChanged();
+  protected void doApply(final MTCustomThemeForm form, final MTCustomThemeConfig config) {
+    config.applySettings(form);
   }
 
   @Override
-  protected boolean checkModified(final MTCustomThemeForm mtForm, final MTCustomThemeConfig mtConfig) {
-    boolean modified = mtConfig.isBackgroundColorChanged(getForm().getBackgroundColor());
-    modified = modified || mtConfig.isForegroundColorChanged(getForm().getForegroundColor());
-    modified = modified || mtConfig.isTextColorChanged(getForm().getTextColor());
-    modified = modified || mtConfig.isSelectionBackgroundColorChanged(getForm().getSelectionForegroundColor());
-    modified = modified || mtConfig.isSelectionForegroundColorChanged(getForm().getSelectionForegroundColor());
-    modified = modified || mtConfig.isButtonColorChanged(getForm().getButtonColor());
-    modified = modified || mtConfig.isSecondaryBackgrouncColorChanged(getForm().getSecondaryBackgroundColor());
-    modified = modified || mtConfig.isDisabledColorChanged(getForm().getDisabledColor());
-    modified = modified || mtConfig.isContrastColorChanged(getForm().getContrastColor());
-    modified = modified || mtConfig.isTableSelectionColorChanged(getForm().getTableSelectedColor());
-    modified = modified || mtConfig.isSecondBorderColorChanged(getForm().getSecondBorderColor());
-    modified = modified || mtConfig.isHighlightColorChanged(getForm().getHighlightColor());
-    modified = modified || mtConfig.isTreeSelectionColorChanged(getForm().getTreeSelectionColor());
-    modified = modified || mtConfig.isNotificationsColorChanged(getForm().getNotificationsColor());
-
-    return modified;
+  protected boolean checkModified(final MTCustomThemeForm form, final MTCustomThemeConfig config) {
+    return form.isModified(config);
   }
 }
