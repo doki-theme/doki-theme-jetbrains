@@ -24,11 +24,10 @@
  *
  */
 
-package com.chrisrm.ideaddlc.icons;
+package io.acari.DDLC.icons;
 
 import com.chrisrm.ideaddlc.MTConfig;
 import com.chrisrm.ideaddlc.icons.filters.ColorizeFilter;
-import com.chrisrm.ideaddlc.icons.tinted.TintedIcon;
 import com.chrisrm.ideaddlc.icons.tinted.TintedIconsService;
 import com.chrisrm.ideaddlc.utils.MTUiUtils;
 import com.chrisrm.ideaddlc.utils.StaticPatcher;

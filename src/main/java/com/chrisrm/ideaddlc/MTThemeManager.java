@@ -25,7 +25,7 @@
 
 package com.chrisrm.ideaddlc;
 
-import com.chrisrm.ideaddlc.icons.IconReplacer;
+import io.acari.DDLC.icons.IconReplacer;
 import com.chrisrm.ideaddlc.messages.MaterialThemeBundle;
 import com.chrisrm.ideaddlc.themes.MTThemeable;
 import com.chrisrm.ideaddlc.themes.lists.AccentResources;

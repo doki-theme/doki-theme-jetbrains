@@ -31,6 +31,7 @@ import com.chrisrm.ideaddlc.icons.patchers.*;
 import com.intellij.icons.AllIcons;
 import com.intellij.openapi.components.ApplicationComponent;
 import com.intellij.openapi.util.IconLoader;
+import io.acari.DDLC.icons.IconReplacer;
 import org.jetbrains.annotations.NotNull;
 
 public final class MTIconReplacerComponent implements ApplicationComponent {
