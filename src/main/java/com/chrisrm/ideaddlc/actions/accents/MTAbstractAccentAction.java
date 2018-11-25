@@ -29,7 +29,7 @@ package com.chrisrm.ideaddlc.actions.accents;
 import com.chrisrm.ideaddlc.MTAnalytics;
 import com.chrisrm.ideaddlc.MTConfig;
 import com.chrisrm.ideaddlc.MTThemeManager;
-import com.chrisrm.ideaddlc.icons.IconReplacer;
+import io.acari.DDLC.icons.IconReplacer;
 import com.chrisrm.ideaddlc.ui.indicators.MTSelectedTreeIndicatorImpl;
 import com.chrisrm.ideaddlc.utils.UIReplacer;
 import com.intellij.icons.AllIcons;

@@ -27,7 +27,7 @@
 package com.chrisrm.ideaddlc.utils;
 
 import com.chrisrm.ideaddlc.MTLightLaf;
-import com.chrisrm.ideaddlc.icons.tinted.TintedIconsService;
+import io.acari.DDLC.icons.tinted.TintedIconsService;
 import com.intellij.openapi.util.IconLoader;
 import com.intellij.openapi.util.text.StringUtil;
 import com.intellij.ui.ColorUtil;

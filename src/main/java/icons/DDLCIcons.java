@@ -1,6 +1,6 @@
 package icons;
 
-import com.chrisrm.ideaddlc.icons.tinted.TintedIconsService;
+import io.acari.DDLC.icons.tinted.TintedIconsService;
 import com.intellij.openapi.util.IconLoader;
 
 import javax.swing.*;

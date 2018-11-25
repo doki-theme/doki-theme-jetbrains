@@ -26,7 +26,7 @@
 
 package com.chrisrm.ideaddlc.plugins;
 
-import com.chrisrm.ideaddlc.icons.IconReplacer;
+import io.acari.DDLC.icons.IconReplacer;
 import com.intellij.openapi.components.ApplicationComponent;
 import org.jetbrains.annotations.NotNull;
 

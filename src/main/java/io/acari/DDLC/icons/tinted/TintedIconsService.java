@@ -23,9 +23,10 @@
  *
  */
 
-package com.chrisrm.ideaddlc.icons.tinted;
+package io.acari.DDLC.icons.tinted;
 
 import com.chrisrm.ideaddlc.MTConfig;
+import com.chrisrm.ideaddlc.icons.tinted.TintedIcon;
 import com.intellij.icons.AllIcons;
 import com.intellij.openapi.components.ServiceManager;
 import com.intellij.openapi.util.IconLoader;

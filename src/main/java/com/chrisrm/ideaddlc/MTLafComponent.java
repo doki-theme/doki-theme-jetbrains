@@ -43,7 +43,7 @@ import com.intellij.ui.components.JBPanel;
 import com.intellij.util.messages.MessageBusConnection;
 import org.jetbrains.annotations.NotNull;
 
-import static com.chrisrm.ideaddlc.icons.IconReplacer.applyFilter;
+import static io.acari.DDLC.icons.IconReplacer.applyFilter;
 
 /**
  * Component for working on the Material Look And Feel
