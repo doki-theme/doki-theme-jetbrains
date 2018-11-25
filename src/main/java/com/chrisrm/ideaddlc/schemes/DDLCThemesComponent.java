@@ -37,7 +37,7 @@ import io.acari.DDLC.DDLCConfig;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * Component for switching Material Themes
+ * Component for switching DDLC Themes
  */
 public final class DDLCThemesComponent implements ApplicationComponent {
 
@@ -45,11 +45,6 @@ public final class DDLCThemesComponent implements ApplicationComponent {
 
   @Override
   public void initComponent() {
-    try {
-      MTBundledThemesManager.getInstance().loadBundledThemes();
-    } catch (final Exception e) {
-      e.printStackTrace();
-    }
 
     // Activate the theme
     activateTheme();
