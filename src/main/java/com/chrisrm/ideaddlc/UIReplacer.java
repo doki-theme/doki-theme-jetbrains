@@ -191,7 +191,7 @@ public enum UIReplacer {
 
 
 
-    private static void patchDialogs() throws Exception {
+    private static void patchDialogs() throws NoSuchFieldException, IllegalAccessException {
       if (!MTConfig.getInstance().isMaterialTheme()) {
         return;
       }
@@ -401,7 +401,7 @@ public enum UIReplacer {
       }
     }
 
-    public static void patchPluginPage() throws Exception {
+    public static void patchPluginPage() {
       if (!MTConfig.getInstance().isMaterialTheme()) {
         return;
   }
