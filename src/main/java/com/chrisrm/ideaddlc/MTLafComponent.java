@@ -37,45 +37,70 @@ import com.intellij.ide.ui.LafManager;
 import com.intellij.ide.ui.UISettings;
 import com.intellij.ide.ui.UISettingsListener;
 import com.intellij.openapi.application.ApplicationManager;
-import com.intellij.openapi.components.ApplicationComponent;
+import com.intellij.openapi.components.BaseComponent;
 import com.intellij.openapi.ui.Messages;
-import com.intellij.ui.components.JBPanel;
 import com.intellij.util.messages.MessageBusConnection;
 import org.jetbrains.annotations.NotNull;
 
-import static io.acari.DDLC.icons.IconReplacer.applyFilter;
+import static com.chrisrm.idea.icons.IconManager.applyFilter;
 
 /**
  * Component for working on the Material Look And Feel
  */
-public final class MTLafComponent extends JBPanel implements ApplicationComponent {
+public final class MTLafComponent implements BaseComponent {
 
-  private boolean willRestartIde = false;
+  /**
+   * Whether to restart the ide
+   */
+  private boolean willRestartIde;
+  /**
+   * Bus connect
+   */
   private MessageBusConnection connect;
 
-  public MTLafComponent(final LafManager lafManager) {
-  }
-
+  /**
+   * Listen for settings change to reload the theme and trigger restart if necessary
+   */
   @Override
   public void initComponent() {
-    // Patch UI components
-
     // Listen for changes on the settings
     connect = ApplicationManager.getApplication().getMessageBus().connect();
-    connect.subscribe(UISettingsListener.TOPIC, this::onSettingsChanged);
-    connect.subscribe(ConfigNotifier.CONFIG_TOPIC, this::onSettingsChanged);
-    connect.subscribe(BeforeConfigNotifier.BEFORE_CONFIG_TOPIC, (this::onBeforeSettingsChanged));
+    connect.subscribe(UISettingsListener.TOPIC, MTLafComponent::onUISettingsChanged);
+    connect.subscribe(ConfigNotifier.CONFIG_TOPIC, new ConfigNotifier() {
+      @Override
+      public void configChanged(final MTConfig mtConfig) {
+        onSettingsChanged();
   }
 
-  private void onSettingsChanged(final UISettings uiSettings) {
+      @Override
+      public void beforeConfigChanged(final MTConfig mtConfig, final MTForm form) {
+        onBeforeSettingsChanged(mtConfig, form);
+      }
+    });
+  }
+
+  /**
+   * When UI settings change, reapply filter
+   *
+   * @param uiSettings of type UISettings
+   */
+  private static void onUISettingsChanged(@SuppressWarnings("unused") final UISettings uiSettings) {
     applyFilter();
   }
 
+  /**
+   * Method disposeComponent ...
+   */
   @Override
   public void disposeComponent() {
     connect.disconnect();
   }
 
+  /**
+   * Method getComponentName returns the componentName of this MTLafComponent object.
+   *
+   * @return the componentName (type String) of this MTLafComponent object.
+   */
   @NotNull
   @Override
   public String getComponentName() {
@@ -83,12 +108,13 @@ public final class MTLafComponent extends JBPanel implements ApplicationComponen
   }
 
   /**
-   * Called when MT Config settings are changeds
+   * Called before Material Settings are changed
    *
-   * @param mtConfig
-   * @param form
+   * @param mtConfig of type MTConfig
+   * @param form     of type MTForm
    */
-  private void onBeforeSettingsChanged(final MTConfig mtConfig, final MTForm form) {
+  @SuppressWarnings("WeakerAccess")
+  void onBeforeSettingsChanged(final MTConfig mtConfig, final MTForm form) {
     // Force restart if material design is switched
     restartIdeIfNecessary(mtConfig, form);
   }
@@ -96,9 +122,10 @@ public final class MTLafComponent extends JBPanel implements ApplicationComponen
   /**
    * Restart IDE if necessary (ex: material design components)
    *
-   * @param mtConfig
-   * @param form
+   * @param mtConfig of type MTConfig
+   * @param form     of type MTForm
    */
+  @SuppressWarnings("Duplicates")
   private void restartIdeIfNecessary(final MTConfig mtConfig, final MTForm form) {
     // Restart the IDE if changed
     if (mtConfig.needsRestart(form)) {
@@ -113,12 +140,12 @@ public final class MTLafComponent extends JBPanel implements ApplicationComponen
   }
 
   /**
-   * Called when MT Config settings are changeds
-   *
-   * @param mtConfig
+   * Called when Material Theme settings are changed
    */
-  private void onSettingsChanged(final MTConfig mtConfig) {
-    MTThemeManager.getInstance().updateFileIcons();
+  @SuppressWarnings("WeakerAccess")
+  void onSettingsChanged() {
+    // Trigger file icons and statuses update
+    MTThemeManager.updateFileIcons();
     MTTreeUI.resetIcons();
     MTSelectedTreeIndicatorImpl.resetCache();
 

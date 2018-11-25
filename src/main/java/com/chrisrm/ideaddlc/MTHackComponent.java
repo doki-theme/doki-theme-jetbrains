@@ -26,66 +26,33 @@
 
 package com.chrisrm.ideaddlc;
 
-import com.intellij.ide.navigationToolbar.NavBarIdeView;
 import com.intellij.ide.plugins.PluginManagerConfigurable;
-import com.intellij.ide.util.PropertiesComponent;
-import com.intellij.openapi.actionSystem.impl.ChameleonAction;
-import com.intellij.openapi.components.ApplicationComponent;
-import com.intellij.openapi.wm.impl.ColorThief;
-import com.intellij.openapi.wm.impl.IdeFocusManagerImpl;
+import com.intellij.openapi.components.BaseComponent;
 import com.intellij.openapi.wm.impl.ToolWindowImpl;
-import com.intellij.openapi.wm.impl.welcomeScreen.FlatWelcomeFrameProvider;
 import com.intellij.ui.CaptionPanel;
-import com.intellij.ui.tabs.TabInfo;
-import com.intellij.ui.tabs.impl.JBEditorTabs;
 import com.intellij.util.ui.JBSwingUtilities;
 import io.acari.DDLC.LegacySupportUtility;
 import javassist.*;
 import javassist.expr.ExprEditor;
-import javassist.expr.FieldAccess;
 import javassist.expr.MethodCall;
 import javassist.expr.NewExpr;
+import org.jetbrains.annotations.NonNls;
 
-public class MTHackComponent implements ApplicationComponent {
-  public static final String TABS_HEIGHT = "MTTabsHeight";
-  public static final String BOLD_TABS = "MTBoldTabs";
-  public static final String BORDER_POPUP = "MTBorderPopup";
+@SuppressWarnings({
+    "CallToSuspiciousStringMethod",
+    "HardCodedStringLiteral",
+    "DuplicateStringLiteralInspection"})
+public final class MTHackComponent implements BaseComponent {
 
   static {
     hackTitleLabel();
-    hackIdeaActionButton();
-    hackBackgroundFrame();
-    hackTabsGetHeight();
-    hackToolWindowHeader();
     hackSpeedSearch();
-    hackFlatWelcomeFrame();
-    hackPopupBorder();
-    hackDarculaTabsPainter();
-    hackPluginManagerNew();
     hackIntelliJFailures();
-    hackProjectViewBorder();
   }
 
-  private static void hackProjectViewBorder() {
-    try {
-      final ClassPool cp = new ClassPool(true);
-      cp.insertClassPath(new ClassClassPath(IdeFocusManagerImpl.class));
-      final CtClass ctClass2 = cp.get("com.intellij.openapi.wm.impl.InternalDecorator$InnerPanelBorder");
-      final CtMethod method = ctClass2.getDeclaredMethod("paintBorder");
-      method.instrument(new ExprEditor() {
-        @Override
-        public void edit(final MethodCall m) throws CannotCompileException {
-          if (m.getMethodName().equals("setColor")) {
-            m.replace("{ $1 = javax.swing.UIManager.getColor(\"Panel.background\"); $_ = $proceed($$); }");
-          }
-        }
-      });
-      ctClass2.toClass();
-    } catch (final Exception e) {
-      e.printStackTrace();
-    }
-  }
-
+  /**
+   * Fix fatal error introduced by intellij
+   */
   private static void hackIntelliJFailures() {
     try {
       final ClassPool cp = new ClassPool(true);
@@ -95,32 +62,35 @@ public class MTHackComponent implements ApplicationComponent {
       method.instrument(new ExprEditor() {
         @Override
         public void edit(final MethodCall m) throws CannotCompileException {
-          if (m.getMethodName().equals("decorateWindowHeader")) {
+          if ("decorateWindowHeader".equals(m.getMethodName())) {
             m.replace("{ }");
           }
         }
       });
       ctClass2.toClass();
-    } catch (final Exception e) {
+    } catch (final CannotCompileException | NotFoundException e) {
       e.printStackTrace();
     }
   }
 
+  @SuppressWarnings("OverlyComplexAnonymousInnerClass")
   private static void hackPluginManagerNew() {
-    // Hack method
     try {
       final ClassPool cp = new ClassPool(true);
       cp.insertClassPath(new ClassClassPath(PluginManagerConfigurable.class));
-      final CtClass ctClass = cp.get("com.intellij.ide.plugins.PluginManagerConfigurableNew$PluginsGroupComponent");
+
+      // 1: Hack Plugin Groups color
+      final CtClass ctClass = cp.get("com.intellij.ide.plugins.newui.PluginsGroupComponent");
 
       final CtMethod addGroup = ctClass.getDeclaredMethod("addGroup", new CtClass[]{
-          cp.get("com.intellij.ide.plugins.PluginManagerConfigurableNew$PluginsGroup"),
+          cp.get("com.intellij.ide.plugins.newui.PluginsGroup"),
+          cp.get("java.util.List"),
           cp.get("int")
       });
       addGroup.instrument(new ExprEditor() {
         @Override
         public void edit(final MethodCall m) throws CannotCompileException {
-          if (m.getMethodName().equals("setForeground")) {
+          if ("setForeground".equals(m.getMethodName())) {
             final String fgColor = "javax.swing.UIManager.getColor(\"List.foreground\")";
 
             m.replace(String.format("{ $1 = %s; $_ = $proceed($$); }", fgColor));
@@ -132,18 +102,19 @@ public class MTHackComponent implements ApplicationComponent {
           if (e.getClassName().contains("OpaquePanel")) {
             final String bgColor = "javax.swing.UIManager.getColor(\"List.background\")";
 
-            e.replace(String.format("{ $2 = %s; $_ = $proceed($$); }", bgColor, bgColor));
+            e.replace(String.format("{ $2 = %s; $_ = $proceed($$); }", bgColor));
           }
         }
       });
       ctClass.toClass();
 
-      final CtClass ctClass2 = cp.get("com.intellij.ide.plugins.PluginManagerConfigurableNew$TagComponent");
+      // 2. Hack plugin tags color
+      final CtClass ctClass2 = cp.get("com.intellij.ide.plugins.newui.TagComponent");
       final CtMethod method = ctClass2.getDeclaredMethod("paintComponent");
       method.instrument(new ExprEditor() {
         @Override
         public void edit(final MethodCall m) throws CannotCompileException {
-          if (m.getMethodName().equals("setColor")) {
+          if ("setColor".equals(m.getMethodName())) {
             final String bgColor = "javax.swing.UIManager.getColor(\"Button.mt.background\")";
 
             m.replace(String.format("{ $1 = %s; $proceed($$); }", bgColor));
@@ -152,76 +123,7 @@ public class MTHackComponent implements ApplicationComponent {
       });
 
       ctClass2.toClass();
-    } catch (final Exception e) {
-      e.printStackTrace();
-    }
-  }
-
-  public MTHackComponent() {
-    PropertiesComponent.getInstance().setValue(TABS_HEIGHT, 25, 24);
-    PropertiesComponent.getInstance().setValue(BORDER_POPUP, true, false);
-  }
-
-  private static void hackPopupBorder() {
-    try {
-      final ClassPool cp = new ClassPool(true);
-      final CtClass ctClass2 = cp.get("com.intellij.ui.PopupBorder$Factory");
-      cp.insertClassPath(new ClassClassPath(TabInfo.class));
-      final CtMethod method = ctClass2.getDeclaredMethod("create");
-      method.instrument(new ExprEditor() {
-        @Override
-        public void edit(final MethodCall m) throws CannotCompileException {
-          if (m.getMethodName().equals("getBorderColor")) {
-            final String code = String.format("com.intellij.ide.util.PropertiesComponent.getInstance().getBoolean(\"%s\", true)",
-                BORDER_POPUP);
-            m.replace(String.format("{ $_ = %s ? javax.swing.UIManager.getColor(\"Separator.foreground\") : $proceed($$); }", code));
-          }
-        }
-      });
-      ctClass2.toClass();
-    } catch (final Exception e) {
-      e.printStackTrace();
-    }
-  }
-
-  private static void hackDarculaTabsPainter() {
-    // Hack method
-    try {
-      final ClassPool cp = new ClassPool(true);
-      cp.insertClassPath(new ClassClassPath(JBEditorTabs.class));
-      final CtClass ctClass = cp.get("com.intellij.ui.tabs.impl.DarculaEditorTabsPainter");
-
-      final CtMethod defaultTabColor = ctClass.getDeclaredMethod("getDefaultTabColor");
-      defaultTabColor.instrument(new ExprEditor() {
-        @Override
-        public void edit(final FieldAccess f) throws CannotCompileException {
-          f.replace("{ $_ = javax.swing.UIManager.getColor(\"TabbedPane.selectHighlight\"); }");
-        }
-      });
-      ctClass.toClass();
-    } catch (final Exception e) {
-      e.printStackTrace();
-    }
-  }
-
-  private static void hackBackgroundFrame() {
-    // Hack method
-    try {
-      final ClassPool cp = new ClassPool(true);
-      cp.insertClassPath(new ClassClassPath(ColorThief.class));
-      final CtClass ctClass = cp.get("com.intellij.openapi.wm.impl.IdePanePanel");
-
-      final CtMethod paintBorder = ctClass.getDeclaredMethod("getBackground");
-      paintBorder.instrument(new ExprEditor() {
-        @Override
-        public void edit(final MethodCall m) throws CannotCompileException {
-          if (m.getMethodName().equals("getIdeBackgroundColor")) {
-            m.replace("{ $_ = javax.swing.UIManager.getColor(\"Viewport.background\"); }");
-          }
-        }
-      });
-      ctClass.toClass();
-    } catch (final Exception e) {
+    } catch (final CannotCompileException | NotFoundException e) {
       e.printStackTrace();
     }
   }
@@ -240,28 +142,25 @@ public class MTHackComponent implements ApplicationComponent {
   private static void hackTitleLabel() {
     // Hack method
     try {
-      final ClassPool cp = new ClassPool(true);
+      @NonNls final ClassPool cp = new ClassPool(true);
       cp.insertClassPath(new ClassClassPath(CaptionPanel.class));
       final CtClass ctClass = cp.get("com.intellij.ui.TitlePanel");
       final CtConstructor declaredConstructor = ctClass.getDeclaredConstructor(new CtClass[]{
           cp.get("javax.swing.Icon"),
-          cp.get("javax.swing" +
-              ".Icon")});
+          cp.get("javax.swing.Icon")});
 
       LegacySupportUtility.INSTANCE.orRunLegacy(
           "com.intellij.ide.ui.laf.darcula.ui.DarculaOptionButtonUI",
           () -> declaredConstructor.instrument(new ExprEditor() {
             @Override
             public void edit(final MethodCall m) throws CannotCompileException {
-              switch (m.getMethodName()) {
-                case "setHorizontalAlignment":
-                  // Set title at the left
-                  m.replace("{ $1 = javax.swing.SwingConstants.LEFT; $_ = $proceed($$); }");
-                  break;
-                case "setBorder":
-                  // Bigger heading
-                  m.replace("{ $_ = $proceed($$); myLabel.setFont(myLabel.getFont().deriveFont(1, com.intellij.util.ui.JBUI.scale(16.0f))); }");
-                  break;
+              final String s = m.getMethodName();
+              if ("setHorizontalAlignment".equals(s)) {
+                // Set title at the left
+                m.replace("{ $1 = javax.swing.SwingConstants.LEFT; $_ = $proceed($$); }");
+              } else if ("setBorder".equals(s)) {
+                // Bigger heading
+                m.replace("{ $_ = $proceed($$); myLabel.setFont(myLabel.getFont().deriveFont(1, com.intellij.util.ui.JBUI.scale(16.0f))); }");
               }
             }
           }),
@@ -290,86 +189,36 @@ public class MTHackComponent implements ApplicationComponent {
       getPreferredSize.instrument(new ExprEditor() {
         @Override
         public void edit(final MethodCall m) throws CannotCompileException {
-          switch (m.getMethodName()) {
-            case "headerHeight":
-              // Set title at the left
-              m.replace("{ $_ = 40; }");
-              break;
+          if ("headerHeight".equals(m.getMethodName())) {
+            // Set title at the left
+            m.replace("{ $_ = 40; }");
           }
         }
       });
 
       ctClass.toClass();
-    } catch (final Exception e) {
+    } catch (final CannotCompileException | NotFoundException e) {
       e.printStackTrace();
     }
   }
 
   /**
-   * Change Look and feel of Action buttons
+   * Fix Speed Search (typing into dialogs) color
    */
-  private static void hackIdeaActionButton() {
-    try {
-      final ClassPool cp = new ClassPool(true);
-      cp.insertClassPath(new ClassClassPath(NavBarIdeView.class));
-      cp.insertClassPath(new ClassClassPath(ChameleonAction.class));
-      final CtClass ctClass = cp.get("com.intellij.ide.navigationToolbar.NavBarBorder");
-
-      final CtMethod paintBorder = ctClass.getDeclaredMethod("paintBorder");
-      paintBorder.instrument(new ExprEditor() {
-        @Override
-        public void edit(final MethodCall m) throws CannotCompileException {
-          if (m.getMethodName().equals("setColor")) {
-            m.replace("{ $1 = javax.swing.UIManager.getColor(\"Panel.background\"); $_ = $proceed($$); }");
-          }
-        }
-      });
-      ctClass.toClass();
-
-    } catch (final Exception e) {
-      e.printStackTrace();
-    }
-  }
-
-  /**
-   * Hack ToolWindowHeight to not take TabsUtil.getHeight
-   */
-  private static void hackToolWindowHeader() {
-    // Hack method
-    try {
-      final ClassPool cp = new ClassPool(true);
-      cp.insertClassPath(new ClassClassPath(ToolWindowImpl.class));
-      final CtClass ctClass = cp.get("com.intellij.openapi.wm.impl.ToolWindowHeader");
-      final CtMethod ctMethod = ctClass.getDeclaredMethod("getPreferredSize");
-      ctMethod.instrument(new ExprEditor() {
-        @Override
-        public void edit(final MethodCall m) throws CannotCompileException {
-          if (m.getClassName().equals("com.intellij.ui.tabs.TabsUtil") && m.getMethodName().equals("getTabsHeight")) {
-            m.replace("{ $_ = com.intellij.util.ui.JBUI.scale(25); }");
-          }
-        }
-      });
-
-      ctClass.toClass();
-    } catch (final Exception e) {
-      e.printStackTrace();
-    }
-  }
-
   private static void hackSpeedSearch() {
     // Hack method
     try {
-      final ClassPool cp = new ClassPool(true);
+      @NonNls final ClassPool cp = new ClassPool(true);
       cp.insertClassPath(new ClassClassPath(ToolWindowImpl.class));
       final CtClass ctClass = cp.get("com.intellij.ui.SpeedSearchBase$SearchPopup");
       final CtConstructor declaredConstructor = ctClass.getDeclaredConstructors()[0];
       declaredConstructor.instrument(new ExprEditor() {
         @Override
         public void edit(final MethodCall m) throws CannotCompileException {
-          if (m.getMethodName().equals("setBackground")) {
+          if ("setBackground".equals(m.getMethodName())) {
             final String bgColor = "com.intellij.util.ui.UIUtil.getToolTipBackground().brighter();";
             m.replace(String.format("{ $1 = %s; $proceed($$); }", bgColor));
-          } else if (m.getMethodName().equals("setBorder")) {
+          } else if ("setBorder".equals(m.getMethodName())) {
             final String borderColor = "null";
             m.replace(String.format("{ $1 = %s; $proceed($$); }", borderColor));
           }
@@ -377,68 +226,7 @@ public class MTHackComponent implements ApplicationComponent {
       });
 
       ctClass.toClass();
-    } catch (final Exception e) {
-      e.printStackTrace();
-    }
-  }
-
-  /**
-   * Hack TabsUtil,getHeight to override SDK
-   */
-  private static void hackTabsGetHeight() {
-    try {
-      final ClassPool cp = new ClassPool(true);
-      cp.insertClassPath(new ClassClassPath(TabInfo.class));
-      final CtClass ctClass = cp.get("com.intellij.ui.tabs.impl.TabLabel");
-      final CtMethod ctMethod = ctClass.getDeclaredMethod("getPreferredSize");
-
-      ctMethod.instrument(new ExprEditor() {
-        @Override
-        public void edit(final MethodCall m) throws CannotCompileException {
-          if (m.getClassName().equals("com.intellij.ui.tabs.TabsUtil") && m.getMethodName().equals("getTabsHeight")) {
-            final String code = String.format("com.intellij.ide.util.PropertiesComponent.getInstance().getInt(\"%s\", 25)", TABS_HEIGHT);
-            m.replace(String.format("{ $_ = com.intellij.util.ui.JBUI.scale(%s); }", code));
-          }
-        }
-      });
-      ctClass.toClass();
-
-      // Hack JBRunnerTabs
-      final CtClass tabLabelClass = cp.get("com.intellij.execution.ui.layout.impl.JBRunnerTabs$MyTabLabel");
-      final CtMethod ctMethod2 = tabLabelClass.getDeclaredMethod("getPreferredSize");
-
-      ctMethod2.instrument(new ExprEditor() {
-        @Override
-        public void edit(final FieldAccess f) throws CannotCompileException {
-          if (f.getFieldName().equals("height") && f.isReader()) {
-            f.replace("{ $_ = com.intellij.util.ui.JBUI.scale(25); }");
-          }
-        }
-      });
-      tabLabelClass.toClass();
-    } catch (final Exception e) {
-      e.printStackTrace();
-    }
-  }
-
-  private static void hackFlatWelcomeFrame() {
-    // Hack method
-    try {
-      final ClassPool cp = new ClassPool(true);
-      cp.insertClassPath(new ClassClassPath(FlatWelcomeFrameProvider.class));
-      final CtClass ctClass = cp.get("com.intellij.openapi.wm.impl.welcomeScreen.FlatWelcomeFrame");
-      final CtMethod ctMethod = ctClass.getDeclaredMethod("getProjectsBackground");
-      ctMethod.instrument(new ExprEditor() {
-        @Override
-        public void edit(final NewExpr e) throws CannotCompileException {
-          final String bgColor = "javax.swing.UIManager.getColor(\"List.background\")";
-
-          e.replace(String.format("{ $1 = %s; $2 = %s; $_ = $proceed($$); }", bgColor, bgColor));
-        }
-      });
-
-      ctClass.toClass();
-    } catch (final Exception e) {
+    } catch (final CannotCompileException | NotFoundException e) {
       e.printStackTrace();
     }
   }
