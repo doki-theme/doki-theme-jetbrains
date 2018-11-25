@@ -24,8 +24,9 @@
  *
  */
 
-package com.chrisrm.ideaddlc.utils;
+package com.chrisrm.ideaddlc;
 
+import com.chrisrm.ideaddlc.utils.StaticPatcher;
 import io.acari.DDLC.DDLCConfig;
 import io.acari.DDLC.LegacySupportUtility;
 import com.chrisrm.ideaddlc.MTConfig;
@@ -68,41 +69,44 @@ import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.Map;
 
-public final class UIReplacer {
-
-  private UIReplacer() {
-  }
+@SuppressWarnings("FeatureEnvy")
+public enum UIReplacer {
+  DEFAULT;
 
   public static void patchUI() {
     try {
-      Patcher.patchTables();
-      Patcher.patchGrays();
-      Patcher.patchPanels();
-      Patcher.patchMemoryIndicator();
-      Patcher.patchQuickInfo();
-      Patcher.patchAutocomplete();
-      Patcher.patchNotifications();
-      Patcher.patchScrollbars();
-      Patcher.patchDialogs();
-      Patcher.patchVCS();
-      Patcher.patchSettings();
-      Patcher.patchScopes();
-      Patcher.patchNavBar();
-      Patcher.patchIdeaActionButton();
-      Patcher.patchPluginPage();
-    } catch (final Exception e) {
+      patchTabs();
+      patchTables();
+      patchGrays();
+      patchMemoryIndicator();
+      patchAutocomplete();
+      patchScrollbars();
+      patchDialogs();
+      patchVCS();
+      patchSettings();
+      patchScopes();
+      patchNavBar();
+      patchIdeaActionButton();
+      patchPluginPage();
+    } catch (final ClassNotFoundException | IllegalAccessException | NoSuchFieldException e) {
       e.printStackTrace();
     }
   }
 
-  static final class Patcher {
-    static void patchTables() throws Exception {
+  /**
+   * Set the color of even rows in tables
+   *
+   * @Deprecated - removed in 2019.1
+   */
+  @Deprecated
+  static void patchTables() throws NoSuchFieldException, IllegalAccessException {
       if (MTConfig.getInstance().isMaterialTheme()) {
-        StaticPatcher.setFinalStatic(UIUtil.class, "DECORATED_ROW_BG_COLOR", UIManager.get("Table.stripedBackground"));
+      StaticPatcher.setFinalStatic(UIUtil.class, "DECORATED_ROW_BG_COLOR", UIManager.get("Table.stripeColor"));
+      StaticPatcher.setFinalStatic(UIUtil.class, "UNFOCUSED_SELECTION_COLOR", UIManager.get("Table.stripeColor"));
       }
     }
 
-    static void patchGrays() throws Exception {
+  static void patchGrays() throws NoSuchFieldException, IllegalAccessException {
       if (MTConfig.getInstance().isMaterialTheme()) {
         // Replace Gray with a clear and transparent color
         final Gray gray = Gray._85;
@@ -117,41 +121,15 @@ public final class UIReplacer {
 
 
         // tool window color
-        final boolean dark = DDLCConfig.getInstance().getSelectedTheme().getThemeIsDark();
+        final boolean dark = DDLCConfig.getInstance().getSelectedTheme().isDark();
         StaticPatcher.setFinalStatic(Gray.class, "_15", dark ? Gray._15.withAlpha(255) : Gray._200.withAlpha(15));
       }
     }
 
-    static void patchPanels() throws Exception {
-      if (MTConfig.getInstance().isMaterialTheme()) {
-        final Color color = UIManager.getColor("Panel.background");
-        final Color contrastColor = ObjectUtils.notNull(UIManager.getColor("material.contrast"), Gray._90);
-
-        StaticPatcher.setFinalStatic(UIUtil.class, "CONTRAST_BORDER_COLOR", ColorUtil.withAlpha(color, .05));
-        StaticPatcher.setFinalStatic(UIUtil.class, "BORDER_COLOR", color);
-        StaticPatcher.setFinalStatic(UIUtil.class, "AQUA_SEPARATOR_FOREGROUND_COLOR", color);
-
-        // Captions
-        final Field[] captionFields = CaptionPanel.class.getDeclaredFields();
-        final Object[] captionObjects = Arrays.stream(captionFields).filter(f -> f.getType().equals(Color.class)).toArray();
-
-        // CNT_COLOR, BND_COLOR
-        StaticPatcher.setFinalStatic((Field) captionObjects[0], contrastColor);
-        StaticPatcher.setFinalStatic((Field) captionObjects[1], contrastColor);
-      }
-
-      final Color accentColor = ColorUtil.toAlpha(ColorUtil.fromHex(MTConfig.getInstance().getAccentColor()), 100);
-      final JBColor accentJBColor = new JBColor(accentColor, accentColor);
-      // Action button
-      final Field[] fields2 = IdeaActionButtonLook.class.getDeclaredFields();
-      final Object[] objects2 = Arrays.stream(fields2)
-          .filter(f -> f.getType().equals(Color.class))
-                                      .toArray();
-
-      StaticPatcher.setFinalStatic((Field) objects2[1], accentJBColor);
-    }
-
-    static void patchMemoryIndicator() throws Exception {
+  /**
+   * Theme the memory indicator
+   */
+  static void patchMemoryIndicator() throws NoSuchFieldException, IllegalAccessException {
       if (MTConfig.getInstance().isMaterialTheme()) {
         final Object usedColor = UIManager.getColor("MemoryIndicator.usedColor");
         final Object unusedColor = UIManager.getColor("MemoryIndicator.unusedColor");
@@ -164,31 +142,20 @@ public final class UIReplacer {
 
         final Field[] fields = MemoryUsagePanel.class.getDeclaredFields();
         final Object[] objects = Arrays.stream(fields)
-            .filter(f -> f.getType().equals(Color.class))
+                                     .filter(field -> field.getType().equals(Color.class))
             .toArray();
         StaticPatcher.setFinalStatic((Field) objects[0], usedColor);
         StaticPatcher.setFinalStatic((Field) objects[1], unusedColor);
       }
     }
 
-    static void patchQuickInfo() throws Exception {
-      if (!MTConfig.getInstance().isMaterialTheme()) {
-        return;
-      }
-      final String accentColor = MTConfig.getInstance().getAccentColor();
-
-      final Field[] fields = ParameterInfoComponent.class.getDeclaredFields();
-      final Object[] objects = Arrays.stream(fields)
-          .filter(f -> f.getType().equals(Map.class))
-          .toArray();
-
-      StaticPatcher.setFinalStatic((Field) objects[0], ImmutableMap.of(
-          ParameterInfoUIContextEx.Flag.HIGHLIGHT, "b color=" + accentColor,
-          ParameterInfoUIContextEx.Flag.DISABLE, "font color=gray",
-          ParameterInfoUIContextEx.Flag.STRIKEOUT, "strike"));
-    }
-
-    static void patchAutocomplete() throws Exception {
+  /**
+   * Patch the autocomplete color with the accent color
+   *
+   * @Deprecated - remove in 2019.1
+   */
+  @Deprecated
+  static void patchAutocomplete() throws NoSuchFieldException, IllegalAccessException {
       if (!MTConfig.getInstance().isMaterialTheme()) {
         return;
       }
@@ -222,65 +189,7 @@ public final class UIReplacer {
       StaticPatcher.setFinalStatic((Field) colorFields[8], autocompleteSelectedPrefixForegroundColor);//selected prefix foreground color
     }
 
-    static void patchNotifications() throws Exception {
-      if (!MTConfig.getInstance().isMaterialTheme()) {
-        return;
-      }
 
-      final Color notifBg = ObjectUtils.notNull(UIManager.getColor("Notifications.background"), new ColorUIResource(0x323232));
-      final Color notifBorder = ObjectUtils.notNull(UIManager.getColor("Notifications.borderColor"), new ColorUIResource(0x323232));
-
-      final Color bgColor = new JBColor(notifBg, notifBg);
-      final Color borderColor = new JBColor(notifBorder, notifBorder);
-
-      StaticPatcher.setFinalStatic(NotificationsManagerImpl.class, "FILL_COLOR", bgColor);
-      StaticPatcher.setFinalStatic(NotificationsManagerImpl.class, "BORDER_COLOR", borderColor);
-
-      Patcher.replaceToolBalloons();
-    }
-
-    private static void replaceToolBalloons() throws Exception {
-      if (!MTConfig.getInstance().isMaterialTheme()) {
-        return;
-      }
-
-      final Constructor<MessageType> declaredConstructor = MessageType.class.getDeclaredConstructor(Icon.class, Color.class, Color.class);
-      declaredConstructor.setAccessible(true);
-      final Color errorBackground = ObjectUtils.notNull(UIManager.getColor("Notifications.errorBackground"), new JBColor(
-          new ColorUIResource(0xE53935),
-          new ColorUIResource(0x743A3A)
-      ));
-      final Color warnBackground = ObjectUtils.notNull(UIManager.getColor("Notifications.warnBackground"), new JBColor(
-          new ColorUIResource(0xFFB62C),
-          new ColorUIResource(0x7F6C00))
-      );
-      final Color infoBackground = ObjectUtils.notNull(UIManager.getColor("Notifications.infoBackground"), new JBColor(
-          new ColorUIResource(0x91B859),
-          new ColorUIResource(0x356936))
-      );
-
-      final JBColor errorBackgroundColor = new JBColor(errorBackground, errorBackground);
-      final JBColor warnBackgroundColor = new JBColor(warnBackground, warnBackground);
-      final JBColor infoBackgroundColor = new JBColor(infoBackground, infoBackground);
-
-      final MessageType errorType = declaredConstructor.newInstance(
-          AllIcons.General.NotificationError,
-          errorBackgroundColor,
-          errorBackgroundColor);
-
-      final MessageType warnType = declaredConstructor.newInstance(
-          AllIcons.General.NotificationWarning,
-          warnBackgroundColor,
-          warnBackgroundColor);
-      final MessageType infoType = declaredConstructor.newInstance(
-          AllIcons.General.NotificationInfo,
-          infoBackgroundColor,
-          infoBackgroundColor);
-
-      StaticPatcher.setFinalStatic(MessageType.class, "ERROR", errorType);
-      StaticPatcher.setFinalStatic(MessageType.class, "INFO", infoType);
-      StaticPatcher.setFinalStatic(MessageType.class, "WARNING", warnType);
-    }
 
     private static void patchDialogs() throws Exception {
       if (!MTConfig.getInstance().isMaterialTheme()) {
@@ -297,7 +206,11 @@ public final class UIReplacer {
       StaticPatcher.setFinalStatic(CaptionPanel.class, "CNT_ACTIVE_COLOR", new JBColor(color, color));
     }
 
-    static void patchScrollbars() throws Exception {
+  /**
+   * Theme scrollbars
+   */
+  @SuppressWarnings("OverlyLongMethod")
+  static void patchScrollbars() throws ClassNotFoundException, NoSuchFieldException, IllegalAccessException {
       final boolean isTransparentScrollbars = MTConfig.getInstance().isThemedScrollbars();
       final boolean accentScrollbars = MTConfig.getInstance().isAccentScrollbars();
       final Class<?> scrollPainterClass = Class.forName("com.intellij.ui.components.ScrollPainter");
@@ -368,13 +281,9 @@ public final class UIReplacer {
       }
 
       final Color accent;
-      if (accentScrollbars) {
-        accent = ColorUtil.fromHex(MTConfig.getInstance().getAccentColor());
-      } else {
-        accent = Gray.xA6;
-      }
+    accent = accentScrollbars ? ColorUtil.fromHex(MTConfig.getInstance().getAccentColor()) : Gray.xA6;
 
-        final MyScrollPainter myScrollPainter = new MyScrollPainter(2, .28f, .27f, accent, accent);
+    final MTScrollUI myScrollPainter = new MTScrollUI(2, 0.28f, 0.27f, accent, accent);
         final Class<?> scrollPainterClass1 = Class.forName("com.intellij.ui.components.ScrollPainter$Thumb");
         final Class<?> scrollPainterClass2 = Class.forName("com.intellij.ui.components.ScrollPainter$EditorThumb");
         final Class<?> scrollPainterClass3 = Class.forName("com.intellij.ui.components.ScrollPainter$EditorThumb$Mac");
@@ -392,21 +301,27 @@ public final class UIReplacer {
         StaticPatcher.setFinalStatic(scrollPainterClass3, "DEFAULT", myScrollPainter);
       }
 
-    public static void patchVCS() throws Exception {
+  /**
+   * Theme up tags and lines of the VCS log
+   *
+   * @deprecated Remove in 2019.1
+   */
+  @Deprecated
+  public static void patchVCS() throws NoSuchFieldException, IllegalAccessException {
       if (MTConfig.getInstance().isMaterialTheme()) {
         final Color color = ObjectUtils.notNull(UIManager.getColor("material.mergeCommits"), new ColorUIResource(0x00000000));
         final Color commitsColor = new JBColor(color, color);
 
         final Field[] fields = CurrentBranchHighlighter.class.getDeclaredFields();
         final Object[] objects = Arrays.stream(fields)
-            .filter(f -> f.getType().equals(JBColor.class))
+                                     .filter(field -> field.getType().equals(JBColor.class))
             .toArray();
 
         StaticPatcher.setFinalStatic((Field) objects[0], commitsColor);
 
         final Field[] fields2 = MergeCommitsHighlighter.class.getDeclaredFields();
         final Object[] objects2 = Arrays.stream(fields2)
-            .filter(f -> f.getType().equals(JBColor.class))
+                                      .filter(field -> field.getType().equals(JBColor.class))
             .toArray();
 
         final Color accentColor = ColorUtil.fromHex(MTConfig.getInstance().getAccentColor());
@@ -422,7 +337,10 @@ public final class UIReplacer {
       }
     }
 
-    public static void patchSettings() throws Exception {
+  /**
+   * Set active settings page to accent color
+   */
+  public static void patchSettings() throws NoSuchFieldException, IllegalAccessException {
       if (!MTConfig.getInstance().isMaterialTheme()) {
         return;
       }
@@ -430,53 +348,55 @@ public final class UIReplacer {
 
       final Field[] fields = SettingsTreeView.class.getDeclaredFields();
       final Object[] objects = Arrays.stream(fields)
-          .filter(f -> f.getType().equals(Color.class))
+                                   .filter(field -> field.getType().equals(Color.class))
           .toArray();
 
       StaticPatcher.setFinalStatic((Field) objects[1], accentColor);
     }
 
-    public static void patchScopes() throws Exception {
+  /**
+   * Very clever way to theme excluded files color
+   */
+  public static void patchScopes() throws NoSuchFieldException, IllegalAccessException {
       if (!MTConfig.getInstance().isMaterialTheme()) {
         return;
       }
 
-      final String disabled = DDLCConfig.getInstance().getSelectedTheme().getTheme().getExcludedColor();
-      final JBColor disabledColor = new JBColor(ColorUtil.fromHex(disabled), ColorUtil.fromHex(disabled));
+      final Color disabledColor = DDLCConfig.getInstance().getSelectedTheme().getTheme().getExcludedColor();
 
       final Map<String, Color> ourDefaultColors = ContainerUtil.<String, Color>immutableMapBuilder()
-          .put("Blue", new JBColor(new Color(0x82AAFF), new Color(0x2E425F)))
-          .put("Green", new JBColor(new Color(0xC3E88D), new Color(0x4B602F)))
-          .put("Orange", new JBColor(new Color(0xF78C6C), new Color(0x904028)))
-          .put("Rose", new JBColor(new Color(0xFF5370), new Color(0x5F1818)))
-          .put("Violet", new JBColor(new Color(0xC792EA), new Color(0x2F235F)))
-          .put("Yellow", new JBColor(new Color(0xFFCB6B), new Color(0x885522)))
-          .put("Theme", disabledColor)
+        .put("Blue", new JBColor(new Color(0x82AAFF), new Color(0x2E425F))) //NON-NLS
+        .put("Green", new JBColor(new Color(0xC3E88D), new Color(0x4B602F)))//NON-NLS
+        .put("Orange", new JBColor(new Color(0xF78C6C), new Color(0x904028)))//NON-NLS
+        .put("Rose", new JBColor(new Color(0xFF5370), new Color(0x5F1818)))//NON-NLS
+        .put("Violet", new JBColor(new Color(0xC792EA), new Color(0x2F235F)))//NON-NLS
+        .put("Yellow", new JBColor(new Color(0xFFCB6B), new Color(0x885522)))//NON-NLS
+        .put("Theme", disabledColor)//NON-NLS
           .build();
 
       final Field[] fields = FileColorManagerImpl.class.getDeclaredFields();
       final Object[] objects = Arrays.stream(fields)
-          .filter(f -> f.getType().equals(Map.class))
+                                   .filter(field -> field.getType().equals(Map.class))
           .toArray();
 
       StaticPatcher.setFinalStatic((Field) objects[0], ourDefaultColors);
     }
 
-    public static void patchNavBar() throws Exception {
-      if (MTConfig.getInstance().getIsMaterialDesign()) {
+  /**
+   * Replace NavBar with MTNavBar
+   */
+  public static void patchNavBar() throws NoSuchFieldException, IllegalAccessException {
+    if (MTConfig.getInstance().isMaterialDesign()) {
         StaticPatcher.setFinalStatic(NavBarUIManager.class, "DARCULA", new MTNavBarUI());
         StaticPatcher.setFinalStatic(NavBarUIManager.class, "COMMON", new MTNavBarUI());
       }
     }
 
-    public static void patchIdeaActionButton() throws Exception {
-      if (MTConfig.getInstance().getIsMaterialDesign()) {
-        final Color accentColor = UIManager.getColor("Focus.color");
-        StaticPatcher.setFinalStatic(IdeaActionButtonLook.class, "POPPED_BG", accentColor);
-        StaticPatcher.setFinalStatic(IdeaActionButtonLook.class, "PRESSED_BG", accentColor);
-        StaticPatcher.setFinalStatic(IdeaActionButtonLook.class, "POPPED_BORDER", new JBColor(accentColor, accentColor));
-        StaticPatcher.setFinalStatic(IdeaActionButtonLook.class, "PRESSED_BORDER", new JBColor(accentColor, accentColor));
-
+  /**
+   * Replace IdeaActionButton with MTIdeaActionButton
+   */
+  public static void patchIdeaActionButton() throws NoSuchFieldException, IllegalAccessException {
+    if (MTConfig.getInstance().isMaterialDesign()) {
         StaticPatcher.setFinalStatic(ActionButtonLook.class, "SYSTEM_LOOK", new MTActionButtonLook());
       }
     }
@@ -504,63 +424,14 @@ public final class UIReplacer {
               }
       );
     }
-  }
 
-  static class MyScrollPainter extends RegionPainter.Alpha {
-    private final int myOffset;
-    private final float myAlphaBase;
-    private final float myAlphaDelta;
-    private final Color myFillColor;
-    private final Color myDrawColor;
-
-    MyScrollPainter(final int offset, final float base, final float delta, final Color fill, final Color draw) {
-      myOffset = offset;
-      myAlphaBase = base;
-      myAlphaDelta = delta;
-      myFillColor = fill;
-      myDrawColor = draw;
-    }
-
-    @Override
-    protected float getAlpha(final Float value) {
-      return value != null ? myAlphaBase + myAlphaDelta * value : 0;
-    }
-
-    @Override
-    protected void paint(final Graphics2D g, final int newX, final int newY, final int newWidth, final int newHeight) {
-      int x = newX,
-          y = newY,
-          width = newWidth,
-          height = newHeight;
-
-      if (myOffset > 0) {
-        x += myOffset;
-        y += myOffset;
-        width -= myOffset + myOffset;
-        height -= myOffset + myOffset;
-      }
-      if (width > 0 && height > 0) {
-        if (myFillColor != null) {
-          g.setColor(myFillColor);
-          fill(g, x, y, width, height, myDrawColor != null);
-        }
-        if (myDrawColor != null) {
-          g.setColor(myDrawColor);
-          draw(g, x, y, width, height);
-        }
-      }
-    }
-
-    protected void fill(final Graphics2D g, final int x, final int y, final int width, final int height, final boolean border) {
-      if (border) {
-        g.fillRect(x + 1, y + 1, width - 2, height - 2);
-      } else {
-        g.fillRect(x, y, width, height);
-      }
-    }
-
-    protected void draw(final Graphics2D g, final int x, final int y, final int width, final int height) {
-      RectanglePainter.DRAW.paint(g, x, y, width, height, Math.min(width, height));
+  /**
+   * New implementation for tabs height
+   */
+  public static void patchTabs() throws NoSuchFieldException, IllegalAccessException {
+    final int tabsHeight = MTConfig.getInstance().getTabsHeight() / 2;
+    StaticPatcher.setFinalStatic(TabsUtil.class, "TAB_VERTICAL_PADDING", new JBValue.Float(tabsHeight));
     }
   }
-}
+
+

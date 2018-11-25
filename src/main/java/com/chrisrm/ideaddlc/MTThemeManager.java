@@ -25,16 +25,13 @@
 
 package com.chrisrm.ideaddlc;
 
-import io.acari.DDLC.icons.IconReplacer;
 import com.chrisrm.ideaddlc.messages.MaterialThemeBundle;
 import com.chrisrm.ideaddlc.themes.MTThemeable;
 import com.chrisrm.ideaddlc.themes.lists.AccentResources;
 import com.chrisrm.ideaddlc.themes.lists.ContrastResources;
 import com.chrisrm.ideaddlc.themes.lists.FontResources;
 import com.chrisrm.ideaddlc.utils.MTUiUtils;
-import com.chrisrm.ideaddlc.utils.UIReplacer;
 import com.chrisrm.ideaddlc.utils.WinRegistry;
-import com.intellij.ide.plugins.PluginManager;
 import com.intellij.ide.ui.LafManager;
 import com.intellij.ide.ui.UISettings;
 import com.intellij.ide.ui.laf.IntelliJLaf;
@@ -47,12 +44,10 @@ import com.intellij.openapi.components.ServiceManager;
 import com.intellij.openapi.editor.colors.EditorColorsManager;
 import com.intellij.openapi.editor.colors.EditorColorsScheme;
 import com.intellij.openapi.editor.colors.impl.AppEditorFontOptions;
-import com.intellij.openapi.extensions.PluginId;
 import com.intellij.openapi.fileTypes.ex.FileTypeManagerEx;
 import com.intellij.openapi.ui.Messages;
 import com.intellij.openapi.util.IconLoader;
 import com.intellij.openapi.util.SystemInfo;
-import com.intellij.openapi.util.registry.Registry;
 import com.intellij.ui.ColorUtil;
 import com.intellij.ui.JBColor;
 import com.intellij.util.Consumer;
@@ -74,7 +69,6 @@ import java.util.List;
 import java.util.Locale;
 
 import static com.chrisrm.ideaddlc.MTHackComponent.TABS_HEIGHT;
-import static com.intellij.ide.ui.laf.LafManagerImpl.installMacOSXFonts;
 
 @SuppressWarnings( {"ClassWithTooManyMethods",
     "DuplicateStringLiteralInspection", "UtilityClassCanBeEnum"})
