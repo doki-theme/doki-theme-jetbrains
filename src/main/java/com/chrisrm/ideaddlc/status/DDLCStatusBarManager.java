@@ -40,12 +40,12 @@ public final class DDLCStatusBarManager implements Disposable, DumbAware {
 
   private final Project project;
   private boolean statusEnabled;
-  private MTStatusWidget mtStatusWidget;
+  private DDLCStatusWidget DDLCStatusWidget;
   private final MessageBusConnection connect;
 
   private DDLCStatusBarManager(@NotNull final Project project) {
     this.project = project;
-    mtStatusWidget = new MTStatusWidget(project);
+    DDLCStatusWidget = new DDLCStatusWidget(project);
     statusEnabled = MTConfig.getInstance().isStatusBarTheme();
 
     connect = project.getMessageBus().connect();
@@ -67,29 +67,29 @@ public final class DDLCStatusBarManager implements Disposable, DumbAware {
       }
     }
 
-    mtStatusWidget.refresh();
+    DDLCStatusWidget.refresh();
   }
 
   void install() {
     final StatusBar statusBar = WindowManager.getInstance().getStatusBar(project);
     if (statusBar != null) {
-      statusBar.addWidget(mtStatusWidget, "before Position", project);
+      statusBar.addWidget(DDLCStatusWidget, "before Position", project);
     }
   }
 
   void uninstall() {
     final StatusBar statusBar = WindowManager.getInstance().getStatusBar(project);
     if (statusBar != null) {
-      statusBar.removeWidget(mtStatusWidget.ID());
+      statusBar.removeWidget(DDLCStatusWidget.ID());
     }
   }
 
   @Override
   public void dispose() {
     if (!ApplicationManager.getApplication().isHeadlessEnvironment()) {
-      if (mtStatusWidget != null) {
+      if (DDLCStatusWidget != null) {
         uninstall();
-        mtStatusWidget = null;
+        DDLCStatusWidget = null;
       }
     }
     connect.disconnect();

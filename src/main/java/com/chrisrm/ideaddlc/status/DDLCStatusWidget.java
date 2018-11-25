@@ -47,13 +47,13 @@ import java.awt.font.TextAttribute;
 import java.awt.image.BufferedImage;
 import java.text.AttributedString;
 
-public final class MTStatusWidget extends JButton implements CustomStatusBarWidget {
+public final class DDLCStatusWidget extends JButton implements CustomStatusBarWidget {
   public static final int DEFAULT_FONT_SIZE = JBUI.scale(11);
   private MTConfig mtConfig;
   private DDLCConfig ddlcConfig;
   private Image myBufferedImage;
 
-  MTStatusWidget(final Project project) {
+  DDLCStatusWidget(final Project project) {
     mtConfig = MTConfig.getInstance();
 
     setOpaque(false);
