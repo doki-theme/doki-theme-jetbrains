@@ -56,7 +56,7 @@
         <applicationService serviceImplementation="com.chrisrm.ideaddlc.MTThemeManager"/>
         <applicationService serviceImplementation="com.chrisrm.ideaddlc.MTAnalytics"/>
 
-        <applicationService serviceImplementation="com.chrisrm.ideaddlc.icons.tinted.TintedIconsService"/>
+        <applicationService serviceImplementation="io.acari.DDLC.icons.tinted.TintedIconsService"/>
         <applicationConfigurable instance="com.chrisrm.ideaddlc.config.MTConfigurable"
                                  groupId="appearance"
                                  id="com.chrisrm.ideaddlc.config"/>
