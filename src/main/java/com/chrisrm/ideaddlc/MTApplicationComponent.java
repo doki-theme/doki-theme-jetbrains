@@ -23,55 +23,91 @@
  *
  */
 
-package com.chrisrm.idea;
+package com.chrisrm.ideaddlc;
 
-import com.chrisrm.idea.wizard.MTWizardDialog;
-import com.chrisrm.idea.wizard.MTWizardStepsProvider;
+import com.chrisrm.ideaddlc.utils.MTUiUtils;
+import com.intellij.ide.util.PropertiesComponent;
 import com.intellij.openapi.application.ApplicationManager;
-import com.intellij.openapi.components.BaseComponent;
+import com.intellij.openapi.components.ApplicationComponent;
+import com.intellij.openapi.diagnostic.Logger;
+import com.intellij.ui.AppUIUtil;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
+import org.json.JSONException;
 
-/**
- * Component for Material Theme plugin initializations
- */
-public final class MTApplicationComponent implements BaseComponent {
+import java.awt.*;
+import java.io.InputStream;
+import java.net.URL;
 
-  /**
-   * Initializes the MTAnalytics
-   */
-  private static void initAnalytics() {
-    MTAnalytics.getInstance().initAnalytics();
-  }
-
-  /**
-   * Display wizard for new users
-   */
-  @SuppressWarnings("FeatureEnvy")
-  private static void initWizard() {
-    final boolean hasWizardBeenShown = !MTConfig.getInstance().isWizardShown();
-    if (hasWizardBeenShown) {
-      new MTWizardDialog(new MTWizardStepsProvider()).show();
-      MTConfig.getInstance().setIsWizardShown(true);
-    }
-  }
-
-  /**
-   * Returns this component
-   *
-   * @return the MTApplicationComponent
-   */
-  public static MTApplicationComponent getInstance() {
-    return ApplicationManager.getApplication().getComponent(MTApplicationComponent.class);
-  }
+public final class MTApplicationComponent implements ApplicationComponent {
+  public static final String SHOW_STATISTICS_AGREEMENT = "mt.showStatisticsAgreement";
+  private boolean updated;
 
   @Override
   public void initComponent() {
-    // Show the wizard
-    initWizard();
+    updated = !MTUiUtils.getVersion().equals(MTConfig.getInstance().getVersion());
+    if (updated) {
+      MTConfig.getInstance().setVersion(MTUiUtils.getVersion());
+    }
 
-    // Init analytics
     initAnalytics();
+
+    installFonts();
+  }
+
+  public void installFonts() {
+    registerFont("/fonts/RobotoMT-Black.ttf");
+    registerFont("/fonts/RobotoMT-BlackItalic.ttf");
+    registerFont("/fonts/RobotoMT-Bold.ttf");
+    registerFont("/fonts/RobotoMT-BoldItalic.ttf");
+    registerFont("/fonts/RobotoMT-Regular.ttf");
+    registerFont("/fonts/RobotoMT-Italic.ttf");
+    registerFont("/fonts/RobotoMT-Light.ttf");
+    registerFont("/fonts/RobotoMT-LightItalic.ttf");
+    registerFont("/fonts/RobotoMT-Medium.ttf");
+    registerFont("/fonts/RobotoMT-MediumItalic.ttf");
+    registerFont("/fonts/RobotoMT-Thin.ttf");
+    registerFont("/fonts/RobotoMT-ThinItalic.ttf");
+
+    registerFont("/fonts/NotoSans-Black.ttf");
+    registerFont("/fonts/NotoSans-BlackItalic.ttf");
+    registerFont("/fonts/NotoSans-Bold.ttf");
+    registerFont("/fonts/NotoSans-BoldItalic.ttf");
+    registerFont("/fonts/NotoSans-Regular.ttf");
+    registerFont("/fonts/NotoSans-Italic.ttf");
+    registerFont("/fonts/NotoSans-Light.ttf");
+    registerFont("/fonts/NotoSans-LightItalic.ttf");
+    registerFont("/fonts/NotoSans-Medium.ttf");
+    registerFont("/fonts/NotoSans-MediumItalic.ttf");
+    registerFont("/fonts/NotoSans-Thin.ttf");
+    registerFont("/fonts/NotoSans-ThinItalic.ttf");
+  }
+
+  private void registerFont(@NonNls final String name) {
+    final ClassLoader loader = getClass().getClassLoader();
+    final URL url = loader.getResource(name);
+    if (url == null) {
+      Logger.getInstance(getClass()).warn("Resource missing: " + name);
+      return;
+    }
+
+    try {
+      try (final InputStream is = url.openStream()) {
+        final Font font = Font.createFont(Font.TRUETYPE_FONT, is);
+        GraphicsEnvironment.getLocalGraphicsEnvironment().registerFont(font);
+      }
+    } catch (final Throwable t) {
+      Logger.getInstance(AppUIUtil.class).warn("Cannot register font: " + url, t);
+    }
+  }
+
+  private void initAnalytics() {
+    MTAnalytics.getInstance().identify();
+    try {
+      MTAnalytics.getInstance().track(MTAnalytics.CONFIG, MTConfig.getInstance().asJson());
+    } catch (final JSONException e) {
+      e.printStackTrace();
+    }
   }
 
   /**
@@ -86,11 +122,21 @@ public final class MTApplicationComponent implements BaseComponent {
    *
    * @return component's name
    */
-  @NonNls
   @NotNull
   @Override
   public String getComponentName() {
     return "MTApplicationComponent";
   }
 
+  public static MTApplicationComponent getInstance() {
+    return ApplicationManager.getApplication().getComponent(MTApplicationComponent.class);
+  }
+
+  public boolean isUpdated() {
+    return updated;
+  }
+
+  public boolean isAgreementShown() {
+    return PropertiesComponent.getInstance().isValueSet(SHOW_STATISTICS_AGREEMENT);
+  }
 }

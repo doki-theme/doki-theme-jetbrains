@@ -24,17 +24,12 @@
  *
  */
 
-package com.chrisrm.idea;
+package com.chrisrm.ideaddlc;
 
-import com.chrisrm.idea.themes.BundledThemeEP;
-import com.chrisrm.idea.themes.MTThemeFacade;
-import com.chrisrm.idea.themes.MTThemes;
-import com.chrisrm.idea.themes.models.*;
-import com.chrisrm.idea.ui.MTTreeUI;
-import com.intellij.openapi.actionSystem.AnActionEvent;
-import com.intellij.openapi.actionSystem.DefaultActionGroup;
+import com.chrisrm.ideaddlc.themes.BundledThemeEP;
+import com.chrisrm.ideaddlc.themes.MTThemeable;
+import com.chrisrm.ideaddlc.themes.models.*;
 import com.intellij.openapi.components.ServiceManager;
-import com.intellij.openapi.project.DumbAwareAction;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.converters.Converter;
 import com.thoughtworks.xstream.converters.MarshallingContext;
@@ -43,8 +38,13 @@ import com.thoughtworks.xstream.converters.reflection.ReflectionProvider;
 import com.thoughtworks.xstream.io.HierarchicalStreamReader;
 import com.thoughtworks.xstream.io.HierarchicalStreamWriter;
 import com.thoughtworks.xstream.io.xml.DomDriver;
+import io.acari.DDLC.DDLCConfig;
+import io.acari.DDLC.DDLCThemeFacade;
+import io.acari.DDLC.DDLCThemes;
+import io.acari.DDLC.themes.models.MonikaBundledTheme;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
+
 
 import javax.swing.*;
 import java.io.IOException;
@@ -58,145 +58,81 @@ import java.util.Objects;
  * Manages the Bundled themes (external themes)
  */
 public final class MTBundledThemesManager {
-  private final Map<String, MTBundledTheme> bundledThemes = new HashMap<>(10);
+  private final Map<String, MTBundledTheme> bundledThemes = new HashMap<>();
+
+  public MTBundledThemesManager() {
+
+  }
 
   public static MTBundledThemesManager getInstance() {
     return ServiceManager.getService(MTBundledThemesManager.class);
   }
 
-  /**
-   * Returns the installed bundled (external) themes
-   *
-   * @return the list of installed external themes
-   */
   public Map<String, MTBundledTheme> getBundledThemes() {
-    return Collections.unmodifiableMap(bundledThemes);
+    return bundledThemes;
   }
 
   /**
-   * Load external themes defined in other plugins' plugin.xml <bundledTheme> extension point
+   * Load external themes
    *
-   * @throws IOException the exception
+   * @throws Exception
    */
-  public void loadBundledThemes() throws IOException {
-    for (final BundledThemeEP ep : BundledThemeEP.EP_NAME.getExtensions()) {
+  public void loadBundledThemes() throws Exception {
+    for (final BundledThemeEP ep : EP_NAME.getExtensions()) {
       final MTBundledTheme mtBundledTheme = loadBundledTheme(ep.path + ".xml", ep);
-
-      Objects.requireNonNull(mtBundledTheme).setName(ep.name);
-      bundledThemes.put(mtBundledTheme.getThemeId(), mtBundledTheme);
-
-      MTThemes.installTheme(mtBundledTheme);
+      mtBundledTheme.setName(ep.name);
+      getBundledThemes().put(mtBundledTheme.getThemeId(), mtBundledTheme);
     }
+
+    for (final MTBundledTheme mtBundledTheme : bundledThemes.values()) {
+      if (DDLCThemes.getThemeFor(mtBundledTheme.getId()) == null) {
+        DDLCThemes.addTheme(DDLCThemes.fromTheme(mtBundledTheme));
+      }
+    }
+
   }
 
-  /**
-   * Gets active theme.
-   *
-   * @return the active theme
-   */
-  private static MTThemeable getActiveTheme() {
-    return MTConfig.getInstance().getSelectedTheme().getTheme();
+  public MTThemeable getActiveTheme() {
+    final DDLCThemeFacade selectedTheme = DDLCConfig.getInstance().getSelectedTheme();
+    return selectedTheme.getTheme();
   }
 
-  /**
-   * Load an external theme from the XML
-   *
-   * @param resource xml file
-   * @param ep       The Bundled Theme extension point
-   * @return a new instance of MTBundledTheme
-   */
-  private static MTBundledTheme loadBundledTheme(@NonNls final String resource, final BundledThemeEP ep) throws IOException {
+  public MTBundledTheme findTheme(final String selectedTheme) {
+    return bundledThemes.get(selectedTheme);
+  }
+
+  private MTBundledTheme loadBundledTheme(final String resource, final BundledThemeEP ep) throws Exception {
     final URL url = ep.getLoaderForClass().getResource(resource);
     if (url == null) {
-      throw new IOException("Cannot read theme from " + resource);
+      throw new Exception("Cannot read theme from " + resource);
     }
 
-    @NonNls final XStream xStream = new XStream(new DomDriver());
-    xStream.alias("mtTheme", MTDarkBundledTheme.class);
+    final XStream xStream = new XStream(new DomDriver());
+    xStream.alias("mtTheme", MonikaBundledTheme.class);
     xStream.alias("color", MTThemeColor.class);
 
     xStream.useAttributeFor(MTThemeColor.class, "id");
     xStream.useAttributeFor(MTThemeColor.class, "value");
 
-    // Use a converter to create a MTDarkBundledTheme or MTLightBundledTheme according to the "dark" property
     xStream.registerConverter(new MTThemesConverter(
         xStream.getConverterLookup().lookupConverterForType(MTBundledTheme.class),
         xStream.getReflectionProvider()
     ));
 
-    xStream.addDefaultImplementation(MTDarkBundledTheme.class, MTBundledTheme.class);
-    xStream.addDefaultImplementation(MTLightBundledTheme.class, MTBundledTheme.class);
+    xStream.addDefaultImplementation(MonikaBundledTheme.class, MTBundledTheme.class);
 
     try {
       return (MTBundledTheme) xStream.fromXML(url);
-    } catch (final RuntimeException e) {
-      e.printStackTrace();
-      return null;
+    } catch (final Exception e) {
+      return new MonikaBundledTheme();
     }
   }
 
-  /**
-   * Add bundled themes
-   *
-   * @param group               quick switch group
-   * @param ourCurrentAction    default current icon (check mark)
-   * @param ourNotCurrentAction default not current icon (empty)
-   */
-  public void addBundledThemes(@NotNull final DefaultActionGroup group, final Icon ourCurrentAction, final Icon ourNotCurrentAction) {
-    final Map<String, MTBundledTheme> themes = getBundledThemes();
-    final MTThemeable current = getActiveTheme();
-
-    for (final MTBundledTheme bundledTheme : themes.values()) {
-      addBundledTheme(group, bundledTheme, current, ourCurrentAction, ourNotCurrentAction);
-    }
-  }
-
-  /**
-   * Adds a bundled theme to the list, and mark it if it's the current theme
-   *
-   * @param group               switch scheme group
-   * @param theme               theme
-   * @param current             current theme
-   * @param ourCurrentAction    default current icon (check mark)
-   * @param ourNotCurrentAction default not current icon (empty)
-   */
-  @SuppressWarnings("FeatureEnvy")
-  private static void addBundledTheme(final DefaultActionGroup group,
-                                      final MTThemeable theme,
-                                      final MTThemeable current,
-                                      final Icon ourCurrentAction,
-                                      final Icon ourNotCurrentAction) {
-    final Icon themeIcon = theme.getIcon() != null ? theme.getIcon() : ourNotCurrentAction;
-
-    group.add(new DumbAwareAction(theme.getName(),
-        theme.getEditorColorsScheme(),
-        theme == current ? ourCurrentAction : themeIcon) {
-      @Override
-      public void actionPerformed(@NotNull final AnActionEvent e) {
-        //         Install theme if not installed
-        final MTThemeFacade externalTheme = MTThemes.installTheme(theme);
-
-        MTTreeUI.resetIcons();
-        MTThemeManager.activate(externalTheme, true);
-        MTAnalytics.getInstance().trackValue(MTAnalytics.SELECT_THEME, externalTheme);
-      }
-    });
-  }
-
-  /**
-   * Converts the object read from XML into a MTBundledTheme
-   */
-  private static final class MTThemesConverter implements Converter {
+  public final class MTThemesConverter implements Converter {
     private final Converter defaultConverter;
     private final ReflectionProvider reflectionProvider;
 
-    /**
-     * Instantiates a new Mt themes converter.
-     *
-     * @param defaultConverter   the default converter
-     * @param reflectionProvider the reflection provider
-     */
-    MTThemesConverter(final Converter defaultConverter, final ReflectionProvider reflectionProvider) {
+    public MTThemesConverter(final Converter defaultConverter, final ReflectionProvider reflectionProvider) {
       this.defaultConverter = defaultConverter;
       this.reflectionProvider = reflectionProvider;
     }
@@ -207,9 +143,10 @@ public final class MTBundledThemesManager {
     }
 
     @Override
-    public Object unmarshal(@NonNls final HierarchicalStreamReader reader, final UnmarshallingContext context) {
+    public Object unmarshal(final HierarchicalStreamReader reader, final UnmarshallingContext context) {
       final boolean dark = Boolean.parseBoolean(reader.getAttribute("dark"));
-      final Class<? extends MTBundledTheme> themeClass = dark ? MTDarkBundledTheme.class : MTLightBundledTheme.class;
+      //TODO: DIS JANK
+      final Class<? extends MTBundledTheme> themeClass = dark ? MonikaBundledTheme.class : MonikaBundledTheme.class;
       final Object result = reflectionProvider.newInstance(themeClass);
       return context.convertAnother(result, themeClass, defaultConverter);
     }

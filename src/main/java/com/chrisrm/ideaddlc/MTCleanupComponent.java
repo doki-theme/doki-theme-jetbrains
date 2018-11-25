@@ -23,20 +23,19 @@
  *
  */
 
-package com.chrisrm.idea;
+package com.chrisrm.ideaddlc;
 
-import com.intellij.openapi.components.BaseComponent;
+import com.intellij.openapi.components.ApplicationComponent;
 import com.intellij.openapi.util.registry.Registry;
 
-/**
- * Cleanup plugin modifications before exit
- */
-public final class MTCleanupComponent implements BaseComponent {
-  private MTCleanupComponent() {
+public final class MTCleanupComponent implements ApplicationComponent {
+  protected MTCleanupComponent() {
   }
 
   @Override
   public void disposeComponent() {
+    // bigger font in project view
+    Registry.get("bigger.font.in.project.view").setValue(false);
     // scrollbars
     Registry.get("mac.editor.thumb.default.alpha.base").setValue(75);
     Registry.get("mac.editor.thumb.default.alpha.delta").setValue(120);
