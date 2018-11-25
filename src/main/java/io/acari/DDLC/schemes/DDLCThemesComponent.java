@@ -24,9 +24,8 @@
  *
  */
 
-package com.chrisrm.ideaddlc.schemes;
+package io.acari.DDLC.schemes;
 
-import com.chrisrm.ideaddlc.MTBundledThemesManager;
 import com.chrisrm.ideaddlc.MTThemeManager;
 import com.chrisrm.ideaddlc.config.ConfigNotifier;
 import com.chrisrm.ideaddlc.config.CustomConfigNotifier;
@@ -57,9 +56,9 @@ public final class DDLCThemesComponent implements ApplicationComponent {
   public void activateTheme() {
     DDLCConfig ddlcConfig = DDLCConfig.getInstance();
     boolean firstTime = ddlcConfig.isFirstTime();
-    if(MTThemeManager.isDDLCActive() || firstTime) {
+    if (MTThemeManager.isDDLCActive() || firstTime) {
       MTThemeManager.getInstance().activate();
-      if(firstTime){
+      if (firstTime) {
         ddlcConfig.setFirstTime(false);
       }
     }
