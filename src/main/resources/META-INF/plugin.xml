@@ -65,7 +65,7 @@
                                  groupId="appearance"
                                  id="com.chrisrm.ideaddlc.config.mtCustomThemeConfig"/>
 
-        <projectViewNodeDecorator implementation="com.chrisrm.ideaddlc.tree.DDLCProjectViewNodeDecorator"/>
+        <projectViewNodeDecorator implementation="io.acari.DDLC.tree.DDLCProjectViewNodeDecorator"/>
         <editorTabTitleProvider implementation="com.chrisrm.ideaddlc.tabs.MTEditorUpperTabs" order="first"/>
         <editorTabColorProvider implementation="io.acari.DDLC.tabs.DDLCEditorTabColorProvider" order="first"/>
         <iconProvider implementation="com.chrisrm.ideaddlc.icons.MTHiddenIconProvider" order="first"

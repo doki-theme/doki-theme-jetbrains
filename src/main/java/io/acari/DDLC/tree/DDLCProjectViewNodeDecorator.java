@@ -23,7 +23,7 @@
  *
  */
 
-package com.chrisrm.ideaddlc.tree;
+package io.acari.DDLC.tree;
 
 import com.chrisrm.ideaddlc.MTConfig;
 import com.chrisrm.ideaddlc.MTThemeManager;
