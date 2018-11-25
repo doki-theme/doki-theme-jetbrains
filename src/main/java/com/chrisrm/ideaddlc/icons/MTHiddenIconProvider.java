@@ -42,13 +42,13 @@ public final class MTHiddenIconProvider extends IconProvider {
   @Override
   public Icon getIcon(@NotNull final PsiElement element, final int flags) {
     // If hide file icons is not activated, skip
-    if (!MTConfig.getInstance().getHideFileIcons()) {
+    if (!MTConfig.getInstance().isHideFileIcons()) {
       return null;
     }
 
     if (element instanceof PsiDirectory) {
       return null;
     }
-    return IconLoader.getTransparentIcon(AllIcons.FileTypes.Any_type, 0);
+    return IconLoader.getTransparentIcon(AllIcons.FileTypes.Any_type, 0.0f);
   }
 }

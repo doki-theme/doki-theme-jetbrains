@@ -33,7 +33,7 @@ public final class VirtualFileInfo implements FileInfo {
   private final VirtualFile vFile;
   private final PsiElement psiElement;
 
-  public VirtualFileInfo(final PsiElement psiElement, final VirtualFile vFile) {
+  VirtualFileInfo(final PsiElement psiElement, final VirtualFile vFile) {
     this.psiElement = psiElement;
     this.vFile = vFile;
   }
@@ -45,7 +45,7 @@ public final class VirtualFileInfo implements FileInfo {
 
   @Override
   public String getFileType() {
-    return String.valueOf(vFile.getFileType().getName());
+    return vFile.getFileType().getName();
   }
 
   @Override

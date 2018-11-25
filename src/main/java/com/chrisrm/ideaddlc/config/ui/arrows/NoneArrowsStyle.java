@@ -28,7 +28,7 @@ package com.chrisrm.ideaddlc.config.ui.arrows;
 
 import javax.swing.*;
 
-public class NoneArrowsStyle implements ArrowsStyle {
+public final class NoneArrowsStyle implements ArrowsStyle {
   @Override
   public Icon getExpandIcon() {
     return null;

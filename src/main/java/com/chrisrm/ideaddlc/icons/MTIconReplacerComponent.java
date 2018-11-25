@@ -28,21 +28,13 @@ package com.chrisrm.ideaddlc.icons;
 
 import com.chrisrm.ideaddlc.MTThemeManager;
 import com.chrisrm.ideaddlc.icons.patchers.*;
-import com.intellij.icons.AllIcons;
-import com.intellij.openapi.components.ApplicationComponent;
+import com.intellij.openapi.components.BaseComponent;
 import com.intellij.openapi.util.IconLoader;
-import io.acari.DDLC.icons.IconReplacer;
-import io.acari.DDLC.icons.patchers.AccentTintedIconsPatcher;
 import org.jetbrains.annotations.NotNull;
+@SuppressWarnings("OverlyCoupledClass")
+public final class MTIconReplacerComponent implements BaseComponent {
 
-public final class MTIconReplacerComponent implements ApplicationComponent {
-
-  static {
-    IconLoader.installPathPatcher(new AccentTintedIconsPatcher());
-    IconLoader.installPathPatcher(new ThemedTintedIconsPatcher());
-  }
-
-
+  @SuppressWarnings("OverlyCoupledMethod")
   @Override
   public void initComponent() {
     if(MTThemeManager.isDDLCActive()){
@@ -51,7 +43,7 @@ public final class MTIconReplacerComponent implements ApplicationComponent {
   }
 
   public static void useDDLCIcons() {
-    IconReplacer.replaceIcons(AllIcons.class, "/icons");
+    IconLoader.installPathPatcher(new LogPatcher());
     IconLoader.installPathPatcher(new AllIconsPatcher());
     IconLoader.installPathPatcher(new ImagesIconsPatcher());
     IconLoader.installPathPatcher(new VCSIconsPatcher());
@@ -79,12 +71,14 @@ public final class MTIconReplacerComponent implements ApplicationComponent {
     IconLoader.installPathPatcher(new CLionIconsPatcher());
     IconLoader.installPathPatcher(new AppCodeIconsPatcher());
     IconLoader.installPathPatcher(new RestClientIconsPatcher());
+
+    IconLoader.installPathPatcher(new RiderIconsPatcher());
+    IconLoader.installPathPatcher(new ResharperIconsPatcher());
+
   }
 
   @Override
   public void disposeComponent() {
-    AccentTintedIconsPatcher.clearCache();
-    ThemedTintedIconsPatcher.clearCache();
 
     MTIconPatcher.clearCache();
   }

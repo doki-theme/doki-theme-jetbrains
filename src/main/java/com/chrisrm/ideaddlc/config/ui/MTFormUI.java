@@ -26,11 +26,10 @@
 
 package com.chrisrm.ideaddlc.config.ui;
 
+import com.chrisrm.idea.config.MTBaseConfig;
+
 import javax.swing.*;
 
-/**
- * Created by helio on 24/03/2017.
- */
 public interface MTFormUI {
   void init();
 
@@ -39,4 +38,13 @@ public interface MTFormUI {
   void afterStateSet();
 
   void dispose();
+
+  boolean isModified(MTBaseConfig config);
+
+  /**
+   * Fill the form from the config
+   *
+   * @param config the config
+   */
+  void setFormState(MTBaseConfig config);
 }

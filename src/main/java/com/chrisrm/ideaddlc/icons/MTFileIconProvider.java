@@ -28,15 +28,15 @@ package com.chrisrm.ideaddlc.icons;
 import com.chrisrm.ideaddlc.MTConfig;
 import com.chrisrm.ideaddlc.icons.associations.Association;
 import com.chrisrm.ideaddlc.icons.associations.Associations;
-import com.chrisrm.ideaddlc.icons.associations.PsiElementAssociation;
+import com.chrisrm.ideaddlc.icons.associations.AssociationsFactory;
 import com.intellij.ide.IconProvider;
 import com.intellij.openapi.project.DumbAware;
-import com.intellij.openapi.util.IconLoader;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.psi.PsiDirectory;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
 import com.intellij.psi.util.PsiUtilCore;
+import icons.MTIcons;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -45,19 +45,20 @@ import javax.swing.*;
 /**
  * Provider for file icons
  */
+@SuppressWarnings("LocalVariableOfConcreteClass")
 public final class MTFileIconProvider extends IconProvider implements DumbAware {
-  private final Associations associations = Associations.AssociationsFactory.create("/icon_associations.xml");
-  private final Associations dirAssociations = Associations.AssociationsFactory.create("/folder_associations.xml");
+  private final Associations associations = AssociationsFactory.create("/icon_associations.xml");
+  private final Associations dirAssociations = AssociationsFactory.create("/folder_associations.xml");
 
   @Nullable
   @Override
-  public Icon getIcon(@NotNull final PsiElement psiElement, final int i) {
+  public Icon getIcon(@NotNull final PsiElement element, final int flags) {
     Icon icon = null;
 
-    if (psiElement instanceof PsiDirectory) {
-      icon = getDirectoryIcon(psiElement);
-    } else if (psiElement instanceof PsiFile) {
-      icon = getFileIcon(psiElement);
+    if (element instanceof PsiDirectory) {
+      icon = getDirectoryIcon(element);
+    } else if (element instanceof PsiFile) {
+      icon = getFileIcon(element);
     }
 
     return icon;
@@ -86,43 +87,33 @@ public final class MTFileIconProvider extends IconProvider implements DumbAware 
     final VirtualFile virtualFile = PsiUtilCore.getVirtualFile(psiElement);
     if (virtualFile != null) {
       final FileInfo file = new VirtualFileInfo(psiElement, virtualFile);
-      icon = getDirectoryIconForAssociation(file, dirAssociations.findAssociationForFile(file));
+      icon = getDirectoryIconForAssociation(dirAssociations.findAssociationForFile(file));
     }
     return icon;
   }
 
   /**
    * Get the relevant icon for association
-   *
-   * @param file
-   * @param association
    */
-  private Icon getIconForAssociation(final FileInfo file, final Association association) {
+  private static Icon getIconForAssociation(final FileInfo file, final Association association) {
     final boolean isInputInvalid = association == null || association.getIcon() == null;
     return isInputInvalid ? null : loadIcon(file, association);
   }
 
-  private DirIcon getDirectoryIconForAssociation(final FileInfo file, final Association association) {
+  private static DirIcon getDirectoryIconForAssociation(final Association association) {
     final boolean isInputInvalid = association == null || association.getIcon() == null;
-    return isInputInvalid ? null : loadDirIcon(file, association);
+    return isInputInvalid ? null : loadDirIcon(association);
   }
 
   /**
    * Load the association's icon
-   *
-   * @param file
-   * @param association
    */
-  private Icon loadIcon(final FileInfo file, final Association association) {
+  private static Icon loadIcon(final FileInfo file, final Association association) {
     Icon icon = null;
 
     try {
-      if (association instanceof PsiElementAssociation) {
-        icon = ((PsiElementAssociation) association).getIconForFile(file);
-      } else {
-        icon = IconLoader.getIcon(association.getIcon());
-      }
-    } catch (final Exception e) {
+      icon = association.getIconForFile(file);
+    } catch (final RuntimeException e) {
       e.printStackTrace();
     }
     return icon;
@@ -130,17 +121,14 @@ public final class MTFileIconProvider extends IconProvider implements DumbAware 
 
   /**
    * Load the association's icon
-   *
-   * @param file
-   * @param association
    */
-  private DirIcon loadDirIcon(final FileInfo file, final Association association) {
+  private static DirIcon loadDirIcon(final Association association) {
     DirIcon icon = null;
 
     try {
       final String iconPath = association.getIcon();
-      icon = new DirIcon(IconLoader.getIcon("/icons/folders" + iconPath), IconLoader.getIcon("/icons/foldersOpen" + iconPath));
-    } catch (final Exception e) {
+      icon = MTIcons.getFolderIcon(iconPath);
+    } catch (final RuntimeException e) {
       e.printStackTrace();
     }
     return icon;
