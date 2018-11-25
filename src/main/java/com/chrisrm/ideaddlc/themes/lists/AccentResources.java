@@ -26,13 +26,16 @@
 
 package com.chrisrm.ideaddlc.themes.lists;
 
-public final class AccentResources {
+import com.google.common.collect.Sets;
 
-  private AccentResources() {
+import java.util.Collections;
+import java.util.Set;
 
-  }
+public enum  AccentResources {
+  DEFAULT;
 
-  public static final String[] ACCENT_RESOURCES = new String[] {
+  public static final Set<String> ACCENT_RESOURCES = Collections.unmodifiableSet(
+      Sets.newHashSet(
       "link.foreground",
       "link.hover.foreground",
       "link.pressed.foreground",
@@ -76,5 +79,82 @@ public final class AccentResources {
       "TabbedPane.focusColor",
       "TabbedPane.selectedСolor",
       "material.tab.borderColor"
-  };
+      ));
+
+
+//  "ActionButton.hoverBackground",
+//      "ActionButton.hoverBorderColor",
+//      "Button.darcula.defaultFocusedOutlineColor",
+//      "Button.darcula.focusedOutlineColor",
+//      "Button.darcula.outlineDefaultEndColor",
+//      "Button.darcula.outlineDefaultStartColor",
+//      "Button.darcula.outlineEndColor",
+//      "Button.darcula.outlineStartColor",
+//      "Button.default.focusedBorderColor",
+//      "Button.default.startBorderColor",
+//      "Button.default.endBorderColor",
+//      "Button.default.focusColor",
+//      "Button.endBorderColor",
+//      "Button.focusedBorderColor",
+//      "Button.startBorderColor",
+//      "CheckBox.darcula.backgroundColor1.selected",
+//      "CheckBox.darcula.backgroundColor2.selected",
+//      "CheckBox.darcula.borderColor.selected",
+//      "CheckBox.darcula.disabledBorderColor.selected",
+//      "CheckBox.darcula.focused.backgroundColor1.selected",
+//      "CheckBox.darcula.focused.backgroundColor2.selected",
+//      "CheckBox.darcula.focusedArmed.backgroundColor1.selected",
+//      "CheckBox.darcula.focusedArmed.backgroundColor2.selected",
+//      "CompletionPopup.matchForeground",
+//      "CompletionPopup.matchSelectedForeground",
+//      "CompletionPopup.matchSelectionForeground",
+//      "ScrollBar.Thumb.Hovered.background",
+//      "ScrollBar.Thumb.NonOpaque.Hovered.background",
+//      "Component.focusColor",
+//      "EditorPane.caretForeground",
+//      "EditorTabs.active.underlineColor",
+//      "Focus.borderColor",
+//      "Focus.color",
+//      "Focus.Color",
+//      "Focus.defaultButtonBorderColor",
+//      "FormattedTextField.caretForeground",
+//      "Git.Log.Ref.LocalBranch",
+//      "Hg.Log.Ref.Branch",
+//      "Hyperlink.linkColor",
+//      "Label.errorForeground",
+//      "Link.activeForeground",
+//      "Link.hoverForeground",
+//      "Link.pressedForeground",
+//      "Link.visitedForeground",
+//      "link.foreground",
+//      "link.hover.foreground",
+//      "link.pressed.foreground",
+//      "link.visited.foreground",
+//      "material.tab.borderColor",
+//      "Notification.Error.foreground",
+//      "Notification.Link.foreground",
+//      "Notification.Link.foreground",
+//      "Notification.ToolWindowError.foreground",
+//      "Notification.ToolWindowInfo.foreground",
+//      "Notification.ToolWindowWarning.foreground",
+//      "ParameterInfo.highlightedColor",
+//      "PasswordField.caretForeground",
+//      "Plugins.tagForeground",
+//      "Popup.Advertiser.foreground",
+//      "ProgressBar.foreground",
+//      "ProgressBar.progressColor",
+//      "RadioButton.darcula.selectionDisabledShadowColor",
+//      "RadioButton.darcula.selectionEnabledColor",
+//      "RadioButton.darcula.selectionEnabledShadowColor",
+//      "SearchEverywhere.Advertiser.foreground",
+//      "SearchMatch.endBackground",
+//      "SearchMatch.endColor",
+//      "SearchMatch.startBackground",
+//      "SearchMatch.startColor",
+//      "Slider.thumb",
+//      "TabbedPane.selectedСolor",
+//      "TextArea.caretForeground",
+//      "TextField.caretForeground",
+//      "TextField.selectedSeparatorColor",
+//      "TextPane.caretForeground"
 }

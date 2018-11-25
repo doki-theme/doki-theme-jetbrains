@@ -25,8 +25,19 @@
 
 package com.chrisrm.ideaddlc.themes.lists;
 
-public final class ContrastResources {
-  public static final String[] CONTRASTED_RESOURCES = new String[] {
+import com.google.common.collect.Sets;
+import org.jetbrains.annotations.NonNls;
+
+import java.util.Collections;
+import java.util.Set;
+
+public enum ContrastResources {
+  DEFAULT;
+
+  @SuppressWarnings("DuplicateStringLiteralInspection")
+  @NonNls
+  public static final Set<String> CONTRASTED_RESOURCES = Collections.unmodifiableSet(
+      Sets.newHashSet(
       "Tree.background",
       "Tree.textBackground",
       "Viewport.background",
@@ -54,5 +65,38 @@ public final class ContrastResources {
       "StatusBar.background",
       "SplitPane.highlight",
       "ActionToolbar.background"
-  };
+      ));
+
+
+//  Sets.newHashSet(
+//      "ActionToolbar.background",
+//      "activeCaption",
+//      "ComboBox.arrowFillColor",
+//      "ComboBox.background",
+//      "ComboBox.darcula.arrowButtonBackground",
+//      "desktop",
+//      "Editor.background",
+//      "EditorPane.background",
+//      "FormattedTextField.background",
+//      "MenuBar.background",
+//      "MenuBar.shadow",
+//      "PasswordField.background",
+//      "Plugins.SearchField.background",
+//      "SidePanel.background",
+//      "SplitPane.highlight",
+//      "TabbedPane.borderColor",
+//      "TabbedPane.darkShadow",
+//      "TabbedPane.mt.tab.background",
+//      "TabbedPane.shadow",
+//      "TextArea.background",
+//      "TextField.background",
+//      "TextPane.background",
+//      "ToolBar.background",
+//      "ToolBar.background",
+//      "Tree.background",
+//      "Tree.textBackground",
+//      "Viewport.background",
+//      "window"
+//      ));
+
 }

@@ -26,8 +26,18 @@
 
 package com.chrisrm.ideaddlc.themes.lists;
 
-public class FontResources {
-  public static final String[] FONT_RESOURCES = new String[]{
+import com.google.common.collect.Sets;
+import org.jetbrains.annotations.NonNls;
+
+import java.util.Collections;
+import java.util.Set;
+
+public enum FontResources {
+  DEFAULT;
+  @SuppressWarnings("DuplicateStringLiteralInspection")
+  @NonNls
+  public static final Set<String> FONT_RESOURCES = Collections.unmodifiableSet(
+      Sets.newHashSet(
       "Button.font",
       "ToggleButton.font",
       "RadioButton.font",
@@ -70,5 +80,5 @@ public class FontResources {
       "ToolBar.font",
       "ToolTip.font",
       "Tree.font"
-  };
+      ));
 }
