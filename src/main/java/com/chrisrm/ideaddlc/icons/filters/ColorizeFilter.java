@@ -29,23 +29,27 @@ package com.chrisrm.ideaddlc.icons.filters;
 import java.awt.*;
 import java.awt.image.RGBImageFilter;
 
+@SuppressWarnings({"OverlyComplexBooleanExpression",
+    "StandardVariableNames",
+    "ImplicitCallToSuper"})
 public class ColorizeFilter extends RGBImageFilter {
-  private final Color primaryColor;
+  private final Color color;
 
-  public ColorizeFilter(final Color primaryColor) {
-    this.primaryColor = primaryColor;
+  ColorizeFilter(final Color color) {
+    this.color = color;
   }
 
+  @SuppressWarnings("MagicNumber")
   @Override
-  public int filterRGB(final int x, final int y, final int pARGB) {
-    final float[] myBase = Color.RGBtoHSB(primaryColor.getRed(), primaryColor.getGreen(), primaryColor.getBlue(), null);
+  public final int filterRGB(final int x, final int y, final int rgb) {
+    final float[] myBase = Color.RGBtoHSB(color.getRed(), color.getGreen(), color.getBlue(), null);
     // Get color components
-    final int r = pARGB >> 16 & 0xFF;
-    final int g = pARGB >> 8 & 0xFF;
-    final int b = pARGB & 0xFF;
+    final int r = rgb >> 16 & 0xFF;
+    final int g = rgb >> 8 & 0xFF;
+    final int b = rgb & 0xFF;
     final float[] hsb = new float[3];
     Color.RGBtoHSB(r, g, b, hsb);
-    final int color = Color.HSBtoRGB(myBase[0], myBase[1] * hsb[1], myBase[2] * hsb[2]);
-    return (pARGB & 0xFF000000) | color & 0x00FFFFFF;
+    final int endColor = Color.HSBtoRGB(myBase[0], myBase[1] * hsb[1], myBase[2] * hsb[2]);
+    return (rgb & 0xFF000000) | endColor & 0x00FFFFFF;
   }
 }

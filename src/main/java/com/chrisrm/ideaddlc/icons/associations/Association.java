@@ -27,16 +27,27 @@
 package com.chrisrm.ideaddlc.icons.associations;
 
 import com.chrisrm.ideaddlc.icons.FileInfo;
+import org.jetbrains.annotations.NonNls;
 
+import javax.swing.*;
 import java.io.Serializable;
 
 /**
  * Represent an association of a name with an icon
  */
+@SuppressWarnings("InstanceVariableMayNotBeInitialized")
 public abstract class Association implements Serializable {
 
   private String name;
   private String icon;
+
+  /**
+   * Get the icon for a given file info according
+   *
+   * @param file the file info
+   * @return the icon if found
+   */
+  public abstract Icon getIconForFile(FileInfo file);
 
   public final String getIcon() {
     return icon;
@@ -46,6 +57,7 @@ public abstract class Association implements Serializable {
     this.icon = icon;
   }
 
+  @NonNls
   public final String getName() {
     return name;
   }
