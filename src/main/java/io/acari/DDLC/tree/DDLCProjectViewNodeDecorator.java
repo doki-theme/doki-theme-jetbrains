@@ -23,7 +23,7 @@
  *
  */
 
-package com.chrisrm.ideaddlc.tree;
+package io.acari.DDLC.tree;
 
 import com.chrisrm.ideaddlc.MTConfig;
 import com.chrisrm.ideaddlc.MTThemeManager;
@@ -52,11 +52,11 @@ import static com.chrisrm.ideaddlc.config.MTFileColorsPage.DIRECTORIES;
 /**
  * Created by eliorb on 09/04/2017.
  */
-public final class MTProjectViewNodeDecorator implements ProjectViewNodeDecorator {
+public final class DDLCProjectViewNodeDecorator implements ProjectViewNodeDecorator {
 
   private static Icon directory;
 
-  public MTProjectViewNodeDecorator() {
+  public DDLCProjectViewNodeDecorator() {
   }
 
   public static void resetCache() {

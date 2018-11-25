@@ -24,9 +24,8 @@
  *
  */
 
-package com.chrisrm.ideaddlc.schemes;
+package io.acari.DDLC.schemes;
 
-import com.chrisrm.ideaddlc.MTBundledThemesManager;
 import com.chrisrm.ideaddlc.MTThemeManager;
 import com.chrisrm.ideaddlc.config.ConfigNotifier;
 import com.chrisrm.ideaddlc.config.CustomConfigNotifier;
@@ -37,19 +36,14 @@ import io.acari.DDLC.DDLCConfig;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * Component for switching Material Themes
+ * Component for switching DDLC Themes
  */
-public final class MTThemesComponent implements ApplicationComponent {
+public final class DDLCThemesComponent implements ApplicationComponent {
 
   private MessageBusConnection connect;
 
   @Override
   public void initComponent() {
-    try {
-      MTBundledThemesManager.getInstance().loadBundledThemes();
-    } catch (final Exception e) {
-      e.printStackTrace();
-    }
 
     // Activate the theme
     activateTheme();
@@ -62,9 +56,9 @@ public final class MTThemesComponent implements ApplicationComponent {
   public void activateTheme() {
     DDLCConfig ddlcConfig = DDLCConfig.getInstance();
     boolean firstTime = ddlcConfig.isFirstTime();
-    if(MTThemeManager.isDDLCActive() || firstTime) {
+    if (MTThemeManager.isDDLCActive() || firstTime) {
       MTThemeManager.getInstance().activate();
-      if(firstTime){
+      if (firstTime) {
         ddlcConfig.setFirstTime(false);
       }
     }
@@ -78,6 +72,6 @@ public final class MTThemesComponent implements ApplicationComponent {
   @Override
   @NotNull
   public String getComponentName() {
-    return "MTThemesComponent";
+    return "DDLCThemesComponent";
   }
 }

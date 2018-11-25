@@ -25,7 +25,7 @@
 
 package com.chrisrm.ideaddlc;
 
-import com.chrisrm.ideaddlc.icons.IconReplacer;
+import io.acari.DDLC.icons.IconReplacer;
 import com.chrisrm.ideaddlc.messages.MaterialThemeBundle;
 import com.chrisrm.ideaddlc.themes.MTThemeable;
 import com.chrisrm.ideaddlc.themes.lists.AccentResources;
@@ -72,12 +72,13 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 
-import static com.chrisrm.ideaddlc.MTConfig.WE_USING_DDLC_BOIS;
 import static com.chrisrm.ideaddlc.MTHackComponent.TABS_HEIGHT;
 import static com.intellij.ide.ui.laf.LafManagerImpl.installMacOSXFonts;
 
 public final class MTThemeManager {
 
+  public static final String WE_USING_DDLC_BOIS = "WE USING DDLC BOIS";
+  public static final String WE_AINT_USING_DDLC_BOIS = "WE_AINT USING DDLC BOIS";
   public static final int DEFAULT_SIDEBAR_HEIGHT = 28;
   public static final int DEFAULT_TAB_HEIGHT = 24;
   public static final int DEFAULT_INDENT = 6;
@@ -91,7 +92,7 @@ public final class MTThemeManager {
     DDLCApplicationInitializationComponent.Companion.addInitializationListener(()->
         LafManager.getInstance().addLafManagerListener(lafManager -> {
           if(!UIManager.getLookAndFeel().getDescription().contains("DDLC")){
-            PropertiesComponent.getInstance().setValue(MATERIAL_THEME_PROP, MTConfig.WE_AINT_USING_DDLC_BOIS);
+            PropertiesComponent.getInstance().setValue(MATERIAL_THEME_PROP, WE_AINT_USING_DDLC_BOIS);
             mtUIActivationListeners.forEach(consumer -> consumer.consume(true));
           } else {
             mtUIActivationListeners.forEach(consumer -> consumer.consume(false));
@@ -105,7 +106,7 @@ public final class MTThemeManager {
   }
 
   public static boolean isDDLCActive(){
-    return PropertiesComponent.getInstance().getValue(MATERIAL_THEME_PROP, MTConfig.WE_USING_DDLC_BOIS).equals(MTConfig.WE_USING_DDLC_BOIS);
+    return PropertiesComponent.getInstance().getValue(MATERIAL_THEME_PROP, WE_USING_DDLC_BOIS).equals(WE_USING_DDLC_BOIS);
   }
 
   public static MTThemeManager getInstance() {

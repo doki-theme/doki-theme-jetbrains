@@ -74,8 +74,6 @@ public class MTConfig implements PersistentStateComponent<MTConfig>, Cloneable {
   public static final int MIN_SIDEBAR_HEIGHT = 18;
   public static final int MIN_FONT_SIZE = 6;
   public static final int MAX_FONT_SIZE = 24;
-  public static final String WE_USING_DDLC_BOIS = "WE USING DDLC BOIS";
-  public static final String WE_AINT_USING_DDLC_BOIS = "WE_AINT USING DDLC BOIS";
 
   // They are public so they can be serialized
   public String version;
@@ -256,10 +254,6 @@ public class MTConfig implements PersistentStateComponent<MTConfig>, Cloneable {
 
   public void setSelectedTheme(final DDLCThemeFacade selectedTheme) {
     this.selectedTheme = selectedTheme.getThemeId();
-  }
-
-  public boolean isMateriaThemeActive(){
-    return !this.selectedTheme.equals(WE_USING_DDLC_BOIS);
   }
 
   /**

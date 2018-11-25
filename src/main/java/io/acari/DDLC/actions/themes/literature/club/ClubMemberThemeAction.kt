@@ -32,7 +32,7 @@ import com.chrisrm.ideaddlc.MTThemeManager
 import com.chrisrm.ideaddlc.actions.accents.MTAbstractAccentAction
 import io.acari.DDLC.DDLCThemes
 import io.acari.DDLC.actions.DDLCAddFileColorsAction
-import com.chrisrm.ideaddlc.tree.MTProjectViewNodeDecorator
+import io.acari.DDLC.tree.DDLCProjectViewNodeDecorator
 import com.chrisrm.ideaddlc.ui.MTButtonUI
 import com.chrisrm.ideaddlc.ui.MTTreeUI
 import com.intellij.openapi.actionSystem.AnActionEvent
@@ -77,7 +77,7 @@ abstract class BaseThemeAction : ToggleAction() {
     open fun selectionActivation() {
         MTTreeUI.resetIcons()
         MTButtonUI.resetCache()
-        MTProjectViewNodeDecorator.resetCache()
+        DDLCProjectViewNodeDecorator.resetCache()
     }
 
     override fun isSelected(e: AnActionEvent): Boolean {
