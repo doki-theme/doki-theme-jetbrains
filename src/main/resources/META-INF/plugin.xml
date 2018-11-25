@@ -54,7 +54,6 @@
         <applicationService serviceImplementation="io.acari.DDLC.DDLCConfig"/>
         <applicationService serviceImplementation="com.chrisrm.ideaddlc.MTCustomThemeConfig"/>
         <applicationService serviceImplementation="com.chrisrm.ideaddlc.MTThemeManager"/>
-        <applicationService serviceImplementation="com.chrisrm.ideaddlc.MTBundledThemesManager"/>
         <applicationService serviceImplementation="com.chrisrm.ideaddlc.MTAnalytics"/>
 
         <applicationService serviceImplementation="com.chrisrm.ideaddlc.icons.tinted.TintedIconsService"/>
