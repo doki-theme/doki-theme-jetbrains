@@ -33,7 +33,7 @@ import com.intellij.openapi.project.Project;
 import org.jetbrains.annotations.NotNull;
 
 public final class DDLCStatusBarComponent extends AbstractProjectComponent {
-  private MTStatusBarManager statusBarWidget;
+  private DDLCStatusBarManager statusBarWidget;
   private boolean initalized = false;
 
   public DDLCStatusBarComponent(@NotNull final Project project) {
@@ -51,7 +51,7 @@ public final class DDLCStatusBarComponent extends AbstractProjectComponent {
 
   @Override
   public void initComponent() {
-    statusBarWidget = MTStatusBarManager.create(myProject);
+    statusBarWidget = DDLCStatusBarManager.create(myProject);
   }
 
   @Override

@@ -36,14 +36,14 @@ import com.intellij.openapi.wm.WindowManager;
 import com.intellij.util.messages.MessageBusConnection;
 import org.jetbrains.annotations.NotNull;
 
-public final class MTStatusBarManager implements Disposable, DumbAware {
+public final class DDLCStatusBarManager implements Disposable, DumbAware {
 
   private final Project project;
   private boolean statusEnabled;
   private MTStatusWidget mtStatusWidget;
   private final MessageBusConnection connect;
 
-  private MTStatusBarManager(@NotNull final Project project) {
+  private DDLCStatusBarManager(@NotNull final Project project) {
     this.project = project;
     mtStatusWidget = new MTStatusWidget(project);
     statusEnabled = MTConfig.getInstance().isStatusBarTheme();
@@ -52,8 +52,8 @@ public final class MTStatusBarManager implements Disposable, DumbAware {
     connect.subscribe(ConfigNotifier.CONFIG_TOPIC, this::refreshWidget);
   }
 
-  public static MTStatusBarManager create(@NotNull final Project project) {
-    return new MTStatusBarManager(project);
+  public static DDLCStatusBarManager create(@NotNull final Project project) {
+    return new DDLCStatusBarManager(project);
   }
 
   private void refreshWidget(final MTConfig mtConfig) {
