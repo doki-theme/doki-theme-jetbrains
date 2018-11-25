@@ -26,12 +26,13 @@
 
 package com.chrisrm.ideaddlc.actions.accents;
 
+import com.chrisrm.ideaddlc.utils.MTAccents;
 import org.jetbrains.annotations.NotNull;
 
 public class MTTurquoiseAccentAction extends MTAbstractAccentAction {
   @NotNull
   @Override
-  public final String getAccentColor() {
-    return "80CBC4";
+  public final MTAccents getAccent() {
+    return MTAccents.TURQUOISE;
   }
 }

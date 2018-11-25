@@ -29,6 +29,7 @@ package com.chrisrm.ideaddlc;
 import com.chrisrm.ideaddlc.utils.MTStatisticsNotification;
 import com.chrisrm.ideaddlc.utils.Notify;
 import com.intellij.ide.BrowserUtil;
+import com.intellij.ide.util.PropertiesComponent;
 import com.intellij.notification.Notification;
 import com.intellij.notification.NotificationListener;
 import com.intellij.openapi.components.AbstractProjectComponent;

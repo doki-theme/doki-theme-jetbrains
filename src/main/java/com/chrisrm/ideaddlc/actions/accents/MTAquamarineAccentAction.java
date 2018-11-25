@@ -26,9 +26,11 @@
 
 package com.chrisrm.ideaddlc.actions.accents;
 
+import com.chrisrm.ideaddlc.utils.MTAccents;
+
 public class MTAquamarineAccentAction extends MTAbstractAccentAction {
   @Override
-  public final String getAccentColor() {
-    return "64ffda";
+  public final MTAccents getAccent() {
+    return MTAccents.AQUAMARINE;
   }
 }

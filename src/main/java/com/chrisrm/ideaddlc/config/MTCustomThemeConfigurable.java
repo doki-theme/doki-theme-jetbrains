@@ -29,7 +29,7 @@ package com.chrisrm.ideaddlc.config;
 import com.chrisrm.ideaddlc.MTCustomThemeConfig;
 import com.chrisrm.ideaddlc.config.ui.MTCustomThemeForm;
 import com.chrisrm.ideaddlc.messages.MaterialThemeBundle;
-import com.chrisrm.idea.utils.MTUiUtils;
+import com.chrisrm.ideaddlc.utils.MTUiUtils;
 import com.intellij.openapi.options.SearchableConfigurable;
 import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.NonNls;

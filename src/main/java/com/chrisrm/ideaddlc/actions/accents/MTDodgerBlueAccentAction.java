@@ -26,9 +26,11 @@
 
 package com.chrisrm.ideaddlc.actions.accents;
 
+import com.chrisrm.ideaddlc.utils.MTAccents;
+
 public class MTDodgerBlueAccentAction extends MTAbstractAccentAction {
   @Override
-  public final String getAccentColor() {
-    return "2979ff";
+  public final MTAccents getAccent() {
+    return MTAccents.DODGER_BLUE;
   }
 }

@@ -30,28 +30,27 @@ import com.chrisrm.ideaddlc.MTAnalytics;
 import com.chrisrm.ideaddlc.MTConfig;
 import com.chrisrm.ideaddlc.MTThemeManager;
 import com.intellij.openapi.actionSystem.AnActionEvent;
-import com.intellij.openapi.actionSystem.ToggleAction;
+import org.jetbrains.annotations.NotNull;
 
-
-public final class MTToggleProjectViewDecoratorsAction extends ToggleAction {
+public final class MTToggleProjectViewDecoratorsAction extends MTToggleAction {
   @Override
-  public boolean isSelected(final AnActionEvent e) {
+  public boolean isSelected(@NotNull final AnActionEvent e) {
     return MTConfig.getInstance().isUseProjectViewDecorators();
   }
 
   @Override
-  public void setSelected(final AnActionEvent e, final boolean state) {
+  public void setSelected(@NotNull final AnActionEvent e, final boolean state) {
     MTThemeManager.getInstance().toggleProjectViewDecorators();
-    MTAnalytics.getInstance().track(MTAnalytics.PROJECT_VIEW_DECORATORS, state);
+    MTAnalytics.getInstance().trackValue(MTAnalytics.PROJECT_VIEW_DECORATORS, state);
   }
 
   /**
    * Disable Toggling Project view decorators if Material Icons are disabled
    *
-   * @param e
+   * @param e action event
    */
   @Override
-  public void update(final AnActionEvent e) {
+  public void update(@NotNull final AnActionEvent e) {
     e.getPresentation().setEnabled(MTConfig.getInstance().isUseMaterialIcons());
   }
 }

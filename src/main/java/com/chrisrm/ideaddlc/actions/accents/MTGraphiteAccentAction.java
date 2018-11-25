@@ -26,9 +26,11 @@
 
 package com.chrisrm.ideaddlc.actions.accents;
 
+import com.chrisrm.ideaddlc.utils.MTAccents;
+
 public class MTGraphiteAccentAction extends MTAbstractAccentAction {
   @Override
-  public final String getAccentColor() {
-    return "616161";
+  public final MTAccents getAccent() {
+    return MTAccents.GRAPHITE;
   }
 }

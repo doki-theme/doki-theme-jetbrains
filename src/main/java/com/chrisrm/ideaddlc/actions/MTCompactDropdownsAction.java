@@ -30,24 +30,23 @@ import com.chrisrm.ideaddlc.MTAnalytics;
 import com.chrisrm.ideaddlc.MTConfig;
 import com.chrisrm.ideaddlc.MTThemeManager;
 import com.intellij.openapi.actionSystem.AnActionEvent;
-import com.intellij.openapi.actionSystem.ToggleAction;
+import org.jetbrains.annotations.NotNull;
 
-
-public final class MTCompactDropdownsAction extends ToggleAction {
+public final class MTCompactDropdownsAction extends MTToggleAction {
 
   @Override
-  public boolean isSelected(final AnActionEvent e) {
+  public boolean isSelected(@NotNull final AnActionEvent e) {
     return MTConfig.getInstance().isCompactDropdowns();
   }
 
   @Override
-  public void setSelected(final AnActionEvent e, final boolean state) {
-    MTThemeManager.getInstance().toggleCompactDropdowns();
-    MTAnalytics.getInstance().track(MTAnalytics.COMPACT_DROPDOWNS, state);
+  public void setSelected(@NotNull final AnActionEvent e, final boolean state) {
+    MTThemeManager.toggleCompactDropdowns();
+    MTAnalytics.getInstance().trackValue(MTAnalytics.COMPACT_DROPDOWNS, state);
   }
 
   @Override
-  public void update(final AnActionEvent e) {
-    e.getPresentation().setEnabled(MTConfig.getInstance().getIsMaterialDesign());
+  public void update(@NotNull final AnActionEvent e) {
+    e.getPresentation().setEnabled(MTConfig.getInstance().isMaterialDesign());
   }
 }

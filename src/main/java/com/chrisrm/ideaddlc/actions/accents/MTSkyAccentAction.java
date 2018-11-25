@@ -26,9 +26,11 @@
 
 package com.chrisrm.ideaddlc.actions.accents;
 
+import com.chrisrm.ideaddlc.utils.MTAccents;
+
 public class MTSkyAccentAction extends MTAbstractAccentAction {
   @Override
-  public final String getAccentColor() {
-    return "84ffff";
+  public final MTAccents getAccent() {
+    return MTAccents.SKY;
   }
 }

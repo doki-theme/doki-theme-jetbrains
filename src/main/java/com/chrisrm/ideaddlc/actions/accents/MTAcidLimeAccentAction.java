@@ -26,9 +26,12 @@
 
 package com.chrisrm.ideaddlc.actions.accents;
 
+import com.chrisrm.ideaddlc.utils.MTAccents;
+
 public class MTAcidLimeAccentAction extends MTAbstractAccentAction {
+
   @Override
-  public final String getAccentColor() {
-    return "c6ff00";
+  public final MTAccents getAccent() {
+    return MTAccents.ACID_LIME;
   }
 }

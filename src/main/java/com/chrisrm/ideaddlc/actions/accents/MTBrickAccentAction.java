@@ -26,9 +26,11 @@
 
 package com.chrisrm.ideaddlc.actions.accents;
 
+import com.chrisrm.ideaddlc.utils.MTAccents;
+
 public class MTBrickAccentAction extends MTAbstractAccentAction {
   @Override
-  public final String getAccentColor() {
-    return "e57373";
+  public final MTAccents getAccent() {
+    return MTAccents.BRICK;
   }
 }

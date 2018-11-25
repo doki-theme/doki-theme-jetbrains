@@ -27,7 +27,7 @@
 package com.chrisrm.ideaddlc.config.ui;
 
 import com.chrisrm.ideaddlc.config.ui.arrows.*;
-import com.chrisrm.idea.utils.MTUiUtils;
+import com.chrisrm.ideaddlc.utils.MTUiUtils;
 import com.intellij.icons.AllIcons;
 import com.intellij.openapi.util.IconLoader;
 import org.jetbrains.annotations.NonNls;

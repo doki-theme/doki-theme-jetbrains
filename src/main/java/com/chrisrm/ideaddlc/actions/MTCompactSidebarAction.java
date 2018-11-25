@@ -30,28 +30,18 @@ import com.chrisrm.ideaddlc.MTAnalytics;
 import com.chrisrm.ideaddlc.MTConfig;
 import com.chrisrm.ideaddlc.MTThemeManager;
 import com.intellij.openapi.actionSystem.AnActionEvent;
-import com.intellij.openapi.actionSystem.ToggleAction;
+import org.jetbrains.annotations.NotNull;
 
-
-public final class MTCompactSidebarAction extends ToggleAction {
+public final class MTCompactSidebarAction extends MTToggleAction {
 
   @Override
-  public boolean isSelected(final AnActionEvent e) {
+  public boolean isSelected(@NotNull final AnActionEvent e) {
     return MTConfig.getInstance().isCompactSidebar();
   }
 
   @Override
-  public void setSelected(final AnActionEvent e, final boolean state) {
-    MTThemeManager.getInstance().toggleCompactSidebar();
-    MTAnalytics.getInstance().track(MTAnalytics.COMPACT_SIDEBAR, state);
-  }
-
-  /**
-   * Disable Contrast Mode if Material Theme is disabled
-   *
-   * @param e
-   */
-  @Override
-  public void update(final AnActionEvent e) {
+  public void setSelected(@NotNull final AnActionEvent e, final boolean state) {
+    MTThemeManager.toggleCompactSidebar();
+    MTAnalytics.getInstance().trackValue(MTAnalytics.COMPACT_SIDEBAR, state);
   }
 }

@@ -26,9 +26,11 @@
 
 package com.chrisrm.ideaddlc.actions.accents;
 
+import com.chrisrm.ideaddlc.utils.MTAccents;
+
 public class MTOrangeAccentAction extends MTAbstractAccentAction {
   @Override
-  public final String getAccentColor() {
-    return "FF9800";
+  public final MTAccents getAccent() {
+    return MTAccents.ORANGE;
   }
 }

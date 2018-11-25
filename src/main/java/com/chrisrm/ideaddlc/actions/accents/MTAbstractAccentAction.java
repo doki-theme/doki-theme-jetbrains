@@ -36,24 +36,25 @@ import com.intellij.icons.AllIcons;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.impl.ActionToolbarImpl;
+import com.intellij.openapi.project.DumbAware;
+import com.intellij.openapi.util.IconLoader;
+import org.jetbrains.annotations.NotNull;
 
-public abstract class MTAbstractAccentAction extends AnAction {
+public abstract class MTAbstractAccentAction extends AnAction implements DumbAware {
 
   @Override
-  public final void actionPerformed(final AnActionEvent e) {
-    setAccentToTheme();
-  }
-
-  public void setAccentToTheme() {
+  public final void actionPerformed(@NotNull final AnActionEvent e) {
     MTSelectedTreeIndicatorImpl.resetCache();
-    final String accentColor = getAccentColor();
+    IconLoader.clearCache();
+
+    final String accentColor = getAccent().getHexColor();
     MTConfig.getInstance().setAccentColor(accentColor);
-    MTThemeManager.getInstance().applyAccents();
+
+    MTThemeManager.getInstance().applyAccents(true);
     UIReplacer.patchUI();
 
-    IconReplacer.replaceIcons(AllIcons.class, "/icons");
     ActionToolbarImpl.updateAllToolbarsImmediately();
-    MTAnalytics.getInstance().track(MTAnalytics.ACCENT, accentColor);
+    MTAnalytics.getInstance().trackValue(MTAnalytics.ACCENT, accentColor);
 
     MTConfig.getInstance().fireChanged();
   }
@@ -61,5 +62,5 @@ public abstract class MTAbstractAccentAction extends AnAction {
   /**
    * The Accent Color String
    */
-  public abstract String getAccentColor();
+  public abstract MTAccents getAccent();
 }

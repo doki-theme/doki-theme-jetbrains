@@ -30,28 +30,18 @@ import com.chrisrm.ideaddlc.MTAnalytics;
 import com.chrisrm.ideaddlc.MTConfig;
 import com.chrisrm.ideaddlc.MTThemeManager;
 import com.intellij.openapi.actionSystem.AnActionEvent;
-import com.intellij.openapi.actionSystem.ToggleAction;
+import org.jetbrains.annotations.NotNull;
 
-
-public final class MTHideFileIconsAction extends ToggleAction {
+public final class MTHideFileIconsAction extends MTToggleAction {
 
   @Override
-  public boolean isSelected(final AnActionEvent e) {
-    return MTConfig.getInstance().getHideFileIcons();
+  public boolean isSelected(@NotNull final AnActionEvent e) {
+    return MTConfig.getInstance().isHideFileIcons();
   }
 
   @Override
-  public void setSelected(final AnActionEvent e, final boolean state) {
+  public void setSelected(@NotNull final AnActionEvent e, final boolean state) {
     MTThemeManager.getInstance().toggleHideFileIcons();
-    MTAnalytics.getInstance().track(MTAnalytics.HIDE_FILE_ICONS, state);
-  }
-
-  /**
-   * Disable Contrast Mode if Material Theme is disabled
-   *
-   * @param e
-   */
-  @Override
-  public void update(final AnActionEvent e) {
+    MTAnalytics.getInstance().trackValue(MTAnalytics.HIDE_FILE_ICONS, state);
   }
 }

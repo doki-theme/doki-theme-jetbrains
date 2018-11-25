@@ -30,29 +30,23 @@ import com.chrisrm.ideaddlc.MTAnalytics;
 import com.chrisrm.ideaddlc.MTConfig;
 import com.chrisrm.ideaddlc.MTThemeManager;
 import com.intellij.openapi.actionSystem.AnActionEvent;
-import com.intellij.openapi.actionSystem.ToggleAction;
+import org.jetbrains.annotations.NotNull;
 
-public final class MTHighContrastAction extends ToggleAction {
+public final class MTHighContrastAction extends MTToggleAction {
 
   @Override
-  public boolean isSelected(final AnActionEvent e) {
-    return MTConfig.getInstance().getIsHighContrast();
+  public boolean isSelected(@NotNull final AnActionEvent e) {
+    return MTConfig.getInstance().isHighContrast();
   }
 
   @Override
-  public void setSelected(final AnActionEvent e, final boolean state) {
-    MTThemeManager.getInstance().toggleHighContrast();
-    MTAnalytics.getInstance().track(MTAnalytics.HIGH_CONTRAST, state);
-
+  public void setSelected(@NotNull final AnActionEvent e, final boolean state) {
+    MTThemeManager.toggleHighContrast();
+    MTAnalytics.getInstance().trackValue(MTAnalytics.HIGH_CONTRAST, state);
   }
 
-  /**
-   * Disable Contrast Mode if Material Theme is disabled
-   *
-   * @param e
-   */
   @Override
-  public void update(final AnActionEvent e) {
+  public void update(@NotNull final AnActionEvent e) {
     e.getPresentation().setEnabled(MTConfig.getInstance().isMaterialTheme());
   }
 }

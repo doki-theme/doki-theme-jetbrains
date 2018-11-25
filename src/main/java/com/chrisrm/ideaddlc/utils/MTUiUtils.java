@@ -68,7 +68,7 @@ public enum MTUiUtils {
   public static final String HELP_PREFIX = "com.chrisrm.ideaddlc.help";
   private static RenderingHints hints;
   public static final String DOCS_URL = "https://www.material-theme.com/";
-  public static final String PLUGIN_ID = "com.chrisrm.idea.MaterialThemeUI";
+  public static final String PLUGIN_ID = "com.chrisrm.ideaddlc.MaterialThemeUI";
   @NonNls
   public static final String APPEARANCE_SECTION = "Appearance";
   @NonNls

@@ -26,7 +26,7 @@
 
 package com.chrisrm.ideaddlc.config.ui;
 
-import com.chrisrm.idea.config.MTBaseConfig;
+import com.chrisrm.ideaddlc.config.MTBaseConfig;
 
 import javax.swing.*;
 

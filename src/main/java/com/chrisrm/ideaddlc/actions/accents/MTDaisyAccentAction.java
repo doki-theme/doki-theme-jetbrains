@@ -26,12 +26,13 @@
 
 package com.chrisrm.ideaddlc.actions.accents;
 
+import com.chrisrm.ideaddlc.utils.MTAccents;
 import org.jetbrains.annotations.NotNull;
 
 public class MTDaisyAccentAction extends MTAbstractAccentAction {
   @NotNull
   @Override
-  public final String getAccentColor() {
-    return "FFEB3B";
+  public final MTAccents getAccent() {
+    return MTAccents.DAISY;
   }
 }
