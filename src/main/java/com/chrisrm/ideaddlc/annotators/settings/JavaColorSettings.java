@@ -27,6 +27,7 @@
 package com.chrisrm.ideaddlc.annotators.settings;
 
 import com.chrisrm.ideaddlc.annotators.JavaAnnotator;
+import com.chrisrm.ideaddlc.messages.MaterialThemeBundle;
 import com.intellij.icons.AllIcons;
 import com.intellij.lang.Language;
 import com.intellij.openapi.editor.DefaultLanguageHighlighterColors;
@@ -44,13 +45,16 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
+import java.util.Collections;
 import java.util.Map;
 
-public class JavaColorSettings extends BaseColorSettings {
+@SuppressWarnings("DuplicateStringLiteralInspection")
+public final class JavaColorSettings extends BaseColorSettings {
+  @NotNull
   @NonNls
-  static final AttributesDescriptor[] JAVA_ATTRIBUTES;
+  private static final AttributesDescriptor[] JAVA_ATTRIBUTES;
   @NonNls
-  static final Map<String, TextAttributesKey> JAVA_DESCRIPTORS = new THashMap<>();
+  private static final Map<String, TextAttributesKey> JAVA_DESCRIPTORS = new THashMap<>();
 
   private static final TextAttributesKey JAVA_KEYWORD = JavaAnnotator.JAVA_KEYWORD;
   private static final TextAttributesKey THIS_SUPER = JavaAnnotator.THIS_SUPER;
@@ -59,16 +63,18 @@ public class JavaColorSettings extends BaseColorSettings {
 
   static {
     JAVA_ATTRIBUTES = new AttributesDescriptor[] {
-        new AttributesDescriptor("Keywords: this, super", JavaColorSettings.THIS_SUPER),
-        new AttributesDescriptor("Keywords: private, public, protected", JavaColorSettings.MODIFIER),
-        new AttributesDescriptor("Keywords: static, final", JavaColorSettings.STATIC_FINAL),
+        new AttributesDescriptor(MaterialThemeBundle.message("keywords.this.super"), THIS_SUPER),
+        new AttributesDescriptor(MaterialThemeBundle.message("keywords.private.public.protected"), MODIFIER),
+        new AttributesDescriptor(MaterialThemeBundle.message("keywords.static.final"), STATIC_FINAL),
     };
 
-    JavaColorSettings.JAVA_DESCRIPTORS.putAll(JavaColorSettings.createAdditionalHlAttrs());
+    JAVA_DESCRIPTORS.putAll(createAdditionalHlAttrs());
   }
 
+  @NotNull
+  @SuppressWarnings("OverlyLongMethod")
   private static Map<String, TextAttributesKey> createAdditionalHlAttrs() {
-    final Map<String, TextAttributesKey> descriptors = new THashMap<>();
+    @NonNls final Map<String, TextAttributesKey> descriptors = new THashMap<>();
 
     descriptors.put("field", ObjectUtils.notNull(TextAttributesKey.find("INSTANCE_FIELD_ATTRIBUTES"),
                                                  DefaultLanguageHighlighterColors.INSTANCE_FIELD));
@@ -139,10 +145,10 @@ public class JavaColorSettings extends BaseColorSettings {
     descriptors.put("static_imported_method", ObjectUtils.notNull(TextAttributesKey.find("STATIC_METHOD_CALL_IMPORTED_ATTRIBUTES);"),
                                                                   DefaultLanguageHighlighterColors.STATIC_METHOD));
 
-    descriptors.put("keyword", JavaColorSettings.JAVA_KEYWORD);
-    descriptors.put("this", JavaColorSettings.THIS_SUPER);
-    descriptors.put("sf", JavaColorSettings.STATIC_FINAL);
-    descriptors.put("modifier", JavaColorSettings.MODIFIER);
+    descriptors.put("keyword", JAVA_KEYWORD);
+    descriptors.put("this", THIS_SUPER);
+    descriptors.put("sf", STATIC_FINAL);
+    descriptors.put("modifier", MODIFIER);
 
     return descriptors;
   }
@@ -156,10 +162,11 @@ public class JavaColorSettings extends BaseColorSettings {
   @NotNull
   @Override
   public SyntaxHighlighter getHighlighter() {
-    final Language lang = ObjectUtils.notNull(Language.findLanguageByID("JAVA"), Language.ANY);
+    final Language lang = ObjectUtils.notNull(Language.findLanguageByID("JAVA"), Language.ANY); //NON-NLS
     return getSyntaxHighlighterWithFallback(lang);
   }
 
+  @NonNls
   @NotNull
   @Override
   public String getDemoText() {
@@ -177,10 +184,10 @@ public class JavaColorSettings extends BaseColorSettings {
         "}\n";
   }
 
-  @Nullable
+  @NotNull
   @Override
   public Map<String, TextAttributesKey> getAdditionalHighlightingTagToDescriptorMap() {
-    return JAVA_DESCRIPTORS;
+    return Collections.unmodifiableMap(JAVA_DESCRIPTORS);
   }
 
   @NotNull
@@ -198,9 +205,10 @@ public class JavaColorSettings extends BaseColorSettings {
   @NotNull
   @Override
   public String getDisplayName() {
-    return "Java Additions";
+    return MaterialThemeBundle.message("keywords.java.additions");
   }
 
+  @NotNull
   @Override
   public DisplayPriority getPriority() {
     return PlatformUtils.isIntelliJ() ? DisplayPriority.KEY_LANGUAGE_SETTINGS : DisplayPriority.LANGUAGE_SETTINGS;

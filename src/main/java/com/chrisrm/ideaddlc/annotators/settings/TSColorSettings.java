@@ -27,6 +27,7 @@
 package com.chrisrm.ideaddlc.annotators.settings;
 
 import com.chrisrm.ideaddlc.annotators.TSAnnotator;
+import com.chrisrm.ideaddlc.messages.MaterialThemeBundle;
 import com.intellij.icons.AllIcons;
 import com.intellij.lang.Language;
 import com.intellij.openapi.editor.DefaultLanguageHighlighterColors;
@@ -43,9 +44,12 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
+import java.util.Collections;
 import java.util.Map;
 
-public class TSColorSettings extends BaseColorSettings {
+@SuppressWarnings( {"DuplicateStringLiteralInspection", "HardCodedStringLiteral"})
+public final class TSColorSettings extends BaseColorSettings {
+  @NotNull
   @NonNls
   private static final AttributesDescriptor[] TS_ATTRIBUTES;
   @NonNls
@@ -55,13 +59,14 @@ public class TSColorSettings extends BaseColorSettings {
 
   static {
     TS_ATTRIBUTES = new AttributesDescriptor[]{
-        new AttributesDescriptor("Keywords: private, public, protected", PRIVATE),
+        new AttributesDescriptor(MaterialThemeBundle.message("keywords.private.public.protected"), PRIVATE),
     };
 
     TS_DESCRIPTORS.putAll(createAdditionalHlAttrs());
     TS_DESCRIPTORS.putAll(JSColorSettings.JS_DESCRIPTORS);
   }
 
+  @NotNull
   private static Map<String, TextAttributesKey> createAdditionalHlAttrs() {
     final Map<String, TextAttributesKey> descriptors = new THashMap<>();
     descriptors.put("private", PRIVATE);
@@ -83,6 +88,7 @@ public class TSColorSettings extends BaseColorSettings {
     return getSyntaxHighlighterWithFallback(lang);
   }
 
+  @NonNls
   @NotNull
   @Override
   public String getDemoText() {
@@ -94,10 +100,10 @@ public class TSColorSettings extends BaseColorSettings {
         "}";
   }
 
-  @Nullable
+  @NotNull
   @Override
   public Map<String, TextAttributesKey> getAdditionalHighlightingTagToDescriptorMap() {
-    return TS_DESCRIPTORS;
+    return Collections.unmodifiableMap(TS_DESCRIPTORS);
   }
 
   @NotNull
@@ -118,6 +124,7 @@ public class TSColorSettings extends BaseColorSettings {
     return "TypeScript Additions";
   }
 
+  @NotNull
   @Override
   public DisplayPriority getPriority() {
     return PlatformUtils.isWebStorm() ? DisplayPriority.KEY_LANGUAGE_SETTINGS : DisplayPriority.LANGUAGE_SETTINGS;
