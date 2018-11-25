@@ -26,25 +26,29 @@
 
 package com.chrisrm.ideaddlc.utils;
 
+import org.jetbrains.annotations.NonNls;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
-public final class StaticPatcher {
+/**
+ * Super hacking class to change static fields!
+ */
+public enum StaticPatcher {
+  DEFAULT;
 
-  private StaticPatcher() {
-  }
-
-  public static void setFieldValue(final Object object, final String fieldName, final Object value) {
-    try {
-      final Field field = object.getClass().getDeclaredField(fieldName);
-      field.setAccessible(true);
-      field.set(object, value);
-    } catch (final Exception e) {
-      e.printStackTrace();
-    }
-  }
-
-  public static void setFinalStatic(final Class cls, final String fieldName, final Object newValue) throws Exception {
+  /**
+   * Rewrites a class's static field with a new value by static field name.
+   * <p>
+   * Note that private fields will have their names changed at compilation.
+   *
+   * @param cls       the class
+   * @param fieldName the name of the static field
+   * @param newValue  the new value
+   */
+  @SuppressWarnings("StaticMethodOnlyUsedInOneClass")
+  public static void setFinalStatic(final Class cls, @NonNls final String fieldName, final Object newValue)
+      throws NoSuchFieldException, IllegalAccessException {
     final Field[] fields = cls.getDeclaredFields();
 
     for (final Field field : fields) {
@@ -55,7 +59,13 @@ public final class StaticPatcher {
     }
   }
 
-  public static void setFinalStatic(final Field field, final Object newValue) throws Exception {
+  /**
+   * Rewrites a class's static field with a new value by field
+   *
+   * @param field    the Field to change
+   * @param newValue the new value
+   */
+  public static void setFinalStatic(final Field field, final Object newValue) throws NoSuchFieldException, IllegalAccessException {
     field.setAccessible(true);
 
     final Field modifiersField = Field.class.getDeclaredField("modifiers");
@@ -70,12 +80,4 @@ public final class StaticPatcher {
     field.setAccessible(false);
   }
 
-  public static boolean isClass(final String className) {
-    try {
-      Class.forName(className);
-      return true;
-    } catch (final ClassNotFoundException e) {
-      return false;
-    }
-  }
 }

@@ -30,16 +30,24 @@ import com.chrisrm.ideaddlc.MTConfig;
 import com.intellij.ide.plugins.IdeaPluginDescriptor;
 import com.intellij.ide.plugins.PluginManager;
 import com.intellij.ide.ui.LafManager;
+import com.intellij.notification.Notification;
+import com.intellij.notification.NotificationListener;
 import com.intellij.openapi.application.Application;
 import com.intellij.openapi.application.ApplicationManager;
+import com.intellij.openapi.application.ModalityState;
+import com.intellij.openapi.application.ex.ApplicationEx;
 import com.intellij.openapi.application.impl.ApplicationImpl;
 import com.intellij.openapi.extensions.PluginId;
+import com.intellij.openapi.options.ShowSettingsUtil;
+import com.intellij.openapi.project.Project;
 import com.intellij.ui.ColorUtil;
 import com.intellij.util.ObjectUtils;
 import com.intellij.util.ui.JBUI;
 import com.intellij.util.ui.UIUtil;
+import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 
+import javax.swing.event.HyperlinkEvent;
 import javax.swing.plaf.ColorUIResource;
 import java.awt.*;
 import java.awt.font.TextAttribute;
@@ -48,32 +56,53 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 
-public final class MTUiUtils {
-  public static final int PADDING = 4;
-  public static final int HEIGHT = 16;
+/**
+ * All kinds of utils and constants
+ */
+@SuppressWarnings({"unused",
+    "StaticMethodOnlyUsedInOneClass"})
+public enum MTUiUtils {
+  DEFAULT;
+
   public static final String MATERIAL_FONT = "Roboto";
   public static final String HELP_PREFIX = "com.chrisrm.ideaddlc.help";
   private static RenderingHints hints;
   public static final String DOCS_URL = "https://www.material-theme.com/";
-
-  private MTUiUtils() {
-
-  }
+  public static final String PLUGIN_ID = "com.chrisrm.idea.MaterialThemeUI";
+  @NonNls
+  public static final String APPEARANCE_SECTION = "Appearance";
+  @NonNls
+  public static final String DARCULA = "Darcula";
+  @NonNls
+  public static final String PLUGIN_NAME = "MaterialThemeUI";
+  private static final RenderingHints RENDERING_HINTS;
+  @NonNls
+  public static final String NOTO_SANS = "Noto Sans";
 
   static {
-    MTUiUtils.setHints(new RenderingHints(RenderingHints.KEY_ALPHA_INTERPOLATION,
-        RenderingHints.VALUE_ALPHA_INTERPOLATION_SPEED));
-    MTUiUtils.getHints().put(RenderingHints.KEY_ANTIALIASING,
+    RENDERING_HINTS = new RenderingHints(RenderingHints.KEY_ALPHA_INTERPOLATION,
+        RenderingHints.VALUE_ALPHA_INTERPOLATION_SPEED);
+    RENDERING_HINTS.put(RenderingHints.KEY_ANTIALIASING,
         RenderingHints.VALUE_ANTIALIAS_ON);
-    MTUiUtils.getHints().put(RenderingHints.KEY_RENDERING,
+    RENDERING_HINTS.put(RenderingHints.KEY_RENDERING,
         RenderingHints.VALUE_RENDER_SPEED);
-    MTUiUtils.getHints().put(RenderingHints.KEY_TEXT_ANTIALIASING,
+    RENDERING_HINTS.put(RenderingHints.KEY_TEXT_ANTIALIASING,
         RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
-    MTUiUtils.getHints().put(RenderingHints.KEY_FRACTIONALMETRICS,
+    RENDERING_HINTS.put(RenderingHints.KEY_FRACTIONALMETRICS,
         RenderingHints.VALUE_FRACTIONALMETRICS_ON);
   }
 
-  public static Font findFont(final String name) {
+  public static Map getHints() {
+    return Collections.unmodifiableMap(RENDERING_HINTS);
+  }
+
+  /**
+   * Find a font
+   *
+   * @param name font name
+   * @return font if found
+   */
+  public static Font findFont(@NonNls final String name) {
     for (final Font font : GraphicsEnvironment.getLocalGraphicsEnvironment().getAllFonts()) {
       if (font.getFamily().equals(name)) {
         return font;
@@ -82,77 +111,91 @@ public final class MTUiUtils {
     return null;
   }
 
+  /**
+   * Return a color between dark and light colors according to the current look and feel
+   *
+   * @param darkColor  the color to return if dark
+   * @param lightColor the color to return if light
+   * @return the color
+   */
+  @SuppressWarnings("OverloadedMethodsWithSameNumberOfParameters")
   public static Color lightOrDark(final ColorUIResource darkColor, final ColorUIResource lightColor) {
     return UIUtil.isUnderDarcula() ? darkColor : lightColor;
   }
 
+  /**
+   * Return a color between dark and light colors according to the current look and feel
+   *
+   * @param darkColor  the color to return if dark
+   * @param lightColor the color to return if light
+   * @return the color
+   */
+  @SuppressWarnings("OverloadedMethodsWithSameNumberOfParameters")
   public static Color lightOrDark(final Color darkColor, final Color lightColor) {
     return UIUtil.isUnderDarcula() ? darkColor : lightColor;
   }
 
+  /**
+   * Brightens a color by tones if the current laf is dark, otherwise darkens it
+   *
+   * @param color the color to brighten/darken
+   * @param tones number of tones to darken
+   * @return new color
+   */
   public static Color brighter(final Color color, final int tones) {
-    if (UIUtil.isUnderDarcula()) {
-      return ColorUtil.brighter(color, tones);
-    } else {
-      return ColorUtil.darker(color, tones);
-    }
+    return UIUtil.isUnderDarcula() ? ColorUtil.brighter(color, tones) : ColorUtil.darker(color, tones);
   }
 
+  /**
+   * Darkens a color by tones if the current laf is dark, otherwise brightens it
+   *
+   * @param color the color to brighten/darken
+   * @param tones number of tones to darken
+   * @return new color
+   */
   public static Color darker(final Color color, final int tones) {
-    if (UIUtil.isUnderDarcula()) {
-      return ColorUtil.darker(color, tones);
-    } else {
-      return ColorUtil.brighter(color, tones);
-    }
+    return UIUtil.isUnderDarcula() ? ColorUtil.darker(color, tones) : ColorUtil.brighter(color, tones);
   }
 
-  public static Color getColor(final Color mtColor, @NotNull final Color darculaColor, @NotNull final Color intellijColor) {
-    final Color defaultColor = UIUtil.isUnderDarcula() ? darculaColor : intellijColor;
+  /**
+   * Returns a color according to specific conditions:
+   * If Material Theme is enabled, returns the mtColor
+   * Otherwise if LAF is dark returns the darkColor
+   * Otherwise if LAF is light returns the lightColor
+   *
+   * @param mtColor    material theme color
+   * @param darkColor  darcula color
+   * @param lightColor light color
+   * @return color
+   */
+  public static Color getColor(final Color mtColor, @NotNull final Color darkColor, @NotNull final Color lightColor) {
+    final Color defaultColor = UIUtil.isUnderDarcula() ? darkColor : lightColor;
     if (MTConfig.getInstance().isMaterialTheme()) {
       return ObjectUtils.notNull(mtColor, defaultColor);
     }
     return defaultColor;
   }
 
+  /**
+   * Checks if current LAF is Darcula
+   *
+   * @return true if darcula
+   */
   public static boolean isDarcula() {
-    return LafManager.getInstance().getCurrentLookAndFeel().equals("Darcula");
-  }
-
-  public static Font getWidgetFont() {
-    final GraphicsEnvironment e = GraphicsEnvironment.getLocalGraphicsEnvironment();
-    final Font[] fonts = e.getAllFonts();
-    for (final Font f : fonts) {
-      if (Objects.equals(f.getFontName(), MATERIAL_FONT)) {
-
-        final Map<TextAttribute, Object> attributes = new HashMap<>();
-
-        attributes.put(TextAttribute.WEIGHT, TextAttribute.WEIGHT_BOLD);
-        attributes.put(TextAttribute.SIZE, JBUI.scale(11));
-
-        return f.deriveFont(attributes);
-      }
-    }
-    return JBUI.Fonts.label(12);
+    //noinspection ConstantConditions
+    return Objects.equals(LafManager.getInstance().getCurrentLookAndFeel().toString(), DARCULA);
   }
 
   /**
-   * Restart the IDE :-)
+   * Restarts the IDE :-)
    */
   public static void restartIde() {
     final Application application = ApplicationManager.getApplication();
     if (application instanceof ApplicationImpl) {
-      ((ApplicationImpl) application).restart(true);
+      ((ApplicationEx) application).restart(true);
     } else {
       application.restart();
     }
-  }
-
-  public static RenderingHints getHints() {
-    return hints;
-  }
-
-  public static void setHints(final RenderingHints hints) {
-    MTUiUtils.hints = hints;
   }
 
   public static String getVersion() {
@@ -187,4 +230,6 @@ public final class MTUiUtils {
   public static Object getPluginName() {
     return "DDLC Theme UI";
   }
+
+
 }
