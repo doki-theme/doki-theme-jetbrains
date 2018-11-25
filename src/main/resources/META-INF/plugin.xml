@@ -132,7 +132,7 @@
 
     <project-components>
         <component>
-            <implementation-class>com.chrisrm.ideaddlc.status.DDLCStatusBarComponent</implementation-class>
+            <implementation-class>io.acari.DDLC.status.DDLCStatusBarComponent</implementation-class>
             <loadForDefaultProject>true</loadForDefaultProject>
         </component>
         <component>

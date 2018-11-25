@@ -24,7 +24,7 @@
  *
  */
 
-package com.chrisrm.ideaddlc.status;
+package io.acari.DDLC.status;
 
 import com.chrisrm.ideaddlc.MTConfig;
 import com.chrisrm.ideaddlc.utils.MTUiUtils;
