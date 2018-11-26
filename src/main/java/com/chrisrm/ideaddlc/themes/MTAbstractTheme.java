@@ -24,8 +24,10 @@
  *
  */
 
-package com.chrisrm.ideaddlc;
+package com.chrisrm.ideaddlc.themes;
 
+import com.chrisrm.ideaddlc.MTConfig;
+import com.chrisrm.ideaddlc.MTThemeManager;
 import com.chrisrm.ideaddlc.laf.MTDarkLaf;
 import com.chrisrm.ideaddlc.laf.MTLightLaf;
 import com.chrisrm.ideaddlc.themes.DDLCLightCustomTheme;
