@@ -26,7 +26,7 @@
 package io.acari.DDLC.status;
 
 import com.chrisrm.ideaddlc.MTConfig;
-import com.chrisrm.ideaddlc.config.ConfigNotifier;
+import com.chrisrm.ideaddlc.listeners.ConfigNotifier;
 import com.intellij.openapi.Disposable;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.project.DumbAware;

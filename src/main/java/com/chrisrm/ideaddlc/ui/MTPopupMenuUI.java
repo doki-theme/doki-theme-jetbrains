@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2017 Chris Magnussen and Elior Boukhobza
+ * Copyright (c) 2018 Chris Magnussen and Elior Boukhobza
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,32 +24,20 @@
  *
  */
 
-package com.chrisrm.ideaddlc.config;
+package com.chrisrm.idea.ui;
 
-import com.chrisrm.ideaddlc.MTConfig;
-import com.intellij.util.messages.Topic;
+import javax.swing.*;
+import javax.swing.plaf.ComponentUI;
+import javax.swing.plaf.basic.BasicPopupMenuUI;
 
-/**
- * Configuration Save Events
- */
-public interface ConfigNotifier {
-  /**
-   * Topic for Material Theme Settings changes
-   */
-  Topic<ConfigNotifier> CONFIG_TOPIC = Topic.create("Material Theme Config save", ConfigNotifier.class);
+public class MTPopupMenuUI extends BasicPopupMenuUI {
+  public static ComponentUI createUI(final JComponent x) {
+    return new MTPopupMenuUI();
+  }
 
-  /**
-   * Called when config is changed
-   *
-   * @param mtConfig
-   */
-  void configChanged(MTConfig mtConfig);
-
-  class Adapter implements ConfigNotifier {
-
-    @Override
-    public void configChanged(final MTConfig mtConfig) {
-
-    }
+  @Override
+  public void installDefaults() {
+    super.installDefaults();
+    LookAndFeel.installProperty(popupMenu, "opaque", Boolean.FALSE);
   }
 }

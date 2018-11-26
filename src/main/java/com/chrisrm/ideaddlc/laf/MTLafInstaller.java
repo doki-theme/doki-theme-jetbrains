@@ -23,9 +23,11 @@
  *
  */
 
-package com.chrisrm.ideaddlc;
+package com.chrisrm.ideaddlc.laf;
 
-import com.chrisrm.ideaddlc.themes.MTThemeable;
+import com.chrisrm.ideaddlc.MTConfig;
+import com.chrisrm.ideaddlc.laf.MTLaf;
+import com.chrisrm.ideaddlc.themes.models.MTThemeable;
 import com.chrisrm.ideaddlc.ui.*;
 import com.chrisrm.ideaddlc.ui.indicators.MTSelectedTreePainter;
 import com.chrisrm.ideaddlc.utils.PropertiesParser;

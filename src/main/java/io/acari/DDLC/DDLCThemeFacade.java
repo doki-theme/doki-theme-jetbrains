@@ -26,7 +26,7 @@
 
 package io.acari.DDLC;
 
-import com.chrisrm.ideaddlc.themes.MTThemeable;
+import com.chrisrm.ideaddlc.themes.models.MTThemeable;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -39,13 +39,13 @@ public interface DDLCThemeFacade {
   /**
    * The internal theme's color scheme
    *
-   * @return
+   * @return The color scheme
    */
   @NotNull
   String getThemeColorScheme();
 
   /**
-   * The intrrnal theme
+   * The internal theme
    *
    * @return
    */
@@ -53,16 +53,16 @@ public interface DDLCThemeFacade {
   MTThemeable getTheme();
 
   /**
-   * The internal theme isDark
+   * Whether a theme is dark
    *
-   * @return
+   * @return if the theme is dark
    */
-  boolean getThemeIsDark();
+  boolean isDark();
 
   /**
-   * The enum name
+   * The theme name
    *
-   * @return
+   * @return the theme name
    */
   @NotNull
   String getName();
@@ -76,17 +76,17 @@ public interface DDLCThemeFacade {
   String getThemeName();
 
   /**
-   * The internal theme id
+   * The internal theme id (OCEANIC, DARKER, PALENIGHT...)
    *
-   * @return
+   * @return the unique identifier for themes
    */
   @NotNull
   String getThemeId();
 
   /**
-   * Icon
+   * The theme icon
    *
-   * @return
+   * @return the theme's icon
    */
   Icon getIcon();
 
@@ -114,4 +114,16 @@ public interface DDLCThemeFacade {
   String getNonProjectFileScopeColor();
 
   String getTestScope();
+
+  /**
+   * If the theme is a premium theme
+   *
+   * @return true if premium
+   */
+  boolean isPremium();
+
+  /**
+   * Is the theme custom
+   */
+  boolean isCustom();
 }

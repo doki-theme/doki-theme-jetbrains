@@ -26,14 +26,12 @@
 
 package com.chrisrm.ideaddlc;
 
-import com.chrisrm.ideaddlc.config.BeforeConfigNotifier;
-import com.chrisrm.ideaddlc.config.ConfigNotifier;
+import com.chrisrm.ideaddlc.listeners.ConfigNotifier;
 import com.chrisrm.ideaddlc.config.ui.MTForm;
 import com.chrisrm.ideaddlc.messages.MaterialThemeBundle;
 import com.chrisrm.ideaddlc.ui.MTTreeUI;
 import com.chrisrm.ideaddlc.ui.indicators.MTSelectedTreeIndicatorImpl;
 import com.chrisrm.ideaddlc.utils.MTUiUtils;
-import com.intellij.ide.ui.LafManager;
 import com.intellij.ide.ui.UISettings;
 import com.intellij.ide.ui.UISettingsListener;
 import com.intellij.openapi.application.ApplicationManager;

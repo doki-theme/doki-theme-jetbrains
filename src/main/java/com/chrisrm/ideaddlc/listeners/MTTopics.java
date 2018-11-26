@@ -24,90 +24,19 @@
  *
  */
 
-package com.chrisrm.ideaddlc;
+package com.chrisrm.idea.listeners;
 
-import com.chrisrm.ideaddlc.themes.models.MTThemeable;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-
-import javax.swing.*;
+import com.intellij.util.messages.Topic;
 
 /**
- * Interface for the selected theme
+ * Configuration Save Events
  */
-public interface MTThemeFacade {
+public enum MTTopics {
+  DEFAULT;
   /**
-   * The internal theme's color scheme
-   *
-   * @return
+   * Topic for Material Theme Settings changes
    */
-  @NotNull
-  String getThemeColorScheme();
+  public static final Topic<AccentsListener> ACCENTS = Topic.create("Accents Changes", AccentsListener.class);
+  public static final Topic<ThemeListener> THEMES = Topic.create("Theme Changes", ThemeListener.class);
 
-  /**
-   * The intrrnal theme
-   *
-   * @return
-   */
-  @NotNull
-  MTThemeable getTheme();
-
-  /**
-   * The internal theme isDark
-   *
-   * @return
-   */
-  boolean getThemeIsDark();
-
-  /**
-   * The enum name
-   *
-   * @return
-   */
-  @NotNull
-  String getName();
-
-  /**
-   * The internal theme name
-   *
-   * @return
-   */
-  @Nullable
-  String getThemeName();
-
-  /**
-   * The internal theme id
-   *
-   * @return
-   */
-  @NotNull
-  String getThemeId();
-
-  /**
-   * Icon
-   *
-   * @return
-   */
-  Icon getIcon();
-
-  /**
-   * The predefined accent color
-   *
-   * @return
-   */
-  String getAccentColor();
-
-  /**
-   * The extenral files color
-   *
-   * @return
-   */
-  String getExcludedColor();
-
-  /**
-   * Order in the list
-   *
-   * @return
-   */
-  int getOrder();
 }

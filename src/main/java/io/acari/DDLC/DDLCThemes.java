@@ -26,9 +26,9 @@
 
 package io.acari.DDLC;
 
+import com.chrisrm.ideaddlc.themes.models.MTThemeable;
 import io.acari.DDLC.actions.DarkMode;
 import io.acari.DDLC.actions.JoyManager;
-import com.chrisrm.ideaddlc.themes.*;
 import io.acari.DDLC.themes.light.MonikaTheme;
 import io.acari.DDLC.themes.light.NatsukiTheme;
 import io.acari.DDLC.themes.light.SayoriTheme;

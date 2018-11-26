@@ -25,8 +25,10 @@
 
 package com.chrisrm.ideaddlc;
 
+import com.chrisrm.ideaddlc.laf.MTDarkLaf;
+import com.chrisrm.ideaddlc.laf.MTLafInstaller;
 import com.chrisrm.ideaddlc.messages.MaterialThemeBundle;
-import com.chrisrm.ideaddlc.themes.MTThemeable;
+import com.chrisrm.ideaddlc.themes.models.MTThemeable;
 import com.chrisrm.ideaddlc.themes.lists.AccentResources;
 import com.chrisrm.ideaddlc.themes.lists.ContrastResources;
 import com.chrisrm.ideaddlc.themes.lists.FontResources;

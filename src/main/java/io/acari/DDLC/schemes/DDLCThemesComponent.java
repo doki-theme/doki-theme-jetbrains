@@ -27,8 +27,8 @@
 package io.acari.DDLC.schemes;
 
 import com.chrisrm.ideaddlc.MTThemeManager;
-import com.chrisrm.ideaddlc.config.ConfigNotifier;
-import com.chrisrm.ideaddlc.config.CustomConfigNotifier;
+import com.chrisrm.ideaddlc.listeners.ConfigNotifier;
+import com.chrisrm.ideaddlc.listeners.CustomConfigNotifier;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.components.ApplicationComponent;
 import com.intellij.util.messages.MessageBusConnection;

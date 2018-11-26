@@ -24,90 +24,32 @@
  *
  */
 
-package com.chrisrm.ideaddlc;
+package com.chrisrm.idea.ui;
 
-import com.chrisrm.ideaddlc.themes.models.MTThemeable;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import com.intellij.ide.ui.laf.darcula.ui.DarculaSeparatorUI;
+import com.intellij.util.ui.JBUI;
 
 import javax.swing.*;
+import javax.swing.plaf.*;
+import java.awt.*;
 
-/**
- * Interface for the selected theme
- */
-public interface MTThemeFacade {
-  /**
-   * The internal theme's color scheme
-   *
-   * @return
-   */
-  @NotNull
-  String getThemeColorScheme();
+public class MTSeparatorUI extends DarculaSeparatorUI {
 
-  /**
-   * The intrrnal theme
-   *
-   * @return
-   */
-  @NotNull
-  MTThemeable getTheme();
+  private final Color color = UIManager.getColor("Separator.foreground");
 
-  /**
-   * The internal theme isDark
-   *
-   * @return
-   */
-  boolean getThemeIsDark();
+  public static ComponentUI createUI(final JComponent c) {
+    return new MTSeparatorUI();
+  }
 
-  /**
-   * The enum name
-   *
-   * @return
-   */
-  @NotNull
-  String getName();
+  @Override
+  public void paint(final Graphics g, final JComponent c) {
+    final Rectangle r = new Rectangle(c.getSize());
+    g.setColor(color);
 
-  /**
-   * The internal theme name
-   *
-   * @return
-   */
-  @Nullable
-  String getThemeName();
-
-  /**
-   * The internal theme id
-   *
-   * @return
-   */
-  @NotNull
-  String getThemeId();
-
-  /**
-   * Icon
-   *
-   * @return
-   */
-  Icon getIcon();
-
-  /**
-   * The predefined accent color
-   *
-   * @return
-   */
-  String getAccentColor();
-
-  /**
-   * The extenral files color
-   *
-   * @return
-   */
-  String getExcludedColor();
-
-  /**
-   * Order in the list
-   *
-   * @return
-   */
-  int getOrder();
+    if (((JSeparator) c).getOrientation() == SwingConstants.VERTICAL) {
+      g.fillRect(r.x + JBUI.scale(1), r.y, JBUI.scale(1), r.height);
+    } else {
+      g.fillRect(r.x, r.y + JBUI.scale(1), r.width, JBUI.scale(2));
+    }
+  }
 }

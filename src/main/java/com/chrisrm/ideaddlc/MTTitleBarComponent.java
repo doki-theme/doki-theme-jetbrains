@@ -25,7 +25,7 @@
 
 package com.chrisrm.ideaddlc;
 
-import com.chrisrm.ideaddlc.config.ConfigNotifier;
+import com.chrisrm.ideaddlc.listeners.ConfigNotifier;
 import com.chrisrm.ideaddlc.listeners.CustomConfigNotifier;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.components.ProjectComponent;

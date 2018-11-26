@@ -27,7 +27,7 @@
 package com.chrisrm.ideaddlc.tabs;
 
 import com.chrisrm.ideaddlc.MTConfig;
-import com.chrisrm.ideaddlc.themes.MTThemeable;
+import com.chrisrm.ideaddlc.themes.models.MTThemeable;
 import com.chrisrm.ideaddlc.utils.MTAccents;
 import com.intellij.openapi.application.ex.ApplicationManagerEx;
 import com.intellij.openapi.components.BaseComponent;

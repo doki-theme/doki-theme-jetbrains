@@ -26,7 +26,7 @@
 
 package com.chrisrm.ideaddlc;
 
-import com.chrisrm.ideaddlc.config.ConfigNotifier;
+import com.chrisrm.ideaddlc.listeners.ConfigNotifier;
 import com.chrisrm.ideaddlc.config.ui.ArrowsStyles;
 import com.chrisrm.ideaddlc.config.ui.IndicatorStyles;
 import com.chrisrm.ideaddlc.config.ui.MTForm;

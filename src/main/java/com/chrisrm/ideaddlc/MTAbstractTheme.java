@@ -26,8 +26,10 @@
 
 package com.chrisrm.ideaddlc;
 
+import com.chrisrm.ideaddlc.laf.MTDarkLaf;
+import com.chrisrm.ideaddlc.laf.MTLightLaf;
 import com.chrisrm.ideaddlc.themes.DDLCLightCustomTheme;
-import com.chrisrm.ideaddlc.themes.MTThemeable;
+import com.chrisrm.ideaddlc.themes.models.MTThemeable;
 import com.chrisrm.ideaddlc.utils.MTUiUtils;
 import com.chrisrm.ideaddlc.utils.PropertiesParser;
 import com.intellij.ide.ui.laf.IntelliJLookAndFeelInfo;

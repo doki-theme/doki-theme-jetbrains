@@ -24,90 +24,38 @@
  *
  */
 
-package com.chrisrm.ideaddlc;
+package com.chrisrm.idea.config;
 
-import com.chrisrm.ideaddlc.themes.models.MTThemeable;
+import com.chrisrm.idea.config.ui.MTForm;
+import com.chrisrm.idea.config.ui.MTFormUI;
+import com.intellij.openapi.components.PersistentStateComponent;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
-import javax.swing.*;
+public interface MTBaseConfig<FORM extends MTFormUI, CONFIG extends PersistentStateComponent> {
 
-/**
- * Interface for the selected theme
- */
-public interface MTThemeFacade {
-  /**
-   * The internal theme's color scheme
-   *
-   * @return
-   */
-  @NotNull
-  String getThemeColorScheme();
+  void loadState(@NotNull CONFIG state);
 
   /**
-   * The intrrnal theme
+   * Fire an event to the application bus that the settings have changed
    *
-   * @return
+   * @param form the form state
    */
-  @NotNull
-  MTThemeable getTheme();
+  void fireBeforeChanged(FORM form);
+
+  void fireChanged();
+
+  void applySettings(FORM form);
 
   /**
-   * The internal theme isDark
-   *
-   * @return
+   * Convenience method to reset settings
    */
-  boolean getThemeIsDark();
+  void resetSettings();
 
   /**
-   * The enum name
+   * Check whether the saving needs a restart
    *
-   * @return
+   * @param form of type MTForm
+   * @return boolean
    */
-  @NotNull
-  String getName();
-
-  /**
-   * The internal theme name
-   *
-   * @return
-   */
-  @Nullable
-  String getThemeName();
-
-  /**
-   * The internal theme id
-   *
-   * @return
-   */
-  @NotNull
-  String getThemeId();
-
-  /**
-   * Icon
-   *
-   * @return
-   */
-  Icon getIcon();
-
-  /**
-   * The predefined accent color
-   *
-   * @return
-   */
-  String getAccentColor();
-
-  /**
-   * The extenral files color
-   *
-   * @return
-   */
-  String getExcludedColor();
-
-  /**
-   * Order in the list
-   *
-   * @return
-   */
-  int getOrder();
+  boolean needsRestart(MTForm form);
 }

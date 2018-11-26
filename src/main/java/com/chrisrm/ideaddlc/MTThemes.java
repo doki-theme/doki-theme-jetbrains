@@ -26,7 +26,7 @@
 
 package com.chrisrm.ideaddlc;
 
-import com.chrisrm.ideaddlc.themes.MTThemeable;
+import com.chrisrm.ideaddlc.themes.models.MTThemeable;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;

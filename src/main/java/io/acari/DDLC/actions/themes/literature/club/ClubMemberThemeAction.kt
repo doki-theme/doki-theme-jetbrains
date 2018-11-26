@@ -48,9 +48,12 @@ open class ClubMemberThemeAction(private val theme: DDLCThemes,
     override fun selectionActivation() {
         super.selectionActivation()
         accentAction.setAccentToTheme()
-        MTThemeManager.getInstance().activate(theme, true)
+        MTTreeUI.resetIcons()
+        MTButtonUI.resetCache()
+        MTProjectViewNodeDecorator.resetCache()
+        MTThemeManager.activate(theme, true)
         ChibiOrchestrator.activateChibiForTheme(theme)
-        MTAnalytics.getInstance().track(MTAnalytics.SELECT_THEME, theme);
+        MTAnalytics.getInstance().trackValue(MTAnalytics.SELECT_THEME, theme);
     }
 
     override fun projectSpecificActivation(e: AnActionEvent) {

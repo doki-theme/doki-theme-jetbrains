@@ -24,90 +24,67 @@
  *
  */
 
-package com.chrisrm.ideaddlc;
+package com.chrisrm.ideaddlc.laf;
 
 import com.chrisrm.ideaddlc.themes.models.MTThemeable;
+import com.intellij.ide.ui.laf.IntelliJLaf;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
 
-/**
- * Interface for the selected theme
- */
-public interface MTThemeFacade {
+public class MTLightLaf extends IntelliJLaf implements MTLaf {
+
+  private final MTLafInstaller mtLafInstaller;
+
+  public MTLightLaf(@NotNull final MTThemeable theme) {
+    super();
+    mtLafInstaller = new MTLafInstaller(this, theme);
+  }
+
+  @Override
+  public UIDefaults getDefaults() {
+    final UIDefaults defaults = super.getDefaults();
+
+    mtLafInstaller.installDefaults(defaults);
+    // Install darcula defaults
+    mtLafInstaller.installLightDefaults(defaults);
+    // Install material defaults
+    mtLafInstaller.installMTDefaults(defaults);
+
+    return defaults;
+  }
+
+  @Override
+  public String getDescription() {
+    return "Light DDLC";
+  }
+
+
   /**
-   * The internal theme's color scheme
+   * Get Theme Prefix
    *
    * @return
    */
   @NotNull
-  String getThemeColorScheme();
+  @Override
+  protected String getPrefix() {
+    return mtLafInstaller.getPrefix();
+  }
+
+  @Override
+  protected void loadDefaults(final UIDefaults defaults) {
+    mtLafInstaller.loadDefaults(defaults);
+  }
 
   /**
-   * The intrrnal theme
+   * Parse properties value
    *
+   * @param key
+   * @param value
    * @return
    */
-  @NotNull
-  MTThemeable getTheme();
-
-  /**
-   * The internal theme isDark
-   *
-   * @return
-   */
-  boolean getThemeIsDark();
-
-  /**
-   * The enum name
-   *
-   * @return
-   */
-  @NotNull
-  String getName();
-
-  /**
-   * The internal theme name
-   *
-   * @return
-   */
-  @Nullable
-  String getThemeName();
-
-  /**
-   * The internal theme id
-   *
-   * @return
-   */
-  @NotNull
-  String getThemeId();
-
-  /**
-   * Icon
-   *
-   * @return
-   */
-  Icon getIcon();
-
-  /**
-   * The predefined accent color
-   *
-   * @return
-   */
-  String getAccentColor();
-
-  /**
-   * The extenral files color
-   *
-   * @return
-   */
-  String getExcludedColor();
-
-  /**
-   * Order in the list
-   *
-   * @return
-   */
-  int getOrder();
+  @Override
+  protected Object parseValue(final String key, @NotNull final String value) {
+    return mtLafInstaller.parseValue(key, value);
+  }
 }

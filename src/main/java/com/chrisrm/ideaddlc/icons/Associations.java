@@ -86,40 +86,4 @@ public final class Associations implements Serializable {
 
     return result;
   }
-
-  public static final class AssociationsFactory {
-    /**
-     * Parse icon_associations.xml to build the list of Associations
-     *
-     * @param associationsFile
-     */
-    public static Associations create(final String associationsFile) {
-      final URL associationsXml = AssociationsFactory.class.getResource(associationsFile);
-      final XStream xStream = new XStream(new DomDriver());
-      xStream.alias("associations", Associations.class);
-      xStream.alias("regex", RegexAssociation.class);
-      xStream.alias("type", TypeAssociation.class);
-
-      if (StaticPatcher.isClass("com.intellij.psi.PsiClass")) {
-        xStream.alias("psi", PsiElementAssociation.class);
-      } else {
-        xStream.alias("psi", TypeAssociation.class);
-      }
-
-      xStream.useAttributeFor(Association.class, "icon");
-      xStream.useAttributeFor(Association.class, "name");
-      xStream.useAttributeFor(RegexAssociation.class, "pattern");
-      xStream.useAttributeFor(TypeAssociation.class, "type");
-
-      if (StaticPatcher.isClass("com.intellij.psi.PsiClass")) {
-        xStream.useAttributeFor(PsiElementAssociation.class, "type");
-      }
-
-      try {
-        return (Associations) xStream.fromXML(associationsXml);
-      } catch (final Exception e) {
-        return new Associations();
-      }
-    }
-  }
 }

@@ -24,9 +24,9 @@
  *
  */
 
-package com.chrisrm.ideaddlc;
+package com.chrisrm.ideaddlc.laf;
 
-import com.chrisrm.ideaddlc.themes.MTThemeable;
+import com.chrisrm.ideaddlc.themes.models.MTThemeable;
 import com.intellij.ide.ui.laf.darcula.DarculaLaf;
 import org.jetbrains.annotations.NotNull;
 

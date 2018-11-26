@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2018 Chris Magnussen and Elior Boukhobza
+ * Copyright (c) 2017 Chris Magnussen and Elior Boukhobza
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,16 +24,32 @@
  *
  */
 
-package com.chrisrm.ideaddlc.themes.models;
+package com.chrisrm.ideaddlc.listeners;
 
-import org.jetbrains.annotations.NotNull;
+import com.chrisrm.ideaddlc.MTCustomThemeConfig;
+import com.intellij.util.messages.Topic;
 
-public interface MTBundledTheme extends MTThemeable {
-  @Override
-  void setName(String name);
+/**
+ * Configuration Save Events
+ */
+public interface CustomConfigNotifier {
+  /**
+   * Topic for Material Theme Settings changes
+   */
+  Topic<CustomConfigNotifier> CONFIG_TOPIC = Topic.create("Material Theme Config save", CustomConfigNotifier.class);
 
-  @Override
-  @NotNull
-  String getThemeId();
+  /**
+   * Triggered when the custom theme config is changed
+   *
+   * @param mtCustomThemeConfig
+   */
+  void customConfigChanged(MTCustomThemeConfig mtCustomThemeConfig);
 
+  class Adapter implements CustomConfigNotifier {
+
+    @Override
+    public void customConfigChanged(final MTCustomThemeConfig mtCustomThemeConfig) {
+
+    }
+  }
 }

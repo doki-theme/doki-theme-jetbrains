@@ -24,7 +24,7 @@
  *
  */
 
-package com.chrisrm.ideaddlc.themes;
+package com.chrisrm.ideaddlc.themes.models;
 
 import org.jetbrains.annotations.NotNull;
 

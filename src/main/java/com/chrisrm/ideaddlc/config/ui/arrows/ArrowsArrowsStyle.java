@@ -24,67 +24,30 @@
  *
  */
 
-package com.chrisrm.ideaddlc;
+package com.chrisrm.idea.config.ui.arrows;
 
-import com.chrisrm.ideaddlc.themes.MTThemeable;
-import com.intellij.ide.ui.laf.IntelliJLaf;
-import org.jetbrains.annotations.NotNull;
+import icons.MTIcons;
 
 import javax.swing.*;
 
-public class MTLightLaf extends IntelliJLaf implements MTLaf {
-
-  private final MTLafInstaller mtLafInstaller;
-
-  public MTLightLaf(@NotNull final MTThemeable theme) {
-    super();
-    mtLafInstaller = new MTLafInstaller(this, theme);
+public final class ArrowsArrowsStyle implements ArrowsStyle {
+  @Override
+  public Icon getExpandIcon() {
+    return MTIcons.Arrows.Right;
   }
 
   @Override
-  public UIDefaults getDefaults() {
-    final UIDefaults defaults = super.getDefaults();
-
-    mtLafInstaller.installDefaults(defaults);
-    // Install darcula defaults
-    mtLafInstaller.installLightDefaults(defaults);
-    // Install material defaults
-    mtLafInstaller.installMTDefaults(defaults);
-
-    return defaults;
+  public Icon getCollapseIcon() {
+    return MTIcons.Arrows.Down;
   }
 
   @Override
-  public String getDescription() {
-    return "Light DDLC";
-  }
-
-
-  /**
-   * Get Theme Prefix
-   *
-   * @return
-   */
-  @NotNull
-  @Override
-  protected String getPrefix() {
-    return mtLafInstaller.getPrefix();
+  public Icon getSelectedExpandIcon() {
+    return MTIcons.Arrows.RightSelected;
   }
 
   @Override
-  protected void loadDefaults(final UIDefaults defaults) {
-    mtLafInstaller.loadDefaults(defaults);
-  }
-
-  /**
-   * Parse properties value
-   *
-   * @param key
-   * @param value
-   * @return
-   */
-  @Override
-  protected Object parseValue(final String key, @NotNull final String value) {
-    return mtLafInstaller.parseValue(key, value);
+  public Icon getSelectedCollapseIcon() {
+    return MTIcons.Arrows.DownSelected;
   }
 }

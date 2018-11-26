@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2017 Chris Magnussen and Elior Boukhobza
+ * Copyright (c) 2018 Chris Magnussen and Elior Boukhobza
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,32 +24,22 @@
  *
  */
 
-package com.chrisrm.ideaddlc.config;
+package com.chrisrm.idea.icons;
 
-import com.chrisrm.ideaddlc.MTCustomThemeConfig;
-import com.intellij.util.messages.Topic;
+import com.chrisrm.idea.MTConfig;
+import com.chrisrm.idea.icons.filters.MonochromeFilter;
+import com.intellij.openapi.util.IconLoader;
 
-/**
- * Configuration Save Events
- */
-public interface CustomConfigNotifier {
-  /**
-   * Topic for Material Theme Settings changes
-   */
-  Topic<CustomConfigNotifier> CONFIG_TOPIC = Topic.create("Material Theme Config save", CustomConfigNotifier.class);
+public enum IconManager {
+  DEFAULT,
+  MONOCHROME;
 
-  /**
-   * Triggered when the custom theme config is changed
-   *
-   * @param mtCustomThemeConfig
-   */
-  void customConfigChanged(MTCustomThemeConfig mtCustomThemeConfig);
-
-  class Adapter implements CustomConfigNotifier {
-
-    @Override
-    public void customConfigChanged(final MTCustomThemeConfig mtCustomThemeConfig) {
-
+  public static void applyFilter() {
+    final boolean monochromeIcons = MTConfig.getInstance().isMonochromeIcons();
+    if (monochromeIcons) {
+      IconLoader.setFilter(new MonochromeFilter());
+    } else {
+      IconLoader.setFilter(null);
     }
   }
 }

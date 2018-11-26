@@ -24,10 +24,22 @@
  *
  */
 
-package com.chrisrm.ideaddlc;
+package com.chrisrm.idea.ui;
 
-import javax.swing.*;
+import com.chrisrm.idea.MTConfig;
+import com.intellij.ide.ui.laf.darcula.ui.DarculaMenuItemBorder;
+import com.intellij.util.ui.JBUI;
 
-public interface MTLaf {
-  UIDefaults getDefaults();
+import java.awt.*;
+
+public class MTMenuItemBorder extends DarculaMenuItemBorder {
+
+  @Override
+  public Insets getBorderInsets(final Component c) {
+    if (MTConfig.getInstance().isCompactMenus()) {
+      return JBUI.insets(2).asUIResource();
+    } else {
+      return JBUI.insets(8, 2).asUIResource();
+    }
+  }
 }

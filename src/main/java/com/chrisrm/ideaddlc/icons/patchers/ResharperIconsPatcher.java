@@ -23,91 +23,24 @@
  *
  *
  */
+package com.chrisrm.idea.icons.patchers;
 
-package com.chrisrm.ideaddlc;
-
-import com.chrisrm.ideaddlc.themes.models.MTThemeable;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-
-import javax.swing.*;
 
 /**
- * Interface for the selected theme
+ * @author Konstantin Bulenkov
  */
-public interface MTThemeFacade {
-  /**
-   * The internal theme's color scheme
-   *
-   * @return
-   */
+public class ResharperIconsPatcher extends MTIconPatcher {
+
+  @Override
   @NotNull
-  String getThemeColorScheme();
+  public final String getPathToAppend() {
+    return "/icons/plugins/resharper";
+  }
 
-  /**
-   * The intrrnal theme
-   *
-   * @return
-   */
+  @Override
   @NotNull
-  MTThemeable getTheme();
-
-  /**
-   * The internal theme isDark
-   *
-   * @return
-   */
-  boolean getThemeIsDark();
-
-  /**
-   * The enum name
-   *
-   * @return
-   */
-  @NotNull
-  String getName();
-
-  /**
-   * The internal theme name
-   *
-   * @return
-   */
-  @Nullable
-  String getThemeName();
-
-  /**
-   * The internal theme id
-   *
-   * @return
-   */
-  @NotNull
-  String getThemeId();
-
-  /**
-   * Icon
-   *
-   * @return
-   */
-  Icon getIcon();
-
-  /**
-   * The predefined accent color
-   *
-   * @return
-   */
-  String getAccentColor();
-
-  /**
-   * The extenral files color
-   *
-   * @return
-   */
-  String getExcludedColor();
-
-  /**
-   * Order in the list
-   *
-   * @return
-   */
-  int getOrder();
+  public final String getPathToRemove() {
+    return "/resharper";
+  }
 }

@@ -27,10 +27,10 @@
 package io.acari.DDLC;
 
 import com.chrisrm.ideaddlc.MTConfig;
-import com.chrisrm.ideaddlc.MTDarkLaf;
-import com.chrisrm.ideaddlc.MTLightLaf;
+import com.chrisrm.ideaddlc.laf.MTDarkLaf;
+import com.chrisrm.ideaddlc.laf.MTLightLaf;
 import com.chrisrm.ideaddlc.MTThemeManager;
-import com.chrisrm.ideaddlc.themes.MTThemeable;
+import com.chrisrm.ideaddlc.themes.models.MTThemeable;
 import io.acari.DDLC.themes.light.MonikaTheme;
 import com.chrisrm.ideaddlc.utils.MTUiUtils;
 import com.chrisrm.ideaddlc.utils.PropertiesParser;
