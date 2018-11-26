@@ -24,14 +24,14 @@
  *
  */
 
-package com.chrisrm.idea.icons;
+package com.chrisrm.ideaddlc.icons;
 
-import com.chrisrm.idea.MTConfig;
-import com.chrisrm.idea.listeners.AccentsListener;
-import com.chrisrm.idea.listeners.MTTopics;
-import com.chrisrm.idea.listeners.ThemeListener;
-import com.chrisrm.idea.themes.MTThemeFacade;
-import com.chrisrm.idea.utils.MTAccents;
+import com.chrisrm.ideaddlc.MTConfig;
+import com.chrisrm.ideaddlc.listeners.AccentsListener;
+import com.chrisrm.ideaddlc.listeners.MTTopics;
+import com.chrisrm.ideaddlc.listeners.ThemeListener;
+import com.chrisrm.ideaddlc.themes.MTThemeFacade;
+import com.chrisrm.ideaddlc.utils.MTAccents;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.components.BaseComponent;
 import com.intellij.ui.ColorUtil;

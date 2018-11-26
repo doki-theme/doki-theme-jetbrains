@@ -24,9 +24,9 @@
  *
  */
 
-package com.chrisrm.idea.ui;
+package com.chrisrm.ideaddlc.ui;
 
-import com.chrisrm.idea.MTConfig;
+import com.chrisrm.ideaddlc.MTConfig;
 import com.intellij.ide.ui.laf.darcula.ui.DarculaMenuItemBorder;
 import com.intellij.util.ui.JBUI;
 

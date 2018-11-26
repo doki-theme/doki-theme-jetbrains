@@ -24,7 +24,7 @@
  *
  */
 
-package com.chrisrm.idea.utils;
+package com.chrisrm.ideaddlc.utils;
 
 import com.intellij.openapi.util.text.StringUtil;
 import com.intellij.util.ArrayUtil;

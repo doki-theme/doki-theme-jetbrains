@@ -24,7 +24,7 @@
  *
  */
 
-package com.chrisrm.idea.config.ui.arrows;
+package com.chrisrm.ideaddlc.config.ui.arrows;
 
 import icons.MTIcons;
 

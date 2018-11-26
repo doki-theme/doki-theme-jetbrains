@@ -24,7 +24,7 @@
  *
  */
 
-package com.chrisrm.idea.listeners;
+package com.chrisrm.ideaddlc.listeners;
 
 import org.jetbrains.annotations.NotNull;
 

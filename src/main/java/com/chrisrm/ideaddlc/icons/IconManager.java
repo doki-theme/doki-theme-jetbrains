@@ -24,10 +24,10 @@
  *
  */
 
-package com.chrisrm.idea.icons;
+package com.chrisrm.ideaddlc.icons;
 
-import com.chrisrm.idea.MTConfig;
-import com.chrisrm.idea.icons.filters.MonochromeFilter;
+import com.chrisrm.ideaddlc.MTConfig;
+import com.chrisrm.ideaddlc.icons.filters.MonochromeFilter;
 import com.intellij.openapi.util.IconLoader;
 
 public enum IconManager {

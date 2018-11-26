@@ -24,10 +24,10 @@
  *
  */
 
-package com.chrisrm.idea.config;
+package com.chrisrm.ideaddlc.config;
 
-import com.chrisrm.idea.config.ui.MTForm;
-import com.chrisrm.idea.config.ui.MTFormUI;
+import com.chrisrm.ideaddlc.config.ui.MTForm;
+import com.chrisrm.ideaddlc.config.ui.MTFormUI;
 import com.intellij.openapi.components.PersistentStateComponent;
 import org.jetbrains.annotations.NotNull;
 

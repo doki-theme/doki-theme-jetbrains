@@ -24,7 +24,7 @@
  *
  */
 
-package com.chrisrm.idea.ui;
+package com.chrisrm.ideaddlc.ui;
 
 import com.intellij.ui.paint.RectanglePainter;
 import com.intellij.util.ui.RegionPainter;

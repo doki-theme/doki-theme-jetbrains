@@ -24,7 +24,7 @@
  *
  */
 
-package com.chrisrm.idea.ui;
+package com.chrisrm.ideaddlc.ui;
 
 import javax.swing.*;
 import javax.swing.plaf.ComponentUI;

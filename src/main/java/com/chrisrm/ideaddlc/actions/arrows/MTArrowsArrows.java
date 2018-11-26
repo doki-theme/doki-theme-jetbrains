@@ -24,9 +24,9 @@
  *
  */
 
-package com.chrisrm.idea.actions.arrows;
+package com.chrisrm.ideaddlc.actions.arrows;
 
-import com.chrisrm.idea.config.ui.ArrowsStyles;
+import com.chrisrm.ideaddlc.config.ui.ArrowsStyles;
 
 public final class MTArrowsArrows extends MTAbstractArrowsAction {
 

@@ -23,10 +23,10 @@
  *
  */
 
-package com.chrisrm.idea.icons.filters;
+package com.chrisrm.ideaddlc.icons.filters;
 
-import com.chrisrm.idea.MTConfig;
-import com.chrisrm.idea.utils.MTUiUtils;
+import com.chrisrm.ideaddlc.MTConfig;
+import com.chrisrm.ideaddlc.utils.MTUiUtils;
 
 import java.awt.*;
 

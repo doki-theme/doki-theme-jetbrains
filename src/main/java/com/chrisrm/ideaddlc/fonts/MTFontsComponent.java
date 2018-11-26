@@ -24,9 +24,9 @@
  *
  */
 
-package com.chrisrm.idea.fonts;
+package com.chrisrm.ideaddlc.fonts;
 
-import com.chrisrm.idea.messages.MaterialThemeBundle;
+import com.chrisrm.ideaddlc.messages.MaterialThemeBundle;
 import com.intellij.openapi.components.BaseComponent;
 import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.ui.AppUIUtil;

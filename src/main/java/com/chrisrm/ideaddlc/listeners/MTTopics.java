@@ -24,7 +24,7 @@
  *
  */
 
-package com.chrisrm.idea.listeners;
+package com.chrisrm.ideaddlc.listeners;
 
 import com.intellij.util.messages.Topic;
 

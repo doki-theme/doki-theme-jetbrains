@@ -23,14 +23,14 @@
  *
  */
 
-package com.chrisrm.idea;
+package com.chrisrm.ideaddlc;
 
-import com.chrisrm.idea.config.MTBaseConfig;
-import com.chrisrm.idea.config.ui.MTCustomThemeForm;
-import com.chrisrm.idea.config.ui.MTForm;
-import com.chrisrm.idea.listeners.CustomConfigNotifier;
-import com.chrisrm.idea.utils.MTColorUtils;
-import com.chrisrm.idea.utils.MTUiUtils;
+import com.chrisrm.ideaddlc.config.MTBaseConfig;
+import com.chrisrm.ideaddlc.config.ui.MTCustomThemeForm;
+import com.chrisrm.ideaddlc.config.ui.MTForm;
+import com.chrisrm.ideaddlc.listeners.CustomConfigNotifier;
+import com.chrisrm.ideaddlc.utils.MTColorUtils;
+import com.chrisrm.ideaddlc.utils.MTUiUtils;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.components.PersistentStateComponent;
 import com.intellij.openapi.components.ServiceManager;

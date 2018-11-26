@@ -23,7 +23,7 @@
  *
  */
 
-package com.chrisrm.idea.ui;
+package com.chrisrm.ideaddlc.ui;
 
 import com.intellij.ide.ui.laf.darcula.ui.DarculaMenuSeparatorUI;
 import com.intellij.util.ui.JBValue;
