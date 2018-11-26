@@ -24,9 +24,10 @@
  *
  */
 
-package com.chrisrm.ideaddlc.utils;
+package com.chrisrm.ideaddlc.notifications;
 
 import com.chrisrm.ideaddlc.messages.MaterialThemeBundle;
+import com.chrisrm.ideaddlc.utils.MTUiUtils;
 import com.intellij.notification.*;
 import com.intellij.openapi.project.Project;
 import org.jetbrains.annotations.NotNull;

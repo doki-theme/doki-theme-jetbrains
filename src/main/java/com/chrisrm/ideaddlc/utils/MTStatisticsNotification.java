@@ -26,6 +26,7 @@
 package com.chrisrm.ideaddlc.utils;
 
 import com.chrisrm.ideaddlc.messages.MaterialThemeBundle;
+import com.chrisrm.ideaddlc.notifications.Notify;
 import com.intellij.notification.Notification;
 import com.intellij.notification.NotificationListener;
 import com.intellij.notification.NotificationType;

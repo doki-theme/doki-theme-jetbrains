@@ -23,7 +23,7 @@
  *
  */
 
-package com.chrisrm.idea.actions;
+package com.chrisrm.ideaddlc.actions;
 
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.ToggleAction;

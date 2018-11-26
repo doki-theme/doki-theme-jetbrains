@@ -24,7 +24,7 @@
  *
  */
 
-upackage com.chrisrm.ideaddlc;
+package com.chrisrm.ideaddlc;
 
 import com.chrisrm.ideaddlc.messages.MaterialThemeBundle;
 import com.intellij.openapi.application.ApplicationInfo;

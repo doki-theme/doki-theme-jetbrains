@@ -26,24 +26,14 @@
 
 package com.chrisrm.ideaddlc;
 
-import com.chrisrm.ideaddlc.utils.StaticPatcher;
-import io.acari.DDLC.DDLCConfig;
-import io.acari.DDLC.LegacySupportUtility;
-import com.chrisrm.ideaddlc.MTConfig;
 import com.chrisrm.ideaddlc.ui.MTActionButtonLook;
 import com.chrisrm.ideaddlc.ui.MTNavBarUI;
-import com.google.common.collect.ImmutableMap;
-import com.intellij.codeInsight.hint.ParameterInfoComponent;
+import com.chrisrm.ideaddlc.utils.StaticPatcher;
 import com.intellij.codeInsight.lookup.impl.LookupCellRenderer;
-import com.intellij.icons.AllIcons;
 import com.intellij.ide.navigationToolbar.ui.NavBarUIManager;
 import com.intellij.ide.plugins.PluginManagerConfigurableNew;
-import com.intellij.lang.parameterInfo.ParameterInfoUIContextEx;
-import com.intellij.notification.impl.NotificationsManagerImpl;
 import com.intellij.openapi.actionSystem.ex.ActionButtonLook;
-import com.intellij.openapi.actionSystem.impl.IdeaActionButtonLook;
 import com.intellij.openapi.options.newEditor.SettingsTreeView;
-import com.intellij.openapi.ui.MessageType;
 import com.intellij.openapi.util.SystemInfo;
 import com.intellij.openapi.util.registry.Registry;
 import com.intellij.openapi.wm.impl.status.MemoryUsagePanel;
@@ -51,20 +41,19 @@ import com.intellij.ui.CaptionPanel;
 import com.intellij.ui.ColorUtil;
 import com.intellij.ui.Gray;
 import com.intellij.ui.JBColor;
-import com.intellij.ui.paint.RectanglePainter;
 import com.intellij.ui.tabs.FileColorManagerImpl;
 import com.intellij.util.ObjectUtils;
 import com.intellij.util.containers.ContainerUtil;
-import com.intellij.util.ui.RegionPainter;
 import com.intellij.util.ui.UIUtil;
 import com.intellij.vcs.log.VcsLogStandardColors;
 import com.intellij.vcs.log.ui.highlighters.CurrentBranchHighlighter;
 import com.intellij.vcs.log.ui.highlighters.MergeCommitsHighlighter;
+import io.acari.DDLC.DDLCConfig;
+import io.acari.DDLC.LegacySupportUtility;
 
 import javax.swing.*;
 import javax.swing.plaf.ColorUIResource;
 import java.awt.*;
-import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.Map;

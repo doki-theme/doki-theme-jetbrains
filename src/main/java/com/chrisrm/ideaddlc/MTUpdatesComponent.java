@@ -27,13 +27,12 @@
 package com.chrisrm.ideaddlc;
 
 import com.chrisrm.ideaddlc.utils.MTStatisticsNotification;
-import com.chrisrm.ideaddlc.utils.Notify;
+import com.chrisrm.ideaddlc.notifications.Notify;
 import com.chrisrm.ideaddlc.utils.MTUiUtils;
 import com.intellij.ide.BrowserUtil;
 import com.intellij.ide.util.PropertiesComponent;
 import com.intellij.notification.Notification;
 import com.intellij.notification.NotificationListener;
-import com.intellij.notification.Notifications;
 import com.intellij.openapi.components.ProjectComponent;
 import com.intellij.openapi.project.Project;
 import org.jetbrains.annotations.NonNls;
