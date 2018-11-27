@@ -26,6 +26,7 @@
 package com.chrisrm.ideaddlc.config.ui;
 
 import com.chrisrm.ideaddlc.MTCustomThemeConfig;
+import com.chrisrm.ideaddlc.config.MTBaseConfig;
 import com.chrisrm.ideaddlc.utils.MTUiUtils;
 import com.intellij.ui.ColorPanel;
 import com.intellij.ui.ColorUtil;

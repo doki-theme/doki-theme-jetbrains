@@ -53,7 +53,7 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
+import java.awt.event.*;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -545,6 +545,9 @@ public class MTForm implements MTFormUI {
 
   private void setIsMaterialDesign(final boolean isMaterialDesign) {
     isMaterialDesignCheckbox.setSelected(isMaterialDesign);
+    enableDisableCompactStatusBar(isMaterialDesign);
+    enableDisableCompactTableCells(isMaterialDesign);
+    enableDisableDropdownLists(isMaterialDesign);
   }
 
   //endregion
@@ -880,7 +883,7 @@ public class MTForm implements MTFormUI {
   private void initComponents() {
     // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
     // Generated using JFormDesigner non-commercial license
-    final ResourceBundle bundle = ResourceBundle.getBundle("messages.MaterialThemeBundle");
+    final ResourceBundle bundle = ResourceBundle.getBundle(MaterialThemeBundle.BUNDLE);
     final DefaultComponentFactory compFactory = DefaultComponentFactory.getInstance();
     content = new JPanel();
     settingsSep = compFactory.createSeparator(bundle.getString("MTForm.settingsSep.text"));
@@ -1141,8 +1144,8 @@ public class MTForm implements MTFormUI {
           isCompactMenusCheckbox.setToolTipText(bundle.getString("MTForm.isCompactMenusCheckbox.toolTipText"));
           panelOptions.add(isCompactMenusCheckbox, "cell 0 4");
         }
-        tabbedPane1.addTab(bundle.getString("mt.panels.section"), null, panelOptions, bundle.getString("MTForm.panelOptions.tab" +
-            ".toolTipText"));
+        tabbedPane1.addTab(bundle.getString("mt.panels.section"), null, panelOptions,
+                           bundle.getString("MTForm.panelOptions.tab.toolTipText"));
 
         //======== iconsPanel ========
         {
