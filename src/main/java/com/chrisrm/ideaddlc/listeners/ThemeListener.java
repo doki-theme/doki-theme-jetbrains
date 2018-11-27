@@ -26,13 +26,13 @@
 
 package com.chrisrm.ideaddlc.listeners;
 
-import com.chrisrm.ideaddlc.themes.MTThemeFacade;
+import io.acari.DDLC.DDLCThemeFacade;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.EventListener;
 
 public interface ThemeListener extends EventListener {
-  default void themeChanged(@NotNull final MTThemeFacade theme) {
+  default void themeChanged(@NotNull final DDLCThemeFacade theme) {
 
   }
 }

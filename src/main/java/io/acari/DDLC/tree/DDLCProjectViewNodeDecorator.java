@@ -27,6 +27,7 @@ package io.acari.DDLC.tree;
 
 import com.chrisrm.ideaddlc.MTConfig;
 import com.chrisrm.ideaddlc.MTThemeManager;
+import com.chrisrm.ideaddlc.config.MTFileColorsPage;
 import com.chrisrm.ideaddlc.icons.DirIcon;
 import com.intellij.ide.projectView.PresentationData;
 import com.intellij.ide.projectView.ProjectViewNode;
@@ -96,7 +97,7 @@ public final class DDLCProjectViewNodeDecorator implements ProjectViewNodeDecora
    * Try to mimic the "open or closed"  folder feature
    */
   @SuppressWarnings("MethodWithMultipleLoops")
-  private staticvoid setOpenOrClosedIcon(final PresentationData data, final VirtualFile file, final Project project) {
+  private static void setOpenOrClosedIcon(final PresentationData data, final VirtualFile file, final Project project) {
     if (!file.isDirectory()) {
       return;
     }

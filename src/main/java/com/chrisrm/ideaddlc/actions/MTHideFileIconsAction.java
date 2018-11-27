@@ -41,7 +41,7 @@ public final class MTHideFileIconsAction extends MTToggleAction {
 
   @Override
   public void setSelected(@NotNull final AnActionEvent e, final boolean state) {
-    MTThemeManager.getInstance().toggleHideFileIcons();
+    MTThemeManager.toggleHideFileIcons();
     MTAnalytics.getInstance().trackValue(MTAnalytics.HIDE_FILE_ICONS, state);
   }
 }

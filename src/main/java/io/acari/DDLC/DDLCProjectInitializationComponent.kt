@@ -23,7 +23,7 @@ class DDLCProjectInitializationComponent(project: Project?) : AbstractProjectCom
 
     override fun projectOpened() {
         if(MTThemeManager.isDDLCActive()){
-            MTThemeManager.getInstance().activate()
+            MTThemeManager.activate()
             mtAddFileColorsAction.setFileScopes(this.myProject)
             if(!GeneralSettings.getInstance().isShowTipsOnStartup()){
                 val timesTipsChosen = PropertiesComponent.getInstance().getInt(WRITING_TIP_OF_THE_DAY, 0)

@@ -41,7 +41,7 @@ public final class MTDisableMaterialDesignAction extends MTToggleAction {
 
   @Override
   public void setSelected(@NotNull final AnActionEvent e, final boolean state) {
-    MTThemeManager.getInstance().toggleMaterialDesign();
+    MTThemeManager.toggleMaterialDesign();
     MTAnalytics.getInstance().trackValue(MTAnalytics.MATERIAL_COMPONENTS, state);
   }
 }

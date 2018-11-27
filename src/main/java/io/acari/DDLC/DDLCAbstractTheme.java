@@ -172,7 +172,7 @@ public abstract class DDLCAbstractTheme implements Serializable, MTThemeable {
       // Apply theme accent color if said so
       if (MTConfig.getInstance().isOverrideAccentColor()) {
         MTConfig.getInstance().setAccentColor(getAccentColor());
-        MTThemeManager.getInstance().applyAccents();
+        MTThemeManager.applyAccents();
       }
 
       if (isDark()) {

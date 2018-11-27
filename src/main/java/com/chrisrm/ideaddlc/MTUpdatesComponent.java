@@ -44,7 +44,6 @@ import org.json.JSONObject;
 import javax.swing.event.HyperlinkEvent;
 import java.net.URL;
 
-import static com.chrisrm.ideaddlc.notifications.MTStatisticsNotification.ALLOW;
 
 /**
  * Component for showing update notification

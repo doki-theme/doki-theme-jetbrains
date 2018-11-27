@@ -37,6 +37,7 @@ import com.intellij.openapi.components.BaseComponent;
 import com.intellij.ui.ColorUtil;
 import com.intellij.util.SVGLoader;
 import com.intellij.util.messages.MessageBusConnection;
+import io.acari.DDLC.DDLCThemeFacade;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.w3c.dom.Element;
@@ -70,7 +71,7 @@ public final class MTTintedIconsComponent implements BaseComponent {
 
     connect.subscribe(MTTopics.THEMES, new ThemeListener() {
       @Override
-      public void themeChanged(@NotNull final MTThemeFacade theme) {
+      public void themeChanged(@NotNull final DDLCThemeFacade theme) {
         SVGLoader.setColorPatcher(null);
         SVGLoader.setColorPatcher(getColorPatcher());
         TintedColorPatcher.refreshThemeColor(theme);

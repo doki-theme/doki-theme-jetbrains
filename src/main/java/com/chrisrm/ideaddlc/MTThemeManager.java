@@ -25,19 +25,22 @@
 
 package com.chrisrm.ideaddlc;
 
+import com.chrisrm.ideaddlc.icons.IconManager;
 import com.chrisrm.ideaddlc.laf.MTDarkLaf;
 import com.chrisrm.ideaddlc.laf.MTLafInstaller;
+import com.chrisrm.ideaddlc.listeners.MTTopics;
 import com.chrisrm.ideaddlc.messages.MaterialThemeBundle;
-import com.chrisrm.ideaddlc.themes.MTThemeFacade;
 import com.chrisrm.ideaddlc.themes.models.MTThemeable;
 import com.chrisrm.ideaddlc.themes.lists.AccentResources;
 import com.chrisrm.ideaddlc.themes.lists.ContrastResources;
 import com.chrisrm.ideaddlc.themes.lists.FontResources;
+import com.chrisrm.ideaddlc.utils.MTAccents;
 import com.chrisrm.ideaddlc.utils.MTUiUtils;
 import com.chrisrm.ideaddlc.utils.WinRegistry;
 import com.intellij.ide.ui.LafManager;
 import com.intellij.ide.ui.UISettings;
 import com.intellij.ide.ui.laf.IntelliJLaf;
+import com.intellij.ide.ui.laf.LafManagerImpl;
 import com.intellij.ide.ui.laf.darcula.DarculaInstaller;
 import com.intellij.ide.ui.laf.darcula.DarculaLaf;
 import com.intellij.ide.util.PropertiesComponent;
@@ -492,7 +495,7 @@ public final class MTThemeManager {
     }
   }
 
-  private static void fireThemeChanged(final MTThemeFacade newTheme) {
+  private static void fireThemeChanged(final DDLCThemeFacade newTheme) {
     ApplicationManager.getApplication().getMessageBus()
         .syncPublisher(MTTopics.THEMES)
         .themeChanged(newTheme);

@@ -53,7 +53,7 @@ public abstract class MTAbstractAccentAction extends AnAction implements DumbAwa
     final String accentColor = getAccent().getHexColor();
     MTConfig.getInstance().setAccentColor(accentColor);
 
-    MTThemeManager.getInstance().applyAccents(true);
+    MTThemeManager.applyAccents(true);
     UIReplacer.patchUI();
 
     ActionToolbarImpl.updateAllToolbarsImmediately();

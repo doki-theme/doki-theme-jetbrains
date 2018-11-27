@@ -28,6 +28,7 @@ package com.chrisrm.ideaddlc;
 
 import com.chrisrm.ideaddlc.ui.MTActionButtonLook;
 import com.chrisrm.ideaddlc.ui.MTNavBarUI;
+import com.chrisrm.ideaddlc.ui.MTScrollUI;
 import com.chrisrm.ideaddlc.utils.StaticPatcher;
 import com.intellij.codeInsight.lookup.impl.LookupCellRenderer;
 import com.intellij.ide.navigationToolbar.ui.NavBarUIManager;
@@ -42,8 +43,10 @@ import com.intellij.ui.ColorUtil;
 import com.intellij.ui.Gray;
 import com.intellij.ui.JBColor;
 import com.intellij.ui.tabs.FileColorManagerImpl;
+import com.intellij.ui.tabs.TabsUtil;
 import com.intellij.util.ObjectUtils;
 import com.intellij.util.containers.ContainerUtil;
+import com.intellij.util.ui.JBValue;
 import com.intellij.util.ui.UIUtil;
 import com.intellij.vcs.log.VcsLogStandardColors;
 import com.intellij.vcs.log.ui.highlighters.CurrentBranchHighlighter;

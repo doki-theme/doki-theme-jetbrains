@@ -22,6 +22,10 @@ public class DDLCIcons {
         public static Icon CloseNewHovered = TintedIconsService.getAccentIcon("/icons/ddlc/actions/closeNewHovered.svg");
     }
 
+    public static class Windows {
+        public static Icon CloseHover = TintedIconsService.getAccentIcon("/icons/windows/closeHover.svg");
+    }
+
     public static class Ide {
         public static Icon Rating = TintedIconsService.getAccentIcon("/icons/ddlc/ide/rating.svg");
         public static Icon Rating1 = TintedIconsService.getAccentIcon("/icons/ddlc/ide/rating1.svg");

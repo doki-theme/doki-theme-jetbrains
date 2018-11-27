@@ -32,6 +32,7 @@ import com.chrisrm.ideaddlc.themes.models.MTThemeable;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
+import java.awt.*;
 import java.util.Comparator;
 import java.util.Map;
 import java.util.TreeMap;
@@ -126,7 +127,7 @@ public enum MTThemes implements MTThemeFacade {
   }
 
   @Override
-  public String getExcludedColor() {
+  public Color getExcludedColor() {
     return mtTheme.getExcludedColor();
   }
 
@@ -217,7 +218,7 @@ public enum MTThemes implements MTThemeFacade {
       }
 
       @Override
-      public String getExcludedColor() {
+      public Color getExcludedColor() {
         return theme.getExcludedColor();
       }
 

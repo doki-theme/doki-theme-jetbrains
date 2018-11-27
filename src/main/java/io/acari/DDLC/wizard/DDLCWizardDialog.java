@@ -81,7 +81,7 @@ public class DDLCWizardDialog extends CustomizeIDEWizardDialog implements Action
   public void doCancelAction() {
     super.doCancelAction();
     MTConfig.getInstance().copyFrom(configCopy);
-    MTThemeManager.getInstance().activate();
+    MTThemeManager.activate();
   }
 
   private void extractPrivateFields() {

@@ -31,6 +31,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
+import java.awt.*;
 
 /**
  * Interface for the selected theme
@@ -102,7 +103,7 @@ public interface MTThemeFacade {
    *
    * @return
    */
-  String getExcludedColor();
+  Color getExcludedColor();
 
   /**
    * Order in the list

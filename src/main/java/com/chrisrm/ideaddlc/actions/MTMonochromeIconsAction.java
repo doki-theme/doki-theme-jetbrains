@@ -41,7 +41,7 @@ public final class MTMonochromeIconsAction extends MTToggleAction {
 
   @Override
   public void setSelected(@NotNull final AnActionEvent e, final boolean state) {
-    MTThemeManager.getInstance().toggleMonochromeIcons();
+    MTThemeManager.toggleMonochromeIcons();
     MTAnalytics.getInstance().trackValue(MTAnalytics.MONOCHROME, state);
   }
 }
