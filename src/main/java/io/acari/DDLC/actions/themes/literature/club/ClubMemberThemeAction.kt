@@ -50,7 +50,7 @@ open class ClubMemberThemeAction(private val theme: DDLCThemes,
         accentAction.setAccentToTheme()
         MTTreeUI.resetIcons()
         MTButtonUI.resetCache()
-        MTProjectViewNodeDecorator.resetCache()
+        DDLCProjectViewNodeDecorator.resetCache()
         MTThemeManager.activate(theme, true)
         ChibiOrchestrator.activateChibiForTheme(theme)
         MTAnalytics.getInstance().trackValue(MTAnalytics.SELECT_THEME, theme);

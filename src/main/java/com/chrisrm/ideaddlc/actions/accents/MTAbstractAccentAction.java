@@ -31,6 +31,7 @@ import com.chrisrm.ideaddlc.MTConfig;
 import com.chrisrm.ideaddlc.MTThemeManager;
 import com.chrisrm.ideaddlc.ui.indicators.MTSelectedTreeIndicatorImpl;
 import com.chrisrm.ideaddlc.UIReplacer;
+import com.chrisrm.ideaddlc.utils.MTAccents;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.impl.ActionToolbarImpl;
@@ -42,6 +43,10 @@ public abstract class MTAbstractAccentAction extends AnAction implements DumbAwa
 
   @Override
   public final void actionPerformed(@NotNull final AnActionEvent e) {
+    setAccentToTheme();
+  }
+
+  public void setAccentToTheme() {
     MTSelectedTreeIndicatorImpl.resetCache();
     IconLoader.clearCache();
 
