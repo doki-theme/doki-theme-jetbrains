@@ -24,7 +24,7 @@
  *
  */
 
-package com.chrisrm.ideaddlc.themes;
+package com.chrisrm.ideaddlc.themes.themes;
 
 import com.chrisrm.ideaddlc.MTConfig;
 import com.chrisrm.ideaddlc.MTThemeManager;
