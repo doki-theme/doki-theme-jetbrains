@@ -26,6 +26,8 @@
 
 package com.chrisrm.ideaddlc.themes.models;
 
+import com.chrisrm.idea.messages.ThemesBundle;
+import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
@@ -35,6 +37,39 @@ import java.awt.*;
  * Interface for DDLCThemes and MTBundledThemes
  */
 public interface MTThemeable {
+  @NonNls
+  String getThemeId();
+
+  @NonNls
+  default String getThemeName() {
+    return ThemesBundle.messageWithPrefix("name", getThemeId());
+  }
+
+  @NonNls
+  default String getThemeIcon() {
+    return "/icons/actions/themes/" + ThemesBundle.messageWithPrefix("icon", getThemeId()) + ".svg";
+  }
+
+  @NonNls
+  default String getThemeColorScheme() {
+    return ThemesBundle.messageWithPrefix("scheme", getThemeId());
+  }
+
+  @NonNls
+  default boolean isThemeDark() {
+    return Boolean.parseBoolean(ThemesBundle.messageWithPrefix("dark", getThemeId()));
+  }
+
+  @NonNls
+  default int getOrder() {
+    return Integer.parseInt(ThemesBundle.messageWithPrefix("order", getThemeId()));
+  }
+
+  /**
+   * Whether this is a custom theme
+   */
+  boolean isCustom();
+
   /**
    * Activate the theme
    */
@@ -42,8 +77,6 @@ public interface MTThemeable {
 
   /**
    * Return the theme's name
-   *
-   * @return
    */
   @NotNull
   String getName();
@@ -62,38 +95,41 @@ public interface MTThemeable {
 
   /**
    * The theme's inherent color scheme
-   *
-   * @return
    */
   String getEditorColorsScheme();
 
+  MTThemeable setEditorColorScheme(String editorColorsScheme);
+
   /**
    * The theme's unique ID
-   *
-   * @return
    */
   @NotNull
   String getId();
 
+  MTThemeable setId(String id);
+
   /**
    * Whether the theme is a dark theme
-   *
-   * @return
    */
   boolean isDark();
 
+  MTThemeable setIsDark(boolean dark);
+
+  /**
+   * The theme icon
+   */
+  Icon getIcon();
+
+  MTThemeable setIcon(String icon);
+
   /**
    * The theme's background color
-   *
-   * @return
    */
   @NotNull
   Color getBackgroundColor();
 
   /**
    * The theme's contrast color
-   *
-   * @return
    */
   @NotNull
   Color getContrastColor();
@@ -241,4 +277,19 @@ public interface MTThemeable {
   String getNonProjectFileScopeColor();
 
   String getTestScope();
+
+  /**
+   * The theme's selection background color
+   */
+  Color getSelectionBackgroundColor();
+
+  /**
+   * The theme's selection foreground color
+   */
+  Color getSelectionForegroundColor();
+
+  /**
+   * Get the excluded files color
+   */
+  Color getExcludedColor();
 }

@@ -26,56 +26,24 @@
 
 package com.chrisrm.ideaddlc.messages;
 
-import com.intellij.CommonBundle;
+import com.intellij.AbstractBundle;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.PropertyKey;
 
-import java.util.ResourceBundle;
-
 /**
  * Messages Bundle for Material Theme
  */
-public final class MaterialThemeBundle {
+public final class MaterialThemeBundle extends AbstractBundle {
+  public static String message(@NotNull @PropertyKey(resourceBundle = BUNDLE) final String key, @NotNull final Object... params) {
+    return INSTANCE.getMessage(key, params);
+  }
 
   @NonNls
-  public static final String PATH_TO_BUNDLE = "messages.MaterialThemeBundle";
+  public static final String BUNDLE = "messages.MaterialThemeBundle";
+  private static final MaterialThemeBundle INSTANCE = new MaterialThemeBundle();
 
-  @NotNull
-  private static final ResourceBundle BUNDLE = ResourceBundle.getBundle(PATH_TO_BUNDLE);
-
-  /**
-   * Prevent instantiation
-   */
   private MaterialThemeBundle() {
-
+    super(BUNDLE);
   }
-
-  /**
-   * Get a message from the resource bundle
-   *
-   * @param key
-   * @param params
-   * @return the message
-   */
-  public static String message(@NotNull @PropertyKey(resourceBundle = PATH_TO_BUNDLE) final String key,
-                               @NotNull final Object... params) {
-    return CommonBundle.message(BUNDLE, key, params);
-  }
-
-  /**
-   * Get a message from the resource bundle or return a default message
-   *
-   * @param key
-   * @param defaultValue
-   * @param params
-   * @return the message or default
-   */
-  public static String messageOrDefault(@NotNull @PropertyKey(resourceBundle = PATH_TO_BUNDLE) final String key,
-                                        final String defaultValue,
-                                        final Object... params) {
-    return CommonBundle.messageOrDefault(BUNDLE, key, defaultValue, params);
-  }
-
-
 }

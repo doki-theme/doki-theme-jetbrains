@@ -26,29 +26,28 @@
 
 package com.chrisrm.ideaddlc.listeners;
 
-import com.chrisrm.ideaddlc.MTCustomThemeConfig;
+import com.chrisrm.ideaddlc.config.MTBaseConfig;
 import com.intellij.util.messages.Topic;
 
 /**
  * Configuration Save Events
  */
+@FunctionalInterface
 public interface CustomConfigNotifier {
   /**
    * Topic for Material Theme Settings changes
    */
-  Topic<CustomConfigNotifier> CONFIG_TOPIC = Topic.create("Material Theme Config save", CustomConfigNotifier.class);
+  Topic<CustomConfigNotifier> CONFIG_TOPIC = Topic.create("Material Theme Custom Theme Config save", CustomConfigNotifier.class);
 
   /**
    * Triggered when the custom theme config is changed
-   *
-   * @param mtCustomThemeConfig
    */
-  void customConfigChanged(MTCustomThemeConfig mtCustomThemeConfig);
+  void customConfigChanged(MTBaseConfig mtBaseConfig);
 
   class Adapter implements CustomConfigNotifier {
 
     @Override
-    public void customConfigChanged(final MTCustomThemeConfig mtCustomThemeConfig) {
+    public void customConfigChanged(final MTBaseConfig mtBaseConfig) {
 
     }
   }

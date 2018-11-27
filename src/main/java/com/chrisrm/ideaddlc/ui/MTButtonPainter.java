@@ -44,9 +44,6 @@ public class MTButtonPainter extends DarculaButtonPainter {
 
   /**
    * Set bigger border insets for "Material style buttons"
-   *
-   * @param c
-   * @return
    */
   @Override
   public Insets getBorderInsets(final Component c) {

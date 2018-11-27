@@ -71,8 +71,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 
-import static com.chrisrm.ideaddlc.MTHackComponent.TABS_HEIGHT;
-
 @SuppressWarnings( {"ClassWithTooManyMethods",
     "DuplicateStringLiteralInspection", "UtilityClassCanBeEnum"})
 public final class MTThemeManager {
@@ -80,7 +78,6 @@ public final class MTThemeManager {
   public static final String WE_USING_DDLC_BOIS = "WE USING DDLC BOIS";
   public static final String WE_AINT_USING_DDLC_BOIS = "WE_AINT USING DDLC BOIS";
   public static final int DEFAULT_SIDEBAR_HEIGHT = 28;
-  public static final int DEFAULT_TAB_HEIGHT = 24;
   public static final int DEFAULT_INDENT = 6;
   public static final int DEFAULT_FONT_SIZE = JBUI.scale(13);
   public static final String DEFAULT_FONT = "Roboto";

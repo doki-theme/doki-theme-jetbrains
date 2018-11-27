@@ -26,6 +26,8 @@
 
 package com.chrisrm.ideaddlc;
 
+import com.chrisrm.ideaddlc.config.MTBaseConfig;
+import com.chrisrm.ideaddlc.utils.MTAccents;
 import com.chrisrm.ideaddlc.listeners.ConfigNotifier;
 import com.chrisrm.ideaddlc.config.ui.ArrowsStyles;
 import com.chrisrm.ideaddlc.config.ui.IndicatorStyles;
@@ -43,7 +45,7 @@ import com.intellij.util.xmlb.XmlSerializerUtil;
 import io.acari.DDLC.DDLCThemeFacade;
 import io.acari.DDLC.DDLCThemes;
 import com.intellij.util.xmlb.annotations.Property;
-import org.jetbrains.annotations.NonNls
+import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
 import org.json.JSONObject;

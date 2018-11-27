@@ -27,6 +27,7 @@
 package com.chrisrm.ideaddlc.utils;
 
 import com.chrisrm.ideaddlc.MTConfig;
+import com.chrisrm.ideaddlc.messages.MaterialThemeBundle;
 import com.intellij.ide.plugins.IdeaPluginDescriptor;
 import com.intellij.ide.plugins.PluginManager;
 import com.intellij.ide.ui.LafManager;
@@ -50,8 +51,7 @@ import org.jetbrains.annotations.NotNull;
 import javax.swing.event.HyperlinkEvent;
 import javax.swing.plaf.ColorUIResource;
 import java.awt.*;
-import java.awt.font.TextAttribute;
-import java.util.HashMap;
+import java.util.Collections;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -65,10 +65,9 @@ public enum MTUiUtils {
   DEFAULT;
 
   public static final String MATERIAL_FONT = "Roboto";
-  public static final String HELP_PREFIX = "com.chrisrm.ideaddlc.help";
-  private static RenderingHints hints;
+  public static final String HELP_PREFIX = "com.chrisrm.idea.help";
   public static final String DOCS_URL = "https://www.material-theme.com/";
-  public static final String PLUGIN_ID = "com.chrisrm.ideaddlc.MaterialThemeUI";
+  public static final String PLUGIN_ID = "com.chrisrm.idea.MaterialThemeUI";
   @NonNls
   public static final String APPEARANCE_SECTION = "Appearance";
   @NonNls
