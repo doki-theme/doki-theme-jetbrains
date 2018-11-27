@@ -303,7 +303,7 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
   }
 
   private String contrastifyForeground(final String colorString) {
-    final boolean isHighContrast = MTConfig.getInstance().getIsHighContrast();
+    final boolean isHighContrast = MTConfig.getInstance().isHighContrast();
     if (!isHighContrast) {
       return colorString;
     }
@@ -316,7 +316,7 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
   }
 
   private Color contrastifyForeground(final Color color) {
-    final boolean isHighContrast = MTConfig.getInstance().getIsHighContrast();
+    final boolean isHighContrast = MTConfig.getInstance().isHighContrast();
     if (!isHighContrast) {
       return color;
     }
@@ -329,7 +329,7 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
   }
 
   private String contrastifyBackground(final String colorString) {
-    final boolean isHighContrast = MTConfig.getInstance().getIsHighContrast();
+    final boolean isHighContrast = MTConfig.getInstance().isHighContrast();
     if (!isHighContrast) {
       return colorString;
     }
@@ -342,7 +342,7 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
   }
 
   private Color contrastifyBackground(final Color color) {
-    final boolean isHighContrast = MTConfig.getInstance().getIsHighContrast();
+    final boolean isHighContrast = MTConfig.getInstance().isHighContrast();
     if (!isHighContrast) {
       return color;
     }

@@ -376,7 +376,7 @@ public final class MTTabsPainterPatcherComponent implements BaseComponent {
     public static final Color getContrastColor() {
       final MTConfig config = MTConfig.getInstance();
       final MTThemeable mtTheme = DDLCConfig.getInstance().getSelectedTheme().getTheme();
-      return config.getIsContrastMode() ? mtTheme.getContrastColor() : mtTheme.getBackgroundColor();
+      return config.isContrastMode() ? mtTheme.getContrastColor() : mtTheme.getBackgroundColor();
     }
 
     final JBEditorTabs getTabsComponent() {

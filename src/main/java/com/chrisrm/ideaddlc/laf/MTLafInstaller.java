@@ -82,7 +82,7 @@ public class MTLafInstaller {
     replaceIcons(defaults);
     replaceRootPane(defaults);
 
-    if (mtConfig.getIsMaterialDesign()) {
+    if (mtConfig.isMaterialDesign()) {
       replaceButtons(defaults);
       replaceTextFields(defaults);
       replaceProgressBar(defaults);

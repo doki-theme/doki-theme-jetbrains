@@ -29,7 +29,7 @@ class DDLCApplicationInitializationComponent : ApplicationComponent {
   }
 
   private fun checkWizard() {
-    val isWizardShown = DDLCConfig.getInstance().getIsWizardShown()
+    val isWizardShown = DDLCConfig.getInstance().isWizardShown()
     if (!isWizardShown) {
       DDLCWizardDialog(DDLCWizardStepsProvider()).show()
       DDLCConfig.getInstance().setIsWizardShown(true)

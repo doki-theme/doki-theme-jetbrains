@@ -226,7 +226,7 @@ public class DDLCConfig implements PersistentStateComponent<DDLCConfig>, Cloneab
     }
 
 
-    public boolean getIsWizardShown() {
+    public boolean isWizardShown() {
         return isWizardShown || legacyWizardShown();
     }
 

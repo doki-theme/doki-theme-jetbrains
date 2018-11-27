@@ -29,17 +29,21 @@ package com.chrisrm.ideaddlc.themes;
 import com.intellij.openapi.extensions.AbstractExtensionPointBean;
 import com.intellij.openapi.extensions.ExtensionPointName;
 import com.intellij.util.xmlb.annotations.Attribute;
+import org.jetbrains.annotations.NonNls;
 
 public class BundledThemeEP extends AbstractExtensionPointBean {
   public static final ExtensionPointName<BundledThemeEP> EP_NAME =
       ExtensionPointName.create("io.acari.DDLCTheme.bundledTheme");
 
+  @NonNls
   @Attribute("path")
   public String path;
 
+  @NonNls
   @Attribute("name")
   public String name;
 
+  @NonNls
   @Attribute("icon")
   public String icon;
 }
