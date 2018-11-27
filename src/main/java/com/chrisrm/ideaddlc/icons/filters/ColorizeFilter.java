@@ -35,7 +35,7 @@ import java.awt.image.RGBImageFilter;
 public class ColorizeFilter extends RGBImageFilter {
   private final Color color;
 
-  ColorizeFilter(final Color color) {
+  public ColorizeFilter(final Color color) {
     this.color = color;
   }
 

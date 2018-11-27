@@ -49,11 +49,12 @@ public final class DDLCThemesComponent implements ApplicationComponent {
     activateTheme();
 
     connect = ApplicationManager.getApplication().getMessageBus().connect();
-    connect.subscribe(ConfigNotifier.CONFIG_TOPIC, mtConfig -> activateTheme());
+    // todo: figure out what dafuq todo
+//    connect.subscribe(ConfigNotifier.CONFIG_TOPIC, mtConfig -> activateTheme());
     connect.subscribe(CustomConfigNotifier.CONFIG_TOPIC, mtCustomThemeConfig -> activateTheme());
   }
 
-  public void activateTheme() {
+  public static void activateTheme() {
     DDLCConfig ddlcConfig = DDLCConfig.getInstance();
     boolean firstTime = ddlcConfig.isFirstTime();
     if (MTThemeManager.isDDLCActive() || firstTime) {

@@ -38,6 +38,7 @@ import com.intellij.ui.ColorUtil;
 import com.intellij.util.ui.JBUI;
 import com.intellij.util.ui.UIUtil;
 import io.acari.DDLC.DDLCConfig;
+import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -46,9 +47,15 @@ import java.awt.*;
 import java.awt.font.TextAttribute;
 import java.awt.image.BufferedImage;
 import java.text.AttributedString;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 public final class DDLCStatusWidget extends JButton implements CustomStatusBarWidget {
   public static final int DEFAULT_FONT_SIZE = JBUI.scale(11);
+  private static final int STATUS_PADDING = 4;
+  private static final int STATUS_HEIGHT = 16;
+  private static final String MT_SETTINGS_PAGE = "DDLC Theme";
   private MTConfig mtConfig;
   private DDLCConfig ddlcConfig;
   private Image myBufferedImage;
@@ -65,11 +72,31 @@ public final class DDLCStatusWidget extends JButton implements CustomStatusBarWi
         project, "DDLC Theme"), ModalityState.NON_MODAL));
   }
 
+  /**
+   * Returns the widget font
+   */
+  private static Font getWidgetFont() {
+    final GraphicsEnvironment e = GraphicsEnvironment.getLocalGraphicsEnvironment();
+    final Font[] fonts = e.getAllFonts();
+    for (final Font font : fonts) {
+      if (Objects.equals(font.getFontName(), MTUiUtils.MATERIAL_FONT)) {
+        final Map<TextAttribute, Object> attributes = new HashMap<>(10);
+
+        attributes.put(TextAttribute.WEIGHT, TextAttribute.WEIGHT_BOLD);
+        attributes.put(TextAttribute.SIZE, JBUI.scale(DEFAULT_FONT_SIZE));
+
+        return font.deriveFont(attributes);
+      }
+    }
+    return JBUI.Fonts.label(12);
+  }
+
   @Override
   public JComponent getComponent() {
     return this;
   }
 
+  @NonNls
   @NotNull
   @Override
   public String ID() {
@@ -98,7 +125,7 @@ public final class DDLCStatusWidget extends JButton implements CustomStatusBarWi
     mtConfig = MTConfig.getInstance();
     ddlcConfig = DDLCConfig.getInstance();
     myBufferedImage = null;
-    setFont(MTUiUtils.getWidgetFont());
+    setFont(getWidgetFont());
   }
 
 //  todo: should probably not show when mt theme has been activated.
@@ -106,7 +133,7 @@ public final class DDLCStatusWidget extends JButton implements CustomStatusBarWi
   public void paintComponent(final Graphics g) {
     final String themeName = ddlcConfig.getSelectedTheme().getTheme().getName();
     final Color accentColor = ColorUtil.fromHex(mtConfig.getAccentColor());
-    final int accentDiameter = JBUI.scale(MTUiUtils.HEIGHT - 2);
+    final int accentDiameter = JBUI.scale(STATUS_HEIGHT - 2);
 
     if (myBufferedImage == null) {
       final Dimension size = getSize();
@@ -128,8 +155,8 @@ public final class DDLCStatusWidget extends JButton implements CustomStatusBarWi
       as.addAttribute(TextAttribute.SIZE, DEFAULT_FONT_SIZE);
 
       // background
-      g2.setColor(ddlcConfig.getSelectedTheme().getTheme().getContrastColor());
-      g2.fillRoundRect(0, 0, size.width + accentDiameter - JBUI.scale(arcs.width), JBUI.scale(MTUiUtils.HEIGHT), arcs.width, arcs.height);
+      g2.setColor(mtConfig.getSelectedTheme().getTheme().getContrastColor());
+      g2.fillRoundRect(0, 0, size.width + accentDiameter - JBUI.scale(arcs.width), JBUI.scale(STATUS_HEIGHT), arcs.width, arcs.height);
 
       // label
       g2.setColor(UIUtil.getLabelForeground());
@@ -138,7 +165,7 @@ public final class DDLCStatusWidget extends JButton implements CustomStatusBarWi
           nameHeight + (size.height - nameHeight) / 2 - JBUI.scale(1));
 
       g2.setColor(accentColor);
-      g2.fillOval(size.width - JBUI.scale(MTUiUtils.HEIGHT), JBUI.scale(1), accentDiameter, accentDiameter);
+      g2.fillOval(size.width - JBUI.scale(STATUS_HEIGHT), JBUI.scale(1), accentDiameter, accentDiameter);
       g2.dispose();
     }
 
@@ -148,9 +175,9 @@ public final class DDLCStatusWidget extends JButton implements CustomStatusBarWi
   @Override
   public Dimension getPreferredSize() {
     final String themeName = ddlcConfig.getSelectedTheme().getThemeColorScheme();
-    final int width = getFontMetrics(MTUiUtils.getWidgetFont()).charsWidth(themeName.toCharArray(), 0,
-                                                                           themeName.length()) + 2 * MTUiUtils.PADDING;
-    final int accentDiameter = JBUI.scale(MTUiUtils.HEIGHT);
+    final int width = getFontMetrics(getWidgetFont()).charsWidth(themeName.toCharArray(), 0,
+        themeName.length()) + 2 * STATUS_PADDING;
+    final int accentDiameter = JBUI.scale(STATUS_HEIGHT);
     return new Dimension(width + accentDiameter, accentDiameter);
   }
 
