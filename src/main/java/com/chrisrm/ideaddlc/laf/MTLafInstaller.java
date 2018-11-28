@@ -405,6 +405,7 @@ public class MTLafInstaller {
       properties.load(stream);
       stream.close();
 
+      // todo : this is there the property files come in to play....
       String osSpecificPropertyFile = getPrefix() + "_" + osSuffix + ".properties";
       stream = getPropertyFile(osSpecificPropertyFile);
       properties.load(stream);
