@@ -139,23 +139,18 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
   abstract override fun getNotificationsColorString(): String
 
   private fun buildNotificationsColors() {
-    UIManager.put("Notifications.errorBackground", JBColor(ColorUIResource(0xef5350), ColorUIResource(0x4E0C05)))
-    UIManager.put("Notifications.warnBackground", JBColor(ColorUIResource(0xFFD54F), ColorUIResource(0x4E3C0D)))
-    UIManager.put("Notifications.infoBackground", JBColor(ColorUIResource(0x66BB6A), ColorUIResource(0x113215)))
+    val errorColor = JBColor(ColorUIResource(0xef5350), ColorUIResource(0xb71c1c))
+    UIManager.put("Notification.ToolWindowError.background", errorColor)
+    UIManager.put("Notification.ToolWindowError.borderColor", errorColor)
 
-//todo: dis
-//    val errorColor = JBColor(ColorUIResource(0xef5350), ColorUIResource(0xb71c1c))
-//    UIManager.put("Notification.ToolWindowError.background", errorColor)
-//    UIManager.put("Notification.ToolWindowError.borderColor", errorColor)
-//
-//    val warnColor = JBColor(ColorUIResource(0xFFD54F), ColorUIResource(0x5D4037))
-//    UIManager.put("Notification.ToolWindowWarning.background", warnColor)
-//    UIManager.put("Notification.ToolWindowWarning.borderColor", warnColor)
-//
-//    val infoColor = JBColor(ColorUIResource(0x66BB6A), ColorUIResource(0x1B5E20))
-//    UIManager.put("Notification.ToolWindowInfo.borderColor", infoColor)
-//    UIManager.put("Notification.ToolWindowInfo.background", infoColor)
-//
+    val warnColor = JBColor(ColorUIResource(0xFFD54F), ColorUIResource(0x5D4037))
+    UIManager.put("Notification.ToolWindowWarning.background", warnColor)
+    UIManager.put("Notification.ToolWindowWarning.borderColor", warnColor)
+
+    val infoColor = JBColor(ColorUIResource(0x66BB6A), ColorUIResource(0x1B5E20))
+    UIManager.put("Notification.ToolWindowInfo.borderColor", infoColor)
+    UIManager.put("Notification.ToolWindowInfo.background", infoColor)
+
   }
 
   private fun buildResources(resources: Stream<String>, color: String) {
