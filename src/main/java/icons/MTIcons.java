@@ -81,19 +81,23 @@ public final class MTIcons {
   }
   
   public static class Arrows {
-    public static Icon MaterialDownSelected = TintedIconsService.getAccentIcon("/icons/mac/material/down_selected.svg");
-    public static Icon MaterialRightSelected = TintedIconsService.getAccentIcon("/icons/mac/material/right_selected.svg");
-    public static Icon DarculaDownSelected = TintedIconsService.getAccentIcon("/icons/mac/darcula/down_selected.svg");
-    public static Icon DarculaRightSelected = TintedIconsService.getAccentIcon("/icons/mac/darcula/right_selected.svg");
-    public static Icon PlusSelected = TintedIconsService.getAccentIcon("/icons/mac/plusminus/plus_selected.svg");
-    public static Icon MinusSelected = TintedIconsService.getAccentIcon("/icons/mac/plusminus/minus_selected.svg");
-    
-    public static Icon MaterialDown = TintedIconsService.getThemedIcon("/icons/mac/material/down.svg");
-    public static Icon MaterialRight = TintedIconsService.getThemedIcon("/icons/mac/material/right.svg");
-    public static Icon DarculaDown = TintedIconsService.getThemedIcon("/icons/mac/darcula/down.svg");
-    public static Icon DarculaRight = TintedIconsService.getThemedIcon("/icons/mac/darcula/right.svg");
-    public static Icon Plus = TintedIconsService.getThemedIcon("/icons/mac/plusminus/plus.svg");
-    public static Icon Minus = TintedIconsService.getThemedIcon("/icons/mac/plusminus/minus.svg");
+    public static Icon MaterialDownSelected = load("/icons/mac/material/down_selected.svg");
+    public static Icon MaterialRightSelected = load("/icons/mac/material/right_selected.svg");
+    public static Icon DarculaDownSelected = load("/icons/mac/darcula/down_selected.svg");
+    public static Icon DarculaRightSelected = load("/icons/mac/darcula/right_selected.svg");
+    public static Icon PlusSelected = load("/icons/mac/plusminus/plus_selected.svg");
+    public static Icon MinusSelected = load("/icons/mac/plusminus/minus_selected.svg");
+    public static Icon DownSelected = load("/icons/mac/arrow/down_selected.svg");
+    public static Icon RightSelected = load("/icons/mac/arrow/right_selected.svg");
+
+    public static Icon MaterialDown = load("/icons/mac/material/down.svg");
+    public static Icon MaterialRight = load("/icons/mac/material/right.svg");
+    public static Icon DarculaDown = load("/icons/mac/darcula/down.svg");
+    public static Icon DarculaRight = load("/icons/mac/darcula/right.svg");
+    public static Icon Plus = load("/icons/mac/plusminus/plus.svg");
+    public static Icon Minus = load("/icons/mac/plusminus/minus.svg");
+    public static Icon Down = load("/icons/mac/arrow/down.svg");
+    public static Icon Right = load("/icons/mac/arrow/right.svg");
   }
   
   public static class Nodes {

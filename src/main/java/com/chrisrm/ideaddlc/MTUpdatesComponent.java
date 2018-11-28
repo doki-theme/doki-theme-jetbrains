@@ -26,7 +26,7 @@
 
 package com.chrisrm.ideaddlc;
 
-import com.chrisrm.ideaddlc.utils.MTStatisticsNotification;
+import com.chrisrm.ideaddlc.notifications.MTStatisticsNotification;
 import com.chrisrm.ideaddlc.notifications.Notify;
 import com.chrisrm.ideaddlc.utils.MTUiUtils;
 import com.intellij.ide.BrowserUtil;

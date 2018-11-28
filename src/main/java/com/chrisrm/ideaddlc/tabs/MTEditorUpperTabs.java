@@ -27,7 +27,7 @@
 package com.chrisrm.ideaddlc.tabs;
 
 import com.chrisrm.ideaddlc.MTConfig;
-import com.chrisrm.ideaddlc.utils.NameUtil;
+import com.chrisrm.ideaddlc.utils.MTNameUtils;
 import com.intellij.openapi.fileEditor.UniqueVFilePathBuilder;
 import com.intellij.openapi.fileEditor.impl.EditorTabTitleProvider;
 import com.intellij.openapi.project.Project;

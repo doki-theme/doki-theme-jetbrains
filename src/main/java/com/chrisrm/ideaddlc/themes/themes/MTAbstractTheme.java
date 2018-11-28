@@ -30,7 +30,6 @@ import com.chrisrm.ideaddlc.MTConfig;
 import com.chrisrm.ideaddlc.MTThemeManager;
 import com.chrisrm.ideaddlc.laf.MTDarkLaf;
 import com.chrisrm.ideaddlc.laf.MTLightLaf;
-import com.chrisrm.ideaddlc.themes.DDLCLightCustomTheme;
 import com.chrisrm.ideaddlc.themes.models.MTThemeable;
 import com.chrisrm.ideaddlc.utils.MTUiUtils;
 import com.chrisrm.ideaddlc.utils.PropertiesParser;
@@ -237,7 +236,7 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
   @NotNull
   @Override
   public String getSelectionBackground() {
-    return dark ? DDLCLightCustomTheme.SELECTION_BACKGROUND : DDLCLightCustomTheme.SELECTION_BACKGROUND;
+    return SELE;
   }
 
   /**
@@ -246,7 +245,7 @@ public abstract class MTAbstractTheme implements Serializable, MTThemeable {
   @NotNull
   @Override
   public String getDisabled() {
-    return dark ? DDLCLightCustomTheme.DISABLED : DDLCLightCustomTheme.DISABLED;
+    return ;
   }
 
   /**
