@@ -22,7 +22,12 @@ import javax.swing.UIManager
 import javax.swing.UnsupportedLookAndFeelException
 import javax.swing.plaf.ColorUIResource
 
-abstract class DokiDokiTheme : Serializable, MTThemeable, MTSerializedTheme {
+abstract class DokiDokiTheme(val ddlcThemeId: String,
+                             val isDarkTheme: Boolean,
+                             val colorScheme: String,
+                             val clubMemberIcon: String,
+                             val clubMemberName: String
+): Serializable, MTThemeable, MTSerializedTheme {
 
   init {
 //    todo: may not need dis
@@ -31,6 +36,13 @@ abstract class DokiDokiTheme : Serializable, MTThemeable, MTSerializedTheme {
 //            .setEditorColorScheme(themeColorScheme)
 //            .setIcon(themeIcon).name = themeName
   }
+
+  override fun getThemeId() = this.ddlcThemeId
+  override fun isDark() = this.isDarkTheme
+  override fun getThemeColorScheme() = this.colorScheme
+  override fun getThemeName() = this.clubMemberName
+  override fun getThemeIcon() = this.clubMemberIcon
+
 
   override fun activate() {
     try {
@@ -86,9 +98,10 @@ abstract class DokiDokiTheme : Serializable, MTThemeable, MTSerializedTheme {
       buildNotificationsColors()
 
       // Apply theme accent color if said so
-      if (MTConfig.getInstance().isOverrideAccentColor) {
-        MTConfig.getInstance().accentColor = accentColor
-        MTThemeManager.applyAccents()
+      val instance = MTConfig.getInstance()
+      if (instance.isOverrideAccentColor) {
+        instance.accentColor = accentColor
+        MTThemeManager.applyAccents(true)
       }
 
       if (isDark) {
