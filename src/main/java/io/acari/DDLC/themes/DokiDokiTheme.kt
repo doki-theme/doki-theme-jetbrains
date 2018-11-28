@@ -117,10 +117,26 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
 
   }
 
+  override fun isCustom(): Boolean = false
+
+  override fun getBackgroundColor(): Color = ColorUIResource(backgroundColorResource)
+
+  override fun getContrastColor(): Color = ColorUIResource(contrastColorResource)
+
+  override fun getForegroundColor(): Color = foregroundColorResource
+
+  override fun getSelectionBackgroundColor(): Color = secondaryBackgroundColorResource
+
+  override fun getSelectionForegroundColor(): Color = selectionForegroundColorResource
+
+  override fun getExcludedColor(): Color = excludedColorResource
+
+  override fun getPrimaryColor(): Color = textColorResource
+
   /**
    * Get the hex code for the notifications color
    */
-  abstract override fun getNotificationsColorString(): Color
+  abstract override fun getNotificationsColorString(): String
 
   private fun buildNotificationsColors() {
     UIManager.put("Notifications.errorBackground", JBColor(ColorUIResource(0xef5350), ColorUIResource(0x4E0C05)))
