@@ -1,8 +1,8 @@
 package io.acari.DDLC.themes.light
 
-import io.acari.DDLC.themes.DokiDokiTheme
+import io.acari.DDLC.themes.DokiDokiTheme_legacy
 
-class SayoriTheme : DokiDokiTheme("sayori", "Sayori", false, "Sayori") {
+class SayoriTheme : DokiDokiTheme_legacy("sayori", "Sayori", false, "Sayori") {
 
     override fun getBackgroundColorString(): String = "f4fbfe"
 

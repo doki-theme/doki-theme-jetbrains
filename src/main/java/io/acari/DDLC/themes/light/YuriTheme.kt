@@ -1,8 +1,8 @@
 package io.acari.DDLC.themes.light
 
-import io.acari.DDLC.themes.DokiDokiTheme
+import io.acari.DDLC.themes.DokiDokiTheme_legacy
 
-class YuriTheme : DokiDokiTheme("yuri", "Yuri", false, "Yuri") {
+class YuriTheme : DokiDokiTheme_legacy("yuri", "Yuri", false, "Yuri") {
 
     override fun getBackgroundColorString(): String = "e8e4ff"
 
