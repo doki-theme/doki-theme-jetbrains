@@ -26,11 +26,11 @@
 
 package io.acari.DDLC.themes.light
 
-import io.acari.DDLC.themes.DokiDokiTheme_legacy
+import io.acari.DDLC.themes.DokiDokiTheme
 import java.awt.Color
 import java.util.stream.Stream
 
-class MonikaTheme : DokiDokiTheme_legacy("monika", "Monika", false, "Monika") {
+class MonikaTheme : DokiDokiTheme("monika", "Monika", false, "Monika") {
 
     override fun getClubMember(): String = "just_monika.png"
 

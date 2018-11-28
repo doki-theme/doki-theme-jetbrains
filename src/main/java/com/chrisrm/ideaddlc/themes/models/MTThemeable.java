@@ -26,7 +26,6 @@
 
 package com.chrisrm.ideaddlc.themes.models;
 
-import com.chrisrm.idea.messages.ThemesBundle;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 
@@ -42,27 +41,33 @@ public interface MTThemeable {
 
   @NonNls
   default String getThemeName() {
-    return ThemesBundle.messageWithPrefix("name", getThemeId());
+
+   return "this"; //todo: dis boi
   }
 
   @NonNls
   default String getThemeIcon() {
-    return "/icons/actions/themes/" + ThemesBundle.messageWithPrefix("icon", getThemeId()) + ".svg";
+
+   return "this"; //todo: dis boi
   }
 
   @NonNls
   default String getThemeColorScheme() {
-    return ThemesBundle.messageWithPrefix("scheme", getThemeId());
+
+   return "this"; //todo: dis boi
   }
 
   @NonNls
   default boolean isThemeDark() {
-    return Boolean.parseBoolean(ThemesBundle.messageWithPrefix("dark", getThemeId()));
+
+   return false; //todo: dis boi
   }
 
   @NonNls
   default int getOrder() {
-    return Integer.parseInt(ThemesBundle.messageWithPrefix("order", getThemeId()));
+    //todo: dis
+
+   return 1; //todo: dis boi
   }
 
   /**
@@ -115,10 +120,6 @@ public interface MTThemeable {
 
   MTThemeable setIsDark(boolean dark);
 
-  /**
-   * The theme icon
-   */
-  Icon getIcon();
 
   MTThemeable setIcon(String icon);
 
@@ -220,8 +221,6 @@ public interface MTThemeable {
   @NotNull
   String getDisabled();
 
-  boolean isCustom();
-
   /**
    * The theme's foreground color
    *
@@ -239,14 +238,6 @@ public interface MTThemeable {
   Color getPrimaryColor();
 
   /**
-   * The identifier to save
-   *
-   * @return
-   */
-  @NotNull
-  String getThemeId();
-
-  /**
    * The theme icon
    *
    * @return
@@ -260,19 +251,6 @@ public interface MTThemeable {
    */
   String getAccentColor();
 
-  /**
-   * The excluded files color
-   *
-   * @return
-   */
-  String getExcludedColor();
-
-  /**
-   * Order in the list
-   *
-   * @return
-   */
-  int getOrder();
 
   String getNonProjectFileScopeColor();
 

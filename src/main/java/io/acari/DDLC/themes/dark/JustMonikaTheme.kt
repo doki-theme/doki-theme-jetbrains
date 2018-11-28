@@ -1,11 +1,11 @@
 package io.acari.DDLC.themes.dark
 
-import io.acari.DDLC.themes.DokiDokiTheme_legacy
+import io.acari.DDLC.themes.DokiDokiTheme
 
 /**
  * Forged in the flames of battle by alex.
  */
-class JustMonikaTheme : DokiDokiTheme_legacy("just.monika", "Just Monika", true, "Monika") {
+class JustMonikaTheme : DokiDokiTheme("just.monika", "Just Monika", true, "Monika") {
 
     override fun getBackgroundColorString(): String = "1C230D"
 

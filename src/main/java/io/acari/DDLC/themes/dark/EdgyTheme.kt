@@ -1,9 +1,9 @@
 package io.acari.DDLC.themes.dark
 
-import io.acari.DDLC.themes.DokiDokiTheme_legacy
+import io.acari.DDLC.themes.DokiDokiTheme
 
 //todo: should probably rename these to something more expected :|
-class EdgyTheme : DokiDokiTheme_legacy("yuri.dark", "Edgy", true, "Yuri") {
+class EdgyTheme : DokiDokiTheme("yuri.dark", "Edgy", true, "Yuri") {
 
     override fun getBackgroundColorString(): String = "322A45"
 

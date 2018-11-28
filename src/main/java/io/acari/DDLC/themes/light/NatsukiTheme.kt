@@ -1,8 +1,8 @@
 package io.acari.DDLC.themes.light
 
-import io.acari.DDLC.themes.DokiDokiTheme_legacy
+import io.acari.DDLC.themes.DokiDokiTheme
 
-class NatsukiTheme : DokiDokiTheme_legacy("natsuki", "Natsuki", false, "Natsuki") {
+class NatsukiTheme : DokiDokiTheme("natsuki", "Natsuki", false, "Natsuki") {
 
     override fun getBackgroundColorString(): String = "fff3fc"
 

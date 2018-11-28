@@ -1,8 +1,8 @@
 package io.acari.DDLC.themes.dark
 
-import io.acari.DDLC.themes.DokiDokiTheme_legacy
+import io.acari.DDLC.themes.DokiDokiTheme
 
-class OnlyPlayWithMeTheme : DokiDokiTheme_legacy("natsuki.dark", "Only Play With Me", true, "Natsuki") {
+class OnlyPlayWithMeTheme : DokiDokiTheme("natsuki.dark", "Only Play With Me", true, "Natsuki") {
 
   override fun getBackgroundColorString(): String = "240E1E"
 

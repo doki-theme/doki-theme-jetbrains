@@ -57,7 +57,7 @@ public class DokiDokiTheme_legacy extends DDLCAbstractTheme {
   public static final String NON_PROJECT_FILES = "fdffce";
   public static final String TEST_FILES = "bbff7e";
 
-  public DokiDokiTheme_legacy(@NotNull String id, String editorColorsScheme, boolean dark, String thingo) {
+  public DokiDokiTheme(@NotNull String id, String editorColorsScheme, boolean dark, String thingo) {
     super(id, editorColorsScheme, dark, thingo);
   }
 
