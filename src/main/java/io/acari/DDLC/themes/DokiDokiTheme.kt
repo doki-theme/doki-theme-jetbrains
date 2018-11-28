@@ -14,6 +14,7 @@ import com.intellij.ide.ui.laf.darcula.DarculaLookAndFeelInfo
 import com.intellij.openapi.util.IconLoader
 import com.intellij.ui.JBColor
 import io.acari.DDLC.LegacySupportUtility
+import io.acari.DDLC.legacy.Runner
 import java.awt.Color
 import java.io.Serializable
 import java.util.stream.Stream
@@ -23,14 +24,22 @@ import javax.swing.plaf.ColorUIResource
 
 abstract class DokiDokiTheme : Serializable, MTThemeable, MTSerializedTheme {
 
+  init {
+//    todo: may not need dis
+//    setId(themeId)
+//            .setIsDark(isThemeDark)
+//            .setEditorColorScheme(themeColorScheme)
+//            .setIcon(themeIcon).name = themeName
+  }
+
   override fun activate() {
     try {
       if (isDark) {
         LegacySupportUtility.invokeVoidMethodSafely(
             LafManagerImpl::class.java,
             "getTestInstance",
-            { LafManagerImpl.getTestInstance().setCurrentLookAndFeel(DarculaLookAndFeelInfo()) },
-            {
+            Runner{ LafManagerImpl.getTestInstance().setCurrentLookAndFeel(DarculaLookAndFeelInfo()) },
+            Runner{
               LafManager.getInstance().setCurrentLookAndFeel(DarculaLookAndFeelInfo())
               UIManager.setLookAndFeel(MTDarkLaf(this))
             }
@@ -40,8 +49,8 @@ abstract class DokiDokiTheme : Serializable, MTThemeable, MTSerializedTheme {
         LegacySupportUtility.invokeVoidMethodSafely(
             LafManagerImpl::class.java,
             "getTestInstance",
-            { LafManagerImpl.getTestInstance().setCurrentLookAndFeel(IntelliJLookAndFeelInfo()) },
-            {
+            Runner{ LafManagerImpl.getTestInstance().setCurrentLookAndFeel(IntelliJLookAndFeelInfo()) },
+            Runner{
               LafManager.getInstance().setCurrentLookAndFeel(IntelliJLookAndFeelInfo())
               UIManager.setLookAndFeel(MTLightLaf(this))
             }
