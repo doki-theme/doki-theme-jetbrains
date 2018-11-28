@@ -172,7 +172,7 @@ public abstract class DDLCAbstractTheme implements Serializable, MTThemeable {
       // Apply theme accent color if said so
       if (MTConfig.getInstance().isOverrideAccentColor()) {
         MTConfig.getInstance().setAccentColor(getAccentColor());
-        MTThemeManager.applyAccents();
+        MTThemeManager.applyAccents(true);
       }
 
       if (isDark()) {
@@ -252,8 +252,9 @@ public abstract class DDLCAbstractTheme implements Serializable, MTThemeable {
     return icon != null ? IconLoader.getIcon(icon) : IconUtil.getEmptyIcon(true);
   }
 
-  public final void setIcon(final String icon) {
+  public final MTThemeable setIcon(final String icon) {
     this.icon = icon;
+    return this;
   }
 
   private Stream<String> getMenuItemSelectionForegroundResources() {
@@ -412,9 +413,8 @@ public abstract class DDLCAbstractTheme implements Serializable, MTThemeable {
   /**
    * Get resources using the background color
    */
-  protected String[] getBackgroundResources() {
-    return new String[]{
-        "window",
+  protected Stream<String> getBackgroundResources() {
+    return Stream.of("window",
         "activeCaption",
         "control",
         "PopupMenu.translucentBackground",
@@ -481,8 +481,7 @@ public abstract class DDLCAbstractTheme implements Serializable, MTThemeable {
         "ComboBox.darcula.nonEditableBackground",
         "darcula.background",
         "intellijlaf.background",
-        "material.background"
-    };
+        "material.background");
   }
 
   /**
@@ -493,9 +492,8 @@ public abstract class DDLCAbstractTheme implements Serializable, MTThemeable {
   /**
    * Get resources using the foreground color
    */
-  protected String[] getForegroundResources() {
-    return new String[]{
-        "text",
+  protected Stream<String> getForegroundResources() {
+    return Stream.of("text",
         "textText",
         "textInactiveText",
         "infoText",
@@ -538,16 +536,14 @@ public abstract class DDLCAbstractTheme implements Serializable, MTThemeable {
         "HelpTooltip.textColor",
         "darcula.foreground",
         "intellijlaf.foreground",
-        "TitledBorder.titleColor"
-    };
+        "TitledBorder.titleColor");
   }
 
-  protected String[] getMenuItemForegroundResources() {
-    return new String[]{
+  protected Stream<String> getMenuItemForegroundResources() {
+    return Stream.of(
         "Menu.foreground",
         "MenuItem.foreground",
-        "PopupMenu.foreground",
-    };
+        "PopupMenu.foreground");
   }
 
   protected Stream<String> getButtonBackgroundResources() {
@@ -580,9 +576,8 @@ public abstract class DDLCAbstractTheme implements Serializable, MTThemeable {
   /**
    * Get resources using the label color
    */
-  protected String[] getTextResources() {
-    return new String[]{
-        "Menu.acceleratorForeground",
+  protected Stream<String> getTextResources() {
+    return Stream.of("Menu.acceleratorForeground",
         "text",
         "textText",
         "textInactiveText",
@@ -596,8 +591,7 @@ public abstract class DDLCAbstractTheme implements Serializable, MTThemeable {
         "material.primaryColor",
         "SearchEverywhere.shortcutForeground",
         "HelpTooltip.shortcutTextColor",
-        "Tree.foreground"
-    };
+        "Tree.foreground");
   }
 
   /**
@@ -608,8 +602,8 @@ public abstract class DDLCAbstractTheme implements Serializable, MTThemeable {
   /**
    * Get resources using the selection background color
    */
-  protected String[] getSelectionBackgroundResources() {
-    return new String[]{
+  protected Stream<String> getSelectionBackgroundResources() {
+    return Stream.of(
         "Menu.selectionBackground",
         "MenuItem.selectionBackground",
         "RadioButtonMenuItem.selectionBackground",
@@ -618,8 +612,7 @@ public abstract class DDLCAbstractTheme implements Serializable, MTThemeable {
         "Autocomplete.selectionBackground",
         "TabbedPane.selectHighlight",
         "List.selectionBackground",
-        "TabbedPane.selected",
-    };
+        "TabbedPane.selected");
   }
 
   /**
@@ -663,16 +656,14 @@ public abstract class DDLCAbstractTheme implements Serializable, MTThemeable {
   /**
    * Get resources using the inactive color
    */
-  protected String[] getInactiveResources() {
-    return new String[]{
-        "MenuBar.darcula.borderColor",
+  protected Stream<String> getInactiveResources() {
+    return Stream.of("MenuBar.darcula.borderColor",
         "MenuBar.darcula.borderShadowColor",
         "Button.mt.color1",
         "Button.mt.color2",
         "Button.mt.background",
         "material.disabled",
-        "material.mergeCommits"
-    };
+        "material.mergeCommits");
   }
 
   /**
@@ -683,25 +674,21 @@ public abstract class DDLCAbstractTheme implements Serializable, MTThemeable {
   /**
    * Get resources using the secondary background color
    */
-  protected String[] getSecondaryBackgroundResources() {
-    return new String[]{
-        "inactiveCaption",
+  protected Stream<String> getSecondaryBackgroundResources() {
+    return Stream.of("inactiveCaption",
         "ToolWindow.header.active.background",
         "ToolWindow.header.border.background",
         "MemoryIndicator.unusedColor",
-        "List.background"
-    };
+        "List.background");
   }
 
   /**
    * Get resources using the secondary background color
    */
-  protected String[] getSecondaryForegroundResources() {
-    return new String[]{
-        "ToolWindow.header.active.foreground",
+  protected Stream<String> getSecondaryForegroundResources() {
+    return Stream.of("ToolWindow.header.active.foreground",
         "ToolWindow.header.border.foreground",
-        "List.foreground"
-    };
+        "List.foreground");
   }
 
   /**
@@ -716,9 +703,8 @@ public abstract class DDLCAbstractTheme implements Serializable, MTThemeable {
   /**
    * Get resources using the disabled color
    */
-  protected String[] getDisabledResources() {
-    return new String[]{
-        "MenuItem.disabledForeground",
+  protected Stream<String> getDisabledResources() {
+    return Stream.of("MenuItem.disabledForeground",
         "ComboBox.disabledForeground",
         "CheckBox.darcula.disabledBorderColor1",
         "CheckBox.darcula.disabledBorderColor2",
@@ -736,8 +722,7 @@ public abstract class DDLCAbstractTheme implements Serializable, MTThemeable {
         "RadioButtonMenuItem.disabledForeground",
         "Outline.disabledColor",
         "CheckBoxMenuItem.disabledForeground",
-        "CheckBox.darcula.checkSignColorDisabled"
-    };
+        "CheckBox.darcula.checkSignColorDisabled");
   }
 
   /**
@@ -748,9 +733,8 @@ public abstract class DDLCAbstractTheme implements Serializable, MTThemeable {
   /**
    * Get resources using the contrast color
    */
-  protected String[] getContrastResources() {
-    return new String[]{
-        "Table.stripedBackground",
+  protected Stream<String> getContrastResources() {
+    return Stream.of("Table.stripedBackground",
         "ToolWindow.header.tab.selected.background",
         "ToolWindow.header.tab.selected.active.background",
         "Table.focusCellBackground",
@@ -762,8 +746,7 @@ public abstract class DDLCAbstractTheme implements Serializable, MTThemeable {
         "Popup.Border.color",
         "Popup.Toolbar.Border.color",
         "SearchEverywhere.SearchField.background",
-        "material.contrast"
-    };
+        "material.contrast");
   }
 
   /**
@@ -774,9 +757,8 @@ public abstract class DDLCAbstractTheme implements Serializable, MTThemeable {
   /**
    * Get resources using the table/button selection color
    */
-  protected String[] getTableSelectedResources() {
-    return new String[]{
-        "Table.selectionBackground",
+  protected Stream<String> getTableSelectedResources() {
+    return Stream.of("Table.selectionBackground",
         "TextField.selectionBackground",
         "PasswordField.selectionBackground",
         "FormattedTextField.selectionBackground",
@@ -788,8 +770,7 @@ public abstract class DDLCAbstractTheme implements Serializable, MTThemeable {
         "Button.darcula.focusedBorderColor",
         "Button.darcula.defaultFocusedBorderColor",
         "Button.mt.selection.color2",
-        "Button.mt.selection.color1"
-    };
+        "Button.mt.selection.color1");
   }
 
   /**
@@ -800,9 +781,8 @@ public abstract class DDLCAbstractTheme implements Serializable, MTThemeable {
   /**
    * Get resources using the second border color
    */
-  protected String[] getSecondBorderResources() {
-    return new String[]{
-        "MenuBar.darcula.borderShadowColor",
+  protected Stream<String> getSecondBorderResources() {
+    return Stream.of("MenuBar.darcula.borderShadowColor",
         "CheckBox.darcula.disabledBorderColor1",
         "CheckBox.darcula.disabledBorderColor2",
         "TabbedPane.highlight",
@@ -811,8 +791,7 @@ public abstract class DDLCAbstractTheme implements Serializable, MTThemeable {
         "Button.darcula.disabledOutlineColor",
         "HelpTooltip.borderColor",
         "SearchEverywhere.List.Separator.Color",
-        "TabbedPane.shadow"
-    };
+        "TabbedPane.shadow");
   }
 
   /**
@@ -823,9 +802,8 @@ public abstract class DDLCAbstractTheme implements Serializable, MTThemeable {
   /**
    * Get resources using the highlight color
    */
-  protected String[] getHighlightResources() {
-    return new String[]{
-        "Focus.color",
+  protected Stream<String> getHighlightResources() {
+    return Stream.of("Focus.color",
         "TextField.separatorColor",
         "ProgressBar.halfColor",
         "Autocomplete.selectionUnfocus",
@@ -837,8 +815,7 @@ public abstract class DDLCAbstractTheme implements Serializable, MTThemeable {
         "SearchEverywhere.Tab.selected.background",
         "TableHeader.borderColor",
         "Outline.focusedColor",
-        "MemoryIndicator.usedColor"
-    };
+        "MemoryIndicator.usedColor");
   }
 
   /**
@@ -849,18 +826,14 @@ public abstract class DDLCAbstractTheme implements Serializable, MTThemeable {
   /**
    * Get resources using the tree selected row color
    */
-  protected String[] getTreeSelectionBackgroundResources() {
-    return new String[]{
-        "Tree.selectionBackground"
-
-    };
+  protected Stream<String> getTreeSelectionBackgroundResources() {
+    return Stream.of(
+        "Tree.selectionBackground");
   }
 
-  protected String[] getTreeSelectionForegroundResources() {
-    return new String[]{
-        "Tree.selectionForeground"
-
-    };
+  protected Stream<String> getTreeSelectionForegroundResources() {
+    return Stream.of(
+        "Tree.selectionForeground");
   }
 
   /**
@@ -873,11 +846,9 @@ public abstract class DDLCAbstractTheme implements Serializable, MTThemeable {
   /**
    * Get notifications colors resources
    */
-  protected String[] getNotificationsResources() {
-    return new String[]{
-        "Notifications.background",
-        "Notifications.borderColor"
-    };
+  protected Stream<String> getNotificationsResources() {
+    return Stream.of("Notifications.background",
+        "Notifications.borderColor");
   }
 
   /**

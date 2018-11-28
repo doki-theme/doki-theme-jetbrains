@@ -229,55 +229,49 @@ public class DokiDokiTheme_legacy extends DDLCAbstractTheme {
   }
 
   @Override
-  public String[] getTreeSelectionBackgroundResources() {
-    return new String[] {
-        "Tree.selectionBackground"
-    };
+  public Stream<String> getTreeSelectionBackgroundResources() {
+    return Stream.of(
+        "Tree.selectionBackground");
   }
 
   @Override
-  public String[] getTreeSelectionForegroundResources() {
-    return new String[] {
-        "Tree.selectionForeground"
-    };
+  public Stream<String> getTreeSelectionForegroundResources() {
+    return Stream.of(
+        "Tree.selectionForeground");
   }
 
-  public String[] getButtonHighlightResources() {
-    return new String[] {
+  public Stream<String> getButtonHighlightResources() {
+    return Stream.of(
         "Button.mt.color2",
-        "Button.mt.selection.color2"
-    };
+        "Button.mt.selection.color2");
   }
 
   @Override
-  public String[] getHighlightResources() {
-    return new String[] {
+  public Stream<String> getHighlightResources() {
+    return Stream.of(
         "Focus.color",
         "TextField.separatorColor",
-        "CheckBox.darcula.inactiveFillColor"
-    };
+        "CheckBox.darcula.inactiveFillColor");
   }
 
   @Override
-  public String[] getSecondBorderResources() {
-    return new String[] {
+  public Stream<String> getSecondBorderResources() {
+    return Stream.of(
         "TabbedPane.highlight",
         "TabbedPane.selected",
-        "TabbedPane.selectHighlight"
-    };
+        "TabbedPane.selectHighlight");
   }
 
   @Override
-  public String[] getTableSelectedResources() {
-    return new String[] {
+  public Stream<String> getTableSelectedResources() {
+    return Stream.of(
         "ProgressBar.halfColor",
-        "MemoryIndicator.unusedColor"
-    };
+        "MemoryIndicator.unusedColor");
   }
 
   @Override
-  public String[] getContrastResources() {
-    return new String[] {
+  public Stream<String> getContrastResources() {
+    return Stream.of(
         "Table.stripedBackground",
         "ScrollBar.thumb",
         "Table.focusCellBackground",
@@ -300,16 +294,15 @@ public class DokiDokiTheme_legacy extends DDLCAbstractTheme {
   }
 
   @Override
-  public String[] getDisabledResources() {
-    return new String[] {
+  public Stream<String> getDisabledResources() {
+    return Stream.of(
         "MenuItem.disabledForeground",
-        "ComboBox.disabledForeground"
-    };
+        "ComboBox.disabledForeground");
   }
 
   @Override
-  public String[] getSecondaryBackgroundResources() {
-    return new String[] {
+  public Stream<String> getSecondaryBackgroundResources() {
+    return Stream.of(
         "Separator.foreground",
         "TextField.separatorColorDisabled",
         "PasswordField.inactiveForeground",
@@ -320,25 +313,22 @@ public class DokiDokiTheme_legacy extends DDLCAbstractTheme {
         "ToolWindow.header.active.background",
         "ToolWindow.header.border.background",
         "material.disabled",
-        "material.mergeCommits"
-    };
+        "material.mergeCommits");
   }
 
-  public String[] getCaretResources() {
-    return new String[] {
-        "monika.caretForeground"
-    };
+  public Stream<String> getCaretResources() {
+    return Stream.of(
+        "monika.caretForeground");
   }
 
   @Override
-  public String[] getInactiveResources() {
-    return new String[] {
+  public Stream<String> getInactiveResources() {
+    return Stream.of(
         "Table.gridColor",
         "MenuBar.darcula.borderColor",
         "MenuBar.darcula.borderShadowColor",
         "CheckBox.darcula.disabledBorderColor1",
-        "CheckBox.darcula.disabledBorderColor2"
-    };
+        "CheckBox.darcula.disabledBorderColor2");
   }
 
   @Override
@@ -362,8 +352,8 @@ public class DokiDokiTheme_legacy extends DDLCAbstractTheme {
   }
 
   @Override
-  public String[] getSelectionBackgroundResources() {
-    return new String[] {
+  public Stream<String> getSelectionBackgroundResources() {
+    return Stream.of(
         "inactiveCaption",
         "Menu.selectionBackground",
         "Menu.acceleratorSelectionBackground",
@@ -380,26 +370,24 @@ public class DokiDokiTheme_legacy extends DDLCAbstractTheme {
         "PasswordField.selectionBackground",
         "TextField.selectionBackground",
         "TextArea.selectionBackground",
-        "TabbedPane.selected"
-    };
+        "TabbedPane.selected");
   }
 
   @Override
-  public String[] getTextResources() {
-    return new String[] {
+  public Stream<String> getTextResources() {
+    return Stream.of(
         "Menu.acceleratorForeground",
         "MenuItem.acceleratorForeground",
         "TextField.inactiveForeground",
         "material.tagColor",
         "material.primaryColor",
         "SearchEverywhere.shortcutForeground",
-        "Tree.foreground"
-    };
+        "Tree.foreground");
   }
 
   @Override
-  public String[] getBackgroundResources() {
-    return new String[] {
+  public Stream<String> getBackgroundResources() {
+    return Stream.of(
         "monika.background",
         "monika.textBackground",
         "monika.inactiveBackground",
@@ -450,8 +438,7 @@ public class DokiDokiTheme_legacy extends DDLCAbstractTheme {
         "ColorChooser.background",
         "Slider.background",
         "ToolWindow.header.background",
-        "material.background"
-    };
+        "material.background");
   }
 
   @Override
@@ -468,8 +455,8 @@ public class DokiDokiTheme_legacy extends DDLCAbstractTheme {
   }
 
   @Override
-  public String[] getForegroundResources() {
-    return new String[] {
+  public Stream<String> getForegroundResources() {
+    return Stream.of(
         "monika.foreground",
         "monika.textForeground",
         "monika.selectionForegroundInactive",
@@ -505,8 +492,7 @@ public class DokiDokiTheme_legacy extends DDLCAbstractTheme {
         "Table.sortIconColor",
         "material.branchColor",
         "material.foreground",
-        "TitledBorder.titleColor"
-    };
+        "TitledBorder.titleColor");
   }
 
 }

@@ -30,11 +30,7 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
 ): Serializable, MTThemeable, MTSerializedTheme {
 
   init {
-//    todo: may not need dis
-//    setId(themeId)
-//            .setIsDark(isThemeDark)
-//            .setEditorColorScheme(themeColorScheme)
-//            .setIcon(themeIcon).name = themeName
+
   }
 
   override fun getThemeId() = this.ddlcThemeId
@@ -42,7 +38,6 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
   override fun getThemeColorScheme() = this.colorScheme
   override fun getThemeName() = this.clubMemberName
   override fun getThemeIcon() = this.clubMemberIcon
-
 
   override fun activate() {
     try {
@@ -133,6 +128,16 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
 
   override fun getPrimaryColor(): Color = textColorResource
 
+  fun getTreeSelectionBackgroundResources(): Stream<String> {
+    return Stream.of("Tree.selectionBackground")
+  }
+
+  fun getTreeSelectionForegroundResources(): Stream<String> {
+    return Stream.of("Tree.selectionForeground")
+  }
+
+
+
   /**
    * Get the hex code for the notifications color
    */
@@ -150,7 +155,6 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
     val infoColor = JBColor(ColorUIResource(0x66BB6A), ColorUIResource(0x1B5E20))
     UIManager.put("Notification.ToolWindowInfo.borderColor", infoColor)
     UIManager.put("Notification.ToolWindowInfo.background", infoColor)
-
   }
 
   private fun buildResources(resources: Stream<String>, color: String) {
