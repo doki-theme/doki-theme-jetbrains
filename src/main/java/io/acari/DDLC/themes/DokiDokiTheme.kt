@@ -71,7 +71,7 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
       buildResources(getButtonForegroundResources(), getButtonForegroundColor())
       buildResources(getForegroundResources(), foregroundColorString)
       buildResources(getMenuItemForegroundResources(), getMenuItemForegroundColor())
-      buildResources(getTextResources(), contrastifyForeground(textColorString))
+      buildResources(getTextResources(), textColorString)
       buildResources(getSelectionBackgroundResources(), selectionBackgroundColorString)
       buildResources(getSelectionForegroundResources(), selectionForegroundColorString)
 
@@ -326,7 +326,7 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
     )
   }
 
-  internal fun getButtonForegroundResources(): Stream<String> {
+  fun getButtonForegroundResources(): Stream<String> {
     return Stream.of(
             "Button.foreground",
             "Button.mt.foreground",
@@ -379,9 +379,67 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
             "TitledBorder.titleColor")
   }
 
+  fun getMenuItemSelectionForegroundResources(): Stream<String> {
+    return Stream.of("MenuItem.selectionForeground",
+            "Menu.acceleratorSelectionForeground",
+            "Menu.selectionForeground",
+            "MenuItem.acceleratorSelectionForeground")
+  }
+
+  fun getMenuItemSelectionBackgroundResources(): Stream<String> {
+    return Stream.of("Menu.selectionBackground",
+            "Menu.acceleratorSelectionBackground",
+            "MenuItem.acceleratorSelectionBackground",
+            "MenuItem.selectionBackground")
+  }
+
+  fun getNotificationsResources(): Stream<String> {
+    return Stream.of("Notifications.background",
+            "Notifications.borderColor")
+  }
+
   fun getButtonBackgroundColor(): String {
     return "fbffeb"
   }
+
+
+  abstract fun getMenuBarSelectionForegroundColorString(): String
+
+  abstract fun getMenuBarSelectionBackgroundColorString(): String
+
+  abstract fun getInactiveColorString(): String
+
+  abstract fun getTreeSelectionBackgroundColorString(): String
+
+  abstract fun getTreeSelectionForegroundColorString(): String
+
+  fun getSecondaryForegroundResources(): Stream<String> {
+    return Stream.of("ToolWindow.header.active.foreground",
+            "ToolWindow.header.border.foreground",
+            "List.foreground")
+  }
+
+  fun getSecondaryForegroundColorString(): String {
+    return "256f25"
+  }
+
+
+  fun getButtonForegroundColor(): String {
+    return "C700A5"
+  }
+
+
+  fun getMenuItemForegroundResources(): Stream<String> {
+    return Stream.of(
+            "Menu.foreground",
+            "MenuItem.foreground",
+            "PopupMenu.foreground")
+  }
+
+  fun getMenuItemForegroundColor(): String {
+    return "FFFFFF"
+  }
+
 
   /**
    * Get the hex code for the notifications color
