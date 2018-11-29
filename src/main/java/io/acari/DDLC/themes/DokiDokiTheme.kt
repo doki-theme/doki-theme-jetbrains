@@ -127,6 +127,10 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
 
   override fun getPrimaryColor(): Color = textColorResource
 
+  open fun getInactiveColorString(): String {
+    return "FFF4F2"
+  }
+
   open fun getTreeSelectionBackgroundResources(): Stream<String> {
     return Stream.of("Tree.selectionBackground")
   }
@@ -405,8 +409,6 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
   abstract fun getMenuBarSelectionForegroundColorString(): String
 
   abstract fun getMenuBarSelectionBackgroundColorString(): String
-
-  abstract fun getInactiveColorString(): String
 
   abstract fun getTreeSelectionBackgroundColorString(): String
 
