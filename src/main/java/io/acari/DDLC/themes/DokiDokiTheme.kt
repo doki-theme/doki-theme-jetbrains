@@ -66,7 +66,7 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
       }
       JBColor.setDark(isDark)
       IconLoader.setUseDarkIcons(isDark)
-      buildResources(getBackgroundResources(), contrastifyBackground(backgroundColorString))
+      buildResources(getBackgroundResources(), backgroundColorString)
       buildResources(getButtonBackgroundResources(), getButtonBackgroundColor())
       buildResources(getButtonForegroundResources(), getButtonForegroundColor())
       buildResources(getForegroundResources(), foregroundColorString)
@@ -79,7 +79,7 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
       buildResources(getSecondaryBackgroundResources(), secondaryBackgroundColorString)
       buildResources(getSecondaryForegroundResources(), getSecondaryForegroundColorString())
       buildResources(getDisabledResources(), disabledColorString)
-      buildResources(getContrastResources(), contrastifyBackground(contrastColorString))
+      buildResources(getContrastResources(), contrastColorString)
       buildResources(getTableSelectedResources(), tableSelectedColorString)
       buildResources(getSecondBorderResources(), secondBorderColorString)
       buildResources(getHighlightResources(), highlightColorString)
@@ -136,7 +136,252 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
     return Stream.of("Tree.selectionForeground")
   }
 
+  fun getHighlightResources(): Stream<String> {
+    return Stream.of(
+            "Focus.color",
+            "TextField.separatorColor",
+            "CheckBox.darcula.inactiveFillColor")
+  }
 
+  fun getSecondBorderResources(): Stream<String> {
+    return Stream.of(
+            "TabbedPane.highlight",
+            "TabbedPane.selected",
+            "TabbedPane.selectHighlight")
+  }
+
+  fun getTableSelectedResources(): Stream<String> {
+    return Stream.of(
+            "ProgressBar.halfColor",
+            "MemoryIndicator.unusedColor")
+  }
+
+  fun getContrastResources(): Stream<String> {
+    return Stream.of(
+            "Table.stripedBackground",
+            "ScrollBar.thumb",
+            "Table.focusCellBackground",
+            "ToolWindow.header.tab.selected.background",
+            "ToolWindow.header.tab.selected.active.background",
+            "material.contrast",
+            "ActionToolbar.background",
+            "Toolbar.background",
+            "material.tab.backgroundColor",
+            "TabbedPane.mt.tab.background",
+            "TabbedPane.background",
+            "OptionPane.background",
+            "TabbedPane.highlight",
+            "TabbedPane.darkShadow",
+            "TabbedPane.shadow",
+            "TabbedPane.borderColor",
+            "Popup.Header.inactiveBackground",
+            "Popup.Header.activeBackground")
+  }
+
+  fun getDisabledResources(): Stream<String> {
+    return Stream.of(
+            "MenuItem.disabledForeground",
+            "ComboBox.disabledForeground")
+  }
+
+  fun getSecondaryBackgroundResources(): Stream<String> {
+    return Stream.of(
+            "Separator.foreground",
+            "TextField.separatorColorDisabled",
+            "PasswordField.inactiveForeground",
+            "Button.darcula.selection.color1",
+            "Button.darcula.selection.color2",
+            "Button.mt.selection.color1",
+            "List.background",
+            "ToolWindow.header.active.background",
+            "ToolWindow.header.border.background",
+            "material.disabled",
+            "material.mergeCommits")
+  }
+
+  fun getInactiveResources(): Stream<String> {
+    return Stream.of(
+            "Table.gridColor",
+            "MenuBar.darcula.borderColor",
+            "MenuBar.darcula.borderShadowColor",
+            "CheckBox.darcula.disabledBorderColor1",
+            "CheckBox.darcula.disabledBorderColor2")
+  }
+
+  fun getSelectionForegroundResources(): Stream<String> {
+    return Stream.of(
+            "Menu.selectionForeground",
+            "Menu.acceleratorSelectionForeground",
+            "MenuItem.selectionForeground",
+            "MenuItem.acceleratorSelectionForeground",
+            "Table.selectionForeground",
+            "TextField.selectionForeground",
+            "PasswordField.selectionForeground",
+            "TextArea.selectionForeground",
+            "Label.selectedForeground",
+            "Button.darcula.selectedButtonForeground",
+            "Button.darcula.selectedButtonForeground",
+            "PasswordField.selectionForeground",
+            "TextField.selectionForeground",
+            "TextArea.selectionForeground"
+    )
+  }
+
+  fun getSelectionBackgroundResources(): Stream<String> {
+    return Stream.of(
+            "inactiveCaption",
+            "Menu.selectionBackground",
+            "Menu.acceleratorSelectionBackground",
+            "MenuItem.selectionBackground",
+            "MenuItem.acceleratorSelectionBackground",
+            "Table.selectionBackground",
+            "TextField.selectionBackground",
+            "PasswordField.selectionBackground",
+            "Button.mt.selectedBackground",
+            "TextArea.selectionBackground",
+            "SearchEverywhere.Tab.selected.background",
+            "Label.selectedBackground",
+            "Button.darcula.selectedButtonBackground",
+            "PasswordField.selectionBackground",
+            "TextField.selectionBackground",
+            "TextArea.selectionBackground",
+            "TabbedPane.selected")
+  }
+
+  fun getTextResources(): Stream<String> {
+    return Stream.of(
+            "Menu.acceleratorForeground",
+            "MenuItem.acceleratorForeground",
+            "TextField.inactiveForeground",
+            "material.tagColor",
+            "material.primaryColor",
+            "SearchEverywhere.shortcutForeground",
+            "Tree.foreground")
+  }
+
+  fun getBackgroundResources(): Stream<String> {
+    return Stream.of(
+            "monika.background",
+            "monika.textBackground",
+            "monika.inactiveBackground",
+            "window",
+            "activeCaption",
+            "control",
+            "PopupMenu.translucentBackground",
+            "EditorPane.inactiveBackground",
+            "Table.background",
+            "MenuBar.disabledBackground",
+            "MenuBar.shadow",
+            "Desktop.background",
+            "Separator.background",
+            "MenuBar.background",
+            "Separator.foreground",
+            "TextField.background",
+            "PasswordField.background",
+            "FormattedTextField.background",
+            "TextArea.background",
+            "CheckBox.darcula.backgroundColor1",
+            "CheckBox.darcula.backgroundColor2",
+            "CheckBox.darcula.checkSignColor",
+            "CheckBox.darcula.shadowColor",
+            "CheckBox.darcula.shadowColorDisabled",
+            "CheckBox.darcula.focusedArmed.backgroundColor1",
+            "CheckBox.darcula.focusedArmed.backgroundColor2",
+            "CheckBox.darcula.focused.backgroundColor1",
+            "CheckBox.darcula.focused.backgroundColor2",
+            "ComboBox.background",
+            "ComboBox.disabledBackground",
+            "RadioButton.darcula.selectionDisabledColor",
+            "StatusBar.topColor",
+            "StatusBar.top2Color",
+            "StatusBar.bottomColor",
+            "ToolTip.background",
+            "Spinner.background",
+            "SplitPane.highlight",
+            "SearchEverywhere.background",
+            "SidePanel.background",
+            "DialogWrapper.southPanelDivider",
+            "OnePixelDivider.background",
+            "Dialog.titleColor",
+            "SearchEverywhere.background",
+            "RadioButton.background",
+            "CheckBoxMenuItem.background",
+            "RadioButtonMenuItem.background",
+            "CheckBox.background",
+            "ColorChooser.background",
+            "Slider.background",
+            "ToolWindow.header.background",
+            "material.background")
+  }
+
+  fun getButtonBackgroundResources(): Stream<String> {
+    return Stream.of(
+            "Button.background",
+            "Button.darcula.color1",
+            "Button.darcula.color2",
+            "Button.darcula.disabledText.shadow",
+            "ToolWindow.header.closeButton.background",
+            "Button.mt.color1",
+            "Button.mt.background"
+    )
+  }
+
+  internal fun getButtonForegroundResources(): Stream<String> {
+    return Stream.of(
+            "Button.foreground",
+            "Button.mt.foreground",
+            "Button.mt.selectedButtonForeground",
+            "ToolWindow.header.closeButton.foreground")
+  }
+
+
+  fun getBorderColor(): Color {
+    return Color.getHSBColor(62f, 91f, 149f)
+  }
+
+  fun getForegroundResources(): Stream<String> {
+    return Stream.of(
+            "monika.foreground",
+            "monika.textForeground",
+            "monika.selectionForegroundInactive",
+            "monika.selectionInactiveForeground",
+            "Label.foreground",
+            "EditorPane.inactiveForeground",
+            "CheckBox.foreground",
+            "ComboBox.foreground",
+            "RadioButton.foreground",
+            "ColorChooser.foreground",
+            "MenuBar.foreground",
+            "RadioButtonMenuItem.foreground",
+            "CheckBoxMenuItem.foreground",
+            "PopupMenu.foreground",
+            "Spinner.foreground",
+            "TabbedPane.foreground",
+            "TextField.foreground",
+            "FormattedTextField.foreground",
+            "PasswordField.foreground",
+            "TextArea.foreground",
+            "TextPane.foreground",
+            "EditorPane.foreground",
+            "ToolBar.foreground",
+            "ToolTip.foreground",
+            "List.foreground",
+            "SearchEverywhere.foreground",
+            "Label.foreground",
+            "Label.disabledForeground",
+            "Label.selectedDisabledForeground",
+            "Table.foreground",
+            "TableHeader.foreground",
+            "ToggleButton.foreground",
+            "Table.sortIconColor",
+            "material.branchColor",
+            "material.foreground",
+            "TitledBorder.titleColor")
+  }
+
+  fun getButtonBackgroundColor(): String {
+    return "fbffeb"
+  }
 
   /**
    * Get the hex code for the notifications color

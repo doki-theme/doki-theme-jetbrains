@@ -240,12 +240,6 @@ public class DokiDokiTheme_legacy extends DDLCAbstractTheme {
         "Tree.selectionForeground");
   }
 
-  public Stream<String> getButtonHighlightResources() {
-    return Stream.of(
-        "Button.mt.color2",
-        "Button.mt.selection.color2");
-  }
-
   @Override
   public Stream<String> getHighlightResources() {
     return Stream.of(
@@ -289,8 +283,7 @@ public class DokiDokiTheme_legacy extends DDLCAbstractTheme {
         "TabbedPane.shadow",
         "TabbedPane.borderColor",
         "Popup.Header.inactiveBackground",
-        "Popup.Header.activeBackground",
-    };
+        "Popup.Header.activeBackground");
   }
 
   @Override
@@ -314,11 +307,6 @@ public class DokiDokiTheme_legacy extends DDLCAbstractTheme {
         "ToolWindow.header.border.background",
         "material.disabled",
         "material.mergeCommits");
-  }
-
-  public Stream<String> getCaretResources() {
-    return Stream.of(
-        "monika.caretForeground");
   }
 
   @Override
