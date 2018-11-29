@@ -127,35 +127,35 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
 
   override fun getPrimaryColor(): Color = textColorResource
 
-  fun getTreeSelectionBackgroundResources(): Stream<String> {
+  open fun getTreeSelectionBackgroundResources(): Stream<String> {
     return Stream.of("Tree.selectionBackground")
   }
 
-  fun getTreeSelectionForegroundResources(): Stream<String> {
+  open fun getTreeSelectionForegroundResources(): Stream<String> {
     return Stream.of("Tree.selectionForeground")
   }
 
-  fun getHighlightResources(): Stream<String> {
+  open fun getHighlightResources(): Stream<String> {
     return Stream.of(
             "Focus.color",
             "TextField.separatorColor",
             "CheckBox.darcula.inactiveFillColor")
   }
 
-  fun getSecondBorderResources(): Stream<String> {
+  open fun getSecondBorderResources(): Stream<String> {
     return Stream.of(
             "TabbedPane.highlight",
             "TabbedPane.selected",
             "TabbedPane.selectHighlight")
   }
 
-  fun getTableSelectedResources(): Stream<String> {
+  open fun getTableSelectedResources(): Stream<String> {
     return Stream.of(
             "ProgressBar.halfColor",
             "MemoryIndicator.unusedColor")
   }
 
-  fun getContrastResources(): Stream<String> {
+  open fun getContrastResources(): Stream<String> {
     return Stream.of(
             "Table.stripedBackground",
             "ScrollBar.thumb",
@@ -177,13 +177,13 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
             "Popup.Header.activeBackground")
   }
 
-  fun getDisabledResources(): Stream<String> {
+  open fun getDisabledResources(): Stream<String> {
     return Stream.of(
             "MenuItem.disabledForeground",
             "ComboBox.disabledForeground")
   }
 
-  fun getSecondaryBackgroundResources(): Stream<String> {
+  open fun getSecondaryBackgroundResources(): Stream<String> {
     return Stream.of(
             "Separator.foreground",
             "TextField.separatorColorDisabled",
@@ -198,7 +198,7 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
             "material.mergeCommits")
   }
 
-  fun getInactiveResources(): Stream<String> {
+  open fun getInactiveResources(): Stream<String> {
     return Stream.of(
             "Table.gridColor",
             "MenuBar.darcula.borderColor",
@@ -207,7 +207,7 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
             "CheckBox.darcula.disabledBorderColor2")
   }
 
-  fun getSelectionForegroundResources(): Stream<String> {
+  open fun getSelectionForegroundResources(): Stream<String> {
     return Stream.of(
             "Menu.selectionForeground",
             "Menu.acceleratorSelectionForeground",
@@ -226,7 +226,7 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
     )
   }
 
-  fun getSelectionBackgroundResources(): Stream<String> {
+  open fun getSelectionBackgroundResources(): Stream<String> {
     return Stream.of(
             "inactiveCaption",
             "Menu.selectionBackground",
@@ -247,7 +247,7 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
             "TabbedPane.selected")
   }
 
-  fun getTextResources(): Stream<String> {
+  open fun getTextResources(): Stream<String> {
     return Stream.of(
             "Menu.acceleratorForeground",
             "MenuItem.acceleratorForeground",
@@ -258,7 +258,7 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
             "Tree.foreground")
   }
 
-  fun getBackgroundResources(): Stream<String> {
+  open fun getBackgroundResources(): Stream<String> {
     return Stream.of(
             "monika.background",
             "monika.textBackground",
@@ -313,7 +313,7 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
             "material.background")
   }
 
-  fun getButtonBackgroundResources(): Stream<String> {
+  open fun getButtonBackgroundResources(): Stream<String> {
     return Stream.of(
             "Button.background",
             "Button.darcula.color1",
@@ -325,7 +325,7 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
     )
   }
 
-  fun getButtonForegroundResources(): Stream<String> {
+  open fun getButtonForegroundResources(): Stream<String> {
     return Stream.of(
             "Button.foreground",
             "Button.mt.foreground",
@@ -334,11 +334,11 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
   }
 
 
-  fun getBorderColor(): Color {
+  open fun getBorderColor(): Color {
     return Color.getHSBColor(62f, 91f, 149f)
   }
 
-  fun getForegroundResources(): Stream<String> {
+  open fun getForegroundResources(): Stream<String> {
     return Stream.of(
             "monika.foreground",
             "monika.textForeground",
@@ -378,26 +378,26 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
             "TitledBorder.titleColor")
   }
 
-  fun getMenuItemSelectionForegroundResources(): Stream<String> {
+  open fun getMenuItemSelectionForegroundResources(): Stream<String> {
     return Stream.of("MenuItem.selectionForeground",
             "Menu.acceleratorSelectionForeground",
             "Menu.selectionForeground",
             "MenuItem.acceleratorSelectionForeground")
   }
 
-  fun getMenuItemSelectionBackgroundResources(): Stream<String> {
+  open fun getMenuItemSelectionBackgroundResources(): Stream<String> {
     return Stream.of("Menu.selectionBackground",
             "Menu.acceleratorSelectionBackground",
             "MenuItem.acceleratorSelectionBackground",
             "MenuItem.selectionBackground")
   }
 
-  fun getNotificationsResources(): Stream<String> {
+  open fun getNotificationsResources(): Stream<String> {
     return Stream.of("Notifications.background",
             "Notifications.borderColor")
   }
 
-  fun getButtonBackgroundColor(): String {
+  open fun getButtonBackgroundColor(): String {
     return "fbffeb"
   }
 
@@ -412,30 +412,34 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
 
   abstract fun getTreeSelectionForegroundColorString(): String
 
-  fun getSecondaryForegroundResources(): Stream<String> {
+  open fun getSecondaryForegroundResources(): Stream<String> {
     return Stream.of("ToolWindow.header.active.foreground",
             "ToolWindow.header.border.foreground",
             "List.foreground")
   }
 
-  fun getSecondaryForegroundColorString(): String {
+  open fun getSecondaryForegroundColorString(): String {
     return "256f25"
   }
 
+  open fun getEditorTabColorString(): String {
+    return "def7a5"
+  }
 
-  fun getButtonForegroundColor(): String {
+
+  open fun getButtonForegroundColor(): String {
     return "C700A5"
   }
 
 
-  fun getMenuItemForegroundResources(): Stream<String> {
+  open fun getMenuItemForegroundResources(): Stream<String> {
     return Stream.of(
             "Menu.foreground",
             "MenuItem.foreground",
             "PopupMenu.foreground")
   }
 
-  fun getMenuItemForegroundColor(): String {
+  open fun getMenuItemForegroundColor(): String {
     return "FFFFFF"
   }
 
