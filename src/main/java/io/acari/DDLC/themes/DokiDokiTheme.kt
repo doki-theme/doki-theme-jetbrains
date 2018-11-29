@@ -406,7 +406,7 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
 
   abstract fun getMenuBarSelectionBackgroundColorString(): String
 
-  abstract fun getInactiveColorString(): String
+  open fun getInactiveColorString(): String = "FFF4F2"
 
   abstract fun getTreeSelectionBackgroundColorString(): String
 
@@ -443,6 +443,7 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
     return "FFFFFF"
   }
 
+  open fun getInactiveColor() = getInactiveColorString()
 
   /**
    * Get the hex code for the notifications color
