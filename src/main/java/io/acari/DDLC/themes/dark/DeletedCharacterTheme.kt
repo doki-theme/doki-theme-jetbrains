@@ -1,5 +1,6 @@
 package io.acari.DDLC.themes.dark
 
+import com.chrisrm.ideaddlc.utils.MTAccents
 import io.acari.DDLC.themes.DokiDokiTheme
 
 /**
@@ -48,4 +49,8 @@ class DeletedCharacterTheme : DokiDokiTheme("deleted.character", "Deleted Charac
     override fun getSecondBorderColorString(): String = "1B467C"
 
     override fun getDisabledColorString(): String = "232323"
+
+    override fun getAccentColor(): String {
+        return MTAccents.CYAN.hexColor
+    }
 }

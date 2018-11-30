@@ -1,5 +1,6 @@
 package io.acari.DDLC.themes.light
 
+import com.chrisrm.ideaddlc.utils.MTAccents
 import io.acari.DDLC.themes.DokiDokiTheme
 
 class SayoriTheme : DokiDokiTheme("sayori", "Sayori", false, "Sayori") {
@@ -33,4 +34,8 @@ class SayoriTheme : DokiDokiTheme("sayori", "Sayori", false, "Sayori") {
     override fun getButtonBackgroundColor(): String = contrastColorString
 
     override fun getButtonForegroundColor(): String = "00559A"
+
+    override fun getAccentColor(): String {
+        return MTAccents.CYAN.hexColor
+    }
 }

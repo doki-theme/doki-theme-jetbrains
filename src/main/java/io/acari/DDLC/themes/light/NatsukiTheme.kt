@@ -1,5 +1,6 @@
 package io.acari.DDLC.themes.light
 
+import com.chrisrm.ideaddlc.utils.MTAccents
 import io.acari.DDLC.themes.DokiDokiTheme
 
 class NatsukiTheme : DokiDokiTheme("natsuki", "Natsuki", false, "Natsuki") {
@@ -31,4 +32,8 @@ class NatsukiTheme : DokiDokiTheme("natsuki", "Natsuki", false, "Natsuki") {
     override fun getEditorTabColorString(): String = contrastColorString
 
     override fun getButtonBackgroundColor(): String = contrastColorString
+
+    override fun getAccentColor(): String {
+        return MTAccents.FUCHSIA.hexColor
+    }
 }

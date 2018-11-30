@@ -1,5 +1,6 @@
 package io.acari.DDLC.themes.dark
 
+import com.chrisrm.ideaddlc.utils.MTAccents
 import io.acari.DDLC.themes.DokiDokiTheme
 
 //todo: should probably rename these to something more expected :|
@@ -48,4 +49,8 @@ class EdgyTheme : DokiDokiTheme("yuri.dark", "Edgy", true, "Yuri") {
     override fun getSecondBorderColorString(): String = "50237C"
 
     override fun getDisabledColorString(): String = "000000"
+
+    override fun getAccentColor(): String {
+        return MTAccents.AMETHYST.hexColor
+    }
 }

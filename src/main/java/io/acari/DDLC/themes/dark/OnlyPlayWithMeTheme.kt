@@ -1,5 +1,6 @@
 package io.acari.DDLC.themes.dark
 
+import com.chrisrm.ideaddlc.utils.MTAccents
 import io.acari.DDLC.themes.DokiDokiTheme
 
 class OnlyPlayWithMeTheme : DokiDokiTheme("natsuki.dark", "Only Play With Me", true, "Natsuki") {
@@ -45,4 +46,8 @@ class OnlyPlayWithMeTheme : DokiDokiTheme("natsuki.dark", "Only Play With Me", t
   override fun getSecondBorderColorString(): String = "5A1943"
 
   override fun getDisabledColorString(): String = "232323"
+
+  override fun getAccentColor(): String {
+    return MTAccents.FUCHSIA.hexColor
+  }
 }

@@ -26,6 +26,7 @@
 
 package io.acari.DDLC.themes.light
 
+import com.chrisrm.ideaddlc.utils.MTAccents
 import io.acari.DDLC.themes.DokiDokiTheme
 import java.awt.Color
 import java.util.stream.Stream
@@ -39,11 +40,15 @@ class MonikaTheme : DokiDokiTheme("monika", "Monika", false, "Monika") {
     override fun getButtonForegroundColor(): String = "14610D"
     override fun getDisabled(): String = DISABLED
 
+    override fun getAccentColor(): String {
+        return MTAccents.BREAKING_BAD.hexColor
+    }
+
     override fun getNotificationsColorString(): String = "C3E88D"
 
     override fun getTreeSelectionBackgroundColorString(): String = "546E50"
 
-    override fun getButtonHighlightColorString(): String = "F2F1F1"
+    fun getButtonHighlightColorString(): String = "F2F1F1"
 
     override fun getHighlightColorString(): String = "425B67"
 
