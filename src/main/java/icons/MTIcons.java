@@ -26,13 +26,28 @@
 
 package icons;
 
+import com.chrisrm.ideaddlc.icons.DirIcon;
 import io.acari.DDLC.icons.tinted.TintedIconsService;
 import com.intellij.openapi.util.IconLoader;
+import org.jetbrains.annotations.NonNls;
 
 import javax.swing.*;
 
+@SuppressWarnings("ALL")
 public final class MTIcons {
-  private static Icon load(final String path) {
+
+  public static final String FOLDERS_PATH = "/icons/folders";
+  public static final String FOLDERS_OPEN_PATH = "/icons/foldersOpen";
+
+  private MTIcons() {
+
+  }
+
+  public static DirIcon getFolderIcon(String iconPath) {
+    return new DirIcon(IconLoader.getIcon(FOLDERS_PATH + iconPath), IconLoader.getIcon(FOLDERS_OPEN_PATH + iconPath));
+  }
+
+  private static Icon load(@NonNls final String path) {
     return IconLoader.findIcon(path);
   }
   

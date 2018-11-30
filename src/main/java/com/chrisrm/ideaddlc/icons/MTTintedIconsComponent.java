@@ -112,7 +112,7 @@ public final class MTTintedIconsComponent implements BaseComponent {
       TintedColorPatcher.accentColor = ColorUtil.toHex(accentColor);
     }
 
-    static void refreshThemeColor(final MTThemeFacade theme) {
+    static void refreshThemeColor(final DDLCThemeFacade theme) {
       themedColor = ColorUtil.toHex(theme.getTheme().getPrimaryColor());
     }
 
