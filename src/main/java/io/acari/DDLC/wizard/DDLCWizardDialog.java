@@ -80,7 +80,8 @@ public class DDLCWizardDialog extends CustomizeIDEWizardDialog implements Action
   @Override
   public void doCancelAction() {
     super.doCancelAction();
-    MTConfig.getInstance().copyFrom(configCopy);
+//    todo: dis
+//    MTConfig.getInstance().copyFrom(configCopy);
     MTThemeManager.activate();
   }
 

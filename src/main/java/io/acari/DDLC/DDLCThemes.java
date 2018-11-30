@@ -27,8 +27,10 @@
 package io.acari.DDLC;
 
 import com.chrisrm.ideaddlc.themes.models.MTThemeable;
+import com.intellij.ui.ColorUtil;
 import io.acari.DDLC.actions.DarkMode;
 import io.acari.DDLC.actions.JoyManager;
+import io.acari.DDLC.themes.DokiDokiTheme;
 import io.acari.DDLC.themes.light.MonikaTheme;
 import io.acari.DDLC.themes.light.NatsukiTheme;
 import io.acari.DDLC.themes.light.SayoriTheme;
@@ -68,7 +70,7 @@ public enum DDLCThemes implements DDLCThemeFacade {
   private final transient MTThemeable mtTheme;
   private final transient MTThemeable darkTheme;
 
-  DDLCThemes(final String name, final DDLCAbstractTheme mtTheme, DDLCAbstractTheme darkTheme) {
+  DDLCThemes(final String name, final DokiDokiTheme mtTheme, DokiDokiTheme darkTheme) {
     this.name = name;
     this.mtTheme = mtTheme;
     this.darkTheme = darkTheme;
@@ -86,6 +88,11 @@ public enum DDLCThemes implements DDLCThemeFacade {
     return DarkMode.isOn() ? darkTheme : mtTheme;
   }
 
+  @Override
+  public boolean isDark() {
+    return DarkMode.isOn();
+  }
+
   public String getLiteratureClubMember () {
     return JoyManager.isOn() ? getTheme().joyfulClubMember() : getTheme().getClubMember();
   }
@@ -94,10 +101,6 @@ public enum DDLCThemes implements DDLCThemeFacade {
     return  getTheme().getClubMember();
   }
 
-  @Override
-  public boolean getThemeIsDark() {
-    return getTheme().isDark();
-  }
 
   @NotNull
   @Override
@@ -128,7 +131,7 @@ public enum DDLCThemes implements DDLCThemeFacade {
 
   @Override
   public String getExcludedColor() {
-    return getTheme().getExcludedColor();
+    return ColorUtil.toHex(getTheme().getExcludedColor());
   }
 
   @Override
@@ -144,6 +147,11 @@ public enum DDLCThemes implements DDLCThemeFacade {
   @Override
   public String getTestScope() {
     return getTheme().getTestScope();
+  }
+
+  @Override
+  public boolean isPremium() {
+    return false;
   }
 
   /**
@@ -203,8 +211,7 @@ public enum DDLCThemes implements DDLCThemeFacade {
         return theme;
       }
 
-      @Override
-      public boolean getThemeIsDark() {
+      public boolean isDark() {
         return theme.isDark();
       }
 
@@ -237,7 +244,7 @@ public enum DDLCThemes implements DDLCThemeFacade {
 
       @Override
       public String getExcludedColor() {
-        return theme.getExcludedColor();
+        return ColorUtil.toHex(theme.getExcludedColor());
       }
 
       @Override
@@ -253,6 +260,16 @@ public enum DDLCThemes implements DDLCThemeFacade {
       @Override
       public String getTestScope() {
         return theme.getTestScope();
+      }
+
+      @Override
+      public boolean isPremium() {
+        return false;
+      }
+
+      @Override
+      public boolean isCustom() {
+        return false;
       }
     };
   }

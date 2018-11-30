@@ -50,10 +50,10 @@ import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;
 import org.jetbrains.annotations.NotNull;
 
+import javax.swing.plaf.ColorUIResource;
 import java.awt.*;
 import java.lang.reflect.Field;
 
-import static io.acari.DDLC.DDLCAbstractTheme.DEFAULT_BORDER_COLOR;
 
 /**
  * Patch the Tabs Component to get the Material Design style
@@ -117,7 +117,7 @@ public final class MTTabsPainterPatcherComponent implements BaseComponent {
    */
   private void patchPainter(final JBEditorTabs component) {
     final JBEditorTabsPainter painter = ReflectionUtil.getField(JBEditorTabs.class, component, JBEditorTabsPainter.class, "myDarkPainter");
-    final Color accentColor = ObjectUtils.notNull(ColorUtil.fromHex(config.getAccentColor()), DEFAULT_BORDER_COLOR);
+    final Color accentColor = ObjectUtils.notNull(ColorUtil.fromHex(config.getAccentColor()), new ColorUIResource(0x80cbc4));
 
     if (painter instanceof MTTabsPainter) {
       return;
