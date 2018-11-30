@@ -40,30 +40,6 @@ public interface MTThemeable {
   String getThemeId();
 
   @NonNls
-  default String getThemeName() {
-
-   return "this"; //todo: dis boi
-  }
-
-  @NonNls
-  default String getThemeIcon() {
-
-   return "this"; //todo: dis boi
-  }
-
-  @NonNls
-  default String getThemeColorScheme() {
-
-   return "this"; //todo: dis boi
-  }
-
-  @NonNls
-  default boolean isThemeDark() {
-
-   return false; //todo: dis boi
-  }
-
-  @NonNls
   default int getOrder() {
     //todo: dis
 

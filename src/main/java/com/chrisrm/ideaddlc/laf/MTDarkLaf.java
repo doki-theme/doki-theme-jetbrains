@@ -28,26 +28,66 @@ package com.chrisrm.ideaddlc.laf;
 
 import com.chrisrm.ideaddlc.themes.models.MTThemeable;
 import com.intellij.ide.ui.laf.darcula.DarculaLaf;
+import com.intellij.util.ui.UIUtil;
+import com.intellij.util.xmlb.annotations.Transient;
+import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
+import javax.swing.plaf.ColorUIResource;
 
+/**
+ * Look and Feel class for Dark Material Themes
+ *
+ * @author helio
+ * Created on 2018-10-29
+ */
+@SuppressWarnings("SerializableHasSerializationMethods")
 public final class MTDarkLaf extends DarculaLaf implements MTLaf {
 
+  /**
+   * Service to install properties in UIManager
+   */
+  @Transient
   private final MTLafInstaller mtLafInstaller;
 
+  /**
+   * Represents a Material Dark Look And Feel
+   *
+   * @param theme of type MTThemeable
+   * @author helio
+   * Created on 2018-10-29
+   */
   public MTDarkLaf(@NotNull final MTThemeable theme) {
-    super();
-    mtLafInstaller = new MTLafInstaller(this, theme);
+    mtLafInstaller = new MTLafInstaller(theme);
   }
 
+  /**
+   * Install additional Darcula defaults
+   *
+   * @param defaults of type UIDefaults
+   */
+  @SuppressWarnings("DuplicateStringLiteralInspection")
+  private static void installDarculaDefaults(@NonNls final UIDefaults defaults) {
+    defaults.put("darcula.primary", new ColorUIResource(0x3c3f41));
+    defaults.put("darcula.contrastColor", new ColorUIResource(0x262626));
+
+    defaults.put("grayFilter", new UIUtil.GrayFilter(-100, -100, 100));
+    defaults.put("text.grayFilter", new UIUtil.GrayFilter(-15, -10, 100));
+  }
+
+  /**
+   * Installs and returns the defaults for dark lafs
+   *
+   * @return the defaults (type UIDefaults) of this MTDarkLaf object.
+   */
   @Override
   public UIDefaults getDefaults() {
     final UIDefaults defaults = super.getDefaults();
 
-    mtLafInstaller.installDefaults(defaults);
+    MTLafInstaller.installDefaults(defaults);
     // Install darcula defaults
-    mtLafInstaller.installDarculaDefaults(defaults);
+    installDarculaDefaults(defaults);
     // Install material defaults
     mtLafInstaller.installMTDefaults(defaults);
 
@@ -59,32 +99,15 @@ public final class MTDarkLaf extends DarculaLaf implements MTLaf {
     return "Dark DDLC";
   }
 
-  /**
-   * Get Theme Prefix
-   *
-   * @return
-   */
   @NotNull
   @Override
-  protected String getPrefix() {
+  public String getPrefix() {
     return mtLafInstaller.getPrefix();
   }
 
   @Override
-  protected void loadDefaults(final UIDefaults defaults) {
-    mtLafInstaller.loadDefaults(defaults);
-  }
-
-  /**
-   * Parse properties value
-   *
-   * @param key
-   * @param value
-   * @return
-   */
-  @Override
-  protected Object parseValue(final String key, @NotNull final String value) {
-    return mtLafInstaller.parseValue(key, value);
+  public void loadDefaults(final UIDefaults defaults) {
+    MTLafInstaller.oldLoadDefaults(defaults, getClass(), getPrefix());
   }
 
 }

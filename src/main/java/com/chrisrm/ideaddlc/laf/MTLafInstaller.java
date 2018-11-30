@@ -41,6 +41,8 @@ import com.intellij.openapi.util.SystemInfo;
 import com.intellij.openapi.util.registry.Registry;
 import com.intellij.ui.components.JBScrollBar;
 import com.intellij.util.ui.JBUI;
+import org.jetbrains.annotations.NonNls;
+import org.jetbrains.annotations.Nullable;
 import com.intellij.util.ui.UIUtil;
 import io.acari.DDLC.DDLCConfig;
 import io.acari.DDLC.DDLCException;//todo: figure out how to handle dis.
@@ -49,6 +51,8 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
 import javax.swing.plaf.*;
+import java.util.Map;
+import java.util.Objects;
 import java.awt.*;
 import java.io.IOException;
 import java.io.InputStream;
@@ -56,6 +60,18 @@ import java.util.HashMap;
 import java.util.Optional;
 import java.util.Properties;
 
+import static com.intellij.ide.ui.UITheme.parseValue;
+
+/**
+ * Service to install Material Theme properties in the UIManager
+ *
+ * @author helio
+ * Created on 2018-10-29
+ */
+@SuppressWarnings({"ClassWithTooManyMethods",
+    "OverlyLongMethod",
+    "DuplicateStringLiteralInspection",
+    "OverlyCoupledClass"})
 public class MTLafInstaller {
   protected final MTConfig mtConfig;
   protected final MTLaf mtDarkLaf;
@@ -81,6 +97,9 @@ public class MTLafInstaller {
     replaceTableHeaders(defaults);
     replaceIcons(defaults);
     replaceRootPane(defaults);
+    replaceMenus(defaults);
+    replaceTabbedPanes(defaults);
+    replaceDefaultButtons(defaults);
 
     if (mtConfig.isMaterialDesign()) {
       replaceButtons(defaults);
@@ -92,12 +111,17 @@ public class MTLafInstaller {
       replaceRadioButtons(defaults);
       replaceSliders(defaults);
       replaceTextAreas(defaults);
-      replaceTabbedPanes(defaults);
-      modifyRegistry(defaults);
+      modifyRegistry();
     }
   }
 
-  public void installDefaults(final UIDefaults defaults) {
+  /**
+   * Install non themeable defaults, such as borders, insets and so on
+   *
+   * @param defaults of type UIDefaults
+   */
+  @SuppressWarnings("DuplicateStringLiteralInspection")
+  static void installDefaults(@NonNls final UIDefaults defaults) {
     defaults.put("Caret.width", 2);
     defaults.put("Border.width", 2);
     defaults.put("CellEditor.border.width", 2);
@@ -110,6 +134,8 @@ public class MTLafInstaller {
     defaults.put("MenuItem.acceleratorDelimiter", "-");
     defaults.put("MenuItem.border", new DarculaMenuItemBorder());
     defaults.put("Menu.border", new DarculaMenuItemBorder());
+    defaults.put("MenuBar.border", new DarculaMenuBarBorder());
+
     defaults.put("TextArea.caretBlinkRate", 500);
     defaults.put("Table.cellNoFocusBorder", JBUI.insets(4, 4, 4, 4));
     defaults.put("CheckBoxMenuItem.borderPainted", false);
@@ -132,14 +158,17 @@ public class MTLafInstaller {
 
     defaults.put("Spinner.arrowButtonInsets", JBUI.insets(1, 1, 1, 1));
     defaults.put("Spinner.editorBorderPainted", false);
-    defaults.put("ToolWindow.tab.verticalPadding", 5);
     defaults.put("ScrollBarUI", JBScrollBar.class.getName());
     defaults.put(JBScrollBar.class.getName(), JBScrollBar.class);
 
     defaults.put("Focus.activeErrorBorderColor", new ColorUIResource(0xE53935));
+    defaults.put("Component.focusErrorColor", new ColorUIResource(0xE53935));
     defaults.put("Focus.inactiveErrorBorderColor", new ColorUIResource(0x743A3A));
+    defaults.put("Component.inactiveFocusErrorColor", new ColorUIResource(0x743A3A));
     defaults.put("Focus.activeWarningBorderColor", new ColorUIResource(0xFFB62C));
+    defaults.put("Component.focusWarningColor", new ColorUIResource(0xFFB62C));
     defaults.put("Focus.inactiveWarningBorderColor", new ColorUIResource(0x7F6C00));
+    defaults.put("Component.inactiveFocusWarningColor", new ColorUIResource(0x7F6C00));
 
     defaults.put("TabbedPane.tabAreaInsets", JBUI.insets(0));
     defaults.put("TabbedPane.selectedLabelShift", 0);
@@ -148,86 +177,20 @@ public class MTLafInstaller {
     defaults.put("TabbedPane.tabHeight", 32);
     defaults.put("TabbedPane.tabSelectionHeight", 2);
     defaults.put("TabbedPane.tabFillStyle", "underline");
+    defaults.put("TabbedPane.fontSizeOffset", 0);
   }
 
-  public void installDarculaDefaults(final UIDefaults defaults) {
-    defaults.put("darcula.primary", new ColorUIResource(0x3c3f41));
-    defaults.put("darcula.contrastColor", new ColorUIResource(0x262626));
-
-    LegacySupportUtility.INSTANCE.invokeClassSafely(
-          "com.intellij.util.ui.GrayFilter",
-          () -> {
-              defaults.put("grayFilter", new UIUtil.GrayFilter(-100, -100, 100));
-              defaults.put("text.grayFilter", new UIUtil.GrayFilter(-15, -10, 100));
-          }
-    );
-  }
-
-  protected void installLightDefaults(final UIDefaults defaults) {
-    defaults.put("intellijlaf.primary", new ColorUIResource(0xe8e8e8));
-    defaults.put("intellijlaf.contrastColor", new ColorUIResource(0xEEEEEE));
-
-    defaults.put("EditorPaneUI", DarculaEditorPaneUI.class.getName());
-    defaults.put("TableHeaderUI", DarculaTableHeaderUI.class.getName());
-    defaults.put("Table.focusSelectedCellHighlightBorder", new IntelliJTableSelectedCellHighlightBorder());
-    defaults.put("TableHeader.cellBorder", new DarculaTableHeaderBorder());
-
-    defaults.put("CheckBoxMenuItemUI", DarculaCheckBoxMenuItemUI.class.getName());
-    defaults.put("RadioButtonMenuItemUI", DarculaRadioButtonMenuItemUI.class.getName());
-    defaults.put("TabbedPaneUI", DarculaTabbedPaneUI.class.getName());
-
-    defaults.put("TextFieldUI", DarculaTextFieldUI.class.getName());
-    defaults.put("TextField.border", new DarculaTextBorder());
-
-    defaults.put("PasswordFieldUI", DarculaPasswordFieldUI.class.getName());
-    defaults.put("PasswordField.border", new DarculaTextBorder());
-    defaults.put("ProgressBarUI", DarculaProgressBarUI.class.getName());
-    defaults.put("ProgressBar.border", new DarculaProgressBarBorder());
-    defaults.put("FormattedTextFieldUI", DarculaTextFieldUI.class.getName());
-    defaults.put("FormattedTextField.border", new DarculaTextBorder());
-
-    defaults.put("TextAreaUI", DarculaTextAreaUI.class.getName());
-    defaults.put("Tree.paintLines", false);
-
-    defaults.put("CheckBoxUI", DarculaCheckBoxUI.class.getName());
-    defaults.put("CheckBox.border", new DarculaCheckBoxBorder());
-    defaults.put("ComboBoxUI", DarculaComboBoxUI.class.getName());
-    defaults.put("RadioButtonUI", DarculaRadioButtonUI.class.getName());
-    defaults.put("RadioButton.border", new DarculaCheckBoxBorder());
-
-    defaults.put("Button.border", new DarculaButtonPainter());
-    defaults.put("ButtonUI", DarculaButtonUI.class.getName());
-
-    defaults.put("ToggleButton.border", new DarculaButtonPainter());
-    defaults.put("ToggleButtonUI", DarculaButtonUI.class.getName());
-
-    defaults.put("SpinnerUI", DarculaSpinnerUI.class.getName());
-    defaults.put("Spinner.border", new DarculaSpinnerBorder());
-
-    defaults.put("TreeUI", DarculaTreeUI.class.getName());
-    LegacySupportUtility.INSTANCE.invokeClassSafely(
-        "com.intellij.ide.ui.laf.darcula.ui.DarculaOptionButtonUI",
-        () -> defaults.put("OptionButtonUI", DarculaOptionButtonUI.class.getName())
-    );
-
-    defaults.put("InternalFrameUI", DarculaInternalFrameUI.class.getName());
-    defaults.put("RootPaneUI", DarculaRootPaneUI.class.getName());
-
-    LegacySupportUtility.INSTANCE.invokeClassSafely(
-      "com.intellij.util.ui.GrayFilter",
-      () -> {
-          defaults.put("grayFilter", new UIUtil.GrayFilter(80, -35, 100));
-          defaults.put("text.grayFilter", new UIUtil.GrayFilter(20, 0, 100));
-      }
-    );
+  private static void replaceDefaultButtons(final UIDefaults defaults) {
+    defaults.put("ButtonUI", MTDarculaButtonUI.class.getName());
+    defaults.put(MTDarculaButtonUI.class.getName(), MTDarculaButtonUI.class);
   }
 
   /**
    * Replace buttons
    *
-   * @param defaults
+   * @param defaults of type UIDefaults
    */
-  private void replaceButtons(final UIDefaults defaults) {
+  private static void replaceButtons(final UIDefaults defaults) {
     defaults.put("ButtonUI", MTButtonUI.class.getName());
     defaults.put(MTButtonUI.class.getName(), MTButtonUI.class);
 
@@ -249,9 +212,9 @@ public class MTLafInstaller {
   /**
    * Replace text fields
    *
-   * @param defaults
+   * @param defaults of type UIDefaults
    */
-  private void replaceTextFields(final UIDefaults defaults) {
+  private static void replaceTextFields(final UIDefaults defaults) {
     defaults.put("TextFieldUI", MTTextFieldUI.class.getName());
     defaults.put(MTTextFieldUI.class.getName(), MTTextFieldUI.class);
 
@@ -262,17 +225,22 @@ public class MTLafInstaller {
     defaults.put("PasswordField.border", new MTTextBorder());
   }
 
-  private void replaceDropdowns(final UIDefaults defaults) {
+  /**
+   * Replace dropdowns
+   *
+   * @param defaults of type UIDefaults
+   */
+  private static void replaceDropdowns(final UIDefaults defaults) {
     defaults.put("ComboBoxUI", MTComboBoxUI.class.getName());
     defaults.put(MTComboBoxUI.class.getName(), MTComboBoxUI.class);
   }
 
   /**
-   * Replace progress bar
+   * Replace progress bars
    *
-   * @param defaults
+   * @param defaults of type UIDefaults
    */
-  private void replaceProgressBar(final UIDefaults defaults) {
+  private static void replaceProgressBar(final UIDefaults defaults) {
     defaults.put("ProgressBarUI", MTProgressBarUI.class.getName());
     defaults.put(MTProgressBarUI.class.getName(), MTProgressBarUI.class);
 
@@ -280,27 +248,32 @@ public class MTLafInstaller {
   }
 
   /**
-   * Replace trees
+   * Replace trees with custom trees with arrow styles, padding, etc
    *
-   * @param defaults
+   * @param defaults of type UIDefaults
    */
-  private void replaceTree(final UIDefaults defaults) {
+  private static void replaceTree(final UIDefaults defaults) {
     defaults.put("TreeUI", MTTreeUI.class.getName());
     defaults.put(MTTreeUI.class.getName(), MTTreeUI.class);
   }
 
-  private void replaceSelectedIndicator(final UIDefaults defaults) {
+  /**
+   * Install the selected item indicator in trees
+   *
+   * @param defaults of type UIDefaults
+   */
+  private static void replaceSelectedIndicator(@NonNls final UIDefaults defaults) {
     final MTSelectedTreePainter painter = new MTSelectedTreePainter();
     defaults.put("List.sourceListSelectionBackgroundPainter", painter);
     defaults.put("List.sourceListFocusedSelectionBackgroundPainter", painter);
   }
 
   /**
-   * Replace Table headers
+   * Replace Table headers with padded headers
    *
-   * @param defaults
+   * @param defaults of type UIDefaults
    */
-  private void replaceTableHeaders(final UIDefaults defaults) {
+  private static void replaceTableHeaders(@NonNls final UIDefaults defaults) {
     defaults.put("TableHeaderUI", MTTableHeaderUI.class.getName());
     defaults.put(MTTableHeaderUI.class.getName(), MTTableHeaderUI.class);
 
@@ -308,26 +281,49 @@ public class MTLafInstaller {
     defaults.put("Table.focusSelectedCellHighlightBorder", new MTTableSelectedCellHighlightBorder());
   }
 
-  private void replaceTables(final UIDefaults defaults) {
+  /**
+   * Replace tables with padded tables
+   *
+   * @param defaults of type UIDefaults
+   */
+  private static void replaceTables(@NonNls final UIDefaults defaults) {
     defaults.put("TableHeader.cellBorder", new MTTableHeaderBorder());
     defaults.put("Table.cellNoFocusBorder", new MTTableCellNoFocusBorder());
     defaults.put("Table.focusCellHighlightBorder", new MTTableSelectedCellHighlightBorder());
   }
 
-  private void replaceStatusBar(final UIDefaults defaults) {
+  /**
+   * Replace the status bar with padded status bar
+   *
+   * @param defaults of type UIDefaults
+   */
+  private static void replaceStatusBar(@NonNls final UIDefaults defaults) {
     defaults.put("IdeStatusBarUI", MTStatusBarUI.class.getName());
     defaults.put(MTStatusBarUI.class.getName(), MTStatusBarUI.class);
     defaults.put("IdeStatusBar.border", new MTStatusBarBorder());
+
+    defaults.put("SeparatorUI", MTSeparatorUI.class.getName());
+    defaults.put(MTSeparatorUI.class.getName(), MTSeparatorUI.class);
   }
 
-  private void replaceSpinners(final UIDefaults defaults) {
+  /**
+   * Replace the spinners
+   *
+   * @param defaults of type UIDefaults
+   */
+  private static void replaceSpinners(final UIDefaults defaults) {
     defaults.put("SpinnerUI", MTSpinnerUI.class.getName());
     defaults.put(MTSpinnerUI.class.getName(), MTSpinnerUI.class);
 
     defaults.put("Spinner.border", new MTSpinnerBorder());
   }
 
-  private void replaceCheckboxes(final UIDefaults defaults) {
+  /**
+   * Replace the checkboxes.
+   *
+   * @param defaults of type UIDefaults
+   */
+  private static void replaceCheckboxes(final UIDefaults defaults) {
     defaults.put("CheckBoxUI", MTCheckBoxUI.class.getName());
     defaults.put(MTCheckBoxUI.class.getName(), MTCheckBoxUI.class);
 
@@ -337,7 +333,12 @@ public class MTLafInstaller {
     defaults.put("CheckBox.border", new MTCheckBoxBorder());
   }
 
-  private void replaceRadioButtons(final UIDefaults defaults) {
+  /**
+   * Replace the radio buttons
+   *
+   * @param defaults of type UIDefaults
+   */
+  private static void replaceRadioButtons(final UIDefaults defaults) {
     defaults.put("RadioButtonUI", MTRadioButtonUI.class.getName());
     defaults.put(MTRadioButtonUI.class.getName(), MTRadioButtonUI.class);
 
@@ -345,22 +346,42 @@ public class MTLafInstaller {
     defaults.put(MTRadioButtonMenuItemUI.class.getName(), MTRadioButtonMenuItemUI.class);
   }
 
-  private void replaceSliders(final UIDefaults defaults) {
+  /**
+   * Replace the sliders
+   *
+   * @param defaults of type UIDefaults
+   */
+  private static void replaceSliders(final UIDefaults defaults) {
     defaults.put("SliderUI", MTSliderUI.class.getName());
     defaults.put(MTSliderUI.class.getName(), MTSliderUI.class);
   }
 
-  private void replaceRootPane(final UIDefaults defaults) {
+  /**
+   * Replace the root pane to enable the themed title bar
+   *
+   * @param defaults of type UIDefaults
+   */
+  private static void replaceRootPane(final UIDefaults defaults) {
     defaults.put("RootPaneUI", MTRootPaneUI.class.getName());
     defaults.put(MTRootPaneUI.class.getName(), MTRootPaneUI.class);
   }
 
-  private void replaceTextAreas(final UIDefaults defaults) {
+  /**
+   * Replace the text areas
+   *
+   * @param defaults of type UIDefaults
+   */
+  private static void replaceTextAreas(final UIDefaults defaults) {
     defaults.put("TextAreaUI", MTTextAreaUI.class.getName());
     defaults.put(MTTextAreaUI.class.getName(), MTTextAreaUI.class);
   }
 
-  private void replaceTabbedPanes(final UIDefaults defaults) {
+  /**
+   * Replace Tabbed Panes with Custom tabbed panes
+   *
+   * @param defaults of type UIDefaults
+   */
+  private static void replaceTabbedPanes(final UIDefaults defaults) {
     defaults.put("TabbedPane.tabInsets", JBUI.insets(5, 10, 5, 10));
     defaults.put("TabbedPane.selectedTabPadInsets", JBUI.insets(0));
     defaults.put("TabbedPane.contentBorderInsets", JBUI.insets(3, 1, 1, 1));
@@ -369,7 +390,27 @@ public class MTLafInstaller {
     defaults.put(MTTabbedPaneUI.class.getName(), MTTabbedPaneUI.class);
   }
 
-  private void replaceIcons(final UIDefaults defaults) {
+  /**
+   * Replace the menus with padded menus
+   *
+   * @param defaults defaults to fill
+   */
+  private static void replaceMenus(@NonNls final UIDefaults defaults) {
+    defaults.put("PopupMenuUI", MTPopupMenuUI.class.getName());
+    defaults.put(MTPopupMenuUI.class.getName(), MTPopupMenuUI.class);
+
+    defaults.put("PopupMenu.border", new MTPopupMenuBorder());
+    defaults.put("MenuItem.border", new MTMenuItemBorder());
+    defaults.put("Menu.border", new MTMenuItemBorder());
+  }
+
+  /**
+   * Replace icons
+   *
+   * @param defaults defaults to fill
+   */
+  @SuppressWarnings("FeatureEnvy")
+  private static void replaceIcons(@NonNls final UIDefaults defaults) {
     final Icon expandIcon = MTConfig.getInstance().getArrowsStyle().getExpandIcon();
     final Icon collapseIcon = MTConfig.getInstance().getArrowsStyle().getCollapseIcon();
 
@@ -380,23 +421,85 @@ public class MTLafInstaller {
     defaults.put("CheckBoxMenuItem.arrowIcon", expandIcon);
 
     defaults.put("FileView.fileIcon", AllIcons.FileTypes.Unknown);
-    defaults.put("Table.ascendingSortIcon", AllIcons.General.SplitUp);
-    defaults.put("Table.descendingSortIcon", AllIcons.General.SplitDown);
+    defaults.put("Table.ascendingSortIcon", AllIcons.General.ArrowUp);
+    defaults.put("Table.descendingSortIcon", AllIcons.General.ArrowDown);
 
     defaults.put("TextField.darcula.searchWithHistory.icon", IconLoader.getIcon("/icons/darcula/searchWithHistory.png"));
     defaults.put("TextField.darcula.search.icon", IconLoader.getIcon("/icons/darcula/search.png"));
     defaults.put("TextField.darcula.clear.icon", IconLoader.getIcon("/icons/darcula/clear.png"));
   }
 
-  private void modifyRegistry(final UIDefaults defaults) {
+  /**
+   * Add registry modifications
+   */
+  private static void modifyRegistry() {
     Registry.get("ide.balloon.shadow.size").setValue(0);
   }
 
-  public String getPrefix() {
-    return theme.getId();
+  /**
+   * Method getPrefix returns the prefix of the theme in properties
+   *
+   * @return the prefix (type String) of the theme in properties
+   */
+  final static String getPrefix() {
+    return Objects.requireNonNull(theme).getId();
   }
 
-  public void loadDefaults(final UIDefaults defaults) {
+  /**
+   * Install defaults - background, foreground, selection background and foreground, inactive background
+   *
+   * @param defaults of type UIDefaults the defaults to fill
+   */
+  @SuppressWarnings({"MagicCharacter",
+      "DuplicateStringLiteralInspection",
+      "FeatureEnvy"})
+  static void loadDefaults(final UIDefaults defaults) {
+    @NonNls final Map<String, Object> globalProps = new HashMap<>(100);
+    final MTThemeable selectedTheme = MTConfig.getInstance().getSelectedTheme().getTheme();
+
+    final Color backgroundColorString = selectedTheme.getBackgroundColor();
+    final ColorUIResource backgroundColor = new ColorUIResource(backgroundColorString);
+    globalProps.put("background", backgroundColor);
+    globalProps.put("textBackground", backgroundColor);
+    globalProps.put("inactiveBackground", backgroundColor);
+
+    final Color foregroundColorString = selectedTheme.getForegroundColor();
+    final ColorUIResource foregroundColor = new ColorUIResource(foregroundColorString);
+    globalProps.put("foreground", foregroundColor);
+    globalProps.put("textForeground", foregroundColor);
+    globalProps.put("inactiveForeground", foregroundColor);
+    globalProps.put("selectionForegroundInactive", foregroundColor);
+    globalProps.put("selectionInactiveForeground", foregroundColor);
+
+    final Color selectionBackgroundColorString = selectedTheme.getSelectionBackgroundColor();
+    final Color selectionBgColor = new ColorUIResource(selectionBackgroundColorString);
+    globalProps.put("selectionBackgroundInactive", selectionBgColor);
+    globalProps.put("selectionInactiveBackground", selectionBgColor);
+
+    final Color selectionForegroundColorString = selectedTheme.getSelectionForegroundColor();
+    final Color selectionFgColor = new ColorUIResource(selectionForegroundColorString);
+    globalProps.put("selectionForeground", selectionFgColor);
+
+    for (final Object key : defaults.keySet()) {
+      if (key instanceof String && ((String) key).contains(".")) {
+        final String s = (String) key;
+        final String property = s.substring(s.lastIndexOf('.') + 1);
+        if (globalProps.containsKey(property)) {
+          defaults.put(key, globalProps.get(property));
+        }
+      }
+    }
+  }
+
+  /**
+   * Load defaults from properties file and load it into the passed parameter
+   *
+   * @param defaults of type UIDefaults the defaults to fill
+   */
+  @SuppressWarnings({"MethodWithMultipleLoops",
+      "HardCodedStringLiteral",
+      "MagicCharacter"})
+  static void oldLoadDefaults(final UIDefaults defaults, @NonNls final Class klass, @NonNls final String lafName) {
     final Properties properties = new Properties();
     final String osSuffix = SystemInfo.isMac ? "mac" : SystemInfo.isWindows ? "windows" : "linux";
     try {
@@ -430,22 +533,22 @@ public class MTLafInstaller {
       // todo replace other properties
       final Color backgroundColorString = selectedTheme.getBackgroundColor();
       final ColorUIResource backgroundColor = new ColorUIResource(backgroundColorString);
-      darculaGlobalSettings.put("background", backgroundColor);
-      darculaGlobalSettings.put("textBackground", backgroundColor);
-      darculaGlobalSettings.put("inactiveBackground", backgroundColor);
+      globalProps.put("background", backgroundColor);
+      globalProps.put("textBackground", backgroundColor);
+      globalProps.put("inactiveBackground", backgroundColor);
 
       final Color foregroundColorString = selectedTheme.getForegroundColor();
       final ColorUIResource foregroundColor = new ColorUIResource(foregroundColorString);
-      darculaGlobalSettings.put("foreground", foregroundColor);
-      darculaGlobalSettings.put("textForeground", foregroundColor);
-      darculaGlobalSettings.put("inactiveForeground", foregroundColor);
+      globalProps.put("foreground", foregroundColor);
+      globalProps.put("textForeground", foregroundColor);
+      globalProps.put("inactiveForeground", foregroundColor);
 
       for (final Object key: defaults.keySet()) {
         if (key instanceof String && ((String) key).contains(".")) {
           final String s = (String) key;
           final String darculaKey = s.substring(s.lastIndexOf('.') + 1);
-          if (darculaGlobalSettings.containsKey(darculaKey)) {
-            defaults.put(key, darculaGlobalSettings.get(darculaKey));
+          if (globalProps.containsKey(darculaKey)) {
+            defaults.put(key, globalProps.get(darculaKey));
           }
         }
       }
@@ -459,12 +562,8 @@ public class MTLafInstaller {
     }
   }
 
-  private InputStream getPropertyFile(String primaryPropertyFile) {
-    return Optional.ofNullable(getClass().getResourceAsStream(primaryPropertyFile))
+  private static InputStream getPropertyFile(String primaryPropertyFile) {
+    return Optional.ofNullable(MTLafInstaller.class.getResourceAsStream(primaryPropertyFile))
         .orElseThrow(() -> new DDLCException("Unable to load property " + primaryPropertyFile + " check your shit before you wreck your shit!"));
-  }
-
-  public Object parseValue(final String key, @NotNull final String value) {
-    return PropertiesParser.parseValue(key, value);
   }
 }

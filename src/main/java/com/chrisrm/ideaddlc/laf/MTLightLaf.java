@@ -28,26 +28,64 @@ package com.chrisrm.ideaddlc.laf;
 
 import com.chrisrm.ideaddlc.themes.models.MTThemeable;
 import com.intellij.ide.ui.laf.IntelliJLaf;
+import com.intellij.util.ui.UIUtil;
+import com.intellij.util.xmlb.annotations.Transient;
+import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
+import javax.swing.plaf.ColorUIResource;
 
-public class MTLightLaf extends IntelliJLaf implements MTLaf {
+/**
+ * Look and Feel class for Material Light themes
+ *
+ * @author helio
+ * Created on 2018-10-29
+ */
+@SuppressWarnings("SerializableHasSerializationMethods")
+public final class MTLightLaf extends IntelliJLaf implements MTLaf {
 
+  /**
+   * Service to install properties in UIManager
+   */
+  @Transient
   private final MTLafInstaller mtLafInstaller;
 
+  /**
+   * Represents a Material Light look and feel
+   *
+   * @param theme of type MTThemeable
+   */
   public MTLightLaf(@NotNull final MTThemeable theme) {
-    super();
-    mtLafInstaller = new MTLafInstaller(this, theme);
+    mtLafInstaller = new MTLafInstaller(theme);
   }
 
+  /**
+   * Install additional light theme defaults
+   *
+   * @param defaults of type UIDefaults
+   */
+  @SuppressWarnings("DuplicateStringLiteralInspection")
+  private static void installLightDefaults(@NonNls final UIDefaults defaults) {
+    defaults.put("intellijlaf.primary", new ColorUIResource(0xe8e8e8));
+    defaults.put("intellijlaf.contrastColor", new ColorUIResource(0xEEEEEE));
+
+    defaults.put("grayFilter", new UIUtil.GrayFilter(80, -35, 100));
+    defaults.put("text.grayFilter", new UIUtil.GrayFilter(20, 0, 100));
+  }
+
+  /**
+   * Install and returns the defaults for light lafs
+   *
+   * @return the defaults (type UIDefaults) of this MTLightLaf object.
+   */
   @Override
   public UIDefaults getDefaults() {
     final UIDefaults defaults = super.getDefaults();
 
-    mtLafInstaller.installDefaults(defaults);
+    MTLafInstaller.installDefaults(defaults);
     // Install darcula defaults
-    mtLafInstaller.installLightDefaults(defaults);
+    installLightDefaults(defaults);
     // Install material defaults
     mtLafInstaller.installMTDefaults(defaults);
 
@@ -60,31 +98,14 @@ public class MTLightLaf extends IntelliJLaf implements MTLaf {
   }
 
 
-  /**
-   * Get Theme Prefix
-   *
-   * @return
-   */
   @NotNull
   @Override
-  protected String getPrefix() {
+  public String getPrefix() {
     return mtLafInstaller.getPrefix();
   }
 
   @Override
-  protected void loadDefaults(final UIDefaults defaults) {
-    mtLafInstaller.loadDefaults(defaults);
-  }
-
-  /**
-   * Parse properties value
-   *
-   * @param key
-   * @param value
-   * @return
-   */
-  @Override
-  protected Object parseValue(final String key, @NotNull final String value) {
-    return mtLafInstaller.parseValue(key, value);
+  public void loadDefaults(final UIDefaults defaults) {
+      MTLafInstaller.oldLoadDefaults(defaults, getClass(), getPrefix());
   }
 }
