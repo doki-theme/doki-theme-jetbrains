@@ -40,6 +40,7 @@ import org.jetbrains.annotations.NonNls;
 import io.acari.DDLC.DDLCConfig;
 import io.acari.DDLC.DDLCException;//todo: figure out how to handle dis.
 import io.acari.DDLC.LegacySupportUtility;
+import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
 import javax.swing.plaf.*;
@@ -65,23 +66,43 @@ import static com.intellij.ide.ui.UITheme.parseValue;
     "DuplicateStringLiteralInspection",
     "OverlyCoupledClass"})
 public class MTLafInstaller {
-  protected final MTConfig mtConfig;
-  protected final MTLaf mtDarkLaf;
+  /**
+   * The configuration
+   */
+  private final MTConfig mtConfig;
+  /**
+   * The Theme
+   */
+  @Nullable
   private final MTThemeable theme;
 
+  /**
+   * Constructor MTLafInstaller creates a new MTLafInstaller instance.
+   */
   public MTLafInstaller() {
     mtConfig = MTConfig.getInstance();
-    mtDarkLaf = null;
     theme = null;
   }
 
-  public MTLafInstaller(final MTLaf mtDarkLaf, final MTThemeable theme) {
+  /**
+   * Constructor MTLafInstaller creates a new MTLafInstaller instance.
+   *
+   * @param theme of type MTThemeable
+   */
+  MTLafInstaller(@Nullable final MTThemeable theme) {
     mtConfig = MTConfig.getInstance();
-    this.mtDarkLaf = mtDarkLaf;
     this.theme = theme;
   }
 
-  public void installMTDefaults(final UIDefaults defaults) {
+  /**
+   * Install Material Theme UI Components.
+   * <p>
+   * Some components will only be installed if the Material Components option is set, while others depend on other options, such as
+   * Compact Statusbars, Arrow Styles, Title bar and so on.
+   *
+   * @param defaults the UIManager defaults to install properties into
+   */
+  public final void installMTDefaults(final UIDefaults defaults) {
     replaceStatusBar(defaults);
     replaceTree(defaults);
     replaceSelectedIndicator(defaults);
@@ -433,7 +454,7 @@ public class MTLafInstaller {
    *
    * @return the prefix (type String) of the theme in properties
    */
-  final static String getPrefix() {
+  final String getPrefix() {
     return Objects.requireNonNull(theme).getId();
   }
 
@@ -495,27 +516,25 @@ public class MTLafInstaller {
     final Properties properties = new Properties();
     final String osSuffix = SystemInfo.isMac ? "mac" : SystemInfo.isWindows ? "windows" : "linux";
     try {
-      String primaryPropertyFile = getPrefix() + ".properties";
-      InputStream stream = getPropertyFile(primaryPropertyFile);
+      InputStream stream = getPropertyFile(String.format("%s.properties", lafName));
       properties.load(stream);
       stream.close();
 
-      // todo : this is there the property files come in to play....
-      String osSpecificPropertyFile = getPrefix() + "_" + osSuffix + ".properties";
+      String osSpecificPropertyFile = lafName + "_" + osSuffix + ".properties";
       stream = getPropertyFile(osSpecificPropertyFile);
       properties.load(stream);
       stream.close();
 
-      final HashMap<String, Object> darculaGlobalSettings = new HashMap<>();
-      final String prefix = getPrefix() + ".";
+      final Map<String, Object> globalProps = new HashMap<>(100);
+      final String prefix = lafName + ".";
       for (final String key: properties.stringPropertyNames()) {
         if (key.startsWith(prefix)) {
           final Object value = parseValue(key, properties.getProperty(key));
           final String darculaKey = key.substring(prefix.length());
           if (value == "system") {
-            darculaGlobalSettings.remove(darculaKey);
+            globalProps.remove(darculaKey);
           } else {
-            darculaGlobalSettings.put(darculaKey, value);
+            globalProps.put(darculaKey, value);
           }
         }
       }
@@ -545,6 +564,7 @@ public class MTLafInstaller {
         }
       }
 
+      // Add all those to defaults
       for (final String key: properties.stringPropertyNames()) {
         final String value = properties.getProperty(key);
         defaults.put(key, parseValue(key, value));
