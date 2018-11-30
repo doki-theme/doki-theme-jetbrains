@@ -23,18 +23,13 @@
  *
  */
 
-package com.chrisrm.ideaddlc.laf;
+package com.chrisrm.ideaddlc.lafs;
 
 import com.chrisrm.ideaddlc.MTConfig;
-import com.chrisrm.ideaddlc.laf.MTLaf;
 import com.chrisrm.ideaddlc.themes.models.MTThemeable;
 import com.chrisrm.ideaddlc.ui.*;
 import com.chrisrm.ideaddlc.ui.indicators.MTSelectedTreePainter;
-import com.chrisrm.ideaddlc.utils.PropertiesParser;
 import com.intellij.icons.AllIcons;
-import com.intellij.ide.ui.laf.IntelliJTableSelectedCellHighlightBorder;
-import com.intellij.ide.ui.laf.darcula.DarculaTableHeaderBorder;
-import com.intellij.ide.ui.laf.darcula.DarculaTableHeaderUI;
 import com.intellij.ide.ui.laf.darcula.ui.*;
 import com.intellij.openapi.util.IconLoader;
 import com.intellij.openapi.util.SystemInfo;
@@ -42,12 +37,9 @@ import com.intellij.openapi.util.registry.Registry;
 import com.intellij.ui.components.JBScrollBar;
 import com.intellij.util.ui.JBUI;
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.Nullable;
-import com.intellij.util.ui.UIUtil;
 import io.acari.DDLC.DDLCConfig;
 import io.acari.DDLC.DDLCException;//todo: figure out how to handle dis.
 import io.acari.DDLC.LegacySupportUtility;
-import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
 import javax.swing.plaf.*;
@@ -197,7 +189,7 @@ public class MTLafInstaller {
     defaults.put("Button.border", new MTButtonPainter());
 
     LegacySupportUtility.INSTANCE.invokeClassSafely(
-      "com.intellij.ide.ui.laf.darcula.ui.DarculaOptionButtonUI",
+      "com.intellij.ide.ui.lafs.darcula.ui.DarculaOptionButtonUI",
       () -> {
           defaults.put("OptionButtonUI", MTOptionButtonUI.class.getName());
           defaults.put(MTOptionButtonUI.class.getName(), MTOptionButtonUI.class);

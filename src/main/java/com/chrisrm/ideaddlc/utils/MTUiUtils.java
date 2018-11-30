@@ -135,7 +135,7 @@ public enum MTUiUtils {
   }
 
   /**
-   * Brightens a color by tones if the current laf is dark, otherwise darkens it
+   * Brightens a color by tones if the current lafs is dark, otherwise darkens it
    *
    * @param color the color to brighten/darken
    * @param tones number of tones to darken
@@ -146,7 +146,7 @@ public enum MTUiUtils {
   }
 
   /**
-   * Darkens a color by tones if the current laf is dark, otherwise brightens it
+   * Darkens a color by tones if the current lafs is dark, otherwise brightens it
    *
    * @param color the color to brighten/darken
    * @param tones number of tones to darken

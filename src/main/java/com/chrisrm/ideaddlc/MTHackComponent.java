@@ -151,7 +151,7 @@ public final class MTHackComponent implements BaseComponent {
           cp.get("javax.swing.Icon")});
 
       LegacySupportUtility.INSTANCE.orRunLegacy(
-          "com.intellij.ide.ui.laf.darcula.ui.DarculaOptionButtonUI",
+          "com.intellij.ide.ui.lafs.darcula.ui.DarculaOptionButtonUI",
           () -> declaredConstructor.instrument(new ExprEditor() {
             @Override
             public void edit(final MethodCall m) throws CannotCompileException {

@@ -24,7 +24,7 @@
  *
  */
 
-package com.chrisrm.ideaddlc.laf;
+package com.chrisrm.ideaddlc.lafs;
 
 import org.jetbrains.annotations.NotNull;
 

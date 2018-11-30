@@ -26,8 +26,8 @@
 package com.chrisrm.ideaddlc;
 
 import com.chrisrm.ideaddlc.icons.IconManager;
-import com.chrisrm.ideaddlc.laf.MTDarkLaf;
-import com.chrisrm.ideaddlc.laf.MTLafInstaller;
+import com.chrisrm.ideaddlc.lafs.MTDarkLaf;
+import com.chrisrm.ideaddlc.lafs.MTLafInstaller;
 import com.chrisrm.ideaddlc.listeners.MTTopics;
 import com.chrisrm.ideaddlc.messages.MaterialThemeBundle;
 import com.chrisrm.ideaddlc.themes.models.MTThemeable;

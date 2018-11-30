@@ -2,8 +2,8 @@ package io.acari.DDLC.themes
 
 import com.chrisrm.ideaddlc.MTConfig
 import com.chrisrm.ideaddlc.MTThemeManager
-import com.chrisrm.ideaddlc.laf.MTDarkLaf
-import com.chrisrm.ideaddlc.laf.MTLightLaf
+import com.chrisrm.ideaddlc.lafs.MTDarkLaf
+import com.chrisrm.ideaddlc.lafs.MTLightLaf
 import com.chrisrm.ideaddlc.themes.models.MTSerializedTheme
 import com.chrisrm.ideaddlc.themes.models.MTThemeable
 import com.chrisrm.ideaddlc.utils.PropertiesParser
