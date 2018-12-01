@@ -154,7 +154,7 @@ public final class DDLCStatusWidget extends JButton implements CustomStatusBarWi
       as.addAttribute(TextAttribute.SIZE, DEFAULT_FONT_SIZE);
 
       // background
-      g2.setColor(mtConfig.getSelectedTheme().getTheme().getContrastColor());
+      g2.setColor(ddlcConfig.getSelectedTheme().getTheme().getContrastColor());
       g2.fillRoundRect(0, 0, size.width + accentDiameter - JBUI.scale(arcs.width), JBUI.scale(STATUS_HEIGHT), arcs.width, arcs.height);
 
       // label

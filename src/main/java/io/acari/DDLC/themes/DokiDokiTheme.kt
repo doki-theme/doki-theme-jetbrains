@@ -464,7 +464,10 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
                 "SearchEverywhere.SearchField.Border.color",
                 "SearchEverywhere.SearchField.borderColor",
                 "ToolWindow.header.background",
-                "material.background")
+                "material.background"
+
+
+        ).distinct()
     }
 
     open fun getButtonBackgroundResources(): Stream<String> {
@@ -635,9 +638,7 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
         return ColorUIResource(0xFfffff)
     }
 
-    override fun getContrastColorResource(): ColorUIResource {
-        return ColorUIResource(0xFfffff)
-    }
+    override fun getContrastColorResource(): ColorUIResource = this.backgroundColorResource
 
     override fun getTableSelectedColorResource(): ColorUIResource {
         return ColorUIResource(0xFfffff)
