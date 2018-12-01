@@ -214,6 +214,8 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
         return Stream.of(
                 "Focus.color",
                 "TextField.separatorColor",
+                "SearchEverywhere.Tab.active.background",
+                "SearchEverywhere.Tab.selected.background",
                 "CheckBox.darcula.inactiveFillColor")
     }
 
@@ -221,6 +223,9 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
         return Stream.of(
                 "TabbedPane.highlight",
                 "TabbedPane.selected",
+                "SearchEverywhere.List.Separator.Color",
+                "SearchEverywhere.List.Separator.foreground",
+                "SearchEverywhere.List.separatorColor",
                 "TabbedPane.selectHighlight")
     }
 
@@ -384,6 +389,11 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
                 "CheckBox.background",
                 "ColorChooser.background",
                 "Slider.background",
+                "SearchEverywhere.background",
+                "SearchEverywhere.Dialog.background",
+                "SearchEverywhere.Header.background",
+                "SearchEverywhere.SearchField.Border.color",
+                "SearchEverywhere.SearchField.borderColor",
                 "ToolWindow.header.background",
                 "material.background")
     }

@@ -1,6 +1,7 @@
 package io.acari.DDLC.themes.dark
 
 import com.chrisrm.ideaddlc.utils.MTAccents
+import com.intellij.ui.ColorUtil
 import io.acari.DDLC.themes.DokiDokiTheme
 import javax.swing.plaf.ColorUIResource
 
@@ -12,6 +13,8 @@ class DeletedCharacterTheme : DokiDokiTheme("deleted.character", "Deleted Charac
     override fun getBackgroundColorString(): String = "0E1D31"
 
     override fun getBackgroundColorResource(): ColorUIResource = ColorUIResource(0x12131f)
+
+    override fun getForegroundColorResource(): ColorUIResource = ColorUIResource(0x2687C6)
 
     override fun getClubMember(): String = "sayori_dark.png"
 
