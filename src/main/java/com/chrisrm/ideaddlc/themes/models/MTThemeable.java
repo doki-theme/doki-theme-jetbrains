@@ -40,30 +40,6 @@ public interface MTThemeable {
   String getThemeId();
 
   @NonNls
-  default String getThemeName() {
-
-   return "this"; //todo: dis boi
-  }
-
-  @NonNls
-  default String getThemeIcon() {
-
-   return "this"; //todo: dis boi
-  }
-
-  @NonNls
-  default String getThemeColorScheme() {
-
-   return "this"; //todo: dis boi
-  }
-
-  @NonNls
-  default boolean isThemeDark() {
-
-   return false; //todo: dis boi
-  }
-
-  @NonNls
   default int getOrder() {
     //todo: dis
 
@@ -91,19 +67,12 @@ public interface MTThemeable {
 
   @NotNull
   String joyfulClubMember();
-  /**
-   * Change the theme's name
-   *
-   * @param name
-   */
-  void setName(String name);
 
   /**
    * The theme's inherent color scheme
    */
   String getEditorColorsScheme();
 
-  MTThemeable setEditorColorScheme(String editorColorsScheme);
 
   /**
    * The theme's unique ID
@@ -111,17 +80,14 @@ public interface MTThemeable {
   @NotNull
   String getId();
 
-  MTThemeable setId(String id);
 
   /**
    * Whether the theme is a dark theme
    */
   boolean isDark();
 
-  MTThemeable setIsDark(boolean dark);
 
 
-  MTThemeable setIcon(String icon);
 
   /**
    * The theme's background color

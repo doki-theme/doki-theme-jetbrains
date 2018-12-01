@@ -26,6 +26,7 @@
 
 package io.acari.DDLC.themes.light
 
+import com.chrisrm.ideaddlc.utils.MTAccents
 import io.acari.DDLC.themes.DokiDokiTheme
 import java.awt.Color
 import java.util.stream.Stream
@@ -33,17 +34,22 @@ import java.util.stream.Stream
 class MonikaTheme : DokiDokiTheme("monika", "Monika", false, "Monika") {
 
     override fun getClubMember(): String = "just_monika.png"
+    override fun joyfulClubMember(): String = "just_monika_joy.png"
 
     override fun getSelectionBackground(): String = SELECTION_BACKGROUND
 
     override fun getButtonForegroundColor(): String = "14610D"
     override fun getDisabled(): String = DISABLED
 
+    override fun getAccentColor(): String {
+        return MTAccents.BREAKING_BAD.hexColor
+    }
+
     override fun getNotificationsColorString(): String = "C3E88D"
 
     override fun getTreeSelectionBackgroundColorString(): String = "546E50"
 
-    override fun getButtonHighlightColorString(): String = "F2F1F1"
+    fun getButtonHighlightColorString(): String = "F2F1F1"
 
     override fun getHighlightColorString(): String = "425B67"
 
@@ -56,8 +62,6 @@ class MonikaTheme : DokiDokiTheme("monika", "Monika", false, "Monika") {
     override fun getDisabledColorString(): String = "000000"
 
     override fun getSecondaryBackgroundColorString(): String = "d8f26e"
-
-    override fun getCaretColorString(): String = "FFCC00"
 
     override fun getInactiveColorString(): String = "FFF4F2"
 
@@ -76,48 +80,6 @@ class MonikaTheme : DokiDokiTheme("monika", "Monika", false, "Monika") {
 
     override fun getBackgroundColorString(): String = "f2fadf"
 
-    override fun getTreeSelectionBackgroundResources(): Array<String> = arrayOf("Tree.selectionBackground", "TextField.inactiveForeground")
-
-    override fun getButtonHighlightResources(): Array<String> = arrayOf("Button.mt.color2", "Button.mt.selection.color2")
-
-    override fun getHighlightResources(): Array<String> = arrayOf("Focus.color", "TextField.separatorColor", "CheckBox.darcula.inactiveFillColor")
-
-    override fun getSecondBorderResources(): Array<String> = arrayOf("TabbedPane.highlight", "TabbedPane.selected", "TabbedPane.selectHighlight")
-
-    override fun getTableSelectedResources(): Array<String> = arrayOf("ProgressBar.halfColor", "MemoryIndicator.unusedColor")
-
-    override fun getDisabledResources(): Array<String> = arrayOf("MenuItem.disabledForeground", "ComboBox.disabledForeground")
-
-    override fun getSecondaryBackgroundResources(): Array<String> = arrayOf("Separator.foreground", "TextField.separatorColorDisabled", "PasswordField.inactiveForeground", "Button.darcula.selection.color1", "Button.darcula.selection.color2", "Button.mt.selection.color1", "List.background", "ToolWindow.header.active.background", "ToolWindow.header.border.background", "material.disabled", "material.mergeCommits")
-
-    override fun getCaretResources(): Array<String> = arrayOf("monika.caretForeground")
-
-    override fun getInactiveResources(): Array<String> = arrayOf("Table.gridColor", "MenuBar.darcula.borderColor", "MenuBar.darcula.borderShadowColor", "CheckBox.darcula.disabledBorderColor1", "CheckBox.darcula.disabledBorderColor2")
-
-    override fun getSelectionForegroundResources(): Stream<String> = Stream.of(
-            "monika.selectionForeground",
-            "Menu.selectionForeground",
-            "Menu.acceleratorSelectionForeground",
-            "MenuItem.selectionForeground",
-            "MenuItem.acceleratorSelectionForeground",
-            "Table.selectionForeground",
-            "TextField.selectionForeground",
-            "PasswordField.selectionForeground",
-            "Button.mt.selectedForeground",
-            "TextArea.selectionForeground",
-            "Label.selectedForeground",
-            "Button.darcula.selectedButtonForeground",
-            "Separator.background"
-
-    )
-
-
-    override fun getSelectionBackgroundResources(): Array<String> = arrayOf("monika.selectionBackgroundInactive", "monika.selectionInactiveBackground", "inactiveCaption", "Button.disabledText", "monika.selectionBackground", "Menu.selectionBackground", "Menu.acceleratorSelectionBackground", "MenuItem.selectionBackground", "MenuItem.acceleratorSelectionBackground", "Table.selectionBackground", "TextField.selectionBackground", "PasswordField.selectionBackground", "Button.mt.selectedBackground", "TextArea.selectionBackground", "Label.selectedBackground", "Button.darcula.selectedButtonBackground")
-
-    override fun getTextResources(): Array<String> = arrayOf("Menu.acceleratorForeground", "MenuItem.acceleratorForeground", "material.tagColor", "material.primaryColor", "SearchEverywhere.shortcutForeground", "Tree.foreground")
-
-    override fun getBackgroundResources(): Array<String> = arrayOf("monika.background", "monika.textBackground", "monika.inactiveBackground", "window", "activeCaption", "control", "PopupMenu.translucentBackground", "EditorPane.inactiveBackground", "Table.background", "MenuBar.disabledBackground", "MenuBar.shadow", "TabbedPane.highlight", "TabbedPane.darkShadow", "TabbedPane.shadow", "TabbedPane.borderColor", "Desktop.background", "Separator.background", "MenuBar.background", "Separator.foreground", "TextField.background", "PasswordField.background", "FormattedTextField.background", "TextArea.background", "CheckBox.darcula.backgroundColor1", "CheckBox.darcula.backgroundColor2", "CheckBox.darcula.checkSignColor", "CheckBox.darcula.shadowColor", "CheckBox.darcula.shadowColorDisabled", "CheckBox.darcula.focusedArmed.backgroundColor1", "CheckBox.darcula.focusedArmed.backgroundColor2", "CheckBox.darcula.focused.backgroundColor1", "CheckBox.darcula.focused.backgroundColor2", "ComboBox.background", "ComboBox.disabledBackground", "RadioButton.darcula.selectionDisabledColor", "StatusBar.topColor", "StatusBar.top2Color", "StatusBar.bottomColor", "ToolTip.background", "Spinner.background", "SplitPane.highlight", "SearchEverywhere.background", "SidePanel.background", "DialogWrapper.southPanelDivider", "OnePixelDivider.background", "Dialog.titleColor", "SearchEverywhere.background", "RadioButton.background", "CheckBoxMenuItem.background", "RadioButtonMenuItem.background", "CheckBox.background", "ColorChooser.background", "Slider.background", "TabbedPane.background", "OptionPane.background", "ToolWindow.header.background", "material.tab.backgroundColor", "material.background")
-
     override fun getButtonBackgroundResources(): Stream<String> = Stream.concat(super.getButtonBackgroundResources(), Stream.of(
             "Button.mt.color1",
             "Button.mt.background"
@@ -126,7 +88,6 @@ class MonikaTheme : DokiDokiTheme("monika", "Monika", false, "Monika") {
 
     override fun getBorderColor(): Color = Color.getHSBColor(62f, 91f, 149f)
 
-    override fun getForegroundResources(): Array<String> = arrayOf("monika.foreground", "monika.textForeground", "monika.selectionForegroundInactive", "monika.selectionInactiveForeground", "Label.foreground", "EditorPane.inactiveForeground", "CheckBox.foreground", "ComboBox.foreground", "RadioButton.foreground", "ColorChooser.foreground", "MenuBar.foreground", "RadioButtonMenuItem.foreground", "CheckBoxMenuItem.foreground", "PopupMenu.foreground", "Spinner.foreground", "TabbedPane.foreground", "TextField.foreground", "FormattedTextField.foreground", "PasswordField.foreground", "TextArea.foreground", "TextPane.foreground", "EditorPane.foreground", "ToolBar.foreground", "ToolTip.foreground", "List.foreground", "SearchEverywhere.foreground", "Label.foreground", "Label.disabledForeground", "Label.selectedDisabledForeground", "Table.foreground", "TableHeader.foreground", "ToggleButton.foreground", "Table.sortIconColor", "material.branchColor", "material.foreground", "TitledBorder.titleColor")
 
     companion object {
         val BACKGROUND = "fffcfc"

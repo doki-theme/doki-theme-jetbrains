@@ -51,12 +51,12 @@ public final class MTTextBorder extends DarculaTextBorder implements Border, UIR
   public Insets getBorderInsets(final Component c) {
     final int vOffset = TextFieldWithPopupHandlerUI.isSearchField(c) ? 6 : 8;
     int leftInsetOffset = LegacySupportUtility.INSTANCE.orGetLegacy(
-            "com.intellij.ide.ui.laf.darcula.ui.DarculaOptionButtonUI",
+            "com.intellij.ide.ui.lafs.darcula.ui.DarculaOptionButtonUI",
             () -> 4,
             () -> 26
     );
     int rightInsetOffset = LegacySupportUtility.INSTANCE.orGetLegacy(
-            "com.intellij.ide.ui.laf.darcula.ui.DarculaOptionButtonUI",
+            "com.intellij.ide.ui.lafs.darcula.ui.DarculaOptionButtonUI",
             () -> 4,
             () -> 23
     );
@@ -68,12 +68,12 @@ public final class MTTextBorder extends DarculaTextBorder implements Border, UIR
       return JBUI.insets(3, 3, 2, 2).asUIResource();
     } else {
       leftInsetOffset = LegacySupportUtility.INSTANCE.orGetLegacy(
-              "com.intellij.ide.ui.laf.darcula.ui.DarculaOptionButtonUI",
+              "com.intellij.ide.ui.lafs.darcula.ui.DarculaOptionButtonUI",
               () -> 4,
               () -> 3
       );
       rightInsetOffset = LegacySupportUtility.INSTANCE.orGetLegacy(
-              "com.intellij.ide.ui.laf.darcula.ui.DarculaOptionButtonUI",
+              "com.intellij.ide.ui.lafs.darcula.ui.DarculaOptionButtonUI",
               () -> 4,
               () -> 3
       );

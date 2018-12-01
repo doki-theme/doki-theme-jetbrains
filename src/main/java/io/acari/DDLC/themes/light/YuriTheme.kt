@@ -1,5 +1,6 @@
 package io.acari.DDLC.themes.light
 
+import com.chrisrm.ideaddlc.utils.MTAccents
 import io.acari.DDLC.themes.DokiDokiTheme
 
 class YuriTheme : DokiDokiTheme("yuri", "Yuri", false, "Yuri") {
@@ -33,4 +34,10 @@ class YuriTheme : DokiDokiTheme("yuri", "Yuri", false, "Yuri") {
     override fun getButtonBackgroundColor(): String = contrastColorString
 
     override fun getButtonForegroundColor(): String = "6B1C9A"
+
+    override fun getAccentColor(): String {
+        return MTAccents.AMETHYST.hexColor
+    }
+
+
 }

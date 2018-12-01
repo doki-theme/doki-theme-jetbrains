@@ -1,5 +1,6 @@
 package io.acari.DDLC.themes.dark
 
+import com.chrisrm.ideaddlc.utils.MTAccents
 import io.acari.DDLC.themes.DokiDokiTheme
 
 /**
@@ -48,4 +49,8 @@ class JustMonikaTheme : DokiDokiTheme("just.monika", "Just Monika", true, "Monik
     override fun getSecondBorderColorString(): String = "297C16"
 
     override fun getDisabledColorString(): String = "505050"
+
+    override fun getAccentColor(): String {
+        return MTAccents.BREAKING_BAD.hexColor
+    }
 }

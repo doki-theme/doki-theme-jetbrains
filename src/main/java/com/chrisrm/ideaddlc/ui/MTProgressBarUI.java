@@ -67,7 +67,6 @@ public final class MTProgressBarUI extends DarculaProgressBarUI {
   }
 
   private static boolean isSimplified() {
-    // TODO improve user experience based on System.properties
     // Avoid using Services directly to make UI code independent.
     return false;
   }
