@@ -436,6 +436,7 @@ public class MTLafInstaller {
     defaults.put("FileView.fileIcon", AllIcons.FileTypes.Unknown);
     defaults.put("Table.ascendingSortIcon", AllIcons.General.ArrowUp);
     defaults.put("Table.descendingSortIcon", AllIcons.General.ArrowDown);
+    defaults.put("", MTTableSelectedCellHighlightBorder.class.getName());
 
     defaults.put("TextField.darcula.searchWithHistory.icon", IconLoader.getIcon("/icons/darcula/searchWithHistory.png"));
     defaults.put("TextField.darcula.search.icon", IconLoader.getIcon("/icons/darcula/search.png"));
