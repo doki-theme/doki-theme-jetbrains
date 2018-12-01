@@ -545,9 +545,6 @@ public class MTForm implements MTFormUI {
 
   private void setIsMaterialDesign(final boolean isMaterialDesign) {
     isMaterialDesignCheckbox.setSelected(isMaterialDesign);
-    enableDisableCompactStatusBar(isMaterialDesign);
-    enableDisableCompactTableCells(isMaterialDesign);
-    enableDisableDropdownLists(isMaterialDesign);
   }
 
   //endregion
@@ -1144,8 +1141,8 @@ public class MTForm implements MTFormUI {
           isCompactMenusCheckbox.setToolTipText(bundle.getString("MTForm.isCompactMenusCheckbox.toolTipText"));
           panelOptions.add(isCompactMenusCheckbox, "cell 0 4");
         }
-        tabbedPane1.addTab(bundle.getString("mt.panels.section"), null, panelOptions,
-                           bundle.getString("MTForm.panelOptions.tab.toolTipText"));
+        tabbedPane1.addTab(bundle.getString("mt.panels.section"), null, panelOptions, bundle.getString("MTForm.panelOptions.tab" +
+            ".toolTipText"));
 
         //======== iconsPanel ========
         {

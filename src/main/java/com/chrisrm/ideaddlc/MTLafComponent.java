@@ -147,6 +147,8 @@ public final class MTLafComponent implements BaseComponent {
     MTTreeUI.resetIcons();
     MTSelectedTreeIndicatorImpl.resetCache();
 
+    ApplicationManager.getApplication().runWriteAction(UIReplacer::patchUI);
+
     if (willRestartIde) {
       MTUiUtils.restartIde();
     }

@@ -31,27 +31,36 @@ import com.intellij.notification.Notification;
 import com.intellij.notification.NotificationListener;
 import com.intellij.notification.NotificationType;
 import com.intellij.notification.impl.NotificationActionProvider;
+import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 
-import javax.swing.event.HyperlinkListener;
+import javax.swing.event.*;
 
 /**
  * @author Sergey.Malenkov
  */
 public final class MTStatisticsNotification extends Notification implements NotificationActionProvider {
+
+  @NonNls
+  public static final String ALLOW = "allow";
+  @NonNls
+  public static final String DECLINE = "decline";
+
+  @SuppressWarnings("FeatureEnvy")
   public MTStatisticsNotification(final NotificationListener listener) {
     super(Notify.CHANNEL,
         MaterialThemeBundle.message("mt.stats.notification.title", MTUiUtils.getPluginName()),
-        MaterialThemeBundle.message("mt.stats.config.details", "Material Theme Plugin Team"),
+          MaterialThemeBundle.message("mt.stats.config.details", MaterialThemeBundle.message("material.theme.plugin.team")),
         NotificationType.INFORMATION, listener);
   }
 
+  @NonNls
   @Override
   @NotNull
   public Action[] getActions(final HyperlinkListener listener) {
     return new Action[]{
-        new Action(listener, "allow", MaterialThemeBundle.message("mt.stats.notification.button.allow")),
-        new Action(listener, "decline", MaterialThemeBundle.message("mt.stats.notification.button.decline")),
+        new Action(listener, ALLOW, MaterialThemeBundle.message("mt.stats.notification.button.allow")),
+        new Action(listener, DECLINE, MaterialThemeBundle.message("mt.stats.notification.button.decline")),
     };
   }
 }

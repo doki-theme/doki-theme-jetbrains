@@ -87,6 +87,7 @@ public final class MTButtonUI extends DarculaButtonUI {
 
   /**
    * Create mouse listeners to simulate an highlighting
+   * TODO maybe one day I'll do a riddle
    *
    * @param b
    */
