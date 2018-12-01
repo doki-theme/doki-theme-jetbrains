@@ -216,7 +216,35 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
                 "TextField.separatorColor",
                 "SearchEverywhere.Tab.active.background",
                 "SearchEverywhere.Tab.selected.background",
-                "CheckBox.darcula.inactiveFillColor")
+                "CheckBox.darcula.inactiveFillColor",
+            "ActionButton.pressedBackground",
+            "ActionButton.pressedBorderColor",
+            "Autocomplete.selectionUnfocus",
+            "CheckBox.darcula.inactiveFillColor",
+            "CompletionPopup.selectionInactiveBackground",
+            "Component.focusedBorderColor",
+            "DebuggerTabs.active.background",
+            "Focus.color",
+            "Github.List.tallRow.selectionBackground.unfocused",
+            "MemoryIndicator.usedColor",
+            "Outline.focusedColor",
+            "Plugins.Button.installFocusedBackground",
+            "Plugins.eapTagBackground",
+            "Plugins.tagBackground",
+            "ProgressBar.halfColor",
+            "ProgressBar.selectionBackground",
+            "SearchEverywhere.Tab.active.background",
+            "SearchEverywhere.Tab.selected.background",
+            "SpeedSearch.background",
+            "TabbedPane.contentAreaColor",
+            "TabbedPane.hoverColor",
+            "TabbedPane.selectHighlight",
+            "TabbedPane.selectedColor",
+            "TabbedPane.underlineColor",
+            "TableHeader.borderColor",
+            "TextField.separatorColor",
+            "VersionControl.Ref.backgroundBase"
+            ).distinct()
     }
 
     open fun getSecondBorderResources(): Stream<String> {
@@ -226,13 +254,54 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
                 "SearchEverywhere.List.Separator.Color",
                 "SearchEverywhere.List.Separator.foreground",
                 "SearchEverywhere.List.separatorColor",
-                "TabbedPane.selectHighlight")
+            "Borders.color",
+            "Button.darcula.disabledOutlineColor",
+            "Button.darcula.shadowColor",
+            "Button.disabledBorderColor",
+            "Button.shadowColor",
+            "HelpTooltip.borderColor",
+            "Menu.separatorColor",
+            "OnePixelDivider.background",
+            "Plugins.SearchField.borderColor",
+            "Popup.Separator.color",
+            "SearchEverywhere.List.Separator.Color",
+            "SearchEverywhere.List.Separator.foreground",
+            "SearchEverywhere.List.separatorColor",
+            "SpeedSearch.borderColor",
+            "TabbedPane.darkShadow",
+            "TabbedPane.highlight",
+            "TabbedPane.shadow",
+            "WelcomeScreen.separatorColor",
+            "windowBorder",
+                "TabbedPane.selectHighlight").distinct()
     }
 
     open fun getTableSelectedResources(): Stream<String> {
         return Stream.of(
                 "ProgressBar.halfColor",
-                "MemoryIndicator.unusedColor")
+                "MemoryIndicator.unusedColor",
+            "Button.darcula.defaultFocusedBorderColor",
+            "Button.darcula.focusedBorderColor",
+            "Button.darcula.selection.color1",
+            "Button.darcula.selection.color2",
+            "Button.mt.selection.color1",
+            "Button.mt.selection.color2",
+            "ComboBox.selectionBackground",
+            "EditorTabs.active.background",
+            "FormattedTextField.selectionBackground",
+            "ParameterInfo.borderColor",
+            "PasswordField.selectionBackground",
+            "Plugins.selectionBackground",
+            "Plugins.Tab.active.background",
+            "Plugins.Tab.hover.background",
+            "TabbedPane.focusColor",
+            "Table.focusCellBackground",
+            "Table.selectionBackground",
+            "TextArea.selectionBackground",
+            "TextField.selectionBackground",
+            "TextPane.selectionBackground",
+            "ToolWindow.Button.hoverBackground"
+            ).distinct()
     }
 
     open fun getContrastResources(): Stream<String> {
@@ -479,7 +548,18 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
 
     open fun getNotificationsResources(): Stream<String> {
         return Stream.of("Notifications.background",
-                "Notifications.borderColor")
+                "Notifications.borderColor",
+            "Notification.background",
+            "Notification.borderColor",
+            "Notifications.background",
+            "Notifications.borderColor",
+            "ValidationTooltip.errorBackground",
+            "ValidationTooltip.errorBackgroundColor",
+            "ValidationTooltip.errorBorderColor",
+            "ValidationTooltip.warningBackground",
+            "ValidationTooltip.warningBackgroundColor",
+            "ValidationTooltip.warningBorderColor"
+            ).distinct()
     }
 
     open fun getButtonBackgroundColor(): String {
