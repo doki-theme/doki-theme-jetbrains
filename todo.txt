@@ -42,8 +42,15 @@ Dark theme todo completed:
 Rating Stars
 ------
 THINGS TODO:
-
-
-Code Colors (NEEDS TEST TIME)
-search everywhere
 FILE changed status
+
+
+
+Shit to fix
+----
+Tinted icons
+Menu bar height
+Notification colors
+Find in path
+Tool bar tab hover
+Version control tree
