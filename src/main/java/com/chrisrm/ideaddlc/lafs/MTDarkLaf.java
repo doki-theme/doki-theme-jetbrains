@@ -108,6 +108,7 @@ public final class MTDarkLaf extends DarculaLaf implements MTLaf {
   @Override
   public void loadDefaults(final UIDefaults defaults) {
     MTLafInstaller.oldLoadDefaults(defaults, getClass(), getPrefix());
+//    MTLafInstaller.loadDefaults(defaults);
   }
 
 }
