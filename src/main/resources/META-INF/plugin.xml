@@ -68,9 +68,9 @@
         <editorTabTitleProvider implementation="com.chrisrm.ideaddlc.tabs.MTEditorUpperTabs" order="first"/>
         <editorTabColorProvider implementation="io.acari.DDLC.tabs.DDLCEditorTabColorProvider" order="first"/>
         <iconProvider implementation="com.chrisrm.ideaddlc.icons.MTHiddenIconProvider" order="first"
-                      id="MTHiddenIconProvider"/>
+                      id="DDLCMTHiddenIconProvider"/>
         <iconProvider implementation="com.chrisrm.ideaddlc.icons.MTFileIconProvider" order="first"
-                      id="MTFileIconProvider"/>
+                      id="DDLCMTFileIconProvider"/>
 
         <bundledColorScheme path="/colors/Monika"/>
         <bundledColorScheme path="/colors/Just Monika"/>
@@ -89,7 +89,7 @@
 
         <colorSettingsPage implementation="com.chrisrm.ideaddlc.config.MTFileColorsPage"/>
 
-        <webHelpProvider implementation="com.chrisrm.ideaddlc.help.MTHelpProvider" id="MTHelpTopic"/>
+        <webHelpProvider implementation="com.chrisrm.ideaddlc.help.MTHelpProvider" id="DDLCMTHelpTopic"/>
         <annotator language="JavaScript" implementationClass="com.chrisrm.ideaddlc.annotators.JSAnnotator"/>
         <annotator language="TypeScript" implementationClass="com.chrisrm.ideaddlc.annotators.TSAnnotator"/>
         <annotator language="JAVA" implementationClass="com.chrisrm.ideaddlc.annotators.JavaAnnotator"/>
@@ -197,40 +197,40 @@
                     text="Swap Chibi"
                     icon="/icons/actions/mt/joy.png"
                     description="Swap Chibi"/>
-            <group id="arrowsStyles" text="Arrow Styles" popup="true">
+            <group id="ddlcArrowsStyles" text="Arrow Styles" popup="true">
                 <action class="com.chrisrm.ideaddlc.actions.arrows.MTMaterialArrows"
-                        id="MTMaterialArrows"
+                        id="DDLCMTMaterialArrows"
                         text="Set Material Arrows style"
                         icon="/icons/actions/arrows/material.svg"
                         description="Set Material Arrows style"/>
                 <action class="com.chrisrm.ideaddlc.actions.arrows.MTDarculaArrows"
-                        id="MTDarculaArrows"
+                        id="DDLCMTDarculaArrows"
                         text="Set Darcula Arrows style"
                         icon="/icons/actions/arrows/darcula.svg"
                         description="Set Darcula Arrows style"/>
                 <action class="com.chrisrm.ideaddlc.actions.arrows.MTPlusMinusArrows"
-                        id="MTPlusMinusArrows"
+                        id="DDLCMTPlusMinusArrows"
                         text="Set Plus-Minus Arrows style"
                         icon="/icons/actions/arrows/plusminus.svg"
                         description="Set Plus-Minus Arrows style"/>
                 <action class="com.chrisrm.ideaddlc.actions.arrows.MTNoneArrows"
-                        id="MTNoneArrows"
+                        id="DDLCMTNoneArrows"
                         text="Set No Arrows style"
                         description="Remove all arrows in trees"/>
             </group>
-            <group id="indicatorStyles" text="Indicator Styles" popup="true">
+            <group id="DDLCindicatorStyles" text="Indicator Styles" popup="true">
                 <action class="com.chrisrm.ideaddlc.actions.indicators.MTBorderIndicators"
-                        id="MTBorderIndicators"
+                        id="DDLCMTBorderIndicators"
                         text="Set Border Indicators style"
                         icon="/icons/actions/indicators/border.svg"
                         description="Set Border Indicators style"/>
                 <action class="com.chrisrm.ideaddlc.actions.indicators.MTDotIndicators"
-                        id="MTDotIndicators"
+                        id="DDLCMTDotIndicators"
                         text="Set Dot Indicators style"
                         icon="/icons/actions/indicators/dot.svg"
                         description="Set Dot Indicators style"/>
                 <action class="com.chrisrm.ideaddlc.actions.indicators.MTNoneIndicators"
-                        id="MTNoneIndicators"
+                        id="DDLCMTNoneIndicators"
                         text="Set No Indicators style"
                         description="Remove the selected indicators in trees"/>
             </group>

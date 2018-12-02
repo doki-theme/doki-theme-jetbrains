@@ -48,5 +48,4 @@ FILE changed status
 
 Shit to fix
 ----
-Notification colors
 works with material ui
