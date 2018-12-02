@@ -49,5 +49,4 @@ FILE changed status
 Shit to fix
 ----
 Notification colors
-Find in path
 works with material ui
