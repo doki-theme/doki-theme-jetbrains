@@ -50,6 +50,4 @@ Shit to fix
 ----
 Notification colors
 Find in path
-Tool bar tab hover
 works with material ui
-dropdown configruations

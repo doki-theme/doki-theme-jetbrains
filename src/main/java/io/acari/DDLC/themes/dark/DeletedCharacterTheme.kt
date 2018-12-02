@@ -20,6 +20,8 @@ class DeletedCharacterTheme : DokiDokiTheme("deleted.character", "Deleted Charac
 
     override fun joyfulClubMember(): String = "sayori_dark_joy.png"
 
+    override fun getTableSelectedColorString(): String = this.selectionBackgroundColorString
+
     override fun getSecondaryBackgroundColorString(): String = "111B28"
 
     override fun getSecondaryForegroundColorString(): String = "157174"
