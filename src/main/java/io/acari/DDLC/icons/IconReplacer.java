@@ -57,10 +57,9 @@ public final class IconReplacer {
           final Class byClass = value.getClass();
 
           if (byClass.getName().endsWith("$ByClass")) {
-            StaticPatcher.setFinalStatic(IconReplacer.class, "myCallerClass", value);
-            // todo: figure out what dafuq to do
-//            StaticPatcher.setFinalStatic(Boolean.FALSE, "myWasComputed", value);
-//            StaticPatcher.setFinalStatic( "myIcon", );
+            StaticPatcher.setFieldValue(value, "myCallerClass", IconReplacer.class);
+            StaticPatcher.setFieldValue(value, "myWasComputed", Boolean.FALSE);
+            StaticPatcher.setFieldValue(value, "myIcon", null);
           } else if (byClass.getName().endsWith("$CachedImageIcon")) {
             final String newPath = patchUrlIfNeeded(value, iconsRootPath, removedPath);
             if (newPath != null) {

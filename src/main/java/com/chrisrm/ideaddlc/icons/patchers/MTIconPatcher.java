@@ -107,6 +107,9 @@ public abstract class MTIconPatcher extends IconPathPatcher {
     if (CACHE.containsKey(path)) {
       return CACHE.get(path);
     }
+    if(path.contains("junit"))
+      System.out.println(path + " "+ getReplacement(path));
+
     // First try the svg version of the resource
     if (getSVG(path) != null) {
       CACHE.put(path, getReplacement(path));

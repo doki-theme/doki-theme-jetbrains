@@ -59,6 +59,17 @@ public enum StaticPatcher {
     }
   }
 
+  public static void setFieldValue(final Object object, final String fieldName, final Object value) {
+    try {
+      final Field field = object.getClass().getDeclaredField(fieldName);
+      field.setAccessible(true);
+      field.set(object, value);
+    } catch (final Exception e) {
+      e.printStackTrace();
+    }
+  }
+
+
   /**
    * Rewrites a class's static field with a new value by field
    *
