@@ -307,6 +307,7 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
     open fun getContrastResources(): Stream<String> {
         return Stream.of(
                 "Table.stripedBackground",
+                "Table.stripeColor",
                 "ScrollBar.thumb",
                 "Table.focusCellBackground",
                 "ToolWindow.header.tab.selected.background",
@@ -352,6 +353,9 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
                 "Table.gridColor",
                 "MenuBar.darcula.borderColor",
                 "MenuBar.darcula.borderShadowColor",
+                "List.selectionInactiveBackground",
+                "Tree.selectionInactiveBackground",
+                "Table.selectionInactiveBackground",
                 "CheckBox.darcula.disabledBorderColor1",
                 "CheckBox.darcula.disabledBorderColor2")
     }
@@ -379,6 +383,8 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
         return Stream.of(
                 "inactiveCaption",
                 "Menu.selectionBackground",
+                "List.selectionBackground",
+                "Table.selectionBackground",
                 "Menu.acceleratorSelectionBackground",
                 "MenuItem.selectionBackground",
                 "MenuItem.acceleratorSelectionBackground",
