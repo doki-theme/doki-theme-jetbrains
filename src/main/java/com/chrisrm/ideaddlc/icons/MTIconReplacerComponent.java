@@ -30,9 +30,15 @@ import com.chrisrm.ideaddlc.MTThemeManager;
 import com.chrisrm.ideaddlc.icons.patchers.*;
 import com.intellij.openapi.components.BaseComponent;
 import com.intellij.openapi.util.IconLoader;
+import io.acari.DDLC.icons.patchers.AccentTintedIconsPatcher;
 import org.jetbrains.annotations.NotNull;
 @SuppressWarnings("OverlyCoupledClass")
 public final class MTIconReplacerComponent implements BaseComponent {
+
+  static {
+    IconLoader.installPathPatcher(new AccentTintedIconsPatcher());
+    IconLoader.installPathPatcher(new ThemedTintedIconsPatcher());
+  }
 
   @SuppressWarnings("OverlyCoupledMethod")
   @Override
