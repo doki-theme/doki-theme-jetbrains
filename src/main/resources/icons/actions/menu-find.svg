@@ -51,11 +51,13 @@
      transform="translate(0.054788,-0.054789)"
      id="g831">
     <path
+        tint="true"
        inkscape:connector-curvature="0"
        id="path2-3"
        d="m 14.336908,13.655414 a 7.8002949,7.2205434 0 0 1 -0.78487,0.687695 l 0.213036,0.213036 v 0.818506 L 18.945212,20.554789 20.5,19 15.319863,13.819863 h -0.818507 z"
        style="fill:#80cbc4;fill-opacity:1;stroke-width:1.03652573" />
     <path
+        tint="true"
        sodipodi:nodetypes="cscccsc"
        inkscape:connector-curvature="0"
        id="path838"

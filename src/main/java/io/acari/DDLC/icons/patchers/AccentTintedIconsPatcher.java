@@ -34,7 +34,6 @@ import org.jetbrains.annotations.Nullable;
 import java.util.HashMap;
 import java.util.Map;
 
-//todo: figure out what to do with me
 public class AccentTintedIconsPatcher extends IconPathPatcher {
   private static final Map<String, String> CACHE = new HashMap<>();
   @NonNls

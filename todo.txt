@@ -48,9 +48,9 @@ FILE changed status
 
 Shit to fix
 ----
-Menu bar height
 Notification colors
 Find in path
 Tool bar tab hover
 Version control tree
 works with material ui
+dropdown configruations
