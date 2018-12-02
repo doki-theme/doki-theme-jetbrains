@@ -10,7 +10,7 @@ import java.util.*
 class DDLCApplicationInitializationComponent : ApplicationComponent {
   companion object {
     private val listeners = LinkedList<Runnable>()
-gs
+
     fun addInitializationListener(callback: Runnable){
       listeners.add(callback)
     }
