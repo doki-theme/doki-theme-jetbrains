@@ -12,7 +12,7 @@ class DeletedCharacterTheme : DokiDokiTheme("deleted.character", "Deleted Charac
 
     override fun getBackgroundColorString(): String = "0E1D31"
 
-    override fun getBackgroundColorResource(): ColorUIResource = ColorUIResource(0x12131f)
+    override fun getBackgroundColorResource(): ColorUIResource = ColorUIResource(0x0e1d31)
 
     override fun getForegroundColorResource(): ColorUIResource = ColorUIResource(0x2687C6)
 
@@ -20,7 +20,7 @@ class DeletedCharacterTheme : DokiDokiTheme("deleted.character", "Deleted Charac
 
     override fun joyfulClubMember(): String = "sayori_dark_joy.png"
 
-    override fun getTableSelectedColorString(): String = this.selectionBackgroundColorString
+    override fun getTableSelectedColorString(): String = "26374C"
 
     override fun getSecondaryBackgroundColorString(): String = "111B28"
 
