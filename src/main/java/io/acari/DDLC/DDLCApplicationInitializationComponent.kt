@@ -10,7 +10,7 @@ import java.util.*
 class DDLCApplicationInitializationComponent : ApplicationComponent {
   companion object {
     private val listeners = LinkedList<Runnable>()
-
+gs
     fun addInitializationListener(callback: Runnable){
       listeners.add(callback)
     }
@@ -21,6 +21,9 @@ class DDLCApplicationInitializationComponent : ApplicationComponent {
 
   override fun initComponent() {
     super.initComponent()
+
+    //This is stupid, but the manager does not get created until after.
+    addInitializationListener(MTThemeManager.getInstance().createListener())
     ChibiOrchestrator.init()
     if (MTThemeManager.isDDLCActive())
       checkWizard()

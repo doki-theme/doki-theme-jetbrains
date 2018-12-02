@@ -94,16 +94,20 @@ public final class MTThemeManager {
   private static String MATERIAL_THEME_PROP = "io.acari.ddlc.DDLCTheme.active.status";
 
 
-  public MTThemeManager() {
-    DDLCApplicationInitializationComponent.Companion.addInitializationListener(()->
+  private MTThemeManager() {
+
+  }
+
+  public Runnable createListener(){
+    return () ->
         LafManager.getInstance().addLafManagerListener(lafManager -> {
-          if(!UIManager.getLookAndFeel().getDescription().contains("DDLC")){
+          if (!UIManager.getLookAndFeel().getDescription().contains("DDLC")) {
             PropertiesComponent.getInstance().setValue(MATERIAL_THEME_PROP, WE_AINT_USING_DDLC_BOIS);
             mtUIActivationListeners.forEach(consumer -> consumer.consume(true));
           } else {
             mtUIActivationListeners.forEach(consumer -> consumer.consume(false));
           }
-        }));
+        });
   }
 
   private static List<Consumer<Boolean>> mtUIActivationListeners = new LinkedList<>();
