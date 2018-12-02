@@ -36,6 +36,7 @@ import org.jetbrains.annotations.NotNull;
 public final class MTIconReplacerComponent implements BaseComponent {
 
   static {
+    //todo: should probably not do this if theme is not active ._.
     IconLoader.installPathPatcher(new AccentTintedIconsPatcher());
     IconLoader.installPathPatcher(new ThemedTintedIconsPatcher());
   }

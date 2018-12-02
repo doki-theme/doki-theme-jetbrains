@@ -94,6 +94,7 @@ public final class MTTabsPainterPatcherComponent implements BaseComponent {
     final MessageBus bus = ApplicationManagerEx.getApplicationEx().getMessageBus();
 
     final MessageBusConnection connect = bus.connect();
+    //todo: this has to do with the editor tab.
     connect.subscribe(FileEditorManagerListener.FILE_EDITOR_MANAGER, new FileEditorManagerListener() {
       @Override
       public void selectionChanged(@NotNull final FileEditorManagerEvent event) {

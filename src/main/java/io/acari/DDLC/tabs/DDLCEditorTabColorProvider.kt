@@ -1,5 +1,6 @@
 package io.acari.DDLC.tabs
 
+import com.chrisrm.ideaddlc.MTThemeManager
 import io.acari.DDLC.actions.DarkMode
 import com.intellij.openapi.fileEditor.impl.EditorTabColorProvider
 import com.intellij.openapi.project.Project
@@ -14,7 +15,7 @@ import java.awt.Color
 class DDLCEditorTabColorProvider : EditorTabColorProvider {
     override fun getEditorTabColor(project: Project, file: VirtualFile): Color? {
         val colorManager = FileColorManager.getInstance(project)
-        return if (colorManager.isEnabledForTabs) {
+        return if (colorManager.isEnabledForTabs && MTThemeManager.isDDLCActive()) {
             val fileColor = colorManager.getFileColor(file)
             if (isNonProject(project, file) && fileColor != null) {
                 adjustColor(fileColor)
