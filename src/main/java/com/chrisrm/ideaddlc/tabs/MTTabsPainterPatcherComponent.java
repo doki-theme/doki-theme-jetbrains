@@ -27,6 +27,7 @@
 package com.chrisrm.ideaddlc.tabs;
 
 import com.chrisrm.ideaddlc.MTConfig;
+import com.chrisrm.ideaddlc.MTThemeManager;
 import com.chrisrm.ideaddlc.themes.models.MTThemeable;
 import com.chrisrm.ideaddlc.utils.MTAccents;
 import com.intellij.openapi.application.ex.ApplicationManagerEx;
@@ -53,6 +54,7 @@ import org.jetbrains.annotations.NotNull;
 import javax.swing.plaf.ColorUIResource;
 import java.awt.*;
 import java.lang.reflect.Field;
+import java.util.Optional;
 
 
 /**
@@ -89,28 +91,47 @@ public final class MTTabsPainterPatcherComponent implements BaseComponent {
     return "MTTabsPainterPatcherComponent";
   }
 
+  private boolean ddlcActive=false;
+  private boolean initalized=false;
+  private FileEditor fileEditor = null;
+
   @Override
   public void initComponent() {
     final MessageBus bus = ApplicationManagerEx.getApplicationEx().getMessageBus();
 
     final MessageBusConnection connect = bus.connect();
-    //todo: this has to do with the editor tab.
+    MTThemeManager.addMaterialThemeActivatedListener(areOtherThemesActive-> {
+      if(!(areOtherThemesActive || initalized)){
+        this.ddlcActive = true;
+        Optional.ofNullable(this.fileEditor)
+            .ifPresent(this::initializeTabs);
+      }
+    });
     connect.subscribe(FileEditorManagerListener.FILE_EDITOR_MANAGER, new FileEditorManagerListener() {
       @Override
       public void selectionChanged(@NotNull final FileEditorManagerEvent event) {
         final FileEditor editor = event.getNewEditor();
-        if (editor != null) {
-          Component component = editor.getComponent();
-          while (component != null) {
-            if (component instanceof JBEditorTabs) {
-              patchPainter((JBEditorTabs) component);
-              return;
-            }
-            component = component.getParent();
-          }
+        if(ddlcActive){
+          initializeTabs(editor);
+        } else{
+          fileEditor = editor;
         }
       }
     });
+  }
+
+  private void initializeTabs(FileEditor editor) {
+    if (editor != null) {
+      this.initalized = true;
+      Component component = editor.getComponent();
+      while (component != null) {
+        if (component instanceof JBEditorTabs) {
+          patchPainter((JBEditorTabs) component);
+          return;
+        }
+        component = component.getParent();
+      }
+    }
   }
 
   /**

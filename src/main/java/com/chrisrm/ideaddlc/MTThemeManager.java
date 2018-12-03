@@ -98,16 +98,23 @@ public final class MTThemeManager {
 
   }
 
+  private Consumer<Boolean> ddlcIsActiveConsumer = ddlcActive ->{
+    if (!ddlcActive) {
+      PropertiesComponent.getInstance().setValue(MATERIAL_THEME_PROP, WE_AINT_USING_DDLC_BOIS);
+      mtUIActivationListeners.forEach(consumer -> consumer.consume(true));
+    } else {
+      mtUIActivationListeners.forEach(consumer -> consumer.consume(false));
+    }
+  };
+
   public Runnable createListener(){
-    return () ->
-        LafManager.getInstance().addLafManagerListener(lafManager -> {
-          if (!UIManager.getLookAndFeel().getDescription().contains("DDLC")) {
-            PropertiesComponent.getInstance().setValue(MATERIAL_THEME_PROP, WE_AINT_USING_DDLC_BOIS);
-            mtUIActivationListeners.forEach(consumer -> consumer.consume(true));
-          } else {
-            mtUIActivationListeners.forEach(consumer -> consumer.consume(false));
-          }
-        });
+    return () -> {
+      this.ddlcIsActiveConsumer.consume(isDDLCActive());
+      LafManager.getInstance().addLafManagerListener(lafManager -> {
+        boolean ddlcActive = UIManager.getLookAndFeel().getDescription().contains("DDLC");
+        this.ddlcIsActiveConsumer.consume(ddlcActive);
+      });
+    };
   }
 
   private static List<Consumer<Boolean>> mtUIActivationListeners = new LinkedList<>();

@@ -75,7 +75,7 @@ public final class MTApplicationComponent implements BaseComponent {
   @NotNull
   @Override
   public String getComponentName() {
-    return "MTApplicationComponent";
+    return "DDLCMTApplicationComponent";
   }
 
 }
