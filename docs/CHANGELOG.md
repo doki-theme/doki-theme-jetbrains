@@ -1,7 +1,7 @@
 # Changelog
 ----
 
-# 1.7.0
+# 2.0.0
 
 - All known progress indicators now conform more to the icon update
     
