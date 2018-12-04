@@ -38,7 +38,7 @@ import com.intellij.ui.components.JBScrollBar;
 import com.intellij.util.ui.JBUI;
 import org.jetbrains.annotations.NonNls;
 import io.acari.DDLC.DDLCConfig;
-import io.acari.DDLC.DDLCException;//todo: figure out how to handle dis.
+import io.acari.DDLC.DDLCException;
 import io.acari.DDLC.LegacySupportUtility;
 import org.jetbrains.annotations.Nullable;
 
@@ -542,7 +542,6 @@ public class MTLafInstaller {
 
       // Replace global settings in custom themes
       final MTThemeable selectedTheme = DDLCConfig.getInstance().getSelectedTheme().getTheme();
-      // todo replace other properties
       final Color backgroundColorString = selectedTheme.getBackgroundColor();
       final ColorUIResource backgroundColor = new ColorUIResource(backgroundColorString);
       globalProps.put("background", backgroundColor);

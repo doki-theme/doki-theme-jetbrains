@@ -41,9 +41,7 @@ public interface MTThemeable {
 
   @NonNls
   default int getOrder() {
-    //todo: dis
-
-   return 1; //todo: dis boi
+   return 1;
   }
 
   /**

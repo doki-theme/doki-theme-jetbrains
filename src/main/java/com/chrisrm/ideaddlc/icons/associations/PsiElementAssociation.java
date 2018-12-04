@@ -35,7 +35,6 @@ import javax.swing.*;
 
 /**
  * Association for PsiElements icons
- * todo
  */
 public final class PsiElementAssociation extends Association {
   private Class<? extends PsiElement> type;

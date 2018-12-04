@@ -41,6 +41,7 @@ Dark theme todo completed:
 
 Rating Stars
 ------
+
 THINGS TODO:
 FILE changed status
 

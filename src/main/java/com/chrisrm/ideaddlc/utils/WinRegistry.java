@@ -35,7 +35,6 @@ import static com.sun.jna.platform.win32.WinReg.HKEY_CURRENT_USER;
 /**
  * Modifies the Windows Registry for the Accent Color
  *
- * @todo find an api for that
  */
 public final class WinRegistry {
   private WinRegistry() {
