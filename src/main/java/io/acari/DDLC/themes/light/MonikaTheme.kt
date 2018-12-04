@@ -30,6 +30,7 @@ import com.chrisrm.ideaddlc.utils.MTAccents
 import io.acari.DDLC.themes.DokiDokiTheme
 import java.awt.Color
 import java.util.stream.Stream
+import javax.swing.plaf.ColorUIResource
 
 class MonikaTheme : DokiDokiTheme("monika", "Monika", false, "Monika") {
 
@@ -44,6 +45,10 @@ class MonikaTheme : DokiDokiTheme("monika", "Monika", false, "Monika") {
     override fun getAccentColor(): String {
         return MTAccents.BREAKING_BAD.hexColor
     }
+
+    override fun getBackgroundColorResource(): ColorUIResource = ColorUIResource(0xf2fadf)
+
+    override fun getForegroundColorResource(): ColorUIResource = ColorUIResource(0x487A52)
 
     override fun getNotificationsColorString(): String = "C3E88D"
 

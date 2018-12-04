@@ -2,6 +2,7 @@ package io.acari.DDLC.themes.light
 
 import com.chrisrm.ideaddlc.utils.MTAccents
 import io.acari.DDLC.themes.DokiDokiTheme
+import javax.swing.plaf.ColorUIResource
 
 class SayoriTheme : DokiDokiTheme("sayori", "Sayori", false, "Sayori") {
 
@@ -38,4 +39,10 @@ class SayoriTheme : DokiDokiTheme("sayori", "Sayori", false, "Sayori") {
     override fun getAccentColor(): String {
         return MTAccents.CYAN.hexColor
     }
+
+    override fun getBackgroundColorResource(): ColorUIResource = ColorUIResource(0xf4fbfe)
+
+    override fun getForegroundColorResource(): ColorUIResource = ColorUIResource(0x5A75EA)
+
+    override fun getTableSelectedColorString(): String = "485FC3"
 }
