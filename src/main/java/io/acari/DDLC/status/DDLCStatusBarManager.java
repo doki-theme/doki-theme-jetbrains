@@ -49,8 +49,12 @@ public final class DDLCStatusBarManager implements Disposable, DumbAware {
     statusEnabled = MTConfig.getInstance().isStatusBarTheme();
 
     connect = project.getMessageBus().connect();
-    // todo: figure out what dafuq todo
-//    connect.subscribe(ConfigNotifier.CONFIG_TOPIC, this::refreshWidget);
+    connect.subscribe(ConfigNotifier.CONFIG_TOPIC, new ConfigNotifier() {
+      @Override
+      public void configChanged(MTConfig mtConfig) {
+        refreshWidget(mtConfig);
+      }
+    });
   }
 
   public static DDLCStatusBarManager create(@NotNull final Project project) {

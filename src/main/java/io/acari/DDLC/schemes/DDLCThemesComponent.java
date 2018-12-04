@@ -26,7 +26,9 @@
 
 package io.acari.DDLC.schemes;
 
+import com.chrisrm.ideaddlc.MTConfig;
 import com.chrisrm.ideaddlc.MTThemeManager;
+import com.chrisrm.ideaddlc.listeners.ConfigNotifier;
 import com.chrisrm.ideaddlc.listeners.CustomConfigNotifier;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.components.ApplicationComponent;
@@ -49,8 +51,12 @@ public final class DDLCThemesComponent implements ApplicationComponent {
     activateTheme();
 
     connect = ApplicationManager.getApplication().getMessageBus().connect();
-    // todo: figure out what dafuq todo
-//    connect.subscribe(ConfigNotifier.CONFIG_TOPIC, mtConfig -> activateTheme());
+    connect.subscribe(ConfigNotifier.CONFIG_TOPIC, new ConfigNotifier() {
+      @Override
+      public void configChanged(MTConfig mtConfig) {
+        activateTheme();
+      }
+    });
     connect.subscribe(CustomConfigNotifier.CONFIG_TOPIC, mtCustomThemeConfig -> activateTheme());
   }
 
