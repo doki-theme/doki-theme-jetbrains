@@ -2,6 +2,7 @@ package io.acari.DDLC.themes.dark
 
 import com.chrisrm.ideaddlc.utils.MTAccents
 import io.acari.DDLC.themes.DokiDokiTheme
+import javax.swing.plaf.ColorUIResource
 
 /**
  * Forged in the flames of battle by alex.
@@ -53,4 +54,10 @@ class JustMonikaTheme : DokiDokiTheme("just.monika", "Just Monika", true, "Monik
     override fun getAccentColor(): String {
         return MTAccents.BREAKING_BAD.hexColor
     }
+
+    override fun getBackgroundColorResource(): ColorUIResource = ColorUIResource(0x1a1e12)
+
+    override fun getForegroundColorResource(): ColorUIResource = ColorUIResource(0xF9F9F9)
+
+    override fun getTableSelectedColorString(): String = "224C1C"
 }
