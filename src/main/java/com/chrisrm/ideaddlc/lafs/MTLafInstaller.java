@@ -39,7 +39,6 @@ import com.intellij.util.ui.JBUI;
 import org.jetbrains.annotations.NonNls;
 import io.acari.DDLC.DDLCConfig;
 import io.acari.DDLC.DDLCException;
-import io.acari.DDLC.LegacySupportUtility;
 import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
@@ -209,14 +208,8 @@ public class MTLafInstaller {
 
     defaults.put("Button.border", new MTButtonPainter());
 
-    LegacySupportUtility.INSTANCE.invokeClassSafely(
-      "com.intellij.ide.ui.lafs.darcula.ui.DarculaOptionButtonUI",
-      () -> {
-          defaults.put("OptionButtonUI", MTOptionButtonUI.class.getName());
-          defaults.put(MTOptionButtonUI.class.getName(), MTOptionButtonUI.class);
-          }
-    );
-
+    defaults.put("OptionButtonUI", MTOptionButtonUI.class.getName());
+    defaults.put(MTOptionButtonUI.class.getName(), MTOptionButtonUI.class);
 
     defaults.put("OnOffButtonUI", MTOnOffButtonUI.class.getName());
     defaults.put(MTOnOffButtonUI.class.getName(), MTOnOffButtonUI.class);
