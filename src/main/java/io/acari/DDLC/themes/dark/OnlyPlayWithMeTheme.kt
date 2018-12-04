@@ -2,6 +2,7 @@ package io.acari.DDLC.themes.dark
 
 import com.chrisrm.ideaddlc.utils.MTAccents
 import io.acari.DDLC.themes.DokiDokiTheme
+import javax.swing.plaf.ColorUIResource
 
 class OnlyPlayWithMeTheme : DokiDokiTheme("natsuki.dark", "Only Play With Me", true, "Natsuki") {
 
@@ -11,7 +12,7 @@ class OnlyPlayWithMeTheme : DokiDokiTheme("natsuki.dark", "Only Play With Me", t
 
   override fun joyfulClubMember(): String = "natsuki_dark_joy.png"
 
-  override fun getSecondaryBackgroundColorString(): String = "330A2B                          "
+  override fun getSecondaryBackgroundColorString(): String = "330A2B"
 
   override fun getSecondaryForegroundColorString(): String = "BB47A8"
 
@@ -50,4 +51,10 @@ class OnlyPlayWithMeTheme : DokiDokiTheme("natsuki.dark", "Only Play With Me", t
   override fun getAccentColor(): String {
     return MTAccents.FUCHSIA.hexColor
   }
+
+  override fun getBackgroundColorResource(): ColorUIResource = ColorUIResource(0x231921)
+
+  override fun getForegroundColorResource(): ColorUIResource = ColorUIResource(0xDC508F)
+
+  override fun getTableSelectedColorString(): String = "4C1A45"
 }
