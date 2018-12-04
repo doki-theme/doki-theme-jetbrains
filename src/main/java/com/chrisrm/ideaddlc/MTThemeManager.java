@@ -123,7 +123,10 @@ public final class MTThemeManager {
   }
 
   public static boolean isDDLCActive(){
-    return PropertiesComponent.getInstance().getValue(MATERIAL_THEME_PROP, WE_USING_DDLC_BOIS).equals(WE_USING_DDLC_BOIS);
+    PropertiesComponent instance = PropertiesComponent.getInstance();
+    return instance != null &&
+        instance.getValue(MATERIAL_THEME_PROP, WE_USING_DDLC_BOIS)
+            .equals(WE_USING_DDLC_BOIS);
   }
 
   public static MTThemeManager getInstance() {

@@ -36,51 +36,51 @@ import org.jetbrains.annotations.NotNull;
 public final class MTIconReplacerComponent implements BaseComponent {
 
   static {
-    //todo: should probably not do this if theme is not active ._.
-    IconLoader.installPathPatcher(new AccentTintedIconsPatcher());
-    IconLoader.installPathPatcher(new ThemedTintedIconsPatcher());
+
   }
 
   @SuppressWarnings("OverlyCoupledMethod")
   @Override
   public void initComponent() {
-    if(MTThemeManager.isDDLCActive()){
       useDDLCIcons();
-    }
   }
 
   public static void useDDLCIcons() {
-    IconLoader.installPathPatcher(new LogPatcher());
-    IconLoader.installPathPatcher(new AllIconsPatcher());
-    IconLoader.installPathPatcher(new ImagesIconsPatcher());
-    IconLoader.installPathPatcher(new VCSIconsPatcher());
-    IconLoader.installPathPatcher(new GradleIconsPatcher());
-    IconLoader.installPathPatcher(new TasksIconsPatcher());
-    IconLoader.installPathPatcher(new MavenIconsPatcher());
-    IconLoader.installPathPatcher(new TerminalIconsPatcher());
-    IconLoader.installPathPatcher(new BuildToolsIconsPatcher());
-    IconLoader.installPathPatcher(new RemoteServersIconsPatcher());
-    IconLoader.installPathPatcher(new DatabaseToolsIconsPatcher());
+    if(MTThemeManager.isDDLCActive()) {
+      IconLoader.installPathPatcher(new AccentTintedIconsPatcher());
+      IconLoader.installPathPatcher(new ThemedTintedIconsPatcher());
+      IconLoader.installPathPatcher(new LogPatcher());
+      IconLoader.installPathPatcher(new AllIconsPatcher());
+      IconLoader.installPathPatcher(new ImagesIconsPatcher());
+      IconLoader.installPathPatcher(new VCSIconsPatcher());
+      IconLoader.installPathPatcher(new GradleIconsPatcher());
+      IconLoader.installPathPatcher(new TasksIconsPatcher());
+      IconLoader.installPathPatcher(new MavenIconsPatcher());
+      IconLoader.installPathPatcher(new TerminalIconsPatcher());
+      IconLoader.installPathPatcher(new BuildToolsIconsPatcher());
+      IconLoader.installPathPatcher(new RemoteServersIconsPatcher());
+      IconLoader.installPathPatcher(new DatabaseToolsIconsPatcher());
 
-    IconLoader.installPathPatcher(new PHPIconsPatcher());
-    IconLoader.installPathPatcher(new PythonIconsPatcher());
-    IconLoader.installPathPatcher(new CythonIconsPatcher());
-    IconLoader.installPathPatcher(new MakoIconsPatcher());
-    IconLoader.installPathPatcher(new JinjaIconsPatcher());
-    IconLoader.installPathPatcher(new FlaskIconsPatcher());
-    IconLoader.installPathPatcher(new DjangoIconsPatcher());
-    IconLoader.installPathPatcher(new ChameleonIconsPatcher());
+      IconLoader.installPathPatcher(new PHPIconsPatcher());
+      IconLoader.installPathPatcher(new PythonIconsPatcher());
+      IconLoader.installPathPatcher(new CythonIconsPatcher());
+      IconLoader.installPathPatcher(new MakoIconsPatcher());
+      IconLoader.installPathPatcher(new JinjaIconsPatcher());
+      IconLoader.installPathPatcher(new FlaskIconsPatcher());
+      IconLoader.installPathPatcher(new DjangoIconsPatcher());
+      IconLoader.installPathPatcher(new ChameleonIconsPatcher());
 
-    IconLoader.installPathPatcher(new RubyIconsPatcher());
+      IconLoader.installPathPatcher(new RubyIconsPatcher());
 
-    IconLoader.installPathPatcher(new GolandIconsPatcher());
-    IconLoader.installPathPatcher(new DataGripIconsPatcher());
-    IconLoader.installPathPatcher(new CLionIconsPatcher());
-    IconLoader.installPathPatcher(new AppCodeIconsPatcher());
-    IconLoader.installPathPatcher(new RestClientIconsPatcher());
+      IconLoader.installPathPatcher(new GolandIconsPatcher());
+      IconLoader.installPathPatcher(new DataGripIconsPatcher());
+      IconLoader.installPathPatcher(new CLionIconsPatcher());
+      IconLoader.installPathPatcher(new AppCodeIconsPatcher());
+      IconLoader.installPathPatcher(new RestClientIconsPatcher());
 
-    IconLoader.installPathPatcher(new RiderIconsPatcher());
-    IconLoader.installPathPatcher(new ResharperIconsPatcher());
+      IconLoader.installPathPatcher(new RiderIconsPatcher());
+      IconLoader.installPathPatcher(new ResharperIconsPatcher());
+    }
 
   }
 
