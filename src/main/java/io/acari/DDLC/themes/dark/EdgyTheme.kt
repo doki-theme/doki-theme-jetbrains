@@ -2,6 +2,7 @@ package io.acari.DDLC.themes.dark
 
 import com.chrisrm.ideaddlc.utils.MTAccents
 import io.acari.DDLC.themes.DokiDokiTheme
+import javax.swing.plaf.ColorUIResource
 
 //todo: should probably rename these to something more expected :|
 class EdgyTheme : DokiDokiTheme("yuri.dark", "Edgy", true, "Yuri") {
@@ -53,4 +54,9 @@ class EdgyTheme : DokiDokiTheme("yuri.dark", "Edgy", true, "Yuri") {
     override fun getAccentColor(): String {
         return MTAccents.AMETHYST.hexColor
     }
+    override fun getBackgroundColorResource(): ColorUIResource = ColorUIResource(0x3c3152)
+
+    override fun getForegroundColorResource(): ColorUIResource = ColorUIResource(0x917DEA)
+
+    override fun getTableSelectedColorString(): String = "2B204C"
 }
