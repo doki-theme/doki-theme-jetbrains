@@ -1,7 +1,6 @@
 package io.acari.DDLC.themes.dark
 
 import com.chrisrm.ideaddlc.utils.MTAccents
-import com.intellij.ui.ColorUtil
 import io.acari.DDLC.themes.DokiDokiTheme
 import javax.swing.plaf.ColorUIResource
 
@@ -16,11 +15,15 @@ class DeletedCharacterTheme : DokiDokiTheme("deleted.character", "Deleted Charac
 
     override fun getForegroundColorResource(): ColorUIResource = ColorUIResource(0x2687C6)
 
+    override fun getTableSelectedColorString(): String = "26374C"
+
+    override fun getAccentColor(): String {
+        return MTAccents.CYAN.hexColor
+    }
+
     override fun getClubMember(): String = "sayori_dark.png"
 
     override fun joyfulClubMember(): String = "sayori_dark_joy.png"
-
-    override fun getTableSelectedColorString(): String = "26374C"
 
     override fun getSecondaryBackgroundColorString(): String = "111B28"
 
@@ -57,8 +60,4 @@ class DeletedCharacterTheme : DokiDokiTheme("deleted.character", "Deleted Charac
     override fun getSecondBorderColorString(): String = "1B467C"
 
     override fun getDisabledColorString(): String = "232323"
-
-    override fun getAccentColor(): String {
-        return MTAccents.CYAN.hexColor
-    }
 }
