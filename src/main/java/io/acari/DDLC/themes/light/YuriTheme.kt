@@ -2,6 +2,7 @@ package io.acari.DDLC.themes.light
 
 import com.chrisrm.ideaddlc.utils.MTAccents
 import io.acari.DDLC.themes.DokiDokiTheme
+import javax.swing.plaf.ColorUIResource
 
 class YuriTheme : DokiDokiTheme("yuri", "Yuri", false, "Yuri") {
 
@@ -39,5 +40,10 @@ class YuriTheme : DokiDokiTheme("yuri", "Yuri", false, "Yuri") {
         return MTAccents.AMETHYST.hexColor
     }
 
+    override fun getBackgroundColorResource(): ColorUIResource = ColorUIResource(0xe8e4ff)
+
+    override fun getForegroundColorResource(): ColorUIResource = ColorUIResource(0x7A65EA)
+
+    override fun getTableSelectedColorString(): String = "7E4BC3"
 
 }

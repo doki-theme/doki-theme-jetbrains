@@ -2,6 +2,7 @@ package io.acari.DDLC.themes.light
 
 import com.chrisrm.ideaddlc.utils.MTAccents
 import io.acari.DDLC.themes.DokiDokiTheme
+import javax.swing.plaf.ColorUIResource
 
 class NatsukiTheme : DokiDokiTheme("natsuki", "Natsuki", false, "Natsuki") {
 
@@ -36,4 +37,10 @@ class NatsukiTheme : DokiDokiTheme("natsuki", "Natsuki", false, "Natsuki") {
     override fun getAccentColor(): String {
         return MTAccents.FUCHSIA.hexColor
     }
+
+    override fun getBackgroundColorResource(): ColorUIResource = ColorUIResource(0xFFDDF3)
+
+    override fun getForegroundColorResource(): ColorUIResource = ColorUIResource(0xEA427E)
+
+    override fun getTableSelectedColorString(): String = "C34AB3"
 }
