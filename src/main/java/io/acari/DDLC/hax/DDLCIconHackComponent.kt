@@ -2,6 +2,7 @@ package io.acari.DDLC.hax
 
 import com.chrisrm.ideaddlc.MTThemeManager
 import com.chrisrm.ideaddlc.icons.MTIconReplacerComponent
+import com.chrisrm.ideaddlc.icons.patchers.MTIconPatcher
 import com.intellij.openapi.util.IconLoader
 import com.intellij.openapi.util.IconPathPatcher
 import io.acari.DDLC.DDLCApplicationInitializationComponent

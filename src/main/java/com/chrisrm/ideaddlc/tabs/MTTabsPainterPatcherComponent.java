@@ -88,7 +88,7 @@ public final class MTTabsPainterPatcherComponent implements BaseComponent {
   @NotNull
   @Override
   public String getComponentName() {
-    return "MTTabsPainterPatcherComponent";
+    return "DDLCMTTabsPainterPatcherComponent";
   }
 
   private boolean ddlcActive=false;
