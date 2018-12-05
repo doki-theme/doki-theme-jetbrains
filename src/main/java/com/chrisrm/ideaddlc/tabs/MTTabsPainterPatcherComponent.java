@@ -69,8 +69,6 @@ public final class MTTabsPainterPatcherComponent implements BaseComponent {
   private final Field pathField;
   private final Field fillPathField;
   private final Field labelPathField;
-  private JBEditorTabsPainter defaultPainter;
-  private JBEditorTabsPainter darkPainter;
 
   public MTTabsPainterPatcherComponent() throws ClassNotFoundException, NoSuchFieldException {
     config = MTConfig.getInstance();
@@ -107,8 +105,15 @@ public final class MTTabsPainterPatcherComponent implements BaseComponent {
       if(!(areOtherThemesActive || initalized)){
         this.ddlcActive = true;
         Optional.ofNullable(this.fileEditor)
-            .ifPresent(fileEditor1 -> initializeTabs(fileEditor1, a->
-                replacePainters(this.defaultPainter, this.darkPainter, a)));
+            .ifPresent(fileEditor1 -> initializeTabs(fileEditor1, this::patchPainter));
+      } else if(initalized && areOtherThemesActive) {
+        ddlcActive = false;
+        Optional.ofNullable(this.fileEditor)
+            .ifPresent(fileEditor1 -> {
+              initializeTabs(fileEditor1, a ->
+                  replacePainters(new DefaultEditorTabsPainter(a), new DefaultEditorTabsPainter(a), a));
+              initalized = false;
+            });
       }
     });
     connect.subscribe(FileEditorManagerListener.FILE_EDITOR_MANAGER, new FileEditorManagerListener() {
@@ -117,9 +122,8 @@ public final class MTTabsPainterPatcherComponent implements BaseComponent {
         final FileEditor editor = event.getNewEditor();
         if(ddlcActive){
           initializeTabs(editor, a->patchPainter(a));
-        } else{
-          fileEditor = editor;
         }
+        fileEditor = editor;
       }
     });
   }
@@ -170,9 +174,6 @@ public final class MTTabsPainterPatcherComponent implements BaseComponent {
   }
 
   private void replacePainters(JBEditorTabsPainter defaultPainter, JBEditorTabsPainter darkPainter, JBEditorTabs component){
-    this.defaultPainter = ReflectionUtil.getField(JBEditorTabs.class, component, JBEditorTabsPainter.class, "myDefaultPainter");
-    this.darkPainter = ReflectionUtil.getField(JBEditorTabs.class, component, JBEditorTabsPainter.class, "myDarkPainter");
-
     ReflectionUtil.setField(JBEditorTabs.class, component, JBEditorTabsPainter.class, "myDefaultPainter", defaultPainter);
     ReflectionUtil.setField(JBEditorTabs.class, component, JBEditorTabsPainter.class, "myDarkPainter", darkPainter);
   }
