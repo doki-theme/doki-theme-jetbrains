@@ -41,6 +41,7 @@ import com.intellij.ui.tabs.impl.DefaultEditorTabsPainter;
 import com.intellij.ui.tabs.impl.JBEditorTabs;
 import com.intellij.ui.tabs.impl.JBEditorTabsPainter;
 import com.intellij.ui.tabs.impl.ShapeTransform;
+import com.intellij.util.Consumer;
 import com.intellij.util.ObjectUtils;
 import com.intellij.util.ReflectionUtil;
 import com.intellij.util.messages.MessageBus;
@@ -68,6 +69,8 @@ public final class MTTabsPainterPatcherComponent implements BaseComponent {
   private final Field pathField;
   private final Field fillPathField;
   private final Field labelPathField;
+  private JBEditorTabsPainter defaultPainter;
+  private JBEditorTabsPainter darkPainter;
 
   public MTTabsPainterPatcherComponent() throws ClassNotFoundException, NoSuchFieldException {
     config = MTConfig.getInstance();
@@ -104,7 +107,8 @@ public final class MTTabsPainterPatcherComponent implements BaseComponent {
       if(!(areOtherThemesActive || initalized)){
         this.ddlcActive = true;
         Optional.ofNullable(this.fileEditor)
-            .ifPresent(this::initializeTabs);
+            .ifPresent(fileEditor1 -> initializeTabs(fileEditor1, a->
+                replacePainters(this.defaultPainter, this.darkPainter, a)));
       }
     });
     connect.subscribe(FileEditorManagerListener.FILE_EDITOR_MANAGER, new FileEditorManagerListener() {
@@ -112,7 +116,7 @@ public final class MTTabsPainterPatcherComponent implements BaseComponent {
       public void selectionChanged(@NotNull final FileEditorManagerEvent event) {
         final FileEditor editor = event.getNewEditor();
         if(ddlcActive){
-          initializeTabs(editor);
+          initializeTabs(editor, a->patchPainter(a));
         } else{
           fileEditor = editor;
         }
@@ -120,13 +124,13 @@ public final class MTTabsPainterPatcherComponent implements BaseComponent {
     });
   }
 
-  private void initializeTabs(FileEditor editor) {
+  private void initializeTabs(FileEditor editor, Consumer<JBEditorTabs> painterWorker) {
     if (editor != null) {
       this.initalized = true;
       Component component = editor.getComponent();
       while (component != null) {
         if (component instanceof JBEditorTabs) {
-          patchPainter((JBEditorTabs) component);
+          painterWorker.consume((JBEditorTabs) component);
           return;
         }
         component = component.getParent();
@@ -162,8 +166,15 @@ public final class MTTabsPainterPatcherComponent implements BaseComponent {
       return result;
     });
 
-    ReflectionUtil.setField(JBEditorTabs.class, component, JBEditorTabsPainter.class, "myDefaultPainter", proxy);
-    ReflectionUtil.setField(JBEditorTabs.class, component, JBEditorTabsPainter.class, "myDarkPainter", proxy);
+    this.replacePainters(proxy, proxy, component);
+  }
+
+  private void replacePainters(JBEditorTabsPainter defaultPainter, JBEditorTabsPainter darkPainter, JBEditorTabs component){
+    this.defaultPainter = ReflectionUtil.getField(JBEditorTabs.class, component, JBEditorTabsPainter.class, "myDefaultPainter");
+    this.darkPainter = ReflectionUtil.getField(JBEditorTabs.class, component, JBEditorTabsPainter.class, "myDarkPainter");
+
+    ReflectionUtil.setField(JBEditorTabs.class, component, JBEditorTabsPainter.class, "myDefaultPainter", defaultPainter);
+    ReflectionUtil.setField(JBEditorTabs.class, component, JBEditorTabsPainter.class, "myDarkPainter", darkPainter);
   }
 
   /**
