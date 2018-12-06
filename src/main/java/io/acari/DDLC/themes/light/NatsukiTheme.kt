@@ -43,4 +43,6 @@ class NatsukiTheme : DokiDokiTheme("natsuki", "Natsuki", false, "Natsuki") {
     override fun getForegroundColorResource(): ColorUIResource = ColorUIResource(0xEA427E)
 
     override fun getTableSelectedColorString(): String = "C34AB3"
+
+    override fun getHighlightColorString(): String = "ffa7ff"
 }
