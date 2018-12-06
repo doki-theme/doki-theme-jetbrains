@@ -60,4 +60,6 @@ class JustMonikaTheme : DokiDokiTheme("just.monika", "Just Monika", true, "Monik
     override fun getForegroundColorResource(): ColorUIResource = ColorUIResource(0xF9F9F9)
 
     override fun getTableSelectedColorString(): String = "224C1C"
+
+    override fun getHighlightColorString(): String = "2f491d"
 }
