@@ -28,6 +28,8 @@ class SayoriTheme : DokiDokiTheme("sayori", "Sayori", false, "Sayori") {
 
     override fun getNotificationsColorString(): String = "c3e8ff"
 
+    override fun getHighlightColorString(): String = "aaddff"
+
     override fun getContrastColorString(): String = "d8f2ff"
 
     override fun getEditorTabColorString(): String = contrastColorString
