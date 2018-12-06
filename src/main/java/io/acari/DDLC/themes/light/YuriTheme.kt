@@ -46,4 +46,5 @@ class YuriTheme : DokiDokiTheme("yuri", "Yuri", false, "Yuri") {
 
     override fun getTableSelectedColorString(): String = "7E4BC3"
 
+    override fun getHighlightColorString(): String = "a7a7ff"
 }
