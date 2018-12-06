@@ -56,7 +56,7 @@ class MonikaTheme : DokiDokiTheme("monika", "Monika", false, "Monika") {
 
     fun getButtonHighlightColorString(): String = "F2F1F1"
 
-    override fun getHighlightColorString(): String = "425B67"
+    override fun getHighlightColorString(): String = "aadd5d"
 
     override fun getSecondBorderColorString(): String = "d3e1e8"
 
