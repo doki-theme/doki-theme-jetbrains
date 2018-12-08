@@ -56,7 +56,7 @@ public final class MTFrameComponentExtension extends IdeRootPaneNorthExtension {
 
   @Override
   public String getKey() {
-    return "MTFrame";
+    return "DDLCMTFrame";
   }
 
   @Override

@@ -64,7 +64,7 @@ public final class MTTintedIconsComponent implements BaseComponent {
   @Override
   @NotNull
   public String getComponentName() {
-    return "MTTintedIconsComponent";
+    return "DDLCMTTintedIconsComponent";
   }
 
 }
