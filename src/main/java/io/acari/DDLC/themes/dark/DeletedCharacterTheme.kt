@@ -60,4 +60,6 @@ class DeletedCharacterTheme : DokiDokiTheme("deleted.character", "Deleted Charac
     override fun getSecondBorderColorString(): String = "1B467C"
 
     override fun getDisabledColorString(): String = "232323"
+
+    override fun getHighlightColorString(): String = "07356A"
 }

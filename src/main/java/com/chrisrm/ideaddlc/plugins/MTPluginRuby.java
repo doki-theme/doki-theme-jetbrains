@@ -49,6 +49,6 @@ public final class MTPluginRuby implements ApplicationComponent {
   @Override
   @NotNull
   public String getComponentName() {
-    return "MTPluginRuby";
+    return "DDLCMTPluginRuby";
   }
 }

@@ -3,6 +3,15 @@
 
 # 2.0.0
 
+- You can use **Material UI** and **The Doki-Doki Theme** side-by-side now!
+
+  - Installing the Material UI and the Doki-Doki Theme will now work independently of each other! ᕙ(⇀‸↼‶)ᕗ
+  - Switching between themes should work fairly seamlessly.
+    - For best results you could restart the IDE to remove theme residue.
+  
+- The 2018.3 builds of the JetBrain's IDEs are now better supported!
+  - You should probably move to those updated IDEs if you have not already done so. ᕕ(ᐛ)ᕗ
+  
 - All known progress indicators now conform more to the icon update
     
 # 1.6.1

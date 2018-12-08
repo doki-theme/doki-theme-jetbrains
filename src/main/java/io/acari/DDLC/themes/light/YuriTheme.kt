@@ -44,6 +44,7 @@ class YuriTheme : DokiDokiTheme("yuri", "Yuri", false, "Yuri") {
 
     override fun getForegroundColorResource(): ColorUIResource = ColorUIResource(0x7A65EA)
 
-    override fun getTableSelectedColorString(): String = "7E4BC3"
+    override fun getTableSelectedColorString(): String = "B6A2DC"
 
+    override fun getHighlightColorString(): String = "a7a7ff"
 }

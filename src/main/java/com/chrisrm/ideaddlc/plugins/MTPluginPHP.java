@@ -49,6 +49,6 @@ public final class MTPluginPHP implements ApplicationComponent {
   @Override
   @NotNull
   public String getComponentName() {
-    return "MTPluginPHP";
+    return "DDLCMTPluginPHP";
   }
 }

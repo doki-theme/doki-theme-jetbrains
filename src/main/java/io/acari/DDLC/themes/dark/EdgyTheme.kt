@@ -59,4 +59,6 @@ class EdgyTheme : DokiDokiTheme("yuri.dark", "Edgy", true, "Yuri") {
     override fun getForegroundColorResource(): ColorUIResource = ColorUIResource(0x917DEA)
 
     override fun getTableSelectedColorString(): String = "2B204C"
+
+    override fun getHighlightColorString(): String = "5D317D"
 }

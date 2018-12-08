@@ -57,4 +57,6 @@ class OnlyPlayWithMeTheme : DokiDokiTheme("natsuki.dark", "Only Play With Me", t
   override fun getForegroundColorResource(): ColorUIResource = ColorUIResource(0xDC508F)
 
   override fun getTableSelectedColorString(): String = "4C1A45"
+
+  override fun getHighlightColorString(): String = "550D3B"
 }

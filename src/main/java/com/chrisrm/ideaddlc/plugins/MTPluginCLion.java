@@ -61,6 +61,6 @@ public final class MTPluginCLion implements ApplicationComponent {
   @Override
   @NotNull
   public String getComponentName() {
-    return "MTPluginCLion";
+    return "DDLCMTPluginCLion";
   }
 }

@@ -36,7 +36,9 @@ import org.jetbrains.annotations.NotNull;
 public final class MTIconReplacerComponent implements BaseComponent {
 
   static {
-
+    //todo: figure out how to have it be replaceable
+    IconLoader.installPathPatcher(new AccentTintedIconsPatcher());
+    IconLoader.installPathPatcher(new ThemedTintedIconsPatcher());
   }
 
   @SuppressWarnings("OverlyCoupledMethod")
@@ -47,8 +49,6 @@ public final class MTIconReplacerComponent implements BaseComponent {
 
   public static void useDDLCIcons() {
     if(MTThemeManager.isDDLCActive()) {
-      IconLoader.installPathPatcher(new AccentTintedIconsPatcher());
-      IconLoader.installPathPatcher(new ThemedTintedIconsPatcher());
       IconLoader.installPathPatcher(new LogPatcher());
       IconLoader.installPathPatcher(new AllIconsPatcher());
       IconLoader.installPathPatcher(new ImagesIconsPatcher());

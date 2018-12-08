@@ -336,7 +336,7 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
     open fun getSecondaryBackgroundResources(): Stream<String> {
         return Stream.of(
                 "Separator.foreground",
-                "TextField.separatorColorDisabled",
+            "TextField.separatorColorDisabled",
                 "PasswordField.inactiveForeground",
                 "Button.darcula.selection.color1",
                 "Button.darcula.selection.color2",
@@ -589,7 +589,8 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
     open fun getSecondaryForegroundResources(): Stream<String> {
         return Stream.of("ToolWindow.header.active.foreground",
                 "ToolWindow.header.border.foreground",
-                "List.foreground")
+            "ToolWindow.Button.selectedForeground",
+            "List.foreground")
     }
 
     open fun getSecondaryForegroundColorString(): String {

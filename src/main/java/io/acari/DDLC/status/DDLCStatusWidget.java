@@ -100,7 +100,7 @@ public final class DDLCStatusWidget extends JButton implements CustomStatusBarWi
   @NotNull
   @Override
   public String ID() {
-    return "MTStatusBarWidget";
+    return "DDLCMTStatusBarWidget";
   }
 
   @Nullable

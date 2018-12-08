@@ -29,6 +29,7 @@ package com.chrisrm.ideaddlc.ui;
 import com.chrisrm.ideaddlc.MTConfig;
 import com.intellij.ide.ui.laf.darcula.ui.DarculaTabbedPaneUI;
 import com.intellij.util.ui.JBUI;
+import io.acari.DDLC.LegacySupportUtility;
 
 import javax.swing.*;
 import javax.swing.plaf.ComponentUI;
@@ -129,9 +130,17 @@ public final class MTTabbedPaneUI extends DarculaTabbedPaneUI {
     final Color accentColor = UIManager.getColor("TabbedPane.selectedСolor");
     final Color customColor = config.getHighlightColor();
 
-    if (!tabPane.isEnabled()) {
-      return JBUI.CurrentTheme.TabbedPane.DISABLED_SELECTED_COLOR;
+    Color color = LegacySupportUtility.INSTANCE.orGetLegacy("com.intellij.ide.ui.laf.darcula.ui.DarculaSeparatorUI", () -> {
+      if (!tabPane.isEnabled()) {
+        return JBUI.CurrentTheme.TabbedPane.DISABLED_SELECTED_COLOR;
       }
+      return null;
+    }, () -> null);
+
+    if(color!= null){
+      return color;
+    }
+
     return config.isHighlightColorEnabled() ? customColor : accentColor;
     }
 

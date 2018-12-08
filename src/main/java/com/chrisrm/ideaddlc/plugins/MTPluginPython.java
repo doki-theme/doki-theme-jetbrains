@@ -52,6 +52,6 @@ public final class MTPluginPython implements ApplicationComponent {
   @Override
   @NotNull
   public String getComponentName() {
-    return "MTPythonPHP";
+    return "DDLCMTPythonPHP";
   }
 }
