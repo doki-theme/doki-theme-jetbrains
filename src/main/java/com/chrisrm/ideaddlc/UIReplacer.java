@@ -421,8 +421,10 @@ public enum UIReplacer {
    * New implementation for tabs height
    */
   public static void patchTabs() throws NoSuchFieldException, IllegalAccessException {
-    final int tabsHeight = MTConfig.getInstance().getTabsHeight() / 2;
-    StaticPatcher.setFinalStatic(TabsUtil.class, "TAB_VERTICAL_PADDING", new JBValue.Float(tabsHeight));
+    LegacySupportUtility.INSTANCE.invokeClassSafely("com.intellij.ide.ui.laf.darcula.ui.DarculaSeparatorUI",()->{
+      final int tabsHeight = MTConfig.getInstance().getTabsHeight() / 2;
+      StaticPatcher.setFinalStatic(TabsUtil.class, "TAB_VERTICAL_PADDING", new JBValue.Float(tabsHeight));
+    });
     }
   }
 

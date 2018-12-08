@@ -36,6 +36,7 @@ import com.intellij.openapi.util.SystemInfo;
 import com.intellij.openapi.util.registry.Registry;
 import com.intellij.ui.components.JBScrollBar;
 import com.intellij.util.ui.JBUI;
+import io.acari.DDLC.LegacySupportUtility;
 import org.jetbrains.annotations.NonNls;
 import io.acari.DDLC.DDLCConfig;
 import io.acari.DDLC.DDLCException;
@@ -308,8 +309,10 @@ public class MTLafInstaller {
     defaults.put(MTStatusBarUI.class.getName(), MTStatusBarUI.class);
     defaults.put("IdeStatusBar.border", new MTStatusBarBorder());
 
-    defaults.put("SeparatorUI", MTSeparatorUI.class.getName());
-    defaults.put(MTSeparatorUI.class.getName(), MTSeparatorUI.class);
+    LegacySupportUtility.INSTANCE.invokeClassSafely("com.intellij.ide.ui.laf.darcula.ui.DarculaSeparatorUI",()->{
+      defaults.put("SeparatorUI", MTSeparatorUI.class.getName());
+      defaults.put(MTSeparatorUI.class.getName(), MTSeparatorUI.class);
+    });
   }
 
   /**
@@ -427,7 +430,9 @@ public class MTLafInstaller {
     defaults.put("CheckBoxMenuItem.arrowIcon", expandIcon);
 
     defaults.put("FileView.fileIcon", AllIcons.FileTypes.Unknown);
-    defaults.put("Table.ascendingSortIcon", AllIcons.General.ArrowUp);
+    LegacySupportUtility.INSTANCE.invokeClassSafely("com.intellij.ide.ui.laf.darcula.ui.DarculaSeparatorUI",()->{
+      defaults.put("Table.ascendingSortIcon", AllIcons.General.ArrowUp);
+    });
     defaults.put("Table.descendingSortIcon", AllIcons.General.ArrowDown);
     defaults.put("", MTTableSelectedCellHighlightBorder.class.getName());
 
