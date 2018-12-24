@@ -31,6 +31,7 @@ import com.chrisrm.ideaddlc.ui.MTNavBarUI;
 import com.chrisrm.ideaddlc.ui.MTScrollUI;
 import com.chrisrm.ideaddlc.utils.StaticPatcher;
 import com.intellij.codeInsight.lookup.impl.LookupCellRenderer;
+import com.intellij.ide.actions.Switcher;
 import com.intellij.ide.navigationToolbar.ui.NavBarUIManager;
 import com.intellij.ide.plugins.PluginManagerConfigurableNew;
 import com.intellij.openapi.actionSystem.ex.ActionButtonLook;
@@ -46,6 +47,7 @@ import com.intellij.ui.tabs.FileColorManagerImpl;
 import com.intellij.ui.tabs.TabsUtil;
 import com.intellij.util.ObjectUtils;
 import com.intellij.util.containers.ContainerUtil;
+import com.intellij.util.ui.JBUI;
 import com.intellij.util.ui.JBValue;
 import com.intellij.util.ui.UIUtil;
 import com.intellij.vcs.log.VcsLogStandardColors;
@@ -71,7 +73,7 @@ public enum UIReplacer {
       patchTables();
       patchGrays();
       patchMemoryIndicator();
-      patchAutocomplete();
+      patchIdeaActionButton();
       patchScrollbars();
       patchDialogs();
       patchVCS();
@@ -79,18 +81,20 @@ public enum UIReplacer {
       patchScopes();
       patchNavBar();
       patchIdeaActionButton();
+      patchOnMouseOver();
       patchPluginPage();
     } catch (final ClassNotFoundException | IllegalAccessException | NoSuchFieldException e) {
       e.printStackTrace();
     }
   }
 
+  private static void patchOnMouseOver() throws NoSuchFieldException, IllegalAccessException {
+    StaticPatcher.setFinalStatic(Switcher.class, "ON_MOUSE_OVER_BG_COLOR", UIUtil.getListSelectionBackground(true));
+  }
+
   /**
    * Set the color of even rows in tables
-   *
-   * @Deprecated - removed in 2019.1
    */
-  @Deprecated
   static void patchTables() throws NoSuchFieldException, IllegalAccessException {
       if (MTConfig.getInstance().isMaterialTheme()) {
       StaticPatcher.setFinalStatic(UIUtil.class, "DECORATED_ROW_BG_COLOR", UIManager.get("Table.stripeColor"));
@@ -143,10 +147,7 @@ public enum UIReplacer {
 
   /**
    * Patch the autocomplete color with the accent color
-   *
-   * @Deprecated - remove in 2019.1
    */
-  @Deprecated
   static void patchAutocomplete() throws NoSuchFieldException, IllegalAccessException {
       if (!MTConfig.getInstance().isMaterialTheme()) {
         return;
@@ -298,7 +299,6 @@ public enum UIReplacer {
    *
    * @deprecated Remove in 2019.1
    */
-  @Deprecated
   public static void patchVCS() throws NoSuchFieldException, IllegalAccessException {
       if (MTConfig.getInstance().isMaterialTheme()) {
         final Color color = ObjectUtils.notNull(UIManager.getColor("material.mergeCommits"), new ColorUIResource(0x00000000));

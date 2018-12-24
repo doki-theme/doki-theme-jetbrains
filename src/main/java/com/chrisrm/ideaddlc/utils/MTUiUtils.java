@@ -231,4 +231,14 @@ public enum MTUiUtils {
   }
 
 
+  public static NotificationListener.Adapter openAppearanceSettings(final Project project) {
+    return new NotificationListener.Adapter() {
+      @Override
+      protected void hyperlinkActivated(@NotNull final Notification notification, @NotNull final HyperlinkEvent e) {
+        ApplicationManager.getApplication().invokeLater(() -> ShowSettingsUtil.getInstance().showSettingsDialog(
+            project,
+            APPEARANCE_SECTION), ModalityState.NON_MODAL);
+      }
+    };
+  }
 }

@@ -29,16 +29,21 @@ import com.intellij.ide.ui.laf.darcula.ui.DarculaTextAreaUI;
 
 import javax.swing.*;
 import javax.swing.plaf.ComponentUI;
+import javax.swing.text.JTextComponent;
 
 public final class MTTextAreaUI extends DarculaTextAreaUI {
-  private final JTextArea c;
-
-  public MTTextAreaUI(final JComponent c) {
-    this.c = (JTextArea) c;
+  @SuppressWarnings({"MethodOverridesStaticMethodOfSuperclass",
+      "unused"})
+  public static ComponentUI createUI(final JComponent component) {
+    return new MTTextAreaUI();
   }
 
-  public static ComponentUI createUI(final JComponent c) {
-    return new MTTextAreaUI(c);
+  @Override
+  public void installUI(final JComponent c) {
+    super.installUI(c);
+    if (((JTextComponent) c).isEditable()) {
+      c.setBorder(new MTTextBorder());
+    }
   }
 
 }

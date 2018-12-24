@@ -36,6 +36,7 @@ import java.awt.*;
 
 public class MTStatusBarBorder implements Border, UIResource {
 
+  static final int COMPACT_PADDING = 4;
   public static final int DEFAULT_PADDING = 8;
 
   @Override
@@ -54,9 +55,9 @@ public class MTStatusBarBorder implements Border, UIResource {
     return getInsets();
   }
 
-  public Insets getInsets() {
+  public static Insets getInsets() {
     final boolean compactStatusBar = MTConfig.getInstance().isCompactStatusBar();
-    final int padding = compactStatusBar ? 0 : DEFAULT_PADDING;
+    final int padding = compactStatusBar ? COMPACT_PADDING : DEFAULT_PADDING;
 
     return new InsetsUIResource(padding, 0, padding, 0);
   }

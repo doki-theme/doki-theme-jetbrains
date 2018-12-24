@@ -29,6 +29,7 @@ import com.chrisrm.ideaddlc.MTConfig;
 import com.chrisrm.ideaddlc.themes.models.MTThemeable;
 import com.chrisrm.ideaddlc.ui.*;
 import com.chrisrm.ideaddlc.ui.indicators.MTSelectedTreePainter;
+import com.chrisrm.ideaddlc.utils.MTUI;
 import com.intellij.icons.AllIcons;
 import com.intellij.ide.ui.laf.darcula.ui.*;
 import com.intellij.openapi.util.IconLoader;
@@ -176,12 +177,16 @@ public class MTLafInstaller {
 
     defaults.put("Focus.activeErrorBorderColor", new ColorUIResource(0xE53935));
     defaults.put("Component.focusErrorColor", new ColorUIResource(0xE53935));
+    defaults.put("Component.errorFocusColor", new ColorUIResource(0xE53935));
     defaults.put("Focus.inactiveErrorBorderColor", new ColorUIResource(0x743A3A));
     defaults.put("Component.inactiveFocusErrorColor", new ColorUIResource(0x743A3A));
+    defaults.put("Component.inactiveErrorFocusColor", new ColorUIResource(0x743A3A));
     defaults.put("Focus.activeWarningBorderColor", new ColorUIResource(0xFFB62C));
     defaults.put("Component.focusWarningColor", new ColorUIResource(0xFFB62C));
+    defaults.put("Component.warningFocusColor", new ColorUIResource(0xFFB62C));
     defaults.put("Focus.inactiveWarningBorderColor", new ColorUIResource(0x7F6C00));
     defaults.put("Component.inactiveFocusWarningColor", new ColorUIResource(0x7F6C00));
+    defaults.put("Component.inactiveWarningFocusColor", new ColorUIResource(0x7F6C00));
 
     defaults.put("TabbedPane.tabAreaInsets", JBUI.insets(0));
     defaults.put("TabbedPane.selectedLabelShift", 0);
@@ -271,8 +276,8 @@ public class MTLafInstaller {
    */
   private static void replaceSelectedIndicator(@NonNls final UIDefaults defaults) {
     final MTSelectedTreePainter painter = new MTSelectedTreePainter();
-    defaults.put("List.sourceListSelectionBackgroundPainter", painter);
-    defaults.put("List.sourceListFocusedSelectionBackgroundPainter", painter);
+    defaults.put(MTUI.List.LIST_SELECTION_BACKGROUND_PAINTER, painter);
+    defaults.put(MTUI.List.LIST_FOCUSED_SELECTION_BACKGROUND_PAINTER, painter);
   }
 
   /**
@@ -307,7 +312,7 @@ public class MTLafInstaller {
   private static void replaceStatusBar(@NonNls final UIDefaults defaults) {
     defaults.put("IdeStatusBarUI", MTStatusBarUI.class.getName());
     defaults.put(MTStatusBarUI.class.getName(), MTStatusBarUI.class);
-    defaults.put("IdeStatusBar.border", new MTStatusBarBorder());
+    defaults.put(MTUI.StatusBar.IDE_STATUS_BAR_BORDER, new MTStatusBarBorder());
 
     LegacySupportUtility.INSTANCE.invokeClassSafely("com.intellij.ide.ui.laf.darcula.ui.DarculaSeparatorUI",()->{
       defaults.put("SeparatorUI", MTSeparatorUI.class.getName());

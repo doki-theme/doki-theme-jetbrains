@@ -24,107 +24,65 @@
  */
 package com.chrisrm.ideaddlc.ui;
 
-import io.acari.DDLC.LegacySupportUtility;
+import com.chrisrm.ideaddlc.utils.MTUI;
 import com.intellij.ide.ui.laf.darcula.ui.DarculaTextBorder;
-import com.intellij.ide.ui.laf.darcula.ui.TextFieldWithPopupHandlerUI;
-import com.intellij.ui.ColorPanel;
 import com.intellij.util.ui.JBInsets;
 import com.intellij.util.ui.JBUI;
 import com.intellij.util.ui.MacUIUtil;
 
 import javax.swing.*;
-import javax.swing.border.*;
-import javax.swing.plaf.*;
-import javax.swing.text.*;
+import javax.swing.text.JTextComponent;
 import java.awt.*;
-import java.awt.geom.*;
+import java.awt.geom.Rectangle2D;
+
+import static com.intellij.ide.ui.laf.darcula.DarculaUIUtil.isCompact;
+import static com.intellij.ide.ui.laf.darcula.DarculaUIUtil.isTableCellEditor;
 
 /**
  * @author Konstantin Bulenkov
  */
-public final class MTTextBorder extends DarculaTextBorder implements Border, UIResource {
-  private static Color getBorderColor(final boolean enabled) {
-    return enabled ? UIManager.getColor("TextField.separatorColor") : UIManager.getColor("TextField.separatorColorDisabled");
-  }
+public final class MTTextBorder extends DarculaTextBorder {
 
   @Override
   public Insets getBorderInsets(final Component c) {
-    final int vOffset = TextFieldWithPopupHandlerUI.isSearchField(c) ? 6 : 8;
-    int leftInsetOffset = LegacySupportUtility.INSTANCE.orGetLegacy(
-            "com.intellij.ide.ui.lafs.darcula.ui.DarculaOptionButtonUI",
-            () -> 4,
-            () -> 26
-    );
-    int rightInsetOffset = LegacySupportUtility.INSTANCE.orGetLegacy(
-            "com.intellij.ide.ui.lafs.darcula.ui.DarculaOptionButtonUI",
-            () -> 4,
-            () -> 23
-    );
-    if (TextFieldWithPopupHandlerUI.isSearchFieldWithHistoryPopup(c)) {
-      return JBUI.insets(vOffset, leftInsetOffset, vOffset, rightInsetOffset).asUIResource();
-    } else if (TextFieldWithPopupHandlerUI.isSearchField(c)) {
-      return JBUI.insets(vOffset, leftInsetOffset, vOffset, rightInsetOffset).asUIResource();
-    } else if (c instanceof JTextField && c.getParent() instanceof ColorPanel) {
-      return JBUI.insets(3, 3, 2, 2).asUIResource();
-    } else {
-      leftInsetOffset = LegacySupportUtility.INSTANCE.orGetLegacy(
-              "com.intellij.ide.ui.lafs.darcula.ui.DarculaOptionButtonUI",
-              () -> 4,
-              () -> 3
-      );
-      rightInsetOffset = LegacySupportUtility.INSTANCE.orGetLegacy(
-              "com.intellij.ide.ui.lafs.darcula.ui.DarculaOptionButtonUI",
-              () -> 4,
-              () -> 3
-      );
-      final JBInsets.JBInsetsUIResource insets = JBUI.insets(vOffset, leftInsetOffset, vOffset, rightInsetOffset).asUIResource();
-      try {
-        TextFieldWithPopupHandlerUI.updateBorderInsets(c, insets);
-        return insets;
-      } catch (final NoSuchMethodError e) {
-        return insets;
-      }
-    }
+    return JBUI.insets(isTableCellEditor(c) || isCompact(c) ? 0 : 3).asUIResource();
   }
 
-  @Override
-  public boolean isBorderOpaque() {
-    return false;
-  }
-
+  @SuppressWarnings("FeatureEnvy")
   @Override
   public void paintBorder(final Component c, final Graphics g, final int x, final int y, final int width, final int height) {
-    if (((JComponent) c).getClientProperty("JTextField.Search.noBorderRing") == Boolean.TRUE) {
-      return;
-    }
-    final Rectangle r = new Rectangle(x, y, width, height);
-
     final Graphics2D g2 = (Graphics2D) g.create();
+    final Rectangle r = new Rectangle(x, y, width, height);
+    final boolean isFocused = isFocused(c);
+    final boolean isDisabled = !c.isEnabled();
+    final boolean isEditable = !(c instanceof JTextComponent) || ((JTextComponent) c).isEditable();
+
+    if (!(c.getParent() instanceof JComboBox)) {
+      try {
     g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
     g2.setRenderingHint(RenderingHints.KEY_STROKE_CONTROL,
                         MacUIUtil.USE_QUARTZ ? RenderingHints.VALUE_STROKE_PURE : RenderingHints.VALUE_STROKE_NORMALIZE);
 
-    try {
+        JBInsets.removeFrom(r, JBUI.insets(1));
       g2.translate(x, y);
 
-      if (c.hasFocus()) {
-        g2.setColor(getSelectedBorderColor());
+        if (isFocused) {
+          // Draw accented bold border
+          g2.setColor(MTUI.TextField.getSelectedBorderColor());
         g2.fillRect(JBUI.scale(1), height - JBUI.scale(2), width - JBUI.scale(2), JBUI.scale(2));
-      } else if (!c.isEnabled()) {
-        g.setColor(getBorderColor(c.isEnabled()));
+        } else if (isDisabled && !isEditable) {
+          // Draw dash border
+          g.setColor(MTUI.TextField.getBorderColor(false));
         g2.setStroke(new BasicStroke(1, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND, 0, new float[] {1, 2}, 0));
         g2.draw(new Rectangle2D.Double(JBUI.scale(1), height - JBUI.scale(1), width - JBUI.scale(2), JBUI.scale(2)));
       } else {
-        final boolean editable = !(c instanceof JTextComponent) || ((JTextComponent) c).isEditable();
-        g2.setColor(getBorderColor(editable));
+          // Draw small border
+          g2.setColor(MTUI.TextField.getBorderColor(isEditable));
         g2.fillRect(JBUI.scale(1), height - JBUI.scale(1), width - JBUI.scale(2), JBUI.scale(2));
       }
     } finally {
       g2.dispose();
     }
   }
-
-  private Color getSelectedBorderColor() {
-    return UIManager.getColor("TextField.selectedSeparatorColor");
   }
 }
