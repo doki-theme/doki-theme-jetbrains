@@ -30,6 +30,7 @@ import com.chrisrm.ideaddlc.MTConfig;
 import com.intellij.ui.ColorUtil;
 import com.intellij.ui.Gray;
 import com.intellij.ui.JBColor;
+import com.intellij.util.ObjectUtils;
 import com.intellij.util.ui.JBUI;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
@@ -101,11 +102,12 @@ public final class MTUI {
     public static final String LIST_FOCUSED_SELECTION_BACKGROUND_PAINTER = "List.sourceListFocusedSelectionBackgroundPainter";
 
     public static Border getListSelectionPainter() {
-      return UIManager.getBorder(LIST_SELECTION_BACKGROUND_PAINTER);
+      return ObjectUtils.chooseNotNull(UIManager.getBorder(LIST_SELECTION_BACKGROUND_PAINTER), UIManager.getBorder("List.sourceListSelectionBackgroundPainter"));
     }
 
     public static Border getListFocusedSelectionPainter() {
-      return UIManager.getBorder(LIST_FOCUSED_SELECTION_BACKGROUND_PAINTER);
+      return ObjectUtils.chooseNotNull(UIManager.getBorder(LIST_FOCUSED_SELECTION_BACKGROUND_PAINTER), UIManager.getBorder("List" +
+          ".sourceListFocusedSelectionBackgroundPainter"));
     }
   }
 
