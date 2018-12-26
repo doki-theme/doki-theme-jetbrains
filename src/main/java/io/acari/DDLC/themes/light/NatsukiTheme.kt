@@ -22,6 +22,8 @@ class NatsukiTheme : DokiDokiTheme("natsuki", "Natsuki", false, "Natsuki") {
 
     override fun getTreeSelectionBackgroundColorString(): String = "ff6eec"
 
+    override fun getInactiveColorString(): String = "FFACF4"
+
     override fun getMenuBarSelectionForegroundColorString(): String = "ffffff"
 
     override fun getMenuBarSelectionBackgroundColorString(): String = "d9031a"
