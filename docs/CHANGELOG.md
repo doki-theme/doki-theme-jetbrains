@@ -1,6 +1,11 @@
 # Changelog
 ----
 
+# 2.1.0
+
+- Updated to Material UI version 3.3.0
+    - For best results please consider upgrading your JetBrains IDEs to build 183.4886.37 or greater 
+
 # 2.0.0
 
 - You can use **Material UI** and **The Doki-Doki Theme** side-by-side now!
