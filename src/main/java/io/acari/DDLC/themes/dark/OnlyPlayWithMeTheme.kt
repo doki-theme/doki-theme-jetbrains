@@ -22,6 +22,8 @@ class OnlyPlayWithMeTheme : DokiDokiTheme("natsuki.dark", "Only Play With Me", t
 
   override fun getTreeSelectionBackgroundColorString(): String = "B54E8E"
 
+  override fun getInactiveColorString(): String = "6F3654"
+
   override fun getMenuBarSelectionForegroundColorString(): String = "ffffff"
 
   override fun getMenuBarSelectionBackgroundColorString(): String = "9D0064"

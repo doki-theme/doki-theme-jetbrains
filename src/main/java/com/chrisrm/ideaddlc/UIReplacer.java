@@ -73,6 +73,7 @@ public enum UIReplacer {
       patchTables();
       patchGrays();
       patchMemoryIndicator();
+      patchAutocomplete();
       patchIdeaActionButton();
       patchScrollbars();
       patchDialogs();
