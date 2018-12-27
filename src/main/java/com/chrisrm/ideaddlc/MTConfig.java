@@ -39,6 +39,7 @@ import com.intellij.openapi.components.PersistentStateComponent;
 import com.intellij.openapi.components.ServiceManager;
 import com.intellij.openapi.components.State;
 import com.intellij.openapi.components.Storage;
+import com.intellij.openapi.util.SystemInfo;
 import com.intellij.ui.ColorUtil;
 import com.intellij.util.ObjectUtils;
 import com.intellij.util.xmlb.XmlSerializerUtil;
@@ -59,11 +60,12 @@ import java.util.Objects;
     "OverlyComplexClass",
     "WeakerAccess",
     "PackageVisibleField",
-    "RedundantFieldInitialization",
     "MethodParameterOfConcreteClass",
     "MethodReturnOfConcreteClass",
     "OverlyLongMethod",
-    "PublicMethodNotExposedInInterface"})
+    "PublicMethodNotExposedInInterface",
+    "DeprecatedIsStillUsed",
+    "deprecation"})
 @State(
     name = "MaterialDDLCThemeConfig",
     storages = @Storage("material_theme.xml")
@@ -107,7 +109,7 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
   @Property
   boolean compactSidebar = false;
   @Property
-  boolean darkTitleBar = false;
+  boolean darkTitleBar = SystemInfo.isMac;
   @Property
   boolean fileIcons = true;
   @Property
@@ -145,6 +147,8 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
   @Property
   boolean overrideAccentColor = false;
   @Property
+  boolean pristineConfig = true;
+  @Property
   boolean statusBarTheme = true;
   @Property
   boolean themedScrollbars = true;
@@ -155,6 +159,7 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
   @Property
   boolean upperCaseTabs = false;
   @Property
+  @Deprecated
   boolean useMaterialFont = true;
   @Property
   boolean useMaterialFont2 = false;
@@ -269,7 +274,6 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
    * Returns this MTConfig as a json
    *
    * @return the nativePropertiesAsJson (type JSONObject) of this MTConfig object.
-   *
    * @throws JSONException when
    */
   @SuppressWarnings("DuplicateStringLiteralInspection")
@@ -305,6 +309,7 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
     hashMap.put("leftTreeIndent", leftTreeIndent);
     hashMap.put("monochromeIcons", monochromeIcons);
     hashMap.put("overrideAccentColor", overrideAccentColor);
+    hashMap.put("pristineConfig", pristineConfig);
     hashMap.put("rightTreeIndent", rightTreeIndent);
     hashMap.put("selectedTheme", selectedTheme);
     hashMap.put("statusBarTheme", statusBarTheme);
@@ -380,6 +385,7 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
     setLeftTreeIndent(form.getLeftTreeIndent());
     setMonochromeIcons(form.isMonochromeIcons());
     setOverrideAccentColor(form.isOverrideAccents());
+    pristineConfig = false;
     setRightTreeIndent(form.getRightTreeIndent());
     setSelectedTheme(form.getTheme());
     setTabOpacity(form.getTabOpacity());
@@ -404,7 +410,7 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
     compactDropdowns = false;
     compactSidebar = false;
     customSidebarHeight = DEFAULT_LINE_HEIGHT;
-    darkTitleBar = false;
+    darkTitleBar = SystemInfo.isMac;
     fileIcons = true;
     fileStatusColorsEnabled = true;
     hideFileIcons = false;
@@ -427,6 +433,7 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
     leftTreeIndent = 6;
     monochromeIcons = false;
     overrideAccentColor = false;
+    pristineConfig = true;
     rightTreeIndent = 6;
     selectedTheme = DDLCThemes.MONIKA.getName();
     statusBarTheme = true;
@@ -448,7 +455,6 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
   public boolean needsRestart(final MTForm form) {
     boolean modified = isMaterialDesignChanged(form.isMaterialDesign());
     modified = modified || isThemedScrollbarsChanged(form.isThemedScrollbars());
-    modified = modified || isMaterialIconsChanged(form.isUseMaterialIcons());
     modified = modified || isMaterialThemeChanged(form.isMaterialTheme());
     modified = modified || isAccentScrollbarsChanged(form.isAccentScrollbars());
 
@@ -1837,5 +1843,13 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
   public void setIsWizardShown(final boolean isWizardShown) {
     this.isWizardShown = isWizardShown;
   }
+
+  /**
+   * Whether or not the user has touched the settings
+   */
+  public boolean isPristineConfig() {
+    return pristineConfig;
+  }
+
   //endregion
 }

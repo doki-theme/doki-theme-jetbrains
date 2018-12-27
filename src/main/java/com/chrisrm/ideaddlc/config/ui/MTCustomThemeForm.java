@@ -34,8 +34,9 @@ import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 
 import javax.swing.*;
-import javax.swing.border.*;
-import javax.swing.plaf.*;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.TitledBorder;
+import javax.swing.plaf.ColorUIResource;
 import java.awt.*;
 import java.util.ResourceBundle;
 
@@ -290,11 +291,12 @@ public final class MTCustomThemeForm implements MTFormUI {
 
         //---- expTextArea ----
         expTextArea.setBackground(UIManager.getColor("Panel.background"));
-        expTextArea.setEditable(false);
         expTextArea.setFont(UIManager.getFont("Panel.font"));
         expTextArea.setText(bundle.getString("MTForm.expTextArea.text"));
         expTextArea.setRows(2);
         expTextArea.setWrapStyleWord(true);
+        expTextArea.setEditable(false);
+        expTextArea.setBorder(null);
         panel1.add(expTextArea, new GridConstraints(1, 0, 1, 1,
                                                     GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE,
                                                     GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,

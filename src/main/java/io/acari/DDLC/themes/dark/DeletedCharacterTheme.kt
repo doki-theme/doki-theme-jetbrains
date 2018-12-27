@@ -35,6 +35,8 @@ class DeletedCharacterTheme : DokiDokiTheme("deleted.character", "Deleted Charac
 
     override fun getTreeSelectionBackgroundColorString(): String = "1D358C"
 
+    override fun getInactiveColorString(): String = "101C4B"
+
     override fun getMenuBarSelectionForegroundColorString(): String = "ffffff"
 
     override fun getMenuBarSelectionBackgroundColorString(): String = "7C081A"

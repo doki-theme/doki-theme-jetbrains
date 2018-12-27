@@ -25,27 +25,24 @@
 
 package com.chrisrm.ideaddlc.ui;
 
-import com.chrisrm.ideaddlc.MTConfig;
+import com.chrisrm.ideaddlc.utils.MTUI;
 import com.intellij.util.ui.JBUI;
 
-import javax.swing.border.*;
-import javax.swing.plaf.*;
+import javax.swing.border.CompoundBorder;
+import javax.swing.plaf.UIResource;
 
+@SuppressWarnings("AssignmentToSuperclassField")
 public class MTTableCellNoFocusBorder extends CompoundBorder implements UIResource {
   public MTTableCellNoFocusBorder() {
     outsideBorder = JBUI.Borders.empty();
-    if (MTConfig.getInstance().isCompactTables()) {
-      insideBorder = JBUI.Borders.empty(0, 3);
-    } else {
-      insideBorder = JBUI.Borders.empty(12, 5);
-    }
+    insideBorder = MTUI.Table.getCellBorder();
   }
 
   /**
    * Is border opaque
    */
   @Override
-  public boolean isBorderOpaque() {
+  public final boolean isBorderOpaque() {
     return false;
   }
 }

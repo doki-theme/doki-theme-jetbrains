@@ -27,6 +27,7 @@
 package com.chrisrm.ideaddlc.ui;
 
 import com.chrisrm.ideaddlc.MTConfig;
+import com.chrisrm.ideaddlc.utils.MTUI;
 import com.intellij.ide.ui.laf.darcula.ui.DarculaTabbedPaneUI;
 import com.intellij.util.ui.JBUI;
 import io.acari.DDLC.LegacySupportUtility;
@@ -46,7 +47,7 @@ public final class MTTabbedPaneUI extends DarculaTabbedPaneUI {
   }
 
   private static Color getTabForeground(final boolean isSelected) {
-    return isSelected ? UIManager.getColor("TabbedPane.selectedForeground") : UIManager.getColor("TabbedPane.foreground");
+    return isSelected ? MTUI.TabbedPane.getSelectedForeground() : MTUI.TabbedPane.getForeground();
   }
 
   @SuppressWarnings("SwitchStatement")
@@ -127,7 +128,7 @@ public final class MTTabbedPaneUI extends DarculaTabbedPaneUI {
    * Get the selected tab color according to the settings
    */
   private Color getIndicatorColor() {
-    final Color accentColor = UIManager.getColor("TabbedPane.selectedСolor");
+    final Color accentColor = MTUI.TabbedPane.getHighlightColor();
     final Color customColor = config.getHighlightColor();
 
     Color color = LegacySupportUtility.INSTANCE.orGetLegacy("com.intellij.ide.ui.laf.darcula.ui.DarculaSeparatorUI", () -> {

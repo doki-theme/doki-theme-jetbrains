@@ -26,35 +26,26 @@
 package com.chrisrm.ideaddlc.ui;
 
 import com.chrisrm.ideaddlc.MTConfig;
+import com.chrisrm.ideaddlc.utils.MTUI;
 import com.intellij.ide.ui.laf.darcula.DarculaTableSelectedCellHighlightBorder;
-import com.intellij.util.ObjectUtils;
 import com.intellij.util.ui.JBUI;
 
-import javax.swing.*;
 import javax.swing.border.LineBorder;
-import javax.swing.plaf.UIResource;
 import java.awt.*;
 
 /**
  * @author Konstantin Bulenkov
  */
-public final class MTTableSelectedCellHighlightBorder extends DarculaTableSelectedCellHighlightBorder implements UIResource {
+@SuppressWarnings("AssignmentToSuperclassField")
+public final class MTTableSelectedCellHighlightBorder extends DarculaTableSelectedCellHighlightBorder {
   public MTTableSelectedCellHighlightBorder() {
-    outsideBorder = new LineBorder(getHighlightOuterColor(), 2);
-    if (MTConfig.getInstance().isCompactTables()) {
-      insideBorder = JBUI.Borders.empty(0, 3);
-    } else {
-      insideBorder = JBUI.Borders.empty(10, 2);
-    }
-  }
-
-  private Color getHighlightOuterColor() {
-    return ObjectUtils.notNull(UIManager.getColor("Table.highlightOuter"), new Color(72, 92, 102));
+    outsideBorder = new LineBorder(MTUI.Table.getHighlightOuterColor(), 2);
+    insideBorder = MTConfig.getInstance().isCompactTables() ? JBUI.Borders.empty(3) : JBUI.Borders.empty(10, 2);
   }
 
   @Override
   public void paintBorder(final Component c, final Graphics g, final int x, final int y, final int width, final int height) {
-    outsideBorder = new LineBorder(getHighlightOuterColor(), 2);
+    outsideBorder = new LineBorder(MTUI.Table.getHighlightOuterColor(), 2);
     super.paintBorder(c, g, x, y, width, height);
   }
 }

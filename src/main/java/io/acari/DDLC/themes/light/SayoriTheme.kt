@@ -22,6 +22,8 @@ class SayoriTheme : DokiDokiTheme("sayori", "Sayori", false, "Sayori") {
 
     override fun getTreeSelectionBackgroundColorString(): String = "546eec"
 
+    override fun getInactiveColorString(): String = "C2D2FF"
+
     override fun getMenuBarSelectionForegroundColorString(): String = "ffffff"
 
     override fun getMenuBarSelectionBackgroundColorString(): String = "de0a22"

@@ -26,6 +26,7 @@
 
 package com.chrisrm.ideaddlc.ui;
 
+import com.chrisrm.ideaddlc.utils.MTUI;
 import com.intellij.openapi.actionSystem.ActionButtonComponent;
 import com.intellij.openapi.actionSystem.impl.IdeaActionButtonLook;
 import com.intellij.util.ui.JBInsets;
@@ -43,7 +44,7 @@ public class MTActionButtonLook extends IdeaActionButtonLook {
       final Insets insets = component.getInsets();
       JBInsets.removeFrom(rect, insets);
 
-      final Color color = UIManager.getColor("ActionButton.hoverBackground");
+      final Color color = UIManager.getColor(MTUI.ActionButton.ACTION_BUTTON_HOVER_BACKGROUND);
       paintLookBackground(g, rect, color);
     }
   }
@@ -55,7 +56,7 @@ public class MTActionButtonLook extends IdeaActionButtonLook {
       final Insets insets = component.getInsets();
       JBInsets.removeFrom(rect, insets);
 
-      final Color color = UIManager.getColor("ActionButton.hoverBorderColor");
+      final Color color = UIManager.getColor(MTUI.ActionButton.ACTION_BUTTON_HOVER_BORDER_COLOR);
       paintLookBorder(g, rect, color);
     }
   }

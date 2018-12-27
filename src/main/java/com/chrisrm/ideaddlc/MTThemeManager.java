@@ -35,6 +35,7 @@ import com.chrisrm.ideaddlc.themes.lists.AccentResources;
 import com.chrisrm.ideaddlc.themes.lists.ContrastResources;
 import com.chrisrm.ideaddlc.themes.lists.FontResources;
 import com.chrisrm.ideaddlc.utils.MTAccents;
+import com.chrisrm.ideaddlc.utils.MTUI;
 import com.chrisrm.ideaddlc.utils.MTUiUtils;
 import com.chrisrm.ideaddlc.utils.WinRegistry;
 import com.intellij.ide.ui.LafManager;
@@ -74,6 +75,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 
+/**
+ * Manages appearance settings
+ */
 @SuppressWarnings( {"ClassWithTooManyMethods",
     "DuplicateStringLiteralInspection", "UtilityClassCanBeEnum"})
 public final class MTThemeManager {
@@ -269,6 +273,18 @@ public final class MTThemeManager {
   }
 
   /**
+   * Compact table cells
+   */
+  @SuppressWarnings({"FeatureEnvy",
+      "BooleanVariableAlwaysNegated"})
+  public static void toggleCompactTableCells() {
+    final boolean isCompact = MTConfig.getInstance().isCompactTables();
+    MTConfig.getInstance().setIsCompactTables(!isCompact);
+
+    reloadUI();
+  }
+
+  /**
    * Toggle material icons.
    */
   @SuppressWarnings( {"FeatureEnvy",
@@ -433,8 +449,8 @@ public final class MTThemeManager {
     }
     // override for transparency
     UIManager.put("Focus.color", ColorUtil.toAlpha(accentColorColor, 70));
-    UIManager.put("ActionButton.hoverBackground", ColorUtil.toAlpha(accentColorColor, 70));
-    UIManager.put("ActionButton.hoverBorderColor", ColorUtil.toAlpha(accentColorColor, 70));
+    UIManager.put(MTUI.ActionButton.ACTION_BUTTON_HOVER_BACKGROUND, ColorUtil.toAlpha(accentColorColor, 70));
+    UIManager.put(MTUI.ActionButton.ACTION_BUTTON_HOVER_BORDER_COLOR, ColorUtil.toAlpha(accentColorColor, 70));
 
     patchStyledEditorKit();
 

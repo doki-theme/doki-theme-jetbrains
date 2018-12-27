@@ -200,7 +200,7 @@ public enum MTUiUtils {
   public static String getVersion() {
      return getPlugin()
              .map(IdeaPluginDescriptor::getVersion)
-             .orElse("2.0.0");
+             .orElse("2.1.0");
   }
 
   private static Optional<String> getPluginId() {
@@ -231,4 +231,14 @@ public enum MTUiUtils {
   }
 
 
+  public static NotificationListener.Adapter openAppearanceSettings(final Project project) {
+    return new NotificationListener.Adapter() {
+      @Override
+      protected void hyperlinkActivated(@NotNull final Notification notification, @NotNull final HyperlinkEvent e) {
+        ApplicationManager.getApplication().invokeLater(() -> ShowSettingsUtil.getInstance().showSettingsDialog(
+            project,
+            APPEARANCE_SECTION), ModalityState.NON_MODAL);
+      }
+    };
+  }
 }

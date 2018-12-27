@@ -22,6 +22,8 @@ class YuriTheme : DokiDokiTheme("yuri", "Yuri", false, "Yuri") {
 
     override fun getTreeSelectionBackgroundColorString(): String = "d3a5fa"
 
+    override fun getInactiveColorString(): String = "DEC5FA"
+
     override fun getMenuBarSelectionForegroundColorString(): String = "ffffff"
 
     override fun getMenuBarSelectionBackgroundColorString(): String = "7c0e9d"

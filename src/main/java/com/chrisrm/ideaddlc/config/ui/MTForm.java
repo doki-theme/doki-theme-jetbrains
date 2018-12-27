@@ -880,7 +880,7 @@ public class MTForm implements MTFormUI {
   private void initComponents() {
     // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
     // Generated using JFormDesigner non-commercial license
-    final ResourceBundle bundle = ResourceBundle.getBundle(MaterialThemeBundle.BUNDLE);
+    final ResourceBundle bundle = ResourceBundle.getBundle("messages.MaterialThemeBundle");
     final DefaultComponentFactory compFactory = DefaultComponentFactory.getInstance();
     content = new JPanel();
     settingsSep = compFactory.createSeparator(bundle.getString("MTForm.settingsSep.text"));

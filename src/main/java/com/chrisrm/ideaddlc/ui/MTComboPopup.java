@@ -28,6 +28,7 @@ package com.chrisrm.ideaddlc.ui;
 
 import io.acari.DDLC.LegacySupportUtility;
 import com.chrisrm.ideaddlc.MTConfig;
+import com.chrisrm.ideaddlc.utils.MTUI;
 import com.chrisrm.ideaddlc.utils.MTUiUtils;
 import com.intellij.ide.ui.laf.darcula.DarculaUIUtil;
 import com.intellij.openapi.ui.ComboBoxWithWidePopup;
@@ -151,7 +152,7 @@ class MTComboPopup extends BasicComboPopup implements ComboPopup {
   }
 
   private Color getBorderColor() {
-    final Color defaultValue = MTUiUtils.getColor(UIManager.getColor("Separator.foreground"),
+    final Color defaultValue = MTUiUtils.getColor(UIManager.getColor("Separator.separatorColor"),
         new ColorUIResource(0x515151),
         new ColorUIResource(0xcdcdcd));
     final Color defaultDisabled = MTUiUtils.getColor(UIManager.getColor("ComboBox.disabledBackground"),
@@ -159,9 +160,9 @@ class MTComboPopup extends BasicComboPopup implements ComboPopup {
         new ColorUIResource(0xe8e8e8));
 
     if (comboBox != null && comboBox.isEnabled()) {
-      return ObjectUtils.notNull(UIManager.getColor("TextField.separatorColor"), defaultValue);
+      return ObjectUtils.notNull(MTUI.TextField.getBorderColor(true), defaultValue);
     }
-    return ObjectUtils.notNull(UIManager.getColor("TextField.separatorColorDisabled"), defaultDisabled);
+    return ObjectUtils.notNull(UIManager.getColor(MTUI.TextField.TEXT_FIELD_SEPARATOR_COLOR_DISABLED), defaultDisabled);
   }
 
   private Point adjustPopupLocationToFitScreen(final int xPosition, final int yPosition) {
