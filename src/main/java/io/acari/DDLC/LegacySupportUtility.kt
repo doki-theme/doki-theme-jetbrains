@@ -50,9 +50,9 @@ object LegacySupportUtility {
                                    method: String,
                                    runSafely: Runner,
                                    orElseGet: Runner,
-                                   vararg paratemers: Class<*>) =
+                                   vararg parameters: Class<*>) =
             try {
-                clazz.getDeclaredMethod(method, *paratemers)
+                clazz.getDeclaredMethod(method, *parameters)
                 runSafely.run()
             } catch (ignored: Throwable) {
                 orElseGet.run()
