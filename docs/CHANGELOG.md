@@ -1,6 +1,10 @@
 # Changelog
 ----
 
+# 2.2.0
+
+- Compatible with Android Studio release candidate 3.3.
+
 # 2.1.0
 
 - Updated to Material UI version 3.3.0
