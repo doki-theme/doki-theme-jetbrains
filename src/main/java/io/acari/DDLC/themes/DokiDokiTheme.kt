@@ -12,6 +12,7 @@ import com.intellij.ide.ui.laf.IntelliJLookAndFeelInfo
 import com.intellij.ide.ui.laf.LafManagerImpl
 import com.intellij.ide.ui.laf.darcula.DarculaLookAndFeelInfo
 import com.intellij.openapi.util.IconLoader
+import com.intellij.ui.ColorUtil
 import com.intellij.ui.JBColor
 import icons.DDLCIcons
 import io.acari.DDLC.LegacySupportUtility
@@ -151,7 +152,7 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
 
     override fun getExcludedColor(): Color = excludedColorResource
 
-    override fun getPrimaryColor(): Color = textColorResource
+    override fun getPrimaryColor(): Color = ColorUtil.fromHex(contrastColorString)
 
     open fun getInactiveColorString(): String {
         return "FFF4F2"
@@ -175,7 +176,7 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
     }
 
     override fun getSelectionBackground(): String {
-        return "FFFFFF";
+        return "FFFFFF"
     }
 
     open fun getMenuBarSelectionForegroundColorString(): String {
