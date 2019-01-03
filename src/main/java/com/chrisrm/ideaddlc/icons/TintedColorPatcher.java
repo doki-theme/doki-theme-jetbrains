@@ -55,12 +55,12 @@ public class TintedColorPatcher implements SVGLoader.SvgColorPatcher {
   }
 
   static void refreshThemeColor(final DDLCThemeFacade theme) {
-    themedColor = ColorUtil.toHex(theme.getTheme().getPrimaryColor());
+    themedColor = ColorUtil.toHex(theme.getTheme().getTintedIconColor());
   }
 
   private static void refreshColors() {
     accentColor = CONFIG.getAccentColor();
-    themedColor = ColorUtil.toHex(CONFIG.getSelectedTheme().getTheme().getPrimaryColor());
+    themedColor = ColorUtil.toHex(CONFIG.getSelectedTheme().getTheme().getTintedIconColor());
   }
 
   @SuppressWarnings({"IfStatementWithTooManyBranches",

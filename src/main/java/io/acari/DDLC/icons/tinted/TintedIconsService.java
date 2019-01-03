@@ -200,7 +200,7 @@ public final class TintedIconsService {
     } else if (MY_TINTED_ICONS.contains(newPath)) {
       return new TintedIcon(IconLoader.getIcon(newPath), ColorUtil.fromHex(accentColor), newPath);
     } else if (MY_THEMED_ICONS.contains(newPath)) {
-      final Color folderColor = DDLCConfig.getInstance().getSelectedTheme().getTheme().getPrimaryColor();
+      final Color folderColor = DDLCConfig.getInstance().getSelectedTheme().getTheme().getTintedIconColor();
       return new TintedIcon(IconLoader.getIcon(newPath), folderColor, newPath);
     }
     return IconLoader.getIcon(newPath);
@@ -214,7 +214,7 @@ public final class TintedIconsService {
   
   @NotNull
   public static Icon getThemedIcon(@NotNull final String newPath) {
-    Color folderColor = DDLCConfig.getInstance().getSelectedTheme().getTheme().getPrimaryColor();
+    Color folderColor = DDLCConfig.getInstance().getSelectedTheme().getTheme().getTintedIconColor();
     if (!MTConfig.getInstance().isMaterialTheme()) {
       folderColor = new ColorUIResource(0xA1ACB3);
     }

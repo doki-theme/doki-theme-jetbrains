@@ -152,7 +152,9 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
 
     override fun getExcludedColor(): Color = excludedColorResource
 
-    override fun getPrimaryColor(): Color = ColorUtil.fromHex(contrastColorString)
+    override fun getTintedIconColor(): Color = ColorUtil.fromHex(getAdjustedPrimaryColor())
+
+    private fun getAdjustedPrimaryColor(): String = if(isDarkTheme) selectionForegroundColorString else selectionBackgroundColorString
 
     open fun getInactiveColorString(): String {
         return "FFF4F2"
