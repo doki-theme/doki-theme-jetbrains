@@ -199,7 +199,7 @@ public interface MTThemeable {
    * @return
    */
   @NotNull
-  Color getPrimaryColor();
+  Color getTintedIconColor();
 
   /**
    * The theme icon

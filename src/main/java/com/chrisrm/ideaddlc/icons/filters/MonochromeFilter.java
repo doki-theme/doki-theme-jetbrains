@@ -36,6 +36,6 @@ public class MonochromeFilter extends ColorizeFilter {
   }
 
   private static Color getPrimaryColor() {
-    return MTUiUtils.brighter(MTConfig.getInstance().getSelectedTheme().getTheme().getPrimaryColor(), 6);
+    return MTUiUtils.brighter(MTConfig.getInstance().getSelectedTheme().getTheme().getTintedIconColor(), 6);
   }
 }

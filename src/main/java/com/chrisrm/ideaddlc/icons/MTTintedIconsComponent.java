@@ -39,17 +39,20 @@ import java.lang.reflect.Constructor;
  * Apply a tint to the icons. This is used either for accented icons and themed icons.
  */
 public final class MTTintedIconsComponent implements BaseComponent {
-  private MessageBusConnection connect;
-  private Object patcher;
+  private static MessageBusConnection connect;
+  private static Object patcher;
 
-  @Override
-  public void initComponent() {
+  static {
     LegacySupportUtility.INSTANCE.invokeClassSafely("com.intellij.ide.ui.laf.darcula.ui.DarculaSeparatorUI", () -> {
       connect = ApplicationManager.getApplication().getMessageBus().connect();
       Class<?> aClass = Class.forName("com.chrisrm.ideaddlc.icons.TintedColorPatcher");
       Constructor<?>[] declaredConstructors = aClass.getDeclaredConstructors();
       patcher = declaredConstructors[0].newInstance(connect);
     });
+  }
+
+  @Override
+  public void initComponent() {
 
   }
 

@@ -97,7 +97,7 @@ public final class IconReplacer {
   public static void applyFilter() {
     final boolean monochromeIcons = MTConfig.getInstance().isMonochromeIcons();
     if (monochromeIcons) {
-      final Color primaryColor = MTUiUtils.brighter(DDLCConfig.getInstance().getSelectedTheme().getTheme().getPrimaryColor(),
+      final Color primaryColor = MTUiUtils.brighter(DDLCConfig.getInstance().getSelectedTheme().getTheme().getTintedIconColor(),
           6);
       IconLoader.setFilter(new ColorizeFilter(primaryColor));
     } else {

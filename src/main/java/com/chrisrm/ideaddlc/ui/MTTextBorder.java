@@ -25,10 +25,12 @@
 package com.chrisrm.ideaddlc.ui;
 
 import com.chrisrm.ideaddlc.utils.MTUI;
+import com.intellij.ide.ui.laf.darcula.DarculaUIUtil;
 import com.intellij.ide.ui.laf.darcula.ui.DarculaTextBorder;
 import com.intellij.util.ui.JBInsets;
 import com.intellij.util.ui.JBUI;
 import com.intellij.util.ui.MacUIUtil;
+import io.acari.DDLC.LegacySupportUtility;
 
 import javax.swing.*;
 import javax.swing.text.JTextComponent;
@@ -45,7 +47,11 @@ public final class MTTextBorder extends DarculaTextBorder {
 
   @Override
   public Insets getBorderInsets(final Component c) {
-    return JBUI.insets(isTableCellEditor(c) || isCompact(c) ? 0 : 3).asUIResource();
+    boolean tableCellEditor = LegacySupportUtility.INSTANCE.invokeMethodSafely(DarculaUIUtil.class,
+        "isTableCellEditor", ()->isTableCellEditor(c), ()->false, Component.class);
+    boolean compact = LegacySupportUtility.INSTANCE.invokeMethodSafely(DarculaUIUtil.class,
+        "isCompact", ()->isCompact(c), ()->false, Component.class);
+    return JBUI.insets(tableCellEditor || compact ? 0 : 3).asUIResource();
   }
 
   @SuppressWarnings("FeatureEnvy")

@@ -399,7 +399,7 @@ public final class MTThemeManager {
     applyCompactSidebar(false);
     applyCustomTreeIndent();
     applyMenusHeight();
-    applyAccents(false);
+    applyAccents(true);
     applyFonts();
     themeTitleBar();
     applyCompactToolWindowHeaders();

@@ -24,11 +24,13 @@
  */
 package com.chrisrm.ideaddlc.ui;
 
+import com.intellij.ide.ui.laf.darcula.DarculaUIUtil;
 import com.intellij.ide.ui.laf.darcula.ui.TextFieldWithPopupHandlerUI;
 import com.intellij.util.ui.JBInsets;
 import com.intellij.util.ui.JBUI;
 import com.intellij.util.ui.MacUIUtil;
 import icons.MTIcons;
+import io.acari.DDLC.LegacySupportUtility;
 import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
@@ -62,7 +64,8 @@ public final class MTTextFieldUI extends TextFieldWithPopupHandlerUI {
       }
 
       final Border border = component.getBorder();
-      if (border instanceof MTTextBorder && !isTableCellEditor(component)) {
+      if (border instanceof MTTextBorder && !LegacySupportUtility.INSTANCE.invokeMethodSafely(DarculaUIUtil.class,
+          "isTableCellEditor", ()->isTableCellEditor(component), ()->false, Component.class)) {
         paintFieldBackground(g2d, component);
       } else {
         // delegate to default behavior
@@ -135,6 +138,8 @@ public final class MTTextFieldUI extends TextFieldWithPopupHandlerUI {
   @Override
   protected Insets getDefaultMargins() {
     final Component component = getComponent();
-    return isCompact(component) || isTableCellEditor(component) ? JBUI.insets(0, 3) : JBUI.insets(2, 2);
+    boolean tableCellEditor = LegacySupportUtility.INSTANCE.invokeMethodSafely(DarculaUIUtil.class,
+        "isTableCellEditor", ()->isTableCellEditor(component), ()->false, Component.class);
+    return isCompact(component) || tableCellEditor ? JBUI.insets(0, 3) : JBUI.insets(2, 2);
   }
 }

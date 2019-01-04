@@ -197,7 +197,10 @@ public final class MTComboBoxUI extends DarculaComboBoxUI implements Border, Err
 
     final Container parent = c.getParent();
     if (parent != null) {
-      g.setColor(MTComboBoxUI.isTableCellEditor(c) && editor != null ? editor.getBackground() : parent.getBackground());
+      boolean tableCellEditor =
+      LegacySupportUtility.INSTANCE.invokeMethodSafely(DarculaUIUtil.class,
+          "isTableCellEditor", ()->DarculaUIUtil.isTableCellEditor(c), ()->false, Component.class);
+      g.setColor(tableCellEditor && editor != null ? editor.getBackground() : parent.getBackground());
       g.fillRect(0, 0, c.getWidth(), c.getHeight());
     }
     final Graphics2D g2 = (Graphics2D) g.create();
@@ -259,7 +262,9 @@ public final class MTComboBoxUI extends DarculaComboBoxUI implements Border, Err
       }
     }
     // paint selection in table-cell-editor mode correctly
-    final boolean changeOpaque = MTComboBoxUI.isTableCellEditor(comboBox) && c.isOpaque();
+    boolean tableCellEditor = LegacySupportUtility.INSTANCE.invokeMethodSafely(DarculaUIUtil.class,
+        "isTableCellEditor", ()->DarculaUIUtil.isTableCellEditor(c), ()->false, Component.class);
+    final boolean changeOpaque = tableCellEditor && c.isOpaque();
     if (changeOpaque) {
       ((JComponent) c).setOpaque(false);
     }

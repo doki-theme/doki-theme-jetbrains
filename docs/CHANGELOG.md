@@ -1,6 +1,14 @@
 # Changelog
 ----
 
+# 2.2.1
+
+- The "Run All Tests in File" gutter icon is now clearly visible on all color schemes.
+- AppCode Directory icons no longer clash with the light themes.
+- DataGrip Foreign Key column indicator now conforms to the Doki Icon Theme.
+- The "Open" icon in the toolbar conforms to the current color scheme completely now.
+- Project Tree Directory icons are now more visible in the light themes.
+
 # 2.2.0
 
 - Compatible with Android Studio release candidate 3.3.
