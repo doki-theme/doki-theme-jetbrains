@@ -6,6 +6,7 @@
 - Enhanced Dark theme contrast for select club members.
     - The Monika and Natsuki dark themes have been adjusted slightly to become more consistent with the dark Sayori and Yuri themes.
     - Be sure to take a look when you get the chance!
+    
 # 2.2.1
 
 - The "Run All Tests in File" gutter icon is now clearly visible on all color schemes.
