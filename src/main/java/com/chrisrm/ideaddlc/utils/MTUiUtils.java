@@ -200,7 +200,7 @@ public enum MTUiUtils {
   public static String getVersion() {
      return getPlugin()
              .map(IdeaPluginDescriptor::getVersion)
-             .orElse("2.2.1");
+             .orElse("2.3.0");
   }
 
   private static Optional<String> getPluginId() {
