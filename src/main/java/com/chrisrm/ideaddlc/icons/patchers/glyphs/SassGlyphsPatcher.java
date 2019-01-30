@@ -23,9 +23,9 @@
  *
  *
  */
-package com.chrisrm.idea.icons.patchers.glyphs;
+package com.chrisrm.ideaddlc.icons.patchers.glyphs;
 
-import com.chrisrm.idea.icons.patchers.MTIconPatcher;
+import com.chrisrm.ideaddlc.icons.patchers.MTIconPatcher;
 import org.jetbrains.annotations.NotNull;
 
 /**

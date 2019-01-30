@@ -24,10 +24,10 @@
  *
  */
 
-package com.chrisrm.idea.config;
+package com.chrisrm.ideaddlc.config;
 
-import com.chrisrm.idea.messages.FileColorsBundle;
-import com.chrisrm.idea.themes.lists.AccentResources;
+import com.chrisrm.ideaddlc.messages.FileColorsBundle;
+import com.chrisrm.ideaddlc.themes.lists.AccentResources;
 import com.google.common.collect.Sets;
 import com.intellij.openapi.editor.colors.ColorKey;
 import com.intellij.openapi.editor.colors.TextAttributesKey;

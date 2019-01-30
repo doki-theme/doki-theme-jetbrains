@@ -23,7 +23,7 @@
  *
  *
  */
-package com.chrisrm.idea.icons.patchers;
+package com.chrisrm.ideaddlc.icons.patchers;
 
 import org.jetbrains.annotations.NotNull;
 
