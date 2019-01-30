@@ -42,7 +42,6 @@ public enum ArrowsStyles {
   ARROWS("Arrows", new ArrowsArrowsStyle()),
   NONE("None", new NoneArrowsStyle());
 
-
   private final String type;
   private final ArrowsStyle arrowsStyle;
 
