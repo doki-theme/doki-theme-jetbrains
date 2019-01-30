@@ -137,8 +137,10 @@ public class MTLafInstaller {
   @SuppressWarnings("DuplicateStringLiteralInspection")
   static void installDefaults(@NonNls final UIDefaults defaults) {
     defaults.put("Caret.width", 2);
-    defaults.put("Border.width", 2);
+    defaults.put("Border.width", 2); // deprecated
+    defaults.put("Component.focusWidth", 2);
     defaults.put("CellEditor.border.width", 2);
+    defaults.put("Window.border", "1,1,1,1,FF0000");
 
     defaults.put("Button.arc", 6);
     defaults.put("Component.arc", 0);
@@ -469,7 +471,7 @@ public class MTLafInstaller {
    */
   @SuppressWarnings({"MagicCharacter",
       "DuplicateStringLiteralInspection",
-      "FeatureEnvy"})
+      "FeatureEnvy", "Duplicates"})
   static void loadDefaults(final UIDefaults defaults) {
     @NonNls final Map<String, Object> globalProps = new HashMap<>(100);
     final MTThemeable selectedTheme = MTConfig.getInstance().getSelectedTheme().getTheme();
@@ -515,7 +517,7 @@ public class MTLafInstaller {
    */
   @SuppressWarnings({"MethodWithMultipleLoops",
       "HardCodedStringLiteral",
-      "MagicCharacter"})
+      "MagicCharacter", "Duplicates"})
   static void oldLoadDefaults(final UIDefaults defaults, @NonNls final Class klass, @NonNls final String lafName) {
     final Properties properties = new Properties();
     final String osSuffix = SystemInfo.isMac ? "mac" : SystemInfo.isWindows ? "windows" : "linux";
