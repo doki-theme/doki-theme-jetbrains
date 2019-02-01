@@ -26,6 +26,7 @@
 
 package com.chrisrm.ideaddlc.ui;
 
+import com.intellij.ide.ui.laf.darcula.DarculaUIUtil;
 import io.acari.DDLC.LegacySupportUtility;
 import com.chrisrm.ideaddlc.MTConfig;
 import com.chrisrm.ideaddlc.utils.MTUI;
@@ -88,7 +89,7 @@ public final class MTComboPopup extends BasicComboPopup {
    * @param width
    * @param height
    */
-  private void doPaint(final Graphics2D g, final int width, final int height) {
+  private static void doPaint(final Graphics2D g, final int width, final int height) {
     float bw = LegacySupportUtility.INSTANCE.useFieldSafely(
             DarculaUIUtil.class,
             "BW",
