@@ -26,15 +26,30 @@
 
 package com.chrisrm.ideaddlc.icons;
 
+import com.chrisrm.ideaddlc.MTConfig;
 import com.chrisrm.ideaddlc.MTThemeManager;
 import com.chrisrm.ideaddlc.icons.patchers.*;
+import com.chrisrm.ideaddlc.icons.patchers.glyphs.*;
+import com.chrisrm.ideaddlc.listeners.ConfigNotifier;
+import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.components.BaseComponent;
+import com.intellij.openapi.fileTypes.FileTypeEvent;
+import com.intellij.openapi.fileTypes.FileTypeListener;
+import com.intellij.openapi.fileTypes.FileTypeManager;
 import com.intellij.openapi.util.IconLoader;
+import com.intellij.openapi.util.IconPathPatcher;
+import com.intellij.util.containers.ContainerUtil;
+import com.intellij.util.messages.MessageBusConnection;
 import io.acari.DDLC.icons.patchers.AccentTintedIconsPatcher;
 import org.jetbrains.annotations.NotNull;
+
+import java.util.Set;
+
 @SuppressWarnings("OverlyCoupledClass")
 public final class MTIconReplacerComponent implements BaseComponent {
+  private static final Set<IconPathPatcher> installedPatchers = ContainerUtil.newHashSet();
 
+  private MessageBusConnection connect;
   static {
     //todo: figure out how to have it be replaceable
     IconLoader.installPathPatcher(new AccentTintedIconsPatcher());
@@ -45,43 +60,129 @@ public final class MTIconReplacerComponent implements BaseComponent {
   @Override
   public void initComponent() {
       useDDLCIcons();
+    connect = ApplicationManager.getApplication().getMessageBus().connect();
+
+    connect.subscribe(ConfigNotifier.CONFIG_TOPIC, new ConfigNotifier() {
+      @Override
+      public void configChanged(final MTConfig mtConfig) {
+        useDDLCIcons();
+      }
+    });
+    connect.subscribe(FileTypeManager.TOPIC, new FileTypeListener() {
+      @Override
+      public void fileTypesChanged(@NotNull final FileTypeEvent event) {
+        useDDLCIcons();
+      }
+    });
   }
 
   public static void useDDLCIcons() {
-    if(MTThemeManager.isDDLCActive()) {
-      IconLoader.installPathPatcher(new LogPatcher());
-      IconLoader.installPathPatcher(new AllIconsPatcher());
-      IconLoader.installPathPatcher(new ImagesIconsPatcher());
-      IconLoader.installPathPatcher(new VCSIconsPatcher());
-      IconLoader.installPathPatcher(new GradleIconsPatcher());
-      IconLoader.installPathPatcher(new TasksIconsPatcher());
-      IconLoader.installPathPatcher(new MavenIconsPatcher());
-      IconLoader.installPathPatcher(new TerminalIconsPatcher());
-      IconLoader.installPathPatcher(new BuildToolsIconsPatcher());
-      IconLoader.installPathPatcher(new RemoteServersIconsPatcher());
-      IconLoader.installPathPatcher(new DatabaseToolsIconsPatcher());
-
-      IconLoader.installPathPatcher(new PHPIconsPatcher());
-      IconLoader.installPathPatcher(new PythonIconsPatcher());
-      IconLoader.installPathPatcher(new CythonIconsPatcher());
-      IconLoader.installPathPatcher(new MakoIconsPatcher());
-      IconLoader.installPathPatcher(new JinjaIconsPatcher());
-      IconLoader.installPathPatcher(new FlaskIconsPatcher());
-      IconLoader.installPathPatcher(new DjangoIconsPatcher());
-      IconLoader.installPathPatcher(new ChameleonIconsPatcher());
-
-      IconLoader.installPathPatcher(new RubyIconsPatcher());
-
-      IconLoader.installPathPatcher(new GolandIconsPatcher());
-      IconLoader.installPathPatcher(new DataGripIconsPatcher());
-      IconLoader.installPathPatcher(new CLionIconsPatcher());
-      IconLoader.installPathPatcher(new AppCodeIconsPatcher());
-      IconLoader.installPathPatcher(new RestClientIconsPatcher());
-
-      IconLoader.installPathPatcher(new RiderIconsPatcher());
-      IconLoader.installPathPatcher(new ResharperIconsPatcher());
+    MTIconPatcher.clearCache();
+    removePathPatchers();
+    if (MTThemeManager.isDDLCActive()) {
+      if (MTConfig.getInstance().isUseMaterialIcons()) {
+        installPathPatchers();
+      }
+      if (MTConfig.getInstance().isPsiIcons()) {
+        installPSIPatchers();
+      }
+      if (MTConfig.getInstance().isFileIcons()) {
+        installFileIconsPatchers();
+      }
     }
+  }
 
+  @SuppressWarnings("OverlyCoupledMethod")
+  private static void installPathPatchers() {
+
+    installPathPatcher(new AllIconsPatcher());
+    installPathPatcher(new ImagesIconsPatcher());
+    installPathPatcher(new VCSIconsPatcher());
+    installPathPatcher(new GradleIconsPatcher());
+    installPathPatcher(new TasksIconsPatcher());
+    installPathPatcher(new MavenIconsPatcher());
+    installPathPatcher(new TerminalIconsPatcher());
+    installPathPatcher(new BuildToolsIconsPatcher());
+    installPathPatcher(new RemoteServersIconsPatcher());
+    installPathPatcher(new DatabaseToolsIconsPatcher());
+    installPathPatcher(new WizardPluginsIconsPatcher());
+
+    installPathPatcher(new PHPIconsPatcher());
+    installPathPatcher(new PythonIconsPatcher());
+    installPathPatcher(new AppEngineIconsPatcher());
+    installPathPatcher(new CythonIconsPatcher());
+    installPathPatcher(new MakoIconsPatcher());
+    installPathPatcher(new JinjaIconsPatcher());
+    installPathPatcher(new FlaskIconsPatcher());
+    installPathPatcher(new DjangoIconsPatcher());
+    installPathPatcher(new ChameleonIconsPatcher());
+    installPathPatcher(new PyQtIconsPatcher());
+    installPathPatcher(new Web2PythonIconsPatcher());
+
+    installPathPatcher(new JavascriptIconsPatcher());
+    installPathPatcher(new RubyIconsPatcher());
+    installPathPatcher(new GroovyIconsPatcher());
+
+    installPathPatcher(new GolandIconsPatcher());
+    installPathPatcher(new DockerIconsPatcher());
+
+    installPathPatcher(new DataGripIconsPatcher());
+    installPathPatcher(new CLionIconsPatcher());
+    installPathPatcher(new AppCodeIconsPatcher());
+    installPathPatcher(new WebDeploymentIconsPatcher());
+    installPathPatcher(new RestClientIconsPatcher());
+    installPathPatcher(new UmlIconsPatcher());
+    installPathPatcher(new MarkdownIconsPatcher());
+    installPathPatcher(new KotlinIconsPatcher());
+
+    installPathPatcher(new RiderIconsPatcher());
+    installPathPatcher(new ResharperIconsPatcher());
+  }
+
+  @SuppressWarnings("OverlyCoupledMethod")
+  private static void installPSIPatchers() {
+    installPathPatcher(new GlyphsPatcher());
+    installPathPatcher(new ActionsGlyphsPatcher());
+    installPathPatcher(new GeneralGlyphsPatcher());
+    installPathPatcher(new GutterGlyphsPatcher());
+    installPathPatcher(new GroovyGlyphsPatcher());
+
+    installPathPatcher(new JavascriptGlyphsPatcher());
+    installPathPatcher(new PHPGlyphsPatcher());
+    installPathPatcher(new PythonGlyphsPatcher());
+    installPathPatcher(new RubyGlyphsPatcher());
+    installPathPatcher(new DataGripGlyphsPatcher());
+    installPathPatcher(new AppCodeGlyphsPatcher());
+    installPathPatcher(new GolandGlyphsPatcher());
+    installPathPatcher(new CLionGlyphsPatcher());
+    installPathPatcher(new AopGlyphsPatcher());
+    installPathPatcher(new UmlGlyphsPatcher());
+    installPathPatcher(new SassGlyphsPatcher());
+    installPathPatcher(new KotlinGlyphsPatcher());
+
+    installPathPatcher(new OtherGlyphsPatcher());
+  }
+
+  private static void installFileIconsPatchers() {
+    installPathPatcher(new PHPFileIconsPatcher());
+    installPathPatcher(new SassIconsPatcher());
+    installPathPatcher(new KotlinFileIconsPatcher());
+  }
+
+  private static void removePathPatchers() {
+    for (final IconPathPatcher iconPathPatcher : installedPatchers) {
+      removePathPatcher(iconPathPatcher);
+    }
+    installedPatchers.clear();
+  }
+
+  private static void installPathPatcher(final IconPathPatcher patcher) {
+    installedPatchers.add(patcher);
+    IconLoader.installPathPatcher(patcher);
+  }
+
+  private static void removePathPatcher(final IconPathPatcher patcher) {
+    IconLoader.removePathPatcher(patcher);
   }
 
   @Override
