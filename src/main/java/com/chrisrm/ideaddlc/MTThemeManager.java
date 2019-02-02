@@ -306,16 +306,16 @@ public final class MTThemeManager {
    */
   @SuppressWarnings("BooleanVariableAlwaysNegated")
   public static void toggleMaterialFileIcons() {
-    final boolean useMaterialFileIcons = mtConfig.isFileIcons();
-    mtConfig.setFileIcons(!useMaterialFileIcons);
+    final boolean useMaterialFileIcons = MTConfig.getInstance().isFileIcons();
+    MTConfig.getInstance().setFileIcons(!useMaterialFileIcons);
 
     updateFileIcons();
   }
 
   @SuppressWarnings("BooleanVariableAlwaysNegated")
   public static void toggleMaterialPsiIcons() {
-    final boolean isPsiIcons = mtConfig.isPsiIcons();
-    mtConfig.setIsPsiIcons(!isPsiIcons);
+    final boolean isPsiIcons = MTConfig.getInstance().isPsiIcons();
+    MTConfig.getInstance().setIsPsiIcons(!isPsiIcons);
 
     updateFileIcons();
   }
@@ -396,7 +396,7 @@ public final class MTThemeManager {
   }
 
   public static void activate(final String themeId) {
-    final MTThemeFacade themeFor = MTThemes.getThemeFor(themeId);
+    final DDLCThemeFacade themeFor = DDLCThemes.getThemeFor(themeId);
     if (themeFor != null) {
       activate(themeFor, false);
     }
@@ -481,7 +481,7 @@ public final class MTThemeManager {
     }
 
     // Scrollbars management
-    applyScrollbars(accentColor);
+    applyScrollbars(ColorUtil.fromHex(accentColor));
 
     // override for transparency
     UIManager.put("Focus.color", ColorUtil.toAlpha(accentColorColor, 70));
@@ -516,8 +516,8 @@ public final class MTThemeManager {
 
   public static Couple<Color> getScrollbarColors(final Color accentColor, final Color transColor, final Color hoverColor) {
     // Scrollbars
-    if (mtConfig.isAccentScrollbars()) {
-      return mtConfig.isThemedScrollbars() ?
+    if (MTConfig.getInstance().isAccentScrollbars()) {
+      return MTConfig.getInstance().isThemedScrollbars() ?
           new Couple<>(transColor, hoverColor) :
           new Couple<>(hoverColor, accentColor);
     }

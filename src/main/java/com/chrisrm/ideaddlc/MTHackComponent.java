@@ -28,10 +28,12 @@ package com.chrisrm.ideaddlc;
 
 import com.intellij.ide.plugins.PluginManagerConfigurable;
 import com.intellij.openapi.components.BaseComponent;
+import com.intellij.openapi.util.SystemInfoRt;
 import com.intellij.openapi.wm.impl.ToolWindowImpl;
 import com.intellij.openapi.wm.impl.welcomeScreen.FlatWelcomeFrameProvider;
 import com.intellij.ui.CaptionPanel;
 import com.intellij.ui.ScrollingUtil;
+import com.intellij.ui.components.MultiColumnList;
 import com.intellij.util.ui.JBSwingUtilities;
 import io.acari.DDLC.LegacySupportUtility;
 import javassist.*;
@@ -54,7 +56,7 @@ public final class MTHackComponent implements BaseComponent {
     hackPluginManagerNew();
     hackIntelliJFailures();
     hackNewScreenHardcodedColor();
-    hackScrollBars();
+    hackScrollbars();
   }
 
   /**

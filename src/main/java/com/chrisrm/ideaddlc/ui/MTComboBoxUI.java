@@ -399,7 +399,4 @@ public final class MTComboBoxUI extends DarculaComboBoxUI {
     final boolean isEnabled = comboBox != null && comboBox.isEnabled();
     return MTUI.TextField.getBorderColor(isEnabled);
     }
-    return ObjectUtils.notNull(UIManager.getColor(MTUI.TextField.TEXT_FIELD_SEPARATOR_COLOR_DISABLED), defaultDisabled);
-  }
-
 }
