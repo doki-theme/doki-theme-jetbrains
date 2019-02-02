@@ -88,6 +88,7 @@
         <search.topHitProvider implementation="com.chrisrm.ideaddlc.config.MTConfigTopHitProvider"/>
 
         <colorSettingsPage implementation="com.chrisrm.ideaddlc.config.MTFileColorsPage"/>
+        <colorSettingsPage implementation="com.chrisrm.ideaddlc.config.MTScrollbarsPage" id="MTScrollbarPage"/>
 
         <webHelpProvider implementation="com.chrisrm.ideaddlc.help.MTHelpProvider" id="DDLCMTHelpTopic"/>
         <annotator language="JavaScript" implementationClass="com.chrisrm.ideaddlc.annotators.JSAnnotator"/>
