@@ -82,13 +82,6 @@ public final class MTComboPopup extends BasicComboPopup {
     }
   }
 
-  /**
-   * Paint the combobox
-   *
-   * @param g
-   * @param width
-   * @param height
-   */
   private static void doPaint(final Graphics2D g, final int width, final int height) {
     float bw = LegacySupportUtility.INSTANCE.useFieldSafely(
             DarculaUIUtil.class,

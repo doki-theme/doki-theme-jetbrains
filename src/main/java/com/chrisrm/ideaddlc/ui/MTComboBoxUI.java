@@ -78,8 +78,9 @@ public final class MTComboBoxUI extends DarculaComboBoxUI {
     return config.isCompactDropdowns();
   }
 
-  public static ComponentUI createUI(final JComponent c) {
-    return new MTComboBoxUI(((JComboBox) c));
+  @SuppressWarnings("WeakerAccess")
+  int getBoxHeight() {
+    return isCompact() ? JBUI.scale(20) : JBUI.scale(24);
   }
 
   @Override

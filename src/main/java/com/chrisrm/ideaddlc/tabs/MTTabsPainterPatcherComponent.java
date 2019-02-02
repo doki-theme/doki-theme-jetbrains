@@ -50,12 +50,15 @@ import com.intellij.util.ui.UIUtil;
 import io.acari.DDLC.DDLCConfig;
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;
+import net.sf.cglib.proxy.MethodProxy;
+import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.plaf.ColorUIResource;
 import java.awt.*;
 import java.lang.reflect.Field;
 import java.util.Optional;
+import java.lang.reflect.Method;
 
 
 /**
@@ -220,216 +223,43 @@ public final class MTTabsPainterPatcherComponent implements BaseComponent {
 
     // shadow
     if (MTConfig.getInstance().isTabsShadow()) {
-      if (position == JBTabsPosition.bottom) {
-        drawTopShadow(tabsPainter, g2d, path, labelPath, rect);
-      } else if (position == JBTabsPosition.top) {
-        drawBottomShadow(tabsPainter, g2d, path, labelPath, rect);
-      } else if (position == JBTabsPosition.left) {
-        drawRightShadow(tabsPainter, g2d, path, labelPath, rect);
-      } else if (position == JBTabsPosition.right) {
-        drawLeftShadow(tabsPainter, g2d, path, labelPath, rect);
-      }
+      MTTabsShadowPainter.drawTabShadow(tabsPainter, g2d, rect, path, labelPath, position);
     }
 
     // Finally paint the active tab highlighter
     g2d.setColor(borderColor);
-
-    if (position == JBTabsPosition.bottom) {
-      // Paint on top
-      paintOnTop(borderThickness, g2d, rect);
-    } else if (position == JBTabsPosition.top) {
-      // Paint on bottom
-      paintOnBottom(borderThickness, g2d, rect);
-    } else if (position == JBTabsPosition.left) {
-      paintOnRight(borderThickness, g2d, rect);
-    } else if (position == JBTabsPosition.right) {
-      paintOnLeft(borderThickness, g2d, rect);
-    }
+    MTTabsHighlightPainter.paintHighlight(borderThickness, g2d, rect);
   }
 
-  private static void drawBottomShadow(final MTTabsPainter tabsPainter,
-                                final Graphics2D g2d,
-                                final ShapeTransform path,
-                                final ShapeTransform labelPath,
-                                final Rectangle rect) {
-    final int h = labelPath.getMaxY();
-    final int w = path.getMaxX();
+  @SuppressWarnings("WeakerAccess")
+  private class MyMethodInterceptor implements MethodInterceptor {
+    private final MTTabsPainter tabsPainter;
+    private final Color accentColor;
 
-    final Color bg = MTTabsPainter.getContrastColor().darker();
-    g2d.setColor(bg);
-    g2d.drawLine(0, h + 1, w, h + 1);
-
-    // draw the drop-shadow
-    final Color mid = ColorUtil.toAlpha(bg, 75);
-    g2d.setColor(mid);
-    g2d.drawLine(0, h + 2, w, h + 2);
-
-    // draw the drop-shadow
-    final Color mid2 = ColorUtil.toAlpha(bg, 50);
-    g2d.setColor(mid2);
-    g2d.drawLine(0, h + 3, w, h + 3);
-    g2d.drawLine(0, h + 4, w, h + 4);
-
-
-    final Color edge = ColorUtil.toAlpha(bg, 25);
-    g2d.setColor(edge);
-    g2d.drawLine(0, h + 5, w, h + 5);
-  }
-
-  private static void drawTopShadow(final MTTabsPainter tabsPainter,
-                             final Graphics2D g2d,
-                             final ShapeTransform path,
-                             final ShapeTransform labelPath, final Rectangle rect) {
-    final int w = path.getMaxX();
-    final int h = rect.y;
-
-    final Color bg = MTTabsPainter.getContrastColor().darker();
-    g2d.setColor(bg);
-    g2d.drawLine(0, h - 1, w, h - 1);
-
-    // draw the drop-shadow
-    final Color mid = ColorUtil.toAlpha(bg, 75);
-    g2d.setColor(mid);
-    g2d.drawLine(0, h - 2, w, h - 2);
-
-    // draw the drop-shadow
-    final Color mid2 = ColorUtil.toAlpha(bg, 50);
-    g2d.setColor(mid2);
-    g2d.drawLine(0, h - 3, w, h - 3);
-    g2d.drawLine(0, h - 4, w, h - 4);
-
-
-    final Color edge = ColorUtil.toAlpha(bg, 25);
-    g2d.setColor(edge);
-    g2d.drawLine(0, h - 5, w, h - 5);
-  }
-
-  private static void drawRightShadow(final MTTabsPainter tabsPainter,
-                               final Graphics2D g2d,
-                               final ShapeTransform path,
-                               final ShapeTransform labelPath,
-                               final Rectangle rect) {
-    final int h = path.getMaxY();
-    final int w = rect.width;
-
-    final Color bg = MTTabsPainter.getContrastColor().darker();
-    g2d.setColor(bg);
-    g2d.drawLine(w + 1, 0, w + 1, h);
-
-    // draw the drop-shadow
-    final Color mid = ColorUtil.toAlpha(bg, 75);
-    g2d.setColor(mid);
-    g2d.drawLine(w + 2, 0, w + 2, h);
-
-    // draw the drop-shadow
-    final Color mid2 = ColorUtil.toAlpha(bg, 50);
-    g2d.setColor(mid2);
-    g2d.drawLine(w + 3, 0, w + 3, h);
-    g2d.drawLine(w + 4, 0, w + 4, h);
-
-
-    final Color edge = ColorUtil.toAlpha(bg, 25);
-    g2d.setColor(edge);
-    g2d.drawLine(w + 5, 0, w + 5, h);
-  }
-
-  private static void drawLeftShadow(final MTTabsPainter tabsPainter,
-                              final Graphics2D g2d,
-                              final ShapeTransform path,
-                              final ShapeTransform labelPath,
-                              final Rectangle rect) {
-    final int h = labelPath.getMaxY();
-    final int w = rect.x;
-
-
-    final Color bg = MTTabsPainter.getContrastColor().darker();
-    g2d.setColor(bg);
-    g2d.drawLine(w - 1, 0, w - 1, h);
-
-    // draw the drop-shadow
-    final Color mid = ColorUtil.toAlpha(bg, 75);
-    g2d.setColor(mid);
-    g2d.drawLine(w - 2, 0, w - 2, h);
-
-    // draw the drop-shadow
-    final Color mid2 = ColorUtil.toAlpha(bg, 50);
-    g2d.setColor(mid2);
-    g2d.drawLine(w - 3, 0, w - 3, h);
-    g2d.drawLine(w - 4, 0, w - 4, h);
-
-
-    final Color edge = ColorUtil.toAlpha(bg, 25);
-    g2d.setColor(edge);
-    g2d.drawLine(w - 5, 0, w - 5, h);
-  }
-
-  private static void paintOnLeft(final int borderThickness, final Graphics2D g2d, final Rectangle rect) {
-    g2d.fillRect(rect.x + rect.width - borderThickness + 1, rect.y, borderThickness, rect.height);
-  }
-
-  private static void paintOnRight(final int borderThickness, final Graphics2D g2d, final Rectangle rect) {
-    g2d.fillRect(rect.x, rect.y, borderThickness, rect.height);
-  }
-
-  private static void paintOnBottom(final int borderThickness, final Graphics2D g2d, final Rectangle rect) {
-    g2d.fillRect(rect.x, rect.y + rect.height - borderThickness + 1, rect.width, borderThickness);
-    g2d.setColor(UIUtil.CONTRAST_BORDER_COLOR);
-    g2d.drawLine(Math.max(0, rect.x - 1), rect.y, rect.x + rect.width, rect.y);
-  }
-
-  private static void paintOnTop(final int borderThickness, final Graphics2D g2d, final Rectangle rect) {
-    g2d.fillRect(rect.x, rect.y - 1, rect.width, borderThickness);
-  }
-
-  public static class MTTabsPainter extends DefaultEditorTabsPainter {
-    public MTTabsPainter() {
-      super(null);
+    MyMethodInterceptor(final MTTabsPainter tabsPainter, final Color accentColor) {
+      this.tabsPainter = tabsPainter;
+      this.accentColor = accentColor;
     }
 
-    MTTabsPainter(final JBEditorTabs tabs) {
-      super(tabs);
-    }
-
-    final void fillSelectionAndBorder(final Graphics2D g,
-                                             final ShapeTransform selectedShape,
-                                             final Color tabColor,
-                                             final int x,
-                                             final int y,
-                                             final int height) {
-      g.setColor(tabColor != null ? tabColor : getDefaultTabColor());
-      g.fill(selectedShape.getShape());
-    }
-
+    @SuppressWarnings({"HardCodedStringLiteral",
+        "CallToSuspiciousStringMethod",
+        "SyntheticAccessorCall",
+        "FeatureEnvy"})
     @Override
-    public final Color getBackgroundColor() {
-      final DDLCConfig config = DDLCConfig.getInstance();
-      final MTThemeable mtTheme = config.getSelectedTheme().getTheme();
-      return mtTheme.getBackgroundColor();
+    public final Object intercept(final Object o, final Method method, final Object[] objects, final MethodProxy methodProxy)
+        throws IllegalAccessException, java.lang.reflect.InvocationTargetException {
+      final Object result = method.invoke(tabsPainter, objects);
+
+      // Custom props
+      final boolean isColorEnabled = config.isHighlightColorEnabled();
+      final Color borderColor = isColorEnabled ? config.getHighlightColor() : accentColor;
+      final int borderThickness = config.getHighlightThickness();
+
+      if ("paintSelectionAndBorder".equals(method.getName())) {
+        paintSelectionAndBorder(objects, borderColor, borderThickness, tabsPainter);
     }
 
-    public static final Color getContrastColor() {
-      final MTConfig config = MTConfig.getInstance();
-      final MTThemeable mtTheme = DDLCConfig.getInstance().getSelectedTheme().getTheme();
-      return config.isContrastMode() ? mtTheme.getContrastColor() : mtTheme.getBackgroundColor();
-    }
-
-    final JBEditorTabs getTabsComponent() {
-      return myTabs;
-    }
-
-    @Override
-    protected final Color getDefaultTabColor() {
-      if (myDefaultTabColor != null) {
-        return myDefaultTabColor;
-      }
-
-      return getBackgroundColor();
-    }
-
-    @Override
-    protected final Color getInactiveMaskColor() {
-      final float opacity = (float) (MTConfig.getInstance().getTabOpacity() / 100.0);
-      return ColorUtil.withAlpha(getContrastColor(), opacity);
+      return result;
     }
   }
 }
