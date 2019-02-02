@@ -32,6 +32,11 @@ import com.chrisrm.ideaddlc.listeners.ConfigNotifier;
 import com.chrisrm.ideaddlc.config.ui.ArrowsStyles;
 import com.chrisrm.ideaddlc.config.ui.IndicatorStyles;
 import com.chrisrm.ideaddlc.config.ui.MTForm;
+import com.chrisrm.ideaddlc.config.ui.TabHighlightPositions;
+import com.chrisrm.ideaddlc.listeners.ConfigNotifier;
+import com.chrisrm.ideaddlc.themes.MTThemeFacade;
+import com.chrisrm.ideaddlc.themes.MTThemes;
+import com.chrisrm.ideaddlc.utils.MTAccents;
 import com.intellij.openapi.application.ApplicationInfo;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.application.ApplicationNamesInfo;
@@ -81,7 +86,7 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
   public static final int MIN_INDICATOR_THICKNESS = 1;
   public static final int MAX_TABS_HEIGHT = 60;
   public static final int DEFAULT_LINE_HEIGHT = 18;
-  public static final int MIN_TABS_HEIGHT = DEFAULT_LINE_HEIGHT;
+  public static final int MIN_TABS_HEIGHT = 10;
   public static final int MAX_TREE_INDENT = 40;
   public static final int MIN_TREE_INDENT = 0;
   public static final int MAX_SIDEBAR_HEIGHT = 36;
@@ -96,18 +101,18 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
   public static final int DEFAULT_TAB_HEIGHT = 42;
   //endregion
 
-  //region Properties
+  //region ±±±±±±±±±±±±±±±±± Properties ±±±±±±±±±±±±±±±±±
   @Property
   ArrowsStyles arrowsStyle = ArrowsStyles.MATERIAL;
   @Property
   boolean accentScrollbars = true;
   @SuppressWarnings("FieldHasSetterButNoGetter")
   @Property
-  boolean allowDataCollection = false;
+  boolean allowDataCollection;
   @Property
-  boolean compactDropdowns = false;
+  boolean compactDropdowns;
   @Property
-  boolean compactSidebar = false;
+  boolean compactSidebar;
   @Property
   boolean darkTitleBar = SystemInfo.isMac;
   @Property
@@ -115,37 +120,39 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
   @Property
   boolean fileStatusColorsEnabled = true;
   @Property
-  boolean hideFileIcons = false;
+  boolean hideFileIcons;
   @Property
-  boolean highlightColorEnabled = false;
+  boolean highlightColorEnabled;
   @Property
-  boolean isCompactMenus = false;
+  boolean isCompactMenus;
   @Property
-  boolean isCompactStatusBar = false;
+  boolean isCompactStatusBar;
   @Property
-  boolean isCompactTables = false;
+  boolean isCompactTables;
   @Property
-  boolean isContrastMode = false;
+  boolean isContrastMode;
   @Property
-  boolean isCustomTreeIndentEnabled = false;
+  boolean isCustomTreeIndentEnabled;
   @Property
   boolean isDecoratedFolders = true;
   @Property
-  boolean isHighContrast = false;
+  boolean isHighContrast;
   @Property
   boolean isMaterialDesign = true;
   @Property
   boolean isMaterialTheme = true;
   @Property
-  boolean isStyledDirectories = false;
+  boolean isPsiIcons = true;
+  @Property
+  boolean isStyledDirectories;
   @Property
   boolean isTabsShadow = true;
   @Property
-  boolean isWizardShown = false;
+  boolean isWizardShown;
   @Property
-  boolean monochromeIcons = false;
+  boolean monochromeIcons;
   @Property
-  boolean overrideAccentColor = false;
+  boolean overrideAccentColor;
   @Property
   boolean pristineConfig = true;
   @Property
@@ -153,16 +160,16 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
   @Property
   boolean themedScrollbars = true;
   @Property
-  boolean treeFontSizeEnabled = false;
+  boolean treeFontSizeEnabled;
   @Property
   boolean upperCaseButtons = true;
   @Property
-  boolean upperCaseTabs = false;
+  boolean upperCaseTabs;
   @Property
   @Deprecated
   boolean useMaterialFont = true;
   @Property
-  boolean useMaterialFont2 = false;
+  boolean useMaterialFont2;
   @Property
   boolean useMaterialIcons = true;
   @Property
@@ -197,12 +204,16 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
   @Property
   String userId = new UID().toString();
   @Property
-  String version = "1.3.0";
+  String version = "3.2.0";
+  @Property
+  TabHighlightPositions tabHighlightPosition = TabHighlightPositions.DEFAULT;
+
   //endregion
 
   /**
    * Represents an instance of the configuration
    */
+  @SuppressWarnings("RedundantNoArgConstructor")
   public MTConfig() {
   }
 
@@ -274,6 +285,7 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
    * Returns this MTConfig as a json
    *
    * @return the nativePropertiesAsJson (type JSONObject) of this MTConfig object.
+   *
    * @throws JSONException when
    */
   @SuppressWarnings("DuplicateStringLiteralInspection")
@@ -304,6 +316,7 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
     hashMap.put("isHighContrast", isHighContrast);
     hashMap.put("isMaterialDesign", isMaterialDesign);
     hashMap.put("isMaterialTheme", isMaterialTheme);
+    hashMap.put("isPsiIcons", isPsiIcons);
     hashMap.put("isStyledDirectories", isStyledDirectories);
     hashMap.put("isTabsShadow", isTabsShadow);
     hashMap.put("leftTreeIndent", leftTreeIndent);
@@ -313,6 +326,7 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
     hashMap.put("rightTreeIndent", rightTreeIndent);
     hashMap.put("selectedTheme", selectedTheme);
     hashMap.put("statusBarTheme", statusBarTheme);
+    hashMap.put("tabHighlightPosition", tabHighlightPosition);
     hashMap.put("tabOpacity", tabOpacity);
     hashMap.put("tabsHeight", tabsHeight);
     hashMap.put("themedScrollbars", themedScrollbars);
@@ -378,6 +392,7 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
     setIsHighContrast(form.isHighContrast());
     setIsMaterialDesign(form.isMaterialDesign());
     setIsMaterialTheme(form.isMaterialTheme());
+    setIsPsiIcons(form.isPsiIcons());
     setIsStatusBarTheme(form.isStatusBarTheme());
     setIsStyledDirectories(form.isStyledDirectories());
     setIsTabsShadow(form.isTabsShadow());
@@ -388,6 +403,7 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
     pristineConfig = false;
     setRightTreeIndent(form.getRightTreeIndent());
     setSelectedTheme(form.getTheme());
+    setTabHighlightPosition(form.getTabHighlightPosition());
     setTabOpacity(form.getTabOpacity());
     setTabsHeight(form.getTabsHeight());
     setThemedScrollbars(form.isThemedScrollbars());
@@ -428,6 +444,7 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
     isHighContrast = false;
     isMaterialDesign = true;
     isMaterialTheme = true;
+    isPsiIcons = true;
     isStyledDirectories = false;
     isTabsShadow = true;
     leftTreeIndent = 6;
@@ -437,6 +454,7 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
     rightTreeIndent = 6;
     selectedTheme = DDLCThemes.MONIKA.getName();
     statusBarTheme = true;
+    tabHighlightPosition = TabHighlightPositions.DEFAULT;
     tabOpacity = DEFAULT_TAB_OPACITY;
     tabsHeight = DEFAULT_TAB_HEIGHT;
     themedScrollbars = true;
@@ -605,6 +623,21 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
   public boolean isHighlightThicknessChanged(final int thickness) {
     return highlightThickness != thickness;
   }
+  //endregion
+
+  //region Tab Placement
+  public TabHighlightPositions getTabHighlightPosition() {
+    return tabHighlightPosition;
+  }
+
+  public void setTabHighlightPosition(final TabHighlightPositions tabHighlightPosition) {
+    this.tabHighlightPosition = tabHighlightPosition;
+  }
+
+  public boolean isTabHighlightPositionChanged(final TabHighlightPositions tabHighlightPosition) {
+    return this.tabHighlightPosition != tabHighlightPosition;
+  }
+
   //endregion
 
   //region Contrast mode
@@ -1776,6 +1809,20 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
    */
   public boolean isTabsShadowChanged(final boolean tabsShadow) {
     return isTabsShadow != tabsShadow;
+  }
+  //endregion
+
+  //region Psi Icons
+  public boolean isPsiIcons() {
+    return isPsiIcons;
+  }
+
+  public void setIsPsiIcons(final boolean psiIcons) {
+    isPsiIcons = psiIcons;
+  }
+
+  public boolean isPsiIconsChanged(final boolean psiIcons) {
+    return isPsiIcons != psiIcons;
   }
   //endregion
 
