@@ -80,15 +80,9 @@ public final class MTIconReplacerComponent implements BaseComponent {
     MTIconPatcher.clearCache();
     removePathPatchers();
     if (MTThemeManager.isDDLCActive()) {
-//      if (MTConfig.getInstance().isUseMaterialIcons()) {
         installPathPatchers();
-//      }
-//      if (MTConfig.getInstance().isPsiIcons()) {
         installPSIPatchers();
-//      }
-//      if (MTConfig.getInstance().isFileIcons()) {
         installFileIconsPatchers();
-//      }
     }
   }
 

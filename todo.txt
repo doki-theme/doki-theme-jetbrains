@@ -47,8 +47,5 @@ THINGS TODO:
 FILE changed status
 Maybe do the tab thing
 
-
-
 Shit to fix
 ----
-Directory Icon
