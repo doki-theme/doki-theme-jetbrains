@@ -122,6 +122,24 @@
         <option name="VCS_ANNOTATIONS_COLOR_4" value="414D06"/>
         <option name="VCS_ANNOTATIONS_COLOR_5" value="38754A"/>
         <option name="WHITESPACES" value="cfd8dc"/>
+
+        <option name="ScrollBar.thumbBorderColor" value="1C3F1CC0" mac="1C3F1CC0"/>
+        <option name="ScrollBar.thumbColor" value="1C3F1CC0" mac="1C3F1CC0"/>
+        <option name="ScrollBar.hoverThumbBorderColor" value="1C3F1CFF" mac="1C3F1CFF"/>
+        <option name="ScrollBar.hoverThumbColor" value="1C3F1CFF" mac="1C3F1CFF"/>
+        <option name="ScrollBar.Transparent.thumbBorderColor" value="1C3F1C80" mac="1C3F1C80"/>
+        <option name="ScrollBar.Transparent.thumbColor" value="1C3F1C80" mac="1C3F1C80"/>
+        <option name="ScrollBar.Transparent.hoverThumbBorderColor" value="1C3F1Cc0" mac="1C3F1Cc0"/>
+        <option name="ScrollBar.Transparent.hoverThumbColor" value="1C3F1Cc0" mac="1C3F1Cc0"/>
+
+        <option name="ScrollBar.Mac.thumbBorderColor" value="1C3F1CC0" mac="1C3F1CC0"/>
+        <option name="ScrollBar.Mac.thumbColor" value="1C3F1CC0" mac="1C3F1CC0"/>
+        <option name="ScrollBar.Mac.hoverThumbBorderColor" value="1C3F1CFF" mac="1C3F1CFF"/>
+        <option name="ScrollBar.Mac.hoverThumbColor" value="1C3F1CFF" mac="1C3F1CFF"/>
+        <option name="ScrollBar.Mac.Transparent.thumbBorderColor" value="1C3F1C80" mac="1C3F1C80"/>
+        <option name="ScrollBar.Mac.Transparent.thumbColor" value="1C3F1C80" mac="1C3F1C80"/>
+        <option name="ScrollBar.Mac.Transparent.hoverThumbBorderColor" value="1C3F1Cc0" mac="1C3F1Cc0"/>
+        <option name="ScrollBar.Mac.Transparent.hoverThumbColor" value="1C3F1Cc0" mac="1C3F1Cc0"/>
     </colors>i
     <attributes>
         <option name="ABSTRACT_CLASS_NAME_ATTRIBUTES">
