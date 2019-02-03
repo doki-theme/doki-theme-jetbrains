@@ -52,6 +52,9 @@ Shit to fix
 ----
 
 Primary Action button
+    - button foreground
 Directory Icon
 Editor tabs color
 Drop Down Hover Color
+Search everywhere
+material.scrollbars.ScrollBar.Transparent.hoverThumbBorderColor

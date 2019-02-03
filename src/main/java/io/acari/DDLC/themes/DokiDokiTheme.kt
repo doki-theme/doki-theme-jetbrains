@@ -333,13 +333,16 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
     open fun getDisabledResources(): Stream<String> {
         return Stream.of(
                 "MenuItem.disabledForeground",
+                "ToggleButton.off.background",
                 "ComboBox.disabledForeground")
     }
 
     open fun getSecondaryBackgroundResources(): Stream<String> {
         return Stream.of(
                 "Separator.foreground",
-            "TextField.separatorColorDisabled",
+                "ToggleButton.off.foreground",
+                "ToggleButton.on.foreground",
+                "TextField.separatorColorDisabled",
                 "PasswordField.inactiveForeground",
                 "Button.darcula.selection.color1",
                 "Button.darcula.selection.color2",
@@ -503,6 +506,7 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
         return Stream.of(
                 "Button.foreground",
                 "Button.mt.foreground",
+            "Button.darcula.selectedButtonForeground",
                 "Button.mt.selectedButtonForeground",
                 "ToolWindow.header.closeButton.foreground")
     }

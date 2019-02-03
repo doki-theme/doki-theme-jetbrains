@@ -1262,9 +1262,6 @@ public class MTForm implements MTFormUI {
           iconsPanel.add(decoratedFoldersCheckbox, "cell 0 5");
 
           //---- psiIconsCheckbox ----
-          psiIconsCheckbox.setText(bundle.getString("MTForm.psiIconsCheckbox.text"));
-          psiIconsCheckbox.setToolTipText(bundle.getString("MTForm.psiIconsCheckbox.toolTipText"));
-          iconsPanel.add(psiIconsCheckbox, "cell 0 6");
         }
         tabbedPane1.addTab(bundle.getString("MTForm.iconsPanel.border"), iconsPanel);
 

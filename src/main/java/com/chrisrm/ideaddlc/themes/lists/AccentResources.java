@@ -49,6 +49,7 @@ public enum AccentResources {
           "Button.darcula.outlineStartColor",
           "Button.darcula.outlineDefaultEndColor",
           "Button.darcula.outlineEndColor",
+          "ToggleButton.on.background",
           "Popup.Advertiser.foreground",
           "SearchEverywhere.Advertiser.foreground",
           "RadioButton.darcula.selectionEnabledColor",
