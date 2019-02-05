@@ -27,6 +27,7 @@
 package com.chrisrm.ideaddlc.utils;
 
 import com.chrisrm.ideaddlc.MTConfig;
+import com.intellij.ide.actions.Switcher;
 import com.intellij.ui.ColorUtil;
 import com.intellij.ui.Gray;
 import com.intellij.ui.JBColor;
@@ -34,6 +35,7 @@ import com.intellij.util.ObjectUtils;
 import com.intellij.util.ui.JBInsets;
 import com.intellij.util.ui.JBUI;
 import com.intellij.util.ui.UIUtil;
+import io.acari.DDLC.LegacySupportUtility;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 
@@ -397,7 +399,11 @@ public final class MTUI {
     }
 
     public static Color getHighlightColor() {
-      return ColorUtil.withAlpha(JBColor.namedColor(NAVBAR_HIGHLIGHT_COLOR, UIUtil.getListSelectionBackground(true)), 0.5);
+      Color listSelectionBackground = LegacySupportUtility.INSTANCE.invokeMethodSafely(UIUtil.class,
+          "getListSelectionBackground", () ->
+              UIUtil.getListSelectionBackground(true),
+          () -> ColorUtil.fromHex("#C2FF92"), boolean.class);
+      return ColorUtil.withAlpha(JBColor.namedColor(NAVBAR_HIGHLIGHT_COLOR, listSelectionBackground), 0.5);
     }
 
     public static int getDecorationOffset() {
