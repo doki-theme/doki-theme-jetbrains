@@ -40,6 +40,7 @@ import com.intellij.openapi.util.IconLoader;
 import com.intellij.openapi.util.IconPathPatcher;
 import com.intellij.util.containers.ContainerUtil;
 import com.intellij.util.messages.MessageBusConnection;
+import io.acari.DDLC.LegacySupportUtility;
 import io.acari.DDLC.icons.patchers.AccentTintedIconsPatcher;
 import org.jetbrains.annotations.NotNull;
 
@@ -50,6 +51,7 @@ public final class MTIconReplacerComponent implements BaseComponent {
   private static final Set<IconPathPatcher> installedPatchers = ContainerUtil.newHashSet();
 
   private MessageBusConnection connect;
+
   static {
     //todo: figure out how to have it be replaceable
     IconLoader.installPathPatcher(new AccentTintedIconsPatcher());
@@ -59,7 +61,7 @@ public final class MTIconReplacerComponent implements BaseComponent {
   @SuppressWarnings("OverlyCoupledMethod")
   @Override
   public void initComponent() {
-      useDDLCIcons();
+    useDDLCIcons();
     connect = ApplicationManager.getApplication().getMessageBus().connect();
 
     connect.subscribe(ConfigNotifier.CONFIG_TOPIC, new ConfigNotifier() {
@@ -80,9 +82,9 @@ public final class MTIconReplacerComponent implements BaseComponent {
     MTIconPatcher.clearCache();
     removePathPatchers();
     if (MTThemeManager.isDDLCActive()) {
-        installPathPatchers();
-        installPSIPatchers();
-        installFileIconsPatchers();
+      installPathPatchers();
+      installPSIPatchers();
+      installFileIconsPatchers();
     }
   }
 
@@ -176,7 +178,12 @@ public final class MTIconReplacerComponent implements BaseComponent {
   }
 
   private static void removePathPatcher(final IconPathPatcher patcher) {
-    IconLoader.removePathPatcher(patcher);
+    LegacySupportUtility.INSTANCE.invokeVoidMethodSafely(IconLoader.class,
+        "removePathPatcher",
+        () -> IconLoader.removePathPatcher(patcher),
+        () -> {
+        },
+        IconPathPatcher.class);
   }
 
   @Override
