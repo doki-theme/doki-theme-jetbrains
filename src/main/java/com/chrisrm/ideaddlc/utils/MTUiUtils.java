@@ -43,7 +43,6 @@ import com.intellij.openapi.options.ShowSettingsUtil;
 import com.intellij.openapi.project.Project;
 import com.intellij.ui.ColorUtil;
 import com.intellij.util.ObjectUtils;
-import com.intellij.util.ui.JBUI;
 import com.intellij.util.ui.UIUtil;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
@@ -65,9 +64,9 @@ public enum MTUiUtils {
   DEFAULT;
 
   public static final String MATERIAL_FONT = "Roboto";
-  public static final String HELP_PREFIX = "com.chrisrm.idea.help";
+  public static final String HELP_PREFIX = "com.chrisrm.ideaddlc.help";
   public static final String DOCS_URL = "https://www.material-theme.com/";
-  public static final String PLUGIN_ID = "com.chrisrm.idea.MaterialThemeUI";
+  public static final String PLUGIN_ID = "com.chrisrm.ideaddlc.MaterialThemeUI";
   @NonNls
   public static final String APPEARANCE_SECTION = "Appearance";
   @NonNls
@@ -200,7 +199,7 @@ public enum MTUiUtils {
   public static String getVersion() {
      return getPlugin()
              .map(IdeaPluginDescriptor::getVersion)
-             .orElse("2.3.0");
+             .orElse("2.4.0");
   }
 
   private static Optional<String> getPluginId() {

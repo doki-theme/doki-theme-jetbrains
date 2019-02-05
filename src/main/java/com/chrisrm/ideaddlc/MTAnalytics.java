@@ -40,6 +40,7 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 
+@SuppressWarnings("WeakerAccess")
 public final class MTAnalytics {
   public static final String CONFIG = "ConfigV2";
   public static final String UPDATE_NOTIFICATION = "Notification";
@@ -69,6 +70,9 @@ public final class MTAnalytics {
   public static final String SELECT_THEME = "SelectTheme";
   public static final String HELP = "Help";
   public static final String COMPACT_TABLES = "CompactTables";
+  public static final String MATERIAL_PSI_ICONS = "PsiIcons";
+  public static final String MATERIAL_FILE_ICONS = "FileIcons";
+  public static final String TAB_HIGHLIGHT_POSITION = "TabHighlightPosition";
   @NonNls
   private static final String MIXPANEL_KEY = "mixpanelKey";
 

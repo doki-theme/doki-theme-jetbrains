@@ -27,6 +27,7 @@ package com.chrisrm.ideaddlc.config.ui;
 
 import com.chrisrm.ideaddlc.MTCustomThemeConfig;
 import com.chrisrm.ideaddlc.config.MTBaseConfig;
+import com.chrisrm.ideaddlc.utils.MTUI;
 import com.chrisrm.ideaddlc.utils.MTUiUtils;
 import com.intellij.ui.ColorPanel;
 import com.intellij.ui.ColorUtil;
@@ -40,7 +41,7 @@ import javax.swing.plaf.ColorUIResource;
 import java.awt.*;
 import java.util.ResourceBundle;
 
-@SuppressWarnings( {"OverlyLongMethod",
+@SuppressWarnings({"OverlyLongMethod",
     "UseDPIAwareInsets",
     "MagicNumber",
     "DuplicateStringLiteralInspection",
@@ -71,7 +72,7 @@ public final class MTCustomThemeForm implements MTFormUI {
 
   }
 
-  @SuppressWarnings( {"OverlyComplexMethod",
+  @SuppressWarnings({"OverlyComplexMethod",
       "FeatureEnvy"})
   @Override
   public boolean isModified(final MTBaseConfig config) {
@@ -282,7 +283,7 @@ public final class MTCustomThemeForm implements MTFormUI {
 
         //---- explLabel ----
         explLabel.setText(bundle.getString("MTForm.explLabel.text"));
-        explLabel.setForeground(UIManager.getColor("Button.disabledText"));
+        explLabel.setForeground(UIManager.getColor(MTUI.Button.BUTTON_DISABLED_TEXT));
         panel1.add(explLabel, new GridConstraints(0, 0, 1, 1,
             GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
@@ -298,15 +299,15 @@ public final class MTCustomThemeForm implements MTFormUI {
         expTextArea.setEditable(false);
         expTextArea.setBorder(null);
         panel1.add(expTextArea, new GridConstraints(1, 0, 1, 1,
-                                                    GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE,
-                                                    GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
-                                                    GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
-                                                    null, null, null));
+            GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE,
+            GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
+            GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
+            null, null, null));
         panel1.add(separator1, new GridConstraints(2, 0, 1, 1,
-                                                   GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE,
-                                                   GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
-                                                   GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
-                                                   null, null, null));
+            GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE,
+            GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
+            GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
+            null, null, null));
 
         //---- backgroundColorLabel ----
         backgroundColorLabel.setText(bundle.getString("MTColorForm.background"));
@@ -508,7 +509,7 @@ public final class MTCustomThemeForm implements MTFormUI {
         resetTabDefaultsBtn.setText(bundle.getString("mt.resetCustomTheme.title"));
         resetTabDefaultsBtn.setToolTipText(bundle.getString("mt.resetdefaults.tooltip"));
         panel1.add(resetTabDefaultsBtn, new GridConstraints(17, 0, 1, 1,
-                                                            GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE,
+            GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
             GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
             null, null, null));
@@ -613,7 +614,7 @@ public final class MTCustomThemeForm implements MTFormUI {
   /**
    * Default colors for Custom theme
    */
-  @SuppressWarnings( {
+  @SuppressWarnings({
       "PublicInnerClass",
       "ClassWithTooManyFields"})
   public enum MTCustomDefaults {;
@@ -636,7 +637,7 @@ public final class MTCustomThemeForm implements MTFormUI {
   /**
    * Default colors for Light custom theme
    */
-  @SuppressWarnings( {
+  @SuppressWarnings({
       "PublicInnerClass",
       "ClassWithTooManyFields"})
   public enum MTLightCustomDefaults {;

@@ -53,6 +53,7 @@ import com.intellij.openapi.editor.colors.EditorColorsScheme;
 import com.intellij.openapi.editor.colors.impl.AppEditorFontOptions;
 import com.intellij.openapi.fileTypes.ex.FileTypeManagerEx;
 import com.intellij.openapi.ui.Messages;
+import com.intellij.openapi.util.Couple;
 import com.intellij.openapi.util.IconLoader;
 import com.intellij.openapi.util.SystemInfo;
 import com.intellij.ui.ColorUtil;
@@ -79,16 +80,19 @@ import java.util.Locale;
  * Manages appearance settings
  */
 @SuppressWarnings( {"ClassWithTooManyMethods",
-    "DuplicateStringLiteralInspection", "UtilityClassCanBeEnum"})
+    "DuplicateStringLiteralInspection",
+    "UtilityClassCanBeEnum",
+    "OverlyComplexClass",
+    "UtilityClass"})
 public final class MTThemeManager {
 
-  public static final String WE_USING_DDLC_BOIS = "WE USING DDLC BOIS";
-  public static final String WE_AINT_USING_DDLC_BOIS = "WE_AINT USING DDLC BOIS";
-  public static final int DEFAULT_SIDEBAR_HEIGHT = 28;
-  public static final int DEFAULT_INDENT = 6;
-  public static final int DEFAULT_FONT_SIZE = JBUI.scale(13);
-  public static final String DEFAULT_FONT = "Roboto";
-  public static final String DEFAULT_MONO_FONT = "Fira Code";
+  private static final String WE_USING_DDLC_BOIS = "WE USING DDLC BOIS";
+  private static final String WE_AINT_USING_DDLC_BOIS = "WE_AINT USING DDLC BOIS";
+  private static final int DEFAULT_SIDEBAR_HEIGHT = 28;
+  private static final int DEFAULT_INDENT = 6;
+  private static final int DEFAULT_FONT_SIZE = JBUI.scale(13);
+  private static final String DEFAULT_FONT = "Roboto";
+  private static final String DEFAULT_MONO_FONT = "Fira Code";
   @NonNls
   private static final String RETINA = "@2x.css";
   @NonNls
@@ -296,6 +300,27 @@ public final class MTThemeManager {
     updateFileIcons();
   }
 
+
+  /**
+   * Toggle material file icons.
+   */
+  @SuppressWarnings("BooleanVariableAlwaysNegated")
+  public static void toggleMaterialFileIcons() {
+    final boolean useMaterialFileIcons = MTConfig.getInstance().isFileIcons();
+    MTConfig.getInstance().setFileIcons(!useMaterialFileIcons);
+
+    updateFileIcons();
+  }
+
+  @SuppressWarnings("BooleanVariableAlwaysNegated")
+  public static void toggleMaterialPsiIcons() {
+    final boolean isPsiIcons = MTConfig.getInstance().isPsiIcons();
+    MTConfig.getInstance().setIsPsiIcons(!isPsiIcons);
+
+    updateFileIcons();
+  }
+
+
   /**
    * Toggle material fonts.
    */
@@ -368,6 +393,13 @@ public final class MTThemeManager {
     }
 
     activate(mtTheme, false);
+  }
+
+  public static void activate(final String themeId) {
+    final DDLCThemeFacade themeFor = DDLCThemes.getThemeFor(themeId);
+    if (themeFor != null) {
+      activate(themeFor, false);
+    }
   }
 
   /**
@@ -447,6 +479,10 @@ public final class MTThemeManager {
     for (final String resource : AccentResources.ACCENT_RESOURCES) {
       UIManager.put(resource, accentColorColor);
     }
+
+    // Scrollbars management
+    applyScrollbars(ColorUtil.fromHex(accentColor));
+
     // override for transparency
     UIManager.put("Focus.color", ColorUtil.toAlpha(accentColorColor, 70));
     UIManager.put(MTUI.ActionButton.ACTION_BUTTON_HOVER_BACKGROUND, ColorUtil.toAlpha(accentColorColor, 70));
@@ -457,6 +493,35 @@ public final class MTThemeManager {
     if (fireEvent) {
       fireAccentChanged(accentColorColor);
     }
+  }
+
+  private static void applyScrollbars(Color accentColor) {
+    final Color transColor = ColorUtil.toAlpha(accentColor, 50);
+    final Color hoverColor = ColorUtil.toAlpha(accentColor, 75);
+
+    // IDE scrollbars
+    final Couple<Color> scrollbarColors = getScrollbarColors(accentColor, transColor, hoverColor);
+    if (scrollbarColors != null) { //null unless accent scrollbars is on
+      final Color scrollbarColor = scrollbarColors.getFirst();
+      final Color scrollbarHoverColor = scrollbarColors.getSecond();
+
+      for (final String resource : AccentResources.SCROLLBAR_RESOURCES) {
+        UIManager.put(resource, scrollbarColor);
+      }
+      for (final String resource : AccentResources.SCROLLBAR_HOVER_RESOURCES) {
+        UIManager.put(resource, scrollbarHoverColor);
+      }
+    }
+  }
+
+  public static Couple<Color> getScrollbarColors(final Color accentColor, final Color transColor, final Color hoverColor) {
+    // Scrollbars
+    if (MTConfig.getInstance().isAccentScrollbars()) {
+      return MTConfig.getInstance().isThemedScrollbars() ?
+          new Couple<>(transColor, hoverColor) :
+          new Couple<>(hoverColor, accentColor);
+    }
+    return null;
   }
 
   /**
