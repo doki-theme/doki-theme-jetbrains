@@ -1,6 +1,10 @@
 # Changelog
 ----
 
+# 2.4.1
+
+- Updated plugin display icon.
+
 # 2.4.0
 
 - Updated to Material UI version 3.5.0
