@@ -29,7 +29,6 @@ import com.chrisrm.ideaddlc.MTConfig;
 import com.chrisrm.ideaddlc.utils.MTUI;
 import com.intellij.icons.AllIcons;
 import com.intellij.openapi.util.IconLoader;
-import com.intellij.util.ObjectUtils;
 import com.intellij.util.ui.CenteredIcon;
 import com.intellij.util.ui.UIUtil;
 import com.intellij.util.ui.tree.WideSelectionTreeUI;

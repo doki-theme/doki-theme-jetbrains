@@ -27,8 +27,10 @@
 package com.chrisrm.ideaddlc.ui;
 
 import com.chrisrm.ideaddlc.MTConfig;
+import com.chrisrm.ideaddlc.utils.MTUI;
 import com.intellij.ide.ui.laf.darcula.DarculaLaf;
 import com.intellij.ide.ui.laf.darcula.ui.DarculaButtonUI;
+import com.intellij.util.ui.UIUtil;
 import sun.swing.SwingUtilities2;
 
 import javax.swing.*;
@@ -37,12 +39,10 @@ import java.awt.*;
 
 public final class MTDarculaButtonUI extends DarculaButtonUI {
 
-  public static ComponentUI createUI(final JComponent c) {
+  @SuppressWarnings({"MethodOverridesStaticMethodOfSuperclass",
+      "unused"})
+  public static ComponentUI createUI(final JComponent component) {
     return new MTDarculaButtonUI();
-  }
-
-  private static boolean isHelpButton(final JComponent button) {
-    return button instanceof JButton && "help".equals(button.getClientProperty("JButton.buttonType"));
   }
 
   /**
@@ -50,7 +50,7 @@ public final class MTDarculaButtonUI extends DarculaButtonUI {
    */
   @Override
   protected void paintText(final Graphics g, final JComponent c, final Rectangle textRect, final String text) {
-    if (isHelpButton(c)) {
+    if (UIUtil.isHelpButton(c)) {
       return;
     }
 
@@ -74,12 +74,6 @@ public final class MTDarculaButtonUI extends DarculaButtonUI {
 
   /**
    * Paint disabled text
-   *
-   * @param g
-   * @param text
-   * @param c
-   * @param textRect
-   * @param metrics
    */
   @Override
   protected void paintDisabledText(final Graphics g,
@@ -89,7 +83,7 @@ public final class MTDarculaButtonUI extends DarculaButtonUI {
                                    final FontMetrics metrics) {
     final String textToPrint = MTConfig.getInstance().isUpperCaseButtons() ? text.toUpperCase() : text;
     final int x = (c.getWidth() - getTextShiftOffset() - metrics.stringWidth(textToPrint)) / 2;
-    g.setColor(UIManager.getColor("Button.disabledText"));
+    g.setColor(UIManager.getColor(MTUI.Button.BUTTON_DISABLED_TEXT));
     SwingUtilities2.drawStringUnderlineCharAt(c, g, textToPrint, -1, x + 1, textRect.y + metrics.getAscent() + 1);
   }
 

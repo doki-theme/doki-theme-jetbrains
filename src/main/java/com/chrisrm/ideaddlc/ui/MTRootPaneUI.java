@@ -30,6 +30,7 @@ import com.chrisrm.ideaddlc.MTConfig;
 import com.intellij.ide.ui.laf.darcula.ui.DarculaRootPaneUI;
 import com.intellij.openapi.util.SystemInfo;
 import com.intellij.openapi.util.registry.Registry;
+import org.jetbrains.annotations.NonNls;
 import io.acari.DDLC.DDLCConfig;
 
 import javax.swing.*;
@@ -39,23 +40,32 @@ import javax.swing.plaf.basic.BasicRootPaneUI;
 /**
  * Created by chris on 26/03/16.
  */
-public class MTRootPaneUI extends DarculaRootPaneUI {
-  public static ComponentUI createUI(final JComponent c) {
-    return isCustomDecoration() ? new MTRootPaneUI() : createDefaultWindowsRootPaneUI();
+public final class MTRootPaneUI extends DarculaRootPaneUI {
+  @NonNls
+  private static final String WINDOW_DARK_APPEARANCE = "jetbrains.awt.windowDarkAppearance";
+  @NonNls
+  private static final String TRANSPARENT_TITLE_BAR_APPEARANCE = "jetbrains.awt.transparentTitleBarAppearance";
+
+  @SuppressWarnings({"MethodOverridesStaticMethodOfSuperclass",
+      "unused"})
+  public static ComponentUI createUI(final JComponent component) {
+    return hasCustomDecoration() ? new MTRootPaneUI() : createWindowsRootPaneUI();
   }
 
-  private static boolean isCustomDecoration() {
+  private static boolean hasCustomDecoration() {
     return SystemInfo.isMac;
   }
 
-  private static ComponentUI createDefaultWindowsRootPaneUI() {
+  @SuppressWarnings("OverlyBroadCatchBlock")
+  private static ComponentUI createWindowsRootPaneUI() {
     try {
-      return (ComponentUI) Class.forName("com.sun.java.swing.plaf.windows.WindowsRootPaneUI").newInstance();
+      return (ComponentUI) Class.forName("com.sun.java.swing.plaf.windows.WindowsRootPaneUI").getConstructor().newInstance();
     } catch (final Exception e) {
       return new BasicRootPaneUI();
     }
   }
 
+  @SuppressWarnings("FeatureEnvy")
   @Override
   public void installUI(final JComponent c) {
     super.installUI(c);
@@ -63,14 +73,14 @@ public class MTRootPaneUI extends DarculaRootPaneUI {
     final boolean darkTitleBar = MTConfig.getInstance().isDarkTitleBar();
     final boolean allowDarkWindowDecorations = Registry.get("ide.mac.allowDarkWindowDecorations").asBoolean();
 
-    if (SystemInfo.isMac) {
+    if (SystemInfo.isMac || SystemInfo.isLinux) {
       if (darkTitleBar) {
         Registry.get("ide.mac.allowDarkWindowDecorations").setValue(isThemeDark);
-        c.putClientProperty("jetbrains.awt.windowDarkAppearance", isThemeDark);
-        c.putClientProperty("jetbrains.awt.transparentTitleBarAppearance", true);
+        c.putClientProperty(WINDOW_DARK_APPEARANCE, isThemeDark);
+        c.putClientProperty(TRANSPARENT_TITLE_BAR_APPEARANCE, true);
     } else {
-        c.putClientProperty("jetbrains.awt.windowDarkAppearance", isThemeDark && allowDarkWindowDecorations);
-        c.putClientProperty("jetbrains.awt.transparentTitleBarAppearance", false);
+        c.putClientProperty(WINDOW_DARK_APPEARANCE, isThemeDark && allowDarkWindowDecorations);
+        c.putClientProperty(TRANSPARENT_TITLE_BAR_APPEARANCE, false);
       }
     }
   }

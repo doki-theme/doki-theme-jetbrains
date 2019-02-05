@@ -33,6 +33,7 @@ import com.intellij.ide.BrowserUtil;
 import com.intellij.ide.util.PropertiesComponent;
 import com.intellij.notification.Notification;
 import com.intellij.notification.NotificationListener;
+import com.intellij.notification.Notifications;
 import com.intellij.openapi.components.ProjectComponent;
 import com.intellij.openapi.project.Project;
 import org.jetbrains.annotations.NonNls;
@@ -44,6 +45,7 @@ import org.json.JSONObject;
 import javax.swing.event.HyperlinkEvent;
 import java.net.URL;
 
+import static com.chrisrm.ideaddlc.notifications.MTStatisticsNotification.ALLOW;
 
 /**
  * Component for showing update notification
@@ -98,6 +100,7 @@ public final class MTUpdatesComponent implements ProjectComponent {
     config = MTConfig.getInstance();
   }
 
+  @SuppressWarnings("FeatureEnvy")
   @Override
   public void projectOpened() {
     // Show new version notification
@@ -115,7 +118,7 @@ public final class MTUpdatesComponent implements ProjectComponent {
 //    if (!application.isAgreementShown()) {
 //      final Notification notification = createStatsNotification(
 //          (notification1, event) -> {
-//            MTConfig.getInstance().setAllowDataCollection(event.getEventType().equals(HyperlinkEvent.EventType.ACTIVATED));
+//            config.setAllowDataCollection(ALLOW.equals(event.getDescription()));
 //            PropertiesComponent.getInstance().setValue(MTApplicationComponent.SHOW_STATISTICS_AGREEMENT, true);
 //            notification1.expire();
 //          });

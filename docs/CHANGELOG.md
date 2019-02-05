@@ -1,6 +1,10 @@
 # Changelog
 ----
 
+# 2.4.0
+
+- Updated to Material UI version 3.5.0
+
 # 2.3.0
 
 - Enhanced Dark theme contrast for select club members.

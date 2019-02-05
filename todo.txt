@@ -38,15 +38,14 @@ Dark theme todo completed:
     - Need to update dark monika panel and chibi
     - Need to update wizard.
     - Dark separator color.
+works with material ui
 
 Rating Stars
 ------
 
 THINGS TODO:
 FILE changed status
-
-
+Maybe do the tab thing
 
 Shit to fix
 ----
-works with material ui

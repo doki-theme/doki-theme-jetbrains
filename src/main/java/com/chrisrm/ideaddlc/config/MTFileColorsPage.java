@@ -66,8 +66,8 @@ public final class MTFileColorsPage implements ColorSettingsPage, DisplayPriorit
     for (final FileStatus allFileStatus : allFileStatuses) {
       // mt color descriptors
       colorDescriptors.add(new ColorDescriptor(allFileStatus.getText(),
-          MTFileColors.getColorKey(allFileStatus),
-          ColorDescriptor.Kind.FOREGROUND));
+                                               MTFileColors.getColorKey(allFileStatus),
+                                               ColorDescriptor.Kind.FOREGROUND));
     }
     DESCRIPTORS = ArrayUtil.toObjectArray(colorDescriptors, ColorDescriptor.class);
   }

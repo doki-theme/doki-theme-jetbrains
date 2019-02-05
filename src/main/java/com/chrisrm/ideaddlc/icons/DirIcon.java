@@ -26,6 +26,7 @@
 package com.chrisrm.ideaddlc.icons;
 
 import icons.MTIcons;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -40,7 +41,7 @@ public class DirIcon implements Icon {
   }
 
   @SuppressWarnings("unused")
-  DirIcon(final Icon icon) {
+  public DirIcon(final Icon icon) {
     this(icon, icon);
   }
 

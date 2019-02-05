@@ -28,10 +28,12 @@ package com.chrisrm.ideaddlc;
 
 import com.intellij.ide.plugins.PluginManagerConfigurable;
 import com.intellij.openapi.components.BaseComponent;
+import com.intellij.openapi.util.SystemInfoRt;
 import com.intellij.openapi.wm.impl.ToolWindowImpl;
 import com.intellij.openapi.wm.impl.welcomeScreen.FlatWelcomeFrameProvider;
 import com.intellij.ui.CaptionPanel;
 import com.intellij.ui.ScrollingUtil;
+import com.intellij.ui.components.MultiColumnList;
 import com.intellij.util.ui.JBSwingUtilities;
 import io.acari.DDLC.LegacySupportUtility;
 import javassist.*;
@@ -41,10 +43,10 @@ import javassist.expr.MethodCall;
 import javassist.expr.NewExpr;
 import org.jetbrains.annotations.NonNls;
 
-@SuppressWarnings({
+@SuppressWarnings( {
     "CallToSuspiciousStringMethod",
     "HardCodedStringLiteral",
-    "DuplicateStringLiteralInspection"})
+    "DuplicateStringLiteralInspection", "OverlyBroadCatchBlock"})
 public final class MTHackComponent implements BaseComponent {
 
   static {
@@ -54,6 +56,7 @@ public final class MTHackComponent implements BaseComponent {
     hackPluginManagerNew();
     hackIntelliJFailures();
     hackNewScreenHardcodedColor();
+    hackScrollbars();
   }
 
   /**
@@ -74,7 +77,7 @@ public final class MTHackComponent implements BaseComponent {
         }
       });
       ctClass2.toClass();
-    } catch (final CannotCompileException | NotFoundException e) {
+    } catch (final Throwable e) {
       e.printStackTrace();
     }
   }
@@ -94,7 +97,7 @@ public final class MTHackComponent implements BaseComponent {
         }
       });
       ctClass2.toClass();
-    } catch (final CannotCompileException | NotFoundException e) {
+    } catch (final Throwable e) {
       e.printStackTrace();
     }
   }
@@ -113,7 +116,35 @@ public final class MTHackComponent implements BaseComponent {
         }
       });
       ctClass2.toClass();
-    } catch (final CannotCompileException | NotFoundException e) {
+    } catch (final Throwable e) {
+      e.printStackTrace();
+    }
+  }
+
+  private static void hackScrollbars() {
+    try {
+      final ClassPool cp = new ClassPool(true);
+      cp.insertClassPath(new ClassClassPath(MultiColumnList.class));
+      final CtClass ctClass2 = cp.get("com.intellij.ui.components.ScrollBarPainter$Thumb");
+      final CtMethod method = ctClass2.getDeclaredMethod("paint");
+      if (SystemInfoRt.isMac) {
+        return;
+      }
+
+      method.instrument(new ExprEditor() {
+        @Override
+        public void edit(final MethodCall m) throws CannotCompileException {
+          if ("paint".equals(m.getMethodName())) {
+            final String off = "($8 == null ? 2 : 1)";
+            final String margin = "($8 == null ? 4 : 2)";
+
+            m.replace(String.format("{ $2 = $2 + %s; $3 = $3 + %s; $4 = $4 - %s; $5 = $5 - %s; $6 = 8; $proceed($$); }",
+                                    off, off, margin, margin));
+          }
+        }
+      });
+      ctClass2.toClass();
+    } catch (final Throwable e) {
       e.printStackTrace();
     }
   }
@@ -168,10 +199,12 @@ public final class MTHackComponent implements BaseComponent {
       });
 
       ctClass2.toClass();
-    } catch (final CannotCompileException | NotFoundException e) {
+    } catch (final Throwable e) {
       e.printStackTrace();
     }
   }
+
+
 
   /**
    * "I don't know who you are.
@@ -242,7 +275,7 @@ public final class MTHackComponent implements BaseComponent {
       });
 
       ctClass.toClass();
-    } catch (final CannotCompileException | NotFoundException e) {
+    } catch (final Throwable e) {
       e.printStackTrace();
     }
   }
@@ -271,7 +304,7 @@ public final class MTHackComponent implements BaseComponent {
       });
 
       ctClass.toClass();
-    } catch (final CannotCompileException | NotFoundException e) {
+    } catch (final Throwable e) {
       e.printStackTrace();
     }
   }

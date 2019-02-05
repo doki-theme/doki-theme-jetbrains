@@ -58,7 +58,7 @@ public final class TSColorSettings extends BaseColorSettings {
   private static final TextAttributesKey PRIVATE = TSAnnotator.PRIVATE;
 
   static {
-    TS_ATTRIBUTES = new AttributesDescriptor[]{
+    TS_ATTRIBUTES = new AttributesDescriptor[] {
         new AttributesDescriptor(MaterialThemeBundle.message("keywords.private.public.protected"), PRIVATE),
     };
 
@@ -93,11 +93,11 @@ public final class TSColorSettings extends BaseColorSettings {
   @Override
   public String getDemoText() {
     return "<import>import</import> {_} <import>from</import> 'lodash';\n\n" +
-        "<keyword>class</keyword> <class>MyType</class> <keyword>extends</keyword> <class>AbstractClass</class> {\n" +
-        "  <private>private</private> <local_variable>field</local_variable>: <class>String</class>;\n" +
-        "  <private>protected</private> <local_variable>protect</local_variable>: <class>Number</class>;\n" +
-        "  <private>public</private> <local_variable>num</local_variable> = 10;\n" +
-        "}";
+           "<keyword>class</keyword> <class>MyType</class> <keyword>extends</keyword> <class>AbstractClass</class> {\n" +
+           "  <private>private</private> <local_variable>field</local_variable>: <class>String</class>;\n" +
+           "  <private>protected</private> <local_variable>protect</local_variable>: <class>Number</class>;\n" +
+           "  <private>public</private> <local_variable>num</local_variable> = 10;\n" +
+           "}";
   }
 
   @NotNull
