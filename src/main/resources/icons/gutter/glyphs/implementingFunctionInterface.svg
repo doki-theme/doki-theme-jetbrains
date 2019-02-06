@@ -1,10 +1,62 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
-        "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="12px"
-     height="12px"
-     viewBox="0 0 24 24" fill="#C792EA">
-    <path d="M15.6,5.29C14.5,5.19 13.53,6 13.43,7.11L13.18,10H16V12H13L12.56,17.07C12.37,19.27 10.43,20.9 8.23,20.7C6.92,20.59 5.82,19.86 5.17,18.83L6.67,17.33C6.91,18.07 7.57,18.64 8.4,18.71C9.5,18.81 10.47,18 10.57,16.89L11,12H8V10H11.17L11.44,6.93C11.63,4.73 13.57,3.1 15.77,3.3C17.08,3.41 18.18,4.14 18.83,5.17L17.33,6.67C17.09,5.93 16.43,5.36 15.6,5.29Z"/>
-    <path fill="#E57373"
-          transform="scale(0.75) translate(12 -4)"
-          d="M14,20H10V11L6.5,14.5L4.08,12.08L12,4.16L19.92,12.08L17.5,14.5L14,11V20Z"/>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   width="12px"
+   height="12px"
+   viewBox="0 0 24 24"
+   fill="#C792EA"
+   id="svg6"
+   sodipodi:docname="implementingFunctionInterface.svg"
+   inkscape:version="0.92.3 (unknown)">
+  <metadata
+     id="metadata12">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs10" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="863"
+     inkscape:window-height="491"
+     id="namedview8"
+     showgrid="false"
+     inkscape:zoom="3.4766083"
+     inkscape:cx="9.6873452"
+     inkscape:cy="1.3030904"
+     inkscape:window-x="1320"
+     inkscape:window-y="175"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg6" />
+  <path
+     style="font-style:normal;font-weight:normal;font-size:2050.27807617px;font-family:'Times New Roman';display:inline;opacity:0.98000004;fill:#c792ea;fill-opacity:1;stroke:none;stroke-width:0.14646482;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:0.01464648, 0.01464648;stroke-dashoffset:0;stroke-opacity:0.57647059;paint-order:stroke fill markers"
+     d="m 18.156546,17.904903 h 0.502098 c 0,1.469111 -0.239442,2.538392 -0.718282,3.207856 -0.478867,0.669466 -1.07627,1.004197 -1.792212,1.004197 -0.585794,0 -1.148329,-0.220831 -1.68761,-0.662492 -0.539301,-0.441661 -1.022805,-1.624846 -1.45051,-3.549561 l -1.199457,-5.411509 -4.1562638,9.4283 H 5.0182897 L 10.987688,9.0623856 C 10.671545,7.3980339 10.290322,6.1660317 9.844018,5.3663799 9.3977038,4.5667567 8.8444644,4.1669378 8.1843026,4.1669203 c -0.5299967,0 -0.9925772,0.2022526 -1.3877457,0.6067041 C 6.4013851,5.1781088 6.180554,5.803406 6.1340649,6.6495204 H 5.6319664 C 5.6598578,5.2827108 5.9341544,4.1878597 6.454851,3.3649569 6.9755421,2.5420899 7.6264117,2.1306477 8.4074566,2.13063 c 0.502096,0 0.9786242,0.2069037 1.4295874,0.6206501 0.450955,0.4137854 0.841475,1.1204409 1.171563,2.1199738 0.330078,0.9995646 0.843799,3.0707185 1.541166,6.2134721 l 0.990249,4.421261 c 0.399812,1.831737 0.820553,3.056767 1.262223,3.675088 0.44165,0.618327 0.969319,0.92749 1.583006,0.927486 1.041376,4e-6 1.631808,-0.734547 1.771295,-2.203658 z"
+     id="path7"
+     inkscape:connector-curvature="0" />
+  <path
+     fill="#E57373"
+     transform="scale(0.75) translate(12 -4)"
+     d="M14,20H10V11L6.5,14.5L4.08,12.08L12,4.16L19.92,12.08L17.5,14.5L14,11V20Z"
+     id="path4" />
 </svg>
