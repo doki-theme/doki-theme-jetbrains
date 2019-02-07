@@ -115,6 +115,9 @@ public final class IconReplacer {
       final Object url = urlField.get(icon);
       if (url instanceof URL) {
         String path = ((URL) url).getPath();
+        if(path.contains("implementing")){
+          System.out.println("dis");
+        }
         if (path != null && path.contains("!")) {
           path = path.substring(path.lastIndexOf(33) + 1);
 

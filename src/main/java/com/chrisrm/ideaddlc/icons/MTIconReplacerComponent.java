@@ -56,6 +56,7 @@ public final class MTIconReplacerComponent implements BaseComponent {
     //todo: figure out how to have it be replaceable
     IconLoader.installPathPatcher(new AccentTintedIconsPatcher());
     IconLoader.installPathPatcher(new ThemedTintedIconsPatcher());
+    installPathPatcher(new GutterGlyphsPatcher());
   }
 
   @SuppressWarnings("OverlyCoupledMethod")
