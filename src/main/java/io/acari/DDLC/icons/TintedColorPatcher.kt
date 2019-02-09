@@ -89,6 +89,8 @@ class TintedColorPatcher internal constructor(connect: MessageBusConnection) : S
 
     internal fun refreshThemeColor(theme: DDLCThemeFacade) {
       themedColor = ColorUtil.toHex(theme.theme.tintedIconColor)
+      themedStart = theme.theme.startColor
+      themedStop = theme.theme.stopColor
     }
 
     private fun refreshColors() {
