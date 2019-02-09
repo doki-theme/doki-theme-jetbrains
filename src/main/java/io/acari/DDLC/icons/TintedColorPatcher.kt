@@ -39,8 +39,11 @@ class TintedColorPatcher internal constructor(connect: MessageBusConnection) : S
   }
 
   override fun patchColors(@NonNls svg: Element) {
-    @NonNls val tint = svg.getAttribute("tint")
-    @NonNls val themed = svg.getAttribute("themed")
+    val tint = svg.getAttribute("tint")
+    val themed = svg.getAttribute("themed")
+    val themedStartAttr = svg.getAttribute("themedStart")
+    val themedStopAttr = svg.getAttribute("themedStop")
+    val themedFillAttr = svg.getAttribute("themedFill")
 
     if ("true" == tint || "fill" == tint) {
       svg.setAttribute("fill", "#$accentColor")
@@ -50,6 +53,13 @@ class TintedColorPatcher internal constructor(connect: MessageBusConnection) : S
       svg.setAttribute("fill", "#$themedColor")
     } else if ("stroke" == themed) {
       svg.setAttribute("stroke", "#$themedColor")
+    } else if ("true" == themedStartAttr){
+      svg.setAttribute("stop-color","#$themedStart")
+    } else if ("true" == themedStopAttr){
+      svg.setAttribute("stop-color","#$themedStop")
+    } else if ("true" == themedFillAttr){
+      svg.setAttribute("fill","#$themedStop")
+      svg.setAttribute("stroke","#$themedStop")
     }
 
     val nodes = svg.childNodes
@@ -67,6 +77,9 @@ class TintedColorPatcher internal constructor(connect: MessageBusConnection) : S
     private var accentColor = MTAccents.TURQUOISE.hexColor
     @NonNls
     private var themedColor = MTAccents.OCEANIC.hexColor
+
+    private var themedStart = MTAccents.CYAN.hexColor
+    private var themedStop = MTAccents.TURQUOISE.hexColor
 
     private val CONFIG = MTConfig.getInstance()
 
