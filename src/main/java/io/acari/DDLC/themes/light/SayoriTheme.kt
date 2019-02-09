@@ -49,4 +49,8 @@ class SayoriTheme : DokiDokiTheme("sayori", "Sayori", false, "Sayori") {
     override fun getForegroundColorResource(): ColorUIResource = ColorUIResource(0x5A75EA)
 
     override fun getTableSelectedColorString(): String = "A7CFFF"
+
+    override fun getStartColor(): String = "0D96F1"
+
+    override fun getStopColor(): String = "3DFFF3"
 }

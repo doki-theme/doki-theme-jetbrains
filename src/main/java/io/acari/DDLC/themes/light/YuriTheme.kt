@@ -38,9 +38,7 @@ class YuriTheme : DokiDokiTheme("yuri", "Yuri", false, "Yuri") {
 
     override fun getButtonForegroundColor(): String = "6B1C9A"
 
-    override fun getAccentColor(): String {
-        return MTAccents.AMETHYST.hexColor
-    }
+    override fun getAccentColor(): String = MTAccents.AMETHYST.hexColor
 
     override fun getBackgroundColorResource(): ColorUIResource = ColorUIResource(0xe8e4ff)
 
@@ -49,4 +47,8 @@ class YuriTheme : DokiDokiTheme("yuri", "Yuri", false, "Yuri") {
     override fun getTableSelectedColorString(): String = "B6A2DC"
 
     override fun getHighlightColorString(): String = "a7a7ff"
+
+    override fun getStartColor(): String = "870AD2"
+
+    override fun getStopColor(): String = "F667FF"
 }
