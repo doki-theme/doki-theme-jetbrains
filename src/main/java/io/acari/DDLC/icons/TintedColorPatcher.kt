@@ -1,4 +1,4 @@
-package com.chrisrm.ideaddlc.icons
+package io.acari.DDLC.icons
 
 import com.chrisrm.ideaddlc.MTConfig
 import com.chrisrm.ideaddlc.listeners.AccentsListener
@@ -11,10 +11,7 @@ import com.intellij.util.messages.MessageBusConnection
 import io.acari.DDLC.DDLCThemeFacade
 import org.jetbrains.annotations.NonNls
 import org.w3c.dom.Element
-import org.w3c.dom.Node
-import org.w3c.dom.NodeList
-
-import java.awt.*
+import java.awt.Color
 
 class TintedColorPatcher internal constructor(connect: MessageBusConnection) : SVGLoader.SvgColorPatcher {
 

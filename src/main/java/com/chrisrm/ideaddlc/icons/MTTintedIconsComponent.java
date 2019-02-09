@@ -45,7 +45,7 @@ public final class MTTintedIconsComponent implements BaseComponent {
   static {
     LegacySupportUtility.INSTANCE.invokeClassSafely("com.intellij.ide.ui.laf.darcula.ui.DarculaSeparatorUI", () -> {
       connect = ApplicationManager.getApplication().getMessageBus().connect();
-      Class<?> aClass = Class.forName("com.chrisrm.ideaddlc.icons.TintedColorPatcher");
+      Class<?> aClass = Class.forName("io.acari.DDLC.icons.TintedColorPatcher");
       Constructor<?>[] declaredConstructors = aClass.getDeclaredConstructors();
       patcher = declaredConstructors[0].newInstance(connect);
     });
