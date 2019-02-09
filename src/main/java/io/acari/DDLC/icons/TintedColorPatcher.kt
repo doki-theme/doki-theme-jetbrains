@@ -58,8 +58,8 @@ class TintedColorPatcher internal constructor(connect: MessageBusConnection) : S
     } else if ("true" == themedStopAttr){
       svg.setAttribute("stop-color","#$themedStop")
     } else if ("true" == themedFillAttr){
-      svg.setAttribute("fill","#$themedStop")
-      svg.setAttribute("stroke","#$themedStop")
+      svg.setAttribute("fill","#$themedStart")
+      svg.setAttribute("stroke","#$themedStart")
     }
 
     val nodes = svg.childNodes

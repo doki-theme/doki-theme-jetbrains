@@ -64,4 +64,9 @@ class JustMonikaTheme : DokiDokiTheme("just.monika", "Just Monika", true, "Monik
     override fun getTableSelectedColorString(): String = "224C1C"
 
     override fun getHighlightColorString(): String = "2f491d"
+
+    override fun getStartColor(): String = "0abb0d"
+
+    override fun getStopColor(): String = "FFFA11"
+
 }
