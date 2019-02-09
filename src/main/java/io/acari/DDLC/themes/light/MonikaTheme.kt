@@ -93,9 +93,9 @@ class MonikaTheme : DokiDokiTheme("monika", "Monika", false, "Monika") {
 
     override fun getBorderColor(): Color = Color.getHSBColor(62f, 91f, 149f)
 
-    override fun getStartColor(): String = "0CE010"
+    override fun getStartColor(): String = "66B757"
 
-    override fun getStopColor(): String = "FFFA11"
+    override fun getStopColor(): String = "64FF1D"
 
 
     companion object {
