@@ -5,8 +5,6 @@
 
 - Class icons are now themed to the current club member.
 - Changed function icons to be λ
--   
-
 
 # 2.4.1
 
