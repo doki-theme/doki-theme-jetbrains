@@ -47,4 +47,8 @@ class NatsukiTheme : DokiDokiTheme("natsuki", "Natsuki", false, "Natsuki") {
     override fun getTableSelectedColorString(): String = "EDB9DF"
 
     override fun getHighlightColorString(): String = "ffa7ff"
+
+    override fun getStartColor(): String = "F25AAF"
+
+    override fun getStopColor(): String = "fbadff"
 }

@@ -97,6 +97,10 @@ public interface DDLCThemeFacade {
    */
   String getAccentColor();
 
+  String getStartColor();
+
+  String getStopColor();
+
   /**
    * The extenral files color
    *

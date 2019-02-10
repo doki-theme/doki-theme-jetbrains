@@ -156,6 +156,14 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
 
     private fun getAdjustedPrimaryColor(): String = if (isDarkTheme) selectionForegroundColorString else selectionBackgroundColorString
 
+    override fun getStopColor(): String {
+        return "FFFFFF"
+    }
+
+    override fun getStartColor(): String {
+        return "000000"
+    }
+
     open fun getInactiveColorString(): String {
         return "FFF4F2"
     }

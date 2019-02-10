@@ -130,6 +130,16 @@ public enum DDLCThemes implements DDLCThemeFacade {
   }
 
   @Override
+  public String getStartColor() {
+    return getTheme().getStartColor();
+  }
+
+  @Override
+  public String getStopColor() {
+    return getTheme().getStopColor();
+  }
+
+  @Override
   public String getExcludedColor() {
     return ColorUtil.toHex(getTheme().getExcludedColor());
   }
@@ -239,6 +249,16 @@ public enum DDLCThemes implements DDLCThemeFacade {
 
       @Override
       public String getAccentColor() {
+        return theme.getAccentColor();
+      }
+
+      @Override
+      public String getStartColor() {
+        return theme.getAccentColor();
+      }
+
+      @Override
+      public String getStopColor() {
         return theme.getAccentColor();
       }
 

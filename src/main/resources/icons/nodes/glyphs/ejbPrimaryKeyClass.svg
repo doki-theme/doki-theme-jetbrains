@@ -1,5 +1,56 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="16px" height="16px"
-     viewBox="0 0 24 24" fill="#FFD54F">
-    <path d="M7,14A2,2 0 0,1 5,12A2,2 0 0,1 7,10A2,2 0 0,1 9,12A2,2 0 0,1 7,14M12.65,10C11.83,7.67 9.61,6 7,6A6,6 0 0,0 1,12A6,6 0 0,0 7,18C9.61,18 11.83,16.33 12.65,14H17V18H21V14H23V10H12.65Z"/>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   width="16px"
+   height="16px"
+   fill="#81D4FA"
+   viewBox="0 0 24 24"
+   id="svg18"
+   sodipodi:docname="colGoldKey.svg"
+   inkscape:version="0.92.3 (unknown)">
+  <metadata
+     id="metadata24">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs22" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="640"
+     inkscape:window-height="491"
+     id="namedview20"
+     showgrid="false"
+     inkscape:zoom="10.429825"
+     inkscape:cx="-6.1621489"
+     inkscape:cy="5.5604483"
+     inkscape:window-x="67"
+     inkscape:window-y="27"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg18" />
+  <path
+     inkscape:connector-curvature="0"
+     style="fill:#fdd835;stroke-width:1"
+     d="m 6.9986335,5.999023 c -3.3137085,0 -6,2.686292 -6,6 0,3.313709 2.6862915,6 6,6 C 9.608633,17.999023 11.83,16.33 12.65,14 h 4.350585 v 3.999023 h 3.999024 V 14 h 2.000976 V 9.998047 H 12.65 C 11.83,7.668047 9.608633,5.999023 6.9986335,5.999023 Z M 4.8218758,9.579102 c 0.2073501,-0.01957 0.4329882,-0.0065 0.6796875,0.0498 0.8560071,0.195572 1.4434185,0.584233 1.6171875,0.679688 0.1736568,-0.09554 0.7582506,-0.484226 1.6142572,-0.679688 1.973567,-0.450667 2.734097,1.725402 1.570313,3.366211 C 9.263627,14.188991 8.183933,14.737929 7.1187508,15.444332 6.0535406,14.737933 4.9738473,14.188994 3.9341805,12.995117 2.9158685,11.559409 3.3704245,9.716122 4.8218758,9.579102 Z"
+     id="path52" />
 </svg>

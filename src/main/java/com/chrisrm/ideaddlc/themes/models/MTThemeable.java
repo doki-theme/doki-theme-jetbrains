@@ -71,6 +71,10 @@ public interface MTThemeable {
    */
   String getEditorColorsScheme();
 
+  String getStartColor();
+
+  String getStopColor();
+
 
   /**
    * The theme's unique ID
