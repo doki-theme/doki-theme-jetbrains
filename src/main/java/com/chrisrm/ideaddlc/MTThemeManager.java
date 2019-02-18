@@ -38,6 +38,8 @@ import com.chrisrm.ideaddlc.utils.MTAccents;
 import com.chrisrm.ideaddlc.utils.MTUI;
 import com.chrisrm.ideaddlc.utils.MTUiUtils;
 import com.chrisrm.ideaddlc.utils.WinRegistry;
+import com.google.gson.Gson;
+import com.intellij.compiler.server.CustomBuilderMessageHandler;
 import com.intellij.ide.ui.LafManager;
 import com.intellij.ide.ui.UISettings;
 import com.intellij.ide.ui.laf.IntelliJLaf;
@@ -60,9 +62,12 @@ import com.intellij.ui.ColorUtil;
 import com.intellij.ui.JBColor;
 import com.intellij.util.Consumer;
 import com.intellij.util.ObjectUtils;
+import com.intellij.util.messages.MessageBus;
 import com.intellij.util.ui.JBUI;
 import com.intellij.util.ui.UIUtil;
 import io.acari.DDLC.*;
+import io.acari.DDLC.themes.AccentChangedInformation;
+import io.acari.DDLC.themes.ThemeChangedInformation;
 import org.jetbrains.annotations.NonNls;
 import sun.awt.AppContext;
 
@@ -591,15 +596,36 @@ public final class MTThemeManager {
   }
 
   private static void fireThemeChanged(final DDLCThemeFacade newTheme) {
-    ApplicationManager.getApplication().getMessageBus()
+    MessageBus messageBus = ApplicationManager.getApplication().getMessageBus();
+    messageBus
         .syncPublisher(MTTopics.THEMES)
         .themeChanged(newTheme);
+
+    messageBus.syncPublisher(CustomBuilderMessageHandler.TOPIC)
+        .messageReceived("io.acari.ddlc.theme",
+            "Theme Changed",
+            new Gson().toJson(createThemeDeltas(newTheme.getTheme())));
+  }
+
+  private static ThemeChangedInformation createThemeDeltas(MTThemeable themeable){
+    return new ThemeChangedInformation(themeable.getAccentColor(),
+        themeable.getContrastColorString());
   }
 
   private static void fireAccentChanged(final Color accentColorColor) {
-    ApplicationManager.getApplication().getMessageBus()
+    MessageBus messageBus = ApplicationManager.getApplication().getMessageBus();
+    messageBus
         .syncPublisher(MTTopics.ACCENTS)
         .accentChanged(accentColorColor);
+
+    messageBus.syncPublisher(CustomBuilderMessageHandler.TOPIC)
+        .messageReceived("io.acari.ddlc.theme",
+            "Accent Changed",
+            new Gson().toJson(createAccentDeltas(accentColorColor)));
+  }
+
+  private static AccentChangedInformation createAccentDeltas(final Color accentColor){
+    return new AccentChangedInformation(ColorUtil.toHex(accentColor));
   }
 
   //endregion
