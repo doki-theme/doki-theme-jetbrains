@@ -602,7 +602,7 @@ public final class MTThemeManager {
         .themeChanged(newTheme);
 
     messageBus.syncPublisher(CustomBuilderMessageHandler.TOPIC)
-        .messageReceived("io.acari.ddlc.theme",
+        .messageReceived("io.acari.DDLCTheme",
             "Theme Changed",
             new Gson().toJson(createThemeDeltas(newTheme.getTheme())));
   }
@@ -619,7 +619,7 @@ public final class MTThemeManager {
         .accentChanged(accentColorColor);
 
     messageBus.syncPublisher(CustomBuilderMessageHandler.TOPIC)
-        .messageReceived("io.acari.ddlc.theme",
+        .messageReceived("io.acari.DDLCTheme",
             "Accent Changed",
             new Gson().toJson(createAccentDeltas(accentColorColor)));
   }
