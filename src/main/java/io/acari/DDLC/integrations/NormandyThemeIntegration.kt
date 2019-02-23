@@ -25,7 +25,7 @@ object NormandyThemeIntegration {
     messageBus.syncPublisher(CustomBuilderMessageHandler.TOPIC)
         .messageReceived("io.acari.DDLCTheme",
             "Accent Changed",
-            Gson().toJson(createAccentDeltas(accentColor)))
+            gson.toJson(createAccentDeltas(accentColor)))
   }
 
   private fun createAccentDeltas(accentColor: Color): AccentChangedInformation =
