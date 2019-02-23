@@ -32,6 +32,9 @@ object NormandyThemeIntegration {
       AccentChangedInformation(ColorUtil.toHex(accentColor))
 
   private fun createThemeDeltas(themeable: MTThemeable): ThemeChangedInformation =
-      ThemeChangedInformation(themeable.accentColor,
-          themeable.contrastColorString)
+      ThemeChangedInformation(
+          themeable.isDark,
+          themeable.accentColor,
+          themeable.contrastColorString,
+          ColorUtil.toHex(themeable.foregroundColor))
 }
