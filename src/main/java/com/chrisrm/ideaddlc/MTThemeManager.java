@@ -66,6 +66,7 @@ import com.intellij.util.messages.MessageBus;
 import com.intellij.util.ui.JBUI;
 import com.intellij.util.ui.UIUtil;
 import io.acari.DDLC.*;
+import io.acari.DDLC.integrations.NormandyThemeIntegration;
 import io.acari.DDLC.themes.AccentChangedInformation;
 import io.acari.DDLC.themes.ThemeChangedInformation;
 import org.jetbrains.annotations.NonNls;
@@ -600,32 +601,15 @@ public final class MTThemeManager {
     messageBus
         .syncPublisher(MTTopics.THEMES)
         .themeChanged(newTheme);
-
-    messageBus.syncPublisher(CustomBuilderMessageHandler.TOPIC)
-        .messageReceived("io.acari.DDLCTheme",
-            "Theme Changed",
-            new Gson().toJson(createThemeDeltas(newTheme.getTheme())));
+    NormandyThemeIntegration.INSTANCE.themeChanged(messageBus, newTheme);
   }
 
-  private static ThemeChangedInformation createThemeDeltas(MTThemeable themeable){
-    return new ThemeChangedInformation(themeable.getAccentColor(),
-        themeable.getContrastColorString());
-  }
-
-  private static void fireAccentChanged(final Color accentColorColor) {
+  private static void fireAccentChanged(final Color accentColor) {
     MessageBus messageBus = ApplicationManager.getApplication().getMessageBus();
     messageBus
         .syncPublisher(MTTopics.ACCENTS)
-        .accentChanged(accentColorColor);
-
-    messageBus.syncPublisher(CustomBuilderMessageHandler.TOPIC)
-        .messageReceived("io.acari.DDLCTheme",
-            "Accent Changed",
-            new Gson().toJson(createAccentDeltas(accentColorColor)));
-  }
-
-  private static AccentChangedInformation createAccentDeltas(final Color accentColor){
-    return new AccentChangedInformation(ColorUtil.toHex(accentColor));
+        .accentChanged(accentColor);
+    NormandyThemeIntegration.INSTANCE.accentChanged(messageBus, accentColor);
   }
 
   //endregion
