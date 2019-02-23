@@ -38,8 +38,6 @@ import com.chrisrm.ideaddlc.utils.MTAccents;
 import com.chrisrm.ideaddlc.utils.MTUI;
 import com.chrisrm.ideaddlc.utils.MTUiUtils;
 import com.chrisrm.ideaddlc.utils.WinRegistry;
-import com.google.gson.Gson;
-import com.intellij.compiler.server.CustomBuilderMessageHandler;
 import com.intellij.ide.ui.LafManager;
 import com.intellij.ide.ui.UISettings;
 import com.intellij.ide.ui.laf.IntelliJLaf;
@@ -67,8 +65,6 @@ import com.intellij.util.ui.JBUI;
 import com.intellij.util.ui.UIUtil;
 import io.acari.DDLC.*;
 import io.acari.DDLC.integrations.NormandyThemeIntegration;
-import io.acari.DDLC.themes.AccentChangedInformation;
-import io.acari.DDLC.themes.ThemeChangedInformation;
 import org.jetbrains.annotations.NonNls;
 import sun.awt.AppContext;
 

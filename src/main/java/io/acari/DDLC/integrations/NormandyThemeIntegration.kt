@@ -14,7 +14,6 @@ object NormandyThemeIntegration {
   private val gson = Gson()
 
   fun themeChanged(messageBus: MessageBus, newTheme: DDLCThemeFacade) {
-
     messageBus.syncPublisher(CustomBuilderMessageHandler.TOPIC)
         .messageReceived("io.acari.DDLCTheme",
             "Theme Changed",
