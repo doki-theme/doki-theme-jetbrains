@@ -49,3 +49,4 @@ Maybe do the tab thing
 
 Shit to fix
 ----
+- Active tab on action bar.
