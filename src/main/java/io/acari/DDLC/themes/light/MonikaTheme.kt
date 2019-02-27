@@ -46,7 +46,7 @@ class MonikaTheme : DokiDokiTheme("monika", "Monika", false, "Monika") {
         return MTAccents.BREAKING_BAD.hexColor
     }
 
-    override fun getBackgroundColorResource(): ColorUIResource = ColorUIResource(0xf2fadf)
+    override fun getBackgroundColorResource(): ColorUIResource = ColorUIResource(0xB5FAAA)
 
     override fun getForegroundColorResource(): ColorUIResource = ColorUIResource(0x487A52)
 
@@ -66,7 +66,7 @@ class MonikaTheme : DokiDokiTheme("monika", "Monika", false, "Monika") {
 
     override fun getDisabledColorString(): String = "000000"
 
-    override fun getSecondaryBackgroundColorString(): String = "d8f26e"
+    override fun getSecondaryBackgroundColorString(): String = "B0FA9C"
 
     override fun getInactiveColorString(): String = "BFE1B8"
 
@@ -83,7 +83,7 @@ class MonikaTheme : DokiDokiTheme("monika", "Monika", false, "Monika") {
     //todo: this may be important
     override fun getForegroundColorString(): String = "546E7A"
 
-    override fun getBackgroundColorString(): String = "f2fadf"
+    override fun getBackgroundColorString(): String = "AEFAB2"
 
     override fun getButtonBackgroundResources(): Stream<String> = Stream.concat(super.getButtonBackgroundResources(), Stream.of(
             "Button.mt.color1",
