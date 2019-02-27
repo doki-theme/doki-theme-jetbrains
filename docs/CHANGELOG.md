@@ -1,6 +1,12 @@
 # Changelog
 ----
 
+# 2.5.1
+
+- Supports auto theming integration with the SSV Normandy progress bar plugin.
+    - Auto-Theming only works for Intellij at the moment.
+- Also fixed theme customization form.
+
 # 2.5.0
 
 - Class icons are now themed to the current club member.
