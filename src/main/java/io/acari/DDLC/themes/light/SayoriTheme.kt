@@ -6,7 +6,7 @@ import javax.swing.plaf.ColorUIResource
 
 class SayoriTheme : DokiDokiTheme("sayori", "Sayori", false, "Sayori") {
 
-    override fun getBackgroundColorString(): String = "f4fbfe"
+    override fun getBackgroundColorString(): String = "D7FEFC"
 
     override fun getClubMember(): String = "sayori.png"
 
@@ -32,7 +32,7 @@ class SayoriTheme : DokiDokiTheme("sayori", "Sayori", false, "Sayori") {
 
     override fun getHighlightColorString(): String = "aaddff"
 
-    override fun getContrastColorString(): String = "d8f2ff"
+    override fun getContrastColorString(): String = "D3FCFF"
 
     override fun getEditorTabColorString(): String = contrastColorString
 
@@ -44,7 +44,7 @@ class SayoriTheme : DokiDokiTheme("sayori", "Sayori", false, "Sayori") {
         return MTAccents.CYAN.hexColor
     }
 
-    override fun getBackgroundColorResource(): ColorUIResource = ColorUIResource(0xf4fbfe)
+    override fun getBackgroundColorResource(): ColorUIResource = ColorUIResource(0xD4FCFE)
 
     override fun getForegroundColorResource(): ColorUIResource = ColorUIResource(0x5A75EA)
 
