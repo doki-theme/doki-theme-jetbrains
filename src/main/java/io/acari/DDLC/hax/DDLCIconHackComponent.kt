@@ -3,6 +3,7 @@ package io.acari.DDLC.hax
 import com.chrisrm.ideaddlc.MTThemeManager
 import com.intellij.openapi.util.IconLoader
 import io.acari.DDLC.DDLCApplicationInitializationComponent
+import java.lang.reflect.Field
 
 object DDLCIconHackComponent {
 
@@ -20,9 +21,9 @@ object DDLCIconHackComponent {
     }
   }
 
-  fun fetchPatches() = IconLoader::class.java.getDeclaredField("ourPatchers")
+  fun fetchPatches(): Field = IconLoader::class.java.getDeclaredField("ourPatchers")
 
-  fun hasOldMethod() =
+  private fun hasOldMethod() =
       try {
         fetchPatches()
         true
