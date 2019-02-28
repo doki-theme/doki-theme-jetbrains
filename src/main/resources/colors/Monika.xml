@@ -35,7 +35,7 @@
     </metaInfo>
     <option name="LINE_SPACING" value="1.4"/>
     <font>
-        <option name="EDITOR_FONT_NAME" value="DejaVu Sans Mono"/>
+        <option name="EDITOR_FONT_NAME" value="Fira Code"/>
         <option name="EDITOR_FONT_SIZE" value="12"/>
     </font>
     <font>
@@ -52,7 +52,7 @@
         <option name="CARET_COLOR" value="000000"/>
         <!--TODO: IMPORTANT-->
         <option name="CARET_ROW_COLOR" value="def7a5"/>
-        <option name="CONSOLE_BACKGROUND_KEY" value="fffcfc"/>
+        <option name="CONSOLE_BACKGROUND_KEY" value="eaffe3"/>
         <option name="DOCUMENTATION_COLOR" value="f3f5f6"/>
         <option name="FILESTATUS_ADDED" value="5EB800"/>
         <option name="FILESTATUS_COPIED" value="5EB800"/>
@@ -163,7 +163,7 @@
         </option>
         <option name="Abstract class name">
             <value>
-                <option name="FOREGROUND" value="41B05F"/>
+                <option name="FOREGROUND" value="3D553D"/>
             </value>
         </option>
         <option name="Annotation">
@@ -173,7 +173,7 @@
         </option>
         <option name="Anonymous class name">
             <value>
-                <option name="FOREGROUND" value="41B05F"/>
+                <option name="FOREGROUND" value="3D553D"/>
             </value>
         </option>
         <option name="Anotation attribute name">
@@ -373,12 +373,12 @@
         </option>
         <option name="CLASS_REFERENCE">
             <value>
-                <option name="FOREGROUND" value="1a1f29"/>
+                <option name="FOREGROUND" value="3D553D"/>
             </value>
         </option>
         <option name="COFFEESCRIPT.CLASS_NAME">
             <value>
-                <option name="FOREGROUND" value="41B05F"/>
+                <option name="FOREGROUND" value="3D553D"/>
             </value>
         </option>
         <option name="COFFEESCRIPT.COLON">
@@ -608,7 +608,7 @@
         </option>
         <option name="Class">
             <value>
-                <option name="FOREGROUND" value="41B05F"/>
+                <option name="FOREGROUND" value="3D553D"/>
             </value>
         </option>
         <option name="CUSTOM_LINE_COMMENT_ATTRIBUTES" baseAttributes="DEFAULT_LINE_COMMENT"/>
@@ -640,12 +640,12 @@
         </option>
         <option name="DEFAULT_CLASS_NAME">
             <value>
-                <option name="FOREGROUND" value="41B05F"/>
+                <option name="FOREGROUND" value="3D553D"/>
             </value>
         </option>
         <option name="DEFAULT_CLASS_REFERENCE">
             <value>
-                <option name="FOREGROUND" value="37D14C"/>
+                <option name="FOREGROUND" value="3D553D"/>
             </value>
         </option>
         <option name="DEFAULT_COMMA">
@@ -1381,7 +1381,7 @@
         </option>
         <option name="JS.CLASS">
             <value>
-                <option name="FOREGROUND" value="41B05F"/>
+                <option name="FOREGROUND" value="3D553D"/>
             </value>
         </option>
         <option name="JS.COMMA">
@@ -2246,7 +2246,7 @@
         </option>
         <option name="OC.CLASS_REFERENCE">
             <value>
-                <option name="FOREGROUND" value="41B05F"/>
+                <option name="FOREGROUND" value="3D553D"/>
             </value>
         </option>
         <option name="OC.COMMA">
@@ -2479,7 +2479,7 @@
         </option>
         <option name="PHP_CLASS">
             <value>
-                <option name="FOREGROUND" value="41B05F"/>
+                <option name="FOREGROUND" value="3D553D"/>
             </value>
         </option>
         <option name="PHP_COMMA">
@@ -2667,7 +2667,7 @@
         </option>
         <option name="PY.CLASS_DEFINITION">
             <value>
-                <option name="FOREGROUND" value="41B05F"/>
+                <option name="FOREGROUND" value="3D553D"/>
                 <option name="EFFECT_TYPE" value="1"/>
             </value>
         </option>
@@ -3210,7 +3210,7 @@
         </option>
         <option name="Scala Abstract class">
             <value>
-                <option name="FOREGROUND" value="5EB800"/>
+                <option name="FOREGROUND" value="3D553D"/>
             </value>
         </option>
         <option name="Scala Annotation attribute name">
@@ -3257,7 +3257,7 @@
         </option>
         <option name="Scala Class">
             <value>
-                <option name="FOREGROUND" value="41B05F"/>
+                <option name="FOREGROUND" value="3D553D"/>
             </value>
         </option>
         <option name="Scala Class method call">
@@ -3511,7 +3511,7 @@
         <option name="TEXT">
             <value>
                 <option name="FOREGROUND" value="578D42"/>
-                <option name="BACKGROUND" value="ffffff"/>
+                <option name="BACKGROUND" value="eaffe3"/>
                 <option name="EFFECT_TYPE" value="5"/>
             </value>
         </option>
