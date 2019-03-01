@@ -6,7 +6,7 @@ import javax.swing.plaf.ColorUIResource
 
 class NatsukiTheme : DokiDokiTheme("natsuki", "Natsuki", false, "Natsuki") {
 
-    override fun getBackgroundColorString(): String = "fff3fc"
+    override fun getBackgroundColorString(): String = "ffeafa"
 
     override fun getClubMember(): String = "natsuki.png"
 
