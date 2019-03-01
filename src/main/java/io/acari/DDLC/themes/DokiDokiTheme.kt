@@ -165,7 +165,7 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
     }
 
     open fun getInactiveColorString(): String {
-        return "FFF4F2"
+        return "b4fbae"
     }
 
     override fun getTestScope(): String {
@@ -206,7 +206,7 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
     }
 
     override fun getButtonColorString(): String {
-        return "FFF4F2"
+        return "b4fbae"
     }
 
     override fun getTreeSelectionColorString(): String {

@@ -56,7 +56,7 @@ class MonikaTheme : DokiDokiTheme("monika", "Monika", false, "Monika") {
 
     fun getButtonHighlightColorString(): String = "F2F1F1"
 
-    override fun getHighlightColorString(): String = "aadd5d"
+    override fun getHighlightColorString(): String = "8ef36f"
 
     override fun getSecondBorderColorString(): String = "d3e1e8"
 
@@ -70,7 +70,9 @@ class MonikaTheme : DokiDokiTheme("monika", "Monika", false, "Monika") {
 
     override fun getInactiveColorString(): String = "BFE1B8"
 
-    override fun getButtonColorString(): String = "FFF4F2"
+    override fun getButtonColorString(): String = "b4fbae"
+
+    override fun getButtonBackgroundColor(): String = "a0f49a"
 
     //  todo: imporant
     override fun getSelectionForegroundColorString(): String = "447152"
