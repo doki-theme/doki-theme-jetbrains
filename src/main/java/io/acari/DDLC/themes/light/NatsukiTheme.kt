@@ -6,13 +6,13 @@ import javax.swing.plaf.ColorUIResource
 
 class NatsukiTheme : DokiDokiTheme("natsuki", "Natsuki", false, "Natsuki") {
 
-    override fun getBackgroundColorString(): String = "ffeafa"
+    override fun getBackgroundColorString(): String = "FFD5FA"
 
     override fun getClubMember(): String = "natsuki.png"
 
     override fun joyfulClubMember(): String = "natsuki_joy.png"
 
-    override fun getSecondaryBackgroundColorString(): String = "ffe0f2"
+    override fun getSecondaryBackgroundColorString(): String = "FFD7FA"
 
     override fun getSecondaryForegroundColorString(): String = "b9198d"
 
@@ -24,7 +24,7 @@ class NatsukiTheme : DokiDokiTheme("natsuki", "Natsuki", false, "Natsuki") {
 
     override fun getTreeSelectionBackgroundColorString(): String = "ffd5fa"
 
-    override fun getInactiveColorString(): String = "ffc8de"
+    override fun getInactiveColorString(): String = "FFC5DE"
 
     override fun getMenuBarSelectionForegroundColorString(): String = "ffffff"
 
@@ -32,7 +32,7 @@ class NatsukiTheme : DokiDokiTheme("natsuki", "Natsuki", false, "Natsuki") {
 
     override fun getNotificationsColorString(): String = "ffc7ec"
 
-    override fun getContrastColorString(): String = "fedfff"
+    override fun getContrastColorString(): String = "FED4FF"
 
     override fun getEditorTabColorString(): String = contrastColorString
 
@@ -42,13 +42,13 @@ class NatsukiTheme : DokiDokiTheme("natsuki", "Natsuki", false, "Natsuki") {
         return MTAccents.FUCHSIA.hexColor
     }
 
-    override fun getBackgroundColorResource(): ColorUIResource = ColorUIResource(0xffebfa)
+    override fun getBackgroundColorResource(): ColorUIResource = ColorUIResource(0xffdcfa)
 
     override fun getForegroundColorResource(): ColorUIResource = ColorUIResource(0xEA427E)
 
     override fun getTableSelectedColorString(): String = "EDB9DF"
 
-    override fun getHighlightColorString(): String = "ffa7ff"
+    override fun getHighlightColorString(): String = "FFB4FF"
 
     override fun getStartColor(): String = "F25AAF"
 
