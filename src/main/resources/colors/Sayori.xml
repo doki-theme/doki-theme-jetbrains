@@ -164,7 +164,7 @@
         </option>
         <option name="Abstract class name">
             <value>
-                <option name="FOREGROUND" value="FF9C00"/>
+                <option name="FOREGROUND" value="E38B00"/>
             </value>
         </option>
         <option name="Annotation">
@@ -174,7 +174,7 @@
         </option>
         <option name="Anonymous class name">
             <value>
-                <option name="FOREGROUND" value="FF9C00"/>
+                <option name="FOREGROUND" value="E38B00"/>
             </value>
         </option>
         <option name="Anotation attribute name">
@@ -336,7 +336,7 @@
         </option>
         <option name="COFFEESCRIPT.CLASS_NAME">
             <value>
-                <option name="FOREGROUND" value="FF9C00"/>
+                <option name="FOREGROUND" value="E38B00"/>
             </value>
         </option>
         <option name="COFFEESCRIPT.COLON">
@@ -566,7 +566,7 @@
         </option>
         <option name="Class">
             <value>
-                <option name="FOREGROUND" value="FF9C00"/>
+                <option name="FOREGROUND" value="E38B00"/>
             </value>
         </option>
         <option name="CUSTOM_LINE_COMMENT_ATTRIBUTES" baseAttributes="DEFAULT_LINE_COMMENT"/>
@@ -598,7 +598,7 @@
         </option>
         <option name="DEFAULT_CLASS_NAME">
             <value>
-                <option name="FOREGROUND" value="FF9C00"/>
+                <option name="FOREGROUND" value="E38B00"/>
             </value>
         </option>
         <option name="DEFAULT_CLASS_REFERENCE">
@@ -1339,7 +1339,7 @@
         </option>
         <option name="JS.CLASS">
             <value>
-                <option name="FOREGROUND" value="FF9C00"/>
+                <option name="FOREGROUND" value="E38B00"/>
             </value>
         </option>
         <option name="JS.COMMA">
@@ -2204,7 +2204,7 @@
         </option>
         <option name="OC.CLASS_REFERENCE">
             <value>
-                <option name="FOREGROUND" value="FF9C00"/>
+                <option name="FOREGROUND" value="E38B00"/>
             </value>
         </option>
         <option name="OC.COMMA">
@@ -2437,7 +2437,7 @@
         </option>
         <option name="PHP_CLASS">
             <value>
-                <option name="FOREGROUND" value="FF9C00"/>
+                <option name="FOREGROUND" value="E38B00"/>
             </value>
         </option>
         <option name="PHP_COMMA">
@@ -2625,7 +2625,7 @@
         </option>
         <option name="PY.CLASS_DEFINITION">
             <value>
-                <option name="FOREGROUND" value="FF9C00"/>
+                <option name="FOREGROUND" value="E38B00"/>
                 <option name="EFFECT_TYPE" value="1"/>
             </value>
         </option>
@@ -3215,7 +3215,7 @@
         </option>
         <option name="Scala Class">
             <value>
-                <option name="FOREGROUND" value="FF9C00"/>
+                <option name="FOREGROUND" value="E38B00"/>
             </value>
         </option>
         <option name="Scala Class method call">
