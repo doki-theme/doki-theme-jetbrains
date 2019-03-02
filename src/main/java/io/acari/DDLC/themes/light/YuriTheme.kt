@@ -14,7 +14,7 @@ class YuriTheme : DokiDokiTheme("yuri", "Yuri", false, "Yuri") {
 
     override fun getSecondaryBackgroundColorString(): String = "dcc5ff"
 
-    override fun getSecondaryForegroundColorString(): String = "562474"
+    override fun getSecondaryForegroundColorString(): String = "b36cdc"
 
     override fun getSelectionForegroundColorString(): String = "c06fff"
 
