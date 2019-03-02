@@ -20,7 +20,7 @@ class SayoriTheme : DokiDokiTheme("sayori", "Sayori", false, "Sayori") {
 
     override fun getSelectionBackgroundColorString(): String = "99ebf0"
 
-    override fun getTreeSelectionBackgroundColorString(): String = "546eec"
+    override fun getTreeSelectionBackgroundColorString(): String = "67C1EC"
 
     override fun getInactiveColorString(): String = "C2D2FF"
 
@@ -30,7 +30,7 @@ class SayoriTheme : DokiDokiTheme("sayori", "Sayori", false, "Sayori") {
 
     override fun getNotificationsColorString(): String = "c3e8ff"
 
-    override fun getHighlightColorString(): String = "aaddff"
+    override fun getHighlightColorString(): String = "aafffe"
 
     override fun getContrastColorString(): String = "D3FCFF"
 

@@ -108,7 +108,7 @@ class MonikaTheme : DokiDokiTheme("monika", "Monika", false, "Monika") {
         val SELECTION_FOREGROUND = "000000"
         val LABEL = "546E7A" // 84, 110, 122
         val DISABLED = "81d7f7"//not really important
-        val NON_PROJECT_FILES = "fdffce"
+        val NON_PROJECT_FILES = "feffed"
         val TEST_FILES = "bbff7e"
     }
 }
