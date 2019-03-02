@@ -52,7 +52,9 @@ class MonikaTheme : DokiDokiTheme("monika", "Monika", false, "Monika") {
 
     override fun getNotificationsColorString(): String = "C3E88D"
 
-    override fun getTreeSelectionBackgroundColorString(): String = "546E50"
+    override fun getTreeSelectionBackgroundColorString(): String = "7fdf70"
+
+    override fun getTreeSelectionForegroundColorString(): String = "000000"
 
     fun getButtonHighlightColorString(): String = "F2F1F1"
 
