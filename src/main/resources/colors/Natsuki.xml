@@ -52,7 +52,7 @@
         <option name="CARET_COLOR" value="ff79c9"/>
         <!--TODO: IMPORTANT-->
         <option name="CARET_ROW_COLOR" value="ffe0fc"/>
-        <option name="CONSOLE_BACKGROUND_KEY" value="fff3fb"/>
+        <option name="CONSOLE_BACKGROUND_KEY" value="ffeef9"/>
         <option name="DOCUMENTATION_COLOR" value="f3f5f6"/>
         <option name="FILESTATUS_ADDED" value="CD368F"/>
         <option name="FILESTATUS_COPIED" value="CD368F"/>
@@ -3469,7 +3469,7 @@
         <option name="TEXT">
             <value>
                 <option name="FOREGROUND" value="8D3A74"/>
-                <option name="BACKGROUND" value="fff3fb"/>
+                <option name="BACKGROUND" value="ffeef9"/>
                 <option name="EFFECT_TYPE" value="5"/>
             </value>
         </option>
