@@ -52,7 +52,7 @@
         <option name="CARET_COLOR" value="000000"/>
         <!--TODO: IMPORTANT-->
         <option name="CARET_ROW_COLOR" value="def7a5"/>
-        <option name="CONSOLE_BACKGROUND_KEY" value="e4ffea"/>
+        <option name="CONSOLE_BACKGROUND_KEY" value="e7ffec"/>
         <option name="DOCUMENTATION_COLOR" value="f3f5f6"/>
         <option name="FILESTATUS_ADDED" value="5EB800"/>
         <option name="FILESTATUS_COPIED" value="5EB800"/>
@@ -76,7 +76,7 @@
         <option name="FILESTATUS_changelistConflict" value="d5756c"/>
         <option name="FILESTATUS_modifiedOutside" value="7CA031"/>
         <!--todo: important-->
-        <option name="GUTTER_BACKGROUND" value="94dd6f"/>
+        <option name="GUTTER_BACKGROUND" value="7ddd6f"/>
         <!--todo: important-->
         <option name="LINE_NUMBERS_COLOR" value="063d3f"/>
         <option name="INDENT_GUIDE" value="6D8765"/>
@@ -3511,7 +3511,7 @@
         <option name="TEXT">
             <value>
                 <option name="FOREGROUND" value="578D42"/>
-                <option name="BACKGROUND" value="e4ffea"/>
+                <option name="BACKGROUND" value="e7ffec"/>
                 <option name="EFFECT_TYPE" value="5"/>
             </value>
         </option>
