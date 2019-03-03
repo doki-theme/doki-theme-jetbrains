@@ -60,9 +60,11 @@ import com.intellij.ui.ColorUtil;
 import com.intellij.ui.JBColor;
 import com.intellij.util.Consumer;
 import com.intellij.util.ObjectUtils;
+import com.intellij.util.messages.MessageBus;
 import com.intellij.util.ui.JBUI;
 import com.intellij.util.ui.UIUtil;
 import io.acari.DDLC.*;
+import io.acari.DDLC.integrations.NormandyThemeIntegration;
 import org.jetbrains.annotations.NonNls;
 import sun.awt.AppContext;
 
@@ -591,15 +593,19 @@ public final class MTThemeManager {
   }
 
   private static void fireThemeChanged(final DDLCThemeFacade newTheme) {
-    ApplicationManager.getApplication().getMessageBus()
+    MessageBus messageBus = ApplicationManager.getApplication().getMessageBus();
+    messageBus
         .syncPublisher(MTTopics.THEMES)
         .themeChanged(newTheme);
+    NormandyThemeIntegration.INSTANCE.themeChanged(messageBus, newTheme);
   }
 
-  private static void fireAccentChanged(final Color accentColorColor) {
-    ApplicationManager.getApplication().getMessageBus()
+  private static void fireAccentChanged(final Color accentColor) {
+    MessageBus messageBus = ApplicationManager.getApplication().getMessageBus();
+    messageBus
         .syncPublisher(MTTopics.ACCENTS)
-        .accentChanged(accentColorColor);
+        .accentChanged(accentColor);
+    NormandyThemeIntegration.INSTANCE.accentChanged(messageBus, accentColor);
   }
 
   //endregion
