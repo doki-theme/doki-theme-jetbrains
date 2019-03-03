@@ -52,5 +52,5 @@ class YuriTheme : DokiDokiTheme("yuri", "Yuri", false, "Yuri") {
 
     override fun getStopColor(): String = "F595FF"
 
-    override fun getNonProjectFileScopeColor(): String = "f8e1ee"
+    override fun getNonProjectFileScopeColor(): String = "fdf4fb"
 }

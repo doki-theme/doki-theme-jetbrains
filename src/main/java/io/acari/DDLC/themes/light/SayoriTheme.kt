@@ -40,9 +40,7 @@ class SayoriTheme : DokiDokiTheme("sayori", "Sayori", false, "Sayori") {
 
     override fun getButtonForegroundColor(): String = "00559A"
 
-    override fun getAccentColor(): String {
-        return MTAccents.CYAN.hexColor
-    }
+    override fun getAccentColor(): String = MTAccents.CYAN.hexColor
 
     override fun getBackgroundColorResource(): ColorUIResource = ColorUIResource(0xD4FCFE)
 
@@ -54,5 +52,5 @@ class SayoriTheme : DokiDokiTheme("sayori", "Sayori", false, "Sayori") {
 
     override fun getStopColor(): String = "3DFFF3"
 
-    override fun getNonProjectFileScopeColor(): String = "f0fbec"
+    override fun getNonProjectFileScopeColor(): String = "dcffe9"
 }
