@@ -16,15 +16,15 @@ class NatsukiTheme : DokiDokiTheme("natsuki", "Natsuki", false, "Natsuki") {
 
     override fun getSecondaryForegroundColorString(): String = "b9198d"
 
-    override fun getSelectionForegroundColorString(): String = "fa6fe2"
+    override fun getSelectionForegroundColorString(): String = "f147d4"
 
-    override fun getSelectionBackgroundColorString(): String = "ffd5f5"
+    override fun getSelectionBackgroundColorString(): String = "ffb1ec"
 
     override fun getTreeSelectionForegroundColorString(): String = "546E7A"
 
-    override fun getTreeSelectionBackgroundColorString(): String = "ffd5fa"
+    override fun getTreeSelectionBackgroundColorString(): String = "fbb6e9"
 
-    override fun getInactiveColorString(): String = "FFC5DE"
+    override fun getInactiveColorString(): String = "fdd3f2"
 
     override fun getMenuBarSelectionForegroundColorString(): String = "ffffff"
 
