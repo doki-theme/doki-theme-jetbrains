@@ -76,6 +76,7 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
             buildResources(getBackgroundResources(), backgroundColorString)
             buildResources(getButtonBackgroundResources(), getButtonBackgroundColor())
             buildResources(getButtonForegroundResources(), getButtonForegroundColor())
+            buildResources(getSelectedButtonForegroundResources(), getSelectedButtonForegroundColor())
             buildResources(getForegroundResources(), foregroundColorString)
             buildResources(getMenuItemForegroundResources(), getMenuItemForegroundColor())
             buildResources(getTextResources(), textColorString)
@@ -513,7 +514,6 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
         return Stream.of(
                 "Button.foreground",
                 "Button.mt.foreground",
-                "Button.darcula.selectedButtonForeground",
                 "Button.mt.selectedButtonForeground",
                 "ToolWindow.header.closeButton.foreground")
     }
@@ -619,6 +619,11 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
     open fun getButtonForegroundColor(): String {
         return "C700A5"
     }
+
+  open fun getSelectedButtonForegroundColor(): String = getButtonForegroundColor()
+
+  open fun getSelectedButtonForegroundResources(): Stream<String> =
+      Stream.of("Button.darcula.selectedButtonForeground")
 
 
     open fun getMenuItemForegroundResources(): Stream<String> {
