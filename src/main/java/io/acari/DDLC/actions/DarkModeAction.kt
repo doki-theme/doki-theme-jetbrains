@@ -34,7 +34,3 @@ open class DarkModeAction : BaseThemeAction() {
 
 }
 
-class LightModeAction : DarkModeAction() {
-    override fun isSelected(e: AnActionEvent): Boolean = !super.isSelected(e)
-}
-
