@@ -53,4 +53,6 @@ class SayoriTheme : DokiDokiTheme("sayori", "Sayori", false, "Sayori") {
     override fun getStartColor(): String = "0D96F1"
 
     override fun getStopColor(): String = "3DFFF3"
+
+    override fun getNonProjectFileScopeColor(): String = "f0fbec"
 }
