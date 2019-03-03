@@ -65,11 +65,11 @@
         <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_PROPERTY_CONFLICTS" value="d5756c"/>
         <option name="FILESTATUS_IDEA_SVN_FILESTATUS_EXTERNAL" value="5EB800"/>
         <option name="FILESTATUS_IGNORE.PROJECT_VIEW.IGNORED" value="ab7967"/>
-        <option name="FILESTATUS_MERGED" value="37D14C"/>
+        <option name="FILESTATUS_MERGED" value="2FB140"/>
         <option name="FILESTATUS_MODIFIED" value="276E19"/>
         <option name="FILESTATUS_NOT_CHANGED_IMMEDIATE" value="276E19"/>
         <option name="FILESTATUS_NOT_CHANGED_RECURSIVE" value="276E19"/>
-        <option name="FILESTATUS_SWITCHED" value="37D14C"/>
+        <option name="FILESTATUS_SWITCHED" value="2FB140"/>
         <option name="FILESTATUS_SUPPRESSED" value="6D8765"/>
         <option name="FILESTATUS_UNKNOWN" value="f77669"/>
         <option name="FILESTATUS_addedOutside" value="5EB800"/>
@@ -136,7 +136,7 @@
         </option>
         <option name="ANNOTATION_ATTRIBUTE_NAME_ATTRIBUTES">
             <value>
-                <option name="FOREGROUND" value="37D14C"/>
+                <option name="FOREGROUND" value="2FB140"/>
             </value>
         </option>
         <option name="ANNOTATION_NAME_ATTRIBUTES">
@@ -157,7 +157,7 @@
         </option>
         <option name="APACHE_CONFIG.IDENTIFIER">
             <value>
-                <option name="FOREGROUND" value="37D14C"/>
+                <option name="FOREGROUND" value="2FB140"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -279,7 +279,7 @@
         </option>
         <option name="BLADE_DIRECTIVE">
             <value>
-                <option name="FOREGROUND" value="37D14C"/>
+                <option name="FOREGROUND" value="2FB140"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -723,7 +723,7 @@
         </option>
         <option name="DEFAULT_KEYWORD">
             <value>
-                <option name="FOREGROUND" value="37D14C"/>
+                <option name="FOREGROUND" value="2FB140"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -918,8 +918,8 @@
         </option>
         <option name="FOLLOWED_HYPERLINK_ATTRIBUTES">
             <value>
-                <option name="FOREGROUND" value="37D14C"/>
-                <option name="EFFECT_COLOR" value="37D14C"/>
+                <option name="FOREGROUND" value="2FB140"/>
+                <option name="EFFECT_COLOR" value="2FB140"/>
                 <option name="EFFECT_TYPE" value="1"/>
             </value>
         </option>
@@ -966,7 +966,7 @@
         </option>
         <option name="GO_BUILTIN_TYPE_REFERENCE">
             <value>
-                <option name="FOREGROUND" value="37D14C"/>
+                <option name="FOREGROUND" value="2FB140"/>
             </value>
         </option>
         <option name="GO_BUILTIN_VARIABLE">
@@ -1013,7 +1013,7 @@
         </option>
         <option name="GO_KEYWORD">
             <value>
-                <option name="FOREGROUND" value="37D14C"/>
+                <option name="FOREGROUND" value="2FB140"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -1128,7 +1128,7 @@
         </option>
         <option name="HOCON_BOOLEAN">
             <value>
-                <option name="FOREGROUND" value="37D14C"/>
+                <option name="FOREGROUND" value="2FB140"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -1156,7 +1156,7 @@
         </option>
         <option name="HOCON_INCLUDE">
             <value>
-                <option name="FOREGROUND" value="37D14C"/>
+                <option name="FOREGROUND" value="2FB140"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -1183,7 +1183,7 @@
         </option>
         <option name="HOCON_NULL">
             <value>
-                <option name="FOREGROUND" value="37D14C"/>
+                <option name="FOREGROUND" value="2FB140"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -1443,7 +1443,7 @@
         </option>
         <option name="JS.KEYWORD">
             <value>
-                <option name="FOREGROUND" value="37D14C"/>
+                <option name="FOREGROUND" value="2FB140"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -1698,7 +1698,7 @@
         </option>
         <option name="MARKDOWN_CODE_BLOCK">
             <value>
-                <option name="FOREGROUND" value="37D14C"/>
+                <option name="FOREGROUND" value="2FB140"/>
             </value>
         </option>
         <option name="MARKDOWN_CODE_FENCE">
@@ -1706,13 +1706,13 @@
         </option>
         <option name="MARKDOWN_CODE_SPAN">
             <value>
-                <option name="FOREGROUND" value="37D14C"/>
+                <option name="FOREGROUND" value="2FB140"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
         <option name="MARKDOWN_CODE_SPAN_MARKER">
             <value>
-                <option name="FOREGROUND" value="37D14C"/>
+                <option name="FOREGROUND" value="2FB140"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -1812,7 +1812,7 @@
         </option>
         <option name="MARKDOWN_LINK_TITLE">
             <value>
-                <option name="FOREGROUND" value="37D14C"/>
+                <option name="FOREGROUND" value="2FB140"/>
             </value>
         </option>
         <option name="MARKDOWN_LIST_ITEM">
@@ -1870,7 +1870,7 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.BOLD">
             <value>
-                <option name="FOREGROUND" value="37D14C"/>
+                <option name="FOREGROUND" value="2FB140"/>
                 <option name="FONT_TYPE" value="1"/>
             </value>
         </option>
@@ -1962,7 +1962,7 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.INLINE_HTML">
             <value>
-                <option name="FOREGROUND" value="37D14C"/>
+                <option name="FOREGROUND" value="2FB140"/>
                 <option name="BACKGROUND" value="CCEAE7"/>
                 <option name="EFFECT_TYPE" value="5"/>
             </value>
@@ -2040,7 +2040,7 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.SMARTS">
             <value>
-                <option name="FOREGROUND" value="37D14C"/>
+                <option name="FOREGROUND" value="2FB140"/>
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.SPECIAL_TEXT">
@@ -2259,13 +2259,13 @@
         </option>
         <option name="OC.CPP_KEYWORD">
             <value>
-                <option name="FOREGROUND" value="37D14C"/>
+                <option name="FOREGROUND" value="2FB140"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
         <option name="OC.DIRECTIVE">
             <value>
-                <option name="FOREGROUND" value="37D14C"/>
+                <option name="FOREGROUND" value="2FB140"/>
             </value>
         </option>
         <option name="OC.DOT">
@@ -2315,7 +2315,7 @@
         </option>
         <option name="OC.KEYWORD">
             <value>
-                <option name="FOREGROUND" value="37D14C"/>
+                <option name="FOREGROUND" value="2FB140"/>
             </value>
         </option>
         <option name="OC.LABEL">
@@ -2400,7 +2400,7 @@
         </option>
         <option name="OC.SELFSUPERTHIS">
             <value>
-                <option name="FOREGROUND" value="37D14C"/>
+                <option name="FOREGROUND" value="2FB140"/>
             </value>
         </option>
         <option name="OC.SEMICOLON">
@@ -2435,7 +2435,7 @@
         </option>
         <option name="OC.TYPEDEF">
             <value>
-                <option name="FOREGROUND" value="37D14C"/>
+                <option name="FOREGROUND" value="2FB140"/>
             </value>
         </option>
         <option name="PERL_ARRAY" baseAttributes="DEFAULT_IDENTIFIER"/>
@@ -2566,7 +2566,7 @@
         </option>
         <option name="PHP_KEYWORD">
             <value>
-                <option name="FOREGROUND" value="37D14C"/>
+                <option name="FOREGROUND" value="2FB140"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -2628,7 +2628,7 @@
         </option>
         <option name="PHP_TAG">
             <value>
-                <option name="FOREGROUND" value="37D14C"/>
+                <option name="FOREGROUND" value="2FB140"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -2711,7 +2711,7 @@
         </option>
         <option name="PY.KEYWORD">
             <value>
-                <option name="FOREGROUND" value="37D14C"/>
+                <option name="FOREGROUND" value="2FB140"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -2758,7 +2758,7 @@
         </option>
         <option name="PY.SELF_PARAMETER">
             <value>
-                <option name="FOREGROUND" value="37D14C"/>
+                <option name="FOREGROUND" value="2FB140"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -2826,7 +2826,7 @@
         </option>
         <option name="QL_KEYWORD">
             <value>
-                <option name="FOREGROUND" value="37D14C"/>
+                <option name="FOREGROUND" value="2FB140"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -3010,7 +3010,7 @@
         </option>
         <option name="RUBY_KEYWORD">
             <value>
-                <option name="FOREGROUND" value="37D14C"/>
+                <option name="FOREGROUND" value="2FB140"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -3133,7 +3133,7 @@
         </option>
         <option name="ReSharper.ASP_NET_RUN_AT_ATTRIBUTE">
             <value>
-                <option name="FOREGROUND" value="37D14C"/>
+                <option name="FOREGROUND" value="2FB140"/>
             </value>
         </option>
         <option name="ReSharper.DELEGATE_IDENTIFIER">
@@ -3204,7 +3204,7 @@
         </option>
         <option name="SUGGESTION">
             <value>
-                <option name="EFFECT_COLOR" value="37D14C"/>
+                <option name="EFFECT_COLOR" value="2FB140"/>
                 <option name="EFFECT_TYPE" value="2"/>
             </value>
         </option>
@@ -3215,7 +3215,7 @@
         </option>
         <option name="Scala Annotation attribute name">
             <value>
-                <option name="FOREGROUND" value="37D14C"/>
+                <option name="FOREGROUND" value="2FB140"/>
             </value>
         </option>
         <option name="Scala Annotation name">
@@ -3293,7 +3293,7 @@
         </option>
         <option name="Scala Keyword">
             <value>
-                <option name="FOREGROUND" value="37D14C"/>
+                <option name="FOREGROUND" value="2FB140"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -3471,7 +3471,7 @@
         </option>
         <option name="Scalatest keyword">
             <value>
-                <option name="FOREGROUND" value="37D14C"/>
+                <option name="FOREGROUND" value="2FB140"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>

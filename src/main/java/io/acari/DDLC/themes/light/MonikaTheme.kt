@@ -70,7 +70,7 @@ class MonikaTheme : DokiDokiTheme("monika", "Monika", false, "Monika") {
 
     override fun getSecondaryBackgroundColorString(): String = "B0FA9C"
 
-    override fun getInactiveColorString(): String = "BFE1B8"
+    override fun getInactiveColorString(): String = "C7EBC0"
 
     override fun getButtonColorString(): String = "b4fbae"
 
@@ -101,6 +101,7 @@ class MonikaTheme : DokiDokiTheme("monika", "Monika", false, "Monika") {
 
     override fun getStopColor(): String = "64FF1D"
 
+    override fun getNonProjectFileScopeColor(): String = "EBFFE2"
 
     companion object {
         val BACKGROUND = "fffcfc"
