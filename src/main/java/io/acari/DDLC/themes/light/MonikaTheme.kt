@@ -76,16 +76,13 @@ class MonikaTheme : DokiDokiTheme("monika", "Monika", false, "Monika") {
 
     override fun getButtonBackgroundColor(): String = "a0f49a"
 
-    //  todo: imporant
     override fun getSelectionForegroundColorString(): String = "447152"
 
-    //todo: important
     override fun getSelectionBackgroundColorString(): String = "99eb99"
 
     override fun getTextColorString(): String = "4d6e80"
 
-    //todo: this may be important
-    override fun getForegroundColorString(): String = "546E7A"
+    override fun getForegroundColorString(): String = "41545E"
 
     override fun getBackgroundColorString(): String = "AEFAB2"
 
@@ -97,11 +94,15 @@ class MonikaTheme : DokiDokiTheme("monika", "Monika", false, "Monika") {
 
     override fun getBorderColor(): Color = Color.getHSBColor(62f, 91f, 149f)
 
-    override fun getStartColor(): String = "66B757"
+    override fun getStartColor(): String = "5FAA51"
 
-    override fun getStopColor(): String = "64FF1D"
+    override fun getStopColor(): String = "5EEF1B"
 
     override fun getNonProjectFileScopeColor(): String = "EBFFE2"
+
+
+
+
 
     companion object {
         val BACKGROUND = "fffcfc"
