@@ -17,7 +17,7 @@ private val YuriThemeAction = YuriThemeAction()
 /**
  * Forged in the flames of battle by alex.
  */
-class DarkModeAction : BaseThemeAction() {
+open class DarkModeAction : BaseThemeAction() {
 
     override fun isSelected(e: AnActionEvent) = DarkMode.isOn()
 
@@ -33,3 +33,8 @@ class DarkModeAction : BaseThemeAction() {
 
 
 }
+
+class LightModeAction : DarkModeAction() {
+    override fun isSelected(e: AnActionEvent): Boolean = !super.isSelected(e)
+}
+

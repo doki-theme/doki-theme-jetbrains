@@ -192,8 +192,11 @@
                 <separator/>
             </group>
             <action class="io.acari.DDLC.actions.DarkModeAction" id="DarkMode" text="Toggle Dark Mode"
-                    icon="/icons/actions/themes/material_monkia_dark.png"
+                    icon="/icons/plugins/resharper/Bulb/GhostBulb.svg"
                     description="Toggle Dark Mode"/>
+            <action class="io.acari.DDLC.actions.LightModeAction" id="LightMode" text="Toggle Light Mode"
+                    icon="/icons/actions/intentionBulb.svg"
+                    description="Toggle Light Mode"/>
             <action class="io.acari.DDLC.actions.JoyAction" id="DDLCJoy"
                     text="Swap Chibi"
                     icon="/icons/actions/mt/joy.png"
