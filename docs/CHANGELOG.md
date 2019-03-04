@@ -1,6 +1,10 @@
 # Changelog
 ----
 
+# 2.6.0
+
+- IDEA Build 2019 build support!
+
 # 2.5.1
 
 - Supports auto theming integration with the SSV Normandy progress bar plugin.
