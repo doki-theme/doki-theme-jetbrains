@@ -3,7 +3,7 @@
 
 # 2.6.0
 
-- IDEA Build 2019 build support!
+- JetBrains 2019 build support!
 
 # 2.5.1
 
