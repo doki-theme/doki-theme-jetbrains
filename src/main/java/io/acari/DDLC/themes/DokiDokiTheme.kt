@@ -396,12 +396,8 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
     open fun getSelectionBackgroundResources(): Stream<String> {
         return Stream.of(
                 "inactiveCaption",
-                "Menu.selectionBackground",
                 "List.selectionBackground",
                 "Table.selectionBackground",
-                "Menu.acceleratorSelectionBackground",
-                "MenuItem.selectionBackground",
-                "MenuItem.acceleratorSelectionBackground",
                 "Table.selectionBackground",
                 "TextField.selectionBackground",
                 "PasswordField.selectionBackground",
@@ -573,7 +569,8 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
     }
 
     open fun getMenuItemSelectionBackgroundResources(): Stream<String> {
-        return Stream.of("Menu.selectionBackground",
+        return Stream.of(
+                "Menu.selectionBackground",
                 "Menu.acceleratorSelectionBackground",
                 "MenuItem.acceleratorSelectionBackground",
                 "MenuItem.selectionBackground")
