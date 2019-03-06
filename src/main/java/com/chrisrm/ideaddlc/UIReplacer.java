@@ -47,7 +47,6 @@ import com.intellij.ui.tabs.FileColorManagerImpl;
 import com.intellij.ui.tabs.TabsUtil;
 import com.intellij.util.ObjectUtils;
 import com.intellij.util.containers.ContainerUtil;
-import com.intellij.util.ui.JBUI;
 import com.intellij.util.ui.JBValue;
 import com.intellij.util.ui.UIUtil;
 import com.intellij.vcs.log.VcsLogStandardColors;
@@ -212,92 +211,96 @@ public enum UIReplacer {
   static void patchScrollbars() throws ClassNotFoundException, NoSuchFieldException, IllegalAccessException {
     final boolean isTransparentScrollbars = MTConfig.getInstance().isThemedScrollbars();
     final boolean accentScrollbars = MTConfig.getInstance().isAccentScrollbars();
-    final Class<?> scrollPainterClass = Class.forName("com.intellij.ui.components.ScrollPainter");
+    try {
+      final Class<?> scrollPainterClass = Class.forName("com.intellij.ui.components.ScrollPainter");
 
-    if (isTransparentScrollbars) {
-      final Color transparentColor = UIManager.getColor("ScrollBar.thumb");
+      if (isTransparentScrollbars) {
+        final Color transparentColor = UIManager.getColor("ScrollBar.thumb");
 
-      StaticPatcher.setFinalStatic(scrollPainterClass, "x0D", transparentColor);
-      StaticPatcher.setFinalStatic(scrollPainterClass, "xA6", transparentColor);
+        StaticPatcher.setFinalStatic(scrollPainterClass, "x0D", transparentColor);
+        StaticPatcher.setFinalStatic(scrollPainterClass, "xA6", transparentColor);
 
-      // Set transparency in windows and linux
-      final Gray gray = Gray.xA6;
-      final Color alphaGray = gray.withAlpha(60);
-      StaticPatcher.setFinalStatic(Gray.class, "xA6", alphaGray);
-      StaticPatcher.setFinalStatic(Gray.class, "x00", alphaGray);
+        // Set transparency in windows and linux
+        final Gray gray = Gray.xA6;
+        final Color alphaGray = gray.withAlpha(60);
+        StaticPatcher.setFinalStatic(Gray.class, "xA6", alphaGray);
+        StaticPatcher.setFinalStatic(Gray.class, "x00", alphaGray);
 
-      // Transparency in mac
-      StaticPatcher.setFinalStatic(Gray.class, "x80", alphaGray);
-      StaticPatcher.setFinalStatic(Gray.class, "x26", alphaGray);
+        // Transparency in mac
+        StaticPatcher.setFinalStatic(Gray.class, "x80", alphaGray);
+        StaticPatcher.setFinalStatic(Gray.class, "x26", alphaGray);
 
-      // only work from 2018.1
-      if (SystemInfo.isMac) {
-        // Control the base opacity and the delta opacity
-        Registry.get("mac.editor.thumb.default.alpha.base").setValue(0);
-        Registry.get("mac.editor.thumb.default.alpha.delta").setValue(102);
-        Registry.get("mac.editor.thumb.darcula.alpha.base").setValue(0);
-        Registry.get("mac.editor.thumb.darcula.alpha.delta").setValue(102);
+        // only work from 2018.1
+        if (SystemInfo.isMac) {
+          // Control the base opacity and the delta opacity
+          Registry.get("mac.editor.thumb.default.alpha.base").setValue(0);
+          Registry.get("mac.editor.thumb.default.alpha.delta").setValue(102);
+          Registry.get("mac.editor.thumb.darcula.alpha.base").setValue(0);
+          Registry.get("mac.editor.thumb.darcula.alpha.delta").setValue(102);
 
-        // control the difference between active and idle
-        Registry.get("mac.editor.thumb.default.fill.min").setValue(102);
-        Registry.get("mac.editor.thumb.default.fill.max").setValue(150);
-        Registry.get("mac.editor.thumb.darcula.fill.min").setValue(102);
-        Registry.get("mac.editor.thumb.darcula.fill.max").setValue(163);
+          // control the difference between active and idle
+          Registry.get("mac.editor.thumb.default.fill.min").setValue(102);
+          Registry.get("mac.editor.thumb.default.fill.max").setValue(150);
+          Registry.get("mac.editor.thumb.darcula.fill.min").setValue(102);
+          Registry.get("mac.editor.thumb.darcula.fill.max").setValue(163);
+        } else {
+          Registry.get("win.editor.thumb.default.alpha.base").setValue(0);
+          Registry.get("win.editor.thumb.default.alpha.delta").setValue(102);
+          Registry.get("win.editor.thumb.darcula.alpha.base").setValue(0);
+          Registry.get("win.editor.thumb.darcula.alpha.delta").setValue(102);
+
+          Registry.get("win.editor.thumb.default.fill.min").setValue(102);
+          Registry.get("win.editor.thumb.default.fill.max").setValue(150);
+          Registry.get("win.editor.thumb.darcula.fill.min").setValue(102);
+          Registry.get("win.editor.thumb.darcula.fill.max").setValue(150);
+        }
       } else {
-        Registry.get("win.editor.thumb.default.alpha.base").setValue(0);
-        Registry.get("win.editor.thumb.default.alpha.delta").setValue(102);
-        Registry.get("win.editor.thumb.darcula.alpha.base").setValue(0);
-        Registry.get("win.editor.thumb.darcula.alpha.delta").setValue(102);
+        // only work from 2018.1
+        if (SystemInfo.isMac) {
+          Registry.get("mac.editor.thumb.default.alpha.base").setValue(102);
+          Registry.get("mac.editor.thumb.default.alpha.delta").setValue(120);
+          Registry.get("mac.editor.thumb.darcula.alpha.base").setValue(128);
+          Registry.get("mac.editor.thumb.darcula.alpha.delta").setValue(127);
 
-        Registry.get("win.editor.thumb.default.fill.min").setValue(102);
-        Registry.get("win.editor.thumb.default.fill.max").setValue(150);
-        Registry.get("win.editor.thumb.darcula.fill.min").setValue(102);
-        Registry.get("win.editor.thumb.darcula.fill.max").setValue(150);
+          Registry.get("mac.editor.thumb.default.fill.min").setValue(90);
+          Registry.get("mac.editor.thumb.default.fill.max").setValue(50);
+          Registry.get("mac.editor.thumb.darcula.fill.min").setValue(133);
+          Registry.get("mac.editor.thumb.darcula.fill.max").setValue(150);
+        } else {
+          Registry.get("win.editor.thumb.default.alpha.base").setValue(120);
+          Registry.get("win.editor.thumb.default.alpha.delta").setValue(135);
+          Registry.get("win.editor.thumb.darcula.alpha.base").setValue(128);
+          Registry.get("win.editor.thumb.darcula.alpha.delta").setValue(127);
+
+          Registry.get("win.editor.thumb.default.fill.min").setValue(193);
+          Registry.get("win.editor.thumb.default.fill.max").setValue(163);
+          Registry.get("win.editor.thumb.darcula.fill.min").setValue(133);
+          Registry.get("win.editor.thumb.darcula.fill.max").setValue(150);
+        }
       }
-    } else {
-      // only work from 2018.1
-      if (SystemInfo.isMac) {
-        Registry.get("mac.editor.thumb.default.alpha.base").setValue(102);
-        Registry.get("mac.editor.thumb.default.alpha.delta").setValue(120);
-        Registry.get("mac.editor.thumb.darcula.alpha.base").setValue(128);
-        Registry.get("mac.editor.thumb.darcula.alpha.delta").setValue(127);
 
-        Registry.get("mac.editor.thumb.default.fill.min").setValue(90);
-        Registry.get("mac.editor.thumb.default.fill.max").setValue(50);
-        Registry.get("mac.editor.thumb.darcula.fill.min").setValue(133);
-        Registry.get("mac.editor.thumb.darcula.fill.max").setValue(150);
-      } else {
-        Registry.get("win.editor.thumb.default.alpha.base").setValue(120);
-        Registry.get("win.editor.thumb.default.alpha.delta").setValue(135);
-        Registry.get("win.editor.thumb.darcula.alpha.base").setValue(128);
-        Registry.get("win.editor.thumb.darcula.alpha.delta").setValue(127);
+      final Color accent;
+      accent = accentScrollbars ? ColorUtil.fromHex(MTConfig.getInstance().getAccentColor()) : Gray.xA6;
 
-        Registry.get("win.editor.thumb.default.fill.min").setValue(193);
-        Registry.get("win.editor.thumb.default.fill.max").setValue(163);
-        Registry.get("win.editor.thumb.darcula.fill.min").setValue(133);
-        Registry.get("win.editor.thumb.darcula.fill.max").setValue(150);
-      }
+      final MTScrollUI myScrollPainter = new MTScrollUI(2, 0.28f, 0.27f, accent, accent);
+      final Class<?> scrollPainterClass1 = Class.forName("com.intellij.ui.components.ScrollPainter$Thumb");
+      final Class<?> scrollPainterClass2 = Class.forName("com.intellij.ui.components.ScrollPainter$EditorThumb");
+      final Class<?> scrollPainterClass3 = Class.forName("com.intellij.ui.components.ScrollPainter$EditorThumb$Mac");
+
+      StaticPatcher.setFinalStatic(scrollPainterClass, "x0D", accent);
+      StaticPatcher.setFinalStatic(scrollPainterClass, "xA6", accent);
+
+      StaticPatcher.setFinalStatic(scrollPainterClass1, "DARCULA", myScrollPainter);
+      StaticPatcher.setFinalStatic(scrollPainterClass1, "DEFAULT", myScrollPainter);
+
+      StaticPatcher.setFinalStatic(scrollPainterClass2, "DARCULA", myScrollPainter);
+      StaticPatcher.setFinalStatic(scrollPainterClass2, "DEFAULT", myScrollPainter);
+
+      StaticPatcher.setFinalStatic(scrollPainterClass3, "DARCULA", myScrollPainter);
+      StaticPatcher.setFinalStatic(scrollPainterClass3, "DEFAULT", myScrollPainter);
+    } catch (Throwable ignored) {
+
     }
-
-    final Color accent;
-    accent = accentScrollbars ? ColorUtil.fromHex(MTConfig.getInstance().getAccentColor()) : Gray.xA6;
-
-    final MTScrollUI myScrollPainter = new MTScrollUI(2, 0.28f, 0.27f, accent, accent);
-    final Class<?> scrollPainterClass1 = Class.forName("com.intellij.ui.components.ScrollPainter$Thumb");
-    final Class<?> scrollPainterClass2 = Class.forName("com.intellij.ui.components.ScrollPainter$EditorThumb");
-    final Class<?> scrollPainterClass3 = Class.forName("com.intellij.ui.components.ScrollPainter$EditorThumb$Mac");
-
-    StaticPatcher.setFinalStatic(scrollPainterClass, "x0D", accent);
-    StaticPatcher.setFinalStatic(scrollPainterClass, "xA6", accent);
-
-    StaticPatcher.setFinalStatic(scrollPainterClass1, "DARCULA", myScrollPainter);
-    StaticPatcher.setFinalStatic(scrollPainterClass1, "DEFAULT", myScrollPainter);
-
-    StaticPatcher.setFinalStatic(scrollPainterClass2, "DARCULA", myScrollPainter);
-    StaticPatcher.setFinalStatic(scrollPainterClass2, "DEFAULT", myScrollPainter);
-
-    StaticPatcher.setFinalStatic(scrollPainterClass3, "DARCULA", myScrollPainter);
-    StaticPatcher.setFinalStatic(scrollPainterClass3, "DEFAULT", myScrollPainter);
   }
 
   /**

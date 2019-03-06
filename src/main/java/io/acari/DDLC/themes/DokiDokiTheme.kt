@@ -235,6 +235,7 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
                 "CompletionPopup.selectionInactiveBackground",
                 "Component.focusedBorderColor",
                 "DebuggerTabs.active.background",
+                "DebuggerTabs.selectedBackground",
                 "Focus.color",
                 "Github.List.tallRow.selectionBackground.unfocused",
                 "MemoryIndicator.usedColor",
@@ -245,6 +246,7 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
                 "ProgressBar.halfColor",
                 "ProgressBar.selectionBackground",
                 "SearchEverywhere.Tab.active.background",
+                "SearchEverywhere.Tab.selectedBackground",
                 "SearchEverywhere.Tab.selected.background",
                 "SpeedSearch.background",
                 "TabbedPane.contentAreaColor",
@@ -299,6 +301,7 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
                 "Button.mt.selection.color2",
                 "ComboBox.selectionBackground",
                 "EditorTabs.active.background",
+                "EditorTabs.selectedBackground",
                 "FormattedTextField.selectionBackground",
                 "ParameterInfo.borderColor",
                 "PasswordField.selectionBackground",
@@ -309,7 +312,6 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
                 "Table.focusCellBackground",
                 "Table.selectionBackground",
                 "TextArea.selectionBackground",
-                "TextField.selectionBackground",
                 "TextPane.selectionBackground",
                 "ToolWindow.Button.hoverBackground"
         ).distinct()
@@ -395,14 +397,9 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
     open fun getSelectionBackgroundResources(): Stream<String> {
         return Stream.of(
                 "inactiveCaption",
-                "Menu.selectionBackground",
                 "List.selectionBackground",
                 "Table.selectionBackground",
-                "Menu.acceleratorSelectionBackground",
-                "MenuItem.selectionBackground",
-                "MenuItem.acceleratorSelectionBackground",
                 "Table.selectionBackground",
-                "TextField.selectionBackground",
                 "PasswordField.selectionBackground",
                 "Button.mt.selectedBackground",
                 "TextArea.selectionBackground",
@@ -413,7 +410,8 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
                 "PasswordField.selectionBackground",
                 "TextField.selectionBackground",
                 "TextArea.selectionBackground",
-                "TabbedPane.selected")
+                "TabbedPane.selected"
+        )
     }
 
     open fun getTextResources(): Stream<String> {
@@ -437,6 +435,7 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
                 "control",
                 "PopupMenu.translucentBackground",
                 "EditorPane.inactiveBackground",
+                "EditorTabs.inactiveMaskColor",
                 "Table.background",
                 "MenuBar.disabledBackground",
                 "MenuBar.shadow",
@@ -572,7 +571,8 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
     }
 
     open fun getMenuItemSelectionBackgroundResources(): Stream<String> {
-        return Stream.of("Menu.selectionBackground",
+        return Stream.of(
+                "Menu.selectionBackground",
                 "Menu.acceleratorSelectionBackground",
                 "MenuItem.acceleratorSelectionBackground",
                 "MenuItem.selectionBackground")
