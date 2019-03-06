@@ -312,7 +312,6 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
                 "Table.focusCellBackground",
                 "Table.selectionBackground",
                 "TextArea.selectionBackground",
-                "TextField.selectionBackground",
                 "TextPane.selectionBackground",
                 "ToolWindow.Button.hoverBackground"
         ).distinct()
@@ -401,7 +400,6 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
                 "List.selectionBackground",
                 "Table.selectionBackground",
                 "Table.selectionBackground",
-                "TextField.selectionBackground",
                 "PasswordField.selectionBackground",
                 "Button.mt.selectedBackground",
                 "TextArea.selectionBackground",
@@ -412,7 +410,8 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
                 "PasswordField.selectionBackground",
                 "TextField.selectionBackground",
                 "TextArea.selectionBackground",
-                "TabbedPane.selected")
+                "TabbedPane.selected"
+        )
     }
 
     open fun getTextResources(): Stream<String> {

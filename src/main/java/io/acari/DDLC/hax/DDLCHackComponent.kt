@@ -4,6 +4,7 @@ import com.intellij.ide.util.ChooseElementsDialog
 import com.intellij.ide.util.ExportToFileUtil
 import com.intellij.openapi.components.ApplicationComponent
 import com.intellij.openapi.fileEditor.impl.EditorComposite
+import com.intellij.ui.plaf.beg.BegTreeUI
 import io.acari.DDLC.chibi.ChibiOrchestrator
 import javassist.CannotCompileException
 import javassist.ClassClassPath
@@ -19,11 +20,16 @@ object DDLCHackComponent : ApplicationComponent {
     init {
         createMonikasWritingTipOfTheDay()
         enableChibis()
+        enableMenuBackgroundConsistency()
         DDLCIconHackComponent.toString()
     }
 
     private fun enableChibis() {
         hackBackgroundPaintingComponent()
+    }
+
+    private fun enableMenuBackgroundConsistency(){
+        hackMenuUI()
     }
 
     /**
@@ -168,5 +174,31 @@ object DDLCHackComponent : ApplicationComponent {
         } catch (e: Exception) {
             e.printStackTrace()
         }
+    }
+
+    private fun hackMenuUI(){
+
+        try {
+            val cp = ClassPool(true)
+            cp.insertClassPath(ClassClassPath(BegTreeUI::class.java))
+            val ctClass = cp.get("com.intellij.ui.plaf.beg.IdeaMenuUI")
+            hackMenuUIClass(ctClass)
+            hackMenuUIClass(cp.get("com.intellij.ui.plaf.beg.BegMenuItemUI"))
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
+    private fun hackMenuUIClass(ctClass: CtClass) {
+        val init = ctClass.getDeclaredMethod("installDefaults")
+        init.instrument(object : ExprEditor() {
+            @Throws(CannotCompileException::class)
+            override fun edit(m: MethodCall?) {
+                if (m!!.methodName == "getListSelectionBackground") {
+                    m.replace("{ \$_ =  javax.swing.UIManager.getColor(\"Menu.selectionBackground\"); }")
+                }
+            }
+        })
+        ctClass.toClass()
     }
 }
