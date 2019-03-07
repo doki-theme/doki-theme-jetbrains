@@ -47,7 +47,7 @@ class EdgyTheme : DokiDokiTheme("yuri.dark", "Edgy", true, "Yuri") {
 
     override fun getTextColorString(): String = "916ACE"
 
-    override fun getNonProjectFileScopeColor(): String = "272132"
+    override fun getNonProjectFileScopeColor(): String = "47334e"
 
     override fun getTestScope(): String = "0c3118"
 
