@@ -182,11 +182,11 @@
             <group id="DDLCWeebShit" text="Chibi Options" popup="true"
                    icon="/icons/actions/themes/material_monika.png">
                 <action id="ChibiOff" class="io.acari.DDLC.actions.NoChibiAction"
-                        text="No Windows" description="No Windows"
+                        text="Chibi Off" description="Chibi Off"
                         icon="/icons/actions/cancel.svg">
                 </action>
                 <action id="ChibiOn" class="io.acari.DDLC.actions.SomeChibiAction"
-                        text="Some Windows" description="Some Windows"
+                        text="Chibi On" description="Chibi On"
                         icon="/icons/codeStyle/mac/AddNewSectionRule.svg">
                 </action>
                 <separator/>
