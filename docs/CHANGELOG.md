@@ -6,6 +6,7 @@
 - Brand new light theme look.
     - Changed overall look and feel to have less contrast.
     - Modifications to the syntax highlighting colors.
+    - [See this link for changes](https://github.com/cyclic-reference/ddlc-jetbrains-theme/pull/137#issuecomment-469076145)
 - Small Dark theme tweaks
     - Better button foreground coloring.
     - Yuri and Sayori themes panel backgrounds have less contrast.
