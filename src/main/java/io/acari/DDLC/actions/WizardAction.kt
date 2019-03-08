@@ -9,6 +9,4 @@ class WizardAction : AnAction() {
   override fun actionPerformed(e: AnActionEvent) {
     DDLCWizardDialog(DDLCWizardStepsProvider()).show()
   }
-
-
 }
