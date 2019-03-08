@@ -1,6 +1,20 @@
 # Changelog
 ----
 
+# 3.0.0
+
+- Brand new light theme look.
+    - Changed overall look and feel to have less contrast.
+    - Modifications to the syntax highlighting colors.
+- Small Dark theme tweaks
+    - Better button foreground coloring.
+    - Yuri and Sayori themes panel backgrounds have less contrast.
+- Added a Toggle Light Mode Action
+- Added a Wizard action
+- Themed project arrow icons
+- Enhanced file association for DDLC icon
+    - eg if ddlc appears in a folder name then you get the icon.
+    
 # 2.6.0
 
 - JetBrains 2019 build support!
