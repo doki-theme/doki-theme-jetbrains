@@ -194,6 +194,9 @@
                 </action>
                 <separator/>
             </group>
+            <action class="io.acari.DDLC.actions.DarkModeAction" id="DarkMode" text="Toggle Dark Mode"
+                    icon="/icons/plugins/resharper/Bulb/GhostBulb.svg"
+                    description="Toggle Dark Mode"/>
             <action class="io.acari.DDLC.actions.LightModeAction" id="LightMode" text="Toggle Light Mode"
                     icon="/icons/actions/intentionBulb.svg"
                     description="Toggle Light Mode"/>
