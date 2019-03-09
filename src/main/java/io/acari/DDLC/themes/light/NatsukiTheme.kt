@@ -6,23 +6,25 @@ import javax.swing.plaf.ColorUIResource
 
 class NatsukiTheme : DokiDokiTheme("natsuki", "Natsuki", false, "Natsuki") {
 
-    override fun getBackgroundColorString(): String = "fff3fc"
+    override fun getBackgroundColorString(): String = "FFD5FA"
 
     override fun getClubMember(): String = "natsuki.png"
 
     override fun joyfulClubMember(): String = "natsuki_joy.png"
 
-    override fun getSecondaryBackgroundColorString(): String = "ffceeb"
+    override fun getSecondaryBackgroundColorString(): String = "FFD7FA"
 
     override fun getSecondaryForegroundColorString(): String = "b9198d"
 
-    override fun getSelectionForegroundColorString(): String = "fa6fe2"
+    override fun getSelectionForegroundColorString(): String = "f147d4"
 
-    override fun getSelectionBackgroundColorString(): String = "ffd5f5"
+    override fun getSelectionBackgroundColorString(): String = "ffb1ec"
 
-    override fun getTreeSelectionBackgroundColorString(): String = "ff6eec"
+    override fun getTreeSelectionForegroundColorString(): String = "546E7A"
 
-    override fun getInactiveColorString(): String = "FFACF4"
+    override fun getTreeSelectionBackgroundColorString(): String = "fbb6e9"
+
+    override fun getInactiveColorString(): String = "fdd3f2"
 
     override fun getMenuBarSelectionForegroundColorString(): String = "ffffff"
 
@@ -30,7 +32,7 @@ class NatsukiTheme : DokiDokiTheme("natsuki", "Natsuki", false, "Natsuki") {
 
     override fun getNotificationsColorString(): String = "ffc7ec"
 
-    override fun getContrastColorString(): String = "fdceff"
+    override fun getContrastColorString(): String = "FED4FF"
 
     override fun getEditorTabColorString(): String = contrastColorString
 
@@ -40,15 +42,17 @@ class NatsukiTheme : DokiDokiTheme("natsuki", "Natsuki", false, "Natsuki") {
         return MTAccents.FUCHSIA.hexColor
     }
 
-    override fun getBackgroundColorResource(): ColorUIResource = ColorUIResource(0xFFDDF3)
+    override fun getBackgroundColorResource(): ColorUIResource = ColorUIResource(0xffdcfa)
 
     override fun getForegroundColorResource(): ColorUIResource = ColorUIResource(0xEA427E)
 
     override fun getTableSelectedColorString(): String = "EDB9DF"
 
-    override fun getHighlightColorString(): String = "ffa7ff"
+    override fun getHighlightColorString(): String = "FFB4FF"
 
     override fun getStartColor(): String = "F25AAF"
 
     override fun getStopColor(): String = "fbadff"
+
+    override fun getNonProjectFileScopeColor(): String = "fae6f0"
 }

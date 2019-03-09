@@ -35,7 +35,7 @@
     </metaInfo>
     <option name="LINE_SPACING" value="1.4"/>
     <font>
-        <option name="EDITOR_FONT_NAME" value="DejaVu Sans Mono"/>
+        <option name="EDITOR_FONT_NAME" value="Fira Code"/>
         <option name="EDITOR_FONT_SIZE" value="12"/>
     </font>
     <font>
@@ -52,7 +52,7 @@
         <option name="CARET_COLOR" value="8B4EC9"/>
         <!--TODO: IMPORTANT-->
         <option name="CARET_ROW_COLOR" value="35264B"/>
-        <option name="CONSOLE_BACKGROUND_KEY" value="2b2331"/>
+        <option name="CONSOLE_BACKGROUND_KEY" value="372842"/>
         <option name="DOCUMENTATION_COLOR" value="3E295B"/>
         <option name="FILESTATUS_ADDED" value="FD75B0"/>
         <option name="FILESTATUS_COPIED" value="FD75B0"/>
@@ -3468,7 +3468,7 @@
         <option name="TEXT">
             <value>
                 <option name="FOREGROUND" value="9E80C5"/>
-                <option name="BACKGROUND" value="2b2331"/>
+                <option name="BACKGROUND" value="372842"/>
                 <option name="EFFECT_TYPE" value="5"/>
             </value>
         </option>

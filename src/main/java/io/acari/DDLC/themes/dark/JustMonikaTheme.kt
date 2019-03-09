@@ -39,6 +39,8 @@ class JustMonikaTheme : DokiDokiTheme("just.monika", "Just Monika", true, "Monik
 
     override fun getButtonForegroundColor(): String = "6f9a65"
 
+    override fun getSelectedButtonForegroundColor(): String = "ffffff"
+
     override fun getForegroundColorString(): String = "F9F9F9"
 
     override fun getTextColorString(): String = "F9F9F9"

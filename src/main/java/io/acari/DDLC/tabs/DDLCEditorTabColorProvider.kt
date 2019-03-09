@@ -27,7 +27,7 @@ class DDLCEditorTabColorProvider : EditorTabColorProvider {
 
     private fun adjustColor(fileColor: Color) =
             if (DarkMode.isOn()) ColorUtil.brighter(fileColor, 10)
-            else fileColor
+            else Color.WHITE
 
 
     private fun isNonProject(project: Project, virtualFile: VirtualFile) =

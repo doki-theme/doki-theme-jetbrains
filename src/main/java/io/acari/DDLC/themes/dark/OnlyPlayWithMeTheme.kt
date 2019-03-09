@@ -36,6 +36,8 @@ class OnlyPlayWithMeTheme : DokiDokiTheme("natsuki.dark", "Only Play With Me", t
 
   override fun getButtonForegroundColor(): String = "E85EDB"
 
+  override fun getSelectedButtonForegroundColor(): String = "ffffff"
+
   override fun getForegroundColorString(): String = "DC508F"
 
   override fun getTextColorString(): String = "FF78BA"

@@ -39,13 +39,15 @@ class EdgyTheme : DokiDokiTheme("yuri.dark", "Edgy", true, "Yuri") {
 
     override fun getButtonForegroundColor(): String = "7469C7"
 
+    override fun getSelectedButtonForegroundColor(): String = "ffffff"
+
     override fun getForegroundColorString(): String = "917DEA"
 
     override fun getDisabled(): String = "17C704"
 
     override fun getTextColorString(): String = "916ACE"
 
-    override fun getNonProjectFileScopeColor(): String = "272132"
+    override fun getNonProjectFileScopeColor(): String = "47334e"
 
     override fun getTestScope(): String = "0c3118"
 

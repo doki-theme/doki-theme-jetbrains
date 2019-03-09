@@ -178,22 +178,28 @@
 
         <group id="DDLC.Panels" text="DDLC Options" description="Panel Options" popup="true"
                icon="/icons/ddlc/actions/pen.svg">
+            <action class="io.acari.DDLC.actions.WizardAction" id="Wizard" text="Show Wizard"
+                    icon="/icons/ddlc/ddlcTheme.svg"
+                    description="Show Wizard"/>
             <add-to-group group-id="MainToolBar" anchor="last"/>
             <group id="DDLCWeebShit" text="Chibi Options" popup="true"
                    icon="/icons/actions/themes/material_monika.png">
                 <action id="ChibiOff" class="io.acari.DDLC.actions.NoChibiAction"
-                        text="No Windows" description="No Windows"
+                        text="Chibi Off" description="Chibi Off"
                         icon="/icons/actions/cancel.svg">
                 </action>
                 <action id="ChibiOn" class="io.acari.DDLC.actions.SomeChibiAction"
-                        text="Some Windows" description="Some Windows"
+                        text="Chibi On" description="Chibi On"
                         icon="/icons/codeStyle/mac/AddNewSectionRule.svg">
                 </action>
                 <separator/>
             </group>
             <action class="io.acari.DDLC.actions.DarkModeAction" id="DarkMode" text="Toggle Dark Mode"
-                    icon="/icons/actions/themes/material_monkia_dark.png"
+                    icon="/icons/plugins/resharper/Bulb/GhostBulb.svg"
                     description="Toggle Dark Mode"/>
+            <action class="io.acari.DDLC.actions.LightModeAction" id="LightMode" text="Toggle Light Mode"
+                    icon="/icons/actions/intentionBulb.svg"
+                    description="Toggle Light Mode"/>
             <action class="io.acari.DDLC.actions.JoyAction" id="DDLCJoy"
                     text="Swap Chibi"
                     icon="/icons/actions/mt/joy.png"

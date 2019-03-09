@@ -49,7 +49,7 @@
         <regex name="dist" pattern="^(dist|out|build|release)$" icon="/dist.svg"/>
         <regex name="docker" pattern="^\.?docker$" icon="/docker.svg"/>
         <regex name="docs" pattern="^(docs?|documentation)$" icon="/docs.svg"/>
-        <regex name="doki-doki" pattern="(ddlc|DDLC|DOKI|doki)" icon="/ddlc.svg"/>
+        <regex name="doki-doki" pattern="(.*)(ddlc|DDLC|DOKI|doki|Doki)(.*)" icon="/ddlc.svg"/>
         <regex name="download" pattern="^downloads?$" icon="/download.svg"/>
         <regex name="e2e" pattern="^(e2e|scenarios?)$" icon="/e2e.svg"/>
         <regex name="env" pattern="^(env|environments?)$" icon="/env.svg"/>

@@ -51,6 +51,8 @@ class DeletedCharacterTheme : DokiDokiTheme("deleted.character", "Deleted Charac
 
     override fun getForegroundColorString(): String = "2687C6"
 
+    override fun getSelectedButtonForegroundColor(): String = "ffffff"
+
     override fun getTextColorString(): String = "6BB2CE"
 
     override fun getEditorTabColorString(): String = contrastColorString

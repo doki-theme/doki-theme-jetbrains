@@ -76,6 +76,7 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
             buildResources(getBackgroundResources(), backgroundColorString)
             buildResources(getButtonBackgroundResources(), getButtonBackgroundColor())
             buildResources(getButtonForegroundResources(), getButtonForegroundColor())
+            buildResources(getSelectedButtonForegroundResources(), getSelectedButtonForegroundColor())
             buildResources(getForegroundResources(), foregroundColorString)
             buildResources(getMenuItemForegroundResources(), getMenuItemForegroundColor())
             buildResources(getTextResources(), textColorString)
@@ -165,7 +166,7 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
     }
 
     open fun getInactiveColorString(): String {
-        return "FFF4F2"
+        return "b4fbae"
     }
 
     override fun getTestScope(): String {
@@ -206,7 +207,7 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
     }
 
     override fun getButtonColorString(): String {
-        return "FFF4F2"
+        return "b4fbae"
     }
 
     override fun getTreeSelectionColorString(): String {
@@ -265,7 +266,6 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
                 "TabbedPane.highlight",
                 "TabbedPane.selected",
                 "SearchEverywhere.List.Separator.Color",
-                "SearchEverywhere.List.Separator.foreground",
                 "SearchEverywhere.List.separatorColor",
                 "Borders.color",
                 "Button.darcula.disabledOutlineColor",
@@ -278,7 +278,6 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
                 "Plugins.SearchField.borderColor",
                 "Popup.Separator.color",
                 "SearchEverywhere.List.Separator.Color",
-                "SearchEverywhere.List.Separator.foreground",
                 "SearchEverywhere.List.separatorColor",
                 "SpeedSearch.borderColor",
                 "TabbedPane.darkShadow",
@@ -387,7 +386,6 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
                 "PasswordField.selectionForeground",
                 "TextArea.selectionForeground",
                 "Label.selectedForeground",
-                "Button.darcula.selectedButtonForeground",
                 "PasswordField.selectionForeground",
                 "TextField.selectionForeground",
                 "TextArea.selectionForeground"
@@ -485,7 +483,6 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
                 "SearchEverywhere.Advertiser.background",
                 "SearchEverywhere.Advertiser.foreground",
                 "SearchEverywhere.Header.background",
-                "SearchEverywhere.List.Separator.foreground",
                 "SearchEverywhere.List.separatorColor",
                 "SearchEverywhere.SearchField.background",
                 "SearchEverywhere.SearchField.borderColor",
@@ -513,7 +510,6 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
         return Stream.of(
                 "Button.foreground",
                 "Button.mt.foreground",
-                "Button.darcula.selectedButtonForeground",
                 "Button.mt.selectedButtonForeground",
                 "ToolWindow.header.closeButton.foreground")
     }
@@ -531,6 +527,7 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
                 "monika.selectionInactiveForeground",
                 "Label.foreground",
                 "EditorPane.inactiveForeground",
+                "SearchEverywhere.List.Separator.foreground",
                 "CheckBox.foreground",
                 "ComboBox.foreground",
                 "RadioButton.foreground",
@@ -620,6 +617,11 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
     open fun getButtonForegroundColor(): String {
         return "C700A5"
     }
+
+  open fun getSelectedButtonForegroundColor(): String = getButtonForegroundColor()
+
+  open fun getSelectedButtonForegroundResources(): Stream<String> =
+      Stream.of("Button.darcula.selectedButtonForeground")
 
 
     open fun getMenuItemForegroundResources(): Stream<String> {

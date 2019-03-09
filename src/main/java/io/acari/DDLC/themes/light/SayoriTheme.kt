@@ -6,7 +6,7 @@ import javax.swing.plaf.ColorUIResource
 
 class SayoriTheme : DokiDokiTheme("sayori", "Sayori", false, "Sayori") {
 
-    override fun getBackgroundColorString(): String = "f4fbfe"
+    override fun getBackgroundColorString(): String = "D7FEFC"
 
     override fun getClubMember(): String = "sayori.png"
 
@@ -20,7 +20,7 @@ class SayoriTheme : DokiDokiTheme("sayori", "Sayori", false, "Sayori") {
 
     override fun getSelectionBackgroundColorString(): String = "99ebf0"
 
-    override fun getTreeSelectionBackgroundColorString(): String = "546eec"
+    override fun getTreeSelectionBackgroundColorString(): String = "67C1EC"
 
     override fun getInactiveColorString(): String = "C2D2FF"
 
@@ -30,9 +30,9 @@ class SayoriTheme : DokiDokiTheme("sayori", "Sayori", false, "Sayori") {
 
     override fun getNotificationsColorString(): String = "c3e8ff"
 
-    override fun getHighlightColorString(): String = "aaddff"
+    override fun getHighlightColorString(): String = "aafffe"
 
-    override fun getContrastColorString(): String = "d8f2ff"
+    override fun getContrastColorString(): String = "D3FCFF"
 
     override fun getEditorTabColorString(): String = contrastColorString
 
@@ -40,11 +40,9 @@ class SayoriTheme : DokiDokiTheme("sayori", "Sayori", false, "Sayori") {
 
     override fun getButtonForegroundColor(): String = "00559A"
 
-    override fun getAccentColor(): String {
-        return MTAccents.CYAN.hexColor
-    }
+    override fun getAccentColor(): String = MTAccents.CYAN.hexColor
 
-    override fun getBackgroundColorResource(): ColorUIResource = ColorUIResource(0xf4fbfe)
+    override fun getBackgroundColorResource(): ColorUIResource = ColorUIResource(0xD4FCFE)
 
     override fun getForegroundColorResource(): ColorUIResource = ColorUIResource(0x5A75EA)
 
@@ -53,4 +51,6 @@ class SayoriTheme : DokiDokiTheme("sayori", "Sayori", false, "Sayori") {
     override fun getStartColor(): String = "0D96F1"
 
     override fun getStopColor(): String = "3DFFF3"
+
+    override fun getNonProjectFileScopeColor(): String = "dcffe9"
 }
