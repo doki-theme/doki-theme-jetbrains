@@ -50,6 +50,8 @@ import com.intellij.util.ui.UIUtil;
 import io.acari.DDLC.DDLCConfig;
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;
+import net.sf.cglib.proxy.MethodProxy;
+import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.plaf.ColorUIResource;
@@ -63,12 +65,14 @@ import java.util.Optional;
  *
  * @author Dennis.Ushakov
  */
+@SuppressWarnings("WeakerAccess")
 public final class MTTabsPainterPatcherComponent implements BaseComponent {
 
   private final MTConfig config;
   private final Field pathField;
   private final Field fillPathField;
   private final Field labelPathField;
+  private MessageBusConnection connect;
 
   public MTTabsPainterPatcherComponent() throws ClassNotFoundException, NoSuchFieldException {
     config = MTConfig.getInstance();
@@ -83,9 +87,10 @@ public final class MTTabsPainterPatcherComponent implements BaseComponent {
 
   @Override
   public void disposeComponent() {
-
+    connect.disconnect();
   }
 
+  @NonNls
   @NotNull
   @Override
   public String getComponentName() {

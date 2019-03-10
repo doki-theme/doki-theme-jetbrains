@@ -27,7 +27,8 @@
 package com.chrisrm.ideaddlc.utils;
 
 import com.chrisrm.ideaddlc.MTConfig;
-import com.intellij.ide.actions.Switcher;
+import com.intellij.ide.ui.laf.darcula.DarculaLaf;
+import com.intellij.ide.ui.laf.darcula.DarculaUIUtil;
 import com.intellij.ui.ColorUtil;
 import com.intellij.ui.Gray;
 import com.intellij.ui.JBColor;
@@ -38,6 +39,7 @@ import com.intellij.util.ui.UIUtil;
 import io.acari.DDLC.LegacySupportUtility;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
+import sun.swing.SwingUtilities2;
 
 import javax.swing.*;
 import javax.swing.border.*;
@@ -521,6 +523,55 @@ public final class MTUI {
     public static Color getFocusedBackgroundColor1(final boolean armed, final boolean selected) {
       return armed ? getColor("focusedArmed.backgroundColor1", Gray._100, selected)
                    : getColor("focused.backgroundColor1", Gray._120, selected);
+    }
+  }
+
+  public enum Label {
+    JOHNNY_WALKER;
+
+    private static final String LABEL_DISABLED_FOREGROUND = "Label.disabledForeground";
+    private static final String LABEL_GRAY_FOREGROUND = "Label.grayForeground";
+
+    public static Color getLabelForeground(final JLabel label) {
+      Color foreground = label.getForeground();
+      if (foreground == Gray.x78 || foreground == Gray.x80) {
+        foreground = JBColor.namedColor(LABEL_GRAY_FOREGROUND, new JBColor(0x777777, 0x787878));
+      }
+      return foreground;
+    }
+
+    public static Color getDisabledBackground() {
+      return JBColor.namedColor(LABEL_DISABLED_FOREGROUND, new JBColor(0x000000, 0xBBBBBB));
+    }
+
+    public static void paintText(final JLabel label, final Graphics g, final String s, final int textX, final int textY) {
+      final int mnemIndex = DarculaLaf.isAltPressed() ? label.getDisplayedMnemonicIndex() : -1;
+      SwingUtilities2.drawStringUnderlineCharAt(label, g, s, mnemIndex, textX, textY);
+    }
+  }
+
+  public enum Panel {
+    DE_PON;
+
+    public static final String PANEL_BACKGROUND = "Panel.background";
+    public static final String CONTRAST_BACKGROUND = "EditorPane.background";
+    public static final String SECONDARY_BACKGROUND = "List.background";
+    public static final String HIGHLIGHT_BACKGROUND = "Component.focusedBorderColor";
+
+    public static Color getBackground() {
+      return JBColor.namedColor(PANEL_BACKGROUND, UIUtil.getPanelBackground());
+    }
+
+    public static Color getContrastBackground() {
+      return JBColor.namedColor(CONTRAST_BACKGROUND, UIUtil.getEditorPaneBackground());
+    }
+
+    public static Color getSecondaryBackground() {
+      return JBColor.namedColor(SECONDARY_BACKGROUND, UIUtil.getListBackground());
+    }
+
+    public static Color getHighlightBackground() {
+      return JBColor.namedColor(HIGHLIGHT_BACKGROUND, DarculaUIUtil.getOutlineColor(true, true));
     }
   }
 }
