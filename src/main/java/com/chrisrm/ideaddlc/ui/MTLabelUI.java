@@ -27,11 +27,9 @@ package com.chrisrm.ideaddlc.ui;
 
 import com.chrisrm.ideaddlc.utils.MTUI;
 import com.intellij.ide.ui.laf.darcula.ui.DarculaLabelUI;
-import com.intellij.util.ui.UIUtil;
 
 import javax.swing.*;
-import javax.swing.plaf.*;
-import javax.swing.plaf.basic.*;
+import javax.swing.plaf.ComponentUI;
 import java.awt.*;
 
 public final class MTLabelUI extends DarculaLabelUI {

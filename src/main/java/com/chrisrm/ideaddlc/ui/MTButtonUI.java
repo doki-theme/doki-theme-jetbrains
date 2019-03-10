@@ -389,7 +389,7 @@ public final class MTButtonUI extends DarculaButtonUI {
 
       final Component component = e.getComponent();
       final JButton jButton = (JButton) component;
-      colorCycle.setC((JComponent) component);
+      colorCycle.setComponent((JComponent) component);
 
       final Color hoverColor = jButton.isDefaultButton() ? primaryButtonHoverColor() : buttonHoverColor();
       final Color preHoverColor = jButton.isDefaultButton() ? primaryButtonBg() : buttonBg();
@@ -410,7 +410,7 @@ public final class MTButtonUI extends DarculaButtonUI {
 
       final Component component = e.getComponent();
       final JButton jButton = (JButton) component;
-      colorCycle.setC((JComponent) component);
+      colorCycle.setComponent((JComponent) component);
 
       final Color notHoverColor = jButton.isDefaultButton() ? primaryButtonHoverColor() : buttonHoverColor();
       final Color preNotHoverColor = jButton.isDefaultButton() ? primaryButtonBg() : buttonBg();

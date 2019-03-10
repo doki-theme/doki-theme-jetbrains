@@ -54,7 +54,8 @@ public final class MTTextBorder extends DarculaTextBorder {
     return JBUI.insets(tableCellEditor || compact ? 0 : 3).asUIResource();
   }
 
-  @SuppressWarnings("FeatureEnvy")
+  @SuppressWarnings({"FeatureEnvy",
+      "MethodWithMoreThanThreeNegations"})
   @Override
   public void paintBorder(final Component c, final Graphics g, final int x, final int y, final int width, final int height) {
     final Graphics2D g2 = (Graphics2D) g.create();

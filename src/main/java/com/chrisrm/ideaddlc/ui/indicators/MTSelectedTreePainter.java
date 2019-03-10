@@ -29,12 +29,12 @@ import com.chrisrm.ideaddlc.MTConfig;
 import com.chrisrm.ideaddlc.config.ui.IndicatorStyles;
 import com.intellij.util.ui.JBUI;
 
-import javax.swing.border.*;
+import javax.swing.border.Border;
 import java.awt.*;
 
 public class MTSelectedTreePainter implements Border {
-  private MTSelectedTreeIndicator painter;
-  private IndicatorStyles indicatorStyle;
+  private MTSelectedTreeIndicator painter = new MTBorderSelectedTreeIndicator();
+  private IndicatorStyles indicatorStyle = IndicatorStyles.BORDER;
 
   public MTSelectedTreePainter() {
     setSelectedTreePainter();
@@ -47,10 +47,10 @@ public class MTSelectedTreePainter implements Border {
   }
 
   private void setSelectedTreePainter() {
-    final IndicatorStyles indicatorStyle = MTConfig.getInstance().getIndicatorStyle();
-    if (indicatorStyle != this.indicatorStyle) {
-      this.indicatorStyle = indicatorStyle;
-      switch (indicatorStyle) {
+    final IndicatorStyles style = MTConfig.getInstance().getIndicatorStyle();
+    if (style != indicatorStyle) {
+      indicatorStyle = style;
+      switch (style) {
         case NONE:
           painter = new MTNoneSelectedTreeIndicator();
           break;
