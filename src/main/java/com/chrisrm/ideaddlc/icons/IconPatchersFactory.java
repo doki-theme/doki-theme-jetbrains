@@ -24,44 +24,43 @@
  *
  */
 
-package com.chrisrm.ideaddlc.config.menuIcons;
+package com.chrisrm.ideaddlc.icons;
 
-import com.intellij.ide.ui.customization.CustomActionsSchema;
-import com.intellij.util.xmlb.annotations.Property;
+import com.chrisrm.ideaddlc.icons.patchers.ExternalIconsPatcher;
+import com.chrisrm.ideaddlc.icons.patchers.IconPathPatchers;
 import com.thoughtworks.xstream.XStream;
 import org.jetbrains.annotations.NonNls;
 
-import java.io.Serializable;
 import java.net.URL;
-import java.util.List;
+import java.util.Set;
 
-public final class MenuIcons implements Serializable {
-  private static final String MENU_ICONS_XML = "/menu_icons.xml";
-  @Property
-  private List<MenuIcon> menuIcons;
+public enum IconPatchersFactory {
+  PATCH_PATCH;
 
-  public void loadIcons() {
-    final CustomActionsSchema customActionsSchema = CustomActionsSchema.getInstance();
-    for (final MenuIcon menuIcon : menuIcons) {
-      customActionsSchema.addIconCustomization(menuIcon.getId(), Factory.class.getResource(menuIcon.getIcon()).getPath());
-    }
-  }
+  @NonNls
+  private static final String ICON_PATCHERS_XML = "/icon_patchers.xml";
 
-  private enum Factory {
-    MENUICONS;
+  @SuppressWarnings("StaticMethodOnlyUsedInOneClass")
+  static IconPathPatchers create() {
+    final URL xml = IconPatchersFactory.class.getResource(ICON_PATCHERS_XML);
+    @NonNls final XStream xStream = new XStream();
+    XStream.setupDefaultSecurity(xStream);
+    xStream.allowTypesByWildcard(new String[]{"com.chrisrm.idea.icons.patchers.*"});
 
-    public static MenuIcons create() {
-      final URL resource = Factory.class.getResource(MENU_ICONS_XML);
-      @NonNls final XStream xStream = new XStream();
-      XStream.setupDefaultSecurity(xStream);
-      xStream.allowTypesByWildcard(new String[]{"com.chrisrm.ideaddlc.*"});
-      xStream.alias("menuIcons", MenuIcons.class);
-      xStream.alias("menuIcon", MenuIcon.class);
+    xStream.alias("iconPathPatchers", IconPathPatchers.class);
+    xStream.alias("iconPatchers", Set.class);
+    xStream.alias("glyphPatchers", Set.class);
+    xStream.alias("filePatchers", Set.class);
 
-      xStream.useAttributeFor(MenuIcon.class, "id");
-      xStream.useAttributeFor(MenuIcon.class, "icon");
+    xStream.alias("patcher", ExternalIconsPatcher.class);
 
-      return (MenuIcons) xStream.fromXML(resource);
+    xStream.useAttributeFor(ExternalIconsPatcher.class, "append");
+    xStream.useAttributeFor(ExternalIconsPatcher.class, "remove");
+
+    try {
+      return (IconPathPatchers) xStream.fromXML(xml);
+    } catch (final RuntimeException e) {
+      return new IconPathPatchers();
     }
   }
 }

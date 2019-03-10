@@ -40,6 +40,7 @@ import com.intellij.openapi.util.SystemInfoRt;
 import com.intellij.psi.codeStyle.DisplayPriority;
 import com.intellij.psi.codeStyle.DisplayPrioritySortable;
 import com.intellij.util.ArrayUtil;
+import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -48,6 +49,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
 
+@SuppressWarnings("ObjectAllocationInLoop")
 public final class MTScrollbarsPage implements ColorSettingsPage, DisplayPrioritySortable {
   private static final ColorDescriptor[] DESCRIPTORS;
 
@@ -58,7 +60,7 @@ public final class MTScrollbarsPage implements ColorSettingsPage, DisplayPriorit
         AccentResources.SCROLLBAR_HOVER_RESOURCES,
         AccentResources.SCROLLBAR_RESOURCES);
 
-    for (final String resource : sets) {
+    for (@NonNls final String resource : sets) {
       if (resource.contains("Mac.")) {
         if (SystemInfoRt.isMac) {
           colorDescriptors.add(new ColorDescriptor(
@@ -90,6 +92,7 @@ public final class MTScrollbarsPage implements ColorSettingsPage, DisplayPriorit
     return DESCRIPTORS;
   }
 
+  @NonNls
   @NotNull
   @Override
   public String getDisplayName() {
