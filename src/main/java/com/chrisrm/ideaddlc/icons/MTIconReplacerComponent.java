@@ -190,6 +190,7 @@ public final class MTIconReplacerComponent implements BaseComponent {
   public void disposeComponent() {
 
     MTIconPatcher.clearCache();
+    connect.disconnect();
   }
 
   @Override

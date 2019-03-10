@@ -28,6 +28,7 @@ package com.chrisrm.ideaddlc.icons.associations;
 
 import com.chrisrm.ideaddlc.icons.FileInfo;
 import com.intellij.openapi.util.IconLoader;
+import com.intellij.util.xmlb.annotations.Property;
 import org.jetbrains.annotations.NonNls;
 
 import javax.swing.*;
@@ -39,6 +40,7 @@ import javax.swing.*;
 public final class TypeAssociation extends Association {
 
   @NonNls
+  @Property
   private String type;
 
   @Override

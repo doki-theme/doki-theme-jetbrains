@@ -27,7 +27,6 @@
 package com.chrisrm.ideaddlc.icons.associations;
 
 import com.thoughtworks.xstream.XStream;
-import com.thoughtworks.xstream.io.xml.DomDriver;
 import org.jetbrains.annotations.NonNls;
 
 import java.net.URL;
@@ -39,10 +38,14 @@ public enum AssociationsFactory {
   /**
    * Parse icon_associations.xml to build the list of Associations
    */
-  @SuppressWarnings("CastToConcreteClass")
+  @SuppressWarnings({"CastToConcreteClass",
+      "StaticMethodOnlyUsedInOneClass"})
   public static Associations create(final String associationsFile) {
     final URL associationsXml = AssociationsFactory.class.getResource(associationsFile);
-    @NonNls final XStream xStream = new XStream(new DomDriver());
+    @NonNls final XStream xStream = new XStream();
+    XStream.setupDefaultSecurity(xStream);
+    xStream.allowTypesByWildcard(new String[]{"com.chrisrm.ideaddlc.*"});
+
     xStream.alias("associations", Associations.class);
     xStream.alias("regex", RegexAssociation.class);
     xStream.alias("type", TypeAssociation.class);

@@ -50,7 +50,7 @@ public final class MTStatisticsNotification extends Notification implements Noti
   public MTStatisticsNotification(final NotificationListener listener) {
     super(Notify.CHANNEL,
         MaterialThemeBundle.message("mt.stats.notification.title", MTUiUtils.getPluginName()),
-          MaterialThemeBundle.message("mt.stats.config.details", MaterialThemeBundle.message("material.theme.plugin.team")),
+        MaterialThemeBundle.message("mt.stats.config.details", MaterialThemeBundle.message("mt.stats.plugin.team")),
         NotificationType.INFORMATION, listener);
   }
 

@@ -27,6 +27,7 @@
 package com.chrisrm.ideaddlc.icons.associations;
 
 import com.chrisrm.ideaddlc.icons.FileInfo;
+import com.intellij.util.xmlb.annotations.Property;
 import org.jetbrains.annotations.NonNls;
 
 import javax.swing.*;
@@ -38,7 +39,9 @@ import java.io.Serializable;
 @SuppressWarnings("InstanceVariableMayNotBeInitialized")
 public abstract class Association implements Serializable {
 
+  @Property
   private String name;
+  @Property
   private String icon;
 
   /**

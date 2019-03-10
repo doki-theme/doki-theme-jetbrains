@@ -36,6 +36,8 @@ import com.intellij.util.ui.JBInsets;
 import com.intellij.util.ui.JBSwingUtilities;
 import com.intellij.util.ui.JBUI;
 import com.intellij.util.ui.UIUtil;
+import org.jetbrains.annotations.NonNls;
+import org.jetbrains.annotations.Nullable;
 import sun.swing.SwingUtilities2;
 
 import javax.swing.*;
@@ -44,16 +46,22 @@ import java.awt.*;
 /**
  * Component for theming the Top Frame
  */
-public final class MTFrameComponentExtension extends IdeRootPaneNorthExtension {
+@SuppressWarnings("ThisEscapedInObjectConstruction")
+final class MTFrameComponentExtension extends IdeRootPaneNorthExtension {
+  @Nullable
   private JComponent myWrapperPanel;
+  @Nullable
   private Project myProject;
+  @Nullable
   private JPanel myBar;
 
   public MTFrameComponentExtension(final Project project) {
     myProject = project;
+    assert myProject != null;
     Disposer.register(myProject, this);
   }
 
+  @NonNls
   @Override
   public String getKey() {
     return "DDLCMTFrame";
@@ -62,12 +70,7 @@ public final class MTFrameComponentExtension extends IdeRootPaneNorthExtension {
   @Override
   public JComponent getComponent() {
     if (myWrapperPanel == null) {
-      myWrapperPanel = new MTWrapperPanel(new BorderLayout()) {
-        @Override
-        public Insets getInsets() {
-          return new JBInsets(0, 0, 0, 0);
-        }
-      };
+      myWrapperPanel = new MyMTWrapperPanel();
       myWrapperPanel.add(buildMTPanel(), BorderLayout.CENTER);
     }
     return myWrapperPanel;
@@ -93,7 +96,40 @@ public final class MTFrameComponentExtension extends IdeRootPaneNorthExtension {
   private Component buildMTPanel() {
     myBar = new JPanel(true);
 
-    final JPanel panel = new JPanel(new BorderLayout()) {
+    final JPanel panel = new MyJPanel();
+
+    panel.add(myBar, BorderLayout.CENTER);
+    panel.updateUI();
+    return panel;
+  }
+
+  private static class MTWrapperPanel extends JPanel {
+    MTWrapperPanel(final LayoutManager layout) {
+      super(layout);
+    }
+
+    @Override
+    protected final Graphics getComponentGraphics(final Graphics g) {
+      return JBSwingUtilities.runGlobalCGTransform(this, super.getComponentGraphics(g));
+    }
+  }
+
+  private static final class MyMTWrapperPanel extends MTWrapperPanel {
+    private MyMTWrapperPanel() {
+      super(new BorderLayout());
+    }
+
+    @Override
+    public Insets getInsets() {
+      return new JBInsets(0, 0, 0, 0);
+    }
+  }
+
+  private final class MyJPanel extends JPanel {
+    private MyJPanel() {
+      super(new BorderLayout());
+    }
+
       @Override
       public Insets getInsets() {
         return JBUI.insets(10);
@@ -108,6 +144,7 @@ public final class MTFrameComponentExtension extends IdeRootPaneNorthExtension {
 
         final Component navBar = myBar;
 
+      assert navBar != null;
         navBar.setBounds(x, insets.top, r.width, r.height);
       }
 
@@ -116,6 +153,7 @@ public final class MTFrameComponentExtension extends IdeRootPaneNorthExtension {
         super.updateUI();
         setOpaque(true);
 
+      assert myBar != null;
         myBar.setOpaque(false);
         myBar.setBorder(null);
       }
@@ -124,6 +162,7 @@ public final class MTFrameComponentExtension extends IdeRootPaneNorthExtension {
       protected void paintComponent(final Graphics g) {
         super.paintComponent(g);
         final Component navBar = myBar;
+      assert navBar != null;
         final Rectangle r = navBar.getBounds();
 
         final Graphics2D g2d = (Graphics2D) g.create();
@@ -133,8 +172,9 @@ public final class MTFrameComponentExtension extends IdeRootPaneNorthExtension {
         g.setColor(ColorUtil.fromHex(MTConfig.getInstance().getAccentColor()));
         g.fillRect(0, 0, r.width, r.height);
 
-        g.setColor(UIUtil.getListSelectionForeground());
+      g.setColor(UIUtil.getListSelectionForeground(true));
         g.setFont(getFont().deriveFont(Font.BOLD));
+      assert myProject != null;
         final String textToDraw = myProject.getName().toUpperCase();
         SwingUtilities2.drawString(this, g, textToDraw, r.x + getXOffset(), r.y + metrics.getAscent() - 2);
 
@@ -144,21 +184,5 @@ public final class MTFrameComponentExtension extends IdeRootPaneNorthExtension {
       private int getXOffset() {
         return JBUI.scale(12);
       }
-    };
-
-    panel.add(myBar, BorderLayout.CENTER);
-    panel.updateUI();
-    return panel;
-  }
-
-  private class MTWrapperPanel extends JPanel {
-    MTWrapperPanel(final LayoutManager layout) {
-      super(layout);
-    }
-
-    @Override
-    protected Graphics getComponentGraphics(final Graphics graphics) {
-      return JBSwingUtilities.runGlobalCGTransform(this, super.getComponentGraphics(graphics));
-    }
   }
 }

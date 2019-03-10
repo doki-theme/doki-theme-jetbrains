@@ -26,7 +26,6 @@
 package com.chrisrm.ideaddlc.utils;
 
 import com.sun.jna.platform.win32.Advapi32Util;
-import com.sun.jna.platform.win32.WinReg;
 
 import java.awt.*;
 
@@ -34,30 +33,19 @@ import static com.sun.jna.platform.win32.WinReg.HKEY_CURRENT_USER;
 
 /**
  * Modifies the Windows Registry for the Accent Color
- *
  */
-public final class WinRegistry {
-  private WinRegistry() {
+public enum WinRegistry {
+  WIN_REGISTRY;
 
-  }
+  private static final String DWM_PATH = "Software\\Microsoft\\Windows\\DWM";
+  private static final String KEY = "AccentColor";
 
-  public static final String DWM_PATH = "Software\\Microsoft\\Windows\\DWM";
-  public static final String KEY = "AccentColor";
-
-  public static void writeStringValue(final WinReg.HKEY hkey, final String path, final String key, final int value) {
-    Advapi32Util.registrySetIntValue(hkey, path, key, value);
-  }
-
-  public static int getStringValue(final WinReg.HKEY hkey, final String path, final String key) {
-    return Advapi32Util.registryGetIntValue(hkey, path, key);
+  private static void writeStringValue(final int value) {
+    Advapi32Util.registrySetIntValue(HKEY_CURRENT_USER, DWM_PATH, KEY, value);
   }
 
   public static void writeTitleColor(final Color backgroundColor) {
-    WinRegistry.writeStringValue(HKEY_CURRENT_USER, WinRegistry.DWM_PATH, WinRegistry.KEY, MTUiUtils.colorToDword(backgroundColor));
-  }
-
-  public static int getTitleColor() {
-    return WinRegistry.getStringValue(HKEY_CURRENT_USER, WinRegistry.DWM_PATH, WinRegistry.KEY);
+    writeStringValue(MTUiUtils.colorToDword(backgroundColor));
   }
 
 }
