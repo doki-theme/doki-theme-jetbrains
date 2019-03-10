@@ -1,7 +1,7 @@
 /*
  *  The MIT License (MIT)
  *
- *  Copyright (c) 2018 Chris Magnussen and Elior Boukhobza
+ *  Copyright (c) 2019 Chris Magnussen and Elior Boukhobza
  *
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -364,6 +364,15 @@ public final class MTThemeManager {
     mtConfig.setDarkTitleBar(!mtConfig.isDarkTitleBar());
     themeTitleBar();
   }
+
+  /**
+   * Toggle override accent color
+   */
+  @SuppressWarnings("FeatureEnvy")
+  public static void toggleOverrideAccent() {
+    MTConfig.getInstance().setOverrideAccentColor(!MTConfig.getInstance().isOverrideAccentColor());
+    MTConfig.getInstance().fireChanged();
+  }
   //endregion
 
   //region File Icons support
@@ -699,6 +708,7 @@ public final class MTThemeManager {
       // Tree font size
       final Font font = lookAndFeelDefaults.getFont("Tree.font");
       lookAndFeelDefaults.put("Tree.font", font.deriveFont((float) treeFontSize));
+      LafManager.getInstance().updateUI();
     }
   }
   //endregion

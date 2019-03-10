@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2018 Chris Magnussen and Elior Boukhobza
+ * Copyright (c) 2019 Chris Magnussen and Elior Boukhobza
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -90,6 +90,7 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
   public static final int MIN_FONT_SIZE = 6;
   public static final int MAX_FONT_SIZE = 24;
   public static final int DEFAULT_TAB_OPACITY = 50;
+  public static final int DEFAULT_TAB_FONT_SIZE = 12;
   public static final int DEFAULT_TREE_FONT_SIZE = 12;
   public static final int DEFAULT_THICKNESS = 2;
   public static final int DEFAULT_LEFT_INDENT = 6;
@@ -105,6 +106,8 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
   @SuppressWarnings("FieldHasSetterButNoGetter")
   @Property
   boolean allowDataCollection;
+  @Property
+  private boolean codeAdditionsEnabled = true;
   @Property
   boolean compactDropdowns;
   @Property
@@ -158,6 +161,8 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
   @Property
   boolean treeFontSizeEnabled;
   @Property
+  boolean tabFontSizeEnabled;
+  @Property
   boolean upperCaseButtons = true;
   @Property
   boolean upperCaseTabs;
@@ -178,6 +183,8 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
   int tabOpacity = DEFAULT_TAB_OPACITY;
   @Property
   int treeFontSize = DEFAULT_TREE_FONT_SIZE;
+  @Property
+  int tabFontSize = DEFAULT_TAB_FONT_SIZE;
   @Property
   Integer highlightThickness = DEFAULT_THICKNESS;
   @Property
@@ -218,6 +225,7 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
    *
    * @return Object
    */
+  @SuppressWarnings("MethodDoesntCallSuperMethod")
   @Override
   public MTConfig clone() {
     return XmlSerializerUtil.createCopy(this);
@@ -281,7 +289,6 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
    * Returns this MTConfig as a json
    *
    * @return the nativePropertiesAsJson (type JSONObject) of this MTConfig object.
-   *
    * @throws JSONException when
    */
   @SuppressWarnings("DuplicateStringLiteralInspection")
@@ -290,6 +297,7 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
     hashMap.put("accentColor", accentColor);
     hashMap.put("accentScrollbars", accentScrollbars);
     hashMap.put("arrowsStyle", arrowsStyle);
+    hashMap.put("codeAdditions", codeAdditionsEnabled);
     hashMap.put("compactDropdowns", compactDropdowns);
     hashMap.put("compactSidebar", compactSidebar);
     hashMap.put("customSidebarHeight", customSidebarHeight);
@@ -326,6 +334,8 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
     hashMap.put("tabOpacity", tabOpacity);
     hashMap.put("tabsHeight", tabsHeight);
     hashMap.put("themedScrollbars", themedScrollbars);
+    hashMap.put("tabFontSize", tabFontSize);
+    hashMap.put("tabFontSizeEnabled", tabFontSizeEnabled);
     hashMap.put("treeFontSize", treeFontSize);
     hashMap.put("treeFontSizeEnabled", treeFontSizeEnabled);
     hashMap.put("upperCaseButtons", upperCaseButtons);
@@ -343,7 +353,6 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
    * Alias for @getNativePropertiesAsJson
    *
    * @return JSONObject
-   *
    * @throws JSONException when
    */
   public JSONObject asJson() throws JSONException {
@@ -367,6 +376,8 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
     setAccentColor(ColorUtil.toHex(form.getCustomAccentColor()));
     setAccentScrollbars(form.isAccentScrollbars());
     setArrowsStyle(form.getArrowsStyle());
+    //todo: add me
+//    setCodeAdditionsEnabled(form.isCodeAdditionsEnabled());
     setCompactDropdowns(form.isCompactDropdowns());
     setCompactSidebar(form.isCompactSidebar());
     setCustomSidebarHeight(form.getCustomSidebarHeight());
@@ -403,6 +414,9 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
     setTabOpacity(form.getTabOpacity());
     setTabsHeight(form.getTabsHeight());
     setThemedScrollbars(form.isThemedScrollbars());
+    //todo: add me
+//    setTabFontSize(form.getTabFontSize());
+//    setTabFontSizeEnabled(form.isTabFontSizeEnabled());
     setTreeFontSize(form.getTreeFontSize());
     setTreeFontSizeEnabled(form.isTreeFontSizeEnabled());
     setUpperCaseButtons(form.isUpperCaseButtons());
@@ -419,6 +433,7 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
     accentColor = ACCENT_COLOR;
     accentScrollbars = true;
     arrowsStyle = ArrowsStyles.MATERIAL;
+    codeAdditionsEnabled = true;
     compactDropdowns = false;
     compactSidebar = false;
     customSidebarHeight = DEFAULT_LINE_HEIGHT;
@@ -454,6 +469,8 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
     tabOpacity = DEFAULT_TAB_OPACITY;
     tabsHeight = DEFAULT_TAB_HEIGHT;
     themedScrollbars = true;
+    tabFontSize = DEFAULT_TAB_FONT_SIZE;
+    tabFontSizeEnabled = false;
     treeFontSize = DEFAULT_TREE_FONT_SIZE;
     treeFontSizeEnabled = false;
     upperCaseButtons = true;
@@ -465,7 +482,6 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
   }
 
   @Override
-  @SuppressWarnings("FeatureEnvy")
   public boolean needsRestart(final MTForm form) {
     boolean modified = isMaterialDesignChanged(form.isMaterialDesign());
     modified = modified || isThemedScrollbarsChanged(form.isThemedScrollbars());
@@ -1530,6 +1546,65 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
 
   //endregion
 
+  // region Tab Font Size
+
+  /**
+   * Returns the treeFontSize of this MTConfig object.
+   *
+   * @return the treeFontSize (type int) of this MTConfig object.
+   */
+  public int getTabFontSize() {
+    return tabFontSize;
+  }
+
+  /**
+   * Sets the tabFontSize of this MTConfig object.
+   *
+   * @param tabFontSize the tabFontSize of this MTConfig object.
+   */
+  public void setTabFontSize(final int tabFontSize) {
+    this.tabFontSize = tabFontSize;
+  }
+
+  /**
+   * ...
+   *
+   * @param tabFontSize of type Integer
+   * @return boolean
+   */
+  public boolean isTabFontSizeChanged(final Integer tabFontSize) {
+    return this.tabFontSize != tabFontSize;
+  }
+
+  /**
+   * Returns the tabFontSizeEnabled of this MTConfig object.
+   *
+   * @return the tabFontSizeEnabled (type boolean) of this MTConfig object.
+   */
+  public boolean isTabFontSizeEnabled() {
+    return tabFontSizeEnabled;
+  }
+
+  /**
+   * Sets the tabFontSizeEnabled of this MTConfig object.
+   *
+   * @param tabFontSizeEnabled the tabFontSizeEnabled of this MTConfig object.
+   */
+  public void setTabFontSizeEnabled(final boolean tabFontSizeEnabled) {
+    this.tabFontSizeEnabled = tabFontSizeEnabled;
+  }
+
+  /**
+   * ...
+   *
+   * @param tabFontSizeEnabled of type boolean
+   * @return boolean
+   */
+  public boolean isTabFontSizeEnabledChanged(final boolean tabFontSizeEnabled) {
+    return this.tabFontSizeEnabled != tabFontSizeEnabled;
+  }
+  //endregion
+
   //region Compact dropdowns
 
   /**
@@ -1821,6 +1896,20 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
     return isPsiIcons != psiIcons;
   }
   //endregion
+
+  //region Code Additions
+  public boolean isCodeAdditionsEnabled() {
+    return codeAdditionsEnabled;
+  }
+
+  public void setCodeAdditionsEnabled(final boolean codeAdditionsEnabled) {
+    this.codeAdditionsEnabled = codeAdditionsEnabled;
+  }
+
+  public boolean isCodeAdditionsEnabledChanged(final boolean codeAdditionsEnabled) {
+    return this.codeAdditionsEnabled != codeAdditionsEnabled;
+  }
+  // endregion
 
   //region other data
 
