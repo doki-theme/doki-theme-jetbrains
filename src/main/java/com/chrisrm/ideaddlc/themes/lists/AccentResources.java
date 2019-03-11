@@ -112,6 +112,7 @@ public enum AccentResources {
           "ScrollBar.Thumb.Hovered.background",
           "ScrollBar.Thumb.NonOpaque.Hovered.background",
           "Component.focusColor",
+          "Component.focusedBorderColor",
           "Counter.background",
           "EditorPane.caretForeground",
           "EditorTabs.active.underlineColor",

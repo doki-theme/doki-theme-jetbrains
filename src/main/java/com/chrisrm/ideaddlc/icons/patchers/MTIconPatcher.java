@@ -38,6 +38,7 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+@SuppressWarnings("AbstractClassWithOnlyOneDirectInheritor")
 public abstract class MTIconPatcher extends IconPathPatcher {
   private static final Map<String, String> CACHE = new HashMap<>(100);
   private static final Pattern PNG = Pattern.compile(".png", Pattern.LITERAL);

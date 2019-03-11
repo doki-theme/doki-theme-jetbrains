@@ -51,4 +51,5 @@ Shit to fix
 ----
 
 Message bundle
-Painter Patcher
+DDLCMTTabsPainterPatcherComponent
+MTUI

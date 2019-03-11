@@ -29,6 +29,7 @@ package com.chrisrm.ideaddlc.actions.accents;
 import com.chrisrm.ideaddlc.utils.MTAccents;
 
 public class MTBrickAccentAction extends MTAbstractAccentAction {
+  @SuppressWarnings("MethodReturnAlwaysConstant")
   @Override
   public final MTAccents getAccent() {
     return MTAccents.BRICK;

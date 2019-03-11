@@ -35,6 +35,7 @@ import java.awt.*;
 /**
  * Interface for DDLCThemes and MTBundledThemes
  */
+@SuppressWarnings("ClassWithTooManyMethods")
 public interface MTThemeable {
   @NonNls
   String getThemeId();

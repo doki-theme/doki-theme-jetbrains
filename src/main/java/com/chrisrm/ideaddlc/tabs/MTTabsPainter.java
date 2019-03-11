@@ -36,6 +36,7 @@ import com.intellij.ui.tabs.impl.ShapeTransform;
 import java.awt.*;
 
 public class MTTabsPainter extends DefaultEditorTabsPainter {
+  @SuppressWarnings("unused")
   public MTTabsPainter() {
     super(null);
   }

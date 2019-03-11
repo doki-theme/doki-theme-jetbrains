@@ -199,7 +199,7 @@ public enum UIReplacer {
 
     Color color = UIManager.getColor("Dialog.titleColor");
     if (color == null) {
-      color = Gray._55;
+      color = UIUtil.getPanelBackground();
     }
 
     StaticPatcher.setFinalStatic(CaptionPanel.class, "CNT_ACTIVE_BORDER_COLOR", new JBColor(color, color));
@@ -208,36 +208,35 @@ public enum UIReplacer {
   }
 
   private static void patchAndroid() throws NoSuchFieldException, IllegalAccessException {
-    // TODO: 3/9/19 add me
-//    final Color panelBackground = MTUI.Panel.getBackground();
-//    final Color contrastBackground = MTUI.Panel.getContrastBackground();
-//    final Color secondaryBackground = MTUI.Panel.getSecondaryBackground();
-//    final Color highlightBackground = MTUI.Panel.getHighlightBackground();
+    final Color panelBackground = MTUI.Panel.getBackground();
+    final Color contrastBackground = MTUI.Panel.getContrastBackground();
+    final Color secondaryBackground = MTUI.Panel.getSecondaryBackground();
+    final Color highlightBackground = MTUI.Panel.getHighlightBackground();
 
     try {
       final Class<?> uiUtils = Class.forName("com.android.tools.idea.assistant.view.UIUtils");
-//      StaticPatcher.setFinalStatic(uiUtils, "AS_STANDARD_BACKGROUND_COLOR", panelBackground);
-//      StaticPatcher.setFinalStatic(uiUtils, "BACKGROUND_COLOR", panelBackground);
-//      StaticPatcher.setFinalStatic(uiUtils, "SECONDARY_COLOR", secondaryBackground);
-//
-//      final Class<?> wizardConstants = Class.forName("com.android.tools.idea.wizard.WizardConstants");
-//      StaticPatcher.setFinalStatic(wizardConstants, "ANDROID_NPW_HEADER_COLOR", panelBackground);
-//
-//      final Class<?> navColorSet = Class.forName("com.android.tools.idea.naveditor.scene.NavColorSet");
-//      StaticPatcher.setFinalStatic(navColorSet, "BACKGROUND_COLOR", contrastBackground);
-//      StaticPatcher.setFinalStatic(navColorSet, "FRAME_COLOR", contrastBackground);
-//      StaticPatcher.setFinalStatic(navColorSet, "HIGHLIGHTED_FRAME_COLOR", highlightBackground);
-//      StaticPatcher.setFinalStatic(navColorSet, "SUBDUED_FRAME_COLOR", highlightBackground);
-//      StaticPatcher.setFinalStatic(navColorSet, "SUBDUED_BACKGROUND_COLOR", panelBackground);
-//      StaticPatcher.setFinalStatic(navColorSet, "COMPONENT_BACKGROUND_COLOR", secondaryBackground);
-//      StaticPatcher.setFinalStatic(navColorSet, "LIST_MOUSEOVER_COLOR", secondaryBackground);
-//      StaticPatcher.setFinalStatic(navColorSet, "PLACEHOLDER_BACKGROUND_COLOR", secondaryBackground);
-//
-//      final Class<?> studioColors = Class.forName("com.android.tools.adtui.common.StudioColorsKt");
-//      StaticPatcher.setFinalStatic(studioColors, "primaryPanelBackground", contrastBackground);
-//      StaticPatcher.setFinalStatic(studioColors, "secondaryPanelBackground", panelBackground);
-//      StaticPatcher.setFinalStatic(studioColors, "border", panelBackground);
-//      StaticPatcher.setFinalStatic(studioColors, "borderLight", secondaryBackground);
+      StaticPatcher.setFinalStatic(uiUtils, "AS_STANDARD_BACKGROUND_COLOR", panelBackground);
+      StaticPatcher.setFinalStatic(uiUtils, "BACKGROUND_COLOR", panelBackground);
+      StaticPatcher.setFinalStatic(uiUtils, "SECONDARY_COLOR", secondaryBackground);
+
+      final Class<?> wizardConstants = Class.forName("com.android.tools.idea.wizard.WizardConstants");
+      StaticPatcher.setFinalStatic(wizardConstants, "ANDROID_NPW_HEADER_COLOR", panelBackground);
+
+      final Class<?> navColorSet = Class.forName("com.android.tools.idea.naveditor.scene.NavColorSet");
+      StaticPatcher.setFinalStatic(navColorSet, "BACKGROUND_COLOR", contrastBackground);
+      StaticPatcher.setFinalStatic(navColorSet, "FRAME_COLOR", contrastBackground);
+      StaticPatcher.setFinalStatic(navColorSet, "HIGHLIGHTED_FRAME_COLOR", highlightBackground);
+      StaticPatcher.setFinalStatic(navColorSet, "SUBDUED_FRAME_COLOR", highlightBackground);
+      StaticPatcher.setFinalStatic(navColorSet, "SUBDUED_BACKGROUND_COLOR", panelBackground);
+      StaticPatcher.setFinalStatic(navColorSet, "COMPONENT_BACKGROUND_COLOR", secondaryBackground);
+      StaticPatcher.setFinalStatic(navColorSet, "LIST_MOUSEOVER_COLOR", secondaryBackground);
+      StaticPatcher.setFinalStatic(navColorSet, "PLACEHOLDER_BACKGROUND_COLOR", secondaryBackground);
+
+      final Class<?> studioColors = Class.forName("com.android.tools.adtui.common.StudioColorsKt");
+      StaticPatcher.setFinalStatic(studioColors, "primaryPanelBackground", contrastBackground);
+      StaticPatcher.setFinalStatic(studioColors, "secondaryPanelBackground", panelBackground);
+      StaticPatcher.setFinalStatic(studioColors, "border", panelBackground);
+      StaticPatcher.setFinalStatic(studioColors, "borderLight", secondaryBackground);
 
     } catch (final ClassNotFoundException e) {
       //      e.printStackTrace();

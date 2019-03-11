@@ -376,8 +376,7 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
     setAccentColor(ColorUtil.toHex(form.getCustomAccentColor()));
     setAccentScrollbars(form.isAccentScrollbars());
     setArrowsStyle(form.getArrowsStyle());
-    //todo: add me
-//    setCodeAdditionsEnabled(form.isCodeAdditionsEnabled());
+    setCodeAdditionsEnabled(form.isCodeAdditionsEnabled());
     setCompactDropdowns(form.isCompactDropdowns());
     setCompactSidebar(form.isCompactSidebar());
     setCustomSidebarHeight(form.getCustomSidebarHeight());
@@ -414,9 +413,8 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
     setTabOpacity(form.getTabOpacity());
     setTabsHeight(form.getTabsHeight());
     setThemedScrollbars(form.isThemedScrollbars());
-    //todo: add me
-//    setTabFontSize(form.getTabFontSize());
-//    setTabFontSizeEnabled(form.isTabFontSizeEnabled());
+    setTabFontSize(form.getTabFontSize());
+    setTabFontSizeEnabled(form.isTabFontSizeEnabled());
     setTreeFontSize(form.getTreeFontSize());
     setTreeFontSizeEnabled(form.isTreeFontSizeEnabled());
     setUpperCaseButtons(form.isUpperCaseButtons());

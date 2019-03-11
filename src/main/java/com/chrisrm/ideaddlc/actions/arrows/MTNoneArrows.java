@@ -30,6 +30,7 @@ import com.chrisrm.ideaddlc.config.ui.ArrowsStyles;
 
 public final class MTNoneArrows extends MTAbstractArrowsAction {
 
+  @SuppressWarnings("MethodReturnAlwaysConstant")
   @Override
   protected ArrowsStyles getArrowsStyle() {
     return ArrowsStyles.NONE;
