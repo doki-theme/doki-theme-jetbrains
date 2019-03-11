@@ -51,7 +51,7 @@ import java.awt.geom.*;
     "EmptyClass", "MagicNumber"})
 public final class MTUI {
   public enum Tree {
-    DEFAULT;
+    MARIJUANA;
 
     @NonNls
     public static final String TREE_SELECTION_BACKGROUND = "Tree.selectionBackground";
@@ -63,7 +63,7 @@ public final class MTUI {
   }
 
   public enum ActionButton {
-    DEFAULT;
+    FIGHT;
 
     @NonNls
     public static final String ACTION_BUTTON_HOVER_BACKGROUND = "ActionButton.hoverBackground";
@@ -82,7 +82,7 @@ public final class MTUI {
   }
 
   public enum Button {
-    DEFAULT;
+    BOTON;
 
     @NonNls
     public static final String BUTTON_BACKGROUND = "Button.background";
@@ -135,7 +135,8 @@ public final class MTUI {
   }
 
   public enum TextField {
-    DEFAULT;
+    SEXTFIELD;
+
     @NonNls
     public static final String TEXT_FIELD_SEPARATOR_COLOR = "TextField.separatorColor";
     @NonNls
@@ -154,7 +155,7 @@ public final class MTUI {
   }
 
   public enum List {
-    DEFAULT;
+    ARRAY;
 
     @NonNls
     public static final String LIST_SELECTION_BACKGROUND_PAINTER = "List.sourceListSelectionBackgroundPainter";
@@ -171,7 +172,7 @@ public final class MTUI {
   }
 
   public enum Table {
-    DEFAULT;
+    CHAIR;
 
     @NonNls
     public static final String TABLE_HIGHLIGHT_OUTER = "Table.highlightOuter";
@@ -194,14 +195,14 @@ public final class MTUI {
   }
 
   public enum StatusBar {
-    DEFAULT;
+    SB;
 
     @NonNls
     public static final String IDE_STATUS_BAR_BORDER = "IdeStatusBar.border";
   }
 
   public enum TabbedPane {
-    DEFAULT;
+    TABUU;
 
     @NonNls
     public static final String TABBED_PANE_SELECTED_FOREGROUND = "TabbedPane.selectedForeground";
@@ -224,7 +225,7 @@ public final class MTUI {
   }
 
   public enum Slider {
-    DEFAULT;
+    PARALLEL_WORLDS;
 
     @NonNls
     public static final String SLIDER_THUMB = "Slider.thumb";
@@ -283,7 +284,8 @@ public final class MTUI {
 
   @SuppressWarnings("unused")
   public enum MTColor {
-    DEMO;
+    IROIRO;
+
     public static final Color PURPLE = new ColorUIResource(0xC792EA);
     public static final Color GREEN = new ColorUIResource(0xC3E88D);
     public static final Color BLUE = new ColorUIResource(0x82AAFF);
@@ -293,6 +295,16 @@ public final class MTUI {
     public static final Color ORANGE = new ColorUIResource(0xF78C6C);
     public static final Color BROWN = new ColorUIResource(0xAB7967);
     public static final Color PINK = new ColorUIResource(0xBB80B3);
+
+    public static final Color DARK_PURPLE = new ColorUIResource(0x4D2C91);
+    public static final Color DARK_GREEN = new ColorUIResource(0x387002);
+    public static final Color DARK_BLUE = new ColorUIResource(0x004BA0);
+    public static final Color DARK_CYAN = new ColorUIResource(0x008BA3);
+    public static final Color DARK_YELLOW = new ColorUIResource(0xC49000);
+    public static final Color DARK_RED = new ColorUIResource(0x9A0007);
+    public static final Color DARK_ORANGE = new ColorUIResource(0xB53D00);
+    public static final Color DARK_BROWN = new ColorUIResource(0x6D4C41);
+    public static final Color DARK_PINK = new ColorUIResource(0xA00037);
   }
 
   public enum Separator {
@@ -307,7 +319,7 @@ public final class MTUI {
   }
 
   public enum Radio {
-    DEFAULT;
+    GAGA;
 
     @NonNls
     public static final String RADIO_BUTTON_SELECTION_ENABLED_COLOR = "RadioButton.selectionEnabledShadowColor";
@@ -334,7 +346,7 @@ public final class MTUI {
   }
 
   public enum ProgressBar {
-    DEFAULT;
+    CHOCO;
 
     public static final String PROGRESS_BAR_TRACK_COLOR = "ProgressBar.trackColor";
     public static final String PROGRESS_BAR_PROGRESS_COLOR = "ProgressBar.progressColor";
@@ -365,7 +377,7 @@ public final class MTUI {
   }
 
   public enum Switch {
-    DEFAULT;
+    NINTENDO;
 
     public static final String OFF_THUMB_COLOR = "ToggleButton.off.foreground";
     public static final String ON_THUMB_COLOR = "ToggleButton.on.foreground";
@@ -391,7 +403,7 @@ public final class MTUI {
   }
 
   public enum NavBar {
-    DEFAULT;
+    ALLAH;
 
     public static final String NAVBAR_ARROW_COLOR = "NavBar.arrowColor";
     public static final String NAVBAR_HIGHLIGHT_COLOR = "NavBar.selectedColor";
@@ -422,7 +434,7 @@ public final class MTUI {
   }
 
   public enum ComboBox {
-    DEFAULT;
+    CCCCOMBO;
 
     public static final String COMBO_BOX_ARROW_BUTTON_NON_EDITABLE_BACKGROUND = "ComboBox.ArrowButton.nonEditableBackground";
     public static final String COMBO_BOX_NON_EDITABLE_BACKGROUND = "ComboBox.nonEditableBackground";
@@ -475,7 +487,7 @@ public final class MTUI {
   }
 
   public enum CheckBox {
-    DEFAULT;
+    CHECK1212;
 
     private static Color getColor(@NonNls final String shortPropertyName, final Color defaultValue) {
       final Color color = UIManager.getColor("CheckBox.darcula." + shortPropertyName);
