@@ -47,10 +47,7 @@ public class MTTabsPainter extends DefaultEditorTabsPainter {
 
   final void fillSelectionAndBorder(final Graphics2D g,
                                     final ShapeTransform selectedShape,
-                                    final Color tabColor,
-                                    final int x,
-                                    final int y,
-                                    final int height) {
+                                    final Color tabColor) {
     g.setColor(tabColor != null ? tabColor : getDefaultTabColor());
     g.fill(selectedShape.getShape());
   }
