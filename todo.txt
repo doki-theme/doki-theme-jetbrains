@@ -50,4 +50,5 @@ Maybe do the tab thing
 Shit to fix
 ----
 
-DDLCMTTabsPainterPatcherComponent
+tabs not changing when theme changes
+borders
