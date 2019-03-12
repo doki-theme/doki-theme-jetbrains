@@ -30,6 +30,7 @@ import com.chrisrm.ideaddlc.MTAnalytics;
 import com.chrisrm.ideaddlc.MTConfig;
 import com.chrisrm.ideaddlc.actions.MTToggleAction;
 import com.chrisrm.ideaddlc.config.enums.TabHighlightPositions;
+import com.intellij.ide.ui.LafManager;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import org.jetbrains.annotations.NotNull;
 
@@ -45,6 +46,9 @@ abstract class MTAbstractPositionsAction extends MTToggleAction {
   public final void setSelected(@NotNull final AnActionEvent e, final boolean state) {
     final TabHighlightPositions position = getPosition();
     mtConfig.setTabHighlightPosition(position);
+
+    //Force redrawing of the tab component, because it apparently just does it when it feels like it when this is not here.
+    LafManager.getInstance().updateUI();
 
     MTAnalytics.getInstance().trackValue(MTAnalytics.TAB_HIGHLIGHT_POSITION, position);
   }
