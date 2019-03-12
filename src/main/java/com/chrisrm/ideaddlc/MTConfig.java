@@ -32,7 +32,7 @@ import com.chrisrm.ideaddlc.listeners.ConfigNotifier;
 import com.chrisrm.ideaddlc.config.ui.ArrowsStyles;
 import com.chrisrm.ideaddlc.config.ui.IndicatorStyles;
 import com.chrisrm.ideaddlc.config.ui.MTForm;
-import com.chrisrm.ideaddlc.config.ui.TabHighlightPositions;
+import com.chrisrm.ideaddlc.config.enums.TabHighlightPositions;
 import com.intellij.openapi.application.ApplicationInfo;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.application.ApplicationNamesInfo;

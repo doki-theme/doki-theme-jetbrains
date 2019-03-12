@@ -27,7 +27,7 @@
 package com.chrisrm.ideaddlc.tabs;
 
 import com.chrisrm.ideaddlc.MTConfig;
-import com.chrisrm.ideaddlc.config.ui.TabHighlightPositions;
+import com.chrisrm.ideaddlc.config.enums.TabHighlightPositions;
 import com.intellij.ide.ui.UISettings;
 
 import javax.swing.*;

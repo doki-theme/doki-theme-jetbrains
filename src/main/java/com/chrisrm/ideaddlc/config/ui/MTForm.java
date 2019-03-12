@@ -31,6 +31,7 @@ import com.chrisrm.ideaddlc.config.MTBaseConfig;
 import com.chrisrm.ideaddlc.config.MTCustomThemeConfigurable;
 import com.chrisrm.ideaddlc.config.MTFileColorsPage;
 import com.chrisrm.ideaddlc.config.MTScrollbarsPage;
+import com.chrisrm.ideaddlc.config.enums.TabHighlightPositions;
 import com.chrisrm.ideaddlc.messages.MaterialThemeBundle;
 import io.acari.DDLC.DDLCThemeFacade;
 import io.acari.DDLC.DDLCThemes;
