@@ -59,7 +59,7 @@ import java.util.Optional;
 
 /**
  * Todo: revisit me.
- *
+ * <p>
  * Patch the Tabs Component to get the Material Design style
  *
  * @author Dennis.Ushakov
@@ -72,6 +72,9 @@ public final class MTTabsPainterPatcherComponent implements BaseComponent {
   private final Field fillPathField;
   private final Field labelPathField;
   private MessageBusConnection connect;
+  private boolean ddlcActive = false;
+  private boolean initalized = false;
+  private FileEditor fileEditor = null;
 
   public MTTabsPainterPatcherComponent() throws ClassNotFoundException, NoSuchFieldException {
     config = MTConfig.getInstance();
@@ -82,6 +85,31 @@ public final class MTTabsPainterPatcherComponent implements BaseComponent {
     pathField = clazz.getField("path");
     fillPathField = clazz.getField("fillPath");
     labelPathField = clazz.getField("labelPath");
+  }
+
+  private static void drawTabShadow(final Graphics2D g2d,
+                                    final Rectangle rect,
+                                    final ShapeTransform path,
+                                    final ShapeTransform labelPath,
+                                    final JBTabsPosition position) {
+    final ShadowPainter shadowPainter = getShadowPainter(position);
+    shadowPainter.drawShadow(g2d, path, labelPath, rect);
+  }
+
+  @SuppressWarnings("MethodWithMultipleReturnPoints")
+  public static ShadowPainter getShadowPainter(final JBTabsPosition position) {
+    switch (position) {
+      case top:
+        return new BottomShadowPainter();
+      case bottom:
+        return new TopShadowPainter();
+      case left:
+        return new RightShadowPainter();
+      case right:
+        return new LeftShadowPainter();
+      default:
+        return new NoneShadowPainter();
+    }
   }
 
   @Override
@@ -96,21 +124,17 @@ public final class MTTabsPainterPatcherComponent implements BaseComponent {
     return "DDLCMTTabsPainterPatcherComponent";
   }
 
-  private boolean ddlcActive=false;
-  private boolean initalized=false;
-  private FileEditor fileEditor = null;
-
   @Override
   public void initComponent() {
     final MessageBus bus = ApplicationManagerEx.getApplicationEx().getMessageBus();
 
     final MessageBusConnection connect = bus.connect();
-    MTThemeManager.addMaterialThemeActivatedListener(areOtherThemesActive-> {
-      if(!(areOtherThemesActive || initalized)){
+    MTThemeManager.addMaterialThemeActivatedListener(areOtherThemesActive -> {
+      if (!(areOtherThemesActive || initalized)) {
         this.ddlcActive = true;
         Optional.ofNullable(this.fileEditor)
             .ifPresent(fileEditor1 -> initializeTabs(fileEditor1, this::patchPainter));
-      } else if(initalized && areOtherThemesActive) {
+      } else if (initalized && areOtherThemesActive) {
         ddlcActive = false;
         Optional.ofNullable(this.fileEditor)
             .ifPresent(fileEditor1 -> {
@@ -124,8 +148,8 @@ public final class MTTabsPainterPatcherComponent implements BaseComponent {
       @Override
       public void selectionChanged(@NotNull final FileEditorManagerEvent event) {
         final FileEditor editor = event.getNewEditor();
-        if(ddlcActive){
-          initializeTabs(editor, a->patchPainter(a));
+        if (ddlcActive) {
+          initializeTabs(editor, a -> patchPainter(a));
         }
         fileEditor = editor;
       }
@@ -150,15 +174,17 @@ public final class MTTabsPainterPatcherComponent implements BaseComponent {
    * Patch tabsPainter
    */
   void patchPainter(final JBEditorTabs component) {
-    final Color accentColor = ObjectUtils.notNull(ColorUtil.fromHex(config.getAccentColor()), MTAccents.TURQUOISE.getColor());
+    final Color accentColor = ObjectUtils.notNull(ColorUtil.fromHex(config.getAccentColor()), MTAccents.BREAKING_BAD.getColor());
     final MTTabsPainter tabsPainter = new MTTabsPainter(component);
     final JBEditorTabsPainter proxy = (JBEditorTabsPainter) Enhancer.create(MTTabsPainter.class, new TabPainterInterceptor(tabsPainter,
         accentColor));
 
     applyCustomFontSize(component);
     ReflectionUtil.setField(JBEditorTabs.class, component, JBEditorTabsPainter.class, "myDefaultPainter", proxy);
-      }
-  private void replacePainters(JBEditorTabsPainter defaultPainter, JBEditorTabsPainter darkPainter, JBEditorTabs component){
+    replacePainters(proxy,proxy, component);
+  }
+
+  private void replacePainters(JBEditorTabsPainter defaultPainter, JBEditorTabsPainter darkPainter, JBEditorTabs component) {
     ReflectionUtil.setField(JBEditorTabs.class, component, JBEditorTabsPainter.class, "myDefaultPainter", defaultPainter);
     ReflectionUtil.setField(JBEditorTabs.class, component, JBEditorTabsPainter.class, "myDarkPainter", darkPainter);
   }
@@ -171,10 +197,9 @@ public final class MTTabsPainterPatcherComponent implements BaseComponent {
       for (final TabLabel value : myInfo2Label.values()) {
         final Font font = value.getLabelComponent().getFont().deriveFont(tabFontSize);
         value.getLabelComponent().setFont(font);
-  }
+      }
     }
   }
-
 
   /**
    * Paint tab selected and highlight border
@@ -219,31 +244,6 @@ public final class MTTabsPainterPatcherComponent implements BaseComponent {
     MTTabsHighlightPainter.paintHighlight(borderThickness, g2d, rect);
   }
 
-  private static void drawTabShadow(final Graphics2D g2d,
-                                    final Rectangle rect,
-                               final ShapeTransform path,
-                               final ShapeTransform labelPath,
-                                    final JBTabsPosition position) {
-    final ShadowPainter shadowPainter = getShadowPainter(position);
-    shadowPainter.drawShadow(g2d, path, labelPath, rect);
-  }
-
-  @SuppressWarnings("MethodWithMultipleReturnPoints")
-  public static ShadowPainter getShadowPainter(final JBTabsPosition position) {
-    switch (position) {
-      case top:
-        return new BottomShadowPainter();
-      case bottom:
-        return new TopShadowPainter();
-      case left:
-        return new RightShadowPainter();
-      case right:
-        return new LeftShadowPainter();
-      default:
-        return new NoneShadowPainter();
-  }
-  }
-
   private class TabPainterInterceptor implements MethodInterceptor {
     private final MTTabsPainter tabsPainter;
     private final Color accentColor;
@@ -261,7 +261,6 @@ public final class MTTabsPainterPatcherComponent implements BaseComponent {
     public final Object intercept(final Object o, final Method method, final Object[] objects, final MethodProxy methodProxy)
         throws IllegalAccessException, java.lang.reflect.InvocationTargetException {
       final Object result = method.invoke(tabsPainter, objects);
-
       // Custom props
       final boolean isColorEnabled = config.isHighlightColorEnabled();
       final Color borderColor = isColorEnabled ? config.getHighlightColor() : accentColor;
