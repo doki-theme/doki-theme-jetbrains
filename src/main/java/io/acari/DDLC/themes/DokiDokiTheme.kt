@@ -98,6 +98,7 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
             buildResources(getTreeSelectionBackgroundResources(), getTreeSelectionBackgroundColorString())
             buildResources(getTreeSelectionForegroundResources(), getTreeSelectionForegroundColorString())
             buildResources(getNotificationsResources(), notificationsColorString)
+            buildResources(getBorderResources(), borderColorString)
             buildNotificationsColors()
 
             // Apply theme accent color if said so
@@ -126,6 +127,9 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
     override fun getDisabledColorString(): String {
         return "000000"
     }
+
+    override fun getBorderColorString(): String =
+        contrastColorString
 
     override fun getForegroundColorString(): String {
         return "546E7A"
@@ -315,53 +319,53 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
         ).distinct()
     }
 
+    open fun getBorderResources(): Stream<String> =
+        Stream.of("EditorTabs.borderColor",
+            "Menu.borderColor",
+            "Component.borderColor",
+            "Borders.color",
+            "Borders.color",
+            "Borders.ContrastBorderColor",
+            "ComboPopup.border",
+            "DebuggerPopup.borderColor",
+            "DefaultTabs.borderColor",
+            "EditorTabs.borderColor",
+            "HelpTooltip.borderColor",
+            "InformationHint.borderColor",
+            "InplaceRefactoringPopup.borderColor",
+            "NavBar.borderColor",
+            "Notification.borderColor",
+            "Notification.errorBorderColor",
+            "Notification.MoreButton.innerBorderColor",
+            "Notification.ToolWindow.errorBorderColor",
+            "Notification.ToolWindow.informativeBorderColor",
+            "Notification.ToolWindow.warningBorderColor",
+            "ParameterInfo.borderColor",
+            "Plugins.Button.installBorderColor",
+            "Plugins.Button.updateBorderColor",
+            "Plugins.SearchField.borderColor",
+            "Popup.Advertiser.borderColor",
+            "Popup.Advertiser.borderInsets",
+            "Popup.innerBorderColor",
+            "Popup.paintBorder",
+            "SearchEverywhere.Advertiser.borderInsets",
+            "SearchEverywhere.SearchField.borderColor",
+            "SpeedSearch.borderColor",
+            "TableHeader.cellBorder",
+            "ToggleButton.borderColor",
+            "ToolWindow.Header.borderColor",
+            "ValidationTooltip.errorBorderColor",
+            "ValidationTooltip.warningBorderColor",
+            "WelcomeScreen.borderColor",
+            "WelcomeScreen.groupIconBorderColor",
+            "Window.border").distinct()
+
     open fun getContrastResources(): Stream<String> {
         return Stream.of(
                 "Table.stripedBackground",
                 "Table.stripeColor",
                 "ScrollBar.thumb",
                 "Table.focusCellBackground",
-
-                "EditorTabs.borderColor",
-                "Menu.borderColor",
-                "Component.borderColor",
-                "Borders.color",
-                "Borders.color",
-                "Borders.ContrastBorderColor",
-                "ComboPopup.border",
-                "DebuggerPopup.borderColor",
-                "DefaultTabs.borderColor",
-                "EditorTabs.borderColor",
-                "HelpTooltip.borderColor",
-                "InformationHint.borderColor",
-                "InplaceRefactoringPopup.borderColor",
-                "NavBar.borderColor",
-                "Notification.borderColor",
-                "Notification.errorBorderColor",
-                "Notification.MoreButton.innerBorderColor",
-                "Notification.ToolWindow.errorBorderColor",
-                "Notification.ToolWindow.informativeBorderColor",
-                "Notification.ToolWindow.warningBorderColor",
-                "ParameterInfo.borderColor",
-                "Plugins.Button.installBorderColor",
-                "Plugins.Button.updateBorderColor",
-                "Plugins.SearchField.borderColor",
-                "Popup.Advertiser.borderColor",
-                "Popup.Advertiser.borderInsets",
-                "Popup.innerBorderColor",
-                "Popup.paintBorder",
-                "SearchEverywhere.Advertiser.borderInsets",
-                "SearchEverywhere.SearchField.borderColor",
-                "SpeedSearch.borderColor",
-                "TableHeader.cellBorder",
-                "ToggleButton.borderColor",
-                "ToolWindow.Header.borderColor",
-                "ValidationTooltip.errorBorderColor",
-                "ValidationTooltip.warningBorderColor",
-                "WelcomeScreen.borderColor",
-                "WelcomeScreen.groupIconBorderColor",
-                "Window.border",
-
                 "ToolWindow.header.tab.selected.background",
                 "ToolWindow.header.tab.selected.active.background",
                 "material.contrast",

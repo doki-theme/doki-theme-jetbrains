@@ -144,6 +144,8 @@ public interface MTThemeable {
    */
   String getDisabledColorString();
 
+  String getBorderColorString();
+
   /**
    * Get the hex code for the contrast color
    */

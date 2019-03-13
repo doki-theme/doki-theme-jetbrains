@@ -34,6 +34,8 @@ class NatsukiTheme : DokiDokiTheme("natsuki", "Natsuki", false, "Natsuki") {
 
     override fun getContrastColorString(): String = "FED4FF"
 
+    override fun getBorderColorString(): String = "FFC0FB"
+
     override fun getEditorTabColorString(): String = contrastColorString
 
     override fun getButtonBackgroundColor(): String = contrastColorString
