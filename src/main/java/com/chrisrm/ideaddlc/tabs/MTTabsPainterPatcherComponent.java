@@ -71,7 +71,6 @@ public final class MTTabsPainterPatcherComponent implements BaseComponent {
   private final Field pathField;
   private final Field fillPathField;
   private final Field labelPathField;
-  private MessageBusConnection connect;
   private boolean ddlcActive = false;
   private boolean initalized = false;
   private FileEditor fileEditor = null;
@@ -114,7 +113,6 @@ public final class MTTabsPainterPatcherComponent implements BaseComponent {
 
   @Override
   public void disposeComponent() {
-    connect.disconnect();
   }
 
   @NonNls

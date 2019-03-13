@@ -32,6 +32,7 @@ import com.intellij.ui.ColorUtil;
 import com.intellij.ui.tabs.impl.DefaultEditorTabsPainter;
 import com.intellij.ui.tabs.impl.JBEditorTabs;
 import com.intellij.ui.tabs.impl.ShapeTransform;
+import io.acari.DDLC.DDLCConfig;
 
 import java.awt.*;
 
@@ -54,7 +55,7 @@ public class MTTabsPainter extends DefaultEditorTabsPainter {
 
   @Override
   public final Color getBackgroundColor() {
-    final MTConfig config = MTConfig.getInstance();
+    final DDLCConfig config = DDLCConfig.getInstance();
     final MTThemeable mtTheme = config.getSelectedTheme().getTheme();
     return mtTheme.getBackgroundColor();
   }
@@ -62,7 +63,7 @@ public class MTTabsPainter extends DefaultEditorTabsPainter {
   @SuppressWarnings("FeatureEnvy")
   public static Color getContrastColor() {
     final MTConfig config = MTConfig.getInstance();
-    final MTThemeable mtTheme = config.getSelectedTheme().getTheme();
+    final MTThemeable mtTheme = DDLCConfig.getInstance().getSelectedTheme().getTheme();
     return config.isContrastMode() ? mtTheme.getContrastColor() : mtTheme.getBackgroundColor();
   }
 

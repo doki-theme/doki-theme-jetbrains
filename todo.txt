@@ -49,6 +49,4 @@ Maybe do the tab thing
 
 Shit to fix
 ----
-
-tabs not changing when theme changes
 borders
