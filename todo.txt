@@ -43,10 +43,5 @@ works with material ui
 Rating Stars
 ------
 
-THINGS TODO:
-FILE changed status
-Maybe do the tab thing
-
 Shit to fix
 ----
-borders
