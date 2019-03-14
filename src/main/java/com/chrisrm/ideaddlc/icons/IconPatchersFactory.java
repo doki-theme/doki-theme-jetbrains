@@ -34,6 +34,9 @@ import org.jetbrains.annotations.NonNls;
 import java.net.URL;
 import java.util.Set;
 
+/**
+ * todo: should I be used?
+ */
 public enum IconPatchersFactory {
   PATCH_PATCH;
 

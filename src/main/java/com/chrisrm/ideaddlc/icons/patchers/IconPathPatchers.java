@@ -32,6 +32,9 @@ import com.intellij.util.xmlb.annotations.Property;
 import java.util.Collections;
 import java.util.Set;
 
+/**
+ * todo: should I be used?
+ */
 public final class IconPathPatchers {
   @Property
   private Set<IconPathPatcher> iconPatchers;

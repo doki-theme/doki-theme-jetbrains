@@ -29,6 +29,8 @@ import com.intellij.util.xmlb.annotations.Property;
 import org.jetbrains.annotations.NotNull;
 
 /**
+ *
+ * todo: should I be used?
  * @author Konstantin Bulenkov
  */
 public class ExternalIconsPatcher extends MTIconPatcher {
