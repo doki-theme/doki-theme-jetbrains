@@ -639,9 +639,6 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
         return "fbffeb"
     }
 
-
-    abstract fun getTreeSelectionBackgroundColorString(): String
-
     open fun getSecondaryForegroundResources(): Stream<String> {
         return Stream.of("ToolWindow.header.active.foreground",
                 "ToolWindow.header.border.foreground",

@@ -119,6 +119,8 @@ public interface MTThemeable {
    */
   String getTextColorString();
 
+  String getTreeSelectionBackgroundColorString();
+
   /**
    * Get the hex code for the selection background color
    */
