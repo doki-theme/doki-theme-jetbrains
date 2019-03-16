@@ -65,7 +65,8 @@ import static com.intellij.ide.ui.UITheme.parseValue;
 @SuppressWarnings({"ClassWithTooManyMethods",
     "OverlyLongMethod",
     "DuplicateStringLiteralInspection",
-    "OverlyCoupledClass"})
+    "OverlyCoupledClass",
+    "MagicNumber"})
 public class MTLafInstaller {
   /**
    * The configuration
@@ -113,6 +114,7 @@ public class MTLafInstaller {
     replaceRootPane(defaults);
     replaceMenus(defaults);
     replaceTabbedPanes(defaults);
+    replaceLabels(defaults);
     replaceDefaultButtons(defaults);
 
     if (mtConfig.isMaterialDesign()) {
@@ -404,6 +406,11 @@ public class MTLafInstaller {
 
     defaults.put("TabbedPaneUI", MTTabbedPaneUI.class.getName());
     defaults.put(MTTabbedPaneUI.class.getName(), MTTabbedPaneUI.class);
+  }
+
+  private static void replaceLabels(@NonNls final UIDefaults defaults) {
+    defaults.put("LabelUI", MTLabelUI.class.getName());
+    defaults.put(MTLabelUI.class.getName(), MTLabelUI.class);
   }
 
   /**

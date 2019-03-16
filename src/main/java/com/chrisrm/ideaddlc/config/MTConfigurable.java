@@ -48,7 +48,7 @@ public final class MTConfigurable extends MTConfigurableBase<MTForm, MTConfig> i
   @Nls
   @Override
   public String getDisplayName() {
-    return MaterialThemeBundle.message("mt.settings.title");
+    return MaterialThemeBundle.message("mt.settings.titles.materialTheme");
   }
 
   @NonNls

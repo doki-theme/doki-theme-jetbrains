@@ -1,6 +1,13 @@
 # Changelog
 ----
 
+# 3.1.0
+
+- Updated with Material 3.8.0.2
+    - Added the "Tab Highlight Position Option" which can be found in the DDLC Options configuration.
+    - A bunch of new SVGs and file icon associations!
+- Adjusted border coloring for each theme
+
 # 3.0.0
 
 - Brand new light theme look.

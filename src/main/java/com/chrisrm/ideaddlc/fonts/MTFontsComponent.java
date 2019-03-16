@@ -47,8 +47,6 @@ public final class MTFontsComponent implements BaseComponent {
 
   /**
    * Install Roboto fonts
-   *
-   * @todo fix this
    */
   private void installFonts() {
     registerFont("/fonts/RobotoMT-Black.ttf");
@@ -97,7 +95,7 @@ public final class MTFontsComponent implements BaseComponent {
     } catch (final FontFormatException | IOException e) {
       e.printStackTrace();
     } catch (final Throwable t) {
-      Logger.getInstance(AppUIUtil.class).warn(MaterialThemeBundle.message("cannot.register.font") + url, t);
+      Logger.getInstance(AppUIUtil.class).warn(MaterialThemeBundle.message("error.cannotRegisterFont") + url, t);
     }
   }
 }

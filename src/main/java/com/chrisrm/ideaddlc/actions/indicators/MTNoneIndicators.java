@@ -30,6 +30,7 @@ import com.chrisrm.ideaddlc.config.ui.IndicatorStyles;
 
 public final class MTNoneIndicators extends MTAbstractIndicatorsAction {
 
+  @SuppressWarnings("MethodReturnAlwaysConstant")
   @Override
   protected IndicatorStyles getIndicatorStyle() {
     return IndicatorStyles.NONE;

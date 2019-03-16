@@ -28,6 +28,7 @@ package com.chrisrm.ideaddlc.icons.associations;
 
 import com.chrisrm.ideaddlc.icons.FileInfo;
 import com.intellij.openapi.util.IconLoader;
+import com.intellij.util.xmlb.annotations.Property;
 
 import javax.swing.*;
 import java.util.regex.Pattern;
@@ -38,6 +39,7 @@ import java.util.regex.Pattern;
 @SuppressWarnings("InstanceVariableMayNotBeInitialized")
 public final class RegexAssociation extends Association {
 
+  @Property
   private String pattern;
   private transient Pattern compiledPattern;
 

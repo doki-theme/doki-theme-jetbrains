@@ -33,6 +33,8 @@ class EdgyTheme : DokiDokiTheme("yuri.dark", "Edgy", true, "Yuri") {
 
     override fun getContrastColorString(): String = "473960"
 
+    override fun getBorderColorString(): String = "402A60"
+
     override fun getEditorTabColorString(): String = contrastColorString
 
     override fun getButtonBackgroundColor(): String = contrastColorString

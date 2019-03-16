@@ -21,6 +21,7 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  *  SOFTWARE.
  *
+ *
  */
 
 package com.chrisrm.ideaddlc.ui;
@@ -45,7 +46,8 @@ public final class MTOnOffButtonUI extends BasicToggleButtonUI {
   private static final Border BUTTON_BORDER = JBUI.Borders.empty(1, 10);
   private static final int ARC = 16;
 
-  @SuppressWarnings("MethodOverridesStaticMethodOfSuperclass")
+  @SuppressWarnings({"MethodOverridesStaticMethodOfSuperclass",
+      "unused"})
   public static ComponentUI createUI(final JComponent component) {
     component.setBorder(BUTTON_BORDER);
     return new MTOnOffButtonUI();

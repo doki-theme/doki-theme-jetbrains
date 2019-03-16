@@ -44,6 +44,8 @@ public interface CustomConfigNotifier {
    */
   void customConfigChanged(MTBaseConfig mtBaseConfig);
 
+  @SuppressWarnings({"InnerClassOfInterface",
+      "PublicInnerClass"})
   class Adapter implements CustomConfigNotifier {
 
     @Override

@@ -21,6 +21,7 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  *  SOFTWARE.
  *
+ *
  */
 
 package com.chrisrm.ideaddlc.themes.models;
@@ -42,14 +43,22 @@ public class MTThemeColor implements Serializable {
   /**
    * Color id
    */
-  public final String getId() {
+  public String getId() {
     return id;
   }
 
   /**
    * Color value
    */
-  public final String getValue() {
+  public String getValue() {
     return value;
+  }
+
+  public void setId(final String id) {
+    this.id = id;
+  }
+
+  public void setValue(final String value) {
+    this.value = value;
   }
 }

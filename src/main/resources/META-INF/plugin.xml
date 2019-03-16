@@ -35,12 +35,13 @@
         This will add the <a href="https://github.com/cyclic-reference/jetbrains-theme">DDLC Theme</a> look to your IDE.<br/><br/><br/><div align="center"><img src="https://raw.githubusercontent.com/cyclic-reference/jetbrains-theme/master/src/main/resources/themes/DDLC_LOGO.png" alt="DDLC"></img></div>
     ]]></description>
 
-    <!-- Match with 'intellij.version' in build.gradle -->
-    <idea-version since-build="173.3655.1"/>
+    <!-- Gets overridden during the build process -->
+    <idea-version since-build="181.5281.31"/>
 
 
     <depends>com.intellij.modules.platform</depends>
     <depends>com.intellij.modules.lang</depends>
+    <depends optional="true">org.jetbrains.android</depends>
 
     <resource-bundle>messages.MaterialThemeBundle</resource-bundle>
     <resource-bundle>messages.FileColorsBundle</resource-bundle>
@@ -88,7 +89,7 @@
         <search.topHitProvider implementation="com.chrisrm.ideaddlc.config.MTConfigTopHitProvider"/>
 
         <colorSettingsPage implementation="com.chrisrm.ideaddlc.config.MTFileColorsPage"/>
-        <colorSettingsPage implementation="com.chrisrm.ideaddlc.config.MTScrollbarsPage" id="MTScrollbarPage"/>
+        <colorSettingsPage implementation="com.chrisrm.ideaddlc.config.MTScrollbarsPage" id="DokiScrollbarPage"/>
 
         <webHelpProvider implementation="com.chrisrm.ideaddlc.help.MTHelpProvider" id="DDLCMTHelpTopic"/>
         <annotator language="JavaScript" implementationClass="com.chrisrm.ideaddlc.annotators.JSAnnotator"/>
@@ -241,7 +242,57 @@
                         text="Set No Indicators style"
                         description="Remove the selected indicators in trees"/>
             </group>
-
+            <group id="DokiTabPositions" text="Tab Highlight Position" popup="true">
+                <action class="com.chrisrm.ideaddlc.actions.positions.MTDefaultPosition"
+                        id="DokiDefaultPosition"
+                        text="Set default highlight position"
+                        icon="/icons/actions/positions/default.svg"
+                        description="Set default highlight position"/>
+                <action class="com.chrisrm.ideaddlc.actions.positions.MTTopPosition"
+                        id="DokiTopPosition"
+                        text="Set highlight at the top"
+                        icon="/icons/actions/positions/top.svg"
+                        description="Set highlight at the top"/>
+                <action class="com.chrisrm.ideaddlc.actions.positions.MTBottomPosition"
+                        id="DokiBottomPosition"
+                        text="Set highlight at the bottom"
+                        icon="/icons/actions/positions/bottom.svg"
+                        description="Set highlight at the bottom"/>
+                <action class="com.chrisrm.ideaddlc.actions.positions.MTLeftPosition"
+                        id="DokiLeftPosition"
+                        text="Set highlight at the left"
+                        icon="/icons/actions/positions/left.svg"
+                        description="Set highlight at the left"/>
+                <action class="com.chrisrm.ideaddlc.actions.positions.MTRightPosition"
+                        id="DokiRightPosition"
+                        text="Set highlight at the right"
+                        icon="/icons/actions/positions/right.svg"
+                        description="Set highlight at the right"/>
+                <action class="com.chrisrm.ideaddlc.actions.positions.MTTopBottomPosition"
+                        id="DokiTopBottomPosition"
+                        text="Set highlight at the top and bottom"
+                        icon="/icons/actions/positions/topBottom.svg"
+                        description="Set highlight at the top and bottom"/>
+                <action class="com.chrisrm.ideaddlc.actions.positions.MTLeftRightPosition"
+                        id="DokiLeftRightPosition"
+                        text="Set highlight at the left and right"
+                        icon="/icons/actions/positions/leftRight.svg"
+                        description="Set highlight at the left and right"/>
+                <action class="com.chrisrm.ideaddlc.actions.positions.MTFullPosition"
+                        id="DokiFullPosition"
+                        text="Set highlight everywhere"
+                        icon="/icons/actions/positions/full.svg"
+                        description="Set highlight everywhere"/>
+                <action class="com.chrisrm.ideaddlc.actions.positions.MTBottomlessPosition"
+                        id="DokiBottomLessPosition"
+                        text="Set highlight everywhere except bottom"
+                        icon="/icons/actions/positions/bottomless.svg"
+                        description="Set highlight everywhere except bottom"/>
+                <action class="com.chrisrm.ideaddlc.actions.positions.MTNonePosition"
+                        id="DokiNonePosition"
+                        text="Remove the highlight"
+                        description="Remove the highlight"/>
+            </group>
         </group>
 
         <group id="DDLC.Menu" text="DDLC Theme" popup="true" icon="/icons/ddlc/ddlcTheme.svg">

@@ -21,6 +21,7 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  *  SOFTWARE.
  *
+ *
  */
 package com.chrisrm.ideaddlc.ui;
 
@@ -29,6 +30,8 @@ import com.intellij.ide.navigationToolbar.NavBarItem;
 import com.intellij.ide.navigationToolbar.NavBarPanel;
 import com.intellij.ide.navigationToolbar.ui.CommonNavBarUI;
 import com.intellij.ide.ui.UISettings;
+import com.intellij.ui.Gray;
+import com.intellij.ui.JBColor;
 import com.intellij.util.ui.JBInsets;
 import com.intellij.util.ui.JBUI;
 import com.intellij.util.ui.UIUtil;
@@ -129,6 +132,9 @@ public final class MTNavBarUI extends CommonNavBarUI {
 
     // The image we will build
     final BufferedImage result = UIUtil.createImage(w, h, BufferedImage.TYPE_INT_ARGB);
+    final Color defaultBg = UIUtil.isUnderDarcula() ? Gray._100 : JBColor.WHITE;
+    final Paint bg = floating ? defaultBg : null;
+
     final Graphics2D g2 = result.createGraphics();
     g2.setStroke(new BasicStroke(1.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_ROUND));
     g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
@@ -151,9 +157,11 @@ public final class MTNavBarUI extends CommonNavBarUI {
     endShape.closePath();
 
     // Colorize the shape with the panel background
+    if (bg != null && selected) {
     g2.setPaint(UIUtil.getPanelBackground());
     g2.fill(shape);
     g2.fill(endShape);
+    }
 
     // If navigation item is selected, colorize with list background color and draw arrow in halo color
     if (selected) {

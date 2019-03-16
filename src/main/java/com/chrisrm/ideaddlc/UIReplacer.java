@@ -29,6 +29,7 @@ package com.chrisrm.ideaddlc;
 import com.chrisrm.ideaddlc.ui.MTActionButtonLook;
 import com.chrisrm.ideaddlc.ui.MTNavBarUI;
 import com.chrisrm.ideaddlc.ui.MTScrollUI;
+import com.chrisrm.ideaddlc.utils.MTUI;
 import com.chrisrm.ideaddlc.utils.StaticPatcher;
 import com.intellij.codeInsight.lookup.impl.LookupCellRenderer;
 import com.intellij.ide.actions.Switcher;
@@ -47,6 +48,7 @@ import com.intellij.ui.tabs.FileColorManagerImpl;
 import com.intellij.ui.tabs.TabsUtil;
 import com.intellij.util.ObjectUtils;
 import com.intellij.util.containers.ContainerUtil;
+import com.intellij.util.ui.JBUI;
 import com.intellij.util.ui.JBValue;
 import com.intellij.util.ui.UIUtil;
 import com.intellij.vcs.log.VcsLogStandardColors;
@@ -83,6 +85,7 @@ public enum UIReplacer {
       patchIdeaActionButton();
       patchOnMouseOver();
       patchPluginPage();
+      patchAndroid();
     } catch (final ClassNotFoundException | IllegalAccessException | NoSuchFieldException e) {
       e.printStackTrace();
     }
@@ -196,12 +199,48 @@ public enum UIReplacer {
 
     Color color = UIManager.getColor("Dialog.titleColor");
     if (color == null) {
-      color = Gray._55;
+      color = UIUtil.getPanelBackground();
     }
 
     StaticPatcher.setFinalStatic(CaptionPanel.class, "CNT_ACTIVE_BORDER_COLOR", new JBColor(color, color));
     StaticPatcher.setFinalStatic(CaptionPanel.class, "BND_ACTIVE_COLOR", new JBColor(color, color));
     StaticPatcher.setFinalStatic(CaptionPanel.class, "CNT_ACTIVE_COLOR", new JBColor(color, color));
+  }
+
+  private static void patchAndroid() throws NoSuchFieldException, IllegalAccessException {
+    final Color panelBackground = MTUI.Panel.getBackground();
+    final Color contrastBackground = MTUI.Panel.getContrastBackground();
+    final Color secondaryBackground = MTUI.Panel.getSecondaryBackground();
+    final Color highlightBackground = MTUI.Panel.getHighlightBackground();
+
+    try {
+      final Class<?> uiUtils = Class.forName("com.android.tools.idea.assistant.view.UIUtils");
+      StaticPatcher.setFinalStatic(uiUtils, "AS_STANDARD_BACKGROUND_COLOR", panelBackground);
+      StaticPatcher.setFinalStatic(uiUtils, "BACKGROUND_COLOR", panelBackground);
+      StaticPatcher.setFinalStatic(uiUtils, "SECONDARY_COLOR", secondaryBackground);
+
+      final Class<?> wizardConstants = Class.forName("com.android.tools.idea.wizard.WizardConstants");
+      StaticPatcher.setFinalStatic(wizardConstants, "ANDROID_NPW_HEADER_COLOR", panelBackground);
+
+      final Class<?> navColorSet = Class.forName("com.android.tools.idea.naveditor.scene.NavColorSet");
+      StaticPatcher.setFinalStatic(navColorSet, "BACKGROUND_COLOR", contrastBackground);
+      StaticPatcher.setFinalStatic(navColorSet, "FRAME_COLOR", contrastBackground);
+      StaticPatcher.setFinalStatic(navColorSet, "HIGHLIGHTED_FRAME_COLOR", highlightBackground);
+      StaticPatcher.setFinalStatic(navColorSet, "SUBDUED_FRAME_COLOR", highlightBackground);
+      StaticPatcher.setFinalStatic(navColorSet, "SUBDUED_BACKGROUND_COLOR", panelBackground);
+      StaticPatcher.setFinalStatic(navColorSet, "COMPONENT_BACKGROUND_COLOR", secondaryBackground);
+      StaticPatcher.setFinalStatic(navColorSet, "LIST_MOUSEOVER_COLOR", secondaryBackground);
+      StaticPatcher.setFinalStatic(navColorSet, "PLACEHOLDER_BACKGROUND_COLOR", secondaryBackground);
+
+      final Class<?> studioColors = Class.forName("com.android.tools.adtui.common.StudioColorsKt");
+      StaticPatcher.setFinalStatic(studioColors, "primaryPanelBackground", contrastBackground);
+      StaticPatcher.setFinalStatic(studioColors, "secondaryPanelBackground", panelBackground);
+      StaticPatcher.setFinalStatic(studioColors, "border", panelBackground);
+      StaticPatcher.setFinalStatic(studioColors, "borderLight", secondaryBackground);
+
+    } catch (final ClassNotFoundException e) {
+      //      e.printStackTrace();
+    }
   }
 
   /**
@@ -366,12 +405,12 @@ public enum UIReplacer {
     final Color disabledColor = DDLCConfig.getInstance().getSelectedTheme().getTheme().getExcludedColor();
 
     final Map<String, Color> ourDefaultColors = ContainerUtil.<String, Color>immutableMapBuilder()
-        .put("Blue", new JBColor(new Color(0x82AAFF), new Color(0x2E425F))) //NON-NLS
-        .put("Green", new JBColor(new Color(0xC3E88D), new Color(0x4B602F)))//NON-NLS
-        .put("Orange", new JBColor(new Color(0xF78C6C), new Color(0x904028)))//NON-NLS
-        .put("Rose", new JBColor(new Color(0xFF5370), new Color(0x5F1818)))//NON-NLS
-        .put("Violet", new JBColor(new Color(0xC792EA), new Color(0x2F235F)))//NON-NLS
-        .put("Yellow", new JBColor(new Color(0xFFCB6B), new Color(0x885522)))//NON-NLS
+        .put("Sea", UIManager.getColor("FileColor.Blue")) //NON-NLS
+        .put("Forest", UIManager.getColor("FileColor.Green"))//NON-NLS
+        .put("Spice", UIManager.getColor("FileColor.Orange"))//NON-NLS
+        .put("Crimson", UIManager.getColor("FileColor.Rose"))//NON-NLS
+        .put("DeepPurple", UIManager.getColor("FileColor.Violet"))//NON-NLS
+        .put("Amber", UIManager.getColor("FileColor.Yellow"))//NON-NLS
         .put("Theme", disabledColor)//NON-NLS
         .build();
 
@@ -431,7 +470,8 @@ public enum UIReplacer {
    */
   public static void patchTabs() throws NoSuchFieldException, IllegalAccessException {
     LegacySupportUtility.INSTANCE.invokeClassSafely("com.intellij.ide.ui.laf.darcula.ui.DarculaSeparatorUI", () -> {
-      final int tabsHeight = MTConfig.getInstance().getTabsHeight() / 2;
+      final int baseHeight = JBUI.scale(6);
+      final int tabsHeight = MTConfig.getInstance().getTabsHeight() / 2 - baseHeight;
       StaticPatcher.setFinalStatic(TabsUtil.class, "TAB_VERTICAL_PADDING", new JBValue.Float(tabsHeight));
     });
   }

@@ -21,31 +21,36 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  *  SOFTWARE.
  *
+ *
  */
 
 package com.chrisrm.ideaddlc.ui;
 
-import com.intellij.util.ui.UIUtil;
+import com.chrisrm.ideaddlc.utils.MTUI;
+import com.intellij.ide.ui.laf.darcula.ui.DarculaLabelUI;
 
 import javax.swing.*;
-import javax.swing.plaf.*;
-import javax.swing.plaf.basic.*;
+import javax.swing.plaf.ComponentUI;
 import java.awt.*;
 
-public class MTLabelUI extends BasicLabelUI {
-  public static ComponentUI createUI(final JComponent x) {
+public final class MTLabelUI extends DarculaLabelUI {
+  @SuppressWarnings({"MethodOverridesStaticMethodOfSuperclass",
+      "unused"})
+  public static ComponentUI createUI(final JComponent component) {
     return new MTLabelUI();
   }
 
   @Override
-  public void installUI(final JComponent c) {
-    super.installUI(c);
-
-    final JLabel label = (JLabel) c;
-    label.setOpaque(false);
-
-    if (UIUtil.getParentOfType(JTabbedPane.class, c) != null) {
-      c.setForeground(Color.BLUE);
-    }
+  protected void paintEnabledText(final JLabel l, final Graphics g, final String s, final int textX, final int textY) {
+    g.setColor(MTUI.Label.getLabelForeground(l));
+    MTUI.Label.paintText(l, g, s, textX, textY);
   }
+
+  @Override
+  protected void paintDisabledText(final JLabel l, final Graphics g, final String s, final int textX, final int textY) {
+    g.setColor(MTUI.Label.getDisabledBackground());
+    MTUI.Label.paintText(l, g, s, textX, textY);
+  }
+
+
 }

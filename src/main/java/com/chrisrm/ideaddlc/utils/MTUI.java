@@ -27,7 +27,8 @@
 package com.chrisrm.ideaddlc.utils;
 
 import com.chrisrm.ideaddlc.MTConfig;
-import com.intellij.ide.actions.Switcher;
+import com.intellij.ide.ui.laf.darcula.DarculaLaf;
+import com.intellij.ide.ui.laf.darcula.DarculaUIUtil;
 import com.intellij.ui.ColorUtil;
 import com.intellij.ui.Gray;
 import com.intellij.ui.JBColor;
@@ -38,6 +39,7 @@ import com.intellij.util.ui.UIUtil;
 import io.acari.DDLC.LegacySupportUtility;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
+import sun.swing.SwingUtilities2;
 
 import javax.swing.*;
 import javax.swing.border.*;
@@ -49,7 +51,7 @@ import java.awt.geom.*;
     "EmptyClass", "MagicNumber"})
 public final class MTUI {
   public enum Tree {
-    DEFAULT;
+    MARIJUANA;
 
     @NonNls
     public static final String TREE_SELECTION_BACKGROUND = "Tree.selectionBackground";
@@ -61,7 +63,7 @@ public final class MTUI {
   }
 
   public enum ActionButton {
-    DEFAULT;
+    FIGHT;
 
     @NonNls
     public static final String ACTION_BUTTON_HOVER_BACKGROUND = "ActionButton.hoverBackground";
@@ -80,7 +82,7 @@ public final class MTUI {
   }
 
   public enum Button {
-    DEFAULT;
+    BOTON;
 
     @NonNls
     public static final String BUTTON_BACKGROUND = "Button.background";
@@ -133,7 +135,8 @@ public final class MTUI {
   }
 
   public enum TextField {
-    DEFAULT;
+    SEXTFIELD;
+
     @NonNls
     public static final String TEXT_FIELD_SEPARATOR_COLOR = "TextField.separatorColor";
     @NonNls
@@ -152,7 +155,7 @@ public final class MTUI {
   }
 
   public enum List {
-    DEFAULT;
+    ARRAY;
 
     @NonNls
     public static final String LIST_SELECTION_BACKGROUND_PAINTER = "List.sourceListSelectionBackgroundPainter";
@@ -169,7 +172,7 @@ public final class MTUI {
   }
 
   public enum Table {
-    DEFAULT;
+    CHAIR;
 
     @NonNls
     public static final String TABLE_HIGHLIGHT_OUTER = "Table.highlightOuter";
@@ -192,14 +195,14 @@ public final class MTUI {
   }
 
   public enum StatusBar {
-    DEFAULT;
+    SB;
 
     @NonNls
     public static final String IDE_STATUS_BAR_BORDER = "IdeStatusBar.border";
   }
 
   public enum TabbedPane {
-    DEFAULT;
+    TABUU;
 
     @NonNls
     public static final String TABBED_PANE_SELECTED_FOREGROUND = "TabbedPane.selectedForeground";
@@ -222,7 +225,7 @@ public final class MTUI {
   }
 
   public enum Slider {
-    DEFAULT;
+    PARALLEL_WORLDS;
 
     @NonNls
     public static final String SLIDER_THUMB = "Slider.thumb";
@@ -281,7 +284,8 @@ public final class MTUI {
 
   @SuppressWarnings("unused")
   public enum MTColor {
-    DEMO;
+    IROIRO;
+
     public static final Color PURPLE = new ColorUIResource(0xC792EA);
     public static final Color GREEN = new ColorUIResource(0xC3E88D);
     public static final Color BLUE = new ColorUIResource(0x82AAFF);
@@ -291,6 +295,16 @@ public final class MTUI {
     public static final Color ORANGE = new ColorUIResource(0xF78C6C);
     public static final Color BROWN = new ColorUIResource(0xAB7967);
     public static final Color PINK = new ColorUIResource(0xBB80B3);
+
+    public static final Color DARK_PURPLE = new ColorUIResource(0x4D2C91);
+    public static final Color DARK_GREEN = new ColorUIResource(0x387002);
+    public static final Color DARK_BLUE = new ColorUIResource(0x004BA0);
+    public static final Color DARK_CYAN = new ColorUIResource(0x008BA3);
+    public static final Color DARK_YELLOW = new ColorUIResource(0xC49000);
+    public static final Color DARK_RED = new ColorUIResource(0x9A0007);
+    public static final Color DARK_ORANGE = new ColorUIResource(0xB53D00);
+    public static final Color DARK_BROWN = new ColorUIResource(0x6D4C41);
+    public static final Color DARK_PINK = new ColorUIResource(0xA00037);
   }
 
   public enum Separator {
@@ -305,7 +319,7 @@ public final class MTUI {
   }
 
   public enum Radio {
-    DEFAULT;
+    GAGA;
 
     @NonNls
     public static final String RADIO_BUTTON_SELECTION_ENABLED_COLOR = "RadioButton.selectionEnabledShadowColor";
@@ -332,7 +346,7 @@ public final class MTUI {
   }
 
   public enum ProgressBar {
-    DEFAULT;
+    CHOCO;
 
     public static final String PROGRESS_BAR_TRACK_COLOR = "ProgressBar.trackColor";
     public static final String PROGRESS_BAR_PROGRESS_COLOR = "ProgressBar.progressColor";
@@ -363,7 +377,7 @@ public final class MTUI {
   }
 
   public enum Switch {
-    DEFAULT;
+    NINTENDO;
 
     public static final String OFF_THUMB_COLOR = "ToggleButton.off.foreground";
     public static final String ON_THUMB_COLOR = "ToggleButton.on.foreground";
@@ -389,7 +403,7 @@ public final class MTUI {
   }
 
   public enum NavBar {
-    DEFAULT;
+    ALLAH;
 
     public static final String NAVBAR_ARROW_COLOR = "NavBar.arrowColor";
     public static final String NAVBAR_HIGHLIGHT_COLOR = "NavBar.selectedColor";
@@ -420,7 +434,7 @@ public final class MTUI {
   }
 
   public enum ComboBox {
-    DEFAULT;
+    CCCCOMBO;
 
     public static final String COMBO_BOX_ARROW_BUTTON_NON_EDITABLE_BACKGROUND = "ComboBox.ArrowButton.nonEditableBackground";
     public static final String COMBO_BOX_NON_EDITABLE_BACKGROUND = "ComboBox.nonEditableBackground";
@@ -473,7 +487,7 @@ public final class MTUI {
   }
 
   public enum CheckBox {
-    DEFAULT;
+    CHECK1212;
 
     private static Color getColor(@NonNls final String shortPropertyName, final Color defaultValue) {
       final Color color = UIManager.getColor("CheckBox.darcula." + shortPropertyName);
@@ -521,6 +535,55 @@ public final class MTUI {
     public static Color getFocusedBackgroundColor1(final boolean armed, final boolean selected) {
       return armed ? getColor("focusedArmed.backgroundColor1", Gray._100, selected)
                    : getColor("focused.backgroundColor1", Gray._120, selected);
+    }
+  }
+
+  public enum Label {
+    JOHNNY_WALKER;
+
+    private static final String LABEL_DISABLED_FOREGROUND = "Label.disabledForeground";
+    private static final String LABEL_GRAY_FOREGROUND = "Label.grayForeground";
+
+    public static Color getLabelForeground(final JLabel label) {
+      Color foreground = label.getForeground();
+      if (foreground == Gray.x78 || foreground == Gray.x80) {
+        foreground = JBColor.namedColor(LABEL_GRAY_FOREGROUND, new JBColor(0x777777, 0x787878));
+      }
+      return foreground;
+    }
+
+    public static Color getDisabledBackground() {
+      return JBColor.namedColor(LABEL_DISABLED_FOREGROUND, new JBColor(0x000000, 0xBBBBBB));
+    }
+
+    public static void paintText(final JLabel label, final Graphics g, final String s, final int textX, final int textY) {
+      final int mnemIndex = DarculaLaf.isAltPressed() ? label.getDisplayedMnemonicIndex() : -1;
+      SwingUtilities2.drawStringUnderlineCharAt(label, g, s, mnemIndex, textX, textY);
+    }
+  }
+
+  public enum Panel {
+    DE_PON;
+
+    public static final String PANEL_BACKGROUND = "Panel.background";
+    public static final String CONTRAST_BACKGROUND = "EditorPane.background";
+    public static final String SECONDARY_BACKGROUND = "List.background";
+    public static final String HIGHLIGHT_BACKGROUND = "Component.focusedBorderColor";
+
+    public static Color getBackground() {
+      return JBColor.namedColor(PANEL_BACKGROUND, UIUtil.getPanelBackground());
+    }
+
+    public static Color getContrastBackground() {
+      return JBColor.namedColor(CONTRAST_BACKGROUND, UIUtil.getEditorPaneBackground());
+    }
+
+    public static Color getSecondaryBackground() {
+      return JBColor.namedColor(SECONDARY_BACKGROUND, UIUtil.getListBackground());
+    }
+
+    public static Color getHighlightBackground() {
+      return JBColor.namedColor(HIGHLIGHT_BACKGROUND, DarculaUIUtil.getOutlineColor(true, true));
     }
   }
 }

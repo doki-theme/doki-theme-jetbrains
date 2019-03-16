@@ -34,6 +34,8 @@ class SayoriTheme : DokiDokiTheme("sayori", "Sayori", false, "Sayori") {
 
     override fun getContrastColorString(): String = "D3FCFF"
 
+    override fun getBorderColorString(): String = "B8E7FF"
+
     override fun getEditorTabColorString(): String = contrastColorString
 
     override fun getButtonBackgroundColor(): String = contrastColorString

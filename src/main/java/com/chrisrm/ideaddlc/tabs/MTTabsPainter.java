@@ -32,10 +32,12 @@ import com.intellij.ui.ColorUtil;
 import com.intellij.ui.tabs.impl.DefaultEditorTabsPainter;
 import com.intellij.ui.tabs.impl.JBEditorTabs;
 import com.intellij.ui.tabs.impl.ShapeTransform;
+import io.acari.DDLC.DDLCConfig;
 
 import java.awt.*;
 
 public class MTTabsPainter extends DefaultEditorTabsPainter {
+  @SuppressWarnings("unused")
   public MTTabsPainter() {
     super(null);
   }
@@ -46,17 +48,14 @@ public class MTTabsPainter extends DefaultEditorTabsPainter {
 
   final void fillSelectionAndBorder(final Graphics2D g,
                                     final ShapeTransform selectedShape,
-                                    final Color tabColor,
-                                    final int x,
-                                    final int y,
-                                    final int height) {
+                                    final Color tabColor) {
     g.setColor(tabColor != null ? tabColor : getDefaultTabColor());
     g.fill(selectedShape.getShape());
   }
 
   @Override
   public final Color getBackgroundColor() {
-    final MTConfig config = MTConfig.getInstance();
+    final DDLCConfig config = DDLCConfig.getInstance();
     final MTThemeable mtTheme = config.getSelectedTheme().getTheme();
     return mtTheme.getBackgroundColor();
   }
@@ -64,7 +63,7 @@ public class MTTabsPainter extends DefaultEditorTabsPainter {
   @SuppressWarnings("FeatureEnvy")
   public static Color getContrastColor() {
     final MTConfig config = MTConfig.getInstance();
-    final MTThemeable mtTheme = config.getSelectedTheme().getTheme();
+    final MTThemeable mtTheme = DDLCConfig.getInstance().getSelectedTheme().getTheme();
     return config.isContrastMode() ? mtTheme.getContrastColor() : mtTheme.getBackgroundColor();
   }
 

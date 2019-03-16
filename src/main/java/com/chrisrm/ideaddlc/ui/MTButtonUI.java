@@ -21,6 +21,7 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  *  SOFTWARE.
  *
+ *
  */
 
 package com.chrisrm.ideaddlc.ui;
@@ -55,6 +56,7 @@ import java.awt.event.MouseEvent;
     "WeakerAccess",
     "StaticMethodOnlyUsedInOneClass"})
 public final class MTButtonUI extends DarculaButtonUI {
+  public static final int ICON_MIN_PADDING = JBUI.scale(6);
   private boolean isNotThemed = true;
   @Nullable
   private static Color primaryButtonBg;
@@ -231,7 +233,8 @@ public final class MTButtonUI extends DarculaButtonUI {
     }
   }
 
-  @SuppressWarnings("BooleanMethodNameMustStartWithQuestion")
+  @SuppressWarnings({"BooleanMethodNameMustStartWithQuestion",
+      "SameReturnValue"})
   private static boolean paintHelpIcon(final Graphics2D g, final JComponent component, final int w, final int h, final Color buttonColor1) {
     g.setPaint(UIUtil.getGradientPaint(0, 0, buttonColor1, 0, h, buttonColor1));
     final int off = JBUI.scale(22);
@@ -280,6 +283,13 @@ public final class MTButtonUI extends DarculaButtonUI {
     } else {
       paintDisabledText(g, text, c, textRect, metrics);
     }
+  }
+
+  @Override
+  protected void paintIcon(final Graphics g, final JComponent c, final Rectangle iconRect) {
+    final Rectangle newIconRect = new Rectangle(iconRect.getBounds());
+    newIconRect.x = Math.min(iconRect.x, ICON_MIN_PADDING);
+    super.paintIcon(g, c, newIconRect);
   }
 
   /**
@@ -380,7 +390,7 @@ public final class MTButtonUI extends DarculaButtonUI {
 
       final Component component = e.getComponent();
       final JButton jButton = (JButton) component;
-      colorCycle.setC((JComponent) component);
+      colorCycle.setComponent((JComponent) component);
 
       final Color hoverColor = jButton.isDefaultButton() ? primaryButtonHoverColor() : buttonHoverColor();
       final Color preHoverColor = jButton.isDefaultButton() ? primaryButtonBg() : buttonBg();
@@ -401,7 +411,7 @@ public final class MTButtonUI extends DarculaButtonUI {
 
       final Component component = e.getComponent();
       final JButton jButton = (JButton) component;
-      colorCycle.setC((JComponent) component);
+      colorCycle.setComponent((JComponent) component);
 
       final Color notHoverColor = jButton.isDefaultButton() ? primaryButtonHoverColor() : buttonHoverColor();
       final Color preNotHoverColor = jButton.isDefaultButton() ? primaryButtonBg() : buttonBg();

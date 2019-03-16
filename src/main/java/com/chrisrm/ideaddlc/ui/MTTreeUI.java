@@ -157,7 +157,10 @@ public final class MTTreeUI extends WideSelectionTreeUI {
         final Color bg = getSelectionBackgroundColor(tree, true);
         rowGraphics.setColor(bg);
         rowGraphics.fillRect(xOffset, bounds.y, containerWidth, bounds.height);
+      }
 
+      super.paintRow(rowGraphics, clipBounds, insets, bounds, path, row, isExpanded, hasBeenExpanded, isLeaf);
+      if (selected) {
         if (tree.hasFocus()) {
           LIST_FOCUSED_PAINTER.paintBorder(tree, rowGraphics, xOffset, bounds.y, containerWidth, bounds.height);
         } else {

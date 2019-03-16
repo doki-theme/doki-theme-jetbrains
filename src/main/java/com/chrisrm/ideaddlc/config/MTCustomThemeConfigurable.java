@@ -50,7 +50,7 @@ public final class MTCustomThemeConfigurable extends MTConfigurableBase<MTCustom
   @Nls
   @Override
   public String getDisplayName() {
-    return MaterialThemeBundle.message("mt.settings.customTheme");
+    return MaterialThemeBundle.message("mt.settings.titles.customTheme");
   }
 
   @NonNls

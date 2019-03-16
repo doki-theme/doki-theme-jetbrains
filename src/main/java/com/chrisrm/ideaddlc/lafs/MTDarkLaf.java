@@ -55,8 +55,6 @@ public final class MTDarkLaf extends DarculaLaf implements MTLaf {
    * Represents a Material Dark Look And Feel
    *
    * @param theme of type MTThemeable
-   * @author helio
-   * Created on 2018-10-29
    */
   public MTDarkLaf(@NotNull final MTThemeable theme) {
     mtLafInstaller = new MTLafInstaller(theme);
@@ -67,7 +65,8 @@ public final class MTDarkLaf extends DarculaLaf implements MTLaf {
    *
    * @param defaults of type UIDefaults
    */
-  @SuppressWarnings("DuplicateStringLiteralInspection")
+  @SuppressWarnings({"DuplicateStringLiteralInspection",
+      "UnstableApiUsage"})
   private static void installDarculaDefaults(@NonNls final UIDefaults defaults) {
     defaults.put("darcula.primary", new ColorUIResource(0x3c3f41));
     defaults.put("darcula.contrastColor", new ColorUIResource(0x262626));
@@ -108,7 +107,6 @@ public final class MTDarkLaf extends DarculaLaf implements MTLaf {
   @Override
   public void loadDefaults(final UIDefaults defaults) {
     MTLafInstaller.oldLoadDefaults(defaults, getClass(), getPrefix());
-//    MTLafInstaller.loadDefaults(defaults);
   }
 
 }

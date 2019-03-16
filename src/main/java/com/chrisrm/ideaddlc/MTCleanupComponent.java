@@ -1,7 +1,7 @@
 /*
  *  The MIT License (MIT)
  *
- *  Copyright (c) 2019 Chris Magnussen and Elior Boukhobza
+ * Copyright (c) 2019 Chris Magnussen and Elior Boukhobza
  *
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -21,6 +21,7 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  *  SOFTWARE.
  *
+ *
  */
 
 package com.chrisrm.ideaddlc;
@@ -37,27 +38,6 @@ public final class MTCleanupComponent implements BaseComponent {
 
   @Override
   public void disposeComponent() {
-    // scrollbars
-    Registry.get("mac.editor.thumb.default.alpha.base").setValue(75);
-    Registry.get("mac.editor.thumb.default.alpha.delta").setValue(120);
-    Registry.get("mac.editor.thumb.darcula.alpha.base").setValue(128);
-    Registry.get("mac.editor.thumb.darcula.alpha.delta").setValue(127);
-
-    Registry.get("win.editor.thumb.default.alpha.base").setValue(120);
-    Registry.get("win.editor.thumb.default.alpha.delta").setValue(135);
-    Registry.get("win.editor.thumb.darcula.alpha.base").setValue(128);
-    Registry.get("win.editor.thumb.darcula.alpha.delta").setValue(127);
-
-    Registry.get("mac.editor.thumb.default.fill.min").setValue(90);
-    Registry.get("mac.editor.thumb.default.fill.max").setValue(50);
-    Registry.get("mac.editor.thumb.darcula.fill.min").setValue(133);
-    Registry.get("mac.editor.thumb.darcula.fill.max").setValue(150);
-
-    Registry.get("win.editor.thumb.default.fill.min").setValue(193);
-    Registry.get("win.editor.thumb.default.fill.max").setValue(163);
-    Registry.get("win.editor.thumb.darcula.fill.min").setValue(133);
-    Registry.get("win.editor.thumb.darcula.fill.max").setValue(150);
-
     // shadow popup
     Registry.get("ide.balloon.shadow.size").setValue(15);
 

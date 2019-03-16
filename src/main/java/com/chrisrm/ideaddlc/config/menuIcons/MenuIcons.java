@@ -27,6 +27,7 @@
 package com.chrisrm.ideaddlc.config.menuIcons;
 
 import com.intellij.ide.ui.customization.CustomActionsSchema;
+import com.intellij.util.xmlb.annotations.Property;
 import com.thoughtworks.xstream.XStream;
 
 import java.io.Serializable;
@@ -34,25 +35,20 @@ import java.net.URL;
 import java.util.List;
 
 public final class MenuIcons implements Serializable {
-
+  private static final String MENU_ICONS_XML = "/menu_icons.xml";
+  @Property
   private List<MenuIcon> menuIcons;
-
-  public List<MenuIcon> getMenuIcons() {
-    return menuIcons;
-  }
-
-  public void setMenuIcons(final List<MenuIcon> menuIcons) {
-    this.menuIcons = menuIcons;
-  }
 
   public void loadIcons() {
     final CustomActionsSchema customActionsSchema = CustomActionsSchema.getInstance();
-    for (MenuIcon menuIcon : menuIcons) {
+    for (final MenuIcon menuIcon : menuIcons) {
       customActionsSchema.addIconCustomization(menuIcon.getId(), Factory.class.getResource(menuIcon.getIcon()).getPath());
     }
   }
 
-  public static class Factory {
+  private enum Factory {
+    MENUICONS;
+
     public static MenuIcons create() {
       final URL resource = Factory.class.getResource("/menu_icons.xml");
       final XStream xStream = new XStream();

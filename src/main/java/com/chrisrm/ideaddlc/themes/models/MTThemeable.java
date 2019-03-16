@@ -35,6 +35,7 @@ import java.awt.*;
 /**
  * Interface for DDLCThemes and MTBundledThemes
  */
+@SuppressWarnings("ClassWithTooManyMethods")
 public interface MTThemeable {
   @NonNls
   String getThemeId();
@@ -142,6 +143,8 @@ public interface MTThemeable {
    * Get the hex code for the disabled color
    */
   String getDisabledColorString();
+
+  String getBorderColorString();
 
   /**
    * Get the hex code for the contrast color

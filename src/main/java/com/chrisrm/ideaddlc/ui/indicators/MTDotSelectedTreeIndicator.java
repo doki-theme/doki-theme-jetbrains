@@ -21,6 +21,7 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  *  SOFTWARE.
  *
+ *
  */
 
 package com.chrisrm.ideaddlc.ui.indicators;
@@ -32,7 +33,7 @@ import java.awt.*;
 public final class MTDotSelectedTreeIndicator extends MTSelectedTreeIndicatorImpl {
 
   @Override
-  public void paintBorder(final Component c, final Graphics g, final int x, final int y, final int width, final int height) {
+  public void paintBorder(final Component component, final Graphics g, final int x, final int y, final int width, final int height) {
     final Color oldColor = g.getColor();
     final int thickness = JBUI.scale(getThickness()) * 2;
 
@@ -45,7 +46,7 @@ public final class MTDotSelectedTreeIndicator extends MTSelectedTreeIndicatorImp
     g2.dispose();
   }
 
-  private int getXOffset() {
+  private static int getXOffset() {
     return JBUI.scale(6);
   }
 }

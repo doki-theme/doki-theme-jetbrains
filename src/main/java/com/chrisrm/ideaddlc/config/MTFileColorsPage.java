@@ -50,6 +50,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
 
+@SuppressWarnings("ObjectAllocationInLoop")
 public final class MTFileColorsPage implements ColorSettingsPage, DisplayPrioritySortable {
   public static final TextAttributesKey DIRECTORIES = TextAttributesKey.createTextAttributesKey("MT_DIRECTORIES", HighlighterColors.TEXT);
   private static final ColorDescriptor[] DESCRIPTORS;
