@@ -1,6 +1,11 @@
 # Changelog
 ----
 
+# 3.1.1
+
+- Improved SSV Normandy plugin integration.
+    - Colors actually change when switching to themes that are not Monika.
+
 # 3.1.0
 
 - Updated with Material 3.8.0.2
