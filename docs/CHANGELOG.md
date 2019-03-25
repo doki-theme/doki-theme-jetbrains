@@ -4,7 +4,7 @@
 # 3.1.1
 
 - Improved SSV Normandy plugin integration.
-    - Colors actually change when switching to themes that are not Monika.
+    - Colors actually change when switching to themes that are not just Monika.
 
 # 3.1.0
 
