@@ -44,6 +44,6 @@ object NormandyThemeIntegration {
           themeable.isDark,
           themeable.accentColor,
           themeable.contrastColorString,
-          themeable.treeSelectionColorString,
+          themeable.secondaryBackgroundColorString,
           ColorUtil.toHex(themeable.foregroundColor))
 }
