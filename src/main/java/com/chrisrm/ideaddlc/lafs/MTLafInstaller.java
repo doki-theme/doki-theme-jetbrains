@@ -409,8 +409,10 @@ public class MTLafInstaller {
   }
 
   private static void replaceLabels(@NonNls final UIDefaults defaults) {
-    defaults.put("LabelUI", MTLabelUI.class.getName());
-    defaults.put(MTLabelUI.class.getName(), MTLabelUI.class);
+    LegacySupportUtility.INSTANCE.invokeClassSafely("com.intellij.ide.ui.laf.darcula.ui.DarculaLabelUI",()->{
+      defaults.put("LabelUI", MTLabelUI.class.getName());
+      defaults.put(MTLabelUI.class.getName(), MTLabelUI.class);
+    });
   }
 
   /**
