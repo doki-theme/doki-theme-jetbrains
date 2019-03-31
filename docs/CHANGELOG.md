@@ -1,6 +1,10 @@
 # Changelog
 ----
 
+# 3.1.2
+
+- Android Studio 3.3.2 Support
+
 # 3.1.1
 
 - Improved SSV Normandy plugin integration.
