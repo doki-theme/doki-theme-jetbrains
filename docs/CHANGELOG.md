@@ -1,6 +1,10 @@
 # Changelog
 ----
 
+# 3.1.3
+
+- Settings configuration menu loads now.
+
 # 3.1.2
 
 - Android Studio 3.3.2 Support

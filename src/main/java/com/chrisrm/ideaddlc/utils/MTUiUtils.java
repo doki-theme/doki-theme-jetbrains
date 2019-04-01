@@ -199,7 +199,7 @@ public enum MTUiUtils {
   public static String getVersion() {
      return getPlugin()
              .map(IdeaPluginDescriptor::getVersion)
-             .orElse("3.1.2");
+             .orElse("3.1.3");
   }
 
   private static Optional<String> getPluginId() {
