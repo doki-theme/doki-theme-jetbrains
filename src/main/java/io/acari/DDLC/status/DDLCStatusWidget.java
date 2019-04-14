@@ -69,7 +69,7 @@ public final class DDLCStatusWidget extends JButton implements CustomStatusBarWi
     updateUI();
 
     addActionListener(e -> ApplicationManager.getApplication().invokeLater(() -> ShowSettingsUtil.getInstance().showSettingsDialog(
-        project, "Doki-Doki Theme"), ModalityState.NON_MODAL));
+        project, "Doki-Doki Theme Settings"), ModalityState.NON_MODAL));
   }
 
   /**

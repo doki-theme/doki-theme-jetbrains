@@ -701,8 +701,6 @@ public class MTForm implements MTFormUI {
   }
   //endregion
 
-  // endregion
-
   // region ----------- Component Settings ---------
 
   //region Uppercase buttons
