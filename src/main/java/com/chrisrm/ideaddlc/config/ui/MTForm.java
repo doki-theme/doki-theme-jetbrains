@@ -1184,23 +1184,6 @@ public class MTForm implements MTFormUI {
           isUpperCaseTabsCheckbox.setToolTipText(bundle.getString("MTForm.isUpperCaseTabsCheckbox.toolTipText"));
           tabPanel.add(isUpperCaseTabsCheckbox, "cell 0 3,align left center,grow 0 0");
 
-          //---- tabHeight ----
-          tabHeight.setHorizontalTextPosition(SwingConstants.LEADING);
-          tabHeight.setLabelFor(highlightSpinner);
-          tabHeight.setText(bundle.getString("MTForm.tabHeight.text"));
-          tabHeight.setToolTipText(bundle.getString("MTForm.tabHeight.toolTipText"));
-          tabPanel.add(tabHeight, "pad 0,cell 0 4,aligny center,grow 100 0");
-
-          //---- tabHeightSpinner ----
-          tabHeightSpinner.setToolTipText(bundle.getString("MTForm.tabHeightSpinner.toolTipText"));
-          tabPanel.add(tabHeightSpinner, "cell 1 4,align right center,grow 0 0,width 80:80:80");
-
-          //---- opacityLabel ----
-          opacityLabel.setText(bundle.getString("MTForm.opacityLabel.text"));
-          opacityLabel.setToolTipText(bundle.getString("MTForm.opacityLabel.toolTipText"));
-          tabPanel.add(opacityLabel, "cell 0 5,aligny center,growy 0");
-          tabPanel.add(tabOpacitySlider, "cell 1 5");
-
           //---- positionLabel ----
           positionLabel.setText(bundle.getString("MTForm.positionLabel.text"));
           positionLabel.setToolTipText(bundle.getString("MTForm.positionLabel.toolTipText"));
@@ -1218,10 +1201,6 @@ public class MTForm implements MTFormUI {
             tabFontSizeCheckboxActionPerformed(e);
           });
           tabPanel.add(tabFontSizeCheckbox, "cell 0 7");
-
-          //---- tabFontSizeSpinner ----
-          tabFontSizeSpinner.setToolTipText(bundle.getString("MTForm.tabFontSizeSpinner.toolTipText"));
-          tabPanel.add(tabFontSizeSpinner, "cell 1 7,align right center,grow 0 0,width 80:80:80");
         }
         tabbedPane1.addTab(bundle.getString("MTForm.tabPanel.tab.title"), null, tabPanel, bundle.getString("MTForm.tabPanel.tab" +
             ".toolTipText"));
