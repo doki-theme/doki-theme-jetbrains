@@ -32,6 +32,7 @@ import com.chrisrm.ideaddlc.config.MTFileColorsPage;
 import com.chrisrm.ideaddlc.config.MTScrollbarsPage;
 import com.chrisrm.ideaddlc.config.enums.TabHighlightPositions;
 import com.chrisrm.ideaddlc.messages.MaterialThemeBundle;
+import io.acari.DDLC.DDLCConfig;
 import io.acari.DDLC.DDLCThemeFacade;
 import io.acari.DDLC.DDLCThemes;
 import com.intellij.CommonBundle;
@@ -221,7 +222,7 @@ public class MTForm implements MTFormUI {
   }
 
   @SuppressWarnings("OverlyLongMethod")
-  public final void setFormState(final MTBaseConfig config) {
+  public final void setFormState(final MTBaseConfig config, DDLCConfig ddlcConfig) {
     final MTConfig mtConfig = (MTConfig) config;
 
     setArrowsStyle(mtConfig.getArrowsStyle());
@@ -267,7 +268,7 @@ public class MTForm implements MTFormUI {
     setSelectedTabIndex(mtConfig.getSettingsSelectedTab());
     setTabOpacity(mtConfig.getTabOpacity());
     setTabsHeight(mtConfig.getTabsHeight());
-    setTheme(mtConfig.getSelectedTheme());
+    setTheme(ddlcConfig.getSelectedTheme());
     setTabFontSize(mtConfig.getTabFontSize());
     setTreeFontSize(mtConfig.getTreeFontSize());
     setUseMaterialFont(mtConfig.isUseMaterialFont());
@@ -278,11 +279,11 @@ public class MTForm implements MTFormUI {
 
   @SuppressWarnings({"OverlyComplexMethod",
       "OverlyLongMethod"})
-  public final boolean isModified(final MTBaseConfig config) {
+  public final boolean isModified(final MTBaseConfig config, DDLCConfig ddlcConfig) {
     final MTConfig mtConfig = (MTConfig) config;
 
     boolean modified = mtConfig.isHighlightColorChanged(getHighlightColor());
-    modified = modified || mtConfig.isSelectedThemeChanged(getTheme());
+    modified = modified || ddlcConfig.isSelectedThemeChanged(getTheme());
     modified = modified || mtConfig.isHighlightColorEnabledChanged(isHighlightColorEnabled());
     modified = modified || mtConfig.isHighlightThicknessChanged(getHighlightThickness());
     modified = modified || mtConfig.isContrastModeChanged(isContrastMode());
@@ -974,8 +975,9 @@ public class MTForm implements MTFormUI {
         Messages.getWarningIcon());
     if (answer == Messages.YES) {
       final MTConfig config = MTConfig.getInstance();
+      final DDLCConfig ddlcConfig = DDLCConfig.getInstance();
       config.resetSettings();
-      setFormState(config);
+      setFormState(config, ddlcConfig);
     }
   }
 

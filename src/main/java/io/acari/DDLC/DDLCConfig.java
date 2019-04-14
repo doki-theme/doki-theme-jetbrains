@@ -45,6 +45,7 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Function;
 
@@ -244,5 +245,14 @@ public class DDLCConfig implements PersistentStateComponent<DDLCConfig>, Cloneab
 
     public void setIsWizardShown(final boolean isWizardShown) {
         this.isWizardShown = isWizardShown;
+    }
+
+    public boolean isSelectedThemeChanged(DDLCThemeFacade theme) {
+        return !Objects.equals(getSelectedTheme(), theme);
+    }
+
+    public void applySettings(MTForm form) {
+
+        //fired changed
     }
 }

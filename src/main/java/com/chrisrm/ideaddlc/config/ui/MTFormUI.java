@@ -27,6 +27,7 @@
 package com.chrisrm.ideaddlc.config.ui;
 
 import com.chrisrm.ideaddlc.config.MTBaseConfig;
+import io.acari.DDLC.DDLCConfig;
 
 import javax.swing.*;
 
@@ -39,12 +40,12 @@ public interface MTFormUI {
 
   void dispose();
 
-  boolean isModified(MTBaseConfig config);
+  boolean isModified(MTBaseConfig config, DDLCConfig ddlcConfig);
 
   /**
    * Fill the form from the config
    *
    * @param config the config
    */
-  void setFormState(MTBaseConfig config);
+  void setFormState(MTBaseConfig config, DDLCConfig ddlcConfig);
 }

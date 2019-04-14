@@ -31,6 +31,7 @@ import com.intellij.openapi.components.PersistentStateComponent;
 import com.intellij.openapi.options.BaseConfigurable;
 import com.intellij.openapi.options.ConfigurationException;
 import com.intellij.util.ui.UIUtil;
+import io.acari.DDLC.DDLCConfig;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -49,13 +50,16 @@ public abstract class MTConfigurableBase<FORM extends MTFormUI, CONFIG extends P
    * @param form   the form
    * @param config the config
    */
-  protected abstract void setFormState(FORM form, @NotNull CONFIG config);
+  protected abstract void setFormState(FORM form, @NotNull CONFIG config, DDLCConfig ddlcConfig);
 
   /**
    * Returns the config object for this setting
    */
   @NotNull
   protected abstract CONFIG getConfig();
+
+  @NotNull
+  protected abstract DDLCConfig getDDLCConfig();
 
   /**
    * Create the Form UI for the settings
@@ -69,7 +73,7 @@ public abstract class MTConfigurableBase<FORM extends MTFormUI, CONFIG extends P
    * @param form   the form
    * @param config the config
    */
-  protected abstract void doApply(FORM form, @Nullable CONFIG config) throws ConfigurationException;
+  protected abstract void doApply(FORM form, @Nullable CONFIG config, DDLCConfig ddlcConfig) throws ConfigurationException;
 
   /**
    * Checks whether the user has modified the settings
@@ -78,7 +82,7 @@ public abstract class MTConfigurableBase<FORM extends MTFormUI, CONFIG extends P
    * @param config the config
    * @return true if modified
    */
-  protected abstract boolean checkModified(FORM form, @Nullable CONFIG config);
+  protected abstract boolean checkModified(FORM form, @Nullable CONFIG config, DDLCConfig ddlcConfig);
 
   /**
    * Used to disable the apply button
@@ -87,7 +91,7 @@ public abstract class MTConfigurableBase<FORM extends MTFormUI, CONFIG extends P
    */
   @Override
   public final boolean isModified() {
-    setModified(checkModified(form, getConfig()));
+    setModified(checkModified(form, getConfig(), getDDLCConfig()));
     return super.isModified();
   }
 
@@ -100,7 +104,7 @@ public abstract class MTConfigurableBase<FORM extends MTFormUI, CONFIG extends P
   @Override
   public final JComponent createComponent() {
     initComponent();
-    setFormState(form, getConfig());
+    setFormState(form, getConfig(), getDDLCConfig());
     return Objects.requireNonNull(form).getContent();
   }
 
@@ -110,7 +114,7 @@ public abstract class MTConfigurableBase<FORM extends MTFormUI, CONFIG extends P
   @Override
   public final void apply() throws ConfigurationException {
     initComponent();
-    doApply(form, getConfig());
+    doApply(form, getConfig(), getDDLCConfig());
   }
 
   /**
@@ -119,7 +123,7 @@ public abstract class MTConfigurableBase<FORM extends MTFormUI, CONFIG extends P
   @Override
   public final void reset() {
     initComponent();
-    setFormState(form, getConfig());
+    setFormState(form, getConfig(), getDDLCConfig());
   }
 
   /**
