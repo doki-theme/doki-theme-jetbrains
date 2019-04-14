@@ -87,7 +87,9 @@
      inkscape:connector-curvature="0" />
   <path
      themedFill="true"
-     style="fill:#870ad2;fill-opacity:1;stroke:#870ad2;stroke-width:0.55049998;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     fill="#870ad2"
+     stroke="#870ad2"
+     style="fill-opacity:1;stroke-width:0.55049998;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      d="m 12.288573,12.530207 0.08423,9.059729 8.236001,-4.655501 0.09296,-9.176496 z"
      id="path6028"
      inkscape:connector-curvature="0"
