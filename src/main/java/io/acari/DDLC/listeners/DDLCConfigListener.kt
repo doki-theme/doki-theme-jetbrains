@@ -1,6 +1,5 @@
 package io.acari.DDLC.listeners
 
-import com.chrisrm.ideaddlc.config.ui.MTForm
 import com.intellij.util.messages.Topic
 import io.acari.DDLC.DDLCConfig
 
@@ -10,5 +9,4 @@ interface DDLCConfigListener {
   }
 
   fun configurationChanged(ddlcConfig: DDLCConfig)
-  fun beforeConfigurationChanged(ddlcConfig: DDLCConfig, mtForm: MTForm)
 }

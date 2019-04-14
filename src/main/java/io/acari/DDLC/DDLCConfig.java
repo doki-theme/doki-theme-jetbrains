@@ -247,6 +247,7 @@ public class DDLCConfig implements PersistentStateComponent<DDLCConfig>, Cloneab
     }
 
     public void applySettings(MTForm form) {
+        setSelectedTheme(form.getTheme());
 
         fireChanged();
     }
