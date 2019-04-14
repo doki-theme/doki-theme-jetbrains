@@ -27,8 +27,10 @@
 package io.acari.DDLC;
 
 import com.chrisrm.ideaddlc.config.ui.MTForm;
+import com.chrisrm.ideaddlc.listeners.ConfigNotifier;
 import com.intellij.ide.util.PropertiesComponent;
 import com.intellij.openapi.application.ApplicationInfo;
+import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.application.ApplicationNamesInfo;
 import com.intellij.openapi.components.PersistentStateComponent;
 import com.intellij.openapi.components.ServiceManager;
@@ -37,6 +39,7 @@ import com.intellij.openapi.components.Storage;
 import com.intellij.util.ObjectUtils;
 import com.intellij.util.xmlb.XmlSerializerUtil;
 import io.acari.DDLC.chibi.ChibiLevel;
+import io.acari.DDLC.listeners.DDLCConfigListener;
 import io.acari.DDLC.wizard.DDLCWizardDialog;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -173,14 +176,6 @@ public class DDLCConfig implements PersistentStateComponent<DDLCConfig>, Cloneab
         this.chibiLevel = chibiLevel.name();
     }
 
-    /**
-     * Fire an event to the application bus that the settings have changed
-     */
-    public void fireChanged() {
-//    ApplicationManager.getApplication().getMessageBus()
-//                      .syncPublisher(ConfigNotifier.CONFIG_TOPIC)
-//                      .configChanged(this);
-    }
 
     @NotNull
     private Map getNativeProperties() {
@@ -253,6 +248,12 @@ public class DDLCConfig implements PersistentStateComponent<DDLCConfig>, Cloneab
 
     public void applySettings(MTForm form) {
 
-        //fired changed
+        fireChanged();
+    }
+
+    public void fireChanged() {
+        ApplicationManager.getApplication().getMessageBus()
+            .syncPublisher(DDLCConfigListener.Companion.getDDLC_CONFIG_TOPIC())
+            .configurationChanged(this);
     }
 }
