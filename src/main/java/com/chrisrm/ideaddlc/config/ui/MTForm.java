@@ -129,7 +129,6 @@ public class MTForm implements MTFormUI {
   private JCheckBox hideFileIconsCheckbox;
   private JCheckBox isFileIconsCheckbox;
   private JCheckBox decoratedFoldersCheckbox;
-  private JCheckBox psiIconsCheckbox;
   private JPanel projectViewPanel;
   private JLabel projectViewDesc;
   private JCheckBox isCompactSidebarCheckbox;
@@ -263,7 +262,6 @@ public class MTForm implements MTFormUI {
     setIsUpperCaseTabs(mtConfig.isUpperCaseTabs());
     setIsUseMaterialIcons(mtConfig.isUseMaterialIcons());
     setLeftTreeIndent(mtConfig.getLeftTreeIndent());
-    setIsPsiIcons(mtConfig.isPsiIcons());
     setRightTreeIndent(mtConfig.getRightTreeIndent());
     setSelectedTabIndex(mtConfig.getSettingsSelectedTab());
     setTabOpacity(mtConfig.getTabOpacity());
@@ -334,7 +332,6 @@ public class MTForm implements MTFormUI {
 
     modified = modified || mtConfig.isOverrideAccentColorChanged(isOverrideAccents());
     modified = modified || mtConfig.isTabsShadowChanged(isTabsShadow());
-    modified = modified || mtConfig.isPsiIconsChanged(isPsiIcons());
     modified = modified || mtConfig.isCodeAdditionsEnabledChanged(isCodeAdditionsEnabled());
 
     return modified;
@@ -589,17 +586,6 @@ public class MTForm implements MTFormUI {
   }
 
   //endregion
-
-  // region Psi Icons
-  public final boolean isPsiIcons() {
-    return psiIconsCheckbox.isSelected();
-  }
-
-  private void setIsPsiIcons(final boolean psiIcons) {
-    psiIconsCheckbox.setSelected(psiIcons);
-  }
-
-  // endregion
 
   // endregion
 
@@ -1046,7 +1032,6 @@ public class MTForm implements MTFormUI {
     hideFileIconsCheckbox = new JCheckBox();
     isFileIconsCheckbox = new JCheckBox();
     decoratedFoldersCheckbox = new JCheckBox();
-    psiIconsCheckbox = new JCheckBox();
     projectViewPanel = new JPanel();
     projectViewDesc = compFactory.createLabel(bundle.getString("MTForm.projectViewDesc.textWithMnemonic"));
     isCompactSidebarCheckbox = new JCheckBox();
@@ -1331,10 +1316,6 @@ public class MTForm implements MTFormUI {
           decoratedFoldersCheckbox.setToolTipText(bundle.getString("MTForm.decoratedFoldersCheckbox.toolTipText"));
           iconsPanel.add(decoratedFoldersCheckbox, "cell 0 5");
 
-          //---- psiIconsCheckbox ----
-          psiIconsCheckbox.setText(bundle.getString("MTForm.psiIconsCheckbox.text"));
-          psiIconsCheckbox.setToolTipText(bundle.getString("MTForm.psiIconsCheckbox.toolTipText"));
-          iconsPanel.add(psiIconsCheckbox, "cell 0 6");
         }
         tabbedPane1.addTab(bundle.getString("MTForm.iconsPanel.tab.title"), null, iconsPanel, bundle.getString("MTForm.iconsPanel.tab" +
             ".toolTipText"));

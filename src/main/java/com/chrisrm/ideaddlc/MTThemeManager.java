@@ -314,14 +314,6 @@ public final class MTThemeManager {
     updateFileIcons();
   }
 
-  @SuppressWarnings("BooleanVariableAlwaysNegated")
-  public static void toggleMaterialPsiIcons() {
-    final boolean isPsiIcons = MTConfig.getInstance().isPsiIcons();
-    MTConfig.getInstance().setIsPsiIcons(!isPsiIcons);
-
-    updateFileIcons();
-  }
-
 
   /**
    * Toggle material fonts.
