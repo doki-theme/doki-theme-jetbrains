@@ -1146,32 +1146,6 @@ public class MTForm implements MTFormUI {
         highContrastCheckbox.setToolTipText(bundle.getString("MTForm.highContrastCheckbox.toolTipText"));
         mainSettingsPanel.add(highContrastCheckbox, "cell 0 2");
 
-        //---- customAccentColorLabel ----
-        customAccentColorLabel.setText(bundle.getString("MTForm.customAccentColorLabel.text"));
-        customAccentColorLabel.setToolTipText(bundle.getString("MTForm.customAccentColorLabel.toolTipText"));
-        customAccentColorLabel.setHorizontalAlignment(SwingConstants.LEFT);
-        customAccentColorLabel.setIcon(new ImageIcon(getClass().getResource("/icons/mt/customAccent.png")));
-        customAccentColorLabel.setIconTextGap(8);
-        mainSettingsPanel.add(customAccentColorLabel, "pad 0 2 0 0,cell 0 3,growx");
-
-        //---- customAccentColorChooser ----
-        customAccentColorChooser.setMinimumSize(new Dimension(10, 18));
-        customAccentColorChooser.setPreferredSize(new Dimension(61, 26));
-        mainSettingsPanel.add(customAccentColorChooser, "cell 1 3,alignx right,growx 0");
-
-        //---- overrideAccentCheckbox ----
-        overrideAccentCheckbox.setText(bundle.getString("MTForm.overrideAccentCheckbox.text"));
-        overrideAccentCheckbox.setFont(overrideAccentCheckbox.getFont().deriveFont(overrideAccentCheckbox.getFont().getSize() - 1f));
-        overrideAccentCheckbox.setToolTipText(bundle.getString("MTForm.overrideAccentCheckbox.toolTipText"));
-        overrideAccentCheckbox.addActionListener(e -> overrideAccentCheckboxActionPerformed(e));
-        mainSettingsPanel.add(overrideAccentCheckbox, "cell 0 4,gapx 20");
-
-        //---- fileColorsLink ----
-        fileColorsLink.setText(bundle.getString("MTForm.fileColorsLink.text"));
-        fileColorsLink.setForeground(UIManager.getColor("Link.activeForeground"));
-        fileColorsLink.setToolTipText(bundle.getString("MTForm.fileColorsLink.toolTipText"));
-        fileColorsLink.setLabelFor(null);
-        mainSettingsPanel.add(fileColorsLink, "cell 0 5 2 1");
       }
       content.add(mainSettingsPanel, "cell 0 1");
       content.add(advSettingsSep, "cell 0 2,aligny center,growy 0,gapx 16,gapy 10 10");
