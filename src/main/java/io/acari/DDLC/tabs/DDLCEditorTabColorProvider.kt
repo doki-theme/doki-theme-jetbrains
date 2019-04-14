@@ -11,7 +11,6 @@ import com.intellij.psi.search.ProjectScope
 import com.intellij.ui.ColorUtil
 import com.intellij.ui.FileColorManager
 import io.acari.DDLC.DDLCConfig
-import io.acari.DDLC.DDLCThemeFacade
 import java.awt.Color
 
 class DDLCEditorTabColorProvider : EditorTabColorProvider {
