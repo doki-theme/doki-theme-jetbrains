@@ -57,7 +57,6 @@ public final class DDLCThemesComponent implements ApplicationComponent {
         activateTheme();
       }
     });
-    connect.subscribe(CustomConfigNotifier.CONFIG_TOPIC, mtCustomThemeConfig -> activateTheme());
   }
 
   public static void activateTheme() {

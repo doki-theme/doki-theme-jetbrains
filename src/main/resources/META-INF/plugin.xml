@@ -53,7 +53,6 @@
     <extensions defaultExtensionNs="com.intellij">
         <applicationService serviceImplementation="com.chrisrm.ideaddlc.MTConfig"/>
         <applicationService serviceImplementation="io.acari.DDLC.DDLCConfig"/>
-        <applicationService serviceImplementation="com.chrisrm.ideaddlc.MTCustomThemeConfig"/>
         <applicationService serviceImplementation="com.chrisrm.ideaddlc.MTThemeManager"/>
         <applicationService serviceImplementation="com.chrisrm.ideaddlc.MTAnalytics"/>
 
@@ -61,9 +60,6 @@
         <applicationConfigurable instance="com.chrisrm.ideaddlc.config.MTConfigurable"
                                  groupId="appearance"
                                  id="com.chrisrm.ideaddlc.config"/>
-        <applicationConfigurable instance="com.chrisrm.ideaddlc.config.MTCustomThemeConfigurable"
-                                 groupId="appearance"
-                                 id="com.chrisrm.ideaddlc.config.mtCustomThemeConfig"/>
 
         <projectViewNodeDecorator implementation="io.acari.DDLC.tree.DDLCProjectViewNodeDecorator"/>
         <editorTabTitleProvider implementation="com.chrisrm.ideaddlc.tabs.MTEditorUpperTabs" order="first"/>

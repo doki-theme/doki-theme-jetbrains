@@ -28,7 +28,6 @@ package com.chrisrm.ideaddlc.config.ui;
 
 import com.chrisrm.ideaddlc.MTConfig;
 import com.chrisrm.ideaddlc.config.MTBaseConfig;
-import com.chrisrm.ideaddlc.config.MTCustomThemeConfigurable;
 import com.chrisrm.ideaddlc.config.MTFileColorsPage;
 import com.chrisrm.ideaddlc.config.MTScrollbarsPage;
 import com.chrisrm.ideaddlc.config.enums.TabHighlightPositions;
@@ -1672,14 +1671,6 @@ public class MTForm implements MTFormUI {
 
     // Positions
     tabHighlightPositionComboBox.setModel(new DefaultComboBoxModel<>(TabHighlightPositions.values()));
-
-    fileColorsLink.setListener((aSource, aLinkData) -> {
-      final Settings settings = Settings.KEY.getData(DataManager.getInstance().getDataContext(content));
-
-      if (settings != null) {
-        settings.select(settings.find(MTCustomThemeConfigurable.class));
-      }
-    }, null);
 
     fileStatusColorsLink.setListener((aSource, aLinkData) -> {
       final Settings settings = Settings.KEY.getData(DataManager.getInstance().getDataContext(content));
