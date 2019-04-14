@@ -26,10 +26,21 @@
 package com.chrisrm.ideaddlc.ui
 
 import com.intellij.ide.ui.laf.darcula.ui.DarculaOptionButtonUI
+import com.intellij.openapi.actionSystem.ActionPlaces
+import com.intellij.openapi.actionSystem.AnAction
+import com.intellij.openapi.actionSystem.DataContext
+import com.intellij.openapi.ui.popup.ListPopup
+import com.intellij.ui.popup.PopupFactoryImpl
 import java.awt.Graphics2D
 import java.awt.event.MouseAdapter
 import java.awt.event.MouseEvent
 import java.awt.event.MouseListener
+import javax.swing.Action
+import com.intellij.openapi.util.Condition
+import com.intellij.ui.popup.ActionPopupStep
+import com.intellij.ui.popup.list.PopupListElementRenderer
+import com.intellij.util.ui.JBUI
+import java.awt.Color
 import javax.swing.JComponent
 
 
@@ -70,4 +81,40 @@ open class MTOptionButtonUI : DarculaOptionButtonUI() {
         @JvmStatic
         fun createUI(c: JComponent) = MTOptionButtonUI()
     }
+
+    override fun createPopup(toSelect: Action?, ensureSelection: Boolean): ListPopup {
+        val (actionGroup, mapping) = createActionMapping()
+        val dataContext = createActionDataContext()
+        val actionItems = PopupFactoryImpl.ActionGroupPopup.getActionItems(actionGroup, dataContext, false, false, true, true, ActionPlaces.UNKNOWN)
+        val defaultSelection = if (toSelect != null) Condition<AnAction> { mapping[it] == toSelect } else null
+
+        return DokiOptionButtonPopup(OptionButtonPopupStep(actionItems, defaultSelection), dataContext, toSelect != null || ensureSelection)
+    }
+
+    open inner class DokiOptionButtonPopup(step: ActionPopupStep, dataContext: DataContext, private val ensureSelection: Boolean)
+        : PopupFactoryImpl.ActionGroupPopup(null, step, null, dataContext, ActionPlaces.UNKNOWN, -1) {
+        init {
+            list.background = background
+        }
+
+        override fun afterShow() {
+            if (ensureSelection) super.afterShow()
+        }
+
+        protected val background: Color? get() = mainButton.background
+        protected val foreground: Color get() = mainButton.foreground // <- I added dis -Alex
+
+        override fun createContent(): JComponent = super.createContent().also {
+            list.clearSelection() // prevents first action selection if all actions are disabled
+            list.border = JBUI.Borders.empty(2, 0)
+        }
+
+        override fun getListElementRenderer(): PopupListElementRenderer<Any> = object : PopupListElementRenderer<Any>(this) {
+            override fun getBackground() = this@DokiOptionButtonPopup.background
+            override fun getForeground(): Color = this@DokiOptionButtonPopup.foreground
+            override fun createSeparator() = super.createSeparator().apply { border = JBUI.Borders.empty(2, 6) }
+            override fun getDefaultItemComponentBorder() = JBUI.Borders.empty(6, 8)
+        }
+    }
+
 }
