@@ -31,91 +31,92 @@ import com.intellij.openapi.actionSystem.ActionPlaces
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.DataContext
 import com.intellij.openapi.ui.popup.ListPopup
+import com.intellij.openapi.util.Condition
+import com.intellij.ui.popup.ActionPopupStep
 import com.intellij.ui.popup.PopupFactoryImpl
+import com.intellij.ui.popup.list.PopupListElementRenderer
+import com.intellij.util.ui.JBUI
+import java.awt.Color
 import java.awt.Graphics2D
 import java.awt.event.MouseAdapter
 import java.awt.event.MouseEvent
 import java.awt.event.MouseListener
 import javax.swing.Action
-import com.intellij.openapi.util.Condition
-import com.intellij.ui.popup.ActionPopupStep
-import com.intellij.ui.popup.list.PopupListElementRenderer
-import com.intellij.util.ui.JBUI
-import java.awt.Color
 import javax.swing.JComponent
 
 
 open class MTOptionButtonUI : DarculaOptionButtonUI() {
-    override val clipXOffset: Int
-        get() = 0
+  override val clipXOffset: Int
+    get() = 0
 
-    override fun paintSeparator(g: Graphics2D, c: JComponent) {
+  override fun paintSeparator(g: Graphics2D, c: JComponent) {
+  }
+
+  private var mouseListener: MouseListener? = null
+
+  override fun installListeners() {
+    super.installListeners()
+    mouseListener = createMouseListener()?.apply(optionButton::addMouseListener)
+  }
+
+  override fun uninstallListeners() {
+    super.uninstallListeners()
+    mouseListener = null
+  }
+
+  protected open fun createMouseListener(): MouseListener? = object : MouseAdapter() {
+    override fun mouseEntered(e: MouseEvent?) {
+      super.mouseEntered(e)
+      println("entered")
     }
 
-    private var mouseListener: MouseListener? = null
+    override fun mouseExited(e: MouseEvent?) {
+      super.mouseExited(e)
+      println("exited")
+    }
+  }
 
-    override fun installListeners() {
-        super.installListeners()
-        mouseListener = createMouseListener()?.apply(optionButton::addMouseListener)
+
+  companion object {
+    @Suppress("UNUSED_PARAMETER")
+    @JvmStatic
+    fun createUI(c: JComponent) = MTOptionButtonUI()
+  }
+
+  override fun createPopup(toSelect: Action?, ensureSelection: Boolean): ListPopup {
+    val (actionGroup, mapping) = createActionMapping()
+    val dataContext = createActionDataContext()
+    val actionItems = PopupFactoryImpl.ActionGroupPopup.getActionItems(actionGroup, dataContext, false, false, true, true, ActionPlaces.UNKNOWN)
+    val defaultSelection = if (toSelect != null) Condition<AnAction> { mapping[it] == toSelect } else null
+
+    return DokiOptionButtonPopup(OptionButtonPopupStep(actionItems, defaultSelection), dataContext, toSelect != null || ensureSelection)
+  }
+
+  open inner class DokiOptionButtonPopup(step: ActionPopupStep, dataContext: DataContext, private val ensureSelection: Boolean)
+    : PopupFactoryImpl.ActionGroupPopup(null, step, null, dataContext, ActionPlaces.UNKNOWN, -1) {
+    init {
+      list.background = background
     }
 
-    override fun uninstallListeners() {
-        super.uninstallListeners()
-        mouseListener = null
+    override fun afterShow() {
+      if (ensureSelection) super.afterShow()
     }
 
-    protected open fun createMouseListener(): MouseListener? = object : MouseAdapter() {
-        override fun mouseEntered(e: MouseEvent?) {
-            super.mouseEntered(e)
-            println("entered")
-        }
+    // Hovering over the commit button will change the color of the background, so I am just defaulting it to the button color.
+    protected val background: Color? get() = MTUI.Button.getBackgroundColor()
+    protected val foreground: Color get() = MTUI.Button.getForegroundColor() // <- I added dis -Alex
 
-        override fun mouseExited(e: MouseEvent?) {
-            super.mouseExited(e)
-            println("exited")
-        }
+    override fun createContent(): JComponent = super.createContent().also {
+      list.clearSelection() // prevents first action selection if all actions are disabled
+      list.border = JBUI.Borders.empty(2, 0)
     }
 
-
-    companion object {
-        @Suppress("UNUSED_PARAMETER")
-        @JvmStatic
-        fun createUI(c: JComponent) = MTOptionButtonUI()
+    override fun getListElementRenderer(): PopupListElementRenderer<Any> = object : PopupListElementRenderer<Any>(this) {
+      override fun getBackground() = this@DokiOptionButtonPopup.background
+      override fun getForeground(): Color = this@DokiOptionButtonPopup.foreground
+      override fun createSeparator() = super.createSeparator().apply { border = JBUI.Borders.empty(2, 6) }
+      override fun getDefaultItemComponentBorder() = JBUI.Borders.empty(6, 8)
     }
-
-    override fun createPopup(toSelect: Action?, ensureSelection: Boolean): ListPopup {
-        val (actionGroup, mapping) = createActionMapping()
-        val dataContext = createActionDataContext()
-        val actionItems = PopupFactoryImpl.ActionGroupPopup.getActionItems(actionGroup, dataContext, false, false, true, true, ActionPlaces.UNKNOWN)
-        val defaultSelection = if (toSelect != null) Condition<AnAction> { mapping[it] == toSelect } else null
-
-        return DokiOptionButtonPopup(OptionButtonPopupStep(actionItems, defaultSelection), dataContext, toSelect != null || ensureSelection)
-    }
-
-    open inner class DokiOptionButtonPopup(step: ActionPopupStep, dataContext: DataContext, private val ensureSelection: Boolean)
-        : PopupFactoryImpl.ActionGroupPopup(null, step, null, dataContext, ActionPlaces.UNKNOWN, -1) {
-        init {
-            list.background = background
-        }
-
-        override fun afterShow() {
-            if (ensureSelection) super.afterShow()
-        }
-
-        protected val background: Color? get() = MTUI.Button.getBackgroundColor()
-        protected val foreground: Color get() = MTUI.Button.getForegroundColor() // <- I added dis -Alex
-
-        override fun createContent(): JComponent = super.createContent().also {
-            list.clearSelection() // prevents first action selection if all actions are disabled
-            list.border = JBUI.Borders.empty(2, 0)
-        }
-
-        override fun getListElementRenderer(): PopupListElementRenderer<Any> = object : PopupListElementRenderer<Any>(this) {
-            override fun getBackground() = this@DokiOptionButtonPopup.background
-            override fun getForeground(): Color = this@DokiOptionButtonPopup.foreground
-            override fun createSeparator() = super.createSeparator().apply { border = JBUI.Borders.empty(2, 6) }
-            override fun getDefaultItemComponentBorder() = JBUI.Borders.empty(6, 8)
-        }
-    }
+  }
 
 }
