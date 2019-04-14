@@ -10,6 +10,8 @@ import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.psi.search.ProjectScope
 import com.intellij.ui.ColorUtil
 import com.intellij.ui.FileColorManager
+import io.acari.DDLC.DDLCConfig
+import io.acari.DDLC.DDLCThemeFacade
 import java.awt.Color
 
 class DDLCEditorTabColorProvider : EditorTabColorProvider {
@@ -18,15 +20,16 @@ class DDLCEditorTabColorProvider : EditorTabColorProvider {
         return if (colorManager.isEnabledForTabs && MTThemeManager.isDDLCActive()) {
             val fileColor = colorManager.getFileColor(file)
             if (isNonProject(project, file) && fileColor != null) {
-                adjustColor(fileColor)
+                val nonProjectFileColor = DDLCConfig.getInstance().getSelectedTheme().nonProjectFileScopeColor
+                adjustColor(ColorUtil.fromHex(nonProjectFileColor))
             } else {
                 fileColor
             }
         } else null
     }
 
-    private fun adjustColor(fileColor: Color) =
-            if (DarkMode.isOn()) ColorUtil.brighter(fileColor, 10)
+    private fun adjustColor(nonProjectFileColor: Color): Color =
+            if (DarkMode.isOn()) ColorUtil.brighter(nonProjectFileColor, 5)
             else Color.WHITE
 
 
