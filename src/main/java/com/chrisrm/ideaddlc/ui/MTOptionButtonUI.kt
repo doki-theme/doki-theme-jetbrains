@@ -25,6 +25,7 @@
 
 package com.chrisrm.ideaddlc.ui
 
+import com.chrisrm.ideaddlc.utils.MTUI
 import com.intellij.ide.ui.laf.darcula.ui.DarculaOptionButtonUI
 import com.intellij.openapi.actionSystem.ActionPlaces
 import com.intellij.openapi.actionSystem.AnAction
@@ -101,8 +102,8 @@ open class MTOptionButtonUI : DarculaOptionButtonUI() {
             if (ensureSelection) super.afterShow()
         }
 
-        protected val background: Color? get() = mainButton.background
-        protected val foreground: Color get() = mainButton.foreground // <- I added dis -Alex
+        protected val background: Color? get() = MTUI.Button.getBackgroundColor()
+        protected val foreground: Color get() = MTUI.Button.getForegroundColor() // <- I added dis -Alex
 
         override fun createContent(): JComponent = super.createContent().also {
             list.clearSelection() // prevents first action selection if all actions are disabled
