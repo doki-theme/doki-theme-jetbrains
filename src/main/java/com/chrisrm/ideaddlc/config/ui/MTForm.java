@@ -1185,6 +1185,17 @@ public class MTForm implements MTFormUI {
           isUpperCaseTabsCheckbox.setToolTipText(bundle.getString("MTForm.isUpperCaseTabsCheckbox.toolTipText"));
           tabPanel.add(isUpperCaseTabsCheckbox, "cell 0 3,align left center,grow 0 0");
 
+          //---- tabHeight ----
+          tabHeight.setHorizontalTextPosition(SwingConstants.LEADING);
+          tabHeight.setLabelFor(highlightSpinner);
+          tabHeight.setText(bundle.getString("MTForm.tabHeight.text"));
+          tabHeight.setToolTipText(bundle.getString("MTForm.tabHeight.toolTipText"));
+          tabPanel.add(tabHeight, "pad 0,cell 0 4,aligny center,grow 100 0");
+
+          //---- tabHeightSpinner ----
+          tabHeightSpinner.setToolTipText(bundle.getString("MTForm.tabHeightSpinner.toolTipText"));
+          tabPanel.add(tabHeightSpinner, "cell 1 4,align right center,grow 0 0,width 80:80:80");
+
           //---- positionLabel ----
           positionLabel.setText(bundle.getString("MTForm.positionLabel.text"));
           positionLabel.setToolTipText(bundle.getString("MTForm.positionLabel.toolTipText"));
