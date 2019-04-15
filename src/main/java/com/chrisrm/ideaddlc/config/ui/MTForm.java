@@ -49,6 +49,7 @@ import com.intellij.ui.ColorUtil;
 import com.intellij.ui.ListCellRendererWrapper;
 import com.intellij.ui.components.labels.LinkLabel;
 import com.jgoodies.forms.factories.DefaultComponentFactory;
+import io.acari.DDLC.actions.DarkMode;
 import net.miginfocom.swing.MigLayout;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
@@ -97,7 +98,7 @@ public class MTForm implements MTFormUI {
   private JLabel selectedThemeLabel;
   private ComboBox<DDLCThemeFacade> themeComboBox;
   private JCheckBox isContrastModeCheckbox;
-  private JCheckBox highContrastCheckbox;
+  private JCheckBox darkModeCheckbox;
   private JLabel customAccentColorLabel;
   private ColorPanel customAccentColorChooser;
   private JCheckBox overrideAccentCheckbox;
@@ -247,7 +248,7 @@ public class MTForm implements MTFormUI {
     setIsCustomTreeIndent(mtConfig.isCustomTreeIndent());
     setIsDarkTitleBar(mtConfig.isDarkTitleBar());
     setIsFileStatusColors(mtConfig.isFileStatusColorsEnabled());
-    setIsHighContrast(mtConfig.isHighContrast());
+    setIsDarkMode(ddlcConfig.isDarkMode());
     setIsMaterialDesign(mtConfig.isMaterialDesign());
     setIsMaterialTheme(mtConfig.isMaterialTheme());
     setIsMonochromeIcons(mtConfig.isMonochromeIcons());
@@ -328,7 +329,7 @@ public class MTForm implements MTFormUI {
     modified = modified || mtConfig.isCompactDropdownsChanged(isCompactDropdowns());
     modified = modified || mtConfig.isMonochromeIconsChanged(isMonochromeIcons());
     modified = modified || mtConfig.isUpperCaseButtonsChanged(isUpperCaseButtons());
-    modified = modified || mtConfig.isHighContrastChanged(isHighContrast());
+    modified = modified || ddlcConfig.isDarkModeChanged(isDarkMode());
 
     modified = modified || mtConfig.isOverrideAccentColorChanged(isOverrideAccents());
     modified = modified || mtConfig.isTabsShadowChanged(isTabsShadow());
@@ -361,12 +362,12 @@ public class MTForm implements MTFormUI {
   //endregion
 
   //region High Contrast
-  public final boolean isHighContrast() {
-    return highContrastCheckbox.isSelected();
+  public final boolean isDarkMode() {
+    return darkModeCheckbox.isSelected();
   }
 
-  private void setIsHighContrast(final boolean isHighContrast) {
-    highContrastCheckbox.setSelected(isHighContrast);
+  private void setIsDarkMode(final boolean isDarkMode) {
+    darkModeCheckbox.setSelected(isDarkMode);
   }
   //endregion
 
@@ -995,7 +996,7 @@ public class MTForm implements MTFormUI {
     selectedThemeLabel = new JLabel();
     themeComboBox = new ComboBox<>();
     isContrastModeCheckbox = new JCheckBox();
-    highContrastCheckbox = new JCheckBox();
+    darkModeCheckbox = new JCheckBox();
     customAccentColorLabel = new JLabel();
     customAccentColorChooser = new ColorPanel();
     overrideAccentCheckbox = new JCheckBox();
@@ -1126,10 +1127,10 @@ public class MTForm implements MTFormUI {
         isContrastModeCheckbox.setToolTipText(bundle.getString("MTForm.contrastCheckBox.toolTipText"));
         mainSettingsPanel.add(isContrastModeCheckbox, "cell 0 1");
 
-        //---- highContrastCheckbox ----
-        highContrastCheckbox.setText(bundle.getString("MTForm.highContrastCheckbox.text"));
-        highContrastCheckbox.setToolTipText(bundle.getString("MTForm.highContrastCheckbox.toolTipText"));
-        mainSettingsPanel.add(highContrastCheckbox, "cell 0 2");
+        //---- darkModeCheckbox ----
+        darkModeCheckbox.setText(bundle.getString("MTForm.darkModeCheckbox.text"));
+        darkModeCheckbox.setToolTipText(bundle.getString("MTForm.darkModeCheckbox.toolTipText"));
+        mainSettingsPanel.add(darkModeCheckbox, "cell 0 2");
 
       }
       content.add(mainSettingsPanel, "cell 0 1");

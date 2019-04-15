@@ -135,8 +135,6 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
   @Property
   boolean isDecoratedFolders = true;
   @Property
-  boolean isHighContrast;
-  @Property
   boolean isMaterialDesign = true;
   @Property
   boolean isMaterialTheme = true;
@@ -316,7 +314,6 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
     hashMap.put("isContrastMode", isContrastMode);
     hashMap.put("isCustomTreeIndentEnabled", isCustomTreeIndentEnabled);
     hashMap.put("isDecoratedFolders", isDecoratedFolders);
-    hashMap.put("isHighContrast", isHighContrast);
     hashMap.put("isMaterialDesign", isMaterialDesign);
     hashMap.put("isMaterialTheme", isMaterialTheme);
     hashMap.put("isStyledDirectories", isStyledDirectories);
@@ -393,7 +390,6 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
     setIsContrastMode(form.isContrastMode());
     setIsCustomTreeIndent(form.isCustomTreeIndent());
     setIsDecoratedFolders(form.isDecoratedFolders());
-    setIsHighContrast(form.isHighContrast());
     setIsMaterialDesign(form.isMaterialDesign());
     setIsMaterialTheme(form.isMaterialTheme());
     setIsStatusBarTheme(form.isStatusBarTheme());
@@ -447,7 +443,6 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
     isContrastMode = false;
     isCustomTreeIndentEnabled = false;
     isDecoratedFolders = true;
-    isHighContrast = false;
     isMaterialDesign = true;
     isMaterialTheme = true;
     isStyledDirectories = false;
@@ -1812,38 +1807,6 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
   public boolean isFileStatusColorsEnabledChanged(final boolean fileStatusColors) {
     return fileStatusColorsEnabled != fileStatusColors;
   }
-  //endregion
-
-  //region High Contrast
-
-  /**
-   * Sets the isHighContrast of this MTConfig object.
-   *
-   * @param isHighContrast the isHighContrast of this MTConfig object.
-   */
-  public void setIsHighContrast(final boolean isHighContrast) {
-    this.isHighContrast = isHighContrast;
-  }
-
-  /**
-   * Returns the isHighContrast of this MTConfig object.
-   *
-   * @return the isHighContrast (type boolean) of this MTConfig object.
-   */
-  public boolean isHighContrast() {
-    return isHighContrast;
-  }
-
-  /**
-   * ...
-   *
-   * @param isHighContrast of type boolean
-   * @return boolean
-   */
-  public boolean isHighContrastChanged(final boolean isHighContrast) {
-    return this.isHighContrast != isHighContrast;
-  }
-
   //endregion
 
   //region Tabs Shadow

@@ -186,15 +186,6 @@ public final class MTThemeManager {
     applyContrast(true);
   }
 
-  /**
-   * Toggle high contrast.
-   */
-  @SuppressWarnings("FeatureEnvy")
-  public static void toggleHighContrast() {
-    final MTConfig mtConfig = MTConfig.getInstance();
-    mtConfig.setIsHighContrast(!mtConfig.isHighContrast());
-    activate();
-  }
 
   /**
    * Toggle compact status bar.
