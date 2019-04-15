@@ -178,6 +178,9 @@
             <action class="io.acari.DDLC.actions.WizardAction" id="Wizard" text="Show Wizard"
                     icon="/icons/ddlc/ddlcTheme.svg"
                     description="Show Wizard"/>
+            <action class="io.acari.DDLC.actions.ConfigAction" id="DokiSettings" text="Show Settings"
+                    icon="/icons/general/settings.svg"
+                    description="Show Settings"/>
             <add-to-group group-id="MainToolBar" anchor="last"/>
             <group id="DDLCWeebShit" text="Chibi Options" popup="true"
                    icon="/icons/actions/themes/material_monika.png">
