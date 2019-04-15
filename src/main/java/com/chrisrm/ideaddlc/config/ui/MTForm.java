@@ -49,7 +49,6 @@ import com.intellij.ui.ColorUtil;
 import com.intellij.ui.ListCellRendererWrapper;
 import com.intellij.ui.components.labels.LinkLabel;
 import com.jgoodies.forms.factories.DefaultComponentFactory;
-import io.acari.DDLC.actions.DarkMode;
 import io.acari.DDLC.chibi.ChibiLevel;
 import net.miginfocom.swing.MigLayout;
 import org.jetbrains.annotations.NonNls;
@@ -1144,7 +1143,7 @@ public class MTForm implements MTFormUI {
         mainSettingsPanel.add(isContrastModeCheckbox, "cell 0 1");
 
         //---- darkModeCheckbox ----
-        darkModeCheckbox.setText(bundle.getString("MTForm.darkModeCheckbox.text"));
+        darkModeCheckbox.setText("<html><div>Ḑ̴̰̝̼̹̭̥̥͔̀͟a̷̵̪̥͈̤͖͘̕͢ŕ͚͎͚̲͉̺͜͜ḱ̷̶̴̲̰̜̹̼̙͇͓͕͔ ͏̴͙̲̳͓̮̗͍M̘͍̗͉̦̰̺̖̜̖̹̪̩̜̞̲̭̀͜͞͝o̵͕̹̙͓͖̪̠͘̕͝ͅd̵̶̢̲̮͓͎̦̙̺͚̠̱́ͅͅe̡̢͈͉̘͍͔͖̦̼̖̟̦̗͍̘̹͔͘ͅ</div></html>");
         darkModeCheckbox.setToolTipText(bundle.getString("MTForm.darkModeCheckbox.toolTipText"));
         mainSettingsPanel.add(darkModeCheckbox, "cell 0 2");
 
