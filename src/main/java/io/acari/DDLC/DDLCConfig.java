@@ -38,6 +38,7 @@ import com.intellij.openapi.components.Storage;
 import com.intellij.util.xmlb.XmlSerializerUtil;
 import io.acari.DDLC.actions.DarkMode;
 import io.acari.DDLC.chibi.ChibiLevel;
+import io.acari.DDLC.chibi.ChibiOrchestrator;
 import io.acari.DDLC.listeners.DDLCConfigListener;
 import io.acari.DDLC.wizard.DDLCWizardDialog;
 import org.jetbrains.annotations.NotNull;
@@ -187,6 +188,12 @@ public class DDLCConfig implements PersistentStateComponent<DDLCConfig>, Cloneab
   }
 
 
+  public void setAndActivateChibiLevel(final ChibiLevel chibiLevel) {
+    this.chibiLevel = chibiLevel.name();
+    ChibiOrchestrator.INSTANCE.setChibiLevel(chibiLevel);
+  }
+
+
   @NotNull
   private Map getNativeProperties() {
     final HashMap<String, Object> hashMap = new HashMap<>();
@@ -259,6 +266,7 @@ public class DDLCConfig implements PersistentStateComponent<DDLCConfig>, Cloneab
   public void applySettings(MTForm form) {
     setSelectedTheme(form.getTheme());
     setIsDarkMode(form.isDarkMode());
+    setAndActivateChibiLevel(form.getChibiLevel());
 
     fireChanged();
   }
@@ -275,5 +283,9 @@ public class DDLCConfig implements PersistentStateComponent<DDLCConfig>, Cloneab
 
   public boolean isDarkModeChanged(boolean darkMode) {
     return darkMode != this.isDarkMode;
+  }
+
+  public boolean isChibiLevelChanged(ChibiLevel chibiLevel) {
+    return !Objects.equals(chibiLevel.name(), this.chibiLevel);
   }
 }

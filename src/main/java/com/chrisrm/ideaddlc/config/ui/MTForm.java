@@ -50,6 +50,7 @@ import com.intellij.ui.ListCellRendererWrapper;
 import com.intellij.ui.components.labels.LinkLabel;
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 import io.acari.DDLC.actions.DarkMode;
+import io.acari.DDLC.chibi.ChibiLevel;
 import net.miginfocom.swing.MigLayout;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
@@ -99,6 +100,7 @@ public class MTForm implements MTFormUI {
   private ComboBox<DDLCThemeFacade> themeComboBox;
   private JCheckBox isContrastModeCheckbox;
   private JCheckBox darkModeCheckbox;
+  private JCheckBox chibiCheckbox;
   private JLabel customAccentColorLabel;
   private ColorPanel customAccentColorChooser;
   private JCheckBox overrideAccentCheckbox;
@@ -272,6 +274,7 @@ public class MTForm implements MTFormUI {
     setTreeFontSize(mtConfig.getTreeFontSize());
     setUseMaterialFont(mtConfig.isUseMaterialFont());
     setUseProjectViewDecorators(mtConfig.isUseProjectViewDecorators());
+    setIsChibiOn(ChibiLevel.ON.name().equals(ddlcConfig.getChibiLevel().name()));
 
     afterStateSet();
   }
@@ -330,6 +333,7 @@ public class MTForm implements MTFormUI {
     modified = modified || mtConfig.isMonochromeIconsChanged(isMonochromeIcons());
     modified = modified || mtConfig.isUpperCaseButtonsChanged(isUpperCaseButtons());
     modified = modified || ddlcConfig.isDarkModeChanged(isDarkMode());
+    modified = modified || ddlcConfig.isChibiLevelChanged(getChibiLevel());
 
     modified = modified || mtConfig.isOverrideAccentColorChanged(isOverrideAccents());
     modified = modified || mtConfig.isTabsShadowChanged(isTabsShadow());
@@ -368,6 +372,16 @@ public class MTForm implements MTFormUI {
 
   private void setIsDarkMode(final boolean isDarkMode) {
     darkModeCheckbox.setSelected(isDarkMode);
+  }
+  //endregion
+
+  //region High Contrast
+  public final ChibiLevel getChibiLevel() {
+    return chibiCheckbox.isSelected() ? ChibiLevel.ON : ChibiLevel.OFF;
+  }
+
+  private void setIsChibiOn(final boolean isChibiOn) {
+    chibiCheckbox.setSelected(isChibiOn);
   }
   //endregion
 
@@ -997,6 +1011,7 @@ public class MTForm implements MTFormUI {
     themeComboBox = new ComboBox<>();
     isContrastModeCheckbox = new JCheckBox();
     darkModeCheckbox = new JCheckBox();
+    chibiCheckbox = new JCheckBox();
     customAccentColorLabel = new JLabel();
     customAccentColorChooser = new ColorPanel();
     overrideAccentCheckbox = new JCheckBox();
@@ -1125,12 +1140,18 @@ public class MTForm implements MTFormUI {
         //---- isContrastModeCheckbox ----
         isContrastModeCheckbox.setText(bundle.getString("MTForm.contrastCheckBox.text"));
         isContrastModeCheckbox.setToolTipText(bundle.getString("MTForm.contrastCheckBox.toolTipText"));
+        isContrastModeCheckbox.setEnabled(false);
         mainSettingsPanel.add(isContrastModeCheckbox, "cell 0 1");
 
         //---- darkModeCheckbox ----
         darkModeCheckbox.setText(bundle.getString("MTForm.darkModeCheckbox.text"));
         darkModeCheckbox.setToolTipText(bundle.getString("MTForm.darkModeCheckbox.toolTipText"));
         mainSettingsPanel.add(darkModeCheckbox, "cell 0 2");
+
+        //---- chibiheckbox ----
+        chibiCheckbox.setText(bundle.getString("MTForm.chibiCheckbox.text"));
+        chibiCheckbox.setToolTipText(bundle.getString("MTForm.chibiCheckbox.toolTipText"));
+        mainSettingsPanel.add(chibiCheckbox, "cell 0 3");
 
       }
       content.add(mainSettingsPanel, "cell 0 1");
