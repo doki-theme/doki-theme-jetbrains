@@ -38,10 +38,12 @@ import com.chrisrm.ideaddlc.ui.MTTreeUI
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.ToggleAction
 import com.intellij.openapi.project.Project
+import com.intellij.openapi.project.ProjectManager
+import com.intellij.util.containers.stream
 import io.acari.DDLC.DDLCConfig
-import io.acari.DDLC.DDLCProjectInitializationComponent
 import io.acari.DDLC.chibi.ChibiOrchestrator
 import java.util.*
+import java.util.stream.Stream
 
 open class ClubMemberThemeAction(private val theme: DDLCThemes,
                                  private val accentAction: MTAbstractAccentAction) : BaseThemeAction() {
@@ -56,12 +58,15 @@ open class ClubMemberThemeAction(private val theme: DDLCThemes,
         MTThemeManager.activate(theme, true)
         ChibiOrchestrator.activateChibiForTheme(theme)
 
-        project.map { Optional.of(it) }
-            .orElseGet { DDLCProjectInitializationComponent.fetchProjectRefrence() }
-            .ifPresent {
-                projectReference ->
-                mtAddFileColorsAction.setFileScopes(projectReference)
-            }
+        project.map {
+            Stream.of(it)
+        }.orElseGet {
+            ProjectManager.getInstance().openProjects.stream()
+        }
+        .forEach {
+            projectReference ->
+            mtAddFileColorsAction.setFileScopes(projectReference)
+        }
 
         MTAnalytics.getInstance().trackValue(MTAnalytics.SELECT_THEME, theme)
     }

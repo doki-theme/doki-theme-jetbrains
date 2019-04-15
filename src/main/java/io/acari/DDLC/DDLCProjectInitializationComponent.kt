@@ -17,18 +17,6 @@ class DDLCProjectInitializationComponent(project: Project) : AbstractProjectComp
   val random = Random(Instant.now().epochSecond / 100)
   private val mtAddFileColorsAction = DDLCAddFileColorsAction()
 
-  init {
-    projectReference = project
-  }
-
-  companion object {
-
-    private lateinit var projectReference: Project
-    fun fetchProjectRefrence(): Optional<Project> =
-        if (projectReference.isInitialized) Optional.of(projectReference)
-        else Optional.empty()
-  }
-
   override fun getComponentName(): String {
     return "DDLCProjectInitializationComponent"
   }
@@ -63,4 +51,4 @@ class DDLCProjectInitializationComponent(project: Project) : AbstractProjectComp
 }
 
 
-val WRITING_TIP_OF_THE_DAY = "WRITING_TIP_OF_THE_DAY"
+const val WRITING_TIP_OF_THE_DAY = "WRITING_TIP_OF_THE_DAY"

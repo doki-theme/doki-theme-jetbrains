@@ -73,6 +73,7 @@ public final class MTLafComponent implements BaseComponent {
     // Save instance of current laf
     activeLookAndFeel = currentLookAndFeel;
 
+    //todo: fix me
     if (currentLookAndFeel instanceof UIThemeBasedLookAndFeelInfo) {
       final UIThemeBasedLookAndFeelInfo lookAndFeel = (UIThemeBasedLookAndFeelInfo) currentLookAndFeel;
       MTThemeManager.activate(lookAndFeel.getTheme().getId());
