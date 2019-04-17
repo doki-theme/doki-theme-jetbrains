@@ -263,7 +263,7 @@ public final class MTButtonUI extends DarculaButtonUI {
 
     final AbstractButton button = (AbstractButton) c;
     final ButtonModel model = button.getModel();
-    Color fg = isDefaultButton(c) ? primaryButtonFg() : buttonFg();
+    Color fg = isDefaultButton(c) || c.hasFocus() ? primaryButtonFg() : buttonFg();
 
     if (fg instanceof UIResource && button.isSelected()) {
       fg = selectedButtonFg();

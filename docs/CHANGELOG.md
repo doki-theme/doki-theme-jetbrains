@@ -1,6 +1,11 @@
 # Changelog
 ----
 
+# 3.1.4
+
+- A bunch of small theme tweaks (icon adjustments and readability tweaks)!
+    - See the [Github Issue for more details.](https://github.com/cyclic-reference/ddlc-jetbrains-theme/issues/143)
+
 # 3.1.3
 
 - Settings configuration menu loads now.

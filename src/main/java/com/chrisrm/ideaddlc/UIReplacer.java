@@ -161,9 +161,6 @@ public enum UIReplacer {
     if (!MTConfig.getInstance().isMaterialTheme()) {
       return;
     }
-    final String accentColor = MTConfig.getInstance().getAccentColor();
-    final JBColor jbAccentColor = new JBColor(ColorUtil.fromHex(accentColor), ColorUtil.fromHex(accentColor));
-
     final Color defaultValue = UIUtil.getListSelectionBackground();
     final Color autocompleteSelectionBackground = ObjectUtils.notNull(UIManager.getColor("Autocomplete.selectionBackground"), defaultValue);
     final Color autocompleteSelectionForeground = ObjectUtils.notNull(UIManager.getColor("Autocomplete.selectionForeground"), defaultValue);
@@ -174,6 +171,7 @@ public enum UIReplacer {
     final Color autocompleteSelectedGreyedForeground = ObjectUtils.notNull(UIManager.getColor("Autocomplete.selectedGreyedForeground"), defaultValue);
     final Color autocompletePrefixForegroundColor = ObjectUtils.notNull(UIManager.getColor("Autocomplete.prefixForeground"), defaultValue);
     final Color autocompleteSelectedPrefixForegroundColor = ObjectUtils.notNull(UIManager.getColor("Autocomplete.selectedPrefixForeground"), defaultValue);
+    final Color autocompleteUserSelectedPrefixForegroundColor = ObjectUtils.notNull(UIManager.getColor("Autocomplete.userSelectedPrefixForeground"), defaultValue);
 
     final Field[] fields = LookupCellRenderer.class.getDeclaredFields();
     final Object[] colorFields = Arrays.stream(fields)
@@ -189,6 +187,7 @@ public enum UIReplacer {
     StaticPatcher.setFinalStatic((Field) colorFields[6], autocompleteSelectionForegroundGreyed);//selected grayed foreground color
     StaticPatcher.setFinalStatic((Field) colorFields[7], autocompletePrefixForegroundColor);//prefix foreground color
     StaticPatcher.setFinalStatic((Field) colorFields[8], autocompleteSelectedPrefixForegroundColor);//selected prefix foreground color
+    StaticPatcher.setFinalStatic((Field) colorFields[9], autocompleteUserSelectedPrefixForegroundColor);//selected prefix foreground color
   }
 
 
