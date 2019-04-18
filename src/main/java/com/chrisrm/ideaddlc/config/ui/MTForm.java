@@ -50,6 +50,7 @@ import com.intellij.ui.ListCellRendererWrapper;
 import com.intellij.ui.components.labels.LinkLabel;
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 import io.acari.DDLC.chibi.ChibiLevel;
+import io.acari.DDLC.integrations.GithubActions;
 import net.miginfocom.swing.MigLayout;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
@@ -1153,6 +1154,15 @@ public class MTForm implements MTFormUI {
         chibiCheckbox.setText(bundle.getString("MTForm.chibiCheckbox.text"));
         chibiCheckbox.setToolTipText(bundle.getString("MTForm.chibiCheckbox.toolTipText"));
         mainSettingsPanel.add(chibiCheckbox, "cell 0 3");
+
+
+        JButton issuesLabel = new JButton("View Issues");
+        issuesLabel.addActionListener(GithubActions.INSTANCE.createViewIssuesAction());
+        mainSettingsPanel.add(issuesLabel, "cell 1 4");
+
+        JButton changelogButton = new JButton("View Changelog");
+        changelogButton.addActionListener(GithubActions.INSTANCE.createChangelogAction());
+        mainSettingsPanel.add(changelogButton, "cell 2 4");
 
       }
       content.add(mainSettingsPanel, "cell 0 1");
