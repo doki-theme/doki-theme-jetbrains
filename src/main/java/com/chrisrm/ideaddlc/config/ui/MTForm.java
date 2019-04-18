@@ -60,6 +60,8 @@ import java.awt.event.ActionEvent;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
+import static io.acari.DDLC.ConstantsKt.DARK_MODE_CONSTANT;
+
 @SuppressWarnings({"ClassWithTooManyFields",
     "ClassWithTooManyMethods",
     "InstanceVariableMayNotBeInitialized",
@@ -1142,8 +1144,8 @@ public class MTForm implements MTFormUI {
         isContrastModeCheckbox.setEnabled(false);
         mainSettingsPanel.add(isContrastModeCheckbox, "cell 0 1");
 
-        //---- darkModeCheckbox ----
-        darkModeCheckbox.setText("<html><div>Ḑ̴̰̝̼̹̭̥̥͔̀͟a̷̵̪̥͈̤͖͘̕͢ŕ͚͎͚̲͉̺͜͜ḱ̷̶̴̲̰̜̹̼̙͇͓͕͔ ͏̴͙̲̳͓̮̗͍M̘͍̗͉̦̰̺̖̜̖̹̪̩̜̞̲̭̀͜͞͝o̵͕̹̙͓͖̪̠͘̕͝ͅd̵̶̢̲̮͓͎̦̙̺͚̠̱́ͅͅe̡̢͈͉̘͍͔͖̦̼̖̟̦̗͍̘̹͔͘ͅ</div></html>");
+        //---- darkModeCheckbox  ----
+        darkModeCheckbox.setText(DARK_MODE_CONSTANT);
         darkModeCheckbox.setToolTipText(bundle.getString("MTForm.darkModeCheckbox.toolTipText"));
         mainSettingsPanel.add(darkModeCheckbox, "cell 0 2");
 
