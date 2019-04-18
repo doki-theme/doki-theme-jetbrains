@@ -36,11 +36,13 @@ import com.intellij.openapi.wm.IdeFrame;
 import com.intellij.openapi.wm.WindowManager;
 import com.intellij.ui.BalloonLayoutData;
 import com.intellij.ui.awt.RelativePoint;
+import io.acari.DDLC.ConstantsKt;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.awt.*;
+
 
 @SuppressWarnings("MethodWithTooManyParameters")
 public enum Notify {
@@ -61,7 +63,7 @@ public enum Notify {
   public static void showUpdate(@NotNull final Project project, final NotificationListener listener) {
     final Notification notification = createNotification(
         MaterialThemeBundle.message("notification.update.title", MTUiUtils.getVersion()),
-        MaterialThemeBundle.message("notification.update.content"),
+        ConstantsKt.getUPDATE_MESSAGE(),
         CHANNEL + "_UPDATE",
         NotificationType.INFORMATION,
         listener
