@@ -37,28 +37,38 @@ import com.chrisrm.ideaddlc.ui.MTButtonUI
 import com.chrisrm.ideaddlc.ui.MTTreeUI
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.ToggleAction
+import com.intellij.openapi.project.Project
+import com.intellij.openapi.project.ProjectManager
+import com.intellij.util.containers.stream
 import io.acari.DDLC.DDLCConfig
 import io.acari.DDLC.chibi.ChibiOrchestrator
-
+import java.util.*
+import java.util.stream.Stream
 
 open class ClubMemberThemeAction(private val theme: DDLCThemes,
                                  private val accentAction: MTAbstractAccentAction) : BaseThemeAction() {
     private val mtAddFileColorsAction = DDLCAddFileColorsAction()
 
-    override fun selectionActivation() {
-        super.selectionActivation()
+    override fun selectionActivation(project: Optional<Project>) {
+        super.selectionActivation(project)
         accentAction.setAccentToTheme()
         MTTreeUI.resetIcons()
         MTButtonUI.resetCache()
         DDLCProjectViewNodeDecorator.resetCache()
         MTThemeManager.activate(theme, true)
         ChibiOrchestrator.activateChibiForTheme(theme)
-        MTAnalytics.getInstance().trackValue(MTAnalytics.SELECT_THEME, theme);
-    }
 
-    override fun projectSpecificActivation(e: AnActionEvent) {
-        super.projectSpecificActivation(e)
-        mtAddFileColorsAction.setFileScopes(e.project)
+        project.map {
+            Stream.of(it)
+        }.orElseGet {
+            ProjectManager.getInstance().openProjects.stream()
+        }
+        .forEach {
+            projectReference ->
+            mtAddFileColorsAction.setFileScopes(projectReference)
+        }
+
+        MTAnalytics.getInstance().trackValue(MTAnalytics.SELECT_THEME, theme)
     }
 
     override fun isSelected(e: AnActionEvent): Boolean =
@@ -69,7 +79,7 @@ open class ClubMemberThemeAction(private val theme: DDLCThemes,
 abstract class BaseThemeAction : ToggleAction() {
 
     override fun setSelected(e: AnActionEvent, state: Boolean) {
-        selectionActivation()
+        selectionActivation(Optional.ofNullable(e.project))
         projectSpecificActivation(e)
     }
 
@@ -77,7 +87,7 @@ abstract class BaseThemeAction : ToggleAction() {
         //lul dunno
     }
 
-    open fun selectionActivation() {
+    open fun selectionActivation(project: Optional<Project> = Optional.empty()) {
         MTTreeUI.resetIcons()
         MTButtonUI.resetCache()
         DDLCProjectViewNodeDecorator.resetCache()

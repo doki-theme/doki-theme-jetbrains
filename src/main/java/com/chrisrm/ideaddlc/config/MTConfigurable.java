@@ -31,6 +31,7 @@ import com.chrisrm.ideaddlc.config.ui.MTForm;
 import com.chrisrm.ideaddlc.messages.MaterialThemeBundle;
 import com.chrisrm.ideaddlc.utils.MTUiUtils;
 import com.intellij.openapi.options.SearchableConfigurable;
+import io.acari.DDLC.DDLCConfig;
 import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
@@ -72,23 +73,30 @@ public final class MTConfigurable extends MTConfigurableBase<MTForm, MTConfig> i
 
   @NotNull
   @Override
+  protected DDLCConfig getDDLCConfig() {
+    return DDLCConfig.getInstance();
+  }
+
+  @NotNull
+  @Override
   protected MTForm createForm() {
     return new MTForm();
   }
 
   @Override
-  protected void setFormState(final MTForm form, @NotNull final MTConfig config) {
-    Objects.requireNonNull(getForm()).setFormState(config);
+  protected void setFormState(final MTForm form, @NotNull final MTConfig config, final DDLCConfig ddlcConfig) {
+    Objects.requireNonNull(getForm()).setFormState(config, ddlcConfig);
   }
 
   @Override
-  protected void doApply(final MTForm form, final MTConfig config) {
+  protected void doApply(final MTForm form, final MTConfig config, final DDLCConfig ddlcConfig) {
     config.applySettings(form);
+    ddlcConfig.applySettings(form);
   }
 
   @Override
-  protected boolean checkModified(final MTForm form, final MTConfig config) {
-    return checkFormModified(config);
+  protected boolean checkModified(final MTForm form, final MTConfig config, final DDLCConfig ddlcConfig) {
+    return checkFormModified(config, ddlcConfig);
   }
 
   /**
@@ -97,7 +105,7 @@ public final class MTConfigurable extends MTConfigurableBase<MTForm, MTConfig> i
    * @param config the config
    * @return true if changed
    */
-  private boolean checkFormModified(final MTBaseConfig<MTForm, MTConfig> config) {
-    return Objects.requireNonNull(getForm()).isModified(config);
+  private boolean checkFormModified(final MTBaseConfig<MTForm, MTConfig> config, DDLCConfig ddlcConfig) {
+    return Objects.requireNonNull(getForm()).isModified(config, ddlcConfig);
   }
 }

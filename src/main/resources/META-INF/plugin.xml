@@ -53,7 +53,6 @@
     <extensions defaultExtensionNs="com.intellij">
         <applicationService serviceImplementation="com.chrisrm.ideaddlc.MTConfig"/>
         <applicationService serviceImplementation="io.acari.DDLC.DDLCConfig"/>
-        <applicationService serviceImplementation="com.chrisrm.ideaddlc.MTCustomThemeConfig"/>
         <applicationService serviceImplementation="com.chrisrm.ideaddlc.MTThemeManager"/>
         <applicationService serviceImplementation="com.chrisrm.ideaddlc.MTAnalytics"/>
 
@@ -61,9 +60,6 @@
         <applicationConfigurable instance="com.chrisrm.ideaddlc.config.MTConfigurable"
                                  groupId="appearance"
                                  id="com.chrisrm.ideaddlc.config"/>
-        <applicationConfigurable instance="com.chrisrm.ideaddlc.config.MTCustomThemeConfigurable"
-                                 groupId="appearance"
-                                 id="com.chrisrm.ideaddlc.config.mtCustomThemeConfig"/>
 
         <projectViewNodeDecorator implementation="io.acari.DDLC.tree.DDLCProjectViewNodeDecorator"/>
         <editorTabTitleProvider implementation="com.chrisrm.ideaddlc.tabs.MTEditorUpperTabs" order="first"/>
@@ -154,7 +150,7 @@
 
 
     <actions>
-        <group id="DDLC.ThemeChooser" text="DDLC Themes" popup="true"
+        <group id="DDLC.ThemeChooser" text="Doki-Doki Themes" popup="true"
                icon="/icons/ddlc/ddlcTheme.svg">
             <add-to-group group-id="MainToolBar" anchor="last"/>
 
@@ -177,11 +173,14 @@
             </action>
         </group>
 
-        <group id="DDLC.Panels" text="DDLC Options" description="Panel Options" popup="true"
+        <group id="DDLC.Panels" text="Doki-Doki Theme Options" description="Panel Options" popup="true"
                icon="/icons/ddlc/actions/pen.svg">
             <action class="io.acari.DDLC.actions.WizardAction" id="Wizard" text="Show Wizard"
                     icon="/icons/ddlc/ddlcTheme.svg"
                     description="Show Wizard"/>
+            <action class="io.acari.DDLC.actions.ConfigAction" id="DokiSettings" text="Show Settings"
+                    icon="/icons/general/settings.svg"
+                    description="Show Settings"/>
             <add-to-group group-id="MainToolBar" anchor="last"/>
             <group id="DDLCWeebShit" text="Chibi Options" popup="true"
                    icon="/icons/actions/themes/material_monika.png">
@@ -295,7 +294,7 @@
             </group>
         </group>
 
-        <group id="DDLC.Menu" text="DDLC Theme" popup="true" icon="/icons/ddlc/ddlcTheme.svg">
+        <group id="DDLC.Menu" text="Doki-Doki Theme" popup="true" icon="/icons/ddlc/ddlcTheme.svg">
             <reference id="DDLC.ThemeChooser"/>
             <separator/>
             <reference id="DDLC.Panels"/>

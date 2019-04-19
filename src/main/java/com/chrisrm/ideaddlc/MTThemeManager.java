@@ -186,15 +186,6 @@ public final class MTThemeManager {
     applyContrast(true);
   }
 
-  /**
-   * Toggle high contrast.
-   */
-  @SuppressWarnings("FeatureEnvy")
-  public static void toggleHighContrast() {
-    final MTConfig mtConfig = MTConfig.getInstance();
-    mtConfig.setIsHighContrast(!mtConfig.isHighContrast());
-    activate();
-  }
 
   /**
    * Toggle compact status bar.
@@ -310,14 +301,6 @@ public final class MTThemeManager {
   public static void toggleMaterialFileIcons() {
     final boolean useMaterialFileIcons = MTConfig.getInstance().isFileIcons();
     MTConfig.getInstance().setFileIcons(!useMaterialFileIcons);
-
-    updateFileIcons();
-  }
-
-  @SuppressWarnings("BooleanVariableAlwaysNegated")
-  public static void toggleMaterialPsiIcons() {
-    final boolean isPsiIcons = MTConfig.getInstance().isPsiIcons();
-    MTConfig.getInstance().setIsPsiIcons(!isPsiIcons);
 
     updateFileIcons();
   }

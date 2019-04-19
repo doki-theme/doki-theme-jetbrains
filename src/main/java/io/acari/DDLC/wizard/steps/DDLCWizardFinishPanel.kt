@@ -224,7 +224,7 @@ class DDLCWizardFinishPanel : AbstractCustomizeWizardStep() {
             disclaimer!!.font = disclaimer!!.font.deriveFont(disclaimer!!.font.size)
             content!!.add(disclaimer!!, "cell 0 6")
             //---- disclaimerTwo ----
-            disclaimerTwo!!.text = bundle.getString("DDLCWizardFinishPanel.disclaimerTwo.text")
+            disclaimerTwo!!.text = "<html><div>to make your club member less c̟̺̱̱̪o͚̲̹̼͘r̡̭̤̭̼̟̭̜r͇͚u̘̰͝p͓̝͍̻̩̩t̼̣̙͍͍e͕̹͙̟̬̮͟ͅd̻ anytime :)</div><html>"
             disclaimerTwo!!.font = disclaimerTwo!!.font.deriveFont(disclaimerTwo!!.font.size)
             content!!.add(disclaimerTwo!!, "cell 0 7")
         } else {

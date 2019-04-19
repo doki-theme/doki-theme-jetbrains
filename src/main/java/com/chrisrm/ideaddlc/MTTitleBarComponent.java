@@ -50,8 +50,6 @@ public final class MTTitleBarComponent implements ProjectComponent {
         setDarkTitleBar();
       }
     });
-
-    connect.subscribe(CustomConfigNotifier.CONFIG_TOPIC, mtCustomThemeConfig -> setDarkTitleBar());
   }
 
   @Override

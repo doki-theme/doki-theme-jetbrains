@@ -26,14 +26,12 @@
 
 package io.acari.DDLC.schemes;
 
-import com.chrisrm.ideaddlc.MTConfig;
 import com.chrisrm.ideaddlc.MTThemeManager;
-import com.chrisrm.ideaddlc.listeners.ConfigNotifier;
-import com.chrisrm.ideaddlc.listeners.CustomConfigNotifier;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.components.ApplicationComponent;
 import com.intellij.util.messages.MessageBusConnection;
 import io.acari.DDLC.DDLCConfig;
+import io.acari.DDLC.listeners.DDLCConfigListener;
 import org.jetbrains.annotations.NotNull;
 
 
@@ -51,13 +49,11 @@ public final class DDLCThemesComponent implements ApplicationComponent {
     activateTheme();
 
     connect = ApplicationManager.getApplication().getMessageBus().connect();
-    connect.subscribe(ConfigNotifier.CONFIG_TOPIC, new ConfigNotifier() {
-      @Override
-      public void configChanged(MTConfig mtConfig) {
-        activateTheme();
-      }
-    });
-    connect.subscribe(CustomConfigNotifier.CONFIG_TOPIC, mtCustomThemeConfig -> activateTheme());
+    connect.subscribe(DDLCConfigListener.Companion.getDDLC_CONFIG_TOPIC(),
+        ddlcConfig -> {
+          DokiConfigChangedActor.INSTANCE.consumeDeltas(ddlcConfig);
+          activateTheme();
+        });
   }
 
   public static void activateTheme() {

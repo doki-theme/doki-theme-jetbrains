@@ -40,6 +40,7 @@ import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.components.BaseComponent;
 import com.intellij.openapi.ui.Messages;
 import com.intellij.util.messages.MessageBusConnection;
+import io.acari.DDLC.LegacySupportUtility;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
@@ -73,12 +74,12 @@ public final class MTLafComponent implements BaseComponent {
     // Save instance of current laf
     activeLookAndFeel = currentLookAndFeel;
 
-    if (currentLookAndFeel instanceof UIThemeBasedLookAndFeelInfo) {
-      final UIThemeBasedLookAndFeelInfo lookAndFeel = (UIThemeBasedLookAndFeelInfo) currentLookAndFeel;
-      MTThemeManager.activate(lookAndFeel.getTheme().getId());
-    }
-
-
+    LegacySupportUtility.INSTANCE.invokeClassSafely("com.intellij.ide.ui.laf.UIThemeBasedLookAndFeelInfo", ()->{
+      if (currentLookAndFeel instanceof UIThemeBasedLookAndFeelInfo) {
+        final UIThemeBasedLookAndFeelInfo lookAndFeel = (UIThemeBasedLookAndFeelInfo) currentLookAndFeel;
+        MTThemeManager.activate(lookAndFeel.getTheme().getId());
+      }
+    });
   }
 
   /**

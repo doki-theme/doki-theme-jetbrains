@@ -64,8 +64,6 @@ public final class MTOptionContributor extends SearchableOptionContributor {
     processor.addOptions(MaterialThemeBundle.message("MTForm.fontSizeCheckbox.text"), null, displayName, MTConfigurable.ID, displayName,
         true);
     processor.addOptions(MaterialThemeBundle.message("MTForm.hideFileIcons"), null, displayName, MTConfigurable.ID, displayName, true);
-    processor.addOptions(MaterialThemeBundle.message("MTForm.highContrastCheckbox.text"), null, displayName, MTConfigurable.ID,
-        displayName, true);
     processor.addOptions(MaterialThemeBundle.message("MTForm.indicatorThicknessLabel.text"), null, displayName, MTConfigurable.ID,
         displayName, true);
     processor.addOptions(MaterialThemeBundle.message("MTForm.isCompactMenusCheckbox.text"), null, displayName, MTConfigurable.ID,

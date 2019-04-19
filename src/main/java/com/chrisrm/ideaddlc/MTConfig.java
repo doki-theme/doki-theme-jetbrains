@@ -135,13 +135,10 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
   @Property
   boolean isDecoratedFolders = true;
   @Property
-  boolean isHighContrast;
-  @Property
   boolean isMaterialDesign = true;
   @Property
   boolean isMaterialTheme = true;
-  @Property
-  boolean isPsiIcons = true;
+
   @Property
   boolean isStyledDirectories;
   @Property
@@ -317,10 +314,8 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
     hashMap.put("isContrastMode", isContrastMode);
     hashMap.put("isCustomTreeIndentEnabled", isCustomTreeIndentEnabled);
     hashMap.put("isDecoratedFolders", isDecoratedFolders);
-    hashMap.put("isHighContrast", isHighContrast);
     hashMap.put("isMaterialDesign", isMaterialDesign);
     hashMap.put("isMaterialTheme", isMaterialTheme);
-    hashMap.put("isPsiIcons", isPsiIcons);
     hashMap.put("isStyledDirectories", isStyledDirectories);
     hashMap.put("isTabsShadow", isTabsShadow);
     hashMap.put("leftTreeIndent", leftTreeIndent);
@@ -395,10 +390,8 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
     setIsContrastMode(form.isContrastMode());
     setIsCustomTreeIndent(form.isCustomTreeIndent());
     setIsDecoratedFolders(form.isDecoratedFolders());
-    setIsHighContrast(form.isHighContrast());
     setIsMaterialDesign(form.isMaterialDesign());
     setIsMaterialTheme(form.isMaterialTheme());
-    setIsPsiIcons(form.isPsiIcons());
     setIsStatusBarTheme(form.isStatusBarTheme());
     setIsStyledDirectories(form.isStyledDirectories());
     setIsTabsShadow(form.isTabsShadow());
@@ -450,10 +443,8 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
     isContrastMode = false;
     isCustomTreeIndentEnabled = false;
     isDecoratedFolders = true;
-    isHighContrast = false;
     isMaterialDesign = true;
     isMaterialTheme = true;
-    isPsiIcons = true;
     isStyledDirectories = false;
     isTabsShadow = true;
     leftTreeIndent = 6;
@@ -485,6 +476,7 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
     modified = modified || isThemedScrollbarsChanged(form.isThemedScrollbars());
     modified = modified || isMaterialThemeChanged(form.isMaterialTheme());
     modified = modified || isAccentScrollbarsChanged(form.isAccentScrollbars());
+    modified = modified || isTabsHeightChanged(form.getTabsHeight());
 
     return modified;
   }
@@ -1818,38 +1810,6 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
   }
   //endregion
 
-  //region High Contrast
-
-  /**
-   * Sets the isHighContrast of this MTConfig object.
-   *
-   * @param isHighContrast the isHighContrast of this MTConfig object.
-   */
-  public void setIsHighContrast(final boolean isHighContrast) {
-    this.isHighContrast = isHighContrast;
-  }
-
-  /**
-   * Returns the isHighContrast of this MTConfig object.
-   *
-   * @return the isHighContrast (type boolean) of this MTConfig object.
-   */
-  public boolean isHighContrast() {
-    return isHighContrast;
-  }
-
-  /**
-   * ...
-   *
-   * @param isHighContrast of type boolean
-   * @return boolean
-   */
-  public boolean isHighContrastChanged(final boolean isHighContrast) {
-    return this.isHighContrast != isHighContrast;
-  }
-
-  //endregion
-
   //region Tabs Shadow
 
   /**
@@ -1878,20 +1838,6 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
    */
   public boolean isTabsShadowChanged(final boolean tabsShadow) {
     return isTabsShadow != tabsShadow;
-  }
-  //endregion
-
-  //region Psi Icons
-  public boolean isPsiIcons() {
-    return isPsiIcons;
-  }
-
-  public void setIsPsiIcons(final boolean psiIcons) {
-    isPsiIcons = psiIcons;
-  }
-
-  public boolean isPsiIconsChanged(final boolean psiIcons) {
-    return isPsiIcons != psiIcons;
   }
   //endregion
 

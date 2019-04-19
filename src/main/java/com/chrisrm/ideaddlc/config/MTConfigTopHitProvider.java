@@ -79,7 +79,6 @@ public final class MTConfigTopHitProvider extends OptionsTopHitProvider {
       option(getText("MTForm.fontSizeCheckbox.text"), "isTreeFontSizeEnabled", "setTreeFontSizeEnabled"),
       option(getText("MTForm.fileColorsCheckbox.text"), "isFileStatusColorsEnabled", "setFileStatusColorsEnabled"),
 
-      option(getText("MTForm.highContrastCheckbox.text"), "isHighContrast", "setIsHighContrast"),
       option(getText("MTForm.tabShadowCheckbox.text"), "isTabsShadow", "setIsTabsShadow"),
 
       option(getText("MTForm.darkTitleBarCheckbox.text"), "isDarkTitleBar", "setDarkTitleBar")

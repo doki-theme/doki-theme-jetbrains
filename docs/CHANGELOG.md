@@ -1,6 +1,17 @@
 # Changelog
 ----
 
+# 3.2.0
+
+- Major Settings changes
+    - Non-Working custom theme option removed
+    - Removed all non-working settings from the "Doki-Doki Theme Settings" form
+        - If there is a feature that you want to see again please let me know. I'd be more than happy to bring it back :)
+    - Added "Show Settings" under the "Doki-Doki Theme Options" shortcut
+    - Added more theme configurable options to the Settings form
+        - Such as you can change the selected theme in the configuration menu now.
+- Better Z̸̲̺̬̮̈́ḁ̵̛͖͈͗̿̑̓́̄̎̀̌̚l̵̛̼̟̗̱͕̟͎̖̀̀̀̇̋̍͒̃̿̓̌̓͝g̴̨͈̝͚͕͈̀̔͒̍̔̈́̈́̓͘̚͜͝ǫ̶̱̫̤̭̤̩̑̇̎̔͐͊̾̀̚  text handling
+
 # 3.1.4
 
 - A bunch of small theme tweaks (icon adjustments and readability tweaks)!

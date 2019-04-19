@@ -7,9 +7,7 @@
 <suppressions>
     <suppress files="src[\\/]test[\\/]" checks="."/>
     <suppress files="MTForm.java" checks="."/>
-    <suppress files="MTCustomThemeForm.java" checks="."/>
     <suppress files="MTConfig.java" checks="."/>
-    <suppress files="MTCustomThemeConfig.java" checks="."/>
     <suppress files="BundledThemeEP.java" checks="."/>
     <suppress files="MTBundledTheme.java" checks="."/>
 

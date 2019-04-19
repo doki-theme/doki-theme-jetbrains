@@ -27,7 +27,6 @@ package com.chrisrm.ideaddlc.help;
 
 import com.chrisrm.ideaddlc.MTAnalytics;
 import com.chrisrm.ideaddlc.config.MTConfigurable;
-import com.chrisrm.ideaddlc.config.MTCustomThemeConfigurable;
 import com.chrisrm.ideaddlc.utils.MTUiUtils;
 import com.intellij.openapi.help.WebHelpProvider;
 import org.jetbrains.annotations.NonNls;
@@ -45,14 +44,10 @@ public final class MTHelpProvider extends WebHelpProvider {
     final String unprefixedTopicId = helpTopicId.replace(getHelpTopicPrefix() + ".", "");
     MTAnalytics.getInstance().track(MTAnalytics.HELP);
 
-    switch (unprefixedTopicId) {
-      case MTConfigurable.HELP_ID:
-        return MTUiUtils.DOCS_URL + "docs/getting-started/";
-      case MTCustomThemeConfigurable.HELP_ID:
-        return MTUiUtils.DOCS_URL + "docs/configuration/custom-themes/";
-      default:
-        return null;
+    if (MTConfigurable.HELP_ID.equals(unprefixedTopicId)) {
+      return MTUiUtils.DOCS_URL + "docs/getting-started/";
     }
+    return null;
   }
 
   @NotNull

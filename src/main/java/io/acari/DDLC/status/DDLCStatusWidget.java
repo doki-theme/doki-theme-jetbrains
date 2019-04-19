@@ -55,7 +55,6 @@ public final class DDLCStatusWidget extends JButton implements CustomStatusBarWi
   public static final int DEFAULT_FONT_SIZE = JBUI.scale(11);
   private static final int STATUS_PADDING = 4;
   private static final int STATUS_HEIGHT = 16;
-  private static final String MT_SETTINGS_PAGE = "DDLC Theme";
   private MTConfig mtConfig;
   private DDLCConfig ddlcConfig;
   private Image myBufferedImage;
@@ -69,7 +68,7 @@ public final class DDLCStatusWidget extends JButton implements CustomStatusBarWi
     updateUI();
 
     addActionListener(e -> ApplicationManager.getApplication().invokeLater(() -> ShowSettingsUtil.getInstance().showSettingsDialog(
-        project, "DDLC Theme"), ModalityState.NON_MODAL));
+        project, "Doki-Doki Theme Settings"), ModalityState.NON_MODAL));
   }
 
   /**
