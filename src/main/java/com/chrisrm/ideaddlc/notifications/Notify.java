@@ -154,6 +154,7 @@ public enum Notify {
       } catch (final NoSuchMethodError | NoClassDefFoundError | NoSuchFieldError e) {
         notification.notify(project);
       }
+      Notifications.Bus.notify(notification);
     }
   }
 }
