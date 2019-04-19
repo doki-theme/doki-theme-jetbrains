@@ -10,7 +10,7 @@
     - Added "Show Settings" under the "Doki-Doki Theme Options" shortcut
     - Added more theme configurable options to the Settings form
         - Such as you can change the selected theme in the configuration menu now.
-- Better Zalgo text handling
+- Better Z̸̲̺̬̮̈́ḁ̵̛͖͈͗̿̑̓́̄̎̀̌̚l̵̛̼̟̗̱͕̟͎̖̀̀̀̇̋̍͒̃̿̓̌̓͝g̴̨͈̝͚͕͈̀̔͒̍̔̈́̈́̓͘̚͜͝ǫ̶̱̫̤̭̤̩̑̇̎̔͐͊̾̀̚  text handling
 
 # 3.1.4
 
