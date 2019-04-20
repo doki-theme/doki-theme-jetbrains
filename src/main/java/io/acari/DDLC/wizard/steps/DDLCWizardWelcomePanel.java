@@ -31,6 +31,7 @@
 package io.acari.DDLC.wizard.steps;
 
 import com.intellij.ide.customize.AbstractCustomizeWizardStep;
+import com.intellij.ui.components.JBScrollPane;
 import net.miginfocom.swing.MigLayout;
 
 import javax.swing.*;
@@ -60,7 +61,7 @@ public class DDLCWizardWelcomePanel extends AbstractCustomizeWizardStep {
     // Generated using JFormDesigner non-commercial license
     final ResourceBundle bundle = ResourceBundle.getBundle("messages.DDLCWizardBundle");
     icon = new JLabel();
-    scrollPane1 = new JScrollPane();
+    scrollPane1 = new JBScrollPane();
     textArea2 = new JTextArea();
 
     //======== this ========
