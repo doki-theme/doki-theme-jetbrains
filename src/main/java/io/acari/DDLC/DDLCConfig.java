@@ -53,25 +53,30 @@ import java.util.Optional;
 
 import static io.acari.DDLC.chibi.ChibiOrchestrator.SAVED_THEME;
 
+/**
+ * Hey! If you think about changing all of the <code>public</code> access modifiers,
+ * please think again. Doing so will prevent any of the configurations to be deserialized form the
+ * settings xml file, thanks!
+ */
 @State(
     name = "DokiDokiThemeConfig",
     storages = @Storage("doki_doki_theme.xml")
 )
 public class DDLCConfig implements PersistentStateComponent<DDLCConfig>, Cloneable {
-  private static final String DEFAULT_BG =
+  public static final String DEFAULT_BG =
       "https://github.com/cyclic-reference/jetbrains-theme/master/src/main/resources/themes/Doki_Doki_Literature_Club.png";
 
   // They are public so they can be serialized
-  private String version;
-  private String chibiLevel = ChibiLevel.ON.name();
+  public String version;
+  public String chibiLevel = ChibiLevel.ON.name();
 
-  private String selectedTheme = "";
+  public String selectedTheme = "";
 
-  private boolean isWizardShown = false;
-  private boolean isFirstTime = true;
-  private boolean isDarkMode = false;
+  public boolean isWizardShown = false;
+  public boolean isFirstTime = true;
+  public boolean isDarkMode = false;
 
-  private DDLCConfig() {
+  public DDLCConfig() {
   }
 
   /**
@@ -138,7 +143,7 @@ public class DDLCConfig implements PersistentStateComponent<DDLCConfig>, Cloneab
     this.selectedTheme = selectedTheme.getThemeId();
   }
 
-  private void setIsDarkMode(final boolean isDarkMode) {
+  public void setIsDarkMode(final boolean isDarkMode) {
     this.isDarkMode = isDarkMode;
 
     // Love me some tech debt <3
@@ -177,14 +182,14 @@ public class DDLCConfig implements PersistentStateComponent<DDLCConfig>, Cloneab
   }
 
 
-  private void setAndActivateChibiLevel(final ChibiLevel chibiLevel) {
+  public void setAndActivateChibiLevel(final ChibiLevel chibiLevel) {
     this.chibiLevel = chibiLevel.name();
     ChibiOrchestrator.INSTANCE.setChibiLevel(chibiLevel);
   }
 
 
   @NotNull
-  private Map getNativeProperties() {
+  public Map getNativeProperties() {
     final HashMap<String, Object> hashMap = new HashMap<>();
     hashMap.put("IDE", ApplicationNamesInfo.getInstance().getFullProductName());
     hashMap.put("IDEVersion", ApplicationInfo.getInstance().getBuild().getBaselineVersion());
@@ -197,7 +202,7 @@ public class DDLCConfig implements PersistentStateComponent<DDLCConfig>, Cloneab
     return hashMap;
   }
 
-  private JSONObject getNativePropertiesAsJson() throws JSONException {
+  public JSONObject getNativePropertiesAsJson() throws JSONException {
     final JSONObject hashMap = new JSONObject();
     hashMap.put("IDE", ApplicationNamesInfo.getInstance().getFullProductName());
     hashMap.put("IDEVersion", ApplicationInfo.getInstance().getBuild().getBaselineVersion());
@@ -232,7 +237,7 @@ public class DDLCConfig implements PersistentStateComponent<DDLCConfig>, Cloneab
     return isWizardShown || legacyWizardShown();
   }
 
-  private boolean legacyWizardShown() {
+  public boolean legacyWizardShown() {
     PropertiesComponent propertiesComponent = PropertiesComponent.getInstance();
     boolean legacyWizardShown = propertiesComponent
         .getBoolean(DDLCWizardDialog.MT_IS_SHOWN_WIZARD, false);
@@ -260,7 +265,7 @@ public class DDLCConfig implements PersistentStateComponent<DDLCConfig>, Cloneab
     fireChanged();
   }
 
-  private void fireChanged() {
+  public void fireChanged() {
     ApplicationManager.getApplication().getMessageBus()
         .syncPublisher(DDLCConfigListener.Companion.getDDLC_CONFIG_TOPIC())
         .configurationChanged(this);
