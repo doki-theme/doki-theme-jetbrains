@@ -46,19 +46,14 @@ public class DDLCWizardDialog extends CustomizeIDEWizardDialog implements Action
 
   public static final String MT_IS_SHOWN_WIZARD = "ddlc.isShownWizard.v2.0";
   private Field myNextButtonField;
-  private Field myBackButtonField;
-  private Field mySkipButtonField;
   private Field myIndexField;
   private Field myStepsField;
-  private Field myCardLayoutField;
-  private Field myContentPanelField;
-  private final MTConfig configCopy;
 
   public DDLCWizardDialog(final DDLCWizardStepsProvider stepsProvider) {
     super(stepsProvider);
     setTitle("DDLC Theme Wizard");
     getPeer().setAppIcons();
-    configCopy = (MTConfig) MTConfig.getInstance().clone();
+    MTConfig configCopy = (MTConfig) MTConfig.getInstance().clone();
 
     extractPrivateFields();
     initCurrentStep();
@@ -93,12 +88,12 @@ public class DDLCWizardDialog extends CustomizeIDEWizardDialog implements Action
 
 
     myNextButtonField = (Field) buttons[0];
-    myBackButtonField = (Field) buttons[1];
-    mySkipButtonField = (Field) buttons[2];
+    Field myBackButtonField = (Field) buttons[1];
+    Field mySkipButtonField = (Field) buttons[2];
     myIndexField = fields[7];
-    myCardLayoutField = fields[5];
+    Field myCardLayoutField = fields[5];
     myStepsField = fields[6];
-    myContentPanelField = fields[13];
+    Field myContentPanelField = fields[13];
 
     myNextButtonField.setAccessible(true);
     myBackButtonField.setAccessible(true);

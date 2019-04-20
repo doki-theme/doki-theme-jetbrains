@@ -60,9 +60,11 @@ public class DDLCWizardWelcomePanel extends AbstractCustomizeWizardStep {
     // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
     // Generated using JFormDesigner non-commercial license
     final ResourceBundle bundle = ResourceBundle.getBundle("messages.DDLCWizardBundle");
-    icon = new JLabel();
-    scrollPane1 = new JBScrollPane();
-    textArea2 = new JTextArea();
+    // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
+    // Generated using JFormDesigner non-commercial license
+    JLabel icon = new JLabel();
+    JScrollPane scrollPane1 = new JBScrollPane();
+    JTextArea textArea2 = new JTextArea();
 
     //======== this ========
     setMinimumSize(new Dimension(400, 90));
@@ -96,10 +98,5 @@ public class DDLCWizardWelcomePanel extends AbstractCustomizeWizardStep {
     icon.setIcon(imageIcon);
   }
 
-  // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-  // Generated using JFormDesigner non-commercial license
-  private JLabel icon;
-  private JScrollPane scrollPane1;
-  private JTextArea textArea2;
   // JFormDesigner - End of variables declaration  //GEN-END:variables
 }
