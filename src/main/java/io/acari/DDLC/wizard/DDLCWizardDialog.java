@@ -108,6 +108,7 @@ public class DDLCWizardDialog extends CustomizeIDEWizardDialog implements Action
     try {
       final JButton myNextButton = (JButton) myNextButtonField.get(this);
       final int myIndex = (int) myIndexField.get(this);
+      //noinspection unchecked
       final List<AbstractCustomizeWizardStep> mySteps = (List<AbstractCustomizeWizardStep>) myStepsField.get(this);
 
       if (myIndex == mySteps.size() - 1) {
