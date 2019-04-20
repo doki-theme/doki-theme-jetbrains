@@ -21,6 +21,7 @@ import io.acari.DDLC.themes.light.MonikaTheme
 import java.awt.Color
 import java.io.Serializable
 import java.util.stream.Stream
+import javax.swing.Icon
 import javax.swing.UIManager
 import javax.swing.UnsupportedLookAndFeelException
 import javax.swing.plaf.ColorUIResource
@@ -40,7 +41,7 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
     override fun isDark() = this.isDarkTheme
     override fun getEditorColorsScheme(): String = this.colorScheme
     override fun getName() = this.clubMemberName
-    override fun getIcon() = DDLCIcons.EXCLUDED
+    override fun getIcon(): Icon = DDLCIcons.EXCLUDED
 
     override fun getHighlightColorString(): String {
         return "425B67"

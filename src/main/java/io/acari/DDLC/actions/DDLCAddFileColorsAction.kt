@@ -87,7 +87,7 @@ class DDLCAddFileColorsAction {
     }
   }
 
-  fun mutableList(scopes: List<Pair<String, String>>, constructor: Constructor<out Any>) =
+  fun mutableList(scopes: List<Pair<String, String>>, constructor: Constructor<out Any>): MutableList<Any> =
       scopes.stream().map { constructor.newInstance(it.first, it.second) }
           .collect(Collectors.toList())
 }
