@@ -96,7 +96,7 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
             buildResources(getMenuItemSelectionBackgroundResources(), getMenuBarSelectionBackgroundColorString())
             buildResources(getMenuItemSelectionForegroundResources(), getMenuBarSelectionForegroundColorString())
 
-            buildResources(getTreeSelectionBackgroundResources(), getTreeSelectionBackgroundColorString())
+            buildResources(getTreeSelectionBackgroundResources(), treeSelectionBackgroundColorString)
             buildResources(getTreeSelectionForegroundResources(), getTreeSelectionForegroundColorString())
             buildResources(getNotificationsResources(), notificationsColorString)
             buildResources(getBorderResources(), borderColorString)

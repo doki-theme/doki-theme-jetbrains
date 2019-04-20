@@ -33,9 +33,9 @@ class DDLCEditorTabColorProvider : EditorTabColorProvider {
 
 
     private fun isNonProject(project: Project, virtualFile: VirtualFile) =
-            if (virtualFile.getFileSystem() is NonPhysicalFileSystem) {
+            if (virtualFile.fileSystem is NonPhysicalFileSystem) {
                 false
-            } else if (!virtualFile.isInLocalFileSystem()) {
+            } else if (!virtualFile.isInLocalFileSystem) {
                 true
             } else if (isInsideProjectContent(project, virtualFile)) {
                 false
