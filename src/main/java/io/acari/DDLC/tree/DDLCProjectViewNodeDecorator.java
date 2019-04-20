@@ -49,8 +49,6 @@ import org.jetbrains.annotations.Nullable;
 import javax.swing.*;
 import java.util.Objects;
 
-import static com.chrisrm.ideaddlc.config.MTFileColorsPage.DIRECTORIES;
-
 /**
  * Created by eliorb on 09/04/2017.
  */

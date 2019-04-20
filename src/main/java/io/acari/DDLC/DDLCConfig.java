@@ -58,6 +58,7 @@ import static io.acari.DDLC.chibi.ChibiOrchestrator.SAVED_THEME;
  * please think again. Doing so will prevent any of the configurations to be deserialized form the
  * settings xml file, thanks!
  */
+@SuppressWarnings("UnusedReturnValue")
 @State(
     name = "DokiDokiThemeConfig",
     storages = @Storage("doki_doki_theme.xml")
