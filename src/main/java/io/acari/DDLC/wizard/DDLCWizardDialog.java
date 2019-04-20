@@ -53,7 +53,6 @@ public class DDLCWizardDialog extends CustomizeIDEWizardDialog implements Action
     super(stepsProvider);
     setTitle("DDLC Theme Wizard");
     getPeer().setAppIcons();
-    MTConfig configCopy = (MTConfig) MTConfig.getInstance().clone();
 
     extractPrivateFields();
     initCurrentStep();
