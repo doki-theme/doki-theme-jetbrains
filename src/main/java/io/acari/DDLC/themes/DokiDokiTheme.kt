@@ -36,11 +36,11 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
 
     }
 
-    override fun getThemeId() = this.ddlcThemeId
-    override fun getId() = this.ddlcThemeId
-    override fun isDark() = this.isDarkTheme
+    override fun getThemeId(): String = this.ddlcThemeId
+    override fun getId(): String = this.ddlcThemeId
+    override fun isDark(): Boolean = this.isDarkTheme
     override fun getEditorColorsScheme(): String = this.colorScheme
-    override fun getName() = this.clubMemberName
+    override fun getName(): String = this.clubMemberName
     override fun getIcon(): Icon = DDLCIcons.EXCLUDED
 
     override fun getHighlightColorString(): String {

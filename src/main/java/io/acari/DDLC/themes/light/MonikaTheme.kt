@@ -99,14 +99,14 @@ class MonikaTheme : DokiDokiTheme("monika", "Monika", false, "Monika") {
     override fun getNonProjectFileScopeColor(): String = "d0ffc1"
 
     companion object {
-        const val BACKGROUND = "fffcfc"
-        const val FOREGROUND = "A7ADB0" // 167, 173, 176
-        const val TEXT = "A7ADB0" // 167, 173, 176
-        const val SELECTION_BACKGROUND = "FFFFFF" // 84, 110, 122
-        const val SELECTION_FOREGROUND = "000000"
-        const val LABEL = "546E7A" // 84, 110, 122
-        const val DISABLED = "81d7f7"//not really important
-        const val NON_PROJECT_FILES = "feffed"
-        const val TEST_FILES = "bbff7e"
+        const val BACKGROUND: String = "fffcfc"
+        const val FOREGROUND: String = "A7ADB0" // 167, 173, 176
+        const val TEXT: String = "A7ADB0" // 167, 173, 176
+        const val SELECTION_BACKGROUND: String = "FFFFFF" // 84, 110, 122
+        const val SELECTION_FOREGROUND: String = "000000"
+        const val LABEL: String = "546E7A" // 84, 110, 122
+        const val DISABLED: String = "81d7f7"//not really important
+        const val NON_PROJECT_FILES: String = "feffed"
+        const val TEST_FILES: String = "bbff7e"
     }
 }

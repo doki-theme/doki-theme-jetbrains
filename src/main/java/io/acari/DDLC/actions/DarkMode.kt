@@ -18,7 +18,7 @@ class DarkMode {
         }
 
         @JvmStatic
-        fun isOn() = isOn
+        fun isOn(): Boolean = isOn
 
         fun toggle() {
             isOn = isOn.not()

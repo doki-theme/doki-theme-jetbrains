@@ -11,12 +11,12 @@ import io.acari.DDLC.themes.AccentChangedInformation
 import io.acari.DDLC.themes.ThemeChangedInformation
 import java.awt.Color
 
-const val OVERRIDE_CLASS = "com.intellij.compiler.server.CustomBuilderMessageHandler"
+const val OVERRIDE_CLASS: String = "com.intellij.compiler.server.CustomBuilderMessageHandler"
 
 object NormandyThemeIntegration {
   private val gson = Gson()
 
-  val isEnabled = LegacySupportUtility.orGetLegacy(OVERRIDE_CLASS, {true}, {false})
+  val isEnabled: Boolean = LegacySupportUtility.orGetLegacy(OVERRIDE_CLASS, {true}, {false})
 
   fun themeChanged(messageBus: MessageBus, newTheme: DDLCThemeFacade) {
     if(isEnabled){

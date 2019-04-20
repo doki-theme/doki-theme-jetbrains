@@ -51,4 +51,4 @@ class DDLCProjectInitializationComponent(project: Project) : AbstractProjectComp
 }
 
 
-const val WRITING_TIP_OF_THE_DAY = "WRITING_TIP_OF_THE_DAY"
+const val WRITING_TIP_OF_THE_DAY: String = "WRITING_TIP_OF_THE_DAY"

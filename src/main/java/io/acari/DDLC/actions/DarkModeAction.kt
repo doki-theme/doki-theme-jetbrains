@@ -19,7 +19,7 @@ private val YuriThemeAction = YuriThemeAction()
  */
 open class DarkModeAction : BaseThemeAction() {
 
-    override fun isSelected(e: AnActionEvent) = DarkMode.isOn()
+    override fun isSelected(e: AnActionEvent): Boolean = DarkMode.isOn()
 
     override fun setSelected(e: AnActionEvent, state: Boolean) {
         DarkMode.toggle()

@@ -23,11 +23,11 @@ import java.util.*
  * Forged in the flames of battle by alex.
  */
 object ChibiOrchestrator {
-    const val DDLC_CHIBI_PROP = "io.acari.ddlc.chibi"
+    const val DDLC_CHIBI_PROP: String = "io.acari.ddlc.chibi"
     private const val CLUB_MEMBER_ON = "CLUB_MEMBER_ON"
-    const val DDLC_BACKGROUND_PROP = "io.acari.ddlc.background"
+    const val DDLC_BACKGROUND_PROP: String = "io.acari.ddlc.background"
     private val oldChibiProps = listOf(EDITOR_PROP, FRAME_PROP)
-    const val SAVED_THEME = "CLUB_MEMBER_THEME_PROPERTY"
+    const val SAVED_THEME: String = "CLUB_MEMBER_THEME_PROPERTY"
     private const val RESOURCES_DIRECTORY = "https://raw.githubusercontent.com/cyclic-reference/ddlc-jetbrains-theme/master/src/main/resources"
 
     private var chibiLevel = ChibiLevel.ON
@@ -69,8 +69,7 @@ object ChibiOrchestrator {
     private fun getSavedTheme(): DDLCThemes =
             DDLCConfig.getInstance().getSelectedTheme() as DDLCThemes
 
-    fun currentActiveTheme() = currentTheme
-
+    fun currentActiveTheme(): Lazy<DDLCThemes> = currentTheme
 
     fun setChibiLevel(chibiLevel: ChibiLevel) {
         ChibiOrchestrator.chibiLevel = chibiLevel
@@ -78,7 +77,7 @@ object ChibiOrchestrator {
         updateChibi()
     }
 
-    fun currentChibiLevel() = chibiLevel
+    fun currentChibiLevel(): ChibiLevel = chibiLevel
 
     fun activateChibiForTheme(theme: DDLCThemes) {
         currentTheme =  lazy {theme }
@@ -196,7 +195,7 @@ object ChibiOrchestrator {
     private fun getLiteratureClubMember() =
             getTheme().literatureClubMember
 
-    fun getNormalClubMember() = getTheme().normalClubMember!!
+    fun getNormalClubMember(): String = getTheme().normalClubMember!!
 
     private fun getTheme(): DDLCThemes {
         return currentTheme.value
