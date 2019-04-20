@@ -18,7 +18,6 @@ class DDLCApplicationInitializationComponent : Disposable {
   init {
     messageBusConnection.subscribe(ApplicationActivationListener.TOPIC, object: ApplicationActivationListener {
       override fun applicationActivated(ideFrame: IdeFrame) {
-        System.err.println("FINNA INIT YO")
         initComponent()
       }
     })
