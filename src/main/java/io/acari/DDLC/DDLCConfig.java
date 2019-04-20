@@ -168,17 +168,6 @@ public class DDLCConfig implements PersistentStateComponent<DDLCConfig>, Cloneab
     XmlSerializerUtil.copyBean(state, this);
   }
 
-  /**
-   * Fire an event to the application bus that the settings have changed
-   *
-   * @param form
-   */
-  public void fireBeforeChanged(final MTForm form) {
-//    ApplicationManager.getApplication().getMessageBus()
-//                      .syncPublisher(BeforeConfigNotifier.BEFORE_CONFIG_TOPIC)
-//                      .beforeConfigChanged(this, form);
-  }
-
   public ChibiLevel getChibiLevel() {
     return ChibiLevel.valueOf(chibiLevel);
   }
