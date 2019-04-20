@@ -137,7 +137,7 @@ object DDLCHackComponent : ApplicationComponent {
             init.instrument(titleInstrument)
             ctClass.toClass()
         } catch (e: Exception) {
-            if (!(e is NullPointerException)) {
+            if (e !is NullPointerException) {
                 e.printStackTrace()
             }
             hackLegacyTip(ctClass)
