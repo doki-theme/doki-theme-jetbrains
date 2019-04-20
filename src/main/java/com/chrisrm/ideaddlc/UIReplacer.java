@@ -56,6 +56,7 @@ import com.intellij.vcs.log.ui.highlighters.CurrentBranchHighlighter;
 import com.intellij.vcs.log.ui.highlighters.MergeCommitsHighlighter;
 import io.acari.DDLC.DDLCConfig;
 import io.acari.DDLC.LegacySupportUtility;
+import io.acari.DDLC.ToolBoxKt;
 
 import javax.swing.*;
 import javax.swing.plaf.ColorUIResource;
@@ -63,6 +64,7 @@ import java.awt.*;
 import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.Map;
+import java.util.Optional;
 
 @SuppressWarnings("FeatureEnvy")
 public enum UIReplacer {
@@ -187,7 +189,11 @@ public enum UIReplacer {
     StaticPatcher.setFinalStatic((Field) colorFields[6], autocompleteSelectionForegroundGreyed);//selected grayed foreground color
     StaticPatcher.setFinalStatic((Field) colorFields[7], autocompletePrefixForegroundColor);//prefix foreground color
     StaticPatcher.setFinalStatic((Field) colorFields[8], autocompleteSelectedPrefixForegroundColor);//selected prefix foreground color
-    StaticPatcher.setFinalStatic((Field) colorFields[9], autocompleteUserSelectedPrefixForegroundColor);//selected prefix foreground color
+    Optional.of(colorFields)
+        .filter(colorField -> colorField.length > 9)
+        .map(colorField -> (Field) colorFields[9])
+        .ifPresent(colorField -> ToolBoxKt.runSafely(()->
+            StaticPatcher.setFinalStatic(colorField, autocompleteUserSelectedPrefixForegroundColor)));//selected prefix foreground color
   }
 
 
