@@ -55,6 +55,6 @@ public final class MTScopeComponent extends AbstractProjectComponent implements 
    */
   private void addDisabledFileColors() {
     final FileColorManager manager = FileColorManager.getInstance(myProject);
-    manager.addScopeColor(NonProjectFilesScope.NAME, MonikaTheme.Companion.getDISABLED(), false);
+    manager.addScopeColor(NonProjectFilesScope.NAME, MonikaTheme.DISABLED, false);
   }
 }
