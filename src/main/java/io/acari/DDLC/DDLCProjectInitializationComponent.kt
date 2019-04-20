@@ -14,7 +14,7 @@ import java.util.*
  * Forged in the flames of battle by alex.
  */
 class DDLCProjectInitializationComponent(private val project: Project) : ProjectComponent {
-  private val random = Random(Instant.now().epochSecond / 100)
+  private val ranbo = Random(Instant.now().epochSecond / 100)
   private val mtAddFileColorsAction = DDLCAddFileColorsAction()
 
   override fun getComponentName(): String {
@@ -41,7 +41,7 @@ class DDLCProjectInitializationComponent(private val project: Project) : Project
 
   }
 
-  private fun shouldShowAgain() = random.nextLong() % 42 == 0L
+  private fun shouldShowAgain() = ranbo.nextLong() % 42 == 0L
 
   @Suppress("DEPRECATION")
   private fun showMonikasWritingTipOfTheDay(timesTipsChosen: Int) {

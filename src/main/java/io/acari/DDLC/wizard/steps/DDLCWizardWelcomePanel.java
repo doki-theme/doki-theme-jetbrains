@@ -60,8 +60,6 @@ public class DDLCWizardWelcomePanel extends AbstractCustomizeWizardStep {
     // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
     // Generated using JFormDesigner non-commercial license
     final ResourceBundle bundle = ResourceBundle.getBundle("messages.DDLCWizardBundle");
-    // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner non-commercial license
     JLabel icon = new JLabel();
     JScrollPane scrollPane1 = new JBScrollPane();
     JTextArea textArea2 = new JTextArea();

@@ -55,7 +55,7 @@ import static io.acari.DDLC.chibi.ChibiOrchestrator.SAVED_THEME;
 
 /**
  * Hey! If you think about changing all of the <code>public</code> access modifiers,
- * please think again. Doing so will prevent any of the configurations to be deserialized form the
+ * please think again. Doing so will prevent any of the configurations to be deserialized from the
  * settings xml file, thanks!
  */
 @SuppressWarnings("UnusedReturnValue")
@@ -190,7 +190,7 @@ public class DDLCConfig implements PersistentStateComponent<DDLCConfig>, Cloneab
 
 
   @NotNull
-  public Map getNativeProperties() {
+  private Map getNativeProperties() {
     final HashMap<String, Object> hashMap = new HashMap<>();
     hashMap.put("IDE", ApplicationNamesInfo.getInstance().getFullProductName());
     hashMap.put("IDEVersion", ApplicationInfo.getInstance().getBuild().getBaselineVersion());
@@ -203,17 +203,17 @@ public class DDLCConfig implements PersistentStateComponent<DDLCConfig>, Cloneab
     return hashMap;
   }
 
-  public JSONObject getNativePropertiesAsJson() throws JSONException {
-    final JSONObject jsonObject = new JSONObject();
-    jsonObject.put("IDE", ApplicationNamesInfo.getInstance().getFullProductName());
-    jsonObject.put("IDEVersion", ApplicationInfo.getInstance().getBuild().getBaselineVersion());
-    jsonObject.put("version", version);
-    jsonObject.put("selectedTheme", getSelectedTheme());
-    jsonObject.put("isFirstTime", isFirstTime);
-    jsonObject.put("chibiLevel", chibiLevel);
+  private JSONObject getNativePropertiesAsJson() throws JSONException {
+    final JSONObject hashMap = new JSONObject();
+    hashMap.put("IDE", ApplicationNamesInfo.getInstance().getFullProductName());
+    hashMap.put("IDEVersion", ApplicationInfo.getInstance().getBuild().getBaselineVersion());
+    hashMap.put("version", version);
+    hashMap.put("selectedTheme", getSelectedTheme());
+    hashMap.put("isFirstTime", isFirstTime);
+    hashMap.put("chibiLevel", chibiLevel);
 
 
-    return jsonObject;
+    return hashMap;
   }
 
   public String getVersion() {
@@ -238,7 +238,7 @@ public class DDLCConfig implements PersistentStateComponent<DDLCConfig>, Cloneab
     return isWizardShown || legacyWizardShown();
   }
 
-  public boolean legacyWizardShown() {
+  private boolean legacyWizardShown() {
     PropertiesComponent propertiesComponent = PropertiesComponent.getInstance();
     boolean legacyWizardShown = propertiesComponent
         .getBoolean(DDLCWizardDialog.MT_IS_SHOWN_WIZARD, false);
