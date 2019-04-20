@@ -39,7 +39,7 @@ class DDLCAddFileColorsAction {
 
   fun removeFileScopes(project: Project?) {
     if (project != null)
-      replaceFileScopes(project) { a, b -> emptyList() }
+      replaceFileScopes(project) { _, _ -> emptyList() }
   }
 
   fun setFileScopes(project: Project?) {
