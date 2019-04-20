@@ -2,7 +2,7 @@ package io.acari.DDLC.hax
 
 import com.intellij.ide.util.ChooseElementsDialog
 import com.intellij.ide.util.ExportToFileUtil
-import com.intellij.openapi.components.ApplicationComponent
+import com.intellij.openapi.Disposable
 import com.intellij.openapi.fileEditor.impl.EditorComposite
 import com.intellij.ui.plaf.beg.BegTreeUI
 import io.acari.DDLC.chibi.ChibiOrchestrator
@@ -13,15 +13,15 @@ import javassist.CtClass
 import javassist.expr.ExprEditor
 import javassist.expr.MethodCall
 
-
-object DDLCHackComponent : ApplicationComponent {
-
-
+object DDLCHackComponent : Disposable {
     init {
         createMonikasWritingTipOfTheDay()
         enableChibis()
         enableMenuBackgroundConsistency()
         DDLCIconHackComponent.toString()
+    }
+
+    override fun dispose() {
     }
 
     private fun enableChibis() {
