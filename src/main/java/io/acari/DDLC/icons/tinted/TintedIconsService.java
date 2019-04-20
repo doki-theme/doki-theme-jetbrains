@@ -86,7 +86,7 @@ public final class TintedIconsService {
       .collect(Collectors.toMap(Pair::getFirst, Pair::getSecond));
 
   
-  public static final String[] TINTED_ICONS = new String[]{
+  private static final String[] TINTED_ICONS = new String[]{
       "/icons/ddlc/actions/closeHovered.svg",
       "/icons/ddlc/actions/closeNewHovered.svg",
       "/icons/general/expandAllHover.svg",
@@ -162,7 +162,7 @@ public final class TintedIconsService {
   };
   private static final List<String> MY_TINTED_ICONS = Arrays.asList(TintedIconsService.TINTED_ICONS);
   
-  public static final String[] THEMED_ICONS = {
+  private static final String[] THEMED_ICONS = {
       "/icons/nodes/folder.svg",
       "/icons/nodes/TreeClosed.svg",
       "/icons/nodes/folderClosed.svg",

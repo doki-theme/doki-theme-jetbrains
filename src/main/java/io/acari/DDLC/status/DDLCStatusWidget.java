@@ -51,8 +51,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-public final class DDLCStatusWidget extends JButton implements CustomStatusBarWidget {
-  public static final int DEFAULT_FONT_SIZE = JBUI.scale(11);
+final class DDLCStatusWidget extends JButton implements CustomStatusBarWidget {
+  private static final int DEFAULT_FONT_SIZE = JBUI.scale(11);
   private static final int STATUS_PADDING = 4;
   private static final int STATUS_HEIGHT = 16;
   private MTConfig mtConfig;

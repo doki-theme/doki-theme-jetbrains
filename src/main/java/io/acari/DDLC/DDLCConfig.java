@@ -58,20 +58,20 @@ import static io.acari.DDLC.chibi.ChibiOrchestrator.SAVED_THEME;
     storages = @Storage("doki_doki_theme.xml")
 )
 public class DDLCConfig implements PersistentStateComponent<DDLCConfig>, Cloneable {
-  public static final String DEFAULT_BG =
+  private static final String DEFAULT_BG =
       "https://github.com/cyclic-reference/jetbrains-theme/master/src/main/resources/themes/Doki_Doki_Literature_Club.png";
 
   // They are public so they can be serialized
-  public String version;
-  public String chibiLevel = ChibiLevel.ON.name();
+  private String version;
+  private String chibiLevel = ChibiLevel.ON.name();
 
-  public String selectedTheme = "";
+  private String selectedTheme = "";
 
-  public boolean isWizardShown = false;
-  public boolean isFirstTime = true;
-  public boolean isDarkMode = false;
+  private boolean isWizardShown = false;
+  private boolean isFirstTime = true;
+  private boolean isDarkMode = false;
 
-  public DDLCConfig() {
+  private DDLCConfig() {
   }
 
   /**
@@ -138,7 +138,7 @@ public class DDLCConfig implements PersistentStateComponent<DDLCConfig>, Cloneab
     this.selectedTheme = selectedTheme.getThemeId();
   }
 
-  public void setIsDarkMode(final boolean isDarkMode) {
+  private void setIsDarkMode(final boolean isDarkMode) {
     this.isDarkMode = isDarkMode;
 
     // Love me some tech debt <3
@@ -188,7 +188,7 @@ public class DDLCConfig implements PersistentStateComponent<DDLCConfig>, Cloneab
   }
 
 
-  public void setAndActivateChibiLevel(final ChibiLevel chibiLevel) {
+  private void setAndActivateChibiLevel(final ChibiLevel chibiLevel) {
     this.chibiLevel = chibiLevel.name();
     ChibiOrchestrator.INSTANCE.setChibiLevel(chibiLevel);
   }
@@ -271,7 +271,7 @@ public class DDLCConfig implements PersistentStateComponent<DDLCConfig>, Cloneab
     fireChanged();
   }
 
-  public void fireChanged() {
+  private void fireChanged() {
     ApplicationManager.getApplication().getMessageBus()
         .syncPublisher(DDLCConfigListener.Companion.getDDLC_CONFIG_TOPIC())
         .configurationChanged(this);
