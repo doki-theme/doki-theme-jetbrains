@@ -48,7 +48,7 @@ class DDLCAddFileColorsAction {
 
   }
 
-  fun replaceFileScopes(project: Project?, scopeGenerator: (List<Pair<String, String>>, Constructor<out Any>) -> List<Any>) {
+  private fun replaceFileScopes(project: Project?, scopeGenerator: (List<Pair<String, String>>, Constructor<out Any>) -> List<Any>) {
     val selectedTheme = DDLCConfig.getInstance().getSelectedTheme()
     val scopes = listOf(
         Pair(NonProjectFilesScope.NAME, selectedTheme.nonProjectFileScopeColor),
@@ -87,7 +87,7 @@ class DDLCAddFileColorsAction {
     }
   }
 
-  fun mutableList(scopes: List<Pair<String, String>>, constructor: Constructor<out Any>): MutableList<Any> =
+  private fun mutableList(scopes: List<Pair<String, String>>, constructor: Constructor<out Any>): MutableList<Any> =
       scopes.stream().map { constructor.newInstance(it.first, it.second) }
           .collect(Collectors.toList())
 }

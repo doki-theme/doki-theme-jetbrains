@@ -50,7 +50,7 @@ class IconHacker2019 : IconHacker {
 
   }
 
-  fun extractIcons(): MutableList<IconPathPatcher> {
+  private fun extractIcons(): MutableList<IconPathPatcher> {
     return try {
       val poopHead = Class.forName("com.intellij.openapi.util.IconLoader\$IconTransform")
       val myPatcherFields = poopHead.declaredFields.first { it.name == "myPatchers" }

@@ -26,10 +26,10 @@ import javax.swing.UIManager
 import javax.swing.UnsupportedLookAndFeelException
 import javax.swing.plaf.ColorUIResource
 
-abstract class DokiDokiTheme(val ddlcThemeId: String,
-                             val colorScheme: String,
-                             val isDarkTheme: Boolean,
-                             val clubMemberName: String
+abstract class DokiDokiTheme(private val ddlcThemeId: String,
+                             private val colorScheme: String,
+                             private val isDarkTheme: Boolean,
+                             private val clubMemberName: String
 ) : Serializable, MTThemeable, MTSerializedTheme {
 
     init {

@@ -25,7 +25,7 @@ class DarkMode {
             setState()
         }
 
-        fun setState() {
+        private fun setState() {
             PropertiesComponent.getInstance()
                     .setValue(SAVED_STATE, isOn)
         }

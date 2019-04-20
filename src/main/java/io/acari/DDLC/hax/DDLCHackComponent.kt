@@ -111,7 +111,7 @@ object DDLCHackComponent : ApplicationComponent {
         hackTipPanel()
     }
 
-    val titleInstrument = object : ExprEditor() {
+    private val titleInstrument = object : ExprEditor() {
         @Throws(CannotCompileException::class)
         override fun edit(m: MethodCall?) {
             if (m!!.methodName == "message") {

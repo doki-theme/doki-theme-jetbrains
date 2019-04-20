@@ -14,7 +14,7 @@ import java.util.*
  * Forged in the flames of battle by alex.
  */
 class DDLCProjectInitializationComponent(project: Project) : AbstractProjectComponent(project) {
-  val random = Random(Instant.now().epochSecond / 100)
+  private val random = Random(Instant.now().epochSecond / 100)
   private val mtAddFileColorsAction = DDLCAddFileColorsAction()
 
   override fun getComponentName(): String {
@@ -43,7 +43,7 @@ class DDLCProjectInitializationComponent(project: Project) : AbstractProjectComp
 
   private fun shouldShowAgain() = random.nextLong() % 42 == 0L
 
-  fun showMonikasWritingTipOfTheDay(timesTipsChosen: Int) {
+  private fun showMonikasWritingTipOfTheDay(timesTipsChosen: Int) {
     TipDialog.createForProject(this.myProject).show()
     PropertiesComponent.getInstance().setValue(WRITING_TIP_OF_THE_DAY, (timesTipsChosen + 1).toString())
   }
