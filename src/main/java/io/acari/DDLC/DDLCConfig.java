@@ -282,7 +282,7 @@ public class DDLCConfig implements PersistentStateComponent<DDLCConfig>, Cloneab
   }
 
   public boolean isDarkModeChanged(boolean darkMode) {
-    return darkMode != this.isDarkMode;
+    return darkMode != DarkMode.isOn();
   }
 
   public boolean isChibiLevelChanged(ChibiLevel chibiLevel) {
