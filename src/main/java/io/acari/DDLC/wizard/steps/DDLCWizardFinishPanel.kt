@@ -79,7 +79,7 @@ class DDLCWizardFinishPanel : AbstractCustomizeWizardStep() {
     }
 
     override fun getHTMLFooter(): String? {
-        return "You can always change your settings at Settings | Appearance | DDLC Theme"
+        return "You can always change your settings at Settings | Appearance | Doki-Doki Theme Settings"
     }
 
     private fun initComponents() {
