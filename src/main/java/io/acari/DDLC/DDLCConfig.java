@@ -204,16 +204,16 @@ public class DDLCConfig implements PersistentStateComponent<DDLCConfig>, Cloneab
   }
 
   public JSONObject getNativePropertiesAsJson() throws JSONException {
-    final JSONObject hashMap = new JSONObject();
-    hashMap.put("IDE", ApplicationNamesInfo.getInstance().getFullProductName());
-    hashMap.put("IDEVersion", ApplicationInfo.getInstance().getBuild().getBaselineVersion());
-    hashMap.put("version", version);
-    hashMap.put("selectedTheme", getSelectedTheme());
-    hashMap.put("isFirstTime", isFirstTime);
-    hashMap.put("chibiLevel", chibiLevel);
+    final JSONObject jsonObject = new JSONObject();
+    jsonObject.put("IDE", ApplicationNamesInfo.getInstance().getFullProductName());
+    jsonObject.put("IDEVersion", ApplicationInfo.getInstance().getBuild().getBaselineVersion());
+    jsonObject.put("version", version);
+    jsonObject.put("selectedTheme", getSelectedTheme());
+    jsonObject.put("isFirstTime", isFirstTime);
+    jsonObject.put("chibiLevel", chibiLevel);
 
 
-    return hashMap;
+    return jsonObject;
   }
 
   public String getVersion() {
