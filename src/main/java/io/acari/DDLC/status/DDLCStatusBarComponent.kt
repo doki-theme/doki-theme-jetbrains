@@ -28,44 +28,40 @@ package io.acari.DDLC.status
 
 import com.chrisrm.ideaddlc.MTConfig
 import com.chrisrm.ideaddlc.MTThemeManager
-import com.intellij.openapi.components.AbstractProjectComponent
+import com.intellij.openapi.components.ProjectComponent
 import com.intellij.openapi.project.Project
 
-class DDLCStatusBarComponent(project: Project) : AbstractProjectComponent(project) {
-  private var statusBarWidget: DDLCStatusBarManager? = null
-  private var initalized = false
+class DDLCStatusBarComponent(private val project: Project) : ProjectComponent {
+  private val statusBarWidget: DDLCStatusBarManager by lazy {
+    DDLCStatusBarManager.create(project)
+  }
+  private var initialized = false
 
   init {
     MTThemeManager.addMaterialThemeActivatedListener { materialActive ->
-      if (!(materialActive!! || initalized)) {
-        initalized = true
-        statusBarWidget!!.install()
+      if (!(materialActive || initialized)) {
+        initialized = true
+        statusBarWidget.install()
       } else if (materialActive) {
-        initalized = false
-        statusBarWidget!!.uninstall()
+        initialized = false
+        statusBarWidget.uninstall()
       }
     }
   }
 
-  override fun initComponent() {
-    statusBarWidget = DDLCStatusBarManager.create(myProject)
-  }
-
   override fun disposeComponent() {
-    statusBarWidget!!.dispose()
+    statusBarWidget.dispose()
   }
 
-  override fun getComponentName(): String {
-    return "DDLCStatusBarComponent"
-  }
+  override fun getComponentName(): String = "DDLCStatusBarComponent"
 
   override fun projectOpened() {
     if (MTConfig.getInstance().isStatusBarTheme && MTThemeManager.isDDLCActive()) {
-      statusBarWidget!!.install()
+      statusBarWidget.install()
     }
   }
 
   override fun projectClosed() {
-    statusBarWidget!!.uninstall()
+    statusBarWidget.uninstall()
   }
 }
