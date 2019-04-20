@@ -204,7 +204,7 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
   @Property
   String userId = new UID().toString();
   @Property
-  String version = "3.2.1";
+  String version = "0.0.0";
   @Property
   TabHighlightPositions tabHighlightPosition = TabHighlightPositions.DEFAULT;
 
