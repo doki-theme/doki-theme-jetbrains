@@ -49,6 +49,7 @@ import com.intellij.ui.ColorUtil;
 import com.intellij.ui.ListCellRendererWrapper;
 import com.intellij.ui.components.labels.LinkLabel;
 import com.jgoodies.forms.factories.DefaultComponentFactory;
+import io.acari.DDLC.actions.DarkMode;
 import io.acari.DDLC.chibi.ChibiLevel;
 import io.acari.DDLC.integrations.GithubActions;
 import net.miginfocom.swing.MigLayout;
@@ -252,7 +253,7 @@ public class MTForm implements MTFormUI {
     setIsCustomTreeIndent(mtConfig.isCustomTreeIndent());
     setIsDarkTitleBar(mtConfig.isDarkTitleBar());
     setIsFileStatusColors(mtConfig.isFileStatusColorsEnabled());
-    setIsDarkMode(ddlcConfig.isDarkMode());
+    setIsDarkMode(DarkMode.isOn());
     setIsMaterialDesign(mtConfig.isMaterialDesign());
     setIsMaterialTheme(mtConfig.isMaterialTheme());
     setIsMonochromeIcons(mtConfig.isMonochromeIcons());
