@@ -677,8 +677,6 @@ abstract class DokiDokiTheme(val ddlcThemeId: String,
         return "FFFFFF"
     }
 
-    open fun getInactiveColor() = getInactiveColorString()
-
 
     override fun getBackgroundColorResource(): ColorUIResource {
         return ColorUIResource(0xFfffff)
