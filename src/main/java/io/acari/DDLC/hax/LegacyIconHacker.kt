@@ -2,6 +2,7 @@ package io.acari.DDLC.hax
 
 import com.chrisrm.ideaddlc.icons.MTIconReplacerComponent
 import com.intellij.openapi.util.IconPathPatcher
+import java.util.stream.Collectors
 
 class LegacyIconHacker : IconHacker {
   private val mtIconReplacers = HashSet<IconPathPatcher>()
@@ -32,7 +33,15 @@ class LegacyIconHacker : IconHacker {
     return try {
       val ourPatchersField = DDLCIconHackComponent.fetchPatches()
       ourPatchersField.isAccessible = true
-      ourPatchersField.get(null) as MutableList<IconPathPatcher>
+      val patchers = ourPatchersField.get(null)
+      if(patchers is MutableList<*>) {
+        patchers.stream()
+            .filter { it is IconPathPatcher }
+            .map { it as IconPathPatcher }
+            .collect(Collectors.toList())
+      } else {
+        mutableListOf()
+      }
     } catch (e: Throwable) {
       mutableListOf()
     }
