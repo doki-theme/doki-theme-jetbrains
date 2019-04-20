@@ -34,6 +34,8 @@ import org.jetbrains.annotations.Nullable;
 import java.util.HashMap;
 import java.util.Map;
 
+import static io.acari.DDLC.icons.patchers.AccentTintedIconsPatcher.patchSVGPath;
+
 public class ThemedTintedIconsPatcher extends IconPathPatcher {
   private static final Map<String, String> CACHE = new HashMap<>();
   @NonNls
@@ -72,16 +74,7 @@ public class ThemedTintedIconsPatcher extends IconPathPatcher {
   @Nullable
   @Override
   public String patchPath(final String path, final ClassLoader classLoader) {
-    final String vPath = path.replace(".svg", "").replace(".png", "");
-
-    if (CACHE.containsKey(vPath)) {
-      return CACHE.get(vPath);
-    }
-    if (REPLACEMENTS.get(vPath) != null) {
-      CACHE.put(vPath, REPLACEMENTS.get(vPath));
-      return CACHE.get(vPath);
-    }
-    return null;
+    return patchSVGPath(path, CACHE, REPLACEMENTS);
   }
 
   @Nullable
