@@ -12,6 +12,7 @@ val UPDATE_MESSAGE: String = """
       <li>Removed a bunch of broken configurations and added some new working ones.</li>
       <li>Many small Usability Tweaks!</li>
       <li>Better Z̸̲̺̬̮̈́ḁ̵̛͖͈͗̿̑̓́̄̎̀̌̚l̵̛̼̟̗̱͕̟͎̖̀̀̀̇̋̍͒̃̿̓̌̓͝g̴̨͈̝͚͕͈̀̔͒̍̔̈́̈́̓͘̚͜͝ǫ̶̱̫̤̭̤̩̑̇̎̔͐͊̾̀̚ text handling ;)</li>
+      <li>Fixed startup error on Windows Android Studio 3.3.2</li>
       <br>
       Thanks again for downloading <b>The Doki-Doki Theme</b>!<br>
       <br>Please see the <a href="https://github.com/cyclic-reference/ddlc-jetbrains-theme/blob/master/docs/CHANGELOG.md">Changelog</a> for more details.
