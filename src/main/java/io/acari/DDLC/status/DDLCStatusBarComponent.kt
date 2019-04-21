@@ -24,37 +24,44 @@
  *
  */
 
-package com.chrisrm.ideaddlc.config.scope;
+package io.acari.DDLC.status
 
-import io.acari.DDLC.themes.light.MonikaTheme;
-import com.intellij.openapi.components.AbstractProjectComponent;
-import com.intellij.openapi.components.ProjectComponent;
-import com.intellij.openapi.project.Project;
-import com.intellij.psi.search.scope.NonProjectFilesScope;
-import com.intellij.ui.FileColorManager;
+import com.chrisrm.ideaddlc.MTConfig
+import com.chrisrm.ideaddlc.MTThemeManager
+import com.intellij.openapi.components.ProjectComponent
+import com.intellij.openapi.project.Project
 
-/**
- * Component for importing Material Theme custom scopes.
- * <p>
- * Check in "Appearance > File Colors" and set your preferred Scope at the top.
- */
-public final class MTScopeComponent extends AbstractProjectComponent implements ProjectComponent {
+class DDLCStatusBarComponent(private val project: Project) : ProjectComponent {
+  private val statusBarWidget: DDLCStatusBarManager by lazy {
+    DDLCStatusBarManager.create(project)
+  }
+  private var initialized = false
 
-  protected MTScopeComponent(final Project project) {
-    super(project);
+  init {
+    MTThemeManager.addMaterialThemeActivatedListener { materialActive ->
+      if (!(materialActive || initialized)) {
+        initialized = true
+        statusBarWidget.install()
+      } else if (materialActive) {
+        initialized = false
+        statusBarWidget.uninstall()
+      }
+    }
   }
 
-  @Override
-  public void initComponent() {
-    addDisabledFileColors();
+  override fun disposeComponent() {
+    statusBarWidget.dispose()
   }
 
-  /**
-   * At start, check if Material Theme File Colors are added, otherwise add them
-   * Note: If the scope has changed somehow (by changing the name or the color), it will add a duplicate.
-   */
-  private void addDisabledFileColors() {
-    final FileColorManager manager = FileColorManager.getInstance(myProject);
-    manager.addScopeColor(NonProjectFilesScope.NAME, MonikaTheme.DISABLED, false);
+  override fun getComponentName(): String = "DDLCStatusBarComponent"
+
+  override fun projectOpened() {
+    if (MTConfig.getInstance().isStatusBarTheme && MTThemeManager.isDDLCActive()) {
+      statusBarWidget.install()
+    }
+  }
+
+  override fun projectClosed() {
+    statusBarWidget.uninstall()
   }
 }

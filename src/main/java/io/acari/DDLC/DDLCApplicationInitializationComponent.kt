@@ -7,6 +7,11 @@ import io.acari.DDLC.wizard.DDLCWizardDialog
 import io.acari.DDLC.wizard.DDLCWizardStepsProvider
 import java.util.*
 
+/**
+ * Dear future maintainer,
+ * There is something wonky that happens when you subscribe to the application events.
+ * Please be sure to test integrations with other themes, as it may be broken.
+ */
 class DDLCApplicationInitializationComponent : ApplicationComponent {
   companion object {
     private val listeners = LinkedList<Runnable>()

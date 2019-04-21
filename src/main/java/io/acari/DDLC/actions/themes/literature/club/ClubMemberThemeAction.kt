@@ -98,6 +98,6 @@ abstract class BaseThemeAction : ToggleAction() {
     }
 
     override fun update(e: AnActionEvent) {
-        e.presentation.isEnabled = MTConfig.getInstance().isMaterialTheme()
+        e.presentation.isEnabled = MTConfig.getInstance().isMaterialTheme
     }
 }

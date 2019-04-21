@@ -56,7 +56,7 @@ public final class DDLCThemesComponent implements ApplicationComponent {
         });
   }
 
-  public static void activateTheme() {
+  private static void activateTheme() {
     DDLCConfig ddlcConfig = DDLCConfig.getInstance();
     boolean firstTime = ddlcConfig.isFirstTime();
     if (MTThemeManager.isDDLCActive() || firstTime) {

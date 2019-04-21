@@ -3,7 +3,9 @@ package io.acari.DDLC.hax
 import com.chrisrm.ideaddlc.icons.MTIconReplacerComponent
 import com.intellij.openapi.util.IconLoader
 import com.intellij.openapi.util.IconPathPatcher
+import com.intellij.util.containers.stream
 import java.util.concurrent.atomic.AtomicReference
+import java.util.stream.Collectors
 
 class IconHacker2019 : IconHacker {
   private val mtIconReplacers = HashSet<IconPathPatcher>()
@@ -50,7 +52,7 @@ class IconHacker2019 : IconHacker {
 
   }
 
-  fun extractIcons(): MutableList<IconPathPatcher> {
+  private fun extractIcons(): MutableList<IconPathPatcher> {
     return try {
       val poopHead = Class.forName("com.intellij.openapi.util.IconLoader\$IconTransform")
       val myPatcherFields = poopHead.declaredFields.first { it.name == "myPatchers" }
@@ -58,8 +60,15 @@ class IconHacker2019 : IconHacker {
       val ourTransformField = IconLoader::class.java.getDeclaredField("ourTransform")
       ourTransformField.isAccessible = true
       val iconTransform = (ourTransformField.get(null) as AtomicReference<*>).get()
-      val patchers = myPatcherFields.get(iconTransform) as Array<IconPathPatcher>
-      patchers.toMutableList()
+      val patchers = myPatcherFields.get(iconTransform)
+      if(patchers is Array<*>){
+        patchers.stream()
+            .filter { it is IconPathPatcher }
+            .map { it as IconPathPatcher }
+            .collect(Collectors.toList())
+      } else {
+        mutableListOf()
+      }
     } catch (e: Throwable) {
       mutableListOf()
     }

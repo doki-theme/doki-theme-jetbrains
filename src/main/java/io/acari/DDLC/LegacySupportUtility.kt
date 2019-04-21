@@ -25,7 +25,7 @@ object LegacySupportUtility {
 
     fun <T> orGetLegacy(clazz: String,
                         runSafely: () -> T,
-                        orElseGet: () -> T) =
+                        orElseGet: () -> T): T =
             try {
                 Class.forName(clazz)
                 runSafely()
@@ -38,9 +38,9 @@ object LegacySupportUtility {
                                   method: String,
                                   runSafely: () -> T,
                                   orElseGet: () -> T,
-                                  vararg paratemers: Class<*>) =
+                                  vararg parameters: Class<*>): T =
             try {
-                clazz.getDeclaredMethod(method, *paratemers)
+                clazz.getDeclaredMethod(method, *parameters)
                 runSafely()
             } catch (ignored: Throwable) {
                 orElseGet()
@@ -50,7 +50,7 @@ object LegacySupportUtility {
                                    method: String,
                                    runSafely: Runner,
                                    orElseGet: Runner,
-                                   vararg parameters: Class<*>) =
+                                   vararg parameters: Class<*>): Unit =
             try {
                 clazz.getDeclaredMethod(method, *parameters)
                 runSafely.run()
@@ -61,7 +61,7 @@ object LegacySupportUtility {
     fun <C, T> useFieldSafely(clazz: Class<C>,
                               method: String,
                               runSafely: () -> T,
-                              orElseGet: () -> T) =
+                              orElseGet: () -> T): T =
             try {
                 clazz.getDeclaredField(method)
                 runSafely()

@@ -135,14 +135,19 @@ public class AccentTintedIconsPatcher extends IconPathPatcher {
   @Nullable
   @Override
   public String patchPath(final String path, final ClassLoader classLoader) {
+    return patchSVGPath(path, CACHE, REPLACEMENTS);
+  }
+
+  @Nullable
+  public static String patchSVGPath(String path, Map<String, String> cache, Map<String, String> replacements) {
     final String vPath = path.replace(".svg", "").replace(".png", "");
 
-    if (CACHE.containsKey(vPath)) {
-      return CACHE.get(vPath);
+    if (cache.containsKey(vPath)) {
+      return cache.get(vPath);
     }
-    if (REPLACEMENTS.get(vPath) != null) {
-      CACHE.put(vPath, REPLACEMENTS.get(vPath));
-      return CACHE.get(vPath);
+    if (replacements.get(vPath) != null) {
+      cache.put(vPath, replacements.get(vPath));
+      return cache.get(vPath);
     }
     return null;
   }

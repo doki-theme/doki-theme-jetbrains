@@ -53,6 +53,12 @@ import java.util.Optional;
 
 import static io.acari.DDLC.chibi.ChibiOrchestrator.SAVED_THEME;
 
+/**
+ * Hey! If you think about changing all of the <code>public</code> access modifiers,
+ * please think again. Doing so will prevent any of the configurations to be deserialized from the
+ * settings xml file, thanks!
+ */
+@SuppressWarnings("UnusedReturnValue")
 @State(
     name = "DokiDokiThemeConfig",
     storages = @Storage("doki_doki_theme.xml")
@@ -166,17 +172,6 @@ public class DDLCConfig implements PersistentStateComponent<DDLCConfig>, Cloneab
   @Override
   public void loadState(@NotNull final DDLCConfig state) {
     XmlSerializerUtil.copyBean(state, this);
-  }
-
-  /**
-   * Fire an event to the application bus that the settings have changed
-   *
-   * @param form
-   */
-  public void fireBeforeChanged(final MTForm form) {
-//    ApplicationManager.getApplication().getMessageBus()
-//                      .syncPublisher(BeforeConfigNotifier.BEFORE_CONFIG_TOPIC)
-//                      .beforeConfigChanged(this, form);
   }
 
   public ChibiLevel getChibiLevel() {

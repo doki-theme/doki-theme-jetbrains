@@ -1,6 +1,13 @@
 # Changelog
 ----
 
+# 3.2.2
+
+- No functional changes, sorry!
+    - Addressed a bunch of technical debt.
+- Fixed startup error on later 2018 JetBrain's Builds.
+- Fixed startup error on Windows Android Studio 3.3.2
+
 # 3.2.1
 
 - Fixed settings bug where the `Ḑ̶͍̲̳̫͗̚͠ą̵͉̠̬͙̤͚̯̈͆͆ŗ̴̧̱̾̑k̷̨̹̯̳͕͍̖̰͕̱̟̯̝̓̂̆͌̈́͂̇̅͠͝ ̶̹͙͓͉͔͇͎̼̯̺̻̥͑͒̈͛̇̕͠M̷̨̨̡͖̭̼̲̞̹̺͉̐́̔̔̆̒̾́̑̕͜o̴͙͓͓͈̫̣͔̗̝̾̂̅̅̂̀̔̕͜d̶̲̤̜͆̽͘ę̸͎̪̭̭̣͎̠̎̀͌̋̓̏̏̐̕͜ͅ` option did not switch on or off _Ḑ̶͍̲̳̫͗̚͠ą̵͉̠̬͙̤͚̯̈͆͆ŗ̴̧̱̾̑k̷̨̹̯̳͕͍̖̰͕̱̟̯̝̓̂̆͌̈́͂̇̅͠͝ ̶̹͙͓͉͔͇͎̼̯̺̻̥͑͒̈͛̇̕͠M̷̨̨̡͖̭̼̲̞̹̺͉̐́̔̔̆̒̾́̑̕͜o̴͙͓͓͈̫̣͔̗̝̾̂̅̅̂̀̔̕͜d̶̲̤̜͆̽͘ę̸͎̪̭̭̣͎̠̎̀͌̋̓̏̏̐̕͜ͅ_

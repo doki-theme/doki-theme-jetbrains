@@ -18,14 +18,14 @@ class DarkMode {
         }
 
         @JvmStatic
-        fun isOn() = isOn
+        fun isOn(): Boolean = isOn
 
         fun toggle() {
             isOn = isOn.not()
             setState()
         }
 
-        fun setState() {
+        private fun setState() {
             PropertiesComponent.getInstance()
                     .setValue(SAVED_STATE, isOn)
         }

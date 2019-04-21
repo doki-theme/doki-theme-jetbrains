@@ -79,7 +79,7 @@ class DDLCWizardFinishPanel : AbstractCustomizeWizardStep() {
     }
 
     override fun getHTMLFooter(): String? {
-        return "You can always change your settings at Settings | Appearance | DDLC Theme"
+        return "You can always change your settings at Settings | Appearance | Doki-Doki Theme Settings"
     }
 
     private fun initComponents() {
@@ -172,7 +172,7 @@ class DDLCWizardFinishPanel : AbstractCustomizeWizardStep() {
         add(scrollPane)
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
 
-        docLink!!.setListener({ aSource, aLinkData ->
+        docLink!!.setListener({ _, _ ->
             if (Desktop.isDesktopSupported()) {
                 try {
                     Desktop.getDesktop().browse(URI("https://www.material-theme.com"))
@@ -185,7 +185,7 @@ class DDLCWizardFinishPanel : AbstractCustomizeWizardStep() {
             }
         }, null)
 
-        paypalLink!!.setListener({ aSource, aLinkData ->
+        paypalLink!!.setListener({ _, _ ->
             if (Desktop.isDesktopSupported()) {
                 try {
                     Desktop.getDesktop().browse(URI("https://paypal.me/mallowigi"))
@@ -198,7 +198,7 @@ class DDLCWizardFinishPanel : AbstractCustomizeWizardStep() {
             }
         }, null)
 
-        openCollLink!!.setListener({ aSource, aLinkData ->
+        openCollLink!!.setListener({ _, _ ->
             if (Desktop.isDesktopSupported()) {
                 try {
                     Desktop.getDesktop().browse(URI("https://opencollective.com/material-theme-jetbrains"))
