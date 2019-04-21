@@ -142,16 +142,19 @@ object ChibiOrchestrator {
     }
 
     private fun getLocalClubMemberParentDirectory(): Optional<String> =
-            Optional.ofNullable(System.getProperties()["jb.vmOptionsFile"] as? String
-                    ?: System.getProperties()["idea.config.path"] as? String)
-                    .map { property ->
-                        val directory = Paths.get(property)
-                        if (directory.isFile()) {
-                            directory.parent
-                        } else {
-                            directory
-                        }.toAbsolutePath().toString()
-                    }
+        Optional.ofNullable(System.getProperties()["jb.vmOptionsFile"] as? String
+            ?: System.getProperties()["idea.config.path"] as? String)
+            .map { property -> property.split(",") }
+            .filter { properties -> properties.isNotEmpty() }
+            .map { paths -> paths[paths.size - 1] }
+            .map { property ->
+                val directory = Paths.get(property)
+                if (directory.isFile()) {
+                    directory.parent
+                } else {
+                    directory
+                }.toAbsolutePath().toString()
+            }
 
 
     private fun shouldLoadLocally(weebStuff: Path) =
