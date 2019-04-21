@@ -5,7 +5,7 @@
 
 - No functional changes, sorry!
     - Addressed a bunch of technical debt.
-- Fixed startup error on later 2018 Jetbrain's Builds.
+- Fixed startup error on later 2018 JetBrain's Builds.
 - Fixed startup error on Windows Android Studio 3.3.2
 
 # 3.2.1
