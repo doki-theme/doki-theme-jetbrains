@@ -24,20 +24,35 @@
  *
  */
 
-package com.chrisrm.ideaddlc.tabs.shadowPainters;
+package com.chrisrm.ideaddlc.tabs.highlightTabPainters;
 
-import com.intellij.ui.tabs.impl.ShapeTransform;
-
-import javax.swing.plaf.ColorUIResource;
+import javax.swing.*;
 import java.awt.*;
 
-public abstract class ShadowPainter {
-  protected static Color getShadowColor() {
-    return new ColorUIResource(0x333333);
+public class RightHighlightTabPainter extends HighlightTabPainter {
+  @Override
+  public void paintBottom(final int borderThickness, final Graphics2D g2d, final Rectangle rect, final int width) {
+    // do nothing
   }
 
-  public abstract void drawShadow(final Graphics2D g2d,
-                                  final ShapeTransform path,
-                                  final ShapeTransform labelPath,
-                                  final Rectangle rect);
+  @Override
+  public void paintTop(final int borderThickness, final Graphics2D g2d, final Rectangle rect, final int width) {
+    // do nothing
+  }
+
+  @Override
+  public void paintLeft(final int borderThickness, final Graphics2D g2d, final Rectangle rect, final int width) {
+    // do nothing
+  }
+
+  @Override
+  public final void paintRight(final int borderThickness, final Graphics2D g2d, final Rectangle rect, final int width) {
+    final int positionFromPlacement = getEditorTabPlacement();
+    // Paint on left if tabs at right, otherwise paint on right
+    if (positionFromPlacement == SwingConstants.RIGHT) {
+      paintOnLeft(borderThickness, g2d, rect);
+    } else {
+      paintOnRight(borderThickness, g2d, rect);
+    }
+  }
 }

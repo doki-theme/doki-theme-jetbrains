@@ -64,6 +64,7 @@ public enum AccentResources {
           "CheckBox.darcula.focusedArmed.backgroundColor2.selected",
           "CheckBox.darcula.focused.backgroundColor1.selected",
           "CheckBox.darcula.focused.backgroundColor2.selected",
+          "ComboBox.modifiedItemForeground",
           "Button.darcula.focusedOutlineColor",
           "Button.darcula.defaultFocusedOutlineColor",
           "Hyperlink.linkColor",
@@ -114,8 +115,11 @@ public enum AccentResources {
           "Component.focusColor",
           "Component.focusedBorderColor",
           "Counter.background",
+          "DefaultTabs.inactiveUnderlineColor", // deprecated
+          "DefaultTabs.underlineColor", // not implemented yet
           "EditorPane.caretForeground",
           "EditorTabs.active.underlineColor",
+          "EditorTabs.inactiveUnderlineColor", // not implemented yet
           "Focus.borderColor",
           "Focus.color",
           "Focus.Color",
@@ -180,7 +184,10 @@ public enum AccentResources {
           "ToggleButton.on.background", // deprecated
           "ToggleButton.onBackground",
           "ToggleButton.onForeground",
-          "TextPane.caretForeground"
+          "TextPane.caretForeground",
+          "Tree.modifiedItemForeground",
+          "VersionControl.GitLog.localBranchIconColor",
+          "VersionControl.HgLog.branchIconColor"
       ));
 
   @NonNls

@@ -38,6 +38,7 @@ public enum TabHighlightPositions {
   LEFT_RIGHT("Left-Right"),
   FULL("Full"),
   BOTTOMLESS("Bottomless"),
+  TOPLESS("Topless"),
   NONE("None");
 
   private final String type;
