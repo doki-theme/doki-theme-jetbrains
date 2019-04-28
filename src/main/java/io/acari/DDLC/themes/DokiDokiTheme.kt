@@ -6,7 +6,9 @@ import com.chrisrm.ideaddlc.lafs.MTDarkLaf
 import com.chrisrm.ideaddlc.lafs.MTLightLaf
 import com.chrisrm.ideaddlc.themes.models.MTSerializedTheme
 import com.chrisrm.ideaddlc.themes.models.MTThemeable
+import com.chrisrm.ideaddlc.utils.MTUI
 import com.chrisrm.ideaddlc.utils.PropertiesParser
+import com.google.common.collect.Sets
 import com.intellij.ide.ui.LafManager
 import com.intellij.ide.ui.laf.IntelliJLookAndFeelInfo
 import com.intellij.ide.ui.laf.LafManagerImpl
@@ -20,6 +22,7 @@ import io.acari.DDLC.legacy.Runner
 import io.acari.DDLC.themes.light.MonikaTheme
 import java.awt.Color
 import java.io.Serializable
+import java.util.*
 import java.util.stream.Stream
 import javax.swing.Icon
 import javax.swing.UIManager
@@ -101,6 +104,8 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
             buildResources(getNotificationsResources(), notificationsColorString)
             buildResources(getBorderResources(), borderColorString)
             buildNotificationsColors()
+            buildFlameChartColors()
+            buildTransparentColors()
 
             // Apply theme accent color if said so
             val instance = MTConfig.getInstance()
@@ -765,4 +770,34 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
         resources.forEach { resource -> UIManager.getDefaults()[resource] = o1 }
     }
 
+    private fun buildFlameChartColors() {
+        UIManager.put("FlameGraph.JVMBackground", MTUI.MTColor.CYAN)
+        UIManager.put("FlameGraph.JVMFocusBackground", MTUI.MTColor.BLUE)
+        UIManager.put("FlameGraph.JVMSearchNotMatchedBackground", MTUI.MTColor.RED)
+        UIManager.put("FlameGraph.JVMFocusSearchNotMatchedBackground", MTUI.MTColor.BROWN)
+
+        UIManager.put("FlameGraph.nativeBackground", MTUI.MTColor.YELLOW)
+        UIManager.put("FlameGraph.nativeFocusBackground", MTUI.MTColor.ORANGE)
+        UIManager.put("FlameGraph.nativeSearchNotMatchedBackground", MTUI.MTColor.PURPLE)
+        UIManager.put("FlameGraph.nativeFocusSearchNotMatchedBackground", MTUI.MTColor.PINK)
+    }
+
+    private fun buildTransparentColors() {
+        val colors = Collections.unmodifiableSet(
+            Sets.newHashSet(
+                "ScrollBar.hoverTrackColor",
+                "ScrollBar.trackColor",
+                "ScrollBar.Mac.hoverTrackColor",
+                "ScrollBar.Mac.trackColor",
+                "ScrollBar.Transparent.hoverTrackColor",
+                "ScrollBar.Transparent.trackColor",
+                "ScrollBar.Mac.Transparent.hoverTrackColor",
+                "ScrollBar.Mac.Transparent.trackColor"
+            ))
+
+        val transparentBackground = MTUI.Panel.getTransparentBackground()
+        for (color in colors) {
+            UIManager.put(color, transparentBackground)
+        }
+    }
 }

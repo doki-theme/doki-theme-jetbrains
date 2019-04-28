@@ -48,6 +48,7 @@ import com.intellij.ui.ColorPanel;
 import com.intellij.ui.ColorUtil;
 import com.intellij.ui.ListCellRendererWrapper;
 import com.intellij.ui.components.labels.LinkLabel;
+import com.intellij.util.PlatformUtils;
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 import io.acari.DDLC.actions.DarkMode;
 import io.acari.DDLC.chibi.ChibiLevel;
@@ -1687,6 +1688,11 @@ public class MTForm implements MTFormUI {
       }
     }, null);
 
+    // Disable folder decorators on Rider
+    if (PlatformUtils.isCidr() || PlatformUtils.isRider()) {
+      decoratedFoldersCheckbox.setEnabled(false);
+      decoratedFoldersCheckbox.setToolTipText("Folder decorators are not available in Rider");
+    }
   }
 
   private static int valueInRange(final int value, final int min, final int max) {

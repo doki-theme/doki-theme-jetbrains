@@ -28,9 +28,14 @@ package com.chrisrm.ideaddlc.tabs.shadowPainters;
 
 import com.intellij.ui.tabs.impl.ShapeTransform;
 
+import javax.swing.plaf.ColorUIResource;
 import java.awt.*;
 
 public abstract class ShadowPainter {
+  protected static Color getShadowColor() {
+    return new ColorUIResource(0x333333);
+  }
+
   public abstract void drawShadow(final Graphics2D g2d,
                                   final ShapeTransform path,
                                   final ShapeTransform labelPath,

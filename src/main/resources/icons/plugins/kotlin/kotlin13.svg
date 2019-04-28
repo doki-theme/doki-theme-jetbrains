@@ -1,4 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="13px" height="13px" viewBox="0 -1 16 16">
-    <path id="file_type_kotlin.svg" class="i-color" fill="#497CE3"
-          d="M13.486,13.288a1.813,1.813,0,0,1-2.6.13L6.561,9.4Q6.527,9.372,6.494,9.339L9.9,7.406l3.458,3.213A1.922,1.922,0,0,1,13.486,13.288Zm-7.52-9.9V3.021A2,2,0,0,0,3.994,1,2,2,0,0,0,2.022,3.021V5.63ZM2,11.844v0.113A2.019,2.019,0,0,0,3.994,14a2.019,2.019,0,0,0,1.994-2.043V9.582ZM13.769,2.068a1.821,1.821,0,0,0-2.506-.737l-9.18,5.21v4.32L13.049,4.637A1.914,1.914,0,0,0,13.769,2.068Z"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13">
+    <defs>
+        <linearGradient id="kotlin13-a" x1="-16.836%" x2="76.219%" y1="91.94%" y2="-1.116%">
+            <stop offset="10.75%" stop-color="#C757BC"/>
+            <stop offset="21.38%" stop-color="#D0609A"/>
+            <stop offset="42.54%" stop-color="#E1725C"/>
+            <stop offset="60.48%" stop-color="#EE7E2F"/>
+            <stop offset="74.3%" stop-color="#F58613"/>
+            <stop offset="82.32%" stop-color="#F88909"/>
+        </linearGradient>
+    </defs>
+    <g fill="none" transform="translate(1 1)">
+        <polygon fill="#0EAEFF" points="0 11 5.518 5.482 11 11"/>
+        <polygon fill="#0EAEFF" points="0 0 5.518 0 0 5.958"/>
+        <path fill="url(#kotlin13-a)" d="M5.51833333,0 L11,0 L5.51833333,5.48166667 L0,11 L0,5.81166667 L5.51833333,0 Z"/>
+    </g>
 </svg>

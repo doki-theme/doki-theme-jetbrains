@@ -1,6 +1,14 @@
 # Changelog
 ----
 
+# 3.2.3
+
+- Updated with Material 3.9.3
+    - Bunch of Icon Associations and new icons
+        - Now using default Kotlin Icon
+    - Topless Tab Highlight option
+    - Rider Icon Bug Fix?
+    
 # 3.2.2
 
 - No functional changes, sorry!

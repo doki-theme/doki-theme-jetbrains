@@ -287,6 +287,11 @@
                         text="Set highlight everywhere except bottom"
                         icon="/icons/actions/positions/bottomless.svg"
                         description="Set highlight everywhere except bottom"/>
+                <action class="com.chrisrm.ideaddlc.actions.positions.MTToplessPosition"
+                        id="MTTopLessPosition"
+                        text="Set highlight everywhere except top"
+                        icon="/icons/actions/positions/topless.svg"
+                        description="Set highlight everywhere except top"/>
                 <action class="com.chrisrm.ideaddlc.actions.positions.MTNonePosition"
                         id="DokiNonePosition"
                         text="Remove the highlight"

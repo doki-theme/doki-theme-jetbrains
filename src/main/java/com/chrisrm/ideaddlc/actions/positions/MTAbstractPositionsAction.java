@@ -34,7 +34,7 @@ import com.intellij.ide.ui.LafManager;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import org.jetbrains.annotations.NotNull;
 
-abstract class MTAbstractPositionsAction extends MTToggleAction {
+public abstract class MTAbstractPositionsAction extends MTToggleAction {
   private final MTConfig mtConfig = MTConfig.getInstance();
 
   @Override
