@@ -8,9 +8,7 @@ const val DARK_MODE_CONSTANT: String = "Ḑ̶͍̲̳̫͗̚͠ä̵͉̠̬͙̤͚͆͆
 val UPDATE_MESSAGE: String = """
       What's New?<br>
       <ul>
-      <li>A bunch of new Icons and File Associations!</li>
-      <li>Using Default Kotlin Icons now.</li>
-      <li>The Active Tab Highlighting Option "Topless" is now available.</li>
+      <li>Fixed exception being thrown by Material UI integration, sorry! （ﾉ´д｀）</li>
       <br>
       Thanks again for downloading <b>The Doki-Doki Theme</b>!<br>
       <br>Please see the <a href="https://github.com/cyclic-reference/ddlc-jetbrains-theme/blob/master/docs/CHANGELOG.md">Changelog</a> for more details.
