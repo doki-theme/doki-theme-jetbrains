@@ -1,6 +1,10 @@
 # Changelog
 ----
 
+# 3.2.4
+
+- No longer throws an harmless (but annoying) exception when Material UI is also installed.
+
 # 3.2.3
 
 - Updated with Material 3.9.3
