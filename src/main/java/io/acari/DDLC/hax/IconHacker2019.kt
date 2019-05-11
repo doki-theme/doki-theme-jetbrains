@@ -1,6 +1,6 @@
 package io.acari.DDLC.hax
 
-import com.chrisrm.ideaddlc.icons.MTIconReplacerComponent
+import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.util.IconLoader
 import com.intellij.openapi.util.IconPathPatcher
 import com.intellij.util.containers.stream
@@ -11,6 +11,7 @@ class IconHacker2019 : IconHacker {
   private val mtIconReplacers = HashSet<IconPathPatcher>()
   private val ddlcIconReplacers = HashSet<IconPathPatcher>()
   private val iconBucket = HashSet<IconPathPatcher>()
+  private val messageBus = ApplicationManager.getApplication().messageBus
 
   override fun extractPatchersOnActivation() {
     val iconPatchers = extractIcons()
@@ -46,7 +47,8 @@ class IconHacker2019 : IconHacker {
       }
       false -> {
         ddlcIconReplacers.forEach(installer)
-        MTIconReplacerComponent.useDDLCIcons()
+        messageBus.syncPublisher(IconChangedTopic)
+            .run()
       }
     }
 
