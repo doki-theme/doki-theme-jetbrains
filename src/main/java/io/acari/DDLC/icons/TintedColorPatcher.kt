@@ -55,8 +55,10 @@ class TintedColorPatcher internal constructor(connect: MessageBusConnection) : S
       svg.setAttribute("stroke", "#$themedColor")
     } else if ("true" == themedStartAttr){
       svg.setAttribute("stop-color","#$themedStart")
+      svg.setAttribute("fill","#$themedStart")
     } else if ("true" == themedStopAttr){
       svg.setAttribute("stop-color","#$themedStop")
+      svg.setAttribute("fill","#$themedStop")
     } else if ("true" == themedFillAttr){
       svg.setAttribute("fill","#$themedStart")
       svg.setAttribute("stroke","#$themedStart")
