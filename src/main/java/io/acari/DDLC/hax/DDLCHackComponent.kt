@@ -19,6 +19,7 @@ object DDLCHackComponent : Disposable {
         enableChibis()
         enableMenuBackgroundConsistency()
         DDLCIconHackComponent.toString()
+        DokiExtensionHacker.hackExtensions()
     }
 
     override fun dispose() {
