@@ -1,6 +1,14 @@
 # Changelog
 ----
 
+# 3.3.0
+
+- Added more Kotlin icon associations.
+- Better External Theme integration
+    - Material UI no longer overrides Doki-Doki icons when the Doki Them is active.
+    - Less left over Doki-Doki Icons when Material UI is activated.
+
+
 # 3.2.4
 
 - No longer throws an harmless (but annoying) exception when Material UI is also installed.
