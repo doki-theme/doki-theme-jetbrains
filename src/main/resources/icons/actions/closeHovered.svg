@@ -56,7 +56,10 @@
   </sodipodi:namedview>
   <path
      inkscape:connector-curvature="0"
-     style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.84217095;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+     fill="#FFFFFF"
+     stroke="#FFFFFF"
+     tint="true"
+     style="fill-opacity:1;stroke:none;stroke-width:1.84217095;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
      d="M 5.7304686,3.4687496 C 0.30774555,3.0593206 -1.5944864,9.5725599 1.8749996,14.560547 5.1811796,18.431889 8.6126826,20.209388 12,22.5 15.387327,20.209388 18.818824,18.431889 22.125,14.560547 25.825783,9.2400269 23.411703,2.1831824 17.135742,3.6445309 14.41364,4.2783713 12.552556,5.5322613 12,5.8417965 11.447458,5.5322613 9.5834286,4.2783713 6.8613276,3.6445309 6.4690806,3.5531969 6.0919836,3.496045 5.7304686,3.4687496 Z m 2.630859,3.3164062 3.5888674,3.5917972 3.588867,-3.5917972 1.41211,1.4121095 -3.591797,3.5888677 3.591797,3.588867 -1.41211,1.412109 L 11.950195,13.195312 8.3613276,16.787109 6.9492186,15.375 10.541016,11.786133 6.9492186,8.1972653 Z"
      id="path45" />
 </svg>
