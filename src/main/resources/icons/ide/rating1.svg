@@ -54,13 +54,18 @@
        id="grid12" />
   </sodipodi:namedview>
   <path
-     style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+          tint="true"
+          stroke="#FFFFFF"
+          fill="#FFFFFF"
+     style="fill-opacity:1;stroke-width:0.1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      d="M 2.9589844 2.6816406 C 0.73524809 2.5169833 -0.045809822 5.1346855 1.3769531 7.140625 C 2.0548331 7.9190523 2.7445204 8.4880085 3.4394531 8.9765625 C 3.6331254 9.1127187 3.8273542 9.2288212 4.0214844 9.3554688 L 4.0214844 2.9296875 C 3.831794 2.8656322 3.6397955 2.8017415 3.421875 2.7519531 C 3.261023 2.7152228 3.1072335 2.6926178 2.9589844 2.6816406 z "
      id="rect835" />
   <path
      sodipodi:nodetypes="csccscsc"
      inkscape:connector-curvature="0"
      id="path1445-6"
+     tint="stroke"
+     stroke="#FFFFFF"
      d="M 5.5287287,3.6349171 C 5.7551831,3.5103307 6.5193019,3.0068573 7.635563,2.7519684 10.20916,2.1642832 11.198484,5.0018525 9.6808738,7.1415213 8.325078,8.6983775 6.9177609,9.413578 5.5287287,10.334751 4.8341942,9.8741645 4.135098,9.4650707 3.4401654,8.9765168 2.7452327,8.4879628 2.0544637,7.9199486 1.3765837,7.1415213 -0.14103011,5.0018525 0.84826271,2.1642832 3.4218942,2.7519684 4.5381552,3.0070008 5.3021283,3.5104422 5.5287287,3.6349171"
-     style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:0.9077158;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.94117647" />
+     style="fill:none;fill-opacity:1;stroke-width:0.9077158;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.94117647" />
 </svg>

@@ -53,6 +53,8 @@
      sodipodi:nodetypes="cscccsc"
      inkscape:connector-curvature="0"
      id="path1445-6"
+     fill="#FFFFFF"
+     tint="true"
      d="M 5.5263914,2.9171609 C 5.7758686,2.7799081 6.6176727,2.2252484 7.84742,1.9444459 10.682665,1.2970129 11.772571,4.4230677 10.10067,6.7802689 8.6070357,8.495405 7.0566415,9.2833174 5.5263914,10.298143 3.996101,9.2833174 2.4457081,8.4954034 0.95211291,6.7802689 -0.71979129,4.4230677 0.3700794,1.2970129 3.2053626,1.9444459 4.43511,2.2254065 5.2767534,2.780031 5.5263914,2.9171609"
-     style="fill-opacity:1;stroke:none;stroke-width:0.86196548;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4.69999981;stroke-dasharray:none;stroke-opacity:1;fill:#ffffff" />
+     style="fill-opacity:1;stroke:none;stroke-width:0.86196548;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4.69999981;stroke-dasharray:none;stroke-opacity:1" />
 </svg>
