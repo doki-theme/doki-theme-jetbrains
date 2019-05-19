@@ -14,7 +14,7 @@
    viewBox="0 0 66 66"
    id="svg114"
    sodipodi:docname="step_mask.svg"
-   inkscape:version="0.92.3 (unknown)">
+   inkscape:version="0.92.4 (33fec40, 2019-01-16)">
   <metadata
      id="metadata120">
     <rdf:RDF>
@@ -23,7 +23,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -38,16 +38,16 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="640"
-     inkscape:window-height="480"
+     inkscape:window-width="977"
+     inkscape:window-height="638"
      id="namedview116"
      showgrid="false"
      inkscape:pagecheckerboard="true"
-     inkscape:zoom="7.375"
-     inkscape:cx="16"
-     inkscape:cy="16"
-     inkscape:window-x="1061"
-     inkscape:window-y="581"
+     inkscape:zoom="3.6875"
+     inkscape:cx="90.672708"
+     inkscape:cy="18.162928"
+     inkscape:window-x="2718"
+     inkscape:window-y="164"
      inkscape:window-maximized="0"
      inkscape:current-layer="svg114" />
   <circle
@@ -67,6 +67,6 @@
      sodipodi:nodetypes="cscccsc"
      inkscape:connector-curvature="0"
      id="path1445-6"
-     d="m 33.702137,25.826576 c 0.841436,-0.440076 3.68068,-2.218477 7.828379,-3.118809 9.56273,-2.075849 13.238782,7.947173 7.599775,15.505029 C 44.092554,43.712015 38.863374,46.238287 33.702137,49.492107 28.540762,46.238287 23.311586,43.712015 18.27398,38.212796 12.634975,30.65494 16.310895,20.631918 25.873755,22.707767 c 4.1477,0.90085 6.986401,2.679123 7.828382,3.118809"
+     d="m 33.12066,25.697421 c 0.841436,-0.440076 3.68068,-2.218477 7.828379,-3.118809 9.56273,-2.075849 13.238782,7.947173 7.599775,15.505029 C 43.511077,43.58286 38.281897,46.109132 33.12066,49.362952 27.959285,46.109132 22.730109,43.58286 17.692503,38.083641 12.053498,30.525785 15.729418,20.502763 25.292278,22.578612 c 4.1477,0.90085 6.986401,2.679123 7.828382,3.118809"
      style="fill-opacity:1;stroke:#00000f;stroke-width:2.83456635;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4.69999981;stroke-dasharray:none;stroke-opacity:0.94117647" />
 </svg>
