@@ -48,7 +48,7 @@ public enum IconPatchersFactory {
     final URL xml = IconPatchersFactory.class.getResource(ICON_PATCHERS_XML);
     @NonNls final XStream xStream = new XStream();
     XStream.setupDefaultSecurity(xStream);
-    xStream.allowTypesByWildcard(new String[]{"com.chrisrm.idea.icons.patchers.*"});
+    xStream.allowTypesByWildcard(new String[]{"com.chrisrm.ideaddlc.icons.patchers.*"});
 
     xStream.alias("iconPathPatchers", IconPathPatchers.class);
     xStream.alias("iconPatchers", Set.class);
