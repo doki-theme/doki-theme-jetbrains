@@ -14,7 +14,7 @@
    viewBox="0 0 66 66"
    id="svg51"
    sodipodi:docname="step_6.svg"
-   inkscape:version="0.92.3 (unknown)">
+   inkscape:version="0.92.4 (33fec40, 2019-01-16)">
   <metadata
      id="metadata57">
     <rdf:RDF>
@@ -23,7 +23,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -43,11 +43,11 @@
      id="namedview53"
      showgrid="false"
      inkscape:pagecheckerboard="true"
-     inkscape:zoom="10.429825"
-     inkscape:cx="5.1865632"
-     inkscape:cy="8.6528237"
-     inkscape:window-x="65"
-     inkscape:window-y="24"
+     inkscape:zoom="20.85965"
+     inkscape:cx="7.03904"
+     inkscape:cy="9.8793119"
+     inkscape:window-x="876"
+     inkscape:window-y="294"
      inkscape:window-maximized="0"
      inkscape:current-layer="svg51" />
   <circle
@@ -66,7 +66,7 @@
   <path
      sodipodi:nodetypes="cscccsc"
      inkscape:connector-curvature="0"
-     id="path1445-6"
-     d="m 33.289885,24.75 c 0.852271,-0.445741 3.728071,-2.247039 7.929175,-3.158965 9.685855,-2.102577 13.409236,8.049498 7.697625,15.704664 -5.1026,5.570025 -10.399109,8.128825 -15.6268,11.424539 C 28.062056,45.424524 22.765551,42.865724 17.663083,37.295699 11.951472,29.640533 15.67472,19.488458 25.360709,21.591035 c 4.201104,0.912449 7.076354,2.71362 7.929176,3.158965"
+     id="path1445-6-3"
+     d="m 33.641812,25.300547 c 0.852271,-0.445741 3.728071,-2.247039 7.929175,-3.158965 9.685855,-2.102577 13.409236,8.049498 7.697625,15.704664 -5.1026,5.570025 -10.399109,8.128825 -15.6268,11.424539 C 28.413983,45.975071 23.117478,43.416271 18.01501,37.846246 12.303399,30.19108 16.026647,20.039005 25.712636,22.141582 c 4.201104,0.912449 7.076354,2.71362 7.929176,3.158965"
      style="fill-opacity:1;stroke:#00000f;stroke-width:2.87106276;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4.69999981;stroke-dasharray:none;stroke-opacity:0.94117647" />
 </svg>

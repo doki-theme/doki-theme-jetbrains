@@ -14,7 +14,7 @@
    viewBox="0 0 66 66"
    id="svg71"
    sodipodi:docname="step_8.svg"
-   inkscape:version="0.92.3 (unknown)">
+   inkscape:version="0.92.4 (33fec40, 2019-01-16)">
   <metadata
      id="metadata77">
     <rdf:RDF>
@@ -23,7 +23,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -46,8 +46,8 @@
      inkscape:zoom="14.75"
      inkscape:cx="8"
      inkscape:cy="8"
-     inkscape:window-x="65"
-     inkscape:window-y="24"
+     inkscape:window-x="907"
+     inkscape:window-y="328"
      inkscape:window-maximized="0"
      inkscape:current-layer="svg71" />
   <circle
