@@ -82,8 +82,6 @@ object DokiExtensionHacker {
       val arrayList = ArrayList(dokiExtensions)
       ContainerUtil.addAll(arrayList, nonMaterialExtensions)
       cacheFeildToHack.set(point, ContainerUtil.immutableList(arrayList))
-      val thingo = point.extensionList
-      println(thingo)
     }
 
   }
