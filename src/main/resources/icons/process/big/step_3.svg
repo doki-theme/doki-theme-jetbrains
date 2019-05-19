@@ -62,11 +62,13 @@
      stroke-dasharray="187"
      stroke-dashoffset="92"
      transform="rotate(120 33 33)"
+     tint="stroke"
      id="circle12" />
   <path
      sodipodi:nodetypes="cscccsc"
      inkscape:connector-curvature="0"
      id="path1445-6"
+     tint="fill"
      d="m 33.144944,25.731057 c 0.841436,-0.440078 3.68068,-2.218479 7.828378,-3.11881 9.56273,-2.075849 13.238783,7.947172 7.599776,15.505028 -5.037737,5.499219 -10.266917,8.025492 -15.428154,11.279311 -5.161375,-3.253819 -10.390551,-5.780092 -15.428157,-11.279311 -5.639005,-7.557856 -1.963085,-17.580877 7.599776,-15.505028 4.1477,0.900849 6.986399,2.679122 7.828381,3.11881"
      style="fill-opacity:1;stroke:#00000f;stroke-width:2.83456635;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4.69999981;stroke-dasharray:none;stroke-opacity:0.94117647" />
 </svg>

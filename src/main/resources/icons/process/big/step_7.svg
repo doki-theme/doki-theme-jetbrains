@@ -58,6 +58,7 @@
      cy="33"
      stroke="white"
      stroke-width="6"
+     tint="stroke"
      stroke-linecap="round"
      stroke-dasharray="187"
      stroke-dashoffset="162"
@@ -67,6 +68,7 @@
      sodipodi:nodetypes="cscccsc"
      inkscape:connector-curvature="0"
      id="path1445-6"
+     tint="fill"
      d="m 33.046068,25.870889 c 0.841436,-0.440078 3.68068,-2.218479 7.828378,-3.11881 9.56273,-2.075849 13.238783,7.947172 7.599776,15.505028 C 43.436485,43.756326 38.207305,46.282599 33.046068,49.536418 27.884693,46.282599 22.655517,43.756326 17.617911,38.257107 11.978906,30.699251 15.654826,20.67623 25.217687,22.752079 c 4.1477,0.900849 6.986399,2.679122 7.828381,3.11881"
      style="fill-opacity:1;stroke:#00000f;stroke-width:2.83456635;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4.69999981;stroke-dasharray:none;stroke-opacity:0.94117647" />
 </svg>
