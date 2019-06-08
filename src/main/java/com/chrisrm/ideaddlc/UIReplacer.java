@@ -180,15 +180,15 @@ public enum UIReplacer {
         .filter(f -> f.getType().equals(Color.class))
         .toArray();
 
-    StaticPatcher.setFinalStatic((Field) colorFields[0], autoCompleteBackground);
-    StaticPatcher.setFinalStatic((Field) colorFields[1], autocompleteForeground);
-    StaticPatcher.setFinalStatic((Field) colorFields[2], autocompleteSelectedGreyedForeground);//grayed fore ground
-    StaticPatcher.setFinalStatic((Field) colorFields[3], autocompleteSelectionBackground);//selected background color
-    StaticPatcher.setFinalStatic((Field) colorFields[4], autocompleteSelectionUnfocused);//selected non focused background color
-    StaticPatcher.setFinalStatic((Field) colorFields[5], autocompleteSelectionForeground);//selected foreground color
-    StaticPatcher.setFinalStatic((Field) colorFields[6], autocompleteSelectionForegroundGreyed);//selected grayed foreground color
-    StaticPatcher.setFinalStatic((Field) colorFields[7], autocompletePrefixForegroundColor);//prefix foreground color
-    StaticPatcher.setFinalStatic((Field) colorFields[8], autocompleteSelectedPrefixForegroundColor);//selected prefix foreground color
+//    StaticPatcher.setFinalStatic((Field) colorFields[0], autoCompleteBackground);
+//    StaticPatcher.setFinalStatic((Field) colorFields[1], autocompleteForeground);
+//    StaticPatcher.setFinalStatic((Field) colorFields[2], autocompleteSelectedGreyedForeground);//grayed fore ground
+//    StaticPatcher.setFinalStatic((Field) colorFields[3], autocompleteSelectionBackground);//selected background color
+//    StaticPatcher.setFinalStatic((Field) colorFields[4], autocompleteSelectionUnfocused);//selected non focused background color
+//    StaticPatcher.setFinalStatic((Field) colorFields[5], autocompleteSelectionForeground);//selected foreground color
+//    StaticPatcher.setFinalStatic((Field) colorFields[6], autocompleteSelectionForegroundGreyed);//selected grayed foreground color
+//    StaticPatcher.setFinalStatic((Field) colorFields[7], autocompletePrefixForegroundColor);//prefix foreground color
+//    StaticPatcher.setFinalStatic((Field) colorFields[8], autocompleteSelectedPrefixForegroundColor);//selected prefix foreground color
     Optional.of(colorFields)
         .filter(colorField -> colorField.length > 9)
         .map(colorField -> (Field) colorFields[9])
