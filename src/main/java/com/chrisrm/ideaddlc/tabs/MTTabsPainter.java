@@ -28,29 +28,49 @@ package com.chrisrm.ideaddlc.tabs;
 
 import com.chrisrm.ideaddlc.MTConfig;
 import com.chrisrm.ideaddlc.themes.models.MTThemeable;
+import com.chrisrm.ideaddlc.utils.MTUI;
 import com.intellij.ui.ColorUtil;
-import com.intellij.ui.tabs.impl.DefaultEditorTabsPainter;
-import com.intellij.ui.tabs.impl.JBEditorTabs;
-import com.intellij.ui.tabs.impl.ShapeTransform;
+import com.intellij.ui.paint.RectanglePainter2D;
+import com.intellij.ui.tabs.JBTabsPosition;
+import com.intellij.ui.tabs.newImpl.DefaultEditorTabsPainter;
+import com.intellij.ui.tabs.newImpl.JBDefaultTabPainter;
+import com.intellij.ui.tabs.newImpl.JBEditorTabs;
+import com.intellij.ui.tabs.newImpl.ShapeTransform;
 import io.acari.DDLC.DDLCConfig;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.awt.*;
 
-public class MTTabsPainter extends DefaultEditorTabsPainter {
+public class MTTabsPainter extends JBDefaultTabPainter {
+  private final MTConfig mtConfig = MTConfig.getInstance();
+
   @SuppressWarnings("unused")
   public MTTabsPainter() {
-    super(null);
   }
 
-  MTTabsPainter(final JBEditorTabs tabs) {
-    super(tabs);
+
+  private Color getInactiveBackground() {
+    boolean isContrast = MTConfig.getInstance().isContrastMode();
+    return MTUI.TabbedPane.getInactiveBackground(isContrast);
   }
 
-  final void fillSelectionAndBorder(final Graphics2D g,
-                                    final ShapeTransform selectedShape,
-                                    final Color tabColor) {
-    g.setColor(tabColor != null ? tabColor : getDefaultTabColor());
-    g.fill(selectedShape.getShape());
+  @Override
+  public void paintTab(@NotNull JBTabsPosition position, @NotNull Graphics2D g, @NotNull Rectangle rect, int borderThickness, @Nullable Color tabColor, boolean hovered) {
+    Color inactiveBackground = this.getInactiveBackground();
+    Color hoveredBackground = MTUI.TabbedPane.getHoveredBackground();
+    g.setColor(hovered ? hoveredBackground : inactiveBackground);
+    RectanglePainter2D.FILL.paint(g, (double)rect.x, (double)rect.y, (double)rect.width, (double)rect.height);
+  }
+
+  @Override
+  public void paintSelectedTab(@NotNull JBTabsPosition position, @NotNull Graphics2D g, @NotNull Rectangle rect, int borderThickness, @Nullable Color tabColor, boolean active, boolean hovered) {
+    g.setColor(hovered ? MTUI.TabbedPane.getHoveredBackground() : MTUI.TabbedPane.getBackground());
+    RectanglePainter2D.FILL.paint(g, (double)rect.x, (double)rect.y, (double)rect.width, (double)rect.height);
+    int borderThickness2 = this.mtConfig.getHighlightThickness() + 1;
+    Color underlineColor = this.getIndicatorColor();
+    g.setColor(underlineColor);
+    MTTabsHighlightPainter.paintHighlight(borderThickness2, g, rect);
   }
 
   @Override
@@ -67,22 +87,10 @@ public class MTTabsPainter extends DefaultEditorTabsPainter {
     return config.isContrastMode() ? mtTheme.getContrastColor() : mtTheme.getBackgroundColor();
   }
 
-  final JBEditorTabs getTabsComponent() {
-    return myTabs;
-  }
-
-  @Override
-  protected final Color getDefaultTabColor() {
-    if (myDefaultTabColor != null) {
-      return myDefaultTabColor;
-    }
-
-    return getBackgroundColor();
-  }
-
-  @Override
-  protected final Color getInactiveMaskColor() {
-    final float opacity = (float) (MTConfig.getInstance().getTabOpacity() / 100.0);
-    return ColorUtil.withAlpha(getContrastColor(), opacity);
+  @NotNull
+  private Color getIndicatorColor() {
+    Color accentColor = ColorUtil.fromHex(this.mtConfig.getAccentColor());
+    Color highlightColor = this.mtConfig.getHighlightColor();
+    return this.mtConfig.isHighlightColorEnabled() ? highlightColor : accentColor;
   }
 }
