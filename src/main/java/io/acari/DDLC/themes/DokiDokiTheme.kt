@@ -106,6 +106,7 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
             buildNotificationsColors()
             buildFlameChartColors()
             buildTransparentColors()
+            buildTreeSelectionInactiveColors()
 
             // Apply theme accent color if said so
             val instance = MTConfig.getInstance()
@@ -236,6 +237,7 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
         return Stream.of(
                 "Focus.color",
                 "TextField.separatorColor",
+                "CompletionPopup.selectionInactiveBackground",
                 "SearchEverywhere.Tab.active.background",
                 "SearchEverywhere.Tab.selected.background",
                 "CheckBox.darcula.inactiveFillColor",
@@ -433,6 +435,8 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
                 "Menu.selectionForeground",
                 "Menu.acceleratorSelectionForeground",
                 "MenuItem.selectionForeground",
+                "CompletionPopup.selectionInfoForeground",
+                "CompletionPopup.selectionForeground",
                 "MenuItem.acceleratorSelectionForeground",
                 "Table.selectionForeground",
                 "TextField.selectionForeground",
@@ -451,6 +455,7 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
                 "List.selectionBackground",
                 "Table.selectionBackground",
                 "Table.selectionBackground",
+                "CompletionPopup.selectionBackground",
                 "PasswordField.selectionBackground",
                 "Button.mt.selectedBackground",
                 "TextArea.selectionBackground",
@@ -472,6 +477,8 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
                 "TextField.inactiveForeground",
                 "material.tagColor",
                 "material.primaryColor",
+                "CompletionPopup.selectionInactiveInfoForeground",
+              "CompletionPopup.infoForeground",
                 "SearchEverywhere.shortcutForeground",
                 "Tree.foreground")
     }
@@ -580,6 +587,7 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
                 "monika.textForeground",
                 "monika.selectionForegroundInactive",
                 "monika.selectionInactiveForeground",
+                "CompletionPopup.foreground",
                 "Label.foreground",
                 "EditorPane.inactiveForeground",
                 "SearchEverywhere.List.Separator.foreground",
@@ -785,6 +793,21 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
         UIManager.put("FlameGraph.nativeFocusBackground", MTUI.MTColor.ORANGE)
         UIManager.put("FlameGraph.nativeSearchNotMatchedBackground", MTUI.MTColor.PURPLE)
         UIManager.put("FlameGraph.nativeFocusSearchNotMatchedBackground", MTUI.MTColor.PINK)
+    }
+
+    private fun buildTreeSelectionInactiveColors() {
+        val colors = Collections.unmodifiableSet(
+            Sets.newHashSet(
+                "Tree.selectionInactiveBackground",
+                "CompletionPopup.nonFocusedState",
+                "List.selectionInactiveBackground",
+                "Table.selectionInactiveBackground"
+            ))
+
+        val transparentBackground = MTUI.Tree.getSelectionInactiveBackground()
+        for (color in colors) {
+            UIManager.put(color, transparentBackground)
+        }
     }
 
     private fun buildTransparentColors() {

@@ -76,7 +76,6 @@ public enum UIReplacer {
       patchTables();
       patchGrays();
       patchMemoryIndicator();
-      patchAutocomplete();
       patchIdeaActionButton();
       patchScrollbars();
       patchDialogs();
@@ -154,46 +153,6 @@ public enum UIReplacer {
       StaticPatcher.setFinalStatic((Field) objects[0], usedColor);
       StaticPatcher.setFinalStatic((Field) objects[1], unusedColor);
     }
-  }
-
-  /**
-   * Patch the autocomplete color with the accent color
-   */
-  static void patchAutocomplete() throws NoSuchFieldException, IllegalAccessException {
-    if (!MTConfig.getInstance().isMaterialTheme()) {
-      return;
-    }
-    final Color defaultValue = UIUtil.getListSelectionBackground();
-    final Color autocompleteSelectionBackground = ObjectUtils.notNull(UIManager.getColor("Autocomplete.selectionBackground"), defaultValue);
-    final Color autocompleteSelectionForeground = ObjectUtils.notNull(UIManager.getColor("Autocomplete.selectionForeground"), defaultValue);
-    final Color autocompleteSelectionForegroundGreyed = ObjectUtils.notNull(UIManager.getColor("Autocomplete.selectionForegroundGreyed"), defaultValue);
-    final Color autoCompleteBackground = ObjectUtils.notNull(UIManager.getColor("Autocomplete.background"), defaultValue);
-    final Color autocompleteForeground = ObjectUtils.notNull(UIManager.getColor("Autocomplete.foreground"), defaultValue);
-    final Color autocompleteSelectionUnfocused = ObjectUtils.notNull(UIManager.getColor("Autocomplete.selectionUnfocus"), defaultValue);
-    final Color autocompleteSelectedGreyedForeground = ObjectUtils.notNull(UIManager.getColor("Autocomplete.selectedGreyedForeground"), defaultValue);
-    final Color autocompletePrefixForegroundColor = ObjectUtils.notNull(UIManager.getColor("Autocomplete.prefixForeground"), defaultValue);
-    final Color autocompleteSelectedPrefixForegroundColor = ObjectUtils.notNull(UIManager.getColor("Autocomplete.selectedPrefixForeground"), defaultValue);
-    final Color autocompleteUserSelectedPrefixForegroundColor = ObjectUtils.notNull(UIManager.getColor("Autocomplete.userSelectedPrefixForeground"), defaultValue);
-
-    final Field[] fields = LookupCellRenderer.class.getDeclaredFields();
-    final Object[] colorFields = Arrays.stream(fields)
-        .filter(f -> f.getType().equals(Color.class))
-        .toArray();
-
-//    StaticPatcher.setFinalStatic((Field) colorFields[0], autoCompleteBackground);
-//    StaticPatcher.setFinalStatic((Field) colorFields[1], autocompleteForeground);
-//    StaticPatcher.setFinalStatic((Field) colorFields[2], autocompleteSelectedGreyedForeground);//grayed fore ground
-//    StaticPatcher.setFinalStatic((Field) colorFields[3], autocompleteSelectionBackground);//selected background color
-//    StaticPatcher.setFinalStatic((Field) colorFields[4], autocompleteSelectionUnfocused);//selected non focused background color
-//    StaticPatcher.setFinalStatic((Field) colorFields[5], autocompleteSelectionForeground);//selected foreground color
-//    StaticPatcher.setFinalStatic((Field) colorFields[6], autocompleteSelectionForegroundGreyed);//selected grayed foreground color
-//    StaticPatcher.setFinalStatic((Field) colorFields[7], autocompletePrefixForegroundColor);//prefix foreground color
-//    StaticPatcher.setFinalStatic((Field) colorFields[8], autocompleteSelectedPrefixForegroundColor);//selected prefix foreground color
-    Optional.of(colorFields)
-        .filter(colorField -> colorField.length > 9)
-        .map(colorField -> (Field) colorFields[9])
-        .ifPresent(colorField -> ToolBoxKt.runSafely(()->
-            StaticPatcher.setFinalStatic(colorField, autocompleteUserSelectedPrefixForegroundColor)));//selected prefix foreground color
   }
 
 
