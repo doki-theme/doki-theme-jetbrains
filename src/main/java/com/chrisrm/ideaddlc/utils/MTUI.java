@@ -60,6 +60,10 @@ public final class MTUI {
     public static Color getSelectionBackground() {
       return ColorUtil.withAlpha(UIManager.getColor(TREE_SELECTION_BACKGROUND), 0.25);
     }
+    public static Color getSelectionInactiveBackground() {
+      final Color color = JBColor.namedColor(TREE_SELECTION_BACKGROUND, new JBColor(0x27384C, 0x0D293E));
+      return ColorUtil.withAlpha(color, 0.25);
+    }
   }
 
   public enum ActionButton {
