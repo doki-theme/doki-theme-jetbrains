@@ -224,7 +224,7 @@ public final class MTHackComponent implements BaseComponent {
 
       ctClass2.toClass();
     } catch (final Throwable e) {
-      e.printStackTrace();
+      System.err.println("Unable to hack plugin component: " + e.getLocalizedMessage());
     }
   }
 

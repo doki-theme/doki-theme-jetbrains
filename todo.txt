@@ -47,4 +47,3 @@ Shit to fix
 ----
 
 AutoComplete
-Editor Tabs
