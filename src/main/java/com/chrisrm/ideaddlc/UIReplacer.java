@@ -74,6 +74,7 @@ public enum UIReplacer {
 
   public static void patchUI() {
     try {
+      patchAutocomplete();
       patchTabs();
       patchTables();
       patchGrays();
@@ -155,6 +156,31 @@ public enum UIReplacer {
       StaticPatcher.setFinalStatic((Field) objects[0], usedColor);
       StaticPatcher.setFinalStatic((Field) objects[1], unusedColor);
     }
+  }
+
+  /**
+   * Patch the autocomplete color with the accent color
+   */
+  static void patchAutocomplete() throws IllegalAccessException {
+    if (!MTConfig.getInstance().isMaterialTheme()) {
+      return;
+    }
+    final Color defaultValue = UIUtil.getListSelectionBackground();
+    final Color autoCompleteBackground = ObjectUtils.notNull(UIManager.getColor("CompletionPopup.background"), defaultValue);
+
+    final Field[] fields = LookupCellRenderer.class.getDeclaredFields();
+    Arrays.stream(fields)
+        .filter(f -> f.getType().equals(Color.class))
+        .filter(field -> field.getName().equals("BACKGROUND_COLOR"))
+        .findFirst()
+        .ifPresent(field -> {
+          try {
+            StaticPatcher.setFinalStatic(field, autoCompleteBackground);
+          } catch (NoSuchFieldException | IllegalAccessException e) {
+            System.err.println("Unable to hack autocomplete: " + e.getLocalizedMessage());
+          }
+        });
+
   }
 
 
