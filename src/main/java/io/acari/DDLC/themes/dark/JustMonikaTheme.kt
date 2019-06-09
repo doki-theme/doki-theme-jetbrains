@@ -9,6 +9,8 @@ import javax.swing.plaf.ColorUIResource
  */
 class JustMonikaTheme : DokiDokiTheme("just.monika", "Just Monika", true, "Monika") {
 
+    override fun getCompletionPopupBackgroundColor(): String = "053912"
+
     override fun getBackgroundColorString(): String = "1C230D"
 
     override fun getClubMember(): String = "only_monika.png"

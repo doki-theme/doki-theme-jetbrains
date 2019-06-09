@@ -7,6 +7,8 @@ import javax.swing.plaf.ColorUIResource
 //todo: should probably rename these to something more expected :|
 class EdgyTheme : DokiDokiTheme("yuri.dark", "Edgy", true, "Yuri") {
 
+    override fun getCompletionPopupBackgroundColor(): String = "3E295B"
+
     override fun getBackgroundColorString(): String = "322A45"
 
     override fun getClubMember(): String = "yuri_dark.png"

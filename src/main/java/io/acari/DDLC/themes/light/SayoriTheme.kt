@@ -6,6 +6,8 @@ import javax.swing.plaf.ColorUIResource
 
 class SayoriTheme : DokiDokiTheme("sayori", "Sayori", false, "Sayori") {
 
+    override fun getCompletionPopupBackgroundColor(): String = backgroundColorString
+
     override fun getBackgroundColorString(): String = "D7FEFC"
 
     override fun getClubMember(): String = "sayori.png"

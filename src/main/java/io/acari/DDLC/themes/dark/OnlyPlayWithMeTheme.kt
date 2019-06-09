@@ -6,6 +6,8 @@ import javax.swing.plaf.ColorUIResource
 
 class OnlyPlayWithMeTheme : DokiDokiTheme("natsuki.dark", "Only Play With Me", true, "Natsuki") {
 
+  override fun getCompletionPopupBackgroundColor(): String = "5B1D44"
+
   override fun getBackgroundColorString(): String = "240E1E"
 
   override fun getClubMember(): String = "natsuki_dark.png"

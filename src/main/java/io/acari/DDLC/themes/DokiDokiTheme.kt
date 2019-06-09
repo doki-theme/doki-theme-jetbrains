@@ -92,6 +92,7 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
             buildResources(getSecondaryForegroundResources(), getSecondaryForegroundColorString())
             buildResources(getDisabledResources(), disabledColorString)
             buildResources(getContrastResources(), contrastColorString)
+            buildResources(getCompletionBackgroundResources(), completionPopupBackgroundColor)
             buildResources(getTableSelectedResources(), tableSelectedColorString)
             buildResources(getSecondBorderResources(), secondBorderColorString)
             buildResources(getHighlightResources(), highlightColorString)
@@ -329,6 +330,9 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
                 "ToolWindow.Button.hoverBackground"
         ).distinct()
     }
+
+    open fun getCompletionBackgroundResources(): Stream<String> =
+        Stream.of("CompletionPopup.background").distinct()
 
     open fun getBorderResources(): Stream<String> =
         Stream.of("EditorTabs.borderColor",
