@@ -1,6 +1,11 @@
 # Changelog
 ----
 
+# 3.4.0
+
+- Added 2019.2 Build support!
+- Up to date with Material UI 3.10.0.
+
 # 3.3.0
 
 - Added more Kotlin icon associations.
