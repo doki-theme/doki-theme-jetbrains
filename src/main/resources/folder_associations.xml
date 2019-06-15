@@ -92,6 +92,7 @@
         <regex name="models" pattern="^(models?|structs?|classes)$" icon="/models.svg"/>
         <regex name="node_modules" pattern="^node_modules$" icon="/node.svg"/>
         <regex name="notification" pattern="(notifications?|flash)" icon="/notification.svg"/>
+        <regex name="nuxt" pattern="(nuxt|.nuxt)" icon="/nuxt.svg"/>
         <regex name="nyc" pattern="^\.nyc" icon="/coverage.svg"/>
         <regex name="other" pattern="^(other|misc|extras?)$" icon="/other.svg"/>
         <regex name="packages" pattern="^packages?$" icon="/packages.svg"/>
