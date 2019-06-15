@@ -35,6 +35,7 @@ import com.intellij.openapi.fileEditor.FileEditorManagerEvent;
 import com.intellij.openapi.fileEditor.FileEditorManagerListener;
 import com.intellij.ui.tabs.JBTabPainter;
 import com.intellij.ui.tabs.TabInfo;
+import com.intellij.ui.tabs.newImpl.JBDefaultTabPainter;
 import com.intellij.ui.tabs.newImpl.JBEditorTabs;
 import com.intellij.ui.tabs.newImpl.TabLabel;
 import com.intellij.util.Consumer;
@@ -97,9 +98,8 @@ public final class MTTabsPainterPatcherComponent implements BaseComponent {
         ddlcActive = false;
         Optional.ofNullable(this.fileEditor)
             .ifPresent(fileEditor1 -> {
-//              todo: revisit this
-//              initializeTabs(fileEditor1, a ->
-//                  replacePainters(new JBDefaultTabPainter(a), new JBDefaultTabPainter(a), a));
+              initializeTabs(fileEditor1, a ->
+                  replacePainters(new JBDefaultTabPainter(), new JBDefaultTabPainter(), a));
               initalized = false;
             });
       }
