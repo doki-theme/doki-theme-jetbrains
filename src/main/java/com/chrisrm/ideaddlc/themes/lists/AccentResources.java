@@ -70,9 +70,6 @@ public enum AccentResources {
           "Hyperlink.linkColor",
           "SearchMatch.startColor",
           "SearchMatch.endColor",
-          "Focus.color",
-          "Focus.Color",
-          "Focus.borderColor",
           "Focus.defaultButtonBorderColor",
           "Slider.thumb",
           "TextField.caretForeground",
@@ -84,8 +81,6 @@ public enum AccentResources {
           "TabbedPane.focusColor",
           "TabbedPane.selectedСolor",
           "material.tab.borderColor",
-          "ActionButton.hoverBackground",
-          "ActionButton.hoverBorderColor",
           "Button.darcula.defaultFocusedOutlineColor",
           "Button.darcula.focusedOutlineColor",
           "Button.darcula.outlineDefaultEndColor",
@@ -120,9 +115,6 @@ public enum AccentResources {
           "EditorPane.caretForeground",
           "EditorTabs.active.underlineColor",
           "EditorTabs.inactiveUnderlineColor", // not implemented yet
-          "Focus.borderColor",
-          "Focus.color",
-          "Focus.Color",
           "Focus.defaultButtonBorderColor",
           "FormattedTextField.caretForeground",
           "Git.Log.Ref.LocalBranch",
@@ -186,6 +178,7 @@ public enum AccentResources {
           "ToggleButton.onForeground",
           "TextPane.caretForeground",
           "Tree.modifiedItemForeground",
+          "TabbedPane.underlineColor",
           "VersionControl.GitLog.localBranchIconColor",
           "VersionControl.HgLog.branchIconColor"
       ));
@@ -209,6 +202,17 @@ public enum AccentResources {
           "ScrollBar.Mac.Transparent.thumbBorderColor"
       )
   );
+
+  @NonNls
+  public static final Set<String> ACCENT_TRANSPARENT_RESOURCES = Collections.unmodifiableSet(
+      Sets.newHashSet(
+          "ActionButton.hoverBackground",
+          "ActionButton.hoverBorderColor",
+          "Focus.borderColor", // deprecated
+          "Focus.color", // deprecated
+          "Focus.Color" // deprecated
+      ));
+
 
   @NonNls
   public static final Set<String> SCROLLBAR_HOVER_RESOURCES = Collections.unmodifiableSet(

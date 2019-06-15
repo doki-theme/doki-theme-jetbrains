@@ -147,6 +147,10 @@ public final class MTTabbedPaneUI extends DarculaTabbedPaneUI {
 
   @Override
   protected int calculateTabHeight(final int tabPlacement, final int tabIndex, final int fontHeight) {
+    final int actualTabHeight = super.calculateTabHeight(tabPlacement, tabIndex, fontHeight);
+    if (actualTabHeight == 31) {
+      return actualTabHeight;
+    }
     return JBUI.scale(config.getTabsHeight() + 6);
   }
 }

@@ -174,23 +174,6 @@ public final class MTTreeUI extends WideSelectionTreeUI {
     }
   }
 
-  @Override
-  protected void paintSelectedRows(final Graphics g, final JTree tr) {
-    final Rectangle rect = tr.getVisibleRect();
-    final int firstVisibleRow = tr.getClosestRowForLocation(rect.x, rect.y);
-    final int lastVisibleRow = tr.getClosestRowForLocation(rect.x, rect.y + rect.height);
-
-    for (int row = firstVisibleRow; row <= lastVisibleRow; row++) {
-      if (tr.getSelectionModel().isRowSelected(row)) {
-        final Rectangle bounds = tr.getRowBounds(row);
-        final Color color = getSelectionBackgroundColor(tr, false);
-        if (color != null) {
-          g.setColor(color);
-          g.fillRect(0, bounds.y, tr.getWidth(), bounds.height);
-        }
-      }
-    }
-  }
 
   @Override
   protected void paintExpandControl(final Graphics g,

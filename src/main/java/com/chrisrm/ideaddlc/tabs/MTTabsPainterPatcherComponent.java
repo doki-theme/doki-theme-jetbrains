@@ -97,6 +97,7 @@ public final class MTTabsPainterPatcherComponent implements BaseComponent {
         ddlcActive = false;
         Optional.ofNullable(this.fileEditor)
             .ifPresent(fileEditor1 -> {
+//              todo: revisit this
 //              initializeTabs(fileEditor1, a ->
 //                  replacePainters(new JBDefaultTabPainter(a), new JBDefaultTabPainter(a), a));
               initalized = false;

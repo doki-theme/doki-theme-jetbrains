@@ -58,9 +58,6 @@ public class MTStatusBarUI extends StatusBarUI {
 
   @Override
   public Dimension getPreferredSize(final JComponent c) {
-    if (super.getPreferredSize(c) == null && !SystemInfo.isWindows) {
-      return null;
-    }
     final boolean compactStatusBar = MTConfig.getInstance().isCompactStatusBar();
 
     final int padding = compactStatusBar ? COMPACT_PADDING : DEFAULT_PADDING;
