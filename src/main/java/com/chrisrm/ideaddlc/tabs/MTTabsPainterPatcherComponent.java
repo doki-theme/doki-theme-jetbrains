@@ -28,23 +28,20 @@ package com.chrisrm.ideaddlc.tabs;
 
 import com.chrisrm.ideaddlc.MTConfig;
 import com.chrisrm.ideaddlc.MTThemeManager;
-import com.chrisrm.ideaddlc.tabs.shadowPainters.*;
-import com.chrisrm.ideaddlc.utils.MTAccents;
 import com.intellij.openapi.application.ex.ApplicationManagerEx;
 import com.intellij.openapi.components.BaseComponent;
 import com.intellij.openapi.fileEditor.FileEditor;
 import com.intellij.openapi.fileEditor.FileEditorManagerEvent;
 import com.intellij.openapi.fileEditor.FileEditorManagerListener;
-import com.intellij.ui.ColorUtil;
-import com.intellij.ui.tabs.JBTabsPosition;
+import com.intellij.ui.tabs.JBTabPainter;
 import com.intellij.ui.tabs.TabInfo;
-import com.intellij.ui.tabs.impl.*;
+import com.intellij.ui.tabs.newImpl.JBDefaultTabPainter;
+import com.intellij.ui.tabs.newImpl.JBEditorTabs;
+import com.intellij.ui.tabs.newImpl.TabLabel;
 import com.intellij.util.Consumer;
-import com.intellij.util.ObjectUtils;
 import com.intellij.util.ReflectionUtil;
 import com.intellij.util.messages.MessageBus;
 import com.intellij.util.messages.MessageBusConnection;
-import com.intellij.util.ui.UIUtil;
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;
 import net.sf.cglib.proxy.MethodProxy;
@@ -52,7 +49,7 @@ import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
-import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Map;
 import java.util.Optional;
@@ -68,48 +65,12 @@ import java.util.Optional;
 @SuppressWarnings("WeakerAccess")
 public final class MTTabsPainterPatcherComponent implements BaseComponent {
 
-  private final MTConfig config;
-  private final Field pathField;
-  private final Field fillPathField;
-  private final Field labelPathField;
+  private final MTConfig config = MTConfig.getInstance();
   private boolean ddlcActive = false;
   private boolean initalized = false;
   private FileEditor fileEditor = null;
 
-  public MTTabsPainterPatcherComponent() throws ClassNotFoundException, NoSuchFieldException {
-    config = MTConfig.getInstance();
-
-    // Get the shapeinfo class because it is protected
-    final Class<?> clazz = Class.forName("com.intellij.ui.tabs.impl.JBTabsImpl$ShapeInfo");
-    // Retrieve private fields of ShapeInfo class
-    pathField = clazz.getField("path");
-    fillPathField = clazz.getField("fillPath");
-    labelPathField = clazz.getField("labelPath");
-  }
-
-  private static void drawTabShadow(final Graphics2D g2d,
-                                    final Rectangle rect,
-                                    final ShapeTransform path,
-                                    final ShapeTransform labelPath,
-                                    final JBTabsPosition position) {
-    final ShadowPainter shadowPainter = getShadowPainter(position);
-    shadowPainter.drawShadow(g2d, path, labelPath, rect);
-  }
-
-  @SuppressWarnings("MethodWithMultipleReturnPoints")
-  public static ShadowPainter getShadowPainter(final JBTabsPosition position) {
-    switch (position) {
-      case top:
-        return new BottomShadowPainter();
-      case bottom:
-        return new TopShadowPainter();
-      case left:
-        return new RightShadowPainter();
-      case right:
-        return new LeftShadowPainter();
-      default:
-        return new NoneShadowPainter();
-    }
+  public MTTabsPainterPatcherComponent() {
   }
 
   @Override
@@ -138,7 +99,7 @@ public final class MTTabsPainterPatcherComponent implements BaseComponent {
         Optional.ofNullable(this.fileEditor)
             .ifPresent(fileEditor1 -> {
               initializeTabs(fileEditor1, a ->
-                  replacePainters(new DefaultEditorTabsPainter(a), new DefaultEditorTabsPainter(a), a));
+                  replacePainters(new JBDefaultTabPainter(), new JBDefaultTabPainter(), a));
               initalized = false;
             });
       }
@@ -173,19 +134,17 @@ public final class MTTabsPainterPatcherComponent implements BaseComponent {
    * Patch tabsPainter
    */
   void patchPainter(final JBEditorTabs component) {
-    final Color accentColor = ObjectUtils.notNull(ColorUtil.fromHex(config.getAccentColor()), MTAccents.BREAKING_BAD.getColor());
-    final MTTabsPainter tabsPainter = new MTTabsPainter(component);
-    final JBEditorTabsPainter proxy = (JBEditorTabsPainter) Enhancer.create(MTTabsPainter.class, new TabPainterInterceptor(tabsPainter,
-        accentColor));
+    final MTTabsPainter tabsPainter = new MTTabsPainter();
+    final JBTabPainter proxy = (JBTabPainter) Enhancer.create(MTTabsPainter.class, new TabPainterInterceptor(tabsPainter));
 
     applyCustomFontSize(component);
-    ReflectionUtil.setField(JBEditorTabs.class, component, JBEditorTabsPainter.class, "myDefaultPainter", proxy);
+    ReflectionUtil.setField(JBEditorTabs.class, component, JBTabPainter.class, "myTabPainter", proxy);
     replacePainters(proxy,proxy, component);
   }
 
-  private void replacePainters(JBEditorTabsPainter defaultPainter, JBEditorTabsPainter darkPainter, JBEditorTabs component) {
-    ReflectionUtil.setField(JBEditorTabs.class, component, JBEditorTabsPainter.class, "myDefaultPainter", defaultPainter);
-    ReflectionUtil.setField(JBEditorTabs.class, component, JBEditorTabsPainter.class, "myDarkPainter", darkPainter);
+  private void replacePainters(JBTabPainter defaultPainter, JBTabPainter darkPainter, JBEditorTabs component) {
+    ReflectionUtil.setField(JBEditorTabs.class, component, JBTabPainter.class, "myTabPainter", defaultPainter);
+    ReflectionUtil.setField(JBEditorTabs.class, component, JBTabPainter.class, "myDarkPainter", darkPainter);
   }
 
   private void applyCustomFontSize(final JBEditorTabs component) {
@@ -200,79 +159,15 @@ public final class MTTabsPainterPatcherComponent implements BaseComponent {
     }
   }
 
-  /**
-   * Paint tab selected and highlight border
-   *
-   * @param objects
-   * @param borderColor
-   * @param borderThickness
-   * @param tabsPainter
-   */
-  private void paintSelectionAndBorder(final Object[] objects,
-                                       final Color borderColor,
-                                       final int borderThickness,
-                                       final MTTabsPainter tabsPainter)
-      throws IllegalAccessException {
-
-    // Retrieve arguments
-    final Graphics2D g2d = (Graphics2D) objects[0];
-    final Rectangle rect = (Rectangle) objects[1];
-    final Object selectedShape = objects[2];
-    final Color tabColor = (Color) objects[4];
-
-    final ShapeTransform path = (ShapeTransform) pathField.get(selectedShape);
-    final ShapeTransform fillPath = (ShapeTransform) fillPathField.get(selectedShape);
-    final ShapeTransform labelPath = (ShapeTransform) labelPathField.get(selectedShape);
-
-    // The tabs component
-    final JBEditorTabs tabsComponent = tabsPainter.getTabsComponent();
-
-    // Position of tabs
-    final JBTabsPosition position = tabsComponent.getTabsPosition();
-
-    // color me
-    tabsPainter.fillSelectionAndBorder(g2d, fillPath, tabColor);
-
-    // shadow
-    if (MTConfig.getInstance().isTabsShadow()) {
-      drawTabShadow(g2d, rect, path, labelPath, position);
-    }
-
-    g2d.setColor(UIUtil.getTabbedPaneBackground());
-    g2d.fillRect(rect.x, rect.y - 1, rect.width, borderThickness);
-
-    // Finally paint the active tab highlighter
-    g2d.setColor(borderColor);
-    MTTabsHighlightPainter.paintHighlight(borderThickness, g2d, rect);
-  }
-
   private class TabPainterInterceptor implements MethodInterceptor {
     private final MTTabsPainter tabsPainter;
-    private final Color accentColor;
 
-    TabPainterInterceptor(final MTTabsPainter tabsPainter, final Color accentColor) {
+    TabPainterInterceptor(MTTabsPainter tabsPainter) {
       this.tabsPainter = tabsPainter;
-      this.accentColor = accentColor;
     }
 
-    @SuppressWarnings({"HardCodedStringLiteral",
-        "CallToSuspiciousStringMethod",
-        "SyntheticAccessorCall",
-        "FeatureEnvy"})
-    @Override
-    public final Object intercept(final Object o, final Method method, final Object[] objects, final MethodProxy methodProxy)
-        throws IllegalAccessException, java.lang.reflect.InvocationTargetException {
-      final Object result = method.invoke(tabsPainter, objects);
-      // Custom props
-      final boolean isColorEnabled = config.isHighlightColorEnabled();
-      final Color borderColor = isColorEnabled ? config.getHighlightColor() : accentColor;
-      final int borderThickness = config.getHighlightThickness();
-
-      if ("paintSelectionAndBorder".equals(method.getName())) {
-        paintSelectionAndBorder(objects, borderColor, borderThickness, tabsPainter);
-      }
-
-      return result;
+    public final Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws IllegalAccessException, InvocationTargetException {
+      return method.invoke(this.tabsPainter, objects);
     }
   }
 }

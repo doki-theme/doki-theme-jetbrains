@@ -26,6 +26,7 @@
 
 package com.chrisrm.ideaddlc;
 
+import com.chrisrm.ideaddlc.lafs.MTLafInstaller;
 import com.chrisrm.ideaddlc.listeners.ConfigNotifier;
 import com.chrisrm.ideaddlc.config.ui.MTForm;
 import com.chrisrm.ideaddlc.messages.MaterialThemeBundle;
@@ -103,6 +104,13 @@ public final class MTLafComponent implements BaseComponent {
         onBeforeSettingsChanged(mtConfig, form);
       }
     });
+    LafManager.getInstance().addLafManagerListener(this::lookAndFeelChanged);
+
+    patchTree();
+  }
+
+  private void patchTree() {
+    MTLafInstaller.replaceTree(UIManager.getLookAndFeelDefaults());
   }
 
   /**

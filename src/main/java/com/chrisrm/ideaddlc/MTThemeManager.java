@@ -474,13 +474,13 @@ public final class MTThemeManager {
       UIManager.put(resource, accentColorColor);
     }
 
+    final Color transparentAccentColor = ColorUtil.toAlpha(accentColorColor, 70);
+    for (final String resource : AccentResources.ACCENT_TRANSPARENT_RESOURCES) {
+      UIManager.put(resource, transparentAccentColor);
+    }
+
     // Scrollbars management
     applyScrollbars(ColorUtil.fromHex(accentColor));
-
-    // override for transparency
-    UIManager.put("Focus.color", ColorUtil.toAlpha(accentColorColor, 70));
-    UIManager.put(MTUI.ActionButton.ACTION_BUTTON_HOVER_BACKGROUND, ColorUtil.toAlpha(accentColorColor, 70));
-    UIManager.put(MTUI.ActionButton.ACTION_BUTTON_HOVER_BORDER_COLOR, ColorUtil.toAlpha(accentColorColor, 70));
 
     patchStyledEditorKit();
 

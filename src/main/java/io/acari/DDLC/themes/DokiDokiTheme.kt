@@ -92,6 +92,7 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
             buildResources(getSecondaryForegroundResources(), getSecondaryForegroundColorString())
             buildResources(getDisabledResources(), disabledColorString)
             buildResources(getContrastResources(), contrastColorString)
+            buildResources(getCompletionBackgroundResources(), completionPopupBackgroundColor)
             buildResources(getTableSelectedResources(), tableSelectedColorString)
             buildResources(getSecondBorderResources(), secondBorderColorString)
             buildResources(getHighlightResources(), highlightColorString)
@@ -106,6 +107,7 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
             buildNotificationsColors()
             buildFlameChartColors()
             buildTransparentColors()
+            buildTreeSelectionInactiveColors()
 
             // Apply theme accent color if said so
             val instance = MTConfig.getInstance()
@@ -236,9 +238,11 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
         return Stream.of(
                 "Focus.color",
                 "TextField.separatorColor",
+                "CompletionPopup.selectionInactiveBackground",
                 "SearchEverywhere.Tab.active.background",
                 "SearchEverywhere.Tab.selected.background",
                 "CheckBox.darcula.inactiveFillColor",
+                "VersionControl.Log.Commit.currentBranchBackground",
                 "ActionButton.pressedBackground",
                 "ActionButton.pressedBorderColor",
                 "Autocomplete.selectionUnfocus",
@@ -264,7 +268,6 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
                 "TabbedPane.hoverColor",
                 "TabbedPane.selectHighlight",
                 "TabbedPane.selectedColor",
-                "TabbedPane.underlineColor",
                 "TableHeader.borderColor",
                 "TextField.separatorColor",
                 "VersionControl.Ref.backgroundBase"
@@ -274,6 +277,7 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
     open fun getSecondBorderResources(): Stream<String> {
         return Stream.of(
                 "TabbedPane.highlight",
+                "Tree.hash",
                 "TabbedPane.selected",
                 "SearchEverywhere.List.Separator.Color",
                 "SearchEverywhere.List.separatorColor",
@@ -301,6 +305,7 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
         return Stream.of(
                 "ProgressBar.halfColor",
                 "MemoryIndicator.unusedColor",
+                "DefaultTabs.hoverBackground",
                 "Button.darcula.defaultFocusedBorderColor",
                 "Button.darcula.focusedBorderColor",
                 "Button.darcula.selection.color1",
@@ -324,6 +329,9 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
                 "ToolWindow.Button.hoverBackground"
         ).distinct()
     }
+
+    open fun getCompletionBackgroundResources(): Stream<String> =
+        Stream.of("CompletionPopup.background").distinct()
 
     open fun getBorderResources(): Stream<String> =
         Stream.of("EditorTabs.borderColor",
@@ -377,6 +385,7 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
                 "material.contrast",
                 "ActionToolbar.background",
                 "Toolbar.background",
+                "NewClass.SearchField.background",
                 "material.tab.backgroundColor",
                 "TabbedPane.mt.tab.background",
                 "TabbedPane.background",
@@ -430,6 +439,8 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
                 "Menu.selectionForeground",
                 "Menu.acceleratorSelectionForeground",
                 "MenuItem.selectionForeground",
+                "CompletionPopup.selectionInfoForeground",
+                "CompletionPopup.selectionForeground",
                 "MenuItem.acceleratorSelectionForeground",
                 "Table.selectionForeground",
                 "TextField.selectionForeground",
@@ -448,6 +459,7 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
                 "List.selectionBackground",
                 "Table.selectionBackground",
                 "Table.selectionBackground",
+                "CompletionPopup.selectionBackground",
                 "PasswordField.selectionBackground",
                 "Button.mt.selectedBackground",
                 "TextArea.selectionBackground",
@@ -469,6 +481,8 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
                 "TextField.inactiveForeground",
                 "material.tagColor",
                 "material.primaryColor",
+                "CompletionPopup.selectionInactiveInfoForeground",
+              "CompletionPopup.infoForeground",
                 "SearchEverywhere.shortcutForeground",
                 "Tree.foreground")
     }
@@ -483,6 +497,15 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
                 "control",
                 "PopupMenu.translucentBackground",
                 "EditorPane.inactiveBackground",
+                "EditorTabs.inactiveMaskColor",
+                "Editor.background",
+                "EditorPane.inactiveBackground",
+                "EditorTabs.background",
+                "EditorTabs.inactiveColoredFileBackground",
+                "DefaultTabs.background",
+                "DefaultTabs.borderColor", //deprecated?
+                "EditorTabs.inactiveColoredFileBackground",
+                "EditorTabs.inactive.maskColor",
                 "EditorTabs.inactiveMaskColor",
                 "Table.background",
                 "MenuBar.disabledBackground",
@@ -506,6 +529,7 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
                 "CheckBox.darcula.focused.backgroundColor2",
                 "ComboBox.background",
                 "ComboBox.disabledBackground",
+                "TableHeader.background",
                 "RadioButton.darcula.selectionDisabledColor",
                 "StatusBar.topColor",
                 "StatusBar.top2Color",
@@ -514,6 +538,8 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
                 "Spinner.background",
                 "SplitPane.highlight",
                 "SearchEverywhere.background",
+                "ScrollBar.background",
+                "NewClass.Panel.background",
                 "SidePanel.background",
                 "DialogWrapper.southPanelDivider",
                 "OnePixelDivider.background",
@@ -572,9 +598,11 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
     open fun getForegroundResources(): Stream<String> {
         return Stream.of(
                 "monika.foreground",
+                "TabbedPane.foreground",
                 "monika.textForeground",
                 "monika.selectionForegroundInactive",
                 "monika.selectionInactiveForeground",
+                "CompletionPopup.foreground",
                 "Label.foreground",
                 "EditorPane.inactiveForeground",
                 "SearchEverywhere.List.Separator.foreground",
@@ -780,6 +808,21 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
         UIManager.put("FlameGraph.nativeFocusBackground", MTUI.MTColor.ORANGE)
         UIManager.put("FlameGraph.nativeSearchNotMatchedBackground", MTUI.MTColor.PURPLE)
         UIManager.put("FlameGraph.nativeFocusSearchNotMatchedBackground", MTUI.MTColor.PINK)
+    }
+
+    private fun buildTreeSelectionInactiveColors() {
+        val colors = Collections.unmodifiableSet(
+            Sets.newHashSet(
+                "Tree.selectionInactiveBackground",
+                "CompletionPopup.nonFocusedState",
+                "List.selectionInactiveBackground",
+                "Table.selectionInactiveBackground"
+            ))
+
+        val transparentBackground = MTUI.Tree.getSelectionInactiveBackground()
+        for (color in colors) {
+            UIManager.put(color, transparentBackground)
+        }
     }
 
     private fun buildTransparentColors() {

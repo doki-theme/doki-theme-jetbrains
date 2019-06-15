@@ -6,6 +6,8 @@ import javax.swing.plaf.ColorUIResource
 
 class YuriTheme : DokiDokiTheme("yuri", "Yuri", false, "Yuri") {
 
+    override fun getCompletionPopupBackgroundColor(): String = backgroundColorString
+
     override fun getBackgroundColorString(): String = "efe4ff"
 
     override fun getClubMember(): String = "yuri.png"

@@ -60,6 +60,10 @@ public final class MTUI {
     public static Color getSelectionBackground() {
       return ColorUtil.withAlpha(UIManager.getColor(TREE_SELECTION_BACKGROUND), 0.25);
     }
+    public static Color getSelectionInactiveBackground() {
+      final Color color = JBColor.namedColor(TREE_SELECTION_BACKGROUND, new JBColor(0x27384C, 0x0D293E));
+      return ColorUtil.withAlpha(color, 0.25);
+    }
   }
 
   public enum ActionButton {
@@ -201,26 +205,51 @@ public final class MTUI {
     public static final String IDE_STATUS_BAR_BORDER = "IdeStatusBar.border";
   }
 
-  public enum TabbedPane {
+  public static enum TabbedPane {
     TABUU;
 
     @NonNls
-    public static final String TABBED_PANE_SELECTED_FOREGROUND = "TabbedPane.selectedForeground";
+    private static final String TABBED_PANE_SELECTED_FOREGROUND = "TabbedPane.selectedForeground";
     @NonNls
-    public static final String TABBED_PANE_FOREGROUND = "TabbedPane.foreground";
+    private static final String TABBED_PANE_FOREGROUND = "TabbedPane.foreground";
     @NonNls
-    public static final String TABBED_PANE_SELECTED = "TabbedPane.selectedСolor";
+    private static final String TABBED_PANE_SELECTED = "TabbedPane.selectedСolor";
+    @NonNls
+    private static final String HOVERED_TAB_BACKGROUND = "DefaultTabs.hoverBackground";
+    @NonNls
+    private static final String TAB_BACKGROUND = "DefaultTabs.background";
+    @NonNls
+    private static final String INACTIVE_TAB_BACKGROUND = "EditorTabs.inactiveColoredFileBackground";
+    @NonNls
+    private static final String INACTIVE_TAB_CONTRAST_BACKGROUND = "DefaultTabs.inactiveMaskColor";
+
+    private TabbedPane() {
+    }
 
     public static Color getForeground() {
-      return UIManager.getColor(TABBED_PANE_FOREGROUND);
+      return JBColor.namedColor("TabbedPane.foreground", new JBColor(0, 12303291));
     }
 
     public static Color getSelectedForeground() {
-      return UIManager.getColor(TABBED_PANE_SELECTED_FOREGROUND);
+      return JBColor.namedColor("TabbedPane.selectedForeground", new JBColor(16777215, 16777215));
     }
 
     public static Color getHighlightColor() {
-      return UIManager.getColor(TABBED_PANE_SELECTED);
+      return JBColor.namedColor("TabbedPane.selectedСolor", new JBColor(14345453, 4016988));
+    }
+
+    public static Color getHoveredBackground() {
+      return JBColor.namedColor("DefaultTabs.hoverBackground", new JBColor(14345453, 4016988));
+    }
+
+    public static Color getBackground() {
+      return JBColor.namedColor("DefaultTabs.background", new JBColor(14345453, 4016988));
+    }
+
+    public static Color getInactiveBackground(boolean isContrast) {
+      JBColor inactiveTabBG = JBColor.namedColor("EditorTabs.inactiveColoredFileBackground", new JBColor(14345453, 4016988));
+      JBColor inactiveContrastBG = JBColor.namedColor("DefaultTabs.inactiveMaskColor", new JBColor(14345453, 4016988));
+      return isContrast ? inactiveContrastBG : inactiveTabBG;
     }
   }
 

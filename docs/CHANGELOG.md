@@ -1,6 +1,15 @@
 # Changelog
 ----
 
+# 3.4.0
+
+- Added 2019.2 Build support!
+- Up to date with Material UI 3.10.0.
+- Material UI Icons override Doki Icons for the time being
+    - If you want the Doki icons just use the "Toggle Material Icons" action in the Material UI configuration.
+    - This issue will be addressed in  a later release.
+
+
 # 3.3.0
 
 - Added more Kotlin icon associations.

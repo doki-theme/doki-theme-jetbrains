@@ -141,6 +141,8 @@ public interface MTThemeable {
    */
   String getSecondaryBackgroundColorString();
 
+  String getCompletionPopupBackgroundColor();
+
   /**
    * Get the hex code for the disabled color
    */

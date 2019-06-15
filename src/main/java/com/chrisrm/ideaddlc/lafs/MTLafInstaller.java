@@ -155,6 +155,7 @@ public class MTLafInstaller {
     defaults.put("MenuBar.border", new DarculaMenuBarBorder());
 
     defaults.put("TextArea.caretBlinkRate", 500);
+    defaults.put("Tree.paintLines", false);
     defaults.put("Table.cellNoFocusBorder", JBUI.insets(4, 4, 4, 4));
     defaults.put("CheckBoxMenuItem.borderPainted", false);
     defaults.put("RadioButtonMenuItem.borderPainted", false);
@@ -200,6 +201,9 @@ public class MTLafInstaller {
     defaults.put("TabbedPane.tabSelectionHeight", 2);
     defaults.put("TabbedPane.tabFillStyle", "underline");
     defaults.put("TabbedPane.fontSizeOffset", 0);
+
+    defaults.put("TableHeader.height", 25);
+    defaults.put("NewClass.separatorWidth", 10);
   }
 
   private static void replaceDefaultButtons(final UIDefaults defaults) {
@@ -268,7 +272,7 @@ public class MTLafInstaller {
    *
    * @param defaults of type UIDefaults
    */
-  private static void replaceTree(final UIDefaults defaults) {
+  public static void replaceTree(final UIDefaults defaults) {
     defaults.put("TreeUI", MTTreeUI.class.getName());
     defaults.put(MTTreeUI.class.getName(), MTTreeUI.class);
   }
@@ -462,6 +466,7 @@ public class MTLafInstaller {
    */
   private static void modifyRegistry() {
     Registry.get("ide.balloon.shadow.size").setValue(0);
+    Registry.get("ide.tree.ui.experimental").setValue(false);
   }
 
   /**

@@ -28,6 +28,7 @@ package com.chrisrm.ideaddlc;
 
 import com.intellij.ide.plugins.PluginManagerConfigurable;
 import com.intellij.openapi.components.BaseComponent;
+import com.intellij.openapi.fileEditor.impl.EditorFileSwapper;
 import com.intellij.openapi.util.SystemInfoRt;
 import com.intellij.openapi.wm.impl.ToolWindowImpl;
 import com.intellij.openapi.wm.impl.welcomeScreen.FlatWelcomeFrameProvider;
@@ -50,6 +51,7 @@ import org.jetbrains.annotations.NonNls;
 public final class MTHackComponent implements BaseComponent {
 
   static {
+    hackTabsAgain();
     hackTitleLabel();
     hackSpeedSearch();
     hackSearchTextField();
@@ -57,6 +59,28 @@ public final class MTHackComponent implements BaseComponent {
     hackIntelliJFailures();
     hackNewScreenHardcodedColor();
     hackScrollbars();
+  }
+
+  private static void hackTabsAgain() {
+    try {
+      ClassPool cp = new ClassPool(true);
+      cp.insertClassPath(new ClassClassPath(EditorFileSwapper.class));
+      CtClass ctClass2 = cp.get("com.intellij.openapi.fileEditor.impl.EditorTabbedContainer$EditorTabs");
+      CtConstructor declaredConstructor = ctClass2.getDeclaredConstructors()[0];
+      declaredConstructor.instrument(new ExprEditor() {
+        public void edit(MethodCall m) throws CannotCompileException {
+          String s = m.getMethodName();
+          if ("setUiDecorator".equals(s)) {
+            m.replace(String.format("{ $1 = null; $_ = $proceed($$); }"));
+          }
+
+        }
+      });
+      ctClass2.toClass();
+    } catch (Throwable var3) {
+      var3.printStackTrace();
+    }
+
   }
 
   /**
@@ -200,7 +224,7 @@ public final class MTHackComponent implements BaseComponent {
 
       ctClass2.toClass();
     } catch (final Throwable e) {
-      e.printStackTrace();
+      System.err.println("Unable to hack plugin component: " + e.getLocalizedMessage());
     }
   }
 

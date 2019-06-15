@@ -2,7 +2,6 @@ package io.acari.DDLC.integrations
 
 import com.chrisrm.ideaddlc.themes.models.MTThemeable
 import com.google.gson.Gson
-import com.intellij.compiler.server.CustomBuilderMessageHandler
 import com.intellij.ui.ColorUtil
 import com.intellij.util.messages.MessageBus
 import io.acari.DDLC.DDLCThemeFacade
@@ -13,26 +12,21 @@ import java.awt.Color
 
 const val OVERRIDE_CLASS: String = "com.intellij.compiler.server.CustomBuilderMessageHandler"
 
+//todo: revisit
 object NormandyThemeIntegration {
   private val gson = Gson()
 
   val isEnabled: Boolean = LegacySupportUtility.orGetLegacy(OVERRIDE_CLASS, {true}, {false})
 
   fun themeChanged(messageBus: MessageBus, newTheme: DDLCThemeFacade) {
-    if(isEnabled){
-      messageBus.syncPublisher(CustomBuilderMessageHandler.TOPIC)
-          .messageReceived("io.acari.DDLCTheme",
-              "Theme Changed",
-              gson.toJson(createThemeDeltas(newTheme.theme)))
+    if(isEnabled) {
+
     }
   }
 
   fun accentChanged(messageBus: MessageBus, accentColor: Color) {
-    if(isEnabled){
-      messageBus.syncPublisher(CustomBuilderMessageHandler.TOPIC)
-          .messageReceived("io.acari.DDLCTheme",
-              "Accent Changed",
-              gson.toJson(createAccentDeltas(accentColor)))
+    if(isEnabled) {
+
     }
   }
 
