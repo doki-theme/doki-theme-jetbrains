@@ -1,6 +1,11 @@
 # Changelog
 ----
 
+# 3.4.1
+
+- Addressed non-fatal exceptions in the 2019.2 builds.
+    - Yay! No more annoying exceptions.
+
 # 3.4.0
 
 - Added 2019.2 Build support!
