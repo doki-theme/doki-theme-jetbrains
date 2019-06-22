@@ -31,10 +31,8 @@ import com.chrisrm.ideaddlc.MTThemeManager
 import com.intellij.openapi.components.ProjectComponent
 import com.intellij.openapi.project.Project
 
-class DDLCStatusBarComponent(private val project: Project) : ProjectComponent {
-  private val statusBarWidget: DDLCStatusBarManager by lazy {
-    DDLCStatusBarManager.create(project)
-  }
+class DDLCStatusBarComponent(project: Project) : ProjectComponent {
+  private val statusBarWidget: DDLCStatusBarManager = DDLCStatusBarManager.create(project)
   private var initialized = false
 
   init {

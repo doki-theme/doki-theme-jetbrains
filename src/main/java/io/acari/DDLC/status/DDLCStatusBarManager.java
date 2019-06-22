@@ -64,7 +64,6 @@ public final class DDLCStatusBarManager implements Disposable, DumbAware {
   private void refreshWidget(final MTConfig mtConfig) {
     if (mtConfig.isStatusBarThemeChanged(statusEnabled)) {
       statusEnabled = mtConfig.isStatusBarTheme();
-
       if (statusEnabled) {
         install();
       } else {
