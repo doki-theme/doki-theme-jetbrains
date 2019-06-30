@@ -1,82 +1,64 @@
 package io.acari.DDLC
 
 import com.chrisrm.ideaddlc.themes.models.MTThemeable
+import com.intellij.ui.ColorUtil
+import io.acari.DDLC.themes.DokiDokiTheme
 import javax.swing.Icon
 
-enum class AnthroThemes : DDLCThemeFacade {
-  NEERA,
-  SANYA,
-  SYRENA,
-  FEN,
-  ELENIEL,
-  CLEO,
-  WYLA,
-  ZAHRA,
+//NEERA,
+//SANYA,
+//SYRENA,
+//FEN,
+//ELENIEL,
+//CLEO,
+//WYLA,
+//ZAHRA,
 
-  ;
 
-  override fun getThemeColorScheme(): String {
-    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-  }
+abstract class AthroTheme(private val dokiDokiTheme: DokiDokiTheme): DDLCThemeFacade {
 
-  override fun getTheme(): MTThemeable {
-    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-  }
+  override fun getTheme(): MTThemeable =
+      dokiDokiTheme
 
-  override fun isDark(): Boolean {
-    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-  }
+  override fun isDark(): Boolean =
+      theme.isDark
 
-  override fun getName(): String {
-    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-  }
+  override fun getName(): String = theme.name
 
-  override fun getThemeName(): String? {
-    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-  }
+  override fun getThemeName(): String = theme.name
 
-  override fun getThemeId(): String {
-    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-  }
+  override fun getThemeId(): String =
+      theme.id
 
-  override fun getIcon(): Icon {
-    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-  }
+  override fun getIcon(): Icon =
+      theme.icon
 
-  override fun getAccentColor(): String {
-    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-  }
+  override fun getAccentColor(): String =
+      theme.accentColor
 
-  override fun getStartColor(): String {
-    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-  }
+  override fun getStartColor(): String =
+      theme.startColor
 
-  override fun getStopColor(): String {
-    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-  }
+  override fun getStopColor(): String =
+      theme.stopColor
 
-  override fun getExcludedColor(): String {
-    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-  }
+  override fun getExcludedColor(): String =
+      ColorUtil.toHex(theme.excludedColor)
 
-  override fun getOrder(): Int {
-    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-  }
+  override fun getOrder(): Int =
+      9001
 
-  override fun getNonProjectFileScopeColor(): String {
-    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-  }
+  override fun getNonProjectFileScopeColor(): String =
+      theme.nonProjectFileScopeColor
 
-  override fun getTestScope(): String {
-    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-  }
+  override fun getTestScope(): String =
+      theme.testScope
 
-  override fun isPremium(): Boolean {
-    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-  }
+  override fun isPremium(): Boolean = false
 
-  override fun isCustom(): Boolean {
-    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-  }
+  override fun isCustom(): Boolean = false
+
+  override fun getThemeColorScheme(): String =
+      theme.editorColorsScheme
 
 }

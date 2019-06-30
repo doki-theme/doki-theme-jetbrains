@@ -181,17 +181,6 @@ public enum DDLCThemes implements DDLCThemeFacade {
     return BETTER_THEME_MAP.getOrDefault(themeID, MONIKA);
   }
 
-  /**
-   * Add a new theme to the enum
-   *
-   * @param themesInterface
-   */
-  public static DDLCThemeFacade addTheme(final DDLCThemeFacade themesInterface) {
-    if (!THEMES_MAP.containsKey(themesInterface.getThemeId())) {
-      THEMES_MAP.put(themesInterface.getThemeId(), themesInterface);
-    }
-    return themesInterface;
-  }
 
   /**
    * Get the list of all themes (native + bundled)
