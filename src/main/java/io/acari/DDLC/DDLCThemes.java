@@ -143,11 +143,6 @@ public enum DDLCThemes implements DDLCThemeFacade {
   }
 
   @Override
-  public String getExcludedColor() {
-    return ColorUtil.toHex(getTheme().getExcludedColor());
-  }
-
-  @Override
   public int getOrder() {
     return getTheme().getOrder();
   }

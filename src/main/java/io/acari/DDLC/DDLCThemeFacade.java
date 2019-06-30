@@ -102,13 +102,6 @@ public interface DDLCThemeFacade {
   String getStopColor();
 
   /**
-   * The extenral files color
-   *
-   * @return
-   */
-  String getExcludedColor();
-
-  /**
    * Order in the list
    *
    * @return

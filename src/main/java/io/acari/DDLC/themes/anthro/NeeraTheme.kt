@@ -1,10 +1,14 @@
 package io.acari.DDLC.themes.anthro
 
 import com.chrisrm.ideaddlc.utils.MTAccents
-import io.acari.DDLC.themes.DokiDokiTheme
+import io.acari.DDLC.themes.AnthroTheme
 import javax.swing.plaf.ColorUIResource
 
-class NeeraTheme : DokiDokiTheme("neera", "Neera", false, "Neera") {
+class NeeraTheme : AnthroTheme("neera", "Neera", false, "Neera") {
+
+  override fun getChibi(): String = "sayori.png"
+
+  override fun getNormalChibi(): String = "sayori.png"
 
   override fun getBackgroundColorString(): String = "D7FEFC"
 
