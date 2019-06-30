@@ -130,4 +130,8 @@ public interface DDLCThemeFacade {
    * Is the theme custom
    */
   boolean isCustom();
+
+  String getChibi();
+
+  String getNormalChibi();
 }

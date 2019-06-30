@@ -7,7 +7,9 @@ import com.intellij.openapi.wm.impl.IdeBackgroundUtil.EDITOR_PROP
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil.FRAME_PROP
 import com.intellij.util.io.isFile
 import io.acari.DDLC.DDLCConfig
+import io.acari.DDLC.DDLCThemeFacade
 import io.acari.DDLC.DDLCThemes
+import io.acari.DDLC.themes.DokiDokiTheme
 import org.apache.commons.io.IOUtils
 import java.io.BufferedInputStream
 import java.io.IOException
@@ -31,7 +33,7 @@ object ChibiOrchestrator {
     private const val RESOURCES_DIRECTORY = "https://raw.githubusercontent.com/cyclic-reference/ddlc-jetbrains-theme/master/src/main/resources"
 
     private var chibiLevel = ChibiLevel.ON
-    private var currentTheme =  lazy { getSavedTheme() }
+    private var currentTheme: Lazy<DDLCThemeFacade> =  lazy { getSavedTheme() }
 
     init {
         checkLegacyChibiToggle()
@@ -66,10 +68,10 @@ object ChibiOrchestrator {
         }
     }
 
-    private fun getSavedTheme(): DDLCThemes =
-            DDLCConfig.getInstance().getSelectedTheme() as DDLCThemes
+    private fun getSavedTheme(): DDLCThemeFacade =
+            DDLCConfig.getInstance().getSelectedTheme()
 
-    fun currentActiveTheme(): Lazy<DDLCThemes> = currentTheme
+    fun currentActiveTheme(): Lazy<DDLCThemeFacade> = currentTheme
 
     fun setChibiLevel(chibiLevel: ChibiLevel) {
         ChibiOrchestrator.chibiLevel = chibiLevel
@@ -196,11 +198,11 @@ object ChibiOrchestrator {
 
 
     private fun getLiteratureClubMember() =
-            getTheme().literatureClubMember
+            getTheme().chibi
 
-    fun getNormalClubMember(): String = getTheme().normalClubMember!!
+    fun getNormalClubMember(): String = getTheme().normalChibi
 
-    private fun getTheme(): DDLCThemes {
+    private fun getTheme(): DDLCThemeFacade {
         return currentTheme.value
     }
 

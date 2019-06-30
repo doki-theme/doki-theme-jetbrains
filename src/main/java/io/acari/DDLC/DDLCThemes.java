@@ -93,11 +93,14 @@ public enum DDLCThemes implements DDLCThemeFacade {
     return DarkMode.isOn();
   }
 
-  public String getLiteratureClubMember () {
+  @NotNull
+  @Override
+  public String getChibi() {
     return JoyManager.isOn() ? getTheme().joyfulClubMember() : getTheme().getClubMember();
   }
 
-  public String getNormalClubMember () {
+  @Override
+  public String getNormalChibi() {
     return  getTheme().getClubMember();
   }
 
@@ -189,98 +192,6 @@ public enum DDLCThemes implements DDLCThemeFacade {
     final Vector<DDLCThemeFacade> DDLCThemeFacades = new Vector<>(THEMES_MAP.values());
     DDLCThemeFacades.sort(Comparator.comparingInt(DDLCThemeFacade::getOrder));
     return DDLCThemeFacades;
-  }
-
-  /**
-   * Generate a themeFacade from a theme
-   *
-   * @param theme
-   */
-  public static DDLCThemeFacade fromTheme(final MTThemeable theme) {
-    return new DDLCThemeFacade() {
-      @NotNull
-      @Override
-      public String getThemeColorScheme() {
-        return theme.getEditorColorsScheme();
-      }
-
-      @NotNull
-      @Override
-      public MTThemeable getTheme() {
-        return theme;
-      }
-
-      public boolean isDark() {
-        return theme.isDark();
-      }
-
-      @NotNull
-      @Override
-      public String getName() {
-        return theme.getId();
-      }
-
-      @Override
-      public String getThemeName() {
-        return theme.getName();
-      }
-
-      @NotNull
-      @Override
-      public String getThemeId() {
-        return theme.getThemeId();
-      }
-
-      @Override
-      public Icon getIcon() {
-        return theme.getIcon();
-      }
-
-      @Override
-      public String getAccentColor() {
-        return theme.getAccentColor();
-      }
-
-      @Override
-      public String getStartColor() {
-        return theme.getAccentColor();
-      }
-
-      @Override
-      public String getStopColor() {
-        return theme.getAccentColor();
-      }
-
-      @Override
-      public String getExcludedColor() {
-        return ColorUtil.toHex(theme.getExcludedColor());
-      }
-
-      @Override
-      public int getOrder() {
-        return 100;
-      }
-
-      @Override
-      public String getNonProjectFileScopeColor() {
-        return theme.getNonProjectFileScopeColor();
-      }
-
-      @Override
-      public String getTestScope() {
-        return theme.getTestScope();
-      }
-
-      @Override
-      public boolean isPremium() {
-        return false;
-      }
-
-      @Override
-      public boolean isCustom() {
-        return false;
-      }
-    };
   }
 
   @Override
