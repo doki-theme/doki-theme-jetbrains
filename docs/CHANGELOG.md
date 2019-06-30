@@ -1,6 +1,10 @@
 # Changelog
 ----
 
+# 3.4.2
+
+- Fixed Title Bar issue in the 2019.2 EAP builds (MacOS).
+
 # 3.4.1
 
 - Addressed non-fatal exceptions in the 2019.2 builds.

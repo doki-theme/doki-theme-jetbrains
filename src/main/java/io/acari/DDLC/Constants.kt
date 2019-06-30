@@ -8,7 +8,7 @@ const val DARK_MODE_CONSTANT: String = "Ḑ̶͍̲̳̫͗̚͠ä̵͉̠̬͙̤͚͆͆
 val UPDATE_MESSAGE: String = """
       What's New?<br>
       <ul>
-      <li>Better 2019.2 Build Support!</li>
+      <li>Better MacOS 2019.2 Build Support!</li>
       <br>
       Thanks again for downloading <b>The Doki-Doki Theme</b>! •‿•<br>
       <br>Please see the <a href="https://github.com/cyclic-reference/ddlc-jetbrains-theme/blob/master/docs/CHANGELOG.md">Changelog</a> for more details.
