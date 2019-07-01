@@ -6,9 +6,9 @@ import javax.swing.plaf.ColorUIResource
 
 class NeeraTheme : AnthroTheme("neera", "Neera", false, "Neera") {
 
-  override fun getChibi(): String = "sayori.png"
+  override fun getChibi(): String = "athro/neera_temp.png"
 
-  override fun getNormalChibi(): String = "sayori.png"
+  override fun getNormalChibi(): String = "athro/neera_temp.png"
 
   override fun getBackgroundColorString(): String = "D7FEFC"
 
