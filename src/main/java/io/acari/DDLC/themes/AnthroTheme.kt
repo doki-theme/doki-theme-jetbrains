@@ -12,9 +12,6 @@ abstract class AnthroTheme(ddlcThemeId: String, colorScheme: String, isDarkTheme
   override fun getTheme(): MTThemeable =
       this
 
-  override fun isDark(): Boolean =
-      theme.isDark
-
   override fun getOrder(): Int =
       9001
 

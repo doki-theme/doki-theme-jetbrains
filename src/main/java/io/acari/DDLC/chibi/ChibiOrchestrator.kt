@@ -81,7 +81,7 @@ object ChibiOrchestrator {
 
     fun currentChibiLevel(): ChibiLevel = chibiLevel
 
-    fun activateChibiForTheme(theme: DDLCThemes) {
+    fun activateChibiForTheme(theme: DDLCThemeFacade) {
         currentTheme =  lazy {theme }
         updateChibi()
     }

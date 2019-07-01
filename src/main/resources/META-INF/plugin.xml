@@ -181,8 +181,8 @@
                icon="/icons/ddlc/ddlcTheme.svg">
             <add-to-group group-id="MainToolBar" anchor="last"/>
 
-            <action id="NeeraTheme" class="io.acari.DDLC.actions.themes.literature.club.JustMonikaThemeAction"
-                    text="Just Monika" description="Just Monika"
+            <action id="NeeraTheme" class="io.acari.DDLC.actions.themes.anthro.NeeraThemeAction"
+                    text="Neera" description="Neera"
                     icon="/icons/actions/themes/material_monika@2x.png">
             </action>
         </group>

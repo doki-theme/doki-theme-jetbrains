@@ -41,11 +41,12 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.project.ProjectManager
 import com.intellij.util.containers.stream
 import io.acari.DDLC.DDLCConfig
+import io.acari.DDLC.DDLCThemeFacade
 import io.acari.DDLC.chibi.ChibiOrchestrator
 import java.util.*
 import java.util.stream.Stream
 
-open class ClubMemberThemeAction(private val theme: DDLCThemes,
+open class ClubMemberThemeAction(private val theme: DDLCThemeFacade,
                                  private val accentAction: MTAbstractAccentAction) : BaseThemeAction() {
     private val mtAddFileColorsAction = DDLCAddFileColorsAction()
 
