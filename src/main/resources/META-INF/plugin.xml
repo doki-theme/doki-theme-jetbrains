@@ -81,6 +81,7 @@
         <bundledColorScheme path="/colors/Edgy"/>
 
         <bundledColorScheme path="/colors/Neera"/>
+        <bundledColorScheme path="/colors/Sanya"/>
 
         <welcomeFrameProvider implementation="com.chrisrm.ideaddlc.ui.MTFlatWelcomeFrameProvider"
                               order="FIRST"/>
@@ -177,16 +178,6 @@
                     icon="/icons/actions/themes/material_yuri@2x.png">
             </action>
         </group>
-        <group id="DDLC.AnthroThemeChooser" text="Anthro Themes" popup="true"
-               icon="/icons/ddlc/ddlcTheme.svg">
-            <add-to-group group-id="MainToolBar" anchor="last"/>
-
-            <action id="NeeraTheme" class="io.acari.DDLC.actions.themes.anthro.NeeraThemeAction"
-                    text="Neera" description="Neera"
-                    icon="/icons/actions/themes/material_monika@2x.png">
-            </action>
-        </group>
-
         <group id="DDLC.Panels" text="Doki-Doki Theme Options" description="Panel Options" popup="true"
                icon="/icons/ddlc/actions/pen.svg">
             <action class="io.acari.DDLC.actions.WizardAction" id="Wizard" text="Show Wizard"
@@ -311,6 +302,20 @@
                         text="Remove the highlight"
                         description="Remove the highlight"/>
             </group>
+        </group>
+
+        <group id="DDLC.AnthroThemeChooser" text="Anthro Themes" popup="true"
+               icon="/icons/ddlc/ddlcTheme.svg">
+            <add-to-group group-id="MainToolBar" anchor="last"/>
+
+            <action id="NeeraTheme" class="io.acari.DDLC.actions.themes.anthro.NeeraThemeAction"
+                    text="Neera" description="Neera"
+                    icon="/icons/actions/themes/material_monika@2x.png">
+            </action>
+            <action id="SanyaTheme" class="io.acari.DDLC.actions.themes.anthro.SanyaThemeAction"
+                    text="Sanya" description="Sanya"
+                    icon="/icons/actions/themes/material_monika@2x.png">
+            </action>
         </group>
 
         <group id="DDLC.Menu" text="Doki-Doki Theme" popup="true" icon="/icons/ddlc/ddlcTheme.svg">
