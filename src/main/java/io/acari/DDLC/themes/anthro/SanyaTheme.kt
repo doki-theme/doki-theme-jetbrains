@@ -10,14 +10,14 @@ class SanyaTheme : AnthroTheme("sanya", "Sanya", true, "Sanya") {
 
   override fun getNormalChibi(): String = "athro/neera_temp.png"
 
-  override fun getBackgroundColorString(): String = "fbfff5"
+  override fun getBackgroundColorString(): String = "362130"
 
   //todo: remove these
   override fun getClubMember(): String = "sayori.png"
 
   override fun joyfulClubMember(): String = "sayori_joy.png"
 
-  override fun getSecondaryBackgroundColorString(): String = "FFFDF4"
+  override fun getSecondaryBackgroundColorString(): String = "362839"
 
   override fun getSecondaryForegroundColorString(): String = "635959"
 
@@ -39,9 +39,9 @@ class SanyaTheme : AnthroTheme("sanya", "Sanya", true, "Sanya") {
 
   override fun getHighlightColorString(): String = "FFEE96"
 
-  override fun getContrastColorString(): String = "fffef7"
+  override fun getContrastColorString(): String = "341F2D"
 
-  override fun getBorderColorString(): String = "fff8ae"
+  override fun getBorderColorString(): String = "6c113a"
 
   override fun getEditorTabColorString(): String = contrastColorString
 
@@ -49,17 +49,17 @@ class SanyaTheme : AnthroTheme("sanya", "Sanya", true, "Sanya") {
 
   override fun getButtonForegroundColor(): String = "635959"
 
-  override fun getAccentColor(): String = MTAccents.DAISY.hexColor
+  override fun getAccentColor(): String = MTAccents.ACID_LIME.hexColor
 
-  override fun getBackgroundColorResource(): ColorUIResource = ColorUIResource(0xfefff5)
+  override fun getBackgroundColorResource(): ColorUIResource = ColorUIResource(0x332638)
 
-  override fun getForegroundColorResource(): ColorUIResource = ColorUIResource(0xEAA900)
+  override fun getForegroundColorResource(): ColorUIResource = ColorUIResource(0x635959)
 
   override fun getTableSelectedColorString(): String = "FFFBA3"
 
-  override fun getStartColor(): String = "EBDA50"
+  override fun getStartColor(): String = "6d4466"
 
-  override fun getStopColor(): String = "FCFFA5"
+  override fun getStopColor(): String = "ec1f62"
 
-  override fun getNonProjectFileScopeColor(): String = "FFF8D3"
+  override fun getNonProjectFileScopeColor(): String = "56412d"
 }
