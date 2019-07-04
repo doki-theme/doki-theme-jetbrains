@@ -28,6 +28,6 @@ package com.chrisrm.ideaddlc.actions.accents
 
 import com.chrisrm.ideaddlc.utils.MTAccents
 
-class DokiYellowAccentAction : MTAbstractAccentAction() {
-  override fun getAccent(): MTAccents = MTAccents.AMBER
+class DokiMidnightAccentAction : MTAbstractAccentAction() {
+  override fun getAccent(): MTAccents = MTAccents.ABYSS
 }
