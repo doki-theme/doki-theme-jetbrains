@@ -11,10 +11,10 @@ object DokiThemes {
     val dokiDokiLiteratureClubThemes = DDLCThemes.getAllThemes()
     val anthroThemes = AnthroThemes.getAllThemes()
     themes = Stream.concat(dokiDokiLiteratureClubThemes.stream(), anthroThemes.stream())
-        .collect(Collectors.toMap({ it.name }, { it }, { a, b -> a }))
+        .collect(Collectors.toMap({ it.name.toUpperCase() }, { it }, { a, b -> a }))
   }
 
   @JvmStatic
-  fun getThemeById(themeId: String): DDLCThemeFacade = themes.getOrDefault(themeId, DDLCThemes.MONIKA)
+  fun getThemeById(themeId: String): DDLCThemeFacade = themes.getOrDefault(themeId.toUpperCase(), DDLCThemes.MONIKA)
 
 }
