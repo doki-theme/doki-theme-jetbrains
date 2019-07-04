@@ -388,10 +388,8 @@ public final class MTThemeManager {
   }
 
   public static void activate(final String themeId) {
-    final DDLCThemeFacade themeFor = DDLCThemes.getThemeFor(themeId);
-    if (themeFor != null) {
-      activate(themeFor, false);
-    }
+    final DDLCThemeFacade themeFor = DokiThemes.getThemeById(themeId);
+    activate(themeFor, false);
   }
 
   /**

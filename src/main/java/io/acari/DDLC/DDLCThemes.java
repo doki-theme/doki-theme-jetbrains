@@ -162,19 +162,11 @@ public enum DDLCThemes implements DDLCThemeFacade {
     return false;
   }
 
-  /**
-   * Find for a native theme or a bundled theme by its id
-   *
-   * @param themeID
-   */
-  public static DDLCThemeFacade getThemeFor(final String themeID) {
-    return THEMES_MAP.get(themeID);
-  }
-
   private static final Map<String, DDLCThemes> BETTER_THEME_MAP =  Arrays.stream(values())
       .collect(Collectors.toMap(DDLCThemes::getName,
           Function.identity(),(a,__)->a, HashMap::new));
 
+  //todo: probably not a thing
   public static DDLCThemes getTheme(final String themeID) {
     return BETTER_THEME_MAP.getOrDefault(themeID, MONIKA);
   }
