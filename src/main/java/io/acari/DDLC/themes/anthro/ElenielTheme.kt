@@ -39,7 +39,7 @@ class ElenielTheme : AnthroTheme("eleniel", "Eleniel", true, "Eleniel") {
 
   override fun getHighlightColorString(): String = "FFEE96"
 
-  override fun getContrastColorString(): String = "341F2D"
+  override fun getContrastColorString(): String = "433a4a"
 
   override fun getBorderColorString(): String = "6c113a"
 
@@ -51,7 +51,7 @@ class ElenielTheme : AnthroTheme("eleniel", "Eleniel", true, "Eleniel") {
 
   override fun getAccentColor(): String = MTAccents.ACID_LIME.hexColor
 
-  override fun getBackgroundColorResource(): ColorUIResource = ColorUIResource(0x332638)
+  override fun getBackgroundColorResource(): ColorUIResource = ColorUIResource(0x433a4a)
 
   override fun getForegroundColorResource(): ColorUIResource = ColorUIResource(0x635959)
 
