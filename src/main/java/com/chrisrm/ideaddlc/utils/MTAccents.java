@@ -38,6 +38,7 @@ public enum MTAccents {
   AMETHYST(new ColorUIResource(0xab47bc)),
   AMBER(new ColorUIResource(0xFFC107)),
   AQUAMARINE(new ColorUIResource(0x64ffda)),
+  SOFT_SPRINGS(new ColorUIResource(0x52c4e6)),
   ABYSS(new ColorUIResource(0x252426)),
   BREAKING_BAD(new ColorUIResource(0x388e3c)),
   BRICK(new ColorUIResource(0xe57373)),
