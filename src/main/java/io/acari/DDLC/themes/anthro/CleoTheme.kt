@@ -57,7 +57,7 @@ class CleoTheme : AnthroTheme("cleo", "Cleo", false, "Cleo") {
 
   override fun getTableSelectedColorString(): String = "857b81"
 
-  override fun getStartColor(): String = "141627"
+  override fun getStartColor(): String = "252d33"
 
   override fun getStopColor(): String = "6accfc"
 
