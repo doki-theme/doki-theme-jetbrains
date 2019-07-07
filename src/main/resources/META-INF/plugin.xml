@@ -83,6 +83,7 @@
         <bundledColorScheme path="/colors/Cleo"/>
         <bundledColorScheme path="/colors/Neera"/>
         <bundledColorScheme path="/colors/Sanya"/>
+        <bundledColorScheme path="/colors/Syrena"/>
         <bundledColorScheme path="/colors/Wyla"/>
 
         <welcomeFrameProvider implementation="com.chrisrm.ideaddlc.ui.MTFlatWelcomeFrameProvider"
@@ -319,6 +320,10 @@
             </action>
             <action id="SanyaTheme" class="io.acari.DDLC.actions.themes.anthro.SanyaThemeAction"
                     text="Sanya" description="Sanya"
+                    icon="/icons/actions/themes/material_monika@2x.png">
+            </action>
+            <action id="SyrenaTheme" class="io.acari.DDLC.actions.themes.anthro.SyrenaThemeAction"
+                    text="Syrena" description="Syrena"
                     icon="/icons/actions/themes/material_monika@2x.png">
             </action>
             <action id="WylaTheme" class="io.acari.DDLC.actions.themes.anthro.WylaThemeAction"
