@@ -39,7 +39,7 @@ class SyrenaTheme : AnthroTheme("syrena", "Syrena", false, "Syrena") {
 
   override fun getHighlightColorString(): String = "FFEE96"
 
-  override fun getContrastColorString(): String = "74655C"
+  override fun getContrastColorString(): String = "fdd17b"
 
   override fun getBorderColorString(): String = "fff8ae"
 
@@ -51,7 +51,7 @@ class SyrenaTheme : AnthroTheme("syrena", "Syrena", false, "Syrena") {
 
   override fun getAccentColor(): String = MTAccents.DAISY.hexColor
 
-  override fun getBackgroundColorResource(): ColorUIResource = ColorUIResource(0x73645b)
+  override fun getBackgroundColorResource(): ColorUIResource = ColorUIResource(0xfdd17b)
 
   override fun getForegroundColorResource(): ColorUIResource = ColorUIResource(0xEAA900)
 
