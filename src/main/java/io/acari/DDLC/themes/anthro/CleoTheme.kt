@@ -10,56 +10,56 @@ class CleoTheme : AnthroTheme("cleo", "Cleo", false, "Cleo") {
 
   override fun getNormalChibi(): String = "athro/neera_temp.png"
 
-  override fun getBackgroundColorString(): String = "fbfff5"
+  override fun getBackgroundColorString(): String = "e6e6f1"
 
   //todo: remove these
   override fun getClubMember(): String = "sayori.png"
 
   override fun joyfulClubMember(): String = "sayori_joy.png"
 
-  override fun getSecondaryBackgroundColorString(): String = "FFFDF4"
+  override fun getSecondaryBackgroundColorString(): String = "dcdbe9"
 
-  override fun getSecondaryForegroundColorString(): String = "635959"
+  override fun getSecondaryForegroundColorString(): String = "36363a"
 
-  override fun getSelectionForegroundColorString(): String = "E2CB14"
+  override fun getSelectionForegroundColorString(): String = "2e509f"
 
-  override fun getSelectionBackgroundColorString(): String = "F0E891"
+  override fun getSelectionBackgroundColorString(): String = "55545d"
 
-  override fun getTreeSelectionBackgroundColorString(): String = "ECD95A"
+  override fun getTreeSelectionBackgroundColorString(): String = "857b81"
 
-  override fun getInactiveColorString(): String = "FFFFBC"
+  override fun getInactiveColorString(): String = "b0acb7"
 
-  override fun getMenuItemForegroundColor(): String = "635959"
+  override fun getMenuItemForegroundColor(): String = "252529"
 
   override fun getMenuBarSelectionForegroundColorString(): String = "ffffff"
 
-  override fun getMenuBarSelectionBackgroundColorString(): String = "C5BD68"
+  override fun getMenuBarSelectionBackgroundColorString(): String = "443f42"
 
-  override fun getNotificationsColorString(): String = "FFFBC7"
+  override fun getNotificationsColorString(): String = "295369"
 
-  override fun getHighlightColorString(): String = "FFEE96"
+  override fun getHighlightColorString(): String = "fdfeff"
 
-  override fun getContrastColorString(): String = "fffef7"
+  override fun getContrastColorString(): String = "e7e7ed"
 
-  override fun getBorderColorString(): String = "fff8ae"
+  override fun getBorderColorString(): String = "d0cdd5"
 
   override fun getEditorTabColorString(): String = contrastColorString
 
   override fun getButtonBackgroundColor(): String = contrastColorString
 
-  override fun getButtonForegroundColor(): String = "635959"
+  override fun getButtonForegroundColor(): String = "252427"
 
   override fun getAccentColor(): String = MTAccents.ABYSS.hexColor
 
-  override fun getBackgroundColorResource(): ColorUIResource = ColorUIResource(0xfefff5)
+  override fun getBackgroundColorResource(): ColorUIResource = ColorUIResource(0xe7e7ed)
 
-  override fun getForegroundColorResource(): ColorUIResource = ColorUIResource(0xEAA900)
+  override fun getForegroundColorResource(): ColorUIResource = ColorUIResource(0x0F111A)
 
-  override fun getTableSelectedColorString(): String = "FFFBA3"
+  override fun getTableSelectedColorString(): String = "857b81"
 
-  override fun getStartColor(): String = "EBDA50"
+  override fun getStartColor(): String = "141627"
 
-  override fun getStopColor(): String = "FCFFA5"
+  override fun getStopColor(): String = "6accfc"
 
-  override fun getNonProjectFileScopeColor(): String = "FFF8D3"
+  override fun getNonProjectFileScopeColor(): String = "DADBC5"
 }
