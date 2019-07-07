@@ -54,6 +54,7 @@ public enum MTAccents {
   LIGHT(new ColorUIResource(0xFAFAFA)),
   LIME(new ColorUIResource(0x7CB342)),
   MAGMA(new ColorUIResource(0xfd7c4b)),
+  MERRIGOLD(new ColorUIResource(0xcca331)),
   NEON(new ColorUIResource(0x1DE9B6)),
   OCEANIC(new ColorUIResource(0x546E7A)),
   ORANGE(new ColorUIResource(0xFF9800)),
