@@ -41,7 +41,7 @@ class SanyaTheme : AnthroTheme("sanya", "Sanya", true, "Sanya") {
 
   override fun getContrastColorString(): String = "341F2D"
 
-  override fun getBorderColorString(): String = "621c3c"
+  override fun getBorderColorString(): String = "5C3141"
 
   override fun getEditorTabColorString(): String = contrastColorString
 

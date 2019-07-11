@@ -41,7 +41,7 @@ class NeeraTheme : AnthroTheme("neera", "Neera", false, "Neera") {
 
   override fun getContrastColorString(): String = "fffef7"
 
-  override fun getBorderColorString(): String = "fff8ae"
+  override fun getBorderColorString(): String = "FFFED4"
 
   override fun getEditorTabColorString(): String = contrastColorString
 

@@ -54,10 +54,10 @@
     <option name="EDITOR_LIGATURES" value="true"/>
     <colors>
         <option name="ADDED_LINES_COLOR" value="c1ff10"/>
-        <option name="ANNOTATIONS_COLOR" value="332638"/>
+        <option name="ANNOTATIONS_COLOR" value="897b89"/>
         <option name="CARET_COLOR" value="cccccc"/>
         <option name="CARET_ROW_COLOR" value="44475a"/>
-        <option name="CONSOLE_BACKGROUND_KEY" value="332638"/>
+        <option name="CONSOLE_BACKGROUND_KEY" value="3c363f"/>
         <option name="DELETED_LINES_COLOR" value="ef2066"/>
         <option name="FILESTATUS_ADDED" value="c1ff10"/>
         <option name="FILESTATUS_DELETED" value="6272a4"/>
@@ -79,11 +79,11 @@
         <option name="FILESTATUS_addedOutside" value="6272a4"/>
         <option name="FILESTATUS_changelistConflict" value="ef2066"/>
         <option name="FILESTATUS_modifiedOutside" value="bd93f9"/>
-        <option name="GUTTER_BACKGROUND" value="332638"/>
+        <option name="GUTTER_BACKGROUND" value="897b89"/>
         <option name="INDENT_GUIDE" value="424450"/>
         <option name="LINE_NUMBERS_COLOR" value="666879"/>
         <option name="MODIFIED_LINES_COLOR" value="8be9fd"/>
-        <option name="NOTIFICATION_BACKGROUND" value="332638"/>
+        <option name="NOTIFICATION_BACKGROUND" value="897b89"/>
         <option name="RECENT_LOCATIONS_SELECTION" value="191a21"/>
         <option name="RIGHT_MARGIN_COLOR" value="424450"/>
         <option name="SELECTED_INDENT_GUIDE" value="ef2066"/>
@@ -108,16 +108,16 @@
         <option name="ScrollBar.hoverThumbColor" value="FF79C5FF" mac="FF79C5FF"/>
         <option name="ScrollBar.thumbBorderColor" value="FF79C5C0" mac="FF79C5C0"/>
         <option name="ScrollBar.thumbColor" value="FF79C5C0" mac="FF79C5C0"/>
-        <option name="ScrollBar.Mac.Transparent.hoverTrackColor" value="332638" mac="332638"/>
-        <option name="ScrollBar.Mac.Transparent.trackColor" value="332638" mac="332638"/>
-        <option name="ScrollBar.Mac.hoverTrackColor" value="332638" mac="332638"/>
-        <option name="ScrollBar.Mac.trackColor" value="332638" mac="332638"/>
-        <option name="ScrollBar.Transparent.hoverTrackColor" value="332638" mac="332638"/>
-        <option name="ScrollBar.Transparent.trackColor" value="332638" mac="332638"/>
-        <option name="ScrollBar.hoverTrackColor" value="332638" mac="332638"/>
-        <option name="ScrollBar.trackColor" value="332638" mac="332638"/>
+        <option name="ScrollBar.Mac.Transparent.hoverTrackColor" value="897b89" mac="897b89"/>
+        <option name="ScrollBar.Mac.Transparent.trackColor" value="897b89" mac="897b89"/>
+        <option name="ScrollBar.Mac.hoverTrackColor" value="897b89" mac="897b89"/>
+        <option name="ScrollBar.Mac.trackColor" value="897b89" mac="897b89"/>
+        <option name="ScrollBar.Transparent.hoverTrackColor" value="897b89" mac="897b89"/>
+        <option name="ScrollBar.Transparent.trackColor" value="897b89" mac="897b89"/>
+        <option name="ScrollBar.hoverTrackColor" value="897b89" mac="897b89"/>
+        <option name="ScrollBar.trackColor" value="897b89" mac="897b89"/>
         <option name="TEARLINE_COLOR" value="424450"/>
-        <option name="TOOLTIP" value="332638"/>
+        <option name="TOOLTIP" value="897b89"/>
         <option name="VCS_ANNOTATIONS_COLOR_1" value="f1fa8c"/>
         <option name="VCS_ANNOTATIONS_COLOR_2" value="ef2066"/>
         <option name="VCS_ANNOTATIONS_COLOR_3" value="8be9fd"/>
@@ -180,7 +180,7 @@
         <option name="BREADCRUMBS_DEFAULT">
             <value>
                 <option name="FOREGROUND" value="bbbbbb"/>
-                <option name="BACKGROUND" value="332638"/>
+                <option name="BACKGROUND" value="897b89"/>
             </value>
         </option>
         <option name="BREADCRUMBS_HOVERED">
@@ -192,7 +192,7 @@
         <option name="BREADCRUMBS_INACTIVE">
             <value>
                 <option name="FOREGROUND" value="666b87"/>
-                <option name="BACKGROUND" value="332638"/>
+                <option name="BACKGROUND" value="897b89"/>
             </value>
         </option>
         <option name="BROWSEWORDATCARET">
@@ -787,7 +787,7 @@
         <option name="IGNORE.HEADER">
             <value>
                 <option name="FOREGROUND" value="ffb86c"/>
-                <option name="BACKGROUND" value="332638"/>
+                <option name="BACKGROUND" value="897b89"/>
                 <option name="FONT_TYPE" value="1"/>
             </value>
         </option>
@@ -2471,7 +2471,7 @@
         <option name="TEXT">
             <value>
                 <option name="FOREGROUND" value="f8f8f2"/>
-                <option name="BACKGROUND" value="332638"/>
+                <option name="BACKGROUND" value="897b89"/>
                 <option name="EFFECT_TYPE" value="5"/>
             </value>
         </option>
