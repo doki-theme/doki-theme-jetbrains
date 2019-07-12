@@ -55,7 +55,7 @@
         <option name="ANNOTATIONS_COLOR" value="45393e"/>
         <option name="CARET_COLOR" value="45393e"/>
         <option name="CARET_ROW_COLOR" value="eeeeee"/>
-        <option name="CONSOLE_BACKGROUND_KEY" value="fffff9"/>
+        <option name="CONSOLE_BACKGROUND_KEY" value="fffef7"/>
         <option name="DELETED_LINES_COLOR" value="d73a49"/>
         <option name="FILESTATUS_ADDED" value="22863a"/>
         <option name="FILESTATUS_DELETED" value="6a737d"/>
@@ -76,7 +76,7 @@
         <option name="FILESTATUS_addedOutside" value="22863a"/>
         <option name="FILESTATUS_changelistConflict" value="d73a49"/>
         <option name="FILESTATUS_modifiedOutside" value="5cc5"/>
-        <option name="GUTTER_BACKGROUND" value="fffff9"/>
+        <option name="GUTTER_BACKGROUND" value="fffef7"/>
         <option name="INDENT_GUIDE" value="dddddd"/>
         <option name="LINE_NUMBERS_COLOR" value="aaaaaa"/>
         <option name="LINE_NUMBER_ON_CARET_ROW_COLOR" value="1b1f23"/>
@@ -105,14 +105,14 @@
         <option name="ScrollBar.thumbBorderColor" value="cce5ff" mac="cce5ff"/>
         <option name="ScrollBar.thumbColor" value="cce5ff" mac="cce5ff"/>
 
-        <option name="ScrollBar.Mac.Transparent.hoverTrackColor" value="fffff9" mac="fffff9"/>
-        <option name="ScrollBar.Mac.Transparent.trackColor" value="fffff9" mac="fffff9"/>
-        <option name="ScrollBar.Mac.hoverTrackColor" value="fffff9" mac="fffff9"/>
-        <option name="ScrollBar.Mac.trackColor" value="fffff9" mac="fffff9"/>
-        <option name="ScrollBar.Transparent.hoverTrackColor" value="fffff9" mac="fffff9"/>
-        <option name="ScrollBar.Transparent.trackColor" value="fffff9" mac="fffff9"/>
-        <option name="ScrollBar.hoverTrackColor" value="fffff9" mac="fffff9"/>
-        <option name="ScrollBar.trackColor" value="fffff9" mac="fffff9"/>
+        <option name="ScrollBar.Mac.Transparent.hoverTrackColor" value="fffef7" mac="fffef7"/>
+        <option name="ScrollBar.Mac.Transparent.trackColor" value="fffef7" mac="fffef7"/>
+        <option name="ScrollBar.Mac.hoverTrackColor" value="fffef7" mac="fffef7"/>
+        <option name="ScrollBar.Mac.trackColor" value="fffef7" mac="fffef7"/>
+        <option name="ScrollBar.Transparent.hoverTrackColor" value="fffef7" mac="fffef7"/>
+        <option name="ScrollBar.Transparent.trackColor" value="fffef7" mac="fffef7"/>
+        <option name="ScrollBar.hoverTrackColor" value="fffef7" mac="fffef7"/>
+        <option name="ScrollBar.trackColor" value="fffef7" mac="fffef7"/>
 
         <option name="TEARLINE_COLOR" value="dddddd"/>
         <option name="WHITESPACES" value="b5b5b5"/>
@@ -154,7 +154,7 @@
         <option name="CONSOLE_NORMAL_OUTPUT">
             <value>
                 <option name="FOREGROUND" value="45393e"/>
-                <option name="BACKGROUND" value="fffff9"/>
+                <option name="BACKGROUND" value="fffef7"/>
             </value>
         </option>
         <option name="CONSOLE_SYSTEM_OUTPUT">
@@ -1765,7 +1765,7 @@
         <option name="TEXT">
             <value>
                 <option name="FOREGROUND" value="45393e"/>
-                <option name="BACKGROUND" value="fffff9"/>
+                <option name="BACKGROUND" value="fffef7"/>
             </value>
         </option>
         <option name="TEXT_SEARCH_RESULT_ATTRIBUTES">

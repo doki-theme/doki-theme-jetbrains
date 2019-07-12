@@ -81,7 +81,7 @@
     <option name="FILESTATUS_addedOutside" value="a9dc76"/>
     <option name="FILESTATUS_changelistConflict" value="f65f87"/>
     <option name="FILESTATUS_modifiedOutside" value="78dce8"/>
-    <option name="GUTTER_BACKGROUND" value="2d2a2e"/>
+    <option name="GUTTER_BACKGROUND" value="432F2E"/>
     <option name="INDENT_GUIDE" value="403e41"/>
     <option name="INFORMATION_HINT" value="403e41"/>
     <option name="LINE_NUMBERS_COLOR" value="5b595c"/>
@@ -117,16 +117,16 @@
     <option name="ScrollBar.hoverThumbColor" value="ffd866FF" mac="ffd866FF"/>
     <option name="ScrollBar.thumbBorderColor" value="ffd866C0" mac="ffd866C0"/>
     <option name="ScrollBar.thumbColor" value="ffd866C0" mac="ffd866C0"/>
-    <option name="ScrollBar.Mac.Transparent.hoverTrackColor" value="2d2a2e" mac="2d2a2e"/>
-    <option name="ScrollBar.Mac.Transparent.trackColor" value="2d2a2e" mac="2d2a2e"/>
-    <option name="ScrollBar.Mac.hoverTrackColor" value="2d2a2e" mac="2d2a2e"/>
-    <option name="ScrollBar.Mac.trackColor" value="2d2a2e" mac="2d2a2e"/>
-    <option name="ScrollBar.Transparent.hoverTrackColor" value="2d2a2e" mac="2d2a2e"/>
-    <option name="ScrollBar.Transparent.trackColor" value="2d2a2e" mac="2d2a2e"/>
-    <option name="ScrollBar.hoverTrackColor" value="2d2a2e" mac="2d2a2e"/>
-    <option name="ScrollBar.trackColor" value="2d2a2e" mac="2d2a2e"/>
+    <option name="ScrollBar.Mac.Transparent.hoverTrackColor" value="432F2E" mac="432F2E"/>
+    <option name="ScrollBar.Mac.Transparent.trackColor" value="432F2E" mac="432F2E"/>
+    <option name="ScrollBar.Mac.hoverTrackColor" value="432F2E" mac="432F2E"/>
+    <option name="ScrollBar.Mac.trackColor" value="432F2E" mac="432F2E"/>
+    <option name="ScrollBar.Transparent.hoverTrackColor" value="432F2E" mac="432F2E"/>
+    <option name="ScrollBar.Transparent.trackColor" value="432F2E" mac="432F2E"/>
+    <option name="ScrollBar.hoverTrackColor" value="432F2E" mac="432F2E"/>
+    <option name="ScrollBar.trackColor" value="432F2E" mac="432F2E"/>
     <option name="TEARLINE_COLOR" value="403e41"/>
-    <option name="TOOLTIP" value="2d2a2e"/>
+    <option name="TOOLTIP" value="432F2E"/>
     <option name="VCS_ANNOTATIONS_COLOR_1" value="727072"/>
     <option name="VCS_ANNOTATIONS_COLOR_2" value="59575a"/>
     <option name="VCS_ANNOTATIONS_COLOR_3" value="ff6188"/>
@@ -3157,7 +3157,7 @@
     <option name="TEXT">
       <value>
         <option name="FOREGROUND" value="fcfcfa"/>
-        <option name="BACKGROUND" value="2d2a2e"/>
+        <option name="BACKGROUND" value="432F2E"/>
         <option name="EFFECT_TYPE" value="5"/>
       </value>
     </option>
