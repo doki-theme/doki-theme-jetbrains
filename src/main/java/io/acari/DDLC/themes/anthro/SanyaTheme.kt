@@ -37,7 +37,7 @@ class SanyaTheme : AnthroTheme("sanya", "Sanya", true, "Sanya") {
 
   override fun getNotificationsColorString(): String = "FFFBC7"
 
-  override fun getHighlightColorString(): String = "FFEE96"
+  override fun getHighlightColorString(): String = "403046"
 
   override fun getContrastColorString(): String = "341F2D"
 
