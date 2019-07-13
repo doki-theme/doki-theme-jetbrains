@@ -37,7 +37,7 @@ class WylaTheme : AnthroTheme("wyla", "Wyla", true, "Wyla") {
 
   override fun getNotificationsColorString(): String = "4a5b75"
 
-  override fun getHighlightColorString(): String = "4b3e35"
+  override fun getHighlightColorString(): String = "4e393e"
 
   override fun getContrastColorString(): String = "2f2329"
 
