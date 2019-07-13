@@ -19,7 +19,7 @@ class NeeraTheme : AnthroTheme("neera", "Neera", false, "Neera") {
 
   override fun getSecondaryBackgroundColorString(): String = "FFFDF4"
 
-  override fun getSecondaryForegroundColorString(): String = "635959"
+  override fun getSecondaryForegroundColorString(): String = "546E7A"
 
   override fun getSelectionForegroundColorString(): String = "E2CB14"
 
@@ -29,7 +29,7 @@ class NeeraTheme : AnthroTheme("neera", "Neera", false, "Neera") {
 
   override fun getInactiveColorString(): String = "FFFFBC"
 
-  override fun getMenuItemForegroundColor(): String = "635959"
+  override fun getMenuItemForegroundColor(): String = "546E7A"
 
   override fun getMenuBarSelectionForegroundColorString(): String = "ffffff"
 
@@ -43,11 +43,15 @@ class NeeraTheme : AnthroTheme("neera", "Neera", false, "Neera") {
 
   override fun getBorderColorString(): String = "FFFED4"
 
+  override fun getForegroundColorString(): String = "546E7A"
+
+  override fun getTextColorString(): String = "546E7A"
+
   override fun getEditorTabColorString(): String = contrastColorString
 
   override fun getButtonBackgroundColor(): String = contrastColorString
 
-  override fun getButtonForegroundColor(): String = "635959"
+  override fun getButtonForegroundColor(): String = "546E7A"
 
   override fun getAccentColor(): String = MTAccents.DAISY.hexColor
 
