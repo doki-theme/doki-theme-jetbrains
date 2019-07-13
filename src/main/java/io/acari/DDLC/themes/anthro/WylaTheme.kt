@@ -19,7 +19,7 @@ class WylaTheme : AnthroTheme("wyla", "Wyla", true, "Wyla") {
 
   override fun getSecondaryBackgroundColorString(): String = "2e2b32"
 
-  override fun getSecondaryForegroundColorString(): String = "635959"
+  override fun getSecondaryForegroundColorString(): String = "766B6B"
 
   override fun getSelectionForegroundColorString(): String = "E2CB14"
 
@@ -29,7 +29,7 @@ class WylaTheme : AnthroTheme("wyla", "Wyla", true, "Wyla") {
 
   override fun getInactiveColorString(): String = "2a272e"
 
-  override fun getMenuItemForegroundColor(): String = "635959"
+  override fun getMenuItemForegroundColor(): String = "766B6B"
 
   override fun getMenuBarSelectionForegroundColorString(): String = "ffffff"
 
@@ -39,6 +39,10 @@ class WylaTheme : AnthroTheme("wyla", "Wyla", true, "Wyla") {
 
   override fun getHighlightColorString(): String = "4e393e"
 
+  override fun getForegroundColorString(): String = "c09fa2"
+
+  override fun getTextColorString(): String = "c09fa2"
+
   override fun getContrastColorString(): String = "2f2329"
 
   override fun getBorderColorString(): String = "2b2a32"
@@ -47,13 +51,13 @@ class WylaTheme : AnthroTheme("wyla", "Wyla", true, "Wyla") {
 
   override fun getButtonBackgroundColor(): String = contrastColorString
 
-  override fun getButtonForegroundColor(): String = "635959"
+  override fun getButtonForegroundColor(): String = "766B6B"
 
   override fun getAccentColor(): String = MTAccents.MERRIGOLD.hexColor
 
   override fun getBackgroundColorResource(): ColorUIResource = ColorUIResource(0x312428)
 
-  override fun getForegroundColorResource(): ColorUIResource = ColorUIResource(0x635959)
+  override fun getForegroundColorResource(): ColorUIResource = ColorUIResource(0x766B6B)
 
   override fun getTableSelectedColorString(): String = "40434c"
 
