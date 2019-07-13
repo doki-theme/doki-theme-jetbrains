@@ -19,7 +19,7 @@ class SanyaTheme : AnthroTheme("sanya", "Sanya", true, "Sanya") {
 
   override fun getSecondaryBackgroundColorString(): String = "362839"
 
-  override fun getSecondaryForegroundColorString(): String = "635959"
+  override fun getSecondaryForegroundColorString(): String = "cebcb8"
 
   override fun getSelectionForegroundColorString(): String = "E2CB14"
 
@@ -29,7 +29,7 @@ class SanyaTheme : AnthroTheme("sanya", "Sanya", true, "Sanya") {
 
   override fun getInactiveColorString(): String = "FFFFBC"
 
-  override fun getMenuItemForegroundColor(): String = "635959"
+  override fun getMenuItemForegroundColor(): String = "cebcb8"
 
   override fun getMenuBarSelectionForegroundColorString(): String = "ffffff"
 
@@ -47,13 +47,17 @@ class SanyaTheme : AnthroTheme("sanya", "Sanya", true, "Sanya") {
 
   override fun getButtonBackgroundColor(): String = contrastColorString
 
-  override fun getButtonForegroundColor(): String = "635959"
+  override fun getForegroundColorString(): String = "f8f8f8"
+
+  override fun getTextColorString(): String = "f8f8f8"
+
+  override fun getButtonForegroundColor(): String = "cebcb8"
 
   override fun getAccentColor(): String = MTAccents.ACID_LIME.hexColor
 
   override fun getBackgroundColorResource(): ColorUIResource = ColorUIResource(0x332638)
 
-  override fun getForegroundColorResource(): ColorUIResource = ColorUIResource(0x635959)
+  override fun getForegroundColorResource(): ColorUIResource = ColorUIResource(0xcebcb8)
 
   override fun getTableSelectedColorString(): String = "FFFBA3"
 
