@@ -19,7 +19,7 @@ class ElenielTheme : AnthroTheme("eleniel", "Eleniel", true, "Eleniel") {
 
   override fun getSecondaryBackgroundColorString(): String = "413b42"
 
-  override fun getSecondaryForegroundColorString(): String = "635959"
+  override fun getSecondaryForegroundColorString(): String = "9e9199"
 
   override fun getSelectionForegroundColorString(): String = "E2CB14"
 
@@ -29,7 +29,7 @@ class ElenielTheme : AnthroTheme("eleniel", "Eleniel", true, "Eleniel") {
 
   override fun getInactiveColorString(): String = "FFFFBC"
 
-  override fun getMenuItemForegroundColor(): String = "635959"//48414B
+  override fun getMenuItemForegroundColor(): String = "9e9199"//48414B
 
   override fun getMenuBarSelectionForegroundColorString(): String = "ffffff"
 
@@ -47,19 +47,23 @@ class ElenielTheme : AnthroTheme("eleniel", "Eleniel", true, "Eleniel") {
 
   override fun getButtonBackgroundColor(): String = contrastColorString
 
-  override fun getButtonForegroundColor(): String = "635959"
+  override fun getButtonForegroundColor(): String = "9e9199"
 
   override fun getAccentColor(): String = MTAccents.SOFT_SPRINGS.hexColor
 
   override fun getBackgroundColorResource(): ColorUIResource = ColorUIResource(0x3c363f)
 
-  override fun getForegroundColorResource(): ColorUIResource = ColorUIResource(0x635959)
+  override fun getForegroundColorResource(): ColorUIResource = ColorUIResource(0x9e9199)
 
   override fun getTableSelectedColorString(): String = "48414B"
 
   override fun getStartColor(): String = "6e6773"
 
   override fun getStopColor(): String = "76ffff"
+
+  override fun getForegroundColorString(): String = "aca3a7"
+
+  override fun getTextColorString(): String = "aca3a7"
 
   override fun getNonProjectFileScopeColor(): String = "56412d"
 }
