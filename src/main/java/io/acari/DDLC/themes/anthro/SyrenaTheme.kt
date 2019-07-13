@@ -37,7 +37,7 @@ class SyrenaTheme : AnthroTheme("syrena", "Syrena", true, "Syrena") {
 
   override fun getNotificationsColorString(): String = "fd985d"
 
-  override fun getHighlightColorString(): String = "692929"
+  override fun getHighlightColorString(): String = "593E3D"
 
   override fun getContrastColorString(): String = "392525"
 
