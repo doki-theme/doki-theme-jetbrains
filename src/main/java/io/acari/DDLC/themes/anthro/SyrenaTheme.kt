@@ -19,7 +19,7 @@ class SyrenaTheme : AnthroTheme("syrena", "Syrena", true, "Syrena") {
 
   override fun getSecondaryBackgroundColorString(): String = "392D2B"
 
-  override fun getSecondaryForegroundColorString(): String = "635959"
+  override fun getSecondaryForegroundColorString(): String = "B9AA9F"
 
   override fun getSelectionForegroundColorString(): String = "E2CB14"
 
@@ -29,7 +29,7 @@ class SyrenaTheme : AnthroTheme("syrena", "Syrena", true, "Syrena") {
 
   override fun getInactiveColorString(): String = "FFFFBC"
 
-  override fun getMenuItemForegroundColor(): String = "635959"
+  override fun getMenuItemForegroundColor(): String = "B9AA9F"
 
   override fun getMenuBarSelectionForegroundColorString(): String = "ffffff"
 
@@ -47,13 +47,17 @@ class SyrenaTheme : AnthroTheme("syrena", "Syrena", true, "Syrena") {
 
   override fun getButtonBackgroundColor(): String = contrastColorString
 
-  override fun getButtonForegroundColor(): String = "635959"
+  override fun getButtonForegroundColor(): String = "B9AA9F"
+
+  override fun getForegroundColorString(): String = "dac8bb"
+
+  override fun getTextColorString(): String = "dac8bb"
 
   override fun getAccentColor(): String = MTAccents.MAGMA.hexColor
 
   override fun getBackgroundColorResource(): ColorUIResource = ColorUIResource(0x392525)
 
-  override fun getForegroundColorResource(): ColorUIResource = ColorUIResource(0x635959)
+  override fun getForegroundColorResource(): ColorUIResource = ColorUIResource(0xB9AA9F)
 
   override fun getTableSelectedColorString(): String = "824747"
 
