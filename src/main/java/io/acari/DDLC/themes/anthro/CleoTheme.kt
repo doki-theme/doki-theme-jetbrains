@@ -6,9 +6,9 @@ import javax.swing.plaf.ColorUIResource
 
 class CleoTheme : AnthroTheme("cleo", "Cleo", false, "Cleo") {
 
-  override fun getChibi(): String = "athro/neera_temp.png"
+  override fun getChibi(): String = "athro/cleo.png"
 
-  override fun getNormalChibi(): String = "athro/neera_temp.png"
+  override fun getNormalChibi(): String = "athro/cleo.png"
 
   override fun getBackgroundColorString(): String = "e6e6f1"
 
