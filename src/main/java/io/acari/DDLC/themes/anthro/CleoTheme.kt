@@ -27,6 +27,10 @@ class CleoTheme : AnthroTheme("cleo", "Cleo", false, "Cleo") {
 
   override fun getTreeSelectionBackgroundColorString(): String = "857b81"
 
+  override fun getForegroundColorString(): String = "191A29"
+
+  override fun getTextColorString(): String = "191A29"
+
   override fun getInactiveColorString(): String = "b0acb7"
 
   override fun getMenuItemForegroundColor(): String = "252529"
@@ -37,7 +41,7 @@ class CleoTheme : AnthroTheme("cleo", "Cleo", false, "Cleo") {
 
   override fun getNotificationsColorString(): String = "295369"
 
-  override fun getHighlightColorString(): String = "fdfeff"
+  override fun getHighlightColorString(): String = "DCE0F0"
 
   override fun getContrastColorString(): String = "e7e7ed"
 
