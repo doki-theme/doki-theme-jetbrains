@@ -6,9 +6,9 @@ import javax.swing.plaf.ColorUIResource
 
 class SanyaTheme : AnthroTheme("sanya", "Sanya", true, "Sanya") {
 
-  override fun getChibi(): String = "athro/neera_temp.png"
+  override fun getChibi(): String = "athro/sanya.png"
 
-  override fun getNormalChibi(): String = "athro/neera_temp.png"
+  override fun getNormalChibi(): String = "athro/sanya.png"
 
   override fun getBackgroundColorString(): String = "362130"
 
