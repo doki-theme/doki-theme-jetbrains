@@ -6,9 +6,9 @@ import javax.swing.plaf.ColorUIResource
 
 class SyrenaTheme : AnthroTheme("syrena", "Syrena", true, "Syrena") {
 
-  override fun getChibi(): String = "athro/neera_temp.png"
+  override fun getChibi(): String = "athro/syrena.png"
 
-  override fun getNormalChibi(): String = "athro/neera_temp.png"
+  override fun getNormalChibi(): String = "athro/syrena.png"
 
   override fun getBackgroundColorString(): String = "392525"
 
