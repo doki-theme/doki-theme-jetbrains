@@ -21,7 +21,7 @@ class CleoTheme : AnthroTheme("cleo", "Cleo", false, "Cleo") {
 
   override fun getSecondaryForegroundColorString(): String = "36363a"
 
-  override fun getSelectionForegroundColorString(): String = "2e509f"
+  override fun getSelectionForegroundColorString(): String = "e7e7ed"
 
   override fun getSelectionBackgroundColorString(): String = "55545d"
 
@@ -45,7 +45,7 @@ class CleoTheme : AnthroTheme("cleo", "Cleo", false, "Cleo") {
 
   override fun getHighlightColorString(): String = "DCE0F0"
 
-  override fun getContrastColorString(): String = "e7e7ed"
+  override fun getContrastColorString(): String = "CFCFD5"
 
   override fun getBorderColorString(): String = "d0cdd5"
 
@@ -60,6 +60,8 @@ class CleoTheme : AnthroTheme("cleo", "Cleo", false, "Cleo") {
   override fun getBackgroundColorResource(): ColorUIResource = ColorUIResource(0xe7e7ed)
 
   override fun getForegroundColorResource(): ColorUIResource = ColorUIResource(0x0F111A)
+
+  override fun getDisabledColorString(): String = "525C6F"
 
   override fun getTableSelectedColorString(): String = "242528"
 

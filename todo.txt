@@ -43,8 +43,11 @@ works with material ui
 Rating Stars
 ------
 
-- Cleo's Inactive text
-
+- Cleo
+    - Inactive selection text
+    - Button Foregrounds
+    - Active Toolbar Foreground
+    - Accent
 
 
 
