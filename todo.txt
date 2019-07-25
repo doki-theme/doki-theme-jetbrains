@@ -50,7 +50,10 @@ Rating Stars
     - Accent
 - Eleniel
     - Button Backgrounds (hover and stuff)
--
+- Neera
+    - Accent color
+    - Selection background/foreground
+
 
 
 Shit to fix

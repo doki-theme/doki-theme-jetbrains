@@ -21,19 +21,21 @@ class NeeraTheme : AnthroTheme("neera", "Neera", false, "Neera") {
 
   override fun getSecondaryForegroundColorString(): String = "546E7A"
 
-  override fun getSelectionForegroundColorString(): String = "E2CB14"
+  override fun getSelectionForegroundColorString(): String = "A8930A"
+
+  override fun getTreeSelectionForegroundColorString(): String = selectionForegroundColorString
 
   override fun getSelectionBackgroundColorString(): String = "F0E891"
 
-  override fun getTreeSelectionBackgroundColorString(): String = "ECD95A"
+  override fun getTreeSelectionBackgroundColorString(): String = "ECE285"
 
   override fun getInactiveColorString(): String = "FFFFBC"
 
   override fun getMenuItemForegroundColor(): String = "546E7A"
 
-  override fun getMenuBarSelectionForegroundColorString(): String = "ffffff"
+  override fun getMenuBarSelectionForegroundColorString(): String = selectionForegroundColorString
 
-  override fun getMenuBarSelectionBackgroundColorString(): String = "C5BD68"
+  override fun getMenuBarSelectionBackgroundColorString(): String = "ECE285"
 
   override fun getNotificationsColorString(): String = "FFFBC7"
 
@@ -53,6 +55,8 @@ class NeeraTheme : AnthroTheme("neera", "Neera", false, "Neera") {
 
   override fun getButtonForegroundColor(): String = "546E7A"
 
+  override fun getDisabledColorString(): String = "7F818F"
+
   override fun getAccentColor(): String = MTAccents.DAISY.hexColor
 
   override fun getBackgroundColorResource(): ColorUIResource = ColorUIResource(0xfefff5)
@@ -65,5 +69,7 @@ class NeeraTheme : AnthroTheme("neera", "Neera", false, "Neera") {
 
   override fun getStopColor(): String = "FCFFA5"
 
-  override fun getNonProjectFileScopeColor(): String = "FFF8D3"
+  override fun getNonProjectFileScopeColor(): String = "FFF7DF"
+
+  override fun getTestScope(): String = "D7FFDC"
 }
