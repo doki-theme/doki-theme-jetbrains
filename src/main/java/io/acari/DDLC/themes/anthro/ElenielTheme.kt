@@ -21,13 +21,15 @@ class ElenielTheme : AnthroTheme("eleniel", "Eleniel", true, "Eleniel") {
 
   override fun getSecondaryForegroundColorString(): String = "9e9199"
 
-  override fun getSelectionForegroundColorString(): String = "E2CB14"
+  override fun getSelectionForegroundColorString(): String = "ffffff"
 
   override fun getSelectionBackgroundColorString(): String = "897b89"
 
   override fun getTreeSelectionBackgroundColorString(): String = "48414B"
 
-  override fun getInactiveColorString(): String = "FFFFBC"
+  override fun getInactiveColorString(): String = "423C45"
+
+  override fun getDisabledColorString(): String = "525C6F"
 
   override fun getMenuItemForegroundColor(): String = "9e9199"//48414B
 
@@ -65,5 +67,7 @@ class ElenielTheme : AnthroTheme("eleniel", "Eleniel", true, "Eleniel") {
 
   override fun getTextColorString(): String = "aca3a7"
 
-  override fun getNonProjectFileScopeColor(): String = "56412d"
+  override fun getNonProjectFileScopeColor(): String = "584B3E"
+
+  override fun getTestScope(): String = "3A5841"
 }

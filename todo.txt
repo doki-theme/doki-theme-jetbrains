@@ -48,7 +48,9 @@ Rating Stars
     - Button Foregrounds
     - Active Toolbar Foreground
     - Accent
-
+- Eleniel
+    - Button Backgrounds (hover and stuff)
+-
 
 
 Shit to fix
