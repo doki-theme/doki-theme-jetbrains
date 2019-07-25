@@ -25,17 +25,19 @@ class CleoTheme : AnthroTheme("cleo", "Cleo", false, "Cleo") {
 
   override fun getSelectionBackgroundColorString(): String = "55545d"
 
-  override fun getTreeSelectionBackgroundColorString(): String = "857b81"
+  override fun getTreeSelectionBackgroundColorString(): String = "242528"
 
-  override fun getForegroundColorString(): String = "191A29"
+  override fun getTreeSelectionForegroundColorString(): String = "e7e7ed"
 
-  override fun getTextColorString(): String = "191A29"
+  override fun getForegroundColorString(): String = "1F2435"
 
-  override fun getInactiveColorString(): String = "b0acb7"
+  override fun getTextColorString(): String = "1F2435"
+
+  override fun getInactiveColorString(): String = "4A4B51"
 
   override fun getMenuItemForegroundColor(): String = "252529"
 
-  override fun getMenuBarSelectionForegroundColorString(): String = "ffffff"
+  override fun getMenuBarSelectionForegroundColorString(): String = "e7e7ed"
 
   override fun getMenuBarSelectionBackgroundColorString(): String = "443f42"
 
@@ -59,11 +61,11 @@ class CleoTheme : AnthroTheme("cleo", "Cleo", false, "Cleo") {
 
   override fun getForegroundColorResource(): ColorUIResource = ColorUIResource(0x0F111A)
 
-  override fun getTableSelectedColorString(): String = "857b81"
+  override fun getTableSelectedColorString(): String = "242528"
 
   override fun getStartColor(): String = "252d33"
 
   override fun getStopColor(): String = "6accfc"
 
-  override fun getNonProjectFileScopeColor(): String = "DADBC5"
+  override fun getNonProjectFileScopeColor(): String = "E3E4CD"
 }

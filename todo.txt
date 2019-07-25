@@ -43,6 +43,11 @@ works with material ui
 Rating Stars
 ------
 
+- Cleo's Inactive text
+
+
+
+
 Shit to fix
 ----
 Material Integrations
