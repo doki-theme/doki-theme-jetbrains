@@ -55,13 +55,13 @@ class CleoTheme : AnthroTheme("cleo", "Cleo", false, "Cleo") {
 
   override fun getButtonForegroundColor(): String = "252427"
 
-  override fun getAccentColor(): String = MTAccents.ABYSS.hexColor
+  override fun getAccentColor(): String = MTAccents.WATER.hexColor
 
   override fun getBackgroundColorResource(): ColorUIResource = ColorUIResource(0xe7e7ed)
 
   override fun getForegroundColorResource(): ColorUIResource = ColorUIResource(0x0F111A)
 
-  override fun getDisabledColorString(): String = "525C6F"
+  override fun getDisabledColorString(): String = "64707F"
 
   override fun getTableSelectedColorString(): String = "242528"
 
@@ -74,4 +74,6 @@ class CleoTheme : AnthroTheme("cleo", "Cleo", false, "Cleo") {
   override fun getTestScope(): String = "C0EDCC"
 
   override fun getSelectedButtonForegroundColor(): String = selectionForegroundColorString
+
+
 }
