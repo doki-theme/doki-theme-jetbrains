@@ -71,5 +71,6 @@ class SanyaTheme : AnthroTheme("sanya", "Sanya", true, "Sanya") {
 
   override fun getTestScope(): String = "28382D"
 
+  override fun getSelectedButtonForegroundColor(): String = selectionForegroundColorString
 
 }

@@ -49,14 +49,12 @@ Rating Stars
     - Active Toolbar Foreground
     - Accent
 - Eleniel
-    - Button Backgrounds (hover and stuff)
 - Neera
     - Accent color
     - Selection background/foreground
 - Sanya
-    - Button (primary)
 - Syrena
-    - Button (primary)
+- Wyla
 
 
 Shit to fix

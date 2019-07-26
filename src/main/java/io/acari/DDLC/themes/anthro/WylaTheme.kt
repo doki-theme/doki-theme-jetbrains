@@ -70,4 +70,6 @@ class WylaTheme : AnthroTheme("wyla", "Wyla", true, "Wyla") {
   override fun getTestScope(): String = "243125"
 
   override fun getDisabledColorString(): String = "585F6F"
+
+  override fun getSelectedButtonForegroundColor(): String = selectionForegroundColorString
 }

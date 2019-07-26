@@ -49,7 +49,7 @@ class ElenielTheme : AnthroTheme("eleniel", "Eleniel", true, "Eleniel") {
 
   override fun getButtonBackgroundColor(): String = contrastColorString
 
-  override fun getButtonForegroundColor(): String = "9e9199"
+  override fun getButtonForegroundColor(): String = "80747B"
 
   override fun getAccentColor(): String = MTAccents.SOFT_SPRINGS.hexColor
 
@@ -70,4 +70,6 @@ class ElenielTheme : AnthroTheme("eleniel", "Eleniel", true, "Eleniel") {
   override fun getNonProjectFileScopeColor(): String = "584B3E"
 
   override fun getTestScope(): String = "3A5841"
+
+  override fun getSelectedButtonForegroundColor(): String = selectionForegroundColorString
 }
