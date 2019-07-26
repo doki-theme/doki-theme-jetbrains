@@ -65,5 +65,9 @@ class WylaTheme : AnthroTheme("wyla", "Wyla", true, "Wyla") {
 
   override fun getStopColor(): String = "eeb416"
 
-  override fun getNonProjectFileScopeColor(): String = "312F20S"
+  override fun getNonProjectFileScopeColor(): String = "312A26"
+
+  override fun getTestScope(): String = "243125"
+
+  override fun getDisabledColorString(): String = "585F6F"
 }
