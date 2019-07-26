@@ -10,7 +10,7 @@ class SyrenaTheme : AnthroTheme("syrena", "Syrena", true, "Syrena") {
 
   override fun getNormalChibi(): String = "athro/syrena.png"
 
-  override fun getBackgroundColorString(): String = "392525"
+  override fun getBackgroundColorString(): String = "342222"
 
   //todo: remove these
   override fun getClubMember(): String = "sayori.png"
@@ -21,19 +21,19 @@ class SyrenaTheme : AnthroTheme("syrena", "Syrena", true, "Syrena") {
 
   override fun getSecondaryForegroundColorString(): String = "B9AA9F"
 
-  override fun getSelectionForegroundColorString(): String = "E2CB14"
+  override fun getSelectionForegroundColorString(): String = "ffffff"
 
   override fun getSelectionBackgroundColorString(): String = "824747"
 
   override fun getTreeSelectionBackgroundColorString(): String = "824747"
 
-  override fun getInactiveColorString(): String = "FFFFBC"
+  override fun getInactiveColorString(): String = "543939"
 
   override fun getMenuItemForegroundColor(): String = "B9AA9F"
 
   override fun getMenuBarSelectionForegroundColorString(): String = "ffffff"
 
-  override fun getMenuBarSelectionBackgroundColorString(): String = "C5BD68"
+  override fun getMenuBarSelectionBackgroundColorString(): String = "824747"
 
   override fun getNotificationsColorString(): String = "fd985d"
 
@@ -65,5 +65,9 @@ class SyrenaTheme : AnthroTheme("syrena", "Syrena", true, "Syrena") {
 
   override fun getStopColor(): String = "fd7c4b"
 
-  override fun getNonProjectFileScopeColor(): String = "39342C"
+  override fun getNonProjectFileScopeColor(): String = "393229"
+
+  override fun getTestScope(): String = "29392C"
+
+  override fun getDisabledColorString(): String = "525C6F"
 }

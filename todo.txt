@@ -54,7 +54,9 @@ Rating Stars
     - Accent color
     - Selection background/foreground
 - Sanya
-    - Button (primary
+    - Button (primary)
+- Syrena
+    - Button (primary)
 
 
 Shit to fix
