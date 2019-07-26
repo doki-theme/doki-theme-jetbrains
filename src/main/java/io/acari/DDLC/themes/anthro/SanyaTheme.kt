@@ -19,21 +19,21 @@ class SanyaTheme : AnthroTheme("sanya", "Sanya", true, "Sanya") {
 
   override fun getSecondaryBackgroundColorString(): String = "362839"
 
-  override fun getSecondaryForegroundColorString(): String = "cebcb8"
+  override fun getSecondaryForegroundColorString(): String = "ffffff"
 
-  override fun getSelectionForegroundColorString(): String = "E2CB14"
+  override fun getSelectionForegroundColorString(): String = "ffffff"
 
-  override fun getSelectionBackgroundColorString(): String = "F0E891"
+  override fun getSelectionBackgroundColorString(): String = "af1f51"
 
-  override fun getTreeSelectionBackgroundColorString(): String = "ECD95A"
+  override fun getTreeSelectionBackgroundColorString(): String = "af1f51"
 
-  override fun getInactiveColorString(): String = "FFFFBC"
+  override fun getInactiveColorString(): String = "883552"
 
   override fun getMenuItemForegroundColor(): String = "cebcb8"
 
   override fun getMenuBarSelectionForegroundColorString(): String = "ffffff"
 
-  override fun getMenuBarSelectionBackgroundColorString(): String = "C5BD68"
+  override fun getMenuBarSelectionBackgroundColorString(): String = "af1f51"
 
   override fun getNotificationsColorString(): String = "FFFBC7"
 
@@ -59,11 +59,17 @@ class SanyaTheme : AnthroTheme("sanya", "Sanya", true, "Sanya") {
 
   override fun getForegroundColorResource(): ColorUIResource = ColorUIResource(0xcebcb8)
 
-  override fun getTableSelectedColorString(): String = "FFFBA3"
+  override fun getDisabledColorString(): String = "525C6F"
+
+  override fun getTableSelectedColorString(): String = "af1f51"
 
   override fun getStartColor(): String = "6d4466"
 
   override fun getStopColor(): String = "ec1f62"
 
-  override fun getNonProjectFileScopeColor(): String = "56412d"
+  override fun getNonProjectFileScopeColor(): String = "38352F"
+
+  override fun getTestScope(): String = "28382D"
+
+
 }

@@ -53,7 +53,8 @@ Rating Stars
 - Neera
     - Accent color
     - Selection background/foreground
-
+- Sanya
+    - Button (primary
 
 
 Shit to fix
