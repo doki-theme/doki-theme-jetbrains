@@ -45,9 +45,7 @@ Rating Stars
 
 - Cleo
     - Inactive selection text
-    - Button Foregrounds
     - Active Toolbar Foreground
-    - Accent
 - Eleniel
 - Neera
     - Accent color
