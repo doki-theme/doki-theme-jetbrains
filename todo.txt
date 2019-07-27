@@ -43,16 +43,53 @@ works with material ui
 Rating Stars
 ------
 
+- Anthro Theme Icons
+- Anthro Toolbar Icon
+- Settings
+- Wizard?
+
+- Version Control colors
+    - File, Gutter,
+- Search background /inactive highlight
+- Diff Colors
+- Hovered color in editor (shows each occurrence)
+- Notifications
+    - Window, tooltip
+- Bread Crumbs
+
 - Cleo
-    - Inactive selection text
+    - Inactive text foreground hard to read.
     - Active Toolbar Foreground
+    - Diff Colors
+    - Editor Selection Highlight
+    - Text foreground hard to read
+    - Button Hover makes forground unreadable
+    - String color
+    - Terminal Colors
+    - Less contrasty active button background and tree selection background
+    - Search background active/inactive highlight
 - Eleniel
+    - Button Hover makes forground unreadable
+    - Comment color
+    - non project file background hard to read foreground
+    - Diff Colors
+    - Editor Selection Highlight
+    - Search background active/inactive highlight
 - Neera
     - Accent color
     - Selection background/foreground
+    - Search background active/inactive highlight
 - Sanya
+    - Search everywhere active tab foreground hard to read
+    - Diff Colors
+    - Editor Selection Highlight
+    - Search background active/inactive highlight
 - Syrena
+    - Search background active/inactive highlight
+    - Disabled text
 - Wyla
+    - Search background active/inactive highlight
+    - Annotation colour
 
 
 Shit to fix
