@@ -63,12 +63,12 @@
         <option name="FILESTATUS_DELETED" value="808080"/>
         <option name="FILESTATUS_HIJACKED" value="ffb62c"/>
         <option name="FILESTATUS_IDEA_FILESTATUS_DELETED_FROM_FILE_SYSTEM" value="808080"/>
-        <option name="FILESTATUS_IDEA_FILESTATUS_IGNORED" value="ab7967"/>
+        <option name="FILESTATUS_IDEA_FILESTATUS_IGNORED" value="61497F"/>
         <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_BOTH_CONFLICTS" value="d5756c"/>
         <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_CONFLICTS" value="d5756c"/>
         <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_PROPERTY_CONFLICTS" value="d5756c"/>
         <option name="FILESTATUS_IDEA_SVN_FILESTATUS_EXTERNAL" value="91b859"/>
-        <option name="FILESTATUS_IGNORE.PROJECT_VIEW.IGNORED" value="ab7967"/>
+        <option name="FILESTATUS_IGNORE.PROJECT_VIEW.IGNORED" value="61497F"/>
         <option name="FILESTATUS_MERGED" value="7c4dff"/>
         <option name="FILESTATUS_MODIFIED" value="39adb5"/>
         <option name="FILESTATUS_NOT_CHANGED_IMMEDIATE" value="39adb5"/>
@@ -89,11 +89,11 @@
         <option name="MT_ADDED" value="91b859"/>
         <option name="MT_DELETED" value="f76d47"/>
         <option name="MT_HIJACKED" value="ffb62c"/>
-        <option name="MT_IDEA_FILESTATUS_IGNORED" value="ab7967"/>
+        <option name="MT_IDEA_FILESTATUS_IGNORED" value="61497F"/>
         <option name="MT_IDEA_FILESTATUS_MERGED_WITH_BOTH_CONFLICTS" value="e53935"/>
         <option name="MT_IDEA_FILESTATUS_MERGED_WITH_CONFLICTS" value="e53935"/>
         <option name="MT_IDEA_FILESTATUS_MERGED_WITH_PROPERTY_CONFLICTS" value="e53935"/>
-        <option name="MT_IGNORE.PROJECT_VIEW.IGNORED" value="ab7967"/>
+        <option name="MT_IGNORE.PROJECT_VIEW.IGNORED" value="61497F"/>
         <option name="MT_MERGED" value="945eb8"/>
         <option name="MT_MODIFIED" value="39adb5"/>
         <option name="MT_NOT_CHANGED" value="90a4ae"/>
