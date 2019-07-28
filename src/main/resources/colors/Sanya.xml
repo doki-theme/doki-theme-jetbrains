@@ -58,26 +58,26 @@
         <option name="CARET_COLOR" value="cccccc"/>
         <option name="CARET_ROW_COLOR" value="44475a"/>
         <option name="CONSOLE_BACKGROUND_KEY" value="332638"/>
-        <option name="DELETED_LINES_COLOR" value="ef2066"/>
+        <option name="DELETED_LINES_COLOR" value="BD84DD"/>
         <option name="FILESTATUS_ADDED" value="c1ff10"/>
         <option name="FILESTATUS_DELETED" value="6272a4"/>
         <option name="FILESTATUS_HIJACKED" value="f1fa8c"/>
         <option name="FILESTATUS_IDEA_FILESTATUS_DELETED_FROM_FILE_SYSTEM" value="6272a4"/>
         <option name="FILESTATUS_IDEA_FILESTATUS_IGNORED" value="ffb86c"/>
-        <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_BOTH_CONFLICTS" value="ef2066"/>
-        <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_CONFLICTS" value="ef2066"/>
-        <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_PROPERTY_CONFLICTS" value="ef2066"/>
+        <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_BOTH_CONFLICTS" value="BD84DD"/>
+        <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_CONFLICTS" value="BD84DD"/>
+        <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_PROPERTY_CONFLICTS" value="BD84DD"/>
         <option name="FILESTATUS_IGNORE.PROJECT_VIEW.IGNORED" value="ffb86c"/>
         <option name="FILESTATUS_MERGED" value="86DBFD"/>
-        <option name="FILESTATUS_MODIFIED" value="BD84DD"/>
-        <option name="FILESTATUS_NOT_CHANGED_IMMEDIATE" value="BD84DD"/>
-        <option name="FILESTATUS_NOT_CHANGED_RECURSIVE" value="BD84DD"/>
+        <option name="FILESTATUS_MODIFIED" value="ef2066"/>
+        <option name="FILESTATUS_NOT_CHANGED_IMMEDIATE" value="ef2066"/>
+        <option name="FILESTATUS_NOT_CHANGED_RECURSIVE" value="ef2066"/>
         <option name="FILESTATUS_OBSOLETE" value="ffb86c"/>
         <option name="FILESTATUS_SUPPRESSED" value="6272a4"/>
         <option name="FILESTATUS_SWITCHED" value="ffb86c"/>
         <option name="FILESTATUS_UNKNOWN" value="86DBFD"/>
         <option name="FILESTATUS_addedOutside" value="6272a4"/>
-        <option name="FILESTATUS_changelistConflict" value="ef2066"/>
+        <option name="FILESTATUS_changelistConflict" value="BD84DD"/>
         <option name="FILESTATUS_modifiedOutside" value="86DBFD"/>
         <option name="GUTTER_BACKGROUND" value="332638"/>
         <option name="INDENT_GUIDE" value="424450"/>
@@ -86,8 +86,8 @@
         <option name="NOTIFICATION_BACKGROUND" value="332638"/>
         <option name="RECENT_LOCATIONS_SELECTION" value="191a21"/>
         <option name="RIGHT_MARGIN_COLOR" value="424450"/>
-        <option name="SELECTED_INDENT_GUIDE" value="ef2066"/>
-        <option name="SELECTED_TEARLINE_COLOR" value="ef2066"/>
+        <option name="SELECTED_INDENT_GUIDE" value="BD84DD"/>
+        <option name="SELECTED_TEARLINE_COLOR" value="BD84DD"/>
         <option name="SELECTION_BACKGROUND" value="503c58"/>
         <option name="SELECTION_FOREGROUND" value="c7b3ff"/>
         <option name="SEPARATOR_BELOW_COLOR" value="424450"/>
@@ -146,7 +146,7 @@
         </option>
         <option name="ANONYMOUS_CLASS_NAME_ATTRIBUTES">
             <value>
-                <option name="FOREGROUND" value="BD84DD"/>
+                <option name="FOREGROUND" value="ef2066"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -155,7 +155,7 @@
         </option>
         <option name="BASH.EXTERNAL_COMMAND">
             <value>
-                <option name="FOREGROUND" value="BD84DD"/>
+                <option name="FOREGROUND" value="ef2066"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -165,7 +165,7 @@
         <option name="BASH.HERE_DOC_START" baseAttributes="DEFAULT_KEYWORD"/>
         <option name="BASH.INTERNAL_COMMAND">
             <value>
-                <option name="FOREGROUND" value="BD84DD"/>
+                <option name="FOREGROUND" value="ef2066"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -186,7 +186,7 @@
         <option name="BREADCRUMBS_HOVERED">
             <value>
                 <option name="FOREGROUND" value="ffffff"/>
-                <option name="BACKGROUND" value="ef2066"/>
+                <option name="BACKGROUND" value="BD84DD"/>
             </value>
         </option>
         <option name="BREADCRUMBS_INACTIVE">
@@ -208,7 +208,7 @@
         </option>
         <option name="CODE_VISION_HOVERED">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="BD84DD"/>
             </value>
         </option>
         <option name="COFFEESCRIPT.CLASS_NAME">
@@ -234,7 +234,7 @@
         </option>
         <option name="CONSOLE_CYAN_BRIGHT_OUTPUT">
             <value>
-                <option name="FOREGROUND" value="BD84DD"/>
+                <option name="FOREGROUND" value="ef2066"/>
             </value>
         </option>
         <option name="CONSOLE_CYAN_OUTPUT">
@@ -284,7 +284,7 @@
         </option>
         <option name="CONSOLE_RED_BRIGHT_OUTPUT">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="BD84DD"/>
             </value>
         </option>
         <option name="CONSOLE_RED_OUTPUT">
@@ -320,12 +320,12 @@
         </option>
         <option name="CONSTRUCTOR_CALL_ATTRIBUTES">
             <value>
-                <option name="FOREGROUND" value="BD84DD"/>
+                <option name="FOREGROUND" value="ef2066"/>
             </value>
         </option>
         <option name="CSS.COLON">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="BD84DD"/>
                 <option name="EFFECT_TYPE" value="5"/>
             </value>
         </option>
@@ -336,7 +336,7 @@
         </option>
         <option name="CSS.FUNCTION">
             <value>
-                <option name="FOREGROUND" value="BD84DD"/>
+                <option name="FOREGROUND" value="ef2066"/>
             </value>
         </option>
         <option name="CSS.HASH">
@@ -352,17 +352,17 @@
         </option>
         <option name="CSS.IMPORTANT">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="BD84DD"/>
             </value>
         </option>
         <option name="CSS.KEYWORD">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="BD84DD"/>
             </value>
         </option>
         <option name="CSS.PROPERTY_NAME">
             <value>
-                <option name="FOREGROUND" value="BD84DD"/>
+                <option name="FOREGROUND" value="ef2066"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -379,7 +379,7 @@
         </option>
         <option name="CSS.TAG_NAME">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="BD84DD"/>
             </value>
         </option>
         <option name="CSS.UNICODE.RANGE">
@@ -401,12 +401,12 @@
         </option>
         <option name="CUSTOM_KEYWORD1_ATTRIBUTES">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="BD84DD"/>
             </value>
         </option>
         <option name="CUSTOM_KEYWORD2_ATTRIBUTES">
             <value>
-                <option name="FOREGROUND" value="BD84DD"/>
+                <option name="FOREGROUND" value="ef2066"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -440,12 +440,12 @@
         </option>
         <option name="DEFAULT_CLASS_NAME">
             <value>
-                <option name="FOREGROUND" value="BD84DD"/>
+                <option name="FOREGROUND" value="ef2066"/>
             </value>
         </option>
         <option name="DEFAULT_CLASS_REFERENCE">
             <value>
-                <option name="FOREGROUND" value="BD84DD"/>
+                <option name="FOREGROUND" value="ef2066"/>
             </value>
         </option>
         <option name="DEFAULT_COMMA">
@@ -465,7 +465,7 @@
         </option>
         <option name="DEFAULT_DOC_COMMENT_TAG">
             <value>
-                <option name="FOREGROUND" value="BD84DD"/>
+                <option name="FOREGROUND" value="ef2066"/>
                 <option name="FONT_TYPE" value="3"/>
                 <option name="EFFECT_TYPE" value="1"/>
             </value>
@@ -507,7 +507,7 @@
         </option>
         <option name="DEFAULT_INTERFACE_NAME">
             <value>
-                <option name="FOREGROUND" value="BD84DD"/>
+                <option name="FOREGROUND" value="ef2066"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -520,7 +520,7 @@
         </option>
         <option name="DEFAULT_KEYWORD">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="BD84DD"/>
             </value>
         </option>
         <option name="DEFAULT_LINE_COMMENT">
@@ -531,7 +531,7 @@
         </option>
         <option name="DEFAULT_METADATA">
             <value>
-                <option name="FOREGROUND" value="BD84DD"/>
+                <option name="FOREGROUND" value="ef2066"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -542,7 +542,7 @@
         </option>
         <option name="DEFAULT_OPERATION_SIGN">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="BD84DD"/>
             </value>
         </option>
         <option name="DEFAULT_PARAMETER">
@@ -593,7 +593,7 @@
         </option>
         <option name="DEFAULT_TAG">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="BD84DD"/>
                 <option name="EFFECT_TYPE" value="5"/>
             </value>
         </option>
@@ -673,7 +673,7 @@
         <option name="ELIXIR_VARIABLE" baseAttributes="DEFAULT_LOCAL_VARIABLE"/>
         <option name="ENUM_NAME_ATTRIBUTES">
             <value>
-                <option name="FOREGROUND" value="BD84DD"/>
+                <option name="FOREGROUND" value="ef2066"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -700,7 +700,7 @@
         <option name="GHERKIN_REGEXP_PARAMETER" baseAttributes="DEFAULT_PARAMETER"/>
         <option name="GO_BUILTIN_TYPE_REFERENCE">
             <value>
-                <option name="FOREGROUND" value="BD84DD"/>
+                <option name="FOREGROUND" value="ef2066"/>
             </value>
         </option>
         <option name="GO_FUNCTION_PARAMETER">
@@ -751,7 +751,7 @@
         </option>
         <option name="HTML_TAG_NAME">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="BD84DD"/>
             </value>
         </option>
         <option name="HTTP_REQUEST_INPUT_FILE">
@@ -771,7 +771,7 @@
         </option>
         <option name="HTTP_REQUEST_PORT">
             <value>
-                <option name="FOREGROUND" value="BD84DD"/>
+                <option name="FOREGROUND" value="ef2066"/>
             </value>
         </option>
         <option name="HYPERLINK_ATTRIBUTES">
@@ -807,7 +807,7 @@
         </option>
         <option name="IGNORE.NEGATION">
             <value>
-                <option name="FOREGROUND" value="BD84DD"/>
+                <option name="FOREGROUND" value="ef2066"/>
                 <option name="FONT_TYPE" value="1"/>
             </value>
         </option>
@@ -823,7 +823,7 @@
         </option>
         <option name="IGNORE.SYNTAX">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="BD84DD"/>
                 <option name="FONT_TYPE" value="1"/>
             </value>
         </option>
@@ -881,13 +881,13 @@
         </option>
         <option name="JAVA_KEYWORD">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="BD84DD"/>
             </value>
         </option>
         <option name="JAVA_VALID_STRING_ESCAPE" baseAttributes="DEFAULT_VALID_STRING_ESCAPE"/>
         <option name="JS.CONSOLE">
             <value>
-                <option name="FOREGROUND" value="BD84DD"/>
+                <option name="FOREGROUND" value="ef2066"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -928,7 +928,7 @@
         </option>
         <option name="KOTLIN_CLOSURE_DEFAULT_PARAMETER">
             <value>
-                <option name="FOREGROUND" value="BD84DD"/>
+                <option name="FOREGROUND" value="ef2066"/>
                 <option name="FONT_TYPE" value="1"/>
             </value>
         </option>
@@ -1003,7 +1003,7 @@
         </option>
         <option name="LOG_INFO_OUTPUT">
             <value>
-                <option name="FOREGROUND" value="BD84DD"/>
+                <option name="FOREGROUND" value="ef2066"/>
             </value>
         </option>
         <option name="LOG_VERBOSE_OUTPUT">
@@ -1022,7 +1022,7 @@
         </option>
         <option name="MARKDOWN_AUTO_LINK">
             <value>
-                <option name="FOREGROUND" value="BD84DD"/>
+                <option name="FOREGROUND" value="ef2066"/>
                 <option name="EFFECT_COLOR" value="287bde"/>
                 <option name="EFFECT_TYPE" value="1"/>
             </value>
@@ -1035,31 +1035,31 @@
         </option>
         <option name="MARKDOWN_LINK_DESTINATION">
             <value>
-                <option name="FOREGROUND" value="BD84DD"/>
+                <option name="FOREGROUND" value="ef2066"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
         <option name="MARKDOWN_LINK_LABEL">
             <value>
-                <option name="FOREGROUND" value="BD84DD"/>
+                <option name="FOREGROUND" value="ef2066"/>
                 <option name="FONT_TYPE" value="1"/>
             </value>
         </option>
         <option name="MARKDOWN_LINK_TEXT">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="BD84DD"/>
                 <option name="EFFECT_TYPE" value="1"/>
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.ABBREVIATED_TEXT">
             <value>
-                <option name="EFFECT_COLOR" value="BD84DD"/>
+                <option name="EFFECT_COLOR" value="ef2066"/>
                 <option name="EFFECT_TYPE" value="5"/>
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.ABBREVIATION">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="BD84DD"/>
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.ABBREVIATION_EXPANDED_TEXT">
@@ -1077,8 +1077,8 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.AUTO_LINK">
             <value>
-                <option name="FOREGROUND" value="BD84DD"/>
-                <option name="EFFECT_COLOR" value="BD84DD"/>
+                <option name="FOREGROUND" value="ef2066"/>
+                <option name="EFFECT_COLOR" value="ef2066"/>
                 <option name="EFFECT_TYPE" value="1"/>
             </value>
         </option>
@@ -1126,7 +1126,7 @@
                 baseAttributes="MARKDOWN_NAVIGATOR.DEBUG_FORMAT_TEXT_BLOCK"/>
         <option name="MARKDOWN_NAVIGATOR.DEBUG_FORMAT_PREFIX">
             <value>
-                <option name="EFFECT_COLOR" value="BD84DD"/>
+                <option name="EFFECT_COLOR" value="ef2066"/>
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.DEBUG_FORMAT_TEXT_BLOCK">
@@ -1136,7 +1136,7 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.DEFINITION_MARKER">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="BD84DD"/>
                 <option name="FONT_TYPE" value="1"/>
             </value>
         </option>
@@ -1148,13 +1148,13 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.EMOJI_ID">
             <value>
-                <option name="FOREGROUND" value="BD84DD"/>
+                <option name="FOREGROUND" value="ef2066"/>
                 <option name="FONT_TYPE" value="1"/>
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.EMOJI_MARKER">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="BD84DD"/>
                 <option name="FONT_TYPE" value="1"/>
             </value>
         </option>
@@ -1163,7 +1163,7 @@
         <option name="MARKDOWN_NAVIGATOR.FLEXMARK_EXAMPLE_SECTION" baseAttributes="MARKDOWN_NAVIGATOR.TEXT"/>
         <option name="MARKDOWN_NAVIGATOR.FOOTNOTE">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="BD84DD"/>
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.FOOTNOTE_ID">
@@ -1173,7 +1173,7 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.FOOTNOTE_REF">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="BD84DD"/>
                 <option name="FONT_TYPE" value="1"/>
             </value>
         </option>
@@ -1189,7 +1189,7 @@
         <option name="MARKDOWN_NAVIGATOR.IMAGE_LINK_REF" baseAttributes="MARKDOWN_NAVIGATOR.AUTO_LINK"/>
         <option name="MARKDOWN_NAVIGATOR.IMAGE_LINK_REF_TITLE">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="BD84DD"/>
                 <option name="EFFECT_TYPE" value="1"/>
             </value>
         </option>
@@ -1218,7 +1218,7 @@
         <option name="MARKDOWN_NAVIGATOR.LINK_REF_ANCHOR_MARKER" baseAttributes="MARKDOWN_NAVIGATOR.EXPLICIT_LINK"/>
         <option name="MARKDOWN_NAVIGATOR.LINK_REF_TITLE">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="BD84DD"/>
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.MAIL_LINK" baseAttributes="MARKDOWN_NAVIGATOR.AUTO_LINK"/>
@@ -1229,7 +1229,7 @@
         <option name="MARKDOWN_NAVIGATOR.REFERENCE_LINK_REF" baseAttributes="MARKDOWN_NAVIGATOR.AUTO_LINK"/>
         <option name="MARKDOWN_NAVIGATOR.REFERENCE_LINK_TEXT">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="BD84DD"/>
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.REFERENCE_TEXT">
@@ -1843,7 +1843,7 @@
                 baseAttributes="MARKDOWN_NAVIGATOR.TABLE_CELL_REVEN_CODD"/>
         <option name="MARKDOWN_NAVIGATOR.TASK_DONE_ITEM_MARKER">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="BD84DD"/>
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.TASK_ITEM_MARKER">
@@ -1854,13 +1854,13 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.TOC">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="BD84DD"/>
                 <option name="FONT_TYPE" value="1"/>
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.TOC_OPTION">
             <value>
-                <option name="FOREGROUND" value="BD84DD"/>
+                <option name="FOREGROUND" value="ef2066"/>
                 <option name="FONT_TYPE" value="3"/>
             </value>
         </option>
@@ -1887,21 +1887,21 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.VERBATIM_MARKER">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="BD84DD"/>
                 <option name="FONT_TYPE" value="1"/>
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.WIKI_LINK" baseAttributes="DEFAULT_BRACKETS"/>
         <option name="MARKDOWN_NAVIGATOR.WIKI_LINK_REF">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="BD84DD"/>
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.WIKI_LINK_REF_ANCHOR" baseAttributes="MARKDOWN_NAVIGATOR.WIKI_LINK_REF"/>
         <option name="MARKDOWN_NAVIGATOR.WIKI_LINK_SEPARATOR" baseAttributes="MARKDOWN_NAVIGATOR.WIKI_LINK"/>
         <option name="MARKDOWN_NAVIGATOR.WIKI_LINK_TEXT">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="BD84DD"/>
                 <option name="EFFECT_TYPE" value="1"/>
             </value>
         </option>
@@ -1934,7 +1934,7 @@
         </option>
         <option name="OC.OVERLOADED_OPERATOR">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="BD84DD"/>
             </value>
         </option>
         <option name="OC.SELFSUPERTHIS">
@@ -1953,7 +1953,7 @@
         </option>
         <option name="OC.TYPEDEF">
             <value>
-                <option name="FOREGROUND" value="BD84DD"/>
+                <option name="FOREGROUND" value="ef2066"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -1982,7 +1982,7 @@
         <option name="PROPERTIES.INVALID_STRING_ESCAPE" baseAttributes="DEFAULT_INVALID_STRING_ESCAPE"/>
         <option name="PROPERTIES.KEY">
             <value>
-                <option name="FOREGROUND" value="BD84DD"/>
+                <option name="FOREGROUND" value="ef2066"/>
                 <option name="EFFECT_TYPE" value="1"/>
             </value>
         </option>
@@ -1990,7 +1990,7 @@
         <option name="PROPERTIES.VALID_STRING_ESCAPE" baseAttributes="DEFAULT_VALID_STRING_ESCAPE"/>
         <option name="PY.BUILTIN_NAME">
             <value>
-                <option name="FOREGROUND" value="BD84DD"/>
+                <option name="FOREGROUND" value="ef2066"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -2025,7 +2025,7 @@
         </option>
         <option name="RDOC_EMAIL">
             <value>
-                <option name="FOREGROUND" value="BD84DD"/>
+                <option name="FOREGROUND" value="ef2066"/>
             </value>
         </option>
         <option name="RDOC_HEADINGS">
@@ -2041,7 +2041,7 @@
         </option>
         <option name="RDOC_KEYWORD">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="BD84DD"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -2052,22 +2052,22 @@
         </option>
         <option name="REGEXP.BRACES">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="BD84DD"/>
             </value>
         </option>
         <option name="REGEXP.BRACKETS">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="BD84DD"/>
             </value>
         </option>
         <option name="REGEXP.CHAR_CLASS">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="BD84DD"/>
             </value>
         </option>
         <option name="REGEXP.COMMA">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="BD84DD"/>
             </value>
         </option>
         <option name="REGEXP.ESC_CHARACTER">
@@ -2084,7 +2084,7 @@
         </option>
         <option name="REGEXP.META">
             <value>
-                <option name="FOREGROUND" value="BD84DD"/>
+                <option name="FOREGROUND" value="ef2066"/>
             </value>
         </option>
         <option name="REGEXP.PARENTHS">
@@ -2094,12 +2094,12 @@
         </option>
         <option name="REGEXP.QUOTE_CHARACTER">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="BD84DD"/>
             </value>
         </option>
         <option name="REGEXP.REDUNDANT_ESCAPE">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="BD84DD"/>
             </value>
         </option>
         <option name="RHTML_COMMENT_ID" baseAttributes="HTML_COMMENT"/>
@@ -2148,7 +2148,7 @@
         <option name="RUBY_NUMBER" baseAttributes="DEFAULT_NUMBER"/>
         <option name="RUBY_PARAMDEF_CALL">
             <value>
-                <option name="FOREGROUND" value="BD84DD"/>
+                <option name="FOREGROUND" value="ef2066"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -2156,7 +2156,7 @@
         <option name="RUBY_REGEXP" baseAttributes="DEFAULT_TEMPLATE_LANGUAGE_COLOR"/>
         <option name="RUBY_SPECIFIC_CALL">
             <value>
-                <option name="FOREGROUND" value="BD84DD"/>
+                <option name="FOREGROUND" value="ef2066"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -2185,7 +2185,7 @@
         </option>
         <option name="ReSharper.ASP_NET_DIRECTIVE_NAME">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="BD84DD"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -2208,7 +2208,7 @@
         </option>
         <option name="ReSharper.ASP_NET_MVC_CONTROLLER">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="BD84DD"/>
                 <option name="EFFECT_TYPE" value="1"/>
             </value>
         </option>
@@ -2259,7 +2259,7 @@
         </option>
         <option name="ReSharper.ASP_NET_TAG_NAME">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="BD84DD"/>
             </value>
         </option>
         <option name="ReSharper.BRACE_OUTLINE">
@@ -2283,7 +2283,7 @@
         </option>
         <option name="ReSharper.CPP_PREPROCESSOR_MACRO_IDENTIFIER">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="BD84DD"/>
                 <option name="FONT_TYPE" value="1"/>
             </value>
         </option>
@@ -2326,21 +2326,21 @@
         </option>
         <option name="ReSharper.STATIC_CLASS_IDENTIFIER">
             <value>
-                <option name="FOREGROUND" value="BD84DD"/>
+                <option name="FOREGROUND" value="ef2066"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
         <option name="ReSharper.STRING_ESCAPE_CHARACTER_2" baseAttributes="DEFAULT_VALID_STRING_ESCAPE"/>
         <option name="ReSharper.STRUCT_IDENTIFIER">
             <value>
-                <option name="FOREGROUND" value="BD84DD"/>
-                <option name="EFFECT_COLOR" value="BD84DD"/>
+                <option name="FOREGROUND" value="ef2066"/>
+                <option name="EFFECT_COLOR" value="ef2066"/>
                 <option name="EFFECT_TYPE" value="1"/>
             </value>
         </option>
         <option name="ReSharper.TYPE_PARAMETER_IDENTIFIER">
             <value>
-                <option name="FOREGROUND" value="BD84DD"/>
+                <option name="FOREGROUND" value="ef2066"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -2382,7 +2382,7 @@
         <option name="SLIM_TAG" baseAttributes="DEFAULT_KEYWORD"/>
         <option name="SLIM_TAG_ATTR_KEY">
             <value>
-                <option name="FOREGROUND" value="BD84DD"/>
+                <option name="FOREGROUND" value="ef2066"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -2459,7 +2459,7 @@
         </option>
         <option name="Scala Predefined types">
             <value>
-                <option name="FOREGROUND" value="BD84DD"/>
+                <option name="FOREGROUND" value="ef2066"/>
             </value>
         </option>
         <option name="Scala Type parameter" baseAttributes="TYPE_PARAMETER_NAME_ATTRIBUTES"/>
@@ -2505,13 +2505,13 @@
         </option>
         <option name="TS.PRIVATE_PUBLIC">
             <value>
-                <option name="FOREGROUND" value="BD84DD"/>
+                <option name="FOREGROUND" value="ef2066"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
         <option name="TS.TYPE_PARAMETER">
             <value>
-                <option name="FOREGROUND" value="BD84DD"/>
+                <option name="FOREGROUND" value="ef2066"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -2572,7 +2572,7 @@
         <option name="XML_TAG_DATA" baseAttributes="TEXT"/>
         <option name="XML_TAG_NAME">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="BD84DD"/>
             </value>
         </option>
         <option name="YAML_ANCHOR">
@@ -2582,7 +2582,7 @@
         </option>
         <option name="YAML_SCALAR_KEY">
             <value>
-                <option name="FOREGROUND" value="BD84DD"/>
+                <option name="FOREGROUND" value="ef2066"/>
             </value>
         </option>
         <option name="YAML_SCALAR_LIST">
@@ -2607,7 +2607,7 @@
         <option name="org.rust.LIFETIME" baseAttributes="DEFAULT_IDENTIFIER"/>
         <option name="org.rust.MACRO">
             <value>
-                <option name="FOREGROUND" value="BD84DD"/>
+                <option name="FOREGROUND" value="ef2066"/>
             </value>
         </option>
         <option name="org.rust.MUT_PARAMETER" baseAttributes="DEFAULT_PARAMETER"/>
