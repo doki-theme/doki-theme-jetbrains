@@ -67,7 +67,7 @@ class ElenielTheme : AnthroTheme("eleniel", "Eleniel", true, "Eleniel") {
 
   override fun getTextColorString(): String = "aca3a7"
 
-  override fun getNonProjectFileScopeColor(): String = "584B3E"
+  override fun getNonProjectFileScopeColor(): String = "504438"
 
   override fun getTestScope(): String = "3A5841"
 
