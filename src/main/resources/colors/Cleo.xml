@@ -691,27 +691,27 @@
         </option>
         <option name="DIFF_CONFLICT">
             <value>
-                <option name="FOREGROUND" value="e3dafc"/>
-                <option name="BACKGROUND" value="ffa9b7"/>
+                <option name="FOREGROUND" value="FFE2E7"/>
+                <option name="BACKGROUND" value="FFC3C0"/>
                 <option name="ERROR_STRIPE_COLOR" value="8f5247"/>
             </value>
         </option>
         <option name="DIFF_DELETED">
             <value>
-                <option name="FOREGROUND" value="f2adab"/>
-                <option name="BACKGROUND" value="d9d9d9"/>
+                <option name="FOREGROUND" value="ffffff"/>
+                <option name="BACKGROUND" value="DADADA"/>
                 <option name="ERROR_STRIPE_COLOR" value="656e76"/>
             </value>
         </option>
         <option name="DIFF_INSERTED">
             <value>
-                <option name="BACKGROUND" value="dde8c2"/>
+                <option name="BACKGROUND" value="D0FDC9"/>
                 <option name="ERROR_STRIPE_COLOR" value="447152"/>
             </value>
         </option>
         <option name="DIFF_MODIFIED">
             <value>
-                <option name="BACKGROUND" value="afd0ff"/>
+                <option name="BACKGROUND" value="C8EAFF"/>
                 <option name="ERROR_STRIPE_COLOR" value="43698d"/>
             </value>
         </option>

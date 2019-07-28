@@ -63,13 +63,13 @@ Rating Stars
     - Diff Colors
     - Editor Selection Highlight
     - Text foreground hard to read
-    - Button Hover makes forground unreadable
+    - Button Hover makes f unreadable
     - String color
     - Terminal Colors
     - Less contrasty active button background and tree selection background
     - Search background active/inactive highlight
 - Eleniel
-    - Button Hover makes forground unreadable
+    - Button Hover makes f unreadable
     - Comment color
     - non project file background hard to read foreground
     - Diff Colors
