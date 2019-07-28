@@ -2,6 +2,8 @@ package io.acari.DDLC.themes.anthro
 
 import com.chrisrm.ideaddlc.utils.MTAccents
 import io.acari.DDLC.themes.AnthroTheme
+import io.acari.DDLC.toStream
+import java.util.stream.Stream
 import javax.swing.plaf.ColorUIResource
 
 class CleoTheme : AnthroTheme("cleo", "Cleo", false, "Cleo") {
@@ -61,7 +63,7 @@ class CleoTheme : AnthroTheme("cleo", "Cleo", false, "Cleo") {
 
   override fun getForegroundColorResource(): ColorUIResource = ColorUIResource(0x0F111A)
 
-  override fun getDisabledColorString(): String = "64707F"
+  override fun getDisabledColorString(): String = "A2B6CB"
 
   override fun getTableSelectedColorString(): String = "242528"
 
@@ -75,5 +77,13 @@ class CleoTheme : AnthroTheme("cleo", "Cleo", false, "Cleo") {
 
   override fun getSelectedButtonForegroundColor(): String = selectionForegroundColorString
 
+  override fun getSelectionForegroundResources(): Stream<String> {
+    return super.getSelectionForegroundResources()
+        .filter { it != "SearchEverywhere.Tab.selectedForeground" }
+  }
 
+  override fun getForegroundResources(): Stream<String> {
+    return Stream.concat(super.getForegroundResources(),
+        "SearchEverywhere.Tab.selectedForeground".toStream())
+  }
 }

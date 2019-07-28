@@ -72,9 +72,7 @@ Rating Stars
     - Green notification window hard to read with yellow texto
     - Accent color
 - Sanya
-    - Search everywhere active tab foreground hard to read
     - Editor Selection Highlight
-    - Search background active/inactive highlight
 - Syrena
 - Wyla
     - Annotation colour??
