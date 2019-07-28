@@ -58,7 +58,6 @@ Rating Stars
     - Text foreground hard to read
     - Button Hover makes foreground unreadable
     - String color
-    - Terminal Colors
     - Less contrasty active button background and tree selection background
     - Search background active/inactive highlight
 - Eleniel
