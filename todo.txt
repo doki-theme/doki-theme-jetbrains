@@ -76,11 +76,8 @@ Rating Stars
     - Editor Selection Highlight
     - Search background active/inactive highlight
 - Syrena
-    - Search background active/inactive highlight
-    - Disabled text
 - Wyla
-    - Search background active/inactive highlight
-    - Annotation colour
+    - Annotation colour??
 
 
 Shit to fix

@@ -69,7 +69,7 @@ class SyrenaTheme : AnthroTheme("syrena", "Syrena", true, "Syrena") {
 
   override fun getTestScope(): String = "29392C"
 
-  override fun getDisabledColorString(): String = "525C6F"
+  override fun getDisabledColorString(): String = "7F818F"
 
   override fun getSelectedButtonForegroundColor(): String = selectionForegroundColorString
 }
