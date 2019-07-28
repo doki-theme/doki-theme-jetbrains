@@ -143,11 +143,11 @@
         <option name="ScrollBar.trackColor" value="eaeaf0" mac="eaeaf0"/>
         <option name="TEARLINE_COLOR" value="e7eaec"/>
         <option name="TOOLTIP" value="eaeaf0"/>
-        <option name="VCS_ANNOTATIONS_COLOR_1" value="a7fff8"/>
-        <option name="VCS_ANNOTATIONS_COLOR_2" value="8cdcd5"/>
-        <option name="VCS_ANNOTATIONS_COLOR_3" value="ffffff"/>
-        <option name="VCS_ANNOTATIONS_COLOR_4" value="ff0a79"/>
-        <option name="VCS_ANNOTATIONS_COLOR_5" value="3961F6"/>
+        <option name="VCS_ANNOTATIONS_COLOR_1" value="7093D6"/>
+        <option name="VCS_ANNOTATIONS_COLOR_2" value="5ECFD6"/>
+        <option name="VCS_ANNOTATIONS_COLOR_3" value="2095D6"/>
+        <option name="VCS_ANNOTATIONS_COLOR_4" value="6F7FD6"/>
+        <option name="VCS_ANNOTATIONS_COLOR_5" value="66C5E2"/>
         <option name="VISUAL_INDENT_GUIDE" value="b0bec5"/>
         <option name="WHITESPACES" value="e7eaec"/>
     </colors>

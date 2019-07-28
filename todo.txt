@@ -49,7 +49,7 @@ Rating Stars
 - Wizard?
 
 - Version Control colors
-    - File,
+    - File, annotations
 - Search background /inactive highlight
 - Hovered color in editor (shows each occurrence)
 - Notifications
