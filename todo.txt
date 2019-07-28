@@ -54,6 +54,7 @@ Rating Stars
 - Cleo
     - Inactive text foreground hard to read.
     - Active Toolbar Foreground
+    - toolbar selection hover color
     - Editor Selection Highlight
     - Text foreground hard to read
     - Button Hover makes foreground unreadable
