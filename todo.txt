@@ -72,7 +72,6 @@ Rating Stars
     - Green notification window hard to read with yellow texto
     - Accent color
 - Sanya
-    - Editor Selection Highlight
 - Syrena
 - Wyla
     - Annotation colour??
