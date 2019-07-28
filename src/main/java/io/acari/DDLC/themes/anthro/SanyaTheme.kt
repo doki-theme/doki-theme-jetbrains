@@ -35,7 +35,7 @@ class SanyaTheme : AnthroTheme("sanya", "Sanya", true, "Sanya") {
 
   override fun getMenuBarSelectionBackgroundColorString(): String = "af1f51"
 
-  override fun getNotificationsColorString(): String = "FFFBC7"
+  override fun getNotificationsColorString(): String = "3a2333"
 
   override fun getHighlightColorString(): String = "403046"
 

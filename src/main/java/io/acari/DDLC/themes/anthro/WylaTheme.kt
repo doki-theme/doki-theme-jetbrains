@@ -35,7 +35,7 @@ class WylaTheme : AnthroTheme("wyla", "Wyla", true, "Wyla") {
 
   override fun getMenuBarSelectionBackgroundColorString(): String = "40434c"
 
-  override fun getNotificationsColorString(): String = "4a5b75"
+  override fun getNotificationsColorString(): String = "271c21"
 
   override fun getHighlightColorString(): String = "4e393e"
 

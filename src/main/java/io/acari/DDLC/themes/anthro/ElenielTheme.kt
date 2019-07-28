@@ -37,7 +37,7 @@ class ElenielTheme : AnthroTheme("eleniel", "Eleniel", true, "Eleniel") {
 
   override fun getMenuBarSelectionBackgroundColorString(): String = "807484"
 
-  override fun getNotificationsColorString(): String = "FFFBC7"
+  override fun getNotificationsColorString(): String = "3B3541"
 
   override fun getHighlightColorString(): String = "62576b"
 

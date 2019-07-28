@@ -50,8 +50,6 @@ Rating Stars
 
 - Version Control colors
     - File
-- Notifications
-    - Window, tooltip
 
 - Cleo
     - Inactive text foreground hard to read.
@@ -72,9 +70,8 @@ Rating Stars
     - Search background active/inactive highlight
     - diff colors are backwards
 - Neera
+    - Green notification window hard to read with yellow texto
     - Accent color
-    - Selection background/foreground
-    - Search background active/inactive highlight
 - Sanya
     - Search everywhere active tab foreground hard to read
     - Editor Selection Highlight

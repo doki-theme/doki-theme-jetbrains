@@ -41,7 +41,7 @@ class CleoTheme : AnthroTheme("cleo", "Cleo", false, "Cleo") {
 
   override fun getMenuBarSelectionBackgroundColorString(): String = "242528"
 
-  override fun getNotificationsColorString(): String = "295369"
+  override fun getNotificationsColorString(): String = "DCDDE8"
 
   override fun getHighlightColorString(): String = "DCE0F0"
 

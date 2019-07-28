@@ -1,7 +1,10 @@
 package io.acari.DDLC.themes.anthro
 
 import com.chrisrm.ideaddlc.utils.MTAccents
+import com.intellij.ui.JBColor
 import io.acari.DDLC.themes.AnthroTheme
+import java.util.stream.Stream
+import javax.swing.UIManager
 import javax.swing.plaf.ColorUIResource
 
 class NeeraTheme : AnthroTheme("neera", "Neera", false, "Neera") {
@@ -37,7 +40,7 @@ class NeeraTheme : AnthroTheme("neera", "Neera", false, "Neera") {
 
   override fun getMenuBarSelectionBackgroundColorString(): String = "fff3b4"
 
-  override fun getNotificationsColorString(): String = "FFFBC7"
+  override fun getNotificationsColorString(): String = "fefefe"
 
   override fun getHighlightColorString(): String = "fff3b4"
 

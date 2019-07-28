@@ -35,7 +35,7 @@ class SyrenaTheme : AnthroTheme("syrena", "Syrena", true, "Syrena") {
 
   override fun getMenuBarSelectionBackgroundColorString(): String = "824747"
 
-  override fun getNotificationsColorString(): String = "fd985d"
+  override fun getNotificationsColorString(): String = "321f1f"
 
   override fun getHighlightColorString(): String = "593E3D"
 
