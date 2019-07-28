@@ -50,8 +50,6 @@ Rating Stars
 
 - Version Control colors
     - File
-- Search background /inactive highlight
-- Hovered color in editor (shows each occurrence)
 - Notifications
     - Window, tooltip
 
@@ -68,6 +66,7 @@ Rating Stars
 - Eleniel
     - Button Hover makes foreground unreadable
     - Comment color
+    - green should be replaced with some other color
     - non project file background hard to read foreground
     - Editor Selection Highlight
     - Search background active/inactive highlight
