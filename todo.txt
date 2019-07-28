@@ -49,12 +49,11 @@ Rating Stars
 - Wizard?
 
 - Version Control colors
-    - File, annotations
+    - File
 - Search background /inactive highlight
 - Hovered color in editor (shows each occurrence)
 - Notifications
     - Window, tooltip
-- Bread Crumbs
 
 - Cleo
     - Inactive text foreground hard to read.

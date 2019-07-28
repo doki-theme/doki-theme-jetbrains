@@ -193,19 +193,19 @@
     <option name="BREADCRUMBS_CURRENT">
       <value>
         <option name="FOREGROUND" value="ffffff"/>
-        <option name="BACKGROUND" value="727072"/>
+        <option name="BACKGROUND" value="6D4F5F"/>
       </value>
     </option>
     <option name="BREADCRUMBS_DEFAULT">
       <value>
         <option name="FOREGROUND" value="939393"/>
-        <option name="BACKGROUND" value="403e41"/>
+        <option name="BACKGROUND" value="413038"/>
       </value>
     </option>
     <option name="BREADCRUMBS_HOVERED">
       <value>
-        <option name="FOREGROUND" value="ffffff"/>
-        <option name="BACKGROUND" value="e91e63"/>
+        <option name="FOREGROUND" value="FFFFFF"/>
+        <option name="BACKGROUND" value="c09d5c"/>
       </value>
     </option>
     <option name="BREADCRUMBS_INACTIVE">
