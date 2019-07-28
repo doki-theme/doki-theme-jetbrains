@@ -10,14 +10,14 @@ class NeeraTheme : AnthroTheme("neera", "Neera", false, "Neera") {
 
   override fun getNormalChibi(): String = "athro/neera.png"
 
-  override fun getBackgroundColorString(): String = "fbfff5"
+  override fun getBackgroundColorString(): String = "fffffb"
 
   //todo: remove these
   override fun getClubMember(): String = "sayori.png"
 
   override fun joyfulClubMember(): String = "sayori_joy.png"
 
-  override fun getSecondaryBackgroundColorString(): String = "FFFDF4"
+  override fun getSecondaryBackgroundColorString(): String = "fffff7"
 
   override fun getSecondaryForegroundColorString(): String = "546E7A"
 
@@ -27,7 +27,7 @@ class NeeraTheme : AnthroTheme("neera", "Neera", false, "Neera") {
 
   override fun getSelectionBackgroundColorString(): String = "F0E891"
 
-  override fun getTreeSelectionBackgroundColorString(): String = "ECE285"
+  override fun getTreeSelectionBackgroundColorString(): String = "fff3b4"
 
   override fun getInactiveColorString(): String = "FFFFBC"
 
@@ -35,15 +35,15 @@ class NeeraTheme : AnthroTheme("neera", "Neera", false, "Neera") {
 
   override fun getMenuBarSelectionForegroundColorString(): String = selectionForegroundColorString
 
-  override fun getMenuBarSelectionBackgroundColorString(): String = "ECE285"
+  override fun getMenuBarSelectionBackgroundColorString(): String = "fff3b4"
 
   override fun getNotificationsColorString(): String = "FFFBC7"
 
-  override fun getHighlightColorString(): String = "FFEE96"
+  override fun getHighlightColorString(): String = "fff3b4"
 
   override fun getContrastColorString(): String = "fffef7"
 
-  override fun getBorderColorString(): String = "FFFED4"
+  override fun getBorderColorString(): String = "dadada"
 
   override fun getForegroundColorString(): String = "546E7A"
 
@@ -59,7 +59,7 @@ class NeeraTheme : AnthroTheme("neera", "Neera", false, "Neera") {
 
   override fun getAccentColor(): String = MTAccents.DAISY.hexColor
 
-  override fun getBackgroundColorResource(): ColorUIResource = ColorUIResource(0xfefff5)
+  override fun getBackgroundColorResource(): ColorUIResource = ColorUIResource(0xfffffb)
 
   override fun getForegroundColorResource(): ColorUIResource = ColorUIResource(0xEAA900)
 
