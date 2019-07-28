@@ -51,7 +51,7 @@
     <option name="EDITOR_FONT_SIZE" value="12"/>
   </console-font>
   <colors>
-    <option name="ADDED_LINES_COLOR" value="b9a491"/>
+    <option name="ADDED_LINES_COLOR" value="264B33"/>
     <option name="ANNOTATIONS_COLOR" value="fffbf7"/>
     <option name="CARET_COLOR" value="fcfcfa"/>
     <option name="CARET_ROW_COLOR" value="3b3539"/>
@@ -87,7 +87,7 @@
     <option name="LINE_NUMBERS_COLOR" value="5b595c"/>
     <option name="LINE_NUMBER_ON_CARET_ROW_COLOR" value="c1c0c0"/>
     <option name="METHOD_SEPARATORS_COLOR" value="59575a"/>
-    <option name="MODIFIED_LINES_COLOR" value="fc9867"/>
+    <option name="MODIFIED_LINES_COLOR" value="12404B"/>
     <option name="MT_IGNORE.PROJECT_VIEW.IGNORED" value="ab7967"/>
     <option name="MT_SUPPRESSED" value="eeffff"/>
     <option name="NOTIFICATION_BACKGROUND" value="19181a"/>

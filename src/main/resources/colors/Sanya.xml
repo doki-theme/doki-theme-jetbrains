@@ -53,7 +53,7 @@
     </console-font>
     <option name="EDITOR_LIGATURES" value="true"/>
     <colors>
-        <option name="ADDED_LINES_COLOR" value="c1ff10"/>
+        <option name="ADDED_LINES_COLOR" value="264B33"/>
         <option name="ANNOTATIONS_COLOR" value="332638"/>
         <option name="CARET_COLOR" value="cccccc"/>
         <option name="CARET_ROW_COLOR" value="44475a"/>
@@ -82,7 +82,7 @@
         <option name="GUTTER_BACKGROUND" value="332638"/>
         <option name="INDENT_GUIDE" value="424450"/>
         <option name="LINE_NUMBERS_COLOR" value="666879"/>
-        <option name="MODIFIED_LINES_COLOR" value="BD84DD"/>
+        <option name="MODIFIED_LINES_COLOR" value="12404B"/>
         <option name="NOTIFICATION_BACKGROUND" value="332638"/>
         <option name="RECENT_LOCATIONS_SELECTION" value="191a21"/>
         <option name="RIGHT_MARGIN_COLOR" value="424450"/>
@@ -631,14 +631,14 @@
         </option>
         <option name="DIFF_INSERTED">
             <value>
-                <option name="BACKGROUND" value="203952"/>
-                <option name="ERROR_STRIPE_COLOR" value="227125"/>
+                <option name="BACKGROUND" value="204B21"/>
+                <option name="ERROR_STRIPE_COLOR" value="344C69"/>
             </value>
         </option>
         <option name="DIFF_MODIFIED">
             <value>
-                <option name="BACKGROUND" value="204B21"/>
-                <option name="ERROR_STRIPE_COLOR" value="344C69"/>
+                <option name="BACKGROUND" value="203952"/>
+                <option name="ERROR_STRIPE_COLOR" value="227125"/>
             </value>
         </option>
         <option name="DUPLICATE_FROM_SERVER">

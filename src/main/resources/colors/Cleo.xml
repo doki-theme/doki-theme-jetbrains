@@ -51,7 +51,7 @@
         <option name="EDITOR_FONT_SIZE" value="12"/>
     </console-font>
     <colors>
-        <option name="ADDED_LINES_COLOR" value="264b33"/>
+        <option name="ADDED_LINES_COLOR" value="D0FDC9"/>
         <option name="ANNOTATIONS_COLOR" value="474747"/>
         <option name="CARET_COLOR" value="272727"/>
         <option name="CARET_ROW_COLOR" value="ecf0f1"/>
@@ -85,7 +85,7 @@
         <option name="LINE_NUMBERS_COLOR" value="cfd8dc"/>
         <option name="LINE_NUMBER_ON_CARET_ROW_COLOR" value="a7adb0"/>
         <option name="METHOD_SEPARATORS_COLOR" value="b0bec5"/>
-        <option name="MODIFIED_LINES_COLOR" value="ffcb6e"/>
+        <option name="MODIFIED_LINES_COLOR" value="C8EAFF"/>
         <option name="MT_ADDED" value="397cb1"/>
         <option name="MT_DELETED" value="f76d47"/>
         <option name="MT_HIJACKED" value="ffb62c"/>
