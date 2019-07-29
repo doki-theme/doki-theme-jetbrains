@@ -58,9 +58,7 @@ Rating Stars
     - Editor Selection Highlight
     - Text foreground hard to read
     - Button Hover makes foreground unreadable
-    - String color
     - Less contrasty active button background and tree selection background
-    - Search background active/inactive highlight
 - Eleniel
     - Button Hover makes foreground unreadable
     - non project file background hard to read foreground

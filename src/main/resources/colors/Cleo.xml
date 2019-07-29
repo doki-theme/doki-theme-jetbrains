@@ -87,7 +87,7 @@
         <option name="METHOD_SEPARATORS_COLOR" value="b0bec5"/>
         <option name="MODIFIED_LINES_COLOR" value="C8EAFF"/>
         <option name="MT_ADDED" value="397cb1"/>
-        <option name="MT_DELETED" value="f76d47"/>
+        <option name="MT_DELETED" value="CB8411"/>
         <option name="MT_HIJACKED" value="ffb62c"/>
         <option name="MT_IDEA_FILESTATUS_IGNORED" value="61497F"/>
         <option name="MT_IDEA_FILESTATUS_MERGED_WITH_BOTH_CONFLICTS" value="e53935"/>
@@ -101,7 +101,7 @@
         <option name="MT_NOT_CHANGED_RECURSIVE" value="39adb5"/>
         <option name="MT_OBSOLETE" value="ffb62c"/>
         <option name="MT_SUPPRESSED" value="90a4ae"/>
-        <option name="MT_SWITCHED" value="f76d47"/>
+        <option name="MT_SWITCHED" value="CB8411"/>
         <option name="MT_UNKNOWN" value="e53935"/>
         <option name="MT_modifiedOutside" value="6182b8"/>
         <option name="NOTIFICATION_BACKGROUND" value="3d1a11"/>
@@ -179,7 +179,7 @@
         </option>
         <option name="Anotation attribute name">
             <value>
-                <option name="FOREGROUND" value="f76d47"/>
+                <option name="FOREGROUND" value="CB8411"/>
             </value>
         </option>
         <option name="BACKGROUND">
@@ -407,7 +407,7 @@
         </option>
         <option name="CSS.IMPORTANT">
             <value>
-                <option name="FOREGROUND" value="f76d47"/>
+                <option name="FOREGROUND" value="CB8411"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -418,7 +418,7 @@
         </option>
         <option name="CSS.PROPERTY_VALUE">
             <value>
-                <option name="FOREGROUND" value="f76d47"/>
+                <option name="FOREGROUND" value="CB8411"/>
             </value>
         </option>
         <option name="CSS.PSEUDO">
@@ -507,7 +507,7 @@
         </option>
         <option name="DEFAULT_CONSTANT">
             <value>
-                <option name="FOREGROUND" value="f76d47"/>
+                <option name="FOREGROUND" value="CB8411"/>
             </value>
         </option>
         <option name="DEFAULT_DOC_COMMENT">
@@ -604,7 +604,7 @@
         </option>
         <option name="DEFAULT_NUMBER">
             <value>
-                <option name="FOREGROUND" value="f76d47"/>
+                <option name="FOREGROUND" value="CB8411"/>
             </value>
         </option>
         <option name="DEFAULT_OPERATION_SIGN">
@@ -614,7 +614,7 @@
         </option>
         <option name="DEFAULT_PARAMETER">
             <value>
-                <option name="FOREGROUND" value="f76d47"/>
+                <option name="FOREGROUND" value="CB8411"/>
             </value>
         </option>
         <option name="DEFAULT_PARENTHS">
@@ -637,8 +637,8 @@
         </option>
         <option name="DEFAULT_REASSIGNED_PARAMETER">
             <value>
-                <option name="FOREGROUND" value="f76d47"/>
-                <option name="EFFECT_COLOR" value="f76d47"/>
+                <option name="FOREGROUND" value="CB8411"/>
+                <option name="EFFECT_COLOR" value="CB8411"/>
                 <option name="EFFECT_TYPE" value="1"/>
             </value>
         </option>
@@ -660,7 +660,7 @@
         </option>
         <option name="DEFAULT_STRING">
             <value>
-                <option name="FOREGROUND" value="397cb1"/>
+                <option name="FOREGROUND" value="B8397E"/>
             </value>
         </option>
         <option name="DEFAULT_TAG">
@@ -762,12 +762,12 @@
         </option>
         <option name="GO_FUNCTION_PARAMETER">
             <value>
-                <option name="FOREGROUND" value="f76d47"/>
+                <option name="FOREGROUND" value="CB8411"/>
             </value>
         </option>
         <option name="GO_METHOD_RECEIVER">
             <value>
-                <option name="FOREGROUND" value="f76d47"/>
+                <option name="FOREGROUND" value="CB8411"/>
             </value>
         </option>
         <option name="HAML_CLASS">
@@ -851,7 +851,7 @@
         </option>
         <option name="HOCON_MULTILINE_STRING">
             <value>
-                <option name="FOREGROUND" value="397cb1"/>
+                <option name="FOREGROUND" value="B8397E"/>
             </value>
         </option>
         <option name="HOCON_NULL">
@@ -862,7 +862,7 @@
         </option>
         <option name="HOCON_NUMBER">
             <value>
-                <option name="FOREGROUND" value="f76d47"/>
+                <option name="FOREGROUND" value="CB8411"/>
             </value>
         </option>
         <option name="HOCON_OBJECT_BRACES">
@@ -877,7 +877,7 @@
         </option>
         <option name="HOCON_QUOTED_STRING">
             <value>
-                <option name="FOREGROUND" value="397cb1"/>
+                <option name="FOREGROUND" value="B8397E"/>
             </value>
         </option>
         <option name="HOCON_SUBSTITUTION_BRACES">
@@ -897,7 +897,7 @@
         </option>
         <option name="HOCON_VALID_STRING_ESCAPE">
             <value>
-                <option name="FOREGROUND" value="397cb1"/>
+                <option name="FOREGROUND" value="B8397E"/>
             </value>
         </option>
         <option name="HTML_CODE">
@@ -958,7 +958,7 @@
         </option>
         <option name="IGNORE.HEADER">
             <value>
-                <option name="FOREGROUND" value="f76d47"/>
+                <option name="FOREGROUND" value="CB8411"/>
                 <option name="FONT_TYPE" value="1"/>
             </value>
         </option>
@@ -1034,7 +1034,7 @@
         </option>
         <option name="JAVA.MODIFIER">
             <value>
-                <option name="FOREGROUND" value="f76d47"/>
+                <option name="FOREGROUND" value="3961F6"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -1056,7 +1056,7 @@
         </option>
         <option name="JS.DEBUGGER_STMT">
             <value>
-                <option name="FOREGROUND" value="f76d47"/>
+                <option name="FOREGROUND" value="CB8411"/>
             </value>
         </option>
         <option name="JS.DECORATOR">
@@ -1071,7 +1071,7 @@
         </option>
         <option name="JS.NULL_UNDEFINED">
             <value>
-                <option name="FOREGROUND" value="f76d47"/>
+                <option name="FOREGROUND" value="CB8411"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -1082,7 +1082,7 @@
         </option>
         <option name="JSON.KEYWORD">
             <value>
-                <option name="FOREGROUND" value="f76d47"/>
+                <option name="FOREGROUND" value="CB8411"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -1119,7 +1119,7 @@
         </option>
         <option name="KOTLIN_NAMED_ARGUMENT">
             <value>
-                <option name="FOREGROUND" value="f76d47"/>
+                <option name="FOREGROUND" value="CB8411"/>
             </value>
         </option>
         <option name="KOTLIN_QUEST">
@@ -1251,7 +1251,7 @@
         </option>
         <option name="MARKDOWN_AUTO_LINK">
             <value>
-                <option name="FOREGROUND" value="f76d47"/>
+                <option name="FOREGROUND" value="CB8411"/>
                 <option name="EFFECT_TYPE" value="1"/>
             </value>
         </option>
@@ -1300,7 +1300,7 @@
         </option>
         <option name="MARKDOWN_EXPLICIT_LINK">
             <value>
-                <option name="FOREGROUND" value="f76d47"/>
+                <option name="FOREGROUND" value="CB8411"/>
             </value>
         </option>
         <option name="MARKDOWN_HEADER_LEVEL_1">
@@ -1378,7 +1378,7 @@
         </option>
         <option name="MARKDOWN_LINK_DESTINATION">
             <value>
-                <option name="FOREGROUND" value="f76d47"/>
+                <option name="FOREGROUND" value="CB8411"/>
             </value>
         </option>
         <option name="MARKDOWN_LINK_LABEL">
@@ -1509,7 +1509,7 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.IMAGE_LINK_REF">
             <value>
-                <option name="FOREGROUND" value="f76d47"/>
+                <option name="FOREGROUND" value="CB8411"/>
                 <option name="EFFECT_TYPE" value="1"/>
             </value>
         </option>
@@ -1664,7 +1664,7 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_CAPTION">
             <value>
-                <option name="FOREGROUND" value="f76d47"/>
+                <option name="FOREGROUND" value="CB8411"/>
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_REVEN_CEVEN">
@@ -2143,7 +2143,7 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.TOC_OPTION">
             <value>
-                <option name="FOREGROUND" value="f76d47"/>
+                <option name="FOREGROUND" value="CB8411"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -2167,7 +2167,7 @@
         </option>
         <option name="MARKDOWN_REFERENCE_LINK">
             <value>
-                <option name="FOREGROUND" value="f76d47"/>
+                <option name="FOREGROUND" value="CB8411"/>
                 <option name="FONT_TYPE" value="1"/>
             </value>
         </option>
@@ -2249,7 +2249,7 @@
         </option>
         <option name="OC.MACRO_PARAMETER">
             <value>
-                <option name="FOREGROUND" value="f76d47"/>
+                <option name="FOREGROUND" value="CB8411"/>
             </value>
         </option>
         <option name="OC.MESSAGE_ARGUMENT">
@@ -2370,7 +2370,7 @@
         </option>
         <option name="PY.STRING">
             <value>
-                <option name="FOREGROUND" value="397cb1"/>
+                <option name="FOREGROUND" value="B8397E"/>
             </value>
         </option>
         <option name="RDOC_DIRECTIVE">
@@ -2466,7 +2466,7 @@
         </option>
         <option name="RUBY_NTH_REF">
             <value>
-                <option name="FOREGROUND" value="f76d47"/>
+                <option name="FOREGROUND" value="CB8411"/>
             </value>
         </option>
         <option name="RUBY_PARAMDEF_CALL">
@@ -2483,7 +2483,7 @@
         </option>
         <option name="RUBY_SYMBOL">
             <value>
-                <option name="FOREGROUND" value="f76d47"/>
+                <option name="FOREGROUND" value="CB8411"/>
             </value>
         </option>
         <option name="ReSharper.ASP_NET_ATTRIBUTE_NAME">
@@ -2511,7 +2511,7 @@
         </option>
         <option name="ReSharper.ASP_NET_ENTITY_REFERENCE">
             <value>
-                <option name="FOREGROUND" value="f76d47"/>
+                <option name="FOREGROUND" value="CB8411"/>
             </value>
         </option>
         <option name="ReSharper.ASP_NET_MVC_ACTION">
@@ -2540,7 +2540,7 @@
         </option>
         <option name="ReSharper.ASP_NET_MVC_VIEW_COMPONENT">
             <value>
-                <option name="FOREGROUND" value="f76d47"/>
+                <option name="FOREGROUND" value="CB8411"/>
                 <option name="EFFECT_TYPE" value="1"/>
             </value>
         </option>
@@ -2562,7 +2562,7 @@
         </option>
         <option name="ReSharper.ASP_NET_RAZOR_ENTITY_REFERENCE">
             <value>
-                <option name="FOREGROUND" value="f76d47"/>
+                <option name="FOREGROUND" value="CB8411"/>
             </value>
         </option>
         <option name="ReSharper.ASP_NET_RUN_AT_ATTRIBUTE">
@@ -2580,7 +2580,7 @@
         </option>
         <option name="ReSharper.CPP_DEPENDENT_NAME_IDENTIFIER">
             <value>
-                <option name="FOREGROUND" value="f76d47"/>
+                <option name="FOREGROUND" value="CB8411"/>
             </value>
         </option>
         <option name="ReSharper.CPP_DOXYGEN_COMMAND">
@@ -2601,13 +2601,13 @@
         </option>
         <option name="ReSharper.DELEGATE_IDENTIFIER">
             <value>
-                <option name="FOREGROUND" value="f76d47"/>
+                <option name="FOREGROUND" value="CB8411"/>
                 <option name="FONT_TYPE" value="1"/>
             </value>
         </option>
         <option name="ReSharper.ENUM_IDENTIFIER">
             <value>
-                <option name="FOREGROUND" value="f76d47"/>
+                <option name="FOREGROUND" value="CB8411"/>
             </value>
         </option>
         <option name="ReSharper.EVENT_IDENTIFIER">
@@ -2623,7 +2623,7 @@
         </option>
         <option name="ReSharper.FORMAT_STRING_ITEM">
             <value>
-                <option name="FOREGROUND" value="f76d47"/>
+                <option name="FOREGROUND" value="CB8411"/>
             </value>
         </option>
         <option name="ReSharper.HINT">
@@ -2635,8 +2635,8 @@
         </option>
         <option name="ReSharper.MATCHED_FORMAT_STRING_ITEM">
             <value>
-                <option name="FOREGROUND" value="f76d47"/>
-                <option name="EFFECT_COLOR" value="f76d47"/>
+                <option name="FOREGROUND" value="CB8411"/>
+                <option name="EFFECT_COLOR" value="CB8411"/>
             </value>
         </option>
         <option name="ReSharper.OUTLINED_ENTITY">
@@ -2884,7 +2884,7 @@
         </option>
         <option name="org.rust.TYPE_PARAMETER">
             <value>
-                <option name="FOREGROUND" value="f76d47"/>
+                <option name="FOREGROUND" value="CB8411"/>
             </value>
         </option>
         <option name="org.rust.UNSAFE_CODE">
