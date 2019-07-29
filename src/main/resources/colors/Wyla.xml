@@ -101,22 +101,22 @@
         <option name="SELECTION_FOREGROUND" value="ffffff"/>
         <option name="SEPARATOR_BELOW_COLOR" value="403e41"/>
         <option name="SOFT_WRAP_SIGN_COLOR" value="403e41"/>
-        <option name="ScrollBar.Mac.Transparent.hoverThumbBorderColor" value="cca331c0" mac="cca331c0"/>
-        <option name="ScrollBar.Mac.Transparent.hoverThumbColor" value="cca331c0" mac="cca331c0"/>
-        <option name="ScrollBar.Mac.Transparent.thumbBorderColor" value="cca33180" mac="cca33180"/>
-        <option name="ScrollBar.Mac.Transparent.thumbColor" value="cca33180" mac="cca33180"/>
-        <option name="ScrollBar.Mac.hoverThumbBorderColor" value="cca331FF" mac="cca331FF"/>
-        <option name="ScrollBar.Mac.hoverThumbColor" value="cca331FF" mac="cca331FF"/>
-        <option name="ScrollBar.Mac.thumbBorderColor" value="cca331C0" mac="cca331C0"/>
-        <option name="ScrollBar.Mac.thumbColor" value="cca331C0" mac="cca331C0"/>
-        <option name="ScrollBar.Transparent.hoverThumbBorderColor" value="cca331c0" mac="cca331c0"/>
-        <option name="ScrollBar.Transparent.hoverThumbColor" value="cca331c0" mac="cca331c0"/>
-        <option name="ScrollBar.Transparent.thumbBorderColor" value="cca33180" mac="cca33180"/>
-        <option name="ScrollBar.Transparent.thumbColor" value="cca33180" mac="cca33180"/>
-        <option name="ScrollBar.hoverThumbBorderColor" value="cca331FF" mac="cca331FF"/>
-        <option name="ScrollBar.hoverThumbColor" value="cca331FF" mac="cca331FF"/>
-        <option name="ScrollBar.thumbBorderColor" value="cca331C0" mac="cca331C0"/>
-        <option name="ScrollBar.thumbColor" value="cca331C0" mac="cca331C0"/>
+        <option name="ScrollBar.Mac.Transparent.hoverThumbBorderColor" value="4d3b28c0" mac="4d3b28c0"/>
+        <option name="ScrollBar.Mac.Transparent.hoverThumbColor" value="4d3b28c0" mac="4d3b28c0"/>
+        <option name="ScrollBar.Mac.Transparent.thumbBorderColor" value="4d3b2880" mac="4d3b2880"/>
+        <option name="ScrollBar.Mac.Transparent.thumbColor" value="4d3b2880" mac="4d3b2880"/>
+        <option name="ScrollBar.Mac.hoverThumbBorderColor" value="4d3b28FF" mac="4d3b28FF"/>
+        <option name="ScrollBar.Mac.hoverThumbColor" value="4d3b28FF" mac="4d3b28FF"/>
+        <option name="ScrollBar.Mac.thumbBorderColor" value="4d3b28C0" mac="4d3b28C0"/>
+        <option name="ScrollBar.Mac.thumbColor" value="4d3b28C0" mac="4d3b28C0"/>
+        <option name="ScrollBar.Transparent.hoverThumbBorderColor" value="4d3b28c0" mac="4d3b28c0"/>
+        <option name="ScrollBar.Transparent.hoverThumbColor" value="4d3b28c0" mac="4d3b28c0"/>
+        <option name="ScrollBar.Transparent.thumbBorderColor" value="4d3b2880" mac="4d3b2880"/>
+        <option name="ScrollBar.Transparent.thumbColor" value="4d3b2880" mac="4d3b2880"/>
+        <option name="ScrollBar.hoverThumbBorderColor" value="4d3b28FF" mac="4d3b28FF"/>
+        <option name="ScrollBar.hoverThumbColor" value="4d3b28FF" mac="4d3b28FF"/>
+        <option name="ScrollBar.thumbBorderColor" value="4d3b28C0" mac="4d3b28C0"/>
+        <option name="ScrollBar.thumbColor" value="4d3b28C0" mac="4d3b28C0"/>
         <option name="ScrollBar.Mac.Transparent.hoverTrackColor" value="2f2329" mac="2f2329"/>
         <option name="ScrollBar.Mac.Transparent.trackColor" value="2f2329" mac="2f2329"/>
         <option name="ScrollBar.Mac.hoverTrackColor" value="2f2329" mac="2f2329"/>
