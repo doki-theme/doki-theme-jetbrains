@@ -313,27 +313,27 @@
             <add-to-group group-id="MainToolBar" anchor="last"/>
             <action id="CleoTheme" class="io.acari.DDLC.actions.themes.anthro.CleoThemeAction"
                     text="Cleo" description="Cleo"
-                    icon="/icons/actions/themes/material_monika@2x.png">
+                    icon="/icons/ddlc/anthro/Syrena.svg">
             </action>
             <action id="ElenielTheme" class="io.acari.DDLC.actions.themes.anthro.ElenielThemeAction"
                     text="Eleniel" description="Eleniel"
-                    icon="/icons/actions/themes/material_monika@2x.png">
+                    icon="/icons/ddlc/anthro/Syrena.svg">
             </action>
             <action id="NeeraTheme" class="io.acari.DDLC.actions.themes.anthro.NeeraThemeAction"
                     text="Neera" description="Neera"
-                    icon="/icons/actions/themes/material_monika@2x.png">
+                    icon="/icons/ddlc/anthro/Neera.svg">
             </action>
             <action id="SanyaTheme" class="io.acari.DDLC.actions.themes.anthro.SanyaThemeAction"
                     text="Sanya" description="Sanya"
-                    icon="/icons/actions/themes/material_monika@2x.png">
+                    icon="/icons/ddlc/anthro/Sanya.svg">
             </action>
             <action id="SyrenaTheme" class="io.acari.DDLC.actions.themes.anthro.SyrenaThemeAction"
                     text="Syrena" description="Syrena"
-                    icon="/icons/actions/themes/material_monika@2x.png">
+                    icon="/icons/ddlc/anthro/Syrena.svg">
             </action>
             <action id="WylaTheme" class="io.acari.DDLC.actions.themes.anthro.WylaThemeAction"
                     text="Wyla" description="Wyla"
-                    icon="/icons/actions/themes/material_monika@2x.png">
+                    icon="/icons/ddlc/anthro/Syrena.svg">
             </action>
         </group>
 
