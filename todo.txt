@@ -52,8 +52,6 @@ Rating Stars
     - File
 
 - Cleo
-    - toolbar selection hover color
-    - Better ignored file colors
 - Eleniel
     - Button Hover makes foreground unreadable
     - non project file background hard to read foreground

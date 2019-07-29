@@ -20,7 +20,7 @@ class CleoTheme : AnthroTheme("cleo", "Cleo", false, "Cleo") {
 
   override fun joyfulClubMember(): String = "sayori_joy.png"
 
-  override fun getSecondaryBackgroundColorString(): String = "D0CFDC"
+  override fun getSecondaryBackgroundColorString(): String = "C4C3CF"
 
   override fun getSecondaryForegroundColorString(): String = "36363a"
 
@@ -36,13 +36,13 @@ class CleoTheme : AnthroTheme("cleo", "Cleo", false, "Cleo") {
 
   override fun getTextColorString(): String = "1F2435"
 
-  override fun getInactiveColorString(): String = "D0CFDC"
+  override fun getInactiveColorString(): String = "C4C3CF"
 
   override fun getMenuItemForegroundColor(): String = "252529"
 
   override fun getMenuBarSelectionForegroundColorString(): String = "242528"
 
-  override fun getMenuBarSelectionBackgroundColorString(): String = "D0CFDC"
+  override fun getMenuBarSelectionBackgroundColorString(): String = "C4C3CF"
 
   override fun getNotificationsColorString(): String = "DCDDE8"
 
@@ -84,7 +84,8 @@ class CleoTheme : AnthroTheme("cleo", "Cleo", false, "Cleo") {
   )
 
   private val naughtyBackgroundSet: Set<String> = setOf(
-      "Button.select"
+      "Button.select",
+      "ToolWindow.Button.hoverBackground"
   )
 
   override fun getSelectionForegroundResources(): Stream<String> {
@@ -94,6 +95,11 @@ class CleoTheme : AnthroTheme("cleo", "Cleo", false, "Cleo") {
 
   override fun getSelectionBackgroundResources(): Stream<String> {
     return super.getSelectionBackgroundResources()
+        .filter { !naughtyBackgroundSet.contains(it) }
+  }
+
+  override fun getTableSelectedResources(): Stream<String> {
+    return super.getTableSelectedResources()
         .filter { !naughtyBackgroundSet.contains(it) }
   }
 

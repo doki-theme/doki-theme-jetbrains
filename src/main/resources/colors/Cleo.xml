@@ -63,37 +63,37 @@
         <option name="FILESTATUS_DELETED" value="808080"/>
         <option name="FILESTATUS_HIJACKED" value="ffb62c"/>
         <option name="FILESTATUS_IDEA_FILESTATUS_DELETED_FROM_FILE_SYSTEM" value="808080"/>
-        <option name="FILESTATUS_IDEA_FILESTATUS_IGNORED" value="61497F"/>
+        <option name="FILESTATUS_IDEA_FILESTATUS_IGNORED" value="9DAAB1"/>
         <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_BOTH_CONFLICTS" value="d5756c"/>
         <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_CONFLICTS" value="d5756c"/>
         <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_PROPERTY_CONFLICTS" value="d5756c"/>
         <option name="FILESTATUS_IDEA_SVN_FILESTATUS_EXTERNAL" value="397cb1"/>
-        <option name="FILESTATUS_IGNORE.PROJECT_VIEW.IGNORED" value="61497F"/>
+        <option name="FILESTATUS_IGNORE.PROJECT_VIEW.IGNORED" value="9DAAB1"/>
         <option name="FILESTATUS_MERGED" value="3961F6"/>
         <option name="FILESTATUS_MODIFIED" value="39adb5"/>
         <option name="FILESTATUS_NOT_CHANGED_IMMEDIATE" value="39adb5"/>
         <option name="FILESTATUS_NOT_CHANGED_RECURSIVE" value="39adb5"/>
-        <option name="FILESTATUS_SUPPRESSED" value="b0bec5"/>
+        <option name="FILESTATUS_SUPPRESSED" value="9DAAB1"/>
         <option name="FILESTATUS_SWITCHED" value="3961F6"/>
         <option name="FILESTATUS_UNKNOWN" value="f77669"/>
         <option name="FILESTATUS_addedOutside" value="397cb1"/>
         <option name="FILESTATUS_changelistConflict" value="d5756c"/>
         <option name="FILESTATUS_modifiedOutside" value="6182b8"/>
         <option name="GUTTER_BACKGROUND" value="eaeaf0"/>
-        <option name="INDENT_GUIDE" value="b0bec5"/>
+        <option name="INDENT_GUIDE" value="9DAAB1"/>
         <option name="INFORMATION_HINT" value="f3f5f6"/>
         <option name="LINE_NUMBERS_COLOR" value="cfd8dc"/>
         <option name="LINE_NUMBER_ON_CARET_ROW_COLOR" value="a7adb0"/>
-        <option name="METHOD_SEPARATORS_COLOR" value="b0bec5"/>
+        <option name="METHOD_SEPARATORS_COLOR" value="9DAAB1"/>
         <option name="MODIFIED_LINES_COLOR" value="C8EAFF"/>
         <option name="MT_ADDED" value="397cb1"/>
         <option name="MT_DELETED" value="CB8411"/>
         <option name="MT_HIJACKED" value="ffb62c"/>
-        <option name="MT_IDEA_FILESTATUS_IGNORED" value="61497F"/>
+        <option name="MT_IDEA_FILESTATUS_IGNORED" value="9DAAB1"/>
         <option name="MT_IDEA_FILESTATUS_MERGED_WITH_BOTH_CONFLICTS" value="e53935"/>
         <option name="MT_IDEA_FILESTATUS_MERGED_WITH_CONFLICTS" value="e53935"/>
         <option name="MT_IDEA_FILESTATUS_MERGED_WITH_PROPERTY_CONFLICTS" value="e53935"/>
-        <option name="MT_IGNORE.PROJECT_VIEW.IGNORED" value="61497F"/>
+        <option name="MT_IGNORE.PROJECT_VIEW.IGNORED" value="9DAAB1"/>
         <option name="MT_MERGED" value="945eb8"/>
         <option name="MT_MODIFIED" value="39adb5"/>
         <option name="MT_NOT_CHANGED" value="90a4ae"/>
@@ -109,12 +109,12 @@
         <option name="QUESTION_HINT" value="f3f5f6"/>
         <option name="RECENT_LOCATIONS_SELECTION" value="f4f4f4"/>
         <option name="RECURSIVE_CALL_ATTRIBUTES" value="574300"/>
-        <option name="RIGHT_MARGIN_COLOR" value="b0bec5"/>
+        <option name="RIGHT_MARGIN_COLOR" value="9DAAB1"/>
         <option name="SELECTED_INDENT_GUIDE" value="80cbc4"/>
         <option name="SELECTED_TEARLINE_COLOR" value="80cbc4"/>
         <option name="SELECTION_BACKGROUND" value="9FD4EA"/>
         <option name="SELECTION_FOREGROUND" value="263238"/>
-        <option name="SEPARATOR_ABOVE_COLOR" value="b0bec5"/>
+        <option name="SEPARATOR_ABOVE_COLOR" value="9DAAB1"/>
         <option name="SEPARATOR_BELOW_COLOR" value="e7eaec"/>
         <option name="SOFT_WRAP_SIGN_COLOR" value="4f6269"/>
         <option name="ScrollBar.Mac.Transparent.hoverThumbBorderColor" value="83CDEFc0" mac="83CDEFc0"/>
@@ -148,7 +148,7 @@
         <option name="VCS_ANNOTATIONS_COLOR_3" value="2095D6"/>
         <option name="VCS_ANNOTATIONS_COLOR_4" value="6F7FD6"/>
         <option name="VCS_ANNOTATIONS_COLOR_5" value="66C5E2"/>
-        <option name="VISUAL_INDENT_GUIDE" value="b0bec5"/>
+        <option name="VISUAL_INDENT_GUIDE" value="9DAAB1"/>
         <option name="WHITESPACES" value="e7eaec"/>
     </colors>
     <attributes>
@@ -233,7 +233,7 @@
         </option>
         <option name="BREADCRUMBS_INACTIVE">
             <value>
-                <option name="FOREGROUND" value="b0bec5"/>
+                <option name="FOREGROUND" value="9DAAB1"/>
                 <option name="BACKGROUND" value="eaeaf0"/>
             </value>
         </option>
