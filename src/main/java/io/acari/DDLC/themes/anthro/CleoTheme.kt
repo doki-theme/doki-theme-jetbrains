@@ -3,6 +3,7 @@ package io.acari.DDLC.themes.anthro
 import com.chrisrm.ideaddlc.utils.MTAccents
 import io.acari.DDLC.themes.AnthroTheme
 import io.acari.DDLC.toStream
+import java.awt.Color
 import java.util.stream.Stream
 import javax.swing.plaf.ColorUIResource
 
@@ -82,9 +83,23 @@ class CleoTheme : AnthroTheme("cleo", "Cleo", false, "Cleo") {
       "SearchEverywhere.Tab.selectedForeground"
   )
 
+  private val naughtyBackgroundSet: Set<String> = setOf(
+      "Button.select"
+  )
+
   override fun getSelectionForegroundResources(): Stream<String> {
     return super.getSelectionForegroundResources()
         .filter { !naughtyForegroundSet.contains(it) }
+  }
+
+  override fun getSelectionBackgroundResources(): Stream<String> {
+    return super.getSelectionBackgroundResources()
+        .filter { !naughtyBackgroundSet.contains(it) }
+  }
+
+  override fun getBackgroundResources(): Stream<String> {
+    return Stream.concat(super.getBackgroundResources(),
+        naughtyBackgroundSet.stream())
   }
 
   override fun getForegroundResources(): Stream<String> {

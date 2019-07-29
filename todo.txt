@@ -52,13 +52,9 @@ Rating Stars
     - File
 
 - Cleo
-    - Inactive text foreground hard to read.
-    - Active Toolbar Foreground
     - toolbar selection hover color
-    - Editor Selection Highlight
     - Text foreground hard to read
-    - Button Hover makes foreground unreadable
-    - Less contrasty active button background and tree selection background
+    - Better ignored file colors
 - Eleniel
     - Button Hover makes foreground unreadable
     - non project file background hard to read foreground
