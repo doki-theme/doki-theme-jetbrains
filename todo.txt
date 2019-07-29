@@ -43,7 +43,6 @@ works with material ui
 Rating Stars
 ------
 
-- Anthro Theme Icons
 - Anthro Toolbar Icon
 - Settings
 - Wizard?

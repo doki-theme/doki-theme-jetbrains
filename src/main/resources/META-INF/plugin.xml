@@ -313,11 +313,11 @@
             <add-to-group group-id="MainToolBar" anchor="last"/>
             <action id="CleoTheme" class="io.acari.DDLC.actions.themes.anthro.CleoThemeAction"
                     text="Cleo" description="Cleo"
-                    icon="/icons/ddlc/anthro/Syrena.svg">
+                    icon="/icons/ddlc/anthro/Cleo.svg">
             </action>
             <action id="ElenielTheme" class="io.acari.DDLC.actions.themes.anthro.ElenielThemeAction"
                     text="Eleniel" description="Eleniel"
-                    icon="/icons/ddlc/anthro/Syrena.svg">
+                    icon="/icons/ddlc/anthro/Eleniel.svg">
             </action>
             <action id="NeeraTheme" class="io.acari.DDLC.actions.themes.anthro.NeeraThemeAction"
                     text="Neera" description="Neera"
@@ -333,7 +333,7 @@
             </action>
             <action id="WylaTheme" class="io.acari.DDLC.actions.themes.anthro.WylaThemeAction"
                     text="Wyla" description="Wyla"
-                    icon="/icons/ddlc/anthro/Syrena.svg">
+                    icon="/icons/ddlc/anthro/Wyla.svg">
             </action>
         </group>
 
