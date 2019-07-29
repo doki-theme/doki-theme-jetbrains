@@ -43,11 +43,18 @@ works with material ui
 Rating Stars
 ------
 
+- Rebase to master
+
+
 - Settings
 - Wizard?
 
+
+
 - Version Control colors
     - File
+
+
 
 - Cleo ✔ ️
 - Eleniel ✔ ️
