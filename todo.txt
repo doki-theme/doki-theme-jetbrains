@@ -49,14 +49,14 @@ Rating Stars
 - Version Control colors
     - File
 
-- Cleo
-- Eleniel
+- Cleo ✔ ️
+- Eleniel ✔ ️
     - non project file background hard to read foreground ??
-- Neera
+- Neera ✔️
     - Green notification window hard to read with yellow texto
-- Sanya
-- Syrena
-- Wyla
+- Sanya ✔️
+- Syrena ✔️
+- Wyla ✔️
     - Annotation colour??
 
 
