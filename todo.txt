@@ -53,8 +53,7 @@ Rating Stars
 
 - Cleo
 - Eleniel
-    - Button Hover makes foreground unreadable
-    - non project file background hard to read foreground
+    - non project file background hard to read foreground ??
 - Neera
     - Green notification window hard to read with yellow texto
     - Accent color

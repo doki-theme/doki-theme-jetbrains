@@ -2,6 +2,7 @@ package io.acari.DDLC.themes.anthro
 
 import com.chrisrm.ideaddlc.utils.MTAccents
 import io.acari.DDLC.themes.AnthroTheme
+import java.util.stream.Stream
 import javax.swing.plaf.ColorUIResource
 
 class ElenielTheme : AnthroTheme("eleniel", "Eleniel", true, "Eleniel") {
@@ -72,4 +73,19 @@ class ElenielTheme : AnthroTheme("eleniel", "Eleniel", true, "Eleniel") {
   override fun getTestScope(): String = "3A5841"
 
   override fun getSelectedButtonForegroundColor(): String = selectionForegroundColorString
+
+  private val naughtyBackgroundSet: Set<String> = setOf(
+      "Button.select"
+  )
+
+
+  override fun getSelectionBackgroundResources(): Stream<String> {
+    return super.getSelectionBackgroundResources()
+        .filter { !naughtyBackgroundSet.contains(it) }
+  }
+
+  override fun getBackgroundResources(): Stream<String> {
+    return Stream.concat(super.getBackgroundResources(),
+        naughtyBackgroundSet.stream())
+  }
 }
