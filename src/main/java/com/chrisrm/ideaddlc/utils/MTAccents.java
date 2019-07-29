@@ -36,7 +36,7 @@ public enum MTAccents {
   @NonNls
   ACID_LIME(new ColorUIResource(0xc6ff00)),
   AMETHYST(new ColorUIResource(0xab47bc)),
-  AMBER(new ColorUIResource(0xFFC107)),
+  AMBER(new ColorUIResource(0xF0AA00)),
   AQUAMARINE(new ColorUIResource(0x64ffda)),
   SOFT_SPRINGS(new ColorUIResource(0x52c4e6)),
   ABYSS(new ColorUIResource(0x252d33)),

@@ -56,7 +56,6 @@ Rating Stars
     - non project file background hard to read foreground ??
 - Neera
     - Green notification window hard to read with yellow texto
-    - Accent color
 - Sanya
 - Syrena
 - Wyla
