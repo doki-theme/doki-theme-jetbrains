@@ -82,8 +82,18 @@ class CleoTheme : AnthroTheme("cleo", "Cleo", false, "Cleo") {
         .filter { it != "SearchEverywhere.Tab.selectedForeground" }
   }
 
+  private val darkendBackgrounds: Set<String> = setOf(
+    "Label.foreground"
+  )
+
+  override fun getMenuItemSelectionBackgroundResources(): Stream<String> {
+    return Stream.concat(super.getMenuItemSelectionBackgroundResources(),
+        darkendBackgrounds.stream())
+  }
+
   override fun getForegroundResources(): Stream<String> {
     return Stream.concat(super.getForegroundResources(),
         "SearchEverywhere.Tab.selectedForeground".toStream())
+        .filter { !darkendBackgrounds.contains(it) }
   }
 }
