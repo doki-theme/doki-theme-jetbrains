@@ -19,7 +19,7 @@ class CleoTheme : AnthroTheme("cleo", "Cleo", false, "Cleo") {
 
   override fun joyfulClubMember(): String = "sayori_joy.png"
 
-  override fun getSecondaryBackgroundColorString(): String = "dcdbe9"
+  override fun getSecondaryBackgroundColorString(): String = "D0CFDC"
 
   override fun getSecondaryForegroundColorString(): String = "36363a"
 
@@ -35,13 +35,13 @@ class CleoTheme : AnthroTheme("cleo", "Cleo", false, "Cleo") {
 
   override fun getTextColorString(): String = "1F2435"
 
-  override fun getInactiveColorString(): String = "7D7F86"
+  override fun getInactiveColorString(): String = "D0CFDC"
 
   override fun getMenuItemForegroundColor(): String = "252529"
 
-  override fun getMenuBarSelectionForegroundColorString(): String = "e7e7ed"
+  override fun getMenuBarSelectionForegroundColorString(): String = "242528"
 
-  override fun getMenuBarSelectionBackgroundColorString(): String = "242528"
+  override fun getMenuBarSelectionBackgroundColorString(): String = "D0CFDC"
 
   override fun getNotificationsColorString(): String = "DCDDE8"
 
@@ -77,23 +77,18 @@ class CleoTheme : AnthroTheme("cleo", "Cleo", false, "Cleo") {
 
   override fun getSelectedButtonForegroundColor(): String = selectionForegroundColorString
 
-  override fun getSelectionForegroundResources(): Stream<String> {
-    return super.getSelectionForegroundResources()
-        .filter { it != "SearchEverywhere.Tab.selectedForeground" }
-  }
-
-  private val darkendBackgrounds: Set<String> = setOf(
-    "Label.foreground"
+  private val naughtyForegroundSet: Set<String> = setOf(
+      "Label.selectedForeground",
+      "SearchEverywhere.Tab.selectedForeground"
   )
 
-  override fun getMenuItemSelectionBackgroundResources(): Stream<String> {
-    return Stream.concat(super.getMenuItemSelectionBackgroundResources(),
-        darkendBackgrounds.stream())
+  override fun getSelectionForegroundResources(): Stream<String> {
+    return super.getSelectionForegroundResources()
+        .filter { !naughtyForegroundSet.contains(it) }
   }
 
   override fun getForegroundResources(): Stream<String> {
     return Stream.concat(super.getForegroundResources(),
-        "SearchEverywhere.Tab.selectedForeground".toStream())
-        .filter { !darkendBackgrounds.contains(it) }
+        naughtyForegroundSet.stream())
   }
 }
