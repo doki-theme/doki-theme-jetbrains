@@ -43,7 +43,8 @@ works with material ui
 Rating Stars
 ------
 
-- Rebase to master
+- Update Plugin
+    - Change Description
 
 
 - Settings

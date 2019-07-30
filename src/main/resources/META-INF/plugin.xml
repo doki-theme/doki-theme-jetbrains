@@ -26,7 +26,7 @@
 
 <idea-plugin>
     <id>io.acari.DDLCTheme</id>
-    <name>Doki Doki Literature Club Theme</name>
+    <name>The Doki-Doki Theme</name>
     <version>@version@</version>
     <vendor email="alexsimons9999@gmail.com" url="https://github.com/cyclic-reference">cyclic-reference</vendor>
 
