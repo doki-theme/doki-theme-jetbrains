@@ -1,25 +1,25 @@
 <!--
-  ~  The MIT License (MIT)
+  ~ The MIT License (MIT)
   ~
-  ~  Copyright (c) 2019 Chris Magnussen and Elior Boukhobza
+  ~ Copyright (c) 2019 Chris Magnussen and Elior Boukhobza
   ~
-  ~  Permission is hereby granted, free of charge, to any person obtaining a copy
-  ~  of this software and associated documentation files (the "Software"), to deal
-  ~  in the Software without restriction, including without limitation the rights
-  ~  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-  ~  copies of the Software, and to permit persons to whom the Software is
-  ~  furnished to do so, subject to the following conditions:
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy
+  ~ of this software and associated documentation files (the "Software"), to deal
+  ~ in the Software without restriction, including without limitation the rights
+  ~ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  ~ copies of the Software, and to permit persons to whom the Software is
+  ~ furnished to do so, subject to the following conditions:
   ~
-  ~  The above copyright notice and this permission notice shall be included in all
-  ~  copies or substantial portions of the Software.
+  ~ The above copyright notice and this permission notice shall be included in all
+  ~ copies or substantial portions of the Software.
   ~
-  ~  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  ~  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  ~  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-  ~  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  ~  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-  ~  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-  ~  SOFTWARE.
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  ~ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  ~ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  ~ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  ~ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  ~ SOFTWARE.
   ~
   ~
   -->
@@ -178,6 +178,7 @@
         <regex name="Hashicorp" pattern=".*\.hcl$" icon="/icons/files/hcl.svg"/>
         <regex name="Haskell" pattern=".*\.(haskell|hs)$" icon="/icons/files/haskell.svg"/>
         <regex name="Haxe" pattern=".*\.(haxe|hx)$" icon="/icons/files/haxe.svg"/>
+        <regex name="Heroku" pattern="^((P|p)rocfile(\.windows)?|\.slugignore)$" icon="/icons/files/heroku.svg"/>
         <regex name="HTAccess" pattern=".*\.(htaccess|htpasswd)$" icon="/icons/files/htaccess.svg"/>
         <regex name="HTML" pattern=".*\.(html|htm)$" icon="/icons/files/html.svg"/>
         <regex name="Husky" pattern=".*\.huskyrc(.js(on)?)?$" icon="/icons/files/husky.svg"/>
@@ -216,6 +217,7 @@
         <regex name="Magento" pattern=".*\.mage$" icon="/icons/files/magento.svg"/>
         <regex name="Makefile" pattern=".*\.?(m|M)akefile$" icon="/icons/files/makefile.svg"/>
         <regex name="Manpage" pattern=".*\.man([1-8])?$" icon="/icons/files/manpage.svg"/>
+        <regex name="Manifest" pattern="manifest\.json$" icon="/icons/files/manifest.svg"/>
         <regex name="Markdown" pattern=".*\.(md|markdown|mson)$" icon="/icons/files/markdown.svg"/>
         <regex name="Markup" pattern=".*\.(shtml|dhtml|dtd)$" icon="/icons/files/markup.svg"/>
         <regex name="Mathematica" pattern=".*\.(nb|ma|mb|cdf)$" icon="/icons/files/mathematica.svg"/>
@@ -272,7 +274,6 @@
         <regex name="Premiere" pattern=".*\.(prel|prproj|psq)$" icon="/icons/files/premiere.svg"/>
         <regex name="Prettier" pattern="^\.prettierrc(\.js(on)?|\.y(a)?ml)?$" icon="/icons/files/prettier.svg"/>
         <regex name="Prettier Config" pattern="^prettier\.config\.js$" icon="/icons/files/prettier.svg"/>
-        <regex name="Procfile" pattern="^(P|p)rocfile(\.windows)?$" icon="/icons/files/procfile.svg"/>
         <regex name="Prolog" pattern=".*\.(pro|prolog)$" icon="/icons/files/prolog.svg"/>
         <regex name="Properties" pattern=".*\.properties$" icon="/icons/files/source.svg"/>
         <regex name="Protractor" pattern="^protractor\.js(on)?$" icon="/icons/files/protractor.svg"/>
@@ -308,13 +309,14 @@
         <regex name="SBT" pattern=".*\.sbt$" icon="/icons/files/sbt.svg"/>
         <regex name="Scala" pattern=".*\.scala$" icon="/icons/files/scala.svg"/>
         <regex name="SCSS" pattern=".*\.scss$" icon="/icons/files/sass.svg"/>
-        <regex name="Scheme" pattern=".*\.(scheme|ss|scm)$" icon="/icons/files/scheme.svg"/>
-        <regex name="Semantic Release" pattern=".*\.releaserc(.js(on)?|.y(a)?ml)?$" icon="/icons/files/semantic-release.svg"/>
+        <regex name="Scheme" pattern=".*\.(scheme|scm)$" icon="/icons/files/scheme.svg"/>
+        <regex name="Semantic Release" pattern=".*\.releaserc(.js(on)?|.y(a)?ml)?$"
+               icon="/icons/files/semantic-release.svg"/>
         <regex name="Semantic Release Config" pattern="^release\.config\.js$" icon="/icons/files/semantic-release.svg"/>
         <regex name="Settings" pattern=".*\.settings$" icon="/icons/files/settings.svg"/>
         <regex name="Shell" pattern=".*\.(sh|zsh|fish|bash|fishrc|zshrc|bashrc)$" icon="/icons/files/shell.svg"/>
+        <regex name="SilverStripe" pattern=".*\.ss$" icon="/icons/files/silverstripe.svg"/>
         <regex name="Sketch" pattern=".*\.sketch$" icon="/icons/files/sketch.svg"/>
-        <regex name="SilverStripe Template" pattern=".*\/templates\/.*\.ss$" icon="/icons/files/silverstripe.svg"/>
         <regex name="Slim" pattern=".*\.slim$" icon="/icons/files/slim.svg"/>
         <regex name="Smarty" pattern=".*\.tpl$" icon="/icons/files/smarty.svg"/>
         <regex name="Solidity" pattern=".*\.sol$" icon="/icons/files/solidity.svg"/>
@@ -355,6 +357,8 @@
         <regex name="Tomcat" pattern="^tomcat.*" icon="/icons/files/tomcat.svg"/>
         <regex name="TOML" pattern=".*\.toml$" icon="/icons/files/toml.svg"/>
         <regex name="TODO" pattern="^TODO" icon="/icons/files/todo.svg"/>
+        <regex name="TSConfig" pattern="\.?tsconfig.*\.(js|json)$" icon="/icons/files/tslint.svg"/>
+        <regex name="TSLint" pattern="\.?tslint.*\.(js|json)$" icon="/icons/files/tslint.svg"/>
         <regex name="Travis" pattern=".*\.travis\.yml$" icon="/icons/files/travis.svg"/>
         <regex name="Turing" pattern=".*\.t$" icon="/icons/files/turing.svg"/>
         <regex name="Twig" pattern=".*\.twig$" icon="/icons/files/twig.svg"/>
@@ -399,7 +403,8 @@
 
         <regex name="Archive" pattern=".*\.(7z|7zip|gzip|zip|rar|tar|gz|pzip|saz|tgz)$"
                icon="/icons/files/archive.svg"/>
-        <regex name="Audio" pattern=".*\.(mp3|aac|aiff|au|flac|m4a|mpc|mp+|mpp|ogg|oga|opus|ra|rm|wav|wma|snd|mid|cda)$"
+        <regex name="Audio"
+               pattern=".*\.(mp3|aac|aiff|au|flac|m4a|mpc|mp+|mpp|ogg|oga|opus|ra|rm|wav|wma|snd|mid|cda)$"
                icon="/icons/files/audio.svg"/>
         <regex name="Video" pattern=".*\.(avi|mp4|mpg|mpeg|mov|mkv|flv|h264|webm|wmv|ogv|3gp|m4v|3gpp|ogm|dvd|divx)$"
                icon="/icons/files/video.svg"/>
