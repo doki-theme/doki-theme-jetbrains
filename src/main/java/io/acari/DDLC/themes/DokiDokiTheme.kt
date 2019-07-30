@@ -52,29 +52,6 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
 
     override fun activate() {
         try {
-            if (isDark) {
-                LegacySupportUtility.invokeVoidMethodSafely(
-                        LafManagerImpl::class.java,
-                        "getTestInstance",
-                        Runner { LafManagerImpl.getTestInstance().setCurrentLookAndFeel(DarculaLookAndFeelInfo()) },
-                        Runner {
-                            LafManager.getInstance().setCurrentLookAndFeel(DarculaLookAndFeelInfo())
-                            UIManager.setLookAndFeel(MTDarkLaf(this))
-                        }
-                )
-
-            } else {
-                LegacySupportUtility.invokeVoidMethodSafely(
-                        LafManagerImpl::class.java,
-                        "getTestInstance",
-                        Runner { LafManagerImpl.getTestInstance().setCurrentLookAndFeel(IntelliJLookAndFeelInfo()) },
-                        Runner {
-                            LafManager.getInstance().setCurrentLookAndFeel(IntelliJLookAndFeelInfo())
-                            UIManager.setLookAndFeel(MTLightLaf(this))
-                        }
-                )
-
-            }
             JBColor.setDark(isDark)
             IconLoader.setUseDarkIcons(isDark)
             buildResources(getBackgroundResources(), backgroundColorString)

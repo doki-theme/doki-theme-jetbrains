@@ -55,9 +55,7 @@ open class ClubMemberThemeAction(private val theme: DDLCThemes,
         MTTreeUI.resetIcons()
         MTButtonUI.resetCache()
         DDLCProjectViewNodeDecorator.resetCache()
-//        todo: new thing
-//        MTThemeManager.setLookAndFeel(theme)
-        MTThemeManager.activate(theme, true)
+        MTThemeManager.setLookAndFeel(theme)
         ChibiOrchestrator.activateChibiForTheme(theme)
 
         project.map {

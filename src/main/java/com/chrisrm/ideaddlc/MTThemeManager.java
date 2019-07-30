@@ -447,7 +447,8 @@ public final class MTThemeManager {
   public static void setLookAndFeel(final DDLCThemeFacade selectedTheme) {
     // Find LAF theme and trigger a theme change
     final LafManager lafManager = LafManagerImpl.getInstance();
-    final UIManager.LookAndFeelInfo lafInfo = ContainerUtil.find(lafManager.getInstalledLookAndFeels(),
+    final UIManager.LookAndFeelInfo lafInfo =
+        ContainerUtil.find(lafManager.getInstalledLookAndFeels(),
         lookAndFeelInfo -> lookAndFeelInfo.getName().equals(selectedTheme.getThemeName()));
 
     MTChangeLAFAnimator.showSnapshot();
@@ -458,7 +459,6 @@ public final class MTThemeManager {
       activate(selectedTheme, true);
     }
     SwingUtilities.invokeLater(MTChangeLAFAnimator::hideSnapshotWithAnimation);
-
   }
 
   /**

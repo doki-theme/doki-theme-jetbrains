@@ -46,5 +46,4 @@ Rating Stars
 Shit to fix
 ----
 - plugin.xml
-- svgs
 - go xml colors
