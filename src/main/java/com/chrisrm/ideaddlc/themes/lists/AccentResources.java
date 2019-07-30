@@ -110,6 +110,9 @@ public enum AccentResources {
           "Component.focusColor",
           "Component.focusedBorderColor",
           "Counter.background",
+          "Debugger.Variables.modifyingValueForeground",
+          "Debugger.Variables.changedValueForeground",
+          "Debugger.Variables.valueForeground",
           "DefaultTabs.inactiveUnderlineColor", // deprecated
           "DefaultTabs.underlineColor", // not implemented yet
           "EditorPane.caretForeground",
@@ -176,6 +179,8 @@ public enum AccentResources {
           "ToggleButton.on.background", // deprecated
           "ToggleButton.onBackground",
           "ToggleButton.onForeground",
+          "ToolWindow.HeaderTab.underlineColor",
+          "ToolWindow.HeaderTab.inactiveUnderlineColor",
           "TextPane.caretForeground",
           "Tree.modifiedItemForeground",
           "TabbedPane.underlineColor",

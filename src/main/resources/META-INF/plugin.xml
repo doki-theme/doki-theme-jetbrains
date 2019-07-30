@@ -62,6 +62,8 @@
                                  id="com.chrisrm.ideaddlc.config"/>
 
         <projectViewNodeDecorator implementation="io.acari.DDLC.tree.DDLCProjectViewNodeDecorator"/>
+        <projectViewNodeDecorator implementation="io.acari.DDLC.tree.MTColoredFoldersNodeDecorator"
+                                  id="DokiDokiColoredDirsDecorator"/>
         <editorTabTitleProvider implementation="com.chrisrm.ideaddlc.tabs.MTEditorUpperTabs" order="first"/>
         <editorTabColorProvider implementation="io.acari.DDLC.tabs.DDLCEditorTabColorProvider" order="first"/>
         <iconProvider implementation="com.chrisrm.ideaddlc.icons.MTHiddenIconProvider" order="first"
@@ -85,16 +87,17 @@
         <search.topHitProvider implementation="com.chrisrm.ideaddlc.config.MTConfigTopHitProvider"/>
 
         <colorSettingsPage implementation="com.chrisrm.ideaddlc.config.MTFileColorsPage"/>
-        <colorSettingsPage implementation="com.chrisrm.ideaddlc.config.MTScrollbarsPage" id="DokiScrollbarPage"/>
 
         <webHelpProvider implementation="com.chrisrm.ideaddlc.help.MTHelpProvider" id="DDLCMTHelpTopic"/>
         <annotator language="JavaScript" implementationClass="com.chrisrm.ideaddlc.annotators.JSAnnotator"/>
         <annotator language="TypeScript" implementationClass="com.chrisrm.ideaddlc.annotators.TSAnnotator"/>
         <annotator language="JAVA" implementationClass="com.chrisrm.ideaddlc.annotators.JavaAnnotator"/>
+        <annotator language="PHP" implementationClass="com.chrisrm.ideaddlc.annotators.PHPAnnotator"/>
 
         <colorSettingsPage implementation="com.chrisrm.ideaddlc.annotators.settings.JSColorSettings"/>
         <colorSettingsPage implementation="com.chrisrm.ideaddlc.annotators.settings.TSColorSettings"/>
         <colorSettingsPage implementation="com.chrisrm.ideaddlc.annotators.settings.JavaColorSettings"/>
+        <colorSettingsPage implementation="com.chrisrm.ideaddlc.annotators.settings.PHPColorSettings"/>
     </extensions>
 
     <application-components>

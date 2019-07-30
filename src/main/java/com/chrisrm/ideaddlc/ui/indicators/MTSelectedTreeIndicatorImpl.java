@@ -26,6 +26,7 @@
 package com.chrisrm.ideaddlc.ui.indicators;
 
 import com.chrisrm.ideaddlc.MTConfig;
+import com.chrisrm.ideaddlc.utils.MTUI;
 import com.intellij.ui.ColorUtil;
 
 import java.awt.*;
@@ -37,6 +38,8 @@ public abstract class MTSelectedTreeIndicatorImpl implements MTSelectedTreeIndic
 
   protected Color getHighlightColor() {
     if (highlightColor == null) {
+//      todo replace this??
+//      MTUI.TabbedPane.getHighlightColor()
       highlightColor = ColorUtil.fromHex(MTConfig.getInstance().getAccentColor());
     }
     return highlightColor;

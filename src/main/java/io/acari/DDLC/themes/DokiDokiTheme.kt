@@ -271,6 +271,45 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
                 "TableHeader.borderColor",
                 "TextField.separatorColor",
                 "VersionControl.Ref.backgroundBase"
+
+//
+//            "Button.darcula.defaultFocusedBorderColor", // deprecated
+//            "Button.darcula.focusedBorderColor", // deprecated
+//            "Button.darcula.selection.color1", // deprecated
+//            "Button.darcula.selection.color2", // deprecated
+//            "Button.mt.selection.color1",
+//            "Button.mt.selection.color2",
+//            "Button.default.startBackground",
+//            "Button.default.endBackground",
+//            "Button.focus", // deprecated
+//            "ComboBox.selectionBackground",
+//            "DebuggerTabs.underlinedTabBackground",
+//            "DefaultTabs.hoverBackground",
+//            "DefaultTabs.underlinedTabBackground",
+//            "EditorTabs.underlinedTabBackground",
+//            "EditorTabs.active.background", // deprecated
+//            "EditorTabs.selectedBackground",
+//            "FormattedTextField.selectionBackground",
+//            "ParameterInfo.borderColor",
+//            "ParameterInfo.lineSeparatorColor",
+//            "ParameterInfo.currentOverloadBackground",
+//            "PasswordField.selectionBackground",
+//            "Plugins.Tab.active.background", // deprecated
+//            "Plugins.Tab.selectedBackground",
+//            "Plugins.Tab.hover.background", // deprecated
+//            "Plugins.Tab.hoverBackground",
+//            "Slider.track", // deprecated
+//            "TabbedPane.focusColor",
+//            "Table.highlightOuter",
+//            "Table.focusCellBackground",
+//            "Table.lightSelectionBackground", // deprecated
+//            "Table.selectionBackground",
+//            "TextArea.selectionBackground",
+//            "TextField.selectionBackground",
+//            "TextPane.selectionBackground",
+//            "ToolWindow.Button.hoverBackground"
+
+
         ).distinct()
     }
 
@@ -327,6 +366,45 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
                 "TextArea.selectionBackground",
                 "TextPane.selectionBackground",
                 "ToolWindow.Button.hoverBackground"
+
+
+
+//            "Button.darcula.defaultFocusedBorderColor", // deprecated
+//            "Button.darcula.focusedBorderColor", // deprecated
+//            "Button.darcula.selection.color1", // deprecated
+//            "Button.darcula.selection.color2", // deprecated
+//            "Button.mt.selection.color1",
+//            "Button.mt.selection.color2",
+//            "Button.default.startBackground",
+//            "Button.default.endBackground",
+//            "Button.focus", // deprecated
+//            "ComboBox.selectionBackground",
+//            "DebuggerTabs.underlinedTabBackground",
+//            "DefaultTabs.hoverBackground",
+//            "DefaultTabs.underlinedTabBackground",
+//            "EditorTabs.underlinedTabBackground",
+//            "EditorTabs.active.background", // deprecated
+//            "EditorTabs.selectedBackground",
+//            "FormattedTextField.selectionBackground",
+//            "ParameterInfo.borderColor",
+//            "ParameterInfo.lineSeparatorColor",
+//            "ParameterInfo.currentOverloadBackground",
+//            "PasswordField.selectionBackground",
+//            "Plugins.Tab.active.background", // deprecated
+//            "Plugins.Tab.selectedBackground",
+//            "Plugins.Tab.hover.background", // deprecated
+//            "Plugins.Tab.hoverBackground",
+//            "Slider.track", // deprecated
+//            "TabbedPane.focusColor",
+//            "Table.highlightOuter",
+//            "Table.focusCellBackground",
+//            "Table.lightSelectionBackground", // deprecated
+//            "Table.selectionBackground",
+//            "TextArea.selectionBackground",
+//            "TextField.selectionBackground",
+//            "TextPane.selectionBackground",
+//            "ToolWindow.Button.hoverBackground"
+
         ).distinct()
     }
 
@@ -395,14 +473,84 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
                 "TabbedPane.shadow",
                 "TabbedPane.borderColor",
                 "Popup.Header.inactiveBackground",
-                "Popup.Header.activeBackground")
+                "Popup.Header.activeBackground",
+
+//            "DefaultTabs.hoverColor",
+//            "DefaultTabs.inactiveMaskColor",
+//            "EditorPane.background",
+//            "HeaderColor.inactive", // deprecated
+//            "material.contrast",
+//            "NewClass.SearchField.background",
+//            "Popup.Border.color", // deprecated
+//            "Popup.borderColor",
+//            "Popup.Header.inactiveBackground",
+//            "Popup.Toolbar.background",
+//            "Popup.Toolbar.Border.color", // deprecated
+//            "Popup.Toolbar.borderColor",
+//            "ScrollBar.thumb",
+//            "SearchEverywhere.Advertiser.background",
+//            "SearchEverywhere.SearchField.background",
+//            "Table.stripeColor",
+//            "Table.stripedBackground", // deprecated
+//            "TitlePane.background",
+//            "ToolBar.background",
+//            "ToolWindow.Button.selectedBackground",
+//            "ToolWindow.header.tab.selected.active.background", // deprecated
+//            "ToolWindow.header.tab.selected.background", // deprecated
+//            "ToolWindow.HeaderTab.selectedInactiveBackground",
+//            "ToolWindow.HeaderTab.selectedBackground",
+//            "ToolWindow.inactive.HeaderTab.background", // deprecated
+//            "ToolWindow.active.HeaderTab.background", // deprecated
+//            "ToolWindow.HeaderTab.underlinedTabInactiveBackground",
+            "WelcomeScreen.captionBackground",
+            "WelcomeScreen.footerBackground"
+        )
     }
 
     open fun getDisabledResources(): Stream<String> {
         return Stream.of(
                 "MenuItem.disabledForeground",
                 "ToggleButton.off.background",
-                "ComboBox.disabledForeground")
+                "ComboBox.disabledForeground",
+            "Button.disabledText",
+            "CheckBox.darcula.checkSignColorDisabled", // deprecated
+            "CheckBox.darcula.disabledBorderColor1", // deprecated
+            "CheckBox.darcula.disabledBorderColor2", // deprecated
+            "CheckBox.disabledText",
+            "CheckBoxMenuItem.disabledForeground",
+            "ComboBox.ArrowButton.disabledIconColor",
+            "ComboBox.darcula.arrowButtonDisabledForeground", // deprecated
+            "ComboBox.disabledForeground",
+            "Component.disabledBorderColor",
+            "EditorPane.inactiveForeground",
+            "FormattedTextField.inactiveForeground",
+            "Label.disabledForeground",
+            "Label.disabledForegroundColor", // deprecated
+            "Label.disabledShadow", // deprecated
+            "Label.disabledText",
+            "Menu.disabledForeground",
+            "MenuBar.disabledForeground",
+            "MenuItem.disabledForeground",
+            "Outline.disabledColor", // deprecated
+            "ParameterInfo.disabledColor", //deprecated
+            "ParameterInfo.disabledForeground",
+            "PasswordField.inactiveForeground",
+            "Plugins.disabledForeground",
+            "RadioButton.disabledText",
+            "RadioButtonMenuItem.disabledForeground",
+            "SearchEverywhere.SearchField.grayForeground", // deprecated
+            "SearchEverywhere.SearchField.infoForeground",
+            "TabbedPane.disabledForeground",
+            "TabbedPane.disabledText", // deprecated
+            "TabbedPane.disabledUnderlineColor",
+            "TabbedPane.selectedDisabledColor",
+            "TextArea.inactiveForeground",
+            "TextField.inactiveForeground",
+            "TextPane.inactiveForeground",
+            "TitlePane.inactiveInfoForeground",
+            "ToggleButton.disabledText",
+            "VersionControl.HgLog.closedBranchIconColor"
+        ).distinct()
     }
 
     open fun getSecondaryBackgroundResources(): Stream<String> {
@@ -419,7 +567,32 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
                 "ToolWindow.header.active.background",
                 "ToolWindow.header.border.background",
                 "material.disabled",
-                "material.mergeCommits")
+                "material.mergeCommits",
+
+//            "CompletionPopup.background",
+//            "EditorTabs.borderColor",
+//            "inactiveCaption",
+//            "List.background",
+//            "MemoryIndicator.allocatedBackground",
+//            "MemoryIndicator.unusedColor", // deprecated
+//            "Menu.borderColor",
+//            "ParameterInfo.background",
+//            "Plugins.SectionHeader.background",
+//            "Popup.separatorColor",
+//            "Separator.background",
+//            "Separator.foreground",
+//            "Separator.separatorColor",
+//            "Slider.tickColor",
+//            "Table.lightSelectionInactiveBackground",
+//            "TextArea.background",
+//            "ToolWindow.active.Header.background",
+//            "ToolWindow.Header.background",
+//            "ToolWindow.header.active.background", //deprecated
+//            "ToolWindow.header.border.background", //deprecated
+//            "ToolWindow.Header.borderColor",
+            "WelcomeScreen.Projects.background",
+            "WelcomeScreen.Projects.selectionInactiveBackground"
+        ).distinct()
     }
 
     open fun getInactiveResources(): Stream<String> {
@@ -484,7 +657,74 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
                 "CompletionPopup.selectionInactiveInfoForeground",
               "CompletionPopup.infoForeground",
                 "SearchEverywhere.shortcutForeground",
-                "Tree.foreground")
+                "Tree.foreground"
+
+
+
+//            "Button.foreground",
+//            "Button.mt.foreground",
+//            "CheckBoxMenuItem.acceleratorForeground",
+//            "CheckBoxMenuItem.acceleratorSelectionForeground",
+//            "CompletionPopup.grayedForeground", //deprecated
+//            "CompletionPopup.grayForeground", //deprcated
+//            "CompletionPopup.infoForeground",
+//            "CompletionPopup.selectionInactiveForeground", // deprecated
+//            "CompletionPopup.selectionInactiveInfoForeground",
+//            "Component.infoForeground",
+//            "Component.grayForeground", // deprecated
+//            "controlText",
+//            "Debugger.Variables.collectingDataForeground",
+//            "Debugger.Variables.evaluatingExpressionForeground",
+//            "Editor.shortcutForeground",
+//            "Git.Log.Ref.Other", //deprecated
+//            "Git.Log.Ref.Tag", // deprecated
+//            "Github.List.tallRow.secondary.foreground",
+//            "HelpTooltip.infoForeground",
+//            "HelpTooltip.shortcutForeground",
+//            "HelpTooltip.shortcutTextColor", // deprecated
+//            "Hg.Log.Ref.LocalTag", //deprecated
+//            "Hg.Log.Ref.MqTag", //deprecated
+//            "Hg.Log.Ref.Tag", //deprecated
+//            "inactiveCaptionText", // deprecated
+//            "infoText", // deprecated
+//            "InternalFrame.inactiveTitleForeground", // deprecated
+//            "Label.grayForeground", // deprecated
+//            "Label.infoForeground",
+//            "Label.textForeground", // deprecated
+//            "Link.secondaryForeground",
+//            "material.primaryColor",
+//            "material.tagColor",
+//            "Menu.acceleratorForeground",
+//            "MenuItem.acceleratorForeground",
+//            "ParameterInfo.ContextHelp.foreground", // deprecated
+//            "ParameterInfo.infoForeground",
+//            "Plugins.Button.installFillForeground",
+//            "RadioButtonMenuItem.acceleratorForeground",
+//            "RadioButtonMenuItem.acceleratorSelectionForeground",
+//            "SearchEverywhere.shortcutForeground", // deprecated
+//            "Table.lightSelectionInactiveForeground",
+//            "text",
+//            "textInactiveText",
+//            "textText",
+//            "TitlePane.infoForeground",
+//            "ToolBar.borderHandleColor",
+//            "ToolBar.floatingForeground",
+//            "ToolTip.Actions.grayForeground", // deprecated
+//            "ToolTip.Actions.infoForeground",
+//            "ToolTip.infoForeground",
+//            "tooltips.actions.keymap.text.color", //deprecated
+//            "Tree.foreground",
+//            "VersionControl.GitLog.otherIconColor",
+//            "VersionControl.GitLog.tagIconColor",
+//            "VersionControl.HgLog.localTagIconColor",
+//            "VersionControl.HgLog.mqTagIconColor",
+//            "VersionControl.HgLog.tagIconColor",
+//            "VersionControl.HgLog.tipIconColor",
+//            "VersionControl.Log.Commit.unmatchedForeground"
+
+
+
+        )
     }
 
     open fun getBackgroundResources(): Stream<String> {
@@ -815,8 +1055,10 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
             Sets.newHashSet(
                 "Tree.selectionInactiveBackground",
                 "CompletionPopup.nonFocusedState",
+                "CompletionPopup.nonFocusedMask",
                 "List.selectionInactiveBackground",
-                "Table.selectionInactiveBackground"
+                "Table.selectionInactiveBackground",
+                "TitlePane.inactiveBackground"
             ))
 
         val transparentBackground = MTUI.Tree.getSelectionInactiveBackground()

@@ -89,6 +89,7 @@ public enum ContrastResources {
           "TextField.background",
           "TextPane.background",
           "ToolBar.background",
+          "ToolWindow.HeaderTab.underlinedTabInactiveBackground",
           "Tree.background",
           "Tree.textBackground",
           "Viewport.background",

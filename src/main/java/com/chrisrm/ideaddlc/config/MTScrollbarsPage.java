@@ -49,6 +49,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
 
+// TODO: 7/30/19 should remove? 
 @SuppressWarnings("ObjectAllocationInLoop")
 public final class MTScrollbarsPage implements ColorSettingsPage, DisplayPrioritySortable {
   private static final ColorDescriptor[] DESCRIPTORS;
