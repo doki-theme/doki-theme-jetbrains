@@ -72,4 +72,6 @@ class WylaTheme : AnthroTheme("wyla", "Wyla", true, "Wyla") {
   override fun getDisabledColorString(): String = "585F6F"
 
   override fun getSelectedButtonForegroundColor(): String = selectionForegroundColorString
+
+  override fun getCompletionPopupBackgroundColor(): String = "45343C"
 }

@@ -78,6 +78,8 @@ class CleoTheme : AnthroTheme("cleo", "Cleo", false, "Cleo") {
 
   override fun getSelectedButtonForegroundColor(): String = selectionForegroundColorString
 
+  override fun getCompletionPopupBackgroundColor(): String = "eaeaf0"
+
   private val naughtyForegroundSet: Set<String> = setOf(
       "Label.selectedForeground",
       "SearchEverywhere.Tab.selectedForeground"

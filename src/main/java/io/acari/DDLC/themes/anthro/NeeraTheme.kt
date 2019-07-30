@@ -75,4 +75,6 @@ class NeeraTheme : AnthroTheme("neera", "Neera", false, "Neera") {
   override fun getNonProjectFileScopeColor(): String = "FFF7DF"
 
   override fun getTestScope(): String = "D7FFDC"
+
+  override fun getCompletionPopupBackgroundColor(): String = "eaeaf0"
 }
