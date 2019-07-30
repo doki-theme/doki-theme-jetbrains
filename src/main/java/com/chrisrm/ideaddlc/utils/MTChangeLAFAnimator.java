@@ -48,7 +48,7 @@ public final class MTChangeLAFAnimator {
   }
 
   private MTChangeLAFAnimator() {
-    myAnimator = new Animator("MTChangeLAF", 60, 1200, false) {
+    myAnimator = new Animator("MTChangeLAF", 60, 1500, false) {
       @Override
       public void resume() {
         doPaint();
