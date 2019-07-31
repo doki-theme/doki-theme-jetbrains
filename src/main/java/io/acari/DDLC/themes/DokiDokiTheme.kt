@@ -353,8 +353,7 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
         Stream.of("CompletionPopup.background").distinct()
 
     open fun getBorderResources(): Stream<String> =
-        Stream.of(
-            "Borders.color",
+        Stream.of("Borders.color",
             "Borders.ContrastBorderColor",
             "ComboPopup.border",
             "Component.borderColor",
@@ -378,7 +377,9 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
             "Plugins.SearchField.borderColor",
             "Popup.Advertiser.borderColor",
             "Popup.Advertiser.borderInsets",
+            "Popup.Border.color",
             "Popup.Border.inactiveColor",
+            "Popup.borderColor",
             "Popup.inactiveBorderColor",
             "Popup.innerBorderColor",
             "Popup.paintBorder",
@@ -394,8 +395,7 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
             "ValidationTooltip.warningBorderColor",
             "WelcomeScreen.borderColor",
             "WelcomeScreen.groupIconBorderColor",
-            "Window.border"
-        ).distinct()
+            "Window.border").distinct()
 
     open fun getContrastResources(): Stream<String> {
         return Stream.of(
@@ -426,12 +426,8 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
 //            "HeaderColor.inactive", // deprecated
 //            "material.contrast",
 //            "NewClass.SearchField.background",
-//            "Popup.Border.color", // deprecated
-//            "Popup.borderColor",
 //            "Popup.Header.inactiveBackground",
 //            "Popup.Toolbar.background",
-//            "Popup.Toolbar.Border.color", // deprecated
-//            "Popup.Toolbar.borderColor",
 //            "ScrollBar.thumb",
 //            "SearchEverywhere.Advertiser.background",
 //            "SearchEverywhere.SearchField.background",

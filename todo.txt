@@ -47,7 +47,6 @@ Shit to fix
 ----
 Material Integrations
     - Debugger, highlighted text, welcome window, tool window
-    - switcher
 
 - plugin.xml
 - go xml colors
