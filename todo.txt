@@ -48,8 +48,5 @@ Shit to fix
 Material Integrations
     - Debugger, highlighted text, welcome window, tool window
 
-A lot of text is greyed out...
-
-
 - plugin.xml
 - go xml colors
