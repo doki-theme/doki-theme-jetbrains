@@ -48,5 +48,5 @@ Shit to fix
 Material Integrations
     - Debugger, highlighted text, welcome window, tool window
 
-- plugin.xml
-- go xml colors
+- Transition?
+- Field Test
