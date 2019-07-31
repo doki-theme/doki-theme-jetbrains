@@ -353,19 +353,18 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
         Stream.of("CompletionPopup.background").distinct()
 
     open fun getBorderResources(): Stream<String> =
-        Stream.of("EditorTabs.borderColor",
-            "Menu.borderColor",
-            "Component.borderColor",
-            "Borders.color",
+        Stream.of(
             "Borders.color",
             "Borders.ContrastBorderColor",
             "ComboPopup.border",
+            "Component.borderColor",
             "DebuggerPopup.borderColor",
             "DefaultTabs.borderColor",
             "EditorTabs.borderColor",
             "HelpTooltip.borderColor",
             "InformationHint.borderColor",
             "InplaceRefactoringPopup.borderColor",
+            "Menu.borderColor",
             "NavBar.borderColor",
             "Notification.borderColor",
             "Notification.errorBorderColor",
@@ -379,8 +378,12 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
             "Plugins.SearchField.borderColor",
             "Popup.Advertiser.borderColor",
             "Popup.Advertiser.borderInsets",
+            "Popup.Border.inactiveColor",
+            "Popup.inactiveBorderColor",
             "Popup.innerBorderColor",
             "Popup.paintBorder",
+            "Popup.preferences.borderColor",
+            "Popup.Toolbar.borderColor",
             "SearchEverywhere.Advertiser.borderInsets",
             "SearchEverywhere.SearchField.borderColor",
             "SpeedSearch.borderColor",
@@ -391,7 +394,8 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
             "ValidationTooltip.warningBorderColor",
             "WelcomeScreen.borderColor",
             "WelcomeScreen.groupIconBorderColor",
-            "Window.border").distinct()
+            "Window.border"
+        ).distinct()
 
     open fun getContrastResources(): Stream<String> {
         return Stream.of(
@@ -663,7 +667,8 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
     }
 
     open fun getBackgroundResources(): Stream<String> {
-        return Stream.of("activeCaption",
+        return Stream.of(
+            "activeCaption",
             "CheckBox.background",
             "CheckBox.darcula.backgroundColor1",
             "CheckBox.darcula.backgroundColor2",
@@ -715,6 +720,12 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
             "OptionPane.background",
             "OnePixelDivider.background",
             "PasswordField.background",
+            "Plugins.background",
+            "Plugins.SearchField.background",
+            "Popup.Advertiser.background",
+            "Popup.Header.activeBackground",
+            "Popup.preferences.background", // deprecated
+            "PopupMenu.background",
             "PopupMenu.translucentBackground",
             "RadioButton.background",
             "RadioButton.darcula.selectionDisabledColor",
