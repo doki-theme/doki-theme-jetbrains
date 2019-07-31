@@ -342,9 +342,7 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
                 "Table.selectionBackground",
                 "TextArea.selectionBackground",
                 "TextPane.selectionBackground",
-                "ToolWindow.Button.hoverBackground"
-
-
+                "ToolWindow.Button.hoverBackground",
 
 //            "Button.darcula.defaultFocusedBorderColor", // deprecated
 //            "Button.darcula.focusedBorderColor", // deprecated
@@ -352,13 +350,13 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
 //            "Button.darcula.selection.color2", // deprecated
 //            "Button.mt.selection.color1",
 //            "Button.mt.selection.color2",
-//            "Button.default.startBackground",
-//            "Button.default.endBackground",
-//            "Button.focus", // deprecated
+            "Button.default.startBackground",
+            "Button.default.endBackground",
+            "Button.focus", // deprecated
 //            "ComboBox.selectionBackground",
 //            "DebuggerTabs.underlinedTabBackground",
-//            "DefaultTabs.hoverBackground",
-//            "DefaultTabs.underlinedTabBackground",
+            "DefaultTabs.hoverBackground",
+            "DefaultTabs.underlinedTabBackground"
 //            "EditorTabs.underlinedTabBackground",
 //            "EditorTabs.active.background", // deprecated
 //            "EditorTabs.selectedBackground",
@@ -927,7 +925,8 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
   open fun getSelectedButtonForegroundColor(): String = getButtonForegroundColor()
 
   open fun getSelectedButtonForegroundResources(): Stream<String> =
-      Stream.of("Button.darcula.selectedButtonForeground")
+      Stream.of("Button.darcula.selectedButtonForeground",
+          "Button.default.startBackground")
 
 
     open fun getMenuItemForegroundResources(): Stream<String> {
