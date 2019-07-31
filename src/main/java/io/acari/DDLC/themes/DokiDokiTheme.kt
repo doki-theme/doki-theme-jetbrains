@@ -213,81 +213,47 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
 
     open fun getHighlightResources(): Stream<String> {
         return Stream.of(
-                "Focus.color",
-                "TextField.separatorColor",
-                "CompletionPopup.selectionInactiveBackground",
-                "SearchEverywhere.Tab.active.background",
-                "SearchEverywhere.Tab.selected.background",
-                "CheckBox.darcula.inactiveFillColor",
-                "VersionControl.Log.Commit.currentBranchBackground",
-                "ActionButton.pressedBackground",
-                "ActionButton.pressedBorderColor",
-                "Autocomplete.selectionUnfocus",
-                "CheckBox.darcula.inactiveFillColor",
-                "CompletionPopup.selectionInactiveBackground",
-                "Component.focusedBorderColor",
-                "DebuggerTabs.active.background",
-                "DebuggerTabs.selectedBackground",
-                "Focus.color",
-                "Github.List.tallRow.selectionBackground.unfocused",
-                "MemoryIndicator.usedColor",
-                "Outline.focusedColor",
-                "Plugins.Button.installFocusedBackground",
-                "Plugins.eapTagBackground",
-                "Plugins.tagBackground",
-                "ProgressBar.halfColor",
-                "ProgressBar.selectionBackground",
-                "SearchEverywhere.Tab.active.background",
-                "SearchEverywhere.Tab.selectedBackground",
-                "SearchEverywhere.Tab.selected.background",
-                "SpeedSearch.background",
-                "TabbedPane.contentAreaColor",
-                "TabbedPane.hoverColor",
-                "TabbedPane.selectHighlight",
-                "TabbedPane.selectedColor",
-                "TableHeader.borderColor",
-                "TextField.separatorColor",
-                "VersionControl.Ref.backgroundBase"
-
-//
-//            "Button.darcula.defaultFocusedBorderColor", // deprecated
-//            "Button.darcula.focusedBorderColor", // deprecated
-//            "Button.darcula.selection.color1", // deprecated
-//            "Button.darcula.selection.color2", // deprecated
-//            "Button.mt.selection.color1",
-//            "Button.mt.selection.color2",
-//            "Button.default.startBackground",
-//            "Button.default.endBackground",
-//            "Button.focus", // deprecated
-//            "ComboBox.selectionBackground",
-//            "DebuggerTabs.underlinedTabBackground",
-//            "DefaultTabs.hoverBackground",
-//            "DefaultTabs.underlinedTabBackground",
-//            "EditorTabs.underlinedTabBackground",
-//            "EditorTabs.active.background", // deprecated
-//            "EditorTabs.selectedBackground",
-//            "FormattedTextField.selectionBackground",
-//            "ParameterInfo.borderColor",
-//            "ParameterInfo.lineSeparatorColor",
-//            "ParameterInfo.currentOverloadBackground",
-//            "PasswordField.selectionBackground",
-//            "Plugins.Tab.active.background", // deprecated
-//            "Plugins.Tab.selectedBackground",
-//            "Plugins.Tab.hover.background", // deprecated
-//            "Plugins.Tab.hoverBackground",
-//            "Slider.track", // deprecated
-//            "TabbedPane.focusColor",
-//            "Table.highlightOuter",
-//            "Table.focusCellBackground",
-//            "Table.lightSelectionBackground", // deprecated
-//            "Table.selectionBackground",
-//            "TextArea.selectionBackground",
-//            "TextField.selectionBackground",
-//            "TextPane.selectionBackground",
-//            "ToolWindow.Button.hoverBackground"
-
-
-        ).distinct()
+            "ActionButton.pressedBackground",
+            "ActionButton.pressedBorderColor",
+            "Autocomplete.selectionUnfocus",
+            "CheckBox.darcula.inactiveFillColor",
+            "CompletionPopup.selectionInactiveBackground",
+            "Component.borderColor",
+            "Component.focusedBorderColor",
+            "DebuggerTabs.active.background",
+            "DebuggerTabs.selectedBackground",
+            "DefaultTabs.hoverColor",
+            "DefaultTabs.hoverMaskColor",
+            "EditorTabs.hoverColor",
+            "EditorTabs.hoverMaskColor",
+            "Focus.color",
+            "Github.List.tallRow.selectionBackground.unfocused",
+            "MemoryIndicator.usedBackground",
+            "MemoryIndicator.usedColor",
+            "Outline.focusedColor",
+            "Plugins.Button.installFocusedBackground",
+            "Plugins.eapTagBackground",
+            "Plugins.tagBackground",
+            "ProgressBar.halfColor",
+            "ProgressBar.selectionBackground",
+            "ProgressBar.trackColor",
+            "SearchEverywhere.Tab.active.background",
+            "SearchEverywhere.Tab.selected.background",
+            "SearchEverywhere.Tab.selectedBackground",
+            "Slider.trackDisabled",
+            "SpeedSearch.background",
+            "TabbedPane.contentAreaColor",
+            "TabbedPane.hoverColor",
+            "TabbedPane.selectedColor",
+            "TabbedPane.selectHighlight",
+            "TableHeader.borderColor",
+            "TextField.separatorColor",
+            "TitlePane.Button.hoverBackground",
+            "ToolWindow.HeaderTab.hoverBackground",
+            "VersionControl.Log.Commit.currentBranchBackground",
+            "VersionControl.Ref.backgroundBase",
+            "VersionControl.RefLabel.backgroundBase"
+        )
     }
 
     open fun getSecondBorderResources(): Stream<String> {
