@@ -354,10 +354,10 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
             "Button.default.endBackground",
             "Button.focus", // deprecated
 //            "ComboBox.selectionBackground",
-//            "DebuggerTabs.underlinedTabBackground",
+            "DebuggerTabs.underlinedTabBackground",
             "DefaultTabs.hoverBackground",
-            "DefaultTabs.underlinedTabBackground"
-//            "EditorTabs.underlinedTabBackground",
+            "DefaultTabs.underlinedTabBackground",
+            "EditorTabs.underlinedTabBackground",
 //            "EditorTabs.active.background", // deprecated
 //            "EditorTabs.selectedBackground",
 //            "FormattedTextField.selectionBackground",
@@ -378,7 +378,7 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
 //            "TextArea.selectionBackground",
 //            "TextField.selectionBackground",
 //            "TextPane.selectionBackground",
-//            "ToolWindow.Button.hoverBackground"
+            "ToolWindow.Button.hoverBackground"
 
         ).distinct()
     }
@@ -468,15 +468,15 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
 //            "Table.stripeColor",
 //            "Table.stripedBackground", // deprecated
 //            "TitlePane.background",
-//            "ToolBar.background",
-//            "ToolWindow.Button.selectedBackground",
-//            "ToolWindow.header.tab.selected.active.background", // deprecated
-//            "ToolWindow.header.tab.selected.background", // deprecated
-//            "ToolWindow.HeaderTab.selectedInactiveBackground",
-//            "ToolWindow.HeaderTab.selectedBackground",
-//            "ToolWindow.inactive.HeaderTab.background", // deprecated
-//            "ToolWindow.active.HeaderTab.background", // deprecated
-//            "ToolWindow.HeaderTab.underlinedTabInactiveBackground",
+            "ToolBar.background",
+            "ToolWindow.Button.selectedBackground",
+            "ToolWindow.header.tab.selected.active.background", // deprecated
+            "ToolWindow.header.tab.selected.background", // deprecated
+            "ToolWindow.HeaderTab.selectedInactiveBackground",
+            "ToolWindow.HeaderTab.selectedBackground",
+            "ToolWindow.inactive.HeaderTab.background", // deprecated
+            "ToolWindow.active.HeaderTab.background", // deprecated
+            "ToolWindow.HeaderTab.underlinedTabInactiveBackground",
             "WelcomeScreen.captionBackground",
             "WelcomeScreen.footerBackground"
         )
