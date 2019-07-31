@@ -541,20 +541,18 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
 
     open fun getSelectionForegroundResources(): Stream<String> {
         return Stream.of(
-                "Menu.selectionForeground",
-                "Menu.acceleratorSelectionForeground",
-                "MenuItem.selectionForeground",
-                "CompletionPopup.selectionInfoForeground",
-                "CompletionPopup.selectionForeground",
-                "MenuItem.acceleratorSelectionForeground",
-                "Table.selectionForeground",
-                "TextField.selectionForeground",
-                "PasswordField.selectionForeground",
-                "TextArea.selectionForeground",
-                "Label.selectedForeground",
-                "PasswordField.selectionForeground",
-                "TextField.selectionForeground",
-                "TextArea.selectionForeground"
+            "CompletionPopup.selectionForeground",
+            "CompletionPopup.selectionInfoForeground",
+            "Label.selectedForeground",
+            "Menu.acceleratorSelectionForeground",
+            "Menu.selectionForeground",
+            "MenuItem.acceleratorSelectionForeground",
+            "MenuItem.selectionForeground",
+            "PasswordField.selectionForeground",
+            "SearchEverywhere.Tab.selectedForeground",
+            "Table.selectionForeground",
+            "TextArea.selectionForeground",
+            "TextField.selectionForeground"
         )
     }
 

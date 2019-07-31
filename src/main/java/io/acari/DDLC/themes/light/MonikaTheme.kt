@@ -62,7 +62,7 @@ class MonikaTheme : DokiDokiTheme("monika", "Monika", false, "Monika") {
 
     override fun getSecondBorderColorString(): String = "d3e1e8"
 
-    override fun getTableSelectedColorString(): String = "def7a5"
+    override fun getTableSelectedColorString(): String = "7fdf70"
 
     override fun getContrastColorString(): String = selectionBackgroundColorString
 
