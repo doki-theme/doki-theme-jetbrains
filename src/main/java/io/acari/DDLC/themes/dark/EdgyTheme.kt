@@ -57,8 +57,6 @@ class EdgyTheme : DokiDokiTheme("yuri.dark", "Edgy", true, "Yuri") {
 
     override fun getSecondBorderColorString(): String = "50237C"
 
-    override fun getDisabledColorString(): String = "000000"
-
     override fun getAccentColor(): String {
         return MTAccents.AMETHYST.hexColor
     }
