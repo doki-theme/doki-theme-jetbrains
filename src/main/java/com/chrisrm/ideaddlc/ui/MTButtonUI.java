@@ -115,7 +115,6 @@ public final class MTButtonUI extends DarculaButtonUI {
   public void installDefaults(final AbstractButton b) {
     super.installDefaults(b);
     boolean defaultButton = safelyGetIsDefaultButton(b);
-    //todo: is this needed???????
     b.setBackground(defaultButton ? primaryButtonBg() : buttonBg());
     isNotThemed = true;
 
