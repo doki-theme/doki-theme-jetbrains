@@ -9,16 +9,10 @@ import com.chrisrm.ideaddlc.themes.models.MTThemeable
 import com.chrisrm.ideaddlc.utils.MTUI
 import com.chrisrm.ideaddlc.utils.PropertiesParser
 import com.google.common.collect.Sets
-import com.intellij.ide.ui.LafManager
-import com.intellij.ide.ui.laf.IntelliJLookAndFeelInfo
-import com.intellij.ide.ui.laf.LafManagerImpl
-import com.intellij.ide.ui.laf.darcula.DarculaLookAndFeelInfo
 import com.intellij.openapi.util.IconLoader
 import com.intellij.ui.ColorUtil
 import com.intellij.ui.JBColor
 import icons.DDLCIcons
-import io.acari.DDLC.LegacySupportUtility
-import io.acari.DDLC.legacy.Runner
 import io.acari.DDLC.themes.light.MonikaTheme
 import java.awt.Color
 import java.io.Serializable
@@ -93,6 +87,8 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
                 MTThemeManager.applyAccents(true)
             }
 
+            applyOneOffs()
+
             if (isDark) {
                 UIManager.setLookAndFeel(MTDarkLaf(this))
             } else {
@@ -110,7 +106,7 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
     override fun getDisabled(): String = disabledColorString
 
     override fun getDisabledColorString(): String {
-        return "000000"
+        return "A2B6CB"
     }
 
     override fun getBorderColorString(): String =
@@ -1024,6 +1020,14 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
         val transparentBackground = MTUI.Panel.getTransparentBackground()
         for (color in colors) {
             UIManager.put(color, transparentBackground)
+        }
+    }
+
+    open fun getOneOffResources(): Stream<Pair<Stream<String>, String>> = Stream.empty()
+
+    private fun applyOneOffs() {
+        getOneOffResources().forEach { (properties, colorString) ->
+            buildResources(properties, colorString)
         }
     }
 }
