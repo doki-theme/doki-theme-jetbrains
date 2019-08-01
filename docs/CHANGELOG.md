@@ -1,6 +1,15 @@
 # Changelog
 ----
 
+# 3.5.0
+
+- Updated to Material UI 4.2.1!
+    - Better Integrations (Less color bleed)
+    - More Icons and File Associations
+    - Title bar is back
+    - Better GO code highlighting
+    - Better PHP syntax highlighting?
+
 # 3.4.2
 
 - Fixed Title Bar issue in the 2019.2 EAP builds (MacOS).
