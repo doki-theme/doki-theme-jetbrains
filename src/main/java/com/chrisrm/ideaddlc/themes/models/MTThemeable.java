@@ -136,6 +136,8 @@ public interface MTThemeable {
    */
   String getButtonColorString();
 
+  String getMenuBarColorString();
+
   /**
    * Get the hex code for the secondary background color
    */

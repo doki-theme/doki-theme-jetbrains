@@ -66,4 +66,6 @@ class YuriTheme : DokiDokiTheme("yuri", "Yuri", false, "Yuri") {
                 "RadioButtonMenuItem.acceleratorForeground",
                 "RadioButtonMenuItem.acceleratorSelectionForeground"), "ffffff")
         )
+
+    override fun getMenuBarColorString(): String = "6f4f86"
 }

@@ -75,6 +75,7 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
             buildResources(getTreeSelectionForegroundResources(), getTreeSelectionForegroundColorString())
             buildResources(getNotificationsResources(), notificationsColorString)
             buildResources(getBorderResources(), borderColorString)
+            buildResources(getMenuBarResources(), menuBarColorString)
             buildNotificationsColors()
             buildFlameChartColors()
             buildTransparentColors()
@@ -400,6 +401,14 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
                 "WelcomeScreen.footerBackground"
         )
     }
+
+    open fun getMenuBarResources(): Stream<String> =
+        Stream.of(
+            "Menu.background",
+            "MenuBar.background",
+            "PopupMenu.background",
+            "TitlePane.background"
+        )
 
     open fun getDisabledResources(): Stream<String> {
         return Stream.of(

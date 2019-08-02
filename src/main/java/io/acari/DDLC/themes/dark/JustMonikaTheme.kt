@@ -73,4 +73,5 @@ class JustMonikaTheme : DokiDokiTheme("just.monika", "Just Monika", true, "Monik
 
     override fun getStopColor(): String = "FFFA11"
 
+    override fun getMenuBarColorString(): String = "331d1b"
 }

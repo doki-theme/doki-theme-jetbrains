@@ -33,17 +33,16 @@ import java.util.stream.Stream
 import javax.swing.plaf.ColorUIResource
 
 class MonikaTheme : DokiDokiTheme("monika", "Monika", false, "Monika") {
-
     override fun getCompletionPopupBackgroundColor(): String = backgroundColorString
 
     override fun getClubMember(): String = "just_monika.png"
-    override fun joyfulClubMember(): String = "just_monika_joy.png"
 
+    override fun joyfulClubMember(): String = "just_monika_joy.png"
     override fun getSelectionBackground(): String = SELECTION_BACKGROUND
 
     override fun getButtonForegroundColor(): String = "14610D"
-    override fun getDisabled(): String = DISABLED
 
+    override fun getDisabled(): String = DISABLED
     override fun getAccentColor(): String {
         return MTAccents.BREAKING_BAD.hexColor
     }
@@ -91,6 +90,7 @@ class MonikaTheme : DokiDokiTheme("monika", "Monika", false, "Monika") {
             "Button.mt.background"
     ))
 
+    override fun getMenuBarColorString(): String = "eea588"
 
     override fun getBorderColor(): Color = Color.getHSBColor(62f, 91f, 149f)
 
