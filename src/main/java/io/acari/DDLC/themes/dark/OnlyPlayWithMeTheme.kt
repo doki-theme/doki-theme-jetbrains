@@ -69,4 +69,6 @@ class OnlyPlayWithMeTheme : DokiDokiTheme("natsuki.dark", "Only Play With Me", t
   override fun getStartColor(): String = "BB0A69"
 
   override fun getStopColor(): String = "F650FF"
+
+  override fun getMenuBarColorString(): String = "874C57"
 }

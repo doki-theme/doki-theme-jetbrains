@@ -72,4 +72,6 @@ class DeletedCharacterTheme : DokiDokiTheme("deleted.character", "Deleted Charac
     override fun getStartColor(): String = "0A74BB"
 
     override fun getStopColor(): String = "11FFFD"
+
+    override fun getMenuBarColorString(): String = "8B4646"
 }

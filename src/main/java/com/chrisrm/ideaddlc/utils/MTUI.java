@@ -571,23 +571,37 @@ public final class MTUI {
     JOHNNY_WALKER;
 
     private static final String LABEL_DISABLED_FOREGROUND = "Label.disabledForeground";
-    private static final String LABEL_GRAY_FOREGROUND = "Label.grayForeground";
+    private static final String LABEL_INFO_FOREGROUND = "Label.infoForeground";
+    private static final String LABEL_SELECTED_FOREGROUND = "Label.selectedForeground";
+    private static final String LABEL_FOREGROUND = "Label.foreground";
 
-    public static Color getLabelForeground(final JLabel label) {
-      Color foreground = label.getForeground();
-      if (foreground == Gray.x78 || foreground == Gray.x80) {
-        foreground = JBColor.namedColor(LABEL_GRAY_FOREGROUND, new JBColor(0x777777, 0x787878));
-      }
-      return foreground;
+    public static Color getLabelInfoForeground() {
+      return JBColor.namedColor(LABEL_INFO_FOREGROUND, new JBColor(0x777777, 0x787878));
     }
 
-    public static Color getDisabledBackground() {
-      return JBColor.namedColor(LABEL_DISABLED_FOREGROUND, new JBColor(0x000000, 0xBBBBBB));
+    public static Color getLabelDisabledForeground() {
+      return JBColor.namedColor(LABEL_DISABLED_FOREGROUND, new JBColor(0x777777, 0x787878));
+    }
+
+    public static Color getLabelInfoForeground(final JLabel label) {
+      Color foreground = label.getForeground();
+      if (foreground == Gray.x78 || foreground == Gray.x80) {
+        foreground = JBColor.namedColor(LABEL_INFO_FOREGROUND, new JBColor(0x777777, 0x787878));
+      }
+      return foreground;
     }
 
     public static void paintText(final JLabel label, final Graphics g, final String s, final int textX, final int textY) {
       final int mnemIndex = DarculaLaf.isAltPressed() ? label.getDisplayedMnemonicIndex() : -1;
       SwingUtilities2.drawStringUnderlineCharAt(label, g, s, mnemIndex, textX, textY);
+    }
+
+    public static Color getSelectedForeground() {
+      return JBColor.namedColor(LABEL_SELECTED_FOREGROUND, new JBColor(0x11111, 0xFFFFFF));
+    }
+
+    public static Color getLabelForeground() {
+      return JBColor.namedColor(LABEL_FOREGROUND, UIUtil.getLabelForeground());
     }
   }
 
@@ -598,6 +612,7 @@ public final class MTUI {
     public static final String CONTRAST_BACKGROUND = "EditorPane.background";
     public static final String SECONDARY_BACKGROUND = "List.background";
     public static final String HIGHLIGHT_BACKGROUND = "Component.focusedBorderColor";
+    public static final String LINK_FOREGROUND = "Link.foreground";
 
     public static Color getBackground() {
       return JBColor.namedColor(PANEL_BACKGROUND, UIUtil.getPanelBackground());
@@ -617,6 +632,10 @@ public final class MTUI {
 
     public static Color getTransparentBackground() {
       return ColorUtil.withAlpha(JBColor.namedColor(PANEL_BACKGROUND, UIUtil.getPanelBackground()), 0.3);
+    }
+
+    public static Color getLinkForeground() {
+      return JBColor.namedColor(LINK_FOREGROUND, JBColor.blue);
     }
   }
 }

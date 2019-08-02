@@ -9,16 +9,10 @@ import com.chrisrm.ideaddlc.themes.models.MTThemeable
 import com.chrisrm.ideaddlc.utils.MTUI
 import com.chrisrm.ideaddlc.utils.PropertiesParser
 import com.google.common.collect.Sets
-import com.intellij.ide.ui.LafManager
-import com.intellij.ide.ui.laf.IntelliJLookAndFeelInfo
-import com.intellij.ide.ui.laf.LafManagerImpl
-import com.intellij.ide.ui.laf.darcula.DarculaLookAndFeelInfo
 import com.intellij.openapi.util.IconLoader
 import com.intellij.ui.ColorUtil
 import com.intellij.ui.JBColor
 import icons.DDLCIcons
-import io.acari.DDLC.LegacySupportUtility
-import io.acari.DDLC.legacy.Runner
 import io.acari.DDLC.themes.light.MonikaTheme
 import java.awt.Color
 import java.io.Serializable
@@ -52,29 +46,6 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
 
     override fun activate() {
         try {
-            if (isDark) {
-                LegacySupportUtility.invokeVoidMethodSafely(
-                        LafManagerImpl::class.java,
-                        "getTestInstance",
-                        Runner { LafManagerImpl.getTestInstance().setCurrentLookAndFeel(DarculaLookAndFeelInfo()) },
-                        Runner {
-                            LafManager.getInstance().setCurrentLookAndFeel(DarculaLookAndFeelInfo())
-                            UIManager.setLookAndFeel(MTDarkLaf(this))
-                        }
-                )
-
-            } else {
-                LegacySupportUtility.invokeVoidMethodSafely(
-                        LafManagerImpl::class.java,
-                        "getTestInstance",
-                        Runner { LafManagerImpl.getTestInstance().setCurrentLookAndFeel(IntelliJLookAndFeelInfo()) },
-                        Runner {
-                            LafManager.getInstance().setCurrentLookAndFeel(IntelliJLookAndFeelInfo())
-                            UIManager.setLookAndFeel(MTLightLaf(this))
-                        }
-                )
-
-            }
             JBColor.setDark(isDark)
             IconLoader.setUseDarkIcons(isDark)
             buildResources(getBackgroundResources(), backgroundColorString)
@@ -104,6 +75,7 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
             buildResources(getTreeSelectionForegroundResources(), getTreeSelectionForegroundColorString())
             buildResources(getNotificationsResources(), notificationsColorString)
             buildResources(getBorderResources(), borderColorString)
+            buildResources(getMenuBarResources(), menuBarColorString)
             buildNotificationsColors()
             buildFlameChartColors()
             buildTransparentColors()
@@ -115,6 +87,8 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
                 instance.accentColor = accentColor
                 MTThemeManager.applyAccents(true)
             }
+
+            applyOneOffs()
 
             if (isDark) {
                 UIManager.setLookAndFeel(MTDarkLaf(this))
@@ -133,7 +107,7 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
     override fun getDisabled(): String = disabledColorString
 
     override fun getDisabledColorString(): String {
-        return "000000"
+        return "A2B6CB"
     }
 
     override fun getBorderColorString(): String =
@@ -236,69 +210,72 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
 
     open fun getHighlightResources(): Stream<String> {
         return Stream.of(
-                "Focus.color",
-                "TextField.separatorColor",
-                "CompletionPopup.selectionInactiveBackground",
-                "SearchEverywhere.Tab.active.background",
-                "SearchEverywhere.Tab.selected.background",
-                "CheckBox.darcula.inactiveFillColor",
-                "VersionControl.Log.Commit.currentBranchBackground",
-                "ActionButton.pressedBackground",
-                "ActionButton.pressedBorderColor",
-                "Autocomplete.selectionUnfocus",
-                "CheckBox.darcula.inactiveFillColor",
-                "CompletionPopup.selectionInactiveBackground",
-                "Component.focusedBorderColor",
-                "DebuggerTabs.active.background",
-                "DebuggerTabs.selectedBackground",
-                "Focus.color",
-                "Github.List.tallRow.selectionBackground.unfocused",
-                "MemoryIndicator.usedColor",
-                "Outline.focusedColor",
-                "Plugins.Button.installFocusedBackground",
-                "Plugins.eapTagBackground",
-                "Plugins.tagBackground",
-                "ProgressBar.halfColor",
-                "ProgressBar.selectionBackground",
-                "SearchEverywhere.Tab.active.background",
-                "SearchEverywhere.Tab.selectedBackground",
-                "SearchEverywhere.Tab.selected.background",
-                "SpeedSearch.background",
-                "TabbedPane.contentAreaColor",
-                "TabbedPane.hoverColor",
-                "TabbedPane.selectHighlight",
-                "TabbedPane.selectedColor",
-                "TableHeader.borderColor",
-                "TextField.separatorColor",
-                "VersionControl.Ref.backgroundBase"
-        ).distinct()
+            "ActionButton.pressedBackground",
+            "ActionButton.pressedBorderColor",
+            "Autocomplete.selectionUnfocus",
+            "CheckBox.darcula.inactiveFillColor",
+            "CompletionPopup.selectionInactiveBackground",
+            "Component.borderColor",
+            "Component.focusedBorderColor",
+            "DebuggerTabs.active.background",
+            "DebuggerTabs.selectedBackground",
+            "DefaultTabs.hoverColor",
+            "DefaultTabs.hoverMaskColor",
+            "EditorTabs.hoverColor",
+            "EditorTabs.hoverMaskColor",
+            "Focus.color",
+            "Github.List.tallRow.selectionBackground.unfocused",
+            "MemoryIndicator.usedBackground",
+            "MemoryIndicator.usedColor",
+            "Outline.focusedColor",
+            "Plugins.Button.installFocusedBackground",
+            "Plugins.eapTagBackground",
+            "Plugins.tagBackground",
+            "ProgressBar.halfColor",
+            "ProgressBar.selectionBackground",
+            "ProgressBar.trackColor",
+            "SearchEverywhere.Tab.active.background",
+            "SearchEverywhere.Tab.selected.background",
+            "SearchEverywhere.Tab.selectedBackground",
+            "Slider.trackDisabled",
+            "SpeedSearch.background",
+            "TabbedPane.contentAreaColor",
+            "TabbedPane.hoverColor",
+            "TabbedPane.selectedColor",
+            "TabbedPane.selectHighlight",
+            "TableHeader.borderColor",
+            "TextField.separatorColor",
+            "TitlePane.Button.hoverBackground",
+            "ToolWindow.HeaderTab.hoverBackground",
+            "VersionControl.Log.Commit.currentBranchBackground",
+            "VersionControl.Ref.backgroundBase",
+            "VersionControl.RefLabel.backgroundBase"
+        )
     }
 
     open fun getSecondBorderResources(): Stream<String> {
         return Stream.of(
-                "TabbedPane.highlight",
-                "Tree.hash",
-                "TabbedPane.selected",
-                "SearchEverywhere.List.Separator.Color",
-                "SearchEverywhere.List.separatorColor",
-                "Button.darcula.disabledOutlineColor",
-                "Button.darcula.shadowColor",
-                "Button.disabledBorderColor",
-                "Button.shadowColor",
-                "HelpTooltip.borderColor",
-                "Menu.separatorColor",
-                "OnePixelDivider.background",
-                "Plugins.SearchField.borderColor",
-                "Popup.Separator.color",
-                "SearchEverywhere.List.Separator.Color",
-                "SearchEverywhere.List.separatorColor",
-                "SpeedSearch.borderColor",
-                "TabbedPane.darkShadow",
-                "TabbedPane.highlight",
-                "TabbedPane.shadow",
-                "WelcomeScreen.separatorColor",
-                "windowBorder",
-                "TabbedPane.selectHighlight").distinct()
+            "Button.darcula.disabledOutlineColor",
+            "Button.darcula.shadowColor",
+            "Button.disabledBorderColor",
+            "Button.shadowColor",
+            "HelpTooltip.borderColor",
+            "Menu.separatorColor",
+            "OnePixelDivider.background",
+            "Plugins.SearchField.borderColor",
+            "Popup.Separator.color",
+            "SearchEverywhere.List.Separator.Color",
+            "SearchEverywhere.List.separatorColor",
+            "SpeedSearch.borderColor",
+            "TabbedPane.darkShadow",
+            "TabbedPane.highlight",
+            "TabbedPane.selected",
+            "TabbedPane.selectHighlight",
+            "TabbedPane.shadow",
+            "Tree.hash",
+            "WelcomeScreen.separatorColor",
+            "windowBorder"
+        ).distinct()
     }
 
     open fun getTableSelectedResources(): Stream<String> {
@@ -326,7 +303,16 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
                 "Table.selectionBackground",
                 "TextArea.selectionBackground",
                 "TextPane.selectionBackground",
+                "ToolWindow.Button.hoverBackground",
+                "Button.default.startBackground",
+                "Button.default.endBackground",
+                "Button.focus", // deprecated
+                "DebuggerTabs.underlinedTabBackground",
+                "DefaultTabs.hoverBackground",
+                "DefaultTabs.underlinedTabBackground",
+                "EditorTabs.underlinedTabBackground",
                 "ToolWindow.Button.hoverBackground"
+
         ).distinct()
     }
 
@@ -334,19 +320,18 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
         Stream.of("CompletionPopup.background").distinct()
 
     open fun getBorderResources(): Stream<String> =
-        Stream.of("EditorTabs.borderColor",
-            "Menu.borderColor",
-            "Component.borderColor",
-            "Borders.color",
-            "Borders.color",
+        Stream.of("Borders.color",
             "Borders.ContrastBorderColor",
             "ComboPopup.border",
+            "Component.borderColor",
             "DebuggerPopup.borderColor",
             "DefaultTabs.borderColor",
             "EditorTabs.borderColor",
             "HelpTooltip.borderColor",
             "InformationHint.borderColor",
             "InplaceRefactoringPopup.borderColor",
+            "Menu.borderColor",
+            "MenuBar.borderColor",
             "NavBar.borderColor",
             "Notification.borderColor",
             "Notification.errorBorderColor",
@@ -360,11 +345,18 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
             "Plugins.SearchField.borderColor",
             "Popup.Advertiser.borderColor",
             "Popup.Advertiser.borderInsets",
+            "Popup.Border.color",
+            "Popup.Border.inactiveColor",
+            "Popup.borderColor",
+            "Popup.inactiveBorderColor",
             "Popup.innerBorderColor",
             "Popup.paintBorder",
+            "Popup.preferences.borderColor",
+            "Popup.Toolbar.borderColor",
             "SearchEverywhere.Advertiser.borderInsets",
             "SearchEverywhere.SearchField.borderColor",
             "SpeedSearch.borderColor",
+            "StatusBar.borderColor",
             "TableHeader.cellBorder",
             "ToggleButton.borderColor",
             "ToolWindow.Header.borderColor",
@@ -395,14 +387,72 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
                 "TabbedPane.shadow",
                 "TabbedPane.borderColor",
                 "Popup.Header.inactiveBackground",
-                "Popup.Header.activeBackground")
+                "Popup.Header.activeBackground",
+                "ToolBar.background",
+                "ToolWindow.Button.selectedBackground",
+                "ToolWindow.header.tab.selected.active.background", // deprecated
+                "ToolWindow.header.tab.selected.background", // deprecated
+                "ToolWindow.HeaderTab.selectedInactiveBackground",
+                "ToolWindow.HeaderTab.selectedBackground",
+                "ToolWindow.inactive.HeaderTab.background", // deprecated
+                "ToolWindow.active.HeaderTab.background", // deprecated
+                "ToolWindow.HeaderTab.underlinedTabInactiveBackground",
+                "WelcomeScreen.captionBackground",
+                "WelcomeScreen.footerBackground"
+        )
     }
+
+    open fun getMenuBarResources(): Stream<String> =
+        Stream.of(
+            "Menu.background",
+            "MenuBar.background",
+            "PopupMenu.background",
+            "TitlePane.background"
+        )
 
     open fun getDisabledResources(): Stream<String> {
         return Stream.of(
                 "MenuItem.disabledForeground",
                 "ToggleButton.off.background",
-                "ComboBox.disabledForeground")
+                "ComboBox.disabledForeground",
+                "Button.disabledText",
+                "CheckBox.darcula.checkSignColorDisabled", // deprecated
+                "CheckBox.darcula.disabledBorderColor1", // deprecated
+                "CheckBox.darcula.disabledBorderColor2", // deprecated
+                "CheckBox.disabledText",
+                "CheckBoxMenuItem.disabledForeground",
+                "ComboBox.ArrowButton.disabledIconColor",
+                "ComboBox.darcula.arrowButtonDisabledForeground", // deprecated
+                "ComboBox.disabledForeground",
+                "Component.disabledBorderColor",
+                "EditorPane.inactiveForeground",
+                "FormattedTextField.inactiveForeground",
+                "Label.disabledForeground",
+                "Label.disabledForegroundColor", // deprecated
+                "Label.disabledShadow", // deprecated
+                "Label.disabledText",
+                "Menu.disabledForeground",
+                "MenuBar.disabledForeground",
+                "MenuItem.disabledForeground",
+                "Outline.disabledColor", // deprecated
+                "ParameterInfo.disabledColor", //deprecated
+                "ParameterInfo.disabledForeground",
+                "PasswordField.inactiveForeground",
+                "Plugins.disabledForeground",
+                "RadioButton.disabledText",
+                "RadioButtonMenuItem.disabledForeground",
+                "SearchEverywhere.SearchField.grayForeground", // deprecated
+                "TabbedPane.disabledForeground",
+                "TabbedPane.disabledText", // deprecated
+                "TabbedPane.disabledUnderlineColor",
+                "TabbedPane.selectedDisabledColor",
+                "TextArea.inactiveForeground",
+                "TextField.inactiveForeground",
+                "TextPane.inactiveForeground",
+                "TitlePane.inactiveInfoForeground",
+                "ToggleButton.disabledText",
+                "VersionControl.HgLog.closedBranchIconColor"
+        ).distinct()
     }
 
     open fun getSecondaryBackgroundResources(): Stream<String> {
@@ -419,7 +469,24 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
                 "ToolWindow.header.active.background",
                 "ToolWindow.header.border.background",
                 "material.disabled",
-                "material.mergeCommits")
+                "material.mergeCommits",
+    //            "List.background", todo: dis
+                "MemoryIndicator.allocatedBackground",
+                "MemoryIndicator.unusedColor", // deprecated
+                "ParameterInfo.background",
+                "Plugins.SectionHeader.background",
+                "Popup.separatorColor",
+                "Slider.tickColor",
+                "Table.lightSelectionInactiveBackground",
+
+    //            todo: do I really want this here?
+                "ToolWindow.active.Header.background",
+                "ToolWindow.Header.background",
+                "ToolWindow.header.active.background", //deprecated
+
+                "WelcomeScreen.Projects.background",
+                "WelcomeScreen.Projects.selectionInactiveBackground"
+        ).distinct()
     }
 
     open fun getInactiveResources(): Stream<String> {
@@ -436,20 +503,18 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
 
     open fun getSelectionForegroundResources(): Stream<String> {
         return Stream.of(
-                "Menu.selectionForeground",
-                "Menu.acceleratorSelectionForeground",
-                "MenuItem.selectionForeground",
-                "CompletionPopup.selectionInfoForeground",
-                "CompletionPopup.selectionForeground",
-                "MenuItem.acceleratorSelectionForeground",
-                "Table.selectionForeground",
-                "TextField.selectionForeground",
-                "PasswordField.selectionForeground",
-                "TextArea.selectionForeground",
-                "Label.selectedForeground",
-                "PasswordField.selectionForeground",
-                "TextField.selectionForeground",
-                "TextArea.selectionForeground"
+            "CompletionPopup.selectionForeground",
+            "CompletionPopup.selectionInfoForeground",
+            "Label.selectedForeground",
+            "Menu.acceleratorSelectionForeground",
+            "Menu.selectionForeground",
+            "MenuItem.acceleratorSelectionForeground",
+            "MenuItem.selectionForeground",
+            "PasswordField.selectionForeground",
+            "SearchEverywhere.Tab.selectedForeground",
+            "Table.selectionForeground",
+            "TextArea.selectionForeground",
+            "TextField.selectionForeground"
         )
     }
 
@@ -465,6 +530,8 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
                 "TextArea.selectionBackground",
                 "SearchEverywhere.Tab.selected.background",
                 "Label.selectedBackground",
+            "Plugins.selectionBackground", // deprecated
+            "Plugins.lightSelectionBackground",
                 "Button.darcula.selectedButtonBackground",
                 "Button.select",
                 "PasswordField.selectionBackground",
@@ -476,97 +543,127 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
 
     open fun getTextResources(): Stream<String> {
         return Stream.of(
-                "Menu.acceleratorForeground",
-                "MenuItem.acceleratorForeground",
-                "TextField.inactiveForeground",
-                "material.tagColor",
-                "material.primaryColor",
-                "CompletionPopup.selectionInactiveInfoForeground",
-              "CompletionPopup.infoForeground",
-                "SearchEverywhere.shortcutForeground",
-                "Tree.foreground")
+            "CompletionPopup.infoForeground",
+            "CompletionPopup.selectionInactiveInfoForeground",
+            "Label.infoForeground",
+            "material.primaryColor",
+            "material.tagColor",
+            "Menu.acceleratorForeground",
+            "MenuItem.acceleratorForeground",
+            "SearchEverywhere.shortcutForeground",
+            "TextField.inactiveForeground",
+            "Tree.foreground"
+        )
     }
 
     open fun getBackgroundResources(): Stream<String> {
         return Stream.of(
-                "monika.background",
-                "monika.textBackground",
-                "monika.inactiveBackground",
-                "window",
-                "activeCaption",
-                "control",
-                "PopupMenu.translucentBackground",
-                "EditorPane.inactiveBackground",
-                "EditorTabs.inactiveMaskColor",
-                "Editor.background",
-                "EditorPane.inactiveBackground",
-                "EditorTabs.background",
-                "EditorTabs.inactiveColoredFileBackground",
-                "DefaultTabs.background",
-                "DefaultTabs.borderColor", //deprecated?
-                "EditorTabs.inactiveColoredFileBackground",
-                "EditorTabs.inactive.maskColor",
-                "EditorTabs.inactiveMaskColor",
-                "Table.background",
-                "MenuBar.disabledBackground",
-                "MenuBar.shadow",
-                "Desktop.background",
-                "Separator.background",
-                "MenuBar.background",
-                "Separator.foreground",
-                "TextField.background",
-                "PasswordField.background",
-                "FormattedTextField.background",
-                "TextArea.background",
-                "CheckBox.darcula.backgroundColor1",
-                "CheckBox.darcula.backgroundColor2",
-                "CheckBox.darcula.checkSignColor",
-                "CheckBox.darcula.shadowColor",
-                "CheckBox.darcula.shadowColorDisabled",
-                "CheckBox.darcula.focusedArmed.backgroundColor1",
-                "CheckBox.darcula.focusedArmed.backgroundColor2",
-                "CheckBox.darcula.focused.backgroundColor1",
-                "CheckBox.darcula.focused.backgroundColor2",
-                "ComboBox.background",
-                "ComboBox.disabledBackground",
-                "TableHeader.background",
-                "RadioButton.darcula.selectionDisabledColor",
-                "StatusBar.topColor",
-                "StatusBar.top2Color",
-                "StatusBar.bottomColor",
-                "ToolTip.background",
-                "Spinner.background",
-                "SplitPane.highlight",
-                "SearchEverywhere.background",
-                "ScrollBar.background",
-                "NewClass.Panel.background",
-                "SidePanel.background",
-                "DialogWrapper.southPanelDivider",
-                "OnePixelDivider.background",
-                "Dialog.titleColor",
-                "SearchEverywhere.background",
-                "RadioButton.background",
-                "CheckBoxMenuItem.background",
-                "RadioButtonMenuItem.background",
-                "CheckBox.background",
-                "ColorChooser.background",
-                "Slider.background",
-                "SearchEverywhere.background",
-                "SearchEverywhere.Dialog.background",
-                "SearchEverywhere.Header.background",
-                "SearchEverywhere.SearchField.Border.color",
-                "SearchEverywhere.SearchField.borderColor",
-                "SearchEverywhere.Advertiser.background",
-                "SearchEverywhere.Advertiser.foreground",
-                "SearchEverywhere.Header.background",
-                "SearchEverywhere.List.separatorColor",
-                "SearchEverywhere.SearchField.background",
-                "SearchEverywhere.SearchField.borderColor",
-                "SearchEverywhere.SearchField.grayForeground",
-                "ToolWindow.header.background",
-                "material.background"
-
-
+            "activeCaption",
+            "CheckBox.background",
+            "CheckBox.darcula.backgroundColor1",
+            "CheckBox.darcula.backgroundColor2",
+            "CheckBox.darcula.checkSignColor",
+            "CheckBox.darcula.focused.backgroundColor1",
+            "CheckBox.darcula.focused.backgroundColor2",
+            "CheckBox.darcula.focusedArmed.backgroundColor1",
+            "CheckBox.darcula.focusedArmed.backgroundColor2",
+            "CheckBox.darcula.shadowColor",
+            "CheckBox.darcula.shadowColorDisabled",
+            "CheckBoxMenuItem.background",
+            "ColorChooser.background",
+            "ComboBox.background",
+            "ComboBox.disabledBackground",
+            "control",
+            "DebuggerPopup.borderColor",
+            "DefaultTabs.background",
+            "DefaultTabs.borderColor",
+            "Desktop.background",
+            "Dialog.titleColor", // deprecated
+            "DialogWrapper.southPanelBackground",
+            "DialogWrapper.southPanelDivider",
+            "DragAndDrop.backgroundBorderColor", // deprecated
+            "DragAndDrop.backgroundColor", //deprecated
+            "DragAndDrop.areaBackground",
+            "Editor.background",
+            "EditorPane.inactiveBackground",
+            "EditorTabs.background",
+            "EditorTabs.inactive.maskColor",
+            "EditorTabs.inactiveColoredFileBackground",
+            "EditorTabs.inactiveMaskColor",
+            "FormattedTextField.background",
+            "GutterTooltip.lineSeparatorColor",
+            "HeaderColor.active", // deprecated
+            "HelpTooltip.background",
+            "HelpTooltip.backgroundColor", // deprecated
+            "inactiveCaptionBorder",
+            "intellijlaf.background", // deprecated
+            "InplaceRefactoringPopup.borderColor",
+            "InternalFrame.inactiveTitleBackground",
+            "material.background",
+            "MenuBar.background",
+            "MenuBar.disabledBackground",
+            "MenuBar.shadow",
+            "monika.background",
+            "monika.inactiveBackground",
+            "monika.textBackground",
+            "NewClass.Panel.background",
+            "OptionPane.background",
+            "OnePixelDivider.background",
+            "PasswordField.background",
+            "Plugins.background",
+            "Plugins.SearchField.background",
+            "Popup.Advertiser.background",
+            "Popup.Header.activeBackground",
+            "Popup.preferences.background", // deprecated
+            "PopupMenu.background",
+            "PopupMenu.translucentBackground",
+            "RadioButton.background",
+            "RadioButton.darcula.selectionDisabledColor",
+            "RadioButtonMenuItem.background",
+            "ScrollBar.background",
+            "SearchEverywhere.Advertiser.background",
+            "SearchEverywhere.Advertiser.foreground",
+            "SearchEverywhere.background",
+            "SearchEverywhere.Dialog.background",
+            "SearchEverywhere.Header.background",
+            "SearchEverywhere.List.separatorColor",
+            "SearchEverywhere.SearchField.background",
+            "SearchEverywhere.SearchField.Border.color",
+            "SearchEverywhere.SearchField.borderColor",
+            "SearchEverywhere.SearchField.grayForeground",
+            "Separator.background",
+            "Separator.foreground",
+            "SidePanel.background",
+            "Slider.background",
+            "Spinner.background",
+            "SplitPane.highlight",
+            "StatusBar.bottomColor",
+            "StatusBar.hoverBackground",
+            "StatusBar.top2Color",
+            "StatusBar.topColor",
+            "TabbedPane.background",
+            "Table.background",
+            "Table.gridColor",
+            "TableHeader.background",
+            "TextArea.background",
+            "TextField.background",
+            "TextPane.background",
+            "ToolWindow.HeaderTab.underlinedTabBackground",
+            "ToolTip.actions.background", // deprecated
+            "ToolTip.Actions.background",
+            "ToolTip.background",
+            "ToolWindow.header.background",
+            "ToolWindow.header.closeButton.background",
+            "ToolWindow.Header.inactiveBackground",
+            "ToolWindow.HeaderCloseButton.background",
+            "ToolWindow.inactive.Header.background",
+            "UiDesigner.Panel.background",
+            "UiDesigner.Preview.background",
+            "VersionControl.FileHistory.Commit.otherBranchBackground", // deprecated
+            "VersionControl.FileHistory.Commit.selectedBranchBackground",
+            "WelcomeScreen.background",
+            "WelcomeScreen.headerBackground",
+            "window"
         ).distinct()
     }
 
@@ -597,45 +694,52 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
 
     open fun getForegroundResources(): Stream<String> {
         return Stream.of(
-                "monika.foreground",
-                "TabbedPane.foreground",
-                "monika.textForeground",
-                "monika.selectionForegroundInactive",
-                "monika.selectionInactiveForeground",
-                "CompletionPopup.foreground",
-                "Label.foreground",
-                "EditorPane.inactiveForeground",
-                "SearchEverywhere.List.Separator.foreground",
-                "CheckBox.foreground",
-                "ComboBox.foreground",
-                "RadioButton.foreground",
-                "ColorChooser.foreground",
-                "MenuBar.foreground",
-                "RadioButtonMenuItem.foreground",
-                "CheckBoxMenuItem.foreground",
-                "PopupMenu.foreground",
-                "Spinner.foreground",
-                "TabbedPane.foreground",
-                "TextField.foreground",
-                "FormattedTextField.foreground",
-                "PasswordField.foreground",
-                "TextArea.foreground",
-                "TextPane.foreground",
-                "EditorPane.foreground",
-                "ToolBar.foreground",
-                "ToolTip.foreground",
-                "List.foreground",
-                "SearchEverywhere.foreground",
-                "Label.foreground",
-                "Label.disabledForeground",
-                "Label.selectedDisabledForeground",
-                "Table.foreground",
-                "TableHeader.foreground",
-                "ToggleButton.foreground",
-                "Table.sortIconColor",
-                "material.branchColor",
-                "material.foreground",
-                "TitledBorder.titleColor")
+            "CheckBox.foreground",
+            "CheckBoxMenuItem.acceleratorForeground",
+            "CheckBoxMenuItem.acceleratorSelectionForeground",
+            "CheckBoxMenuItem.foreground",
+            "ColorChooser.foreground",
+            "ComboBox.foreground",
+            "CompletionPopup.foreground",
+            "EditorPane.foreground",
+            "EditorPane.inactiveForeground",
+            "FormattedTextField.foreground",
+            "Label.disabledForeground",
+            "Label.foreground",
+            "Label.selectedDisabledForeground",
+            "List.foreground",
+            "material.branchColor",
+            "material.foreground",
+            "Menu.acceleratorForeground",
+            "MenuBar.foreground",
+            "MenuItem.acceleratorForeground",
+            "monika.foreground",
+            "monika.selectionForegroundInactive",
+            "monika.selectionInactiveForeground",
+            "monika.textForeground",
+            "PasswordField.foreground",
+            "PopupMenu.foreground",
+            "RadioButton.foreground",
+            "RadioButtonMenuItem.acceleratorForeground",
+            "RadioButtonMenuItem.acceleratorSelectionForeground",
+            "RadioButtonMenuItem.foreground",
+            "SearchEverywhere.foreground",
+            "SearchEverywhere.List.Separator.foreground",
+            "SearchEverywhere.List.separatorForeground",
+            "SearchEverywhere.SearchField.infoForeground",
+            "Spinner.foreground",
+            "TabbedPane.foreground",
+            "Table.foreground",
+            "Table.sortIconColor",
+            "TableHeader.foreground",
+            "TextArea.foreground",
+            "TextField.foreground",
+            "TextPane.foreground",
+            "TitledBorder.titleColor",
+            "ToggleButton.foreground",
+            "ToolBar.foreground",
+            "ToolTip.foreground"
+        )
     }
 
     open fun getMenuItemSelectionForegroundResources(): Stream<String> {
@@ -674,10 +778,51 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
     }
 
     open fun getSecondaryForegroundResources(): Stream<String> {
-        return Stream.of("ToolWindow.header.active.foreground",
-                "ToolWindow.header.border.foreground",
-                "ToolWindow.Button.selectedForeground",
-                "List.foreground")
+        return Stream.of(
+            "CompletionPopup.infoForeground",
+            "Component.infoForeground",
+            "Debugger.Variables.collectingDataForeground",
+            "Debugger.Variables.evaluatingExpressionForeground",
+            "Editor.shortcutForeground",
+            "Git.Log.Ref.Other",
+            "Git.Log.Ref.Tag",
+            "Github.List.tallRow.secondary.foreground",
+            "HelpTooltip.infoForeground",
+            "HelpTooltip.shortcutForeground",
+            "HelpTooltip.shortcutTextColor",
+            "Hg.Log.Ref.LocalTag",
+            "Hg.Log.Ref.MqTag",
+            "Hg.Log.Ref.Tag",
+            "inactiveCaptionText",
+            "infoText",
+            "InternalFrame.inactiveTitleForeground",
+            "Link.secondaryForeground",
+            "List.foreground",
+            "material.primaryColor",
+            "material.tagColor",
+            "ParameterInfo.ContextHelp.foreground",
+            "ParameterInfo.infoForeground",
+            "Plugins.Button.installFillForeground",
+            "SearchEverywhere.shortcutForeground",
+            "Table.lightSelectionInactiveForeground",
+            "TitlePane.infoForeground",
+            "ToolBar.borderHandleColor",
+            "ToolBar.floatingForeground",
+            "ToolTip.Actions.grayForeground",
+            "ToolTip.Actions.infoForeground",
+            "ToolTip.infoForeground",
+            "tooltips.actions.keymap.text.color",
+            "ToolWindow.Button.selectedForeground",
+            "ToolWindow.header.active.foreground",
+            "ToolWindow.header.border.foreground",
+            "VersionControl.GitLog.otherIconColor",
+            "VersionControl.GitLog.tagIconColor",
+            "VersionControl.HgLog.localTagIconColor",
+            "VersionControl.HgLog.mqTagIconColor",
+            "VersionControl.HgLog.tagIconColor",
+            "VersionControl.HgLog.tipIconColor",
+            "VersionControl.Log.Commit.unmatchedForeground"
+        )
     }
 
     open fun getSecondaryForegroundColorString(): String {
@@ -696,7 +841,8 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
   open fun getSelectedButtonForegroundColor(): String = getButtonForegroundColor()
 
   open fun getSelectedButtonForegroundResources(): Stream<String> =
-      Stream.of("Button.darcula.selectedButtonForeground")
+      Stream.of("Button.darcula.selectedButtonForeground",
+          "Button.default.startBackground")
 
 
     open fun getMenuItemForegroundResources(): Stream<String> {
@@ -815,8 +961,10 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
             Sets.newHashSet(
                 "Tree.selectionInactiveBackground",
                 "CompletionPopup.nonFocusedState",
+                "CompletionPopup.nonFocusedMask",
                 "List.selectionInactiveBackground",
-                "Table.selectionInactiveBackground"
+                "Table.selectionInactiveBackground",
+                "TitlePane.inactiveBackground"
             ))
 
         val transparentBackground = MTUI.Tree.getSelectionInactiveBackground()
@@ -841,6 +989,14 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
         val transparentBackground = MTUI.Panel.getTransparentBackground()
         for (color in colors) {
             UIManager.put(color, transparentBackground)
+        }
+    }
+
+    open fun getOneOffResources(): Stream<Pair<Stream<String>, String>> = Stream.empty()
+
+    private fun applyOneOffs() {
+        getOneOffResources().forEach { (properties, colorString) ->
+            buildResources(properties, colorString)
         }
     }
 }

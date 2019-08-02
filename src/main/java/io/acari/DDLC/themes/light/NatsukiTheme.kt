@@ -59,4 +59,8 @@ class NatsukiTheme : DokiDokiTheme("natsuki", "Natsuki", false, "Natsuki") {
     override fun getStopColor(): String = "fbadff"
 
     override fun getNonProjectFileScopeColor(): String = "fae6f0"
+
+    override fun getMenuBarColorString(): String = "fdafbb"
+
+    override fun getDisabledColorString(): String = "95A0BF"
 }

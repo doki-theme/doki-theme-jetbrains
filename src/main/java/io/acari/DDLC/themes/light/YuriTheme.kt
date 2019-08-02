@@ -2,6 +2,7 @@ package io.acari.DDLC.themes.light
 
 import com.chrisrm.ideaddlc.utils.MTAccents
 import io.acari.DDLC.themes.DokiDokiTheme
+import java.util.stream.Stream
 import javax.swing.plaf.ColorUIResource
 
 class YuriTheme : DokiDokiTheme("yuri", "Yuri", false, "Yuri") {
@@ -55,4 +56,16 @@ class YuriTheme : DokiDokiTheme("yuri", "Yuri", false, "Yuri") {
     override fun getStopColor(): String = "F595FF"
 
     override fun getNonProjectFileScopeColor(): String = "efe6fa"
+
+    override fun getOneOffResources(): Stream<Pair<Stream<String>, String>> =
+        Stream.of(
+            Pair(Stream.of("CheckBoxMenuItem.acceleratorForeground",
+                "CheckBoxMenuItem.acceleratorSelectionForeground",
+                "Menu.acceleratorForeground",
+                "MenuItem.acceleratorForeground",
+                "RadioButtonMenuItem.acceleratorForeground",
+                "RadioButtonMenuItem.acceleratorSelectionForeground"), "ffffff")
+        )
+
+    override fun getMenuBarColorString(): String = "6f4f86"
 }

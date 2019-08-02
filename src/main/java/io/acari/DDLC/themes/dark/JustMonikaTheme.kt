@@ -11,7 +11,7 @@ class JustMonikaTheme : DokiDokiTheme("just.monika", "Just Monika", true, "Monik
 
     override fun getCompletionPopupBackgroundColor(): String = "053912"
 
-    override fun getBackgroundColorString(): String = "1C230D"
+    override fun getBackgroundColorString(): String = "19200C"
 
     override fun getClubMember(): String = "only_monika.png"
 
@@ -73,4 +73,5 @@ class JustMonikaTheme : DokiDokiTheme("just.monika", "Just Monika", true, "Monik
 
     override fun getStopColor(): String = "FFFA11"
 
+    override fun getMenuBarColorString(): String = "331d1b"
 }

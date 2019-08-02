@@ -34,10 +34,7 @@ import com.chrisrm.ideaddlc.themes.models.MTThemeable;
 import com.chrisrm.ideaddlc.themes.lists.AccentResources;
 import com.chrisrm.ideaddlc.themes.lists.ContrastResources;
 import com.chrisrm.ideaddlc.themes.lists.FontResources;
-import com.chrisrm.ideaddlc.utils.MTAccents;
-import com.chrisrm.ideaddlc.utils.MTUI;
-import com.chrisrm.ideaddlc.utils.MTUiUtils;
-import com.chrisrm.ideaddlc.utils.WinRegistry;
+import com.chrisrm.ideaddlc.utils.*;
 import com.intellij.ide.ui.LafManager;
 import com.intellij.ide.ui.UISettings;
 import com.intellij.ide.ui.laf.IntelliJLaf;
@@ -60,6 +57,7 @@ import com.intellij.ui.ColorUtil;
 import com.intellij.ui.JBColor;
 import com.intellij.util.Consumer;
 import com.intellij.util.ObjectUtils;
+import com.intellij.util.containers.ContainerUtil;
 import com.intellij.util.messages.MessageBus;
 import com.intellij.util.ui.JBUI;
 import com.intellij.util.ui.UIUtil;
@@ -441,6 +439,26 @@ public final class MTThemeManager {
     UIReplacer.patchUI();
 
     fireThemeChanged(newTheme);
+  }
+
+  /**
+   * New way of switching themes
+   */
+  public static void setLookAndFeel(final DDLCThemeFacade selectedTheme) {
+    // Find LAF theme and trigger a theme change
+    final LafManager lafManager = LafManagerImpl.getInstance();
+    final UIManager.LookAndFeelInfo lafInfo =
+        ContainerUtil.find(lafManager.getInstalledLookAndFeels(),
+        lookAndFeelInfo -> lookAndFeelInfo.getName().equals(selectedTheme.getThemeName()));
+
+    MTChangeLAFAnimator.showSnapshot();
+    if (lafInfo != null) {
+      lafManager.setCurrentLookAndFeel(lafInfo);
+    } else {
+      // good ol' shit
+      activate(selectedTheme, true);
+    }
+    SwingUtilities.invokeLater(MTChangeLAFAnimator::hideSnapshotWithAnimation);
   }
 
   /**
