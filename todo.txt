@@ -50,21 +50,22 @@ Rating Stars
 - Settings
 - Wizard?
 
-
-
-- Version Control colors
-    - File
-
+- Break Point colors
+- Menu Bar Color Needs to change when switching themes.
 
 
 - Cleo ✔ ️
+    - Editor tab hover.
+    - Plugin window foreground
 - Eleniel ✔ ️
     - non project file background hard to read foreground ??
 - Neera ✔️
     - Green notification window hard to read with yellow texto
+    - lighten up the console and editor background
+    - Plugin selected tab foreground.
 - Sanya ✔️
 - Syrena ✔️
-- Wyla ✔️
+- Wyla
     - Annotation colour??
 
 
