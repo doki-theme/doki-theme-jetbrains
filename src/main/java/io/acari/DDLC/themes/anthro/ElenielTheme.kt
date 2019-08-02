@@ -76,6 +76,8 @@ class ElenielTheme : AnthroTheme("eleniel", "Eleniel", true, "Eleniel") {
 
   override fun getCompletionPopupBackgroundColor(): String = "FFFFF9"
 
+  override fun getMenuBarColorString(): String = "3B3541"
+
   private val naughtyBackgroundSet: Set<String> = setOf(
       "Button.select"
   )

@@ -74,4 +74,6 @@ class SyrenaTheme : AnthroTheme("syrena", "Syrena", true, "Syrena") {
   override fun getSelectedButtonForegroundColor(): String = selectionForegroundColorString
 
   override fun getCompletionPopupBackgroundColor(): String = "432F2E"
+
+  override fun getMenuBarColorString(): String = "321f1f"
 }

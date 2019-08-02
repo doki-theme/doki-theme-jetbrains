@@ -74,4 +74,6 @@ class SanyaTheme : AnthroTheme("sanya", "Sanya", true, "Sanya") {
   override fun getSelectedButtonForegroundColor(): String = selectionForegroundColorString
 
   override fun getCompletionPopupBackgroundColor(): String = "332638"
+
+  override fun getMenuBarColorString(): String = "3a2333"
 }

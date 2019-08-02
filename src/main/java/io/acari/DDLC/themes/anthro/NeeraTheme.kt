@@ -77,4 +77,6 @@ class NeeraTheme : AnthroTheme("neera", "Neera", false, "Neera") {
   override fun getTestScope(): String = "D7FFDC"
 
   override fun getCompletionPopupBackgroundColor(): String = "eaeaf0"
+
+  override fun getMenuBarColorString(): String = "fffffa"
 }
