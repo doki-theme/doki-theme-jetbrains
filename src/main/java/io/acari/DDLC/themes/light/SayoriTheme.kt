@@ -59,4 +59,6 @@ class SayoriTheme : DokiDokiTheme("sayori", "Sayori", false, "Sayori") {
     override fun getNonProjectFileScopeColor(): String = "dcffe9"
 
     override fun getMenuBarColorString(): String = "efa597"
+
+    override fun getDisabledColorString(): String = "95A0BF"
 }
