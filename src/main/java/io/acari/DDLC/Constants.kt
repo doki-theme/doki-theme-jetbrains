@@ -10,8 +10,9 @@ val UPDATE_MESSAGE: String = """
       <ul>
       <li>Updated to Material UI 4.2.1!
         <ul>
-          <li>Also supporting better integrations (less theme color bleed)</li>
-        </li>
+          <li>Better Integration (less theme color bleed)</li>
+      </li>
+      <li>Enhanced Windows Developer's experience</li>
       <br>
       Thanks again for downloading <b>The Doki-Doki Theme</b>! •‿•<br>
       <br>Please see the <a href="https://github.com/cyclic-reference/ddlc-jetbrains-theme/blob/master/docs/CHANGELOG.md">Changelog</a> for more details.

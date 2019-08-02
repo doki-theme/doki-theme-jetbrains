@@ -10,6 +10,8 @@
     - Better GO code highlighting
     - Better PHP syntax highlighting?
 
+- Better Windows OS support.
+
 # 3.4.2
 
 - Fixed Title Bar issue in the 2019.2 EAP builds (MacOS).
