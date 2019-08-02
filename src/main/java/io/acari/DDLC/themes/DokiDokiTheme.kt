@@ -530,6 +530,8 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
                 "TextArea.selectionBackground",
                 "SearchEverywhere.Tab.selected.background",
                 "Label.selectedBackground",
+            "Plugins.selectionBackground", // deprecated
+            "Plugins.lightSelectionBackground",
                 "Button.darcula.selectedButtonBackground",
                 "Button.select",
                 "PasswordField.selectionBackground",
