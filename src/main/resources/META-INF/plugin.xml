@@ -160,7 +160,7 @@
 
 
     <actions>
-        <group id="DDLC.ThemeChooser" text="Doki-Doki Themes" popup="true"
+        <group id="DDLC.ThemeChooser" text="Literature Club Themes" popup="true"
                icon="/icons/ddlc/ddlcTheme.svg">
             <add-to-group group-id="MainToolBar" anchor="last"/>
 
@@ -339,6 +339,8 @@
 
         <group id="DDLC.Menu" text="Doki-Doki Theme" popup="true" icon="/icons/ddlc/ddlcTheme.svg">
             <reference id="DDLC.ThemeChooser"/>
+            <separator/>
+            <reference id="DDLC.AnthroThemeChooser"/>
             <separator/>
             <reference id="DDLC.Panels"/>
             <separator/>
