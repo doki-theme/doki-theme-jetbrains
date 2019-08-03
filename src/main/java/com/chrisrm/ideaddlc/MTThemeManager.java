@@ -449,14 +449,14 @@ public final class MTThemeManager {
         ContainerUtil.find(lafManager.getInstalledLookAndFeels(),
         lookAndFeelInfo -> lookAndFeelInfo.getName().equals(selectedTheme.getThemeName()));
 
-    MTChangeLAFAnimator.showSnapshot();
+//    MTChangeLAFAnimator.showSnapshot();
     if (lafInfo != null) {
       lafManager.setCurrentLookAndFeel(lafInfo);
     } else {
       // good ol' shit
       activate(selectedTheme, true);
     }
-    SwingUtilities.invokeLater(MTChangeLAFAnimator::hideSnapshotWithAnimation);
+//    SwingUtilities.invokeLater(MTChangeLAFAnimator::hideSnapshotWithAnimation);
   }
 
   /**

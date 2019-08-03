@@ -49,7 +49,7 @@ Rating Stars
 
 - Settings
 - Wizard?
-
+- Material Theme Switching is borked
 - Break Point colors
 - Menu Bar Color Needs to change when switching themes.
 
