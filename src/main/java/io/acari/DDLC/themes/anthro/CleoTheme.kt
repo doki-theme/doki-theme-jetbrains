@@ -1,6 +1,7 @@
 package io.acari.DDLC.themes.anthro
 
 import com.chrisrm.ideaddlc.utils.MTAccents
+import com.chrisrm.ideaddlc.utils.PropertiesParser
 import io.acari.DDLC.themes.AnthroTheme
 import io.acari.DDLC.toStream
 import java.awt.Color
@@ -37,6 +38,8 @@ class CleoTheme : AnthroTheme("cleo", "Cleo", false, "Cleo") {
   override fun getTextColorString(): String = "1F2435"
 
   override fun getInactiveColorString(): String = "C4C3CF"
+
+  override fun getTreeSelectionInactiveColor(): Color? = PropertiesParser.parseColor(getInactiveColorString())
 
   override fun getMenuItemForegroundColor(): String = "252529"
 

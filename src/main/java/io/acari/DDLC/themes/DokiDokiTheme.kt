@@ -967,11 +967,13 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
                 "TitlePane.inactiveBackground"
             ))
 
-        val transparentBackground = MTUI.Tree.getSelectionInactiveBackground()
+        val transparentBackground = getTreeSelectionInactiveColor()
         for (color in colors) {
             UIManager.put(color, transparentBackground)
         }
     }
+
+    open fun getTreeSelectionInactiveColor(): Color?= MTUI.Tree.getSelectionInactiveBackground()
 
     private fun buildTransparentColors() {
         val colors = Collections.unmodifiableSet(

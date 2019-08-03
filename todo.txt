@@ -56,7 +56,6 @@ Rating Stars
 
 - Cleo ✔ ️
     - Editor tab hover.
-    - Plugin window foreground
 - Eleniel ✔ ️
     - non project file background hard to read foreground ??
 - Neera ✔️
