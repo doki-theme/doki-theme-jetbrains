@@ -221,6 +221,15 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
             "DebuggerTabs.selectedBackground",
             "DefaultTabs.hoverColor",
             "DefaultTabs.hoverMaskColor",
+            "DebuggerTabs.underlinedTabBackground",
+            "DefaultTabs.hoverBackground",
+            "DefaultTabs.underlinedTabBackground",
+            "EditorTabs.underlinedTabBackground",
+            "EditorTabs.active.background", // deprecated
+            "EditorTabs.selectedBackground",
+            "EditorTabs.underlinedTabBackground",
+            "EditorTabs.active.background", // deprecated
+            "EditorTabs.selectedBackground",
             "EditorTabs.hoverColor",
             "EditorTabs.hoverMaskColor",
             "Focus.color",
@@ -510,8 +519,11 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
             "MenuItem.acceleratorSelectionForeground",
             "MenuItem.selectionForeground",
             "PasswordField.selectionForeground",
+            "Plugins.selectionForeground", // deprecated
+            "Plugins.Tab.active.foreground", // deprecated
             "Plugins.Tab.selectedForeground",
             "SearchEverywhere.Tab.selectedForeground",
+            "TabbedPane.selectedForeground", // deprecated
             "Table.selectionForeground",
             "TextArea.selectionForeground",
             "TextField.selectionForeground"
@@ -717,7 +729,20 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
             "monika.selectionForegroundInactive",
             "monika.selectionInactiveForeground",
             "monika.textForeground",
+            "Notification.foreground",
+            "Notification.MoreButton.foreground",
+            "Notification.ToolWindow.errorForeground",
+            "Notification.ToolWindow.infoForeground", // deprecated
+            "Notification.ToolWindow.informativeForeground",
+            "Notification.ToolWindow.warningForeground",
+            "Notification.ToolWindowError.foreground", // deprecated
+            "Notification.ToolWindowInfo.foreground", // deprecated
+            "Notification.ToolWindowWarning.foreground", // deprecated
             "PasswordField.foreground",
+            "Plugins.Button.installForeground",
+            "Plugins.Button.installFillForeground",
+            "Plugins.Button.updateForeground",
+            "Plugins.SectionHeader.foreground",
             "PopupMenu.foreground",
             "RadioButton.foreground",
             "RadioButtonMenuItem.acceleratorForeground",
