@@ -58,7 +58,6 @@ Rating Stars
 - Eleniel ✔ ️
 - Neera ✔️
     - Green notification window hard to read with yellow texto
-    - lighten up the console and editor background
     - Plugin selected tab foreground.
 - Sanya ✔️
 - Syrena ✔️
