@@ -3,7 +3,6 @@ package io.acari.DDLC.themes.anthro
 import com.chrisrm.ideaddlc.utils.MTAccents
 import com.chrisrm.ideaddlc.utils.PropertiesParser
 import io.acari.DDLC.themes.AnthroTheme
-import io.acari.DDLC.toStream
 import java.awt.Color
 import java.util.stream.Stream
 import javax.swing.plaf.ColorUIResource
@@ -94,6 +93,25 @@ class CleoTheme : AnthroTheme("cleo", "Cleo", false, "Cleo") {
       "Button.select",
       "ToolWindow.Button.hoverBackground"
   )
+
+  private val badHighlightProperties: Set<String> = setOf(
+      "DefaultTabs.hoverColor",
+      "DefaultTabs.hoverMaskColor",
+      "EditorTabs.hoverColor",
+      "EditorTabs.hoverMaskColor",
+      "Plugins.Tab.hover.background",
+      "TabbedPane.hoverColor"
+  )
+
+  override fun getInactiveResources(): Stream<String> {
+    return Stream.concat(super.getInactiveResources(),
+        badHighlightProperties.stream())
+  }
+
+  override fun getHighlightResources(): Stream<String> {
+    return super.getHighlightResources()
+        .filter { !badHighlightProperties.contains(it) }
+  }
 
   override fun getSelectionForegroundResources(): Stream<String> {
     return super.getSelectionForegroundResources()

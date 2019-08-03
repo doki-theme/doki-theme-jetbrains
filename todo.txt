@@ -55,9 +55,7 @@ Rating Stars
 
 
 - Cleo ✔ ️
-    - Editor tab hover.
 - Eleniel ✔ ️
-    - non project file background hard to read foreground ??
 - Neera ✔️
     - Green notification window hard to read with yellow texto
     - lighten up the console and editor background
