@@ -87,6 +87,22 @@
         <bundledColorScheme path="/colors/Syrena"/>
         <bundledColorScheme path="/colors/Wyla"/>
 
+        <themeProvider id="Doki_cleo" path="/themes/specs/anthro/cleo.theme.json"/>
+        <themeProvider id="Doki_eleniel" path="/themes/specs/anthro/eleniel.theme.json"/>
+        <themeProvider id="Doki_neera" path="/themes/specs/anthro/neera.theme.json"/>
+        <themeProvider id="Doki_sanya" path="/themes/specs/anthro/sanya.theme.json"/>
+        <themeProvider id="Doki_syrena" path="/themes/specs/anthro/syrena.theme.json"/>
+        <themeProvider id="Doki_wyla" path="/themes/specs/anthro/wyla.theme.json"/>
+
+        <themeProvider id="doki_deleted.character" path="/themes/specs/literature/deleted.character.theme.json"/>
+        <themeProvider id="doki_edgy" path="/themes/specs/literature/edgy.theme.json"/>
+        <themeProvider id="doki_just.monika" path="/themes/specs/literature/just.monika.theme.json"/>
+        <themeProvider id="doki_monika" path="/themes/specs/literature/monika.theme.json"/>
+        <themeProvider id="doki_natsuki" path="/themes/specs/literature/natsuki.theme.json"/>
+        <themeProvider id="doki_only.play.with.me" path="/themes/specs/literature/only.play.with.me.theme.json"/>
+        <themeProvider id="doki_sayori" path="/themes/specs/literature/sayori.theme.json"/>
+        <themeProvider id="doki_yuri" path="/themes/specs/literature/yuri.theme.json"/>
+
         <welcomeFrameProvider implementation="com.chrisrm.ideaddlc.ui.MTFlatWelcomeFrameProvider"
                               order="FIRST"/>
 
