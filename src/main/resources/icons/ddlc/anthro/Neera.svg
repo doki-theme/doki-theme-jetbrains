@@ -83,7 +83,7 @@
       sodipodi:type="star"
       style="fill-opacity:1;stroke-width:19.85004997;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
       id="path832"
-      stroke="#ffffff"
+      stroke="#000000"
       sodipodi:sides="6"
       sodipodi:cx="296.42065"
       sodipodi:cy="328.33774"
@@ -95,7 +95,6 @@
       inkscape:rounded="0"
       inkscape:randomized="0"
       fill="#fefefe"
-      tint="stroke"
       d="M 37.601299,475.59705 39.48067,177.82326 298.30003,30.563945 555.24001,181.07842 553.36064,478.85222 294.54128,626.11153 Z"
       transform="matrix(0.99999641,-0.01056274,0.00562161,0.99994421,-3.2295458,8.3250663)" />
   <g
