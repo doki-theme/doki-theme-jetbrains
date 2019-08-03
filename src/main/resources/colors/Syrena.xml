@@ -929,7 +929,7 @@
     </option>
     <option name="IDENTIFIER_UNDER_CARET_ATTRIBUTES">
       <value>
-        <option name="BACKGROUND" value="33e5d"/>
+        <option name="BACKGROUND" value="43372a"/>
         <option name="ERROR_STRIPE_COLOR" value="4d6168"/>
       </value>
     </option>
@@ -3163,8 +3163,8 @@
     </option>
     <option name="TEXT_SEARCH_RESULT_ATTRIBUTES">
       <value>
-        <option name="FOREGROUND" value="403e41"/>
-        <option name="BACKGROUND" value="f8e71c"/>
+        <option name="BACKGROUND" value="274156"/>
+        <option name="ERROR_STRIPE_COLOR" value="61936f"/>
       </value>
     </option>
     <option name="TODO_DEFAULT_ATTRIBUTES">
