@@ -7,9 +7,9 @@ import javax.swing.plaf.ColorUIResource
 
 class ElenielTheme : AnthroTheme("eleniel", "Eleniel", true, "Eleniel") {
 
-  override fun getChibi(): String = "athro/eleniel.png"
+  override fun getChibi(): String = "anthro/eleniel.png"
 
-  override fun getNormalChibi(): String = "athro/eleniel.png"
+  override fun getNormalChibi(): String = "anthro/eleniel.png"
 
   override fun getBackgroundColorString(): String = "3b363e"
 

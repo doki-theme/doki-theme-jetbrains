@@ -6,9 +6,9 @@ import javax.swing.plaf.ColorUIResource
 
 class WylaTheme : AnthroTheme("wyla", "Wyla", true, "Wyla") {
 
-  override fun getChibi(): String = "athro/wyla.png"
+  override fun getChibi(): String = "anthro/wyla.png"
 
-  override fun getNormalChibi(): String = "athro/wyla.png"
+  override fun getNormalChibi(): String = "anthro/wyla.png"
 
   override fun getBackgroundColorString(): String = "2f2329"
 
