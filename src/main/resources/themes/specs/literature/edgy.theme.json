@@ -2,6 +2,7 @@
   "name": "Edgy",
   "dark": true,
   "author": "cyclic-reference",
+  "editorScheme": "/color/Edgy.xml",
   "ui": {
 
   }

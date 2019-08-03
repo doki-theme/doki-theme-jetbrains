@@ -2,6 +2,7 @@
   "name": "Natsuki",
   "dark": false,
   "author": "cyclic-reference",
+  "editorScheme": "/color/Natsuki.xml",
   "ui": {
 
   }
