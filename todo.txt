@@ -43,17 +43,6 @@ works with material ui
 Rating Stars
 ------
 
-- Update Plugin
-    - Change Description
-
-
-- Settings
-- Wizard?
-- Material Theme Switching is borked
-- Break Point colors
-- Menu Bar Color Needs to change when switching themes.
-
-
 - Cleo ✔ ️
 - Eleniel ✔ ️
 - Neera ✔️
@@ -68,6 +57,15 @@ Rating Stars
 
 Shit to fix
 ----
+
+- Update Plugin
+    - Change Description
+- Menu Bar Color Needs to change when switching themes.
+
+- Settings
+- Wizard?
+- Break Point colors
+
 Material Integrations
     - Debugger, highlighted text, welcome window, tool window
 

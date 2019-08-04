@@ -104,7 +104,7 @@ public final class MTLafComponent implements BaseComponent {
         onBeforeSettingsChanged(mtConfig, form);
       }
     });
-    LafManager.getInstance().addLafManagerListener(this::lookAndFeelChanged);
+//    LafManager.getInstance().addLafManagerListener(this::lookAndFeelChanged);
 
     patchTree();
   }
@@ -128,7 +128,7 @@ public final class MTLafComponent implements BaseComponent {
   @Override
   public void disposeComponent() {
     connect.disconnect();
-    LafManager.getInstance().removeLafManagerListener(this::lookAndFeelChanged);
+//    LafManager.getInstance().removeLafManagerListener(this::lookAndFeelChanged);
   }
 
   /**

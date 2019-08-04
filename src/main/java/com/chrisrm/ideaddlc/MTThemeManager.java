@@ -75,6 +75,7 @@ import java.net.URL;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 
 /**
  * Manages appearance settings
@@ -119,7 +120,8 @@ public final class MTThemeManager {
     return () -> {
       this.ddlcIsActiveConsumer.consume(isDDLCActive());
       LafManager.getInstance().addLafManagerListener(lafManager -> {
-        boolean ddlcActive = UIManager.getLookAndFeel().getDescription().contains("DDLC");
+        String name = Objects.requireNonNull(lafManager.getCurrentLookAndFeel(), "Theme must have name!").getName();
+        boolean ddlcActive = DokiThemes.isDokiColorScheme(name);
         this.ddlcIsActiveConsumer.consume(ddlcActive);
       });
     };
