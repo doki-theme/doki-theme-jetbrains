@@ -62,12 +62,13 @@ Shit to fix
 - Wizard?
 
 - Field Test
+    - Material Integrations
+        - Debugger, highlighted text, welcome window, tool window
+
 - Update Plugin
     - Change Description
 
 
-Material Integrations
-    - Debugger, highlighted text, welcome window, tool window
 
 Nice to Haves:
 ----

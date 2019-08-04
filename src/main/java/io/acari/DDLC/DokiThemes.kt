@@ -15,7 +15,8 @@ object DokiThemes {
 
   }
 
-  private fun getAllThemes(): Stream<DDLCThemeFacade> {
+  @JvmStatic
+  fun getAllThemes(): Stream<DDLCThemeFacade> {
     val dokiDokiLiteratureClubThemes = DDLCThemes.getAllThemes()
     val anthroThemes = AnthroThemes.getAllThemes()
     val themes = Stream.concat(dokiDokiLiteratureClubThemes.stream(), anthroThemes.stream())
