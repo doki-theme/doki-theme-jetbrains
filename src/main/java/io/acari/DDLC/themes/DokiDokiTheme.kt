@@ -214,7 +214,7 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
             "ActionButton.pressedBorderColor",
             "Autocomplete.selectionUnfocus",
             "CheckBox.darcula.inactiveFillColor",
-            "CompletionPopup.selectionInactiveBackground",
+            "CompletionPopup.selectionInactiveBackground", // todo: why is this here??
             "Component.borderColor",
             "Component.focusedBorderColor",
             "DebuggerTabs.active.background",
@@ -324,7 +324,9 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
     }
 
     open fun getCompletionBackgroundResources(): Stream<String> =
-        Stream.of("CompletionPopup.background").distinct()
+        Stream.of(
+            "CompletionPopup.background"
+        ).distinct()
 
     open fun getBorderResources(): Stream<String> =
         Stream.of("Borders.color",
@@ -586,6 +588,7 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
             "ColorChooser.background",
             "ComboBox.background",
             "ComboBox.disabledBackground",
+
             "control",
             "DebuggerPopup.borderColor",
             "DefaultTabs.background",
@@ -985,8 +988,6 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
         val colors = Collections.unmodifiableSet(
             Sets.newHashSet(
                 "Tree.selectionInactiveBackground",
-                "CompletionPopup.nonFocusedState",
-                "CompletionPopup.nonFocusedMask",
                 "List.selectionInactiveBackground",
                 "Table.selectionInactiveBackground",
                 "TitlePane.inactiveBackground"
@@ -1003,6 +1004,8 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
     private fun buildTransparentColors() {
         val colors = Collections.unmodifiableSet(
             Sets.newHashSet(
+                "CompletionPopup.nonFocusedState",
+                "CompletionPopup.nonFocusedMask",
                 "ScrollBar.hoverTrackColor",
                 "ScrollBar.trackColor",
                 "ScrollBar.Mac.hoverTrackColor",
