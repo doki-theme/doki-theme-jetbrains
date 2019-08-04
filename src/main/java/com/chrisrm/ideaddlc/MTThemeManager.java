@@ -779,6 +779,8 @@ public final class MTThemeManager {
       UIManager.put("PopupMenuSeparator.height", 10);
       UIManager.put("PopupMenuSeparator.stripeIndent", 5);
     }
+
+
   }
   //endregion
 

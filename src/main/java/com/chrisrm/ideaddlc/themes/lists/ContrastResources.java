@@ -56,7 +56,6 @@ public enum ContrastResources {
           "activeCaption",
           "desktop",
           "MenuBar.shadow",
-          "MenuBar.background",
           "TabbedPane.darkShadow",
           "TabbedPane.shadow",
           "TabbedPane.borderColor",

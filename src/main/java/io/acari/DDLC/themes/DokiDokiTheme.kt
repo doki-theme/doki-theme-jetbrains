@@ -412,6 +412,7 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
     open fun getMenuBarResources(): Stream<String> =
         Stream.of(
             "Menu.background",
+            "MenuItem.background",
             "MenuBar.background",
             "PopupMenu.background",
             "TitlePane.background"
@@ -612,7 +613,6 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
             "InplaceRefactoringPopup.borderColor",
             "InternalFrame.inactiveTitleBackground",
             "material.background",
-            "MenuBar.background",
             "MenuBar.disabledBackground",
             "MenuBar.shadow",
             "monika.background",

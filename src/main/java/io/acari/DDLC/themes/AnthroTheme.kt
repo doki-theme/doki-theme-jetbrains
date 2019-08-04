@@ -1,10 +1,8 @@
 package io.acari.DDLC.themes
 
 import com.chrisrm.ideaddlc.themes.models.MTThemeable
-import com.intellij.ui.ColorUtil
 import io.acari.DDLC.DDLCThemeFacade
-import java.awt.Color
-import javax.swing.Icon
+import java.util.stream.Stream
 
 abstract class AnthroTheme(ddlcThemeId: String, colorScheme: String, isDarkTheme: Boolean, clubMemberName: String) :
     DokiDokiTheme(ddlcThemeId, colorScheme, isDarkTheme, clubMemberName), DDLCThemeFacade {
@@ -24,4 +22,12 @@ abstract class AnthroTheme(ddlcThemeId: String, colorScheme: String, isDarkTheme
 
   override fun getThemeName(): String? =
       name
+
+  override fun getMenuBarResources(): Stream<String> {
+    return Stream.of(
+        //I just want the literature club to have th special menubar
+        "PopupMenu.background",
+        "TitlePane.background"
+    )
+  }
 }
