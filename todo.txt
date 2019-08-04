@@ -57,10 +57,7 @@ Rating Stars
 
 Shit to fix
 ----
-- Auto complete is borked
-
 - Settings
-- Break Point colors
 
 - Wizard?
 

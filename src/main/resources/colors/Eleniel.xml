@@ -195,6 +195,11 @@
                 <option name="BACKGROUND" value="454249"/>
             </value>
         </option>
+        <option name="BREAKPOINT_ATTRIBUTES">
+            <value>
+                <option name="BACKGROUND" value="4D3E3A"/>
+            </value>
+        </option>
         <option name="BROWSEWORDATCARET">
             <value>
                 <option name="EFFECT_COLOR" value="bd93f9"/>
@@ -684,6 +689,12 @@
                 <option name="EFFECT_TYPE" value="2"/>
             </value>
         </option>
+        <option name="EXECUTIONPOINT_ATTRIBUTES">
+            <value>
+                <option name="BACKGROUND" value="183F14"/>
+            </value>
+        </option>
+
         <option name="FOLDED_TEXT_ATTRIBUTES">
             <value>
                 <option name="FOREGROUND" value="666b87"/>
