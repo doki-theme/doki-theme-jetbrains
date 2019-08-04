@@ -57,17 +57,19 @@ Rating Stars
 
 Shit to fix
 ----
+- Settings
+- Break Point colors
 
+- Wizard?
+
+- Field Test
 - Update Plugin
     - Change Description
-- Menu Bar Color Needs to change when switching themes.
 
-- Settings
-- Wizard?
-- Break Point colors
 
 Material Integrations
     - Debugger, highlighted text, welcome window, tool window
 
+Nice to Haves:
+----
 - Transition?
-- Field Test
