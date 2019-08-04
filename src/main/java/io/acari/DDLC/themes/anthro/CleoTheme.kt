@@ -137,4 +137,11 @@ class CleoTheme : AnthroTheme("cleo", "Cleo", false, "Cleo") {
     return Stream.concat(super.getForegroundResources(),
         naughtyForegroundSet.stream())
   }
+
+  override fun getOneOffResources(): Stream<Pair<Stream<String>, String>> {
+    return Stream.of(
+        Pair(Stream.of("Menu.foreground",
+            "MenuItem.foreground"), "766B6B")
+    )
+  }
 }
