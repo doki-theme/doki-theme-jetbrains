@@ -87,12 +87,12 @@
         <bundledColorScheme path="/colors/Syrena"/>
         <bundledColorScheme path="/colors/Wyla"/>
 
-        <themeProvider id="Doki_cleo" path="/themes/specs/anthro/cleo.theme.json"/>
-        <themeProvider id="Doki_eleniel" path="/themes/specs/anthro/eleniel.theme.json"/>
-        <themeProvider id="Doki_neera" path="/themes/specs/anthro/neera.theme.json"/>
-        <themeProvider id="Doki_sanya" path="/themes/specs/anthro/sanya.theme.json"/>
-        <themeProvider id="Doki_syrena" path="/themes/specs/anthro/syrena.theme.json"/>
-        <themeProvider id="Doki_wyla" path="/themes/specs/anthro/wyla.theme.json"/>
+        <themeProvider id="CLEO" path="/themes/specs/anthro/cleo.theme.json"/>
+        <themeProvider id="ELENIEL" path="/themes/specs/anthro/eleniel.theme.json"/>
+        <themeProvider id="NEERA" path="/themes/specs/anthro/neera.theme.json"/>
+        <themeProvider id="SANYA" path="/themes/specs/anthro/sanya.theme.json"/>
+        <themeProvider id="SYRENA" path="/themes/specs/anthro/syrena.theme.json"/>
+        <themeProvider id="WYLA" path="/themes/specs/anthro/wyla.theme.json"/>
 
         <themeProvider id="doki_deleted.character" path="/themes/specs/literature/deleted.character.theme.json"/>
         <themeProvider id="doki_edgy" path="/themes/specs/literature/edgy.theme.json"/>
