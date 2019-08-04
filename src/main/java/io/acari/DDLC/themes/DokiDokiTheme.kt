@@ -1016,11 +1016,13 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
                 "ScrollBar.Mac.Transparent.trackColor"
             ))
 
-        val transparentBackground = MTUI.Panel.getTransparentBackground()
+        val transparentBackground = getTransparentBackgroundColor()
         for (color in colors) {
             UIManager.put(color, transparentBackground)
         }
     }
+
+    open fun getTransparentBackgroundColor(): Color = MTUI.Panel.getTransparentBackground()
 
     open fun getOneOffResources(): Stream<Pair<Stream<String>, String>> = Stream.empty()
 

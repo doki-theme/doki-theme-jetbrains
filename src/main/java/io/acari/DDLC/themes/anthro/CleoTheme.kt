@@ -3,6 +3,7 @@ package io.acari.DDLC.themes.anthro
 import com.chrisrm.ideaddlc.utils.MTAccents
 import com.chrisrm.ideaddlc.utils.PropertiesParser
 import io.acari.DDLC.themes.AnthroTheme
+import io.acari.DDLC.toStream
 import java.awt.Color
 import java.util.stream.Stream
 import javax.swing.plaf.ColorUIResource
@@ -141,7 +142,8 @@ class CleoTheme : AnthroTheme("cleo", "Cleo", false, "Cleo") {
   override fun getOneOffResources(): Stream<Pair<Stream<String>, String>> {
     return Stream.of(
         Pair(Stream.of("Menu.foreground",
-            "MenuItem.foreground"), "766B6B")
+            "MenuItem.foreground"), "766B6B"),
+        Pair("CompletionPopup.selectionForeground".toStream(), selectionForegroundColorString)
     )
   }
 }

@@ -44,7 +44,6 @@ Rating Stars
 ------
 
 - Cleo ✔ ️
-    - Autocomplete
 - Eleniel ✔ ️
 - Neera ✔️
     - Green notification window hard to read with yellow texto
@@ -58,6 +57,8 @@ Rating Stars
 
 Shit to fix
 ----
+- Auto complete is borked
+
 - Settings
 - Break Point colors
 
