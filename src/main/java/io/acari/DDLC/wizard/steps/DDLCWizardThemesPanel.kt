@@ -114,7 +114,7 @@ class DDLCWizardThemesPanel : AbstractCustomizeWizardStep() {
     }
 
     override fun getTitle(): String {
-        return "Club Members"
+        return "Themes"
     }
 
     override fun getHTMLHeader(): String {

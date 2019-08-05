@@ -32,7 +32,8 @@ package io.acari.DDLC.wizard.steps
 
 import com.intellij.ide.customize.AbstractCustomizeWizardStep
 import com.intellij.ui.components.JBScrollPane
-import io.acari.DDLC.actions.DarkMode
+import io.acari.DDLC.wizard.ThemeSuite
+import io.acari.DDLC.wizard.WizardConfig
 import net.miginfocom.swing.MigLayout
 import java.awt.BorderLayout
 import java.awt.Dimension
@@ -45,12 +46,12 @@ class ChooseYourAdventurePanel : AbstractCustomizeWizardStep() {
 
   private var scrollPane: JBScrollPane? = null
   private var grid: JPanel? = null
-  private var justMonikaPanel: JPanel? = null
-  private var justMonikaButton: JRadioButton? = null
-  private var justMonikaLabel: JLabel? = null
-  private var onlyMonikaPanel: JPanel? = null
-  private var onlyMonikaButton: JRadioButton? = null
-  private var onlyMonikaLabel: JLabel? = null
+  private var themeSuitePanel: JPanel? = null
+  private var literatureClubButton: JRadioButton? = null
+  private var literatureClubLabel: JLabel? = null
+  private var theLovelyMenageriePanel: JPanel? = null
+  private var theLovelyMenagerieButton: JRadioButton? = null
+  private var theLovelyMenagerieLabel: JLabel? = null
 
   init {
     initComponents()
@@ -61,7 +62,7 @@ class ChooseYourAdventurePanel : AbstractCustomizeWizardStep() {
   }
 
   private fun initRadioButton() {
-    justMonikaButtonActionPerformed()
+    literatureClubButtonActionPerformed()
   }
 
   override fun getTitle(): String {
@@ -79,29 +80,27 @@ class ChooseYourAdventurePanel : AbstractCustomizeWizardStep() {
             </body></html>""".trimIndent()
   }
 
-  private fun justMonikaButtonActionPerformed() {
-    DarkMode.turnOff()
-    justMonikaButton!!.isSelected = true
+  private fun literatureClubButtonActionPerformed() {
+    literatureClubButton!!.isSelected = true
+    WizardConfig.chosenThemeSuite = ThemeSuite.LITERATURE_CLUB
   }
 
-  private fun onlyMonikaButtonActionPerformed() {
-    DarkMode.turnOn()
-    onlyMonikaButton!!.isSelected = true
+  private fun theLovelyMenagerieButtonActionPerformed() {
+    theLovelyMenagerieButton!!.isSelected = true
+    WizardConfig.chosenThemeSuite = ThemeSuite.THE_LOVELY_MENAGERIE
   }
 
 
   private fun initComponents() {
-    // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-    // Generated using JFormDesigner non-commercial license
     val bundle = ResourceBundle.getBundle("messages.DDLCWizardBundle")
     scrollPane = JBScrollPane()
     grid = JPanel()
-    justMonikaPanel = JPanel()
-    justMonikaButton = JRadioButton()
-    justMonikaLabel = JLabel()
-    onlyMonikaPanel = JPanel()
-    onlyMonikaButton = JRadioButton()
-    onlyMonikaLabel = JLabel()
+    themeSuitePanel = JPanel()
+    literatureClubButton = JRadioButton()
+    literatureClubLabel = JLabel()
+    theLovelyMenageriePanel = JPanel()
+    theLovelyMenagerieButton = JRadioButton()
+    theLovelyMenagerieLabel = JLabel()
 
     //======== this ========
     layout = BorderLayout()
@@ -127,41 +126,39 @@ class ChooseYourAdventurePanel : AbstractCustomizeWizardStep() {
                 "[]" +
                 "[]")
 
-        //======== justMonikaPanel ========
+        //======== literatureClubPanel ========
         run {
-          justMonikaPanel!!.border = EmptyBorder(5, 5, 5, 5)
-          justMonikaPanel!!.layout = BoxLayout(justMonikaPanel, BoxLayout.Y_AXIS)
+          themeSuitePanel!!.border = EmptyBorder(5, 5, 5, 5)
+          themeSuitePanel!!.layout = BoxLayout(themeSuitePanel, BoxLayout.Y_AXIS)
 
-          //---- justMonikaButton ----
-          justMonikaButton!!.text = "Literature Club"
-          justMonikaButton!!.horizontalAlignment = SwingConstants.LEFT
-          justMonikaButton!!.actionCommand = bundle.getString("DDLCWizardThemesPanel.justMonikaButton.actionCommand")
-          justMonikaButton!!.addActionListener { this.justMonikaButtonActionPerformed() }
-          justMonikaPanel!!.add(justMonikaButton)
+          //---- literatureClubButton ----
+          literatureClubButton!!.text = "Literature Club"
+          literatureClubButton!!.horizontalAlignment = SwingConstants.LEFT
+          literatureClubButton!!.addActionListener { this.literatureClubButtonActionPerformed() }
+          themeSuitePanel!!.add(literatureClubButton)
 
-          //---- justMonikaLabel ----
-          justMonikaLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/logo_fit.png"))
-          justMonikaPanel!!.add(justMonikaLabel)
+          //---- literatureClubLabel ----
+          literatureClubLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/logo_fit.png"))
+          themeSuitePanel!!.add(literatureClubLabel)
         }
-        grid!!.add(justMonikaPanel!!, "cell 0 0")
+        grid!!.add(themeSuitePanel!!, "cell 0 0")
 
-        //======== onlyMonikaPanel ========
+        //======== theLovelyMenageriePanel ========
         run {
-          onlyMonikaPanel!!.border = EmptyBorder(5, 5, 5, 5)
-          onlyMonikaPanel!!.layout = BoxLayout(onlyMonikaPanel, BoxLayout.Y_AXIS)
+          theLovelyMenageriePanel!!.border = EmptyBorder(5, 5, 5, 5)
+          theLovelyMenageriePanel!!.layout = BoxLayout(theLovelyMenageriePanel, BoxLayout.Y_AXIS)
 
-          //---- onlyMonikaButton ----
-          onlyMonikaButton!!.text = "The Lovely Menagerie"
-          onlyMonikaButton!!.horizontalAlignment = SwingConstants.LEFT
-          onlyMonikaButton!!.actionCommand = bundle.getString("DDLCWizardThemesPanel.onlyMonikaButton.text")
-          onlyMonikaButton!!.addActionListener { this.onlyMonikaButtonActionPerformed() }
-          onlyMonikaPanel!!.add(onlyMonikaButton)
+          //---- theLovelyMenagerieButton ----
+          theLovelyMenagerieButton!!.text = "The Lovely Menagerie"
+          theLovelyMenagerieButton!!.horizontalAlignment = SwingConstants.LEFT
+          theLovelyMenagerieButton!!.addActionListener { this.theLovelyMenagerieButtonActionPerformed() }
+          theLovelyMenageriePanel!!.add(theLovelyMenagerieButton)
 
-          //---- onlyMonikaLabel ----
-          onlyMonikaLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/logo_fit.png"))
-          onlyMonikaPanel!!.add(onlyMonikaLabel)
+          //---- theLovelyMenagerieLabel ----
+          theLovelyMenagerieLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/logo_fit.png"))
+          theLovelyMenageriePanel!!.add(theLovelyMenagerieLabel)
         }
-        grid!!.add(onlyMonikaPanel!!, "cell 1 0")
+        grid!!.add(theLovelyMenageriePanel!!, "cell 1 0")
       }
       scrollPane!!.setViewportView(grid)
     }
@@ -169,10 +166,8 @@ class ChooseYourAdventurePanel : AbstractCustomizeWizardStep() {
 
     //---- selectedTheme ----
     val selectedTheme = ButtonGroup()
-    selectedTheme.add(justMonikaButton)
-    selectedTheme.add(onlyMonikaButton)
+    selectedTheme.add(literatureClubButton)
+    selectedTheme.add(theLovelyMenagerieButton)
   }
-  // JFormDesigner - End of variables declaration  //GEN-END:variables
-
 
 }
