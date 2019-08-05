@@ -65,7 +65,7 @@ Shit to fix
         - Debugger, highlighted text, welcome window, tool window
 
 - Update Plugin
-    - Change Description
+    - Update Icon
 
 
 Nice to Haves:
