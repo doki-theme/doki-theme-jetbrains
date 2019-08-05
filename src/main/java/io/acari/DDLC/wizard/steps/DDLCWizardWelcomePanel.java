@@ -53,7 +53,7 @@ public class DDLCWizardWelcomePanel extends AbstractCustomizeWizardStep {
 
   @Override
   protected String getHTMLHeader() {
-    return "<html><body><h1>Welcome to the DDLC Theme Wizard!</h1></body></html>";
+    return "<html><body><h1>Welcome to the Doki-Doki Theme Wizard!</h1></body></html>";
   }
 
   private void initComponents() {
@@ -91,6 +91,7 @@ public class DDLCWizardWelcomePanel extends AbstractCustomizeWizardStep {
     }
     add(scrollPane1, "cell 0 1");
     // JFormDesigner - End of component initialization  //GEN-END:initComponents
+
     final ImageIcon imageIcon = new ImageIcon(new ImageIcon(getClass().getResource("/wizard/logo.png"))
         .getImage().getScaledInstance(800, 474, Image.SCALE_SMOOTH));
     icon.setIcon(imageIcon);

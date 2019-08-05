@@ -38,9 +38,9 @@ class DDLCApplicationInitializationComponent : ApplicationComponent {
 
   private fun checkWizard() {
     val isWizardShown = DDLCConfig.getInstance().isWizardShown()
-    if (!isWizardShown) {
+//    if (!isWizardShown) {
       DDLCWizardDialog(DDLCWizardStepsProvider()).show()
-      DDLCConfig.getInstance().setIsWizardShown(true)
-    }
+//      DDLCConfig.getInstance().setIsWizardShown(true)
+//    }
   }
 }
