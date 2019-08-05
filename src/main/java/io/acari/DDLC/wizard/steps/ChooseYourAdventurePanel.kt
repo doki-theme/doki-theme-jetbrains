@@ -158,10 +158,10 @@ class ChooseYourAdventurePanel : AbstractCustomizeWizardStep() {
           onlyMonikaPanel!!.add(onlyMonikaButton)
 
           //---- onlyMonikaLabel ----
-          onlyMonikaLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/onlyMonika.png"))
+          onlyMonikaLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/logo_fit.png"))
           onlyMonikaPanel!!.add(onlyMonikaLabel)
         }
-        grid!!.add(onlyMonikaPanel!!, "cell 1 0,align center center,grow 0 0")
+        grid!!.add(onlyMonikaPanel!!, "cell 1 0")
       }
       scrollPane!!.setViewportView(grid)
     }
