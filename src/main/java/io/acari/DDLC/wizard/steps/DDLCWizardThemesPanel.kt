@@ -174,8 +174,6 @@ class DDLCWizardThemesPanel : AbstractCustomizeWizardStep() {
     }
 
     private fun initComponents() {
-        // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner non-commercial license
         val bundle = ResourceBundle.getBundle("messages.DDLCWizardBundle")
         scrollPane = JBScrollPane()
         grid = JPanel()
@@ -228,140 +226,8 @@ class DDLCWizardThemesPanel : AbstractCustomizeWizardStep() {
                                 "[]" +
                                 "[]")
 
-                //======== justMonikaPanel ========
-                run {
-                    justMonikaPanel!!.border = EmptyBorder(5, 5, 5, 5)
-                    justMonikaPanel!!.layout = BoxLayout(justMonikaPanel, BoxLayout.Y_AXIS)
 
-                    //---- justMonikaButton ----
-                    justMonikaButton!!.text = "Just Monika"
-                    justMonikaButton!!.horizontalAlignment = SwingConstants.LEFT
-                    justMonikaButton!!.actionCommand = bundle.getString("DDLCWizardThemesPanel.justMonikaButton.actionCommand")
-                    justMonikaButton!!.addActionListener { this.justMonikaButtonActionPerformed() }
-                    justMonikaPanel!!.add(justMonikaButton)
-
-                    //---- justMonikaLabel ----
-                    justMonikaLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/justMonika.png"))
-                    justMonikaPanel!!.add(justMonikaLabel)
-                }
-                grid!!.add(justMonikaPanel!!, "cell 0 0")
-
-                //======== onlyMonikaPanel ========
-                run {
-                    onlyMonikaPanel!!.border = EmptyBorder(5, 5, 5, 5)
-                    onlyMonikaPanel!!.layout = BoxLayout(onlyMonikaPanel, BoxLayout.Y_AXIS)
-
-                    //---- onlyMonikaButton ----
-                    onlyMonikaButton!!.text = "Only Monika"
-                    onlyMonikaButton!!.horizontalAlignment = SwingConstants.LEFT
-                    onlyMonikaButton!!.actionCommand = bundle.getString("DDLCWizardThemesPanel.onlyMonikaButton.text")
-                    onlyMonikaButton!!.addActionListener { this.onlyMonikaButtonActionPerformed() }
-                    onlyMonikaPanel!!.add(onlyMonikaButton)
-
-                    //---- onlyMonikaLabel ----
-                    onlyMonikaLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/onlyMonika.png"))
-                    onlyMonikaPanel!!.add(onlyMonikaLabel)
-                }
-                grid!!.add(onlyMonikaPanel!!, "cell 1 0,align center center,grow 0 0")
-
-                //======== sayoriLayout ========
-                run {
-                    sayoriLayout!!.border = EmptyBorder(5, 5, 5, 5)
-                    sayoriLayout!!.layout = BoxLayout(sayoriLayout, BoxLayout.Y_AXIS)
-
-                    //---- sayoriButton ----
-                    sayoriButton!!.text = bundle.getString("DDLCWizardThemesPanel.sayoriButton.text")
-                    sayoriButton!!.horizontalAlignment = SwingConstants.LEFT
-                    sayoriButton!!.addActionListener { this.sayoriButtonActionPerformed() }
-                    sayoriLayout!!.add(sayoriButton)
-
-                    //---- sayoriLabel ----
-                    sayoriLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/sayori.png"))
-                    sayoriLayout!!.add(sayoriLabel)
-                }
-                grid!!.add(sayoriLayout!!, "cell 0 1,align center center,grow 0 0")
-
-                //======== deletedCharacterLayout ========
-                run {
-                    deletedCharacterLayout!!.border = EmptyBorder(5, 5, 5, 5)
-                    deletedCharacterLayout!!.layout = BoxLayout(deletedCharacterLayout, BoxLayout.Y_AXIS)
-
-                    //---- deletedCharacterButton ----
-                    deletedCharacterButton!!.text = "<html><div>Ć̤̳͕̟͖̖̯͡h̼̦̝̞̖̮̠̝͎͟a̵̯͇̮̘̩͖͉̦͞r̛͔̙͉a͞͏̬͔̬̤c̵̖͔̫̰̘t͕̖̩̖̦̼e͇̹̙̺͓̰̠̱͝ͅr̵͚̭̞̳̣̭͇̪ ҉̢̟Ṉ̱o̪͙̬͓̗͝t̨̻͓̫̺͠ ̶̷̲̗̩͟ͅF̵͖͇͔̹̜̮̀ọ̵͖̺͡u̴̝̟̜̩n̶̡̪̮͎̟̱͚̲͚͟d̛̠̺̝͞</div></html>"
-                    deletedCharacterButton!!.horizontalAlignment = SwingConstants.LEFT
-                    deletedCharacterButton!!.addActionListener { this.deletedCharacterButtonActionPerformed() }
-                    deletedCharacterLayout!!.add(deletedCharacterButton)
-
-                    //---- deletedCharacterLabel ----
-                    deletedCharacterLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/deletedCharacter.png"))
-                    deletedCharacterLayout!!.add(deletedCharacterLabel)
-                }
-                grid!!.add(deletedCharacterLayout!!, "cell 1 1,align center center,grow 0 0")
-
-                //======== natsukiPanel ========
-                run {
-                    natsukiPanel!!.border = EmptyBorder(5, 5, 5, 5)
-                    natsukiPanel!!.layout = BoxLayout(natsukiPanel, BoxLayout.Y_AXIS)
-
-                    //---- natsukiButton ----
-                    natsukiButton!!.text = bundle.getString("DDLCWizardThemesPanel.natsukiButton.text")
-                    natsukiButton!!.addActionListener { this.natsukiButtonActionPerformed() }
-                    natsukiPanel!!.add(natsukiButton)
-
-                    //---- natsukiLabel ----
-                    natsukiLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/natsuki.png"))
-                    natsukiPanel!!.add(natsukiLabel)
-                }
-                grid!!.add(natsukiPanel!!, "cell 0 2,align center center,grow 0 0")
-
-                //======== onlyPlayWithMePanel ========
-                run {
-                    onlyPlayWithMePanel!!.border = EmptyBorder(5, 5, 5, 5)
-                    onlyPlayWithMePanel!!.layout = BoxLayout(onlyPlayWithMePanel, BoxLayout.Y_AXIS)
-
-                    //---- onlyPlayWithMeButton ----
-                    onlyPlayWithMeButton!!.text = bundle.getString("DDLCWizardThemesPanel.onlyPlayWithMeButton.text")
-                    onlyPlayWithMeButton!!.addActionListener { this.onlyPlayWithMeButtonActionPerformed() }
-                    onlyPlayWithMePanel!!.add(onlyPlayWithMeButton)
-
-                    //---- onlyPlayWithMeLabel ----
-                    onlyPlayWithMeLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/onlyPlayWithMe.png"))
-                    onlyPlayWithMePanel!!.add(onlyPlayWithMeLabel)
-                }
-                grid!!.add(onlyPlayWithMePanel!!, "cell 1 2,align center center,grow 0 0")
-
-                //======== yuriPanel ========
-                run {
-                    yuriPanel!!.border = EmptyBorder(5, 5, 5, 5)
-                    yuriPanel!!.layout = BoxLayout(yuriPanel, BoxLayout.Y_AXIS)
-
-                    //---- yuriButton ----
-                    yuriButton!!.text = bundle.getString("DDLCWizardThemesPanel.yuriButton.text")
-                    yuriButton!!.addActionListener { this.yuriButtonActionPerformed() }
-                    yuriPanel!!.add(yuriButton)
-
-                    //---- yuriLabel ----
-                    yuriLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/yuri.png"))
-                    yuriPanel!!.add(yuriLabel)
-                }
-                grid!!.add(yuriPanel!!, "cell 0 3,align center center,grow 0 0")
-
-                //======== edgyPanel ========
-                run {
-                    edgyPanel!!.border = EmptyBorder(5, 5, 5, 5)
-                    edgyPanel!!.layout = BoxLayout(edgyPanel, BoxLayout.Y_AXIS)
-
-                    //---- edgyButton ----
-                    edgyButton!!.text = bundle.getString("DDLCWizardThemesPanel.edgyButton.text")
-                    edgyButton!!.addActionListener { this.edgyButtonActionPerformed() }
-                    edgyPanel!!.add(edgyButton)
-
-                    //---- edgyLabel ----
-                    edgyLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/edgy.png"))
-                    edgyPanel!!.add(edgyLabel)
-                }
-                grid!!.add(edgyPanel!!, "cell 1 3,align center center,grow 0 0")
-
+                initializeLiteratureClub(bundle)
             }
             scrollPane!!.setViewportView(grid)
         }
@@ -379,8 +245,142 @@ class DDLCWizardThemesPanel : AbstractCustomizeWizardStep() {
         selectedTheme.add(edgyButton)
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
-    // JFormDesigner - End of variables declaration  //GEN-END:variables
 
+    private fun initializeLiteratureClub(bundle: ResourceBundle) {
+        //======== justMonikaPanel ========
+        run {
+            justMonikaPanel!!.border = EmptyBorder(5, 5, 5, 5)
+            justMonikaPanel!!.layout = BoxLayout(justMonikaPanel, BoxLayout.Y_AXIS)
+
+            //---- justMonikaButton ----
+            justMonikaButton!!.text = "Just Monika"
+            justMonikaButton!!.horizontalAlignment = SwingConstants.LEFT
+            justMonikaButton!!.actionCommand = bundle.getString("DDLCWizardThemesPanel.justMonikaButton.actionCommand")
+            justMonikaButton!!.addActionListener { this.justMonikaButtonActionPerformed() }
+            justMonikaPanel!!.add(justMonikaButton)
+
+            //---- justMonikaLabel ----
+            justMonikaLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/justMonika.png"))
+            justMonikaPanel!!.add(justMonikaLabel)
+        }
+        grid!!.add(justMonikaPanel!!, "cell 0 0")
+
+        //======== onlyMonikaPanel ========
+        run {
+            onlyMonikaPanel!!.border = EmptyBorder(5, 5, 5, 5)
+            onlyMonikaPanel!!.layout = BoxLayout(onlyMonikaPanel, BoxLayout.Y_AXIS)
+
+            //---- onlyMonikaButton ----
+            onlyMonikaButton!!.text = "Only Monika"
+            onlyMonikaButton!!.horizontalAlignment = SwingConstants.LEFT
+            onlyMonikaButton!!.actionCommand = bundle.getString("DDLCWizardThemesPanel.onlyMonikaButton.text")
+            onlyMonikaButton!!.addActionListener { this.onlyMonikaButtonActionPerformed() }
+            onlyMonikaPanel!!.add(onlyMonikaButton)
+
+            //---- onlyMonikaLabel ----
+            onlyMonikaLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/onlyMonika.png"))
+            onlyMonikaPanel!!.add(onlyMonikaLabel)
+        }
+        grid!!.add(onlyMonikaPanel!!, "cell 1 0,align center center,grow 0 0")
+
+        //======== sayoriLayout ========
+        run {
+            sayoriLayout!!.border = EmptyBorder(5, 5, 5, 5)
+            sayoriLayout!!.layout = BoxLayout(sayoriLayout, BoxLayout.Y_AXIS)
+
+            //---- sayoriButton ----
+            sayoriButton!!.text = bundle.getString("DDLCWizardThemesPanel.sayoriButton.text")
+            sayoriButton!!.horizontalAlignment = SwingConstants.LEFT
+            sayoriButton!!.addActionListener { this.sayoriButtonActionPerformed() }
+            sayoriLayout!!.add(sayoriButton)
+
+            //---- sayoriLabel ----
+            sayoriLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/sayori.png"))
+            sayoriLayout!!.add(sayoriLabel)
+        }
+        grid!!.add(sayoriLayout!!, "cell 0 1,align center center,grow 0 0")
+
+        //======== deletedCharacterLayout ========
+        run {
+            deletedCharacterLayout!!.border = EmptyBorder(5, 5, 5, 5)
+            deletedCharacterLayout!!.layout = BoxLayout(deletedCharacterLayout, BoxLayout.Y_AXIS)
+
+            //---- deletedCharacterButton ----
+            deletedCharacterButton!!.text = "<html><div>Ć̤̳͕̟͖̖̯͡h̼̦̝̞̖̮̠̝͎͟a̵̯͇̮̘̩͖͉̦͞r̛͔̙͉a͞͏̬͔̬̤c̵̖͔̫̰̘t͕̖̩̖̦̼e͇̹̙̺͓̰̠̱͝ͅr̵͚̭̞̳̣̭͇̪ ҉̢̟Ṉ̱o̪͙̬͓̗͝t̨̻͓̫̺͠ ̶̷̲̗̩͟ͅF̵͖͇͔̹̜̮̀ọ̵͖̺͡u̴̝̟̜̩n̶̡̪̮͎̟̱͚̲͚͟d̛̠̺̝͞</div></html>"
+            deletedCharacterButton!!.horizontalAlignment = SwingConstants.LEFT
+            deletedCharacterButton!!.addActionListener { this.deletedCharacterButtonActionPerformed() }
+            deletedCharacterLayout!!.add(deletedCharacterButton)
+
+            //---- deletedCharacterLabel ----
+            deletedCharacterLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/deletedCharacter.png"))
+            deletedCharacterLayout!!.add(deletedCharacterLabel)
+        }
+        grid!!.add(deletedCharacterLayout!!, "cell 1 1,align center center,grow 0 0")
+
+        //======== natsukiPanel ========
+        run {
+            natsukiPanel!!.border = EmptyBorder(5, 5, 5, 5)
+            natsukiPanel!!.layout = BoxLayout(natsukiPanel, BoxLayout.Y_AXIS)
+
+            //---- natsukiButton ----
+            natsukiButton!!.text = bundle.getString("DDLCWizardThemesPanel.natsukiButton.text")
+            natsukiButton!!.addActionListener { this.natsukiButtonActionPerformed() }
+            natsukiPanel!!.add(natsukiButton)
+
+            //---- natsukiLabel ----
+            natsukiLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/natsuki.png"))
+            natsukiPanel!!.add(natsukiLabel)
+        }
+        grid!!.add(natsukiPanel!!, "cell 0 2,align center center,grow 0 0")
+
+        //======== onlyPlayWithMePanel ========
+        run {
+            onlyPlayWithMePanel!!.border = EmptyBorder(5, 5, 5, 5)
+            onlyPlayWithMePanel!!.layout = BoxLayout(onlyPlayWithMePanel, BoxLayout.Y_AXIS)
+
+            //---- onlyPlayWithMeButton ----
+            onlyPlayWithMeButton!!.text = bundle.getString("DDLCWizardThemesPanel.onlyPlayWithMeButton.text")
+            onlyPlayWithMeButton!!.addActionListener { this.onlyPlayWithMeButtonActionPerformed() }
+            onlyPlayWithMePanel!!.add(onlyPlayWithMeButton)
+
+            //---- onlyPlayWithMeLabel ----
+            onlyPlayWithMeLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/onlyPlayWithMe.png"))
+            onlyPlayWithMePanel!!.add(onlyPlayWithMeLabel)
+        }
+        grid!!.add(onlyPlayWithMePanel!!, "cell 1 2,align center center,grow 0 0")
+
+        //======== yuriPanel ========
+        run {
+            yuriPanel!!.border = EmptyBorder(5, 5, 5, 5)
+            yuriPanel!!.layout = BoxLayout(yuriPanel, BoxLayout.Y_AXIS)
+
+            //---- yuriButton ----
+            yuriButton!!.text = bundle.getString("DDLCWizardThemesPanel.yuriButton.text")
+            yuriButton!!.addActionListener { this.yuriButtonActionPerformed() }
+            yuriPanel!!.add(yuriButton)
+
+            //---- yuriLabel ----
+            yuriLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/yuri.png"))
+            yuriPanel!!.add(yuriLabel)
+        }
+        grid!!.add(yuriPanel!!, "cell 0 3,align center center,grow 0 0")
+
+        //======== edgyPanel ========
+        run {
+            edgyPanel!!.border = EmptyBorder(5, 5, 5, 5)
+            edgyPanel!!.layout = BoxLayout(edgyPanel, BoxLayout.Y_AXIS)
+
+            //---- edgyButton ----
+            edgyButton!!.text = bundle.getString("DDLCWizardThemesPanel.edgyButton.text")
+            edgyButton!!.addActionListener { this.edgyButtonActionPerformed() }
+            edgyPanel!!.add(edgyButton)
+
+            //---- edgyLabel ----
+            edgyLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/edgy.png"))
+            edgyPanel!!.add(edgyLabel)
+        }
+        grid!!.add(edgyPanel!!, "cell 1 3,align center center,grow 0 0")
+    }
 
 
 }
