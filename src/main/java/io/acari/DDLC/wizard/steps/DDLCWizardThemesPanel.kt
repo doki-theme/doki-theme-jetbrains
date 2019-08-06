@@ -32,11 +32,18 @@ package io.acari.DDLC.wizard.steps
 
 import com.intellij.ide.customize.AbstractCustomizeWizardStep
 import com.intellij.ui.components.JBScrollPane
+import io.acari.DDLC.AnthroThemes.CLEO
+import io.acari.DDLC.AnthroThemes.ELENIEL
+import io.acari.DDLC.AnthroThemes.NEERA
+import io.acari.DDLC.AnthroThemes.SANYA
+import io.acari.DDLC.AnthroThemes.SYRENA
+import io.acari.DDLC.AnthroThemes.WYLA
 import io.acari.DDLC.DDLCThemes
 import io.acari.DDLC.actions.DarkMode
 import io.acari.DDLC.actions.themes.anthro.*
 import io.acari.DDLC.actions.themes.literature.club.*
 import io.acari.DDLC.chibi.ChibiOrchestrator
+import io.acari.DDLC.themes.AnthroTheme
 import io.acari.DDLC.wizard.ThemeSuite
 import io.acari.DDLC.wizard.WizardConfig
 import net.miginfocom.swing.MigLayout
@@ -48,7 +55,8 @@ import javax.swing.border.EmptyBorder
 
 class ThemeItem(
     val themeAction: ClubMemberThemeAction,
-    val themeName: String
+    val themeName: String,
+    val theme: AnthroTheme
 )
 
 class DDLCWizardThemesPanel : AbstractCustomizeWizardStep() {
@@ -56,27 +64,33 @@ class DDLCWizardThemesPanel : AbstractCustomizeWizardStep() {
   private val menagerieThemes = listOf(
       ThemeItem(
           CleoThemeAction(),
-          "Cleo"
+          "Cleo",
+          CLEO
       ),
       ThemeItem(
           ElenielThemeAction(),
-          "Eleniel"
+          "Eleniel",
+          ELENIEL
       ),
       ThemeItem(
           NeeraThemeAction(),
-          "Neera"
+          "Neera",
+          NEERA
       ),
       ThemeItem(
           SanyaThemeAction(),
-          "Sanya"
+          "Sanya",
+          SANYA
       ),
       ThemeItem(
           SyrenaThemeAction(),
-          "Syrena"
+          "Syrena",
+          SYRENA
       ),
       ThemeItem(
           WylaThemeAction(),
-          "Wyla"
+          "Wyla",
+          WYLA
       )
   )
 
@@ -288,7 +302,8 @@ class DDLCWizardThemesPanel : AbstractCustomizeWizardStep() {
   }
 
   private fun initializeMenagerie(bundle: ResourceBundle) {
-    val selectedTheme = ButtonGroup()
+    val selectedThemeButtonGroup = ButtonGroup()
+    val activeTheme = ChibiOrchestrator.currentActiveTheme().value
     menagerieThemes.forEachIndexed { index, themeItem ->
 
       val menagerieThemePanel = JPanel()
@@ -296,7 +311,8 @@ class DDLCWizardThemesPanel : AbstractCustomizeWizardStep() {
       menagerieThemePanel.layout = BoxLayout(menagerieThemePanel, BoxLayout.Y_AXIS)
 
       val menagerieThemeButton = JRadioButton()
-      selectedTheme.add(menagerieThemeButton)
+      selectedThemeButtonGroup.add(menagerieThemeButton)
+      menagerieThemeButton.isSelected = activeTheme == themeItem.theme
       menagerieThemeButton.text = themeItem.themeName
       menagerieThemeButton.horizontalAlignment = SwingConstants.LEFT
       menagerieThemeButton.actionCommand = bundle.getString("DDLCWizardThemesPanel.${themeItem.themeName}Button.actionCommand")
@@ -310,7 +326,7 @@ class DDLCWizardThemesPanel : AbstractCustomizeWizardStep() {
 //            menagerieThemeLabel.icon = ImageIcon(javaClass.getResource("/wizard/${themeItem.themeName}.png"))
       menagerieThemeLabel.icon = ImageIcon(javaClass.getResource("/wizard/onlyMonika.png"))
       menagerieThemePanel.add(menagerieThemeLabel)
-      val row = if((index + 1) % 2 == 0) 1 else 0
+      val row = if ((index + 1) % 2 == 0) 1 else 0
       val column = Math.floorDiv(index, 2)
       grid!!.add(menagerieThemePanel, "cell ${row} ${column}")
 
