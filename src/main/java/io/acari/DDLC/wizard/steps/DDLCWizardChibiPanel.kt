@@ -36,6 +36,8 @@ import io.acari.DDLC.actions.DarkMode
 import com.intellij.ide.customize.AbstractCustomizeWizardStep
 import com.intellij.ui.components.JBScrollPane
 import io.acari.DDLC.chibi.ChibiLevel
+import io.acari.DDLC.wizard.ThemeSuite
+import io.acari.DDLC.wizard.WizardConfig
 import net.miginfocom.swing.MigLayout
 import java.awt.BorderLayout
 import java.awt.Dimension
@@ -64,7 +66,9 @@ class DDLCWizardChibiPanel : AbstractCustomizeWizardStep() {
     }
 
     private fun getSpecialMessage() =
-            if (DarkMode.isOn() && ChibiOrchestrator.currentActiveTheme() != DDLCThemes.MONIKA)
+            if (DarkMode.isOn() &&
+                WizardConfig.chosenThemeSuite == ThemeSuite.LITERATURE_CLUB &&
+                ChibiOrchestrator.currentActiveTheme().value != DDLCThemes.MONIKA )
                 """
                 <h4>Note: I see you have dark mode on! "Use Tools -> Panel Options -> Swap Chibi" to make your club member less c̟̺̱̱̪o͚̲̹̼͘r̡̭̤̭̼̟̭̜r͇͚u̘̰͝p͓̝͍̻̩̩t̼̣̙͍͍e͕̹͙̟̬̮͟ͅd̻ anytime :)</h4>
                 """.trimIndent() else ""

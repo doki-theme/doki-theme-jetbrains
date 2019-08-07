@@ -44,6 +44,7 @@ Rating Stars
 ------
 
 - Cleo ✔ ️
+    - completion window selected color too light
 - Eleniel ✔ ️
 - Neera ✔️
     - Green notification window hard to read with yellow texto
@@ -59,7 +60,6 @@ Shit to fix
 ----
 
 - Wizard?
-    - Select correct active theme suite
     - Ending panel customization (less material, less monika if menagerie)
     - Doki-Doki Logo
     - Menagerie Logo
