@@ -323,8 +323,7 @@ class DDLCWizardThemesPanel : AbstractCustomizeWizardStep() {
       menagerieThemePanel.add(menagerieThemeButton)
 
       val menagerieThemeLabel = JLabel()
-//            menagerieThemeLabel.icon = ImageIcon(javaClass.getResource("/wizard/${themeItem.themeName}.png"))
-      menagerieThemeLabel.icon = ImageIcon(javaClass.getResource("/wizard/onlyMonika.png"))
+      menagerieThemeLabel.icon = ImageIcon(javaClass.getResource("/wizard/anthro/${themeItem.themeName.toLowerCase()}.png"))
       menagerieThemePanel.add(menagerieThemeLabel)
       val row = if ((index + 1) % 2 == 0) 1 else 0
       val column = Math.floorDiv(index, 2)
