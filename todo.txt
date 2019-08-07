@@ -61,7 +61,7 @@ Shit to fix
 
 - Wizard?
     - Doki-Doki Logo
-    - Menagerie Logo
+    - themes need to be cropped
 
 - Field Test
     - Material Integrations
