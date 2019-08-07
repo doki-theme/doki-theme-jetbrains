@@ -59,6 +59,10 @@ Shit to fix
 ----
 
 - Wizard?
+    - Select correct active theme suite
+    - Ending panel customization (less material, less monika if menagerie)
+    - Doki-Doki Logo
+    - Menagerie Logo
 
 - Field Test
     - Material Integrations
@@ -66,7 +70,11 @@ Shit to fix
 
 - Update Plugin
     - Update Icon
+- Update Readme
 
+- Screenshot album
+
+- Update Plugin Page
 
 Nice to Haves:
 ----
