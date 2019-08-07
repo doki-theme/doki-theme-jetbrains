@@ -32,6 +32,8 @@ package io.acari.DDLC.wizard.steps
 
 import com.intellij.ide.customize.AbstractCustomizeWizardStep
 import com.intellij.ui.components.JBScrollPane
+import io.acari.DDLC.AnthroThemes
+import io.acari.DDLC.chibi.ChibiOrchestrator
 import io.acari.DDLC.wizard.ThemeSuite
 import io.acari.DDLC.wizard.WizardConfig
 import net.miginfocom.swing.MigLayout
@@ -62,7 +64,12 @@ class ChooseYourAdventurePanel : AbstractCustomizeWizardStep() {
   }
 
   private fun initRadioButton() {
-    literatureClubButtonActionPerformed()
+    val currentTheme = ChibiOrchestrator.currentActiveTheme().value
+    if(AnthroThemes.getAllThemes().contains(currentTheme)){
+      theLovelyMenagerieButtonActionPerformed()
+    } else {
+      literatureClubButtonActionPerformed()
+    }
   }
 
   override fun getTitle(): String {
