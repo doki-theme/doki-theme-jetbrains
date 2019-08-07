@@ -60,7 +60,6 @@ Shit to fix
 ----
 
 - Wizard?
-    - Ending panel customization (less material, less monika if menagerie)
     - Doki-Doki Logo
     - Menagerie Logo
 

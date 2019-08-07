@@ -162,10 +162,10 @@ class ChooseYourAdventurePanel : AbstractCustomizeWizardStep() {
           theLovelyMenageriePanel!!.add(theLovelyMenagerieButton)
 
           //---- theLovelyMenagerieLabel ----
-          theLovelyMenagerieLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/logo_fit.png"))
+          theLovelyMenagerieLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/menagerie.png"))
           theLovelyMenageriePanel!!.add(theLovelyMenagerieLabel)
         }
-        grid!!.add(theLovelyMenageriePanel!!, "cell 1 0")
+        grid!!.add(theLovelyMenageriePanel!!, "cell 1 0,align center")
       }
       scrollPane!!.setViewportView(grid)
     }
