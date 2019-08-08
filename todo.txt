@@ -60,11 +60,6 @@ Shit to fix
 
 - Wizard?
     - Doki-Doki Logo
-
-- Field Test
-    - Material Integrations
-        - Debugger, highlighted text, welcome window, tool window
-
 - Update Plugin
     - Update Icon
 - Update Readme
