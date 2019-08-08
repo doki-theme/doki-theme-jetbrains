@@ -1,0 +1,6 @@
+![cleo](assets/screenshots/anthro/cleo.png)
+![eleniel](assets/screenshots/anthro/eleniel.png)
+![neera](assets/screenshots/anthro/neera.png)
+![sanya](assets/screenshots/anthro/sanya.png)
+![syrena](assets/screenshots/anthro/syrena.png)
+![wyla](assets/screenshots/anthro/wyla.png)

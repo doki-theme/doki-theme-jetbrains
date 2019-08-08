@@ -59,9 +59,10 @@ Rating Stars
 Shit to fix
 ----
 
+- Better Name for anthro
+
 - Wizard?
     - Doki-Doki Logo
-    - themes need to be cropped
 
 - Field Test
     - Material Integrations
@@ -71,9 +72,8 @@ Shit to fix
     - Update Icon
 - Update Readme
 
-- Screenshot album
-
 - Update Plugin Page
+
 
 Nice to Haves:
 ----
