@@ -44,7 +44,6 @@ Rating Stars
 ------
 
 - Cleo ✔ ️
-    - completion window selected color too light
 - Eleniel ✔ ️
 - Neera ✔️
     - Green notification window hard to read with yellow texto
@@ -73,6 +72,8 @@ Shit to fix
 - Update Plugin Page
 
 - Update Menagerie's toolbar icon
+
+- Jupyter Selected Cell
 
 
 Nice to Haves:

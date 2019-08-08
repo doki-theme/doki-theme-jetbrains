@@ -1,6 +1,5 @@
 package io.acari.DDLC.themes
 
-import com.chrisrm.ideaddlc.MTConfig
 import com.chrisrm.ideaddlc.MTThemeManager
 import com.chrisrm.ideaddlc.lafs.MTDarkLaf
 import com.chrisrm.ideaddlc.lafs.MTLightLaf
@@ -81,12 +80,7 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
             buildTransparentColors()
             buildTreeSelectionInactiveColors()
 
-            // Apply theme accent color if said so
-            val instance = MTConfig.getInstance()
-            if (instance.isOverrideAccentColor) {
-                instance.accentColor = accentColor
-                MTThemeManager.applyAccents(true)
-            }
+            MTThemeManager.applyAccents(true)
 
             applyOneOffs()
 

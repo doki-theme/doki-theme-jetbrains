@@ -143,7 +143,12 @@ class CleoTheme : AnthroTheme("cleo", "Cleo", false, "Cleo") {
     return Stream.of(
         Pair(Stream.of("Menu.foreground",
             "MenuItem.foreground"), "766B6B"),
-        Pair("CompletionPopup.selectionForeground".toStream(), selectionForegroundColorString)
+        Pair("CompletionPopup.selectionForeground".toStream(), selectionForegroundColorString),
+        Pair(Stream.of(
+            "CompletionPopup.matchForeground",
+            "CompletionPopup.matchSelectedForeground",
+            "CompletionPopup.matchSelectionForeground"
+        ), "3961F6")
     )
   }
 }
