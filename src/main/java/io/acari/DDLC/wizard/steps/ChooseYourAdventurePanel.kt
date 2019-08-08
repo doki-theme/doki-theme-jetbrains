@@ -51,9 +51,9 @@ class ChooseYourAdventurePanel : AbstractCustomizeWizardStep() {
   private var themeSuitePanel: JPanel? = null
   private var literatureClubButton: JRadioButton? = null
   private var literatureClubLabel: JLabel? = null
-  private var theLovelyMenageriePanel: JPanel? = null
-  private var theLovelyMenagerieButton: JRadioButton? = null
-  private var theLovelyMenagerieLabel: JLabel? = null
+  private var misMenageriePanel: JPanel? = null
+  private var misMenagerieButton: JRadioButton? = null
+  private var misMenagerieLabel: JLabel? = null
 
   init {
     initComponents()
@@ -66,7 +66,7 @@ class ChooseYourAdventurePanel : AbstractCustomizeWizardStep() {
   private fun initRadioButton() {
     val currentTheme = ChibiOrchestrator.currentActiveTheme().value
     if(AnthroThemes.getAllThemes().contains(currentTheme)){
-      theLovelyMenagerieButtonActionPerformed()
+      misMenagerieButtonActionPerformed()
     } else {
       literatureClubButtonActionPerformed()
     }
@@ -82,7 +82,7 @@ class ChooseYourAdventurePanel : AbstractCustomizeWizardStep() {
             <h2>Choose your selected theme suite: </h2>&nbsp;
             <ul>
                 <li><strong>Literature Club</strong>: A collection of themes based off of the characters in the Doki-Doki Literature Club visual novel.</li>
-                <li><strong>The Lovely Menagerie</strong>: A collection themes based off of various characters of anthropomorphized species.</li>
+                <li><strong>Mistress's Menagerie</strong>: A collection themes based off of various characters of anthropomorphized species.</li>
             </ul>
             </body></html>""".trimIndent()
   }
@@ -92,9 +92,9 @@ class ChooseYourAdventurePanel : AbstractCustomizeWizardStep() {
     WizardConfig.chosenThemeSuite = ThemeSuite.LITERATURE_CLUB
   }
 
-  private fun theLovelyMenagerieButtonActionPerformed() {
-    theLovelyMenagerieButton!!.isSelected = true
-    WizardConfig.chosenThemeSuite = ThemeSuite.THE_LOVELY_MENAGERIE
+  private fun misMenagerieButtonActionPerformed() {
+    misMenagerieButton!!.isSelected = true
+    WizardConfig.chosenThemeSuite = ThemeSuite.MENAGERIE
   }
 
 
@@ -105,9 +105,9 @@ class ChooseYourAdventurePanel : AbstractCustomizeWizardStep() {
     themeSuitePanel = JPanel()
     literatureClubButton = JRadioButton()
     literatureClubLabel = JLabel()
-    theLovelyMenageriePanel = JPanel()
-    theLovelyMenagerieButton = JRadioButton()
-    theLovelyMenagerieLabel = JLabel()
+    misMenageriePanel = JPanel()
+    misMenagerieButton = JRadioButton()
+    misMenagerieLabel = JLabel()
 
     //======== this ========
     layout = BorderLayout()
@@ -150,22 +150,22 @@ class ChooseYourAdventurePanel : AbstractCustomizeWizardStep() {
         }
         grid!!.add(themeSuitePanel!!, "cell 0 0")
 
-        //======== theLovelyMenageriePanel ========
+        //======== misMenageriePanel ========
         run {
-          theLovelyMenageriePanel!!.border = EmptyBorder(5, 5, 5, 5)
-          theLovelyMenageriePanel!!.layout = BoxLayout(theLovelyMenageriePanel, BoxLayout.Y_AXIS)
+          misMenageriePanel!!.border = EmptyBorder(5, 5, 5, 5)
+          misMenageriePanel!!.layout = BoxLayout(misMenageriePanel, BoxLayout.Y_AXIS)
 
-          //---- theLovelyMenagerieButton ----
-          theLovelyMenagerieButton!!.text = "The Lovely Menagerie"
-          theLovelyMenagerieButton!!.horizontalAlignment = SwingConstants.LEFT
-          theLovelyMenagerieButton!!.addActionListener { this.theLovelyMenagerieButtonActionPerformed() }
-          theLovelyMenageriePanel!!.add(theLovelyMenagerieButton)
+          //---- misMenagerieButton ----
+          misMenagerieButton!!.text = "Mistress's Menagerie"
+          misMenagerieButton!!.horizontalAlignment = SwingConstants.LEFT
+          misMenagerieButton!!.addActionListener { this.misMenagerieButtonActionPerformed() }
+          misMenageriePanel!!.add(misMenagerieButton)
 
-          //---- theLovelyMenagerieLabel ----
-          theLovelyMenagerieLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/menagerie.png"))
-          theLovelyMenageriePanel!!.add(theLovelyMenagerieLabel)
+          //---- misMenagerieLabel ----
+          misMenagerieLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/menagerie.png"))
+          misMenageriePanel!!.add(misMenagerieLabel)
         }
-        grid!!.add(theLovelyMenageriePanel!!, "cell 1 0,align center")
+        grid!!.add(misMenageriePanel!!, "cell 1 0,align center")
       }
       scrollPane!!.setViewportView(grid)
     }
@@ -174,7 +174,7 @@ class ChooseYourAdventurePanel : AbstractCustomizeWizardStep() {
     //---- selectedTheme ----
     val selectedTheme = ButtonGroup()
     selectedTheme.add(literatureClubButton)
-    selectedTheme.add(theLovelyMenagerieButton)
+    selectedTheme.add(misMenagerieButton)
   }
 
 }

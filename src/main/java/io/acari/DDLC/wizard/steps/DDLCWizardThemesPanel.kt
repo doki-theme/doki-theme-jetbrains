@@ -170,7 +170,7 @@ class DDLCWizardThemesPanel : AbstractCustomizeWizardStep() {
             <h2>Choose your <strong>favorite</strong> Club Member: </h2>&nbsp;
             <h3>Sayori, Natsuki, Yuri, or <strong>just Monika</strong>.</h3>
             </body></html>""".trimIndent()
-      ThemeSuite.THE_LOVELY_MENAGERIE -> """<html>
+      ThemeSuite.MENAGERIE -> """<html>
             <body>
             <h2>Choose your <strong>favorite</strong> girl: </h2>&nbsp;
             <h3>${menagerieThemes.map { it.themeName }.joinToString(", ")}.</h3>
@@ -283,7 +283,7 @@ class DDLCWizardThemesPanel : AbstractCustomizeWizardStep() {
       run {
         when (WizardConfig.chosenThemeSuite) {
           ThemeSuite.LITERATURE_CLUB -> initializeLiteratureClub(bundle)
-          ThemeSuite.THE_LOVELY_MENAGERIE -> initializeMenagerie(bundle)
+          ThemeSuite.MENAGERIE -> initializeMenagerie(bundle)
         }
       }
     }

@@ -59,8 +59,6 @@ Rating Stars
 Shit to fix
 ----
 
-- Better Name for anthro
-
 - Wizard?
     - Doki-Doki Logo
 
@@ -73,6 +71,8 @@ Shit to fix
 - Update Readme
 
 - Update Plugin Page
+
+- Update Menagerie's toolbar icon
 
 
 Nice to Haves:

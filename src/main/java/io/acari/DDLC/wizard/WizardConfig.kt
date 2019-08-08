@@ -6,5 +6,5 @@ object WizardConfig {
 
 enum class ThemeSuite {
   LITERATURE_CLUB,
-  THE_LOVELY_MENAGERIE
+  MENAGERIE
 }
