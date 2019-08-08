@@ -60,13 +60,15 @@ Shit to fix
 
 - Wizard?
     - Doki-Doki Logo
+
 - Update Plugin
     - Update Icon
+
 - Update Readme
 
 - Update Plugin Page
 
-- Update Menagerie's toolbar icon
+- update settings theme icons in the dropdown.
 
 - Jupyter Selected Cell
 
