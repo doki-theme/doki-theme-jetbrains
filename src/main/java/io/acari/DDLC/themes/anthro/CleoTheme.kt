@@ -75,7 +75,7 @@ class CleoTheme : AnthroTheme("cleo", "Cleo", false, "Cleo") {
 
   override fun getStopColor(): String = "6accfc"
 
-  override fun getNonProjectFileScopeColor(): String = "EBEDD9"
+  override fun getNonProjectFileScopeColor(): String = "eceae8"
 
   override fun getTestScope(): String = "C0EDCC"
 
