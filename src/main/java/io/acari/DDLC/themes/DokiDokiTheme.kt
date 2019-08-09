@@ -37,7 +37,10 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
     override fun isDark(): Boolean = this.isDarkTheme
     override fun getEditorColorsScheme(): String = this.colorScheme
     override fun getName(): String = this.clubMemberName
-    override fun getIcon(): Icon = DDLCIcons.EXCLUDED
+    override fun getIcon(): Icon = IconLoader.getIcon(iconPath())
+
+    open fun iconPath(): String =
+        "/icons/ddlc/ddlcTheme.svg"
 
     override fun getHighlightColorString(): String {
         return "425B67"

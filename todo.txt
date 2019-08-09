@@ -68,8 +68,6 @@ Shit to fix
 
 - Update Plugin Page
 
-- update settings theme icons in the dropdown.
-
 - Jupyter Selected Cell
 
 

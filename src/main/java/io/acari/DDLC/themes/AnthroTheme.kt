@@ -23,6 +23,10 @@ abstract class AnthroTheme(ddlcThemeId: String, colorScheme: String, isDarkTheme
   override fun getThemeName(): String? =
       name
 
+  override fun iconPath(): String {
+    return "/icons/ddlc/anthro/$name.svg"
+  }
+
   override fun getMenuBarResources(): Stream<String> {
     return Stream.of(
         //I just want the literature club to have th special menubar
