@@ -65,7 +65,7 @@ class SyrenaTheme : AnthroTheme("syrena", "Syrena", true, "Syrena") {
 
   override fun getStopColor(): String = "fd7c4b"
 
-  override fun getNonProjectFileScopeColor(): String = "393229"
+  override fun getNonProjectFileScopeColor(): String = "452f25"
 
   override fun getTestScope(): String = "29392C"
 
