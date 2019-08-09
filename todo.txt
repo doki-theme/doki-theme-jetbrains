@@ -60,6 +60,7 @@ Shit to fix
 
 - Wizard?
     - Doki-Doki Logo
+    - Themes where changed....again....
 
 - Update Plugin
     - Update Icon
@@ -67,8 +68,6 @@ Shit to fix
 - Update Readme
 
 - Update Plugin Page
-
-- Jupyter Selected Cell
 
 
 Nice to Haves:
