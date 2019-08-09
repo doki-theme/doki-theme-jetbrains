@@ -23,9 +23,9 @@ class SyrenaTheme : AnthroTheme("syrena", "Syrena", true, "Syrena") {
 
   override fun getSelectionForegroundColorString(): String = "ffffff"
 
-  override fun getSelectionBackgroundColorString(): String = "824747"
+  override fun getSelectionBackgroundColorString(): String = "564135"
 
-  override fun getTreeSelectionBackgroundColorString(): String = "824747"
+  override fun getTreeSelectionBackgroundColorString(): String = "564135"
 
   override fun getInactiveColorString(): String = "543939"
 
@@ -33,7 +33,7 @@ class SyrenaTheme : AnthroTheme("syrena", "Syrena", true, "Syrena") {
 
   override fun getMenuBarSelectionForegroundColorString(): String = "ffffff"
 
-  override fun getMenuBarSelectionBackgroundColorString(): String = "824747"
+  override fun getMenuBarSelectionBackgroundColorString(): String = "564135"
 
   override fun getNotificationsColorString(): String = "321f1f"
 
@@ -59,7 +59,7 @@ class SyrenaTheme : AnthroTheme("syrena", "Syrena", true, "Syrena") {
 
   override fun getForegroundColorResource(): ColorUIResource = ColorUIResource(0xB9AA9F)
 
-  override fun getTableSelectedColorString(): String = "824747"
+  override fun getTableSelectedColorString(): String = "564135"
 
   override fun getStartColor(): String = "972e26"
 
