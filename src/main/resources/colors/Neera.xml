@@ -54,7 +54,7 @@
         <option name="ADDED_LINES_COLOR" value="BEE6BE"/>
         <option name="ANNOTATIONS_COLOR" value="45393e"/>
         <option name="CARET_COLOR" value="45393e"/>
-        <option name="CARET_ROW_COLOR" value="eeeeee"/>
+        <option name="CARET_ROW_COLOR" value="FFF6E4"/>
         <option name="CONSOLE_BACKGROUND_KEY" value="FFFEF9"/>
         <option name="DELETED_LINES_COLOR" value="d71b6a"/>
         <option name="FILESTATUS_ADDED" value="22863a"/>
@@ -669,6 +669,11 @@
         </option>
         <option name="JSP_SCRIPTING_BACKGROUND">
             <value/>
+        </option>
+        <option name="JUPYTER_SELECTED_CELL">
+            <value>
+                <option name="BACKGROUND" value="FFF6E4" />
+            </value>
         </option>
         <option name="KOTLIN_ANNOTATION" baseAttributes="ANNOTATION_NAME_ATTRIBUTES"/>
         <option name="KOTLIN_CLOSURE_DEFAULT_PARAMETER">
