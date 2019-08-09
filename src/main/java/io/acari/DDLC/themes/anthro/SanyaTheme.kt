@@ -67,7 +67,7 @@ class SanyaTheme : AnthroTheme("sanya", "Sanya", true, "Sanya") {
 
   override fun getStopColor(): String = "ec1f62"
 
-  override fun getNonProjectFileScopeColor(): String = "38352F"
+  override fun getNonProjectFileScopeColor(): String = "413037"
 
   override fun getTestScope(): String = "28382D"
 
