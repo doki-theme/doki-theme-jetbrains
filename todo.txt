@@ -44,6 +44,7 @@ Rating Stars
 ------
 
 - Cleo ✔ ️
+    - Less contrasty grey
 - Eleniel ✔ ️
 - Neera ✔️
     - Green notification window hard to read with yellow texto
@@ -63,9 +64,6 @@ Shit to fix
 
 - Update Plugin
     - Update Icon
-
-- Starting Color
-    - Adjust Monika's light color.
 
 - Update Readme
 
