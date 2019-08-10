@@ -698,7 +698,7 @@
         <option name="FOLDED_TEXT_ATTRIBUTES">
             <value>
                 <option name="FOREGROUND" value="666b87"/>
-                <option name="BACKGROUND" value="242632"/>
+                <option name="BACKGROUND" value="514E56"/>
             </value>
         </option>
         <option name="FOLLOWED_HYPERLINK_ATTRIBUTES">
@@ -794,7 +794,7 @@
         </option>
         <option name="IDENTIFIER_UNDER_CARET_ATTRIBUTES">
             <value>
-                <option name="BACKGROUND" value="48697a"/>
+                <option name="BACKGROUND" value="465460"/>
                 <option name="EFFECT_TYPE" value="1"/>
             </value>
         </option>
