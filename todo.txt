@@ -60,10 +60,12 @@ Shit to fix
 
 - Wizard?
     - Doki-Doki Logo
-    - Themes where changed....again....
 
 - Update Plugin
     - Update Icon
+
+- Starting Color
+    - Adjust Monika's light color.
 
 - Update Readme
 

@@ -30,7 +30,9 @@ object DokiThemes {
   fun getThemeByColorScheme(colorSchemes: String): DDLCThemeFacade = themesByColorScheme.getOrDefault(colorSchemes.toUpperCase(), DDLCThemes.MONIKA)
 
   @JvmStatic
-  fun isDokiColorScheme(colorSchemes: String): Boolean = themesByColorScheme.containsKey(colorSchemes.toUpperCase())
+  fun isDokiColorScheme(colorSchemes: String): Boolean =
+      themesByColorScheme.containsKey(colorSchemes.toUpperCase()) ||
+          themes.containsKey(colorSchemes.toUpperCase())
 
 
 }
