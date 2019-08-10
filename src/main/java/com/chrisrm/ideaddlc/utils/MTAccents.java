@@ -44,6 +44,7 @@ public enum MTAccents {
   BRICK(new ColorUIResource(0xe57373)),
   CARBON(new ColorUIResource(0x424242)),
   COFFEE(new ColorUIResource(0x795548)),
+  COLBALT(new ColorUIResource(0x2D79E9)),
   CYAN(new ColorUIResource(0x00bcd4)),
   DAISY(new ColorUIResource(0xFFEB3B)),
   DARK_WATER(new ColorUIResource(0x0f387a)),

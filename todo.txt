@@ -44,7 +44,6 @@ Rating Stars
 ------
 
 - Cleo ✔ ️
-    - Less contrasty grey
 - Eleniel ✔ ️
 - Neera ✔️
     - Green notification window hard to read with yellow texto

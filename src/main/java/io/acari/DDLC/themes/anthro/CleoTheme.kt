@@ -21,7 +21,7 @@ class CleoTheme : AnthroTheme("cleo", "Cleo", false, "Cleo") {
 
   override fun joyfulClubMember(): String = "sayori_joy.png"
 
-  override fun getSecondaryBackgroundColorString(): String = "C4C3CF"
+  override fun getSecondaryBackgroundColorString(): String = "dddce9"
 
   override fun getSecondaryForegroundColorString(): String = "36363a"
 
@@ -61,7 +61,7 @@ class CleoTheme : AnthroTheme("cleo", "Cleo", false, "Cleo") {
 
   override fun getButtonForegroundColor(): String = "252427"
 
-  override fun getAccentColor(): String = MTAccents.WATER.hexColor
+  override fun getAccentColor(): String = MTAccents.COLBALT.hexColor
 
   override fun getBackgroundColorResource(): ColorUIResource = ColorUIResource(0xe7e7ed)
 
