@@ -510,6 +510,8 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
 
     open fun getSelectionForegroundResources(): Stream<String> {
         return Stream.of(
+            "CheckBoxMenuItem.selectionForeground",
+            "ComboBox.selectionForeground",
             "CompletionPopup.selectionForeground",
             "CompletionPopup.selectionInfoForeground",
             "Label.selectedForeground",
