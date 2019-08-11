@@ -28,7 +28,6 @@ package io.acari.DDLC.themes.light
 
 import com.chrisrm.ideaddlc.utils.MTAccents
 import io.acari.DDLC.themes.DokiDokiTheme
-import java.awt.Color
 import java.util.stream.Stream
 import javax.swing.plaf.ColorUIResource
 
@@ -47,7 +46,7 @@ class MonikaTheme : DokiDokiTheme("monika", "Monika", false, "Monika") {
         return MTAccents.BREAKING_BAD.hexColor
     }
 
-    override fun getBackgroundColorResource(): ColorUIResource = ColorUIResource(0xB5FAAA)
+    override fun getBackgroundColorResource(): ColorUIResource = ColorUIResource(0xD8FAD4)
 
     override fun getForegroundColorResource(): ColorUIResource = ColorUIResource(0x487A52)
 
@@ -57,7 +56,7 @@ class MonikaTheme : DokiDokiTheme("monika", "Monika", false, "Monika") {
 
     override fun getTreeSelectionForegroundColorString(): String = "000000"
 
-    override fun getHighlightColorString(): String = "8ef36f"
+    override fun getHighlightColorString(): String = "ACF3A4"
 
     override fun getSecondBorderColorString(): String = "d3e1e8"
 
@@ -67,23 +66,23 @@ class MonikaTheme : DokiDokiTheme("monika", "Monika", false, "Monika") {
 
     override fun getDisabledColorString(): String = "000000"
 
-    override fun getSecondaryBackgroundColorString(): String = "B0FA9C"
+    override fun getSecondaryBackgroundColorString(): String = "D5FAC7"
 
     override fun getInactiveColorString(): String = "C7EBC0"
 
     override fun getButtonColorString(): String = "b4fbae"
 
-    override fun getButtonBackgroundColor(): String = "a0f49a"
+    override fun getButtonBackgroundColor(): String = "B2F4B0"
 
     override fun getSelectionForegroundColorString(): String = "447152"
 
-    override fun getSelectionBackgroundColorString(): String = "99eb99"
+    override fun getSelectionBackgroundColorString(): String = "ADEBA8"
 
     override fun getTextColorString(): String = "4d6e80"
 
     override fun getForegroundColorString(): String = "41545E"
 
-    override fun getBackgroundColorString(): String = "AEFAB2"
+    override fun getBackgroundColorString(): String = "D9FAD7"
 
     override fun getButtonBackgroundResources(): Stream<String> = Stream.concat(super.getButtonBackgroundResources(), Stream.of(
             "Button.mt.color1",
@@ -92,7 +91,7 @@ class MonikaTheme : DokiDokiTheme("monika", "Monika", false, "Monika") {
 
     override fun getMenuBarColorString(): String = "eea588"
 
-    override fun getBorderColor(): Color = Color.getHSBColor(62f, 91f, 149f)
+    override fun getBorderColorString(): String = "C1FAC6"
 
     override fun getStartColor(): String = "5FAA51"
 

@@ -47,6 +47,9 @@ class TintedColorPatcher internal constructor(connect: MessageBusConnection) : S
 
     if ("true" == tint || "fill" == tint) {
       svg.setAttribute("fill", "#$accentColor")
+    } else if ("all" == tint || "fill" == tint) {
+      svg.setAttribute("fill", "#$accentColor")
+      svg.setAttribute("stroke", "#$accentColor")
     } else if ("stroke" == tint) {
       svg.setAttribute("stroke", "#$accentColor")
     } else if ("true" == themed || "fill" == themed) {

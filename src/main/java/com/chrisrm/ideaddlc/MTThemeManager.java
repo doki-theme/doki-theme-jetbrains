@@ -75,6 +75,7 @@ import java.net.URL;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 
 /**
  * Manages appearance settings
@@ -119,7 +120,8 @@ public final class MTThemeManager {
     return () -> {
       this.ddlcIsActiveConsumer.consume(isDDLCActive());
       LafManager.getInstance().addLafManagerListener(lafManager -> {
-        boolean ddlcActive = UIManager.getLookAndFeel().getDescription().contains("DDLC");
+        String name = Objects.requireNonNull(lafManager.getCurrentLookAndFeel(), "Theme must have name!").getName();
+        boolean ddlcActive = DokiThemes.isDokiColorScheme(name);
         this.ddlcIsActiveConsumer.consume(ddlcActive);
       });
     };
@@ -388,10 +390,8 @@ public final class MTThemeManager {
   }
 
   public static void activate(final String themeId) {
-    final DDLCThemeFacade themeFor = DDLCThemes.getThemeFor(themeId);
-    if (themeFor != null) {
-      activate(themeFor, false);
-    }
+    final DDLCThemeFacade themeFor = DokiThemes.getThemeById(themeId);
+    activate(themeFor, false);
   }
 
   /**
@@ -423,7 +423,6 @@ public final class MTThemeManager {
     applyCompactSidebar(false);
     applyCustomTreeIndent();
     applyMenusHeight();
-    applyAccents(true);
     applyFonts();
     themeTitleBar();
     applyCompactToolWindowHeaders();
@@ -451,14 +450,14 @@ public final class MTThemeManager {
         ContainerUtil.find(lafManager.getInstalledLookAndFeels(),
         lookAndFeelInfo -> lookAndFeelInfo.getName().equals(selectedTheme.getThemeName()));
 
-    MTChangeLAFAnimator.showSnapshot();
+//    MTChangeLAFAnimator.showSnapshot();
     if (lafInfo != null) {
       lafManager.setCurrentLookAndFeel(lafInfo);
-    } else {
+//    } else {
       // good ol' shit
       activate(selectedTheme, true);
     }
-    SwingUtilities.invokeLater(MTChangeLAFAnimator::hideSnapshotWithAnimation);
+//    SwingUtilities.invokeLater(MTChangeLAFAnimator::hideSnapshotWithAnimation);
   }
 
   /**
@@ -779,6 +778,8 @@ public final class MTThemeManager {
       UIManager.put("PopupMenuSeparator.height", 10);
       UIManager.put("PopupMenuSeparator.stripeIndent", 5);
     }
+
+
   }
   //endregion
 

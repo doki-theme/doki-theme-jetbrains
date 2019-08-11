@@ -43,10 +43,23 @@ works with material ui
 Rating Stars
 ------
 
+- Cleo ✔ ️
+    - Plugin Selected Tab Foreground.
+- Eleniel ✔ ️
+- Neera ✔️
+    - Green notification window hard to read with yellow texto
+    - Plugin selected tab foreground.
+- Sanya ✔️
+- Syrena ✔️
+- Wyla
+    - Annotation colour??
+
 Shit to fix
 ----
-Material Integrations
-    - Debugger, highlighted text, welcome window, tool window
 
+- Update Plugin Page
+
+
+Nice to Haves:
+----
 - Transition?
-- Field Test

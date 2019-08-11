@@ -1,6 +1,5 @@
 package io.acari.DDLC.themes
 
-import com.chrisrm.ideaddlc.MTConfig
 import com.chrisrm.ideaddlc.MTThemeManager
 import com.chrisrm.ideaddlc.lafs.MTDarkLaf
 import com.chrisrm.ideaddlc.lafs.MTLightLaf
@@ -38,7 +37,10 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
     override fun isDark(): Boolean = this.isDarkTheme
     override fun getEditorColorsScheme(): String = this.colorScheme
     override fun getName(): String = this.clubMemberName
-    override fun getIcon(): Icon = DDLCIcons.EXCLUDED
+    override fun getIcon(): Icon = IconLoader.getIcon(iconPath())
+
+    open fun iconPath(): String =
+        "/icons/ddlc/ddlcTheme.svg"
 
     override fun getHighlightColorString(): String {
         return "425B67"
@@ -81,12 +83,7 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
             buildTransparentColors()
             buildTreeSelectionInactiveColors()
 
-            // Apply theme accent color if said so
-            val instance = MTConfig.getInstance()
-            if (instance.isOverrideAccentColor) {
-                instance.accentColor = accentColor
-                MTThemeManager.applyAccents(true)
-            }
+            MTThemeManager.applyAccents(true)
 
             applyOneOffs()
 
@@ -214,13 +211,22 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
             "ActionButton.pressedBorderColor",
             "Autocomplete.selectionUnfocus",
             "CheckBox.darcula.inactiveFillColor",
-            "CompletionPopup.selectionInactiveBackground",
+            "CompletionPopup.selectionInactiveBackground", // todo: why is this here??
             "Component.borderColor",
             "Component.focusedBorderColor",
             "DebuggerTabs.active.background",
             "DebuggerTabs.selectedBackground",
             "DefaultTabs.hoverColor",
             "DefaultTabs.hoverMaskColor",
+            "DebuggerTabs.underlinedTabBackground",
+            "DefaultTabs.hoverBackground",
+            "DefaultTabs.underlinedTabBackground",
+            "EditorTabs.underlinedTabBackground",
+            "EditorTabs.active.background", // deprecated
+            "EditorTabs.selectedBackground",
+            "EditorTabs.underlinedTabBackground",
+            "EditorTabs.active.background", // deprecated
+            "EditorTabs.selectedBackground",
             "EditorTabs.hoverColor",
             "EditorTabs.hoverMaskColor",
             "Focus.color",
@@ -231,6 +237,7 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
             "Plugins.Button.installFocusedBackground",
             "Plugins.eapTagBackground",
             "Plugins.tagBackground",
+            "Plugins.Tab.hover.background",
             "ProgressBar.halfColor",
             "ProgressBar.selectionBackground",
             "ProgressBar.trackColor",
@@ -282,7 +289,6 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
         return Stream.of(
                 "ProgressBar.halfColor",
                 "MemoryIndicator.unusedColor",
-                "DefaultTabs.hoverBackground",
                 "Button.darcula.defaultFocusedBorderColor",
                 "Button.darcula.focusedBorderColor",
                 "Button.darcula.selection.color1",
@@ -297,7 +303,6 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
                 "PasswordField.selectionBackground",
                 "Plugins.selectionBackground",
                 "Plugins.Tab.active.background",
-                "Plugins.Tab.hover.background",
                 "TabbedPane.focusColor",
                 "Table.focusCellBackground",
                 "Table.selectionBackground",
@@ -308,7 +313,6 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
                 "Button.default.endBackground",
                 "Button.focus", // deprecated
                 "DebuggerTabs.underlinedTabBackground",
-                "DefaultTabs.hoverBackground",
                 "DefaultTabs.underlinedTabBackground",
                 "EditorTabs.underlinedTabBackground",
                 "ToolWindow.Button.hoverBackground"
@@ -317,7 +321,9 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
     }
 
     open fun getCompletionBackgroundResources(): Stream<String> =
-        Stream.of("CompletionPopup.background").distinct()
+        Stream.of(
+            "CompletionPopup.background"
+        ).distinct()
 
     open fun getBorderResources(): Stream<String> =
         Stream.of("Borders.color",
@@ -405,6 +411,7 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
     open fun getMenuBarResources(): Stream<String> =
         Stream.of(
             "Menu.background",
+            "MenuItem.background",
             "MenuBar.background",
             "PopupMenu.background",
             "TitlePane.background"
@@ -503,15 +510,22 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
 
     open fun getSelectionForegroundResources(): Stream<String> {
         return Stream.of(
+            "CheckBoxMenuItem.selectionForeground",
+            "ComboBox.selectionForeground",
             "CompletionPopup.selectionForeground",
             "CompletionPopup.selectionInfoForeground",
             "Label.selectedForeground",
+            "List.selectionForeground",
             "Menu.acceleratorSelectionForeground",
             "Menu.selectionForeground",
             "MenuItem.acceleratorSelectionForeground",
             "MenuItem.selectionForeground",
             "PasswordField.selectionForeground",
+            "Plugins.selectionForeground", // deprecated
+            "Plugins.Tab.active.foreground", // deprecated
+            "Plugins.Tab.selectedForeground",
             "SearchEverywhere.Tab.selectedForeground",
+            "TabbedPane.selectedForeground", // deprecated
             "Table.selectionForeground",
             "TextArea.selectionForeground",
             "TextField.selectionForeground"
@@ -523,8 +537,8 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
                 "inactiveCaption",
                 "List.selectionBackground",
                 "Table.selectionBackground",
-                "Table.selectionBackground",
                 "CompletionPopup.selectionBackground",
+                "Plugins.Tab.selectedBackground",
                 "PasswordField.selectionBackground",
                 "Button.mt.selectedBackground",
                 "TextArea.selectionBackground",
@@ -573,6 +587,7 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
             "ColorChooser.background",
             "ComboBox.background",
             "ComboBox.disabledBackground",
+
             "control",
             "DebuggerPopup.borderColor",
             "DefaultTabs.background",
@@ -600,7 +615,6 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
             "InplaceRefactoringPopup.borderColor",
             "InternalFrame.inactiveTitleBackground",
             "material.background",
-            "MenuBar.background",
             "MenuBar.disabledBackground",
             "MenuBar.shadow",
             "monika.background",
@@ -717,7 +731,20 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
             "monika.selectionForegroundInactive",
             "monika.selectionInactiveForeground",
             "monika.textForeground",
+            "Notification.foreground",
+            "Notification.MoreButton.foreground",
+            "Notification.ToolWindow.errorForeground",
+            "Notification.ToolWindow.infoForeground", // deprecated
+            "Notification.ToolWindow.informativeForeground",
+            "Notification.ToolWindow.warningForeground",
+            "Notification.ToolWindowError.foreground", // deprecated
+            "Notification.ToolWindowInfo.foreground", // deprecated
+            "Notification.ToolWindowWarning.foreground", // deprecated
             "PasswordField.foreground",
+            "Plugins.Button.installForeground",
+            "Plugins.Button.installFillForeground",
+            "Plugins.Button.updateForeground",
+            "Plugins.SectionHeader.foreground",
             "PopupMenu.foreground",
             "RadioButton.foreground",
             "RadioButtonMenuItem.acceleratorForeground",
@@ -960,22 +987,24 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
         val colors = Collections.unmodifiableSet(
             Sets.newHashSet(
                 "Tree.selectionInactiveBackground",
-                "CompletionPopup.nonFocusedState",
-                "CompletionPopup.nonFocusedMask",
                 "List.selectionInactiveBackground",
                 "Table.selectionInactiveBackground",
                 "TitlePane.inactiveBackground"
             ))
 
-        val transparentBackground = MTUI.Tree.getSelectionInactiveBackground()
+        val transparentBackground = getTreeSelectionInactiveColor()
         for (color in colors) {
             UIManager.put(color, transparentBackground)
         }
     }
 
+    open fun getTreeSelectionInactiveColor(): Color?= MTUI.Tree.getSelectionInactiveBackground()
+
     private fun buildTransparentColors() {
         val colors = Collections.unmodifiableSet(
             Sets.newHashSet(
+                "CompletionPopup.nonFocusedState",
+                "CompletionPopup.nonFocusedMask",
                 "ScrollBar.hoverTrackColor",
                 "ScrollBar.trackColor",
                 "ScrollBar.Mac.hoverTrackColor",
@@ -986,11 +1015,13 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
                 "ScrollBar.Mac.Transparent.trackColor"
             ))
 
-        val transparentBackground = MTUI.Panel.getTransparentBackground()
+        val transparentBackground = getTransparentBackgroundColor()
         for (color in colors) {
             UIManager.put(color, transparentBackground)
         }
     }
+
+    open fun getTransparentBackgroundColor(): Color = MTUI.Panel.getTransparentBackground()
 
     open fun getOneOffResources(): Stream<Pair<Stream<String>, String>> = Stream.empty()
 

@@ -47,6 +47,7 @@ import com.intellij.util.xmlb.XmlSerializerUtil;
 import io.acari.DDLC.DDLCThemeFacade;
 import io.acari.DDLC.DDLCThemes;
 import com.intellij.util.xmlb.annotations.Property;
+import io.acari.DDLC.DokiThemes;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
@@ -487,7 +488,7 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
    * Return the selected theme
    */
   public DDLCThemeFacade getSelectedTheme() {
-    final DDLCThemeFacade themeFor = DDLCThemes.getThemeFor(selectedTheme);
+    final DDLCThemeFacade themeFor = DokiThemes.getThemeById(selectedTheme);
     return ObjectUtils.notNull(themeFor, DDLCThemes.MONIKA);
   }
 

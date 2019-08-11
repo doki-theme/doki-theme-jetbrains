@@ -26,10 +26,7 @@
 
 package io.acari.DDLC.wizard;
 
-import io.acari.DDLC.wizard.steps.DDLCWizardChibiPanel;
-import io.acari.DDLC.wizard.steps.DDLCWizardFinishPanel;
-import io.acari.DDLC.wizard.steps.DDLCWizardThemesPanel;
-import io.acari.DDLC.wizard.steps.DDLCWizardWelcomePanel;
+import io.acari.DDLC.wizard.steps.*;
 import com.intellij.ide.customize.AbstractCustomizeWizardStep;
 import com.intellij.ide.customize.CustomizeIDEWizardDialog;
 import com.intellij.ide.customize.CustomizeIDEWizardStepsProvider;
@@ -40,6 +37,7 @@ public class DDLCWizardStepsProvider implements CustomizeIDEWizardStepsProvider 
     @Override
     public void initSteps(final CustomizeIDEWizardDialog wizardDialog, final List<AbstractCustomizeWizardStep> steps) {
         steps.add(new DDLCWizardWelcomePanel());
+        steps.add(new ChooseYourAdventurePanel());
         steps.add(new DDLCWizardThemesPanel());
         steps.add(new DDLCWizardChibiPanel());
         steps.add(new DDLCWizardFinishPanel());

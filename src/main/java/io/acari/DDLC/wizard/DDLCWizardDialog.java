@@ -51,7 +51,7 @@ public class DDLCWizardDialog extends CustomizeIDEWizardDialog implements Action
 
   public DDLCWizardDialog(final DDLCWizardStepsProvider stepsProvider) {
     super(stepsProvider);
-    setTitle("DDLC Theme Wizard");
+    setTitle("Doki-Doki Theme Wizard");
     getPeer().setAppIcons();
 
     extractPrivateFields();

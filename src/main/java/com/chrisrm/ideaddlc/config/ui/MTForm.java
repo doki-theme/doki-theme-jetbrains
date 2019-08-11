@@ -50,6 +50,7 @@ import com.intellij.ui.ListCellRendererWrapper;
 import com.intellij.ui.components.labels.LinkLabel;
 import com.intellij.util.PlatformUtils;
 import com.jgoodies.forms.factories.DefaultComponentFactory;
+import io.acari.DDLC.DokiThemes;
 import io.acari.DDLC.actions.DarkMode;
 import io.acari.DDLC.chibi.ChibiLevel;
 import io.acari.DDLC.integrations.GithubActions;
@@ -62,6 +63,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.Objects;
 import java.util.ResourceBundle;
+import java.util.Vector;
+import java.util.stream.Collectors;
 
 import static io.acari.DDLC.ConstantsKt.DARK_MODE_CONSTANT;
 
@@ -1131,7 +1134,7 @@ public class MTForm implements MTFormUI {
 
         //---- selectedThemeLabel ----
         selectedThemeLabel.setText(bundle.getString("MTForm.selectedThemeLabel.text"));
-        selectedThemeLabel.setIcon(new ImageIcon(getClass().getResource("/icons/ddlc/ddlcTheme.png")));
+        selectedThemeLabel.setIcon(new ImageIcon(getClass().getResource("/icons/ddlc/Doki-Doki-Logo.png")));
         selectedThemeLabel.setFont(UIManager.getFont("ComboBox.font"));
         selectedThemeLabel.setIconTextGap(8);
         selectedThemeLabel.setToolTipText(bundle.getString("MTForm.selectedThemeLabel.toolTipText"));
@@ -1618,7 +1621,9 @@ public class MTForm implements MTFormUI {
     }
 
     // Themes
-    themeComboBox.setModel(new DefaultComboBoxModel<>(DDLCThemes.getAllThemes()));
+    Vector<DDLCThemeFacade> collect = DokiThemes.getAllThemes()
+        .collect(Collectors.toCollection(Vector::new));
+    themeComboBox.setModel(new DefaultComboBoxModel<>(collect));
     themeComboBox.setRenderer(new ListCellRendererWrapper<DDLCThemeFacade>() {
       @Override
       public void customize(final JList list, final DDLCThemeFacade value, final int index, final boolean selected, final boolean hasFocus) {

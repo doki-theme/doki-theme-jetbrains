@@ -36,6 +36,8 @@ import io.acari.DDLC.actions.DarkMode
 import com.intellij.ide.customize.AbstractCustomizeWizardStep
 import com.intellij.ui.components.JBScrollPane
 import com.intellij.ui.components.labels.LinkLabel
+import io.acari.DDLC.wizard.ThemeSuite
+import io.acari.DDLC.wizard.WizardConfig
 import net.miginfocom.swing.MigLayout
 import java.awt.Desktop
 import java.awt.Font
@@ -63,6 +65,7 @@ class DDLCWizardFinishPanel : AbstractCustomizeWizardStep() {
     private var openCollLink: LinkLabel<Any>? = null
     private var vSpacer1: JPanel? = null
     private var summarySummary: JLabel? = null
+    private var menagerieSummary: JLabel = JLabel()
     private var disclaimer: JLabel? = null
     private var disclaimerTwo: JLabel? = null
 
@@ -164,7 +167,9 @@ class DDLCWizardFinishPanel : AbstractCustomizeWizardStep() {
                 //---- summarySummary ----
                 summarySummary!!.text = bundle.getString("DDLCWizardFinishPanel.summarySummary.text")
                 summarySummary!!.font = summarySummary!!.font.deriveFont(summarySummary!!.font.size + 5f)
-                content!!.add(summarySummary!!, "cell 0 4,alignx center,growx 0")
+
+                menagerieSummary.text = "Thanks again for choosing the Doki-Doki Theme!"
+                menagerieSummary.font = menagerieSummary.font.deriveFont(menagerieSummary.font.size + 5f)
 
             }
             scrollPane!!.setViewportView(content)
@@ -216,7 +221,18 @@ class DDLCWizardFinishPanel : AbstractCustomizeWizardStep() {
 
     override fun beforeShown(forward: Boolean) {
         super.beforeShown(forward)
-        if (!DarkMode.isOn() && ChibiOrchestrator.currentActiveTheme() != DDLCThemes.MONIKA) {
+        val isLiteratureClub = WizardConfig.chosenThemeSuite == ThemeSuite.LITERATURE_CLUB
+        if(isLiteratureClub){
+            content!!.remove(menagerieSummary)
+            content!!.add(summarySummary!!, "cell 0 4,alignx center,growx 0")
+        } else {
+            content!!.remove(summarySummary)
+            content!!.add(menagerieSummary, "cell 0 4,alignx center,growx 0")
+        }
+
+        if (!DarkMode.isOn() &&
+            isLiteratureClub &&
+            ChibiOrchestrator.currentActiveTheme().value != DDLCThemes.MONIKA) {
             content!!.add(vSpacer1!!, "cell 0 5")
             val bundle = ResourceBundle.getBundle("messages.DDLCWizardBundle")
             //---- disclaimer ----
@@ -229,12 +245,11 @@ class DDLCWizardFinishPanel : AbstractCustomizeWizardStep() {
             content!!.add(disclaimerTwo!!, "cell 0 7")
         } else {
             try {
-                content!!.remove(10)
-                content!!.remove(9)
-                content!!.remove(8)
+                content!!.remove(vSpacer1)
+                content!!.remove(disclaimer)
+                content!!.remove(disclaimerTwo)
             } catch (throwable: Throwable) {
             }
         }
-        scrollPane!!.setViewportView(content)
     }
 }

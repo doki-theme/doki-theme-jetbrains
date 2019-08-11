@@ -102,13 +102,6 @@ public interface DDLCThemeFacade {
   String getStopColor();
 
   /**
-   * The extenral files color
-   *
-   * @return
-   */
-  String getExcludedColor();
-
-  /**
    * Order in the list
    *
    * @return
@@ -130,4 +123,8 @@ public interface DDLCThemeFacade {
    * Is the theme custom
    */
   boolean isCustom();
+
+  String getChibi();
+
+  String getNormalChibi();
 }

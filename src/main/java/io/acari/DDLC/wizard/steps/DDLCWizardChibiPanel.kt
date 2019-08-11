@@ -36,6 +36,8 @@ import io.acari.DDLC.actions.DarkMode
 import com.intellij.ide.customize.AbstractCustomizeWizardStep
 import com.intellij.ui.components.JBScrollPane
 import io.acari.DDLC.chibi.ChibiLevel
+import io.acari.DDLC.wizard.ThemeSuite
+import io.acari.DDLC.wizard.WizardConfig
 import net.miginfocom.swing.MigLayout
 import java.awt.BorderLayout
 import java.awt.Dimension
@@ -64,7 +66,9 @@ class DDLCWizardChibiPanel : AbstractCustomizeWizardStep() {
     }
 
     private fun getSpecialMessage() =
-            if (DarkMode.isOn() && ChibiOrchestrator.currentActiveTheme() != DDLCThemes.MONIKA)
+            if (DarkMode.isOn() &&
+                WizardConfig.chosenThemeSuite == ThemeSuite.LITERATURE_CLUB &&
+                ChibiOrchestrator.currentActiveTheme().value != DDLCThemes.MONIKA )
                 """
                 <h4>Note: I see you have dark mode on! "Use Tools -> Panel Options -> Swap Chibi" to make your club member less c̟̺̱̱̪o͚̲̹̼͘r̡̭̤̭̼̟̭̜r͇͚u̘̰͝p͓̝͍̻̩̩t̼̣̙͍͍e͕̹͙̟̬̮͟ͅd̻ anytime :)</h4>
                 """.trimIndent() else ""
@@ -153,11 +157,18 @@ class DDLCWizardChibiPanel : AbstractCustomizeWizardStep() {
             noChibisButton!!.isSelected = ChibiOrchestrator.currentChibiLevel() == ChibiLevel.OFF
             noChibisButton!!.horizontalAlignment = SwingConstants.LEFT
             noChibisButton!!.actionCommand = "noChibis"
-            noChibisButton!!.addActionListener { this.noChibisButtonActionPerformed() }
+            noChibisButton!!.addActionListener {
+                noChibisButton!!.isSelected = true
+                this.noChibisButtonActionPerformed()
+            }
             noChibisPanel!!.add(noChibisButton)
 
             //---- noChibisLabel ----
             noChibisLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/chibis/$clubMemberPostFix"))
+            noChibisLabel!!.addMouseListener(createMouseListener {
+                noChibisButton!!.isSelected = true
+                this.noChibisButtonActionPerformed()
+            })
             noChibisPanel!!.add(noChibisLabel)
         }
         grid!!.add(noChibisPanel!!, "cell 0 0")
@@ -172,11 +183,18 @@ class DDLCWizardChibiPanel : AbstractCustomizeWizardStep() {
             yesChibisButton!!.isSelected = ChibiOrchestrator.currentChibiLevel() == ChibiLevel.ON
             yesChibisButton!!.horizontalAlignment = SwingConstants.LEFT
             yesChibisButton!!.actionCommand = "yesChibis"
-            yesChibisButton!!.addActionListener { this.yesChibisButtonActionPerformed() }
+            yesChibisButton!!.addActionListener {
+                yesChibisButton!!.isSelected = true
+                this.yesChibisButtonActionPerformed()
+            }
             yesChibisPanel!!.add(yesChibisButton)
 
             //---- yesChibisLabel ----
             yesChibisLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/chibis/chibi_$clubMemberPostFix"))
+            yesChibisLabel!!.addMouseListener(createMouseListener {
+                yesChibisButton!!.isSelected = true
+                this.yesChibisButtonActionPerformed()
+            })
             yesChibisPanel!!.add(yesChibisLabel)
         }
         grid!!.add(yesChibisPanel!!, "cell 1 0")

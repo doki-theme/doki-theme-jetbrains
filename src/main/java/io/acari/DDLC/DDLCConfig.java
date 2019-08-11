@@ -133,10 +133,10 @@ public class DDLCConfig implements PersistentStateComponent<DDLCConfig>, Cloneab
    * @return
    */
   public DDLCThemeFacade getSelectedTheme() {
-    final DDLCThemeFacade themeFor = DDLCThemes.getThemeFor(selectedTheme);
-    return Optional.ofNullable(themeFor)
+    final DDLCThemeFacade themeFor = DokiThemes.getThemeById(selectedTheme);
+    return Optional.of(themeFor)
         .orElseGet(() -> Optional.ofNullable(PropertiesComponent.getInstance().getValue(SAVED_THEME))
-            .map(DDLCThemes::getThemeFor)
+            .map(DokiThemes::getThemeById)
             .orElse(DDLCThemes.MONIKA));
   }
 

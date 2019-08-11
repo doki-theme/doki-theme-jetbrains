@@ -167,22 +167,14 @@ public enum UIReplacer {
     if (!MTConfig.getInstance().isMaterialTheme()) {
       return;
     }
-    final Color defaultValue = UIUtil.getListSelectionBackground();
-    final Color autoCompleteBackground = ObjectUtils.notNull(UIManager.getColor("CompletionPopup.background"), defaultValue);
 
-    final Field[] fields = LookupCellRenderer.class.getDeclaredFields();
-    Arrays.stream(fields)
-        .filter(f -> f.getType().equals(Color.class))
-        .filter(field -> field.getName().equals("BACKGROUND_COLOR"))
-        .findFirst()
-        .ifPresent(field -> {
-          try {
-            StaticPatcher.setFinalStatic(field, autoCompleteBackground);
-          } catch (NoSuchFieldException | IllegalAccessException e) {
-            System.err.println("Unable to hack autocomplete: " + e.getLocalizedMessage());
-          }
-        });
-
+    final Color autoCompleteBackground = MTUI.Panel.getSecondaryBackground();
+    try {
+      Field backgroundColorField = LookupCellRenderer.class.getDeclaredField("BACKGROUND_COLOR");
+      StaticPatcher.setFinalStatic(backgroundColorField, autoCompleteBackground);
+    } catch (NoSuchFieldException | IllegalAccessException e) {
+      System.err.println("Unable to patch completion popup: " + e.getLocalizedMessage());
+    }
   }
 
 
