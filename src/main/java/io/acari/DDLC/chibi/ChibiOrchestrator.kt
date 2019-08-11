@@ -8,8 +8,6 @@ import com.intellij.openapi.wm.impl.IdeBackgroundUtil.FRAME_PROP
 import com.intellij.util.io.isFile
 import io.acari.DDLC.DDLCConfig
 import io.acari.DDLC.DDLCThemeFacade
-import io.acari.DDLC.DDLCThemes
-import io.acari.DDLC.themes.DokiDokiTheme
 import org.apache.commons.io.IOUtils
 import java.io.BufferedInputStream
 import java.io.IOException

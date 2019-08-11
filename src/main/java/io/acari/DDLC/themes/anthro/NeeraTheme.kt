@@ -1,10 +1,7 @@
 package io.acari.DDLC.themes.anthro
 
 import com.chrisrm.ideaddlc.utils.MTAccents
-import com.intellij.ui.JBColor
 import io.acari.DDLC.themes.AnthroTheme
-import java.util.stream.Stream
-import javax.swing.UIManager
 import javax.swing.plaf.ColorUIResource
 
 class NeeraTheme : AnthroTheme("neera", "Neera", false, "Neera") {

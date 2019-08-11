@@ -61,7 +61,6 @@ import org.jetbrains.annotations.NotNull;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.Vector;

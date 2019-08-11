@@ -12,7 +12,6 @@ object DokiThemes {
         .collect(Collectors.toMap({ it.name.toUpperCase() }, { it }, { a, b -> a }))
     themesByColorScheme = getAllThemes()
         .collect(Collectors.toMap({ it.themeColorScheme.toUpperCase() }, { it }, { a, b -> a }))
-
   }
 
   @JvmStatic

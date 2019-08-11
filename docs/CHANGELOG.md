@@ -1,6 +1,25 @@
 # Changelog
 ----
 
+# 4.0.0
+
+- Brand New Theme Suite!
+    - Introducing **Mistress's Menagerie**
+        - A collection themes based off of various characters of anthropomorphized species
+    - 6 Light and Dark Themes to choose from.
+    
+- Updated Light Monika's look to be less "Holy cow, green!".
+
+- Enhanced plugin's first usage user experience.
+
+- Re-Branded Plugin
+    - Updated Plugin Icon
+    - Changed Plugin name to "The Doki-Doki Theme"
+    - Same themes as before!
+    
+- Improved Material UI Integration Support
+    - Now when switching between Doki-Doki themes and Material UI Themes, the chibi will disappear.
+
 # 3.5.0
 
 - Updated to Material UI 4.2.1!

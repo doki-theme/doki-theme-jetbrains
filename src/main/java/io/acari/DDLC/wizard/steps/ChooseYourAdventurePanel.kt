@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2019 Chris Magnussen and Elior Boukhobza
+ * Copyright (c) 2019 Alex Simons
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,10 +24,6 @@
  *
  */
 
-/*
- * Created by JFormDesigner on Fri Jun 29 18:52:29 IDT 2018
- */
-
 package io.acari.DDLC.wizard.steps
 
 import com.intellij.ide.customize.AbstractCustomizeWizardStep
@@ -39,8 +35,6 @@ import io.acari.DDLC.wizard.WizardConfig
 import net.miginfocom.swing.MigLayout
 import java.awt.BorderLayout
 import java.awt.Dimension
-import java.awt.event.MouseEvent
-import java.awt.event.MouseListener
 import java.util.*
 import javax.swing.*
 import javax.swing.border.EmptyBorder

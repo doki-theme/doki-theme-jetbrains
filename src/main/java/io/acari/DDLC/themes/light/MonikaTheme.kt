@@ -27,9 +27,7 @@
 package io.acari.DDLC.themes.light
 
 import com.chrisrm.ideaddlc.utils.MTAccents
-import com.intellij.ui.ColorUtil
 import io.acari.DDLC.themes.DokiDokiTheme
-import java.awt.Color
 import java.util.stream.Stream
 import javax.swing.plaf.ColorUIResource
 
