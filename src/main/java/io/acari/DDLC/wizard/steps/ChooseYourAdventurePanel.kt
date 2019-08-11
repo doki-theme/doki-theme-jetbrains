@@ -39,6 +39,8 @@ import io.acari.DDLC.wizard.WizardConfig
 import net.miginfocom.swing.MigLayout
 import java.awt.BorderLayout
 import java.awt.Dimension
+import java.awt.event.MouseEvent
+import java.awt.event.MouseListener
 import java.util.*
 import javax.swing.*
 import javax.swing.border.EmptyBorder
@@ -146,6 +148,7 @@ class ChooseYourAdventurePanel : AbstractCustomizeWizardStep() {
 
           //---- literatureClubLabel ----
           literatureClubLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/logo_fit.png"))
+          literatureClubLabel!!.addMouseListener(createMouseListener { this.literatureClubButtonActionPerformed() })
           themeSuitePanel!!.add(literatureClubLabel)
         }
         grid!!.add(themeSuitePanel!!, "cell 0 0")
@@ -163,6 +166,8 @@ class ChooseYourAdventurePanel : AbstractCustomizeWizardStep() {
 
           //---- misMenagerieLabel ----
           misMenagerieLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/menagerie.png"))
+          var self = this
+          misMenagerieLabel!!.addMouseListener (createMouseListener {this.misMenagerieButtonActionPerformed()})
           misMenageriePanel!!.add(misMenagerieLabel)
         }
         grid!!.add(misMenageriePanel!!, "cell 1 0,align center")
@@ -175,6 +180,27 @@ class ChooseYourAdventurePanel : AbstractCustomizeWizardStep() {
     val selectedTheme = ButtonGroup()
     selectedTheme.add(literatureClubButton)
     selectedTheme.add(misMenagerieButton)
+  }
+
+  private fun createMouseListener(function: () -> Unit): MouseListener {
+    return object : MouseListener {
+      override fun mouseReleased(e: MouseEvent?) {
+      }
+
+      override fun mouseEntered(e: MouseEvent?) {
+      }
+
+      override fun mouseClicked(e: MouseEvent?) {
+        function()
+      }
+
+      override fun mouseExited(e: MouseEvent?) {
+      }
+
+      override fun mousePressed(e: MouseEvent?) {
+      }
+
+    }
   }
 
 }
