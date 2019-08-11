@@ -50,7 +50,6 @@ Rating Stars
     - Plugin selected tab foreground.
 - Sanya ✔️
 - Syrena ✔️
-    - Color under caret
 - Wyla
     - Annotation colour??
 
