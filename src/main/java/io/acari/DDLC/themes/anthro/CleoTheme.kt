@@ -142,7 +142,9 @@ class CleoTheme : AnthroTheme("cleo", "Cleo", false, "Cleo") {
   override fun getOneOffResources(): Stream<Pair<Stream<String>, String>> {
     return Stream.of(
         Pair(Stream.of("Menu.foreground",
-            "MenuItem.foreground"), "766B6B"),
+            "MenuItem.foreground",
+            "Menu.acceleratorForeground",
+            "MenuItem.acceleratorForeground"), "766B6B"),
         Pair("CompletionPopup.selectionForeground".toStream(), selectionForegroundColorString),
         Pair(Stream.of(
             "CompletionPopup.matchForeground",
