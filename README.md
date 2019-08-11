@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="https://raw.githubusercontent.com/cyclic-reference/jetbrains-theme/anthroThemeUpdated/src/main/resources/wizard/logo.png" alt="Just Monika"></img>
+    <img src="https://raw.githubusercontent.com/cyclic-reference/jetbrains-theme/master/src/main/resources/wizard/logo.png" alt="Just Monika"></img>
 </div>
 
 ---
@@ -41,9 +41,11 @@ Don't be afraid to reach out and join the [Slack Community](https://join.slack.c
 
 ## Enjoying the plugin and want more people to use it?
 
-Great! I am glad you like it [please give it a good review on the plugins page](https://plugins.jetbrains.com/plugin/10804-doki-doki-literature-club-theme).
-That way this plugin will become move visible to more users!
-Also be sure to share it with others who also may like it as well!
+Great! I am glad you like it!
+
+Be sure to share it with others who also may like it as well!
+
+Also, giving it a good [review on the plugins page](https://plugins.jetbrains.com/plugin/10804-doki-doki-literature-club-theme) will help this plugin will become more visible to users!
 
 ## Not your thing or something bothering you?
 
