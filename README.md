@@ -37,8 +37,7 @@ These themes are built on top of the awesome [Material UI](https://plugins.jetbr
 
 # Got Contributions, fun ideas, or issues?
 
-Don't be afraid to reach out!  
-join the [Slack Community](https://join.slack.com/t/doki-doki-theme/shared_invite/enQtNzIzMDY4MjkwNDUzLTE3MWFkNTUxMjVmMjFiNjIwMzA1NTliZDFlNjM4ZGQ1NThmYWQ4NmVjN2ExOWQ2YzA4MzgxMzQ3NjQ0YmQ2OGU)!
+Don't be afraid to reach out and join the [Slack Community](https://join.slack.com/t/doki-doki-theme/shared_invite/enQtNzIzMDY4MjkwNDUzLTE3MWFkNTUxMjVmMjFiNjIwMzA1NTliZDFlNjM4ZGQ1NThmYWQ4NmVjN2ExOWQ2YzA4MzgxMzQ3NjQ0YmQ2OGU)!
 
 ## Enjoying the plugin and want more people to use it?
 
