@@ -181,26 +181,4 @@ class ChooseYourAdventurePanel : AbstractCustomizeWizardStep() {
     selectedTheme.add(literatureClubButton)
     selectedTheme.add(misMenagerieButton)
   }
-
-  private fun createMouseListener(function: () -> Unit): MouseListener {
-    return object : MouseListener {
-      override fun mouseReleased(e: MouseEvent?) {
-      }
-
-      override fun mouseEntered(e: MouseEvent?) {
-      }
-
-      override fun mouseClicked(e: MouseEvent?) {
-        function()
-      }
-
-      override fun mouseExited(e: MouseEvent?) {
-      }
-
-      override fun mousePressed(e: MouseEvent?) {
-      }
-
-    }
-  }
-
 }

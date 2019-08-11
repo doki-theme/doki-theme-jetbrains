@@ -324,6 +324,10 @@ class DDLCWizardThemesPanel : AbstractCustomizeWizardStep() {
 
       val menagerieThemeLabel = JLabel()
       menagerieThemeLabel.icon = ImageIcon(javaClass.getResource("/wizard/anthro/${themeItem.themeName.toLowerCase()}.png"))
+      menagerieThemeLabel.addMouseListener(createMouseListener {
+        menagerieThemeButton.isSelected = true
+        themeItem.themeAction.selectionActivation()
+      })
       menagerieThemePanel.add(menagerieThemeLabel)
       val row = if ((index + 1) % 2 == 0) 1 else 0
       val column = Math.floorDiv(index, 2)
@@ -348,6 +352,7 @@ class DDLCWizardThemesPanel : AbstractCustomizeWizardStep() {
 
       //---- justMonikaLabel ----
       justMonikaLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/justMonika.png"))
+      justMonikaLabel!!.addMouseListener(createMouseListener { this.justMonikaButtonActionPerformed() })
       justMonikaPanel!!.add(justMonikaLabel)
     }
     grid!!.add(justMonikaPanel!!, "cell 0 0")
@@ -366,6 +371,7 @@ class DDLCWizardThemesPanel : AbstractCustomizeWizardStep() {
 
       //---- onlyMonikaLabel ----
       onlyMonikaLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/onlyMonika.png"))
+      onlyMonikaLabel!!.addMouseListener(createMouseListener { this.onlyMonikaButtonActionPerformed() })
       onlyMonikaPanel!!.add(onlyMonikaLabel)
     }
     grid!!.add(onlyMonikaPanel!!, "cell 1 0,align center center,grow 0 0")
@@ -383,6 +389,7 @@ class DDLCWizardThemesPanel : AbstractCustomizeWizardStep() {
 
       //---- sayoriLabel ----
       sayoriLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/sayori.png"))
+      sayoriLabel!!.addMouseListener(createMouseListener { this.sayoriButtonActionPerformed() })
       sayoriLayout!!.add(sayoriLabel)
     }
     grid!!.add(sayoriLayout!!, "cell 0 1,align center center,grow 0 0")
@@ -400,6 +407,7 @@ class DDLCWizardThemesPanel : AbstractCustomizeWizardStep() {
 
       //---- deletedCharacterLabel ----
       deletedCharacterLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/deletedCharacter.png"))
+      deletedCharacterLabel!!.addMouseListener(createMouseListener { this.deletedCharacterButtonActionPerformed() })
       deletedCharacterLayout!!.add(deletedCharacterLabel)
     }
     grid!!.add(deletedCharacterLayout!!, "cell 1 1,align center center,grow 0 0")
@@ -416,6 +424,7 @@ class DDLCWizardThemesPanel : AbstractCustomizeWizardStep() {
 
       //---- natsukiLabel ----
       natsukiLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/natsuki.png"))
+      natsukiLabel!!.addMouseListener(createMouseListener { this.natsukiButtonActionPerformed() })
       natsukiPanel!!.add(natsukiLabel)
     }
     grid!!.add(natsukiPanel!!, "cell 0 2,align center center,grow 0 0")
@@ -432,6 +441,7 @@ class DDLCWizardThemesPanel : AbstractCustomizeWizardStep() {
 
       //---- onlyPlayWithMeLabel ----
       onlyPlayWithMeLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/onlyPlayWithMe.png"))
+      onlyPlayWithMeLabel!!.addMouseListener(createMouseListener { this.onlyPlayWithMeButtonActionPerformed() })
       onlyPlayWithMePanel!!.add(onlyPlayWithMeLabel)
     }
     grid!!.add(onlyPlayWithMePanel!!, "cell 1 2,align center center,grow 0 0")
@@ -448,6 +458,7 @@ class DDLCWizardThemesPanel : AbstractCustomizeWizardStep() {
 
       //---- yuriLabel ----
       yuriLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/yuri.png"))
+      yuriLabel!!.addMouseListener(createMouseListener { this.yuriButtonActionPerformed() })
       yuriPanel!!.add(yuriLabel)
     }
     grid!!.add(yuriPanel!!, "cell 0 3,align center center,grow 0 0")
@@ -464,6 +475,7 @@ class DDLCWizardThemesPanel : AbstractCustomizeWizardStep() {
 
       //---- edgyLabel ----
       edgyLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/edgy.png"))
+      edgyLabel!!.addMouseListener(createMouseListener { this.edgyButtonActionPerformed() })
       edgyPanel!!.add(edgyLabel)
     }
     grid!!.add(edgyPanel!!, "cell 1 3,align center center,grow 0 0")

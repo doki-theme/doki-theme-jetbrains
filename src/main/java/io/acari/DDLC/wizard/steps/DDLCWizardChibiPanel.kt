@@ -157,11 +157,18 @@ class DDLCWizardChibiPanel : AbstractCustomizeWizardStep() {
             noChibisButton!!.isSelected = ChibiOrchestrator.currentChibiLevel() == ChibiLevel.OFF
             noChibisButton!!.horizontalAlignment = SwingConstants.LEFT
             noChibisButton!!.actionCommand = "noChibis"
-            noChibisButton!!.addActionListener { this.noChibisButtonActionPerformed() }
+            noChibisButton!!.addActionListener {
+                noChibisButton!!.isSelected = true
+                this.noChibisButtonActionPerformed()
+            }
             noChibisPanel!!.add(noChibisButton)
 
             //---- noChibisLabel ----
             noChibisLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/chibis/$clubMemberPostFix"))
+            noChibisLabel!!.addMouseListener(createMouseListener {
+                noChibisButton!!.isSelected = true
+                this.noChibisButtonActionPerformed()
+            })
             noChibisPanel!!.add(noChibisLabel)
         }
         grid!!.add(noChibisPanel!!, "cell 0 0")
@@ -176,11 +183,18 @@ class DDLCWizardChibiPanel : AbstractCustomizeWizardStep() {
             yesChibisButton!!.isSelected = ChibiOrchestrator.currentChibiLevel() == ChibiLevel.ON
             yesChibisButton!!.horizontalAlignment = SwingConstants.LEFT
             yesChibisButton!!.actionCommand = "yesChibis"
-            yesChibisButton!!.addActionListener { this.yesChibisButtonActionPerformed() }
+            yesChibisButton!!.addActionListener {
+                yesChibisButton!!.isSelected = true
+                this.yesChibisButtonActionPerformed()
+            }
             yesChibisPanel!!.add(yesChibisButton)
 
             //---- yesChibisLabel ----
             yesChibisLabel!!.icon = ImageIcon(javaClass.getResource("/wizard/chibis/chibi_$clubMemberPostFix"))
+            yesChibisLabel!!.addMouseListener(createMouseListener {
+                yesChibisButton!!.isSelected = true
+                this.yesChibisButtonActionPerformed()
+            })
             yesChibisPanel!!.add(yesChibisLabel)
         }
         grid!!.add(yesChibisPanel!!, "cell 1 0")
