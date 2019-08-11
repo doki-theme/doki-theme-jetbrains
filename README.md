@@ -28,7 +28,6 @@ Variety is the spice of life! So you can choose themes from the following Doki-D
 - Doki-Doki Literature Club
 - Mistress's Menagerie
 
-
 Too distracted by the chibi in the corner of your IDE?
 No worries! You can configure them to be on or off at your leisure.
 
