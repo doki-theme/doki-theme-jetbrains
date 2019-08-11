@@ -57,8 +57,6 @@ Rating Stars
 Shit to fix
 ----
 
-- Update Plugin
-
 - Update Readme
 
 - Update Plugin Page
