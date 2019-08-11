@@ -94,7 +94,7 @@ public class DDLCWizardWelcomePanel extends AbstractCustomizeWizardStep {
 
     final ImageIcon imageIcon = new ImageIcon(new ImageIcon(getClass()
         .getResource("/wizard/logo.png"))
-        .getImage().getScaledInstance(800, 474, Image.SCALE_SMOOTH));
+        .getImage().getScaledInstance(357, 350, Image.SCALE_SMOOTH));
     icon.setIcon(imageIcon);
   }
 
