@@ -57,7 +57,8 @@
         <option name="CARET_ROW_COLOR" value="FFF6E4"/>
         <option name="CONSOLE_BACKGROUND_KEY" value="FFFEF9"/>
         <option name="DELETED_LINES_COLOR" value="d71b6a"/>
-        <option name="FILESTATUS_ADDED" value="22863a"/>
+        <option name="FILESTATUS_ADDED" value="10B15A"/>
+        <option name="FILESTATUS_COPIED" value="10B15A"/>
         <option name="FILESTATUS_DELETED" value="6a737d"/>
         <option name="FILESTATUS_HIJACKED" value="6a737d"/>
         <option name="FILESTATUS_IDEA_FILESTATUS_DELETED_FROM_FILE_SYSTEM" value="6a737d"/>
@@ -65,6 +66,7 @@
         <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_BOTH_CONFLICTS" value="d71b6a"/>
         <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_CONFLICTS" value="d71b6a"/>
         <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_PROPERTY_CONFLICTS" value="d71b6a"/>
+        <option name="FILESTATUS_IDEA_SVN_FILESTATUS_EXTERNAL" value="10B15A"/>
         <option name="FILESTATUS_IGNORE.PROJECT_VIEW.IGNORED" value="32f62"/>
         <option name="FILESTATUS_MERGED" value="6f42c1"/>
         <option name="FILESTATUS_MODIFIED" value="5cc5"/>
@@ -73,7 +75,7 @@
         <option name="FILESTATUS_OBSOLETE" value="6a737d"/>
         <option name="FILESTATUS_SWITCHED" value="e36209"/>
         <option name="FILESTATUS_UNKNOWN" value="e36209"/>
-        <option name="FILESTATUS_addedOutside" value="22863a"/>
+        <option name="FILESTATUS_addedOutside" value="10B15A"/>
         <option name="FILESTATUS_changelistConflict" value="d71b6a"/>
         <option name="FILESTATUS_modifiedOutside" value="5cc5"/>
         <option name="GUTTER_BACKGROUND" value="FFFEF9"/>

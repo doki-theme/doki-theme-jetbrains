@@ -60,8 +60,8 @@
     <option name="DIFF_SEPARATORS_BACKGROUND" value="1e2a30"/>
     <option name="DIFF_SEPARATORS_TOP_BORDER" value="1b262b"/>
     <option name="DOCUMENTATION_COLOR" value="403e41"/>
-    <option name="FILESTATUS_ADDED" value="b9a491"/>
-    <option name="FILESTATUS_COPIED" value="b9a491"/>
+    <option name="FILESTATUS_ADDED" value="10B15A"/>
+    <option name="FILESTATUS_COPIED" value="10B15A"/>
     <option name="FILESTATUS_DELETED" value="727072"/>
     <option name="FILESTATUS_HIJACKED" value="ffd866"/>
     <option name="FILESTATUS_IDEA_FILESTATUS_DELETED_FROM_FILE_SYSTEM" value="727072"/>
@@ -69,18 +69,18 @@
     <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_BOTH_CONFLICTS" value="fc9867"/>
     <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_CONFLICTS" value="fc9867"/>
     <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_PROPERTY_CONFLICTS" value="fc9867"/>
-    <option name="FILESTATUS_IDEA_SVN_FILESTATUS_EXTERNAL" value="b9a491"/>
+    <option name="FILESTATUS_IDEA_SVN_FILESTATUS_EXTERNAL" value="10B15A"/>
     <option name="FILESTATUS_IGNORE.PROJECT_VIEW.IGNORED" value="ab7967"/>
     <option name="FILESTATUS_MERGED" value="ab9df2"/>
-    <option name="FILESTATUS_MODIFIED" value="E85160"/>
-    <option name="FILESTATUS_NOT_CHANGED_IMMEDIATE" value="E85160"/>
-    <option name="FILESTATUS_NOT_CHANGED_RECURSIVE" value="E85160"/>
+    <option name="FILESTATUS_MODIFIED" value="6EB5FF"/>
+    <option name="FILESTATUS_NOT_CHANGED_IMMEDIATE" value="6EB5FF"/>
+    <option name="FILESTATUS_NOT_CHANGED_RECURSIVE" value="6EB5FF"/>
     <option name="FILESTATUS_SUPPRESSED" value="727072"/>
     <option name="FILESTATUS_SWITCHED" value="ab9df2"/>
     <option name="FILESTATUS_UNKNOWN" value="44b3d4"/>
-    <option name="FILESTATUS_addedOutside" value="b9a491"/>
+    <option name="FILESTATUS_addedOutside" value="10B15A"/>
     <option name="FILESTATUS_changelistConflict" value="f65f87"/>
-    <option name="FILESTATUS_modifiedOutside" value="E85160"/>
+    <option name="FILESTATUS_modifiedOutside" value="6EB5FF"/>
     <option name="GUTTER_BACKGROUND" value="432F2E"/>
     <option name="INDENT_GUIDE" value="403e41"/>
     <option name="INFORMATION_HINT" value="403e41"/>
