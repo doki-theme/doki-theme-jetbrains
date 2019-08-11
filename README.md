@@ -11,11 +11,11 @@
 
 Hey! Before we go any further, I would like to ask you a couple of questions:
 
--[X]  Do you need a bit more spice in your development life?
--[X]  Are Light or Dark themes your thing?
--[X]  Is your tolerance for cutesy things high?
--[X]  Do you like stickers and chibis?
--[X]  Is having a lot of choices a must?
+-  Do you need a bit more spice in your development life?
+-  Are Light or Dark themes your thing?
+-  Is your tolerance for cutesy things high?
+-  Do you like stickers and chibis?
+-  Is having a lot of choices a must?
 
 Well look no further friend, **I've got what you are looking for!**
 
@@ -44,6 +44,7 @@ join the [Slack Community](https://join.slack.com/t/doki-doki-theme/shared_invit
 
 Great! I am glad you like it [please give it a good review on the plugins page](https://plugins.jetbrains.com/plugin/10804-doki-doki-literature-club-theme).
 That way this plugin will become move visible to more users!
+Also be sure to share it with others who also may like it as well!
 
 ## Not your thing or something bothering you?
 
