@@ -4,7 +4,7 @@
 
 ---
 <div align="center">
-    <h3 style="color: pink;"> So sweet, you'll be guaranteed to be hypoglycemic!</h3>
+    <h3 style="color: pink;"> So sweet, you are guaranteed to be hypoglycemic!</h3>
 </div>
 
 ---
