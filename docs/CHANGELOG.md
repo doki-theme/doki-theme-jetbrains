@@ -9,6 +9,7 @@
     - 6 Light and Dark Themes to choose from.
     
 - Updated Light Monika's look to be less "Holy cow, green!".
+    - See the [GitHub Merge Request](https://github.com/cyclic-reference/ddlc-jetbrains-theme/pull/168#issuecomment-520269641) for more details.
 
 - Enhanced plugin's first usage user experience.
 
