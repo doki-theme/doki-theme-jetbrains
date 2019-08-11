@@ -44,6 +44,7 @@ Rating Stars
 ------
 
 - Cleo ✔ ️
+    - Plugin Selected Tab Foreground.
 - Eleniel ✔ ️
 - Neera ✔️
     - Green notification window hard to read with yellow texto
