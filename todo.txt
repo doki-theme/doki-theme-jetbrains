@@ -57,11 +57,7 @@ Rating Stars
 Shit to fix
 ----
 
-- Wizard?
-    - Doki-Doki Logo
-
 - Update Plugin
-    - Update Icon
 
 - Update Readme
 
@@ -71,6 +67,3 @@ Shit to fix
 Nice to Haves:
 ----
 - Transition?
-
-
-ffc100
