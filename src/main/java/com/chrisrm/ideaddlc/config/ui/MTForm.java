@@ -1135,7 +1135,7 @@ public class MTForm implements MTFormUI {
 
         //---- selectedThemeLabel ----
         selectedThemeLabel.setText(bundle.getString("MTForm.selectedThemeLabel.text"));
-        selectedThemeLabel.setIcon(new ImageIcon(getClass().getResource("/icons/ddlc/ddlcTheme.png")));
+        selectedThemeLabel.setIcon(new ImageIcon(getClass().getResource("/icons/ddlc/Doki-Doki-Logo.png")));
         selectedThemeLabel.setFont(UIManager.getFont("ComboBox.font"));
         selectedThemeLabel.setIconTextGap(8);
         selectedThemeLabel.setToolTipText(bundle.getString("MTForm.selectedThemeLabel.toolTipText"));
