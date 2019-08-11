@@ -5,7 +5,7 @@
 
 - Brand New Theme Suite!
     - Introducing **Mistress's Menagerie**
-        - A collection themes based off of various characters of anthropomorphized species
+        - A collection of themes based off of various characters of anthropomorphized species
     - 6 Light and Dark Themes to choose from.
     
 - Updated Light Monika's look to be less "Holy cow, green!".
