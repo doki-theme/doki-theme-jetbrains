@@ -448,7 +448,7 @@ public final class MTThemeManager {
     final LafManager lafManager = LafManagerImpl.getInstance();
     final UIManager.LookAndFeelInfo lafInfo =
         ContainerUtil.find(lafManager.getInstalledLookAndFeels(),
-        lookAndFeelInfo -> lookAndFeelInfo.getName().equals(selectedTheme.getThemeName()));
+        lookAndFeelInfo -> lookAndFeelInfo.getName().equals(selectedTheme.getThemeColorScheme()));// confusing, I know :/
 
 //    MTChangeLAFAnimator.showSnapshot();
     if (lafInfo != null) {

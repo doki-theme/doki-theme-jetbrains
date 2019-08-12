@@ -45,6 +45,7 @@ import javax.swing.*;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * Facade for accessing internal theme's methods.
@@ -80,6 +81,11 @@ public enum DDLCThemes implements DDLCThemeFacade {
   @Override
   public String getThemeColorScheme() {
     return getTheme().getEditorColorsScheme();
+  }
+
+  public Stream<String> getAllColorSchemes() {
+    return Stream.of(mtTheme, darkTheme)
+        .map(MTThemeable::getEditorColorsScheme);
   }
 
   @NotNull

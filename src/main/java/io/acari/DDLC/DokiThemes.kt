@@ -9,9 +9,17 @@ object DokiThemes {
 
   init {
     themes = getAllThemes()
-        .collect(Collectors.toMap({ it.name.toUpperCase() }, { it }, { a, b -> a }))
+        .collect(Collectors.toMap({ it.name.toUpperCase() }, { it }, { a, _ -> a }))
     themesByColorScheme = getAllThemes()
-        .collect(Collectors.toMap({ it.themeColorScheme.toUpperCase() }, { it }, { a, b -> a }))
+        .flatMap {theme ->
+          if(theme is DDLCThemes) // mmm, tech debt
+            theme.allColorSchemes
+                .map { Pair(it, theme) }
+          else
+          theme.themeColorScheme.toStream()
+              .map { Pair(it, theme) }
+        }
+        .collect(Collectors.toMap({ it.first.toUpperCase() }, { it.second }, { a, _ -> a }))
   }
 
   @JvmStatic
