@@ -9,6 +9,8 @@ import javax.swing.plaf.ColorUIResource
  */
 class DeletedCharacterTheme : DokiDokiTheme("deleted.character", "Deleted Character", true, "Š̸̘͚̼͎̯̙̣̱̎̋̐͒a̴̖̟̠̳̤͙̟͂̂͑̐͜ỷ̵̧̨̞̠̖̠o̴̧͍̗̬̎̓͆̔͝ͅr̴̡̮̟͈͠ͅi̴̡̨͓͈̬̗̺̍́̃̇̓") {
 
+
+
     override fun getCompletionPopupBackgroundColor(): String = "233A5B"
 
     override fun getBackgroundColorString(): String = "0E1D31"

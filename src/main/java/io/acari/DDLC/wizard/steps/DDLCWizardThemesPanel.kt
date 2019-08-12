@@ -401,7 +401,6 @@ class DDLCWizardThemesPanel : AbstractCustomizeWizardStep() {
 
       //---- deletedCharacterButton ----
       deletedCharacterButton!!.text = "<html><div>Ć̤̳͕̟͖̖̯͡h̼̦̝̞̖̮̠̝͎͟a̵̯͇̮̘̩͖͉̦͞r̛͔̙͉a͞͏̬͔̬̤c̵̖͔̫̰̘t͕̖̩̖̦̼e͇̹̙̺͓̰̠̱͝ͅr̵͚̭̞̳̣̭͇̪ ҉̢̟Ṉ̱o̪͙̬͓̗͝t̨̻͓̫̺͠ ̶̷̲̗̩͟ͅF̵͖͇͔̹̜̮̀ọ̵͖̺͡u̴̝̟̜̩n̶̡̪̮͎̟̱͚̲͚͟d̛̠̺̝͞</div></html>"
-      deletedCharacterButton!!.horizontalAlignment = SwingConstants.LEFT
       deletedCharacterButton!!.addActionListener { this.deletedCharacterButtonActionPerformed() }
       deletedCharacterLayout!!.add(deletedCharacterButton)
 
