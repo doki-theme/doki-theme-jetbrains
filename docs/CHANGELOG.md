@@ -1,6 +1,10 @@
 # Changelog
 ----
 
+# 4.0.1
+
+- Fixed issue with Dark Sayori Theme not being selectable.
+
 # 4.0.0
 
 - Brand New Theme Suite!
