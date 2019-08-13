@@ -8,6 +8,7 @@ import com.intellij.openapi.wm.impl.IdeBackgroundUtil.FRAME_PROP
 import com.intellij.util.io.isFile
 import io.acari.DDLC.DDLCConfig
 import io.acari.DDLC.DDLCThemeFacade
+import io.acari.DDLC.DDLCThemes
 import org.apache.commons.io.IOUtils
 import java.io.BufferedInputStream
 import java.io.IOException
@@ -103,18 +104,20 @@ object ChibiOrchestrator {
     }
 
     private fun turnOnWeebShit() {
+        val currentTheme = getTheme()
+        val chibiOpacity = if(currentTheme is DDLCThemes) 80 else 99
         setProperty(getImagePath(),
-                "80",
+                "$chibiOpacity",
                 IdeBackgroundUtil.Fill.PLAIN.name,
                 IdeBackgroundUtil.Anchor.BOTTOM_RIGHT.name,
                 DDLC_CHIBI_PROP)
         setProperty(getFrameBackground(),
-                "80",
+                "$chibiOpacity",
                 IdeBackgroundUtil.Fill.SCALE.name,
                 IdeBackgroundUtil.Anchor.CENTER.name,
                 DDLC_BACKGROUND_PROP)
 
-        setPropertyValue(SAVED_THEME, getTheme().getName())
+        setPropertyValue(SAVED_THEME, currentTheme.name)
         IdeBackgroundUtil.repaintAllWindows()
     }
 

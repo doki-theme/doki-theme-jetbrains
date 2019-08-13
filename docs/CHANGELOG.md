@@ -1,6 +1,11 @@
 # Changelog
 ----
 
+# 4.1.0
+
+- Made the chibis in Mistress's Menagerie more vibrant.
+    - Most noticeable in the light themes. 
+
 # 4.0.1
 
 - Fixed issue with Dark Sayori Theme not being selectable.
