@@ -9,6 +9,7 @@ import com.intellij.util.io.isFile
 import io.acari.DDLC.DDLCConfig
 import io.acari.DDLC.DDLCThemeFacade
 import io.acari.DDLC.DDLCThemes
+import io.acari.DDLC.toOptional
 import org.apache.commons.io.IOUtils
 import java.io.BufferedInputStream
 import java.io.IOException
@@ -26,222 +27,241 @@ import javax.xml.bind.DatatypeConverter
  */
 object ChibiOrchestrator {
 
-    private val messageDigest: MessageDigest = MessageDigest.getInstance("MD5")
-    const val DDLC_CHIBI_PROP: String = "io.acari.ddlc.chibi"
-    private const val CLUB_MEMBER_ON = "CLUB_MEMBER_ON"
-    const val DDLC_BACKGROUND_PROP: String = "io.acari.ddlc.background"
-    private val oldChibiProps = listOf(EDITOR_PROP, FRAME_PROP)
-    const val SAVED_THEME: String = "CLUB_MEMBER_THEME_PROPERTY"
-    const val CHIBI_CHECKSUM: String = "CHIBI_CHECKSUM"
-    private const val RESOURCES_DIRECTORY = "https://raw.githubusercontent.com/cyclic-reference/ddlc-jetbrains-theme/master/src/main/resources"
+  private val messageDigest: MessageDigest = MessageDigest.getInstance("MD5")
+  const val DDLC_CHIBI_PROP: String = "io.acari.ddlc.chibi"
+  private const val CLUB_MEMBER_ON = "CLUB_MEMBER_ON"
+  const val DDLC_BACKGROUND_PROP: String = "io.acari.ddlc.background"
+  private val oldChibiProps = listOf(EDITOR_PROP, FRAME_PROP)
+  const val SAVED_THEME: String = "CLUB_MEMBER_THEME_PROPERTY"
+  const val CHIBI_CHECKSUM: String = "CHIBI_CHECKSUM"
+  private const val RESOURCES_DIRECTORY = "https://raw.githubusercontent.com/cyclic-reference/ddlc-jetbrains-theme/master/src/main/resources"
 
-    private var chibiLevel = ChibiLevel.ON
-    private var currentTheme: Lazy<DDLCThemeFacade> =  lazy { getSavedTheme() }
+  private var chibiLevel = ChibiLevel.ON
+  private var currentTheme: Lazy<DDLCThemeFacade> = lazy { getSavedTheme() }
 
-    init {
-        checkLegacyChibiToggle()
-        removeLegacyProperties()
-        if(MTThemeManager.isDDLCActive()){
-            setChibiLevel(DDLCConfig.getInstance().getChibiLevel())
-        }
-        MTThemeManager.addMaterialThemeActivatedListener {
-            if (it) {
-                removeWeebShit()
-            } else if(MTThemeManager.isDDLCActive()) {
-                turnOnIfNecessary()
-            }
-        }
+  init {
+    checkLegacyChibiToggle()
+    removeLegacyProperties()
+    if (MTThemeManager.isDDLCActive()) {
+      setChibiLevel(DDLCConfig.getInstance().getChibiLevel())
     }
-
-    private fun checkLegacyChibiToggle() {
-        if (PropertiesComponent.getInstance().isValueSet(CLUB_MEMBER_ON)) {
-            val clubMemberOn = PropertiesComponent.getInstance().getBoolean(CLUB_MEMBER_ON)
-            if (clubMemberOn) {
-                setChibiLevel(ChibiLevel.ON)
-            } else {
-                setChibiLevel(ChibiLevel.OFF)
-            }
-            PropertiesComponent.getInstance().unsetValue(CLUB_MEMBER_ON)
-        }
-    }
-
-    private fun removeLegacyProperties() {
-        oldChibiProps.forEach {
-            PropertiesComponent.getInstance().unsetValue(it)
-        }
-    }
-
-    private fun getSavedTheme(): DDLCThemeFacade =
-            DDLCConfig.getInstance().getSelectedTheme()
-
-    fun currentActiveTheme(): Lazy<DDLCThemeFacade> = currentTheme
-
-    fun setChibiLevel(chibiLevel: ChibiLevel) {
-        ChibiOrchestrator.chibiLevel = chibiLevel
-        DDLCConfig.getInstance().setChibiLevel(chibiLevel)
-        updateChibi()
-    }
-
-    fun currentChibiLevel(): ChibiLevel = chibiLevel
-
-    fun activateChibiForTheme(theme: DDLCThemeFacade) {
-        currentTheme =  lazy {theme }
-        updateChibi()
-    }
-
-    private fun updateChibi() {
+    MTThemeManager.addMaterialThemeActivatedListener {
+      if (it) {
         removeWeebShit()
+      } else if (MTThemeManager.isDDLCActive()) {
         turnOnIfNecessary()
+      }
     }
+  }
 
-    private fun weebShitOn(): Boolean = chibiLevel != ChibiLevel.OFF
-
-    private fun turnOnIfNecessary() {
-        if (weebShitOn())
-            turnOnWeebShit()
+  private fun checkLegacyChibiToggle() {
+    if (PropertiesComponent.getInstance().isValueSet(CLUB_MEMBER_ON)) {
+      val clubMemberOn = PropertiesComponent.getInstance().getBoolean(CLUB_MEMBER_ON)
+      if (clubMemberOn) {
+        setChibiLevel(ChibiLevel.ON)
+      } else {
+        setChibiLevel(ChibiLevel.OFF)
+      }
+      PropertiesComponent.getInstance().unsetValue(CLUB_MEMBER_ON)
     }
+  }
 
-    private fun removeWeebShit() {
-        PropertiesComponent.getInstance().unsetValue(DDLC_CHIBI_PROP)
-        PropertiesComponent.getInstance().unsetValue(DDLC_BACKGROUND_PROP)
-        IdeBackgroundUtil.repaintAllWindows()
+  private fun removeLegacyProperties() {
+    oldChibiProps.forEach {
+      PropertiesComponent.getInstance().unsetValue(it)
     }
+  }
 
-    private fun turnOnWeebShit() {
-        val currentTheme = getTheme()
-        val chibiOpacity = if(currentTheme is DDLCThemes) 80 else 99
-        setProperty(getImagePath(),
-                "$chibiOpacity",
-                IdeBackgroundUtil.Fill.PLAIN.name,
-                IdeBackgroundUtil.Anchor.BOTTOM_RIGHT.name,
-                DDLC_CHIBI_PROP)
-        setProperty(getFrameBackground(),
-                "$chibiOpacity",
-                IdeBackgroundUtil.Fill.SCALE.name,
-                IdeBackgroundUtil.Anchor.CENTER.name,
-                DDLC_BACKGROUND_PROP)
+  private fun getSavedTheme(): DDLCThemeFacade =
+      DDLCConfig.getInstance().getSelectedTheme()
 
-        setPropertyValue(SAVED_THEME, currentTheme.name)
-        IdeBackgroundUtil.repaintAllWindows()
-    }
+  fun currentActiveTheme(): Lazy<DDLCThemeFacade> = currentTheme
 
-    private fun setPropertyValue(propertyKey: String, propertyValue: String) {
-        PropertiesComponent.getInstance().unsetValue(propertyKey)
-        PropertiesComponent.getInstance().setValue(propertyKey, propertyValue)
-    }
+  fun setChibiLevel(chibiLevel: ChibiLevel) {
+    ChibiOrchestrator.chibiLevel = chibiLevel
+    DDLCConfig.getInstance().setChibiLevel(chibiLevel)
+    updateChibi()
+  }
 
-    private fun getImagePath(): String {
-        val literatureClubMember = getLiteratureClubMember()
-        val theAnimesPath = "/club_members/$literatureClubMember"
-        return getLocalClubMemberParentDirectory()
-                .map { localParentDirectory ->
-                    val weebStuff = Paths.get(localParentDirectory, theAnimesPath).normalize().toAbsolutePath()
-                    if (shouldLoadLocally(weebStuff)) {
-                        createDirectories(weebStuff)
-                        copyAnimes(theAnimesPath, weebStuff)
-                                .orElseGet(this::getClubMemberFallback)
-                    } else {
-                        weebStuff.toString()
-                    }
-                }.orElseGet {
-                    getClubMemberFallback()
-                }
-    }
+  fun currentChibiLevel(): ChibiLevel = chibiLevel
 
-    private fun getLocalClubMemberParentDirectory(): Optional<String> =
-        Optional.ofNullable(System.getProperties()["jb.vmOptionsFile"] as? String
-            ?: System.getProperties()["idea.config.path"] as? String)
-            .map { property -> property.split(",") }
-            .filter { properties -> properties.isNotEmpty() }
-            .map { paths -> paths[paths.size - 1] }
-            .map { property ->
-                val directory = Paths.get(property)
-                if (directory.isFile()) {
-                    directory.parent
-                } else {
-                    directory
-                }.toAbsolutePath().toString()
-            }
+  fun activateChibiForTheme(theme: DDLCThemeFacade) {
+    currentTheme = lazy { theme }
+    updateChibi()
+  }
 
+  private fun updateChibi() {
+    removeWeebShit()
+    turnOnIfNecessary()
+  }
 
-    private fun shouldLoadLocally(weebStuff: Path) =
-            !(Files.exists(weebStuff) && !checksumMatches(weebStuff))
+  private fun weebShitOn(): Boolean =
+      chibiLevel != ChibiLevel.OFF
 
-    //todo: load from jar then check
-    private fun checksumMatches(weebStuff: Path): Boolean {
-        try {
-            val computedChecksum = computeCheckSum(weebStuff)
-            val storedChecksum = PropertiesComponent.getInstance().getValue(getChibiCheckSumProperty(), "")
-            return computedChecksum == storedChecksum
-        } catch (e: IOException) {
-            e.printStackTrace()
+  private fun turnOnIfNecessary() {
+    if (weebShitOn())
+      turnOnWeebShit()
+  }
+
+  private fun removeWeebShit() {
+    PropertiesComponent.getInstance().unsetValue(DDLC_CHIBI_PROP)
+    PropertiesComponent.getInstance().unsetValue(DDLC_BACKGROUND_PROP)
+    IdeBackgroundUtil.repaintAllWindows()
+  }
+
+  private fun turnOnWeebShit() {
+    val currentTheme = getTheme()
+    val chibiOpacity = if (currentTheme is DDLCThemes) 80 else 99
+    setProperty(getImagePath(),
+        "$chibiOpacity",
+        IdeBackgroundUtil.Fill.PLAIN.name,
+        IdeBackgroundUtil.Anchor.BOTTOM_RIGHT.name,
+        DDLC_CHIBI_PROP)
+    setProperty(getFrameBackground(),
+        "$chibiOpacity",
+        IdeBackgroundUtil.Fill.SCALE.name,
+        IdeBackgroundUtil.Anchor.CENTER.name,
+        DDLC_BACKGROUND_PROP)
+
+    setPropertyValue(SAVED_THEME, currentTheme.name)
+    IdeBackgroundUtil.repaintAllWindows()
+  }
+
+  private fun setPropertyValue(propertyKey: String, propertyValue: String) {
+    PropertiesComponent.getInstance().unsetValue(propertyKey)
+    PropertiesComponent.getInstance().setValue(propertyKey, propertyValue)
+  }
+
+  private fun getImagePath(): String {
+    val literatureClubMember = getChibi()
+    val theAnimesPath = "/club_members/$literatureClubMember"
+    return getLocalClubMemberParentDirectory()
+        .map { localParentDirectory ->
+          val weebStuff =
+              Paths.get(localParentDirectory, theAnimesPath)
+                  .normalize()
+                  .toAbsolutePath()
+          if (shouldCopyToDisk(weebStuff, theAnimesPath)) {
+            createDirectories(weebStuff)
+            copyAnimes(theAnimesPath, weebStuff)
+                .orElseGet(this::getClubMemberFallback)
+          } else {
+            weebStuff.toString()
+          }
+        }.orElseGet {
+          getClubMemberFallback()
         }
-        return true
-    }
+  }
 
-    private fun computeCheckSum(weebStuff: Path): String {
-        messageDigest.update(Files.readAllBytes(weebStuff))
-        val digest = messageDigest.digest()
-        return DatatypeConverter.printHexBinary(digest).toUpperCase()
-    }
+  private fun getLocalClubMemberParentDirectory(): Optional<String> =
+      Optional.ofNullable(System.getProperties()["jb.vmOptionsFile"] as? String
+          ?: System.getProperties()["idea.config.path"] as? String)
+          .map { property -> property.split(",") }
+          .filter { properties -> properties.isNotEmpty() }
+          .map { paths -> paths[paths.size - 1] }
+          .map { property ->
+            val directory = Paths.get(property)
+            if (directory.isFile()) {
+              directory.parent
+            } else {
+              directory
+            }.toAbsolutePath().toString()
+          }
 
-    private fun createDirectories(weebStuff: Path) {
-        try {
-            Files.createDirectories(weebStuff.parent)
-        } catch (e: IOException) {
-            e.printStackTrace()
-        }
-    }
 
-    private fun copyAnimes(theAnimesPath: String, weebStuff: Path) =
-            try {
-                BufferedInputStream(this.javaClass
-                        .classLoader
-                        .getResourceAsStream(theAnimesPath)).use { inputStream ->
-                    Files.newOutputStream(weebStuff, CREATE, TRUNCATE_EXISTING).use { bufferedWriter ->
-                        IOUtils.copy(inputStream, bufferedWriter)
-                    }
-                    setPropertyValue(getChibiCheckSumProperty(), computeCheckSum(weebStuff))
+  private fun shouldCopyToDisk(weebStuff: Path, theAnimesPath: String) =
+      !(Files.exists(weebStuff) && !checksumMatches(theAnimesPath))
+
+  //todo: load from jar then check
+  private fun checksumMatches(theAnimesPath: String): Boolean {
+    try {
+        getAnimesInputStream(theAnimesPath)
+            .map { IOUtils.toByteArray(it) }
+            .map { computeCheckSum(it) }
+            .map { computedCheckSum ->
+                val storedChecksum = PropertiesComponent.getInstance().getValue(getChibiCheckSumProperty(), "")
+                computedCheckSum == storedChecksum
+            }.orElseGet { false }
+    } catch (e: IOException) {
+      e.printStackTrace()
+    }
+    return true
+  }
+
+  private fun computeCheckSum(byteArray: ByteArray): String {
+    messageDigest.update(byteArray)
+    val digest = messageDigest.digest()
+    return DatatypeConverter.printHexBinary(digest).toUpperCase()
+  }
+
+  private fun createDirectories(weebStuff: Path) {
+    try {
+      Files.createDirectories(weebStuff.parent)
+    } catch (e: IOException) {
+      e.printStackTrace()
+    }
+  }
+
+  private fun getAnimesInputStream(theAnimesPath: String): Optional<BufferedInputStream> =
+      try {
+        this.javaClass
+            .classLoader
+            .getResourceAsStream(theAnimesPath).toOptional()
+            .map { BufferedInputStream(it) }
+      } catch (e: IOException) {
+        Optional.empty()
+      }
+
+  private fun copyAnimes(theAnimesPath: String, weebStuff: Path): Optional<String> =
+      try {
+        getAnimesInputStream(theAnimesPath)
+            .map { bufferedInputStream ->
+              bufferedInputStream.use { inputStream ->
+                Files.newOutputStream(weebStuff, CREATE, TRUNCATE_EXISTING).use { bufferedWriter ->
+                  IOUtils.copy(inputStream, bufferedWriter)
                 }
-                Optional.of(weebStuff)
-                        .map { it.toString() }
-            } catch (e: IOException) {
-                Optional.empty<String>()
+                val chibiCheckSum = computeCheckSum(Files.readAllBytes(weebStuff))
+                setPropertyValue(getChibiCheckSumProperty(), chibiCheckSum)
+              }
+              weebStuff.toString()
             }
+      } catch (e: IOException) {
+        Optional.empty()
+      }
 
-    private fun getChibiCheckSumProperty() =
-        "$CHIBI_CHECKSUM:${getTheme().name}"
+  private fun getChibiCheckSumProperty() =
+      "$CHIBI_CHECKSUM:${getTheme().name}"
 
+  private fun getChibi() =
+      getTheme().chibi
 
-    private fun getLiteratureClubMember() =
-            getTheme().chibi
+  fun getNormalClubMember(): String =
+      getTheme().normalChibi
 
-    fun getNormalClubMember(): String = getTheme().normalChibi
+  private fun getTheme(): DDLCThemeFacade {
+    return currentTheme.value
+  }
 
-    private fun getTheme(): DDLCThemeFacade {
-        return currentTheme.value
-    }
+  private fun getFrameBackground(): String {
+    return RESOURCES_DIRECTORY + "/themes/" + getChibi()
+  }
 
-    private fun getFrameBackground(): String {
-        return RESOURCES_DIRECTORY + "/themes/" + getLiteratureClubMember()
-    }
+  private fun getClubMemberFallback(): String {
+    return RESOURCES_DIRECTORY + "/club_members/" + getChibi()
+  }
 
-    private fun getClubMemberFallback(): String {
-        return RESOURCES_DIRECTORY + "/club_members/" + getLiteratureClubMember()
-    }
+  private fun setProperty(imagePath: String,
+                          opacity: String,
+                          fill: String, anchor: String,
+                          propertyKey: String) {
+    //org.intellij.images.editor.actions.SetBackgroundImageDialog has all of the answers
+    //as to why this looks this way
+    val propertyValue = listOf(imagePath, opacity, fill, anchor)
+        .reduceRight { a, b -> "$a,$b" }
+    setPropertyValue(propertyKey, propertyValue)
+  }
 
-    private fun setProperty(imagePath: String,
-                            opacity: String,
-                            fill: String, anchor: String,
-                            propertyKey: String) {
-        //org.intellij.images.editor.actions.SetBackgroundImageDialog has all of the answers
-        //as to why this looks this way
-        val propertyValue = listOf(imagePath, opacity, fill, anchor).reduceRight { a, b -> "$a,$b" }
-
-        setPropertyValue(propertyKey, propertyValue)
-    }
-
-    fun init() {
-    }
+  fun init() {
+  }
 
 }
