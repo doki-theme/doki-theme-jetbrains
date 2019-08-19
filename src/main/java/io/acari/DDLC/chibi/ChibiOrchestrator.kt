@@ -170,9 +170,8 @@ object ChibiOrchestrator {
 
 
   private fun shouldCopyToDisk(weebStuff: Path, theAnimesPath: String) =
-      !(Files.exists(weebStuff) && !checksumMatches(theAnimesPath))
+      !(Files.exists(weebStuff) && checksumMatches(theAnimesPath))
 
-  //todo: load from jar then check
   private fun checksumMatches(theAnimesPath: String): Boolean {
     try {
         getAnimesInputStream(theAnimesPath)
