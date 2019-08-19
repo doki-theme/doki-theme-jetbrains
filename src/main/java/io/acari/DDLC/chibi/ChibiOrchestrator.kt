@@ -17,18 +17,22 @@ import java.nio.file.Path
 import java.nio.file.Paths
 import java.nio.file.StandardOpenOption.CREATE
 import java.nio.file.StandardOpenOption.TRUNCATE_EXISTING
-import java.nio.file.attribute.BasicFileAttributeView
+import java.security.MessageDigest
 import java.util.*
+import javax.xml.bind.DatatypeConverter
 
 /**
  * Forged in the flames of battle by alex.
  */
 object ChibiOrchestrator {
+
+    private val messageDigest: MessageDigest = MessageDigest.getInstance("MD5")
     const val DDLC_CHIBI_PROP: String = "io.acari.ddlc.chibi"
     private const val CLUB_MEMBER_ON = "CLUB_MEMBER_ON"
     const val DDLC_BACKGROUND_PROP: String = "io.acari.ddlc.background"
     private val oldChibiProps = listOf(EDITOR_PROP, FRAME_PROP)
     const val SAVED_THEME: String = "CLUB_MEMBER_THEME_PROPERTY"
+    const val CHIBI_CHECKSUM: String = "CHIBI_CHECKSUM"
     private const val RESOURCES_DIRECTORY = "https://raw.githubusercontent.com/cyclic-reference/ddlc-jetbrains-theme/master/src/main/resources"
 
     private var chibiLevel = ChibiLevel.ON
@@ -161,17 +165,24 @@ object ChibiOrchestrator {
 
 
     private fun shouldLoadLocally(weebStuff: Path) =
-            !Files.exists(weebStuff) || checksumMatches(weebStuff)
+            !(Files.exists(weebStuff) && !checksumMatches(weebStuff))
 
+    //todo: load from jar then check
     private fun checksumMatches(weebStuff: Path): Boolean {
-        val fileAttributeView = Files.getFileAttributeView(weebStuff, BasicFileAttributeView::class.java)
         try {
-            val basicFileAttributes = fileAttributeView.readAttributes()
-            return basicFileAttributes.size() < 100L
+            val computedChecksum = computeCheckSum(weebStuff)
+            val storedChecksum = PropertiesComponent.getInstance().getValue(getChibiCheckSumProperty(), "")
+            return computedChecksum == storedChecksum
         } catch (e: IOException) {
             e.printStackTrace()
         }
         return true
+    }
+
+    private fun computeCheckSum(weebStuff: Path): String {
+        messageDigest.update(Files.readAllBytes(weebStuff))
+        val digest = messageDigest.digest()
+        return DatatypeConverter.printHexBinary(digest).toUpperCase()
     }
 
     private fun createDirectories(weebStuff: Path) {
@@ -190,12 +201,16 @@ object ChibiOrchestrator {
                     Files.newOutputStream(weebStuff, CREATE, TRUNCATE_EXISTING).use { bufferedWriter ->
                         IOUtils.copy(inputStream, bufferedWriter)
                     }
+                    setPropertyValue(getChibiCheckSumProperty(), computeCheckSum(weebStuff))
                 }
                 Optional.of(weebStuff)
                         .map { it.toString() }
             } catch (e: IOException) {
                 Optional.empty<String>()
             }
+
+    private fun getChibiCheckSumProperty() =
+        "$CHIBI_CHECKSUM:${getTheme().name}"
 
 
     private fun getLiteratureClubMember() =
