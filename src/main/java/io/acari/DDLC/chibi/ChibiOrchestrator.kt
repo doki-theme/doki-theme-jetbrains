@@ -170,22 +170,24 @@ object ChibiOrchestrator {
 
 
   private fun shouldCopyToDisk(weebStuff: Path, theAnimesPath: String) =
-      !(Files.exists(weebStuff) && checksumMatches(theAnimesPath))
+      !(Files.exists(weebStuff) && checksumMatches(weebStuff, theAnimesPath))
 
-  private fun checksumMatches(theAnimesPath: String): Boolean {
-    try {
+  private fun checksumMatches(weebStuff: Path, theAnimesPath: String): Boolean =
+      try {
         getAnimesInputStream(theAnimesPath)
             .map { IOUtils.toByteArray(it) }
             .map { computeCheckSum(it) }
             .map { computedCheckSum ->
-                val storedChecksum = PropertiesComponent.getInstance().getValue(getChibiCheckSumProperty(), "")
-                computedCheckSum == storedChecksum
+              val onDiskCheckSum = getOnDiskCheckSum(weebStuff)
+              computedCheckSum == onDiskCheckSum
             }.orElseGet { false }
-    } catch (e: IOException) {
-      e.printStackTrace()
-    }
-    return true
-  }
+      } catch (e: IOException) {
+        e.printStackTrace()
+        false
+      }
+
+  private fun getOnDiskCheckSum(weebStuff: Path): String =
+      computeCheckSum(Files.readAllBytes(weebStuff))
 
   private fun computeCheckSum(byteArray: ByteArray): String {
     messageDigest.update(byteArray)
@@ -219,8 +221,6 @@ object ChibiOrchestrator {
                 Files.newOutputStream(weebStuff, CREATE, TRUNCATE_EXISTING).use { bufferedWriter ->
                   IOUtils.copy(inputStream, bufferedWriter)
                 }
-                val chibiCheckSum = computeCheckSum(Files.readAllBytes(weebStuff))
-                setPropertyValue(getChibiCheckSumProperty(), chibiCheckSum)
               }
               weebStuff.toString()
             }
