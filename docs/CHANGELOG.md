@@ -1,5 +1,9 @@
 # Changelog
 ----
+# 4.2.0
+
+- Cleo's chibi maintains roughly the same proportions as the other chibis. 
+- A bunch of small icon improvements (probably only noticeable to me).
 
 # 4.1.0
 

@@ -33,7 +33,6 @@ object ChibiOrchestrator {
   const val DDLC_BACKGROUND_PROP: String = "io.acari.ddlc.background"
   private val oldChibiProps = listOf(EDITOR_PROP, FRAME_PROP)
   const val SAVED_THEME: String = "CLUB_MEMBER_THEME_PROPERTY"
-  const val CHIBI_CHECKSUM: String = "CHIBI_CHECKSUM"
   private const val RESOURCES_DIRECTORY = "https://raw.githubusercontent.com/cyclic-reference/ddlc-jetbrains-theme/master/src/main/resources"
 
   private var chibiLevel = ChibiLevel.ON
@@ -227,9 +226,6 @@ object ChibiOrchestrator {
       } catch (e: IOException) {
         Optional.empty()
       }
-
-  private fun getChibiCheckSumProperty() =
-      "$CHIBI_CHECKSUM:${getTheme().name}"
 
   private fun getChibi() =
       getTheme().chibi
