@@ -8,16 +8,8 @@ const val DARK_MODE_CONSTANT: String = "Ḑ̶͍̲̳̫͗̚͠ä̵͉̠̬͙̤͚͆͆
 val UPDATE_MESSAGE: String = """
       What's New?<br>
       <ul>
-      <li>Brand new Theme Suite!
-        <ul>
-          <li>Introducing Mistress's Menagerie. A collection of light/dark themes based off of various characters of anthropomorphized species</li>
-      </li>
-      <li>Re-Branded Plugin
-        <ul>
-          <li>Same Themes different Logo</li>
-        </li>
-      </li>
-      <li>Updated Light Monika's Primary Colors</li>
+      <li>Adjusted Cleo's chibi to be more proportional to the others.</li>
+      <li>A bunch of small icon tweaks.</li>
       <br>
       Thanks again for downloading <b>The Doki-Doki Theme</b>! •‿•<br>
       <br>Please see the <a href="https://github.com/cyclic-reference/ddlc-jetbrains-theme/blob/master/docs/CHANGELOG.md">Changelog</a> for more details.

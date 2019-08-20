@@ -3,5 +3,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
      version="1.1" width="13px" height="13px"
      viewBox="0 0 24 24">
-    <path fill="#C3E88D" d="M8,5.14V19.14L19,12.14L8,5.14Z"/>
+    <path fill="#C3E88D"
+          stroke="#678144"
+          stroke-width="0.5px"
+          d="M8,5.14V19.14L19,12.14L8,5.14Z"/>
 </svg>
