@@ -96,4 +96,17 @@ public class MTTabsPainter extends JBDefaultTabPainter {
     Color highlightColor = this.mtConfig.getHighlightColor();
     return this.mtConfig.isHighlightColorEnabled() ? highlightColor : accentColor;
   }
+
+  @Override
+  public void paintUnderline(@NotNull final JBTabsPosition position,
+                             @NotNull final Rectangle rect,
+                             final int borderThickness,
+                             @NotNull final Graphics2D g,
+                             final boolean active) {
+    final int thickness = mtConfig.getHighlightThickness() + 1;
+    final Color underlineColor = getIndicatorColor();
+    // Finally paint the active tab highlighter
+    g.setColor(underlineColor);
+    MTTabsHighlightPainter.paintHighlight(thickness, g, rect);
+  }
 }
