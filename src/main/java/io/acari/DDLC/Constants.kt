@@ -8,8 +8,11 @@ const val DARK_MODE_CONSTANT: String = "Ḑ̶͍̲̳̫͗̚͠ä̵͉̠̬͙̤͚͆͆
 val UPDATE_MESSAGE: String = """
       What's New?<br>
       <ul>
-      <li>Adjusted Cleo's chibi to be more proportional to the others.</li>
-      <li>A bunch of small icon tweaks.</li>
+      <li>Better 2019.2.1 build support!
+        <ul>
+            <li>Restored Tab Height.</li>
+        </ul>
+      </li>
       <br>
       Thanks again for downloading <b>The Doki-Doki Theme</b>! •‿•<br>
       <br>Please see the <a href="https://github.com/cyclic-reference/ddlc-jetbrains-theme/blob/master/docs/CHANGELOG.md">Changelog</a> for more details.

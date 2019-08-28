@@ -159,7 +159,6 @@ public final class MTTreeUI extends WideSelectionTreeUI {
         rowGraphics.fillRect(xOffset, bounds.y, containerWidth, bounds.height);
       }
 
-      super.paintRow(rowGraphics, clipBounds, insets, bounds, path, row, isExpanded, hasBeenExpanded, isLeaf);
       if (selected) {
         if (tree.hasFocus()) {
           LIST_FOCUSED_PAINTER.paintBorder(tree, rowGraphics, xOffset, bounds.y, containerWidth, bounds.height);
@@ -170,7 +169,7 @@ public final class MTTreeUI extends WideSelectionTreeUI {
       super.paintRow(rowGraphics, clipBounds, insets, bounds, path, row, isExpanded, hasBeenExpanded, isLeaf);
       rowGraphics.dispose();
     } else {
-      super.paintRow(g, clipBounds, insets, bounds, null, row, isExpanded, hasBeenExpanded, isLeaf);
+      super.paintRow(g, clipBounds, insets, bounds, path, row, isExpanded, hasBeenExpanded, isLeaf);
     }
   }
 
