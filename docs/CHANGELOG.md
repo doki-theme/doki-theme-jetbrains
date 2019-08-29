@@ -1,5 +1,12 @@
 # Changelog
-----
+---
+
+# 4.2.1
+
+- Better 2019.2.1 build support.
+    - Tab height restoration.
+    - More Responsive project tree view.
+
 # 4.2.0
 
 - Cleo's chibi maintains roughly the same proportions as the other chibis. 
