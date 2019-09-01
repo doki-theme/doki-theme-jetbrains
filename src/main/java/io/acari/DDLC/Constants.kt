@@ -8,9 +8,9 @@ const val DARK_MODE_CONSTANT: String = "Ḑ̶͍̲̳̫͗̚͠ä̵͉̠̬͙̤͚͆͆
 val UPDATE_MESSAGE: String = """
       What's New?<br>
       <ul>
-      <li>Better 2019.2.1 build support!
+      <li>Enabled Anonymous exception reporting
         <ul>
-            <li>Restored Tab Height.</li>
+            <li>You can choose to report exceptions thrown by this plugin.</li>
         </ul>
       </li>
       <br>
