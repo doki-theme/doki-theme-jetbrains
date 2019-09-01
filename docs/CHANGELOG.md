@@ -1,6 +1,11 @@
 # Changelog
 ---
 
+# 4.2.2
+
+- Implemented exception reporting.
+    - You know have the ability to anonymously report an exception being thrown by the Doki-Theme!
+
 # 4.2.1
 
 - Better 2019.2.1 build support.
