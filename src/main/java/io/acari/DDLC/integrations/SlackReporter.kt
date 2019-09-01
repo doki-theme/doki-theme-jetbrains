@@ -28,9 +28,9 @@ import java.util.stream.Collectors
 
 class SlackReporter : ErrorReportSubmitter() {
   companion object {
-    val httpClient = HttpClients.createMinimal()
-    val slackWebhook = "https://hooks.slack.com/services/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"
-    val gson = GsonBuilder().create()
+    private val httpClient = HttpClients.createMinimal()
+    private const val slackWebhook = "https://hooks.slack.com/services/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"
+    private val gson = GsonBuilder().create()
   }
 
   override fun getReportActionText(): String = "Report Anonymously"
@@ -58,7 +58,6 @@ class SlackReporter : ErrorReportSubmitter() {
       false
     }
   }
-
 
   private fun getSystemInfo(): String {
     val myInfo = StringBuilder()

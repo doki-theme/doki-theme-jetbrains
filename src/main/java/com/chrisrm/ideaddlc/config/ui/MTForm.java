@@ -284,7 +284,6 @@ public class MTForm implements MTFormUI {
     setIsChibiOn(ChibiLevel.ON.name().equals(ddlcConfig.getChibiLevel().name()));
 
     afterStateSet();
-    throw new RuntimeException();
   }
 
   @SuppressWarnings({"OverlyComplexMethod",
