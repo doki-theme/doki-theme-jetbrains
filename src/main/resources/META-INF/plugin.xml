@@ -91,6 +91,7 @@
         <applicationService serviceImplementation="io.acari.DDLC.DDLCConfig"/>
         <applicationService serviceImplementation="com.chrisrm.ideaddlc.MTThemeManager"/>
         <applicationService serviceImplementation="com.chrisrm.ideaddlc.MTAnalytics"/>
+        <errorHandler implementation="io.acari.DDLC.integrations.SlackReporter"/>
 
         <applicationService serviceImplementation="io.acari.DDLC.icons.tinted.TintedIconsService"/>
         <applicationConfigurable instance="com.chrisrm.ideaddlc.config.MTConfigurable"
