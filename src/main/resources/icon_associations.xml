@@ -244,7 +244,7 @@
         <regex name="Markdown" pattern=".*\.(md|markdown|mson)$" icon="/icons/files/markdown.svg"/>
         <regex name="Markup" pattern=".*\.(shtml|dhtml|dtd)$" icon="/icons/files/markup.svg"/>
         <regex name="Mathematica" pattern=".*\.(nb|ma|mb|cdf)$" icon="/icons/files/mathematica.svg"/>
-        <regex name="Matlab" pattern=".*\.matlab$" icon="/icons/files/matlab.svg"/>
+        <regex name="Matlab" pattern=".*\.(matlab|m)$" icon="/icons/files/matlab.svg"/>
         <regex name="Maven" pattern="^pom\.xml$" icon="/icons/files/maven.svg"/>
         <regex name="Maya" pattern=".*\.(maya|mel)$" icon="/icons/files/maya.svg"/>
         <regex name="MDX" pattern=".*\.(mdx)$" icon="/icons/files/mdx.svg"/>
