@@ -8,6 +8,12 @@ const val DARK_MODE_CONSTANT: String = "Ḑ̶͍̲̳̫͗̚͠ä̵͉̠̬͙̤͚͆͆
 val UPDATE_MESSAGE: String = """
       What's New?<br>
       <ul>
+      <li>Up to date with Material UI from 4.2.1 -> 4.4.5
+        <ul>
+            <li>New File/Directory Icons</li>
+            <li>Title bar things, etc.</li>
+        </ul>
+      </li>
       <li>Enabled Anonymous exception reporting
         <ul>
             <li>You can choose to report exceptions thrown by this plugin.</li>
