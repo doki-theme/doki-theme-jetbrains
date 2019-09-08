@@ -662,6 +662,7 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
             "TextArea.background",
             "TextField.background",
             "TextPane.background",
+            "TitlePane.inactiveBackground",
             "ToolWindow.HeaderTab.underlinedTabBackground",
             "ToolTip.actions.background", // deprecated
             "ToolTip.Actions.background",
@@ -988,8 +989,7 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
             Sets.newHashSet(
                 "Tree.selectionInactiveBackground",
                 "List.selectionInactiveBackground",
-                "Table.selectionInactiveBackground",
-                "TitlePane.inactiveBackground"
+                "Table.selectionInactiveBackground"
             ))
 
         val transparentBackground = getTreeSelectionInactiveColor()
