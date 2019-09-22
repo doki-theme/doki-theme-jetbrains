@@ -1,6 +1,12 @@
 # Changelog
 ---
 
+# 4.3.0
+
+- Up to date with Material UI from 4.2.1 -> 4.4.5
+    - New File/Directory Icons
+    - Title bar things, etc.
+
 # 4.2.2
 
 - Implemented exception reporting.

@@ -31,6 +31,8 @@ import com.chrisrm.ideaddlc.utils.MTUI;
 import com.intellij.ide.ui.laf.darcula.ui.DarculaRootPaneUI;
 import com.intellij.openapi.util.SystemInfo;
 import com.intellij.openapi.util.registry.Registry;
+import com.intellij.openapi.wm.ex.IdeFrameEx;
+import com.intellij.ui.DoubleClickListener;
 import com.intellij.util.Consumer;
 import com.intellij.util.ui.GraphicsUtil;
 import com.intellij.util.ui.JBInsets;
@@ -44,6 +46,8 @@ import javax.swing.border.AbstractBorder;
 import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.basic.BasicRootPaneUI;
 import java.awt.*;
+import java.awt.event.InputEvent;
+import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.geom.AffineTransform;
@@ -81,7 +85,7 @@ public final class MTRootPaneUI extends DarculaRootPaneUI {
   }
 
   @Override
-  public void uninstallUI(JComponent c) {
+  public void uninstallUI(final JComponent c) {
     super.uninstallUI(c);
     if (disposer != null) {
       disposer.run();
@@ -104,12 +108,16 @@ public final class MTRootPaneUI extends DarculaRootPaneUI {
         if (!SystemInfo.isJavaVersionAtLeast(11)) {
           c.putClientProperty(TRANSPARENT_TITLE_BAR_APPEARANCE, true);
         } else {
-          JRootPane rootPane = (JRootPane) c;
+          final JRootPane rootPane = (JRootPane) c;
+
           c.addHierarchyListener((event) -> {
-            Window window = UIUtil.getWindow(c);
-            String title = getWindowTitle(window);
+            final Window window = UIUtil.getWindow(c);
+            final String title = getWindowTitle(window);
             if (title != null && !title.equals("This should not be shown")) {
+              c.putClientProperty(TRANSPARENT_TITLE_BAR_APPEARANCE, true);
               setCustomTitleBar(window, rootPane, (runnable) -> disposer = runnable);
+            } else {
+              c.putClientProperty(TRANSPARENT_TITLE_BAR_APPEARANCE, false);
             }
           });
         }
@@ -120,40 +128,49 @@ public final class MTRootPaneUI extends DarculaRootPaneUI {
     }
   }
 
-  private static void setCustomTitleBar(Window window, JRootPane rootPane, Consumer<Runnable> onDispose) {
-    JBInsets topWindowInset = JBUI.insetsTop(24);
-    rootPane.putClientProperty(TRANSPARENT_TITLE_BAR_APPEARANCE, true);
+  private static void setCustomTitleBar(final Window window, final JRootPane rootPane, final Consumer<Runnable> onDispose) {
+    final JBInsets topWindowInset = JBUI.insetsTop(24);
 
     // Create the title bar
-    AbstractBorder customDecorationBorder = new AbstractBorder() {
+    final AbstractBorder customDecorationBorder = new AbstractBorder() {
       @Override
-      public Insets getBorderInsets(Component c) {
+      public Insets getBorderInsets(final Component c) {
+        if (isInFullScreen(window) || !MTConfig.getInstance().isDarkTitleBar()) {
+          return JBUI.insets(0);
+        }
         return topWindowInset;
       }
 
       @Override
-      public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
-        Graphics2D graphics = (Graphics2D) g.create();
+      public void paintBorder(final Component c, final Graphics g, final int x, final int y, final int width, final int height) {
+        if (isInFullScreen(window) || !MTConfig.getInstance().isDarkTitleBar()) {
+          return;
+        }
+
+        final Graphics2D graphics = (Graphics2D) g.create();
+        graphics.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        graphics.setRenderingHint(RenderingHints.KEY_STROKE_CONTROL, RenderingHints.VALUE_STROKE_NORMALIZE);
+
         try {
-          Rectangle headerRectangle = new Rectangle(0, 0, c.getWidth(), topWindowInset.top);
+          final Rectangle headerRectangle = new Rectangle(0, 0, c.getWidth(), topWindowInset.top);
           graphics.setColor(UIUtil.getPanelBackground());
           graphics.fill(headerRectangle);
           graphics.setFont(UIManager.getFont("Panel.font"));
 
-          Color color = window.isActive() ? MTUI.Label.getLabelForeground() : MTUI.Label.getLabelDisabledForeground();
+          final Color color = window.isActive() ? MTUI.Label.getLabelForeground() : MTUI.Label.getLabelDisabledForeground();
           graphics.setColor(color);
 
-          int controlButtonsWidth = 70;
-          String windowTitle = getWindowTitle(window);
-          double widthToFit = (controlButtonsWidth * 2 + GraphicsUtil.stringWidth(windowTitle, g.getFont())) - c.getWidth();
+          final int controlButtonsWidth = 70;
+          final String windowTitle = getWindowTitle(window);
+          final double widthToFit = (controlButtonsWidth * 2 + GraphicsUtil.stringWidth(windowTitle, g.getFont())) - c.getWidth();
 
           // Draw the title
           if (widthToFit <= 0) {
             UIUtil.drawCenteredString(graphics, headerRectangle, windowTitle);
           } else {
-            FontMetrics fm = graphics.getFontMetrics();
-            Rectangle2D stringBounds = fm.getStringBounds(windowTitle, graphics);
-            Rectangle bounds =
+            final FontMetrics fm = graphics.getFontMetrics();
+            final Rectangle2D stringBounds = fm.getStringBounds(windowTitle, graphics);
+            final Rectangle bounds =
                 AffineTransform.getTranslateInstance(controlButtonsWidth,
                     fm.getAscent() + (headerRectangle.height - stringBounds.getHeight()) / 2).createTransformedShape(stringBounds).getBounds();
             UIUtil.drawCenteredString(graphics, bounds, windowTitle, false, true);
@@ -166,21 +183,49 @@ public final class MTRootPaneUI extends DarculaRootPaneUI {
     rootPane.setBorder(customDecorationBorder);
 
     // Listen for activations
-    WindowAdapter windowAdapter = new WindowAdapter() {
+    final WindowAdapter windowAdapter = new WindowAdapter() {
       @Override
-      public void windowActivated(WindowEvent e) {
+      public void windowActivated(final WindowEvent e) {
         rootPane.repaint();
       }
 
       @Override
-      public void windowDeactivated(WindowEvent e) {
+      public void windowDeactivated(final WindowEvent e) {
         rootPane.repaint();
       }
     };
+
+    // Listen for double clicks
+    new DoubleClickListener() {
+      @Override
+      protected boolean onDoubleClick(final MouseEvent e) {
+        final Frame f;
+
+        if (window instanceof Frame) {
+          f = (Frame) window;
+        } else {
+          return false;
+        }
+        final int state = f.getExtendedState();
+
+        if ((e.getClickCount() % 2) == 0 && ((e.getModifiers() & InputEvent.BUTTON1_MASK) != 0)) {
+          if (f.isResizable()) {
+            if ((state & Frame.MAXIMIZED_BOTH) != 0) {
+              f.setExtendedState(state & ~Frame.MAXIMIZED_BOTH);
+            } else {
+              f.setExtendedState(state | Frame.MAXIMIZED_BOTH);
+            }
+            return true;
+          }
+        }
+        return false;
+      }
+    }.installOn(rootPane);
+
     window.addWindowListener(windowAdapter);
 
     // Listen for title changes
-    PropertyChangeListener propertyChangeListener = evt -> rootPane.repaint();
+    final PropertyChangeListener propertyChangeListener = evt -> rootPane.repaint();
     window.addPropertyChangeListener("title", propertyChangeListener);
     onDispose.consume(() -> {
       window.removeWindowListener(windowAdapter);
@@ -188,8 +233,17 @@ public final class MTRootPaneUI extends DarculaRootPaneUI {
     });
   }
 
-  private static String getWindowTitle(Window window) {
+  private static String getWindowTitle(final Window window) {
     return window instanceof JDialog ? ((JDialog) window).getTitle() :
            window instanceof JFrame ? ((JFrame) window).getTitle() : null;
+  }
+
+  private static boolean isInFullScreen(final Window window) {
+    final Component ultimateParent = UIUtil.findUltimateParent(window);
+    if (ultimateParent == window && ultimateParent instanceof IdeFrameEx) {
+      final IdeFrameEx ultimateParentWindowForEvent = (IdeFrameEx) ultimateParent;
+      return ultimateParentWindowForEvent.isInFullScreen();
+    }
+    return false;
   }
 }
