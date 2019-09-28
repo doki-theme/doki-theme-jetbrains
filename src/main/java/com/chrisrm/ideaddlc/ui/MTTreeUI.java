@@ -29,6 +29,7 @@ import com.chrisrm.ideaddlc.MTConfig;
 import com.chrisrm.ideaddlc.utils.MTUI;
 import com.intellij.icons.AllIcons;
 import com.intellij.openapi.util.IconLoader;
+import com.intellij.openapi.util.Pair;
 import com.intellij.util.ui.CenteredIcon;
 import com.intellij.util.ui.UIUtil;
 import com.intellij.util.ui.tree.WideSelectionTreeUI;
@@ -40,6 +41,7 @@ import javax.swing.border.Border;
 import javax.swing.plaf.ComponentUI;
 import javax.swing.tree.TreePath;
 import java.awt.*;
+import java.util.Optional;
 
 @SuppressWarnings({"StaticVariableMayNotBeInitialized",
     "StaticVariableUsedBeforeInitialization",
@@ -99,7 +101,7 @@ public final class MTTreeUI extends WideSelectionTreeUI {
 
     //noinspection NestedConditionalExpression
     return new CenteredIcon(expanded ? (selectedFocused ? getTreeSelectedExpandedIcon() : getTreeExpandedIcon())
-                                     : (selectedFocused ? getTreeSelectedCollapsedIcon() : getTreeCollapsedIcon()),
+        : (selectedFocused ? getTreeSelectedCollapsedIcon() : getTreeCollapsedIcon()),
         width, height, false);
   }
 
@@ -159,13 +161,19 @@ public final class MTTreeUI extends WideSelectionTreeUI {
         rowGraphics.fillRect(xOffset, bounds.y, containerWidth, bounds.height);
       }
 
-      if (selected) {
-        if (tree.hasFocus()) {
-          LIST_FOCUSED_PAINTER.paintBorder(tree, rowGraphics, xOffset, bounds.y, containerWidth, bounds.height);
-        } else {
-          LIST_PAINTER.paintBorder(tree, rowGraphics, xOffset, bounds.y, containerWidth, bounds.height);
-        }
-      }
+      Optional.of(selected)
+          .filter(b -> b)
+          .map(__ -> LIST_FOCUSED_PAINTER)
+          .map(Optional::of)
+          .orElseGet(() -> Optional.ofNullable(LIST_PAINTER))
+          .flatMap(painter -> Optional.ofNullable(bounds).map(b -> Pair.create(painter, b)))
+          .ifPresent(painterAndBounds -> painterAndBounds.first.paintBorder(tree,
+              rowGraphics,
+              xOffset,
+              painterAndBounds.second.y,
+              containerWidth,
+              painterAndBounds.second.height));
+
       super.paintRow(rowGraphics, clipBounds, insets, bounds, path, row, isExpanded, hasBeenExpanded, isLeaf);
       rowGraphics.dispose();
     } else {
