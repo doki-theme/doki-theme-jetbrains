@@ -105,7 +105,7 @@ object ChibiOrchestrator {
   private fun removeWeebShit() {
     PropertiesComponent.getInstance().unsetValue(DDLC_CHIBI_PROP)
     PropertiesComponent.getInstance().unsetValue(DDLC_BACKGROUND_PROP)
-    IdeBackgroundUtil.repaintAllWindows()
+    repaintWindows()
   }
 
   private fun turnOnWeebShit() {
@@ -123,8 +123,12 @@ object ChibiOrchestrator {
         DDLC_BACKGROUND_PROP)
 
     setPropertyValue(SAVED_THEME, currentTheme.name)
-    IdeBackgroundUtil.repaintAllWindows()
+    repaintWindows()
   }
+
+  private fun repaintWindows() = try {
+    IdeBackgroundUtil.repaintAllWindows()
+  } catch (e: Throwable){}
 
   private fun setPropertyValue(propertyKey: String, propertyValue: String) {
     PropertiesComponent.getInstance().unsetValue(propertyKey)
