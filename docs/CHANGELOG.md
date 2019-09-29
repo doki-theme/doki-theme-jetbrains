@@ -14,6 +14,7 @@
                 at com.chrisrm.ideaddlc.ui.MTTreeUI.paintRow(MTTreeUI.java:166)`
         -  `com.intellij.openapi.extensions.impl.PicoPluginExtensionInitializationException: org/jetbrains/coverage/gnu/trove/THashMap
                  at com.intellij.openapi.extensions.impl.ExtensionComponentAdapter.createInstance(ExtensionComponentAdapter.java:50)`
+
 # 4.3.0
 
 - Up to date with Material UI from 4.2.1 -> 4.4.5
