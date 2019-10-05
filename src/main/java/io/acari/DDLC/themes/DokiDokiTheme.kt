@@ -516,6 +516,7 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
             "CompletionPopup.selectionInfoForeground",
             "Label.selectedForeground",
             "List.selectionForeground",
+            "List.selectionInactiveForeground",
             "Menu.acceleratorSelectionForeground",
             "Menu.selectionForeground",
             "MenuItem.acceleratorSelectionForeground",
@@ -527,7 +528,9 @@ abstract class DokiDokiTheme(private val ddlcThemeId: String,
             "SearchEverywhere.Tab.selectedForeground",
             "TabbedPane.selectedForeground", // deprecated
             "Table.selectionForeground",
+            "Table.selectionInactiveForeground",
             "TextArea.selectionForeground",
+            "Tree.selectionInactiveForeground",
             "TextField.selectionForeground"
         )
     }
