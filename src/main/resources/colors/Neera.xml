@@ -79,13 +79,13 @@
         <option name="FILESTATUS_changelistConflict" value="d71b6a"/>
         <option name="FILESTATUS_modifiedOutside" value="5cc5"/>
         <option name="GUTTER_BACKGROUND" value="FFFEF9"/>
-        <option name="INDENT_GUIDE" value="dddddd"/>
+        <option name="INDENT_GUIDE" value="F3F2E2"/>
         <option name="LINE_NUMBERS_COLOR" value="aaaaaa"/>
         <option name="LINE_NUMBER_ON_CARET_ROW_COLOR" value="1b1f23"/>
-        <option name="METHOD_SEPARATORS_COLOR" value="dddddd"/>
+        <option name="METHOD_SEPARATORS_COLOR" value="F3F2E2"/>
         <option name="MODIFIED_LINES_COLOR" value="CAD9FA"/>
         <option name="NOTIFICATION_BACKGROUND" value="f5e9ab"/>
-        <option name="SELECTED_INDENT_GUIDE" value="dddddd"/>
+        <option name="SELECTED_INDENT_GUIDE" value="F3F2E2"/>
         <option name="SELECTED_TEARLINE_COLOR" value="e0e0b0"/>
         <option name="SELECTION_BACKGROUND" value="FFFFBC"/>
         <option name="SELECTION_FOREGROUND" value="0"/>
@@ -116,7 +116,7 @@
         <option name="ScrollBar.hoverTrackColor" value="FFFEF9" mac="FFFEF9"/>
         <option name="ScrollBar.trackColor" value="FFFEF9" mac="FFFEF9"/>
 
-        <option name="TEARLINE_COLOR" value="dddddd"/>
+        <option name="TEARLINE_COLOR" value="F3F2E2"/>
         <option name="WHITESPACES" value="b5b5b5"/>
         <option name="WHITESPACES_MODIFIED_LINES_COLOR" value="f6f0de"/>
     </colors>
@@ -520,7 +520,7 @@
         </option>
         <option name="FOLDED_TEXT_ATTRIBUTES">
             <value>
-                <option name="BACKGROUND" value="dddddd"/>
+                <option name="BACKGROUND" value="F3F2E2"/>
             </value>
         </option>
         <option name="FOLLOWED_HYPERLINK_ATTRIBUTES">
@@ -567,7 +567,7 @@
         </option>
         <option name="IDENTIFIER_UNDER_CARET_ATTRIBUTES">
             <value>
-                <option name="BACKGROUND" value="dddddd"/>
+                <option name="BACKGROUND" value="F3F2E2"/>
                 <option name="EFFECT_TYPE" value="1"/>
             </value>
         </option>
@@ -750,19 +750,19 @@
         <option name="MARKDOWN_CODE_BLOCK">
             <value>
                 <option name="FOREGROUND" value="0"/>
-                <option name="BACKGROUND" value="dddddd"/>
+                <option name="BACKGROUND" value="F3F2E2"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
         <option name="MARKDOWN_CODE_FENCE">
             <value>
                 <option name="FOREGROUND" value="0"/>
-                <option name="BACKGROUND" value="dddddd"/>
+                <option name="BACKGROUND" value="F3F2E2"/>
             </value>
         </option>
         <option name="MARKDOWN_CODE_SPAN">
             <value>
-                <option name="BACKGROUND" value="dddddd"/>
+                <option name="BACKGROUND" value="F3F2E2"/>
             </value>
         </option>
         <option name="MARKDOWN_HEADER_LEVEL_1">
@@ -1695,12 +1695,12 @@
         </option>
         <option name="REST$FIXED">
             <value>
-                <option name="BACKGROUND" value="dddddd"/>
+                <option name="BACKGROUND" value="F3F2E2"/>
             </value>
         </option>
         <option name="REST$INTERPRETED">
             <value>
-                <option name="BACKGROUND" value="dddddd"/>
+                <option name="BACKGROUND" value="F3F2E2"/>
             </value>
         </option>
         <option name="RHTML_EXPRESSION_END_ID" baseAttributes="XML_TAG_NAME"/>
@@ -1737,7 +1737,7 @@
         </option>
         <option name="SEARCH_RESULT_ATTRIBUTES">
             <value>
-                <option name="BACKGROUND" value="dddddd"/>
+                <option name="BACKGROUND" value="F3F2E2"/>
             </value>
         </option>
         <option name="SLIM_FILTER" baseAttributes="DEFAULT_LABEL"/>
@@ -1782,7 +1782,7 @@
         </option>
         <option name="TEXT_SEARCH_RESULT_ATTRIBUTES">
             <value>
-                <option name="BACKGROUND" value="dddddd"/>
+                <option name="BACKGROUND" value="F3F2E2"/>
             </value>
         </option>
         <option name="TODO_DEFAULT_ATTRIBUTES">
@@ -1826,12 +1826,12 @@
         </option>
         <option name="WRITE_IDENTIFIER_UNDER_CARET_ATTRIBUTES">
             <value>
-                <option name="BACKGROUND" value="dddddd"/>
+                <option name="BACKGROUND" value="F3F2E2"/>
             </value>
         </option>
         <option name="WRITE_SEARCH_RESULT_ATTRIBUTES">
             <value>
-                <option name="BACKGROUND" value="dddddd"/>
+                <option name="BACKGROUND" value="F3F2E2"/>
             </value>
         </option>
         <option name="XML_PROLOGUE" baseAttributes="TEXT"/>
