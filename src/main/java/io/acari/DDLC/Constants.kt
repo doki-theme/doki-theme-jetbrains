@@ -8,11 +8,7 @@ const val DARK_MODE_CONSTANT: String = "Ḑ̶͍̲̳̫͗̚͠ä̵͉̠̬͙̤͚͆͆
 val UPDATE_MESSAGE: String = """
       What's New?<br>
       <ul>
-      <li>Addressed all reported exceptions!
-        <ul>
-            <li>Thanks to all who spent time making an issue or reporting the exception!</li>
-        </ul>
-      </li>
+      <li>Small Theme Usability Adjustments.</li>
       </ul>
       <br>
       Thanks again for downloading <b>The Doki-Doki Theme</b>! •‿•<br>

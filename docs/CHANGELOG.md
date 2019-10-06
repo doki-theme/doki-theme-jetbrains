@@ -1,6 +1,10 @@
 # Changelog
 ---
 
+# 4.3.2
+
+- Small theme usability tweaks
+
 # 4.3.1
 
 - Addressed all reported thrown exceptions.
