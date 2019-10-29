@@ -42,7 +42,7 @@ object DokiExtensionHacker {
     if(!dokiExtensions.isEmpty()){
       val point = IconProvider.EXTENSION_POINT_NAME.getPoint(null)
       val listToAddTo = ArrayList(dokiExtensions)
-      ContainerUtil.addAll(listToAddTo, nonMaterialExtensions)
+      listToAddTo.addAll(nonMaterialExtensions)
       cacheFeildToHack.set(point, ContainerUtil.immutableList(listToAddTo))
     }
   }
@@ -51,7 +51,7 @@ object DokiExtensionHacker {
     if(!materialExtensions.isEmpty()){
       val point = IconProvider.EXTENSION_POINT_NAME.getPoint(null)
       val listToAddTo = ArrayList(materialExtensions)
-      ContainerUtil.addAll(listToAddTo, nonMaterialExtensions)
+      listToAddTo.addAll(nonMaterialExtensions)
       cacheFeildToHack.set(point, ContainerUtil.immutableList(listToAddTo))
     }
 
@@ -75,7 +75,7 @@ object DokiExtensionHacker {
 
     adapterFeildToHack = classToHack.declaredFields.stream().filter { it.name == "myAdapters" }.findFirst().get()
     val (dokiExtractedAdapters, materialExtractedAdapters, nonMaterialExtractedAdapters) =
-        mutilateField(adapterFeildToHack) { (it as? ExtensionComponentAdapter)?.implementationClass?.name ?: ""}
+        mutilateField(adapterFeildToHack) { (it as? ExtensionComponentAdapter)?.assignableToClassName ?: ""}
     dokiAdapters = dokiExtractedAdapters
     materialAdapters = materialExtractedAdapters
     nonMaterialAdapters = nonMaterialExtractedAdapters
@@ -106,7 +106,7 @@ object DokiExtensionHacker {
           ?: Collections.emptyList())
 
       val arrayList = ArrayList(dokiExtensions_2)
-      ContainerUtil.addAll(arrayList, nonMaterialExtensions_2)
+      arrayList.addAll(nonMaterialExtensions_2)
       cacheFeildToHack.set(point, ContainerUtil.immutableList(arrayList))
       return Triple(dokiExtensions_2,
           materialExtensions_2,

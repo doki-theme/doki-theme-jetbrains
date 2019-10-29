@@ -127,7 +127,7 @@ version = System.getenv("pluginVersion") ?: pluginVersion
 intellij {
     pluginName 'DDLC Theme'
     type 'IU'
-    version '192.6262.58'
+    version 'LATEST-EAP-SNAPSHOT'
     alternativeIdePath idePath
     downloadSources true
     updateSinceUntilBuild true
