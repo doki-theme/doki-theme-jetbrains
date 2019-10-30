@@ -30,6 +30,7 @@ import com.chrisrm.ideaddlc.MTConfig;
 import com.chrisrm.ideaddlc.tabs.shadowPainters.*;
 import com.chrisrm.ideaddlc.themes.models.MTThemeable;
 import com.chrisrm.ideaddlc.utils.MTUI;
+import com.intellij.ui.ColorUtil;
 import com.intellij.ui.paint.RectanglePainter2D;
 import com.intellij.ui.tabs.JBTabsPosition;
 import com.intellij.ui.tabs.impl.JBDefaultTabPainter;
@@ -84,11 +85,9 @@ public class MTTabsPainter extends JBDefaultTabPainter {
 
   @NotNull
   private Color getIndicatorColor() {
-    final Color accentColor = MTUI.Panel.getLinkForeground();
-    final Color highlightColor = mtConfig.getHighlightColor();
-
-    // Color to set
-    return mtConfig.isHighlightColorEnabled() ? highlightColor : accentColor;
+    Color accentColor = ColorUtil.fromHex(this.mtConfig.getAccentColor());
+    Color highlightColor = this.mtConfig.getHighlightColor();
+    return this.mtConfig.isHighlightColorEnabled() ? highlightColor : accentColor;
   }
 
   @Override
@@ -125,9 +124,10 @@ public class MTTabsPainter extends JBDefaultTabPainter {
                               final int thickness,
                               @NotNull final Point from,
                               @NotNull final Point to) {
-    if (MTConfig.getInstance().isTabsShadow()) {
-      final ShadowPainter shadowPainter = getShadowPainter(tabs != null ? tabs.getTabsPosition() : JBTabsPosition.bottom);
-      shadowPainter.drawShadow(g2d, from, to);
-    }
+//    todo: restore this??
+//    if (MTConfig.getInstance().isTabsShadow()) {
+//      final ShadowPainter shadowPainter = getShadowPainter(tabs != null ? tabs.getTabsPosition() : JBTabsPosition.bottom);
+//      shadowPainter.drawShadow(g2d, from, to);
+//    }
   }
 }
