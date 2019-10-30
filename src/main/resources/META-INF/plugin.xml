@@ -72,7 +72,7 @@
         ]]></description>
 
     <!-- Gets overridden during the build process -->
-    <idea-version since-build="181.5281.31"/>
+    <idea-version since-build="192.6262.58"/>
 
 
     <depends>com.intellij.modules.platform</depends>
@@ -204,10 +204,6 @@
         </component>
         <component>
             <implementation-class>com.chrisrm.ideaddlc.MTUpdatesComponent</implementation-class>
-        </component>
-        <component>
-            <implementation-class>com.chrisrm.ideaddlc.MTTitleBarComponent</implementation-class>
-            <loadForDefaultProject>true</loadForDefaultProject>
         </component>
     </project-components>
 

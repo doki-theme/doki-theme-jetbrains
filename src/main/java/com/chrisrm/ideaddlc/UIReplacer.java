@@ -48,7 +48,7 @@ import com.intellij.ui.SimpleTextAttributes;
 import com.intellij.ui.tabs.FileColorManagerImpl;
 import com.intellij.ui.tabs.TabsUtil;
 import com.intellij.ui.tabs.UiDecorator;
-import com.intellij.ui.tabs.newImpl.JBTabsImpl;
+import com.intellij.ui.tabs.impl.JBTabsImpl;
 import com.intellij.util.ObjectUtils;
 import com.intellij.util.containers.ContainerUtil;
 import com.intellij.util.ui.JBUI;
@@ -59,7 +59,6 @@ import com.intellij.vcs.log.ui.highlighters.CurrentBranchHighlighter;
 import com.intellij.vcs.log.ui.highlighters.MergeCommitsHighlighter;
 import io.acari.DDLC.DDLCConfig;
 import io.acari.DDLC.LegacySupportUtility;
-import io.acari.DDLC.ToolBoxKt;
 
 import javax.swing.*;
 import javax.swing.plaf.ColorUIResource;
@@ -67,7 +66,6 @@ import java.awt.*;
 import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.Map;
-import java.util.Optional;
 
 @SuppressWarnings("FeatureEnvy")
 public enum UIReplacer {
@@ -79,12 +77,9 @@ public enum UIReplacer {
       patchTabs();
       patchTables();
       patchGrays();
-      patchMemoryIndicator();
       patchIdeaActionButton();
       patchScrollbars();
-      patchDialogs();
       patchVCS();
-      patchSettings();
       patchScopes();
       patchNavBar();
       patchIdeaActionButton();
@@ -137,28 +132,6 @@ public enum UIReplacer {
     }
   }
 
-  /**
-   * Theme the memory indicator
-   */
-  static void patchMemoryIndicator() throws NoSuchFieldException, IllegalAccessException {
-    if (MTConfig.getInstance().isMaterialTheme()) {
-      final Object usedColor = UIManager.getColor("MemoryIndicator.usedColor");
-      final Object unusedColor = UIManager.getColor("MemoryIndicator.unusedColor");
-      if (usedColor == null || unusedColor == null) {
-        return;
-      }
-
-      StaticPatcher.setFinalStatic(MemoryUsagePanel.class, "USED_COLOR", usedColor);
-      StaticPatcher.setFinalStatic(MemoryUsagePanel.class, "UNUSED_COLOR", unusedColor);
-
-      final Field[] fields = MemoryUsagePanel.class.getDeclaredFields();
-      final Object[] objects = Arrays.stream(fields)
-          .filter(field -> field.getType().equals(Color.class))
-          .toArray();
-      StaticPatcher.setFinalStatic((Field) objects[0], usedColor);
-      StaticPatcher.setFinalStatic((Field) objects[1], unusedColor);
-    }
-  }
 
   /**
    * Patch the autocomplete color with the accent color
@@ -175,22 +148,6 @@ public enum UIReplacer {
     } catch (final NoSuchFieldException | IllegalAccessException e) {
       System.err.println("Unable to patch completion popup: " + e.getLocalizedMessage());
     }
-  }
-
-
-  private static void patchDialogs() throws NoSuchFieldException, IllegalAccessException {
-    if (!MTConfig.getInstance().isMaterialTheme()) {
-      return;
-    }
-
-    Color color = UIManager.getColor("Dialog.titleColor");
-    if (color == null) {
-      color = UIUtil.getPanelBackground();
-    }
-
-    StaticPatcher.setFinalStatic(CaptionPanel.class, "CNT_ACTIVE_BORDER_COLOR", new JBColor(color, color));
-    StaticPatcher.setFinalStatic(CaptionPanel.class, "BND_ACTIVE_COLOR", new JBColor(color, color));
-    StaticPatcher.setFinalStatic(CaptionPanel.class, "CNT_ACTIVE_COLOR", new JBColor(color, color));
   }
 
   private static void patchAndroid() throws NoSuchFieldException, IllegalAccessException {
@@ -361,23 +318,6 @@ public enum UIReplacer {
       StaticPatcher.setFinalStatic(VcsLogStandardColors.Refs.class, "BRANCH_REF", branchColor);
       StaticPatcher.setFinalStatic(VcsLogStandardColors.Refs.class, "TAG", tagColor);
     }
-  }
-
-  /**
-   * Set active settings page to accent color
-   */
-  public static void patchSettings() throws NoSuchFieldException, IllegalAccessException {
-    if (!MTConfig.getInstance().isMaterialTheme()) {
-      return;
-    }
-    final Color accentColor = ColorUtil.fromHex(MTConfig.getInstance().getAccentColor());
-
-    final Field[] fields = SettingsTreeView.class.getDeclaredFields();
-    final Object[] objects = Arrays.stream(fields)
-        .filter(field -> field.getType().equals(Color.class))
-        .toArray();
-
-    StaticPatcher.setFinalStatic((Field) objects[1], accentColor);
   }
 
   /**

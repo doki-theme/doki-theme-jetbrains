@@ -43,7 +43,9 @@ import com.intellij.ide.ui.laf.darcula.DarculaInstaller;
 import com.intellij.ide.ui.laf.darcula.DarculaLaf;
 import com.intellij.ide.util.PropertiesComponent;
 import com.intellij.openapi.actionSystem.impl.ActionToolbarImpl;
+import com.intellij.openapi.application.Application;
 import com.intellij.openapi.application.ApplicationManager;
+import com.intellij.openapi.application.ModalityState;
 import com.intellij.openapi.components.ServiceManager;
 import com.intellij.openapi.editor.colors.EditorColorsManager;
 import com.intellij.openapi.editor.colors.EditorColorsScheme;
@@ -54,7 +56,9 @@ import com.intellij.openapi.util.Couple;
 import com.intellij.openapi.util.IconLoader;
 import com.intellij.openapi.util.SystemInfo;
 import com.intellij.ui.ColorUtil;
+import com.intellij.ui.GuiUtils;
 import com.intellij.ui.JBColor;
+import com.intellij.ui.scale.JBUIScale;
 import com.intellij.util.Consumer;
 import com.intellij.util.ObjectUtils;
 import com.intellij.util.containers.ContainerUtil;
@@ -339,16 +343,6 @@ public final class MTThemeManager {
   }
 
   /**
-   * Toggle dark title bar.
-   */
-  @SuppressWarnings("FeatureEnvy")
-  public static void toggleDarkTitleBar() {
-    final MTConfig mtConfig = MTConfig.getInstance();
-    mtConfig.setDarkTitleBar(!mtConfig.isDarkTitleBar());
-    themeTitleBar();
-  }
-
-  /**
    * Toggle override accent color
    */
   @SuppressWarnings("FeatureEnvy")
@@ -364,11 +358,11 @@ public final class MTThemeManager {
    * Update file icons.
    */
   static void updateFileIcons() {
-    ApplicationManager.getApplication().runWriteAction(() -> {
-      final FileTypeManagerEx instanceEx = FileTypeManagerEx.getInstanceEx();
-      instanceEx.fireFileTypesChanged();
-      ActionToolbarImpl.updateAllToolbarsImmediately();
-    });
+    GuiUtils.invokeLaterIfNeeded(() -> {
+      final Application app = ApplicationManager.getApplication();
+      app.runWriteAction(() -> FileTypeManagerEx.getInstanceEx().fireFileTypesChanged());
+      app.runWriteAction(ActionToolbarImpl::updateAllToolbarsImmediately);
+    }, ModalityState.NON_MODAL);
   }
   //endregion
 
@@ -424,7 +418,6 @@ public final class MTThemeManager {
     applyCustomTreeIndent();
     applyMenusHeight();
     applyFonts();
-    themeTitleBar();
     applyCompactToolWindowHeaders();
 
     // Documentation styles
@@ -587,7 +580,6 @@ public final class MTThemeManager {
       UIManager.put("material.contrast", null);
 
       // Apply other settings
-      themeTitleBar();
       applyCompactSidebar(false);
       applyCustomTreeIndent();
       applyAccents(false);
@@ -816,10 +808,10 @@ public final class MTThemeManager {
     final MTThemeable selectedTheme = DDLCConfig.getInstance().getSelectedTheme().getTheme();
 
     // Load css
-    final URL url = selectedTheme.getClass().getResource(selectedTheme.getId() + (JBUI.isUsrHiDPI() ? RETINA : NON_RETINA));
+    final URL url = selectedTheme.getClass().getResource(selectedTheme.getId() + (JBUIScale.isUsrHiDPI() ? RETINA : NON_RETINA));
     StyleSheet styleSheet = UIUtil.loadStyleSheet(url);
     if (styleSheet == null) {
-      final URL fallbackUrl = DarculaLaf.class.getResource(DARCULA + (JBUI.isUsrHiDPI() ? RETINA : NON_RETINA));
+      final URL fallbackUrl = DarculaLaf.class.getResource(DARCULA + (JBUIScale.isUsrHiDPI() ? RETINA : NON_RETINA));
       styleSheet = UIUtil.loadStyleSheet(fallbackUrl);
     }
 
@@ -871,28 +863,4 @@ public final class MTThemeManager {
       e.printStackTrace();
     }
   }
-
-  //region Title bar support
-
-  /**
-   * Theme title bar.
-   */
-  static void themeTitleBar() {
-    final boolean isDarkTitleOn = MTConfig.getInstance().isDarkTitleBar();
-    if (SystemInfo.isWin10OrNewer && isDarkTitleOn) {
-      // Write in the registry
-      themeWindowsTitleBar();
-    }
-  }
-
-  /**
-   * Theme windows title bar.
-   */
-  private static void themeWindowsTitleBar() {
-    final Color backgroundColor = MTConfig.getInstance().getSelectedTheme().getTheme().getBackgroundColor();
-
-    WinRegistry.writeTitleColor(backgroundColor);
-  }
-
-  //endregion
 }

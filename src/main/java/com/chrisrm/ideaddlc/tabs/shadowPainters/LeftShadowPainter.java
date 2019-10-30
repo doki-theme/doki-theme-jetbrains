@@ -27,42 +27,37 @@
 package com.chrisrm.ideaddlc.tabs.shadowPainters;
 
 import com.intellij.ui.ColorUtil;
-import com.intellij.ui.tabs.impl.ShapeTransform;
 
 import java.awt.*;
 
 public final class LeftShadowPainter extends ShadowPainter {
-  @Override
-  public void drawShadow(final Graphics2D g2d,
-                         final ShapeTransform path,
-                         final ShapeTransform labelPath,
-                         final Rectangle rect) {
-    drawRightShadow(g2d, path, rect);
-  }
 
-  private static void drawRightShadow(final Graphics2D g2d,
-                                      final ShapeTransform path,
-                                      final Rectangle rect) {
-    final int h = path.getMaxY();
-    final int w = rect.width;
+  @Override
+  public void drawShadow(final Graphics2D g2d, final Point from, final Point to) {
+    final int w = (int) to.getX();
+    final int h = (int) to.getY();
+    if (h == 0) {
+      return;
+    }
 
     final Color bg = getShadowColor();
-    g2d.setColor(bg);
-    g2d.drawLine(w + 1, 0, w + 1, h);
+    g2d.setColor(ColorUtil.toAlpha(bg, 50));
+    g2d.drawLine(w - 1, 0, w - 1, h);
 
     // draw the drop-shadow
-    final Color mid = ColorUtil.toAlpha(bg, 75);
+    final Color mid = ColorUtil.toAlpha(bg, 40);
     g2d.setColor(mid);
-    g2d.drawLine(w + 2, 0, w + 2, h);
+    g2d.drawLine(w - 2, 0, w - 2, h);
 
     // draw the drop-shadow
-    final Color mid2 = ColorUtil.toAlpha(bg, 50);
+    final Color mid2 = ColorUtil.toAlpha(bg, 30);
     g2d.setColor(mid2);
-    g2d.drawLine(w + 3, 0, w + 3, h);
-    g2d.drawLine(w + 4, 0, w + 4, h);
+    g2d.drawLine(w - 3, 0, w - 3, h);
+    g2d.drawLine(w - 4, 0, w - 4, h);
 
     final Color edge = ColorUtil.toAlpha(bg, 25);
     g2d.setColor(edge);
-    g2d.drawLine(w + 5, 0, w + 5, h);
+    g2d.drawLine(w - 5, 0, w - 5, h);
   }
+
 }

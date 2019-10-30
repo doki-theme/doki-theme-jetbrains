@@ -24,18 +24,32 @@
  *
  */
 
-package com.chrisrm.ideaddlc.tabs.shadowPainters;
+import com.intellij.ide.todo.TodoView;
+import com.intellij.openapi.components.ServiceManager;
+import com.intellij.openapi.project.DumbService;
+import com.intellij.openapi.project.Project;
+import com.intellij.openapi.wm.ToolWindow;
+import com.intellij.openapi.wm.ToolWindowFactory;
+import org.jetbrains.annotations.NotNull;
 
-import com.intellij.ui.JBColor;
-
-import java.awt.*;
-
-public abstract class ShadowPainter {
-  static Color getShadowColor() {
-    return new JBColor(Color.darkGray, Color.black);
+public final class Factory implements ToolWindowFactory {
+  @Override
+  public void createToolWindowContent(@NotNull final Project project, @NotNull final ToolWindow toolWindow) {
+    DumbService.getInstance(project).runWhenSmart(() -> ServiceManager.getService(project, TodoView.class).initToolWindow(toolWindow));
   }
 
-  public abstract void drawShadow(Graphics2D g2d,
-                                  Point from,
-                                  Point to);
+  @Override
+  public void init(final ToolWindow window) {
+
+  }
+
+  @Override
+  public boolean shouldBeAvailable(@NotNull final Project project) {
+    return true;
+  }
+
+  @Override
+  public boolean isDoNotActivateOnStart() {
+    return false;
+  }
 }

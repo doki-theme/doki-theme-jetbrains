@@ -26,16 +26,12 @@
 
 package com.chrisrm.ideaddlc.tabs.shadowPainters;
 
-import com.intellij.ui.tabs.impl.ShapeTransform;
-
 import java.awt.*;
 
 public final class NoneShadowPainter extends ShadowPainter {
+
   @Override
-  public void drawShadow(final Graphics2D g2d,
-                         final ShapeTransform path,
-                         final ShapeTransform labelPath,
-                         final Rectangle rect) {
+  public void drawShadow(final Graphics2D g2d, final Point from, final Point to) {
 
   }
 }

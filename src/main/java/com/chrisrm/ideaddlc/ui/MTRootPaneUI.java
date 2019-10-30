@@ -98,13 +98,10 @@ public final class MTRootPaneUI extends DarculaRootPaneUI {
     super.installUI(c);
     final boolean isThemeDark = DDLCConfig.getInstance().getSelectedTheme().isDark();
     final boolean darkTitleBar = MTConfig.getInstance().isDarkTitleBar();
-    final boolean allowDarkWindowDecorations = Registry.get("ide.mac.allowDarkWindowDecorations").asBoolean();
 
     if (SystemInfo.isMac || SystemInfo.isLinux) {
+      c.putClientProperty(WINDOW_DARK_APPEARANCE, isThemeDark);
       if (darkTitleBar) {
-        Registry.get("ide.mac.allowDarkWindowDecorations").setValue(isThemeDark);
-
-        c.putClientProperty(WINDOW_DARK_APPEARANCE, isThemeDark);
         if (!SystemInfo.isJavaVersionAtLeast(11)) {
           c.putClientProperty(TRANSPARENT_TITLE_BAR_APPEARANCE, true);
         } else {
@@ -121,8 +118,7 @@ public final class MTRootPaneUI extends DarculaRootPaneUI {
             }
           });
         }
-    } else {
-        c.putClientProperty(WINDOW_DARK_APPEARANCE, isThemeDark && allowDarkWindowDecorations);
+      } else {
         c.putClientProperty(TRANSPARENT_TITLE_BAR_APPEARANCE, false);
       }
     }
