@@ -71,8 +71,8 @@
 						<div align="center"><img src="https://raw.githubusercontent.com/cyclic-reference/jetbrains-theme/master/src/main/resources/themes/DDLC_LOGO.png" alt="DDLC"></img></div>
 				]]></description>
 
-		<!-- Gets overridden during the build process -->
-		<idea-version since-build="181.5281.31"/>
+    <!-- Gets overridden during the build process -->
+    <idea-version since-build="192.6262.58"/>
 
 
 		<depends>com.intellij.modules.platform</depends>
@@ -193,23 +193,19 @@
 				</component>
 		</application-components>
 
-		<project-components>
-				<component>
-						<implementation-class>io.acari.DDLC.status.DDLCStatusBarComponent</implementation-class>
-						<loadForDefaultProject>true</loadForDefaultProject>
-				</component>
-				<component>
-						<implementation-class>io.acari.DDLC.DDLCProjectInitializationComponent</implementation-class>
-						<loadForDefaultProject>true</loadForDefaultProject>
-				</component>
-				<component>
-						<implementation-class>com.chrisrm.ideaddlc.MTUpdatesComponent</implementation-class>
-				</component>
-				<component>
-						<implementation-class>com.chrisrm.ideaddlc.MTTitleBarComponent</implementation-class>
-						<loadForDefaultProject>true</loadForDefaultProject>
-				</component>
-		</project-components>
+    <project-components>
+        <component>
+            <implementation-class>io.acari.DDLC.status.DDLCStatusBarComponent</implementation-class>
+            <loadForDefaultProject>true</loadForDefaultProject>
+        </component>
+        <component>
+            <implementation-class>io.acari.DDLC.DDLCProjectInitializationComponent</implementation-class>
+            <loadForDefaultProject>true</loadForDefaultProject>
+        </component>
+        <component>
+            <implementation-class>com.chrisrm.ideaddlc.MTUpdatesComponent</implementation-class>
+        </component>
+    </project-components>
 
 
 		<actions>

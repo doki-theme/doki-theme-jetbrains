@@ -478,6 +478,9 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
     modified = modified || isMaterialThemeChanged(form.isMaterialTheme());
     modified = modified || isAccentScrollbarsChanged(form.isAccentScrollbars());
     modified = modified || isTabsHeightChanged(form.getTabsHeight());
+    modified = modified || isTreeFontSizeEnabledChanged(form.isTreeFontSizeEnabled());
+    modified = modified || isTreeFontSizeChanged(form.getTreeFontSize());
+    modified = modified || isDarkTitleBarChanged(form.isDarkTitleBar());
 
     return modified;
   }
