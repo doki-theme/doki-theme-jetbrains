@@ -35,7 +35,6 @@ class TintedColorPatcher internal constructor(connect: MessageBusConnection) : S
         TintedColorPatcher.refreshThemeColor(theme)
       }
     })
-    refreshColors()
   }
 
   override fun patchColors(@NonNls svg: Element) {
@@ -86,8 +85,6 @@ class TintedColorPatcher internal constructor(connect: MessageBusConnection) : S
     private var themedStart = MTAccents.CYAN.hexColor
     private var themedStop = MTAccents.TURQUOISE.hexColor
 
-    private val CONFIG = MTConfig.getInstance()
-
     internal fun refreshAccentColor(accentColor: Color) {
       TintedColorPatcher.accentColor = ColorUtil.toHex(accentColor)
     }
@@ -96,11 +93,6 @@ class TintedColorPatcher internal constructor(connect: MessageBusConnection) : S
       themedColor = ColorUtil.toHex(theme.theme.tintedIconColor)
       themedStart = theme.theme.startColor
       themedStop = theme.theme.stopColor
-    }
-
-    private fun refreshColors() {
-      accentColor = CONFIG.accentColor
-      themedColor = ColorUtil.toHex(CONFIG.selectedTheme.theme.tintedIconColor)
     }
   }
 }
