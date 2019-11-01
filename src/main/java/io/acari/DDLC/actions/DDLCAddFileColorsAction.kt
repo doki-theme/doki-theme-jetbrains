@@ -28,6 +28,7 @@ package io.acari.DDLC.actions
 import com.intellij.openapi.project.Project
 import com.intellij.psi.search.scope.NonProjectFilesScope
 import com.intellij.psi.search.scope.TestsScope
+import com.intellij.ui.ColorUtil
 import com.intellij.ui.FileColorManager
 import com.intellij.ui.tabs.FileColorManagerImpl
 import com.intellij.ui.tabs.FileColorsModel
@@ -40,6 +41,15 @@ class DDLCAddFileColorsAction {
   fun removeFileScopes(project: Project?) {
     if (project != null)
       replaceFileScopes(project) { _, _ -> emptyList() }
+  }
+
+  fun isSet(project: Project?): Boolean {
+    val selectedTheme = DDLCConfig.getInstance().getSelectedTheme()
+    val manager = FileColorManager.getInstance(project!!)
+    val quickScope = manager.getScopeColor(NonProjectFilesScope.NAME)
+    return quickScope != null &&
+        selectedTheme.nonProjectFileScopeColor ==
+        ColorUtil.toHex(quickScope)
   }
 
   fun setFileScopes(project: Project?) {

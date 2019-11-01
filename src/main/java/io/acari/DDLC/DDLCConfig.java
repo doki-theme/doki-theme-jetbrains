@@ -76,6 +76,7 @@ public class DDLCConfig implements PersistentStateComponent<DDLCConfig>, Cloneab
   public boolean isWizardShown = false;
   public boolean isFirstTime = true;
   public boolean isDarkMode = false;
+  public boolean isDokiFileColors = false;
 
   public DDLCConfig() {
   }
@@ -198,6 +199,7 @@ public class DDLCConfig implements PersistentStateComponent<DDLCConfig>, Cloneab
     hashMap.put("selectedTheme", getSelectedTheme());
     hashMap.put("isFirstTime", isFirstTime);
     hashMap.put("chibiLevel", chibiLevel);
+    hashMap.put("isDokiFileColors", isDokiFileColors);
 
 
     return hashMap;
@@ -211,6 +213,7 @@ public class DDLCConfig implements PersistentStateComponent<DDLCConfig>, Cloneab
     hashMap.put("selectedTheme", getSelectedTheme());
     hashMap.put("isFirstTime", isFirstTime);
     hashMap.put("chibiLevel", chibiLevel);
+    hashMap.put("isDokiFileColors", isDokiFileColors);
 
 
     return hashMap;
