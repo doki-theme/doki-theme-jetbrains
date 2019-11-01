@@ -1,6 +1,10 @@
 # Changelog
 ---
 
+# 4.3.3
+
+- New users have to opt-in to file colors.
+
 # 4.3.2
 
 - Small theme usability tweaks

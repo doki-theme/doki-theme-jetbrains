@@ -30,7 +30,6 @@ import com.chrisrm.ideaddlc.MTAnalytics
 import com.chrisrm.ideaddlc.MTConfig
 import com.chrisrm.ideaddlc.MTThemeManager
 import com.chrisrm.ideaddlc.actions.accents.MTAbstractAccentAction
-import io.acari.DDLC.DDLCThemes
 import io.acari.DDLC.actions.DDLCAddFileColorsAction
 import io.acari.DDLC.tree.DDLCProjectViewNodeDecorator
 import com.chrisrm.ideaddlc.ui.MTButtonUI
@@ -48,7 +47,7 @@ import java.util.stream.Stream
 
 open class ClubMemberThemeAction(private val theme: DDLCThemeFacade,
                                  private val accentAction: MTAbstractAccentAction) : BaseThemeAction() {
-    private val mtAddFileColorsAction = DDLCAddFileColorsAction()
+    private val dokiAddFileColors = DDLCAddFileColorsAction()
 
     override fun selectionActivation(project: Optional<Project>) {
         super.selectionActivation(project)
@@ -66,7 +65,9 @@ open class ClubMemberThemeAction(private val theme: DDLCThemeFacade,
         }
         .forEach {
             projectReference ->
-            mtAddFileColorsAction.setFileScopes(projectReference)
+            if(DDLCConfig.getInstance().isDokiFileColors){
+                dokiAddFileColors.setFileScopes(projectReference)
+            }
         }
 
         MTAnalytics.getInstance().trackValue(MTAnalytics.SELECT_THEME, theme)

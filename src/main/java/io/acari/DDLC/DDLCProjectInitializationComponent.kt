@@ -15,7 +15,7 @@ import java.util.*
  */
 class DDLCProjectInitializationComponent(private val project: Project) : ProjectComponent {
   private val ranbo = Random(Instant.now().epochSecond / 100)
-  private val mtAddFileColorsAction = DDLCAddFileColorsAction()
+  private val dokiFileColors = DDLCAddFileColorsAction()
 
   override fun getComponentName(): String {
     return "DDLCProjectInitializationComponent"
@@ -24,7 +24,9 @@ class DDLCProjectInitializationComponent(private val project: Project) : Project
   override fun projectOpened() {
     if (MTThemeManager.isDDLCActive()) {
       MTThemeManager.activate()
-      mtAddFileColorsAction.setFileScopes(this.project)
+      if(DDLCConfig.getInstance().isDokiFileColors){
+        dokiFileColors.setFileScopes(this.project)
+      }
       if (!GeneralSettings.getInstance().isShowTipsOnStartup) {
         val timesTipsChosen = PropertiesComponent.getInstance().getInt(WRITING_TIP_OF_THE_DAY, 0)
         if (timesTipsChosen < 1) {
@@ -35,8 +37,8 @@ class DDLCProjectInitializationComponent(private val project: Project) : Project
         }
       }
     } else {
-      //todo: should probably check to se if the material file scopes are installed (when somebody complains)
-      mtAddFileColorsAction.removeFileScopes(this.project)
+      //todo: should probably check to see if the material file scopes are installed (when somebody complains)
+      dokiFileColors.removeFileScopes(this.project)
     }
 
   }
