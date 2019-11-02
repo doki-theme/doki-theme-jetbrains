@@ -13,36 +13,51 @@ import io.acari.DDLC.DDLCThemeFacade
 import org.jetbrains.annotations.NonNls
 import org.w3c.dom.Element
 import java.awt.Color
+import java.net.URL
 
-class TintedColorPatcher internal constructor() : SVGLoader.SvgColorPatcher, Disposable {
-  private val messageBusConnection: MessageBusConnection = ApplicationManager.getApplication().messageBus.connect()
+class TintedColorPatcher internal constructor() : SVGLoader.SvgElementColorPatcherProvider, Disposable {
+  private val messageBusConnection: MessageBusConnection =
+      ApplicationManager.getApplication().messageBus.connect()
+
   override fun dispose() {
     messageBusConnection.disconnect()
   }
-
   init {
-    SVGLoader.setColorPatcher(this)
+    SVGLoader.setColorPatcherProvider(this)
     val self = this
 
     // Listen for changes on the settings
     messageBusConnection.subscribe(MTTopics.ACCENTS, object : AccentsListener {
       override fun accentChanged(accentColor: Color) {
-        SVGLoader.setColorPatcher(null)
-        SVGLoader.setColorPatcher(self)
+        SVGLoader.setColorPatcherProvider(null)
+        SVGLoader.setColorPatcherProvider(self)
         refreshAccentColor(accentColor)
       }
     })
 
     messageBusConnection.subscribe(MTTopics.THEMES, object : ThemeListener {
       override fun themeChanged(theme: DDLCThemeFacade) {
-        SVGLoader.setColorPatcher(null)
-        SVGLoader.setColorPatcher(self)
+        SVGLoader.setColorPatcherProvider(null)
+        SVGLoader.setColorPatcherProvider(self)
         refreshThemeColor(theme)
       }
     })
   }
 
-  override fun patchColors(@NonNls svg: Element) {
+  override fun forURL(url: URL?): SVGLoader.SvgElementColorPatcher? {
+    val self = this
+    return object : SVGLoader.SvgElementColorPatcher {
+      override fun patchColors(svg: Element) {
+        self.patchColors(svg)
+      }
+
+      override fun digest(): ByteArray? {
+        return null
+      }
+    }
+  }
+
+  fun patchColors(@NonNls svg: Element) {
     val tint = svg.getAttribute("tint")
     val themed = svg.getAttribute("themed")
     val themedStartAttr = svg.getAttribute("themedStart")
