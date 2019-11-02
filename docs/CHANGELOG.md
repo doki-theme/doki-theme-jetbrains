@@ -1,6 +1,13 @@
 # Changelog
 ---
 
+# 4.4.0
+
+- 2019.3 Build Support!
+- Up to date with Material 4.8.1
+    - Better PHP Syntax Highlighting
+    - More Icons!
+
 # 4.3.3
 
 - New users have to opt-in to file colors.
