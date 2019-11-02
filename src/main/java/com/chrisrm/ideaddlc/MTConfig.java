@@ -174,7 +174,7 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
   @Property
   boolean useProjectViewDecorators = true;
   @Property
-  IndicatorStyles indicatorStyle = IndicatorStyles.BORDER;
+  IndicatorStyles indicatorStyle = IndicatorStyles.HEART;
   @Property
   int customSidebarHeight = DEFAULT_LINE_HEIGHT;
   @Property
@@ -436,7 +436,7 @@ public final class MTConfig implements PersistentStateComponent<MTConfig>,
     highlightColor = ACCENT_COLOR;
     highlightColorEnabled = false;
     highlightThickness = DEFAULT_THICKNESS;
-    indicatorStyle = IndicatorStyles.BORDER;
+    indicatorStyle = IndicatorStyles.HEART;
     indicatorThickness = DEFAULT_THICKNESS;
     isCompactMenus = false;
     isCompactStatusBar = false;

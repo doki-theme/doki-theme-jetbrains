@@ -24,14 +24,16 @@
  *
  */
 
-package com.chrisrm.ideaddlc.actions.indicators;
+package com.chrisrm.ideaddlc.actions.indicators
 
-import com.chrisrm.ideaddlc.config.ui.IndicatorStyles;
+import com.chrisrm.ideaddlc.MTConfig
+import com.chrisrm.ideaddlc.config.ui.IndicatorStyles
+import com.intellij.openapi.actionSystem.AnActionEvent
 
-public final class MTDotIndicators extends MTAbstractIndicatorsAction {
+class DokiHeartIndicators : MTAbstractIndicatorsAction() {
+  private val mtConfig = MTConfig.getInstance()
+  override fun isSelected(e: AnActionEvent): Boolean =
+      super.isSelected(e) || mtConfig.indicatorStyle == IndicatorStyles.DOT
 
-  @Override
-  protected IndicatorStyles getIndicatorStyle() {
-    return IndicatorStyles.DOT;
-  }
+  override fun getIndicatorStyle(): IndicatorStyles = IndicatorStyles.HEART
 }

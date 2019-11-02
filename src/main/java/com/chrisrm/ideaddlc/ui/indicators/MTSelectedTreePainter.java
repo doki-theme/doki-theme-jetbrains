@@ -55,7 +55,8 @@ public class MTSelectedTreePainter implements Border {
           painter = new MTNoneSelectedTreeIndicator();
           break;
         case DOT:
-          painter = new MTDotSelectedTreeIndicator();
+        case HEART:
+          painter = new DokiHeartSelectedTreeIndicator();
           break;
         case BORDER:
           painter = new MTBorderSelectedTreeIndicator();

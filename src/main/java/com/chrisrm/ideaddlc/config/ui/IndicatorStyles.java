@@ -31,6 +31,7 @@ import org.jetbrains.annotations.NonNls;
 public enum IndicatorStyles {
   BORDER("Border"),
   DOT("Dot"),
+  HEART("Heart"),
   NONE("None");
 
 

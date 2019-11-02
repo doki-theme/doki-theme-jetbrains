@@ -39,7 +39,7 @@ public abstract class MTAbstractIndicatorsAction extends MTToggleAction {
   private final MTConfig mtConfig = MTConfig.getInstance();
 
   @Override
-  public final boolean isSelected(@NotNull final AnActionEvent e) {
+  public boolean isSelected(@NotNull final AnActionEvent e) {
     return mtConfig.getIndicatorStyle() == getIndicatorStyle();
   }
 
