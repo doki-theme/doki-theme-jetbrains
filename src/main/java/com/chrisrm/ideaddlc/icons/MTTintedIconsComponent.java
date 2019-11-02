@@ -40,17 +40,13 @@ import java.lang.reflect.Constructor;
 public final class MTTintedIconsComponent implements BaseComponent {
   private static Object patcher;
 
-  static {
+  @Override
+  public void initComponent() {
     LegacySupportUtility.INSTANCE.invokeClassSafely("com.intellij.ide.ui.laf.darcula.ui.DarculaSeparatorUI", () -> {
       Class<?> aClass = Class.forName("io.acari.DDLC.icons.TintedColorPatcher");
       Constructor<?>[] declaredConstructors = aClass.getDeclaredConstructors();
       patcher = declaredConstructors[0].newInstance();
     });
-  }
-
-  @Override
-  public void initComponent() {
-
   }
 
   @Override
