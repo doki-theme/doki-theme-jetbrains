@@ -11,7 +11,6 @@ class IconHacker2019 : IconHacker {
   private val mtIconReplacers = HashSet<IconPathPatcher>()
   private val ddlcIconReplacers = HashSet<IconPathPatcher>()
   private val iconBucket = HashSet<IconPathPatcher>()
-  private val messageBus = ApplicationManager.getApplication().messageBus
 
   override fun extractPatchersOnActivation() {
     val iconPatchers = extractIcons()
@@ -47,7 +46,7 @@ class IconHacker2019 : IconHacker {
       }
       false -> {
         ddlcIconReplacers.forEach(installer)
-        messageBus.syncPublisher(IconChangedTopic)
+        ApplicationManager.getApplication().messageBus.syncPublisher(IconChangedTopic)
             .run()
       }
     }
