@@ -9,6 +9,7 @@ val UPDATE_MESSAGE: String = """
       What's New?<br>
       <ul>
       <li>New users have to opt-in to File Colors.</li>
+      <li>Actually supporting the Heart Indicator now.</li>
       <li>2019.3 Build Support!</li>
       </ul>
       <br>
