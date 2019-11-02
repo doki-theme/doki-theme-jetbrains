@@ -35,18 +35,36 @@ public final class MTDotSelectedTreeIndicator extends MTSelectedTreeIndicatorImp
   @Override
   public void paintBorder(final Component component, final Graphics g, final int x, final int y, final int width, final int height) {
     final Color oldColor = g.getColor();
-    final int thickness = JBUI.scale(getThickness()) * 2;
+    final int thickness = JBUI.scale(getThickness()) * 3;
 
     final Graphics2D g2 = (Graphics2D) g.create();
     g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
     g2.setRenderingHint(RenderingHints.KEY_STROKE_CONTROL, RenderingHints.VALUE_STROKE_NORMALIZE);
     g2.setColor(getHighlightColor());
-    g2.fillOval(x + getXOffset(), y + (height / 2) - (thickness / 2), thickness, thickness);
+    drawHeart(g2, x, y + (height / 2) - (thickness / 2), thickness, thickness);
     g2.setColor(oldColor);
     g2.dispose();
   }
 
-  private static int getXOffset() {
-    return JBUI.scale(6);
+  private void drawHeart(Graphics2D g, int x, int y, int width, int height) {
+    int[] triangleX = {
+        x - 2*width/19,
+        x + width + 2*width/19,
+        (x - 2*width/19 + x + width + 2*width/19)/2};
+    int[] triangleY = {
+        y + height - 2*height/3,
+        y + height - 2*height/3,
+        y + height - 2*height/9};
+    g.fillOval(
+        x - width/12,
+        y,
+        width/2 + width/6,
+        height/2);
+    g.fillOval(
+        x + width/2 - width/12,
+        y,
+        width/2 + width/6,
+        height/2);
+    g.fillPolygon(triangleX, triangleY, triangleX.length);
   }
 }
