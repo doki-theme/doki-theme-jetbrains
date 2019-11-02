@@ -72,19 +72,19 @@ public final class MTColoredFoldersNodeDecorator implements ProjectViewNodeDecor
    */
   @SuppressWarnings("MethodWithMultipleLoops")
   private static void setColoredDirsDecorator(final PresentationData data, final VirtualFile file, final Project project) {
-    if (!file.isDirectory()) {
-      return;
-    }
+    //    if (!file.isDirectory()) {
+    //      return;
+    //    }
 
-    final FileEditorManagerEx manager = FileEditorManagerEx.getInstanceEx(project);
-    for (final EditorWindow editorWindow : manager.getWindows()) {
-      final VirtualFile[] files = editorWindow.getFiles();
-      for (final VirtualFile leaf : files) {
-        if (leaf.getPath().contains(file.getPath())) {
-          colorOpenDirectories(data);
-        }
-      }
-    }
+    //    final FileEditorManagerEx manager = FileEditorManagerEx.getInstanceEx(project);
+    //    for (final EditorWindow editorWindow : manager.getWindows()) {
+    //      final VirtualFile[] files = editorWindow.getFiles();
+    //      for (final VirtualFile leaf : files) {
+    //        if (leaf.getPath().contains(file.getPath())) {
+    //          colorOpenDirectories(data);
+    //        }
+    //      }
+    //    }
   }
 
   private static void colorOpenDirectories(final PresentationData data) {

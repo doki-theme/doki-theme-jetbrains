@@ -33,10 +33,12 @@ import com.intellij.ide.projectView.PresentationData;
 import com.intellij.ide.projectView.ProjectViewNode;
 import com.intellij.ide.projectView.ProjectViewNodeDecorator;
 import com.intellij.ide.projectView.impl.ProjectRootsUtil;
+import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.fileEditor.ex.FileEditorManagerEx;
 import com.intellij.openapi.fileEditor.impl.EditorWindow;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.roots.ProjectRootManager;
+import com.intellij.openapi.util.Disposer;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.packageDependencies.ui.PackageDependenciesNode;
 import com.intellij.ui.ColorUtil;
@@ -49,7 +51,6 @@ import org.jetbrains.annotations.Nullable;
 import javax.swing.*;
 import java.util.Objects;
 
-//todo: look at the diff again.
 /**
  * Created by eliorb on 09/04/2017.
  */
@@ -66,32 +67,6 @@ public final class DDLCProjectViewNodeDecorator implements ProjectViewNodeDecora
     directory = null;
   }
 
-  @Override
-  public void decorate(final PackageDependenciesNode node, final ColoredTreeCellRenderer cellRenderer) {
-
-  }
-
-  @SuppressWarnings("FeatureEnvy")
-  @Override
-  public void decorate(final ProjectViewNode node, final PresentationData data) {
-    if(MTThemeManager.isDDLCActive()){
-      final VirtualFile file = node.getVirtualFile();
-      final Project project = node.getProject();
-
-      // Color file status
-      if (file != null) {
-        if (MTConfig.getInstance().isStyledDirectories()) {
-          // Color file status
-          applyDirectoriesColor(data, file);
-        }
-
-        if (MTConfig.getInstance().isUseProjectViewDecorators()) {
-          setOpenOrClosedIcon(data, file, project);
-        }
-      }
-    }
-  }
-
   /**
    * Try to mimic the "open or closed"  folder feature
    */
@@ -101,16 +76,20 @@ public final class DDLCProjectViewNodeDecorator implements ProjectViewNodeDecora
       return;
     }
 
-    final FileEditorManagerEx manager = FileEditorManagerEx.getInstanceEx(project);
-    for (final EditorWindow editorWindow : manager.getWindows()) {
-      final VirtualFile[] files = editorWindow.getFiles();
-      for (final VirtualFile leaf : files) {
-        if (leaf.getPath().contains(file.getPath())) {
-          setOpenDirectoryIcon(data, file, project);
-          colorOpenDirectories(data);
+    ApplicationManager.getApplication().invokeLater(() -> {
+      if (!Disposer.isDisposed(project)) {
+        final FileEditorManagerEx manager = FileEditorManagerEx.getInstanceEx(project);
+        for (final EditorWindow editorWindow : manager.getWindows()) {
+          final VirtualFile[] files = editorWindow.getFiles();
+          for (final VirtualFile leaf : files) {
+            if (leaf.getPath().contains(file.getPath())) {
+              setOpenDirectoryIcon(data, file, project);
+              colorOpenDirectories(data);
+            }
+          }
         }
       }
-    }
+    });
   }
 
   private static void colorOpenDirectories(final PresentationData data) {
@@ -119,10 +98,11 @@ public final class DDLCProjectViewNodeDecorator implements ProjectViewNodeDecora
   }
 
   @SuppressWarnings("IfStatementWithTooManyBranches")
-  private static void setOpenDirectoryIcon(final PresentationData data, final VirtualFile file, final Project project) {
+  private static void setOpenDirectoryIcon(final PresentationData data, final VirtualFile file,
+                                           final Project project) {
     if (data.getIcon(true) instanceof DirIcon) {
       final Icon openedIcon = ((DirIcon) Objects.requireNonNull(data.getIcon(true))).getOpenedIcon();
-      data.setIcon(openedIcon);
+      data.setIcon(new DirIcon(openedIcon));
     } else if (ProjectRootManager.getInstance(project).getFileIndex().isExcluded(file)) {
       data.setIcon(DDLCIcons.EXCLUDED);
     } else if (ProjectRootsUtil.isModuleContentRoot(file, project)) {
@@ -150,6 +130,32 @@ public final class DDLCProjectViewNodeDecorator implements ProjectViewNodeDecora
   private static void applyDirectoriesColor(final PresentationData data, final VirtualFile file) {
     if (file.isDirectory()) {
       data.setAttributesKey(MTFileColorsPage.DIRECTORIES);
+    }
+  }
+
+  @Override
+  public void decorate(final PackageDependenciesNode node, final ColoredTreeCellRenderer cellRenderer) {
+
+  }
+
+  @SuppressWarnings("FeatureEnvy")
+  @Override
+  public void decorate(final ProjectViewNode node, final PresentationData data) {
+    if (MTThemeManager.isDDLCActive()) {
+      final VirtualFile file = node.getVirtualFile();
+      final Project project = node.getProject();
+
+      // Color file status
+      if (file != null) {
+        if (MTConfig.getInstance().isStyledDirectories()) {
+          // Color file status
+          applyDirectoriesColor(data, file);
+        }
+
+        if (MTConfig.getInstance().isUseProjectViewDecorators()) {
+          setOpenOrClosedIcon(data, file, project);
+        }
+      }
     }
   }
 }
