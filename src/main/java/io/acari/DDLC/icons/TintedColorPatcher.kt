@@ -1,10 +1,11 @@
 package io.acari.DDLC.icons
 
-import com.chrisrm.ideaddlc.MTConfig
 import com.chrisrm.ideaddlc.listeners.AccentsListener
 import com.chrisrm.ideaddlc.listeners.MTTopics
 import com.chrisrm.ideaddlc.listeners.ThemeListener
 import com.chrisrm.ideaddlc.utils.MTAccents
+import com.intellij.openapi.Disposable
+import com.intellij.openapi.application.ApplicationManager
 import com.intellij.ui.ColorUtil
 import com.intellij.util.SVGLoader
 import com.intellij.util.messages.MessageBusConnection
@@ -13,26 +14,30 @@ import org.jetbrains.annotations.NonNls
 import org.w3c.dom.Element
 import java.awt.Color
 
-class TintedColorPatcher internal constructor(connect: MessageBusConnection) : SVGLoader.SvgColorPatcher {
+class TintedColorPatcher internal constructor() : SVGLoader.SvgColorPatcher, Disposable {
+  private val messageBusConnection: MessageBusConnection = ApplicationManager.getApplication().messageBus.connect()
+  override fun dispose() {
+    messageBusConnection.disconnect()
+  }
 
   init {
     SVGLoader.setColorPatcher(this)
     val self = this
 
     // Listen for changes on the settings
-    connect.subscribe(MTTopics.ACCENTS, object : AccentsListener {
+    messageBusConnection.subscribe(MTTopics.ACCENTS, object : AccentsListener {
       override fun accentChanged(accentColor: Color) {
         SVGLoader.setColorPatcher(null)
         SVGLoader.setColorPatcher(self)
-        TintedColorPatcher.refreshAccentColor(accentColor)
+        refreshAccentColor(accentColor)
       }
     })
 
-    connect.subscribe(MTTopics.THEMES, object : ThemeListener {
+    messageBusConnection.subscribe(MTTopics.THEMES, object : ThemeListener {
       override fun themeChanged(theme: DDLCThemeFacade) {
         SVGLoader.setColorPatcher(null)
         SVGLoader.setColorPatcher(self)
-        TintedColorPatcher.refreshThemeColor(theme)
+        refreshThemeColor(theme)
       }
     })
   }
