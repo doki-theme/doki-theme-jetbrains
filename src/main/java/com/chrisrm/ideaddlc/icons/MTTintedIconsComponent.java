@@ -26,9 +26,8 @@
 
 package com.chrisrm.ideaddlc.icons;
 
-import com.intellij.openapi.application.ApplicationManager;
+import com.intellij.openapi.Disposable;
 import com.intellij.openapi.components.BaseComponent;
-import com.intellij.util.messages.MessageBusConnection;
 import io.acari.DDLC.LegacySupportUtility;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
@@ -39,27 +38,21 @@ import java.lang.reflect.Constructor;
  * Apply a tint to the icons. This is used either for accented icons and themed icons.
  */
 public final class MTTintedIconsComponent implements BaseComponent {
-  private static MessageBusConnection connect;
   private static Object patcher;
 
-  static {
+  @Override
+  public void initComponent() {
     LegacySupportUtility.INSTANCE.invokeClassSafely("com.intellij.ide.ui.laf.darcula.ui.DarculaSeparatorUI", () -> {
-      connect = ApplicationManager.getApplication().getMessageBus().connect();
       Class<?> aClass = Class.forName("io.acari.DDLC.icons.TintedColorPatcher");
       Constructor<?>[] declaredConstructors = aClass.getDeclaredConstructors();
-      patcher = declaredConstructors[0].newInstance(connect);
+      patcher = declaredConstructors[0].newInstance();
     });
   }
 
   @Override
-  public void initComponent() {
-
-  }
-
-  @Override
   public void disposeComponent() {
-    if(connect != null){
-      connect.disconnect();
+    if (patcher instanceof Disposable) {
+      ((Disposable) patcher).dispose();
     }
   }
 

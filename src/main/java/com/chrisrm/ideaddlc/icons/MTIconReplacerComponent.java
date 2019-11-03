@@ -37,18 +37,18 @@ import com.intellij.openapi.fileTypes.FileTypeListener;
 import com.intellij.openapi.fileTypes.FileTypeManager;
 import com.intellij.openapi.util.IconLoader;
 import com.intellij.openapi.util.IconPathPatcher;
-import com.intellij.util.containers.ContainerUtil;
 import com.intellij.util.messages.MessageBusConnection;
 import io.acari.DDLC.LegacySupportUtility;
 import io.acari.DDLC.hax.LegacyIconHackerKt;
 import jdk.nashorn.internal.objects.annotations.Property;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.HashSet;
 import java.util.Set;
 
-@SuppressWarnings("OverlyCoupledClass")
 public final class MTIconReplacerComponent implements BaseComponent {
-  private static final Set<IconPathPatcher> installedPatchers = ContainerUtil.newHashSet();
+  private static final Set<IconPathPatcher> installedPatchers = new HashSet<>();
+  private final CheckStyleIconPatcher checkStyleIconPatcher = new CheckStyleIconPatcher();
 
   @Property
   private final IconPathPatchers iconPathPatchers = IconPatchersFactory.create();
@@ -82,6 +82,7 @@ public final class MTIconReplacerComponent implements BaseComponent {
     MTIconPatcher.clearCache();
     removePathPatchers();
     if (MTThemeManager.isDDLCActive()) {
+      IconLoader.installPathPatcher(checkStyleIconPatcher);
       installPathPatchers();
       installPSIPatchers();
       installFileIconsPatchers();
@@ -107,10 +108,11 @@ public final class MTIconReplacerComponent implements BaseComponent {
   }
 
 
-  private static void removePathPatchers() {
+  private void removePathPatchers() {
     for (final IconPathPatcher iconPathPatcher : installedPatchers) {
       removePathPatcher(iconPathPatcher);
     }
+    IconLoader.removePathPatcher(checkStyleIconPatcher);
     installedPatchers.clear();
   }
 

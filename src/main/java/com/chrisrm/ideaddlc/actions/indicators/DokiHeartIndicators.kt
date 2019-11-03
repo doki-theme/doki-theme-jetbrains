@@ -24,18 +24,16 @@
  *
  */
 
-package com.chrisrm.ideaddlc.tabs.shadowPainters;
+package com.chrisrm.ideaddlc.actions.indicators
 
-import com.intellij.ui.JBColor;
+import com.chrisrm.ideaddlc.MTConfig
+import com.chrisrm.ideaddlc.config.ui.IndicatorStyles
+import com.intellij.openapi.actionSystem.AnActionEvent
 
-import java.awt.*;
+class DokiHeartIndicators : MTAbstractIndicatorsAction() {
+  private val mtConfig = MTConfig.getInstance()
+  override fun isSelected(e: AnActionEvent): Boolean =
+      super.isSelected(e) || mtConfig.indicatorStyle == IndicatorStyles.DOT
 
-public abstract class ShadowPainter {
-  static Color getShadowColor() {
-    return new JBColor(Color.darkGray, Color.black);
-  }
-
-  public abstract void drawShadow(Graphics2D g2d,
-                                  Point from,
-                                  Point to);
+  override fun getIndicatorStyle(): IndicatorStyles = IndicatorStyles.HEART
 }
