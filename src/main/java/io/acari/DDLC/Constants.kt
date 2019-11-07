@@ -8,9 +8,7 @@ const val DARK_MODE_CONSTANT: String = "Ḑ̶͍̲̳̫͗̚͠ä̵͉̠̬͙̤͚͆͆
 val UPDATE_MESSAGE: String = """
       What's New?<br>
       <ul>
-      <li>New users have to opt-in to File Colors.</li>
-      <li>Actually supporting the Heart Indicator now.</li>
-      <li>2019.3 Build Support!</li>
+      <li>Tab height restored, maybe?.</li>
       </ul>
       <br>
       Thanks again for downloading <b>The Doki-Doki Theme</b>! •‿•<br>

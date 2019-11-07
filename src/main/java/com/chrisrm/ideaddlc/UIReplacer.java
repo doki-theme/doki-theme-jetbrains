@@ -402,7 +402,7 @@ public enum UIReplacer {
       StaticPatcher.setFinalStatic(TabsUtil.class, "NEW_TAB_VERTICAL_PADDING", tabsHeight);
 
       StaticPatcher.setFinalStatic(JBTabsImpl.class, "ourDefaultDecorator",
-          (UiDecorator) () -> new UiDecorator.UiDecoration(null, JBUI.insets(-1 * TabsUtil.NEW_TAB_VERTICAL_PADDING, 8)));
+          (UiDecorator) () -> new UiDecorator.UiDecoration(null, JBUI.insets(TabsUtil.NEW_TAB_VERTICAL_PADDING, 8)));
     });
   }
 
