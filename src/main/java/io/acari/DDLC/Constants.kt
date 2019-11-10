@@ -9,6 +9,7 @@ val UPDATE_MESSAGE: String = """
       What's New?<br>
       <ul>
       <li>Restored Editor Tab Height.</li>
+      <li>Enhanced non-project Java File Icons.</li>
       </ul>
       <br>
       Thanks again for downloading <b>The Doki-Doki Theme</b>! •‿•<br>
