@@ -54,7 +54,7 @@ public final class MTEditorUpperTabs implements EditorTabTitleProvider {
       "OverlyLongMethod"})
   @NotNull
   private static String[] nameToWords(@NotNull final String name) {
-    Collection<String> array = new ArrayList<>(10);
+    Collection<String> array;
     int index = 0;
     final int length = name.length();
 
