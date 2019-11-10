@@ -324,10 +324,9 @@ public class MTLafInstaller {
     defaults.put(MTStatusBarUI.class.getName(), MTStatusBarUI.class);
     defaults.put(MTUI.StatusBar.IDE_STATUS_BAR_BORDER, new MTStatusBarBorder());
 
-    LegacySupportUtility.INSTANCE.invokeClassSafely("com.intellij.ide.ui.laf.darcula.ui.DarculaSeparatorUI",()->{
-      defaults.put("SeparatorUI", MTSeparatorUI.class.getName());
-      defaults.put(MTSeparatorUI.class.getName(), MTSeparatorUI.class);
-    });
+    defaults.put("SeparatorUI", MTSeparatorUI.class.getName());
+    defaults.put(MTSeparatorUI.class.getName(), MTSeparatorUI.class);
+
   }
 
   /**
@@ -415,10 +414,8 @@ public class MTLafInstaller {
   }
 
   private static void replaceLabels(@NonNls final UIDefaults defaults) {
-    LegacySupportUtility.INSTANCE.invokeClassSafely("com.intellij.ide.ui.laf.darcula.ui.DarculaLabelUI",()->{
-      defaults.put("LabelUI", MTLabelUI.class.getName());
-      defaults.put(MTLabelUI.class.getName(), MTLabelUI.class);
-    });
+    defaults.put("LabelUI", MTLabelUI.class.getName());
+    defaults.put(MTLabelUI.class.getName(), MTLabelUI.class);
   }
 
   /**
