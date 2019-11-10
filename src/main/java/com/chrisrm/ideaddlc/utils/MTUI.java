@@ -96,6 +96,10 @@ public final class MTUI {
     @NonNls
     public static final String BUTTON_PRIMARY_BACKGROUND = "Button.focus";
     @NonNls
+    public static final String BUTTON_PRIMARY_HOVER = "Doki.Button.primary.hover";
+    @NonNls
+    public static final String BUTTON_HOVER = "Doki.Button.hover";
+    @NonNls
     public static final String BUTTON_PRIMARY_FOREGROUND = "Button.darcula.selectedButtonForeground";
     @NonNls
     public static final String BUTTON_SELECTED_BACKGROUND = "Button.select";
