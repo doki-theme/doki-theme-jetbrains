@@ -8,7 +8,7 @@ const val DARK_MODE_CONSTANT: String = "Ḑ̶͍̲̳̫͗̚͠ä̵͉̠̬͙̤͚͆͆
 val UPDATE_MESSAGE: String = """
       What's New?<br>
       <ul>
-      <li>Tab height restored, maybe?.</li>
+      <li>Restored Editor Tab Height.</li>
       </ul>
       <br>
       Thanks again for downloading <b>The Doki-Doki Theme</b>! •‿•<br>
