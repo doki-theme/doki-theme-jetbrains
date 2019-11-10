@@ -51,7 +51,7 @@ import org.jetbrains.annotations.NonNls;
 public final class MTHackComponent implements BaseComponent {
 
   static {
-    hackTabsAgain();
+    hackTabs();
     hackTitleLabel();
     hackSpeedSearch();
     hackSearchTextField();
@@ -61,27 +61,36 @@ public final class MTHackComponent implements BaseComponent {
     hackScrollbars();
   }
 
+  private static void hackTabs() {
+    try {
+      Class.forName("com.intellij.ui.tabs.impl.SingleHeightTabs");
+    } catch (final ClassNotFoundException e) {
+      hackTabsAgain();
+    }
+  }
+
   private static void hackTabsAgain() {
     try {
-      ClassPool cp = new ClassPool(true);
+      final ClassPool cp = new ClassPool(true);
       cp.insertClassPath(new ClassClassPath(EditorFileSwapper.class));
-      CtClass ctClass2 = cp.get("com.intellij.openapi.fileEditor.impl.EditorTabbedContainer$EditorTabs");
-      CtConstructor declaredConstructor = ctClass2.getDeclaredConstructors()[0];
+      final CtClass ctClass2 = cp.get("com.intellij.openapi.fileEditor.impl.EditorTabbedContainer$EditorTabs");
+      final CtConstructor declaredConstructor = ctClass2.getDeclaredConstructors()[0];
       declaredConstructor.instrument(new ExprEditor() {
-        public void edit(MethodCall m) throws CannotCompileException {
-          String s = m.getMethodName();
+        @Override
+        public void edit(final MethodCall m) throws CannotCompileException {
+          final String s = m.getMethodName();
           if ("setUiDecorator".equals(s)) {
             m.replace(String.format("{ $1 = null; $_ = $proceed($$); }"));
           }
-
         }
       });
-      ctClass2.toClass();
-    } catch (Throwable var3) {
-      var3.printStackTrace();
-    }
 
+      ctClass2.toClass();
+    } catch (final Throwable e) {
+      e.printStackTrace();
+    }
   }
+
 
   /**
    * Fix fatal error introduced by intellij

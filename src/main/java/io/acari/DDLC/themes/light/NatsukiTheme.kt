@@ -1,7 +1,9 @@
 package io.acari.DDLC.themes.light
 
 import com.chrisrm.ideaddlc.utils.MTAccents
+import com.chrisrm.ideaddlc.utils.MTUI
 import io.acari.DDLC.themes.DokiDokiTheme
+import java.util.stream.Stream
 import javax.swing.plaf.ColorUIResource
 
 class NatsukiTheme : DokiDokiTheme("natsuki", "Natsuki", false, "Natsuki") {
@@ -63,4 +65,15 @@ class NatsukiTheme : DokiDokiTheme("natsuki", "Natsuki", false, "Natsuki") {
     override fun getMenuBarColorString(): String = "fdafbb"
 
     override fun getDisabledColorString(): String = "95A0BF"
+
+    override fun getOneOffResources(): Stream<Pair<Stream<String>, String>> {
+        return Stream.of(
+            Stream.of(
+                MTUI.Button.BUTTON_PRIMARY_HOVER
+            ) to "E77AAE",
+            Stream.of(
+                MTUI.Button.BUTTON_HOVER
+            ) to "E782B4"
+        )
+    }
 }

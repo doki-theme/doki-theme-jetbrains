@@ -95,7 +95,7 @@ public final class PHPColorSettings extends BaseColorSettings {
     descriptors.put("use", PHPColorSettings.USE_NAMESPACE);
     descriptors.put("static", PHPColorSettings.STATIC_FINAL);
     descriptors.put("modifier", PHPColorSettings.MODIFIER);
-    descriptors.put("this", PHPColorSettings.THIS_SELF);
+    descriptors.put("self", PHPColorSettings.THIS_SELF);
 
     return descriptors;
   }

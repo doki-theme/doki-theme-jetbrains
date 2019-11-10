@@ -50,6 +50,8 @@ import javax.swing.plaf.basic.BasicButtonListener;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 
+import static java.util.Optional.*;
+
 @SuppressWarnings({"NonThreadSafeLazyInitialization",
     "StaticVariableMayNotBeInitialized",
     "StaticVariableUsedBeforeInitialization",
@@ -184,19 +186,33 @@ public final class MTButtonUI extends DarculaButtonUI {
   @NotNull
   static Color primaryButtonHoverColor() {
     if (primaryButtonHover == null) {
-      final Color color = primaryButtonBg();
-      primaryButtonHover = new JBColor(ColorUtil.darker(color, 2), ColorUtil.brighter(color, 2));
+      MTButtonUI.primaryButtonHover =
+          of(UIManager.getColor(MTUI.Button.BUTTON_PRIMARY_HOVER))
+          .orElseGet(MTButtonUI::createDefaultPrimaryHover);
     }
     return primaryButtonHover;
   }
 
   @NotNull
+  private static JBColor createDefaultPrimaryHover() {
+    final Color color = primaryButtonBg();
+    return new JBColor(ColorUtil.darker(color, 2), ColorUtil.brighter(color, 2));
+  }
+
+  @NotNull
   static Color buttonHoverColor() {
     if (buttonHover == null) {
-      final Color color = selectedButtonBg();
-      buttonHover = new JBColor(ColorUtil.darker(color, 2), ColorUtil.brighter(color, 2));
+      MTButtonUI.buttonHover =
+          of(UIManager.getColor(MTUI.Button.BUTTON_HOVER))
+          .orElseGet(MTButtonUI::createDefaultHover);
     }
     return buttonHover;
+  }
+
+  @NotNull
+  private static JBColor createDefaultHover() {
+    final Color color = selectedButtonBg();
+    return new JBColor(ColorUtil.darker(color, 2), ColorUtil.brighter(color, 2));
   }
 
   /**

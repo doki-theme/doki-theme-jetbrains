@@ -1,6 +1,10 @@
 # Changelog
 ---
 
+# 4.4.1
+
+- Restored Editor Tab height for non bundled java runtimes.
+
 # 4.4.0
 
 - 2019.3 Build Support!
