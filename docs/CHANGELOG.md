@@ -1,5 +1,8 @@
 # Changelog
 ---
+# 4.4.2
+
+- Better themed non-module java file icons.
 
 # 4.4.1
 
