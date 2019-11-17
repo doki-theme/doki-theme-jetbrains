@@ -2,8 +2,8 @@ package io.acari.doki.hax
 
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.fileEditor.impl.EditorComposite
-import io.acari.doki.chibi.ChibiOrchestrator.DOKI_BACKGROUND_PROP
-import io.acari.doki.chibi.ChibiOrchestrator.DOKI_CHIBI_PROP
+import io.acari.doki.chibi.impl.DOKI_BACKGROUND_PROP
+import io.acari.doki.chibi.impl.DOKI_CHIBI_PROP
 import javassist.CannotCompileException
 import javassist.ClassClassPath
 import javassist.ClassPool

@@ -3,6 +3,9 @@
   "dark": false,
   "author": "",
   "editorScheme": "/themes/menagerie/Cleo.xml",
+  "background": {
+    "image": "/chibis/menagerie/cleo.png"
+  },
   "colors": {
     "baseBackground": "#DCDDE8",
     "hairColor": "#e3dfe8"
