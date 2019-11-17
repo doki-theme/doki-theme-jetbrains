@@ -53,6 +53,7 @@
                             serviceImplementation="io.acari.doki.themes.impl.ThemeManagerImpl"/>
         <applicationService serviceInterface="io.acari.doki.chibi.ChibiService"
                             serviceImplementation="io.acari.doki.chibi.impl.ChibiServiceImpl"/>
+        <themeProvider id="9a310731-ab2d-40f5-b502-fa5419f799a2" path="/themes/literature/JustMonika.theme.json"/>
     </extensions>
 
     <application-components>

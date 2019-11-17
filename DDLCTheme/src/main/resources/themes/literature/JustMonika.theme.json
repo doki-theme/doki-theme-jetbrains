@@ -1,0 +1,26 @@
+{
+  "name": "JustMonika",
+  "dark": false,
+  "author": "",
+  "editorScheme": "/themes/literature/JustMonika.xml",
+  "background": {
+    "image": "/chibis/literature/just_monika.png"
+  },
+  "colors": {
+    "baseBackground": "#E4FBE2",
+    "hairColor": "#E4FBE2"
+  },
+  "ui": {
+    "Panel.background": "baseBackground",
+    "Menu.background": "hairColor",
+    "MenuItem.background": "hairColor",
+    "MenuBar.background":  "hairColor",
+    "PopupMenu.background": "hairColor",
+    "TitlePane.background":  "hairColor"
+  },
+  "icons": {
+    "ColorPalette": {
+      "Actions.Green": "#94e7a6"
+    }
+  }
+}
