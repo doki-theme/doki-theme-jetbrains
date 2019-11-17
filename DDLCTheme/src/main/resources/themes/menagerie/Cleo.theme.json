@@ -1,0 +1,23 @@
+{
+  "name": "Cleo",
+  "dark": false,
+  "author": "",
+  "editorScheme": "/themes/menagerie/Cleo.xml",
+  "colors": {
+    "baseBackground": "#DCDDE8",
+    "hairColor": "#e3dfe8"
+  },
+  "ui": {
+    "Panel.background": "baseBackground",
+    "Menu.background": "hairColor",
+    "MenuItem.background": "hairColor",
+    "MenuBar.background":  "hairColor",
+    "PopupMenu.background": "hairColor",
+    "TitlePane.background":  "hairColor"
+  },
+  "icons": {
+    "ColorPalette": {
+      "Actions.Green": "#A492E7"
+    }
+  }
+}
