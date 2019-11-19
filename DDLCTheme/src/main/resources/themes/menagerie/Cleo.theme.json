@@ -21,7 +21,7 @@
     "backgroundColor": "#e6e6f1",
     "secondaryBackgroundColor": "#dddce9",
     "secondaryForegroundColor": "#36363a",
-    "selectionForegroundColor": "#e7e7ed",
+    "selectionForeground": "#e7e7ed",
     "selectionBackgroundColor": "#55545d",
     "treeSelectionBackgroundColor":  "#242528",
     "treeSelectionForegroundColor": "#e7e7ed",
@@ -35,8 +35,8 @@
     "notificationsColor": "#DCDDE8",
     "highlightColor":  "#DCE0F0",
     "editorTabColor": "#CFCFD5",
-    "buttonBackgroundColor":  "#CFCFD5",
-    "buttonForegroundColor": "#252427",
+    "buttonColor":  "#CFCFD5",
+    "buttonFont": "#252427",
     "disabledColorString": "#A2B6CB",
     "tableSelectedColor": "#242528",
     "startColor":  "#252d33",
@@ -48,16 +48,23 @@
   },
   "ui": {
     "Panel.background": "baseBackground",
+    "Button.background": "baseBackground",
+    "Label.background": "baseBackground",
+    "CheckBox.background": "baseBackground",
 
     "Menu.background": "headerColor",
     "ToolWindow.Header.background": "headerColor",
     "List.background": "headerColor",
     "Tree.background": "headerColor",
     "Editor.background": "headerColor",
+    "Popup.Header.inactiveBackground": "headerColor",
+    "Popup.Header.activeBackground":"headerColor",
 
     "PopupMenu.background": "borderColor",
     "Borders.ContrastBorderColor": "borderColor",
     "Borders.color": "borderColor",
+    "Button.startBorderColor": "borderColor",
+    "Button.endBorderColor": "borderColor",
 
     "EditorTabs.underlinedTabBackground": "highlightColor",
     "SearchEverywhere.Tab.selectedBackground": "highlightColor",
@@ -66,7 +73,15 @@
 
     "ToolWindow.Header.inactiveBackground": "inactiveBackgroundDarker",
 
-    "Button.arc": 0,
+    "Button.startBackground": "buttonColor",
+    "Button.endBackground": "#D3D3D9",
+    "Button.foreground": "buttonFont",
+    "Button.default.startBackground": "tableSelectedColor",
+    "Button.default.endBackground": "tableSelectedColor",
+    "Button.default.foreground": "selectionForeground",
+    "ActionButton.pressedBackground": "baseBackground",
+    "Button.focusedBorderColor": "baseBackground",
+    "Button.arc": 2,
 
     "EditorTabs.underlineColor": "accentColor"
   },
