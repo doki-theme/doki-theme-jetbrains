@@ -10,7 +10,11 @@
     "baseBackground": "#DCDDE8",
     "borderColor":  "#D9DAE5",
     "hairColor": "#e3dfe8",
-    "contrastColor": "#e7e7ed",
+    "contrastColor": "#eaeaf0",
+    "inactiveBackground": "#e4e4ee",
+    "inactiveBackgroundDarker": "#E1E2ED",
+    "headerColor": "#DFE0EB",
+    "accentColor": "#2D79E9",
 
 
 
@@ -45,16 +49,30 @@
   "ui": {
     "Panel.background": "baseBackground",
 
-    "Menu.background": "#E2E3EE",
+    "Menu.background": "headerColor",
+    "ToolWindow.Header.background": "headerColor",
+    "List.background": "headerColor",
+    "Tree.background": "headerColor",
+    "Editor.background": "headerColor",
 
-    "Tree.background": "contrastColor",
+    "PopupMenu.background": "borderColor",
+    "Borders.ContrastBorderColor": "borderColor",
+    "Borders.color": "borderColor",
 
+    "EditorTabs.underlinedTabBackground": "highlightColor",
+    "SearchEverywhere.Tab.selectedBackground": "highlightColor",
 
-    "PopupMenu.background": "borderColor"
+    "EditorTabs.background": "inactiveBackground",
+
+    "ToolWindow.Header.inactiveBackground": "inactiveBackgroundDarker",
+
+    "Button.arc": 0,
+
+    "EditorTabs.underlineColor": "accentColor"
   },
   "icons": {
     "ColorPalette": {
-      "Actions.Green": "#A492E7"
+      "Actions.Green": "#2D79E9"
     }
   }
 }

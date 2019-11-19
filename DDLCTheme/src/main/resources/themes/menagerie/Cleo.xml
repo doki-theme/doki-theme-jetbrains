@@ -23,7 +23,7 @@
         <option name="ANNOTATIONS_COLOR" value="474747"/>
         <option name="CARET_COLOR" value="272727"/>
         <option name="CARET_ROW_COLOR" value="ecf0f1"/>
-        <option name="CONSOLE_BACKGROUND_KEY" value="eaeaf0"/>
+        <option name="CONSOLE_BACKGROUND_KEY" value="DFE0EB"/>
         <option name="DELETED_LINES_COLOR" value="b63b50"/>
         <option name="DOCUMENTATION_COLOR" value="f3f5f6"/>
         <option name="FILESTATUS_ADDED" value="10B15A"/>
@@ -47,7 +47,7 @@
         <option name="FILESTATUS_addedOutside" value="10B15A"/>
         <option name="FILESTATUS_changelistConflict" value="d5756c"/>
         <option name="FILESTATUS_modifiedOutside" value="6182b8"/>
-        <option name="GUTTER_BACKGROUND" value="eaeaf0"/>
+        <option name="GUTTER_BACKGROUND" value="DFE0EB"/>
         <option name="INDENT_GUIDE" value="9DAAB1"/>
         <option name="INFORMATION_HINT" value="f3f5f6"/>
         <option name="LINE_NUMBERS_COLOR" value="C0C9CD"/>
@@ -101,16 +101,16 @@
         <option name="ScrollBar.hoverThumbColor" value="83CDEFFF" mac="83CDEFFF"/>
         <option name="ScrollBar.thumbBorderColor" value="83CDEFC0" mac="83CDEFC0"/>
         <option name="ScrollBar.thumbColor" value="83CDEFC0" mac="83CDEFC0"/>
-        <option name="ScrollBar.Mac.Transparent.hoverTrackColor" value="eaeaf0" mac="eaeaf0"/>
-        <option name="ScrollBar.Mac.Transparent.trackColor" value="eaeaf0" mac="eaeaf0"/>
-        <option name="ScrollBar.Mac.hoverTrackColor" value="eaeaf0" mac="eaeaf0"/>
-        <option name="ScrollBar.Mac.trackColor" value="eaeaf0" mac="eaeaf0"/>
-        <option name="ScrollBar.Transparent.hoverTrackColor" value="eaeaf0" mac="eaeaf0"/>
-        <option name="ScrollBar.Transparent.trackColor" value="eaeaf0" mac="eaeaf0"/>
-        <option name="ScrollBar.hoverTrackColor" value="eaeaf0" mac="eaeaf0"/>
-        <option name="ScrollBar.trackColor" value="eaeaf0" mac="eaeaf0"/>
+        <option name="ScrollBar.Mac.Transparent.hoverTrackColor" value="DFE0EB" mac="DFE0EB"/>
+        <option name="ScrollBar.Mac.Transparent.trackColor" value="DFE0EB" mac="DFE0EB"/>
+        <option name="ScrollBar.Mac.hoverTrackColor" value="DFE0EB" mac="DFE0EB"/>
+        <option name="ScrollBar.Mac.trackColor" value="DFE0EB" mac="DFE0EB"/>
+        <option name="ScrollBar.Transparent.hoverTrackColor" value="DFE0EB" mac="DFE0EB"/>
+        <option name="ScrollBar.Transparent.trackColor" value="DFE0EB" mac="DFE0EB"/>
+        <option name="ScrollBar.hoverTrackColor" value="DFE0EB" mac="DFE0EB"/>
+        <option name="ScrollBar.trackColor" value="DFE0EB" mac="DFE0EB"/>
         <option name="TEARLINE_COLOR" value="e7eaec"/>
-        <option name="TOOLTIP" value="eaeaf0"/>
+        <option name="TOOLTIP" value="DFE0EB"/>
         <option name="VCS_ANNOTATIONS_COLOR_1" value="7093D6"/>
         <option name="VCS_ANNOTATIONS_COLOR_2" value="5ECFD6"/>
         <option name="VCS_ANNOTATIONS_COLOR_3" value="2095D6"/>
@@ -190,7 +190,7 @@
         <option name="BREADCRUMBS_DEFAULT">
             <value>
                 <option name="FOREGROUND" value="b0bec4"/>
-                <option name="BACKGROUND" value="eaeaf0"/>
+                <option name="BACKGROUND" value="DFE0EB"/>
             </value>
         </option>
         <option name="BREADCRUMBS_HOVERED">
@@ -202,7 +202,7 @@
         <option name="BREADCRUMBS_INACTIVE">
             <value>
                 <option name="FOREGROUND" value="9DAAB1"/>
-                <option name="BACKGROUND" value="eaeaf0"/>
+                <option name="BACKGROUND" value="DFE0EB"/>
             </value>
         </option>
         <option name="BREAKPOINT_ATTRIBUTES">
@@ -2714,7 +2714,7 @@
         <option name="TEXT">
             <value>
                 <option name="FOREGROUND" value="8D96A1"/>
-                <option name="BACKGROUND" value="eaeaf0"/>
+                <option name="BACKGROUND" value="DFE0EB"/>
                 <option name="EFFECT_TYPE" value="5"/>
             </value>
         </option>
@@ -2786,7 +2786,7 @@
         </option>
         <option name="WRITE_SEARCH_RESULT_ATTRIBUTES">
             <value>
-                <option name="BACKGROUND" value="eaeaf0"/>
+                <option name="BACKGROUND" value="DFE0EB"/>
             </value>
         </option>
         <option name="WRONG_REFERENCES_ATTRIBUTES">
@@ -2835,7 +2835,7 @@
         <option name="YAML_SCALAR_VALUE">
             <value>
                 <option name="FOREGROUND" value="39adb5"/>
-                <option name="BACKGROUND" value="eaeaf0"/>
+                <option name="BACKGROUND" value="DFE0EB"/>
                 <option name="EFFECT_TYPE" value="5"/>
             </value>
         </option>
