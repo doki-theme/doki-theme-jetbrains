@@ -1,7 +1,7 @@
 {
   "name": "Cleo",
   "dark": false,
-  "author": "",
+  "author": "cyclic-reference",
   "editorScheme": "/themes/menagerie/Cleo.xml",
   "background": {
     "image": "/chibis/menagerie/cleo.png"
@@ -47,6 +47,7 @@
     "Label.background": "baseBackground",
     "CheckBox.background": "baseBackground",
     "EditorTabs.background": "baseBackground",
+    "ToolWindow.Header.inactiveBackground": "baseBackground",
 
     "Menu.background": "headerColor",
     "ToolWindow.Header.background": "headerColor",
@@ -70,7 +71,6 @@
     "TextComponent.selectionBackgroundInactive": "selectionInactive",
     "Tree.selectionInactiveBackground": "selectionInactive",
 
-    "ToolWindow.Header.inactiveBackground": "inactiveBackgroundDarker",
 
     "CheckBoxMenuItem.selectionBackground": "selectionBackground",
     "ComboBox.selectionBackground": "selectionBackground",
@@ -91,8 +91,23 @@
     "Tree.selectionBackground":  "selectionBackground",
     "WelcomeScreen.Projects.selectionBackground":"selectionBackground",
 
-    "Tree.selectionForeground": "selectionForeground",
+    "CheckBoxMenuItem.selectionForeground": "selectionForeground",
+    "ComboBox.selectionForeground":"selectionForeground",
+    "EditorPane.selectionForeground": "selectionForeground",
+    "FormattedTextField.selectionForeground":"selectionForeground",
     "List.selectionForeground": "selectionForeground",
+    "Menu.selectionForeground":"selectionForeground",
+    "MenuBar.selectionForeground": "selectionForeground",
+    "MenuItem.selectionForeground":"selectionForeground",
+    "PasswordField.selectionForeground": "selectionForeground",
+    "PopupMenu.selectionForeground":"selectionForeground",
+    "ProgressBar.selectionForeground": "selectionForeground",
+    "RadioButtonMenuItem.selectionForeground":"selectionForeground",
+    "Table.selectionForeground": "selectionForeground",
+    "TextArea.selectionForeground":"selectionForeground",
+    "TextField.selectionForeground": "selectionForeground",
+    "TextPane.selectionForeground":"selectionForeground",
+    "Tree.selectionForeground": "selectionForeground",
 
     "ComboBoxButton.background": "buttonColor",
     "Button.startBackground": "buttonColor",
