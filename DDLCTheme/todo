@@ -5,6 +5,9 @@
     - Shape
     - Hover
     - Tab functionality
+- Completion Popup
+    - Selection Foreground
+    - Background
 - Editor Tabs
     - Active Outline
     - File Scope colorings

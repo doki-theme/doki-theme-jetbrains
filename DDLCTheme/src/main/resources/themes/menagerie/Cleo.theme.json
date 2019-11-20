@@ -49,6 +49,8 @@
     "EditorTabs.background": "baseBackground",
     "ToolWindow.Header.inactiveBackground": "baseBackground",
 
+    "SpeedSearch.background": "contrastColor",
+
     "Menu.background": "headerColor",
     "ToolWindow.Header.background": "headerColor",
     "List.background": "headerColor",
@@ -74,7 +76,6 @@
 
     "CheckBoxMenuItem.selectionBackground": "selectionBackground",
     "ComboBox.selectionBackground": "selectionBackground",
-    "CompletionPopup.selectionBackground": "selectionBackground",
     "EditorPane.selectionBackground":  "selectionBackground",
     "FormattedTextField.selectionBackground": "selectionBackground",
     "List.selectionBackground":  "selectionBackground",
@@ -119,6 +120,15 @@
     "ActionButton.pressedBackground": "baseBackground",
     "Button.focusedBorderColor": "baseBackground",
     "Button.arc": 2,
+
+    "CompletionPopup.background": "testScope",
+    "CompletionPopup.selectionForeground": "selectionForeground",
+    "CompletionPopup.nonFocusedMask": "#EAEAF080",
+    "CompletionPopup.selectionBackground": "selectionBackground",
+    "CompletionPopup.matchForeground": "accentColor",
+    "CompletionPopup.selectionInactiveBackground": "inactiveColor",
+    "CompletionPopup.foreground": "textColor",
+
 
     "EditorTabs.underlineColor": "accentColor"
   },
