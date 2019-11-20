@@ -51,6 +51,10 @@
 
     "SpeedSearch.background": "contrastColor",
 
+    "TextField.background": "secondaryBackground",
+    "TextPane.background": "secondaryBackground",
+    "FormattedTextField.background": "secondaryBackground",
+
     "Menu.background": "headerColor",
     "ToolWindow.Header.background": "headerColor",
     "List.background": "headerColor",
