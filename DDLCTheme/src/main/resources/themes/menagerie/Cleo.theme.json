@@ -73,6 +73,7 @@
 
     "ToolWindow.Header.inactiveBackground": "inactiveBackgroundDarker",
 
+    "ComboBoxButton.background": "buttonColor",
     "Button.startBackground": "buttonColor",
     "Button.endBackground": "#D3D3D9",
     "Button.foreground": "buttonFont",
