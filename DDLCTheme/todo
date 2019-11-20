@@ -11,5 +11,7 @@
 - Editor Tabs
     - Active Outline
     - File Scope colorings
-- CheckBox as accent color
+- CheckBox
+    - as accent color
+    - Transparent box background
 - Icons

@@ -8,6 +8,7 @@
   },
   "colors": {
     "baseBackground": "#DCDDE8",
+    "secondaryBackground": "#e6e6f1",
     "borderColor":  "#D9DAE5",
     "hairColor": "#e3dfe8",
     "contrastColor": "#eaeaf0",
@@ -23,7 +24,6 @@
     "nonProjectFileScopeColor":  "#eceae8",
     "testScope": "#C0EDCC",
 
-    "backgroundColor": "#e6e6f1",
     "secondaryBackgroundColor": "#dddce9",
     "secondaryForegroundColor": "#36363a",
     "foregroundColor":  "#1F2435",
@@ -66,13 +66,11 @@
     "Button.endBorderColor": "borderColor",
 
     "EditorTabs.underlinedTabBackground": "highlightColor",
-    "SearchEverywhere.Tab.selectedBackground": "highlightColor",
 
     "List.selectionInactiveBackground":"selectionInactive",
     "Table.selectionInactiveBackground": "selectionInactive",
     "TextComponent.selectionBackgroundInactive": "selectionInactive",
     "Tree.selectionInactiveBackground": "selectionInactive",
-
 
     "CheckBoxMenuItem.selectionBackground": "selectionBackground",
     "ComboBox.selectionBackground": "selectionBackground",
@@ -123,18 +121,25 @@
 
     "CompletionPopup.background": "testScope",
     "CompletionPopup.selectionForeground": "selectionForeground",
-    "CompletionPopup.nonFocusedMask": "#EAEAF080",
+    "CompletionPopup.nonFocusedMask": "#EAEAF050",
     "CompletionPopup.selectionBackground": "selectionBackground",
     "CompletionPopup.matchForeground": "accentColor",
     "CompletionPopup.selectionInactiveBackground": "inactiveColor",
     "CompletionPopup.foreground": "textColor",
+
+    "SearchEverywhere.Tab.selectedBackground": "highlightColor",
+    "SearchEverywhere.Header.background": "secondaryBackground",
+    "SearchEverywhere.SearchField.background": "secondaryBackground",
+
+
 
 
     "EditorTabs.underlineColor": "accentColor"
   },
   "icons": {
     "ColorPalette": {
-      "Actions.Green": "#2D79E9"
+      "Actions.Green": "#2D79E9",
+      "Actions.Blue": "#2D79E9"
     }
   }
 }
