@@ -21,7 +21,9 @@
 - Plugin Settings Window
 - Switcher icon thing
 - Notification
+- Borders
 - Combo box
     - com.intellij.application.options.schemes.SchemesCombo is a jerk
 - Icons
+- Spinning loading indicator.
 - Theme change animation

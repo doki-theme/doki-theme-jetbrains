@@ -76,6 +76,10 @@
     "Popup.Header.activeBackground":"headerColor",
     "Notification.background": "headerColor",
 
+    "Plugins.Tab.selectedBackground": "highlightColor",
+    "TabbedPane.hoverColor": "highlightColor",
+    "EditorTabs.hoverBackground": "highlightColor",
+
     "PopupMenu.background": "borderColor",
     "ParameterInfo.borderColor": "borderColor",
     "Borders.ContrastBorderColor": "borderColor",
@@ -139,6 +143,8 @@
     "Button.focusedBorderColor": "baseBackground",
     "Button.arc": 2,
 
+    "Component.arc": 2,
+
     "CompletionPopup.background": "testScope",
     "CompletionPopup.selectionForeground": "selectionForeground",
     "CompletionPopup.nonFocusedMask": "#EAEAF050",
@@ -146,7 +152,6 @@
     "CompletionPopup.selectionInactiveBackground": "inactiveColor",
     "CompletionPopup.foreground": "textColor",
 
-    "Plugins.Tab.selectedBackground": "highlightColor",
     "SearchEverywhere.Tab.selectedBackground": "highlightColor",
     "SearchEverywhere.Header.background": "secondaryBackground",
     "SearchEverywhere.SearchField.background": "secondaryBackground",
