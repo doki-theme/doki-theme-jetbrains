@@ -15,4 +15,8 @@
     - as accent color
     - Transparent box background
 - Switcher icon thing
+- Hover Tooltips
+- Notification
+- Combo box
+    - com.intellij.application.options.schemes.SchemesCombo is a jerk
 - Icons
