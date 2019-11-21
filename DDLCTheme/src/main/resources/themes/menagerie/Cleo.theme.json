@@ -22,7 +22,7 @@
     "startColor":  "#252d33",
     "stopColor": "#6accfc",
     "nonProjectFileScopeColor":  "#ECEAE8",
-    "testScope": "#C0EDCC",
+    "testScopeColor": "#C0EDCC",
     "editorBackground": "#EAEAF0",
 
     "secondaryBackgroundColor": "#dddce9",
@@ -145,7 +145,7 @@
 
     "Component.arc": 2,
 
-    "CompletionPopup.background": "testScope",
+    "CompletionPopup.background": "testScopeColor",
     "CompletionPopup.selectionForeground": "selectionForeground",
     "CompletionPopup.nonFocusedMask": "#EAEAF050",
     "CompletionPopup.selectionBackground": "selectionBackground",

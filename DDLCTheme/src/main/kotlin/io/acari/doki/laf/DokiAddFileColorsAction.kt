@@ -1,0 +1,109 @@
+/*
+ *  The MIT License (MIT)
+ *
+ *  Copyright (c) 2019 Chris Magnussen and Elior Boukhobza
+ *
+ *  Permission is hereby granted, free of charge, to any person obtaining a copy
+ *  of this software and associated documentation files (the "Software"), to deal
+ *  in the Software without restriction, including without limitation the rights
+ *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ *  copies of the Software, and to permit persons to whom the Software is
+ *  furnished to do so, subject to the following conditions:
+ *
+ *  The above copyright notice and this permission notice shall be included in all
+ *  copies or substantial portions of the Software.
+ *
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ *  SOFTWARE.
+ *
+ */
+
+package io.acari.doki.laf
+
+import com.intellij.ide.ui.LafManager
+import com.intellij.openapi.project.Project
+import com.intellij.psi.search.scope.NonProjectFilesScope
+import com.intellij.psi.search.scope.TestsScope
+import com.intellij.ui.ColorUtil
+import com.intellij.ui.FileColorManager
+import com.intellij.ui.tabs.FileColorManagerImpl
+import com.intellij.ui.tabs.FileColorsModel
+import io.acari.doki.themes.DokiThemes.processLaf
+import java.lang.reflect.Constructor
+import java.util.stream.Collectors
+
+object DokiAddFileColorsAction {
+
+  fun removeFileScopes(project: Project?) {
+    if (project != null)
+      replaceFileScopes(project) { _, _ -> emptyList() }
+  }
+
+  fun isSet(project: Project?): Boolean {
+    return processLaf(LafManager.getInstance().currentLookAndFeel) //todo: get theme more better
+      .map { selectedTheme ->
+        val manager = FileColorManager.getInstance(project!!)
+        val quickScope = manager.getScopeColor(NonProjectFilesScope.NAME)
+        quickScope != null &&
+                selectedTheme.nonProjectFileScopeColor ==
+                ColorUtil.toHex(quickScope)
+      }.orElse(false)
+
+  }
+
+  fun setFileScopes(project: Project?) {
+    if (project != null)
+      replaceFileScopes(project, this::mutableList)
+
+  }
+
+  private fun replaceFileScopes(project: Project?, scopeGenerator: (List<Pair<String, String>>, Constructor<out Any>) -> List<Any>) {
+    processLaf(LafManager.getInstance().currentLookAndFeel) //todo: get theme more better
+      .ifPresent {selectedTheme ->
+        val scopes = listOf(
+          Pair(NonProjectFilesScope.NAME, selectedTheme.nonProjectFileScopeColor),
+          Pair(TestsScope.NAME, selectedTheme.testScopeColor),
+          Pair("Local Unit Tests", selectedTheme.testScopeColor),
+          //  dis android bundle -> String message = AndroidBundle.message("android.test.run.configuration.type.name");
+          Pair("Android Instrumented Tests", selectedTheme.testScopeColor))
+
+
+        try {
+          /**
+           * "I don't know who you are.
+           * I don't know what you want.
+           * If you are looking for encapsulation I can tell you I don't have have access right now,
+           * but what I do have are a very particular set of skills.
+           * Skills I have acquired over a very long career.
+           * Skills that make me a nightmare for people like you.
+           * If you let me use your class right now that'll be the end of it.
+           * I will not look for you, I will not pursue you, but if you don't,
+           * I will look for you, I will find you and I will use your classes.
+           */
+          val manager = FileColorManager.getInstance(project!!) as FileColorManagerImpl
+          val getMode = FileColorManagerImpl::class.java.getDeclaredMethod("getModel")
+          getMode.isAccessible = true
+          val model = getMode.invoke(manager) as FileColorsModel
+          val fileColorConfiguration = Class.forName("com.intellij.ui.tabs.FileColorConfiguration")
+          val constructor = fileColorConfiguration.getDeclaredConstructor(String::class.java, String::class.java)
+          constructor.isAccessible = true
+          val collect: List<Any> = scopeGenerator(scopes, constructor)
+          val setConfig = FileColorsModel::class.java.getDeclaredMethod("setConfigurations", List::class.java, Boolean::class.java)
+          setConfig.invoke(model, collect, false)
+        } catch (e: Exception) {
+          e.printStackTrace()
+          val manager = FileColorManager.getInstance(project!!)
+          scopes.forEach { manager.addScopeColor(it.first, it.second, false) }
+        }
+      }
+  }
+
+  private fun mutableList(scopes: List<Pair<String, String>>, constructor: Constructor<out Any>): MutableList<Any> =
+      scopes.stream().map { constructor.newInstance(it.first, it.second) }
+          .collect(Collectors.toList())
+}

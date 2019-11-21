@@ -22,8 +22,11 @@
 - Switcher icon thing
 - Notification
 - Borders
+- Find in path search
 - Combo box
     - com.intellij.application.options.schemes.SchemesCombo is a jerk
 - Icons
 - Spinning loading indicator.
 - Theme change animation
+
+- theme schema

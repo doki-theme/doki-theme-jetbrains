@@ -35,4 +35,14 @@ class DokiTheme(private val uiTheme: UITheme) {
         getChibiPath()
             .map { it.substring(it.lastIndexOf("/") + 1 ) }
 
+
+    // todo: make this color mandatory
+    val nonProjectFileScopeColor: String
+        get() = uiTheme.colors["nonProjectFileScopeColor"] as String
+
+    // todo: make this color mandatory
+    val testScopeColor: String
+        get() = uiTheme.colors["testScopeColor"] as String
+
+
 }
