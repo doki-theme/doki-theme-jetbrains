@@ -1,4 +1,3 @@
-- Theme change animation
 - File Scope Colors
 - Scroll bar shape
 - Button
@@ -14,9 +13,15 @@
 - CheckBox
     - as accent color
     - Transparent box background
+- Debugger
+- Radio button
+    - as accent color
+- Notification
+    - as accent color
+- Plugin Settings Window
 - Switcher icon thing
-- Hover Tooltips
 - Notification
 - Combo box
     - com.intellij.application.options.schemes.SchemesCombo is a jerk
 - Icons
+- Theme change animation

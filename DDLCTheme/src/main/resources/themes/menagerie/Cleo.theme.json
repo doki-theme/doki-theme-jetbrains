@@ -50,10 +50,16 @@
     "EditorTabs.background": "baseBackground",
     "ToolWindow.Header.inactiveBackground": "baseBackground",
     "OptionPane.background": "baseBackground",
+    "Slider.background": "baseBackground",
+    "RadioButton.background": "baseBackground",
+    "DefaultTabs.background": "baseBackground",
+    "Spinner.background": "baseBackground",
+    "TabbedPane.background": "baseBackground",
 
     "Table.background": "editorBackground",
 
     "SpeedSearch.background": "contrastColor",
+    "ToolTip.background": "contrastColor",
     "ToolTip.Actions.background": "contrastColor",
 
     "TextField.background": "secondaryBackground",
@@ -140,6 +146,7 @@
     "CompletionPopup.selectionInactiveBackground": "inactiveColor",
     "CompletionPopup.foreground": "textColor",
 
+    "Plugins.Tab.selectedBackground": "highlightColor",
     "SearchEverywhere.Tab.selectedBackground": "highlightColor",
     "SearchEverywhere.Header.background": "secondaryBackground",
     "SearchEverywhere.SearchField.background": "secondaryBackground",
@@ -209,6 +216,7 @@
     "ParameterInfo.highlightedColor": "accentColor",
     "PasswordField.caretForeground":"accentColor",
     "Plugins.tagForeground": "accentColor",
+    "Plugins.Button.updateBackground": "accentColor",
     "Popup.Advertiser.foreground":"accentColor",
     "ProgressBar.foreground": "accentColor",
     "ProgressBar.indeterminateEndColor":"accentColor",
