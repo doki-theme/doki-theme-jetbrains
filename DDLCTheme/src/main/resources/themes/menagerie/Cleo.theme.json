@@ -208,7 +208,7 @@
       },
       "Log": {
         "Commit.currentBranchBackground": "highlightColor",
-        "Commit.unmatchedForeground": "selectionBackground",
+        "Commit.unmatchedForeground": "selectionBackground"
       },
       "RefLabel": {
         "backgroundBase": "highlightColor",
