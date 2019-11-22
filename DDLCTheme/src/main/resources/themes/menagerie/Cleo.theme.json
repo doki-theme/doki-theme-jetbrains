@@ -59,6 +59,7 @@
     "DefaultTabs.background": "baseBackground",
     "Spinner.background": "baseBackground",
     "TabbedPane.background": "baseBackground",
+    "Table.gridColor": "baseBackground",
 
     "Table.background": "editorBackground",
 
@@ -79,6 +80,7 @@
     "Popup.Header.inactiveBackground": "headerColor",
     "Popup.Header.activeBackground":"headerColor",
     "Notification.background": "headerColor",
+    "TableHeader.background": "headerColor",
 
     "Plugins.Tab.selectedBackground": "highlightColor",
     "TabbedPane.hoverColor": "highlightColor",
@@ -215,6 +217,7 @@
         "foreground": "tagColor"
       }
     },
+
 
     "Button.darcula.defaultFocusedOutlineColor": "accentColor",
     "Button.darcula.focusedOutlineColor":"accentColor",

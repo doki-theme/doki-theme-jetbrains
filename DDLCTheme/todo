@@ -1,12 +1,8 @@
 - Indicator style
 - Tree arrow style
 - Chibi Swappo
+- Plugin Settings Window
 - Table scroll is borked
-
-- Button
-    - Shape
-    - Hover
-    - Tab functionality
 - Completion Popup
     - Selection Foreground
     - Background
@@ -16,10 +12,12 @@
 - CheckBox
     - as accent color
     - Transparent box background
-- Debugger
 - Radio button
-    - as accent color
-- Plugin Settings Window
+- Button
+    - Shape
+    - Hover
+    - Tab functionality
+
 - Switcher icon thing
 - Borders
 - Find in path search
