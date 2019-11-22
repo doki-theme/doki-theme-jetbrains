@@ -27,10 +27,12 @@
     "testScopeColor": "#C0EDCC",
     "editorBackground": "#EAEAF0",
     "ghostColor": "#FFFFFF00",
+    "disabledColor": "#A2B6CB",
+    "foregroundColor":  "#1F2435",
+    "tagColor": "#7a7a7a",
 
     "secondaryBackgroundColor": "#dddce9",
     "secondaryForegroundColor": "#36363a",
-    "foregroundColor":  "#1F2435",
     "textColor": "#1F2435",
     "inactiveColor":  "#C4C3CF",
     "menuItemForegroundColor":  "#252529",
@@ -41,7 +43,6 @@
     "editorTabColor": "#CFCFD5",
     "buttonColor":  "#CFCFD5",
     "buttonFont": "#252427",
-    "disabledColorString": "#A2B6CB",
     "completionPopupBackgroundColor": "#eaeaf0",
     "menuBarColor":  "#e3dfe8"
   },
@@ -192,6 +193,28 @@
     "ScrollBar.thumbHighlight": "testScopeColor",
     "ScrollBar.thumbShadow":  "testScopeColor",
 
+    "VersionControl": {
+      "GitLog": {
+        "otherIconColor": "selectionBackground",
+        "remoteBranchIconColor": "foregroundColor",
+        "tagIconColor": "selectionBackground"
+      },
+      "HgLog": {
+        "closedBranchIconColor": "disabledColor",
+        "localTagIconColor": "selectionBackground",
+        "mqTagIconColor": "selectionBackground",
+        "tagIconColor": "selectionBackground",
+        "tipIconColor": "selectionBackground"
+      },
+      "Log": {
+        "Commit.currentBranchBackground": "highlightColor",
+        "Commit.unmatchedForeground": "selectionBackground",
+      },
+      "RefLabel": {
+        "backgroundBase": "highlightColor",
+        "foreground": "tagColor"
+      }
+    },
 
     "Button.darcula.defaultFocusedOutlineColor": "accentColor",
     "Button.darcula.focusedOutlineColor":"accentColor",
