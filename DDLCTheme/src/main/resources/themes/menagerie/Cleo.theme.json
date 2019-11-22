@@ -9,7 +9,7 @@
   "colors": {
     "baseBackground": "#DCDDE8",
     "secondaryBackground": "#e6e6f1",
-    "borderColor":  "#D9DAE5",
+    "borderColor": "#d3d4df",
     "hairColor": "#E3DFE8",
     "contrastColor": "#EAEAF0",
     "inactiveBackground": "#E4E4EE",
@@ -92,6 +92,17 @@
     "Borders.color": "borderColor",
     "Button.startBorderColor": "borderColor",
     "Button.endBorderColor": "borderColor",
+    "Menu.borderColor": "borderColor",
+    "MenuBar.borderColor": "borderColor",
+    "NavBar.borderColor": "borderColor",
+    "Popup.Toolbar.borderColor": "borderColor",
+    "Popup.borderColor": "borderColor",
+    "Popup.innerBorderColor": "borderColor",
+    "Popup.separatorColor": "borderColor",
+    "StatusBar.borderColor": "borderColor",
+    "ToolBar.borderHandleColor": "borderColor",
+    "WelcomeScreen.borderColor": "borderColor",
+    "windowBorder": "borderColor",
 
     "EditorTabs.underlinedTabBackground": "highlightColor",
 

@@ -18,8 +18,8 @@
     - Hover
     - Tab functionality
 
-- Switcher icon thing
 - Borders
+- Welcome Screen (the no open projects window)
 - Find in path search
 - Combo box
     - com.intellij.application.options.schemes.SchemesCombo is a jerk
