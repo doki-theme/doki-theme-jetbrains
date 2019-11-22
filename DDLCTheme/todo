@@ -1,3 +1,5 @@
+Requires new UI components
+----
 - Indicator style
 - Tree arrow style
 - Chibi Swappo
@@ -17,15 +19,17 @@
     - Shape
     - Hover
     - Tab functionality
-
-- Borders
-- Welcome Screen (the no open projects window)
 - Find in path search
+    - see TextFieldUI
 - Combo box
     - com.intellij.application.options.schemes.SchemesCombo is a jerk
+ -----
 - Icons
-- Spinning loading indicator.
-- Scheme Restoration
-- Theme change animation
+    - Spinning loading indicator.
 
+- Welcome Screen (the no open projects window)
+
+- Color Scheme Restoration (so do not have to reset colors erry time)
+
+- Theme change animation
 - theme schema
