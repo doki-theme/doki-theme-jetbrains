@@ -1,8 +1,7 @@
-- File Scope Colors
-
 - Indicator style
-- Chibi Swappo
 - Tree arrow style
+- Chibi Swappo
+
 - Scroll bar shape
 - Button
     - Shape
@@ -31,6 +30,7 @@
     - com.intellij.application.options.schemes.SchemesCombo is a jerk
 - Icons
 - Spinning loading indicator.
+- Scheme Restoration
 - Theme change animation
 
 - theme schema
