@@ -9,9 +9,9 @@
   "colors": {
     "ghostColor": "#FFFFFF00",
     "contrastColor": "#f0c3e3",
-    "nonProjectFileScopeColor": "#fbefe0",
-    "editorBackground": "#f0dde3",
-    "secondaryBackground": "#f1d2df",
+    "nonProjectFileScopeColor": "#FFE4E3",
+    "editorBackground": "#f0d4e1",
+    "secondaryBackground": "#f3cfe0",
     "selectionForeground": "#ffffff",
     "inactiveBackground": "#eed4ec",
     "inactiveBackgroundDarker": "#ebd1e9",
@@ -26,7 +26,7 @@
     "buttonFont": "#252427",
     "foregroundColor":  "#1F2435",
     "startColor":  "#F25AAF",
-    "highlightColor": "#f0d7e4",
+    "highlightColor": "#f7d2e8",
     "disabledColor": "#cbb1c6",
     "accentColorTransparent": "#E946865A",
     "accentColorLessTransparent": "#E946869A",
@@ -180,8 +180,9 @@
     "CompletionPopup.foreground": "foregroundColor",
 
     "SearchEverywhere.Tab.selectedBackground": "highlightColor",
-    "SearchEverywhere.Header.background": "secondaryBackground",
-    "SearchEverywhere.SearchField.background": "secondaryBackground",
+    "SearchEverywhere.Header.background": "headerColor",
+    "SearchEverywhere.SearchField.background": "headerColor",
+    "SearchEverywhere.Advertiser.background": "headerColor",
 
     "ScrollBar.Transparent.thumbColor": "accentColorTransparent",
     "ScrollBar.Transparent.thumbBorderColor": "accentColorTransparent",

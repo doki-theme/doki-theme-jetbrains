@@ -181,6 +181,7 @@
     "SearchEverywhere.Tab.selectedBackground": "highlightColor",
     "SearchEverywhere.Header.background": "secondaryBackground",
     "SearchEverywhere.SearchField.background": "secondaryBackground",
+    "SearchEverywhere.Advertiser.background": "headerColor",
 
     "ScrollBar.Transparent.thumbColor": "accentColorTransparent",
     "ScrollBar.Transparent.thumbBorderColor": "accentColorTransparent",

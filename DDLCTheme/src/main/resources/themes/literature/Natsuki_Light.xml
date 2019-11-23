@@ -1,19 +1,21 @@
 <scheme name="Natsuki Light" version="142" parent_scheme="Default">
     <metaInfo>
-        <property name="created">2019-11-23T10:42:36</property>
+        <property name="created">2019-11-23T11:25:26</property>
         <property name="ide">idea</property>
         <property name="ideVersion">2019.3.0.0</property>
-        <property name="modified">2019-11-23T10:42:52</property>
+        <property name="modified">2019-11-23T11:25:46</property>
     </metaInfo>
     <colors>
-        <option name="CONSOLE_BACKGROUND_KEY" value="ECFFEA" />
-        <option name="GUTTER_BACKGROUND" value="ECFFEA" />
+        <option name="CONSOLE_BACKGROUND_KEY" value="FFE5F1" />
+        <option name="GUTTER_BACKGROUND" value="FFE5F1" />
+        <option name="SEPARATOR_ABOVE_COLOR" value="f1d7e6" />
+        <option name="SEPARATOR_BELOW_COLOR" value="f1d7e6" />
     </colors>
     <attributes>
         <option name="TEXT">
             <value>
                 <option name="FOREGROUND" value="0" />
-                <option name="BACKGROUND" value="ECFFEA" />
+                <option name="BACKGROUND" value="FFE5F1" />
             </value>
         </option>
     </attributes>
