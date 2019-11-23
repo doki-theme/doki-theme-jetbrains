@@ -8,6 +8,7 @@ Requires new UI components
 - Completion Popup
     - Selection Foreground
     - Background
+- Type popup tooltip border
 - Editor Tabs
     - Active Outline
     - File Scope colorings
