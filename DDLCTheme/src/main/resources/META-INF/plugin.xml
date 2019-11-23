@@ -61,6 +61,7 @@
         <themeProvider id="cb8ef4b7-0844-4a04-b08b-754086598de4" path="/themes/literature/Sayori_Light.theme.json"/>
         <themeProvider id="cecf3f92-76d4-4f14-9a9c-3d558b6b3b68" path="/themes/literature/Yuri_Light.theme.json"/>
         <themeProvider id="4693f34f-f400-4431-87f8-0be7fde660d9" path="/themes/menagerie/Neera.theme.json"/>
+        <themeProvider id="9f62362a-49e0-4b82-8f63-d1f98ae7799f" path="/themes/menagerie/Wyla.theme.json"/>
     </extensions>
 
     <application-components>

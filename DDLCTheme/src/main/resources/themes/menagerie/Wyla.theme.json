@@ -1,38 +1,38 @@
 {
-  "name": "Neera",
-  "dark": false,
-  "author": "cyclic-reference",
-  "editorScheme": "/themes/menagerie/Neera.xml",
+  "name": "Wyla",
+  "dark": true,
+  "author": "",
+  "editorScheme": "/themes/menagerie/Wyla.xml",
   "background": {
-    "image": "/chibis/menagerie/neera.png"
+    "image": "/chibis/menagerie/wyla.png"
   },
   "colors": {
     "ghostColor": "#FFFFFF00",
-    "contrastColor": "#feffdd",
-    "nonProjectFileScopeColor":  "#fffaf0",
-    "editorBackground": "#f8f7f3",
-    "secondaryBackground": "#fffff7",
-    "selectionForeground": "#A8930A",
-    "inactiveBackground": "#FFFFBC",
-    "inactiveBackgroundDarker": "#F5F5B3",
-    "headerColor": "#FFFEF9",
-    "baseBackground": "#fefefa",
-    "borderColor": "#f1f4e0",
-    "buttonColor":  "#fffef7",
-    "selectionInactive": "#FFFFBC",
+    "contrastColor": "#2e2b32",
+    "nonProjectFileScopeColor":  "#312A26",
+    "editorBackground": "#2f2329",
+    "secondaryBackground": "#2f2329",
+    "selectionForeground": "#E2CB14",
+    "inactiveBackground": "#2a272e",
+    "inactiveBackgroundDarker": "#333037",
+    "headerColor": "#2f2329",
+    "baseBackground": "#271c21",
+    "borderColor": "#2b2a32",
+    "buttonColor":  "#2f2329",
+    "selectionInactive": "#2a272e",
     "tagColor": "#7A7A7A",
-    "secondaryForegroundColor": "#546E7A",
-    "selectionBackground":  "#fff3b4",
-    "buttonFont": "#546E7A",
-    "foregroundColor":  "#546E7A",
-    "startColor":  "#EBDA50",
-    "highlightColor":  "#fff3b4",
-    "disabledColor": "#7F818F",
-    "accentColorTransparent": "#FFD04E5A",
-    "accentColorLessTransparent": "#FFD04E9A",
-    "accentColor": "#FFD04E",
-    "stopColor": "#FCFFA5",
-    "testScopeColor": "#D7FFDC"
+    "secondaryForegroundColor": "#766B6B",
+    "selectionBackground":  "#40434c",
+    "buttonFont": "#766B6B",
+    "foregroundColor":  "#c09fa2",
+    "startColor":  "#6c341d",
+    "highlightColor":  "#4e393e",
+    "disabledColor": "#585F6F",
+    "accentColorTransparent": "#CCA3315A",
+    "accentColorLessTransparent": "#CCA3319A",
+    "accentColor": "#CCA331",
+    "stopColor": "#eeb416",
+    "testScopeColor": "#243125"
   },
   "ui": {
     "Panel.background": "baseBackground",
@@ -354,13 +354,14 @@
   },
   "icons": {
     "ColorPalette": {
-      "Actions.Green": "#FFD04E",
-      "Actions.Blue": "#FFD04E",
-      "Objects.Blue": "#FFD04E",
+      "Actions.Green": "#CCA331",
+      "Actions.Blue": "#CCA331",
+      "Objects.Blue": "#CCA331",
       "Actions.Grey": "#979087",
       "Actions.GreyInline": "#979087",
       "Actions.GreyInline.Dark": "#979087",
       "Objects.Grey": "#979087"
     }
   }
+
 }
