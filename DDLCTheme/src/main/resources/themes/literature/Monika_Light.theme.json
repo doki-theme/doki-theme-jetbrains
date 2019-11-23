@@ -356,6 +356,7 @@
     "ColorPalette": {
       "Actions.Green": "#388E3C",
       "Actions.Blue": "#388E3C",
+      "Objects.Blue": "#388E3C",
       "Actions.Grey": "#657F6E",
       "Actions.GreyInline": "#657F6E",
       "Actions.GreyInline.Dark": "#657F6E",
