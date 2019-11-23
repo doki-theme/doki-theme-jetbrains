@@ -28,9 +28,9 @@
     "startColor":  "#EBDA50",
     "highlightColor":  "#fff3b4",
     "disabledColor": "#7F818F",
-    "accentColorTransparent": "#FFEB3B5A",
-    "accentColorLessTransparent": "#FFEB3B9A",
-    "accentColor": "#FFEB3B",
+    "accentColorTransparent": "#FFD04E5A",
+    "accentColorLessTransparent": "#FFD04E9A",
+    "accentColor": "#FFD04E",
     "stopColor": "#FCFFA5",
     "testScopeColor": "#D7FFDC"
   },
@@ -354,9 +354,9 @@
   },
   "icons": {
     "ColorPalette": {
-      "Actions.Green": "#FFEB3B",
-      "Actions.Blue": "#FFEB3B",
-      "Objects.Blue": "#FFEB3B",
+      "Actions.Green": "#FFD04E",
+      "Actions.Blue": "#FFD04E",
+      "Objects.Blue": "#FFD04E",
       "Actions.Grey": "#979087",
       "Actions.GreyInline": "#979087",
       "Actions.GreyInline.Dark": "#979087",
