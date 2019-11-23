@@ -53,8 +53,10 @@
     "Table.background": "editorBackground",
 
     "SpeedSearch.background": "contrastColor",
+    "SpeedSearch.borderColor": "contrastColor",
     "ToolTip.background": "contrastColor",
     "ToolTip.Actions.background": "contrastColor",
+    "ToolTip.borderColor": "borderColor",
 
     "TextField.background": "secondaryBackground",
     "TextPane.background": "secondaryBackground",
@@ -99,7 +101,6 @@
     "PopupMenu.background": "borderColor",
     "SearchEverywhere.SearchField.borderColor": "borderColor",
     "Slider.buttonBorderColor": "borderColor",
-    "SpeedSearch.borderColor": "borderColor",
     "StatusBar.borderColor": "borderColor",
     "ToggleButton.borderColor": "borderColor",
     "ToolBar.borderHandleColor": "borderColor",
