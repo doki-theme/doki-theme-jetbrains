@@ -71,6 +71,7 @@
     "Notification.background": "headerColor",
     "TableHeader.background": "headerColor",
     "Plugins.SectionHeader.background": "headerColor",
+    "SidePanel.background": "headerColor",
 
     "Plugins.Tab.selectedBackground": "highlightColor",
     "TabbedPane.hoverColor": "highlightColor",
