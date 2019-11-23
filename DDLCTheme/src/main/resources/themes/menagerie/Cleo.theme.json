@@ -49,6 +49,7 @@
     "TabbedPane.background": "baseBackground",
     "Table.gridColor": "baseBackground",
     "ProgressBar.background": "baseBackground",
+    "EditorPane.background": "baseBackground",
 
     "Table.background": "editorBackground",
 
