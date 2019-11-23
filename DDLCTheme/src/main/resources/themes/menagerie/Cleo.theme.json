@@ -49,6 +49,7 @@
     "Spinner.background": "baseBackground",
     "TabbedPane.background": "baseBackground",
     "Table.gridColor": "baseBackground",
+    "ProgressBar.background": "baseBackground",
 
     "Table.background": "editorBackground",
 
