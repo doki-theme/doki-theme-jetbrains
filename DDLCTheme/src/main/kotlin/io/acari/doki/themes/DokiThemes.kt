@@ -9,7 +9,7 @@ import javax.swing.UIManager
 object DokiThemes {
     private val themeSet = setOf(
         "Cleo",
-        "JustMonika"
+        "Monika Light"
     )
 
 

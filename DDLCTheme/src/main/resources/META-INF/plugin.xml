@@ -49,11 +49,13 @@
     <extensions defaultExtensionNs="com.intellij">
         <themeProvider id="fc466b4f-8eb7-472c-8cbb-d99a09d4c469"
                        path="/themes/menagerie/Cleo.theme.json"/>
+        <themeProvider id="9a310731-ab2d-40f5-b502-fa5419f799a2"
+                       path="/themes/literature/Monika.light.theme.json"/>
+
         <applicationService serviceInterface="io.acari.doki.themes.ThemeManager"
                             serviceImplementation="io.acari.doki.themes.impl.ThemeManagerImpl"/>
         <applicationService serviceInterface="io.acari.doki.chibi.ChibiService"
                             serviceImplementation="io.acari.doki.chibi.impl.ChibiServiceImpl"/>
-        <themeProvider id="9a310731-ab2d-40f5-b502-fa5419f799a2" path="/themes/literature/JustMonika.theme.json"/>
     </extensions>
 
     <application-components>
