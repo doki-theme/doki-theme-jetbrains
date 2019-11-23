@@ -114,6 +114,7 @@
     "ValidationTooltip.warningBorderColor": "borderColor",
     "WelcomeScreen.borderColor": "borderColor",
     "WelcomeScreen.groupIconBorderColor": "borderColor",
+    "WelcomeScreen.separatorColor": "borderColor",
     "windowBorder":"borderColor",
 
     "EditorTabs.underlinedTabBackground": "highlightColor",
@@ -238,6 +239,14 @@
       "RefLabel": {
         "backgroundBase": "highlightColor",
         "foreground": "tagColor"
+      }
+    },
+
+    "WelcomeScreen": {
+      "background": "baseBackground",
+      "footerBackground": "baseBackground",
+      "Projects": {
+        "background": "headerColor"
       }
     },
 
