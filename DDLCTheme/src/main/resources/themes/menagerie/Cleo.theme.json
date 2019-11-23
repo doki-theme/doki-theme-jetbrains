@@ -70,10 +70,14 @@
     "Popup.Header.activeBackground":"headerColor",
     "Notification.background": "headerColor",
     "TableHeader.background": "headerColor",
+    "Plugins.SectionHeader.background": "headerColor",
 
     "Plugins.Tab.selectedBackground": "highlightColor",
     "TabbedPane.hoverColor": "highlightColor",
     "EditorTabs.hoverBackground": "highlightColor",
+    "ActionButton.hoverBackground": "highlightColor",
+    "ActionButton.hoverBorderColor": "highlightColor",
+    "Table.stripeColor": "highlightColor",
 
     "Borders.color": "borderColor",
     "Borders.ContrastBorderColor": "borderColor",
