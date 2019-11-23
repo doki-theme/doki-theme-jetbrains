@@ -58,6 +58,7 @@
                             serviceImplementation="io.acari.doki.themes.impl.ThemeManagerImpl"/>
         <applicationService serviceInterface="io.acari.doki.chibi.ChibiService"
                             serviceImplementation="io.acari.doki.chibi.impl.ChibiServiceImpl"/>
+        <themeProvider id="cb8ef4b7-0844-4a04-b08b-754086598de4" path="/themes/literature/Sayori_Light.theme.json"/>
     </extensions>
 
     <application-components>

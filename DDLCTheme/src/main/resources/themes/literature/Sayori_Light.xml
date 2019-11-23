@@ -1,0 +1,22 @@
+<scheme name="Sayori_Light" version="142" parent_scheme="Default">
+    <metaInfo>
+        <property name="created">2019-11-23T11:25:26</property>
+        <property name="ide">idea</property>
+        <property name="ideVersion">2019.3.0.0</property>
+        <property name="modified">2019-11-23T11:25:46</property>
+    </metaInfo>
+    <colors>
+        <option name="CONSOLE_BACKGROUND_KEY" value="CDF8FF" />
+        <option name="GUTTER_BACKGROUND" value="CDF8FF" />
+        <option name="SEPARATOR_ABOVE_COLOR" value="BFEFF1" />
+        <option name="SEPARATOR_BELOW_COLOR" value="BFEFF1" />
+    </colors>
+    <attributes>
+        <option name="TEXT">
+            <value>
+                <option name="FOREGROUND" value="0" />
+                <option name="BACKGROUND" value="CDF8FF" />
+            </value>
+        </option>
+    </attributes>
+</scheme>
