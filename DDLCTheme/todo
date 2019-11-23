@@ -24,10 +24,11 @@ Requires new UI components
 - Combo box
     - com.intellij.application.options.schemes.SchemesCombo is a jerk
  -----
+
+ After all color schemes are done:
+ -----
 - Icons
     - Spinning loading indicator.
-
 - Color Scheme Restoration (so do not have to reset colors erry time)
-
 - Theme change animation
 - theme schema

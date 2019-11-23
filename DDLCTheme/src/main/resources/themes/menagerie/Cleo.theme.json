@@ -30,21 +30,12 @@
     "disabledColor": "#A2B6CB",
     "foregroundColor":  "#1F2435",
     "tagColor": "#7a7a7a",
-
-    "secondaryBackgroundColor": "#dddce9",
-    "secondaryForegroundColor": "#36363a",
-    "textColor": "#1F2435",
-    "inactiveColor":  "#C4C3CF",
-    "menuItemForegroundColor":  "#252529",
-    "menuBarSelectionForegroundColor": "#242528",
-    "menuBarSelectionBackgroundColor":  "#C4C3CF",
-    "notificationsColor": "#DCDDE8",
-    "highlightColor":  "#DCE0F0",
-    "editorTabColor": "#CFCFD5",
-    "buttonColor":  "#CFCFD5",
     "buttonFont": "#252427",
-    "completionPopupBackgroundColor": "#eaeaf0",
-    "menuBarColor":  "#e3dfe8"
+    "buttonColor":  "#CFCFD5",
+    "highlightColor":  "#DCE0F0",
+    "textColor": "#1F2435",
+    "secondaryForegroundColor": "#36363a",
+    "inactiveColor":  "#C4C3CF"
   },
   "ui": {
     "Panel.background": "baseBackground",
