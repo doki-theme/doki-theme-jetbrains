@@ -357,7 +357,12 @@
   "icons": {
     "ColorPalette": {
       "Actions.Green": "#2D79E9",
-      "Actions.Blue": "#2D79E9"
+      "Actions.Blue": "#2D79E9",
+      "Actions.Grey": "#979797",
+      "Actions.GreyInline": "#979797",
+      "Actions.GreyInline.Dark": "#979797",
+      "Objects.Grey": "#979797"
+
     }
   }
 }
