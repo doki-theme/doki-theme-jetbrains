@@ -50,7 +50,9 @@
         <themeProvider id="fc466b4f-8eb7-472c-8cbb-d99a09d4c469"
                        path="/themes/menagerie/Cleo.theme.json"/>
         <themeProvider id="9a310731-ab2d-40f5-b502-fa5419f799a2"
-                       path="/themes/literature/Monika.light.theme.json"/>
+                       path="/themes/literature/Monika_Light.theme.json"/>
+        <themeProvider id="91415015-8fe3-48eb-9951-70a5cd6cbb7f"
+                       path="/themes/literature/Natsuki_Light.theme.json"/>
 
         <applicationService serviceInterface="io.acari.doki.themes.ThemeManager"
                             serviceImplementation="io.acari.doki.themes.impl.ThemeManagerImpl"/>
