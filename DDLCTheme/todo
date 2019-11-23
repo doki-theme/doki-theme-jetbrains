@@ -14,6 +14,8 @@ Requires new UI components
 - CheckBox
     - as accent color
     - Transparent box background
+- Plugins selected item foreground
+    - cleo
 - Radio button
 - Button
     - Shape
