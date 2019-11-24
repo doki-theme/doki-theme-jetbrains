@@ -82,6 +82,7 @@
     "ActionButton.hoverBackground": "highlightColor",
     "ActionButton.hoverBorderColor": "highlightColor",
     "Table.stripeColor": "highlightColor",
+    "ToolWindow.Button.selectedBackground": "highlightColor",
 
     "Borders.color": "borderColor",
     "Borders.ContrastBorderColor": "borderColor",

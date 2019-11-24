@@ -26,7 +26,7 @@
     "buttonFont": "#546E7A",
     "foregroundColor":  "#546E7A",
     "startColor":  "#EBDA50",
-    "highlightColor":  "#fff3b4",
+    "highlightColor": "#fff8e0",
     "disabledColor": "#7F818F",
     "accentColorTransparent": "#FFD04E5A",
     "accentColorLessTransparent": "#FFD04E9A",
@@ -82,6 +82,8 @@
     "ActionButton.hoverBackground": "highlightColor",
     "ActionButton.hoverBorderColor": "highlightColor",
     "Table.stripeColor": "highlightColor",
+    "ToolWindow.Button.selectedBackground": "highlightColor",
+
 
     "Borders.color": "borderColor",
     "Borders.ContrastBorderColor": "borderColor",
