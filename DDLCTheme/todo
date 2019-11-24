@@ -9,8 +9,8 @@ Requires new UI components
     - Selection Foreground
     - Background
 - Type popup tooltip border
+- Initial loading background not themed
 - editor window borders
-    -
 - Search everwhere
     - Has white list results for light themes
 - Notification Colors (success, warning, error)
