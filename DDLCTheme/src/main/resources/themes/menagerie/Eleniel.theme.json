@@ -1,22 +1,22 @@
 {
-  "name": "Wyla",
+  "name": "Eleniel",
   "dark": true,
   "author": "cyclic-reference",
-  "editorScheme": "/themes/menagerie/Wyla.xml",
+  "editorScheme": "/themes/menagerie/Eleniel.xml",
   "background": {
-    "image": "/chibis/menagerie/wyla.png"
+    "image": "/chibis/menagerie/eleniel.png"
   },
   "colors": {
     "ghostColor": "#FFFFFF00",
     "contrastColor": "#2e2b32",
-    "nonProjectFileScopeColor":  "#312A26",
+    "nonProjectFileScopeColor":  "#483d3e",
     "editorBackground": "#2f2329",
     "secondaryBackground": "#2f2329",
     "selectionForeground": "#E2CB14",
     "inactiveBackground": "#2a272e",
     "inactiveBackgroundDarker": "#333037",
-    "headerColor": "#2f2329",
-    "baseBackground": "#271c21",
+    "headerColor": "#3B3541",
+    "baseBackground": "#3B3541",
     "borderColor": "#2b2a32",
     "buttonColor":  "#2f2329",
     "selectionInactive": "#2a272e",
@@ -25,14 +25,14 @@
     "selectionBackground":  "#40434c",
     "buttonFont": "#766B6B",
     "foregroundColor":  "#c09fa2",
-    "startColor":  "#6c341d",
+    "startColor":  "#6e6773",
     "highlightColor": "#403033",
     "disabledColor": "#585F6F",
-    "accentColorTransparent": "#CCA3315A",
-    "accentColorLessTransparent": "#CCA3319A",
-    "accentColor": "#CCA331",
-    "stopColor": "#eeb416",
-    "testScopeColor": "#243125"
+    "accentColorTransparent": "#52C4E65A",
+    "accentColorLessTransparent": "#52C4E69A",
+    "accentColor": "#52C4E6",
+    "stopColor": "#76ffff",
+    "testScopeColor": "#3A5841"
   },
   "ui": {
     "Panel.background": "baseBackground",
@@ -50,7 +50,6 @@
     "Table.gridColor": "baseBackground",
     "ProgressBar.background": "baseBackground",
     "EditorPane.background": "baseBackground",
-    "Plugins.background": "baseBackground",
 
     "Table.background": "editorBackground",
 
@@ -356,13 +355,13 @@
   },
   "icons": {
     "ColorPalette": {
-      "Actions.Green": "#CCA331",
-      "Actions.Blue": "#CCA331",
-      "Objects.Blue": "#CCA331",
-      "Actions.Grey": "#979087",
-      "Actions.GreyInline": "#979087",
-      "Actions.GreyInline.Dark": "#979087",
-      "Objects.Grey": "#979087"
+      "Actions.Green": "#52C4E6",
+      "Actions.Blue": "#52C4E6",
+      "Objects.Blue": "#52C4E6",
+      "Actions.Grey": "#808597",
+      "Actions.GreyInline": "#808597",
+      "Actions.GreyInline.Dark": "#808597",
+      "Objects.Grey": "#808597"
     }
   }
 
