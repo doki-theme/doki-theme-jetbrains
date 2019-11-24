@@ -20,6 +20,7 @@ object DokiThemes {
         "Yuri Light",
         "Monika Dark",
         "Natsuki Dark",
+        "Sayori Dark",
         "Yuri Dark"
     )
 
