@@ -13,6 +13,7 @@ Requires new UI components
 - Image container pane
     - The thing that previews images and stuff.
 - editor window borders
+- Foreground Colors
 - Search everwhere
     - Has white list results for light themes
 - Notification Colors (success, warning, error)

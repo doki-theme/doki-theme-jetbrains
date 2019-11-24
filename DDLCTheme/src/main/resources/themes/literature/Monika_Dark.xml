@@ -1,2 +1,20 @@
 <scheme name="Monika Dark" version="142" parent_scheme="Darcula">
+    <metaInfo>
+        <property name="created">2019-11-23T10:42:36</property>
+        <property name="ide">idea</property>
+        <property name="ideVersion">2019.3.0.0</property>
+        <property name="modified">2019-11-23T10:42:52</property>
+    </metaInfo>
+    <colors>
+        <option name="CONSOLE_BACKGROUND_KEY" value="1D2115" />
+        <option name="GUTTER_BACKGROUND" value="1D2115" />
+    </colors>
+    <attributes>
+        <option name="TEXT">
+            <value>
+                <option name="FOREGROUND" value="1D2115" />
+                <option name="BACKGROUND" value="1D2115" />
+            </value>
+        </option>
+    </attributes>
 </scheme>
