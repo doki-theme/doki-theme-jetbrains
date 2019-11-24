@@ -1,0 +1,24 @@
+<scheme name="Sayori Dark" version="142" parent_scheme="Darcula">
+
+    <metaInfo>
+        <property name="created">2019-11-23T11:25:26</property>
+        <property name="ide">idea</property>
+        <property name="ideVersion">2019.3.0.0</property>
+        <property name="modified">2019-11-23T11:25:46</property>
+    </metaInfo>
+    <colors>
+        <option name="CONSOLE_BACKGROUND_KEY" value="181925" />
+        <option name="GUTTER_BACKGROUND" value="181925" />
+        <option name="SEPARATOR_ABOVE_COLOR" value="1f202d" />
+        <option name="SEPARATOR_BELOW_COLOR" value="1f202d" />
+    </colors>
+    <attributes>
+        <option name="TEXT">
+            <value>
+                <option name="FOREGROUND" value="0" />
+                <option name="BACKGROUND" value="181925" />
+            </value>
+        </option>
+    </attributes>
+
+</scheme>
