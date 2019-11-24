@@ -1,10 +1,10 @@
 {
-  "name": "Eleniel",
+  "name": "Sanya",
   "dark": true,
   "author": "cyclic-reference",
-  "editorScheme": "/themes/menagerie/Eleniel.xml",
+  "editorScheme": "/themes/menagerie/Sanya.xml",
   "background": {
-    "image": "/chibis/menagerie/eleniel.png"
+    "image": "/chibis/menagerie/sanya.png"
   },
   "colors": {
     "ghostColor": "#FFFFFF00",
@@ -15,24 +15,24 @@
     "selectionForeground": "#ffffff",
     "inactiveBackground": "#49434c",
     "inactiveBackgroundDarker": "#3c373f",
-    "headerColor": "#3B3541",
-    "baseBackground": "#3B3541",
+    "headerColor": "#3a2333",
+    "baseBackground": "#3a2333",
     "borderColor": "#3f393f",
     "buttonColor": "#443e48",
     "selectionInactive": "#4c454f",
     "tagColor": "#7A7A7A",
     "secondaryForegroundColor": "#9e9199",
-    "selectionBackground":  "#897b89",
-    "buttonFont": "#91858c",
-    "foregroundColor":  "#9e9199",
-    "startColor":  "#6e6773",
-    "highlightColor": "#4b4351",
+    "selectionBackground":  "#af1f51",
+    "buttonFont": "#cebcb8",
+    "foregroundColor": "#b5a3b0",
+    "startColor":  "#6d4466",
+    "highlightColor": "#403046",
     "disabledColor": "#525C6F",
-    "accentColorTransparent": "#52C4E65A",
-    "accentColorLessTransparent": "#52C4E69A",
-    "accentColor": "#52C4E6",
-    "stopColor": "#76ffff",
-    "testScopeColor": "#3A5841"
+    "accentColorTransparent": "#C6FF005A",
+    "accentColorLessTransparent": "#C6FF009A",
+    "accentColor": "#C6FF00",
+    "stopColor": "#ec1f62",
+    "testScopeColor": "#28382D"
   },
   "ui": {
     "Panel.background": "baseBackground",
@@ -356,9 +356,9 @@
   },
   "icons": {
     "ColorPalette": {
-      "Actions.Green": "#52C4E6",
-      "Actions.Blue": "#52C4E6",
-      "Objects.Blue": "#52C4E6",
+      "Actions.Green": "#C6FF00",
+      "Actions.Blue": "#C6FF00",
+      "Objects.Blue": "#C6FF00",
       "Actions.Grey": "#808597",
       "Actions.GreyInline": "#808597",
       "Actions.GreyInline.Dark": "#808597",

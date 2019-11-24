@@ -63,6 +63,7 @@
         <themeProvider id="4693f34f-f400-4431-87f8-0be7fde660d9" path="/themes/menagerie/Neera.theme.json"/>
         <themeProvider id="9f62362a-49e0-4b82-8f63-d1f98ae7799f" path="/themes/menagerie/Wyla.theme.json"/>
         <themeProvider id="c915211e-faab-4696-8af2-230892052ba6" path="/themes/menagerie/Eleniel.theme.json"/>
+        <themeProvider id="436ff3a0-4072-4b38-8d6f-888b18b5d0ab" path="/themes/menagerie/Sanya.theme.json"/>
     </extensions>
 
     <application-components>
