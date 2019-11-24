@@ -1,10 +1,10 @@
 {
-  "name": "Natsuki Light",
-  "dark": false,
-  "author": "",
-  "editorScheme": "/themes/literature/Natsuki_Light.xml",
+  "name": "Natsuki Dark",
+  "dark": true,
+  "author": "cyclic-reference",
+  "editorScheme": "/themes/literature/Natsuki_Dark.xml",
   "background": {
-    "image": "/chibis/literature/natsuki.png"
+    "image": "/chibis/literature/natsuki_dark.png"
   },
   "colors": {
     "ghostColor": "#FFFFFF00",
