@@ -1,5 +1,7 @@
 package io.acari.doki.hax
 
+import com.intellij.ide.util.ChooseElementsDialog
+import com.intellij.ide.util.ExportToFileUtil
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.fileEditor.impl.EditorComposite
 import io.acari.doki.chibi.impl.DOKI_BACKGROUND_PROP
@@ -7,12 +9,83 @@ import io.acari.doki.chibi.impl.DOKI_CHIBI_PROP
 import javassist.CannotCompileException
 import javassist.ClassClassPath
 import javassist.ClassPool
+import javassist.CtClass
 import javassist.expr.ExprEditor
 import javassist.expr.MethodCall
 
 object HackComponent : Disposable {
     init {
         enableDisposableChibis()
+        createMonikasWritingTipOfTheDay()
+    }
+
+    private fun createMonikasWritingTipOfTheDay() {
+        hackTipDialog()
+        hackTipPanel()
+    }
+
+    private fun hackTipDialog() {
+        try {
+            val cp = ClassPool(true)
+            cp.insertClassPath(ClassClassPath(ExportToFileUtil::class.java))
+            val ctClass = cp.get("com.intellij.ide.util.TipDialog")
+            hackTip(ctClass)
+        } catch (e: Throwable) {
+            e.printStackTrace()
+        }
+    }
+
+    private val titleInstrument = object : ExprEditor() {
+        @Throws(CannotCompileException::class)
+        override fun edit(m: MethodCall?) {
+            if (m!!.methodName == "message") {
+                m.replace("{ \$_ = \"Monika's Writing Tip of the Day\"; }")
+            }
+        }
+    }
+
+    private fun hackTip(ctClass: CtClass) {
+        try {
+            val init = ctClass.getDeclaredMethod("initialize")
+            init.instrument(titleInstrument)
+            ctClass.toClass()
+        } catch (e: Exception) {
+            if (e !is NullPointerException) {
+                e.printStackTrace()
+            }
+            hackLegacyTip(ctClass)
+        }
+    }
+    private fun hackLegacyTip(ctClass: CtClass) {
+        try {
+            val declaredConstructor = ctClass.constructors
+            declaredConstructor.forEach {
+                it.insertAfter("this.setTitle(\"Monika's Writing Tip of the Day\");")
+            }
+            ctClass.toClass()
+        } catch (e: Throwable) {
+            e.printStackTrace()
+        }
+    }
+
+    private fun hackTipPanel() {
+        try {
+            val cp = ClassPool(true)
+            cp.insertClassPath(ClassClassPath(ChooseElementsDialog::class.java))
+            val ctClass = cp.get("com.intellij.ide.util.TipPanel")
+            val init = ctClass.getDeclaredMethod("getDoNotShowMessage")
+            init.instrument(object : ExprEditor() {
+                @Throws(CannotCompileException::class)
+                override fun edit(m: MethodCall?) {
+                    if (m!!.methodName == "message") {
+                        m.replace("{ \$_ = \"Show \\\"Monika's Writing Tip of the Day\\\" on Startup!\"; }")
+                    }
+                }
+            })
+            ctClass.toClass()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 
     private fun enableDisposableChibis() {

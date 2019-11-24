@@ -44,6 +44,7 @@ Requires new UI components
 
  After all color schemes are done:
  -----
+- Legacy Theme -> Next Gen Theme install UX
 - Icons
     - Spinning loading indicator.
 - Color Scheme Restoration (so do not have to reset colors erry time)
