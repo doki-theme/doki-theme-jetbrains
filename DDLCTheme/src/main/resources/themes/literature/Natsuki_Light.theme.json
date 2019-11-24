@@ -50,6 +50,7 @@
     "Table.gridColor": "baseBackground",
     "ProgressBar.background": "baseBackground",
     "EditorPane.background": "baseBackground",
+    "Plugins.background": "baseBackground",
 
     "Table.background": "editorBackground",
 

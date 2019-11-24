@@ -49,9 +49,8 @@
     "TabbedPane.background": "baseBackground",
     "Table.gridColor": "baseBackground",
     "ProgressBar.background": "baseBackground",
-    "EditorPane.background": "baseBackground",
-
-    "Table.background": "editorBackground",
+    "EditorPane.background" : "baseBackground",
+    "Plugins.background": "baseBackground","Table.background": "editorBackground",
 
     "SpeedSearch.background": "contrastColor",
     "SpeedSearch.borderColor": "contrastColor",
