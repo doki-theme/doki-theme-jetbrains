@@ -6,16 +6,16 @@
         <property name="modified">2019-11-23T11:25:46</property>
     </metaInfo>
     <colors>
-        <option name="CONSOLE_BACKGROUND_KEY" value="FFE5F1" />
-        <option name="GUTTER_BACKGROUND" value="FFE5F1" />
-        <option name="SEPARATOR_ABOVE_COLOR" value="f1d7e6" />
-        <option name="SEPARATOR_BELOW_COLOR" value="f1d7e6" />
+        <option name="CONSOLE_BACKGROUND_KEY" value="2d222b" />
+        <option name="GUTTER_BACKGROUND" value="2d222b" />
+        <option name="SEPARATOR_ABOVE_COLOR" value="2E2228" />
+        <option name="SEPARATOR_BELOW_COLOR" value="2E2228" />
     </colors>
     <attributes>
         <option name="TEXT">
             <value>
                 <option name="FOREGROUND" value="0" />
-                <option name="BACKGROUND" value="FFE5F1" />
+                <option name="BACKGROUND" value="2d222b" />
             </value>
         </option>
     </attributes>
