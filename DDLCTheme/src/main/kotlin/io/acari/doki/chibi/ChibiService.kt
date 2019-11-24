@@ -6,6 +6,7 @@ import io.acari.doki.themes.DokiTheme
 interface ChibiService {
 
     fun activateForTheme(dokiTheme: DokiTheme)
+    fun remove()
 
     companion object {
         val instance: ChibiService

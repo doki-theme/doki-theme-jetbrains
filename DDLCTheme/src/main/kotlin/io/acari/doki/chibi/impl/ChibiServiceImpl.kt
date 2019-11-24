@@ -35,6 +35,10 @@ class ChibiServiceImpl : ChibiService {
         turnOnIfNecessary(dokiTheme)
     }
 
+    override fun remove() {
+        removeWeebShit()
+    }
+
     private fun removeWeebShit() {
         PropertiesComponent.getInstance().unsetValue(DOKI_CHIBI_PROP)
         PropertiesComponent.getInstance().unsetValue(DOKI_BACKGROUND_PROP)
@@ -68,6 +72,7 @@ class ChibiServiceImpl : ChibiService {
                 )
             }
 
+        // todo: background frame painting.
         getFrameBackground(dokiTheme)
             .ifPresent {
                 setProperty(

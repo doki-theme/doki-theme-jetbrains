@@ -18,10 +18,11 @@ class ChibiComponent: Disposable {
     }
 
     private fun processLaf(currentLaf: UIManager.LookAndFeelInfo?) {
-        DokiThemes.processLaf(currentLaf)
-            .ifPresent {
-                ChibiService.instance.activateForTheme(it)
-            }
+        DokiThemes.processLaf(currentLaf).ifPresentOrElse({
+            ChibiService.instance.activateForTheme(it)
+        }) {
+            ChibiService.instance.remove()
+        }
     }
 
     override fun dispose() {
