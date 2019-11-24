@@ -10,6 +10,8 @@ Requires new UI components
     - Background
 - Type popup tooltip border
 - Initial loading background not themed
+- Image container pane
+    - The thing that previews images and stuff.
 - editor window borders
 - Search everwhere
     - Has white list results for light themes
