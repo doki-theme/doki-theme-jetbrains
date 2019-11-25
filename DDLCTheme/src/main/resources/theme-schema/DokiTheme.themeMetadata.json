@@ -1,0 +1,10 @@
+{
+  "name": "Doki Theme",
+  "fixed": false,
+  "ui": [
+    {
+      "key": "doki.doki.accent.color",
+      "description": "Contrast color used on components such as: checkbox, radio buttons, etc."
+    }
+  ]
+}

@@ -8,6 +8,8 @@ Requires new UI components
 - Completion Popup
     - Selection Foreground
     - Background
+- Extendable Text Background
+    - Make new kotlin file, you'll see it.
 - Type popup tooltip border
 - Initial loading background not themed
 - Image container pane

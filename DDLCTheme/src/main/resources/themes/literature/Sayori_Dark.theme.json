@@ -283,6 +283,7 @@
     "Debugger.Variables.valueForeground":"accentColor",
     "DefaultTabs.inactiveUnderlineColor": "accentColor",
     "DefaultTabs.underlineColor":"accentColor",
+    "doki.doki.accent.color": "accentColor",
     "EditorPane.caretForeground": "accentColor",
     "EditorTabs.active.underlineColor":"accentColor",
     "EditorTabs.inactiveUnderlineColor": "accentColor",
