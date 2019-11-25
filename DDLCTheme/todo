@@ -53,3 +53,4 @@ Requires new UI components
 - Color Scheme Restoration (so do not have to reset colors erry time)
 - Theme change animation
 - theme schema
+    -ThemeJsonSchemaProviderFactory
