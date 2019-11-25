@@ -1,38 +1,38 @@
 {
-  "name": "Sayori Dark",
+  "name": "Yuri Dark",
   "dark": true,
   "author": "cyclic-reference",
-  "editorScheme": "/themes/literature/Sayori_Dark.xml",
+  "editorScheme": "/themes/literature/Yuri_Dark.xml",
   "background": {
-    "image": "/chibis/literature/sayori_dark.png"
+    "image": "/chibis/literature/yuri_dark.png"
   },
   "colors": {
     "ghostColor": "#FFFFFF00",
-    "contrastColor": "#1B323F",
-    "nonProjectFileScopeColor": "#102121",
-    "editorBackground": "#181925",
-    "secondaryBackground": "#1f2030",
-    "selectionForeground": "#9CF5FF",
-    "inactiveBackground": "#1b254b",
-    "inactiveBackgroundDarker": "#1d2650",
-    "headerColor": "#171823",
-    "baseBackground": "#12131f",
-    "borderColor": "#1f202d",
-    "buttonColor": "#1B323F",
-    "selectionInactive": "#1d274b",
+    "contrastColor": "#A8B0F0",
+    "nonProjectFileScopeColor": "#F3FFE6",
+    "editorBackground": "#C6DAF0",
+    "secondaryBackground": "#CCD9F3",
+    "selectionForeground": "#FFFFFF",
+    "inactiveBackground": "#C4C8EE",
+    "inactiveBackgroundDarker": "#C0C3E9",
+    "headerColor": "#D5D2FF",
+    "baseBackground": "#CFCFFB",
+    "borderColor": "#CACBF1",
+    "buttonColor": "#B6B6E5",
+    "selectionInactive": "#9ba8cf",
     "tagColor": "#7A7A7A",
-    "secondaryForegroundColor": "#111B28",
-    "selectionBackground": "#234164",
-    "buttonFont": "#26A8E8",
-    "foregroundColor":  "#2687C6",
-    "startColor":  "#0A74BB",
-    "highlightColor": "#232e3f",
-    "disabledColor": "#232323",
-    "accentColorTransparent": "#00BCD45A",
-    "accentColorLessTransparent": "#00BCD49A",
-    "accentColor": "#00BCD4",
-    "stopColor": "#11FFFD",
-    "testScopeColor": "#0c3118"
+    "secondaryForegroundColor": "#36363A",
+    "selectionBackground": "#9ca0dc",
+    "buttonFont": "#252427",
+    "foregroundColor":  "#1F2435",
+    "startColor":  "#CB87FB",
+    "highlightColor": "#c4c7f7",
+    "disabledColor": "#AF9ECB",
+    "accentColorTransparent": "#AB47BC5A",
+    "accentColorLessTransparent": "#AB47BC9A",
+    "accentColor": "#AB47BC",
+    "stopColor": "#F595FF",
+    "testScopeColor": "#C0EDCC"
   },
   "ui": {
     "Panel.background": "baseBackground",
@@ -357,13 +357,13 @@
   },
   "icons": {
     "ColorPalette": {
-      "Actions.Green": "#00BCD4",
-      "Actions.Blue": "#00BCD4",
-      "Objects.Blue": "#00BCD4",
-      "Actions.Grey": "#5B777F",
-      "Actions.GreyInline": "#5B777F",
-      "Actions.GreyInline.Dark": "#5B777F",
-      "Objects.Grey": "#5B777F"
+      "Actions.Green": "#AB47BC",
+      "Actions.Blue": "#AB47BC",
+      "Objects.Blue": "#AB47BC",
+      "Actions.Grey": "#615E7F",
+      "Actions.GreyInline": "#615E7F",
+      "Actions.GreyInline.Dark": "#615E7F",
+      "Objects.Grey": "#615E7F"
     }
   }
 }
