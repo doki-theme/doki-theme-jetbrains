@@ -18,7 +18,6 @@ import javax.swing.plaf.ComponentUI
 import javax.swing.plaf.basic.BasicRootPaneUI
 
 typealias Disposer = () -> Unit
-data class DuckTapePromise<T, R>(val then: ((T)->R)->DuckTapePromise<R, R>)
 
 class TitlePaneUI : DarculaRootPaneUI() {
 
