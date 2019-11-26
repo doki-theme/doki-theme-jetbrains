@@ -1,7 +1,5 @@
 Requires new UI components
 ----
-- Indicator style
-- Tree arrow style
 - Chibi Swappo
 - Plugin Settings Window
 - Table scroll is borked
@@ -20,13 +18,9 @@ Requires new UI components
     - Has white list results for light themes
 - Notification Colors (success, warning, error)
     - Light Natsuki
-
 - Editor Tabs
     - Active Outline
     - File Scope colorings
-- CheckBox
-    - as accent color
-    - Transparent box background
 - Plugins selected item foreground
     - cleo
 - Radio button
@@ -38,6 +32,9 @@ Requires new UI components
     - see TextFieldUI
 - Combo box
     - com.intellij.application.options.schemes.SchemesCombo is a jerk
+
+- Indicator style
+- Tree arrow style
  -----
 
 - Console colors
@@ -52,6 +49,9 @@ Requires new UI components
 - Legacy Theme -> Next Gen Theme install UX
 - Icons
     - Spinning loading indicator.
+    - CheckBox
+        - as accent color
+        - Transparent box background
 - Color Scheme Restoration (so do not have to reset colors erry time)
 - Theme change animation
 - theme schema
