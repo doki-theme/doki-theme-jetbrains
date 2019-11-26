@@ -7,7 +7,9 @@ import com.intellij.openapi.util.SystemInfo.isLinux
 import com.intellij.openapi.util.SystemInfo.isMac
 import com.intellij.util.ui.UIUtil.getWindow
 import io.acari.doki.themes.DokiThemes.processLaf
+import io.acari.doki.util.toOptional
 import java.awt.Window
+import java.util.*
 import javax.swing.JComponent
 import javax.swing.JDialog
 import javax.swing.JFrame
@@ -40,46 +42,58 @@ class TitlePaneUI : DarculaRootPaneUI() {
     private fun hasTransparentTitleBar(): Boolean = isMac
   }
 
+  private var possibleDisposable: Optional<() -> Unit> = Optional.empty()
+
+  override fun uninstallUI(c: JComponent?) {
+    super.uninstallUI(c)
+    possibleDisposable.ifPresent { it() }
+  }
+
   override fun installUI(c: JComponent?) {
     super.installUI(c)
-    processLaf(LafManager.getInstance().currentLookAndFeel) // todo: get laf better
-      .ifPresent {
-        if (isMac || isLinux) {
-          c?.putClientProperty(WINDOW_DARK_APPEARANCE, it.isDark)
-          val rootPane = c as? JRootPane
-          attemptTransparentTitle(c) { shouldBeTransparent ->
-            c?.putClientProperty(TRANSPARENT_TITLE_BAR_APPEARANCE, shouldBeTransparent)
-            if (shouldBeTransparent) {
-              setThemedTitleBar(
-                getWindow(c),
-                rootPane
-              )
-            }
+    possibleDisposable = processLaf(LafManager.getInstance().currentLookAndFeel) // todo: get laf better
+      .filter { isMac || isLinux }
+      .map {
+        c?.putClientProperty(WINDOW_DARK_APPEARANCE, it.isDark)
+        val rootPane = c as? JRootPane
+        attemptTransparentTitle(c) { shouldBeTransparent ->
+          c?.putClientProperty(TRANSPARENT_TITLE_BAR_APPEARANCE, shouldBeTransparent)
+          if (shouldBeTransparent) {
+            setThemedTitleBar(
+              getWindow(c),
+              rootPane
+            )
+          } else {
+            {}
           }
         }
       }
+      .or { {}.toOptional() }
   }
 
   private fun setThemedTitleBar(
     window: Window?,
     rootPane: JRootPane?
-  ) {
+  ): () -> Unit {
 
+    return {}
   }
 
   private fun attemptTransparentTitle(
     component: JComponent?,
-    handleIsTransparent: (Boolean) -> Unit
-  ) {
+    handleIsTransparent: (Boolean) -> () -> Unit
+  ): () -> Unit {
     val notEleven = !SystemInfo.isJavaVersionAtLeast(11)
-    if (notEleven) {
-      handleIsTransparent(true)
+    return if (notEleven) {
+      handleIsTransparent(true);
+      {}
     } else {
       component?.addHierarchyListener {
         val window = getWindow(component)
         val title = getTitle(window)
         handleIsTransparent(title !== "This should not be shown")
-      }
+      };
+      {}
     }
   }
 
