@@ -1,6 +1,6 @@
 package io.acari.doki.laf
 
-import io.acari.doki.ui.TitlePaneUIFactory
+import io.acari.doki.ui.TitlePaneUI
 import io.acari.doki.ui.tree.BorderTreeIndicator
 import io.acari.doki.ui.tree.TreeIndicator
 import javax.swing.UIManager
@@ -15,8 +15,8 @@ object LookAndFeelInstaller {
 
   fun installTitlePane() {
     val defaults = UIManager.getLookAndFeelDefaults()
-    defaults["RootPaneUI"] = TitlePaneUIFactory::class.java.name
-    defaults[TitlePaneUIFactory::class.java.name] = TitlePaneUIFactory::class.java
+    defaults["RootPaneUI"] = TitlePaneUI::class.java.name
+    defaults[TitlePaneUI::class.java.name] = TitlePaneUI::class.java
   }
 
   fun installTreeIndicatorComponent() {

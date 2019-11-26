@@ -6,12 +6,13 @@ import javax.swing.JComponent
 import javax.swing.plaf.ComponentUI
 import javax.swing.plaf.basic.BasicRootPaneUI
 
-
-open class TitlePaneUI : DarculaRootPaneUI() {
+class TitlePaneUI : DarculaRootPaneUI() {
 
   companion object {
     private const val defaultPane = "com.sun.java.swing.plaf.windows.WindowsRootPaneUI"
 
+    @JvmStatic
+    @Suppress("ACCIDENTAL_OVERRIDE","UNUSED","UNUSED_PARAMETER")
     fun createUI(component: JComponent): ComponentUI =
       if (hasTransparentTitleBar()) {
         TitlePaneUI()
