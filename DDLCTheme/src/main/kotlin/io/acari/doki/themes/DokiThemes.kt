@@ -1,6 +1,5 @@
 package io.acari.doki.themes
 
-import com.intellij.ide.ui.UITheme
 import com.intellij.ide.ui.laf.UIThemeBasedLookAndFeelInfo
 import io.acari.doki.util.toOptional
 import java.util.*
@@ -30,11 +29,15 @@ object DokiThemes {
             .filter { it is UIThemeBasedLookAndFeelInfo}
             .map { it as UIThemeBasedLookAndFeelInfo }
             .filter { themeSet.contains(it.name) }
-            .map { DokiTheme(it.theme) }
+            .map { DokiTheme(it) }
     }
 }
 
-class DokiTheme(private val uiTheme: UITheme) {
+class DokiTheme(private val laf: UIThemeBasedLookAndFeelInfo) {
+
+    val uiTheme = laf.theme
+
+    fun getDefaults() = laf
 
     fun getChibiPath(): Optional<String> {
         return uiTheme.background["image"]
