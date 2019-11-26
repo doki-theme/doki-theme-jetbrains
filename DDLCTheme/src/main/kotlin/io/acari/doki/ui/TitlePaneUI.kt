@@ -17,6 +17,9 @@ import javax.swing.JRootPane
 import javax.swing.plaf.ComponentUI
 import javax.swing.plaf.basic.BasicRootPaneUI
 
+typealias Disposer = () -> Unit
+data class DuckTapePromise<T, R>(val then: ((T)->R)->DuckTapePromise<R, R>)
+
 class TitlePaneUI : DarculaRootPaneUI() {
 
   companion object {
@@ -42,7 +45,7 @@ class TitlePaneUI : DarculaRootPaneUI() {
     private fun hasTransparentTitleBar(): Boolean = isMac
   }
 
-  private var possibleDisposable: Optional<() -> Unit> = Optional.empty()
+  private var possibleDisposable: Optional<Disposer> = Optional.empty()
 
   override fun uninstallUI(c: JComponent?) {
     super.uninstallUI(c)
@@ -51,9 +54,9 @@ class TitlePaneUI : DarculaRootPaneUI() {
 
   override fun installUI(c: JComponent?) {
     super.installUI(c)
-    possibleDisposable = processLaf(LafManager.getInstance().currentLookAndFeel) // todo: get laf better
+    processLaf(LafManager.getInstance().currentLookAndFeel) // todo: get laf better
       .filter { isMac || isLinux }
-      .map {
+      .ifPresent {
         c?.putClientProperty(WINDOW_DARK_APPEARANCE, it.isDark)
         val rootPane = c as? JRootPane
         attemptTransparentTitle(c) { shouldBeTransparent ->
@@ -66,9 +69,11 @@ class TitlePaneUI : DarculaRootPaneUI() {
           } else {
             {}
           }
+        }() { disposer ->
+          possibleDisposable = disposer.toOptional()
         }
       }
-      .or { {}.toOptional() }
+
   }
 
   private fun setThemedTitleBar(
@@ -82,18 +87,20 @@ class TitlePaneUI : DarculaRootPaneUI() {
   private fun attemptTransparentTitle(
     component: JComponent?,
     handleIsTransparent: (Boolean) -> () -> Unit
-  ): () -> Unit {
+  ): ((Disposer) -> Unit) -> Unit {
     val notEleven = !SystemInfo.isJavaVersionAtLeast(11)
     return if (notEleven) {
-      handleIsTransparent(true);
-      {}
+      { resolve ->
+        resolve {}
+      }
     } else {
-      component?.addHierarchyListener {
-        val window = getWindow(component)
-        val title = getTitle(window)
-        handleIsTransparent(title !== "This should not be shown")
-      };
-      {}
+      return { resolve ->
+        component?.addHierarchyListener {
+          val window = getWindow(component)
+          val title = getTitle(window)
+          resolve(handleIsTransparent(title !== "This should not be shown"))
+        }
+      }
     }
   }
 
