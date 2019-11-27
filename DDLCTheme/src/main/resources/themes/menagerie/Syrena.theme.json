@@ -31,6 +31,7 @@
     "disabledColor": "#7F818F",
     "accentColorTransparent": "#FD7C4B5A",
     "accentColorLessTransparent": "#FD7C4B9A",
+    "accentColorMoreTransparent": "#FD7C4B2A",
     "accentColor": "#FD7C4B",
     "stopColor": "#fd7c4b",
     "testScopeColor": "#29392C"
@@ -120,6 +121,8 @@
     "WelcomeScreen.groupIconBorderColor": "borderColor",
     "WelcomeScreen.separatorColor": "borderColor",
     "windowBorder":"borderColor",
+
+    "Notification.borderColor": "accentColorMoreTransparent",
 
     "EditorTabs.underlinedTabBackground": "highlightColor",
 
