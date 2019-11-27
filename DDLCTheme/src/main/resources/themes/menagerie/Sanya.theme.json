@@ -220,18 +220,7 @@
     "ScrollBar.Mac.thumbColor":"accentColorTransparent",
     "ScrollBar.Mac.hoverThumbBorderColor": "accentColorTransparent",
     "ScrollBar.Mac.hoverThumbColor":"accentColorTransparent",
-    "ScrollBar.Mac.hoverTrackColor": "ghostColor",
-    "ScrollBar.Mac.trackColor": "ghostColor",
-    "ScrollBar.Mac.Transparent.trackColor": "ghostColor",
-    "ScrollBar.Mac.Transparent.hoverTrackColor": "ghostColor",
-    "ScrollBar.background":  "ghostColor",
-    "ScrollBar.trackColor":  "ghostColor",
-    "ScrollBar.trackHighlight": "ghostColor",
 
-    "ScrollBar.thumb": "testScopeColor",
-    "ScrollBar.thumbDarkShadow":  "testScopeColor",
-    "ScrollBar.thumbHighlight": "testScopeColor",
-    "ScrollBar.thumbShadow":  "testScopeColor",
 
     "VersionControl": {
       "GitLog": {
