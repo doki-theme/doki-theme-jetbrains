@@ -53,7 +53,9 @@
     "ProgressBar.background": "baseBackground",
     "EditorPane.background" : "baseBackground",
     "Plugins.background": "baseBackground",
+
     "Table.background": "editorBackground",
+    "Viewport.background": "editorBackground",
 
     "SpeedSearch.background": "contrastColor",
     "SpeedSearch.borderColor": "contrastColor",

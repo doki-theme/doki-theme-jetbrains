@@ -2,8 +2,6 @@ Requires new UI components
 ----
 - Type popup tooltip border
 - Initial loading background not themed
-- Image container pane
-    - The thing that previews images and stuff.
 - Editor Tabs
     - Active Outline
     - File Scope colorings
