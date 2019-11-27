@@ -63,6 +63,7 @@
 
     "TextField.background": "secondaryBackground",
     "TextPane.background": "secondaryBackground",
+    "TextArea.background": "secondaryBackground",
     "NewClass.SearchField.background": "secondaryBackground",
     "FormattedTextField.background": "secondaryBackground",
 

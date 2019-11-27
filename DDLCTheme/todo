@@ -27,8 +27,6 @@ Requires new UI components
     - Shape
     - Hover
     - Tab functionality
-- Find in path search
-    - see TextFieldUI
 - Combo box
     - com.intellij.application.options.schemes.SchemesCombo is a jerk
 
