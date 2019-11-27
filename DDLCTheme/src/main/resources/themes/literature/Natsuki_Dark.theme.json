@@ -172,6 +172,8 @@
 
     "ComboBoxButton.background": "buttonColor",
     "ComboBox.background": "buttonColor",
+    "ComboBox.nonEditableBackground": "buttonColor",
+    "ComboBox.ArrowButton.nonEditableBackground": "buttonColor",
     "ComboBox.ArrowButton.background": "buttonColor",
     "ComboBox.ArrowButton.iconColor": "baseIconColor",
     "Button.startBackground": "buttonColor",
