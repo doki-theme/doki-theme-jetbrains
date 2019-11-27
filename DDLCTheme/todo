@@ -1,29 +1,30 @@
 Requires new UI components
 ----
-- Chibi Swappo
-- Plugin Settings Window
-- Table scroll is borked
-- Completion Popup
-    - Selection Foreground
-    - Background
 - Extendable Text Background
     - Make new kotlin file, you'll see it.
 - Type popup tooltip border
 - Initial loading background not themed
 - Image container pane
     - The thing that previews images and stuff.
+- Editor Tabs
+    - Active Outline
+    - File Scope colorings
+- Plugins selected item foreground
+    - cleo
+
+- Chibi Swappo
+- Plugin Settings Window
+- Table scroll is borked
+- Completion Popup
+    - Selection Foreground
+    - Background
 - editor window borders
 - Foreground Colors
 - Search everwhere
     - Has white list results for light themes
 - Notification Colors (success, warning, error)
     - Light Natsuki
-- Editor Tabs
-    - Active Outline
-    - File Scope colorings
-- Plugins selected item foreground
-    - cleo
-- Radio button
+
 - Button
     - Shape
     - Hover
@@ -52,6 +53,7 @@ Requires new UI components
     - CheckBox
         - as accent color
         - Transparent box background
+    - Radio button
 - Color Scheme Restoration (so do not have to reset colors erry time)
 - Theme change animation
 - theme schema
