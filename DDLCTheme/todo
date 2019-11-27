@@ -1,7 +1,6 @@
 Requires new UI components
 ----
-- Chibi Swappo
-- Plugin Settings Window
+
 - Table scroll is borked
 - Completion Popup
     - Selection Foreground
@@ -31,6 +30,7 @@ Requires new UI components
 
  After all color schemes are done:
  -----
+ - Chibi Swappo
 - Legacy Theme -> Next Gen Theme install UX
 - Icons
     - Spinning loading indicator.
@@ -46,6 +46,7 @@ Requires new UI components
 
 Stretch Goals
 ----
+- Plugin Settings Window
 - Editor Tabs
     - Active Outline
     - File Scope colorings
