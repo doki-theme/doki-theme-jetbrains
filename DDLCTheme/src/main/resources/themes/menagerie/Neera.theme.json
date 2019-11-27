@@ -33,6 +33,7 @@
     "accentColorLessTransparent": "#FFD04E9A",
     "accentColorMoreTransparent": "#FFD04E2A",
     "accentColor": "#FFD04E",
+    "accentContrastColor": "#1a2a34",
     "stopColor": "#FCFFA5",
     "testScopeColor": "#D7FFDC"
   },
@@ -264,6 +265,7 @@
       }
     },
 
+	"Plugins.Button.updateForeground": "accentContrastColor",
 
     "Button.darcula.defaultFocusedOutlineColor": "accentColor",
     "Button.darcula.focusedOutlineColor":"accentColor",
@@ -331,6 +333,7 @@
     "PasswordField.caretForeground":"accentColor",
     "Plugins.tagForeground": "accentColor",
     "Plugins.Button.updateBackground": "accentColor",
+    "Plugins.Button.updateBorderColor": "accentColor",
     "Popup.Advertiser.foreground":"accentColor",
     "ProgressBar.foreground": "accentColor",
     "ProgressBar.indeterminateEndColor":"accentColor",

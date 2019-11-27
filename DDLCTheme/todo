@@ -1,8 +1,5 @@
 Requires new UI components
 ----
-- Editor Tabs
-    - Active Outline
-    - File Scope colorings
 - Plugins selected item foreground
     - cleo
 
@@ -48,3 +45,10 @@ Requires new UI components
 - Theme change animation
 - theme schema
     -ThemeJsonSchemaProviderFactory
+
+
+Stretch Goals
+----
+- Editor Tabs
+    - Active Outline
+    - File Scope colorings
