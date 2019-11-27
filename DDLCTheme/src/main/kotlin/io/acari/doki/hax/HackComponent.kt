@@ -4,6 +4,7 @@ import com.intellij.ide.util.ChooseElementsDialog
 import com.intellij.ide.util.ExportToFileUtil
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.fileEditor.impl.EditorComposite
+import com.intellij.openapi.wm.impl.FrameTitleBuilder
 import io.acari.doki.chibi.impl.DOKI_BACKGROUND_PROP
 import io.acari.doki.chibi.impl.DOKI_CHIBI_PROP
 import javassist.CannotCompileException
@@ -12,6 +13,7 @@ import javassist.ClassPool
 import javassist.CtClass
 import javassist.expr.ExprEditor
 import javassist.expr.MethodCall
+import javassist.expr.NewExpr
 
 object HackComponent : Disposable {
     init {
@@ -105,6 +107,16 @@ object HackComponent : Disposable {
             val cp = ClassPool(true)
             cp.insertClassPath(ClassClassPath(EditorComposite::class.java))
             val ctClass2 = cp.get("com.intellij.openapi.wm.impl.IdeBackgroundUtil")
+
+            // enable themed startup
+            val backgroundMethod = ctClass2.getDeclaredMethod("getIdeBackgroundColor")
+            backgroundMethod.instrument(object : ExprEditor() {
+                override fun edit(e: NewExpr?) {
+                    e?.replace("{ \$_ = com.intellij.util.ui.UIUtil.getPanelBackground(); }")
+                }
+            })
+
+            // enable disposable Chibis
             val method = ctClass2.getDeclaredMethod("withFrameBackground")
             method.instrument(object : ExprEditor() {
                 @Throws(CannotCompileException::class)

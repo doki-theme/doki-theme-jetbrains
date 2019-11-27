@@ -1,7 +1,5 @@
 Requires new UI components
 ----
-- Type popup tooltip border
-- Initial loading background not themed
 - Editor Tabs
     - Active Outline
     - File Scope colorings
@@ -15,7 +13,6 @@ Requires new UI components
     - Selection Foreground
     - Background
 - editor window borders
-- Foreground Colors
 - Search everwhere
     - Has white list results for light themes
 - Notification Colors (success, warning, error)
@@ -26,6 +23,7 @@ Requires new UI components
     - Hover
     - Tab functionality
 
+- Foreground Colors
 - Indicator style
 - Tree arrow style
  -----
