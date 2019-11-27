@@ -7,6 +7,7 @@
     "image": "/chibis/literature/natsuki_dark.png"
   },
   "colors": {
+    "baseIconColor": "#7F707A",
     "ghostColor": "#FFFFFF00",
     "contrastColor": "#56324C",
     "nonProjectFileScopeColor": "#2a1b1f",
@@ -166,6 +167,7 @@
     "ComboBoxButton.background": "buttonColor",
     "ComboBox.background": "buttonColor",
     "ComboBox.ArrowButton.background": "buttonColor",
+    "ComboBox.ArrowButton.iconColor": "baseIconColor",
     "Button.startBackground": "buttonColor",
     "Button.endBackground": "buttonColor",
     "Button.foreground": "buttonFont",

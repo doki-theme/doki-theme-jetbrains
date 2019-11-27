@@ -7,6 +7,7 @@
     "image": "/chibis/literature/just_monika_dark.png"
   },
   "colors": {
+    "baseIconColor": "#657F6E",
     "ghostColor": "#FFFFFF00",
     "contrastColor": "#244020",
     "nonProjectFileScopeColor": "#262b18",
@@ -164,6 +165,7 @@
     "ComboBoxButton.background": "buttonColor",
     "ComboBox.background": "buttonColor",
     "ComboBox.ArrowButton.background": "buttonColor",
+    "ComboBox.ArrowButton.iconColor": "baseIconColor",
     "Button.startBackground": "buttonColor",
     "Button.endBackground": "buttonColor",
     "Button.foreground": "buttonFont",

@@ -7,6 +7,7 @@
     "image": "/chibis/menagerie/syrena.png"
   },
   "colors": {
+    "baseIconColor": "#97818B",
     "ghostColor": "#FFFFFF00",
     "contrastColor": "#392525",
     "nonProjectFileScopeColor":  "#452f25",
@@ -165,6 +166,7 @@
     "ComboBoxButton.background": "buttonColor",
     "ComboBox.background": "buttonColor",
     "ComboBox.ArrowButton.background": "buttonColor",
+    "ComboBox.ArrowButton.iconColor": "baseIconColor",
     "Button.startBackground": "buttonColor",
     "Button.endBackground": "buttonColor",
     "Button.foreground": "buttonFont",

@@ -7,6 +7,7 @@
     "image": "/chibis/literature/sayori_dark.png"
   },
   "colors": {
+    "baseIconColor": "#5B777F",
     "ghostColor": "#FFFFFF00",
     "contrastColor": "#1B323F",
     "nonProjectFileScopeColor": "#102121",
@@ -166,6 +167,7 @@
     "ComboBoxButton.background": "buttonColor",
     "ComboBox.background": "buttonColor",
     "ComboBox.ArrowButton.background": "buttonColor",
+    "ComboBox.ArrowButton.iconColor": "baseIconColor",
     "Button.startBackground": "buttonColor",
     "Button.endBackground": "buttonColor",
     "Button.foreground": "buttonFont",

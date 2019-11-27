@@ -7,6 +7,7 @@
     "image": "/chibis/menagerie/eleniel.png"
   },
   "colors": {
+    "baseIconColor": "#808597",
     "ghostColor": "#FFFFFF00",
     "contrastColor": "#2e2b32",
     "nonProjectFileScopeColor":  "#483d3e",
@@ -165,6 +166,7 @@
     "ComboBoxButton.background": "buttonColor",
     "ComboBox.background": "buttonColor",
     "ComboBox.ArrowButton.background": "buttonColor",
+    "ComboBox.ArrowButton.iconColor": "baseIconColor",
     "Button.startBackground": "buttonColor",
     "Button.endBackground": "buttonColor",
     "Button.foreground": "buttonFont",

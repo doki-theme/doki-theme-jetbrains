@@ -165,6 +165,7 @@
     "ComboBoxButton.background": "buttonColor",
     "ComboBox.background": "buttonColor",
     "ComboBox.ArrowButton.background": "buttonColor",
+    "ComboBox.ArrowButton.iconColor": "baseIconColor",
     "Button.startBackground": "buttonColor",
     "Button.endBackground": "buttonColor",
     "Button.foreground": "buttonFont",
@@ -363,6 +364,7 @@
       "Actions.Blue": "#C6FF00",
       "Objects.Blue": "#C6FF00",
       "Actions.Grey": "#808597",
+      "baseIconColor": "#808597",
       "Actions.GreyInline": "#808597",
       "Actions.GreyInline.Dark": "#808597",
       "Objects.Grey": "#808597"
