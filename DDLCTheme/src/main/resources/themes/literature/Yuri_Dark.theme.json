@@ -33,7 +33,7 @@
     "accentColorLessTransparent": "#AB47BC9A",
     "accentColorMoreTransparent": "#AB47BC2A",
     "accentColor": "#AB47BC",
-    "accentColor": "#2a1e35",
+    "accentContrastColor": "#2a1e35",
     "stopColor": "#F667FF",
     "testScopeColor": "#0c3118"
   },
