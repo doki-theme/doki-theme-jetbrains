@@ -31,7 +31,7 @@
         <option name="CARET_ROW_COLOR" value="ecf0f1"/>
         <option name="CONSOLE_BACKGROUND_KEY" value="E3E4EF"/>
         <option name="DELETED_LINES_COLOR" value="b63b50"/>
-        <option name="DOCUMENTATION_COLOR" value="f3f5f6"/>
+        <option name="DOCUMENTATION_COLOR" value="DFE0EB"/>
         <option name="FILESTATUS_ADDED" value="10B15A"/>
         <option name="FILESTATUS_COPIED" value="10B15A"/>
         <option name="FILESTATUS_DELETED" value="808080"/>
@@ -55,7 +55,7 @@
         <option name="FILESTATUS_modifiedOutside" value="6182b8"/>
         <option name="GUTTER_BACKGROUND" value="E3E4EF"/>
         <option name="INDENT_GUIDE" value="9DAAB1"/>
-        <option name="INFORMATION_HINT" value="f3f5f6"/>
+        <option name="INFORMATION_HINT" value="DFE0EB"/>
         <option name="LINE_NUMBERS_COLOR" value="C0C9CD"/>
         <option name="LINE_NUMBER_ON_CARET_ROW_COLOR" value="a7adb0"/>
         <option name="METHOD_SEPARATORS_COLOR" value="9DAAB1"/>
@@ -80,7 +80,7 @@
         <option name="MT_modifiedOutside" value="6182b8"/>
         <option name="NOTIFICATION_BACKGROUND" value="3d1a11"/>
         <option name="NOT_CHANGED" value="a7adb0"/>
-        <option name="QUESTION_HINT" value="f3f5f6"/>
+        <option name="QUESTION_HINT" value="DFE0EB"/>
         <option name="RECENT_LOCATIONS_SELECTION" value="f4f4f4"/>
         <option name="RECURSIVE_CALL_ATTRIBUTES" value="574300"/>
         <option name="RIGHT_MARGIN_COLOR" value="9DAAB1"/>
