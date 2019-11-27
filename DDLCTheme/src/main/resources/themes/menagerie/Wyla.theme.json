@@ -106,6 +106,7 @@
     "NavBar.borderColor": "borderColor",
     "TextField.borderColor": "borderColor",
     "ParameterInfo.borderColor": "borderColor",
+    "Plugins.SearchField.borderColor": "borderColor",
     "Popup.borderColor": "borderColor",
     "Popup.innerBorderColor": "borderColor",
     "Popup.separatorColor": "borderColor",
