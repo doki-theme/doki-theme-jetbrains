@@ -94,6 +94,7 @@
     "Borders.ContrastBorderColor": "borderColor",
     "Button.disabledBorderColor": "borderColor",
     "Button.endBorderColor": "borderColor",
+    "Component.borderColor": "borderColor",
     "Button.startBorderColor": "borderColor",
     "DragAndDrop.areaBorderColor": "borderColor",
     "HelpTooltip.borderColor": "borderColor",
