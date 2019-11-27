@@ -1,7 +1,5 @@
 Requires new UI components
 ----
-- Extendable Text Background
-    - Make new kotlin file, you'll see it.
 - Type popup tooltip border
 - Initial loading background not themed
 - Image container pane

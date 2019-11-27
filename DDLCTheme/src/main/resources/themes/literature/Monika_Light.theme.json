@@ -61,9 +61,11 @@
 
     "TextField.background": "secondaryBackground",
     "TextPane.background": "secondaryBackground",
+    "NewClass.SearchField.background": "secondaryBackground",
     "FormattedTextField.background": "secondaryBackground",
 
     "Menu.background": "headerColor",
+    "NewClass.Panel.background": "headerColor",
     "ToolWindow.Header.background": "headerColor",
     "List.background": "headerColor",
     "Tree.background": "headerColor",
@@ -95,6 +97,7 @@
     "Menu.borderColor": "borderColor",
     "MenuBar.borderColor": "borderColor",
     "NavBar.borderColor": "borderColor",
+    "TextField.borderColor": "borderColor",
     "ParameterInfo.borderColor": "borderColor",
     "Popup.borderColor": "borderColor",
     "Popup.innerBorderColor": "borderColor",
