@@ -106,6 +106,9 @@
     "Menu.borderColor": "borderColor",
     "MenuBar.borderColor": "borderColor",
     "NavBar.borderColor": "borderColor",
+    "Notification.ToolWindow.informativeBorderColor": "borderColor",
+    "Notification.ToolWindow.warningBorderColor": "borderColor",
+    "Notification.ToolWindow.errorBorderColor": "borderColor",
     "TextField.borderColor": "borderColor",
     "ParameterInfo.borderColor": "borderColor",
     "Plugins.SearchField.borderColor": "borderColor",
@@ -256,6 +259,10 @@
       }
     },
 
+    "Notification.ToolWindow.informativeForeground": "#33412e",
+    "Notification.ToolWindow.warningForeground": "#5a5221",
+    "Notification.ToolWindow.errorForeground": "#704745",
+
 	"Plugins.Button.updateForeground": "accentContrastColor",
 
     "Button.darcula.defaultFocusedOutlineColor": "accentColor",
@@ -311,15 +318,8 @@
     "Notification.Error.foreground": "accentColor",
     "Notification.errorForeground":"accentColor",
     "Notification.Link.foreground": "accentColor",
-    "Notification.linkForeground":"accentColor",
-    "Notification.ToolWindow.errorForeground": "accentColor",
-    "Notification.ToolWindow.infoForeground":"accentColor",
-    "Notification.ToolWindow.informativeForeground": "accentColor",
-    "Notification.ToolWindow.warningForeground":"accentColor",
-    "Notification.ToolWindowError.foreground": "accentColor",
-    "Notification.ToolWindowInfo.foreground":"accentColor",
-    "Notification.ToolWindowWarning.foreground": "accentColor",
-    "ParameterInfo.currentParameterForeground":"accentColor",
+    "Notification.linkForeground": "accentColor",
+	"ParameterInfo.currentParameterForeground":"accentColor",
     "ParameterInfo.highlightedColor": "accentColor",
     "PasswordField.caretForeground":"accentColor",
     "Plugins.tagForeground": "accentColor",
