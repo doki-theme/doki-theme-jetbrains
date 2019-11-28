@@ -19,12 +19,18 @@ class TheDokiTheme : Disposable {
   init {
     hackLAF() // you made me do this...
     LookAndFeelInstaller.installAllUIComponents()
+
     connection.subscribe(LafManagerListener.TOPIC, LafManagerListener {
       //todo: opt in to colors
       val projects = ProjectManager.getInstance().openProjects
       DokiThemes.processLaf(LafManager.getInstance().currentLookAndFeel) //todo: get theme more better
-        .ifPresentOrElse({ projects.forEach { project -> setFileScopes(project) } })
-        { projects.forEach { project -> removeFileScopes(project) } } // todo: only remove if was set.
+        .ifPresentOrElse({
+          LookAndFeelInstaller.installAllUIComponents()
+          projects.forEach { project -> setFileScopes(project) }
+        })
+        {
+          projects.forEach { project -> removeFileScopes(project)
+          } } // todo: only remove if was set.
     })
     connection.subscribe(ProjectLifecycleListener.TOPIC, object : ProjectLifecycleListener {
       override fun projectComponentsInitialized(project: Project) {
