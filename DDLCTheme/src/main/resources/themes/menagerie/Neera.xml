@@ -39,17 +39,19 @@
         <option name="FILESTATUS_changelistConflict" value="d71b6a"/>
         <option name="FILESTATUS_modifiedOutside" value="5cc5"/>
         <option name="GUTTER_BACKGROUND" value="FFFEF9"/>
-        <option name="INDENT_GUIDE" value="F3F2E2"/>
+        <option name="INDENT_GUIDE" value="f1f4e0"/>
         <option name="LINE_NUMBERS_COLOR" value="aaaaaa"/>
         <option name="LINE_NUMBER_ON_CARET_ROW_COLOR" value="1b1f23"/>
         <option name="METHOD_SEPARATORS_COLOR" value="F3F2E2"/>
         <option name="MODIFIED_LINES_COLOR" value="CAD9FA"/>
         <option name="NOTIFICATION_BACKGROUND" value="f5e9ab"/>
-        <option name="SELECTED_INDENT_GUIDE" value="F3F2E2"/>
+        <option name="RIGHT_MARGIN_COLOR" value="f1f4e0"/>
+        <option name="SELECTED_INDENT_GUIDE" value="f1f4e0"/>
         <option name="SELECTED_TEARLINE_COLOR" value="e0e0b0"/>
         <option name="SELECTION_BACKGROUND" value="FFFFBC"/>
         <option name="SELECTION_FOREGROUND" value="0"/>
-        <option name="SEPARATOR_ABOVE_COLOR" value="e4e4e4"/>
+        <option name="SEPARATOR_ABOVE_COLOR" value="f1f4e0"/>
+        <option name="SEPARATOR_BELOW_COLOR" value="f1f4e0"/>
         <option name="ScrollBar.Mac.Transparent.hoverThumbBorderColor" value="FFD04Ec0" mac="FFD04Ec0"/>
         <option name="ScrollBar.Mac.Transparent.hoverThumbColor" value="FFD04Ec0" mac="FFD04Ec0"/>
         <option name="ScrollBar.Mac.Transparent.thumbBorderColor" value="FFD04E80" mac="FFD04E80"/>
@@ -66,7 +68,6 @@
         <option name="ScrollBar.hoverThumbColor" value="FFD04EFF" mac="FFD04EFF"/>
         <option name="ScrollBar.thumbBorderColor" value="FFD04EC0" mac="FFD04EC0"/>
         <option name="ScrollBar.thumbColor" value="FFD04EC0" mac="FFD04EC0"/>
-
         <option name="ScrollBar.Mac.Transparent.hoverTrackColor" value="FFFEF9" mac="FFFEF9"/>
         <option name="ScrollBar.Mac.Transparent.trackColor" value="FFFEF9" mac="FFFEF9"/>
         <option name="ScrollBar.Mac.hoverTrackColor" value="FFFEF9" mac="FFFEF9"/>
@@ -75,8 +76,8 @@
         <option name="ScrollBar.Transparent.trackColor" value="FFFEF9" mac="FFFEF9"/>
         <option name="ScrollBar.hoverTrackColor" value="FFFEF9" mac="FFFEF9"/>
         <option name="ScrollBar.trackColor" value="FFFEF9" mac="FFFEF9"/>
-
-        <option name="TEARLINE_COLOR" value="F3F2E2"/>
+        <option name="TEARLINE_COLOR" value="FFFEF9"/>
+        <option name="VISUAL_INDENT_GUIDE" value="f1f4e0"/>
         <option name="WHITESPACES" value="b5b5b5"/>
         <option name="WHITESPACES_MODIFIED_LINES_COLOR" value="f6f0de"/>
     </colors>
