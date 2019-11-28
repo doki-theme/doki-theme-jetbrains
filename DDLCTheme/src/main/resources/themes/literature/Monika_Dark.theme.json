@@ -120,7 +120,6 @@
     "SearchEverywhere.SearchField.borderColor": "borderColor",
     "Slider.buttonBorderColor": "borderColor",
     "StatusBar.borderColor": "borderColor",
-    "ToggleButton.borderColor": "borderColor",
     "ToolBar.borderHandleColor": "borderColor",
     "ToolWindow.Header.borderColor": "borderColor",
     "ValidationTooltip.errorBorderColor": "borderColor",
@@ -265,6 +264,12 @@
 
 	"Plugins.Button.updateForeground": "accentContrastColor",
 
+    "ToggleButton.buttonColor": "accentColor",
+    "ToggleButton.onBackground": "accentColorTransparent",
+    "ToggleButton.onForeground":"ghostColor",
+    "ToggleButton.offForeground":"ghostColor",
+    "ToggleButton.borderColor": "accentColorTransparent",
+
     "Button.default.endBorderColor": "accentColor",
     "Button.default.focusColor":"accentColor",
     "Button.default.focusedBorderColor": "accentColor",
@@ -308,8 +313,6 @@
     "TextArea.caretForeground": "accentColor",
     "TextField.caretForeground":"accentColor",
     "TextPane.caretForeground":"accentColor",
-    "ToggleButton.onBackground": "accentColor",
-    "ToggleButton.onForeground":"accentColor",
     "ToolWindow.HeaderTab.inactiveUnderlineColor": "accentColor",
     "ToolWindow.HeaderTab.underlineColor":"accentColor",
     "Tree.modifiedItemForeground": "accentColor",
