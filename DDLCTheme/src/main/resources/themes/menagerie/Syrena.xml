@@ -41,7 +41,7 @@
         <option name="FILESTATUS_changelistConflict" value="f65f87"/>
         <option name="FILESTATUS_modifiedOutside" value="6EB5FF"/>
         <option name="GUTTER_BACKGROUND" value="3A2525"/>
-        <option name="INDENT_GUIDE" value="362222"/>
+        <option name="INDENT_GUIDE" value="3c292b"/>
         <option name="INFORMATION_HINT" value="362222"/>
         <option name="LINE_NUMBERS_COLOR" value="5b595c"/>
         <option name="LINE_NUMBER_ON_CARET_ROW_COLOR" value="c1c0c0"/>
@@ -53,12 +53,12 @@
         <option name="NOT_CHANGED" value="939393"/>
         <option name="QUESTION_HINT" value="362222"/>
         <option name="RECENT_LOCATIONS_SELECTION" value="221f22"/>
-        <option name="RIGHT_MARGIN_COLOR" value="362222"/>
-        <option name="SELECTED_INDENT_GUIDE" value="E85160"/>
+        <option name="RIGHT_MARGIN_COLOR" value="3c292b"/>
+        <option name="SELECTED_INDENT_GUIDE" value="3c292b"/>
         <option name="SELECTED_TEARLINE_COLOR" value="ffd866"/>
-        <option name="SELECTION_BACKGROUND" value="362222"/>
+        <option name="SELECTION_BACKGROUND" value="403e41"/>
         <option name="SELECTION_FOREGROUND" value="ffffff"/>
-        <option name="SEPARATOR_BELOW_COLOR" value="362222"/>
+        <option name="SEPARATOR_BELOW_COLOR" value="3c292b"/>
         <option name="SOFT_WRAP_SIGN_COLOR" value="362222"/>
         <option name="ScrollBar.Mac.Transparent.hoverThumbBorderColor" value="FD7C4Bc0" mac="FD7C4Bc0"/>
         <option name="ScrollBar.Mac.Transparent.hoverThumbColor" value="FD7C4Bc0" mac="FD7C4Bc0"/>
@@ -84,14 +84,14 @@
         <option name="ScrollBar.Transparent.trackColor" value="3A2525" mac="3A2525"/>
         <option name="ScrollBar.hoverTrackColor" value="3A2525" mac="3A2525"/>
         <option name="ScrollBar.trackColor" value="3A2525" mac="3A2525"/>
-        <option name="TEARLINE_COLOR" value="362222"/>
+        <option name="TEARLINE_COLOR" value="3A2525"/>
         <option name="TOOLTIP" value="3A2525"/>
         <option name="VCS_ANNOTATIONS_COLOR_1" value="727072"/>
         <option name="VCS_ANNOTATIONS_COLOR_2" value="59575a"/>
         <option name="VCS_ANNOTATIONS_COLOR_3" value="F59762"/>
         <option name="VCS_ANNOTATIONS_COLOR_4" value="39adb5"/>
         <option name="VCS_ANNOTATIONS_COLOR_5" value="44b3d4"/>
-        <option name="VISUAL_INDENT_GUIDE" value="362222"/>
+        <option name="VISUAL_INDENT_GUIDE" value="3c292b"/>
         <option name="WHITESPACES" value="59575a"/>
         <option name="WHITESPACES_MODIFIED_LINES_COLOR" value="727072"/>
     </colors>
@@ -3030,7 +3030,7 @@
         </option>
         <option name="SEARCH_RESULT_ATTRIBUTES">
             <value>
-                <option name="BACKGROUND" value="362222"/>
+                <option name="BACKGROUND" value="403e41"/>
             </value>
         </option>
         <option name="SLIM_CALL" baseAttributes="DEFAULT_KEYWORD"/>
@@ -3202,7 +3202,7 @@
         </option>
         <option name="WRITE_SEARCH_RESULT_ATTRIBUTES">
             <value>
-                <option name="BACKGROUND" value="362222"/>
+                <option name="BACKGROUND" value="403e41"/>
             </value>
         </option>
         <option name="WRONG_REFERENCES_ATTRIBUTES">
