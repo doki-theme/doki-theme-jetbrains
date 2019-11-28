@@ -1,5 +1,6 @@
 package io.acari.doki.hax
 
+import com.intellij.ide.actions.Switcher
 import com.intellij.ide.plugins.newui.PluginLogo
 import com.intellij.ide.util.ChooseElementsDialog
 import com.intellij.ide.util.ExportToFileUtil
@@ -20,6 +21,31 @@ object HackComponent : Disposable {
     enableDisposableChibis()
     createMonikasWritingTipOfTheDay()
     enablePluginWindowConsistency()
+    enableBorderConsistency()
+  }
+
+  private fun enableBorderConsistency() {
+    hackSwitcher()
+  }
+
+  private fun hackSwitcher() {
+    try {
+      val cp = ClassPool(true)
+      cp.insertClassPath(ClassClassPath(Switcher::class.java))
+      val ctClass = cp.get("com.intellij.ide.actions.SwitcherToolWindowsListRenderer")
+      val init = ctClass.getDeclaredMethod("customizeCellRenderer")
+      init.instrument(object : ExprEditor() {
+        override fun edit(e: NewExpr?) {
+          if (e?.className == "com.intellij.ui.JBColor") {
+            e.replace("{ \$_ = com.intellij.util.ui.JBUI.CurrentTheme.Advertiser.borderColor(); }")
+          }
+        }
+      })
+      ctClass.toClass()
+    } catch (e: Exception) {
+      e.printStackTrace()
+    }
+
   }
 
   private fun enablePluginWindowConsistency() {
