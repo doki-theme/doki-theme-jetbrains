@@ -108,6 +108,7 @@
     "TextField.borderColor": "borderColor",
     "ParameterInfo.borderColor": "borderColor",
     "Plugins.SearchField.borderColor": "borderColor",
+    "Popup.Advertiser.borderColor": "borderColor",
     "Popup.borderColor": "borderColor",
     "Popup.inactiveBorderColor": "borderColor",
     "Popup.innerBorderColor": "borderColor",
