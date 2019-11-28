@@ -41,7 +41,7 @@
         <option name="FILESTATUS_changelistConflict" value="f65f87"/>
         <option name="FILESTATUS_modifiedOutside" value="6585B0"/>
         <option name="GUTTER_BACKGROUND" value="2f2329"/>
-        <option name="INDENT_GUIDE" value="2f2329"/>
+        <option name="INDENT_GUIDE" value="2b2a32"/>
         <option name="INFORMATION_HINT" value="2f2329"/>
         <option name="LINE_NUMBERS_COLOR" value="5b595c"/>
         <option name="LINE_NUMBER_ON_CARET_ROW_COLOR" value="c1c0c0"/>
@@ -54,7 +54,7 @@
         <option name="QUESTION_HINT" value="2f2329"/>
         <option name="RECENT_LOCATIONS_SELECTION" value="221f22"/>
         <option name="RIGHT_MARGIN_COLOR" value="2f2329"/>
-        <option name="SELECTED_INDENT_GUIDE" value="AF5C5A"/>
+        <option name="SELECTED_INDENT_GUIDE" value="2b2a32"/>
         <option name="SELECTED_TEARLINE_COLOR" value="ffd866"/>
         <option name="SELECTION_BACKGROUND" value="403e41"/>
         <option name="SELECTION_FOREGROUND" value="ffffff"/>
@@ -91,7 +91,7 @@
         <option name="VCS_ANNOTATIONS_COLOR_3" value="a28a92"/>
         <option name="VCS_ANNOTATIONS_COLOR_4" value="39adb5"/>
         <option name="VCS_ANNOTATIONS_COLOR_5" value="f59762"/>
-        <option name="VISUAL_INDENT_GUIDE" value="2f2329"/>
+        <option name="VISUAL_INDENT_GUIDE" value="2b2a32"/>
         <option name="WHITESPACES" value="59575a"/>
         <option name="WHITESPACES_MODIFIED_LINES_COLOR" value="727072"/>
     </colors>
