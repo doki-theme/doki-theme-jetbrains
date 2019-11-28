@@ -108,6 +108,7 @@
     "ParameterInfo.borderColor": "borderColor",
     "Plugins.SearchField.borderColor": "borderColor",
     "Popup.borderColor": "borderColor",
+    "Popup.inactiveBorderColor": "borderColor",
     "Popup.innerBorderColor": "borderColor",
     "Popup.separatorColor": "borderColor",
     "Popup.Toolbar.borderColor": "borderColor",
