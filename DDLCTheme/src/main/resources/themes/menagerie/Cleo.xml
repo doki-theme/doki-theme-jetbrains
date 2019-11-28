@@ -54,7 +54,7 @@
         <option name="FILESTATUS_changelistConflict" value="d5756c"/>
         <option name="FILESTATUS_modifiedOutside" value="6182b8"/>
         <option name="GUTTER_BACKGROUND" value="E3E4EF"/>
-        <option name="INDENT_GUIDE" value="9DAAB1"/>
+        <option name="INDENT_GUIDE" value="D3D4DF"/>
         <option name="INFORMATION_HINT" value="DFE0EB"/>
         <option name="LINE_NUMBERS_COLOR" value="C0C9CD"/>
         <option name="LINE_NUMBER_ON_CARET_ROW_COLOR" value="a7adb0"/>
@@ -83,14 +83,14 @@
         <option name="QUESTION_HINT" value="DFE0EB"/>
         <option name="RECENT_LOCATIONS_SELECTION" value="f4f4f4"/>
         <option name="RECURSIVE_CALL_ATTRIBUTES" value="574300"/>
-        <option name="RIGHT_MARGIN_COLOR" value="9DAAB1"/>
+        <option name="RIGHT_MARGIN_COLOR" value="D3D4DF"/>
         <option name="SELECTED_INDENT_GUIDE" value="80cbc4"/>
         <option name="SELECTED_TEARLINE_COLOR" value="80cbc4"/>
         <option name="SELECTION_BACKGROUND" value="9FD4EA"/>
         <option name="SELECTION_FOREGROUND" value="263238"/>
-        <option name="SEPARATOR_ABOVE_COLOR" value="9DAAB1"/>
-        <option name="SEPARATOR_BELOW_COLOR" value="e7eaec"/>
-        <option name="SOFT_WRAP_SIGN_COLOR" value="4f6269"/>
+        <option name="SEPARATOR_ABOVE_COLOR" value="D3D4DF"/>
+        <option name="SEPARATOR_BELOW_COLOR" value="D3D4DF"/>
+        <option name="SOFT_WRAP_SIGN_COLOR" value="D3D4DF"/>
         <option name="ScrollBar.Mac.Transparent.hoverThumbBorderColor" value="2D79E99A" mac="2D79E99A"/>
         <option name="ScrollBar.Mac.Transparent.hoverThumbColor" value="2D79E99A" mac="2D79E99A"/>
         <option name="ScrollBar.Mac.Transparent.thumbBorderColor" value="2D79E95A" mac="2D79E95A"/>
@@ -115,14 +115,14 @@
         <option name="ScrollBar.Transparent.trackColor" value="E3E4EF" mac="E3E4EF"/>
         <option name="ScrollBar.hoverTrackColor" value="E3E4EF" mac="E3E4EF"/>
         <option name="ScrollBar.trackColor" value="E3E4EF" mac="E3E4EF"/>
-        <option name="TEARLINE_COLOR" value="e7eaec"/>
+        <option name="TEARLINE_COLOR" value="E3E4EF"/>
         <option name="TOOLTIP" value="E3E4EF"/>
         <option name="VCS_ANNOTATIONS_COLOR_1" value="7093D6"/>
         <option name="VCS_ANNOTATIONS_COLOR_2" value="5ECFD6"/>
         <option name="VCS_ANNOTATIONS_COLOR_3" value="2095D6"/>
         <option name="VCS_ANNOTATIONS_COLOR_4" value="6F7FD6"/>
         <option name="VCS_ANNOTATIONS_COLOR_5" value="66C5E2"/>
-        <option name="VISUAL_INDENT_GUIDE" value="9DAAB1"/>
+        <option name="VISUAL_INDENT_GUIDE" value="D3D4DF"/>
         <option name="WHITESPACES" value="e7eaec"/>
     </colors>
     <attributes>
