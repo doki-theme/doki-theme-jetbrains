@@ -16,6 +16,7 @@
         <option name="CARET_ROW_COLOR" value="FFF6E4"/>
         <option name="CONSOLE_BACKGROUND_KEY" value="FFFEF9"/>
         <option name="DELETED_LINES_COLOR" value="d71b6a"/>
+        <option name="DOCUMENTATION_COLOR" value="FFFEF9"/>
         <option name="FILESTATUS_ADDED" value="10B15A"/>
         <option name="FILESTATUS_COPIED" value="10B15A"/>
         <option name="FILESTATUS_DELETED" value="6a737d"/>

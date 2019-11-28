@@ -24,6 +24,7 @@
     "tagColor": "#7A7A7A",
     "secondaryForegroundColor": "#546E7A",
     "selectionBackground":  "#fff3b4",
+    "selectionBackgroundTransparent":  "#fff3b455",
     "buttonFont": "#546E7A",
     "foregroundColor":  "#546E7A",
     "startColor":  "#EBDA50",
@@ -190,10 +191,8 @@
 
     "Component.arc": 2,
 
-    "CompletionPopup.background": "testScopeColor",
-    "CompletionPopup.selectionForeground": "selectionForeground",
-    "CompletionPopup.nonFocusedMask": "#EAEAF050",
-    "CompletionPopup.selectionBackground": "selectionBackground",
+    "CompletionPopup.nonFocusedMask": "#EAEAF030",
+    "CompletionPopup.selectionBackground": "selectionBackgroundTransparent",
     "CompletionPopup.selectionInactiveBackground": "selectionInactive",
     "CompletionPopup.foreground": "foregroundColor",
 

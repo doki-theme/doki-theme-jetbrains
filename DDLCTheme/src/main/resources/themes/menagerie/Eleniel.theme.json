@@ -190,10 +190,8 @@
 
     "Component.arc": 2,
 
-    "CompletionPopup.background": "testScopeColor",
-    "CompletionPopup.selectionForeground": "selectionForeground",
-    "CompletionPopup.nonFocusedMask": "#EAEAF050",
-    "CompletionPopup.selectionBackground": "selectionBackground",
+    "CompletionPopup.nonFocusedMask": "#EAEAF040",
+    "CompletionPopup.selectionBackground": "selectionBackgroundTransparent",
     "CompletionPopup.selectionInactiveBackground": "selectionInactive",
     "CompletionPopup.foreground": "foregroundColor",
 

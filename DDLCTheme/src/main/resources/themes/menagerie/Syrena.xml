@@ -18,7 +18,7 @@
         <option name="DELETED_LINES_COLOR" value="F59762"/>
         <option name="DIFF_SEPARATORS_BACKGROUND" value="1e2a30"/>
         <option name="DIFF_SEPARATORS_TOP_BORDER" value="1b262b"/>
-        <option name="DOCUMENTATION_COLOR" value="403e41"/>
+        <option name="DOCUMENTATION_COLOR" value="362222"/>
         <option name="FILESTATUS_ADDED" value="10B15A"/>
         <option name="FILESTATUS_COPIED" value="10B15A"/>
         <option name="FILESTATUS_DELETED" value="727072"/>
@@ -41,8 +41,8 @@
         <option name="FILESTATUS_changelistConflict" value="f65f87"/>
         <option name="FILESTATUS_modifiedOutside" value="6EB5FF"/>
         <option name="GUTTER_BACKGROUND" value="3A2525"/>
-        <option name="INDENT_GUIDE" value="403e41"/>
-        <option name="INFORMATION_HINT" value="403e41"/>
+        <option name="INDENT_GUIDE" value="362222"/>
+        <option name="INFORMATION_HINT" value="362222"/>
         <option name="LINE_NUMBERS_COLOR" value="5b595c"/>
         <option name="LINE_NUMBER_ON_CARET_ROW_COLOR" value="c1c0c0"/>
         <option name="METHOD_SEPARATORS_COLOR" value="59575a"/>
@@ -51,15 +51,15 @@
         <option name="MT_SUPPRESSED" value="eeffff"/>
         <option name="NOTIFICATION_BACKGROUND" value="19181a"/>
         <option name="NOT_CHANGED" value="939393"/>
-        <option name="QUESTION_HINT" value="403e41"/>
+        <option name="QUESTION_HINT" value="362222"/>
         <option name="RECENT_LOCATIONS_SELECTION" value="221f22"/>
-        <option name="RIGHT_MARGIN_COLOR" value="403e41"/>
+        <option name="RIGHT_MARGIN_COLOR" value="362222"/>
         <option name="SELECTED_INDENT_GUIDE" value="E85160"/>
         <option name="SELECTED_TEARLINE_COLOR" value="ffd866"/>
-        <option name="SELECTION_BACKGROUND" value="403e41"/>
+        <option name="SELECTION_BACKGROUND" value="362222"/>
         <option name="SELECTION_FOREGROUND" value="ffffff"/>
-        <option name="SEPARATOR_BELOW_COLOR" value="403e41"/>
-        <option name="SOFT_WRAP_SIGN_COLOR" value="403e41"/>
+        <option name="SEPARATOR_BELOW_COLOR" value="362222"/>
+        <option name="SOFT_WRAP_SIGN_COLOR" value="362222"/>
         <option name="ScrollBar.Mac.Transparent.hoverThumbBorderColor" value="FD7C4Bc0" mac="FD7C4Bc0"/>
         <option name="ScrollBar.Mac.Transparent.hoverThumbColor" value="FD7C4Bc0" mac="FD7C4Bc0"/>
         <option name="ScrollBar.Mac.Transparent.thumbBorderColor" value="FD7C4B80" mac="FD7C4B80"/>
@@ -84,14 +84,14 @@
         <option name="ScrollBar.Transparent.trackColor" value="3A2525" mac="3A2525"/>
         <option name="ScrollBar.hoverTrackColor" value="3A2525" mac="3A2525"/>
         <option name="ScrollBar.trackColor" value="3A2525" mac="3A2525"/>
-        <option name="TEARLINE_COLOR" value="403e41"/>
+        <option name="TEARLINE_COLOR" value="362222"/>
         <option name="TOOLTIP" value="3A2525"/>
         <option name="VCS_ANNOTATIONS_COLOR_1" value="727072"/>
         <option name="VCS_ANNOTATIONS_COLOR_2" value="59575a"/>
         <option name="VCS_ANNOTATIONS_COLOR_3" value="F59762"/>
         <option name="VCS_ANNOTATIONS_COLOR_4" value="39adb5"/>
         <option name="VCS_ANNOTATIONS_COLOR_5" value="44b3d4"/>
-        <option name="VISUAL_INDENT_GUIDE" value="403e41"/>
+        <option name="VISUAL_INDENT_GUIDE" value="362222"/>
         <option name="WHITESPACES" value="59575a"/>
         <option name="WHITESPACES_MODIFIED_LINES_COLOR" value="727072"/>
     </colors>
@@ -135,7 +135,7 @@
         <option name="BASH.SHEBANG" baseAttributes="BASH.LINE_COMMENT"/>
         <option name="BNF_KEYWORD">
             <value>
-                <option name="FOREGROUND" value="403e41"/>
+                <option name="FOREGROUND" value="362222"/>
             </value>
         </option>
         <option name="BNF_NUMBER">
@@ -170,7 +170,7 @@
         <option name="BREADCRUMBS_INACTIVE">
             <value>
                 <option name="FOREGROUND" value="727272"/>
-                <option name="BACKGROUND" value="403e41"/>
+                <option name="BACKGROUND" value="362222"/>
             </value>
         </option>
         <option name="BREAKPOINT_ATTRIBUTES">
@@ -193,7 +193,7 @@
         </option>
         <option name="CLASS_REFERENCE">
             <value>
-                <option name="FOREGROUND" value="403e41"/>
+                <option name="FOREGROUND" value="362222"/>
             </value>
         </option>
         <option name="CODE_VISION_DEFAULT">
@@ -630,7 +630,7 @@
         </option>
         <option name="DEFAULT_TEMPLATE_LANGUAGE_COLOR">
             <value>
-                <option name="BACKGROUND" value="403e41"/>
+                <option name="BACKGROUND" value="362222"/>
                 <option name="EFFECT_TYPE" value="5"/>
             </value>
         </option>
@@ -753,7 +753,7 @@
         <option name="FOLDED_TEXT_ATTRIBUTES">
             <value>
                 <option name="FOREGROUND" value="939293"/>
-                <option name="BACKGROUND" value="403e41"/>
+                <option name="BACKGROUND" value="362222"/>
             </value>
         </option>
         <option name="FOLLOWED_HYPERLINK_ATTRIBUTES">
@@ -1007,7 +1007,7 @@
         </option>
         <option name="JFLEX_MACROS_REF">
             <value>
-                <option name="FOREGROUND" value="403e41"/>
+                <option name="FOREGROUND" value="362222"/>
             </value>
         </option>
         <option name="JS.CONSOLE">
@@ -1486,7 +1486,7 @@
         <option name="MARKDOWN_NAVIGATOR.BOLD_TEXT_CODE_TEXT">
             <value>
                 <option name="FOREGROUND" value="ab9df2"/>
-                <option name="BACKGROUND" value="403e41"/>
+                <option name="BACKGROUND" value="362222"/>
                 <option name="FONT_TYPE" value="1"/>
                 <option name="EFFECT_TYPE" value="5"/>
             </value>
@@ -1500,7 +1500,7 @@
         <option name="MARKDOWN_NAVIGATOR.BOLD_TEXT_ITALIC_TEXT_CODE_TEXT">
             <value>
                 <option name="FOREGROUND" value="7867e7"/>
-                <option name="BACKGROUND" value="403e41"/>
+                <option name="BACKGROUND" value="362222"/>
                 <option name="FONT_TYPE" value="3"/>
                 <option name="EFFECT_TYPE" value="5"/>
             </value>
@@ -1512,14 +1512,14 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.CODE">
             <value>
-                <option name="BACKGROUND" value="403e41"/>
+                <option name="BACKGROUND" value="362222"/>
                 <option name="EFFECT_TYPE" value="5"/>
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.CODE_MARKER">
             <value>
                 <option name="FOREGROUND" value="E85160"/>
-                <option name="BACKGROUND" value="403e41"/>
+                <option name="BACKGROUND" value="362222"/>
                 <option name="EFFECT_TYPE" value="5"/>
             </value>
         </option>
@@ -1583,7 +1583,7 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.HTML_BLOCK">
             <value>
-                <option name="BACKGROUND" value="403e41"/>
+                <option name="BACKGROUND" value="362222"/>
                 <option name="EFFECT_TYPE" value="5"/>
             </value>
         </option>
@@ -1623,7 +1623,7 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.INLINE_HTML">
             <value>
-                <option name="BACKGROUND" value="403e41"/>
+                <option name="BACKGROUND" value="362222"/>
                 <option name="EFFECT_TYPE" value="5"/>
             </value>
         </option>
@@ -1642,7 +1642,7 @@
         <option name="MARKDOWN_NAVIGATOR.ITALIC_TEXT_CODE_TEXT">
             <value>
                 <option name="FOREGROUND" value="ab9df2"/>
-                <option name="BACKGROUND" value="403e41"/>
+                <option name="BACKGROUND" value="362222"/>
                 <option name="FONT_TYPE" value="2"/>
                 <option name="EFFECT_TYPE" value="5"/>
             </value>
@@ -1674,7 +1674,7 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.LINE_BREAK_SPACES">
             <value>
-                <option name="FOREGROUND" value="403e41"/>
+                <option name="FOREGROUND" value="362222"/>
                 <option name="EFFECT_COLOR" value="f65f87"/>
                 <option name="EFFECT_TYPE" value="2"/>
             </value>
@@ -1714,42 +1714,42 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.QUOTE">
             <value>
-                <option name="BACKGROUND" value="403e41"/>
+                <option name="BACKGROUND" value="362222"/>
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.QUOTED_TEXT">
             <value>
-                <option name="BACKGROUND" value="403e41"/>
+                <option name="BACKGROUND" value="362222"/>
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.QUOTED_TEXT_ABBREVIATED_TEXT">
             <value>
                 <option name="FOREGROUND" value="ffd866"/>
-                <option name="BACKGROUND" value="403e41"/>
+                <option name="BACKGROUND" value="362222"/>
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.QUOTED_TEXT_HTML_ENTITY">
             <value>
                 <option name="FOREGROUND" value="b9a491"/>
-                <option name="BACKGROUND" value="403e41"/>
+                <option name="BACKGROUND" value="362222"/>
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.QUOTED_TEXT_SMARTS">
             <value>
                 <option name="FOREGROUND" value="E85160"/>
-                <option name="BACKGROUND" value="403e41"/>
+                <option name="BACKGROUND" value="362222"/>
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.QUOTED_TEXT_SPECIAL_TEXT">
             <value>
                 <option name="FOREGROUND" value="b9a491"/>
-                <option name="BACKGROUND" value="403e41"/>
+                <option name="BACKGROUND" value="362222"/>
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.QUOTED_TEXT_SPECIAL_TEXT_MARKER">
             <value>
                 <option name="FOREGROUND" value="b9a491"/>
-                <option name="BACKGROUND" value="403e41"/>
+                <option name="BACKGROUND" value="362222"/>
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.REFERENCE">
@@ -1837,7 +1837,7 @@
         <option name="MARKDOWN_NAVIGATOR.STRIKETHROUGH_TEXT_BOLD_TEXT_CODE_TEXT">
             <value>
                 <option name="FOREGROUND" value="7867e7"/>
-                <option name="BACKGROUND" value="403e41"/>
+                <option name="BACKGROUND" value="362222"/>
                 <option name="FONT_TYPE" value="1"/>
                 <option name="EFFECT_COLOR" value="ab9df2"/>
                 <option name="EFFECT_TYPE" value="3"/>
@@ -1854,7 +1854,7 @@
         <option name="MARKDOWN_NAVIGATOR.STRIKETHROUGH_TEXT_BOLD_TEXT_ITALIC_TEXT_CODE_TEXT">
             <value>
                 <option name="FOREGROUND" value="5789dd"/>
-                <option name="BACKGROUND" value="403e41"/>
+                <option name="BACKGROUND" value="362222"/>
                 <option name="FONT_TYPE" value="3"/>
                 <option name="EFFECT_COLOR" value="ab9df2"/>
                 <option name="EFFECT_TYPE" value="3"/>
@@ -1863,7 +1863,7 @@
         <option name="MARKDOWN_NAVIGATOR.STRIKETHROUGH_TEXT_CODE_TEXT">
             <value>
                 <option name="FOREGROUND" value="ab9df2"/>
-                <option name="BACKGROUND" value="403e41"/>
+                <option name="BACKGROUND" value="362222"/>
                 <option name="EFFECT_COLOR" value="ab9df2"/>
                 <option name="EFFECT_TYPE" value="3"/>
             </value>
@@ -1879,7 +1879,7 @@
         <option name="MARKDOWN_NAVIGATOR.STRIKETHROUGH_TEXT_ITALIC_TEXT_CODE_TEXT">
             <value>
                 <option name="FOREGROUND" value="7867e7"/>
-                <option name="BACKGROUND" value="403e41"/>
+                <option name="BACKGROUND" value="362222"/>
                 <option name="FONT_TYPE" value="2"/>
                 <option name="EFFECT_COLOR" value="ab9df2"/>
                 <option name="EFFECT_TYPE" value="3"/>
@@ -2464,7 +2464,7 @@
         </option>
         <option name="MATCHED_BRACE_ATTRIBUTES">
             <value>
-                <option name="BACKGROUND" value="403e41"/>
+                <option name="BACKGROUND" value="362222"/>
                 <option name="FONT_TYPE" value="1"/>
                 <option name="EFFECT_COLOR" value="fcfcfa"/>
             </value>
@@ -2508,7 +2508,7 @@
         </option>
         <option name="OC.CONDITIONALLY_NOT_COMPILED">
             <value>
-                <option name="BACKGROUND" value="403e41"/>
+                <option name="BACKGROUND" value="362222"/>
             </value>
         </option>
         <option name="OC.CPP_KEYWORD">
@@ -2889,7 +2889,7 @@
         </option>
         <option name="ReSharper.ASP_NET_RAZOR_CODE_BLOCK">
             <value>
-                <option name="BACKGROUND" value="403e41"/>
+                <option name="BACKGROUND" value="362222"/>
             </value>
         </option>
         <option name="ReSharper.ASP_NET_RAZOR_COMMENT">
@@ -3030,7 +3030,7 @@
         </option>
         <option name="SEARCH_RESULT_ATTRIBUTES">
             <value>
-                <option name="BACKGROUND" value="403e41"/>
+                <option name="BACKGROUND" value="362222"/>
             </value>
         </option>
         <option name="SLIM_CALL" baseAttributes="DEFAULT_KEYWORD"/>
@@ -3202,7 +3202,7 @@
         </option>
         <option name="WRITE_SEARCH_RESULT_ATTRIBUTES">
             <value>
-                <option name="BACKGROUND" value="403e41"/>
+                <option name="BACKGROUND" value="362222"/>
             </value>
         </option>
         <option name="WRONG_REFERENCES_ATTRIBUTES">

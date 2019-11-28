@@ -24,6 +24,7 @@
     "tagColor": "#7A7A7A",
     "secondaryForegroundColor": "#B9AA9F",
     "selectionBackground":  "#564135",
+    "selectionBackgroundTransparent":  "#564135A5",
     "buttonFont": "#B9AA9F",
     "foregroundColor": "#dac8bb",
     "startColor":  "#972e26",
@@ -142,7 +143,7 @@
     "MenuBar.selectionBackground": "selectionBackground",
     "MenuItem.selectionBackground":  "selectionBackground",
     "PasswordField.selectionBackground": "selectionBackground",
-    "Plugins.lightSelectionBackground": "selectionBackground",
+    "Plugins.lightSelectionBackground": "selectionBackgroundTransparent",
     "PopupMenu.selectionBackground":  "selectionBackground",
     "ProgressBar.selectionBackground": "selectionBackground",
     "RadioButtonMenuItem.selectionBackground":  "selectionBackground",
@@ -189,10 +190,8 @@
 
     "Component.arc": 2,
 
-    "CompletionPopup.background": "testScopeColor",
-    "CompletionPopup.selectionForeground": "selectionForeground",
-    "CompletionPopup.nonFocusedMask": "#EAEAF050",
-    "CompletionPopup.selectionBackground": "selectionBackground",
+    "CompletionPopup.nonFocusedMask": "#EAEAF009",
+    "CompletionPopup.selectionBackground": "selectionBackgroundTransparent",
     "CompletionPopup.selectionInactiveBackground": "selectionInactive",
     "CompletionPopup.foreground": "foregroundColor",
 
