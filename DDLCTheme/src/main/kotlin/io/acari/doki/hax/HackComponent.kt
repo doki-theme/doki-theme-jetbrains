@@ -6,8 +6,10 @@ import com.intellij.ide.util.ChooseElementsDialog
 import com.intellij.ide.util.ExportToFileUtil
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.fileEditor.impl.EditorComposite
+import com.intellij.ui.JBColor
 import io.acari.doki.chibi.impl.DOKI_BACKGROUND_PROP
 import io.acari.doki.chibi.impl.DOKI_CHIBI_PROP
+import io.acari.doki.hax.FeildHacker.setFinalStatic
 import javassist.CannotCompileException
 import javassist.ClassClassPath
 import javassist.ClassPool
@@ -24,11 +26,30 @@ object HackComponent : Disposable {
     enableBorderConsistency()
   }
 
-  private fun enableBorderConsistency() {
-    hackSwitcher()
+  fun hackLAF() {
+    enableSwitcherLafConsistency()
   }
 
-  private fun hackSwitcher() {
+  private fun enableSwitcherLafConsistency() {
+    hackSwitcherSelection()
+  }
+
+  private fun hackSwitcherSelection() {
+    val switcherClass = Switcher::class.java
+    try{
+      val naughtySelectionColor = switcherClass.getDeclaredField("ON_MOUSE_OVER_BG_COLOR")
+      val namedColor = JBColor.namedColor("List.selectionBackground", 0xf2f2f2)
+      setFinalStatic(naughtySelectionColor, namedColor)
+    } catch (e: Throwable) {
+      e.printStackTrace()
+    }
+  }
+
+  private fun enableBorderConsistency() {
+    hackSwitcherBorder()
+  }
+
+  private fun hackSwitcherBorder() {
     try {
       val cp = ClassPool(true)
       cp.insertClassPath(ClassClassPath(Switcher::class.java))
@@ -45,6 +66,8 @@ object HackComponent : Disposable {
     } catch (e: Exception) {
       e.printStackTrace()
     }
+
+
 
   }
 
