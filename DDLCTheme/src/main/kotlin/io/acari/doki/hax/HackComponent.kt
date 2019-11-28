@@ -4,6 +4,7 @@ import com.intellij.ide.actions.Switcher
 import com.intellij.ide.plugins.newui.PluginLogo
 import com.intellij.ide.util.ChooseElementsDialog
 import com.intellij.ide.util.ExportToFileUtil
+import com.intellij.ide.util.gotoByName.CustomMatcherModel
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.fileEditor.impl.EditorComposite
 import com.intellij.ui.JBColor
@@ -17,6 +18,7 @@ import javassist.CtClass
 import javassist.expr.ExprEditor
 import javassist.expr.MethodCall
 import javassist.expr.NewExpr
+import javax.swing.JList
 
 object HackComponent : Disposable {
   init {
@@ -24,6 +26,31 @@ object HackComponent : Disposable {
     createMonikasWritingTipOfTheDay()
     enablePluginWindowConsistency()
     enableBorderConsistency()
+    enableSearchEverywhereConsistency()
+  }
+
+  private fun enableSearchEverywhereConsistency() {
+    hackActionModel()
+  }
+
+  private fun hackActionModel() {
+    try {
+      val cp = ClassPool(true)
+      cp.insertClassPath(ClassClassPath(CustomMatcherModel::class.java))
+      val ctClass = cp.get("com.intellij.ide.util.gotoByName.GotoActionModel\$GotoActionListCellRenderer")
+      val init = ctClass.getDeclaredMethods(
+        "getListCellRendererComponent")[0]
+      init.instrument(object : ExprEditor() {
+        override fun edit(e: MethodCall?) {
+          if (e?.methodName == "isUnderDarcula") { // dis for OptionDescription
+            e.replace("{ \$_ = true; }")
+          }
+        }
+      })
+      ctClass.toClass()
+    } catch (e: Exception) {
+      e.printStackTrace()
+    }
   }
 
   fun hackLAF() {
@@ -36,7 +63,7 @@ object HackComponent : Disposable {
 
   private fun hackSwitcherSelection() {
     val switcherClass = Switcher::class.java
-    try{
+    try {
       val naughtySelectionColor = switcherClass.getDeclaredField("ON_MOUSE_OVER_BG_COLOR")
       val namedColor = JBColor.namedColor("List.selectionBackground", 0xf2f2f2)
       setFinalStatic(naughtySelectionColor, namedColor)
@@ -66,7 +93,6 @@ object HackComponent : Disposable {
     } catch (e: Exception) {
       e.printStackTrace()
     }
-
 
 
   }
