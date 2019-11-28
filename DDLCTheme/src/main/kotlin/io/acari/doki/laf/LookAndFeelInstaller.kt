@@ -1,6 +1,7 @@
 package io.acari.doki.laf
 
 import io.acari.doki.ui.TitlePaneUI
+import io.acari.doki.ui.ToggleButtonUI
 import io.acari.doki.ui.tree.BorderTreeIndicator
 import io.acari.doki.ui.tree.TreeIndicator
 import javax.swing.UIManager
@@ -11,6 +12,13 @@ object LookAndFeelInstaller {
   fun installAllUIComponents() {
     installTitlePane()
     installTreeIndicatorComponent()
+    installButtons()
+  }
+
+  private fun installButtons() {
+    val defaults = UIManager.getLookAndFeelDefaults()
+    defaults["OnOffButtonUI"] = ToggleButtonUI::class.java.name
+    defaults[ToggleButtonUI::class.java.name] = ToggleButtonUI::class.java
   }
 
   fun installTitlePane() {

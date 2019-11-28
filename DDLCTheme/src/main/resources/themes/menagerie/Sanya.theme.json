@@ -263,7 +263,7 @@
 	"Plugins.Button.updateForeground": "accentContrastColor",
 
     "ToggleButton.buttonColor": "accentColor",
-    "ToggleButton.onBackground": "accentColorTransparent",
+    "ToggleButton.onBackground": "accentColor",
     "ToggleButton.onForeground":"ghostColor",
     "ToggleButton.offForeground":"ghostColor",
     "ToggleButton.borderColor": "accentColorTransparent",
