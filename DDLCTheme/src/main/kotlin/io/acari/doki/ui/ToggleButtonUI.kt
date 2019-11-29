@@ -96,7 +96,6 @@ class ToggleButtonUI : BasicToggleButtonUI() {
       )
     )
 
-    private val TOGGLE_SIZE: Dimension = JBDimension(18, 12)
     private val BUTTON_SIZE: Dimension = JBDimension(42, 14)
     private val BUTTON_BORDER: Border = JBUI.Borders.empty(1, 10)
     private const val ARC = 16
