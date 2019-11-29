@@ -56,5 +56,6 @@ class ColorPatcher(
     }
   }
 
-  private fun getAccentColor() = toHex(namedColor("Doki.Accent.color", Color.CYAN))
+  private fun getAccentColor() =
+    "#${toHex(namedColor("Doki.Accent.color", Color.CYAN))}"
 }
