@@ -329,6 +329,8 @@
       "Actions.GreyInline": "#979087",
       "Actions.GreyInline.Dark": "#979087",
       "Objects.Grey": "#979087"
-    }
+    },
+    "/nodes/locked.svg": "/icons/nodes/locked.svg",
+    "/fileTypes/properties.svg": "/icons/fileTypes/properties.svg"
   }
 }
