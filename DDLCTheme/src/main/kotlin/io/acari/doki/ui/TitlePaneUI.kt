@@ -159,30 +159,7 @@ class TitlePaneUI : DarculaRootPaneUI() {
       }
     }
 
-    object : DoubleClickListener() {
-      override fun onDoubleClick(e: MouseEvent): Boolean {
-        val f: Frame = if (window is Frame) {
-          window
-        } else {
-          return false
-        }
-
-        val state = f.extendedState
-        if (f.isResizable &&
-          e.clickCount % 2 == 0 &&
-          e.modifiers and InputEvent.BUTTON1_MASK != 0
-        ) {
-          if (state and Frame.MAXIMIZED_BOTH != 0) {
-            f.extendedState = state and Frame.MAXIMIZED_BOTH.inv()
-          } else {
-            f.extendedState = state or Frame.MAXIMIZED_BOTH
-          }
-          return true
-        }
-        return false
-      }
-    }.installOn(rootPane!!)
-    val changeListener = PropertyChangeListener { rootPane.repaint() }
+   val changeListener = PropertyChangeListener { rootPane?.repaint() }
     window?.addPropertyChangeListener("title", changeListener)
     return {
       window?.removeWindowListener(windowAdapter)

@@ -1,4 +1,11 @@
-- Console colors
+- Icons
+    - Tree.expandedIcon
+    - Spinning loading indicator.
+    - CheckBox
+        - as accent color
+        - Transparent box background
+    - Radio button
+
 
  - File Scopes
     - light monika
@@ -7,17 +14,11 @@
 
 - Foreground Colors
 
- After all color schemes are done:
- -----
- - Chibi Swappo
+
+
+
+- Chibi Swappo
 - Legacy Theme -> Next Gen Theme install UX
-- Icons
-    - Tree.expandedIcon
-    - Spinning loading indicator.
-    - CheckBox
-        - as accent color
-        - Transparent box background
-    - Radio button
 - Color Scheme Restoration (so do not have to reset colors erry time)
 - Theme change animation
 - theme schema
