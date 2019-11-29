@@ -1,10 +1,9 @@
 - Icons
-    - Tree.expandedIcon
-    - Spinning loading indicator.
     - CheckBox
         - as accent color
         - Transparent box background
     - Radio button
+    - Spinning loading indicator.
     - daemon icon
 
 
