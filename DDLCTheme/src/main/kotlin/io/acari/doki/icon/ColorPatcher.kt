@@ -1,8 +1,8 @@
 package io.acari.doki.icon
 
-import com.intellij.ui.ColorUtil.toHex
 import com.intellij.ui.JBColor.namedColor
 import com.intellij.util.SVGLoader
+import io.acari.doki.util.toHexString
 import org.w3c.dom.Element
 import java.awt.Color
 import java.net.URL
@@ -36,12 +36,13 @@ class ColorPatcher(
   }
 
   private fun patchChildren(svg: Element, otherPatcher: (Element) -> Unit) {
-    when (svg.getAttribute("accentTint")) {
+    when (val accentTintAttribute = svg.getAttribute("accentTint")) {
       "fill" -> svg.setAttribute("fill", getAccentColor())
       "stroke" -> svg.setAttribute("stroke", getAccentColor())
-      "both" -> {
+      "both", "partialFill" -> {
         val accentColor = getAccentColor()
         svg.setAttribute("stroke", accentColor)
+        svg.setAttribute("stroke-opacity", if (accentTintAttribute == "both") "1" else "0.25")
         svg.setAttribute("fill", accentColor)
       }
     }
@@ -57,5 +58,5 @@ class ColorPatcher(
   }
 
   private fun getAccentColor() =
-    "#${toHex(namedColor("Doki.Accent.color", Color.CYAN))}"
+    namedColor("Doki.Accent.color", Color.CYAN).toHexString()
 }
