@@ -5,6 +5,7 @@ import com.intellij.ide.actions.Switcher
 import com.intellij.ide.plugins.newui.PluginLogo
 import com.intellij.ide.util.ChooseElementsDialog
 import com.intellij.ide.util.ExportToFileUtil
+import com.intellij.ide.util.TipPanel
 import com.intellij.ide.util.gotoByName.CustomMatcherModel
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.fileEditor.impl.EditorComposite
@@ -81,7 +82,23 @@ object HackComponent : Disposable {
 
   fun hackLAF() {
     enableSwitcherLafConsistency()
+    enableLafBorderConsistency()
   }
+
+  private fun enableLafBorderConsistency() {
+    hackTipBorder()
+  }
+
+  private fun hackTipBorder() {
+    try {
+      val naughtySelectionColor = TipPanel::class.java.getDeclaredField("DIVIDER_COLOR")
+      val namedColor = JBColor.namedColor("Borders.color", 0xf2f2f2)
+      setFinalStatic(naughtySelectionColor, namedColor)
+    } catch (e: Throwable) {
+      e.printStackTrace()
+    }
+  }
+
 
   private fun enableSwitcherLafConsistency() {
     hackSwitcherSelection()
