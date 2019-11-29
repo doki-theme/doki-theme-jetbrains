@@ -138,6 +138,7 @@
     "Table.selectionInactiveBackground": "selectionInactive",
     "TextComponent.selectionBackgroundInactive": "selectionInactive",
     "Tree.selectionInactiveBackground": "selectionInactive",
+    "WelcomeScreen.Projects.selectionInactiveBackground": "selectionInactive",
 
     "CheckBoxMenuItem.selectionBackground": "selectionBackground",
     "ComboBox.selectionBackground": "selectionBackground",
