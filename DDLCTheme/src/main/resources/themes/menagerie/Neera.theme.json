@@ -330,7 +330,9 @@
       "Actions.GreyInline.Dark": "#979087",
       "Objects.Grey": "#979087"
     },
+    "/nodes/excludedFromCompile.svg": "/icons/nodes/excludedFromCompile.svg",
     "/nodes/locked.svg": "/icons/nodes/locked.svg",
+    "/nodes/symlink.svg": "/icons/nodes/symlink.svg",
     "/fileTypes/properties.svg": "/icons/fileTypes/properties.svg"
   }
 }
