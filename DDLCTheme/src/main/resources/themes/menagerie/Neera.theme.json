@@ -332,7 +332,11 @@
       "Objects.Grey": "#979087"
     },
     "/actions/new.svg": "/icons/actions/new.svg",
-    "/fileTypes/properties.svg": "/icons/fileTypes/properties.svg",
+    "/fileTypes/properties.svg": "/icons/fileTypes/properies.svg",
+    "/general/gearPlain.svg": "/icons/general/gearPlain.svg",
+    "/general/gearPlain_dark.svg": "/icons/general/gearPlain_dark.svg",
+    "/icons/task.svg": "/icons/icons/task.svg",
+    "/nodes/editorConfig.svg": "/icons/nodes/editorConfig.svg",
     "/nodes/excludedFromCompile.svg": "/icons/nodes/excludedFromCompile.svg",
     "/nodes/favorite.svg": "/icons/nodes/favorite.svg",
     "/nodes/favoriteOnHover.svg": "/icons/nodes/favoriteOnHover.svg",
