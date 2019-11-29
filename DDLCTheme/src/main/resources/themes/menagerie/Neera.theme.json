@@ -343,6 +343,7 @@
     "/nodes/finalMark.svg": "/icons/nodes/finalMark.svg",
     "/nodes/locked.svg": "/icons/nodes/locked.svg",
     "/nodes/notFavoriteOnHover.svg": "/icons/nodes/notFavoriteOnHover.svg",
+    "/nodes/shared.svg": "/icons/nodes/shared.svg",
     "/nodes/staticMark.svg": "/icons/nodes/staticMark.svg",
     "/nodes/symlink.svg": "/icons/nodes/symlink.svg"
   }
