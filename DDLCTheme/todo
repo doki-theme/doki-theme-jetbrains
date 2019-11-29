@@ -1,11 +1,3 @@
-Requires new UI components
-----
-- Indicator style
-- Tree arrow style
-
-- Foreground Colors
- -----
-
 - Console colors
 
  - File Scopes
@@ -13,11 +5,14 @@ Requires new UI components
     - light natsuki
     - light sayori
 
+- Foreground Colors
+
  After all color schemes are done:
  -----
  - Chibi Swappo
 - Legacy Theme -> Next Gen Theme install UX
 - Icons
+    - Tree.expandedIcon
     - Spinning loading indicator.
     - CheckBox
         - as accent color
