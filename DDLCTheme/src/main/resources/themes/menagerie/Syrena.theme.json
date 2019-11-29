@@ -55,6 +55,7 @@
     "ProgressBar.background": "baseBackground",
     "EditorPane.background": "baseBackground",
     "Plugins.background": "baseBackground",
+    "control": "baseBackground",
 
     "Table.background": "editorBackground",
     "Viewport.background": "editorBackground",
