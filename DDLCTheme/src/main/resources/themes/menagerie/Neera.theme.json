@@ -332,13 +332,14 @@
       "Objects.Grey": "#979087"
     },
     "/actions/new.svg": "/icons/actions/new.svg",
+    "/fileTypes/properties.svg": "/icons/fileTypes/properties.svg",
     "/nodes/excludedFromCompile.svg": "/icons/nodes/excludedFromCompile.svg",
-    "/nodes/finalMark.svg": "/icons/nodes/finalMark.svg",
     "/nodes/favorite.svg": "/icons/nodes/favorite.svg",
     "/nodes/favoriteOnHover.svg": "/icons/nodes/favoriteOnHover.svg",
+    "/nodes/finalMark.svg": "/icons/nodes/finalMark.svg",
     "/nodes/locked.svg": "/icons/nodes/locked.svg",
     "/nodes/notFavoriteOnHover.svg": "/icons/nodes/notFavoriteOnHover.svg",
-    "/nodes/symlink.svg": "/icons/nodes/symlink.svg",
-    "/fileTypes/properties.svg": "/icons/fileTypes/properties.svg"
+    "/nodes/staticMark.svg": "/icons/nodes/staticMark.svg",
+    "/nodes/symlink.svg": "/icons/nodes/symlink.svg"
   }
 }
