@@ -8,6 +8,8 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.project.ProjectManager
 import com.intellij.openapi.project.impl.ProjectLifecycleListener
 import io.acari.doki.hax.HackComponent.hackLAF
+import io.acari.doki.hax.SvgLoaderHacker
+import io.acari.doki.hax.SvgLoaderHacker.setSVGColorPatcher
 import io.acari.doki.laf.DokiAddFileColorsAction.removeFileScopes
 import io.acari.doki.laf.DokiAddFileColorsAction.setFileScopes
 import io.acari.doki.laf.LookAndFeelInstaller
@@ -17,7 +19,11 @@ class TheDokiTheme : Disposable {
   private val connection = ApplicationManager.getApplication().messageBus.connect()
 
   init {
-    hackLAF() // you made me do this...
+    //////////// hax ////////////
+    setSVGColorPatcher()
+    hackLAF()
+    //////////// ._. ////////////
+
     LookAndFeelInstaller.installAllUIComponents()
 
     connection.subscribe(LafManagerListener.TOPIC, LafManagerListener {
