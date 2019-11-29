@@ -31,6 +31,7 @@ class TheDokiTheme : Disposable {
       val projects = ProjectManager.getInstance().openProjects
       DokiThemes.processLaf(LafManager.getInstance().currentLookAndFeel) //todo: get theme more better
         .ifPresentOrElse({
+          setSVGColorPatcher()
           LookAndFeelInstaller.installAllUIComponents()
           projects.forEach { project -> setFileScopes(project) }
         })
