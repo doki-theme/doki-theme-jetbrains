@@ -1,5 +1,6 @@
 package io.acari.doki.hax
 
+import com.intellij.execution.runners.ProcessProxy
 import com.intellij.ide.actions.Switcher
 import com.intellij.ide.plugins.newui.PluginLogo
 import com.intellij.ide.util.ChooseElementsDialog
@@ -27,6 +28,31 @@ object HackComponent : Disposable {
     enablePluginWindowConsistency()
     enableBorderConsistency()
     enableSearchEverywhereConsistency()
+    enableAccentConsistency()
+  }
+
+  private fun enableAccentConsistency() {
+    hackLiveIndicator()
+  }
+
+  private fun hackLiveIndicator() {
+    try {
+      val cp = ClassPool(true)
+      cp.insertClassPath(ClassClassPath(ProcessProxy::class.java))
+      val ctClass = cp.get("com.intellij.execution.runners.ExecutionUtil")
+      val init = ctClass.getDeclaredMethods(
+        "getLiveIndicator")[1]
+      init.instrument(object : ExprEditor() {
+        override fun edit(e: MethodCall?) {
+          if (e?.methodName == "getIndicator") {
+            e.replace("{ \$4 = com.intellij.ui.JBColor.namedColor(\"Doki.Accent.color\", java.awt.Color.GREEN); \$_ = \$proceed(\$\$); }")
+          }
+        }
+      })
+      ctClass.toClass()
+    } catch (e: Exception) {
+      e.printStackTrace()
+    }
   }
 
   private fun enableSearchEverywhereConsistency() {
