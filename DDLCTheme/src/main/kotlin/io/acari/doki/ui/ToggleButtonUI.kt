@@ -29,10 +29,7 @@ import com.intellij.ui.ColorUtil
 import com.intellij.ui.Gray
 import com.intellij.ui.JBColor
 import com.intellij.ui.components.OnOffButton
-import com.intellij.util.ui.GraphicsUtil
-import com.intellij.util.ui.JBDimension
-import com.intellij.util.ui.JBInsets
-import com.intellij.util.ui.JBUI
+import com.intellij.util.ui.*
 import java.awt.*
 import javax.swing.JComponent
 import javax.swing.border.Border
@@ -61,16 +58,24 @@ class ToggleButtonUI : BasicToggleButtonUI() {
           (button.getHeight() - BUTTON_SIZE.height) / 2 + insets.top
         )
 
-        val backgroundAlpha = if (button.isSelected) 0.65 else 0.2
-        g2.color = ColorUtil.withAlpha(ON_BACKGROUND, backgroundAlpha)
+        g2.color =
+          if(button.isSelected) ColorUtil.withAlpha(ON_BACKGROUND, 0.65)
+          else {
+            val parentBackground = button.parent.background
+            if(ColorUtil.isDark(parentBackground))  ColorUtil.brighter(parentBackground, 1)
+            else ColorUtil.darker(parentBackground.darker(), 1)
+          }
+
+
         g2.fillRoundRect(origin.x, origin.y, BUTTON_SIZE.width, BUTTON_SIZE.height, ARC, ARC)
 
         g2.color = BUTTON_COLOR
+        val halfWay = BUTTON_SIZE.width / 2
         val location = Point(
-          (if (button.isSelected) JBUI.scale(20) else JBUI.scale(-2)) + origin.x,
-          JBUI.scale(-2) + origin.y
+          (if (button.isSelected) JBUI.scale(halfWay) else JBUI.scale(0)) + origin.x,
+          origin.y
         )
-        g2.fillOval(location.x, location.y, TOGGLE_SIZE.width, TOGGLE_SIZE.height)
+        g2.fillRoundRect(location.x, location.y, halfWay, BUTTON_SIZE.height, ARC, ARC)
         config.restore()
       } finally {
         g2.dispose()
@@ -90,8 +95,8 @@ class ToggleButtonUI : BasicToggleButtonUI() {
       )
     )
 
-    private val TOGGLE_SIZE: Dimension = JBDimension(18, 18)
-    private val BUTTON_SIZE: Dimension = JBDimension(32, 14)
+    private val TOGGLE_SIZE: Dimension = JBDimension(18, 12)
+    private val BUTTON_SIZE: Dimension = JBDimension(42, 14)
     private val BUTTON_BORDER: Border = JBUI.Borders.empty(1, 10)
     private const val ARC = 16
 
