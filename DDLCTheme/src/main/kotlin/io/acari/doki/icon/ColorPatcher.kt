@@ -47,6 +47,20 @@ class ColorPatcher(
       }
     }
 
+    val themedStartAttr = svg.getAttribute("themedStart")
+    val themedStopAttr = svg.getAttribute("themedStop")
+    if ("true" == themedStartAttr){
+      val themedStart = getThemedStartColor()
+      svg.setAttribute("stop-color","#$themedStart")
+      svg.setAttribute("fill","#$themedStart")
+    } else if ("true" == themedStopAttr){
+      val themedStop = getThemedStopColor()
+      svg.setAttribute("stop-color","#$themedStop")
+      svg.setAttribute("fill","#$themedStop")
+    }
+
+
+
     val nodes = svg.childNodes
     val length = nodes.length
     for (i in 0 until length) {
@@ -59,4 +73,10 @@ class ColorPatcher(
 
   private fun getAccentColor() =
     namedColor("Doki.Accent.color", Color.CYAN).toHexString()
+
+  private fun getThemedStartColor() =
+    namedColor("Doki.startColor", Color.CYAN).toHexString()
+
+  private fun getThemedStopColor() =
+    namedColor("Doki.stopColor", Color.CYAN).toHexString()
 }
