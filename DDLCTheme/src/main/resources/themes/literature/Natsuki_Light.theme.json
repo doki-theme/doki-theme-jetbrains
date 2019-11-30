@@ -105,6 +105,7 @@
     "InformationHint.borderColor": "borderColor",
     "Menu.borderColor": "borderColor",
     "MenuBar.borderColor": "borderColor",
+    "Menu.separatorColor": "borderColor",
     "NavBar.borderColor": "borderColor",
     "Notification.ToolWindow.informativeBorderColor": "borderColor",
     "Notification.ToolWindow.warningBorderColor": "borderColor",
@@ -197,6 +198,8 @@
     "Button.arc": 2,
 
     "Component.arc": 2,
+
+    "PopupMenuSeparator.height": 1,
 
     "CompletionPopup.background": "testScopeColor",
     "CompletionPopup.selectionForeground": "selectionForeground",

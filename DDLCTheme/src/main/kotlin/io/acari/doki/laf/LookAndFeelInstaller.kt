@@ -4,10 +4,7 @@ import com.intellij.ide.ui.laf.darcula.ui.DarculaCheckBoxMenuItemUI
 import com.intellij.ide.ui.laf.darcula.ui.DarculaCheckBoxUI
 import com.intellij.ide.ui.laf.darcula.ui.DarculaRadioButtonMenuItemUI
 import io.acari.doki.icon.DokiIcons
-import io.acari.doki.ui.DokiCheckboxUI
-import io.acari.doki.ui.DokiRadioButtonUI
-import io.acari.doki.ui.TitlePaneUI
-import io.acari.doki.ui.ToggleButtonUI
+import io.acari.doki.ui.*
 import javax.swing.UIManager
 
 
