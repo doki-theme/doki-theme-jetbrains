@@ -361,6 +361,8 @@
     "/actions/new.svg": "/icons/actions/new.svg",
     "/actions/checked.svg": "/icons/actions/checked.svg",
     "/fileTypes/properties.svg": "/icons/fileTypes/properties.svg",
+    "/general/add.svg": "/icons/general/add.svg",
+    "/general/add_dark.svg": "/icons/general/add_dark.svg",
     "/general/gearPlain.svg": "/icons/general/gearPlain.svg",
     "/general/gearPlain_dark.svg": "/icons/general/gearPlain_dark.svg",
     "/icons/task.svg": "/icons/icons/task.svg",
