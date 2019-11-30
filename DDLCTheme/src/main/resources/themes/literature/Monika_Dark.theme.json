@@ -271,6 +271,9 @@
 
 	"Plugins.Button.updateForeground": "accentContrastColor",
 
+    "Doki.startColor": "startColor",
+    "Doki.stopColor":"stopColor",
+
     "ToggleButton.buttonColor": "accentColor",
     "ToggleButton.onBackground": "accentColor",
     "ToggleButton.onForeground":"ghostColor",

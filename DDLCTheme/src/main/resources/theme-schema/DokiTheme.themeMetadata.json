@@ -4,7 +4,15 @@
   "ui": [
     {
       "key": "Doki.Accent.color",
-      "description": "Contrast color used on components such as: checkbox, radio buttons, etc."
+      "description": "Contrast color used on components such as: Tree Icon, add icon, etc."
+    },
+    {
+      "key": "Doki.startColor",
+      "description": "Color used for icon gradients."
+    },
+    {
+      "key": "Doki.startColor",
+      "description": "The other color used for icon gradients"
     }
   ]
 }
