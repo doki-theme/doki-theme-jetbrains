@@ -2,8 +2,10 @@ package io.acari.doki.laf
 
 import com.intellij.ide.ui.laf.darcula.ui.DarculaCheckBoxMenuItemUI
 import com.intellij.ide.ui.laf.darcula.ui.DarculaCheckBoxUI
+import com.intellij.ide.ui.laf.darcula.ui.DarculaRadioButtonMenuItemUI
 import io.acari.doki.icon.DokiIcons
 import io.acari.doki.ui.DokiCheckboxUI
+import io.acari.doki.ui.DokiRadioButtonUI
 import io.acari.doki.ui.TitlePaneUI
 import io.acari.doki.ui.ToggleButtonUI
 import javax.swing.UIManager
@@ -16,6 +18,7 @@ object LookAndFeelInstaller {
     installTitlePane()
     installButtons()
     installCheckboxes()
+    installRadioButtons()
   }
 
   private fun installIcons() {
@@ -40,6 +43,14 @@ object LookAndFeelInstaller {
     defaults[DokiCheckboxUI::class.java.name] = DokiCheckboxUI::class.java
     defaults["CheckBoxMenuItemUI"] = DarculaCheckBoxMenuItemUI::class.java.name
     defaults[DarculaCheckBoxMenuItemUI::class.java.name] = DarculaCheckBoxMenuItemUI::class.java
+  }
+
+  private fun installRadioButtons() {
+    val defaults = UIManager.getLookAndFeelDefaults()
+    defaults["RadioButtonUI"] = DokiRadioButtonUI::class.java.name
+    defaults[DokiRadioButtonUI::class.java.name] = DokiRadioButtonUI::class.java
+    defaults["RadioButtonMenuItemUI"] = DarculaRadioButtonMenuItemUI::class.java.name
+    defaults[DarculaRadioButtonMenuItemUI::class.java.name] = DarculaRadioButtonMenuItemUI::class.java
   }
 
   private fun installTitlePane() {
