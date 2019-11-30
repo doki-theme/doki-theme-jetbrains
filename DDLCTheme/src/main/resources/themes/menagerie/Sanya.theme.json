@@ -368,6 +368,7 @@
     "/nodes/finalMark.svg": "/icons/nodes/finalMark.svg",
     "/nodes/locked.svg": "/icons/nodes/locked.svg",
     "/nodes/Module.svg": "/icons/nodes/Module.svg",
+    "/nodes/package.svg": "/icons/nodes/package.svg",
     "/nodes/notFavoriteOnHover.svg": "/icons/nodes/notFavoriteOnHover.svg",
     "/nodes/shared.svg": "/icons/nodes/shared.svg",
     "/nodes/staticMark.svg": "/icons/nodes/staticMark.svg",
