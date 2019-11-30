@@ -3,6 +3,7 @@ package io.acari.doki.laf
 import com.intellij.ide.ui.laf.darcula.ui.DarculaCheckBoxMenuItemUI
 import com.intellij.ide.ui.laf.darcula.ui.DarculaCheckBoxUI
 import io.acari.doki.icon.DokiIcons
+import io.acari.doki.ui.DokiCheckboxUI
 import io.acari.doki.ui.TitlePaneUI
 import io.acari.doki.ui.ToggleButtonUI
 import javax.swing.UIManager
@@ -35,8 +36,8 @@ object LookAndFeelInstaller {
     val defaults = UIManager.getLookAndFeelDefaults()
     defaults[DokiIcons.CheckBox.CHECK_MARK_KEY] = DokiIcons.CheckBox.CHECK_MARK
     defaults["CheckBoxMenuItem.borderPainted"] = false
-    defaults["CheckBoxUI"] = DarculaCheckBoxUI::class.java.name
-    defaults[DarculaCheckBoxUI::class.java.name] = DarculaCheckBoxUI::class.java
+    defaults["CheckBoxUI"] = DokiCheckboxUI::class.java.name
+    defaults[DokiCheckboxUI::class.java.name] = DokiCheckboxUI::class.java
     defaults["CheckBoxMenuItemUI"] = DarculaCheckBoxMenuItemUI::class.java.name
     defaults[DarculaCheckBoxMenuItemUI::class.java.name] = DarculaCheckBoxMenuItemUI::class.java
   }
