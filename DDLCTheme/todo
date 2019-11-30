@@ -11,7 +11,7 @@
 - Theme change animation
 - theme schema
     -ThemeJsonSchemaProviderFactory
-
+- Slack reporter borked.
 
 Stretch Goals
 ----
