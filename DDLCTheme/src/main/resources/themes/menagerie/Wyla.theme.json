@@ -329,7 +329,29 @@
       "Actions.Grey": "#979087",
       "Actions.GreyInline": "#979087",
       "Actions.GreyInline.Dark": "#979087",
-      "Objects.Grey": "#979087"
+      "Objects.Grey": "#979087",
+      "Checkbox.Background.Default": "#00000000",
+      "Checkbox.Border.Default":"#CCA331",
+      "Checkbox.Background.Selected": "#00000000",
+      "Checkbox.Border.Selected":"#CCA331",
+      "Checkbox.Foreground.Selected": "#CCA331",
+      "Checkbox.Background.Disabled":"#00000000",
+      "Checkbox.Border.Disabled": "#979087",
+      "Checkbox.Foreground.Disabled":"#979087",
+      "Checkbox.Focus.Thin.Default": "#CCA331",
+      "Checkbox.Focus.Thin.Selected":"#CCA331",
+      "Checkbox.Focus.Wide": "#CCA331",
+      "Checkbox.Background.Default.Dark":"#00000000",
+      "Checkbox.Border.Default.Dark": "#CCA331",
+      "Checkbox.Background.Selected.Dark":"#00000000",
+      "Checkbox.Border.Selected.Dark": "#CCA331",
+      "Checkbox.Foreground.Selected.Dark":"#CCA331",
+      "Checkbox.Background.Disabled.Dark": "#00000000",
+      "Checkbox.Border.Disabled.Dark":"#979087",
+      "Checkbox.Foreground.Disabled.Dark": "#979087",
+      "Checkbox.Focus.Thin.Default.Dark":"#CCA331",
+      "Checkbox.Focus.Thin.Selected.Dark": "#CCA331",
+      "Checkbox.Focus.Wide.Dark":"#CCA331"
     }
   }
 
