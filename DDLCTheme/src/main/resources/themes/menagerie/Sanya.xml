@@ -10,6 +10,8 @@
     <option name="LINE_SPACING" value="1.4"/>
     <option name="EDITOR_LIGATURES" value="true"/>
     <colors>
+        <option name="INFORMATION_HINT" value="3a2333"/>
+        <option name="ERROR_HINT" value="704745"/>
         <option name="ADDED_LINES_COLOR" value="264B33"/>
         <option name="ANNOTATIONS_COLOR" value="382536"/>
         <option name="CARET_COLOR" value="cccccc"/>

@@ -20,6 +20,8 @@
         <option name="DOCUMENTATION_COLOR" value="3B3541"/>
         <option name="FILESTATUS_ADDED" value="10B15A"/>
         <option name="FILESTATUS_COPIED" value="10B15A"/>
+        <option name="INFORMATION_HINT" value="3B3541"/>
+        <option name="ERROR_HINT" value="704745"/>
         <option name="FILESTATUS_DELETED" value="8E9CCD"/>
         <option name="FILESTATUS_HIJACKED" value="f1fa8c"/>
         <option name="FILESTATUS_IDEA_FILESTATUS_DELETED_FROM_FILE_SYSTEM" value="8E9CCD"/>

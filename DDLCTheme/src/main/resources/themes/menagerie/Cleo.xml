@@ -25,6 +25,7 @@
         <option name="EDITOR_FONT_SIZE" value="12" />
     </console-font>
     <colors>
+        <option name="INFORMATION_HINT" value="DCDDE8"/>
         <option name="ADDED_LINES_COLOR" value="d0fdc9" />
         <option name="ANNOTATIONS_COLOR" value="474747" />
         <option name="CARET_COLOR" value="272727" />

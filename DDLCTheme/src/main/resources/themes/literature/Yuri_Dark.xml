@@ -6,6 +6,8 @@
         <property name="modified">2019-11-23T11:25:46</property>
     </metaInfo>
     <colors>
+        <option name="INFORMATION_HINT" value="493162"/>
+        <option name="ERROR_HINT" value="704745"/>
         <option name="CONSOLE_BACKGROUND_KEY" value="422D5A" />
         <option name="GUTTER_BACKGROUND" value="422D5A" />
         <option name="SEPARATOR_ABOVE_COLOR" value="4d3a63" />

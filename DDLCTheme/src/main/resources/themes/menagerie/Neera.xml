@@ -10,6 +10,7 @@
     </metaInfo>
     <option name="LINE_SPACING" value="1.4"/>
     <colors>
+        <option name="INFORMATION_HINT" value="fefefa"/>
         <option name="ADDED_LINES_COLOR" value="BEE6BE"/>
         <option name="ANNOTATIONS_COLOR" value="45393e"/>
         <option name="CARET_COLOR" value="45393e"/>
