@@ -2,12 +2,18 @@
   <defs>
     <polygon id="abstractclasskotlin-a" points="0 0 8 0 8 7 4 7 4 14 0 14"/>
     <linearGradient id="abstractclasskotlin-c" x1="-16.836%" x2="76.219%" y1="91.94%" y2="-1.116%">
-      <stop offset="10.75%" stop-color="#C757BC"/>
-      <stop offset="21.38%" stop-color="#D0609A"/>
-      <stop offset="42.54%" stop-color="#E1725C"/>
-      <stop offset="60.48%" stop-color="#EE7E2F"/>
-      <stop offset="74.3%" stop-color="#F58613"/>
-      <stop offset="82.32%" stop-color="#F88909"/>
+      <stop
+                stop-color="#870ad2"
+                style="stop-opacity:1"
+                offset="0"
+                themedStart="true"
+                id="stop6016"/>
+            <stop
+                stop-color="#f667ff"
+                style=";stop-opacity:1"
+                offset="1"
+                themedStop="true"
+                id="stop6018"/>
     </linearGradient>
   </defs>
   <g fill="none" fill-rule="evenodd">
