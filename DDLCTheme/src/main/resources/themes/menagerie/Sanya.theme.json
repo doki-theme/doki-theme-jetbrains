@@ -357,6 +357,7 @@
       "Checkbox.Focus.Wide.Dark":"#C6FF00"
     },
     "/actions/new.svg": "/icons/actions/new.svg",
+    "/actions/checked.svg": "/icons/actions/checked.svg",
     "/fileTypes/properties.svg": "/icons/fileTypes/properties.svg",
     "/general/gearPlain.svg": "/icons/general/gearPlain.svg",
     "/general/gearPlain_dark.svg": "/icons/general/gearPlain_dark.svg",
@@ -372,6 +373,7 @@
     "/nodes/notFavoriteOnHover.svg": "/icons/nodes/notFavoriteOnHover.svg",
     "/nodes/shared.svg": "/icons/nodes/shared.svg",
     "/nodes/staticMark.svg": "/icons/nodes/staticMark.svg",
-    "/nodes/symlink.svg": "/icons/nodes/symlink.svg"
+    "/nodes/symlink.svg": "/icons/nodes/symlink.svg",
+    "/toolwindows/toolWindowFavorites.svg": "/icons/toolwindows/toolWindowFavorites.svg"
   }
 }
