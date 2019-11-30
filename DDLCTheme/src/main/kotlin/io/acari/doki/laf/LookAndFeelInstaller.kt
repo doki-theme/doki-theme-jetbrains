@@ -1,5 +1,7 @@
 package io.acari.doki.laf
 
+import com.intellij.ide.ui.laf.darcula.ui.DarculaCheckBoxMenuItemUI
+import com.intellij.ide.ui.laf.darcula.ui.DarculaCheckBoxUI
 import io.acari.doki.icon.DokiIcons
 import io.acari.doki.ui.TitlePaneUI
 import io.acari.doki.ui.ToggleButtonUI
@@ -12,6 +14,7 @@ object LookAndFeelInstaller {
     installIcons()
     installTitlePane()
     installButtons()
+    installCheckboxes()
   }
 
   private fun installIcons() {
@@ -28,7 +31,17 @@ object LookAndFeelInstaller {
     defaults[ToggleButtonUI::class.java.name] = ToggleButtonUI::class.java
   }
 
-  fun installTitlePane() {
+  private fun installCheckboxes() {
+    val defaults = UIManager.getLookAndFeelDefaults()
+    defaults[DokiIcons.CheckBox.CHECK_MARK_KEY] = DokiIcons.CheckBox.CHECK_MARK
+    defaults["CheckBoxMenuItem.borderPainted"] = false
+    defaults["CheckBoxUI"] = DarculaCheckBoxUI::class.java.name
+    defaults[DarculaCheckBoxUI::class.java.name] = DarculaCheckBoxUI::class.java
+    defaults["CheckBoxMenuItemUI"] = DarculaCheckBoxMenuItemUI::class.java.name
+    defaults[DarculaCheckBoxMenuItemUI::class.java.name] = DarculaCheckBoxMenuItemUI::class.java
+  }
+
+  private fun installTitlePane() {
     val defaults = UIManager.getLookAndFeelDefaults()
     defaults["RootPaneUI"] = TitlePaneUI::class.java.name
     defaults[TitlePaneUI::class.java.name] = TitlePaneUI::class.java
