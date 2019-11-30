@@ -1,8 +1,3 @@
-- Icons
-    - Kotlin
-    - daemon icon
-
-
  - File Scopes
     - light monika
     - light natsuki
@@ -20,6 +15,8 @@
 
 Stretch Goals
 ----
+- Icons
+    - daemon icon
 - svg xsd
 - Plugin Settings Window
 - Editor Tabs
