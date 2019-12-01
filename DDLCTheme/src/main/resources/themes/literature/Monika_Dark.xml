@@ -260,7 +260,7 @@
         </option>
         <option name="CONSOLE_SELECTED_PARAMETER">
             <value>
-                <option name="BACKGROUND" value="242632"/>
+                <option name="BACKGROUND" value="30432B"/>
             </value>
         </option>
         <option name="CONSOLE_USER_INPUT">
@@ -659,7 +659,7 @@
         <option name="FOLDED_TEXT_ATTRIBUTES">
             <value>
                 <option name="FOREGROUND" value="666b87"/>
-                <option name="BACKGROUND" value="242632"/>
+                <option name="BACKGROUND" value="30432B"/>
             </value>
         </option>
         <option name="FOLLOWED_HYPERLINK_ATTRIBUTES">
