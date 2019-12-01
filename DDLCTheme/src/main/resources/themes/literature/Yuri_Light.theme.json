@@ -10,7 +10,7 @@
     "baseIconColor": "#615E7F",
     "ghostColor": "#FFFFFF00",
     "contrastColor": "#A8B0F0",
-    "nonProjectFileScopeColor": "#F3FFE6",
+    "nonProjectFileScopeColor": "#dfd5f3",
     "editorBackground": "#C6DAF0",
     "secondaryBackground": "#CCD9F3",
     "selectionForeground": "#FFFFFF",
@@ -36,7 +36,7 @@
     "accentColor": "#AB47BC",
     "accentContrastColor": "#252427",
     "stopColor": "#F595FF",
-    "testScopeColor": "#C0EDCC"
+    "testScopeColor": "#c7d8e7"
   },
   "ui": {
     "Panel.background": "baseBackground",

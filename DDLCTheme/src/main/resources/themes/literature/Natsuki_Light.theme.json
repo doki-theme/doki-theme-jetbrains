@@ -35,7 +35,7 @@
     "accentColor": "#E94686",
     "accentContrastColor": "#252427",
     "stopColor": "#fbadff",
-    "testScopeColor": "#C0EDCC"
+    "testScopeColor": "#ede8e4"
   },
   "ui": {
     "Panel.background": "baseBackground",
