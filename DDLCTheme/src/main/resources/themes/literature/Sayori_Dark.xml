@@ -102,7 +102,7 @@
         </option>
         <option name="ANNOTATION_NAME_ATTRIBUTES">
             <value>
-                <option name="FOREGROUND" value="e4ff10"/>
+                <option name="FOREGROUND" value="00BCD4"/>
                 <option name="EFFECT_TYPE" value="1"/>
             </value>
         </option>
@@ -395,7 +395,7 @@
         <option name="Class" baseAttributes="CLASS_NAME_ATTRIBUTES"/>
         <option name="DEFAULT_ATTRIBUTE">
             <value>
-                <option name="FOREGROUND" value="e4ff10"/>
+                <option name="FOREGROUND" value="00BCD4"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -454,7 +454,7 @@
         </option>
         <option name="DEFAULT_FUNCTION_CALL">
             <value>
-                <option name="FOREGROUND" value="e4ff10"/>
+                <option name="FOREGROUND" value="00BCD4"/>
             </value>
         </option>
         <option name="DEFAULT_FUNCTION_DECLARATION">
@@ -549,7 +549,7 @@
         </option>
         <option name="DEFAULT_STATIC_METHOD">
             <value>
-                <option name="FOREGROUND" value="e4ff10"/>
+                <option name="FOREGROUND" value="00BCD4"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -900,7 +900,7 @@
         </option>
         <option name="KOTLIN_ANNOTATION">
             <value>
-                <option name="FOREGROUND" value="e4ff10"/>
+                <option name="FOREGROUND" value="00BCD4"/>
                 <option name="EFFECT_TYPE" value="1"/>
             </value>
         </option>
@@ -912,7 +912,7 @@
         </option>
         <option name="KOTLIN_DYNAMIC_FUNCTION_CALL">
             <value>
-                <option name="FOREGROUND" value="e4ff10"/>
+                <option name="FOREGROUND" value="00BCD4"/>
                 <option name="FONT_TYPE" value="3"/>
             </value>
         </option>
@@ -2146,7 +2146,7 @@
         <option name="RUBY_WORDS" baseAttributes="DEFAULT_STRING"/>
         <option name="ReSharper.ASP_NET_ATTRIBUTE_NAME">
             <value>
-                <option name="FOREGROUND" value="e4ff10"/>
+                <option name="FOREGROUND" value="00BCD4"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -2174,7 +2174,7 @@
         </option>
         <option name="ReSharper.ASP_NET_MVC_ACTION">
             <value>
-                <option name="FOREGROUND" value="e4ff10"/>
+                <option name="FOREGROUND" value="00BCD4"/>
                 <option name="EFFECT_TYPE" value="1"/>
             </value>
         </option>
@@ -2205,7 +2205,7 @@
         </option>
         <option name="ReSharper.ASP_NET_RAZOR_ATTRIBUTE_NAME">
             <value>
-                <option name="FOREGROUND" value="e4ff10"/>
+                <option name="FOREGROUND" value="00BCD4"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -2232,7 +2232,7 @@
         </option>
         <option name="ReSharper.ASP_NET_RUN_AT_ATTRIBUTE">
             <value>
-                <option name="FOREGROUND" value="e4ff10"/>
+                <option name="FOREGROUND" value="00BCD4"/>
             </value>
         </option>
         <option name="ReSharper.ASP_NET_TAG_NAME">
