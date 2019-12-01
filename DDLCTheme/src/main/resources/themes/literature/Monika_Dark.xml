@@ -10,7 +10,7 @@
     <colors>
         <option name="INFORMATION_HINT" value="1A1E12"/>
         <option name="ERROR_HINT" value="704745"/>
-        <option name="ADDED_LINES_COLOR" value="1A351A"/>
+        <option name="ADDED_LINES_COLOR" value="203952"/>
         <option name="ANNOTATIONS_COLOR" value="292738"/>
         <option name="CARET_COLOR" value="56A23E"/>
         <option name="CARET_ROW_COLOR" value="122D13"/>
@@ -42,7 +42,7 @@
         <option name="GUTTER_BACKGROUND" value="1D2115"/>
         <option name="INDENT_GUIDE" value="202416"/>
         <option name="LINE_NUMBERS_COLOR" value="666879"/>
-        <option name="MODIFIED_LINES_COLOR" value="285C7B"/>
+        <option name="MODIFIED_LINES_COLOR" value="296C2A"/>
         <option name="NOTIFICATION_BACKGROUND" value="292738"/>
         <option name="RECENT_LOCATIONS_SELECTION" value="191a21"/>
         <option name="RIGHT_MARGIN_COLOR" value="202416"/>
