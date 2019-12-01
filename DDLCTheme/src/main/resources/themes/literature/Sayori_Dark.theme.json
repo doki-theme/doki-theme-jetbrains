@@ -201,9 +201,7 @@
 
     "PopupMenuSeparator.height": 1,
 
-    "CompletionPopup.background": "testScopeColor",
-    "CompletionPopup.selectionForeground": "selectionForeground",
-    "CompletionPopup.nonFocusedMask": "#EAEAF050",
+    "CompletionPopup.nonFocusedMask": "#EAEAF00A",
     "CompletionPopup.selectionBackground": "selectionBackground",
     "CompletionPopup.selectionInactiveBackground": "selectionInactive",
     "CompletionPopup.foreground": "foregroundColor",
