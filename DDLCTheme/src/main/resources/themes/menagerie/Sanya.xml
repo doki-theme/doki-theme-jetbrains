@@ -2469,8 +2469,8 @@
         </option>
         <option name="TEXT_SEARCH_RESULT_ATTRIBUTES">
             <value>
-                <option name="BACKGROUND" value="2c763b"/>
-                <option name="EFFECT_COLOR" value="3c704b"/>
+                <option name="BACKGROUND" value="49434c"/>
+                <option name="EFFECT_COLOR" value="49434c"/>
                 <option name="ERROR_STRIPE_COLOR" value="61936f"/>
             </value>
         </option>

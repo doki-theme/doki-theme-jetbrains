@@ -2710,8 +2710,8 @@
         <option name="TEXT_SEARCH_RESULT_ATTRIBUTES">
             <value>
                 <option name="FOREGROUND" value="272727" />
-                <option name="BACKGROUND" value="f8e71c" />
-                <option name="EFFECT_COLOR" value="f8e71c" />
+                <option name="BACKGROUND" value="C4C3CF" />
+                <option name="EFFECT_COLOR" value="2D79E9" />
             </value>
         </option>
         <option name="TODO_DEFAULT_ATTRIBUTES">
