@@ -7,14 +7,14 @@
     </metaInfo>
     <option name="LINE_SPACING" value="1.4"/>
     <colors>
-        <option name="INFORMATION_HINT" value="fefefa"/>
+        <option name="INFORMATION_HINT" value="E4FBE2"/>
         <option name="ADDED_LINES_COLOR" value="BEE6BE"/>
         <option name="ANNOTATIONS_COLOR" value="45393e"/>
         <option name="CARET_COLOR" value="45393e"/>
         <option name="CARET_ROW_COLOR" value="FFF6E4"/>
         <option name="CONSOLE_BACKGROUND_KEY" value="ecffea"/>
         <option name="DELETED_LINES_COLOR" value="d71b6a"/>
-        <option name="DOCUMENTATION_COLOR" value="ecffea"/>
+        <option name="DOCUMENTATION_COLOR" value="eaffe8"/>
         <option name="FILESTATUS_ADDED" value="10B15A"/>
         <option name="FILESTATUS_COPIED" value="10B15A"/>
         <option name="FILESTATUS_DELETED" value="6a737d"/>
@@ -37,35 +37,35 @@
         <option name="FILESTATUS_changelistConflict" value="d71b6a"/>
         <option name="FILESTATUS_modifiedOutside" value="5cc5"/>
         <option name="GUTTER_BACKGROUND" value="ecffea"/>
-        <option name="INDENT_GUIDE" value="f1f4e0"/>
+        <option name="INDENT_GUIDE" value="d8f1d0"/>
         <option name="LINE_NUMBERS_COLOR" value="aaaaaa"/>
         <option name="LINE_NUMBER_ON_CARET_ROW_COLOR" value="1b1f23"/>
         <option name="METHOD_SEPARATORS_COLOR" value="F3F2E2"/>
         <option name="MODIFIED_LINES_COLOR" value="CAD9FA"/>
         <option name="NOTIFICATION_BACKGROUND" value="f5e9ab"/>
-        <option name="RIGHT_MARGIN_COLOR" value="f1f4e0"/>
-        <option name="SELECTED_INDENT_GUIDE" value="f1f4e0"/>
+        <option name="RIGHT_MARGIN_COLOR" value="d8f1d0"/>
+        <option name="SELECTED_INDENT_GUIDE" value="d8f1d0"/>
         <option name="SELECTED_TEARLINE_COLOR" value="e0e0b0"/>
         <option name="SELECTION_BACKGROUND" value="FFFFBC"/>
         <option name="SELECTION_FOREGROUND" value="0"/>
-        <option name="SEPARATOR_ABOVE_COLOR" value="f1f4e0"/>
-        <option name="SEPARATOR_BELOW_COLOR" value="f1f4e0"/>
-        <option name="ScrollBar.Mac.Transparent.hoverThumbBorderColor" value="FFD04Ec0" mac="FFD04Ec0"/>
-        <option name="ScrollBar.Mac.Transparent.hoverThumbColor" value="FFD04Ec0" mac="FFD04Ec0"/>
-        <option name="ScrollBar.Mac.Transparent.thumbBorderColor" value="FFD04E80" mac="FFD04E80"/>
-        <option name="ScrollBar.Mac.Transparent.thumbColor" value="FFD04E80" mac="FFD04E80"/>
-        <option name="ScrollBar.Mac.hoverThumbBorderColor" value="FFD04EFF" mac="FFD04EFF"/>
-        <option name="ScrollBar.Mac.hoverThumbColor" value="FFD04EFF" mac="FFD04EFF"/>
-        <option name="ScrollBar.Mac.thumbBorderColor" value="FFD04EC0" mac="FFD04EC0"/>
-        <option name="ScrollBar.Mac.thumbColor" value="FFD04EC0" mac="FFD04EC0"/>
-        <option name="ScrollBar.Transparent.hoverThumbBorderColor" value="FFD04Ec0" mac="FFD04Ec0"/>
-        <option name="ScrollBar.Transparent.hoverThumbColor" value="FFD04Ec0" mac="FFD04Ec0"/>
-        <option name="ScrollBar.Transparent.thumbBorderColor" value="FFD04E80" mac="FFD04E80"/>
-        <option name="ScrollBar.Transparent.thumbColor" value="FFD04E80" mac="FFD04E80"/>
-        <option name="ScrollBar.hoverThumbBorderColor" value="FFD04EFF" mac="FFD04EFF"/>
-        <option name="ScrollBar.hoverThumbColor" value="FFD04EFF" mac="FFD04EFF"/>
-        <option name="ScrollBar.thumbBorderColor" value="FFD04EC0" mac="FFD04EC0"/>
-        <option name="ScrollBar.thumbColor" value="FFD04EC0" mac="FFD04EC0"/>
+        <option name="SEPARATOR_ABOVE_COLOR" value="d8f1d0"/>
+        <option name="SEPARATOR_BELOW_COLOR" value="d8f1d0"/>
+        <option name="ScrollBar.Mac.Transparent.hoverThumbBorderColor" value="388E3C9A" mac="388E3C9A"/>
+        <option name="ScrollBar.Mac.Transparent.hoverThumbColor" value="388E3C9A" mac="388E3C9A"/>
+        <option name="ScrollBar.Mac.Transparent.thumbBorderColor" value="388E3C5A" mac="388E3C5A"/>
+        <option name="ScrollBar.Mac.Transparent.thumbColor" value="388E3C5A" mac="388E3C5A"/>
+        <option name="ScrollBar.Mac.hoverThumbBorderColor" value="388E3C9A" mac="388E3C9A"/>
+        <option name="ScrollBar.Mac.hoverThumbColor" value="388E3C9A" mac="388E3C9A"/>
+        <option name="ScrollBar.Mac.thumbBorderColor" value="388E3C5A" mac="388E3C5A"/>
+        <option name="ScrollBar.Mac.thumbColor" value="388E3C5A" mac="388E3C5A"/>
+        <option name="ScrollBar.Transparent.hoverThumbBorderColor" value="388E3C9A" mac="388E3C9A"/>
+        <option name="ScrollBar.Transparent.hoverThumbColor" value="388E3C9A" mac="388E3C9A"/>
+        <option name="ScrollBar.Transparent.thumbBorderColor" value="388E3C5A" mac="388E3C5A"/>
+        <option name="ScrollBar.Transparent.thumbColor" value="388E3C5A" mac="388E3C5A"/>
+        <option name="ScrollBar.hoverThumbBorderColor" value="388E3C9A" mac="388E3C9A"/>
+        <option name="ScrollBar.hoverThumbColor" value="388E3C9A" mac="388E3C9A"/>
+        <option name="ScrollBar.thumbBorderColor" value="388E3C5A" mac="388E3C5A"/>
+        <option name="ScrollBar.thumbColor" value="388E3C5A" mac="388E3C5A"/>
         <option name="ScrollBar.Mac.Transparent.hoverTrackColor" value="ecffea" mac="ecffea"/>
         <option name="ScrollBar.Mac.Transparent.trackColor" value="ecffea" mac="ecffea"/>
         <option name="ScrollBar.Mac.hoverTrackColor" value="ecffea" mac="ecffea"/>
@@ -75,7 +75,7 @@
         <option name="ScrollBar.hoverTrackColor" value="ecffea" mac="ecffea"/>
         <option name="ScrollBar.trackColor" value="ecffea" mac="ecffea"/>
         <option name="TEARLINE_COLOR" value="ecffea"/>
-        <option name="VISUAL_INDENT_GUIDE" value="f1f4e0"/>
+        <option name="VISUAL_INDENT_GUIDE" value="d8f1d0"/>
         <option name="WHITESPACES" value="b5b5b5"/>
         <option name="WHITESPACES_MODIFIED_LINES_COLOR" value="f6f0de"/>
     </colors>

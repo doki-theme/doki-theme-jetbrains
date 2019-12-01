@@ -1,9 +1,14 @@
 - Light Doki Themes
+- Icons
+    - Duo tone spinner
+    - Better json
+    - Java icon
+- Type Hint tooltip things
 
 - Sticker Swappo
 - Search background colors
     - Really anything under the caret
-
+- Bread Crumbs
 - Legacy Theme -> Next Gen Theme install UX
 - Color Scheme Restoration (so do not have to reset colors erry time)
 - Theme change animation
@@ -11,6 +16,7 @@
     -ThemeJsonSchemaProviderFactory
 - Slack reporter borked.
 - Color scheme cleanup (alphabetize that shit yo)
+- Address all in code todos
 
 Stretch Goals
 ----
