@@ -7,12 +7,17 @@
         <property name="modified">2019-11-23T11:25:46</property>
     </metaInfo>
     <colors>
+        <option name="DOCUMENTATION_COLOR" value="171823"/>
         <option name="INFORMATION_HINT" value="12131f"/>
         <option name="ERROR_HINT" value="704745"/>
         <option name="CONSOLE_BACKGROUND_KEY" value="181925" />
         <option name="GUTTER_BACKGROUND" value="181925" />
         <option name="SEPARATOR_ABOVE_COLOR" value="1f202d" />
         <option name="SEPARATOR_BELOW_COLOR" value="1f202d" />
+        <option name="SEPARATOR_BELOW_COLOR" value="1f202d"/>
+        <option name="SOFT_WRAP_SIGN_COLOR" value="1f202d"/>
+        <option name="RIGHT_MARGIN_COLOR" value="1f202d"/>
+        <option name="INDENT_GUIDE" value="1f202d"/>
     </colors>
     <attributes>
         <option name="TEXT">
