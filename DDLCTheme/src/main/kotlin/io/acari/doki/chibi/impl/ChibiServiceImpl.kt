@@ -22,7 +22,7 @@ private const val CLUB_MEMBER_ON = "CLUB_MEMBER_ON"
 const val DOKI_BACKGROUND_PROP: String = "io.acari.doki.background"
 private val messageDigest: MessageDigest = MessageDigest.getInstance("MD5")
 private const val RESOURCES_DIRECTORY =
-    "https://raw.githubusercontent.com/cyclic-reference/ddlc-jetbrains-theme/master/src/main/resources"
+    "https://raw.githubusercontent.com/cyclic-reference/ddlc-jetbrains-theme/master/assets"
 const val DOKI_CHIBI_PROP: String = "io.acari.doki.chibi"
 
 class ChibiServiceImpl : ChibiService {

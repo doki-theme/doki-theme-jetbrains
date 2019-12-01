@@ -40,7 +40,7 @@
         </p>
 
             <br/><br/><br/>
-            <div align="center"><img src="https://raw.githubusercontent.com/cyclic-reference/jetbrains-theme/master/src/main/resources/themes/DDLC_LOGO.png" alt="DDLC"></img></div>
+            <div align="center"><img src="https://raw.githubusercontent.com/cyclic-reference/jetbrains-theme/master/assets/themes/DDLC_LOGO.png" alt="DDLC"></img></div>
         ]]></description>
 
     <depends>com.intellij.modules.platform</depends>
