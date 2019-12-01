@@ -591,20 +591,20 @@
         </option>
         <option name="DIFF_DELETED">
             <value>
-                <option name="FOREGROUND" value="656565"/>
-                <option name="BACKGROUND" value="565656"/>
+                <option name="BACKGROUND" value="3C3C3C"/>
+                <option name="FOREGROUND" value="4B4B4B"/>
                 <option name="ERROR_STRIPE_COLOR" value="656e76"/>
             </value>
         </option>
         <option name="DIFF_INSERTED">
             <value>
-                <option name="BACKGROUND" value="204B21"/>
-                <option name="ERROR_STRIPE_COLOR" value="344C69"/>
+                <option name="BACKGROUND" value="1A351A"/>
+                <option name="ERROR_STRIPE_COLOR" value="43698d"/>
             </value>
         </option>
         <option name="DIFF_MODIFIED">
             <value>
-                <option name="BACKGROUND" value="203952"/>
+                <option name="BACKGROUND" value="294C6C"/>
                 <option name="ERROR_STRIPE_COLOR" value="227125"/>
             </value>
         </option>
