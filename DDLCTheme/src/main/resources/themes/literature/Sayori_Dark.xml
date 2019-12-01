@@ -108,7 +108,7 @@
         </option>
         <option name="ANONYMOUS_CLASS_NAME_ATTRIBUTES">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="3F77EF"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -117,7 +117,7 @@
         </option>
         <option name="BASH.EXTERNAL_COMMAND">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="3F77EF"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -127,7 +127,7 @@
         <option name="BASH.HERE_DOC_START" baseAttributes="DEFAULT_KEYWORD"/>
         <option name="BASH.INTERNAL_COMMAND">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="3F77EF"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -201,7 +201,7 @@
         </option>
         <option name="CONSOLE_CYAN_BRIGHT_OUTPUT">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="3F77EF"/>
             </value>
         </option>
         <option name="CONSOLE_CYAN_OUTPUT">
@@ -287,7 +287,7 @@
         </option>
         <option name="CONSTRUCTOR_CALL_ATTRIBUTES">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="3F77EF"/>
             </value>
         </option>
         <option name="CSS.COLON">
@@ -303,7 +303,7 @@
         </option>
         <option name="CSS.FUNCTION">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="3F77EF"/>
             </value>
         </option>
         <option name="CSS.HASH">
@@ -329,7 +329,7 @@
         </option>
         <option name="CSS.PROPERTY_NAME">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="3F77EF"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -373,7 +373,7 @@
         </option>
         <option name="CUSTOM_KEYWORD2_ATTRIBUTES">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="3F77EF"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -407,12 +407,12 @@
         </option>
         <option name="DEFAULT_CLASS_NAME">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="3F77EF"/>
             </value>
         </option>
         <option name="DEFAULT_CLASS_REFERENCE">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="3F77EF"/>
             </value>
         </option>
         <option name="DEFAULT_COMMA">
@@ -432,7 +432,7 @@
         </option>
         <option name="DEFAULT_DOC_COMMENT_TAG">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="3F77EF"/>
                 <option name="FONT_TYPE" value="3"/>
                 <option name="EFFECT_TYPE" value="1"/>
             </value>
@@ -474,7 +474,7 @@
         </option>
         <option name="DEFAULT_INTERFACE_NAME">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="3F77EF"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -498,7 +498,7 @@
         </option>
         <option name="DEFAULT_METADATA">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="3F77EF"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -640,7 +640,7 @@
         <option name="ELIXIR_VARIABLE" baseAttributes="DEFAULT_LOCAL_VARIABLE"/>
         <option name="ENUM_NAME_ATTRIBUTES">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="3F77EF"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -673,7 +673,7 @@
         <option name="GHERKIN_REGEXP_PARAMETER" baseAttributes="DEFAULT_PARAMETER"/>
         <option name="GO_BUILTIN_TYPE_REFERENCE">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="3F77EF"/>
             </value>
         </option>
         <option name="GO_FUNCTION_PARAMETER">
@@ -744,7 +744,7 @@
         </option>
         <option name="HTTP_REQUEST_PORT">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="3F77EF"/>
             </value>
         </option>
         <option name="HYPERLINK_ATTRIBUTES">
@@ -780,7 +780,7 @@
         </option>
         <option name="IGNORE.NEGATION">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="3F77EF"/>
                 <option name="FONT_TYPE" value="1"/>
             </value>
         </option>
@@ -860,7 +860,7 @@
         <option name="JAVA_VALID_STRING_ESCAPE" baseAttributes="DEFAULT_VALID_STRING_ESCAPE"/>
         <option name="JS.CONSOLE">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="3F77EF"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -906,7 +906,7 @@
         </option>
         <option name="KOTLIN_CLOSURE_DEFAULT_PARAMETER">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="3F77EF"/>
                 <option name="FONT_TYPE" value="1"/>
             </value>
         </option>
@@ -981,7 +981,7 @@
         </option>
         <option name="LOG_INFO_OUTPUT">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="3F77EF"/>
             </value>
         </option>
         <option name="LOG_VERBOSE_OUTPUT">
@@ -1000,7 +1000,7 @@
         </option>
         <option name="MARKDOWN_AUTO_LINK">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="3F77EF"/>
                 <option name="EFFECT_COLOR" value="287bde"/>
                 <option name="EFFECT_TYPE" value="1"/>
             </value>
@@ -1013,13 +1013,13 @@
         </option>
         <option name="MARKDOWN_LINK_DESTINATION">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="3F77EF"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
         <option name="MARKDOWN_LINK_LABEL">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="3F77EF"/>
                 <option name="FONT_TYPE" value="1"/>
             </value>
         </option>
@@ -1031,7 +1031,7 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.ABBREVIATED_TEXT">
             <value>
-                <option name="EFFECT_COLOR" value="ef2066"/>
+                <option name="EFFECT_COLOR" value="3F77EF"/>
                 <option name="EFFECT_TYPE" value="5"/>
             </value>
         </option>
@@ -1055,8 +1055,8 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.AUTO_LINK">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
-                <option name="EFFECT_COLOR" value="ef2066"/>
+                <option name="FOREGROUND" value="3F77EF"/>
+                <option name="EFFECT_COLOR" value="3F77EF"/>
                 <option name="EFFECT_TYPE" value="1"/>
             </value>
         </option>
@@ -1104,7 +1104,7 @@
                 baseAttributes="MARKDOWN_NAVIGATOR.DEBUG_FORMAT_TEXT_BLOCK"/>
         <option name="MARKDOWN_NAVIGATOR.DEBUG_FORMAT_PREFIX">
             <value>
-                <option name="EFFECT_COLOR" value="ef2066"/>
+                <option name="EFFECT_COLOR" value="3F77EF"/>
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.DEBUG_FORMAT_TEXT_BLOCK">
@@ -1126,7 +1126,7 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.EMOJI_ID">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="3F77EF"/>
                 <option name="FONT_TYPE" value="1"/>
             </value>
         </option>
@@ -1838,7 +1838,7 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.TOC_OPTION">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="3F77EF"/>
                 <option name="FONT_TYPE" value="3"/>
             </value>
         </option>
@@ -1931,7 +1931,7 @@
         </option>
         <option name="OC.TYPEDEF">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="3F77EF"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -1960,7 +1960,7 @@
         <option name="PROPERTIES.INVALID_STRING_ESCAPE" baseAttributes="DEFAULT_INVALID_STRING_ESCAPE"/>
         <option name="PROPERTIES.KEY">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="3F77EF"/>
                 <option name="EFFECT_TYPE" value="1"/>
             </value>
         </option>
@@ -1968,7 +1968,7 @@
         <option name="PROPERTIES.VALID_STRING_ESCAPE" baseAttributes="DEFAULT_VALID_STRING_ESCAPE"/>
         <option name="PY.BUILTIN_NAME">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="3F77EF"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -2003,7 +2003,7 @@
         </option>
         <option name="RDOC_EMAIL">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="3F77EF"/>
             </value>
         </option>
         <option name="RDOC_HEADINGS">
@@ -2062,7 +2062,7 @@
         </option>
         <option name="REGEXP.META">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="3F77EF"/>
             </value>
         </option>
         <option name="REGEXP.PARENTHS">
@@ -2126,7 +2126,7 @@
         <option name="RUBY_NUMBER" baseAttributes="DEFAULT_NUMBER"/>
         <option name="RUBY_PARAMDEF_CALL">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="3F77EF"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -2134,7 +2134,7 @@
         <option name="RUBY_REGEXP" baseAttributes="DEFAULT_TEMPLATE_LANGUAGE_COLOR"/>
         <option name="RUBY_SPECIFIC_CALL">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="3F77EF"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -2304,21 +2304,21 @@
         </option>
         <option name="ReSharper.STATIC_CLASS_IDENTIFIER">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="3F77EF"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
         <option name="ReSharper.STRING_ESCAPE_CHARACTER_2" baseAttributes="DEFAULT_VALID_STRING_ESCAPE"/>
         <option name="ReSharper.STRUCT_IDENTIFIER">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
-                <option name="EFFECT_COLOR" value="ef2066"/>
+                <option name="FOREGROUND" value="3F77EF"/>
+                <option name="EFFECT_COLOR" value="3F77EF"/>
                 <option name="EFFECT_TYPE" value="1"/>
             </value>
         </option>
         <option name="ReSharper.TYPE_PARAMETER_IDENTIFIER">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="3F77EF"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -2360,7 +2360,7 @@
         <option name="SLIM_TAG" baseAttributes="DEFAULT_KEYWORD"/>
         <option name="SLIM_TAG_ATTR_KEY">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="3F77EF"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -2437,7 +2437,7 @@
         </option>
         <option name="Scala Predefined types">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="3F77EF"/>
             </value>
         </option>
         <option name="Scala Type parameter" baseAttributes="TYPE_PARAMETER_NAME_ATTRIBUTES"/>
@@ -2483,13 +2483,13 @@
         </option>
         <option name="TS.PRIVATE_PUBLIC">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="3F77EF"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
         <option name="TS.TYPE_PARAMETER">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="3F77EF"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -2560,7 +2560,7 @@
         </option>
         <option name="YAML_SCALAR_KEY">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="3F77EF"/>
             </value>
         </option>
         <option name="YAML_SCALAR_LIST">
@@ -2585,7 +2585,7 @@
         <option name="org.rust.LIFETIME" baseAttributes="DEFAULT_IDENTIFIER"/>
         <option name="org.rust.MACRO">
             <value>
-                <option name="FOREGROUND" value="ef2066"/>
+                <option name="FOREGROUND" value="3F77EF"/>
             </value>
         </option>
         <option name="org.rust.MUT_PARAMETER" baseAttributes="DEFAULT_PARAMETER"/>
