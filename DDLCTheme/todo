@@ -9,6 +9,7 @@
 - theme schema
     -ThemeJsonSchemaProviderFactory
 - Slack reporter borked.
+- Color scheme cleanup (alphabetize that shit yo)
 
 Stretch Goals
 ----
