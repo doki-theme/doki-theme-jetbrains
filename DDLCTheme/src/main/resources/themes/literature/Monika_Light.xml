@@ -80,6 +80,12 @@
         <option name="WHITESPACES_MODIFIED_LINES_COLOR" value="f6f0de"/>
     </colors>
     <attributes>
+        <option name="ABSTRACT_CLASS_NAME_ATTRIBUTES">
+            <value>
+                <option name="FOREGROUND" value="B0DD3E"/>
+                <option name="FONT_TYPE" value="2"/>
+            </value>
+        </option>
         <option name="ANNOTATION_NAME_ATTRIBUTES">
             <value>
                 <option name="FOREGROUND" value="388E3C"/>
@@ -106,7 +112,13 @@
         </option>
         <option name="BASH.REDIRECTION" baseAttributes="DEFAULT_OPERATION_SIGN"/>
         <option name="BASH.SHEBANG" baseAttributes="BASH.LINE_COMMENT"/>
+        <option name="COFFEESCRIPT.CLASS_NAME">
+            <value>
+                <option name="FOREGROUND" value="B0DD3E"/>
+            </value>
+        </option>
         <option name="COFFEESCRIPT.FUNCTION_NAME" baseAttributes="DEFAULT_FUNCTION_DECLARATION"/>
+        <option name="COFFEESCRIPT.GLOBAL_VARIABLE" baseAttributes="JS.GLOBAL_VARIABLE"/>
         <option name="CONSOLE_BLUE_BRIGHT_OUTPUT">
             <value>
                 <option name="FOREGROUND" value="bd93f9" />
@@ -206,37 +218,55 @@
                 <option name="FOREGROUND" value="C78249" />
             </value>
         </option>
-        <option name="CSS$CLASS_NAME">
+        <option name="CSS.CLASS_NAME">
             <value>
                 <option name="FOREGROUND" value="0"/>
             </value>
         </option>
-        <option name="CSS$FUNCTION">
+        <option name="CSS.FUNCTION">
             <value>
                 <option name="FOREGROUND" value="6f42c1"/>
             </value>
         </option>
-        <option name="CSS$HASH">
+        <option name="CSS.HASH">
             <value>
                 <option name="FOREGROUND" value="0"/>
             </value>
         </option>
-        <option name="CSS$IDENT">
+        <option name="CSS.HASH">
+            <value>
+                <option name="FOREGROUND" value="B0DD3E"/>
+                <option name="FONT_TYPE" value="2"/>
+            </value>
+        </option>
+        <option name="CSS.IDENT">
             <value>
                 <option name="FOREGROUND" value="0"/>
             </value>
         </option>
-        <option name="CSS$PROPERTY_NAME">
+        <option name="CSS.IDENT">
+            <value>
+                <option name="FOREGROUND" value="B0DD3E"/>
+            </value>
+        </option>
+        <option name="CSS.PROPERTY_NAME">
             <value>
                 <option name="FOREGROUND" value="0"/>
             </value>
         </option>
-        <option name="CSS$PSEUDO">
+        <option name="CSS.PSEUDO">
+            <value>
+                <option name="FOREGROUND" value="B0DD3E"/>
+                <option name="FONT_TYPE" value="2"/>
+            </value>
+        </option>
+
+        <option name="CSS.PSEUDO">
             <value>
                 <option name="FOREGROUND" value="0"/>
             </value>
         </option>
-        <option name="CSS$TAG_NAME">
+        <option name="CSS.TAG_NAME">
             <value>
                 <option name="FOREGROUND" value="0"/>
             </value>
@@ -396,7 +426,7 @@
         </option>
         <option name="DEFAULT_FUNCTION_DECLARATION">
             <value>
-                <option name="FOREGROUND" value="6f42c1"/>
+                <option name="FOREGROUND" value="B0DD3E"/>
             </value>
         </option>
         <option name="DEFAULT_IDENTIFIER">
@@ -413,8 +443,8 @@
         </option>
         <option name="DEFAULT_INVALID_STRING_ESCAPE">
             <value>
+                <option name="FOREGROUND" value="B0DD3E"/>
                 <option name="EFFECT_COLOR" value="388E3C"/>
-                <option name="ERROR_STRIPE_COLOR" value="388E3C"/>
                 <option name="EFFECT_TYPE" value="2"/>
             </value>
         </option>
@@ -458,7 +488,8 @@
         </option>
         <option name="DEFAULT_PREDEFINED_SYMBOL">
             <value>
-                <option name="FOREGROUND" value="5cc4"/>
+                <option name="FOREGROUND" value="B0DD3E"/>
+                <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
         <option name="DEFAULT_REASSIGNED_LOCAL_VARIABLE" baseAttributes="DEFAULT_LOCAL_VARIABLE"/>
@@ -576,11 +607,58 @@
         <option name="GHERKIN_OUTLINE_PARAMETER_SUBSTITUTION" baseAttributes="DEFAULT_INSTANCE_FIELD"/>
         <option name="GHERKIN_PYSTRING" baseAttributes="DEFAULT_STRING"/>
         <option name="GHERKIN_REGEXP_PARAMETER" baseAttributes="DEFAULT_PARAMETER"/>
+        <option name="GO_BUILTIN_TYPE_REFERENCE">
+            <value>
+                <option name="FOREGROUND" value="6f42c1"/>
+            </value>
+        </option>
+        <option name="GO_FUNCTION_PARAMETER">
+            <value>
+                <option name="FOREGROUND" value="e36209"/>
+            </value>
+        </option>
+        <option name="GO_METHOD_RECEIVER">
+            <value>
+                <option name="FOREGROUND" value="e36209"/>
+            </value>
+        </option>
+        <option name="GRID_ERROR_VALUE">
+            <value>
+                <option name="EFFECT_COLOR" value="ff5555"/>
+                <option name="ERROR_STRIPE_COLOR" value="cd4848"/>
+                <option name="EFFECT_TYPE" value="2"/>
+            </value>
+        </option>
         <option name="GROOVY_KEYWORD" baseAttributes="JAVA_KEYWORD"/>
+        <option name="Groovy method declaration" baseAttributes="METHOD_DECLARATION_ATTRIBUTES"/>
+        <option name="HAML_CLASS">
+            <value>
+                <option name="FOREGROUND" value="B0DD3E"/>
+            </value>
+        </option>
+        <option name="HAML_COMMENT" baseAttributes="DEFAULT_DOC_COMMENT"/>
+        <option name="HAML_FILTER" baseAttributes="DEFAULT_LABEL"/>
+        <option name="HAML_FILTER_CONTENT" baseAttributes="DEFAULT_TEMPLATE_LANGUAGE_COLOR"/>
+        <option name="HAML_ID">
+            <value>
+                <option name="FOREGROUND" value="B0DD3E"/>
+                <option name="FONT_TYPE" value="2"/>
+            </value>
+        </option>
+        <option name="HAML_RUBY_CODE" baseAttributes="INJECTED_LANGUAGE_FRAGMENT"/>
+        <option name="HAML_TAG" baseAttributes="TEXT"/>
+        <option name="HAML_TEXT" baseAttributes="TEXT"/>
+        <option name="HTML_ATTRIBUTE_NAME" baseAttributes="DEFAULT_ATTRIBUTE"/>
+        <option name="HTML_ATTRIBUTE_VALUE" baseAttributes="DEFAULT_STRING"/>
         <option name="HOCON_SUBSTITUTION_SIGN" baseAttributes="DEFAULT_OPERATION_SIGN"/>
         <option name="HTML_TAG_NAME">
             <value>
                 <option name="FOREGROUND" value="22863a"/>
+            </value>
+        </option>
+        <option name="HTTP_REQUEST_INPUT_FILE">
+            <value>
+                <option name="FOREGROUND" value="B0DD3E"/>
             </value>
         </option>
         <option name="HTTP_REQUEST_MULTIPART_BOUNDARY" baseAttributes="DEFAULT_DOC_COMMENT_TAG_VALUE"/>
@@ -607,7 +685,7 @@
                 <option name="EFFECT_TYPE" value="1"/>
             </value>
         </option>
-        <option name="IGNORE$NEGATION">
+        <option name="IGNORE.NEGATION">
             <value>
                 <option name="FOREGROUND" value="0"/>
             </value>
@@ -897,7 +975,8 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.BULLET_LIST">
             <value>
-                <option name="FOREGROUND" value="e36209"/>
+                <option name="FOREGROUND" value="B0DD3E"/>
+                <option name="FONT_TYPE" value="1"/>
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.DEBUG_FLEXMARK_SOURCE_KEY"
@@ -1538,7 +1617,7 @@
         <option name="MARKDOWN_NAVIGATOR.UNDERLINE_MARKER" baseAttributes="DEFAULT_OPERATION_SIGN"/>
         <option name="MARKDOWN_NAVIGATOR.VERBATIM_LANG">
             <value>
-                <option name="FOREGROUND" value="5cc5"/>
+                <option name="FOREGROUND" value="B0DD3E"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -1624,7 +1703,7 @@
         </option>
         <option name="OC.STRUCT_LIKE">
             <value>
-                <option name="FOREGROUND" value="6f42c1"/>
+                <option name="FOREGROUND" value="B0DD3E"/>
             </value>
         </option>
         <option name="OC.TYPEDEF">
@@ -1665,17 +1744,17 @@
         <option name="POD_CODE" baseAttributes="DEFAULT_DOC_COMMENT"/>
         <option name="POD_TAG" baseAttributes="DEFAULT_DOC_COMMENT_TAG"/>
         <option name="PUPPET_HEREDOC_TAGS" baseAttributes="DEFAULT_IDENTIFIER"/>
-        <option name="PY$DECORATOR">
+        <option name="PY.DECORATOR">
             <value>
-                <option name="FOREGROUND" value="cd3948"/>
+                <option name="FOREGROUND" value="B0DD3E"/>
             </value>
         </option>
-        <option name="PY$PARAMETER">
+        <option name="PY.PARAMETER">
             <value>
                 <option name="FOREGROUND" value="0"/>
             </value>
         </option>
-        <option name="PY$SELF_PARAMETER">
+        <option name="PY.SELF_PARAMETER">
             <value>
                 <option name="FOREGROUND" value="7f7f7f"/>
             </value>
@@ -1699,7 +1778,7 @@
         <option name="PY.STRING.U" baseAttributes="DEFAULT_STRING"/>
         <option name="RDOC_DIRECTIVE">
             <value>
-                <option name="FOREGROUND" value="6f42c1"/>
+                <option name="FOREGROUND" value="B0DD3E"/>
             </value>
         </option>
         <option name="RDOC_EMAIL">
@@ -1729,12 +1808,12 @@
                 <option name="FONT_TYPE" value="1"/>
             </value>
         </option>
-        <option name="REST$FIXED">
+        <option name="REST.FIXED">
             <value>
                 <option name="BACKGROUND" value="F3F2E2"/>
             </value>
         </option>
-        <option name="REST$INTERPRETED">
+        <option name="REST.INTERPRETED">
             <value>
                 <option name="BACKGROUND" value="F3F2E2"/>
             </value>
@@ -1745,6 +1824,13 @@
         <option name="RHTML_SCRIPTING_BACKGROUND_ID" baseAttributes="XML_TAG_NAME"/>
         <option name="RHTML_SCRIPTLET_END_ID" baseAttributes="XML_TAG_NAME"/>
         <option name="RHTML_SCRIPTLET_START_ID" baseAttributes="XML_TAG_NAME"/>
+        <option name="RUBY_BAD_CHARACTER" baseAttributes="BAD_CHARACTER"/>
+        <option name="RUBY_COMMENT" baseAttributes="DEFAULT_DOC_COMMENT"/>
+        <option name="RUBY_CONSTANT">
+            <value>
+                <option name="FOREGROUND" value="B0DD3E"/>
+            </value>
+        </option>
         <option name="RUBY_EXPR_IN_STRING" baseAttributes="DEFAULT_PARENTHS"/>
         <option name="RUBY_GVAR" baseAttributes="DEFAULT_GLOBAL_VARIABLE"/>
         <option name="RUBY_HASH_ASSOC" baseAttributes="DEFAULT_OPERATION_SIGN"/>
@@ -1765,9 +1851,14 @@
                 <option name="FOREGROUND" value="5cc5"/>
             </value>
         </option>
+        <option name="ReSharper.EXTENSION_METHOD_IDENTIFIER">
+            <value>
+                <option name="FOREGROUND" value="B0DD3E"/>
+            </value>
+        </option>
         <option name="SASS_MIXIN">
             <value>
-                <option name="FOREGROUND" value="6f42c1"/>
+                <option name="FOREGROUND" value="B0DD3E"/>
                 <option name="FONT_TYPE" value="1"/>
             </value>
         </option>
@@ -1776,6 +1867,15 @@
                 <option name="BACKGROUND" value="F3F2E2"/>
             </value>
         </option>
+        <option name="SLIM_CALL" baseAttributes="DEFAULT_KEYWORD"/>
+        <option name="SLIM_CLASS">
+            <value>
+                <option name="FOREGROUND" value="B0DD3E"/>
+                <option name="FONT_TYPE" value="2"/>
+            </value>
+        </option>
+        <option name="SLIM_COMMENT" baseAttributes="DEFAULT_DOC_COMMENT"/>
+        <option name="SLIM_DOCTYPE_KWD" baseAttributes="DEFAULT_KEYWORD"/>
         <option name="SLIM_FILTER" baseAttributes="DEFAULT_LABEL"/>
         <option name="SLIM_FILTER_CONTENT" baseAttributes="DEFAULT_TEMPLATE_LANGUAGE_COLOR"/>
         <option name="SLIM_ID" baseAttributes="CSS.HASH"/>
@@ -1868,6 +1968,11 @@
         <option name="WRITE_SEARCH_RESULT_ATTRIBUTES">
             <value>
                 <option name="BACKGROUND" value="F3F2E2"/>
+            </value>
+        </option>
+        <option name="XML_ATTRIBUTE_NAME">
+            <value>
+                <option name="FOREGROUND" value="B0DD3E"/>
             </value>
         </option>
         <option name="XML_PROLOGUE" baseAttributes="TEXT"/>
