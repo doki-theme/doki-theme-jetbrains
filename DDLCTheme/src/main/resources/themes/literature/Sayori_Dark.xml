@@ -11,12 +11,12 @@
     <colors>
         <option name="INFORMATION_HINT" value="12131f"/>
         <option name="ERROR_HINT" value="704745"/>
-        <option name="ADDED_LINES_COLOR" value="264B33"/>
+        <option name="ADDED_LINES_COLOR" value="1A351A"/>
         <option name="ANNOTATIONS_COLOR" value="292738"/>
         <option name="CARET_COLOR" value="6C77CE"/>
         <option name="CARET_ROW_COLOR" value="37435A"/>
         <option name="CONSOLE_BACKGROUND_KEY" value="181925"/>
-        <option name="DELETED_LINES_COLOR" value="bca3aa"/>
+        <option name="DELETED_LINES_COLOR" value="656565"/>
         <option name="DOCUMENTATION_COLOR" value="171823"/>
         <option name="FILESTATUS_ADDED" value="10B15A"/>
         <option name="FILESTATUS_COPIED" value="10B15A"/>
@@ -43,7 +43,7 @@
         <option name="GUTTER_BACKGROUND" value="181925"/>
         <option name="INDENT_GUIDE" value="1f202d"/>
         <option name="LINE_NUMBERS_COLOR" value="666879"/>
-        <option name="MODIFIED_LINES_COLOR" value="12404B"/>
+        <option name="MODIFIED_LINES_COLOR" value="285C7B"/>
         <option name="NOTIFICATION_BACKGROUND" value="292738"/>
         <option name="RECENT_LOCATIONS_SELECTION" value="191a21"/>
         <option name="RIGHT_MARGIN_COLOR" value="1f202d"/>
@@ -70,16 +70,16 @@
         <option name="ScrollBar.hoverThumbColor" value="00BCD49A" mac="00BCD49A"/>
         <option name="ScrollBar.thumbBorderColor" value="00BCD45A" mac="00BCD45A"/>
         <option name="ScrollBar.thumbColor" value="00BCD45A" mac="00BCD45A"/>181925
-        <option name="ScrollBar.Mac.Transparent.hoverTrackColor" value="292738" mac="292738"/>
-        <option name="ScrollBar.Mac.Transparent.trackColor" value="292738" mac="292738"/>
-        <option name="ScrollBar.Mac.hoverTrackColor" value="292738" mac="292738"/>
-        <option name="ScrollBar.Mac.trackColor" value="292738" mac="292738"/>
-        <option name="ScrollBar.Transparent.hoverTrackColor" value="292738" mac="292738"/>
-        <option name="ScrollBar.Transparent.trackColor" value="292738" mac="292738"/>
-        <option name="ScrollBar.hoverTrackColor" value="292738" mac="292738"/>
-        <option name="ScrollBar.trackColor" value="292738" mac="292738"/>
+        <option name="ScrollBar.Mac.Transparent.hoverTrackColor" value="181925" mac="181925"/>
+        <option name="ScrollBar.Mac.Transparent.trackColor" value="181925" mac="181925"/>
+        <option name="ScrollBar.Mac.hoverTrackColor" value="181925" mac="181925"/>
+        <option name="ScrollBar.Mac.trackColor" value="181925" mac="181925"/>
+        <option name="ScrollBar.Transparent.hoverTrackColor" value="181925" mac="181925"/>
+        <option name="ScrollBar.Transparent.trackColor" value="181925" mac="181925"/>
+        <option name="ScrollBar.hoverTrackColor" value="181925" mac="181925"/>
+        <option name="ScrollBar.trackColor" value="181925" mac="181925"/>
         <option name="TEARLINE_COLOR" value="181925"/>
-        <option name="TOOLTIP" value="292738"/>
+        <option name="TOOLTIP" value="181925"/>
         <option name="VCS_ANNOTATIONS_COLOR_1" value="9369D6"/>
         <option name="VCS_ANNOTATIONS_COLOR_2" value="B591D6"/>
         <option name="VCS_ANNOTATIONS_COLOR_3" value="A651D6"/>
@@ -142,7 +142,7 @@
         <option name="BREADCRUMBS_DEFAULT">
             <value>
                 <option name="FOREGROUND" value="bbbbbb"/>
-                <option name="BACKGROUND" value="292738"/>
+                <option name="BACKGROUND" value="181925"/>
             </value>
         </option>
         <option name="BREADCRUMBS_HOVERED">
@@ -154,7 +154,7 @@
         <option name="BREADCRUMBS_INACTIVE">
             <value>
                 <option name="FOREGROUND" value="666b87"/>
-                <option name="BACKGROUND" value="292738"/>
+                <option name="BACKGROUND" value="181925"/>
             </value>
         </option>
         <option name="BREAKPOINT_ATTRIBUTES">
