@@ -9,6 +9,9 @@ import javax.swing.UIManager
 
 
 object LookAndFeelInstaller {
+  init {
+    installAllUIComponents()
+  }
 
   fun installAllUIComponents() {
     installIcons()
