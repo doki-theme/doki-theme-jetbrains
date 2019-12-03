@@ -545,9 +545,7 @@
             </value>
         </option>
         <option name="DEFAULT_LABEL">
-            <value>
-                <option name="FOREGROUND" value="5fc4" />
-            </value>
+            <value />
         </option>
         <option name="DEFAULT_LINE_COMMENT">
             <value>
