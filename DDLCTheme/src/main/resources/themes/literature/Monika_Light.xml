@@ -845,6 +845,12 @@
                 <option name="FOREGROUND" value="4C94D6" />
             </value>
         </option>
+        <option name="JSON.PROPERTY_KEY">
+            <value>
+                <option name="FOREGROUND" value="4d4d4a" />
+                <option name="FONT_TYPE" value="1" />
+            </value>
+        </option>
         <option name="JSP_DIRECTIVE_NAME" baseAttributes="DEFAULT_KEYWORD" />
         <option name="JUPYTER_SELECTED_CELL">
             <value>
