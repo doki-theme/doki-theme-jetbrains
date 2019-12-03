@@ -24,6 +24,8 @@ class TheDokiTheme : Disposable {
     hackLAF()
     //////////// ._. ////////////
 
+    LookAndFeelInstaller.installAllUIComponents()
+
     connection.subscribe(LafManagerListener.TOPIC, LafManagerListener {
       //todo: opt in to colors
       val projects = ProjectManager.getInstance().openProjects
