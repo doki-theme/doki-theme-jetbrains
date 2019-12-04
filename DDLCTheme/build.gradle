@@ -20,6 +20,7 @@ dependencies {
 intellij {
     version 'LATEST-EAP-SNAPSHOT'
     type 'IU'
+    alternativeIdePath idePath
 }
 compileKotlin {
     kotlinOptions.jvmTarget = "1.8"

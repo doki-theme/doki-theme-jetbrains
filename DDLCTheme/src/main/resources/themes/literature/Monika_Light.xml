@@ -328,7 +328,7 @@
         </option>
         <option name="CSS.PROPERTY_VALUE">
             <value>
-                <option name="FOREGROUND" value="F0A333" />
+                <option name="FOREGROUND" value="EC9130" />
             </value>
         </option>
         <option name="CSS.PSEUDO">
@@ -355,7 +355,7 @@
         </option>
         <option name="CTRL_CLICKABLE">
             <value>
-                <option name="FOREGROUND" value="F0A333" />
+                <option name="FOREGROUND" value="EC9130" />
                 <option name="EFFECT_TYPE" value="1" />
             </value>
         </option>
@@ -548,7 +548,7 @@
         </option>
         <option name="DEFAULT_STRING">
             <value>
-                <option name="FOREGROUND" value="F0A333" />
+                <option name="FOREGROUND" value="EC9130" />
             </value>
         </option>
         <option name="DEFAULT_TAG">
@@ -704,7 +704,7 @@
         </option>
         <option name="HTTP_REQUEST_PARAMETER_VALUE">
             <value>
-                <option name="FOREGROUND" value="F0A333" />
+                <option name="FOREGROUND" value="EC9130" />
             </value>
         </option>
         <option name="HTTP_REQUEST_PORT">
@@ -714,8 +714,8 @@
         </option>
         <option name="HYPERLINK_ATTRIBUTES">
             <value>
-                <option name="FOREGROUND" value="F0A333" />
-                <option name="EFFECT_COLOR" value="F0A333" />
+                <option name="FOREGROUND" value="EC9130" />
+                <option name="EFFECT_COLOR" value="EC9130" />
                 <option name="EFFECT_TYPE" value="1" />
             </value>
         </option>
@@ -767,7 +767,7 @@
         </option>
         <option name="IGNORE.VALUE">
             <value>
-                <option name="FOREGROUND" value="F0A333" />
+                <option name="FOREGROUND" value="EC9130" />
             </value>
         </option>
         <option name="IMPLICIT_ANONYMOUS_CLASS_PARAMETER_ATTRIBUTES">
@@ -806,7 +806,7 @@
         </option>
         <option name="INLINE_PARAMETER_HINT_CURRENT">
             <value>
-                <option name="FOREGROUND" value="F0A333" />
+                <option name="FOREGROUND" value="EC9130" />
                 <option name="BACKGROUND" value="ecffea" />
             </value>
         </option>
@@ -975,7 +975,7 @@
         </option>
         <option name="LOG_WARNING_OUTPUT">
             <value>
-                <option name="FOREGROUND" value="F0A333" />
+                <option name="FOREGROUND" value="EC9130" />
             </value>
         </option>
         <option name="List/map to object conversion">
@@ -1099,7 +1099,7 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.DEFINITION_TERM">
             <value>
-                <option name="FOREGROUND" value="F0A333" />
+                <option name="FOREGROUND" value="EC9130" />
                 <option name="FONT_TYPE" value="3" />
             </value>
         </option>
@@ -1122,7 +1122,7 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.FOOTNOTE_ID">
             <value>
-                <option name="FOREGROUND" value="F0A333" />
+                <option name="FOREGROUND" value="EC9130" />
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.FOOTNOTE_REF">
@@ -1145,18 +1145,18 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.ITALIC">
             <value>
-                <option name="FOREGROUND" value="F0A333" />
+                <option name="FOREGROUND" value="EC9130" />
                 <option name="FONT_TYPE" value="2" />
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.ITALIC_MARKER">
             <value>
-                <option name="FOREGROUND" value="F0A333" />
+                <option name="FOREGROUND" value="EC9130" />
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.ITALIC_TEXT_CODE_TEXT">
             <value>
-                <option name="FOREGROUND" value="F0A333" />
+                <option name="FOREGROUND" value="EC9130" />
                 <option name="BACKGROUND" value="D4ECD2" />
                 <option name="FONT_TYPE" value="2" />
             </value>
@@ -1188,21 +1188,21 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.STRIKETHROUGH">
             <value>
-                <option name="FOREGROUND" value="F0A333" />
-                <option name="EFFECT_COLOR" value="F0A333" />
+                <option name="FOREGROUND" value="EC9130" />
+                <option name="EFFECT_COLOR" value="EC9130" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.STRIKETHROUGH_MARKER">
             <value>
-                <option name="FOREGROUND" value="F0A333" />
+                <option name="FOREGROUND" value="EC9130" />
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.STRIKETHROUGH_TEXT_BOLD_TEXT">
             <value>
                 <option name="FOREGROUND" value="f2b882" />
                 <option name="FONT_TYPE" value="1" />
-                <option name="EFFECT_COLOR" value="F0A333" />
+                <option name="EFFECT_COLOR" value="EC9130" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1211,7 +1211,7 @@
                 <option name="FOREGROUND" value="f2b882" />
                 <option name="BACKGROUND" value="D4ECD2" />
                 <option name="FONT_TYPE" value="1" />
-                <option name="EFFECT_COLOR" value="F0A333" />
+                <option name="EFFECT_COLOR" value="EC9130" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1219,7 +1219,7 @@
             <value>
                 <option name="FOREGROUND" value="e6b84e" />
                 <option name="FONT_TYPE" value="3" />
-                <option name="EFFECT_COLOR" value="F0A333" />
+                <option name="EFFECT_COLOR" value="EC9130" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1228,15 +1228,15 @@
                 <option name="FOREGROUND" value="e6b84e" />
                 <option name="BACKGROUND" value="D4ECD2" />
                 <option name="FONT_TYPE" value="3" />
-                <option name="EFFECT_COLOR" value="F0A333" />
+                <option name="EFFECT_COLOR" value="EC9130" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.STRIKETHROUGH_TEXT_CODE_TEXT">
             <value>
-                <option name="FOREGROUND" value="F0A333" />
+                <option name="FOREGROUND" value="EC9130" />
                 <option name="BACKGROUND" value="D4ECD2" />
-                <option name="EFFECT_COLOR" value="F0A333" />
+                <option name="EFFECT_COLOR" value="EC9130" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1244,7 +1244,7 @@
             <value>
                 <option name="FOREGROUND" value="e5f653" />
                 <option name="FONT_TYPE" value="2" />
-                <option name="EFFECT_COLOR" value="F0A333" />
+                <option name="EFFECT_COLOR" value="EC9130" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1253,31 +1253,31 @@
                 <option name="FOREGROUND" value="e5f653" />
                 <option name="BACKGROUND" value="D4ECD2" />
                 <option name="FONT_TYPE" value="2" />
-                <option name="EFFECT_COLOR" value="F0A333" />
+                <option name="EFFECT_COLOR" value="EC9130" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.SUBSCRIPT">
             <value>
-                <option name="EFFECT_COLOR" value="F0A333" />
+                <option name="EFFECT_COLOR" value="EC9130" />
                 <option name="EFFECT_TYPE" value="5" />
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.SUBSCRIPT_MARKER">
             <value>
-                <option name="FOREGROUND" value="F0A333" />
+                <option name="FOREGROUND" value="EC9130" />
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.SUPERSCRIPT">
             <value>
-                <option name="FOREGROUND" value="F0A333" />
-                <option name="EFFECT_COLOR" value="F0A333" />
+                <option name="FOREGROUND" value="EC9130" />
+                <option name="EFFECT_COLOR" value="EC9130" />
                 <option name="EFFECT_TYPE" value="4" />
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.SUPERSCRIPT_MARKER">
             <value>
-                <option name="FOREGROUND" value="F0A333" />
+                <option name="FOREGROUND" value="EC9130" />
                 <option name="EFFECT_TYPE" value="4" />
             </value>
         </option>
@@ -1319,16 +1319,16 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_REVEN_CEVEN_ITALIC_TEXT">
             <value>
-                <option name="FOREGROUND" value="F0A333" />
+                <option name="FOREGROUND" value="EC9130" />
                 <option name="BACKGROUND" value="D4ECD2" />
                 <option name="FONT_TYPE" value="2" />
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_REVEN_CEVEN_STRIKETHROUGH_TEXT">
             <value>
-                <option name="FOREGROUND" value="F0A333" />
+                <option name="FOREGROUND" value="EC9130" />
                 <option name="BACKGROUND" value="D4ECD2" />
-                <option name="EFFECT_COLOR" value="F0A333" />
+                <option name="EFFECT_COLOR" value="EC9130" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1337,7 +1337,7 @@
                 <option name="FOREGROUND" value="f2b882" />
                 <option name="BACKGROUND" value="D4ECD2" />
                 <option name="FONT_TYPE" value="1" />
-                <option name="EFFECT_COLOR" value="F0A333" />
+                <option name="EFFECT_COLOR" value="EC9130" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1346,7 +1346,7 @@
                 <option name="FOREGROUND" value="e6b84e" />
                 <option name="BACKGROUND" value="D4ECD2" />
                 <option name="FONT_TYPE" value="3" />
-                <option name="EFFECT_COLOR" value="F0A333" />
+                <option name="EFFECT_COLOR" value="EC9130" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1355,7 +1355,7 @@
                 <option name="FOREGROUND" value="e5f653" />
                 <option name="BACKGROUND" value="D4ECD2" />
                 <option name="FONT_TYPE" value="2" />
-                <option name="EFFECT_COLOR" value="F0A333" />
+                <option name="EFFECT_COLOR" value="EC9130" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1380,16 +1380,16 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_REVEN_CODD_ITALIC_TEXT">
             <value>
-                <option name="FOREGROUND" value="F0A333" />
+                <option name="FOREGROUND" value="EC9130" />
                 <option name="BACKGROUND" value="D4ECD2" />
                 <option name="FONT_TYPE" value="2" />
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_REVEN_CODD_STRIKETHROUGH_TEXT">
             <value>
-                <option name="FOREGROUND" value="F0A333" />
+                <option name="FOREGROUND" value="EC9130" />
                 <option name="BACKGROUND" value="D4ECD2" />
-                <option name="EFFECT_COLOR" value="F0A333" />
+                <option name="EFFECT_COLOR" value="EC9130" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1398,7 +1398,7 @@
                 <option name="FOREGROUND" value="f2b882" />
                 <option name="BACKGROUND" value="D4ECD2" />
                 <option name="FONT_TYPE" value="1" />
-                <option name="EFFECT_COLOR" value="F0A333" />
+                <option name="EFFECT_COLOR" value="EC9130" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1407,7 +1407,7 @@
                 <option name="FOREGROUND" value="e6b84e" />
                 <option name="BACKGROUND" value="D4ECD2" />
                 <option name="FONT_TYPE" value="3" />
-                <option name="EFFECT_COLOR" value="F0A333" />
+                <option name="EFFECT_COLOR" value="EC9130" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1416,7 +1416,7 @@
                 <option name="FOREGROUND" value="e5f653" />
                 <option name="BACKGROUND" value="D4ECD2" />
                 <option name="FONT_TYPE" value="2" />
-                <option name="EFFECT_COLOR" value="F0A333" />
+                <option name="EFFECT_COLOR" value="EC9130" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1437,14 +1437,14 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_RODD_CEVEN_ITALIC_TEXT">
             <value>
-                <option name="FOREGROUND" value="F0A333" />
+                <option name="FOREGROUND" value="EC9130" />
                 <option name="FONT_TYPE" value="2" />
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_RODD_CEVEN_STRIKETHROUGH_TEXT">
             <value>
-                <option name="FOREGROUND" value="F0A333" />
-                <option name="EFFECT_COLOR" value="F0A333" />
+                <option name="FOREGROUND" value="EC9130" />
+                <option name="EFFECT_COLOR" value="EC9130" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1452,7 +1452,7 @@
             <value>
                 <option name="FOREGROUND" value="f2b882" />
                 <option name="FONT_TYPE" value="1" />
-                <option name="EFFECT_COLOR" value="F0A333" />
+                <option name="EFFECT_COLOR" value="EC9130" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1460,7 +1460,7 @@
             <value>
                 <option name="FOREGROUND" value="e6b84e" />
                 <option name="FONT_TYPE" value="3" />
-                <option name="EFFECT_COLOR" value="F0A333" />
+                <option name="EFFECT_COLOR" value="EC9130" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1468,7 +1468,7 @@
             <value>
                 <option name="FOREGROUND" value="e5f653" />
                 <option name="FONT_TYPE" value="2" />
-                <option name="EFFECT_COLOR" value="F0A333" />
+                <option name="EFFECT_COLOR" value="EC9130" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1486,14 +1486,14 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_RODD_CODD_ITALIC_TEXT">
             <value>
-                <option name="FOREGROUND" value="F0A333" />
+                <option name="FOREGROUND" value="EC9130" />
                 <option name="FONT_TYPE" value="2" />
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_RODD_CODD_STRIKETHROUGH_TEXT">
             <value>
-                <option name="FOREGROUND" value="F0A333" />
-                <option name="EFFECT_COLOR" value="F0A333" />
+                <option name="FOREGROUND" value="EC9130" />
+                <option name="EFFECT_COLOR" value="EC9130" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1501,7 +1501,7 @@
             <value>
                 <option name="FOREGROUND" value="f2b882" />
                 <option name="FONT_TYPE" value="1" />
-                <option name="EFFECT_COLOR" value="F0A333" />
+                <option name="EFFECT_COLOR" value="EC9130" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1509,7 +1509,7 @@
             <value>
                 <option name="FOREGROUND" value="e6b84e" />
                 <option name="FONT_TYPE" value="3" />
-                <option name="EFFECT_COLOR" value="F0A333" />
+                <option name="EFFECT_COLOR" value="EC9130" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1517,7 +1517,7 @@
             <value>
                 <option name="FOREGROUND" value="e5f653" />
                 <option name="FONT_TYPE" value="2" />
-                <option name="EFFECT_COLOR" value="F0A333" />
+                <option name="EFFECT_COLOR" value="EC9130" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1543,17 +1543,17 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_REVEN_CEVEN_ITALIC_TEXT">
             <value>
-                <option name="FOREGROUND" value="F0A333" />
+                <option name="FOREGROUND" value="EC9130" />
                 <option name="BACKGROUND" value="D4ECD2" />
                 <option name="FONT_TYPE" value="3" />
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_REVEN_CEVEN_STRIKETHROUGH_TEXT">
             <value>
-                <option name="FOREGROUND" value="F0A333" />
+                <option name="FOREGROUND" value="EC9130" />
                 <option name="BACKGROUND" value="D4ECD2" />
                 <option name="FONT_TYPE" value="1" />
-                <option name="EFFECT_COLOR" value="F0A333" />
+                <option name="EFFECT_COLOR" value="EC9130" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1562,7 +1562,7 @@
                 <option name="FOREGROUND" value="f2b882" />
                 <option name="BACKGROUND" value="D4ECD2" />
                 <option name="FONT_TYPE" value="1" />
-                <option name="EFFECT_COLOR" value="F0A333" />
+                <option name="EFFECT_COLOR" value="EC9130" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1571,7 +1571,7 @@
                 <option name="FOREGROUND" value="e6b84e" />
                 <option name="BACKGROUND" value="D4ECD2" />
                 <option name="FONT_TYPE" value="3" />
-                <option name="EFFECT_COLOR" value="F0A333" />
+                <option name="EFFECT_COLOR" value="EC9130" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1580,7 +1580,7 @@
                 <option name="FOREGROUND" value="e5f653" />
                 <option name="BACKGROUND" value="D4ECD2" />
                 <option name="FONT_TYPE" value="3" />
-                <option name="EFFECT_COLOR" value="F0A333" />
+                <option name="EFFECT_COLOR" value="EC9130" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1606,17 +1606,17 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_REVEN_CODD_ITALIC_TEXT">
             <value>
-                <option name="FOREGROUND" value="F0A333" />
+                <option name="FOREGROUND" value="EC9130" />
                 <option name="BACKGROUND" value="D4ECD2" />
                 <option name="FONT_TYPE" value="3" />
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_REVEN_CODD_STRIKETHROUGH_TEXT">
             <value>
-                <option name="FOREGROUND" value="F0A333" />
+                <option name="FOREGROUND" value="EC9130" />
                 <option name="BACKGROUND" value="D4ECD2" />
                 <option name="FONT_TYPE" value="1" />
-                <option name="EFFECT_COLOR" value="F0A333" />
+                <option name="EFFECT_COLOR" value="EC9130" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1625,7 +1625,7 @@
                 <option name="FOREGROUND" value="f2b882" />
                 <option name="BACKGROUND" value="D4ECD2" />
                 <option name="FONT_TYPE" value="1" />
-                <option name="EFFECT_COLOR" value="F0A333" />
+                <option name="EFFECT_COLOR" value="EC9130" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1634,7 +1634,7 @@
                 <option name="FOREGROUND" value="e6b84e" />
                 <option name="BACKGROUND" value="D4ECD2" />
                 <option name="FONT_TYPE" value="3" />
-                <option name="EFFECT_COLOR" value="F0A333" />
+                <option name="EFFECT_COLOR" value="EC9130" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1643,7 +1643,7 @@
                 <option name="FOREGROUND" value="e5f653" />
                 <option name="BACKGROUND" value="D4ECD2" />
                 <option name="FONT_TYPE" value="3" />
-                <option name="EFFECT_COLOR" value="F0A333" />
+                <option name="EFFECT_COLOR" value="EC9130" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1666,15 +1666,15 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_RODD_CEVEN_ITALIC_TEXT">
             <value>
-                <option name="FOREGROUND" value="F0A333" />
+                <option name="FOREGROUND" value="EC9130" />
                 <option name="FONT_TYPE" value="3" />
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_RODD_CEVEN_STRIKETHROUGH_TEXT">
             <value>
-                <option name="FOREGROUND" value="F0A333" />
+                <option name="FOREGROUND" value="EC9130" />
                 <option name="FONT_TYPE" value="1" />
-                <option name="EFFECT_COLOR" value="F0A333" />
+                <option name="EFFECT_COLOR" value="EC9130" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1682,7 +1682,7 @@
             <value>
                 <option name="FOREGROUND" value="f2b882" />
                 <option name="FONT_TYPE" value="1" />
-                <option name="EFFECT_COLOR" value="F0A333" />
+                <option name="EFFECT_COLOR" value="EC9130" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1690,7 +1690,7 @@
             <value>
                 <option name="FOREGROUND" value="e6b84e" />
                 <option name="FONT_TYPE" value="3" />
-                <option name="EFFECT_COLOR" value="F0A333" />
+                <option name="EFFECT_COLOR" value="EC9130" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1698,7 +1698,7 @@
             <value>
                 <option name="FOREGROUND" value="e5f653" />
                 <option name="FONT_TYPE" value="3" />
-                <option name="EFFECT_COLOR" value="F0A333" />
+                <option name="EFFECT_COLOR" value="EC9130" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1721,15 +1721,15 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_RODD_CODD_ITALIC_TEXT">
             <value>
-                <option name="FOREGROUND" value="F0A333" />
+                <option name="FOREGROUND" value="EC9130" />
                 <option name="FONT_TYPE" value="3" />
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_RODD_CODD_STRIKETHROUGH_TEXT">
             <value>
-                <option name="FOREGROUND" value="F0A333" />
+                <option name="FOREGROUND" value="EC9130" />
                 <option name="FONT_TYPE" value="1" />
-                <option name="EFFECT_COLOR" value="F0A333" />
+                <option name="EFFECT_COLOR" value="EC9130" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1737,7 +1737,7 @@
             <value>
                 <option name="FOREGROUND" value="f2b882" />
                 <option name="FONT_TYPE" value="1" />
-                <option name="EFFECT_COLOR" value="F0A333" />
+                <option name="EFFECT_COLOR" value="EC9130" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1745,7 +1745,7 @@
             <value>
                 <option name="FOREGROUND" value="e6b84e" />
                 <option name="FONT_TYPE" value="3" />
-                <option name="EFFECT_COLOR" value="F0A333" />
+                <option name="EFFECT_COLOR" value="EC9130" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1753,7 +1753,7 @@
             <value>
                 <option name="FOREGROUND" value="e5f653" />
                 <option name="FONT_TYPE" value="3" />
-                <option name="EFFECT_COLOR" value="F0A333" />
+                <option name="EFFECT_COLOR" value="EC9130" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1858,7 +1858,7 @@
         </option>
         <option name="OC.MACRONAME">
             <value>
-                <option name="FOREGROUND" value="F0A333" />
+                <option name="FOREGROUND" value="EC9130" />
                 <option name="FONT_TYPE" value="1" />
             </value>
         </option>
@@ -1892,6 +1892,8 @@
                 <option name="FONT_TYPE" value="2" />
             </value>
         </option>
+        <option name="PHP_PARAMETER" baseAttributes="DEFAULT_PARAMETER"/>
+        <option name="PHP_VAR" baseAttributes="DEFAULT_IDENTIFIER"/>
         <option name="PHP_SCRIPTING_BACKGROUND">
             <value />
         </option>
@@ -1960,7 +1962,7 @@
         </option>
         <option name="RDOC_URL">
             <value>
-                <option name="FOREGROUND" value="F0A333" />
+                <option name="FOREGROUND" value="EC9130" />
             </value>
         </option>
         <option name="REGEXP.BRACES">
@@ -2071,7 +2073,7 @@
         </option>
         <option name="ReSharper.ASP_NET_ATTRIBUTE_VALUE">
             <value>
-                <option name="FOREGROUND" value="F0A333" />
+                <option name="FOREGROUND" value="EC9130" />
             </value>
         </option>
         <option name="ReSharper.ASP_NET_COMMENT">
@@ -2111,7 +2113,7 @@
         </option>
         <option name="ReSharper.ASP_NET_MVC_VIEW">
             <value>
-                <option name="FOREGROUND" value="F0A333" />
+                <option name="FOREGROUND" value="EC9130" />
                 <option name="EFFECT_TYPE" value="1" />
             </value>
         </option>
@@ -2130,7 +2132,7 @@
         </option>
         <option name="ReSharper.ASP_NET_RAZOR_ATTRIBUTE_VALUE">
             <value>
-                <option name="FOREGROUND" value="F0A333" />
+                <option name="FOREGROUND" value="EC9130" />
             </value>
         </option>
         <option name="ReSharper.ASP_NET_RAZOR_CODE_BLOCK">
@@ -2175,7 +2177,7 @@
         </option>
         <option name="ReSharper.CPP_ENUM_ENUMERATOR_IDENTIFIER">
             <value>
-                <option name="FOREGROUND" value="F0A333" />
+                <option name="FOREGROUND" value="EC9130" />
             </value>
         </option>
         <option name="ReSharper.CPP_PREPROCESSOR_MACRO_IDENTIFIER">
