@@ -653,6 +653,22 @@
                 <option name="FOREGROUND" value="EC9130" />
             </value>
         </option>
+        <option name="GO_PACKAGE_EXPORTED_CONSTANT">
+            <value>
+                <option name="FOREGROUND" value="4C94D6" />
+                <option name="BACKGROUND"/>
+                <option name="EFFECT_COLOR"/>
+                <option name="FONT_TYPE" value="3"/>
+            </value>
+        </option>
+        <option name="GO_PACKAGE_LOCAL_CONSTANT">
+            <value>
+                <option name="FOREGROUND" value="4C94D6" />
+                <option name="BACKGROUND"/>
+                <option name="EFFECT_COLOR"/>
+                <option name="FONT_TYPE" value="2"/>
+            </value>
+        </option>
         <option name="GRID_ERROR_VALUE">
             <value>
                 <option name="EFFECT_COLOR" value="ff5555" />
@@ -1924,6 +1940,11 @@
         <option name="PY.DECORATOR">
             <value>
                 <option name="FOREGROUND" value="7AA42E" />
+            </value>
+        </option>
+        <option name="PY.KEYWORD_ARGUMENT">
+            <value>
+                <option name="FOREGROUND" value="EC9130" />
             </value>
         </option>
         <option name="PY.PREDEFINED_DEFINITION">
