@@ -379,8 +379,9 @@
         <option name="CUSTOM_KEYWORD4_ATTRIBUTES">
             <value>
                 <option name="FOREGROUND" value="61afef" />
-                <option name="FONT_TYPE" value="1" />
-                <option name="EFFECT_TYPE" value="1" />
+                <option name="BACKGROUND"/>
+                <option name="EFFECT_COLOR"/>
+                <option name="FONT_TYPE" value="1"/>
             </value>
         </option>
         <option name="CUSTOM_STRING_ATTRIBUTES" baseAttributes="DEFAULT_STRING" />
@@ -1892,8 +1893,16 @@
                 <option name="FONT_TYPE" value="2" />
             </value>
         </option>
-        <option name="PHP_PARAMETER" baseAttributes="DEFAULT_PARAMETER"/>
-        <option name="PHP_VAR" baseAttributes="DEFAULT_IDENTIFIER"/>
+        <option name="PHP_PARAMETER">
+            <value>
+                <option name="FOREGROUND" value="EC9130" />
+            </value>
+        </option>
+        <option name="PHP_VAR">
+            <value>
+                <option name="FOREGROUND" value="458383" />
+            </value>
+        </option>
         <option name="PHP_SCRIPTING_BACKGROUND">
             <value />
         </option>
