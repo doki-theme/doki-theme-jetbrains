@@ -676,6 +676,12 @@
                 <option name="EFFECT_TYPE" value="2" />
             </value>
         </option>
+        <option name="GROOVY_KEYWORD">
+            <value>
+                <option name="FOREGROUND" value="A89097" />
+                <option name="FONT_TYPE" value="1" />
+            </value>
+        </option>
         <option name="HAML_CLASS">
             <value>
                 <option name="FOREGROUND" value="D77AB0" />
