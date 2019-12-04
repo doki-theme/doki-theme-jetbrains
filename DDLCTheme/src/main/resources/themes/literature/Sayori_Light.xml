@@ -23,9 +23,9 @@
         <option name="FILESTATUS_HIJACKED" value="6a737d" />
         <option name="FILESTATUS_IDEA_FILESTATUS_DELETED_FROM_FILE_SYSTEM" value="6a737d" />
         <option name="FILESTATUS_IDEA_FILESTATUS_IGNORED" value="32f62" />
-        <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_BOTH_CONFLICTS" value="00BCD4" />
-        <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_CONFLICTS" value="00BCD4" />
-        <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_PROPERTY_CONFLICTS" value="00BCD4" />
+        <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_BOTH_CONFLICTS" value="00AEC4" />
+        <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_CONFLICTS" value="00AEC4" />
+        <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_PROPERTY_CONFLICTS" value="00AEC4" />
         <option name="FILESTATUS_IDEA_SVN_FILESTATUS_EXTERNAL" value="10b15a" />
         <option name="FILESTATUS_IGNORE.PROJECT_VIEW.IGNORED" value="32f62" />
         <option name="FILESTATUS_MERGED" value="6f42c1" />
@@ -36,7 +36,7 @@
         <option name="FILESTATUS_SWITCHED" value="e36209" />
         <option name="FILESTATUS_UNKNOWN" value="e36209" />
         <option name="FILESTATUS_addedOutside" value="10b15a" />
-        <option name="FILESTATUS_changelistConflict" value="00BCD4" />
+        <option name="FILESTATUS_changelistConflict" value="00AEC4" />
         <option name="FILESTATUS_modifiedOutside" value="5cc5" />
         <option name="GUTTER_BACKGROUND" value="CDF8FF" />
         <option name="INDENT_GUIDE" value="BFEFF1" />
@@ -101,7 +101,7 @@
         </option>
         <option name="ANNOTATION_NAME_ATTRIBUTES">
             <value>
-                <option name="FOREGROUND" value="00BCD4" />
+                <option name="FOREGROUND" value="00AEC4" />
                 <option name="EFFECT_TYPE" value="1" />
             </value>
         </option>
@@ -389,7 +389,7 @@
         <option name="Class" baseAttributes="CLASS_NAME_ATTRIBUTES" />
         <option name="DEFAULT_ATTRIBUTE">
             <value>
-                <option name="FOREGROUND" value="00BCD4" />
+                <option name="FOREGROUND" value="00AEC4" />
                 <option name="FONT_TYPE" value="2" />
             </value>
         </option>
@@ -448,7 +448,7 @@
         </option>
         <option name="DEFAULT_FUNCTION_CALL">
             <value>
-                <option name="FOREGROUND" value="00BCD4" />
+                <option name="FOREGROUND" value="00AEC4" />
             </value>
         </option>
         <option name="DEFAULT_FUNCTION_DECLARATION">
@@ -492,7 +492,7 @@
         </option>
         <option name="DEFAULT_METADATA">
             <value>
-                <option name="FOREGROUND" value="00BCD4" />
+                <option name="FOREGROUND" value="00AEC4" />
                 <option name="FONT_TYPE" value="2" />
             </value>
         </option>
@@ -543,7 +543,7 @@
         </option>
         <option name="DEFAULT_STATIC_METHOD">
             <value>
-                <option name="FOREGROUND" value="00BCD4" />
+                <option name="FOREGROUND" value="00AEC4" />
                 <option name="FONT_TYPE" value="2" />
             </value>
         </option>
@@ -907,7 +907,7 @@
         </option>
         <option name="KOTLIN_ANNOTATION">
             <value>
-                <option name="FOREGROUND" value="00BCD4" />
+                <option name="FOREGROUND" value="00AEC4" />
                 <option name="EFFECT_TYPE" value="1" />
             </value>
         </option>
@@ -919,7 +919,7 @@
         </option>
         <option name="KOTLIN_DYNAMIC_FUNCTION_CALL">
             <value>
-                <option name="FOREGROUND" value="00BCD4" />
+                <option name="FOREGROUND" value="00AEC4" />
                 <option name="FONT_TYPE" value="3" />
             </value>
         </option>
@@ -2103,7 +2103,7 @@
         </option>
         <option name="ReSharper.ASP_NET_ATTRIBUTE_NAME">
             <value>
-                <option name="FOREGROUND" value="00BCD4" />
+                <option name="FOREGROUND" value="00AEC4" />
                 <option name="FONT_TYPE" value="2" />
             </value>
         </option>
@@ -2131,7 +2131,7 @@
         </option>
         <option name="ReSharper.ASP_NET_MVC_ACTION">
             <value>
-                <option name="FOREGROUND" value="00BCD4" />
+                <option name="FOREGROUND" value="00AEC4" />
                 <option name="EFFECT_TYPE" value="1" />
             </value>
         </option>
@@ -2162,7 +2162,7 @@
         </option>
         <option name="ReSharper.ASP_NET_RAZOR_ATTRIBUTE_NAME">
             <value>
-                <option name="FOREGROUND" value="00BCD4" />
+                <option name="FOREGROUND" value="00AEC4" />
                 <option name="FONT_TYPE" value="2" />
             </value>
         </option>
@@ -2189,7 +2189,7 @@
         </option>
         <option name="ReSharper.ASP_NET_RUN_AT_ATTRIBUTE">
             <value>
-                <option name="FOREGROUND" value="00BCD4" />
+                <option name="FOREGROUND" value="00AEC4" />
             </value>
         </option>
         <option name="ReSharper.ASP_NET_TAG_NAME">
@@ -2500,7 +2500,7 @@
         </option>
         <option name="XML_ATTRIBUTE_NAME">
             <value>
-                <option name="FOREGROUND" value="00BCD4" />
+                <option name="FOREGROUND" value="00AEC4" />
             </value>
         </option>
         <option name="XML_ENTITY_REFERENCE" baseAttributes="DEFAULT_ENTITY" />
