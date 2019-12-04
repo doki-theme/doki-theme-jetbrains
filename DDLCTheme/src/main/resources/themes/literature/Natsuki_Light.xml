@@ -1,4 +1,5 @@
 <scheme name="Natsuki Light" version="142" parent_scheme="Default">
+    <option name="FONT_SCALE" value="1.0" />
     <metaInfo>
         <property name="created">2019-11-23T11:25:26</property>
         <property name="ide">idea</property>
@@ -9,22 +10,22 @@
     <option name="EDITOR_FONT_SIZE" value="12" />
     <option name="EDITOR_LIGATURES" value="true" />
     <colors>
-        <option name="ADDED_LINES_COLOR" value="D3FAFF" />
+        <option name="ADDED_LINES_COLOR" value="D0FDC9" />
         <option name="ANNOTATIONS_COLOR" value="45393e" />
         <option name="CARET_COLOR" value="45393e" />
-        <option name="CARET_ROW_COLOR" value="D7F0D5" />
-        <option name="CONSOLE_BACKGROUND_KEY" value="ecffea" />
+        <option name="CARET_ROW_COLOR" value="F0DBD3" />
+        <option name="CONSOLE_BACKGROUND_KEY" value="FFE5F1" />
         <option name="DELETED_LINES_COLOR" value="EBEBEB" />
-        <option name="DOCUMENTATION_COLOR" value="eaffe8" />
+        <option name="DOCUMENTATION_COLOR" value="FFE0F0" />
         <option name="FILESTATUS_ADDED" value="10b15a" />
         <option name="FILESTATUS_COPIED" value="10b15a" />
         <option name="FILESTATUS_DELETED" value="6a737d" />
         <option name="FILESTATUS_HIJACKED" value="6a737d" />
         <option name="FILESTATUS_IDEA_FILESTATUS_DELETED_FROM_FILE_SYSTEM" value="6a737d" />
         <option name="FILESTATUS_IDEA_FILESTATUS_IGNORED" value="32f62" />
-        <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_BOTH_CONFLICTS" value="388e3c" />
-        <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_CONFLICTS" value="388e3c" />
-        <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_PROPERTY_CONFLICTS" value="388e3c" />
+        <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_BOTH_CONFLICTS" value="E94686" />
+        <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_CONFLICTS" value="E94686" />
+        <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_PROPERTY_CONFLICTS" value="E94686" />
         <option name="FILESTATUS_IDEA_SVN_FILESTATUS_EXTERNAL" value="10b15a" />
         <option name="FILESTATUS_IGNORE.PROJECT_VIEW.IGNORED" value="32f62" />
         <option name="FILESTATUS_MERGED" value="6f42c1" />
@@ -35,54 +36,54 @@
         <option name="FILESTATUS_SWITCHED" value="e36209" />
         <option name="FILESTATUS_UNKNOWN" value="e36209" />
         <option name="FILESTATUS_addedOutside" value="10b15a" />
-        <option name="FILESTATUS_changelistConflict" value="388e3c" />
+        <option name="FILESTATUS_changelistConflict" value="E94686" />
         <option name="FILESTATUS_modifiedOutside" value="5cc5" />
-        <option name="GUTTER_BACKGROUND" value="ecffea" />
-        <option name="INDENT_GUIDE" value="d8f1d0" />
-        <option name="INFORMATION_HINT" value="e4fbe2" />
+        <option name="GUTTER_BACKGROUND" value="FFE5F1" />
+        <option name="INDENT_GUIDE" value="f1d7e6" />
+        <option name="INFORMATION_HINT" value="fbdde9" />
         <option name="LINE_NUMBERS_COLOR" value="aaaaaa" />
         <option name="LINE_NUMBER_ON_CARET_ROW_COLOR" value="1b1f23" />
         <option name="METHOD_SEPARATORS_COLOR" value="f3f2e2" />
-        <option name="MODIFIED_LINES_COLOR" value="BFFFC1" />
+        <option name="MODIFIED_LINES_COLOR" value="FFC3EE" />
         <option name="NOTIFICATION_BACKGROUND" value="f5e9ab" />
-        <option name="RIGHT_MARGIN_COLOR" value="d8f1d0" />
-        <option name="SELECTED_INDENT_GUIDE" value="d8f1d0" />
+        <option name="RIGHT_MARGIN_COLOR" value="f1d7e6" />
+        <option name="SELECTED_INDENT_GUIDE" value="f1d7e6" />
         <option name="SELECTED_TEARLINE_COLOR" value="e0e0b0" />
-        <option name="SELECTION_BACKGROUND" value="789b7a" />
+        <option name="SELECTION_BACKGROUND" value="dcaec5" />
         <option name="SELECTION_FOREGROUND" value="ffffff" />
-        <option name="SEPARATOR_ABOVE_COLOR" value="d8f1d0" />
-        <option name="SEPARATOR_BELOW_COLOR" value="d8f1d0" />
-        <option name="ScrollBar.Mac.Transparent.hoverThumbBorderColor" value="388e3c9a" />
-        <option name="ScrollBar.Mac.Transparent.hoverThumbColor" value="388e3c9a" />
-        <option name="ScrollBar.Mac.Transparent.hoverTrackColor" value="ecffea" />
-        <option name="ScrollBar.Mac.Transparent.thumbBorderColor" value="388e3c5a" />
-        <option name="ScrollBar.Mac.Transparent.thumbColor" value="388e3c5a" />
-        <option name="ScrollBar.Mac.Transparent.trackColor" value="ecffea" />
-        <option name="ScrollBar.Mac.hoverThumbBorderColor" value="388e3c9a" />
-        <option name="ScrollBar.Mac.hoverThumbColor" value="388e3c9a" />
-        <option name="ScrollBar.Mac.hoverTrackColor" value="ecffea" />
-        <option name="ScrollBar.Mac.thumbBorderColor" value="388e3c5a" />
-        <option name="ScrollBar.Mac.thumbColor" value="388e3c5a" />
-        <option name="ScrollBar.Mac.trackColor" value="ecffea" />
-        <option name="ScrollBar.Transparent.hoverThumbBorderColor" value="388e3c9a" />
-        <option name="ScrollBar.Transparent.hoverThumbColor" value="388e3c9a" />
-        <option name="ScrollBar.Transparent.hoverTrackColor" value="ecffea" />
-        <option name="ScrollBar.Transparent.thumbBorderColor" value="388e3c5a" />
-        <option name="ScrollBar.Transparent.thumbColor" value="388e3c5a" />
-        <option name="ScrollBar.Transparent.trackColor" value="ecffea" />
-        <option name="ScrollBar.hoverThumbBorderColor" value="388e3c9a" />
-        <option name="ScrollBar.hoverThumbColor" value="388e3c9a" />
-        <option name="ScrollBar.hoverTrackColor" value="ecffea" />
-        <option name="ScrollBar.thumbBorderColor" value="388e3c5a" />
-        <option name="ScrollBar.thumbColor" value="388e3c5a" />
-        <option name="ScrollBar.trackColor" value="ecffea" />
-        <option name="TEARLINE_COLOR" value="ecffea" />
-        <option name="VCS_ANNOTATIONS_COLOR_1" value="eaffe8"/>
-        <option name="VCS_ANNOTATIONS_COLOR_2" value="ecffea"/>
-        <option name="VCS_ANNOTATIONS_COLOR_3" value="b7dcbd"/>
-        <option name="VCS_ANNOTATIONS_COLOR_4" value="b6cfb9"/>
-        <option name="VCS_ANNOTATIONS_COLOR_5" value="789b7a"/>
-        <option name="VISUAL_INDENT_GUIDE" value="d8f1d0" />
+        <option name="SEPARATOR_ABOVE_COLOR" value="f1d7e6" />
+        <option name="SEPARATOR_BELOW_COLOR" value="f1d7e6" />
+        <option name="ScrollBar.Mac.Transparent.hoverThumbBorderColor" value="E946869a" />
+        <option name="ScrollBar.Mac.Transparent.hoverThumbColor" value="E946869a" />
+        <option name="ScrollBar.Mac.Transparent.hoverTrackColor" value="FFE5F1" />
+        <option name="ScrollBar.Mac.Transparent.thumbBorderColor" value="E946865a" />
+        <option name="ScrollBar.Mac.Transparent.thumbColor" value="E946865a" />
+        <option name="ScrollBar.Mac.Transparent.trackColor" value="FFE5F1" />
+        <option name="ScrollBar.Mac.hoverThumbBorderColor" value="E946869a" />
+        <option name="ScrollBar.Mac.hoverThumbColor" value="E946869a" />
+        <option name="ScrollBar.Mac.hoverTrackColor" value="FFE5F1" />
+        <option name="ScrollBar.Mac.thumbBorderColor" value="E946865a" />
+        <option name="ScrollBar.Mac.thumbColor" value="E946865a" />
+        <option name="ScrollBar.Mac.trackColor" value="FFE5F1" />
+        <option name="ScrollBar.Transparent.hoverThumbBorderColor" value="E946869a" />
+        <option name="ScrollBar.Transparent.hoverThumbColor" value="E946869a" />
+        <option name="ScrollBar.Transparent.hoverTrackColor" value="FFE5F1" />
+        <option name="ScrollBar.Transparent.thumbBorderColor" value="E946865a" />
+        <option name="ScrollBar.Transparent.thumbColor" value="E946865a" />
+        <option name="ScrollBar.Transparent.trackColor" value="FFE5F1" />
+        <option name="ScrollBar.hoverThumbBorderColor" value="E946869a" />
+        <option name="ScrollBar.hoverThumbColor" value="E946869a" />
+        <option name="ScrollBar.hoverTrackColor" value="FFE5F1" />
+        <option name="ScrollBar.thumbBorderColor" value="E946865a" />
+        <option name="ScrollBar.thumbColor" value="E946865a" />
+        <option name="ScrollBar.trackColor" value="FFE5F1" />
+        <option name="TEARLINE_COLOR" value="FFE5F1" />
+        <option name="VCS_ANNOTATIONS_COLOR_1" value="FFE0F0"/>
+        <option name="VCS_ANNOTATIONS_COLOR_2" value="FFE5F1"/>
+        <option name="VCS_ANNOTATIONS_COLOR_3" value="fbdde9"/>
+        <option name="VCS_ANNOTATIONS_COLOR_4" value="f0c3e3"/>
+        <option name="VCS_ANNOTATIONS_COLOR_5" value="dcaec5"/>
+        <option name="VISUAL_INDENT_GUIDE" value="f1d7e6" />
         <option name="WHITESPACES" value="b5b5b5" />
         <option name="WHITESPACES_MODIFIED_LINES_COLOR" value="f6f0de" />
     </colors>
@@ -100,7 +101,7 @@
         </option>
         <option name="ANNOTATION_NAME_ATTRIBUTES">
             <value>
-                <option name="FOREGROUND" value="388e3c" />
+                <option name="FOREGROUND" value="E94686" />
                 <option name="EFFECT_TYPE" value="1" />
             </value>
         </option>
@@ -128,25 +129,25 @@
         <option name="BREADCRUMBS_CURRENT">
             <value>
                 <option name="FOREGROUND" value="fff3dd"/>
-                <option name="BACKGROUND" value="789b7a"/>
+                <option name="BACKGROUND" value="dcaec5"/>
             </value>
         </option>
         <option name="BREADCRUMBS_DEFAULT">
             <value>
                 <option name="FOREGROUND" value="b7b7b7"/>
-                <option name="BACKGROUND" value="ecffea"/>
+                <option name="BACKGROUND" value="FFE5F1"/>
             </value>
         </option>
         <option name="BREADCRUMBS_HOVERED">
             <value>
                 <option name="FOREGROUND" value="4D4D4A"/>
-                <option name="BACKGROUND" value="d1f0cf"/>
+                <option name="BACKGROUND" value="f7d2e8"/>
             </value>
         </option>
         <option name="BREADCRUMBS_INACTIVE">
             <value>
                 <option name="FOREGROUND" value="17431d"/>
-                <option name="BACKGROUND" value="b6cfb9"/>
+                <option name="BACKGROUND" value="cfb4b8"/>
             </value>
         </option>
         <option name="BREAKPOINT_ATTRIBUTES">
@@ -253,7 +254,7 @@
         </option>
         <option name="CONSOLE_SELECTED_PARAMETER">
             <value>
-                <option name="BACKGROUND" value="789b7a" />
+                <option name="BACKGROUND" value="dcaec5" />
             </value>
         </option>
         <option name="CONSOLE_USER_INPUT">
@@ -388,7 +389,7 @@
         <option name="Class" baseAttributes="CLASS_NAME_ATTRIBUTES" />
         <option name="DEFAULT_ATTRIBUTE">
             <value>
-                <option name="FOREGROUND" value="388e3c" />
+                <option name="FOREGROUND" value="E94686" />
                 <option name="FONT_TYPE" value="2" />
             </value>
         </option>
@@ -447,7 +448,7 @@
         </option>
         <option name="DEFAULT_FUNCTION_CALL">
             <value>
-                <option name="FOREGROUND" value="388e3c" />
+                <option name="FOREGROUND" value="E94686" />
             </value>
         </option>
         <option name="DEFAULT_FUNCTION_DECLARATION">
@@ -491,7 +492,7 @@
         </option>
         <option name="DEFAULT_METADATA">
             <value>
-                <option name="FOREGROUND" value="388e3c" />
+                <option name="FOREGROUND" value="E94686" />
                 <option name="FONT_TYPE" value="2" />
             </value>
         </option>
@@ -542,7 +543,7 @@
         </option>
         <option name="DEFAULT_STATIC_METHOD">
             <value>
-                <option name="FOREGROUND" value="388e3c" />
+                <option name="FOREGROUND" value="E94686" />
                 <option name="FONT_TYPE" value="2" />
             </value>
         </option>
@@ -817,19 +818,19 @@
         <option name="INLINE_PARAMETER_HINT">
             <value>
                 <option name="FOREGROUND" value="B0B0B0" />
-                <option name="BACKGROUND" value="ecffea" />
+                <option name="BACKGROUND" value="FFE5F1" />
             </value>
         </option>
         <option name="INLINE_PARAMETER_HINT_CURRENT">
             <value>
                 <option name="FOREGROUND" value="EC9130" />
-                <option name="BACKGROUND" value="ecffea" />
+                <option name="BACKGROUND" value="FFE5F1" />
             </value>
         </option>
         <option name="INLINE_PARAMETER_HINT_HIGHLIGHTED">
             <value>
                 <option name="FOREGROUND" value="B0B0B0" />
-                <option name="BACKGROUND" value="ecffea" />
+                <option name="BACKGROUND" value="FFE5F1" />
             </value>
         </option>
         <option name="INSTANCE_FIELD_ATTRIBUTES" baseAttributes="DEFAULT_INSTANCE_FIELD"/>
@@ -900,7 +901,7 @@
         </option>
         <option name="KOTLIN_ANNOTATION">
             <value>
-                <option name="FOREGROUND" value="388e3c" />
+                <option name="FOREGROUND" value="E94686" />
                 <option name="EFFECT_TYPE" value="1" />
             </value>
         </option>
@@ -912,7 +913,7 @@
         </option>
         <option name="KOTLIN_DYNAMIC_FUNCTION_CALL">
             <value>
-                <option name="FOREGROUND" value="388e3c" />
+                <option name="FOREGROUND" value="E94686" />
                 <option name="FONT_TYPE" value="3" />
             </value>
         </option>
@@ -2096,7 +2097,7 @@
         </option>
         <option name="ReSharper.ASP_NET_ATTRIBUTE_NAME">
             <value>
-                <option name="FOREGROUND" value="388e3c" />
+                <option name="FOREGROUND" value="E94686" />
                 <option name="FONT_TYPE" value="2" />
             </value>
         </option>
@@ -2124,7 +2125,7 @@
         </option>
         <option name="ReSharper.ASP_NET_MVC_ACTION">
             <value>
-                <option name="FOREGROUND" value="388e3c" />
+                <option name="FOREGROUND" value="E94686" />
                 <option name="EFFECT_TYPE" value="1" />
             </value>
         </option>
@@ -2155,7 +2156,7 @@
         </option>
         <option name="ReSharper.ASP_NET_RAZOR_ATTRIBUTE_NAME">
             <value>
-                <option name="FOREGROUND" value="388e3c" />
+                <option name="FOREGROUND" value="E94686" />
                 <option name="FONT_TYPE" value="2" />
             </value>
         </option>
@@ -2182,7 +2183,7 @@
         </option>
         <option name="ReSharper.ASP_NET_RUN_AT_ATTRIBUTE">
             <value>
-                <option name="FOREGROUND" value="388e3c" />
+                <option name="FOREGROUND" value="E94686" />
             </value>
         </option>
         <option name="ReSharper.ASP_NET_TAG_NAME">
@@ -2414,14 +2415,14 @@
         <option name="TEXT">
             <value>
                 <option name="FOREGROUND" value="4D4D4A" />
-                <option name="BACKGROUND" value="ecffea" />
+                <option name="BACKGROUND" value="FFE5F1" />
                 <option name="EFFECT_TYPE" value="5" />
             </value>
         </option>
         <option name="TEXT_SEARCH_RESULT_ATTRIBUTES">
             <value>
-                <option name="BACKGROUND" value="b6cfb9" />
-                <option name="EFFECT_COLOR" value="b6cfb9" />
+                <option name="BACKGROUND" value="cfb4b8" />
+                <option name="EFFECT_COLOR" value="cfb4b8" />
             </value>
         </option>
         <option name="TODO_DEFAULT_ATTRIBUTES">
