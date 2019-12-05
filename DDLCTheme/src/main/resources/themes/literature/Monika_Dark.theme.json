@@ -419,6 +419,8 @@
     "/actions/refresh.svg": "/icons/actions/refresh.svg",
     "/actions/refresh_dark.svg": "/icons/actions/refresh_dark.svg",
     "/fileTypes/properties.svg": "/icons/fileTypes/properties.svg",
+    "/fileTypes/json.svg": "/icons/fileTypes/json.svg",
+    "/fileTypes/json_dark.svg": "/icons/fileTypes/json_dark.svg",
     "/general/add.svg": "/icons/general/add.svg",
     "/general/add_dark.svg": "/icons/general/add_dark.svg",
     "/general/gearPlain.svg": "/icons/general/gearPlain.svg",
