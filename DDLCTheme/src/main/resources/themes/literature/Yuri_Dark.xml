@@ -394,7 +394,7 @@
         <option name="Class" baseAttributes="CLASS_NAME_ATTRIBUTES"/>
         <option name="DEFAULT_ATTRIBUTE">
             <value>
-                <option name="FOREGROUND" value="AB47BC"/>
+                <option name="FOREGROUND" value="BC60CB"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -453,7 +453,7 @@
         </option>
         <option name="DEFAULT_FUNCTION_CALL">
             <value>
-                <option name="FOREGROUND" value="AB47BC"/>
+                <option name="FOREGROUND" value="BC60CB"/>
             </value>
         </option>
         <option name="DEFAULT_FUNCTION_DECLARATION">
@@ -548,7 +548,7 @@
         </option>
         <option name="DEFAULT_STATIC_METHOD">
             <value>
-                <option name="FOREGROUND" value="AB47BC"/>
+                <option name="FOREGROUND" value="BC60CB"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -911,7 +911,7 @@
         </option>
         <option name="KOTLIN_DYNAMIC_FUNCTION_CALL">
             <value>
-                <option name="FOREGROUND" value="AB47BC"/>
+                <option name="FOREGROUND" value="BC60CB"/>
                 <option name="FONT_TYPE" value="3"/>
             </value>
         </option>
@@ -2145,7 +2145,7 @@
         <option name="RUBY_WORDS" baseAttributes="DEFAULT_STRING"/>
         <option name="ReSharper.ASP_NET_ATTRIBUTE_NAME">
             <value>
-                <option name="FOREGROUND" value="AB47BC"/>
+                <option name="FOREGROUND" value="BC60CB"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -2173,7 +2173,7 @@
         </option>
         <option name="ReSharper.ASP_NET_MVC_ACTION">
             <value>
-                <option name="FOREGROUND" value="AB47BC"/>
+                <option name="FOREGROUND" value="BC60CB"/>
                 <option name="EFFECT_TYPE" value="1"/>
             </value>
         </option>
@@ -2204,7 +2204,7 @@
         </option>
         <option name="ReSharper.ASP_NET_RAZOR_ATTRIBUTE_NAME">
             <value>
-                <option name="FOREGROUND" value="AB47BC"/>
+                <option name="FOREGROUND" value="BC60CB"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -2231,7 +2231,7 @@
         </option>
         <option name="ReSharper.ASP_NET_RUN_AT_ATTRIBUTE">
             <value>
-                <option name="FOREGROUND" value="AB47BC"/>
+                <option name="FOREGROUND" value="BC60CB"/>
             </value>
         </option>
         <option name="ReSharper.ASP_NET_TAG_NAME">
@@ -2535,7 +2535,7 @@
         </option>
         <option name="XML_ATTRIBUTE_NAME">
             <value>
-                <option name="FOREGROUND" value="FF9CD6"/>
+                <option name="FOREGROUND" value="BC60CB"/>
             </value>
         </option>
         <option name="XML_ENTITY_REFERENCE" baseAttributes="DEFAULT_ENTITY"/>
