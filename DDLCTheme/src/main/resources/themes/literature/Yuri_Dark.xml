@@ -11,7 +11,7 @@
         <option name="INFORMATION_HINT" value="493162"/>
         <option name="ERROR_HINT" value="704745"/>
         <option name="ADDED_LINES_COLOR" value="0D3A0F"/>
-        <option name="ANNOTATIONS_COLOR" value="292738"/>
+        <option name="ANNOTATIONS_COLOR" value="BCBCBC"/>
         <option name="CARET_COLOR" value="8B4EC9"/>
         <option name="CARET_ROW_COLOR" value="473466"/>
         <option name="CONSOLE_BACKGROUND_KEY" value="422D5A"/>
@@ -79,11 +79,11 @@
         <option name="ScrollBar.trackColor" value="422D5A" mac="422D5A"/>
         <option name="TEARLINE_COLOR" value="422D5A"/>
         <option name="TOOLTIP" value="422D5A"/>
-        <option name="VCS_ANNOTATIONS_COLOR_1" value="9369D6"/>
-        <option name="VCS_ANNOTATIONS_COLOR_2" value="B591D6"/>
-        <option name="VCS_ANNOTATIONS_COLOR_3" value="A651D6"/>
-        <option name="VCS_ANNOTATIONS_COLOR_4" value="7C5DD6"/>
-        <option name="VCS_ANNOTATIONS_COLOR_5" value="B1A8E2"/>
+        <option name="VCS_ANNOTATIONS_COLOR_1" value="5D3E84"/>
+        <option name="VCS_ANNOTATIONS_COLOR_2" value="56397A"/>
+        <option name="VCS_ANNOTATIONS_COLOR_3" value="4D336D"/>
+        <option name="VCS_ANNOTATIONS_COLOR_4" value="493163"/>
+        <option name="VCS_ANNOTATIONS_COLOR_5" value="422D5A"/>
         <option name="VISUAL_INDENT_GUIDE" value="432E3D"/>
         <option name="WHITESPACES_MODIFIED_LINES_COLOR" value="44475a"/>
     </colors>
