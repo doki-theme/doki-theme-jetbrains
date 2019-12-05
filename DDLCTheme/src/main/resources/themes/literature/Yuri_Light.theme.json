@@ -420,6 +420,8 @@
     },
     "/actions/new.svg": "/icons/actions/new.svg",
     "/actions/checked.svg": "/icons/actions/checked.svg",
+    "/actions/refresh.svg": "/icons/actions/refresh.svg",
+    "/actions/refresh_dark.svg": "/icons/actions/refresh_dark.svg",
     "/fileTypes/properties.svg": "/icons/fileTypes/properties.svg",
     "/general/add.svg": "/icons/general/add.svg",
     "/general/add_dark.svg": "/icons/general/add_dark.svg",
