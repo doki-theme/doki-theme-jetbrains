@@ -11,7 +11,7 @@
     <option name="EDITOR_LIGATURES" value="true" />
     <colors>
         <option name="ADDED_LINES_COLOR" value="203952" />
-        <option name="ANNOTATIONS_COLOR" value="292738" />
+        <option name="ANNOTATIONS_COLOR" value="777777" />
         <option name="CARET_COLOR" value="56a23e" />
         <option name="CARET_ROW_COLOR" value="122d13" />
         <option name="CONSOLE_BACKGROUND_KEY" value="1d2115" />
@@ -81,11 +81,11 @@
         <option name="ScrollBar.trackColor" value="1d2115" />
         <option name="TEARLINE_COLOR" value="1d2115" />
         <option name="TOOLTIP" value="1d2115" />
-        <option name="VCS_ANNOTATIONS_COLOR_1" value="9369d6" />
-        <option name="VCS_ANNOTATIONS_COLOR_2" value="b591d6" />
-        <option name="VCS_ANNOTATIONS_COLOR_3" value="a651d6" />
-        <option name="VCS_ANNOTATIONS_COLOR_4" value="7c5dd6" />
-        <option name="VCS_ANNOTATIONS_COLOR_5" value="b1a8e2" />
+        <option name="VCS_ANNOTATIONS_COLOR_1" value="243315" />
+        <option name="VCS_ANNOTATIONS_COLOR_2" value="1b2610" />
+        <option name="VCS_ANNOTATIONS_COLOR_3" value="122D13" />
+        <option name="VCS_ANNOTATIONS_COLOR_4" value="1D2115" />
+        <option name="VCS_ANNOTATIONS_COLOR_5" value="1A1E12" />
         <option name="VISUAL_INDENT_GUIDE" value="432e3d" />
         <option name="WHITESPACES_MODIFIED_LINES_COLOR" value="44475a" />
     </colors>
