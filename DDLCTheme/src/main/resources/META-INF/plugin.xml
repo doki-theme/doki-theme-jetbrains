@@ -43,6 +43,7 @@
             <div align="center"><img src="https://raw.githubusercontent.com/cyclic-reference/jetbrains-theme/master/assets/themes/DDLC_LOGO.png" alt="DDLC"></img></div>
         ]]></description>
 
+    <idea-version since-build="193.4099"/>
     <depends>com.intellij.modules.platform</depends>
     <depends>com.intellij.modules.lang</depends>
 
