@@ -1098,12 +1098,12 @@
         </option>
         <option name="LINE_FULL_COVERAGE">
             <value>
-                <option name="BACKGROUND" value="397cb1" />
+                <option name="BACKGROUND" value="d0fdc9" />
             </value>
         </option>
         <option name="LINE_NONE_COVERAGE">
             <value>
-                <option name="BACKGROUND" value="bc3f3c" />
+                <option name="BACKGROUND" value="ffc3c0" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
