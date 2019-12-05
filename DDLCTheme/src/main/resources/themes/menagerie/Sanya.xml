@@ -598,7 +598,7 @@
         </option>
         <option name="DIFF_INSERTED">
             <value>
-                <option name="BACKGROUND" value="204B21"/>
+                <option name="BACKGROUND" value="2E284B"/>
                 <option name="ERROR_STRIPE_COLOR" value="344C69"/>
             </value>
         </option>
@@ -954,7 +954,7 @@
         <option name="LESS_VARIABLE" baseAttributes=""/>
         <option name="LINE_FULL_COVERAGE">
             <value>
-                <option name="BACKGROUND" value="264b33"/>
+                <option name="BACKGROUND" value="2E284B"/>
                 <option name="FONT_TYPE" value="1"/>
             </value>
         </option>

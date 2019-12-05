@@ -1,4 +1,3 @@
-- markdown
 - coverage
 - VCS annotations
 - Search background colors
@@ -17,6 +16,7 @@
 
 Stretch Goals
 ----
+- markdown
 - Usage Statistics
 - Icons
     - daemon icon

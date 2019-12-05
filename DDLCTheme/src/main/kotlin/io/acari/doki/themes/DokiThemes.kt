@@ -40,6 +40,9 @@ class DokiTheme(private val laf: UIThemeBasedLookAndFeelInfo) {
     val isDark: Boolean
         get() = uiTheme.isDark
 
+    val name: String
+        get() = uiTheme.name
+
     fun getChibiPath(): Optional<String> {
         return uiTheme.background["image"]
             .toOptional()
