@@ -794,20 +794,20 @@
         </option>
         <option name="INLINE_PARAMETER_HINT">
             <value>
-                <option name="FOREGROUND" value="bbbbbb" />
-                <option name="BACKGROUND" value="1d2115" />
+                <option name="FOREGROUND" value="8FDD9D"/>
+                <option name="BACKGROUND" value="1d2115"/>
             </value>
         </option>
         <option name="INLINE_PARAMETER_HINT_CURRENT">
             <value>
-                <option name="FOREGROUND" value="f1fa8c" />
-                <option name="BACKGROUND" value="1d2115" />
+                <option name="FOREGROUND" value="8FDD9D"/>
+                <option name="BACKGROUND" value="1d2115"/>
             </value>
         </option>
         <option name="INLINE_PARAMETER_HINT_HIGHLIGHTED">
             <value>
-                <option name="FOREGROUND" value="bbbbbb" />
-                <option name="BACKGROUND" value="1d2115" />
+                <option name="FOREGROUND" value="8FDD9D"/>
+                <option name="BACKGROUND" value="1d2115"/>
             </value>
         </option>
         <option name="JAVA.THIS_SUPER">

@@ -970,20 +970,20 @@
         </option>
         <option name="INLINE_PARAMETER_HINT">
             <value>
-                <option name="FOREGROUND" value="546e7a" />
-                <option name="BACKGROUND" value="f4f4f4" />
+                <option name="FOREGROUND" value="546e7a"/>
+                <option name="BACKGROUND" value="f4f4f4"/>
             </value>
         </option>
         <option name="INLINE_PARAMETER_HINT_CURRENT">
             <value>
-                <option name="FOREGROUND" value="ffffff" />
-                <option name="BACKGROUND" value="3f51b5" />
+                <option name="FOREGROUND" value="ffffff"/>
+                <option name="BACKGROUND" value="3f51b5"/>
             </value>
         </option>
         <option name="INLINE_PARAMETER_HINT_HIGHLIGHTED">
             <value>
-                <option name="FOREGROUND" value="546e7a" />
-                <option name="BACKGROUND" value="d2d4d5" />
+                <option name="FOREGROUND" value="546e7a"/>
+                <option name="BACKGROUND" value="d2d4d5"/>
             </value>
         </option>
         <option name="IVAR">
