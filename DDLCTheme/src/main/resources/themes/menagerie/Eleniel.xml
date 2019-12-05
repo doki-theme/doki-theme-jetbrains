@@ -12,7 +12,7 @@
     <option name="EDITOR_LIGATURES" value="true"/>
     <colors>
         <option name="ADDED_LINES_COLOR" value="204B21"/>
-        <option name="ANNOTATIONS_COLOR" value="403D46"/>
+        <option name="ANNOTATIONS_COLOR" value="bbbbbb"/>
         <option name="CARET_COLOR" value="cccccc"/>
         <option name="CARET_ROW_COLOR" value="58515C"/>
         <option name="CONSOLE_BACKGROUND_KEY" value="403D46"/>
@@ -82,11 +82,11 @@
         <option name="ScrollBar.trackColor" value="403D46" mac="403D46"/>
         <option name="TEARLINE_COLOR" value="403D46"/>
         <option name="TOOLTIP" value="403D46"/>
-        <option name="VCS_ANNOTATIONS_COLOR_1" value="7093D6"/>
-        <option name="VCS_ANNOTATIONS_COLOR_2" value="5ECFD6"/>
-        <option name="VCS_ANNOTATIONS_COLOR_3" value="2095D6"/>
-        <option name="VCS_ANNOTATIONS_COLOR_4" value="6F7FD6"/>
-        <option name="VCS_ANNOTATIONS_COLOR_5" value="66C5E2"/>
+        <option name="VCS_ANNOTATIONS_COLOR_1" value="403D46"/>
+        <option name="VCS_ANNOTATIONS_COLOR_2" value="393F46"/>
+        <option name="VCS_ANNOTATIONS_COLOR_3" value="3B4D54"/>
+        <option name="VCS_ANNOTATIONS_COLOR_4" value="34515E"/>
+        <option name="VCS_ANNOTATIONS_COLOR_5" value="2A4C63"/>
         <option name="VISUAL_INDENT_GUIDE" value="464246"/>
         <option name="WHITESPACES_MODIFIED_LINES_COLOR" value="44475a"/>
     </colors>

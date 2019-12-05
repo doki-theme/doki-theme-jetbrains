@@ -78,6 +78,11 @@
         <option name="ScrollBar.hoverTrackColor" value="FFFEF9" mac="FFFEF9"/>
         <option name="ScrollBar.trackColor" value="FFFEF9" mac="FFFEF9"/>
         <option name="TEARLINE_COLOR" value="FFFEF9"/>
+        <option name="VCS_ANNOTATIONS_COLOR_1" value="FFFEF9" />
+        <option name="VCS_ANNOTATIONS_COLOR_2" value="FFFEDA" />
+        <option name="VCS_ANNOTATIONS_COLOR_3" value="FFFED0" />
+        <option name="VCS_ANNOTATIONS_COLOR_4" value="FFFDC1" />
+        <option name="VCS_ANNOTATIONS_COLOR_5" value="FFFBB1" />
         <option name="VISUAL_INDENT_GUIDE" value="f1f4e0"/>
         <option name="WHITESPACES" value="b5b5b5"/>
         <option name="WHITESPACES_MODIFIED_LINES_COLOR" value="f6f0de"/>
