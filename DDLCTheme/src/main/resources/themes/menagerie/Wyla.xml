@@ -963,19 +963,19 @@
         <option name="INLINE_PARAMETER_HINT">
             <value>
                 <option name="FOREGROUND" value="fcfcfa"/>
-                <option name="BACKGROUND" value="221f22"/>
+                <option name="BACKGROUND" value="2f2329"/>
             </value>
         </option>
         <option name="INLINE_PARAMETER_HINT_CURRENT">
             <value>
                 <option name="FOREGROUND" value="ffffff"/>
-                <option name="BACKGROUND" value="e91e63"/>
+                <option name="BACKGROUND" value="2f2329"/>
             </value>
         </option>
         <option name="INLINE_PARAMETER_HINT_HIGHLIGHTED">
             <value>
                 <option name="FOREGROUND" value="fcfcfa"/>
-                <option name="BACKGROUND" value="5b595c"/>
+                <option name="BACKGROUND" value="2f2329"/>
             </value>
         </option>
         <option name="IVAR">

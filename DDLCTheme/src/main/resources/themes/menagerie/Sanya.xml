@@ -826,20 +826,20 @@
         </option>
         <option name="INLINE_PARAMETER_HINT">
             <value>
-                <option name="FOREGROUND" value="ffffff"/>
-                <option name="BACKGROUND" value="44475a"/>
+                <option name="FOREGROUND" value="fcfcfa"/>
+                <option name="BACKGROUND" value="382536"/>
             </value>
         </option>
         <option name="INLINE_PARAMETER_HINT_CURRENT">
             <value>
-                <option name="FOREGROUND" value="f1fa8c"/>
-                <option name="BACKGROUND" value="6272a4"/>
+                <option name="FOREGROUND" value="fcfcfa"/>
+                <option name="BACKGROUND" value="382536"/>
             </value>
         </option>
         <option name="INLINE_PARAMETER_HINT_HIGHLIGHTED">
             <value>
-                <option name="FOREGROUND" value="ffffff"/>
-                <option name="BACKGROUND" value="44475a"/>
+                <option name="FOREGROUND" value="fcfcfa"/>
+                <option name="BACKGROUND" value="382536"/>
             </value>
         </option>
         <option name="JADE_FILE_PATH" baseAttributes="DEFAULT_STRING"/>
