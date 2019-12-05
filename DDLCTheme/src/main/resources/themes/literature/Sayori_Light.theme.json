@@ -419,6 +419,8 @@
     },
     "/actions/new.svg": "/icons/actions/new.svg",
     "/actions/checked.svg": "/icons/actions/checked.svg",
+    "/actions/diffWithClipboard.svg": "/icons/actions/diffWithClipboard.svg",
+    "/actions/diffWithClipboard_dark.svg": "/icons/actions/diffWithClipboard_dark.svg",
     "/actions/refresh.svg": "/icons/actions/refresh.svg",
     "/actions/refresh_dark.svg": "/icons/actions/refresh_dark.svg",
     "/fileTypes/properties.svg": "/icons/fileTypes/properties.svg",
