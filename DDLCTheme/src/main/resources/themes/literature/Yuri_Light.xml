@@ -270,7 +270,7 @@
         </option>
         <option name="CONSOLE_YELLOW_BRIGHT_OUTPUT">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
             </value>
         </option>
         <option name="CONSOLE_YELLOW_OUTPUT">
@@ -328,7 +328,7 @@
         </option>
         <option name="CSS.PROPERTY_VALUE">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
             </value>
         </option>
         <option name="CSS.PSEUDO">
@@ -349,13 +349,13 @@
         </option>
         <option name="CSS.URL">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
                 <option name="FONT_TYPE" value="2" />
             </value>
         </option>
         <option name="CTRL_CLICKABLE">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
                 <option name="EFFECT_TYPE" value="1" />
             </value>
         </option>
@@ -433,7 +433,7 @@
         </option>
         <option name="DEFAULT_DOC_COMMENT_TAG_VALUE">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
             </value>
         </option>
         <option name="DEFAULT_DOC_MARKUP">
@@ -508,7 +508,7 @@
         </option>
         <option name="DEFAULT_PARAMETER">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
                 <option name="FONT_TYPE" value="2" />
             </value>
         </option>
@@ -527,8 +527,8 @@
         </option>
         <option name="DEFAULT_REASSIGNED_PARAMETER">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
-                <option name="EFFECT_COLOR" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
+                <option name="EFFECT_COLOR" value="E7653A" />
                 <option name="EFFECT_TYPE" value="1" />
             </value>
         </option>
@@ -549,7 +549,7 @@
         </option>
         <option name="DEFAULT_STRING">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
             </value>
         </option>
         <option name="DEFAULT_TAG">
@@ -565,7 +565,7 @@
         </option>
         <option name="DEFAULT_VALID_STRING_ESCAPE">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
             </value>
         </option>
         <option name="DELETED_TEXT_ATTRIBUTES">
@@ -645,12 +645,12 @@
         </option>
         <option name="GO_FUNCTION_PARAMETER">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
             </value>
         </option>
         <option name="GO_METHOD_RECEIVER">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
             </value>
         </option>
         <option name="GO_PACKAGE_EXPORTED_CONSTANT">
@@ -722,12 +722,12 @@
         </option>
         <option name="HTTP_REQUEST_PARAMETER_NAME">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
             </value>
         </option>
         <option name="HTTP_REQUEST_PARAMETER_VALUE">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
             </value>
         </option>
         <option name="HTTP_REQUEST_PORT">
@@ -737,8 +737,8 @@
         </option>
         <option name="HYPERLINK_ATTRIBUTES">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
-                <option name="EFFECT_COLOR" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
+                <option name="EFFECT_COLOR" value="E7653A" />
                 <option name="EFFECT_TYPE" value="1" />
             </value>
         </option>
@@ -761,7 +761,7 @@
         </option>
         <option name="IGNORE.HEADER">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
                 <option name="BACKGROUND" value="c1eec9" />
                 <option name="FONT_TYPE" value="1" />
             </value>
@@ -790,13 +790,13 @@
         </option>
         <option name="IGNORE.VALUE">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
             </value>
         </option>
         <option name="IMPLICIT_ANONYMOUS_CLASS_PARAMETER_ATTRIBUTES">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
-                <option name="EFFECT_COLOR" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
+                <option name="EFFECT_COLOR" value="E7653A" />
                 <option name="EFFECT_TYPE" value="1" />
             </value>
         </option>
@@ -829,7 +829,7 @@
         </option>
         <option name="INLINE_PARAMETER_HINT_CURRENT">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
                 <option name="BACKGROUND" value="D5D2FF" />
             </value>
         </option>
@@ -861,7 +861,7 @@
         </option>
         <option name="JS.DEBUGGER_STMT">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
                 <option name="FONT_TYPE" value="2" />
             </value>
         </option>
@@ -938,7 +938,7 @@
         </option>
         <option name="KOTLIN_NAMED_ARGUMENT">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
             </value>
         </option>
         <option name="KOTLIN_PROPERTY_WITH_BACKING_FIELD">
@@ -998,7 +998,7 @@
         </option>
         <option name="LOG_WARNING_OUTPUT">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
             </value>
         </option>
         <option name="List/map to object conversion">
@@ -1069,18 +1069,18 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.BOLD">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
                 <option name="FONT_TYPE" value="1" />
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.BOLD_MARKER">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.BOLD_TEXT_CODE_TEXT">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
                 <option name="BACKGROUND" value="DFCCFF" />
                 <option name="FONT_TYPE" value="1" />
             </value>
@@ -1122,7 +1122,7 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.DEFINITION_TERM">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
                 <option name="FONT_TYPE" value="3" />
             </value>
         </option>
@@ -1145,7 +1145,7 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.FOOTNOTE_ID">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.FOOTNOTE_REF">
@@ -1168,18 +1168,18 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.ITALIC">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
                 <option name="FONT_TYPE" value="2" />
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.ITALIC_MARKER">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.ITALIC_TEXT_CODE_TEXT">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
                 <option name="BACKGROUND" value="DFCCFF" />
                 <option name="FONT_TYPE" value="2" />
             </value>
@@ -1201,31 +1201,31 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.SIM_TOC_TITLE">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.SPECIAL_TEXT">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.STRIKETHROUGH">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
-                <option name="EFFECT_COLOR" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
+                <option name="EFFECT_COLOR" value="E7653A" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.STRIKETHROUGH_MARKER">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.STRIKETHROUGH_TEXT_BOLD_TEXT">
             <value>
                 <option name="FOREGROUND" value="f2b882" />
                 <option name="FONT_TYPE" value="1" />
-                <option name="EFFECT_COLOR" value="DC872E" />
+                <option name="EFFECT_COLOR" value="E7653A" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1234,7 +1234,7 @@
                 <option name="FOREGROUND" value="f2b882" />
                 <option name="BACKGROUND" value="DFCCFF" />
                 <option name="FONT_TYPE" value="1" />
-                <option name="EFFECT_COLOR" value="DC872E" />
+                <option name="EFFECT_COLOR" value="E7653A" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1242,7 +1242,7 @@
             <value>
                 <option name="FOREGROUND" value="e6b84e" />
                 <option name="FONT_TYPE" value="3" />
-                <option name="EFFECT_COLOR" value="DC872E" />
+                <option name="EFFECT_COLOR" value="E7653A" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1251,15 +1251,15 @@
                 <option name="FOREGROUND" value="e6b84e" />
                 <option name="BACKGROUND" value="DFCCFF" />
                 <option name="FONT_TYPE" value="3" />
-                <option name="EFFECT_COLOR" value="DC872E" />
+                <option name="EFFECT_COLOR" value="E7653A" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.STRIKETHROUGH_TEXT_CODE_TEXT">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
                 <option name="BACKGROUND" value="DFCCFF" />
-                <option name="EFFECT_COLOR" value="DC872E" />
+                <option name="EFFECT_COLOR" value="E7653A" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1267,7 +1267,7 @@
             <value>
                 <option name="FOREGROUND" value="e5f653" />
                 <option name="FONT_TYPE" value="2" />
-                <option name="EFFECT_COLOR" value="DC872E" />
+                <option name="EFFECT_COLOR" value="E7653A" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1276,31 +1276,31 @@
                 <option name="FOREGROUND" value="e5f653" />
                 <option name="BACKGROUND" value="DFCCFF" />
                 <option name="FONT_TYPE" value="2" />
-                <option name="EFFECT_COLOR" value="DC872E" />
+                <option name="EFFECT_COLOR" value="E7653A" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.SUBSCRIPT">
             <value>
-                <option name="EFFECT_COLOR" value="DC872E" />
+                <option name="EFFECT_COLOR" value="E7653A" />
                 <option name="EFFECT_TYPE" value="5" />
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.SUBSCRIPT_MARKER">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.SUPERSCRIPT">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
-                <option name="EFFECT_COLOR" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
+                <option name="EFFECT_COLOR" value="E7653A" />
                 <option name="EFFECT_TYPE" value="4" />
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.SUPERSCRIPT_MARKER">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
                 <option name="EFFECT_TYPE" value="4" />
             </value>
         </option>
@@ -1311,13 +1311,13 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_CAPTION">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
                 <option name="FONT_TYPE" value="1" />
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_CAPTION_MARKER">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
                 <option name="FONT_TYPE" value="1" />
             </value>
         </option>
@@ -1328,7 +1328,7 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_REVEN_CEVEN_BOLD_TEXT">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
                 <option name="BACKGROUND" value="DFCCFF" />
                 <option name="FONT_TYPE" value="1" />
             </value>
@@ -1342,16 +1342,16 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_REVEN_CEVEN_ITALIC_TEXT">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
                 <option name="BACKGROUND" value="DFCCFF" />
                 <option name="FONT_TYPE" value="2" />
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_REVEN_CEVEN_STRIKETHROUGH_TEXT">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
                 <option name="BACKGROUND" value="DFCCFF" />
-                <option name="EFFECT_COLOR" value="DC872E" />
+                <option name="EFFECT_COLOR" value="E7653A" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1360,7 +1360,7 @@
                 <option name="FOREGROUND" value="f2b882" />
                 <option name="BACKGROUND" value="DFCCFF" />
                 <option name="FONT_TYPE" value="1" />
-                <option name="EFFECT_COLOR" value="DC872E" />
+                <option name="EFFECT_COLOR" value="E7653A" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1369,7 +1369,7 @@
                 <option name="FOREGROUND" value="e6b84e" />
                 <option name="BACKGROUND" value="DFCCFF" />
                 <option name="FONT_TYPE" value="3" />
-                <option name="EFFECT_COLOR" value="DC872E" />
+                <option name="EFFECT_COLOR" value="E7653A" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1378,7 +1378,7 @@
                 <option name="FOREGROUND" value="e5f653" />
                 <option name="BACKGROUND" value="DFCCFF" />
                 <option name="FONT_TYPE" value="2" />
-                <option name="EFFECT_COLOR" value="DC872E" />
+                <option name="EFFECT_COLOR" value="E7653A" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1389,7 +1389,7 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_REVEN_CODD_BOLD_TEXT">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
                 <option name="BACKGROUND" value="DFCCFF" />
                 <option name="FONT_TYPE" value="1" />
             </value>
@@ -1403,16 +1403,16 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_REVEN_CODD_ITALIC_TEXT">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
                 <option name="BACKGROUND" value="DFCCFF" />
                 <option name="FONT_TYPE" value="2" />
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_REVEN_CODD_STRIKETHROUGH_TEXT">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
                 <option name="BACKGROUND" value="DFCCFF" />
-                <option name="EFFECT_COLOR" value="DC872E" />
+                <option name="EFFECT_COLOR" value="E7653A" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1421,7 +1421,7 @@
                 <option name="FOREGROUND" value="f2b882" />
                 <option name="BACKGROUND" value="DFCCFF" />
                 <option name="FONT_TYPE" value="1" />
-                <option name="EFFECT_COLOR" value="DC872E" />
+                <option name="EFFECT_COLOR" value="E7653A" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1430,7 +1430,7 @@
                 <option name="FOREGROUND" value="e6b84e" />
                 <option name="BACKGROUND" value="DFCCFF" />
                 <option name="FONT_TYPE" value="3" />
-                <option name="EFFECT_COLOR" value="DC872E" />
+                <option name="EFFECT_COLOR" value="E7653A" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1439,7 +1439,7 @@
                 <option name="FOREGROUND" value="e5f653" />
                 <option name="BACKGROUND" value="DFCCFF" />
                 <option name="FONT_TYPE" value="2" />
-                <option name="EFFECT_COLOR" value="DC872E" />
+                <option name="EFFECT_COLOR" value="E7653A" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1448,7 +1448,7 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_RODD_CEVEN_BOLD_TEXT">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
                 <option name="FONT_TYPE" value="1" />
             </value>
         </option>
@@ -1460,14 +1460,14 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_RODD_CEVEN_ITALIC_TEXT">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
                 <option name="FONT_TYPE" value="2" />
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_RODD_CEVEN_STRIKETHROUGH_TEXT">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
-                <option name="EFFECT_COLOR" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
+                <option name="EFFECT_COLOR" value="E7653A" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1475,7 +1475,7 @@
             <value>
                 <option name="FOREGROUND" value="f2b882" />
                 <option name="FONT_TYPE" value="1" />
-                <option name="EFFECT_COLOR" value="DC872E" />
+                <option name="EFFECT_COLOR" value="E7653A" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1483,7 +1483,7 @@
             <value>
                 <option name="FOREGROUND" value="e6b84e" />
                 <option name="FONT_TYPE" value="3" />
-                <option name="EFFECT_COLOR" value="DC872E" />
+                <option name="EFFECT_COLOR" value="E7653A" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1491,13 +1491,13 @@
             <value>
                 <option name="FOREGROUND" value="e5f653" />
                 <option name="FONT_TYPE" value="2" />
-                <option name="EFFECT_COLOR" value="DC872E" />
+                <option name="EFFECT_COLOR" value="E7653A" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_RODD_CODD_BOLD_TEXT">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
                 <option name="FONT_TYPE" value="1" />
             </value>
         </option>
@@ -1509,14 +1509,14 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_RODD_CODD_ITALIC_TEXT">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
                 <option name="FONT_TYPE" value="2" />
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_RODD_CODD_STRIKETHROUGH_TEXT">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
-                <option name="EFFECT_COLOR" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
+                <option name="EFFECT_COLOR" value="E7653A" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1524,7 +1524,7 @@
             <value>
                 <option name="FOREGROUND" value="f2b882" />
                 <option name="FONT_TYPE" value="1" />
-                <option name="EFFECT_COLOR" value="DC872E" />
+                <option name="EFFECT_COLOR" value="E7653A" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1532,7 +1532,7 @@
             <value>
                 <option name="FOREGROUND" value="e6b84e" />
                 <option name="FONT_TYPE" value="3" />
-                <option name="EFFECT_COLOR" value="DC872E" />
+                <option name="EFFECT_COLOR" value="E7653A" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1540,7 +1540,7 @@
             <value>
                 <option name="FOREGROUND" value="e5f653" />
                 <option name="FONT_TYPE" value="2" />
-                <option name="EFFECT_COLOR" value="DC872E" />
+                <option name="EFFECT_COLOR" value="E7653A" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1552,7 +1552,7 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_REVEN_CEVEN_BOLD_TEXT">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
                 <option name="BACKGROUND" value="DFCCFF" />
                 <option name="FONT_TYPE" value="1" />
             </value>
@@ -1566,17 +1566,17 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_REVEN_CEVEN_ITALIC_TEXT">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
                 <option name="BACKGROUND" value="DFCCFF" />
                 <option name="FONT_TYPE" value="3" />
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_REVEN_CEVEN_STRIKETHROUGH_TEXT">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
                 <option name="BACKGROUND" value="DFCCFF" />
                 <option name="FONT_TYPE" value="1" />
-                <option name="EFFECT_COLOR" value="DC872E" />
+                <option name="EFFECT_COLOR" value="E7653A" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1585,7 +1585,7 @@
                 <option name="FOREGROUND" value="f2b882" />
                 <option name="BACKGROUND" value="DFCCFF" />
                 <option name="FONT_TYPE" value="1" />
-                <option name="EFFECT_COLOR" value="DC872E" />
+                <option name="EFFECT_COLOR" value="E7653A" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1594,7 +1594,7 @@
                 <option name="FOREGROUND" value="e6b84e" />
                 <option name="BACKGROUND" value="DFCCFF" />
                 <option name="FONT_TYPE" value="3" />
-                <option name="EFFECT_COLOR" value="DC872E" />
+                <option name="EFFECT_COLOR" value="E7653A" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1603,7 +1603,7 @@
                 <option name="FOREGROUND" value="e5f653" />
                 <option name="BACKGROUND" value="DFCCFF" />
                 <option name="FONT_TYPE" value="3" />
-                <option name="EFFECT_COLOR" value="DC872E" />
+                <option name="EFFECT_COLOR" value="E7653A" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1615,7 +1615,7 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_REVEN_CODD_BOLD_TEXT">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
                 <option name="BACKGROUND" value="DFCCFF" />
                 <option name="FONT_TYPE" value="1" />
             </value>
@@ -1629,17 +1629,17 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_REVEN_CODD_ITALIC_TEXT">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
                 <option name="BACKGROUND" value="DFCCFF" />
                 <option name="FONT_TYPE" value="3" />
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_REVEN_CODD_STRIKETHROUGH_TEXT">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
                 <option name="BACKGROUND" value="DFCCFF" />
                 <option name="FONT_TYPE" value="1" />
-                <option name="EFFECT_COLOR" value="DC872E" />
+                <option name="EFFECT_COLOR" value="E7653A" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1648,7 +1648,7 @@
                 <option name="FOREGROUND" value="f2b882" />
                 <option name="BACKGROUND" value="DFCCFF" />
                 <option name="FONT_TYPE" value="1" />
-                <option name="EFFECT_COLOR" value="DC872E" />
+                <option name="EFFECT_COLOR" value="E7653A" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1657,7 +1657,7 @@
                 <option name="FOREGROUND" value="e6b84e" />
                 <option name="BACKGROUND" value="DFCCFF" />
                 <option name="FONT_TYPE" value="3" />
-                <option name="EFFECT_COLOR" value="DC872E" />
+                <option name="EFFECT_COLOR" value="E7653A" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1666,7 +1666,7 @@
                 <option name="FOREGROUND" value="e5f653" />
                 <option name="BACKGROUND" value="DFCCFF" />
                 <option name="FONT_TYPE" value="3" />
-                <option name="EFFECT_COLOR" value="DC872E" />
+                <option name="EFFECT_COLOR" value="E7653A" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1677,7 +1677,7 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_RODD_CEVEN_BOLD_TEXT">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
                 <option name="FONT_TYPE" value="1" />
             </value>
         </option>
@@ -1689,15 +1689,15 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_RODD_CEVEN_ITALIC_TEXT">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
                 <option name="FONT_TYPE" value="3" />
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_RODD_CEVEN_STRIKETHROUGH_TEXT">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
                 <option name="FONT_TYPE" value="1" />
-                <option name="EFFECT_COLOR" value="DC872E" />
+                <option name="EFFECT_COLOR" value="E7653A" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1705,7 +1705,7 @@
             <value>
                 <option name="FOREGROUND" value="f2b882" />
                 <option name="FONT_TYPE" value="1" />
-                <option name="EFFECT_COLOR" value="DC872E" />
+                <option name="EFFECT_COLOR" value="E7653A" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1713,7 +1713,7 @@
             <value>
                 <option name="FOREGROUND" value="e6b84e" />
                 <option name="FONT_TYPE" value="3" />
-                <option name="EFFECT_COLOR" value="DC872E" />
+                <option name="EFFECT_COLOR" value="E7653A" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1721,7 +1721,7 @@
             <value>
                 <option name="FOREGROUND" value="e5f653" />
                 <option name="FONT_TYPE" value="3" />
-                <option name="EFFECT_COLOR" value="DC872E" />
+                <option name="EFFECT_COLOR" value="E7653A" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1732,7 +1732,7 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_RODD_CODD_BOLD_TEXT">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
                 <option name="FONT_TYPE" value="1" />
             </value>
         </option>
@@ -1744,15 +1744,15 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_RODD_CODD_ITALIC_TEXT">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
                 <option name="FONT_TYPE" value="3" />
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_RODD_CODD_STRIKETHROUGH_TEXT">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
                 <option name="FONT_TYPE" value="1" />
-                <option name="EFFECT_COLOR" value="DC872E" />
+                <option name="EFFECT_COLOR" value="E7653A" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1760,7 +1760,7 @@
             <value>
                 <option name="FOREGROUND" value="f2b882" />
                 <option name="FONT_TYPE" value="1" />
-                <option name="EFFECT_COLOR" value="DC872E" />
+                <option name="EFFECT_COLOR" value="E7653A" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1768,7 +1768,7 @@
             <value>
                 <option name="FOREGROUND" value="e6b84e" />
                 <option name="FONT_TYPE" value="3" />
-                <option name="EFFECT_COLOR" value="DC872E" />
+                <option name="EFFECT_COLOR" value="E7653A" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1776,7 +1776,7 @@
             <value>
                 <option name="FOREGROUND" value="e5f653" />
                 <option name="FONT_TYPE" value="3" />
-                <option name="EFFECT_COLOR" value="DC872E" />
+                <option name="EFFECT_COLOR" value="E7653A" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -1821,14 +1821,14 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.UNDERLINE">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
-                <option name="EFFECT_COLOR" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
+                <option name="EFFECT_COLOR" value="E7653A" />
                 <option name="EFFECT_TYPE" value="1" />
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.UNDERLINE_MARKER">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
                 <option name="FONT_TYPE" value="1" />
                 <option name="EFFECT_TYPE" value="1" />
             </value>
@@ -1881,13 +1881,13 @@
         </option>
         <option name="OC.MACRONAME">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
                 <option name="FONT_TYPE" value="1" />
             </value>
         </option>
         <option name="OC.MACRO_PARAMETER">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
             </value>
         </option>
         <option name="OC.OVERLOADED_OPERATOR">
@@ -1917,7 +1917,7 @@
         </option>
         <option name="PHP_PARAMETER">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
             </value>
         </option>
         <option name="PHP_VAR">
@@ -1950,7 +1950,7 @@
         </option>
         <option name="PY.KEYWORD_ARGUMENT">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
             </value>
         </option>
         <option name="PY.PREDEFINED_DEFINITION">
@@ -1987,7 +1987,7 @@
         </option>
         <option name="RDOC_IDENTIFIER">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
             </value>
         </option>
         <option name="RDOC_KEYWORD">
@@ -1998,7 +1998,7 @@
         </option>
         <option name="RDOC_URL">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
             </value>
         </option>
         <option name="REGEXP.BRACES">
@@ -2109,7 +2109,7 @@
         </option>
         <option name="ReSharper.ASP_NET_ATTRIBUTE_VALUE">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
             </value>
         </option>
         <option name="ReSharper.ASP_NET_COMMENT">
@@ -2149,13 +2149,13 @@
         </option>
         <option name="ReSharper.ASP_NET_MVC_VIEW">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
                 <option name="EFFECT_TYPE" value="1" />
             </value>
         </option>
         <option name="ReSharper.ASP_NET_MVC_VIEW_COMPONENT">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
                 <option name="FONT_TYPE" value="2" />
                 <option name="EFFECT_TYPE" value="1" />
             </value>
@@ -2168,7 +2168,7 @@
         </option>
         <option name="ReSharper.ASP_NET_RAZOR_ATTRIBUTE_VALUE">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
             </value>
         </option>
         <option name="ReSharper.ASP_NET_RAZOR_CODE_BLOCK">
@@ -2213,7 +2213,7 @@
         </option>
         <option name="ReSharper.CPP_ENUM_ENUMERATOR_IDENTIFIER">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
             </value>
         </option>
         <option name="ReSharper.CPP_PREPROCESSOR_MACRO_IDENTIFIER">
@@ -2246,13 +2246,13 @@
         </option>
         <option name="ReSharper.FORMAT_STRING_ITEM">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
             </value>
         </option>
         <option name="ReSharper.MATCHED_FORMAT_STRING_ITEM">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
-                <option name="EFFECT_COLOR" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
+                <option name="EFFECT_COLOR" value="E7653A" />
             </value>
         </option>
         <option name="ReSharper.OUTLINED_ENTITY">
@@ -2288,7 +2288,7 @@
         </option>
         <option name="SASS_VARIABLE">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
             </value>
         </option>
         <option name="SEARCH_RESULT_ATTRIBUTES">
@@ -2518,7 +2518,7 @@
         </option>
         <option name="YAML_ANCHOR">
             <value>
-                <option name="FOREGROUND" value="DC872E" />
+                <option name="FOREGROUND" value="E7653A" />
             </value>
         </option>
         <option name="YAML_SCALAR_KEY">
