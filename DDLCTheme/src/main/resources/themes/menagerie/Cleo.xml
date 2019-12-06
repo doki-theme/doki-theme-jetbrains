@@ -729,6 +729,23 @@
                 <option name="FOREGROUND" value="cb8411" />
             </value>
         </option>
+        <option name="GO_PACKAGE_EXPORTED_CONSTANT">
+            <value>
+                <option name="FOREGROUND" value="cb8411" />
+                <option name="BACKGROUND"/>
+                <option name="EFFECT_COLOR"/>
+                <option name="FONT_TYPE" value="3"/>
+            </value>
+        </option>
+        <option name="GO_PACKAGE_LOCAL_CONSTANT">
+            <value>
+                <option name="FOREGROUND" value="cb8411" />
+                <option name="BACKGROUND"/>
+                <option name="EFFECT_COLOR"/>
+                <option name="FONT_TYPE" value="2"/>
+            </value>
+        </option>
+        <option name="GROOVY_KEYWORD" baseAttributes="DEFAULT_KEYWORD"/>
         <option name="HAML_CLASS">
             <value>
                 <option name="FOREGROUND" value="ffb62c" />
@@ -2266,8 +2283,16 @@
                 <option name="FOREGROUND" value="397cb1" />
             </value>
         </option>
+        <option name="PHP_ALIAS_REFERENCE" baseAttributes="PHP_CLASS"/>
         <option name="PHP_CONCATENATION">
             <value />
+        </option>
+        <option name="PHP_EXEC_COMMAND_ID">
+            <value>
+                <option name="FOREGROUND" value="a5c25c" />
+                <!--                todo: dis-->
+                <option name="BACKGROUND" value="23271A" />
+            </value>
         </option>
         <option name="PHP_HEREDOC_ID">
             <value>
@@ -2276,9 +2301,15 @@
                 <option name="EFFECT_TYPE" value="1" />
             </value>
         </option>
+        <option name="PHP_PARAMETER" baseAttributes="DEFAULT_PARAMETER" />
+        <option name="PHP_SCRIPTING_BACKGROUND">
+            <value/>
+        </option>
+        <option name="PHP_VAR" baseAttributes="DEFAULT_IDENTIFIER"/>
         <option name="PHP_SCRIPTING_BACKGROUND">
             <value />
         </option>
+        <option name="PROPERTIES.INVALID_STRING_ESCAPE" baseAttributes="DEFAULT_INVALID_STRING_ESCAPE"/>
         <option name="PROTOCOL_REFERENCE">
             <value>
                 <option name="FOREGROUND" value="219598" />

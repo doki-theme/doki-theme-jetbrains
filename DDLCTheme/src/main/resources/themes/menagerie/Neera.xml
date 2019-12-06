@@ -608,7 +608,23 @@
         <option name="GHERKIN_OUTLINE_PARAMETER_SUBSTITUTION" baseAttributes="DEFAULT_INSTANCE_FIELD"/>
         <option name="GHERKIN_PYSTRING" baseAttributes="DEFAULT_STRING"/>
         <option name="GHERKIN_REGEXP_PARAMETER" baseAttributes="DEFAULT_PARAMETER"/>
-        <option name="GROOVY_KEYWORD" baseAttributes="JAVA_KEYWORD"/>
+        <option name="GO_PACKAGE_EXPORTED_CONSTANT">
+            <value>
+                <option name="FOREGROUND" value="5cc5" />
+                <option name="BACKGROUND"/>
+                <option name="EFFECT_COLOR"/>
+                <option name="FONT_TYPE" value="3"/>
+            </value>
+        </option>
+        <option name="GO_PACKAGE_LOCAL_CONSTANT">
+            <value>
+                <option name="FOREGROUND" value="5cc5" />
+                <option name="BACKGROUND"/>
+                <option name="EFFECT_COLOR"/>
+                <option name="FONT_TYPE" value="2"/>
+            </value>
+        </option>
+        <option name="GROOVY_KEYWORD" baseAttributes="DEFAULT_KEYWORD"/>
         <option name="HOCON_SUBSTITUTION_SIGN" baseAttributes="DEFAULT_OPERATION_SIGN"/>
         <option name="HTML_TAG_NAME">
             <value>
@@ -1688,12 +1704,18 @@
         <option name="PERL_VERSION" baseAttributes="PERL_NUMBER"/>
         <option name="PERL_XSUB" baseAttributes="PERL_SUB"/>
         <option name="PHP_ALIAS_REFERENCE" baseAttributes="PHP_CLASS"/>
-        <option name="PHP_EXEC_COMMAND_ID" baseAttributes="DEFAULT_STRING"/>
+        <option name="PHP_EXEC_COMMAND_ID">
+            <value>
+                <option name="FOREGROUND" value="a5c25c" />
+                <!--                todo: dis-->
+                <option name="BACKGROUND" value="23271A" />
+            </value>
+        </option>
         <option name="PHP_PARAMETER" baseAttributes="DEFAULT_PARAMETER"/>
         <option name="PHP_SCRIPTING_BACKGROUND">
             <value/>
         </option>
-        <option name="PHP_VAR" baseAttributes="DEFAULT_LOCAL_VARIABLE"/>
+        <option name="PHP_VAR" baseAttributes="DEFAULT_IDENTIFIER"/>
         <option name="POD_CODE" baseAttributes="DEFAULT_DOC_COMMENT"/>
         <option name="POD_TAG" baseAttributes="DEFAULT_DOC_COMMENT_TAG"/>
         <option name="PUPPET_HEREDOC_TAGS" baseAttributes="DEFAULT_IDENTIFIER"/>
@@ -1886,6 +1908,7 @@
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
+        <option name="VELOCITY_SCRIPTING_BACKGROUND" baseAttributes="DEFAULT_TEMPLATE_LANGUAGE_COLOR"/>
         <option name="WARNING_ATTRIBUTES">
             <value>
                 <option name="BACKGROUND" value="f7e9af"/>
