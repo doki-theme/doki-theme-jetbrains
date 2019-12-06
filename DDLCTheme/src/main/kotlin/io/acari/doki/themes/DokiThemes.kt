@@ -6,6 +6,8 @@ import java.util.*
 import javax.swing.UIManager
 
 object DokiThemes {
+    const val MONIKA_LIGHT = "Monika Light"
+
     private val themeSet = setOf(
         "Cleo",
         "Eleniel",
