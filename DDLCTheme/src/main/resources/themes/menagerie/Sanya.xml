@@ -135,26 +135,26 @@
         <option name="BASH.SHEBANG" baseAttributes="BASH.LINE_COMMENT"/>
         <option name="BREADCRUMBS_CURRENT">
             <value>
-                <option name="FOREGROUND" value="ffffff"/>
-                <option name="BACKGROUND" value="666b87"/>
+                <option name="FOREGROUND" value="bbbbbb"/>
+                <option name="BACKGROUND" value="403046"/>
             </value>
         </option>
         <option name="BREADCRUMBS_DEFAULT">
             <value>
-                <option name="FOREGROUND" value="bbbbbb"/>
+                <option name="FOREGROUND" value="666879"/>
                 <option name="BACKGROUND" value="382536"/>
             </value>
         </option>
         <option name="BREADCRUMBS_HOVERED">
             <value>
                 <option name="FOREGROUND" value="ffffff"/>
-                <option name="BACKGROUND" value="BD84DD"/>
+                <option name="BACKGROUND" value="af1f51"/>
             </value>
         </option>
         <option name="BREADCRUMBS_INACTIVE">
             <value>
-                <option name="FOREGROUND" value="666b87"/>
-                <option name="BACKGROUND" value="382536"/>
+                <option name="FOREGROUND" value="9c9c9c"/>
+                <option name="BACKGROUND" value="883552"/>
             </value>
         </option>
         <option name="BREAKPOINT_ATTRIBUTES">

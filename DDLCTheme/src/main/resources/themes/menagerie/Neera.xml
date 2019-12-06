@@ -120,6 +120,30 @@
                 <option name="FOREGROUND" value="bd93f9" />
             </value>
         </option>
+        <option name="BREADCRUMBS_CURRENT">
+            <value>
+                <option name="FOREGROUND" value="272727" />
+                <option name="BACKGROUND" value="fff8e0" />
+            </value>
+        </option>
+        <option name="BREADCRUMBS_DEFAULT">
+            <value>
+                <option name="FOREGROUND" value="aaaaaa" />
+                <option name="BACKGROUND" value="FFFEF9" />
+            </value>
+        </option>
+        <option name="BREADCRUMBS_HOVERED">
+            <value>
+                <option name="FOREGROUND" value="A8930A" />
+                <option name="BACKGROUND" value="fff3b4" />
+            </value>
+        </option>
+        <option name="BREADCRUMBS_INACTIVE">
+            <value>
+                <option name="FOREGROUND" value="aaaaaa" />
+                <option name="BACKGROUND" value="FFFFBC" />
+            </value>
+        </option>
         <option name="CONSOLE_BLUE_OUTPUT">
             <value>
                 <option name="FOREGROUND" value="9b6bdf" />

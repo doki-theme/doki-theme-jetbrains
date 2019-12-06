@@ -153,14 +153,14 @@
         </option>
         <option name="BREADCRUMBS_CURRENT">
             <value>
-                <option name="FOREGROUND" value="ffffff"/>
-                <option name="BACKGROUND" value="564135"/>
+                <option name="FOREGROUND" value="bbbbbb"/>
+                <option name="BACKGROUND" value="433330"/>
             </value>
         </option>
         <option name="BREADCRUMBS_DEFAULT">
             <value>
-                <option name="FOREGROUND" value="939393"/>
-                <option name="BACKGROUND" value="412B2A"/>
+                <option name="FOREGROUND" value="5b595c"/>
+                <option name="BACKGROUND" value="3A2525"/>
             </value>
         </option>
         <option name="BREADCRUMBS_HOVERED">
@@ -172,7 +172,7 @@
         <option name="BREADCRUMBS_INACTIVE">
             <value>
                 <option name="FOREGROUND" value="727272"/>
-                <option name="BACKGROUND" value="362222"/>
+                <option name="BACKGROUND" value="543939"/>
             </value>
         </option>
         <option name="BREAKPOINT_ATTRIBUTES">
