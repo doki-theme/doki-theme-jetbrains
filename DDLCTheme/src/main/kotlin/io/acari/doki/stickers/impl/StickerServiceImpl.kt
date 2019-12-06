@@ -1,10 +1,10 @@
-package io.acari.doki.chibi.impl
+package io.acari.doki.stickers.impl
 
 import com.intellij.ide.util.PropertiesComponent
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil
 import com.intellij.util.io.isFile
-import io.acari.doki.chibi.ChibiLevel
-import io.acari.doki.chibi.ChibiService
+import io.acari.doki.stickers.StickerLevel
+import io.acari.doki.stickers.StickerService
 import io.acari.doki.themes.DokiTheme
 import io.acari.doki.util.toOptional
 import org.apache.commons.io.IOUtils
@@ -23,12 +23,12 @@ const val DOKI_BACKGROUND_PROP: String = "io.acari.doki.background"
 private val messageDigest: MessageDigest = MessageDigest.getInstance("MD5")
 private const val RESOURCES_DIRECTORY =
     "https://raw.githubusercontent.com/cyclic-reference/ddlc-jetbrains-theme/master/assets"
-const val DOKI_CHIBI_PROP: String = "io.acari.doki.chibi"
+const val DOKI_CHIBI_PROP: String = "io.acari.doki.stickers"
 
-class ChibiServiceImpl : ChibiService {
+class StickerServiceImpl : StickerService {
 
     // todo: persist level
-    private var chibiLevel = ChibiLevel.ON
+    private var chibiLevel = StickerLevel.ON
 
     override fun activateForTheme(dokiTheme: DokiTheme) {
         removeWeebShit()
@@ -51,7 +51,7 @@ class ChibiServiceImpl : ChibiService {
     }
 
     private fun weebShitOn(): Boolean =
-        chibiLevel != ChibiLevel.OFF
+        chibiLevel != StickerLevel.OFF
 
     private fun turnOnIfNecessary(dokiTheme: DokiTheme) {
         if (weebShitOn())
@@ -180,7 +180,7 @@ class ChibiServiceImpl : ChibiService {
         }
 
 
-    // todo: internet chibi fallback (test that and stuff)
+    // todo: internet stickers fallback (test that and stuff)
     private fun getClubMemberFallback(dokiTheme: DokiTheme): Optional<String> {
         return dokiTheme.getChibi()
             .map { "$RESOURCES_DIRECTORY/club_members/$it" }

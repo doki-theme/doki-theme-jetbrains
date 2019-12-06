@@ -10,8 +10,8 @@ import com.intellij.ide.util.gotoByName.CustomMatcherModel
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.fileEditor.impl.EditorComposite
 import com.intellij.ui.JBColor
-import io.acari.doki.chibi.impl.DOKI_BACKGROUND_PROP
-import io.acari.doki.chibi.impl.DOKI_CHIBI_PROP
+import io.acari.doki.stickers.impl.DOKI_BACKGROUND_PROP
+import io.acari.doki.stickers.impl.DOKI_CHIBI_PROP
 import io.acari.doki.hax.FeildHacker.setFinalStatic
 import javassist.CannotCompileException
 import javassist.ClassClassPath
@@ -20,7 +20,6 @@ import javassist.CtClass
 import javassist.expr.ExprEditor
 import javassist.expr.MethodCall
 import javassist.expr.NewExpr
-import javax.swing.JList
 
 object HackComponent : Disposable {
   init {
@@ -240,7 +239,7 @@ object HackComponent : Disposable {
 
   /**
    * Enables the ability to use the editor property
-   * but also allows prevents the chibi from staying after installation.
+   * but also allows prevents the stickers from staying after installation.
    *
    *
    * Enables the ability to use the frame property

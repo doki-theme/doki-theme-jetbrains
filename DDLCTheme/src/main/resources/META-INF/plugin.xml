@@ -50,8 +50,8 @@
     <extensions defaultExtensionNs="com.intellij">
         <applicationService serviceInterface="io.acari.doki.themes.ThemeManager"
                             serviceImplementation="io.acari.doki.themes.impl.ThemeManagerImpl"/>
-        <applicationService serviceInterface="io.acari.doki.chibi.ChibiService"
-                            serviceImplementation="io.acari.doki.chibi.impl.ChibiServiceImpl"/>
+        <applicationService serviceInterface="io.acari.doki.stickers.StickerService"
+                            serviceImplementation="io.acari.doki.stickers.impl.StickerServiceImpl"/>
         <applicationService serviceImplementation="io.acari.doki.config.ThemeConfig"/>
         <errorHandler id="9782e40c-e6d2-488f-8611-71f5cca6695e" implementation="io.acari.doki.integrations.SlackReporter"/>
         <themeMetadataProvider path="/theme-schema/DokiTheme.themeMetadata.json"/>
@@ -79,7 +79,7 @@
             <implementation-class>io.acari.doki.TheDokiTheme</implementation-class>
         </component>
         <component>
-            <implementation-class>io.acari.doki.chibi.ChibiComponent</implementation-class>
+            <implementation-class>io.acari.doki.stickers.StickerComponent</implementation-class>
         </component>
         <component>
             <implementation-class>io.acari.doki.hax.HackComponent</implementation-class>

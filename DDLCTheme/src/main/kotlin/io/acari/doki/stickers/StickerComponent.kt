@@ -1,4 +1,4 @@
-package io.acari.doki.chibi
+package io.acari.doki.stickers
 
 import com.intellij.ide.ui.LafManagerListener
 import com.intellij.ide.ui.laf.LafManagerImpl
@@ -7,7 +7,7 @@ import com.intellij.openapi.application.ApplicationManager
 import io.acari.doki.themes.DokiThemes
 import javax.swing.UIManager
 
-class ChibiComponent: Disposable {
+class StickerComponent: Disposable {
     val connection = ApplicationManager.getApplication().messageBus.connect()
 
     init {
@@ -19,9 +19,9 @@ class ChibiComponent: Disposable {
 
     private fun processLaf(currentLaf: UIManager.LookAndFeelInfo?) {
         DokiThemes.processLaf(currentLaf).ifPresentOrElse({
-            ChibiService.instance.activateForTheme(it)
+            StickerService.instance.activateForTheme(it)
         }) {
-            ChibiService.instance.remove()
+            StickerService.instance.remove()
         }
     }
 

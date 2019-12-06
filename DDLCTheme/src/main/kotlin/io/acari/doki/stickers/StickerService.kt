@@ -1,15 +1,15 @@
-package io.acari.doki.chibi
+package io.acari.doki.stickers
 
 import com.intellij.openapi.components.ServiceManager
 import io.acari.doki.themes.DokiTheme
 
-interface ChibiService {
+interface StickerService {
 
     fun activateForTheme(dokiTheme: DokiTheme)
     fun remove()
 
     companion object {
-        val instance: ChibiService
-            get() = ServiceManager.getService(ChibiService::class.java)
+        val instance: StickerService
+            get() = ServiceManager.getService(StickerService::class.java)
     }
 }
