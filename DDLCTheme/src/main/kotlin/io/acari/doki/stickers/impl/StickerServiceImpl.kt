@@ -3,6 +3,7 @@ package io.acari.doki.stickers.impl
 import com.intellij.ide.util.PropertiesComponent
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil
 import com.intellij.util.io.isFile
+import io.acari.doki.config.ThemeConfig
 import io.acari.doki.stickers.StickerLevel
 import io.acari.doki.stickers.StickerService
 import io.acari.doki.themes.DokiTheme
@@ -27,8 +28,8 @@ const val DOKI_CHIBI_PROP: String = "io.acari.doki.stickers"
 
 class StickerServiceImpl : StickerService {
 
-    // todo: persist level
-    private var chibiLevel = StickerLevel.ON
+    private val chibiLevel: StickerLevel
+        get() = ThemeConfig.instance.currentStickerLevel
 
     override fun activateForTheme(dokiTheme: DokiTheme) {
         removeWeebShit()
