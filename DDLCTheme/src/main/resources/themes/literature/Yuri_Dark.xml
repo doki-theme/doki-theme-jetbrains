@@ -85,7 +85,7 @@
         <option name="VCS_ANNOTATIONS_COLOR_4" value="493163"/>
         <option name="VCS_ANNOTATIONS_COLOR_5" value="422D5A"/>
         <option name="VISUAL_INDENT_GUIDE" value="432E3D"/>
-        <option name="WHITESPACES_MODIFIED_LINES_COLOR" value="44475a"/>
+        <option name="WHITESPACES_MODIFIED_LINES_COLOR" value="392A54"/>
     </colors>
     <attributes>
         <option name="ABSTRACT_CLASS_NAME_ATTRIBUTES">
@@ -565,7 +565,7 @@
         </option>
         <option name="DEFAULT_TEMPLATE_LANGUAGE_COLOR">
             <value>
-                <option name="BACKGROUND" value="21222c"/>
+                <option name="BACKGROUND" value="392A54"/>
             </value>
         </option>
         <option name="DEFAULT_VALID_STRING_ESCAPE">
@@ -659,7 +659,7 @@
         <option name="FOLDED_TEXT_ATTRIBUTES">
             <value>
                 <option name="FOREGROUND" value="666b87"/>
-                <option name="BACKGROUND" value="3c2158"/>
+                <option name="BACKGROUND" value="392A54"/>
             </value>
         </option>
         <option name="FOLLOWED_HYPERLINK_ATTRIBUTES">
@@ -772,7 +772,7 @@
         </option>
         <option name="IDENTIFIER_UNDER_CARET_ATTRIBUTES">
             <value>
-                <option name="BACKGROUND" value="473960"/>
+                <option name="BACKGROUND" value="392A54"/>
                 <option name="EFFECT_TYPE" value="1"/>
             </value>
         </option>
@@ -837,7 +837,7 @@
         </option>
         <option name="INJECTED_LANGUAGE_FRAGMENT">
             <value>
-                <option name="BACKGROUND" value="21222c"/>
+                <option name="BACKGROUND" value="392A54"/>
             </value>
         </option>
         <option name="INLINE_PARAMETER_HINT">
@@ -1090,7 +1090,7 @@
         <option name="MARKDOWN_NAVIGATOR.BOLD_TEXT_CODE_TEXT">
             <value>
                 <option name="FOREGROUND" value="ffb86c"/>
-                <option name="BACKGROUND" value="21222c"/>
+                <option name="BACKGROUND" value="392A54"/>
                 <option name="FONT_TYPE" value="1"/>
             </value>
         </option>
@@ -1103,7 +1103,7 @@
         <option name="MARKDOWN_NAVIGATOR.BOLD_TEXT_ITALIC_TEXT_CODE_TEXT">
             <value>
                 <option name="FOREGROUND" value="f2b882"/>
-                <option name="BACKGROUND" value="21222c"/>
+                <option name="BACKGROUND" value="392A54"/>
                 <option name="FONT_TYPE" value="3"/>
             </value>
         </option>
@@ -1202,7 +1202,7 @@
         <option name="MARKDOWN_NAVIGATOR.ITALIC_TEXT_CODE_TEXT">
             <value>
                 <option name="FOREGROUND" value="f1fa8c"/>
-                <option name="BACKGROUND" value="21222c"/>
+                <option name="BACKGROUND" value="392A54"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
@@ -1266,7 +1266,7 @@
         <option name="MARKDOWN_NAVIGATOR.STRIKETHROUGH_TEXT_BOLD_TEXT_CODE_TEXT">
             <value>
                 <option name="FOREGROUND" value="f2b882"/>
-                <option name="BACKGROUND" value="21222c"/>
+                <option name="BACKGROUND" value="392A54"/>
                 <option name="FONT_TYPE" value="1"/>
                 <option name="EFFECT_COLOR" value="f1fa8c"/>
                 <option name="EFFECT_TYPE" value="3"/>
@@ -1283,7 +1283,7 @@
         <option name="MARKDOWN_NAVIGATOR.STRIKETHROUGH_TEXT_BOLD_TEXT_ITALIC_TEXT_CODE_TEXT">
             <value>
                 <option name="FOREGROUND" value="e6b84e"/>
-                <option name="BACKGROUND" value="21222c"/>
+                <option name="BACKGROUND" value="392A54"/>
                 <option name="FONT_TYPE" value="3"/>
                 <option name="EFFECT_COLOR" value="f1fa8c"/>
                 <option name="EFFECT_TYPE" value="3"/>
@@ -1292,7 +1292,7 @@
         <option name="MARKDOWN_NAVIGATOR.STRIKETHROUGH_TEXT_CODE_TEXT">
             <value>
                 <option name="FOREGROUND" value="f1fa8c"/>
-                <option name="BACKGROUND" value="21222c"/>
+                <option name="BACKGROUND" value="392A54"/>
                 <option name="EFFECT_COLOR" value="f1fa8c"/>
                 <option name="EFFECT_TYPE" value="3"/>
             </value>
@@ -1308,7 +1308,7 @@
         <option name="MARKDOWN_NAVIGATOR.STRIKETHROUGH_TEXT_ITALIC_TEXT_CODE_TEXT">
             <value>
                 <option name="FOREGROUND" value="e5f653"/>
-                <option name="BACKGROUND" value="21222c"/>
+                <option name="BACKGROUND" value="392A54"/>
                 <option name="FONT_TYPE" value="2"/>
                 <option name="EFFECT_COLOR" value="f1fa8c"/>
                 <option name="EFFECT_TYPE" value="3"/>
@@ -1357,34 +1357,34 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_REVEN_CEVEN">
             <value>
-                <option name="BACKGROUND" value="21222c"/>
+                <option name="BACKGROUND" value="392A54"/>
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_REVEN_CEVEN_BOLD_TEXT">
             <value>
                 <option name="FOREGROUND" value="ffb86c"/>
-                <option name="BACKGROUND" value="21222c"/>
+                <option name="BACKGROUND" value="392A54"/>
                 <option name="FONT_TYPE" value="1"/>
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_REVEN_CEVEN_BOLD_TEXT_ITALIC_TEXT">
             <value>
                 <option name="FOREGROUND" value="f2b882"/>
-                <option name="BACKGROUND" value="21222c"/>
+                <option name="BACKGROUND" value="392A54"/>
                 <option name="FONT_TYPE" value="3"/>
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_REVEN_CEVEN_ITALIC_TEXT">
             <value>
                 <option name="FOREGROUND" value="f1fa8c"/>
-                <option name="BACKGROUND" value="21222c"/>
+                <option name="BACKGROUND" value="392A54"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_REVEN_CEVEN_STRIKETHROUGH_TEXT">
             <value>
                 <option name="FOREGROUND" value="f1fa8c"/>
-                <option name="BACKGROUND" value="21222c"/>
+                <option name="BACKGROUND" value="392A54"/>
                 <option name="EFFECT_COLOR" value="f1fa8c"/>
                 <option name="EFFECT_TYPE" value="3"/>
             </value>
@@ -1392,7 +1392,7 @@
         <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_REVEN_CEVEN_STRIKETHROUGH_TEXT_BOLD_TEXT">
             <value>
                 <option name="FOREGROUND" value="f2b882"/>
-                <option name="BACKGROUND" value="21222c"/>
+                <option name="BACKGROUND" value="392A54"/>
                 <option name="FONT_TYPE" value="1"/>
                 <option name="EFFECT_COLOR" value="f1fa8c"/>
                 <option name="EFFECT_TYPE" value="3"/>
@@ -1401,7 +1401,7 @@
         <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_REVEN_CEVEN_STRIKETHROUGH_TEXT_BOLD_TEXT_ITALIC_TEXT">
             <value>
                 <option name="FOREGROUND" value="e6b84e"/>
-                <option name="BACKGROUND" value="21222c"/>
+                <option name="BACKGROUND" value="392A54"/>
                 <option name="FONT_TYPE" value="3"/>
                 <option name="EFFECT_COLOR" value="f1fa8c"/>
                 <option name="EFFECT_TYPE" value="3"/>
@@ -1410,7 +1410,7 @@
         <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_REVEN_CEVEN_STRIKETHROUGH_TEXT_ITALIC_TEXT">
             <value>
                 <option name="FOREGROUND" value="e5f653"/>
-                <option name="BACKGROUND" value="21222c"/>
+                <option name="BACKGROUND" value="392A54"/>
                 <option name="FONT_TYPE" value="2"/>
                 <option name="EFFECT_COLOR" value="f1fa8c"/>
                 <option name="EFFECT_TYPE" value="3"/>
@@ -1418,34 +1418,34 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_REVEN_CODD">
             <value>
-                <option name="BACKGROUND" value="21222c"/>
+                <option name="BACKGROUND" value="392A54"/>
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_REVEN_CODD_BOLD_TEXT">
             <value>
                 <option name="FOREGROUND" value="ffb86c"/>
-                <option name="BACKGROUND" value="21222c"/>
+                <option name="BACKGROUND" value="392A54"/>
                 <option name="FONT_TYPE" value="1"/>
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_REVEN_CODD_BOLD_TEXT_ITALIC_TEXT">
             <value>
                 <option name="FOREGROUND" value="f2b882"/>
-                <option name="BACKGROUND" value="21222c"/>
+                <option name="BACKGROUND" value="392A54"/>
                 <option name="FONT_TYPE" value="3"/>
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_REVEN_CODD_ITALIC_TEXT">
             <value>
                 <option name="FOREGROUND" value="f1fa8c"/>
-                <option name="BACKGROUND" value="21222c"/>
+                <option name="BACKGROUND" value="392A54"/>
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_REVEN_CODD_STRIKETHROUGH_TEXT">
             <value>
                 <option name="FOREGROUND" value="f1fa8c"/>
-                <option name="BACKGROUND" value="21222c"/>
+                <option name="BACKGROUND" value="392A54"/>
                 <option name="EFFECT_COLOR" value="f1fa8c"/>
                 <option name="EFFECT_TYPE" value="3"/>
             </value>
@@ -1453,7 +1453,7 @@
         <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_REVEN_CODD_STRIKETHROUGH_TEXT_BOLD_TEXT">
             <value>
                 <option name="FOREGROUND" value="f2b882"/>
-                <option name="BACKGROUND" value="21222c"/>
+                <option name="BACKGROUND" value="392A54"/>
                 <option name="FONT_TYPE" value="1"/>
                 <option name="EFFECT_COLOR" value="f1fa8c"/>
                 <option name="EFFECT_TYPE" value="3"/>
@@ -1462,7 +1462,7 @@
         <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_REVEN_CODD_STRIKETHROUGH_TEXT_BOLD_TEXT_ITALIC_TEXT">
             <value>
                 <option name="FOREGROUND" value="e6b84e"/>
-                <option name="BACKGROUND" value="21222c"/>
+                <option name="BACKGROUND" value="392A54"/>
                 <option name="FONT_TYPE" value="3"/>
                 <option name="EFFECT_COLOR" value="f1fa8c"/>
                 <option name="EFFECT_TYPE" value="3"/>
@@ -1471,7 +1471,7 @@
         <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_REVEN_CODD_STRIKETHROUGH_TEXT_ITALIC_TEXT">
             <value>
                 <option name="FOREGROUND" value="e5f653"/>
-                <option name="BACKGROUND" value="21222c"/>
+                <option name="BACKGROUND" value="392A54"/>
                 <option name="FONT_TYPE" value="2"/>
                 <option name="EFFECT_COLOR" value="f1fa8c"/>
                 <option name="EFFECT_TYPE" value="3"/>
@@ -1580,35 +1580,35 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_REVEN_CEVEN">
             <value>
-                <option name="BACKGROUND" value="21222c"/>
+                <option name="BACKGROUND" value="392A54"/>
                 <option name="FONT_TYPE" value="1"/>
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_REVEN_CEVEN_BOLD_TEXT">
             <value>
                 <option name="FOREGROUND" value="ffb86c"/>
-                <option name="BACKGROUND" value="21222c"/>
+                <option name="BACKGROUND" value="392A54"/>
                 <option name="FONT_TYPE" value="1"/>
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_REVEN_CEVEN_BOLD_TEXT_ITALIC_TEXT">
             <value>
                 <option name="FOREGROUND" value="f2b882"/>
-                <option name="BACKGROUND" value="21222c"/>
+                <option name="BACKGROUND" value="392A54"/>
                 <option name="FONT_TYPE" value="3"/>
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_REVEN_CEVEN_ITALIC_TEXT">
             <value>
                 <option name="FOREGROUND" value="f1fa8c"/>
-                <option name="BACKGROUND" value="21222c"/>
+                <option name="BACKGROUND" value="392A54"/>
                 <option name="FONT_TYPE" value="3"/>
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_REVEN_CEVEN_STRIKETHROUGH_TEXT">
             <value>
                 <option name="FOREGROUND" value="f1fa8c"/>
-                <option name="BACKGROUND" value="21222c"/>
+                <option name="BACKGROUND" value="392A54"/>
                 <option name="FONT_TYPE" value="1"/>
                 <option name="EFFECT_COLOR" value="f1fa8c"/>
                 <option name="EFFECT_TYPE" value="3"/>
@@ -1617,7 +1617,7 @@
         <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_REVEN_CEVEN_STRIKETHROUGH_TEXT_BOLD_TEXT">
             <value>
                 <option name="FOREGROUND" value="f2b882"/>
-                <option name="BACKGROUND" value="21222c"/>
+                <option name="BACKGROUND" value="392A54"/>
                 <option name="FONT_TYPE" value="1"/>
                 <option name="EFFECT_COLOR" value="f1fa8c"/>
                 <option name="EFFECT_TYPE" value="3"/>
@@ -1626,7 +1626,7 @@
         <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_REVEN_CEVEN_STRIKETHROUGH_TEXT_BOLD_TEXT_ITALIC_TEXT">
             <value>
                 <option name="FOREGROUND" value="e6b84e"/>
-                <option name="BACKGROUND" value="21222c"/>
+                <option name="BACKGROUND" value="392A54"/>
                 <option name="FONT_TYPE" value="3"/>
                 <option name="EFFECT_COLOR" value="f1fa8c"/>
                 <option name="EFFECT_TYPE" value="3"/>
@@ -1635,7 +1635,7 @@
         <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_REVEN_CEVEN_STRIKETHROUGH_TEXT_ITALIC_TEXT">
             <value>
                 <option name="FOREGROUND" value="e5f653"/>
-                <option name="BACKGROUND" value="21222c"/>
+                <option name="BACKGROUND" value="392A54"/>
                 <option name="FONT_TYPE" value="3"/>
                 <option name="EFFECT_COLOR" value="f1fa8c"/>
                 <option name="EFFECT_TYPE" value="3"/>
@@ -1643,35 +1643,35 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_REVEN_CODD">
             <value>
-                <option name="BACKGROUND" value="21222c"/>
+                <option name="BACKGROUND" value="392A54"/>
                 <option name="FONT_TYPE" value="1"/>
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_REVEN_CODD_BOLD_TEXT">
             <value>
                 <option name="FOREGROUND" value="ffb86c"/>
-                <option name="BACKGROUND" value="21222c"/>
+                <option name="BACKGROUND" value="392A54"/>
                 <option name="FONT_TYPE" value="1"/>
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_REVEN_CODD_BOLD_TEXT_ITALIC_TEXT">
             <value>
                 <option name="FOREGROUND" value="f2b882"/>
-                <option name="BACKGROUND" value="21222c"/>
+                <option name="BACKGROUND" value="392A54"/>
                 <option name="FONT_TYPE" value="3"/>
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_REVEN_CODD_ITALIC_TEXT">
             <value>
                 <option name="FOREGROUND" value="f1fa8c"/>
-                <option name="BACKGROUND" value="21222c"/>
+                <option name="BACKGROUND" value="392A54"/>
                 <option name="FONT_TYPE" value="3"/>
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_REVEN_CODD_STRIKETHROUGH_TEXT">
             <value>
                 <option name="FOREGROUND" value="f1fa8c"/>
-                <option name="BACKGROUND" value="21222c"/>
+                <option name="BACKGROUND" value="392A54"/>
                 <option name="FONT_TYPE" value="1"/>
                 <option name="EFFECT_COLOR" value="f1fa8c"/>
                 <option name="EFFECT_TYPE" value="3"/>
@@ -1680,7 +1680,7 @@
         <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_REVEN_CODD_STRIKETHROUGH_TEXT_BOLD_TEXT">
             <value>
                 <option name="FOREGROUND" value="f2b882"/>
-                <option name="BACKGROUND" value="21222c"/>
+                <option name="BACKGROUND" value="392A54"/>
                 <option name="FONT_TYPE" value="1"/>
                 <option name="EFFECT_COLOR" value="f1fa8c"/>
                 <option name="EFFECT_TYPE" value="3"/>
@@ -1689,7 +1689,7 @@
         <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_REVEN_CODD_STRIKETHROUGH_TEXT_BOLD_TEXT_ITALIC_TEXT">
             <value>
                 <option name="FOREGROUND" value="e6b84e"/>
-                <option name="BACKGROUND" value="21222c"/>
+                <option name="BACKGROUND" value="392A54"/>
                 <option name="FONT_TYPE" value="3"/>
                 <option name="EFFECT_COLOR" value="f1fa8c"/>
                 <option name="EFFECT_TYPE" value="3"/>
@@ -1698,7 +1698,7 @@
         <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_REVEN_CODD_STRIKETHROUGH_TEXT_ITALIC_TEXT">
             <value>
                 <option name="FOREGROUND" value="e5f653"/>
-                <option name="BACKGROUND" value="21222c"/>
+                <option name="BACKGROUND" value="392A54"/>
                 <option name="FONT_TYPE" value="3"/>
                 <option name="EFFECT_COLOR" value="f1fa8c"/>
                 <option name="EFFECT_TYPE" value="3"/>
@@ -1816,13 +1816,13 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_ROW_EVEN">
             <value>
-                <option name="BACKGROUND" value="21222c"/>
+                <option name="BACKGROUND" value="392A54"/>
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_ROW_ODD" baseAttributes="MARKDOWN_NAVIGATOR.TABLE_ROW_ODD"/>
         <option name="MARKDOWN_NAVIGATOR.TABLE_ROW_EVEN">
             <value>
-                <option name="BACKGROUND" value="21222c"/>
+                <option name="BACKGROUND" value="392A54"/>
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_ROW_ODD">
@@ -1901,7 +1901,7 @@
         </option>
         <option name="MATCHED_BRACE_ATTRIBUTES">
             <value>
-                <option name="BACKGROUND" value="666b87"/>
+                <option name="BACKGROUND" value="392A54"/>
                 <option name="FONT_TYPE" value="1"/>
                 <option name="EFFECT_COLOR" value="cccccc"/>
             </value>
@@ -2237,7 +2237,7 @@
         </option>
         <option name="ReSharper.ASP_NET_RAZOR_CODE_BLOCK">
             <value>
-                <option name="BACKGROUND" value="21222c"/>
+                <option name="BACKGROUND" value="392A54"/>
             </value>
         </option>
         <option name="ReSharper.ASP_NET_RAZOR_COMMENT">
@@ -2359,7 +2359,7 @@
         </option>
         <option name="SEARCH_RESULT_ATTRIBUTES">
             <value>
-                <option name="BACKGROUND" value="666b87"/>
+                <option name="BACKGROUND" value="3C1D55"/>
             </value>
         </option>
         <option name="SLIM_CALL" baseAttributes="DEFAULT_KEYWORD"/>
@@ -2524,7 +2524,7 @@
         </option>
         <option name="Unresolved reference access">
             <value>
-                <option name="FOREGROUND" value="666b87"/>
+                <option name="FOREGROUND" value="392A54"/>
             </value>
         </option>
         <option name="VELOCITY_SCRIPTING_BACKGROUND" baseAttributes="DEFAULT_TEMPLATE_LANGUAGE_COLOR"/>
@@ -2542,13 +2542,13 @@
         </option>
         <option name="WRITE_IDENTIFIER_UNDER_CARET_ATTRIBUTES">
             <value>
-                <option name="BACKGROUND" value="44475a"/>
+                <option name="BACKGROUND" value="392A54"/>
                 <option name="EFFECT_TYPE" value="1"/>
             </value>
         </option>
         <option name="WRITE_SEARCH_RESULT_ATTRIBUTES">
             <value>
-                <option name="BACKGROUND" value="933232"/>
+                <option name="BACKGROUND" value="3C1D55"/>
             </value>
         </option>
         <option name="WRONG_REFERENCES_ATTRIBUTES">
