@@ -15,7 +15,8 @@ import io.acari.doki.themes.DokiThemes
 )
 class ThemeConfig : PersistentStateComponent<ThemeConfig>, Cloneable {
   companion object {
-    fun getInstance() = ServiceManager.getService(ThemeConfig::class.java)
+    val instance: ThemeConfig
+      get() = ServiceManager.getService(ThemeConfig::class.java)
   }
 
   var version: String = "0.0.0"
@@ -23,6 +24,7 @@ class ThemeConfig : PersistentStateComponent<ThemeConfig>, Cloneable {
   var stickerLevel: String = StickerLevel.ON.name
   var selectedTheme: String = DokiThemes.MONIKA_LIGHT
   var isDokiFileColors: Boolean = false
+  var processedLegacy: Boolean = false
 
   override fun getState(): ThemeConfig? =
     createCopy(this)
@@ -32,5 +34,12 @@ class ThemeConfig : PersistentStateComponent<ThemeConfig>, Cloneable {
     println(this.version)
   }
 
-
+  val currentStickerLevel: StickerLevel
+    get() {
+      if (processedLegacy) {
+        processedLegacy = true
+        stickerLevel = chibiLevel
+      }
+      return StickerLevel.valueOf(stickerLevel)
+    }
 }
