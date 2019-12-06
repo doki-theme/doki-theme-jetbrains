@@ -907,7 +907,7 @@
         </option>
         <option name="IDENTIFIER_UNDER_CARET_ATTRIBUTES">
             <value>
-                <option name="BACKGROUND" value="5c2828"/>
+                <option name="BACKGROUND" value="422B28"/>
                 <option name="ERROR_STRIPE_COLOR" value="4d6168"/>
             </value>
         </option>
@@ -3049,7 +3049,7 @@
         </option>
         <option name="SEARCH_RESULT_ATTRIBUTES">
             <value>
-                <option name="BACKGROUND" value="403e41"/>
+                <option name="BACKGROUND" value="532717"/>
             </value>
         </option>
         <option name="SLIM_CALL" baseAttributes="DEFAULT_KEYWORD"/>
@@ -3146,8 +3146,8 @@
         </option>
         <option name="TEXT_SEARCH_RESULT_ATTRIBUTES">
             <value>
-                <option name="BACKGROUND" value="49434c"/>
-                <option name="ERROR_STRIPE_COLOR" value="49434c"/>
+                <option name="BACKGROUND" value="532717"/>
+                <option name="ERROR_STRIPE_COLOR" value="532717"/>
             </value>
         </option>
         <option name="TODO_DEFAULT_ATTRIBUTES">
@@ -3211,13 +3211,13 @@
         </option>
         <option name="WRITE_IDENTIFIER_UNDER_CARET_ATTRIBUTES">
             <value>
-                <option name="BACKGROUND" value="4a4d50"/>
+                <option name="BACKGROUND" value="422B28"/>
                 <option name="ERROR_STRIPE_COLOR" value="4d6168"/>
             </value>
         </option>
         <option name="WRITE_SEARCH_RESULT_ATTRIBUTES">
             <value>
-                <option name="BACKGROUND" value="403e41"/>
+                <option name="BACKGROUND" value="532717"/>
             </value>
         </option>
         <option name="WRONG_REFERENCES_ATTRIBUTES">

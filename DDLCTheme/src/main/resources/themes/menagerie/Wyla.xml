@@ -755,7 +755,7 @@
         <option name="FOLDED_TEXT_ATTRIBUTES">
             <value>
                 <option name="FOREGROUND" value="939293"/>
-                <option name="BACKGROUND" value="2f2329"/>
+                <option name="BACKGROUND" value="2B1F25"/>
             </value>
         </option>
         <option name="FOLLOWED_HYPERLINK_ATTRIBUTES">
@@ -907,7 +907,7 @@
         </option>
         <option name="IDENTIFIER_UNDER_CARET_ATTRIBUTES">
             <value>
-                <option name="BACKGROUND" value="403E41"/>
+                <option name="BACKGROUND" value="372A2F"/>
                 <option name="ERROR_STRIPE_COLOR" value="4d6168"/>
             </value>
         </option>
@@ -3049,7 +3049,7 @@
         </option>
         <option name="SEARCH_RESULT_ATTRIBUTES">
             <value>
-                <option name="BACKGROUND" value="2f2329"/>
+                <option name="BACKGROUND" value="2A272E"/>
                 <option name="EFFECT_COLOR" value="2b2a32"/>
             </value>
         </option>
@@ -3147,7 +3147,7 @@
         </option>
         <option name="TEXT_SEARCH_RESULT_ATTRIBUTES">
             <value>
-                <option name="BACKGROUND" value="2a272e"/>
+                <option name="BACKGROUND" value="2A272E"/>
                 <option name="EFFECT_COLOR" value="2b2a32"/>
             </value>
         </option>
@@ -3212,13 +3212,13 @@
         </option>
         <option name="WRITE_IDENTIFIER_UNDER_CARET_ATTRIBUTES">
             <value>
-                <option name="BACKGROUND" value="4a4d50"/>
+                <option name="BACKGROUND" value="372A2F"/>
                 <option name="ERROR_STRIPE_COLOR" value="4d6168"/>
             </value>
         </option>
         <option name="WRITE_SEARCH_RESULT_ATTRIBUTES">
             <value>
-                <option name="BACKGROUND" value="2f2329"/>
+                <option name="BACKGROUND" value="2A272E"/>
             </value>
         </option>
         <option name="WRONG_REFERENCES_ATTRIBUTES">
