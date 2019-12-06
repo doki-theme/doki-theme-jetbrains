@@ -1966,13 +1966,7 @@
         <option name="PERL_SUB_BUILTIN" baseAttributes="PERL_SUB"/>
         <option name="PERL_XSUB" baseAttributes="PERL_SUB"/>
         <option name="PHP_ALIAS_REFERENCE" baseAttributes="PHP_CLASS"/>
-        <option name="PHP_EXEC_COMMAND_ID">
-            <value>
-                <option name="FOREGROUND" value="a5c25c" />
-                <!--                todo: dis-->
-                <option name="BACKGROUND" value="23271A" />
-            </value>
-        </option>
+        <option name="PHP_EXEC_COMMAND_ID" baseAttributes="DEFAULT_STRING"/>
         <option name="PHP_PARAMETER" baseAttributes="DEFAULT_PARAMETER" />
         <option name="PHP_SCRIPTING_BACKGROUND">
             <value/>
