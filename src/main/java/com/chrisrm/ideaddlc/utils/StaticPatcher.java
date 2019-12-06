@@ -23,70 +23,72 @@
  *
  *
  */
-package com.chrisrm.ideaddlc.utils
 
-import org.jetbrains.annotations.NonNls
-import java.lang.reflect.Field
-import java.lang.reflect.Modifier
+package com.chrisrm.ideaddlc.utils;
+
+import org.jetbrains.annotations.NonNls;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 
 /**
  * Super hacking class to change static fields!
  */
-enum class StaticPatcher {
+public enum StaticPatcher {
   DEFAULT;
 
-  companion object {
-    /**
-     * Rewrites a class's static field with a new value by static field name.
-     *
-     *
-     * Note that private fields will have their names changed at compilation.
-     *
-     * @param cls       the class
-     * @param fieldName the name of the static field
-     * @param newValue  the new value
-     */
-    @Throws(NoSuchFieldException::class, IllegalAccessException::class)
-    fun setFinalStatic(cls: Class<*>,
-                       @NonNls fieldName: String,
-                       newValue: Any?) {
-      val fields = cls.declaredFields
-      for (field in fields) {
-        if (field.name == fieldName) {
-          setFinalStatic(field, newValue)
-          return
-        }
-      }
-    }
+  /**
+   * Rewrites a class's static field with a new value by static field name.
+   * <p>
+   * Note that private fields will have their names changed at compilation.
+   *
+   * @param cls       the class
+   * @param fieldName the name of the static field
+   * @param newValue  the new value
+   */
+  @SuppressWarnings("StaticMethodOnlyUsedInOneClass")
+  public static void setFinalStatic(final Class cls, @NonNls final String fieldName, final Object newValue)
+      throws NoSuchFieldException, IllegalAccessException {
+    final Field[] fields = cls.getDeclaredFields();
 
-    fun setFieldValue(`object`: Any,
-                      fieldName: String?,
-                      value: Any?) {
-      try {
-        val field = `object`.javaClass.getDeclaredField(fieldName)
-        field.isAccessible = true
-        field[`object`] = value
-      } catch (e: Exception) {
-        e.printStackTrace()
+    for (final Field field : fields) {
+      if (field.getName().equals(fieldName)) {
+        setFinalStatic(field, newValue);
+        return;
       }
-    }
-
-    /**
-     * Rewrites a class's static field with a new value by field
-     *
-     * @param field    the Field to change
-     * @param newValue the new value
-     */
-    @Throws(NoSuchFieldException::class, IllegalAccessException::class)
-    fun setFinalStatic(field: Field, newValue: Any?) {
-      field.isAccessible = true
-      val modifiersField = Field::class.java.getDeclaredField("modifiers")
-      modifiersField.isAccessible = true
-      modifiersField.setInt(field, field.modifiers and Modifier.FINAL.inv())
-      field[null] = newValue
-      modifiersField.setInt(field, field.modifiers or Modifier.FINAL)
-      modifiersField.isAccessible = false
-      field.isAccessible = false
     }
   }
+
+  public static void setFieldValue(final Object object, final String fieldName, final Object value) {
+    try {
+      final Field field = object.getClass().getDeclaredField(fieldName);
+      field.setAccessible(true);
+      field.set(object, value);
+    } catch (final Exception e) {
+      e.printStackTrace();
+    }
+  }
+
+
+  /**
+   * Rewrites a class's static field with a new value by field
+   *
+   * @param field    the Field to change
+   * @param newValue the new value
+   */
+  public static void setFinalStatic(final Field field, final Object newValue) throws NoSuchFieldException, IllegalAccessException {
+    field.setAccessible(true);
+
+    final Field modifiersField = Field.class.getDeclaredField("modifiers");
+    modifiersField.setAccessible(true);
+    modifiersField.setInt(field, field.getModifiers() & ~Modifier.FINAL);
+
+    field.set(null, newValue);
+
+    modifiersField.setInt(field, field.getModifiers() | Modifier.FINAL);
+    modifiersField.setAccessible(false);
+
+    field.setAccessible(false);
+  }
+
 }

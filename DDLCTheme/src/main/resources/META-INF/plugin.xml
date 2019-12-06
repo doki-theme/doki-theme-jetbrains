@@ -52,6 +52,7 @@
                             serviceImplementation="io.acari.doki.themes.impl.ThemeManagerImpl"/>
         <applicationService serviceInterface="io.acari.doki.chibi.ChibiService"
                             serviceImplementation="io.acari.doki.chibi.impl.ChibiServiceImpl"/>
+        <applicationService serviceImplementation="io.acari.doki.config.ThemeConfig"/>
         <errorHandler id="9782e40c-e6d2-488f-8611-71f5cca6695e" implementation="io.acari.doki.integrations.SlackReporter"/>
         <themeMetadataProvider path="/theme-schema/DokiTheme.themeMetadata.json"/>
         <themeProvider id="fc466b4f-8eb7-472c-8cbb-d99a09d4c469"

@@ -1,15 +1,12 @@
-- Search background colors
-    - Really anything under the caret
-- Dark Theme Catchup
-- Sticker Swappo
 - Legacy Theme -> Next Gen Theme install UX
+- Slack reporter borked.
+- Sticker Swappo
+- Address all in code todos
 - Color Scheme Restoration (so do not have to reset colors erry time)
 - Theme change animation
 - theme schema
     -ThemeJsonSchemaProviderFactory
-- Slack reporter borked.
 - Color scheme cleanup (alphabetize that shit yo)
-- Address all in code todos
 
 Stretch Goals
 ----

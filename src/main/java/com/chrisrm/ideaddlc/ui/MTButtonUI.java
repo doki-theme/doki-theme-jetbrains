@@ -187,7 +187,7 @@ public final class MTButtonUI extends DarculaButtonUI {
   static Color primaryButtonHoverColor() {
     if (primaryButtonHover == null) {
       MTButtonUI.primaryButtonHover =
-          of(UIManager.getColor(MTUI.Button.BUTTON_PRIMARY_HOVER))
+          ofNullable(UIManager.getColor(MTUI.Button.BUTTON_PRIMARY_HOVER))
           .orElseGet(MTButtonUI::createDefaultPrimaryHover);
     }
     return primaryButtonHover;
@@ -203,7 +203,7 @@ public final class MTButtonUI extends DarculaButtonUI {
   static Color buttonHoverColor() {
     if (buttonHover == null) {
       MTButtonUI.buttonHover =
-          of(UIManager.getColor(MTUI.Button.BUTTON_HOVER))
+          ofNullable(UIManager.getColor(MTUI.Button.BUTTON_HOVER))
           .orElseGet(MTButtonUI::createDefaultHover);
     }
     return buttonHover;
