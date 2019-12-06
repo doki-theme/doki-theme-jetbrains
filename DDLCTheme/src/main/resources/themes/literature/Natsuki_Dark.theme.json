@@ -13,7 +13,7 @@
     "nonProjectFileScopeColor": "#302827",
     "editorBackground": "#2d222b",
     "secondaryBackground": "#2a1823",
-    "selectionForeground": "#D671B0",
+    "selectionForeground": "#e6afca",
     "inactiveBackground": "#6F3654",
     "inactiveBackgroundDarker": "#65324a",
     "headerColor": "#2a1f28",
@@ -24,6 +24,7 @@
     "tagColor": "#7A7A7A",
     "secondaryForegroundColor": "#BB47A8",
     "selectionBackground": "#5D2960",
+    "selectionBackgroundTransparent": "#5d29606c",
     "buttonFont": "#BBBBBBBB",
     "foregroundColor":  "#bbbbbb",
     "startColor":  "#BB0A69",
@@ -259,7 +260,7 @@
 
     "CompletionPopup.nonFocusedMask": "#EAEAF00A",
     "CompletionPopup.selectionBackground": "selectionBackground",
-    "CompletionPopup.selectionInactiveBackground": "selectionInactive",
+    "CompletionPopup.selectionInactiveBackground": "selectionBackgroundTransparent",
     "CompletionPopup.foreground": "foregroundColor",
 
     "SearchEverywhere.Tab.selectedBackground": "highlightColor",
