@@ -87,5 +87,16 @@
     </application-components>
 
     <actions>
+        <group id="DokiThemeActions"
+               text="Doki Theme Options"
+               popup="true"
+               icon="/icons/doki/pen.svg">
+            <action id="StickerEnabler" class="io.acari.doki.actions.StickersToggleAction"
+                    text="Enable Stickers"
+                    description="Enables the sticker in the lower right hand corner">
+            </action>
+            <add-to-group group-id="MainToolBar" anchor="last"/>
+        </group>
+
     </actions>
 </idea-plugin>

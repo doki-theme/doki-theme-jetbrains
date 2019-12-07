@@ -1,5 +1,6 @@
 package io.acari.doki.themes
 
+import com.intellij.ide.ui.laf.LafManagerImpl
 import com.intellij.ide.ui.laf.UIThemeBasedLookAndFeelInfo
 import io.acari.doki.util.toOptional
 import java.util.*
@@ -24,6 +25,9 @@ object DokiThemes {
         "Sayori Dark",
         "Yuri Dark"
     )
+
+    val currentTheme: Optional<DokiTheme>
+        get() = processLaf(LafManagerImpl.getInstance().currentLookAndFeel)
 
 
     fun processLaf(currentLaf: UIManager.LookAndFeelInfo?): Optional<DokiTheme> {
