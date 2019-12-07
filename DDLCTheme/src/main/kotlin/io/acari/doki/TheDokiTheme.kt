@@ -1,5 +1,6 @@
 package io.acari.doki
 
+import com.intellij.ide.ui.LafManager
 import com.intellij.ide.ui.LafManagerListener
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.application.ApplicationManager
@@ -13,6 +14,7 @@ import io.acari.doki.laf.FileScopeColors.attemptToInstallColors
 import io.acari.doki.laf.FileScopeColors.attemptToRemoveColors
 import io.acari.doki.laf.LookAndFeelInstaller.installAllUIComponents
 import io.acari.doki.themes.DokiThemes
+import io.acari.doki.util.toOptional
 
 class TheDokiTheme : Disposable {
   private val connection = ApplicationManager.getApplication().messageBus.connect()
@@ -24,6 +26,8 @@ class TheDokiTheme : Disposable {
     //////////// ._. ////////////
 
     installAllUIComponents()
+
+    migrateLegacyTheme()
 
     connection.subscribe(LafManagerListener.TOPIC, LafManagerListener {
       DokiThemes.currentTheme
@@ -46,6 +50,19 @@ class TheDokiTheme : Disposable {
         }
       }
     })
+  }
+
+  private fun migrateLegacyTheme() {
+    if(!ThemeConfig.instance.processedLegacyStartup){
+      ThemeConfig.instance.processedLegacyStartup = true
+      val lastTheme = ThemeConfig.instance.selectedTheme
+      LafManager.getInstance().installedLookAndFeels.find {
+        it.name.equals(lastTheme, true)
+      }.toOptional()
+        .ifPresent {
+          LafManager.getInstance().setCurrentLookAndFeel(it)
+        }
+    }
   }
 
   override fun dispose() {
