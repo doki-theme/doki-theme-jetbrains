@@ -8,6 +8,7 @@ import com.intellij.ui.ColorUtil
 import com.intellij.ui.FileColorManager
 import com.intellij.ui.tabs.FileColorManagerImpl
 import com.intellij.ui.tabs.FileColorsModel
+import io.acari.doki.themes.DokiThemes
 import io.acari.doki.themes.DokiThemes.processLaf
 import java.lang.reflect.Constructor
 import java.util.*
@@ -21,7 +22,7 @@ object DokiAddFileColorsAction {
   }
 
   fun isSet(project: Project?): Boolean {
-    return processLaf(LafManager.getInstance().currentLookAndFeel) //todo: get theme more better
+    return DokiThemes.currentTheme
       .map { selectedTheme ->
         val manager = FileColorManager.getInstance(project!!)
         val quickScope = manager.getScopeColor(NonProjectFilesScope.NAME)
@@ -44,7 +45,7 @@ object DokiAddFileColorsAction {
   }
 
   private fun getScopes(): List<Pair<String, String>> =
-    processLaf(LafManager.getInstance().currentLookAndFeel) //todo: get theme more better
+    DokiThemes.currentTheme
       .map { selectedTheme ->
         listOf(
           Pair(NonProjectFilesScope.NAME, selectedTheme.nonProjectFileScopeColor),

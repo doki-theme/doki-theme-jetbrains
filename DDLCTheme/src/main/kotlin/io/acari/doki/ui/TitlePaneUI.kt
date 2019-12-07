@@ -12,6 +12,7 @@ import com.intellij.util.ui.JBUI
 import com.intellij.util.ui.JBUI.insets
 import com.intellij.util.ui.UIUtil
 import com.intellij.util.ui.UIUtil.getWindow
+import io.acari.doki.themes.DokiThemes
 import io.acari.doki.themes.DokiThemes.processLaf
 import io.acari.doki.util.toOptional
 import java.awt.*
@@ -64,7 +65,7 @@ class TitlePaneUI : DarculaRootPaneUI() {
 
   override fun installUI(c: JComponent?) {
     super.installUI(c)
-    processLaf(LafManager.getInstance().currentLookAndFeel) // todo: get laf better
+    DokiThemes.currentTheme
       .filter { isMac || isLinux }
       .ifPresent {
         c?.putClientProperty(WINDOW_DARK_APPEARANCE, it.isDark)
