@@ -1,5 +1,6 @@
 package io.acari.doki.hax
 
+import com.intellij.codeInsight.hint.HintUtil
 import com.intellij.execution.runners.ProcessProxy
 import com.intellij.ide.actions.Switcher
 import com.intellij.ide.plugins.newui.PluginLogo
@@ -10,13 +11,10 @@ import com.intellij.ide.util.gotoByName.CustomMatcherModel
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.fileEditor.impl.EditorComposite
 import com.intellij.ui.JBColor
+import io.acari.doki.hax.FeildHacker.setFinalStatic
 import io.acari.doki.stickers.impl.DOKI_BACKGROUND_PROP
 import io.acari.doki.stickers.impl.DOKI_CHIBI_PROP
-import io.acari.doki.hax.FeildHacker.setFinalStatic
-import javassist.CannotCompileException
-import javassist.ClassClassPath
-import javassist.ClassPool
-import javassist.CtClass
+import javassist.*
 import javassist.expr.ExprEditor
 import javassist.expr.MethodCall
 import javassist.expr.NewExpr
@@ -29,6 +27,36 @@ object HackComponent : Disposable {
     enableBorderConsistency()
     enableSearchEverywhereConsistency()
     enableAccentConsistency()
+    enableBackgroundConsistency()
+  }
+
+  private fun enableBackgroundConsistency() {
+    hackParameterInfoBackground()
+  }
+
+  private fun hackParameterInfoBackground() {
+    try {
+      val cp = ClassPool(true)
+      cp.insertClassPath(ClassClassPath(HintUtil::class.java))
+      val ctClass = cp.get("com.intellij.codeInsight.hint.ParameterInfoComponent\$OneElementComponent")
+      val hackBackground: (CtMethod) -> Unit = {
+        it.instrument(object : ExprEditor() {
+          override fun edit(e: MethodCall?) {
+            if (e?.methodName == "setBackground") {
+              e.replace("{ \$1 = com.intellij.ui.JBColor.namedColor(\"ParameterInfo.background\", com.intellij.codeInsight.hint.HintUtil.getInformationColor()); \$_ = \$proceed(\$\$); }")
+            }
+          }
+        })
+      }
+      ctClass.getDeclaredMethods("setup").forEach(hackBackground)
+      ctClass.toClass()
+      val bitchassClass = cp.get("com.intellij.codeInsight.hint.ParameterInfoComponent\$OneLineComponent")
+      bitchassClass.getDeclaredMethods("doSetup").forEach(hackBackground)
+      bitchassClass.toClass()
+    } catch (e: Exception) {
+      e.printStackTrace()
+    }
+
   }
 
   private fun enableAccentConsistency() {
@@ -41,7 +69,8 @@ object HackComponent : Disposable {
       cp.insertClassPath(ClassClassPath(ProcessProxy::class.java))
       val ctClass = cp.get("com.intellij.execution.runners.ExecutionUtil")
       val init = ctClass.getDeclaredMethods(
-        "getLiveIndicator")[1]
+        "getLiveIndicator"
+      )[1]
       init.instrument(object : ExprEditor() {
         override fun edit(e: MethodCall?) {
           if (e?.methodName == "getIndicator") {
@@ -65,7 +94,8 @@ object HackComponent : Disposable {
       cp.insertClassPath(ClassClassPath(CustomMatcherModel::class.java))
       val ctClass = cp.get("com.intellij.ide.util.gotoByName.GotoActionModel\$GotoActionListCellRenderer")
       val init = ctClass.getDeclaredMethods(
-        "getListCellRendererComponent")[0]
+        "getListCellRendererComponent"
+      )[0]
       init.instrument(object : ExprEditor() {
         override fun edit(e: MethodCall?) {
           if (e?.methodName == "isUnderDarcula") { // dis for OptionDescription

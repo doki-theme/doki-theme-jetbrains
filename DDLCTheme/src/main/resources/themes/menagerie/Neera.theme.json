@@ -80,6 +80,7 @@
     "Tree.background": "headerColor",
     "Editor.background": "headerColor",
     "ParameterInfo.background": "headerColor",
+    "ParameterInfo.currentOverloadBackground": "headerColor",
     "Popup.Header.inactiveBackground": "headerColor",
     "Popup.Header.activeBackground":"headerColor",
     "Notification.background": "headerColor",
