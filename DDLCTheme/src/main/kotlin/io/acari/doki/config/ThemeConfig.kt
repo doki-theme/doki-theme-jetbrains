@@ -24,14 +24,14 @@ class ThemeConfig : PersistentStateComponent<ThemeConfig>, Cloneable {
   var stickerLevel: String = StickerLevel.ON.name
   var selectedTheme: String = DokiThemes.MONIKA_LIGHT // todo : set dis
   var isDokiFileColors: Boolean = false
-  var processedLegacy: Boolean = false
+  var processedLegacyStickers: Boolean = false
+  var processedLegacyStartup: Boolean = false
 
   override fun getState(): ThemeConfig? =
     createCopy(this)
 
   override fun loadState(state: ThemeConfig) {
     copyBean(state, this)
-    println(this.version)
   }
 
   fun asJson(): Map<String, Any> = mapOf(
@@ -39,13 +39,14 @@ class ThemeConfig : PersistentStateComponent<ThemeConfig>, Cloneable {
     "chibiLevel" to chibiLevel,
     "selectedTheme" to selectedTheme,
     "isDokiFileColors" to isDokiFileColors,
-    "processedLegacy" to processedLegacy
+    "processedLegacyStickers" to processedLegacyStickers,
+    "processedLegacyStartup" to processedLegacyStartup
   )
 
   val currentStickerLevel: StickerLevel
     get() {
-      if (processedLegacy) {
-        processedLegacy = true
+      if (processedLegacyStickers) {
+        processedLegacyStickers = true
         stickerLevel = chibiLevel
       }
       return StickerLevel.valueOf(stickerLevel)
