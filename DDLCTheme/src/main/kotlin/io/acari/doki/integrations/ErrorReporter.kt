@@ -26,11 +26,10 @@ import java.text.SimpleDateFormat
 import java.util.*
 import java.util.stream.Collectors
 
-class SlackReporter : ErrorReportSubmitter() {
+class ErrorReporter : ErrorReportSubmitter() {
   companion object {
     private val httpClient = HttpClients.createMinimal()
-    // todo: slack hook borked.
-    private const val slackWebhook = "https://hooks.slack.com/services/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"
+    private const val errorReportingUrl = "https://doki.api.acari.io/slack/error"
     private val gson = GsonBuilder().create()
   }
 
@@ -38,7 +37,7 @@ class SlackReporter : ErrorReportSubmitter() {
 
   override fun submit(events: Array<out IdeaLoggingEvent>, additionalInfo: String?, parentComponent: Component, consumer: Consumer<SubmittedReportInfo>): Boolean {
     return try {
-      val httpPost = HttpPost(slackWebhook)
+      val httpPost = HttpPost(errorReportingUrl)
       val eventMessages = events.map {
         """_Message_: ${it.message}
           |_Throwable Text_: ${it.throwableText}""".trimMargin()
@@ -51,7 +50,7 @@ class SlackReporter : ErrorReportSubmitter() {
         ```${getSystemInfo()}```
         *Error Info*:
         $supplementedInfo""".trimIndent()
-      val message = SlackMessage(formattedMessage)
+      val message = ErrorMessage(formattedMessage)
       httpPost.entity = StringEntity(gson.toJson(message), ContentType.APPLICATION_JSON)
       httpClient.execute(httpPost)
       true
@@ -110,4 +109,4 @@ class SlackReporter : ErrorReportSubmitter() {
 
 }
 
-data class SlackMessage(val text: String)
+data class ErrorMessage(val text: String)
