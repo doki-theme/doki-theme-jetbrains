@@ -3,6 +3,7 @@ package io.acari.doki.integrations
 import com.google.gson.GsonBuilder
 import com.intellij.ide.IdeBundle
 import com.intellij.ide.plugins.PluginManagerCore
+import com.intellij.ide.ui.LafManager
 import com.intellij.openapi.application.ApplicationNamesInfo
 import com.intellij.openapi.application.ex.ApplicationInfoEx
 import com.intellij.openapi.application.impl.ApplicationInfoImpl
@@ -14,6 +15,7 @@ import com.intellij.openapi.util.io.FileUtilRt
 import com.intellij.openapi.util.registry.Registry
 import com.intellij.util.Consumer
 import com.intellij.util.text.DateFormatUtil
+import io.acari.doki.config.ThemeConfig
 import org.apache.http.client.methods.HttpPost
 import org.apache.http.entity.ContentType
 import org.apache.http.entity.StringEntity
@@ -27,6 +29,7 @@ import java.util.stream.Collectors
 class SlackReporter : ErrorReportSubmitter() {
   companion object {
     private val httpClient = HttpClients.createMinimal()
+    // todo: slack hook borked.
     private const val slackWebhook = "https://hooks.slack.com/services/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"
     private val gson = GsonBuilder().create()
   }
@@ -84,12 +87,9 @@ class SlackReporter : ErrorReportSubmitter() {
     val vmVendor = properties.getProperty("java.vendor", "unknown")
     myInfo.append(IdeBundle.message("about.box.vm", vmVersion, vmVendor)).append("\n")
 
-    //todo: bring this back
-//    val dokiConfig = DDLCConfig.getInstance()
-    return """$myInfo${extraInfo()}"""
-//      |Doki-Doki Config: ${dokiConfig.asJson()}
-//      |Doki-Doki Version: ${MTUiUtils.getVersion()}
-//      |Doki-Doki DarkMode: ${dokiConfig.isDarkMode}""".trimMargin()
+    return """$myInfo${extraInfo()}
+      |Current Laf: ${LafManager.getInstance().currentLookAndFeel?.name}
+      |Doki-Doki Config: ${ThemeConfig.instance.asJson()}""".trimMargin()
   }
 
   private fun extraInfo(): String {
