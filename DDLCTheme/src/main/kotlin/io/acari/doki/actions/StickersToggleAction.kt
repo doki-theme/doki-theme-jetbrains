@@ -3,8 +3,8 @@ package io.acari.doki.actions
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.ToggleAction
 import io.acari.doki.config.ThemeConfig
-import io.acari.doki.stickers.StickerLevel
-import io.acari.doki.stickers.StickerLevel.*
+import io.acari.doki.stickers.StickerLevel.OFF
+import io.acari.doki.stickers.StickerLevel.ON
 import io.acari.doki.stickers.StickerService
 import io.acari.doki.themes.DokiThemes
 
@@ -24,3 +24,4 @@ class StickersToggleAction : ToggleAction() {
       }
   }
 }
+

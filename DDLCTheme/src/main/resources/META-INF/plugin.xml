@@ -98,5 +98,10 @@
             <add-to-group group-id="MainToolBar" anchor="last"/>
         </group>
 
+        <action id="io.acari.doki.actions.FileColorToggleAction" class="io.acari.doki.actions.FileColorToggleAction"
+                text="Enable File Colors"
+                description="Adds a themed background to certain directories in the project tree.">
+            <add-to-group group-id="DokiThemeActions" anchor="first"/>
+        </action>
     </actions>
 </idea-plugin>

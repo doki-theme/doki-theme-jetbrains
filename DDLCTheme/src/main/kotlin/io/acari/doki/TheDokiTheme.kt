@@ -1,18 +1,17 @@
 package io.acari.doki
 
-import com.intellij.ide.ui.LafManager
 import com.intellij.ide.ui.LafManagerListener
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.project.Project
-import com.intellij.openapi.project.ProjectManager
 import com.intellij.openapi.project.impl.ProjectLifecycleListener
+import io.acari.doki.config.ThemeConfig
 import io.acari.doki.hax.HackComponent.hackLAF
-import io.acari.doki.hax.SvgLoaderHacker
 import io.acari.doki.hax.SvgLoaderHacker.setSVGColorPatcher
-import io.acari.doki.laf.DokiAddFileColorsAction.removeFileScopes
 import io.acari.doki.laf.DokiAddFileColorsAction.setFileScopes
-import io.acari.doki.laf.LookAndFeelInstaller
+import io.acari.doki.laf.FileScopeColors.attemptToInstallColors
+import io.acari.doki.laf.FileScopeColors.attemptToRemoveColors
+import io.acari.doki.laf.LookAndFeelInstaller.installAllUIComponents
 import io.acari.doki.themes.DokiThemes
 
 class TheDokiTheme : Disposable {
@@ -24,24 +23,27 @@ class TheDokiTheme : Disposable {
     hackLAF()
     //////////// ._. ////////////
 
-    LookAndFeelInstaller.installAllUIComponents()
+    installAllUIComponents()
 
     connection.subscribe(LafManagerListener.TOPIC, LafManagerListener {
-      //todo: opt in to colors
-      val projects = ProjectManager.getInstance().openProjects
-      DokiThemes.processLaf(LafManager.getInstance().currentLookAndFeel) //todo: get theme more better
+      DokiThemes.currentTheme
         .ifPresentOrElse({
           setSVGColorPatcher()
-          LookAndFeelInstaller.installAllUIComponents()
-          projects.forEach { project -> setFileScopes(project) }
+          installAllUIComponents()
+          attemptToInstallColors()
         })
         {
-          projects.forEach { project -> removeFileScopes(project)
-          } } // todo: only remove if was set.
+          if (ThemeConfig.instance.isDokiFileColors) {
+            attemptToRemoveColors()
+          }
+        }
     })
+
     connection.subscribe(ProjectLifecycleListener.TOPIC, object : ProjectLifecycleListener {
       override fun projectComponentsInitialized(project: Project) {
-        setFileScopes(project)
+        if(ThemeConfig.instance.isDokiFileColors){
+          setFileScopes(project)
+        }
       }
     })
   }
