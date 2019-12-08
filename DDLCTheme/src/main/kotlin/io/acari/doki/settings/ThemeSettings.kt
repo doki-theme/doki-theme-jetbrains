@@ -6,6 +6,7 @@ import javax.swing.JComponent
 
 
 class ThemeSettings : SearchableConfigurable {
+
   override fun getId(): String = "io.acari.doki.settings.ThemeSettings"
 
   override fun getDisplayName(): String = "Doki Theme Settings"
