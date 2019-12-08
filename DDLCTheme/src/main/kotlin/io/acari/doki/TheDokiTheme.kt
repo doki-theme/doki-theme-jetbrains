@@ -13,6 +13,8 @@ import io.acari.doki.laf.DokiAddFileColorsAction.setFileScopes
 import io.acari.doki.laf.FileScopeColors.attemptToInstallColors
 import io.acari.doki.laf.FileScopeColors.attemptToRemoveColors
 import io.acari.doki.laf.LookAndFeelInstaller.installAllUIComponents
+import io.acari.doki.notification.CURRENT_VERSION
+import io.acari.doki.notification.UpdateNotification
 import io.acari.doki.themes.DokiThemes
 import io.acari.doki.util.toOptional
 
@@ -47,6 +49,11 @@ class TheDokiTheme : Disposable {
       override fun projectComponentsInitialized(project: Project) {
         if(ThemeConfig.instance.isDokiFileColors){
           setFileScopes(project)
+        }
+
+        if(ThemeConfig.instance.version != CURRENT_VERSION){
+          ThemeConfig.instance.version = CURRENT_VERSION
+          UpdateNotification.display(project)
         }
       }
     })
