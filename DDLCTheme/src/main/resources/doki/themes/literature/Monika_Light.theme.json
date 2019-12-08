@@ -3,8 +3,8 @@
   "dark": false,
   "author": "cyclic-reference",
   "editorScheme": "/doki/themes/literature/Monika_Light.xml",
-  "background": {
-    "image": "/chibis/literature/just_monika.png"
+  "stickers": {
+    "default": "/chibis/literature/just_monika.png"
   },
   "colors": {
     "baseIconColor": "#657F6E",

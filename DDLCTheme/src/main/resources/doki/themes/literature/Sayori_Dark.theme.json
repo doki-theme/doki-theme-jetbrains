@@ -3,8 +3,8 @@
   "dark": true,
   "author": "cyclic-reference",
   "editorScheme": "/doki/themes/literature/Sayori_Dark.xml",
-  "background": {
-    "image": "/chibis/literature/sayori_dark.png"
+  "stickers": {
+    "default": "/chibis/literature/sayori_dark.png"
   },
   "colors": {
     "baseIconColor": "#5B777F",

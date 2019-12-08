@@ -3,8 +3,8 @@
   "dark": false,
   "author": "cyclic-reference",
   "editorScheme": "/doki/themes/menagerie/Neera.xml",
-  "background": {
-    "image": "/chibis/menagerie/neera.png"
+  "stickers": {
+    "default": "/chibis/menagerie/neera.png"
   },
   "colors": {
     "baseIconColor": "#979087",

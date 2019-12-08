@@ -3,8 +3,8 @@
   "dark": false,
   "author": "cyclic-reference",
   "editorScheme": "/doki/themes/literature/Yuri_Light.xml",
-  "background": {
-    "image": "/chibis/literature/yuri.png"
+  "stickers": {
+    "default": "/chibis/literature/yuri.png"
   },
   "colors": {
     "baseIconColor": "#615E7F",

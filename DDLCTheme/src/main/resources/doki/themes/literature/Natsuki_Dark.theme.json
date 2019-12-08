@@ -3,8 +3,8 @@
   "dark": true,
   "author": "cyclic-reference",
   "editorScheme": "/doki/themes/literature/Natsuki_Dark.xml",
-  "background": {
-    "image": "/chibis/literature/natsuki_dark.png"
+  "stickers": {
+    "default": "/chibis/literature/natsuki_dark.png"
   },
   "colors": {
     "baseIconColor": "#7F707A",

@@ -3,8 +3,8 @@
   "dark": true,
   "author": "cyclic-reference",
   "editorScheme": "/doki/themes/menagerie/Syrena.xml",
-  "background": {
-    "image": "/chibis/menagerie/syrena.png"
+  "stickers": {
+    "default": "/chibis/menagerie/syrena.png"
   },
   "colors": {
     "baseIconColor": "#97818B",

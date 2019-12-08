@@ -6,6 +6,7 @@ import com.intellij.ide.ui.laf.LafManagerImpl
 import com.intellij.ide.ui.laf.UIThemeBasedLookAndFeelInfo
 import com.intellij.util.io.inputStream
 import io.acari.doki.themes.DokiTheme
+import io.acari.doki.themes.DokiThemeDefinition
 import io.acari.doki.themes.ThemeManager
 import io.acari.doki.util.toOptional
 import java.io.InputStreamReader
@@ -22,7 +23,7 @@ import javax.swing.UIManager
 
 class ThemeManagerImpl : ThemeManager {
 
-  private val themeMap: Map<String, UITheme>
+  private val themeMap: Map<String, DokiTheme>
 
   init {
     val gson = Gson()
@@ -42,9 +43,10 @@ class ThemeManagerImpl : ThemeManager {
       .map {
         gson.fromJson(
           InputStreamReader(it, StandardCharsets.UTF_8),
-          UITheme::class.java
+          DokiThemeDefinition::class.java
         )
       }
+      .map { DokiTheme(it) }
       .collect(
         Collectors.toMap(
           { it.name },
@@ -61,7 +63,6 @@ class ThemeManagerImpl : ThemeManager {
     return currentLaf.toOptional()
       .filter { it is UIThemeBasedLookAndFeelInfo }
       .map { it as UIThemeBasedLookAndFeelInfo }
-      .filter { themeMap.containsKey(it.name) }
-      .map { DokiTheme(it) }
+      .map { themeMap[it.name] }
   }
 }

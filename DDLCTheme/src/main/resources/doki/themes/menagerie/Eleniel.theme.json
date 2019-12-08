@@ -3,8 +3,8 @@
   "dark": true,
   "author": "cyclic-reference",
   "editorScheme": "/doki/themes/menagerie/Eleniel.xml",
-  "background": {
-    "image": "/chibis/menagerie/eleniel.png"
+  "stickers": {
+    "default": "/chibis/menagerie/eleniel.png"
   },
   "colors": {
     "baseIconColor": "#808597",

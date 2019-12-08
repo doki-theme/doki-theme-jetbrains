@@ -3,8 +3,8 @@
   "dark": false,
   "author": "cyclic-reference",
   "editorScheme": "/doki/themes/menagerie/Cleo.xml",
-  "background": {
-    "image": "/chibis/menagerie/cleo.png"
+  "stickers": {
+    "default": "/chibis/menagerie/cleo.png"
   },
   "colors": {
     "baseIconColor": "#898989",

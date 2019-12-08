@@ -3,8 +3,8 @@
   "dark": true,
   "author": "cyclic-reference",
   "editorScheme": "/doki/themes/menagerie/Wyla.xml",
-  "background": {
-    "image": "/chibis/menagerie/wyla.png"
+  "stickers": {
+    "default": "/chibis/menagerie/wyla.png"
   },
   "colors": {
     "baseIconColor": "#979087",

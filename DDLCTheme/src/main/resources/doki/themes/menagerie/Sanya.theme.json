@@ -3,8 +3,8 @@
   "dark": true,
   "author": "cyclic-reference",
   "editorScheme": "/doki/themes/menagerie/Sanya.xml",
-  "background": {
-    "image": "/chibis/menagerie/sanya.png"
+  "stickers": {
+    "default": "/chibis/menagerie/sanya.png"
   },
   "colors": {
     "ghostColor": "#FFFFFF00",

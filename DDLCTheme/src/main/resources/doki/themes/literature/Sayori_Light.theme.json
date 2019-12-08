@@ -3,8 +3,8 @@
   "dark": false,
   "author": "cyclic-reference",
   "editorScheme": "/doki/themes/literature/Sayori_Light.xml",
-  "background": {
-    "image": "/chibis/literature/sayori.png"
+  "stickers": {
+    "default": "/chibis/literature/sayori.png"
   },
   "colors": {
     "baseIconColor": "#5B777F",

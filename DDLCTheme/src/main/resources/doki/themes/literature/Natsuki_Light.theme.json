@@ -3,8 +3,8 @@
   "dark": false,
   "author": "cyclic-reference",
   "editorScheme": "/doki/themes/literature/Natsuki_Light.xml",
-  "background": {
-    "image": "/chibis/literature/natsuki.png"
+  "stickers": {
+    "default": "/chibis/literature/natsuki.png"
   },
   "colors": {
     "baseIconColor": "#7F707A",

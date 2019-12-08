@@ -1,38 +1,44 @@
 package io.acari.doki.themes
 
-import com.intellij.ide.ui.laf.UIThemeBasedLookAndFeelInfo
 import io.acari.doki.util.toOptional
 import java.util.*
 
-class DokiTheme(private val laf: UIThemeBasedLookAndFeelInfo) {
+class Stickers(
+  val default: String,
+  val secondary: String?
+)
 
-    val uiTheme = laf.theme
+class DokiThemeDefinition(
+  val name: String,
+  val dark: Boolean,
+  val stickers: Stickers,
+  val colors: Map<String, Any>
+)
 
-    val isDark: Boolean
-        get() = uiTheme.isDark
+class DokiTheme(private val uiTheme: DokiThemeDefinition) {
 
-    val name: String
-        get() = uiTheme.name
+  val isDark: Boolean
+    get() = uiTheme.dark
 
-    fun getChibiPath(): Optional<String> {
-        return uiTheme.background["image"]
-            .toOptional()
-            .filter { it is String }
-            .map { it as String }
-    }
+  val name: String
+    get() = uiTheme.name
 
-    fun getChibi(): Optional<String> =
-        getChibiPath()
-            .map { it.substring(it.lastIndexOf("/") + 1 ) }
+  fun getChibiPath(): Optional<String> {
+    return uiTheme.stickers.default
+      .toOptional()
+  }
+
+  fun getChibi(): Optional<String> =
+    getChibiPath()
+      .map { it.substring(it.lastIndexOf("/") + 1) }
 
 
-    // todo: make this color mandatory
-    val nonProjectFileScopeColor: String
-        get() = uiTheme.colors["nonProjectFileScopeColor"] as String
+  // todo: make this color mandatory
+  val nonProjectFileScopeColor: String
+    get() = uiTheme.colors["nonProjectFileScopeColor"] as String
 
-    // todo: make this color mandatory
-    val testScopeColor: String
-        get() = uiTheme.colors["testScopeColor"] as String
-
+  // todo: make this color mandatory
+  val testScopeColor: String
+    get() = uiTheme.colors["testScopeColor"] as String
 
 }
