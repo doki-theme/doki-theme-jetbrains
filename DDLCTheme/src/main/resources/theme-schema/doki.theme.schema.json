@@ -1,0 +1,53 @@
+{
+  "version": "1.0",
+  "definitions": {
+    "sticker": {
+      "type": "string",
+      "pattern": "^/stickers/.+\\.png$",
+      "title": "Path to the background image",
+      "description": "Path to the background image starting with '/stickers'",
+      "default": "/stickers/literature/just_monika.png",
+      "examples": [
+        "/stickers/literature/just_monika.png"
+      ]
+    }
+  },
+  "type": "object",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "required": [
+    "stickers"
+  ],
+  "properties": {
+    "stickers": {
+      "type": "object",
+      "required": [
+        "default"
+      ],
+      "title": "Sticker",
+      "description": "The image reference to the sticker for the bottom right hand corner.",
+      "properties": {
+        "default": {
+          "type": "string",
+          "pattern": "^/stickers/.+\\.png$",
+          "title": "Path to the background image",
+          "description": "Path to the background image starting with '/stickers'",
+          "default": "/stickers/literature/just_monika.png",
+          "examples": [
+            "/stickers/literature/just_monika.png"
+          ]
+        }
+      ,
+        "secondary": {
+          "type": "string",
+          "pattern": "^/stickers/.+\\.png$",
+          "title": "Path to the background image",
+          "description": "Path to the background image starting with '/stickers'",
+          "default": "/stickers/literature/just_monika.png",
+          "examples": [
+            "/stickers/literature/just_monika.png"
+          ]
+        }
+      }
+    }
+  }
+}

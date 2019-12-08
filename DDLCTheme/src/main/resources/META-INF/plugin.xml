@@ -75,6 +75,10 @@
         <themeProvider id="9f62362a-49e0-4b82-8f63-d1f98ae7799f" path="/doki/themes/menagerie/Wyla.theme.json"/>
     </extensions>
 
+    <extensions defaultExtensionNs="JavaScript.JsonSchema">
+        <ProviderFactory implementation="io.acari.doki.schema.DokiThemeJsonSchemaProvider"/>
+    </extensions>
+
     <application-components>
         <component>
             <implementation-class>io.acari.doki.TheDokiTheme</implementation-class>
