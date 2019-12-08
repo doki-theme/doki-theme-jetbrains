@@ -6,6 +6,7 @@ import com.intellij.openapi.components.State
 import com.intellij.openapi.components.Storage
 import com.intellij.util.xmlb.XmlSerializerUtil.copyBean
 import com.intellij.util.xmlb.XmlSerializerUtil.createCopy
+import io.acari.doki.stickers.CurrentSticker
 import io.acari.doki.stickers.StickerLevel
 import io.acari.doki.themes.ThemeManager
 
@@ -27,6 +28,7 @@ class ThemeConfig : PersistentStateComponent<ThemeConfig>, Cloneable {
   var isThemedTitleBar: Boolean = true
   var processedLegacyStickers: Boolean = false
   var processedLegacyStartup: Boolean = false
+  var currentStickerName: String = CurrentSticker.DEFAULT.name
 
   override fun getState(): ThemeConfig? =
     createCopy(this)
@@ -41,9 +43,16 @@ class ThemeConfig : PersistentStateComponent<ThemeConfig>, Cloneable {
     "stickerLevel" to stickerLevel,
     "selectedTheme" to selectedTheme,
     "isDokiFileColors" to isDokiFileColors,
+    "currentSticker" to currentSticker,
     "processedLegacyStickers" to processedLegacyStickers,
     "processedLegacyStartup" to processedLegacyStartup
   )
+
+  var currentSticker: CurrentSticker
+    get() = CurrentSticker.valueOf(currentStickerName)
+    set(value) {
+      currentStickerName = value.name
+    }
 
   val currentStickerLevel: StickerLevel
     get() {

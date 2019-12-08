@@ -108,5 +108,10 @@
                 text="Themed Title Bar" description="Makes the MacOS title bar the same color as your selected theme.">
             <add-to-group group-id="DokiThemeActions" anchor="last"/>
         </action>
+        <action id="io.acari.doki.actions.SwapStickerAction" class="io.acari.doki.actions.SwapStickerAction"
+                text="Swap Sticker"
+                description="Changes the current sticker at the bottom right hand corner of the screen.">
+            <add-to-group group-id="DokiThemeActions" anchor="last"/>
+        </action>
     </actions>
 </idea-plugin>

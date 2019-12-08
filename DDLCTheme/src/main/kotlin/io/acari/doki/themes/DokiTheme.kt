@@ -1,5 +1,7 @@
 package io.acari.doki.themes
 
+import io.acari.doki.config.ThemeConfig
+import io.acari.doki.stickers.CurrentSticker
 import io.acari.doki.util.toOptional
 import java.util.*
 
@@ -24,14 +26,15 @@ class DokiTheme(private val uiTheme: DokiThemeDefinition) {
     get() = uiTheme.name
 
   fun getStickerPath(): Optional<String> {
-    return uiTheme.stickers.default
-      .toOptional()
+    return when(ThemeConfig.instance.currentSticker){
+      CurrentSticker.DEFAULT -> uiTheme.stickers.default
+      CurrentSticker.SECONDARY -> uiTheme.stickers.secondary ?: uiTheme.stickers.default
+    }.toOptional()
   }
 
   fun getSticker(): Optional<String> =
     getStickerPath()
       .map { it.substring(it.lastIndexOf("/") + 1) }
-
 
   // todo: make this color mandatory
   val nonProjectFileScopeColor: String
