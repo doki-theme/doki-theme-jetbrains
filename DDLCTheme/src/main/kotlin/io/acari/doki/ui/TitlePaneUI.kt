@@ -1,10 +1,8 @@
 package io.acari.doki.ui
 
-import com.intellij.ide.ui.LafManager
 import com.intellij.ide.ui.laf.darcula.ui.DarculaRootPaneUI
 import com.intellij.openapi.util.SystemInfo.*
 import com.intellij.openapi.wm.ex.IdeFrameEx
-import com.intellij.ui.DoubleClickListener
 import com.intellij.ui.JBColor.GRAY
 import com.intellij.ui.JBColor.namedColor
 import com.intellij.util.ui.GraphicsUtil
@@ -13,11 +11,8 @@ import com.intellij.util.ui.JBUI.insets
 import com.intellij.util.ui.UIUtil
 import com.intellij.util.ui.UIUtil.getWindow
 import io.acari.doki.themes.DokiThemes
-import io.acari.doki.themes.DokiThemes.processLaf
 import io.acari.doki.util.toOptional
 import java.awt.*
-import java.awt.event.InputEvent
-import java.awt.event.MouseEvent
 import java.awt.event.WindowAdapter
 import java.awt.event.WindowEvent
 import java.awt.geom.AffineTransform
@@ -160,7 +155,7 @@ class TitlePaneUI : DarculaRootPaneUI() {
       }
     }
 
-   val changeListener = PropertyChangeListener { rootPane?.repaint() }
+    val changeListener = PropertyChangeListener { rootPane?.repaint() }
     window?.addPropertyChangeListener("title", changeListener)
     return {
       window?.removeWindowListener(windowAdapter)

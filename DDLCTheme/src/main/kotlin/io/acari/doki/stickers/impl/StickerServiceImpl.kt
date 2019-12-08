@@ -60,8 +60,7 @@ class StickerServiceImpl : StickerService {
     }
 
     private fun turnOnWeebShit(dokiTheme: DokiTheme) {
-        // todo: adjust opacity if lit club to 80 else 100
-        val chibiOpacity = 99
+        val chibiOpacity = 100
         getImagePath(dokiTheme)
             .ifPresent {
                 setProperty(
