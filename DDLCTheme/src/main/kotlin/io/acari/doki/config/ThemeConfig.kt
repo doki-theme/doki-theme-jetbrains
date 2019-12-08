@@ -7,7 +7,7 @@ import com.intellij.openapi.components.Storage
 import com.intellij.util.xmlb.XmlSerializerUtil.copyBean
 import com.intellij.util.xmlb.XmlSerializerUtil.createCopy
 import io.acari.doki.stickers.StickerLevel
-import io.acari.doki.themes.DokiThemes
+import io.acari.doki.themes.ThemeManager
 
 @State(
   name = "DokiDokiThemeConfig",
@@ -22,7 +22,7 @@ class ThemeConfig : PersistentStateComponent<ThemeConfig>, Cloneable {
   var version: String = "0.0.0"
   var chibiLevel: String = StickerLevel.ON.name
   var stickerLevel: String = StickerLevel.ON.name
-  var selectedTheme: String = DokiThemes.MONIKA_LIGHT
+  var selectedTheme: String = ThemeManager.MONIKA_LIGHT
   var isDokiFileColors: Boolean = false
   var isThemedTitleBar: Boolean = true
   var processedLegacyStickers: Boolean = false

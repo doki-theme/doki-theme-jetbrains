@@ -15,7 +15,7 @@ import io.acari.doki.laf.FileScopeColors.attemptToRemoveColors
 import io.acari.doki.laf.LookAndFeelInstaller.installAllUIComponents
 import io.acari.doki.notification.CURRENT_VERSION
 import io.acari.doki.notification.UpdateNotification
-import io.acari.doki.themes.DokiThemes
+import io.acari.doki.themes.ThemeManager
 import io.acari.doki.util.LegacyThemeUtilities
 import io.acari.doki.util.toOptional
 
@@ -33,7 +33,7 @@ class TheDokiTheme : Disposable {
     migrateLegacyTheme()
 
     connection.subscribe(LafManagerListener.TOPIC, LafManagerListener {
-      DokiThemes.currentTheme
+      ThemeManager.instance.currentTheme
         .ifPresentOrElse({
           setSVGColorPatcher()
           installAllUIComponents()

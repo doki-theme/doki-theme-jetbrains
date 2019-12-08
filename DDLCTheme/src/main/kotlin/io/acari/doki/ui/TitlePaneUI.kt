@@ -11,7 +11,7 @@ import com.intellij.util.ui.JBUI.insets
 import com.intellij.util.ui.UIUtil
 import com.intellij.util.ui.UIUtil.getWindow
 import io.acari.doki.config.ThemeConfig
-import io.acari.doki.themes.DokiThemes
+import io.acari.doki.themes.ThemeManager
 import io.acari.doki.util.toOptional
 import java.awt.*
 import java.awt.event.WindowAdapter
@@ -60,7 +60,7 @@ class TitlePaneUI : DarculaRootPaneUI() {
 
   override fun installUI(c: JComponent?) {
     super.installUI(c)
-    DokiThemes.currentTheme
+    ThemeManager.instance.currentTheme
       .filter { isMac || isLinux }
       .ifPresent {
         c?.putClientProperty(WINDOW_DARK_APPEARANCE, it.isDark)

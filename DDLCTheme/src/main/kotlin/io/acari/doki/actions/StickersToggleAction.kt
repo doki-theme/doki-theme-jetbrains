@@ -6,7 +6,7 @@ import io.acari.doki.config.ThemeConfig
 import io.acari.doki.stickers.StickerLevel.OFF
 import io.acari.doki.stickers.StickerLevel.ON
 import io.acari.doki.stickers.StickerService
-import io.acari.doki.themes.DokiThemes
+import io.acari.doki.themes.ThemeManager
 
 class StickersToggleAction : ToggleAction() {
   override fun isSelected(e: AnActionEvent): Boolean =
@@ -15,7 +15,7 @@ class StickersToggleAction : ToggleAction() {
   override fun setSelected(e: AnActionEvent, state: Boolean) {
       if(state){
         ThemeConfig.instance.stickerLevel = ON.name
-        DokiThemes.currentTheme.ifPresent {
+        ThemeManager.instance.currentTheme.ifPresent {
           StickerService.instance.activateForTheme(it)
         }
       } else {

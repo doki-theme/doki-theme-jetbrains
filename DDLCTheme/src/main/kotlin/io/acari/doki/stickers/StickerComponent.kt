@@ -4,7 +4,7 @@ import com.intellij.ide.ui.LafManagerListener
 import com.intellij.ide.ui.laf.LafManagerImpl
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.application.ApplicationManager
-import io.acari.doki.themes.DokiThemes
+import io.acari.doki.themes.ThemeManager
 import javax.swing.UIManager
 
 class StickerComponent: Disposable {
@@ -18,7 +18,7 @@ class StickerComponent: Disposable {
     }
 
     private fun processLaf(currentLaf: UIManager.LookAndFeelInfo?) {
-        DokiThemes.processLaf(currentLaf)
+        ThemeManager.instance.processLaf(currentLaf)
             .ifPresentOrElse({
                 StickerService.instance.activateForTheme(it)
             }) {
