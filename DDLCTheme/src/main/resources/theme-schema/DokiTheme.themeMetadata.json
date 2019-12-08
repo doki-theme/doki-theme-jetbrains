@@ -1,16 +1,6 @@
 {
   "name": "Doki Theme",
   "fixed": false,
-  "color": [
-    {
-      "key": "nonProjectFileScopeColor",
-      "description": "Background color of non-module files in project view tree."
-    },
-    {
-      "key": "testScopeColor",
-      "description": "Background color of test files in project view tree."
-    }
-  ],
   "ui": [
     {
       "key": "Doki.Accent.color",
