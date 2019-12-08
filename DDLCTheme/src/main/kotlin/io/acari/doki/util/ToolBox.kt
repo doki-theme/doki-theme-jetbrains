@@ -29,3 +29,5 @@ interface Runner {
 }
 
 fun Color.toHexString() = "#${ColorUtil.toHex(this)}"
+
+fun String.toColor() = ColorUtil.fromHex(this)
