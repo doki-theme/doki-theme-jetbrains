@@ -16,6 +16,7 @@ import io.acari.doki.laf.LookAndFeelInstaller.installAllUIComponents
 import io.acari.doki.notification.CURRENT_VERSION
 import io.acari.doki.notification.UpdateNotification
 import io.acari.doki.themes.DokiThemes
+import io.acari.doki.util.LegacyThemeUtilities
 import io.acari.doki.util.toOptional
 
 class TheDokiTheme : Disposable {
@@ -62,7 +63,9 @@ class TheDokiTheme : Disposable {
   private fun migrateLegacyTheme() {
     if(!ThemeConfig.instance.processedLegacyStartup){
       ThemeConfig.instance.processedLegacyStartup = true
-      val lastTheme = ThemeConfig.instance.selectedTheme
+      val lastTheme = LegacyThemeUtilities.legacyThemeNameMapping(
+        ThemeConfig.instance.selectedTheme
+      )
       LafManager.getInstance().installedLookAndFeels.find {
         it.name.equals(lastTheme, true)
       }.toOptional()
