@@ -4,7 +4,8 @@
   "author": "cyclic-reference",
   "editorScheme": "/doki/themes/literature/Yuri_Dark.xml",
   "stickers": {
-    "default": "/stickers/literature/yuri_dark.png"
+    "default": "/stickers/literature/yuri_dark.png",
+    "secondary": "/stickers/literature/yuri_dark_normal.png"
   },
   "colors": {
     "baseIconColor": "#6d6b96",

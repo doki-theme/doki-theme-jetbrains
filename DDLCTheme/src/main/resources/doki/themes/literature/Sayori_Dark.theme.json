@@ -4,7 +4,8 @@
   "author": "cyclic-reference",
   "editorScheme": "/doki/themes/literature/Sayori_Dark.xml",
   "stickers": {
-    "default": "/stickers/literature/sayori_dark.png"
+    "default": "/stickers/literature/sayori_dark.png",
+    "secondary": "/stickers/literature/sayori_dark_normal.png"
   },
   "colors": {
     "baseIconColor": "#5B777F",

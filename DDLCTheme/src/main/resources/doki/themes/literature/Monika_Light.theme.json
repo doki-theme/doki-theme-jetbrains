@@ -4,7 +4,8 @@
   "author": "cyclic-reference",
   "editorScheme": "/doki/themes/literature/Monika_Light.xml",
   "stickers": {
-    "default": "/stickers/literature/just_monika.png"
+    "default": "/stickers/literature/just_monika.png",
+    "secondary": "/stickers/literature/just_monika_joy.png"
   },
   "colors": {
     "baseIconColor": "#657F6E",

@@ -4,7 +4,8 @@
   "author": "cyclic-reference",
   "editorScheme": "/doki/themes/literature/Sayori_Light.xml",
   "stickers": {
-    "default": "/stickers/literature/sayori.png"
+    "default": "/stickers/literature/sayori.png",
+    "secondary": "/stickers/literature/sayori_joy.png"
   },
   "colors": {
     "baseIconColor": "#5B777F",
