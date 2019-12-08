@@ -23,13 +23,13 @@ class DokiTheme(private val uiTheme: DokiThemeDefinition) {
   val name: String
     get() = uiTheme.name
 
-  fun getChibiPath(): Optional<String> {
+  fun getStickerPath(): Optional<String> {
     return uiTheme.stickers.default
       .toOptional()
   }
 
-  fun getChibi(): Optional<String> =
-    getChibiPath()
+  fun getSticker(): Optional<String> =
+    getStickerPath()
       .map { it.substring(it.lastIndexOf("/") + 1) }
 
 

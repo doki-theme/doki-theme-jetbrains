@@ -23,11 +23,11 @@ const val DOKI_BACKGROUND_PROP: String = "io.acari.doki.background"
 private val messageDigest: MessageDigest = MessageDigest.getInstance("MD5")
 private const val RESOURCES_DIRECTORY =
     "https://raw.githubusercontent.com/cyclic-reference/ddlc-jetbrains-theme/master/assets"
-const val DOKI_CHIBI_PROP: String = "io.acari.doki.stickers"
+const val DOKI_STICKER_PROP: String = "io.acari.doki.stickers"
 
 class StickerServiceImpl : StickerService {
 
-    private val chibiLevel: StickerLevel
+    private val stickerLevel: StickerLevel
         get() = ThemeConfig.instance.currentStickerLevel
 
     override fun activateForTheme(dokiTheme: DokiTheme) {
@@ -40,7 +40,7 @@ class StickerServiceImpl : StickerService {
     }
 
     private fun removeWeebShit() {
-        PropertiesComponent.getInstance().unsetValue(DOKI_CHIBI_PROP)
+        PropertiesComponent.getInstance().unsetValue(DOKI_STICKER_PROP)
         PropertiesComponent.getInstance().unsetValue(DOKI_BACKGROUND_PROP)
         repaintWindows()
     }
@@ -51,7 +51,7 @@ class StickerServiceImpl : StickerService {
     }
 
     private fun weebShitOn(): Boolean =
-        chibiLevel != StickerLevel.OFF
+        stickerLevel != StickerLevel.OFF
 
     private fun turnOnIfNecessary(dokiTheme: DokiTheme) {
         if (weebShitOn())
@@ -59,15 +59,15 @@ class StickerServiceImpl : StickerService {
     }
 
     private fun turnOnWeebShit(dokiTheme: DokiTheme) {
-        val chibiOpacity = 100
+        val stickerOpacity = 100
         getImagePath(dokiTheme)
             .ifPresent {
                 setProperty(
                     it,
-                    "$chibiOpacity",
+                    "$stickerOpacity",
                     IdeBackgroundUtil.Fill.PLAIN.name,
                     IdeBackgroundUtil.Anchor.BOTTOM_RIGHT.name,
-                    DOKI_CHIBI_PROP
+                    DOKI_STICKER_PROP
                 )
             }
 
@@ -76,7 +76,7 @@ class StickerServiceImpl : StickerService {
             .ifPresent {
                 setProperty(
                     it,
-                    "$chibiOpacity",
+                    "$stickerOpacity",
                     IdeBackgroundUtil.Fill.SCALE.name,
                     IdeBackgroundUtil.Anchor.CENTER.name,
                     DOKI_BACKGROUND_PROP
@@ -88,22 +88,22 @@ class StickerServiceImpl : StickerService {
 
 
     private fun getFrameBackground(dokiTheme: DokiTheme): Optional<String> {
-        return dokiTheme.getChibi()
+        return dokiTheme.getSticker()
             .map { "$RESOURCES_DIRECTORY/themes/$it" }
     }
 
     private fun getImagePath(dokiTheme: DokiTheme): Optional<String> =
-        dokiTheme.getChibiPath()
-            .flatMap { fullChibiClasspath ->
+        dokiTheme.getStickerPath()
+            .flatMap { fullstickerClasspath ->
                 getLocalClubMemberParentDirectory()
                     .map { localParentDirectory ->
                         val weebStuff =
-                            Paths.get(localParentDirectory, fullChibiClasspath)
+                            Paths.get(localParentDirectory, fullstickerClasspath)
                                 .normalize()
                                 .toAbsolutePath()
-                        if (shouldCopyToDisk(weebStuff, fullChibiClasspath)) {
+                        if (shouldCopyToDisk(weebStuff, fullstickerClasspath)) {
                             createDirectories(weebStuff)
-                            copyAnimes(fullChibiClasspath, weebStuff)
+                            copyAnimes(fullstickerClasspath, weebStuff)
                                 .map { it.toOptional() }
                                 .orElseGet { getClubMemberFallback(dokiTheme) }
                         } else {
@@ -181,7 +181,7 @@ class StickerServiceImpl : StickerService {
 
     // todo: internet stickers fallback (test that and stuff)
     private fun getClubMemberFallback(dokiTheme: DokiTheme): Optional<String> {
-        return dokiTheme.getChibi()
+        return dokiTheme.getSticker()
             .map { "$RESOURCES_DIRECTORY/club_members/$it" }
     }
 

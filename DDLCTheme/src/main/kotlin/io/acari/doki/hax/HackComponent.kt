@@ -13,7 +13,7 @@ import com.intellij.openapi.fileEditor.impl.EditorComposite
 import com.intellij.ui.JBColor
 import io.acari.doki.hax.FeildHacker.setFinalStatic
 import io.acari.doki.stickers.impl.DOKI_BACKGROUND_PROP
-import io.acari.doki.stickers.impl.DOKI_CHIBI_PROP
+import io.acari.doki.stickers.impl.DOKI_STICKER_PROP
 import javassist.*
 import javassist.expr.ExprEditor
 import javassist.expr.MethodCall
@@ -21,7 +21,7 @@ import javassist.expr.NewExpr
 
 object HackComponent : Disposable {
   init {
-    enableDisposableChibis()
+    enableDisposableStickers()
     createMonikasWritingTipOfTheDay()
     enablePluginWindowConsistency()
     enableBorderConsistency()
@@ -263,7 +263,7 @@ object HackComponent : Disposable {
     }
   }
 
-  private fun enableDisposableChibis() {
+  private fun enableDisposableStickers() {
     hackBackgroundPaintingComponent()
   }
 
@@ -289,7 +289,7 @@ object HackComponent : Disposable {
         }
       })
 
-      // enable disposable Chibis
+      // enable disposable stickers
       val method = ctClass2.getDeclaredMethod("withFrameBackground")
       method.instrument(object : ExprEditor() {
         @Throws(CannotCompileException::class)
@@ -304,7 +304,7 @@ object HackComponent : Disposable {
         @Throws(CannotCompileException::class)
         override fun edit(m: MethodCall?) {
           if (m!!.methodName == "withNamedPainters") {
-            m.replace("{ \$2 = \"$DOKI_CHIBI_PROP\"; \$_ = \$proceed(\$\$); }")
+            m.replace("{ \$2 = \"$DOKI_STICKER_PROP\"; \$_ = \$proceed(\$\$); }")
           }
         }
       })
@@ -314,7 +314,7 @@ object HackComponent : Disposable {
         @Throws(CannotCompileException::class)
         override fun edit(m: MethodCall?) {
           if (m!!.methodName == "getBackgroundSpec") {
-            m.replace("{ \$2 = \"$DOKI_CHIBI_PROP\"; \$_ = \$proceed(\$\$); }")
+            m.replace("{ \$2 = \"$DOKI_STICKER_PROP\"; \$_ = \$proceed(\$\$); }")
           }
         }
       })
@@ -325,9 +325,9 @@ object HackComponent : Disposable {
         @Throws(CannotCompileException::class)
         override fun edit(m: MethodCall?) {
           if (m!!.methodName == "initWallpaperPainter") {
-            m.replace("{ \$1 = \"$DOKI_CHIBI_PROP\"; \$_ = \$proceed(\$\$); }")
+            m.replace("{ \$1 = \"$DOKI_STICKER_PROP\"; \$_ = \$proceed(\$\$); }")
           } else if (m.methodName == "getNamedPainters") {
-            m.replace("{ \$1 = \"$DOKI_CHIBI_PROP\"; \$_ = \$proceed(\$\$); }")
+            m.replace("{ \$1 = \"$DOKI_STICKER_PROP\"; \$_ = \$proceed(\$\$); }")
           }
         }
       })

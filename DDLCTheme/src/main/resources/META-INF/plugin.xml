@@ -17,7 +17,7 @@
             <li>Do you need a bit more spice in your development life? <input type="checkbox" checked></li>
             <li>Are Light or Dark themes your thing? <input type="checkbox" checked></li>
             <li>Is your tolerance for cutesy things high? <input type="checkbox" checked></li>
-            <li>Do you like stickers and chibis? <input type="checkbox" checked></li>
+            <li>Do you like stickers? <input type="checkbox" checked></li>
             <li>Is having a lot of choices a must? <input type="checkbox" checked></li>
         </ul><br/>
         <p>
@@ -35,7 +35,7 @@
         </ul>
         </p>
         <p>
-            Too distracted by the chibi in the corner of your IDE?
+            Too distracted by the sticker in the corner of your IDE?
             No worries! You can configure them to be on or off at your leisure.
         </p>
 

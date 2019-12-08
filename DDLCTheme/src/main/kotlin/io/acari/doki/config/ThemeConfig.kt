@@ -38,6 +38,7 @@ class ThemeConfig : PersistentStateComponent<ThemeConfig>, Cloneable {
   fun asJson(): Map<String, Any> = mapOf(
     "version" to version,
     "chibiLevel" to chibiLevel,
+    "stickerLevel" to stickerLevel,
     "selectedTheme" to selectedTheme,
     "isDokiFileColors" to isDokiFileColors,
     "processedLegacyStickers" to processedLegacyStickers,
