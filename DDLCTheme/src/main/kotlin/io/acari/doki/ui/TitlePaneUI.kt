@@ -10,6 +10,7 @@ import com.intellij.util.ui.JBUI
 import com.intellij.util.ui.JBUI.insets
 import com.intellij.util.ui.UIUtil
 import com.intellij.util.ui.UIUtil.getWindow
+import io.acari.doki.config.ThemeConfig
 import io.acari.doki.themes.DokiThemes
 import io.acari.doki.util.toOptional
 import java.awt.*
@@ -25,7 +26,6 @@ import javax.swing.plaf.basic.BasicRootPaneUI
 
 typealias Disposer = () -> Unit
 
-// todo: should be able to be disabled
 class TitlePaneUI : DarculaRootPaneUI() {
 
   companion object {
@@ -48,7 +48,7 @@ class TitlePaneUI : DarculaRootPaneUI() {
       BasicRootPaneUI()
     }
 
-    private fun hasTransparentTitleBar(): Boolean = isMac
+    private fun hasTransparentTitleBar(): Boolean = isMac && ThemeConfig.instance.isThemedTitleBar
   }
 
   private var possibleDisposable: Optional<Disposer> = Optional.empty()

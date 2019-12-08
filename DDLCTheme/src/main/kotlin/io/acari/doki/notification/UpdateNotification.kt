@@ -33,4 +33,11 @@ object UpdateNotification {
       NotificationListener.URL_OPENING_LISTENER
     )
   }
+
+  fun displayRestartMessage(){
+    notificationManager.notify(
+      "Please restart your IDE",
+      "In order for the change to take effect, please restart your IDE. Thanks! ~"
+    )
+  }
 }

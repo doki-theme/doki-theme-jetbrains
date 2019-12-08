@@ -24,6 +24,7 @@ class ThemeConfig : PersistentStateComponent<ThemeConfig>, Cloneable {
   var stickerLevel: String = StickerLevel.ON.name
   var selectedTheme: String = DokiThemes.MONIKA_LIGHT
   var isDokiFileColors: Boolean = false
+  var isThemedTitleBar: Boolean = true
   var processedLegacyStickers: Boolean = false
   var processedLegacyStartup: Boolean = false
 

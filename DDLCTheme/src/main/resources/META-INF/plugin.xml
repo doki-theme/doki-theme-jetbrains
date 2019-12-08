@@ -104,5 +104,9 @@
                 description="Adds a themed background to certain directories in the project tree.">
             <add-to-group group-id="DokiThemeActions" anchor="first"/>
         </action>
+        <action id="io.acari.doki.actions.ThemedTitleBarAction" class="io.acari.doki.actions.ThemedTitleBarAction"
+                text="Themed Title Bar" description="Makes the MacOS title bar the same color as your selected theme.">
+            <add-to-group group-id="DokiThemeActions" anchor="last"/>
+        </action>
     </actions>
 </idea-plugin>
