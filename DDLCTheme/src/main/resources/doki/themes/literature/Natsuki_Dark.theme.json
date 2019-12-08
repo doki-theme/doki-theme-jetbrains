@@ -149,6 +149,7 @@
     "EditorTabs.hoverBackground": "highlightColor",
     "ActionButton.hoverBackground": "highlightColor",
     "ActionButton.hoverBorderColor": "highlightColor",
+    "StatusBar.hoverBackground": "highlightColor",
     "Table.stripeColor": "highlightColor",
     "ToolWindow.Button.selectedBackground": "highlightColor",
 
