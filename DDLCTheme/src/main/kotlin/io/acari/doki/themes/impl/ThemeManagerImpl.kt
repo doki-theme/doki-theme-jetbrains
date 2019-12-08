@@ -9,9 +9,13 @@ import io.acari.doki.themes.DokiTheme
 import io.acari.doki.themes.ThemeManager
 import io.acari.doki.util.toOptional
 import java.io.InputStreamReader
+import java.net.URI
+import java.net.URI.*
 import java.nio.charset.StandardCharsets
-import java.nio.file.Files
-import java.nio.file.Paths
+import java.nio.file.FileSystems
+import java.nio.file.FileSystems.*
+import java.nio.file.Files.walk
+import java.nio.file.Paths.get
 import java.util.*
 import java.util.stream.Collectors
 import javax.swing.UIManager
@@ -22,9 +26,18 @@ class ThemeManagerImpl : ThemeManager {
 
   init {
     val gson = Gson()
-    val path = this.javaClass.classLoader.getResource("themes").path
-    themeMap = Files.walk(Paths.get(path))
-      .filter { it.endsWith(".theme.json") }
+    val themeURI = javaClass.classLoader
+      .getResource("/doki/themes")
+      .toURI()
+      .toString()
+      .split("!")
+    val fileSystem = newFileSystem(create(themeURI[0]), mapOf<String, String>())
+    themeMap = walk(
+      fileSystem.getPath(
+        themeURI[1]
+      )
+    )
+      .filter { it.fileName.toString().endsWith(".theme.json") }
       .map { it.inputStream() }
       .map {
         gson.fromJson(
@@ -38,8 +51,6 @@ class ThemeManagerImpl : ThemeManager {
           { it },
           { a, _ -> a }
         ))
-
-    println(themeMap)
   }
 
   override val currentTheme: Optional<DokiTheme>

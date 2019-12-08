@@ -58,21 +58,21 @@
 
         <themeMetadataProvider path="/theme-schema/DokiTheme.themeMetadata.json"/>
 
-        <themeProvider id="dce48196-ff46-470c-b5f9-d1e23f4a79d3" path="/themes/literature/Monika_Dark.theme.json"/>
-        <themeProvider id="9a310731-ab2d-40f5-b502-fa5419f799a2" path="/themes/literature/Monika_Light.theme.json"/>
-        <themeProvider id="91415015-8fe3-48eb-9951-70a5cd6cbb7f" path="/themes/literature/Natsuki_Light.theme.json"/>
-        <themeProvider id="a7e0aa28-739a-4671-80ae-3980997e6b71" path="/themes/literature/Natsuki_Dark.theme.json"/>
-        <themeProvider id="b0340303-0a5a-4a20-9b9c-fc8ce9880078" path="/themes/literature/Sayori_Dark.theme.json"/>
-        <themeProvider id="cb8ef4b7-0844-4a04-b08b-754086598de4" path="/themes/literature/Sayori_Light.theme.json"/>
-        <themeProvider id="a14733d6-8e15-4e75-b6b8-509f323e5b3b" path="/themes/literature/Yuri_Dark.theme.json"/>
-        <themeProvider id="cecf3f92-76d4-4f14-9a9c-3d558b6b3b68" path="/themes/literature/Yuri_Light.theme.json"/>
+        <themeProvider id="dce48196-ff46-470c-b5f9-d1e23f4a79d3" path="/doki/themes/literature/Monika_Dark.theme.json"/>
+        <themeProvider id="9a310731-ab2d-40f5-b502-fa5419f799a2" path="/doki/themes/literature/Monika_Light.theme.json"/>
+        <themeProvider id="91415015-8fe3-48eb-9951-70a5cd6cbb7f" path="/doki/themes/literature/Natsuki_Light.theme.json"/>
+        <themeProvider id="a7e0aa28-739a-4671-80ae-3980997e6b71" path="/doki/themes/literature/Natsuki_Dark.theme.json"/>
+        <themeProvider id="b0340303-0a5a-4a20-9b9c-fc8ce9880078" path="/doki/themes/literature/Sayori_Dark.theme.json"/>
+        <themeProvider id="cb8ef4b7-0844-4a04-b08b-754086598de4" path="/doki/themes/literature/Sayori_Light.theme.json"/>
+        <themeProvider id="a14733d6-8e15-4e75-b6b8-509f323e5b3b" path="/doki/themes/literature/Yuri_Dark.theme.json"/>
+        <themeProvider id="cecf3f92-76d4-4f14-9a9c-3d558b6b3b68" path="/doki/themes/literature/Yuri_Light.theme.json"/>
 
-        <themeProvider id="fc466b4f-8eb7-472c-8cbb-d99a09d4c469" path="/themes/menagerie/Cleo.theme.json"/>
-        <themeProvider id="c915211e-faab-4696-8af2-230892052ba6" path="/themes/menagerie/Eleniel.theme.json"/>
-        <themeProvider id="4693f34f-f400-4431-87f8-0be7fde660d9" path="/themes/menagerie/Neera.theme.json"/>
-        <themeProvider id="436ff3a0-4072-4b38-8d6f-888b18b5d0ab" path="/themes/menagerie/Sanya.theme.json"/>
-        <themeProvider id="c8df9413-5d9f-4e0c-ae64-5d5c1cffe9a5" path="/themes/menagerie/Syrena.theme.json"/>
-        <themeProvider id="9f62362a-49e0-4b82-8f63-d1f98ae7799f" path="/themes/menagerie/Wyla.theme.json"/>
+        <themeProvider id="fc466b4f-8eb7-472c-8cbb-d99a09d4c469" path="/doki/themes/menagerie/Cleo.theme.json"/>
+        <themeProvider id="c915211e-faab-4696-8af2-230892052ba6" path="/doki/themes/menagerie/Eleniel.theme.json"/>
+        <themeProvider id="4693f34f-f400-4431-87f8-0be7fde660d9" path="/doki/themes/menagerie/Neera.theme.json"/>
+        <themeProvider id="436ff3a0-4072-4b38-8d6f-888b18b5d0ab" path="/doki/themes/menagerie/Sanya.theme.json"/>
+        <themeProvider id="c8df9413-5d9f-4e0c-ae64-5d5c1cffe9a5" path="/doki/themes/menagerie/Syrena.theme.json"/>
+        <themeProvider id="9f62362a-49e0-4b82-8f63-d1f98ae7799f" path="/doki/themes/menagerie/Wyla.theme.json"/>
     </extensions>
 
     <application-components>

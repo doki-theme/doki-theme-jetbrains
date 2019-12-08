@@ -2,7 +2,7 @@
   "name": "Monika Dark",
   "dark": true,
   "author": "cyclic-reference",
-  "editorScheme": "/themes/literature/Monika_Dark.xml",
+  "editorScheme": "/doki/themes/literature/Monika_Dark.xml",
   "background": {
     "image": "/chibis/literature/just_monika_dark.png"
   },
