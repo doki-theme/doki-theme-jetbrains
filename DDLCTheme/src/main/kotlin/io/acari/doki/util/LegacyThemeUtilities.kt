@@ -1,6 +1,7 @@
 package io.acari.doki.util
 
 object LegacyThemeUtilities {
+  const val SAVED_STATE = "JOY_MODE_ON"
 
   private val legacyThemes = mapOf(
     "monika" to "Monika Light",

@@ -15,13 +15,12 @@ class SwapStickerAction : ToggleAction() {
       if(state){
         ThemeConfig.instance.currentSticker =
           CurrentSticker.SECONDARY
-        ThemeManager.instance.currentTheme.ifPresent {
-          StickerService.instance.activateForTheme(it)
-        }
       } else {
         ThemeConfig.instance.currentSticker =
           CurrentSticker.DEFAULT
-        StickerService.instance.remove()
       }
+    ThemeManager.instance.currentTheme.ifPresent {
+      StickerService.instance.activateForTheme(it)
+    }
   }
 }

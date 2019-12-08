@@ -4,7 +4,8 @@
   "author": "cyclic-reference",
   "editorScheme": "/doki/themes/literature/Natsuki_Light.xml",
   "stickers": {
-    "default": "/stickers/literature/natsuki.png"
+    "default": "/stickers/literature/natsuki.png",
+    "secondary": "/stickers/literature/natsuki_joy.png"
   },
   "colors": {
     "baseIconColor": "#7F707A",
