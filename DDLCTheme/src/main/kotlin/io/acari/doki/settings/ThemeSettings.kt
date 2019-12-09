@@ -25,6 +25,7 @@ data class ThemeSettingsModel(
 class ThemeSettings : SearchableConfigurable {
 
   companion object {
+    const val THEME_SETTINGS_DISPLAY_NAME = "Doki Theme Settings"
     val CHANGELOG_URI = URI("https://github.com/cyclic-reference/ddlc-jetbrains-theme/blob/master/docs/CHANGELOG.md")
     val ISSUES_URI = URI("https://github.com/cyclic-reference/ddlc-jetbrains-theme/issues")
     val MARKETPLACE_URI = URI("https://plugins.jetbrains.com/plugin/10804-the-doki-doki-theme")
@@ -32,7 +33,8 @@ class ThemeSettings : SearchableConfigurable {
 
   override fun getId(): String = "io.acari.doki.settings.ThemeSettings"
 
-  override fun getDisplayName(): String = "Doki Theme Settings"
+  override fun getDisplayName(): String =
+    THEME_SETTINGS_DISPLAY_NAME
 
   private val initialThemeSettingsModel = ThemeSettingsModel(
     ThemeConfig.instance.currentStickerLevel == StickerLevel.ON,

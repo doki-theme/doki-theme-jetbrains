@@ -121,5 +121,9 @@
                 description="Changes the current sticker at the bottom right hand corner of the screen.">
             <add-to-group group-id="DokiThemeActions" anchor="last"/>
         </action>
+        <action id="io.acari.doki.actions.ShowSettingsAction" class="io.acari.doki.actions.ShowSettingsAction"
+                text="Show Settings" description="Shows the Doki Theme&#39;s settings window.">
+            <add-to-group group-id="DokiThemeActions" anchor="last"/>
+        </action>
     </actions>
 </idea-plugin>
