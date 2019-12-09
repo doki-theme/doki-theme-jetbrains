@@ -29,6 +29,7 @@ typealias Disposer = () -> Unit
 class TitlePaneUI : DarculaRootPaneUI() {
 
   companion object {
+    private const val LOL_NOPE = "This should not be shown"
     private const val defaultPane = "com.sun.java.swing.plaf.windows.WindowsRootPaneUI"
     const val WINDOW_DARK_APPEARANCE = "jetbrains.awt.windowDarkAppearance"
     const val TRANSPARENT_TITLE_BAR_APPEARANCE = "jetbrains.awt.transparentTitleBarAppearance"
@@ -176,8 +177,7 @@ class TitlePaneUI : DarculaRootPaneUI() {
         component?.addHierarchyListener {
           val window = getWindow(component)
           val title = getTitle(window)
-          resolve(handleIsTransparent(title != "This should not be shown" &&
-                                      title.isNotBlank()))
+          resolve(handleIsTransparent(title != LOL_NOPE))
         }
       }
     }
@@ -187,7 +187,7 @@ class TitlePaneUI : DarculaRootPaneUI() {
     when (window) {
       is JDialog -> window.title
       is JFrame -> window.title
-      else -> ""
+      else -> LOL_NOPE
     }
 }
 
