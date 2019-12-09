@@ -121,7 +121,7 @@ class TitlePaneUI : DarculaRootPaneUI() {
             else namedColor("Label.disabledForeground", GRAY)
           graphics.color = color
           val controlButtonsWidth = 70
-          val windowTitle: String = getTitle(window)!!
+          val windowTitle: String = getTitle(window)
           val widthToFit = controlButtonsWidth * 2 + GraphicsUtil.stringWidth(
             windowTitle,
             g.font
@@ -169,30 +169,30 @@ class TitlePaneUI : DarculaRootPaneUI() {
   ): ((Disposer) -> Unit) -> Unit {
     return if (!isJavaVersionAtLeast(11)) {
       { resolve ->
-        resolve {}
+        resolve(handleIsTransparent(true))
       }
     } else {
       return { resolve ->
         component?.addHierarchyListener {
           val window = getWindow(component)
           val title = getTitle(window)
-          resolve(handleIsTransparent(title !== "This should not be shown"))
+          resolve(handleIsTransparent(title != "This should not be shown"))
         }
       }
     }
   }
 
-  private fun getTitle(window: Window?): String? =
+  private fun getTitle(window: Window?): String =
     when (window) {
       is JDialog -> window.title
       is JFrame -> window.title
-      else -> null
+      else -> ""
     }
 }
 
 private fun isInFullScreen(window: Window?): Boolean {
   val ultimateParent = UIUtil.findUltimateParent(window)
-  if (ultimateParent === window && ultimateParent is IdeFrameEx) {
+  if (ultimateParent == window && ultimateParent is IdeFrameEx) {
     val ultimateParentWindowForEvent = ultimateParent as IdeFrameEx
     return ultimateParentWindowForEvent.isInFullScreen
   }
