@@ -72,7 +72,6 @@ class StickerServiceImpl : StickerService {
                 )
             }
 
-        // todo: background frame painting.
         getFrameBackground(dokiTheme)
             .ifPresent {
                 setProperty(
