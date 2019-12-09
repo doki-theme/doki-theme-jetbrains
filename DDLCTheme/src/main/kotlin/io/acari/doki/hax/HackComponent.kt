@@ -11,6 +11,7 @@ import com.intellij.ide.util.gotoByName.CustomMatcherModel
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.fileEditor.impl.EditorComposite
 import com.intellij.ui.JBColor
+import com.intellij.ui.messages.JBMacMessages
 import io.acari.doki.hax.FeildHacker.setFinalStatic
 import io.acari.doki.stickers.impl.DOKI_BACKGROUND_PROP
 import io.acari.doki.stickers.impl.DOKI_STICKER_PROP
@@ -32,7 +33,33 @@ object HackComponent : Disposable {
 
   private fun enableBackgroundConsistency() {
     hackParameterInfoBackground()
+    hackSheetWindow()
   }
+
+  private fun hackSheetWindow() {
+    try {
+      val cp = ClassPool(true)
+      cp.insertClassPath(ClassClassPath(JBMacMessages::class.java))
+      val ctClass = cp.get("com.intellij.ui.messages.SheetController")
+      ctClass.declaredClasses
+        .filter { it.declaredMethods.any { m -> m.name == "paintComponent" } }
+        .forEach {
+          it.getDeclaredMethods("paintComponent").forEach{
+            it.instrument(object : ExprEditor() {
+              override fun edit(e: MethodCall?) {
+                if (e?.methodName == "setColor") {
+                  e.replace("{ \$1 = com.intellij.util.ui.UIUtil.getPanelBackground(); }")
+                }
+              }
+            })
+          }
+        }
+      ctClass.toClass()
+    } catch (e: Exception) {
+      e.printStackTrace()
+    }
+  }
+
 
   private fun hackParameterInfoBackground() {
     try {
