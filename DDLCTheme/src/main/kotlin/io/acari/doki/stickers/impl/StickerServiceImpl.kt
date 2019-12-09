@@ -23,7 +23,7 @@ const val DOKI_BACKGROUND_PROP: String = "io.acari.doki.background"
 private val messageDigest: MessageDigest = MessageDigest.getInstance("MD5")
 private const val SOURCE_CODE = "https://raw.githubusercontent.com/cyclic-reference/ddlc-jetbrains-theme/independence" // todo : change back to master plz
 private const val ASSETS_DIRECTORY = "${SOURCE_CODE}/assets"
-private const val RESOURCES_DIRECTORY = "${SOURCE_CODE}/resources"
+private const val RESOURCES_DIRECTORY = "${SOURCE_CODE}/DDLCTheme/src/main/resources"
 const val DOKI_STICKER_PROP: String = "io.acari.doki.stickers"
 
 class StickerServiceImpl : StickerService {
@@ -180,7 +180,6 @@ class StickerServiceImpl : StickerService {
         }
 
 
-    // todo: internet stickers fallback (test that and stuff)
     private fun getClubMemberFallback(dokiTheme: DokiTheme): Optional<String> {
         return dokiTheme.getStickerPath()
             .map { "${RESOURCES_DIRECTORY}$it" }
