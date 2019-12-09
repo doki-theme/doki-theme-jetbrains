@@ -3,9 +3,20 @@ package io.acari.doki.settings
 import com.intellij.ide.BrowserUtil.browse
 import com.intellij.openapi.options.SearchableConfigurable
 import com.intellij.ui.layout.panel
+import io.acari.doki.config.ThemeConfig
+import io.acari.doki.stickers.CurrentSticker
+import io.acari.doki.stickers.StickerLevel
+import io.acari.doki.themes.ThemeManager
 import java.net.URI
 import javax.swing.DefaultComboBoxModel
 import javax.swing.JComponent
+
+data class ThemeSettingsModel(
+  var areStickersEnabled: Boolean,
+  var currentTheme: String,
+  var isThemedTitleBar: Boolean,
+  var isSwappedSticker: Boolean
+)
 
 
 class ThemeSettings : SearchableConfigurable {
@@ -20,16 +31,27 @@ class ThemeSettings : SearchableConfigurable {
 
   override fun getDisplayName(): String = "Doki Theme Settings"
 
+  private var initialThemeSettingsModel = ThemeSettingsModel(
+    ThemeConfig.instance.currentStickerLevel == StickerLevel.ON,
+    ThemeManager.instance.currentTheme.map { it.name }.orElseGet { ThemeManager.MONIKA_LIGHT },
+    ThemeConfig.instance.isThemedTitleBar,
+    ThemeConfig.instance.currentSticker == CurrentSticker.SECONDARY
+  )
+
+  private var themeSettingsModel = initialThemeSettingsModel.copy()
+
   override fun isModified(): Boolean {
-    return false
+    return initialThemeSettingsModel != themeSettingsModel
   }
 
   override fun apply() {
-    // apply settings
+    themeSettingsModel = initialThemeSettingsModel.copy()
+    println(initialThemeSettingsModel)
+    // dispetch deltas.
   }
 
-  override fun createComponent(): JComponent? =
-    panel {
+  override fun createComponent(): JComponent? {
+    return panel {
       titledRow("Main Settings") {
         row {
           cell {
@@ -41,13 +63,16 @@ class ThemeSettings : SearchableConfigurable {
         }
         row {
           row {
-            checkBox("Enable Stickers")
+            checkBox("Enable Stickers",
+              themeSettingsModel::areStickersEnabled)
           }
           row {
-            checkBox("Swap Sticker")
+            checkBox("Swap Sticker",
+              themeSettingsModel::isSwappedSticker)
           }
           row {
-            checkBox("Themed Title Bar")
+            checkBox("Themed Title Bar",
+              themeSettingsModel::isThemedTitleBar)
           }
         }
       }
@@ -67,4 +92,5 @@ class ThemeSettings : SearchableConfigurable {
         }
       }
     }
+  }
 }
