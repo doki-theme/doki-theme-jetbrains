@@ -21,8 +21,9 @@ import javax.xml.bind.DatatypeConverter
 
 const val DOKI_BACKGROUND_PROP: String = "io.acari.doki.background"
 private val messageDigest: MessageDigest = MessageDigest.getInstance("MD5")
-private const val RESOURCES_DIRECTORY =
-    "https://raw.githubusercontent.com/cyclic-reference/ddlc-jetbrains-theme/master/assets"
+private const val SOURCE_CODE = "https://raw.githubusercontent.com/cyclic-reference/ddlc-jetbrains-theme/independence" // todo : change back to master plz
+private const val ASSETS_DIRECTORY = "${SOURCE_CODE}/assets"
+private const val RESOURCES_DIRECTORY = "${SOURCE_CODE}/resources"
 const val DOKI_STICKER_PROP: String = "io.acari.doki.stickers"
 
 class StickerServiceImpl : StickerService {
@@ -89,7 +90,7 @@ class StickerServiceImpl : StickerService {
 
     private fun getFrameBackground(dokiTheme: DokiTheme): Optional<String> {
         return dokiTheme.getSticker()
-            .map { "$RESOURCES_DIRECTORY/themes/$it" }
+            .map { "$ASSETS_DIRECTORY/themes/$it" }
     }
 
     private fun getImagePath(dokiTheme: DokiTheme): Optional<String> =
@@ -181,8 +182,8 @@ class StickerServiceImpl : StickerService {
 
     // todo: internet stickers fallback (test that and stuff)
     private fun getClubMemberFallback(dokiTheme: DokiTheme): Optional<String> {
-        return dokiTheme.getSticker()
-            .map { "$RESOURCES_DIRECTORY/club_members/$it" }
+        return dokiTheme.getStickerPath()
+            .map { "${RESOURCES_DIRECTORY}$it" }
     }
 
 
