@@ -1,4 +1,6 @@
 - Plugin Settings UI
+- Light themes debug current execution point is off
+    - light sayori selection background is off.
 - Themed title bar is wonky.
 - Address all in code todos
 - Color scheme cleanup (alphabetize that shit yo)
