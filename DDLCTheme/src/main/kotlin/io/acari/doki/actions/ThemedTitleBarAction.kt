@@ -1,11 +1,10 @@
 package io.acari.doki.actions
 
 import com.intellij.openapi.actionSystem.AnActionEvent
-import com.intellij.openapi.actionSystem.ToggleAction
 import io.acari.doki.config.ThemeConfig
 import io.acari.doki.settings.actors.ThemedTitleBarActor
 
-class ThemedTitleBarAction : ToggleAction() {
+class ThemedTitleBarAction : BaseToggleAction() {
   override fun isSelected(e: AnActionEvent): Boolean =
     ThemeConfig.instance.isThemedTitleBar
 

@@ -6,7 +6,7 @@ import io.acari.doki.config.ThemeConfig
 import io.acari.doki.settings.actors.StickerActor
 import io.acari.doki.stickers.CurrentSticker
 
-class SwapStickerAction : ToggleAction() {
+class SwapStickerAction : BaseToggleAction() {
   override fun isSelected(e: AnActionEvent): Boolean =
     ThemeConfig.instance.currentSticker == CurrentSticker.SECONDARY
 

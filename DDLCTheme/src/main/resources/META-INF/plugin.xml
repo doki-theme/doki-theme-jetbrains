@@ -102,6 +102,7 @@
                icon="/icons/doki/pen.svg">
             <action id="StickerEnabler" class="io.acari.doki.actions.StickersToggleAction"
                     text="Enable Stickers"
+                    icon="/icons/nodes/favorite.svg"
                     description="Enables the sticker in the lower right hand corner">
             </action>
             <add-to-group group-id="MainToolBar" anchor="last"/>
@@ -109,20 +110,26 @@
 
         <action id="io.acari.doki.actions.FileColorToggleAction" class="io.acari.doki.actions.FileColorToggleAction"
                 text="Enable File Colors"
+                icon="/icons/nodes/package.svg"
                 description="Adds a themed background to certain directories in the project tree.">
             <add-to-group group-id="DokiThemeActions" anchor="first"/>
         </action>
         <action id="io.acari.doki.actions.ThemedTitleBarAction" class="io.acari.doki.actions.ThemedTitleBarAction"
-                text="Themed Title Bar" description="Makes the MacOS title bar the same color as your selected theme.">
+                text="Themed Title Bar"
+                icon="/icons/doki/themedTitleBar.svg"
+                description="Makes the MacOS title bar the same color as your selected theme.">
             <add-to-group group-id="DokiThemeActions" anchor="last"/>
         </action>
         <action id="io.acari.doki.actions.SwapStickerAction" class="io.acari.doki.actions.SwapStickerAction"
                 text="Swap Sticker"
+                icon="/icons/actions/diff.svg"
                 description="Changes the current sticker at the bottom right hand corner of the screen.">
             <add-to-group group-id="DokiThemeActions" anchor="last"/>
         </action>
         <action id="io.acari.doki.actions.ShowSettingsAction" class="io.acari.doki.actions.ShowSettingsAction"
-                text="Show Settings" description="Shows the Doki Theme&#39;s settings window.">
+                text="Show Settings"
+                icon="/icons/general/gearPlain.svg"
+                description="Shows the Doki Theme&#39;s settings window.">
             <add-to-group group-id="DokiThemeActions" anchor="last"/>
         </action>
     </actions>
