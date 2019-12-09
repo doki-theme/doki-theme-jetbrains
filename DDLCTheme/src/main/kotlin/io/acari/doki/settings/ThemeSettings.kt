@@ -3,15 +3,15 @@ package io.acari.doki.settings
 import com.intellij.ide.BrowserUtil.browse
 import com.intellij.ide.ui.laf.darcula.ui.DarculaCheckBoxUI
 import com.intellij.openapi.options.SearchableConfigurable
+import com.intellij.openapi.ui.ComboBox
 import com.intellij.ui.components.JBCheckBox
 import com.intellij.ui.layout.panel
-import com.intellij.util.ui.CheckBox
 import io.acari.doki.config.ThemeConfig
 import io.acari.doki.stickers.CurrentSticker
 import io.acari.doki.stickers.StickerLevel
 import io.acari.doki.themes.ThemeManager
-import java.awt.event.ActionListener
 import java.net.URI
+import java.util.*
 import javax.swing.DefaultComboBoxModel
 import javax.swing.JComponent
 
@@ -21,7 +21,6 @@ data class ThemeSettingsModel(
   var isThemedTitleBar: Boolean,
   var isSwappedSticker: Boolean
 )
-
 
 class ThemeSettings : SearchableConfigurable {
 
@@ -54,14 +53,18 @@ class ThemeSettings : SearchableConfigurable {
   }
 
   override fun createComponent(): JComponent? {
+    val themeComboBox = ComboBox(DefaultComboBoxModel(
+      Vector(ThemeManager.instance.allThemes.map { it.name })
+    ))
+    themeComboBox.addActionListener {
+      themeSettingsModel.currentTheme = themeComboBox.model.selectedItem as String
+    }
     return panel {
       titledRow("Main Settings") {
         row {
           cell {
             label("Current Theme")
-            comboBox(DefaultComboBoxModel(
-              arrayOf(1, 2, 3)
-            ), { 3 }, { _ -> })
+            themeComboBox()
           }
         }
         row {

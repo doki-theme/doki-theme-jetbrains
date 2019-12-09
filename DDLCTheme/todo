@@ -1,6 +1,9 @@
 - Plugin Settings UI
 - Light themes debug current execution point is off
     - light sayori selection background is off.
+    - Light sayori selection foreground hard to read.
+    - light sayori autocomplete selected foreground hard to read
+- Scroll bar for combo box not consistent
 - Themed title bar is wonky.
 - Address all in code todos
 - Color scheme cleanup (alphabetize that shit yo)

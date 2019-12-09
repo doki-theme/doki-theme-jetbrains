@@ -13,5 +13,7 @@ interface ThemeManager {
     }
     val currentTheme: Optional<DokiTheme>
 
+    val allThemes: List<DokiTheme>
+
     fun processLaf(currentLaf: UIManager.LookAndFeelInfo?): Optional<DokiTheme>
 }
