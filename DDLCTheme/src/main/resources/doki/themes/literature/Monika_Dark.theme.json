@@ -290,6 +290,7 @@
     "ScrollBar.Mac.thumbColor":"accentColorTransparent",
     "ScrollBar.Mac.hoverThumbBorderColor": "accentColorTransparent",
     "ScrollBar.Mac.hoverThumbColor":"accentColorTransparent",
+    "ScrollBar.background": "editorBackground",
 
 
     "VersionControl": {
