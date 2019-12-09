@@ -67,4 +67,7 @@ class ThemeManagerImpl : ThemeManager {
       .map { it as UIThemeBasedLookAndFeelInfo }
       .map { themeMap[it.name] }
   }
+
+  override fun themeByName(selectedTheme: String): Optional<DokiTheme> =
+    themeMap[selectedTheme].toOptional()
 }

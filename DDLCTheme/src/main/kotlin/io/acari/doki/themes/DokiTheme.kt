@@ -5,6 +5,7 @@ import io.acari.doki.stickers.CurrentSticker
 import io.acari.doki.util.toColor
 import io.acari.doki.util.toOptional
 import java.util.*
+import javax.swing.UIManager
 
 class Stickers(
   val default: String,

@@ -3,6 +3,7 @@
     - light sayori selection background is off.
     - Light sayori selection foreground hard to read.
     - light sayori autocomplete selected foreground hard to read
+    - light themes yellow console text hard to read (sayori, natsuki)
 - Scroll bar for combo box not consistent
 - Action Icons
 - Themed title bar is wonky.
@@ -19,7 +20,6 @@ Stretch Goals
 - Icons
     - daemon icon
 - svg xsd
-- Theme change animation
 - Editor Tabs
     - Active Outline
     - File Scope colorings

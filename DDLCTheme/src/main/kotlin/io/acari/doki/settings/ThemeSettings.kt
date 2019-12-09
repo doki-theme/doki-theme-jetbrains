@@ -1,12 +1,14 @@
 package io.acari.doki.settings
 
 import com.intellij.ide.BrowserUtil.browse
-import com.intellij.ide.ui.laf.darcula.ui.DarculaCheckBoxUI
 import com.intellij.openapi.options.SearchableConfigurable
 import com.intellij.openapi.ui.ComboBox
-import com.intellij.ui.components.JBCheckBox
 import com.intellij.ui.layout.panel
+import io.acari.doki.settings.actors.FileColorActor
 import io.acari.doki.config.ThemeConfig
+import io.acari.doki.settings.actors.StickerActor
+import io.acari.doki.settings.actors.ThemeActor
+import io.acari.doki.settings.actors.ThemedTitleBarActor
 import io.acari.doki.stickers.CurrentSticker
 import io.acari.doki.stickers.StickerLevel
 import io.acari.doki.themes.ThemeManager
@@ -19,6 +21,7 @@ data class ThemeSettingsModel(
   var areStickersEnabled: Boolean,
   var currentTheme: String,
   var isThemedTitleBar: Boolean,
+  var isFileColors: Boolean,
   var isSwappedSticker: Boolean
 )
 
@@ -40,6 +43,7 @@ class ThemeSettings : SearchableConfigurable {
     ThemeConfig.instance.currentStickerLevel == StickerLevel.ON,
     ThemeManager.instance.currentTheme.map { it.name }.orElseGet { ThemeManager.MONIKA_LIGHT },
     ThemeConfig.instance.isThemedTitleBar,
+    ThemeConfig.instance.isDokiFileColors,
     ThemeConfig.instance.currentSticker == CurrentSticker.SECONDARY
   )
 
@@ -50,8 +54,11 @@ class ThemeSettings : SearchableConfigurable {
   }
 
   override fun apply() {
-    println(initialThemeSettingsModel)
-    // dispetch deltas.
+    FileColorActor.enableFileColors(themeSettingsModel.isFileColors)
+    StickerActor.enableStickers(themeSettingsModel.areStickersEnabled)
+    StickerActor.swapStickers(themeSettingsModel.isSwappedSticker)
+    ThemedTitleBarActor.enableThemedTitleBar(themeSettingsModel.isThemedTitleBar)
+    ThemeActor.applyTheme(themeSettingsModel.currentTheme)
   }
 
   override fun createComponent(): JComponent? {
@@ -99,6 +106,15 @@ class ThemeSettings : SearchableConfigurable {
             themeSettingsModel.isThemedTitleBar,
             actionListener = { _, component ->
               themeSettingsModel.isThemedTitleBar = component.isSelected
+            }
+          )
+        }
+        row {
+          checkBox(
+            "Enable File Colors",
+            themeSettingsModel.isFileColors,
+            actionListener = { _, component ->
+              themeSettingsModel.isFileColors = component.isSelected
             }
           )
         }

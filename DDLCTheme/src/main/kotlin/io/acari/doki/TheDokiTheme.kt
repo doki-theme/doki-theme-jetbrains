@@ -1,5 +1,6 @@
 package io.acari.doki
 
+import com.intellij.ide.actions.QuickChangeLookAndFeel
 import com.intellij.ide.ui.LafManager
 import com.intellij.ide.ui.LafManagerListener
 import com.intellij.ide.util.PropertiesComponent
@@ -7,6 +8,7 @@ import com.intellij.openapi.Disposable
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.project.impl.ProjectLifecycleListener
+import com.intellij.openapi.util.registry.Registry
 import io.acari.doki.config.ThemeConfig
 import io.acari.doki.hax.HackComponent.hackLAF
 import io.acari.doki.hax.SvgLoaderHacker.setSVGColorPatcher
@@ -30,6 +32,8 @@ class TheDokiTheme : Disposable {
     setSVGColorPatcher()
     hackLAF()
     //////////// ._. ////////////
+
+    modifyRegistry()
 
     installAllUIComponents()
 
@@ -63,6 +67,10 @@ class TheDokiTheme : Disposable {
     })
   }
 
+  private fun modifyRegistry() {
+    Registry.get("ide.intellij.laf.enable.animation").setValue(true)
+  }
+
   private fun migrateLegacyTheme() {
     if(!ThemeConfig.instance.processedLegacyStartup){
       ThemeConfig.instance.processedLegacyStartup = true
@@ -79,7 +87,11 @@ class TheDokiTheme : Disposable {
       it.name.equals(lastTheme, true)
     }.toOptional()
       .ifPresent {
-        LafManager.getInstance().setCurrentLookAndFeel(it)
+        QuickChangeLookAndFeel.switchLafAndUpdateUI(
+          LafManager.getInstance(),
+          it,
+          true
+        )
       }
   }
 
