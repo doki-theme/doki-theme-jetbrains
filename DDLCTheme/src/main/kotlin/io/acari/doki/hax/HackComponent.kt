@@ -43,16 +43,19 @@ object HackComponent : Disposable {
       val ctClass = cp.get("com.intellij.ui.messages.SheetController")
       ctClass.declaredClasses
         .filter { it.declaredMethods.any { m -> m.name == "paintComponent" } }
-        .forEach {
-          it.getDeclaredMethods("paintComponent").forEach{
+        .forEach {classDude ->
+          classDude.getDeclaredMethods("paintComponent").forEach{
             it.instrument(object : ExprEditor() {
               override fun edit(e: MethodCall?) {
                 if (e?.methodName == "setColor") {
                   e.replace("{ \$1 = com.intellij.util.ui.UIUtil.getPanelBackground(); }")
+                } else if (e?.methodName == "isUnderDarcula") {
+                  e.replace("{ \$_ = true; }")
                 }
               }
             })
           }
+          classDude.toClass()
         }
       ctClass.toClass()
     } catch (e: Exception) {
