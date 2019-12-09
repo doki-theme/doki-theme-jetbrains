@@ -4,8 +4,8 @@ import com.intellij.ide.BrowserUtil.browse
 import com.intellij.openapi.options.SearchableConfigurable
 import com.intellij.openapi.ui.ComboBox
 import com.intellij.ui.layout.panel
-import io.acari.doki.settings.actors.FileColorActor
 import io.acari.doki.config.ThemeConfig
+import io.acari.doki.settings.actors.FileColorActor
 import io.acari.doki.settings.actors.StickerActor
 import io.acari.doki.settings.actors.ThemeActor
 import io.acari.doki.settings.actors.ThemedTitleBarActor
@@ -55,8 +55,8 @@ class ThemeSettings : SearchableConfigurable {
 
   override fun apply() {
     FileColorActor.enableFileColors(themeSettingsModel.isFileColors)
-    StickerActor.enableStickers(themeSettingsModel.areStickersEnabled)
-    StickerActor.swapStickers(themeSettingsModel.isSwappedSticker)
+    StickerActor.enableStickers(themeSettingsModel.areStickersEnabled, false)
+    StickerActor.swapStickers(themeSettingsModel.isSwappedSticker, false)
     ThemedTitleBarActor.enableThemedTitleBar(themeSettingsModel.isThemedTitleBar)
     ThemeActor.applyTheme(themeSettingsModel.currentTheme)
   }

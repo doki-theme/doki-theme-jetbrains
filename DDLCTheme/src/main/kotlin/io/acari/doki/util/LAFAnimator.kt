@@ -108,3 +108,9 @@ class LAFAnimator {
     }
   }
 }
+
+fun performWithAnimation(animate: Boolean, actionToPerform: () -> Unit) {
+  val animator = if (animate) LAFAnimator.showSnapshot() else null
+  actionToPerform()
+  animator?.hideSnapshotWithAnimation()
+}
