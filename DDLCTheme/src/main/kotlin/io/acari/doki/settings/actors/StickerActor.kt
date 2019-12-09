@@ -1,15 +1,18 @@
 package io.acari.doki.settings.actors
 
+import com.intellij.ide.ui.LafManager
 import io.acari.doki.config.ThemeConfig
 import io.acari.doki.stickers.CurrentSticker
 import io.acari.doki.stickers.StickerLevel
 import io.acari.doki.stickers.StickerService
 import io.acari.doki.themes.ThemeManager
+import io.acari.doki.util.LAFAnimator
 
 object StickerActor {
 
   fun swapStickers(enabled: Boolean) {
     if (enabled != (ThemeConfig.instance.currentSticker == CurrentSticker.SECONDARY)) {
+      val animator = LAFAnimator.showSnapshot() //todo: only animate if others are not going to
       if(enabled){
         ThemeConfig.instance.currentSticker =
           CurrentSticker.SECONDARY
@@ -20,6 +23,7 @@ object StickerActor {
       ThemeManager.instance.currentTheme.ifPresent {
         StickerService.instance.activateForTheme(it)
       }
+      animator.hideSnapshotWithAnimation()
     }
   }
 
