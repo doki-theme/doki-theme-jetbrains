@@ -46,10 +46,14 @@ object HackComponent : Disposable {
         .forEach {classDude ->
           classDude.getDeclaredMethods("paintComponent").forEach{
             it.instrument(object : ExprEditor() {
+              override fun edit(e: NewExpr?) {
+                if(e?.className == JBColor::class.java.name) {
+                    e?.replace("{ \$_ = com.intellij.util.ui.UIUtil.getPanelBackground(); }")
+                }
+              }
+
               override fun edit(e: MethodCall?) {
-                if (e?.methodName == "setColor") {
-                  e.replace("{ \$1 = com.intellij.util.ui.UIUtil.getPanelBackground(); }")
-                } else if (e?.methodName == "isUnderDarcula") {
+                if (e?.methodName == "isUnderDarcula") {
                   e.replace("{ \$_ = true; }")
                 }
               }
