@@ -176,7 +176,8 @@ class TitlePaneUI : DarculaRootPaneUI() {
         component?.addHierarchyListener {
           val window = getWindow(component)
           val title = getTitle(window)
-          resolve(handleIsTransparent(title != "This should not be shown"))
+          resolve(handleIsTransparent(title != "This should not be shown" &&
+                                      title.isNotBlank()))
         }
       }
     }
