@@ -49,7 +49,7 @@
         <option name="RIGHT_MARGIN_COLOR" value="BFEFF1" />
         <option name="SELECTED_INDENT_GUIDE" value="BFEFF1" />
         <option name="SELECTED_TEARLINE_COLOR" value="e0e0b0" />
-        <option name="SELECTION_BACKGROUND" value="9ac6dc"/>
+        <option name="SELECTION_BACKGROUND" value="99ebe9"/>
         <option name="SELECTION_FOREGROUND" value="006de7"/>
         <option name="SEPARATOR_ABOVE_COLOR" value="BFEFF1" />
         <option name="SEPARATOR_BELOW_COLOR" value="BFEFF1" />
@@ -275,7 +275,7 @@
         </option>
         <option name="CONSOLE_YELLOW_OUTPUT">
             <value>
-                <option name="FOREGROUND" value="efa554" />
+                <option name="FOREGROUND" value="CD862F" />
             </value>
         </option>
         <option name="CONSTRUCTOR_CALL_ATTRIBUTES">
