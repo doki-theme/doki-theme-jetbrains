@@ -1,8 +1,10 @@
 package io.acari.doki.settings
 
 import com.intellij.ide.BrowserUtil.browse
+import com.intellij.ide.ui.laf.darcula.ui.DarculaCheckBoxUI
 import com.intellij.openapi.options.SearchableConfigurable
 import com.intellij.ui.layout.panel
+import com.intellij.util.ui.CheckBox
 import io.acari.doki.config.ThemeConfig
 import io.acari.doki.stickers.CurrentSticker
 import io.acari.doki.stickers.StickerLevel
@@ -62,18 +64,22 @@ class ThemeSettings : SearchableConfigurable {
           }
         }
         row {
-          row {
-            checkBox("Enable Stickers",
-              themeSettingsModel::areStickersEnabled)
-          }
-          row {
-            checkBox("Swap Sticker",
-              themeSettingsModel::isSwappedSticker)
-          }
-          row {
-            checkBox("Themed Title Bar",
-              themeSettingsModel::isThemedTitleBar)
-          }
+          checkBox(
+            "Enable Stickers",
+            themeSettingsModel::areStickersEnabled
+          )
+        }
+        row {
+          checkBox(
+            "Swap Sticker",
+            themeSettingsModel::isSwappedSticker
+          )
+        }
+        row {
+          checkBox(
+            "Themed Title Bar",
+            themeSettingsModel::isThemedTitleBar
+          )
         }
       }
       titledRow("Miscellaneous") {
