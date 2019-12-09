@@ -37,7 +37,7 @@
             No worries! You can configure them to be on or off at your leisure.
         </p>
         <br/>
-        <div align="center"><img src="https://raw.githubusercontent.com/cyclic-reference/jetbrains-theme/master/src/main/resources/META-INF/pluginIcon.svg" alt="Doki Theme"></img></div>
+        <div align="center"><img src="https://raw.githubusercontent.com/cyclic-reference/jetbrains-theme/master/assets/logo.png" alt="Doki Theme"/></div>
         ]]></description>
 
     <idea-version since-build="193.4099"/>
