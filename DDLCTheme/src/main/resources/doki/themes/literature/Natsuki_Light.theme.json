@@ -3,6 +3,7 @@
   "dark": false,
   "author": "cyclic-reference",
   "editorScheme": "/doki/themes/literature/Natsuki_Light.xml",
+  "group": "Literature Club",
   "stickers": {
     "default": "/stickers/literature/natsuki.png",
     "secondary": "/stickers/literature/natsuki_joy.png"

@@ -3,6 +3,7 @@
   "dark": false,
   "author": "cyclic-reference",
   "editorScheme": "/doki/themes/literature/Monika_Light.xml",
+  "group": "Literature Club",
   "stickers": {
     "default": "/stickers/literature/just_monika.png",
     "secondary": "/stickers/literature/just_monika_joy.png"

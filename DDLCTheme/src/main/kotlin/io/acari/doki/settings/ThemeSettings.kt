@@ -54,8 +54,14 @@ class ThemeSettings : SearchableConfigurable {
 
   override fun createComponent(): JComponent? {
     val themeComboBox = ComboBox(DefaultComboBoxModel(
-      Vector(ThemeManager.instance.allThemes.map { it.name })
-    ))
+      Vector(ThemeManager.instance.allThemes
+        .groupBy { it.groupName }
+        .entries
+        .flatMap { it.value.sortedBy { theme -> theme.name } }
+        .map { it.name }
+      ))
+    )
+    themeComboBox.model.selectedItem = themeSettingsModel.currentTheme
     themeComboBox.addActionListener {
       themeSettingsModel.currentTheme = themeComboBox.model.selectedItem as String
     }

@@ -3,6 +3,7 @@
   "dark": true,
   "author": "cyclic-reference",
   "editorScheme": "/doki/themes/literature/Natsuki_Dark.xml",
+  "group": "Literature Club",
   "stickers": {
     "default": "/stickers/literature/natsuki_dark.png",
     "secondary": "/stickers/literature/natsuki_dark_normal.png"

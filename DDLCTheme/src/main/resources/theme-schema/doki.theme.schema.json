@@ -28,6 +28,7 @@
     "dark",
     "author",
     "stickers",
+    "group",
     "ui"
   ],
   "properties": {
@@ -69,6 +70,15 @@
     },
     "ui": {
       "type": "object"
+    },
+    "group": {
+      "type": "string",
+      "title": "Theme Group",
+      "description": "The group the theme belongs to",
+      "default": "",
+      "examples": [
+        "Literature Club"
+      ]
     },
     "stickers": {
       "type": "object",

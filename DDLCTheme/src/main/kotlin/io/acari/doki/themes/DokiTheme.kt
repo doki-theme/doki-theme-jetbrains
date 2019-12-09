@@ -15,6 +15,7 @@ class DokiThemeDefinition(
   val name: String,
   val dark: Boolean,
   val stickers: Stickers,
+  val group: String,
   val colors: Map<String, Any>,
   val ui: Map<String, Any>
 )
@@ -25,6 +26,8 @@ class DokiTheme(private val uiTheme: DokiThemeDefinition) {
     validateThemeDefinition()
   }
 
+  val groupName: String
+  get() = uiTheme.group
   val isDark: Boolean
     get() = uiTheme.dark
 

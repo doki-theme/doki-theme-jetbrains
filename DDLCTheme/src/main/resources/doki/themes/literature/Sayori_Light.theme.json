@@ -3,6 +3,7 @@
   "dark": false,
   "author": "cyclic-reference",
   "editorScheme": "/doki/themes/literature/Sayori_Light.xml",
+  "group": "Literature Club",
   "stickers": {
     "default": "/stickers/literature/sayori.png",
     "secondary": "/stickers/literature/sayori_joy.png"

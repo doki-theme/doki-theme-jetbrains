@@ -3,6 +3,7 @@
   "dark": true,
   "author": "cyclic-reference",
   "editorScheme": "/doki/themes/literature/Yuri_Dark.xml",
+  "group": "Literature Club",
   "stickers": {
     "default": "/stickers/literature/yuri_dark.png",
     "secondary": "/stickers/literature/yuri_dark_normal.png"
