@@ -1,5 +1,6 @@
 - light monika class names need to be easier distinguished
 - pre deploy remove legacy theme images from resources
+- lint
 Stretch Goals
 ----
 - Color scheme cleanup (alphabetize that shit yo)
