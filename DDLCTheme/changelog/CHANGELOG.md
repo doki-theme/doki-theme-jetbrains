@@ -1,5 +1,8 @@
 # Changelog
 ---
+# 5.0.0
+- A whole lot of shit
+
 # 4.4.2
 
 - Better themed non-module java file icons.

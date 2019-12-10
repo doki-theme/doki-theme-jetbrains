@@ -1,18 +1,7 @@
-buildscript {
-    repositories {
-        mavenCentral()
-        maven { url 'http://dl.bintray.com/content/aalmiray/kordamp' }
-    }
-    dependencies {
-        classpath 'org.kordamp:markdown-gradle-plugin:1.0.0'
-    }
-}
-
-
 plugins {
     id 'org.jetbrains.intellij' version '0.4.13'
     id 'org.jetbrains.kotlin.jvm' version '1.3.60-eap-143'
-    id 'org.kordamp.markdown.convert' version '1.0.0'
+    id 'org.kordamp.gradle.markdown' version '2.0.0'
 }
 
 group 'io.acari'
@@ -40,6 +29,12 @@ compileKotlin {
 compileTestKotlin {
     kotlinOptions.jvmTarget = "1.8"
 }
+
+markdownToHtml {
+    sourceDir new File("$projectDir/changelog")
+    outputDir new File("$projectDir/changelog")
+}
+
 patchPluginXml {
     changeNotes file("$projectDir/changelog/CHANGELOG.html").text
     sinceBuild sinceBuildVersion
