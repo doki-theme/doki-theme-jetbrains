@@ -30,6 +30,7 @@
     "buttonFont": "#252427",
     "foregroundColor":  "#000000",
     "startColor":  "#5FAA51",
+    "highlightColorDarker": "#bfdcbd",
     "highlightColor": "#d1f0cf",
     "disabledColor": "#98cbab",
     "accentColorTransparent": "#388E3C5A",
@@ -268,7 +269,7 @@
     "CompletionPopup.selectionInactiveBackground": "selectionInactive",
     "CompletionPopup.foreground": "foregroundColor",
 
-    "SearchEverywhere.Tab.selectedBackground": "highlightColor",
+    "SearchEverywhere.Tab.selectedBackground": "highlightColorDarker",
     "SearchEverywhere.Header.background": "secondaryBackground",
     "SearchEverywhere.SearchField.background": "secondaryBackground",
     "SearchEverywhere.Advertiser.background": "headerColor",
