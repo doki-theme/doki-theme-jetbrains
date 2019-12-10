@@ -1,9 +1,7 @@
-- light monika class names need to be easier distinguished
 - update readme
-- pre deploy remove legacy theme images from resources
-- lint
 Stretch Goals
 ----
+- lint
 - Color scheme cleanup (alphabetize that shit yo)
 - markdown
 - Usage Statistics
