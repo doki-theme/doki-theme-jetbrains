@@ -20,6 +20,8 @@ New, Simple, Better!
     - Dark themes in place of "Dark Mode"
         - Dark themes are still there, but they are their own theme now 
         (eg Dark Monika, Dark Yuri). Same goes for light themes, for example: "Light Monika" and "Light Natsuki"
+        
+ **File Colors may need to be re-enabled if you had them enabled**
     
 If something was removed that you miss, please make an issue.
 I'll do my best to accommodate.
