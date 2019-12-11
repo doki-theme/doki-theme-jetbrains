@@ -21,6 +21,7 @@ import io.acari.doki.notification.UpdateNotification
 import io.acari.doki.stickers.CurrentSticker
 import io.acari.doki.themes.ThemeManager
 import io.acari.doki.util.LegacyThemeUtilities
+import io.acari.doki.util.LegacyThemeUtilities.DARK_MODE_PROP
 import io.acari.doki.util.LegacyThemeUtilities.SAVED_STATE
 import io.acari.doki.util.toOptional
 
@@ -73,15 +74,18 @@ class TheDokiTheme : Disposable {
 
   private fun migrateLegacyTheme() {
     if(!ThemeConfig.instance.processedLegacyStartup){
-      ThemeConfig.instance.processedLegacyStartup = true
       migrateLegacyCurrentSticker()
       migrateLegacyCurrentTheme()
+      ThemeConfig.instance.processedLegacyStartup = true
     }
   }
 
   private fun migrateLegacyCurrentTheme() {
+    val isDarkMode = PropertiesComponent.getInstance().getBoolean(DARK_MODE_PROP)
+    PropertiesComponent.getInstance().unsetValue(DARK_MODE_PROP)
     val lastTheme = LegacyThemeUtilities.legacyThemeNameMapping(
-      ThemeConfig.instance.selectedTheme
+      ThemeConfig.instance.selectedTheme,
+      isDarkMode
     )
     LafManager.getInstance().installedLookAndFeels.find {
       it.name.equals(lastTheme, true)
