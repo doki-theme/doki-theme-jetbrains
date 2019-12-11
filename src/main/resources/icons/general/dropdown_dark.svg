@@ -1,7 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
-        "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"
-     version="1.1" width="16px" height="16px" fill="#b0bec5"
-     viewBox="-15 -15 32 32">
-    <path d="M7,10L12,15L17,10H7Z"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <polygon fill="#D6D6D6" accentTint="fill" fill-rule="evenodd" points="13 13 16 16 10 16" transform="matrix(1 0 0 -1 0 29)"/>
 </svg>

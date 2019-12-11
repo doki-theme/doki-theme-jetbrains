@@ -1,0 +1,15 @@
+Stretch Goals
+----
+- lint
+- Color scheme cleanup (alphabetize that shit yo)
+- markdown
+- Usage Statistics
+- theme schema
+    -ThemeJsonSchemaProviderFactory
+    - mandatory colorz
+- Icons
+    - daemon icon
+- svg xsd
+- Editor Tabs
+    - Active Outline
+    - File Scope colorings

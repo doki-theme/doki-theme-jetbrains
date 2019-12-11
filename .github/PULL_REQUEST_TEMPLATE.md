@@ -20,7 +20,9 @@
 - [ ] Breaking change (fix or feature that would cause existing functionality to change)
 
 #### Checklist:
-<!-- Go over all the following points, and put an `x` in all the boxes that apply. -->
+<!-- Go over all the following points, and put an `x` in all the boxes . -->
 <!-- If you're unsure about any of these, don't hesitate to ask. We're here to help! -->
-- [ ] My code follows the code style of this projectRef.
-- [ ] My change requires a change to the documentation.
+- [ ] My code follows the code style of this project (`lint` passes clean).
+- [ ] I wrote tests for added functionality.
+- [ ] I updated the version.
+- [ ] I updated the changelog with the new functionality.

@@ -1,0 +1,18 @@
+{
+  "name": "Doki Theme",
+  "fixed": false,
+  "ui": [
+    {
+      "key": "Doki.Accent.color",
+      "description": "Contrast color used on components such as: Tree Icon, add icon, etc."
+    },
+    {
+      "key": "Doki.startColor",
+      "description": "Color used for icon gradients."
+    },
+    {
+      "key": "Doki.stopColor",
+      "description": "The other color used for icon gradients"
+    }
+  ]
+}

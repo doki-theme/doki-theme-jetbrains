@@ -1,409 +1,132 @@
-<!--
-	~ The MIT License (MIT)
-	~
-	~ Copyright (c) 2019 Alex Simons
-	~
-	~ Permission is hereby granted, free of charge, to any person obtaining a copy
-	~ of this software and associated documentation files (the "Software"), to deal
-	~ in the Software without restriction, including without limitation the rights
-	~ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-	~ copies of the Software, and to permit persons to whom the Software is
-	~ furnished to do so, subject to the following conditions:
-	~
-	~ The above copyright notice and this permission notice shall be included in all
-	~ copies or substantial portions of the Software.
-	~
-	~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-	~ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-	~ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-	~ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-	~ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-	~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-	~ SOFTWARE.
-	~
-	~
-	-->
-
 <idea-plugin>
-		<id>io.acari.DDLCTheme</id>
-		<name>The Doki-Doki Theme</name>
-		<version>@version@</version>
-		<vendor email="alexsimons9999@gmail.com" url="https://github.com/cyclic-reference">cyclic-reference</vendor>
+    <id>io.acari.DDLCTheme</id>
+    <name>The Doki-Doki Theme</name>
+    <version>@version@</version>
+    <vendor email="alexsimons9999@gmail.com" url="https://github.com/cyclic-reference">cyclic-reference</vendor>
 
-		<description><![CDATA[
-				<h2>Programmers Rejoice!</h2>
-				<hr>
-				<br/>
-				<p>ヽ( ^-^)ﾉ </p>
-				<br/>
-				<p>
-						Hey! Before we go any further, I would like to ask you a couple of questions:
-				</p>
-				<ul>
-						<li>Do you need a bit more spice in your development life? <input type="checkbox" checked></li>
-						<li>Are Light or Dark themes your thing? <input type="checkbox" checked></li>
-						<li>Is your tolerance for cutesy things high? <input type="checkbox" checked></li>
-						<li>Do you like stickers and chibis? <input type="checkbox" checked></li>
-						<li>Is having a lot of choices a must? <input type="checkbox" checked></li>
-				</ul><br/>
-				<p>
-						Well look no further friend, <strong>I've got what you are looking for!</strong>
-				</p><br/>
-				<p>
-						With over 15 themes (light and dark) I think you will be able to find your favorite.
-						You can even find one that fits your mood for the day.
-				</p><br/>
-				<p>
-						Variety is the spice of life! So you can choose themes from the following Doki-Doki Theme Suites:
-						<ul>
-								<li>Doki-Doki Literature Club</li>
-								<li>Mistress's Menagerie</li>
-						</ul>
-				</p>
-				<p>
-						Too distracted by the chibi in the corner of your IDE?
-						No worries! You can configure them to be on or off at your leisure.
-				</p>
+    <description><![CDATA[
+        <h2>Ṱ͙̠͔́̈́͐̇h̳̳̗̘͂̇́̊e̮̰̼̮̿́̋͗ ̝͇͎̱̊̚̕͝o͙͈̼̜̓̀̉̀n͚̩̣̣̅̍̐̈́l̻̺̩̠͋̑̎͠y̧̱̘͕̿͐̎͘ ̧͎̹̙̓̅̈́͆t̢͔̩̮́̐̕͠h̨͓͔͉̿́͑͝é̹̙̤̮̀̍̈m̙̥̙̺̋̾͑̊e̳̗̖̩̽͐͆͒s͖̰͎̏̍̓̈́ͅ ͎̻͔͍͗͒̾̀y̢̻̜͎̾̄͒̋o̗̝̮̞͛̿̏͐ǔ̥̜̹̘̓̿̕ ̢̛̫͕͔̎̂́ẻ̲̜̰͙̍̌͑v̜̻̗̥̈́̓̈́̔e̡͚͇̫̎̆̋͑r̺̮͓̳̍̊͗̋ ̻̻̣̹͋͑́̈́ǹ̨̲͚͇̒̆͘e̗͉̫̱͂͑͗̓e̳̬̬͈̓̊̂͘d̪̻̞̮̈͂͠͝.͍͇͍̫̒͆̓͝</h2>
+        <br/>
+        <p>
+            Hey! Before we go any further, I would like to ask you a couple of questions:
+        </p>
+        <ul>
+            <li>Do you need a bit more spice in your development life? <input type="checkbox" checked></li>
+            <li>Are Light or Dark themes your thing? <input type="checkbox" checked></li>
+            <li>Is your tolerance for all things moe, high? <input type="checkbox" checked></li>
+            <li>Do you like stickers? <input type="checkbox" checked></li>
+            <li>Is having a lot of choices a must? <input type="checkbox" checked></li>
+        </ul><br/>
+        <p>
+            Well look no further friend, <strong>I've got what you are looking for!</strong>
+        </p><br/>
+        <p>
+            With 14 themes (light and dark) I think you will be able to find your favorite.
+            You can even find one that fits your mood for the day.
+        </p><br/>
+        <p>
+            Variety is the spice of life! So you can choose themes from the following Doki-Doki Theme Suites:
+        <ul>
+            <li>Doki-Doki Literature Club</li>
+            <li>Mistress's Menagerie</li>
+        </ul>
+        </p>
+        <p>
+            Too distracted by the sticker in the corner of your IDE?
+            No worries! You can configure them to be on or off at your leisure.
+        </p>
+        <br/>
+        <div align="center"><img src="https://raw.githubusercontent.com/cyclic-reference/jetbrains-theme/master/assets/logo.png" alt="Doki Theme"/></div>
+        ]]></description>
 
+    <idea-version since-build="193.4099"/>
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.lang</depends>
 
-				<h4>These themes are built on top of the awesome <a href="https://plugins.jetbrains.com/plugin/8006-material-theme-ui">Material UI</a>.<br/>
-						<br/><br/><br/>
-						<div align="center"><img src="https://raw.githubusercontent.com/cyclic-reference/jetbrains-theme/master/src/main/resources/themes/DDLC_LOGO.png" alt="DDLC"></img></div>
-				]]></description>
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationService serviceInterface="io.acari.doki.themes.ThemeManager"
+                            serviceImplementation="io.acari.doki.themes.impl.ThemeManagerImpl"/>
+        <applicationService serviceInterface="io.acari.doki.stickers.StickerService"
+                            serviceImplementation="io.acari.doki.stickers.impl.StickerServiceImpl"/>
+        <applicationService serviceImplementation="io.acari.doki.config.ThemeConfig"/>
 
-    <!-- Gets overridden during the build process -->
-    <idea-version since-build="192.6262.58"/>
+        <applicationConfigurable id="0d570cb2-96df-43cc-80da-7f777e6d0afe"
+                                 instance="io.acari.doki.settings.ThemeSettings"
+                                 groupId="appearance"/>
 
+        <errorHandler id="9782e40c-e6d2-488f-8611-71f5cca6695e" implementation="io.acari.doki.integrations.ErrorReporter"/>
 
-		<depends>com.intellij.modules.platform</depends>
-		<depends>com.intellij.modules.lang</depends>
-		<depends optional="true">org.jetbrains.android</depends>
+        <themeMetadataProvider path="/theme-schema/DokiTheme.themeMetadata.json"/>
 
-		<resource-bundle>messages.MaterialThemeBundle</resource-bundle>
-		<resource-bundle>messages.FileColorsBundle</resource-bundle>
+        <themeProvider id="dce48196-ff46-470c-b5f9-d1e23f4a79d3" path="/doki/themes/literature/Monika_Dark.theme.json"/>
+        <themeProvider id="9a310731-ab2d-40f5-b502-fa5419f799a2" path="/doki/themes/literature/Monika_Light.theme.json"/>
+        <themeProvider id="91415015-8fe3-48eb-9951-70a5cd6cbb7f" path="/doki/themes/literature/Natsuki_Light.theme.json"/>
+        <themeProvider id="a7e0aa28-739a-4671-80ae-3980997e6b71" path="/doki/themes/literature/Natsuki_Dark.theme.json"/>
+        <themeProvider id="b0340303-0a5a-4a20-9b9c-fc8ce9880078" path="/doki/themes/literature/Sayori_Dark.theme.json"/>
+        <themeProvider id="cb8ef4b7-0844-4a04-b08b-754086598de4" path="/doki/themes/literature/Sayori_Light.theme.json"/>
+        <themeProvider id="a14733d6-8e15-4e75-b6b8-509f323e5b3b" path="/doki/themes/literature/Yuri_Dark.theme.json"/>
+        <themeProvider id="cecf3f92-76d4-4f14-9a9c-3d558b6b3b68" path="/doki/themes/literature/Yuri_Light.theme.json"/>
 
-		<extensionPoints>
-				<extensionPoint beanClass="com.chrisrm.ideaddlc.themes.BundledThemeEP" name="bundledTheme"/>
-		</extensionPoints>
+        <themeProvider id="fc466b4f-8eb7-472c-8cbb-d99a09d4c469" path="/doki/themes/menagerie/Cleo.theme.json"/>
+        <themeProvider id="c915211e-faab-4696-8af2-230892052ba6" path="/doki/themes/menagerie/Eleniel.theme.json"/>
+        <themeProvider id="4693f34f-f400-4431-87f8-0be7fde660d9" path="/doki/themes/menagerie/Neera.theme.json"/>
+        <themeProvider id="436ff3a0-4072-4b38-8d6f-888b18b5d0ab" path="/doki/themes/menagerie/Sanya.theme.json"/>
+        <themeProvider id="c8df9413-5d9f-4e0c-ae64-5d5c1cffe9a5" path="/doki/themes/menagerie/Syrena.theme.json"/>
+        <themeProvider id="9f62362a-49e0-4b82-8f63-d1f98ae7799f" path="/doki/themes/menagerie/Wyla.theme.json"/>
+    </extensions>
 
-		<extensions defaultExtensionNs="com.intellij">
-				<applicationService serviceImplementation="com.chrisrm.ideaddlc.MTConfig"/>
-				<applicationService serviceImplementation="io.acari.DDLC.DDLCConfig"/>
-				<applicationService serviceImplementation="com.chrisrm.ideaddlc.MTThemeManager"/>
-				<applicationService serviceImplementation="com.chrisrm.ideaddlc.MTAnalytics"/>
-				<errorHandler implementation="io.acari.DDLC.integrations.SlackReporter"/>
+    <extensions defaultExtensionNs="JavaScript.JsonSchema">
+        <ProviderFactory implementation="io.acari.doki.schema.DokiThemeJsonSchemaProvider"/>
+    </extensions>
 
-				<applicationService serviceImplementation="io.acari.DDLC.icons.tinted.TintedIconsService"/>
-				<applicationConfigurable instance="com.chrisrm.ideaddlc.config.MTConfigurable"
-																 groupId="appearance"
-																 id="com.chrisrm.ideaddlc.config"/>
-
-				<projectViewNodeDecorator implementation="io.acari.DDLC.tree.DDLCProjectViewNodeDecorator"/>
-				<projectViewNodeDecorator implementation="io.acari.DDLC.tree.MTColoredFoldersNodeDecorator"
-																	id="DokiDokiColoredDirsDecorator"/>
-				<editorTabTitleProvider implementation="com.chrisrm.ideaddlc.tabs.MTEditorUpperTabs" order="first"/>
-				<editorTabColorProvider implementation="io.acari.DDLC.tabs.DDLCEditorTabColorProvider" order="first"/>
-				<iconProvider implementation="com.chrisrm.ideaddlc.icons.MTHiddenIconProvider" order="first"
-											id="DDLCMTHiddenIconProvider"/>
-				<iconProvider implementation="com.chrisrm.ideaddlc.icons.MTFileIconProvider" order="first"
-											id="DDLCMTFileIconProvider"/>
-
-				<bundledColorScheme path="/colors/Monika"/>
-				<bundledColorScheme path="/colors/Just Monika"/>
-				<bundledColorScheme path="/colors/Sayori"/>
-				<bundledColorScheme path="/colors/Deleted Character"/>
-				<bundledColorScheme path="/colors/Natsuki"/>
-				<bundledColorScheme path="/colors/Only Play With Me"/>
-				<bundledColorScheme path="/colors/Yuri"/>
-				<bundledColorScheme path="/colors/Edgy"/>
-
-				<bundledColorScheme path="/colors/Cleo"/>
-				<bundledColorScheme path="/colors/Eleniel"/>
-				<bundledColorScheme path="/colors/Neera"/>
-				<bundledColorScheme path="/colors/Sanya"/>
-				<bundledColorScheme path="/colors/Syrena"/>
-				<bundledColorScheme path="/colors/Wyla"/>
-
-				<themeProvider id="CLEO" path="/themes/specs/anthro/cleo.theme.json"/>
-				<themeProvider id="ELENIEL" path="/themes/specs/anthro/eleniel.theme.json"/>
-				<themeProvider id="NEERA" path="/themes/specs/anthro/neera.theme.json"/>
-				<themeProvider id="SANYA" path="/themes/specs/anthro/sanya.theme.json"/>
-				<themeProvider id="SYRENA" path="/themes/specs/anthro/syrena.theme.json"/>
-				<themeProvider id="WYLA" path="/themes/specs/anthro/wyla.theme.json"/>
-
-				<themeProvider id="doki_deleted.character" path="/themes/specs/literature/deleted.character.theme.json"/>
-				<themeProvider id="doki_edgy" path="/themes/specs/literature/edgy.theme.json"/>
-				<themeProvider id="doki_just.monika" path="/themes/specs/literature/just.monika.theme.json"/>
-				<themeProvider id="doki_monika" path="/themes/specs/literature/monika.theme.json"/>
-				<themeProvider id="doki_natsuki" path="/themes/specs/literature/natsuki.theme.json"/>
-				<themeProvider id="doki_only.play.with.me" path="/themes/specs/literature/only.play.with.me.theme.json"/>
-				<themeProvider id="doki_sayori" path="/themes/specs/literature/sayori.theme.json"/>
-				<themeProvider id="doki_yuri" path="/themes/specs/literature/yuri.theme.json"/>
-
-				<welcomeFrameProvider implementation="com.chrisrm.ideaddlc.ui.MTFlatWelcomeFrameProvider"
-															order="FIRST"/>
-
-				<search.optionContributor implementation="com.chrisrm.ideaddlc.config.MTOptionContributor"/>
-				<search.topHitProvider implementation="com.chrisrm.ideaddlc.config.MTConfigTopHitProvider"/>
-
-				<colorSettingsPage implementation="com.chrisrm.ideaddlc.config.MTFileColorsPage"/>
-
-				<webHelpProvider implementation="com.chrisrm.ideaddlc.help.MTHelpProvider" id="DDLCMTHelpTopic"/>
-				<annotator language="JavaScript" implementationClass="com.chrisrm.ideaddlc.annotators.JSAnnotator"/>
-				<annotator language="TypeScript" implementationClass="com.chrisrm.ideaddlc.annotators.TSAnnotator"/>
-				<annotator language="JAVA" implementationClass="com.chrisrm.ideaddlc.annotators.JavaAnnotator"/>
-				<annotator language="PHP" implementationClass="com.chrisrm.ideaddlc.annotators.PHPAnnotator"/>
-
-				<colorSettingsPage implementation="com.chrisrm.ideaddlc.annotators.settings.JSColorSettings"/>
-				<colorSettingsPage implementation="com.chrisrm.ideaddlc.annotators.settings.TSColorSettings"/>
-				<colorSettingsPage implementation="com.chrisrm.ideaddlc.annotators.settings.JavaColorSettings"/>
-				<colorSettingsPage implementation="com.chrisrm.ideaddlc.annotators.settings.PHPColorSettings"/>
-		</extensions>
-
-		<application-components>
-				<component>
-						<implementation-class>io.acari.DDLC.schemes.DDLCThemesComponent</implementation-class>
-				</component>
-				<component>
-						<implementation-class>com.chrisrm.ideaddlc.MTHackComponent</implementation-class>
-				</component>
-				<component>
-						<implementation-class>io.acari.DDLC.hax.DDLCHackComponent</implementation-class>
-				</component>
-				<component>
-						<implementation-class>com.chrisrm.ideaddlc.MTApplicationComponent</implementation-class>
-				</component>
-				<component>
-						<implementation-class>com.chrisrm.ideaddlc.MTLafComponent</implementation-class>
-				</component>
-				<component>
-						<implementation-class>com.chrisrm.ideaddlc.tabs.MTTabsPainterPatcherComponent</implementation-class>
-				</component>
-				<component>
-						<implementation-class>com.chrisrm.ideaddlc.icons.MTIconReplacerComponent</implementation-class>
-				</component>
-				<component>
-						<implementation-class>com.chrisrm.ideaddlc.MTCleanupComponent</implementation-class>
-				</component>
-				<component>
-						<implementation-class>com.chrisrm.ideaddlc.icons.MTTintedIconsComponent</implementation-class>
-				</component>
-				<component>
-						<implementation-class>io.acari.DDLC.DDLCApplicationInitializationComponent</implementation-class>
-				</component>
-		</application-components>
-
-    <project-components>
+    <application-components>
         <component>
-            <implementation-class>io.acari.DDLC.status.DDLCStatusBarComponent</implementation-class>
-            <loadForDefaultProject>true</loadForDefaultProject>
+            <implementation-class>io.acari.doki.TheDokiTheme</implementation-class>
         </component>
         <component>
-            <implementation-class>io.acari.DDLC.DDLCProjectInitializationComponent</implementation-class>
-            <loadForDefaultProject>true</loadForDefaultProject>
+            <implementation-class>io.acari.doki.stickers.StickerComponent</implementation-class>
         </component>
         <component>
-            <implementation-class>com.chrisrm.ideaddlc.MTUpdatesComponent</implementation-class>
+            <implementation-class>io.acari.doki.hax.HackComponent</implementation-class>
         </component>
-    </project-components>
+    </application-components>
 
+    <actions>
+        <group id="DokiThemeActions"
+               text="Doki Theme Options"
+               popup="true"
+               icon="/icons/doki/pen.svg">
+            <action id="StickerEnabler" class="io.acari.doki.actions.StickersToggleAction"
+                    text="Enable Stickers"
+                    icon="/icons/nodes/favorite.svg"
+                    description="Enables the sticker in the lower right hand corner">
+            </action>
+            <add-to-group group-id="MainToolBar" anchor="last"/>
+        </group>
 
-		<actions>
-				<group id="DDLC.ThemeChooser" text="Literature Club Themes" popup="true"
-							 icon="/icons/ddlc/ddlcTheme.svg">
-						<add-to-group group-id="MainToolBar" anchor="last"/>
-
-						<action id="MonikaTheme" class="io.acari.DDLC.actions.themes.literature.club.JustMonikaThemeAction"
-										text="Just Monika" description="Just Monika"
-										icon="/icons/actions/themes/material_monika@2x.png">
-						</action>
-						<separator/>
-						<action id="SayoriTheme" class="io.acari.DDLC.actions.themes.literature.club.SayoriThemeAction"
-										text="Sayori" description="Sayori"
-										icon="/icons/actions/themes/material_sayori@2x.png">
-						</action>
-						<action id="NatsukiTheme" class="io.acari.DDLC.actions.themes.literature.club.NatsukiThemeAction"
-										text="Natsuki" description="Natsuki"
-										icon="/icons/actions/themes/material_natsuki@2x.png">
-						</action>
-						<action id="Yuri" class="io.acari.DDLC.actions.themes.literature.club.YuriThemeAction"
-										text="Yuri" description="Yuri"
-										icon="/icons/actions/themes/material_yuri@2x.png">
-						</action>
-				</group>
-				<group id="DDLC.Panels" text="Doki-Doki Theme Options" description="Panel Options" popup="true"
-							 icon="/icons/ddlc/actions/pen.svg">
-						<action class="io.acari.DDLC.actions.WizardAction" id="Wizard" text="Show Wizard"
-										icon="/icons/ddlc/Doki-Doki-Logo.svg"
-										description="Show Wizard"/>
-						<action class="io.acari.DDLC.actions.ConfigAction" id="DokiSettings" text="Show Settings"
-										icon="/icons/general/settings.svg"
-										description="Show Settings"/>
-						<add-to-group group-id="MainToolBar" anchor="last"/>
-						<group id="DDLCWeebShit" text="Chibi Options" popup="true"
-									 icon="/icons/actions/themes/material_monika.png">
-								<action id="ChibiOff" class="io.acari.DDLC.actions.NoChibiAction"
-												text="Chibi Off" description="Chibi Off"
-												icon="/icons/actions/cancel.svg">
-								</action>
-								<action id="ChibiOn" class="io.acari.DDLC.actions.SomeChibiAction"
-												text="Chibi On" description="Chibi On"
-												icon="/icons/codeStyle/mac/AddNewSectionRule.svg">
-								</action>
-								<separator/>
-						</group>
-						<action class="io.acari.DDLC.actions.FileColorAction" id="FileScope" text="Toggle File Colors"
-										icon="/icons/actions/mt/projectViewDecorators.svg"
-										description="Toggle Dark Mode"/>
-						<action class="io.acari.DDLC.actions.DarkModeAction" id="DarkMode" text="Toggle Dark Mode"
-										icon="/icons/plugins/resharper/Bulb/GhostBulb.svg"
-										description="Toggle Dark Mode"/>
-						<action class="io.acari.DDLC.actions.LightModeAction" id="LightMode" text="Toggle Light Mode"
-										icon="/icons/actions/intentionBulb.svg"
-										description="Toggle Light Mode"/>
-						<action class="io.acari.DDLC.actions.JoyAction" id="DDLCJoy"
-										text="Swap Chibi"
-										icon="/icons/actions/mt/joy.png"
-										description="Swap Chibi"/>
-						<group id="ddlcArrowsStyles" text="Arrow Styles" popup="true">
-								<action class="com.chrisrm.ideaddlc.actions.arrows.MTMaterialArrows"
-												id="DDLCMTMaterialArrows"
-												text="Set Material Arrows style"
-												icon="/icons/actions/arrows/material.svg"
-												description="Set Material Arrows style"/>
-								<action class="com.chrisrm.ideaddlc.actions.arrows.MTDarculaArrows"
-												id="DDLCMTDarculaArrows"
-												text="Set Darcula Arrows style"
-												icon="/icons/actions/arrows/darcula.svg"
-												description="Set Darcula Arrows style"/>
-								<action class="com.chrisrm.ideaddlc.actions.arrows.MTPlusMinusArrows"
-												id="DDLCMTPlusMinusArrows"
-												text="Set Plus-Minus Arrows style"
-												icon="/icons/actions/arrows/plusminus.svg"
-												description="Set Plus-Minus Arrows style"/>
-								<action class="com.chrisrm.ideaddlc.actions.arrows.MTNoneArrows"
-												id="DDLCMTNoneArrows"
-												text="Set No Arrows style"
-												description="Remove all arrows in trees"/>
-						</group>
-						<group id="DDLCindicatorStyles" text="Indicator Styles" popup="true">
-								<action class="com.chrisrm.ideaddlc.actions.indicators.MTBorderIndicators"
-												id="DDLCMTBorderIndicators"
-												text="Set Border Indicators style"
-												icon="/icons/actions/indicators/border.svg"
-												description="Set Border Indicators style"/>
-								<action class="com.chrisrm.ideaddlc.actions.indicators.DokiHeartIndicators"
-												id="DokiHeartIndicators"
-												text="Set Heart Indicators style"
-												icon="/icons/actions/indicators/dot.svg"
-												description="Set Heart Indicators style"/>
-								<action class="com.chrisrm.ideaddlc.actions.indicators.MTNoneIndicators"
-												id="DDLCMTNoneIndicators"
-												text="Set No Indicators style"
-												description="Remove the selected indicators in trees"/>
-						</group>
-						<group id="DokiTabPositions" text="Tab Highlight Position" popup="true">
-								<action class="com.chrisrm.ideaddlc.actions.positions.MTDefaultPosition"
-												id="DokiDefaultPosition"
-												text="Set default highlight position"
-												icon="/icons/actions/positions/default.svg"
-												description="Set default highlight position"/>
-								<action class="com.chrisrm.ideaddlc.actions.positions.MTTopPosition"
-												id="DokiTopPosition"
-												text="Set highlight at the top"
-												icon="/icons/actions/positions/top.svg"
-												description="Set highlight at the top"/>
-								<action class="com.chrisrm.ideaddlc.actions.positions.MTBottomPosition"
-												id="DokiBottomPosition"
-												text="Set highlight at the bottom"
-												icon="/icons/actions/positions/bottom.svg"
-												description="Set highlight at the bottom"/>
-								<action class="com.chrisrm.ideaddlc.actions.positions.MTLeftPosition"
-												id="DokiLeftPosition"
-												text="Set highlight at the left"
-												icon="/icons/actions/positions/left.svg"
-												description="Set highlight at the left"/>
-								<action class="com.chrisrm.ideaddlc.actions.positions.MTRightPosition"
-												id="DokiRightPosition"
-												text="Set highlight at the right"
-												icon="/icons/actions/positions/right.svg"
-												description="Set highlight at the right"/>
-								<action class="com.chrisrm.ideaddlc.actions.positions.MTTopBottomPosition"
-												id="DokiTopBottomPosition"
-												text="Set highlight at the top and bottom"
-												icon="/icons/actions/positions/topBottom.svg"
-												description="Set highlight at the top and bottom"/>
-								<action class="com.chrisrm.ideaddlc.actions.positions.MTLeftRightPosition"
-												id="DokiLeftRightPosition"
-												text="Set highlight at the left and right"
-												icon="/icons/actions/positions/leftRight.svg"
-												description="Set highlight at the left and right"/>
-								<action class="com.chrisrm.ideaddlc.actions.positions.MTFullPosition"
-												id="DokiFullPosition"
-												text="Set highlight everywhere"
-												icon="/icons/actions/positions/full.svg"
-												description="Set highlight everywhere"/>
-								<action class="com.chrisrm.ideaddlc.actions.positions.MTBottomlessPosition"
-												id="DokiBottomLessPosition"
-												text="Set highlight everywhere except bottom"
-												icon="/icons/actions/positions/bottomless.svg"
-												description="Set highlight everywhere except bottom"/>
-								<action class="com.chrisrm.ideaddlc.actions.positions.MTToplessPosition"
-												id="DokiTopLessPosition"
-												text="Set highlight everywhere except top"
-												icon="/icons/actions/positions/topless.svg"
-												description="Set highlight everywhere except top"/>
-								<action class="com.chrisrm.ideaddlc.actions.positions.MTNonePosition"
-												id="DokiNonePosition"
-												text="Remove the highlight"
-												description="Remove the highlight"/>
-						</group>
-				</group>
-
-				<group id="DDLC.AnthroThemeChooser" text="Mistress's Menagerie" popup="true"
-							 icon="/icons/ddlc/menagerieTheme.svg">
-						<add-to-group group-id="MainToolBar" anchor="last"/>
-						<action id="CleoTheme" class="io.acari.DDLC.actions.themes.anthro.CleoThemeAction"
-										text="Cleo" description="Cleo"
-										icon="/icons/ddlc/anthro/Cleo.svg">
-						</action>
-						<action id="ElenielTheme" class="io.acari.DDLC.actions.themes.anthro.ElenielThemeAction"
-										text="Eleniel" description="Eleniel"
-										icon="/icons/ddlc/anthro/Eleniel.svg">
-						</action>
-						<action id="NeeraTheme" class="io.acari.DDLC.actions.themes.anthro.NeeraThemeAction"
-										text="Neera" description="Neera"
-										icon="/icons/ddlc/anthro/Neera.svg">
-						</action>
-						<action id="SanyaTheme" class="io.acari.DDLC.actions.themes.anthro.SanyaThemeAction"
-										text="Sanya" description="Sanya"
-										icon="/icons/ddlc/anthro/Sanya.svg">
-						</action>
-						<action id="SyrenaTheme" class="io.acari.DDLC.actions.themes.anthro.SyrenaThemeAction"
-										text="Syrena" description="Syrena"
-										icon="/icons/ddlc/anthro/Syrena.svg">
-						</action>
-						<action id="WylaTheme" class="io.acari.DDLC.actions.themes.anthro.WylaThemeAction"
-										text="Wyla" description="Wyla"
-										icon="/icons/ddlc/anthro/Wyla.svg">
-						</action>
-				</group>
-
-				<group id="DDLC.Menu" text="Doki-Doki Theme" popup="true" icon="/icons/ddlc/Doki-Doki-Logo.svg">
-						<reference id="DDLC.ThemeChooser"/>
-						<separator/>
-						<reference id="DDLC.AnthroThemeChooser"/>
-						<separator/>
-						<reference id="DDLC.Panels"/>
-						<separator/>
-						<add-to-group group-id="ToolsMenu"/>
-						<add-to-group group-id="ChangeScheme" anchor="after" relative-to-action="DDLC.Menu"/>
-				</group>
-
-
-		</actions>
-
-
-		<change-notes>
-		</change-notes>
+        <action id="io.acari.doki.actions.FileColorToggleAction" class="io.acari.doki.actions.FileColorToggleAction"
+                text="Enable File Colors"
+                icon="/icons/nodes/package.svg"
+                description="Adds a themed background to certain directories in the project tree.">
+            <add-to-group group-id="DokiThemeActions" anchor="first"/>
+        </action>
+        <action id="io.acari.doki.actions.ThemedTitleBarAction" class="io.acari.doki.actions.ThemedTitleBarAction"
+                text="Themed Title Bar"
+                icon="/icons/doki/themedTitleBar.svg"
+                description="Makes the MacOS title bar the same color as your selected theme.">
+            <add-to-group group-id="DokiThemeActions" anchor="last"/>
+        </action>
+        <action id="io.acari.doki.actions.SwapStickerAction" class="io.acari.doki.actions.SwapStickerAction"
+                text="Swap Sticker"
+                icon="/icons/actions/diff.svg"
+                description="Changes the current sticker at the bottom right hand corner of the screen.">
+            <add-to-group group-id="DokiThemeActions" anchor="last"/>
+        </action>
+        <action id="io.acari.doki.actions.ShowSettingsAction" class="io.acari.doki.actions.ShowSettingsAction"
+                text="Show Settings"
+                icon="/icons/general/gearPlain.svg"
+                description="Shows the Doki Theme&#39;s settings window.">
+            <add-to-group group-id="DokiThemeActions" anchor="last"/>
+        </action>
+    </actions>
 </idea-plugin>

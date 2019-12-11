@@ -4,7 +4,7 @@
 
 ---
 <div align="center">
-    <h3 style="color: pink;"> So sweet, you are guaranteed to be hypoglycemic!</h3>
+    <h3 style="color: pink;">Ṱ͙̠͔́̈́͐̇h̳̳̗̘͂̇́̊e̮̰̼̮̿́̋͗ ̝͇͎̱̊̚̕͝o͙͈̼̜̓̀̉̀n͚̩̣̣̅̍̐̈́l̻̺̩̠͋̑̎͠y̧̱̘͕̿͐̎͘ ̧͎̹̙̓̅̈́͆t̢͔̩̮́̐̕͠h̨͓͔͉̿́͑͝é̹̙̤̮̀̍̈m̙̥̙̺̋̾͑̊e̳̗̖̩̽͐͆͒s͖̰͎̏̍̓̈́ͅ ͎̻͔͍͗͒̾̀y̢̻̜͎̾̄͒̋o̗̝̮̞͛̿̏͐ǔ̥̜̹̘̓̿̕ ̢̛̫͕͔̎̂́ẻ̲̜̰͙̍̌͑v̜̻̗̥̈́̓̈́̔e̡͚͇̫̎̆̋͑r̺̮͓̳̍̊͗̋ ̻̻̣̹͋͑́̈́ǹ̨̲͚͇̒̆͘e̗͉̫̱͂͑͗̓e̳̬̬͈̓̊̂͘d̪̻̞̮̈͂͠͝.͍͇͍̫̒͆̓͝</h3>
 </div>
 
 ---
@@ -13,14 +13,13 @@ Hey! Before we go any further, I would like to ask you a couple of questions:
 
 -  Do you need a bit more spice in your development life?
 -  Are Light or Dark themes your thing?
--  Is your tolerance for cutesy things high?
--  Do you like stickers and chibis?
+-  Is your tolerance for all things moe, high?
+-  Do you like stickers?
 -  Is having a lot of choices a must?
 
 Well look no further friend, **I've got what you are looking for!**
 
-
-With over 15 themes (light and dark) I think you will be able to find your favorite.
+With over 14 themes (light and dark) I think you will be able to find your favorite.
 You can even find one that fits your mood for the day.
 
 Variety is the spice of life! So you can choose themes from the following Doki-Doki Theme Suites:
@@ -28,10 +27,13 @@ Variety is the spice of life! So you can choose themes from the following Doki-D
 - Doki-Doki Literature Club
 - Mistress's Menagerie
 
-Too distracted by the chibi in the corner of your IDE?
+Too distracted by the sticker in the corner of your IDE?
 No worries! You can configure them to be on or off at your leisure.
 
-These themes are built on top of the awesome [Material UI](https://plugins.jetbrains.com/plugin/8006-material-theme-ui)!
+These themes are easy to install, there are minimal configurations so you can enjoy the themes faster.
+They also play well with other theme, so feel free to come an go as your mood changes :)
+
+
 
 
 # Got Contributions, fun ideas, or issues?
@@ -55,9 +57,9 @@ Help make this plugin better!
 
 ## Literature Club (Sample):
 
-![Just Monika](assets/screenshots/just_monika_background_normal.png)
+![Just Monika](assets/screenshots/just_monika_code.png)
 
-![Only Monika](assets/screenshots/only_monika_background_normal.png)
+![Only Monika](assets/screenshots/only_monika_code.png)
 
 # [More Literature club theme Screenshots!!](theme_album.md)
 
@@ -81,5 +83,3 @@ Help make this plugin better!
 Enjoy!
 ---
 ##### You can also see the [project wiki](https://github.com/cyclic-reference/ddlc-jetbrains-theme/wiki) for Doki-Doki theme specific information!
-
-## [More Questions about how configurations work? Please visit the Material UI, for JetBrains IDEs, to get more information.](https://github.com/ChrisRM/material-theme-jetbrains)
