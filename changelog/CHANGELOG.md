@@ -1,7 +1,33 @@
 # Changelog
 ---
 # 5.0.0
-- A whole lot of shit
+
+### Complete Theme Re-Write
+All themes have been redesigned. A
+New, Simple, Better!
+
+- Brand new Look and feel!
+    - Same Characters, cleaner look!
+    - New Icons! (JetBrains defaults with a twist)
+    - New Code Color Schemes!
+        - Hopefully more readable! (Please reach out if you have issues)
+- Enhanced User Experience
+    - Clean Theme Switching 
+    - Minimum Work Configurations
+    - Plays well with other non-Doki look and feels.
+    - Less Glitchy and more color consistent.
+    - Fancy Theme Transition Animations.
+    - Dark themes in place of "Dark Mode"
+        - Dark themes are still there, but they are their own theme now 
+        (eg Dark Monika, Dark Yuri). Same goes for light themes, for example: "Light Monika" and "Light Natsuki"
+    
+If something was removed that you miss, please make an issue.
+I'll do my best to accommodate.
+
+The Doki Theme is no longer built on top of Material UI, so all inherited configurations are now gone.
+
+The Doki Theme no longer supports Material UI integrations. 
+So both themes can not be cleanly used side by side. Sorry for any inconveniences this may cause.
 
 # 4.4.2
 
