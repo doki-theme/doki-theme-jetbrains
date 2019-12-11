@@ -104,6 +104,7 @@ class ThemeSettings : SearchableConfigurable {
           checkBox(
             "Themed Title Bar",
             themeSettingsModel.isThemedTitleBar,
+            comment = "Feature only works on MacOS",
             actionListener = { _, component ->
               themeSettingsModel.isThemedTitleBar = component.isSelected
             }
@@ -113,6 +114,9 @@ class ThemeSettings : SearchableConfigurable {
           checkBox(
             "Enable File Colors",
             themeSettingsModel.isFileColors,
+            comment = """The file colors remain part of your IDE  after the plugin has been uninstalled.
+              |To Prevent this, disable this setting or you can remove them from "Settings -> Appearance -> File Colors".
+            """.trimMargin(),
             actionListener = { _, component ->
               themeSettingsModel.isFileColors = component.isSelected
             }
