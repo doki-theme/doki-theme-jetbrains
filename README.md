@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="https://raw.githubusercontent.com/cyclic-reference/jetbrains-theme/master/src/main/resources/wizard/logo.png" alt="Just Monika"></img>
+    <img src="https://raw.githubusercontent.com/cyclic-reference/jetbrains-theme/master/assets/logo.png" alt="Just Monika"></img>
 </div>
 
 ---
