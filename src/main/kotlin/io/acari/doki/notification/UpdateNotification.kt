@@ -5,13 +5,15 @@ import com.intellij.openapi.project.Project
 
 val UPDATE_MESSAGE: String = """
       What's New?<br>
+      <br>Please see the <a href="https://github.com/cyclic-reference/ddlc-jetbrains-theme/blob/master/changelog/CHANGELOG.md">Changelog</a> for more details.
       <ul>
-      <li>Restored Editor Tab Height.</li>
-      <li>Enhanced non-project Java File Icons.</li>
+      <li>Brand New Look and Feel for all themes!</li>
+      <li>Simplified Settings.
+          <li>File Colors may need to be re-enabled.</li>
+      </li>
       </ul>
       <br>
       Thanks again for downloading <b>The Doki Theme</b>! •‿•<br>
-      <br>Please see the <a href="https://github.com/cyclic-reference/ddlc-jetbrains-theme/blob/master/docs/CHANGELOG.md">Changelog</a> for more details.
 """.trimIndent()
 
 const val CURRENT_VERSION = "5.0.0"
