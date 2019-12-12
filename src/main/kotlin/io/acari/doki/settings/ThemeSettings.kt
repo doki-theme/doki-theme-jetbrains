@@ -5,10 +5,7 @@ import com.intellij.openapi.options.SearchableConfigurable
 import com.intellij.openapi.ui.ComboBox
 import com.intellij.ui.layout.panel
 import io.acari.doki.config.ThemeConfig
-import io.acari.doki.settings.actors.FileColorActor
-import io.acari.doki.settings.actors.StickerActor
-import io.acari.doki.settings.actors.ThemeActor
-import io.acari.doki.settings.actors.ThemedTitleBarActor
+import io.acari.doki.settings.actors.*
 import io.acari.doki.stickers.CurrentSticker
 import io.acari.doki.stickers.StickerLevel
 import io.acari.doki.themes.ThemeManager
@@ -19,6 +16,7 @@ import javax.swing.JComponent
 
 data class ThemeSettingsModel(
   var areStickersEnabled: Boolean,
+  var isLafAnimation: Boolean,
   var currentTheme: String,
   var isThemedTitleBar: Boolean,
   var isFileColors: Boolean,
@@ -41,6 +39,7 @@ class ThemeSettings : SearchableConfigurable {
 
   private val initialThemeSettingsModel = ThemeSettingsModel(
     ThemeConfig.instance.currentStickerLevel == StickerLevel.ON,
+    ThemeConfig.instance.isLafAnimation,
     ThemeManager.instance.currentTheme.map { it.name }.orElseGet { ThemeManager.MONIKA_LIGHT },
     ThemeConfig.instance.isThemedTitleBar,
     ThemeConfig.instance.isDokiFileColors,
@@ -54,6 +53,7 @@ class ThemeSettings : SearchableConfigurable {
   }
 
   override fun apply() {
+    LafAnimationActor.enableAnimation(themeSettingsModel.isLafAnimation)
     FileColorActor.enableFileColors(themeSettingsModel.isFileColors)
     StickerActor.enableStickers(themeSettingsModel.areStickersEnabled, false)
     StickerActor.swapStickers(themeSettingsModel.isSwappedSticker, false)
@@ -117,6 +117,19 @@ class ThemeSettings : SearchableConfigurable {
             comment = """The file colors remain part of your IDE  after the plugin has been uninstalled.
               |To Prevent this, disable this setting or you can remove them from "Settings -> Appearance -> File Colors".
             """.trimMargin(),
+            actionListener = { _, component ->
+              themeSettingsModel.isFileColors = component.isSelected
+            }
+          )
+        }
+        row {
+          checkBox(
+            "Theme Transition Animation",
+            themeSettingsModel.isFileColors,
+            comment = """The animations will remain in your IDE after uninstalling the plugin.
+          |To remove them, un-check this action or remove them at "Help -> Find Action -> ide.intellij.laf.enable.animation". 
+          """.trimMargin()
+            ,
             actionListener = { _, component ->
               themeSettingsModel.isFileColors = component.isSelected
             }

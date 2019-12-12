@@ -34,8 +34,6 @@ class TheDokiTheme : Disposable {
     hackLAF()
     //////////// ._. ////////////
 
-    modifyRegistry()
-
     installAllUIComponents()
 
     migrateLegacyTheme()
@@ -66,10 +64,6 @@ class TheDokiTheme : Disposable {
         }
       }
     })
-  }
-
-  private fun modifyRegistry() {
-    Registry.get("ide.intellij.laf.enable.animation").setValue(true)
   }
 
   private fun migrateLegacyTheme() {
