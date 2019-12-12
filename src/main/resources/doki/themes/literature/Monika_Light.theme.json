@@ -479,6 +479,8 @@
     "/nodes/shared.svg": "/icons/nodes/shared.svg",
     "/nodes/staticMark.svg": "/icons/nodes/staticMark.svg",
     "/nodes/symlink.svg": "/icons/nodes/symlink.svg",
-    "/toolwindows/toolWindowFavorites.svg": "/icons/toolwindows/toolWindowFavorites.svg"
+    "/toolwindows/toolWindowFavorites.svg": "/icons/toolwindows/toolWindowFavorites.svg",
+    "/welcome/createNewProject.svg": "/icons/welcome/createNewProject.svg",
+    "/welcome/createNewProject_dark.svg": "/icons/welcome/createNewProject_dark.svg"
   }
 }
