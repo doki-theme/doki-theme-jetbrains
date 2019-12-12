@@ -153,6 +153,8 @@
     "StatusBar.hoverBackground": "highlightColor",
     "Table.stripeColor": "highlightColor",
     "ToolWindow.Button.selectedBackground": "highlightColor",
+    "ToolWindow.HeaderTab.hoverBackground": "highlightColor",
+    "DefaultTabs.hoverBackground": "highlightColor",
 
 
     "Borders.color": "borderColor",
