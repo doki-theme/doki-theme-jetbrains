@@ -29,7 +29,7 @@
         <option name="ADDED_LINES_COLOR" value="d0fdc9" />
         <option name="ANNOTATIONS_COLOR" value="474747" />
         <option name="CARET_COLOR" value="272727" />
-        <option name="CARET_ROW_COLOR" value="ecf0f1" />
+        <option name="CARET_ROW_COLOR" value="E7EDF0" />
         <option name="CONSOLE_BACKGROUND_KEY" value="e3e4ef" />
         <option name="DELETED_LINES_COLOR" value="b63b50" />
         <option name="DOCUMENTATION_COLOR" value="dfe0eb" />
@@ -1069,7 +1069,7 @@
         </option>
         <option name="JUPYTER_SELECTED_CELL">
             <value>
-                <option name="BACKGROUND" value="ecf0f1" />
+                <option name="BACKGROUND" value="E7EDF0" />
             </value>
         </option>
         <option name="KOTLIN_COLON">
