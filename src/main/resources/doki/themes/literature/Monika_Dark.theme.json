@@ -79,6 +79,7 @@
     "List.background": "headerColor",
     "Tree.background": "headerColor",
     "Editor.background": "headerColor",
+    "ScrollPane.background": "headerColor",
     "ParameterInfo.background": "headerColor",
     "ParameterInfo.currentOverloadBackground": "headerColor",
     "Popup.Header.inactiveBackground": "headerColor",
@@ -156,6 +157,10 @@
     "DefaultTabs.hoverBackground": "highlightColor",
 
     "Borders.color": "borderColor",
+    "EditorTabs.borderColor": "borderColor",
+    "Group.separatorColor": "borderColor",
+    "Separator.separatorColor": "borderColor",
+    "SearchEverywhere.List.separatorColor": "borderColor",
     "Borders.ContrastBorderColor": "borderColor",
     "Button.disabledBorderColor": "borderColor",
     "Button.endBorderColor": "borderColor",
