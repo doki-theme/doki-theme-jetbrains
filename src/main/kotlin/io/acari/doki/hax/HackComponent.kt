@@ -196,7 +196,7 @@ object HackComponent : Disposable {
       )[0]
       init.instrument(object : ExprEditor() {
         override fun edit(e: MethodCall?) {
-          if (e?.methodName == "isUnderDarcula") { // dis for OptionDescription
+          if (e?.methodName == "isUnderDarcula") {
             e.replace("{ \$_ = true; }")
           }
         }
