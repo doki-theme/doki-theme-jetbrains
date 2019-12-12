@@ -10,6 +10,8 @@ import com.intellij.ide.util.TipPanel
 import com.intellij.ide.util.gotoByName.CustomMatcherModel
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.fileEditor.impl.EditorComposite
+import com.intellij.openapi.fileEditor.impl.EditorHistoryManager
+import com.intellij.openapi.fileEditor.impl.EditorsSplitters
 import com.intellij.ui.JBColor
 import com.intellij.ui.messages.JBMacMessages
 import io.acari.doki.hax.FeildHacker.setFinalStatic
@@ -181,6 +183,29 @@ object HackComponent : Disposable {
 
   private fun enableBorderConsistency() {
     hackSwitcherBorder()
+    hackEditorBorder()
+  }
+
+  private fun hackEditorBorder() {
+    try {
+      val cp = ClassPool(true)
+      cp.insertClassPath(ClassClassPath(EditorHistoryManager::class.java))
+      val ctClass = cp.get("com.intellij.openapi.fileEditor.impl.EditorsSplitters")
+      val init = ctClass.getDeclaredMethods(
+        "paintComponent"
+      )[0]
+      init.instrument(object : ExprEditor() {
+        override fun edit(e: MethodCall?) {
+          if (e?.methodName == "isUnderDarcula") { // dis for OptionDescription
+            e.replace("{ \$_ = true; }")
+          }
+        }
+      })
+      ctClass.toClass()
+    } catch (e: Exception) {
+      e.printStackTrace()
+    }
+
   }
 
   private fun hackSwitcherBorder() {
