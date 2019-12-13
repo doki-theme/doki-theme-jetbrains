@@ -122,6 +122,12 @@
                 description="Changes the current sticker at the bottom right hand corner of the screen.">
             <add-to-group group-id="DokiThemeActions" anchor="last"/>
         </action>
+        <action id="io.acari.doki.actions.ThemeAnimationToggle" class="io.acari.doki.actions.ThemeAnimationToggle"
+                text="Enable Transition Animation"
+                icon="/icons/doki/magic.svg"
+                description="Fancy fade transition animation when changing any look and feel.">
+            <add-to-group group-id="DokiThemeActions" anchor="last"/>
+        </action>
         <action id="io.acari.doki.actions.ShowSettingsAction" class="io.acari.doki.actions.ShowSettingsAction"
                 text="Show Settings"
                 icon="/icons/general/gearPlain.svg"

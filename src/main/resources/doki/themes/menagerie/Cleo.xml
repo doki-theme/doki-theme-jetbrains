@@ -29,7 +29,7 @@
         <option name="ADDED_LINES_COLOR" value="d0fdc9" />
         <option name="ANNOTATIONS_COLOR" value="474747" />
         <option name="CARET_COLOR" value="272727" />
-        <option name="CARET_ROW_COLOR" value="ecf0f1" />
+        <option name="CARET_ROW_COLOR" value="E7EDF0" />
         <option name="CONSOLE_BACKGROUND_KEY" value="e3e4ef" />
         <option name="DELETED_LINES_COLOR" value="b63b50" />
         <option name="DOCUMENTATION_COLOR" value="dfe0eb" />
@@ -59,7 +59,7 @@
         <option name="GUTTER_BACKGROUND" value="e3e4ef" />
         <option name="INDENT_GUIDE" value="d3d4df" />
         <option name="INFORMATION_HINT" value="dfe0eb" />
-        <option name="LINE_NUMBERS_COLOR" value="c0c9cd" />
+        <option name="LINE_NUMBERS_COLOR" value="ACB4B8" />
         <option name="LINE_NUMBER_ON_CARET_ROW_COLOR" value="a7adb0" />
         <option name="METHOD_SEPARATORS_COLOR" value="9daab1" />
         <option name="MODIFIED_LINES_COLOR" value="c8eaff" />
@@ -180,7 +180,7 @@
         </option>
         <option name="BREADCRUMBS_DEFAULT">
             <value>
-                <option name="FOREGROUND" value="c0c9cd" />
+                <option name="FOREGROUND" value="ACB4B8" />
                 <option name="BACKGROUND" value="e3e4ef" />
             </value>
         </option>
@@ -251,12 +251,12 @@
         </option>
         <option name="CONSOLE_CYAN_BRIGHT_OUTPUT">
             <value>
-                <option name="FOREGROUND" value="8be9fd" />
+                <option name="FOREGROUND" value="53ABC7" />
             </value>
         </option>
         <option name="CONSOLE_CYAN_OUTPUT">
             <value>
-                <option name="FOREGROUND" value="75d7ec" />
+                <option name="FOREGROUND" value="53ABC7" />
             </value>
         </option>
         <option name="CONSOLE_ERROR_OUTPUT">
@@ -291,7 +291,7 @@
         </option>
         <option name="CONSOLE_NORMAL_OUTPUT">
             <value>
-                <option name="FOREGROUND" value="8d96a1" />
+                <option name="FOREGROUND" value="727982" />
             </value>
         </option>
         <option name="CONSOLE_OUTPUT">
@@ -314,7 +314,7 @@
         </option>
         <option name="CONSOLE_SYSTEM_OUTPUT">
             <value>
-                <option name="FOREGROUND" value="8d96a1" />
+                <option name="FOREGROUND" value="727982" />
             </value>
         </option>
         <option name="CONSOLE_USER_INPUT">
@@ -484,7 +484,7 @@
         </option>
         <option name="DEFAULT_DOC_COMMENT_TAG_VALUE">
             <value>
-                <option name="FOREGROUND" value="8d96a1" />
+                <option name="FOREGROUND" value="727982" />
                 <option name="FONT_TYPE" value="3" />
             </value>
         </option>
@@ -520,7 +520,7 @@
         </option>
         <option name="DEFAULT_IDENTIFIER">
             <value>
-                <option name="FOREGROUND" value="8d96a1" />
+                <option name="FOREGROUND" value="727982" />
             </value>
         </option>
         <option name="DEFAULT_INSTANCE_FIELD">
@@ -701,7 +701,7 @@
         </option>
         <option name="FOLDED_TEXT_ATTRIBUTES">
             <value>
-                <option name="FOREGROUND" value="8d96a1" />
+                <option name="FOREGROUND" value="727982" />
                 <option name="BACKGROUND" value="ECEDF8" />
             </value>
         </option>
@@ -950,7 +950,7 @@
         </option>
         <option name="IGNORE.SLASH">
             <value>
-                <option name="FOREGROUND" value="8d96a1" />
+                <option name="FOREGROUND" value="727982" />
             </value>
         </option>
         <option name="IGNORE.SYNTAX">
@@ -961,7 +961,7 @@
         </option>
         <option name="IGNORE.VALUE">
             <value>
-                <option name="FOREGROUND" value="8d96a1" />
+                <option name="FOREGROUND" value="727982" />
             </value>
         </option>
         <option name="IMPLICIT_ANONYMOUS_CLASS_PARAMETER_ATTRIBUTES">
@@ -1069,7 +1069,7 @@
         </option>
         <option name="JUPYTER_SELECTED_CELL">
             <value>
-                <option name="BACKGROUND" value="ecf0f1" />
+                <option name="BACKGROUND" value="E7EDF0" />
             </value>
         </option>
         <option name="KOTLIN_COLON">
@@ -1226,7 +1226,7 @@
         </option>
         <option name="MARKDOWN.TEXT">
             <value>
-                <option name="FOREGROUND" value="8d96a1" />
+                <option name="FOREGROUND" value="727982" />
             </value>
         </option>
         <option name="MARKDOWN_AUTO_LINK">
@@ -1397,7 +1397,7 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.ABBREVIATION_EXPANDED_TEXT">
             <value>
-                <option name="FOREGROUND" value="8d96a1" />
+                <option name="FOREGROUND" value="727982" />
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.ABBREVIATION_SHORT_TEXT">
@@ -1448,7 +1448,7 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.DEFINITION_MARKER">
             <value>
-                <option name="FOREGROUND" value="8d96a1" />
+                <option name="FOREGROUND" value="727982" />
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.DEFINITION_TERM">
@@ -1638,7 +1638,7 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE">
             <value>
-                <option name="FOREGROUND" value="8d96a1" />
+                <option name="FOREGROUND" value="727982" />
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_CAPTION">
@@ -1648,7 +1648,7 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_REVEN_CEVEN">
             <value>
-                <option name="FOREGROUND" value="8d96a1" />
+                <option name="FOREGROUND" value="727982" />
                 <option name="BACKGROUND" value="ECEDF8" />
             </value>
         </option>
@@ -1710,7 +1710,7 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_REVEN_CODD">
             <value>
-                <option name="FOREGROUND" value="8d96a1" />
+                <option name="FOREGROUND" value="727982" />
                 <option name="BACKGROUND" value="ECEDF8" />
             </value>
         </option>
@@ -1772,7 +1772,7 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_RODD_CEVEN">
             <value>
-                <option name="FOREGROUND" value="8d96a1" />
+                <option name="FOREGROUND" value="727982" />
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_RODD_CEVEN_BOLD_TEXT">
@@ -1826,7 +1826,7 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_RODD_CODD">
             <value>
-                <option name="FOREGROUND" value="8d96a1" />
+                <option name="FOREGROUND" value="727982" />
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_RODD_CODD_BOLD_TEXT">
@@ -2090,12 +2090,12 @@
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_ROW_EVEN">
             <value>
-                <option name="FOREGROUND" value="8d96a1" />
+                <option name="FOREGROUND" value="727982" />
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_ROW_ODD">
             <value>
-                <option name="FOREGROUND" value="8d96a1" />
+                <option name="FOREGROUND" value="727982" />
             </value>
         </option>
         <option name="MARKDOWN_NAVIGATOR.TABLE_SEPARATOR">
@@ -2728,7 +2728,7 @@
         </option>
         <option name="TEXT">
             <value>
-                <option name="FOREGROUND" value="8d96a1" />
+                <option name="FOREGROUND" value="727982" />
                 <option name="BACKGROUND" value="e3e4ef" />
                 <option name="EFFECT_TYPE" value="5" />
             </value>

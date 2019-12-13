@@ -598,13 +598,13 @@
         </option>
         <option name="DIFF_INSERTED">
             <value>
-                <option name="BACKGROUND" value="2E284B"/>
+                <option name="BACKGROUND" value="234440"/>
                 <option name="ERROR_STRIPE_COLOR" value="344C69"/>
             </value>
         </option>
         <option name="DIFF_MODIFIED">
             <value>
-                <option name="BACKGROUND" value="203952"/>
+                <option name="BACKGROUND" value="2E284B"/>
                 <option name="ERROR_STRIPE_COLOR" value="227125"/>
             </value>
         </option>

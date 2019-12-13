@@ -16,13 +16,13 @@ val UPDATE_MESSAGE: String = """
       Thanks again for downloading <b>The Doki Theme</b>! •‿•<br>
 """.trimIndent()
 
-const val CURRENT_VERSION = "5.0.0"
+const val CURRENT_VERSION = "5.0.1"
 
 object UpdateNotification {
 
   private val notificationManager by lazy {
     SingletonNotificationManager(
-      NotificationGroup("DokiUpdates",
+      NotificationGroup("Doki Updates",
       NotificationDisplayType.STICKY_BALLOON, true),
       NotificationType.INFORMATION)
   }
@@ -51,5 +51,14 @@ object UpdateNotification {
         """.trimMargin()
       )
 
+    }
+
+    fun displayAnimationInstallMessage() {
+      notificationManager.notify(
+        "Theme Transition Animation Enabled",
+        """The animations will remain in your IDE after uninstalling the plugin.
+          |To remove them, un-check this action or remove them at "Help -> Find Action -> ide.intellij.laf.enable.animation". 
+        """.trimMargin()
+      )
     }
 }

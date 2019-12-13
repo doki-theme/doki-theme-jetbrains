@@ -1,5 +1,10 @@
 # Changelog
 ---
+# 5.0.1
+
+- Opt in to Theme transition animation, as that configuration sticks around after removing the plugin.
+- Many Small Consistency tweaks (too many to list, but you won't notice because that's the point :)
+
 # 5.0.0
 
 ### Complete Theme Re-Write
