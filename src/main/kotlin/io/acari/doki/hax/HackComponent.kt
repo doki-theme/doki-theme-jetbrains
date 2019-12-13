@@ -11,7 +11,6 @@ import com.intellij.ide.util.gotoByName.CustomMatcherModel
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.fileEditor.impl.EditorComposite
 import com.intellij.openapi.fileEditor.impl.EditorHistoryManager
-import com.intellij.openapi.fileEditor.impl.EditorsSplitters
 import com.intellij.ui.JBColor
 import com.intellij.ui.messages.JBMacMessages
 import io.acari.doki.hax.FeildHacker.setFinalStatic
