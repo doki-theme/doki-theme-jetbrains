@@ -5,11 +5,12 @@ import io.acari.doki.icon.provider.associations.Associations
 import io.acari.doki.icon.provider.associations.IconAssociatiorFactory
 import javax.swing.Icon
 
-object DirectoryIconProvider: IconProvider {
-  private val associator = IconAssociatiorFactory.create(Associations.DIRECTORY)
+object FileIconProvider: IconProvider {
+  private val associator =
+      IconAssociatiorFactory.create(Associations.FILE)
   override fun getIcon(virtualFileInfo: VirtualFileInfo): Icon? {
     return associator.findAssociation(virtualFileInfo)
-      .map { IconLoader.getIcon("/icons/material/folders${it.iconPath}") }
+      .map { IconLoader.getIcon(it.iconPath) }
       .orElseGet { null }
   }
 }
