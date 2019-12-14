@@ -1,6 +1,5 @@
 package io.acari.doki.ui.status
 
-import com.intellij.icons.AllIcons
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.application.ModalityState
 import com.intellij.openapi.options.ShowSettingsUtil
@@ -11,11 +10,9 @@ import com.intellij.util.Consumer
 import io.acari.doki.settings.ThemeSettings.Companion.THEME_SETTINGS_DISPLAY_NAME
 import java.awt.Component
 import java.awt.event.MouseEvent
-import javax.swing.Icon
 
 class ThemeStatusBarWidget(private val project: Project) :
   StatusBarWidget,
-  StatusBarWidget.IconPresentation,
   StatusBarWidget.TextPresentation {
   companion object {
     private const val ID = "Doki Theme Status Component"
@@ -35,13 +32,13 @@ class ThemeStatusBarWidget(private val project: Project) :
   }
 
   override fun dispose() {
-    if(this::myStatusBar.isInitialized){
+    if (this::myStatusBar.isInitialized) {
       myStatusBar.dispose()
     }
   }
 
-  override fun getIcon(): Icon =
-    AllIcons.Nodes.Favorite
+//  override fun getIcon(): Icon =
+//    AllIcons.Nodes.Favorite
 
   override fun getClickConsumer(): Consumer<MouseEvent> = Consumer {
     ApplicationManager.getApplication().invokeLater({
