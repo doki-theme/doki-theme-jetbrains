@@ -43,7 +43,7 @@
             <stop stop-color="#087CFA" offset="100%"/>
         </linearGradient>
     </defs>
-    <path d="M10 4H4c-1.11 0-2 .89-2 2v12c0 1.097.903 2 2 2h16c1.097 0 2-.903 2-2V8a2 2 0 0 0-2-2h-8l-2-2z"
+    <path d="M 1,19.260657 H 22.968108 V 5.1383012 H 11.959843 L 9.9383992,3.116435 C 9.1935075,2.4481407 8.2427303,2.0542611 7.243462,2 H 1.080466 C 1.0360259,2 1,2.0360259 1,2.080466 Z"
           fill-rule="nonzero" fill="#00BCD4"/>
     <g xmlns="http://www.w3.org/2000/svg" fill="none">
         <path fill="url(#a)" d="M16.2 49.9L.7 37.7l7.7-14.3L30.5 32z" transform="matrix(.2 0 0 .2 10.4 9)"/>
