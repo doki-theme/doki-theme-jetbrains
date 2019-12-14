@@ -8,7 +8,6 @@ import com.intellij.openapi.Disposable
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.project.impl.ProjectLifecycleListener
-import com.intellij.openapi.util.registry.Registry
 import io.acari.doki.config.ThemeConfig
 import io.acari.doki.hax.HackComponent.hackLAF
 import io.acari.doki.hax.SvgLoaderHacker.setSVGColorPatcher
@@ -20,6 +19,7 @@ import io.acari.doki.notification.CURRENT_VERSION
 import io.acari.doki.notification.UpdateNotification
 import io.acari.doki.stickers.CurrentSticker
 import io.acari.doki.themes.ThemeManager
+import io.acari.doki.ui.status.ThemeStatusBarOrchestrator
 import io.acari.doki.util.LegacyThemeUtilities
 import io.acari.doki.util.LegacyThemeUtilities.DARK_MODE_PROP
 import io.acari.doki.util.LegacyThemeUtilities.SAVED_STATE
@@ -44,11 +44,15 @@ class TheDokiTheme : Disposable {
           setSVGColorPatcher()
           installAllUIComponents()
           attemptToInstallColors()
+
+          ThemeStatusBarOrchestrator.updateToTheme(it)
         })
         {
           if (ThemeConfig.instance.isDokiFileColors) {
             attemptToRemoveColors()
           }
+
+          ThemeStatusBarOrchestrator.removeComponent()
         }
     })
 
@@ -62,6 +66,9 @@ class TheDokiTheme : Disposable {
           ThemeConfig.instance.version = CURRENT_VERSION
           UpdateNotification.display(project)
         }
+
+        // todo: configurable?
+        ThemeStatusBarOrchestrator.consumeProject(project)
       }
     })
   }
