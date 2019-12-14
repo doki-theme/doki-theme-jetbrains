@@ -10,7 +10,7 @@ object FileIconProvider: IconProvider {
       IconAssociatiorFactory.create(Associations.FILE)
   override fun getIcon(virtualFileInfo: VirtualFileInfo): Icon? {
     return associator.findAssociation(virtualFileInfo)
-      .map { IconLoader.getIcon(it.iconPath) }
+      .map { IconLoader.getIcon("/icons/material${it.iconPath   }") }
       .orElseGet { null }
   }
 }
