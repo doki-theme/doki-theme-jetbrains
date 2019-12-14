@@ -2,7 +2,7 @@
 ---
 # 5.0.2
 
-- Brought back the theme name in the lower right hand of the IDE.
+- Brought back configurable the theme name in the lower right hand of the IDE.
     - Component no longer takes you to the settings page.
 
 # 5.0.1

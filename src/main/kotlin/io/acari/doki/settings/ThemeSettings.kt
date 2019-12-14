@@ -111,6 +111,15 @@ class ThemeSettings : SearchableConfigurable {
         }
         row {
           checkBox(
+            "Theme Name in Status Bar",
+            themeSettingsModel.showThemeStatusBar,
+            actionListener = { _, component ->
+              themeSettingsModel.showThemeStatusBar = component.isSelected
+            }
+          )
+        }
+        row {
+          checkBox(
             "Themed Title Bar",
             themeSettingsModel.isThemedTitleBar,
             comment = "Feature only works on MacOS",

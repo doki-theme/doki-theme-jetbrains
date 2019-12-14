@@ -6,7 +6,7 @@ import com.intellij.openapi.project.Project
 val UPDATE_MESSAGE: String = """
       What's New?<br>
       <ul>
-      <li>Brought back theme name in Status Bar.</li>
+      <li>Brought back configurable theme name in Status Bar.</li>
       </ul>
       <br>Please see the <a href="https://github.com/cyclic-reference/ddlc-jetbrains-theme/blob/master/changelog/CHANGELOG.md">Changelog</a> for more details.
       <br>
