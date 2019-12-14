@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:cc="http://creativecommons.org/ns#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+     xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     x="0px" y="0px"
+     viewBox="-4 -4 68 68" width="16px" height="16px" xml:space="preserve">
+
+  <defs
+      id="defs8">
+        <linearGradient
+            inkscape:collect="always"
+            id="linearGradient6020-7-5">
+            <stop
+                stop-color="#870ad2"
+                style="stop-opacity:1"
+                offset="0"
+                themedStart="true"
+                id="stop6016"/>
+          <stop
+              stop-color="#f667ff"
+              style=";stop-opacity:1"
+              offset="1"
+              themedStop="true"
+              id="stop6018"/>
+        </linearGradient>
+    <linearGradient
+        inkscape:collect="always"
+        xlink:href="#linearGradient6020-7-5"
+        id="linearGradient6022"
+        x1="8.3356228"
+        y1="21.034628"
+        x2="17.712017"
+        y2="-2.1378632"
+        gradientUnits="userSpaceOnUse"/>
+    </defs>
+  <g fill="#0095D4">
+
+
+    <polygon points="1,60 31,30 60,60" themedStart="true"/>
+
+    <polygon points="0,0 30,0 0,30" themedStart="true"/>
+
+    <polygon points="31,0 0,31 0,60 30,30 60,0"
+             style="fill-opacity:1;fill:url(#linearGradient6022);fill-rule:nonzero"
+    />
+</g>
+</svg>
