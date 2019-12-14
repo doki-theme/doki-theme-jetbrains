@@ -5,7 +5,7 @@ import io.acari.doki.notification.UpdateNotification
 
 object ThemedTitleBarActor {
   fun enableThemedTitleBar(enabled: Boolean) {
-    if (enabled != ThemeConfig.instance.isDokiFileColors) {
+    if (enabled != ThemeConfig.instance.isThemedTitleBar) {
       ThemeConfig.instance.isThemedTitleBar = enabled
       UpdateNotification.displayRestartMessage()
     }

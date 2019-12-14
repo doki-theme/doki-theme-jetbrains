@@ -27,6 +27,7 @@ class ThemeConfig : PersistentStateComponent<ThemeConfig>, Cloneable {
   var selectedTheme: String = ThemeManager.MONIKA_LIGHT
   var isDokiFileColors: Boolean = false
   var isThemedTitleBar: Boolean = true
+  var showThemeStatusBar: Boolean = true
   var processedLegacyStickers: Boolean = false
   var processedLegacyStartup: Boolean = false
   var currentStickerName: String = CurrentSticker.DEFAULT.name

@@ -8,7 +8,6 @@ import com.intellij.openapi.Disposable
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.project.impl.ProjectLifecycleListener
-import com.intellij.openapi.util.registry.Registry
 import io.acari.doki.config.ThemeConfig
 import io.acari.doki.hax.HackComponent.hackLAF
 import io.acari.doki.hax.SvgLoaderHacker.setSVGColorPatcher

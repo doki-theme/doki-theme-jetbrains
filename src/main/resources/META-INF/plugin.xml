@@ -55,6 +55,7 @@
                                  groupId="appearance"/>
 
         <errorHandler id="9782e40c-e6d2-488f-8611-71f5cca6695e" implementation="io.acari.doki.integrations.ErrorReporter"/>
+        <statusBarWidgetProvider implementation="io.acari.doki.ui.status.ThemeStatusBarProvider"/>
 
         <themeMetadataProvider path="/theme-schema/DokiTheme.themeMetadata.json"/>
 

@@ -4,8 +4,8 @@ import io.acari.doki.config.ThemeConfig
 import io.acari.doki.stickers.CurrentSticker
 import io.acari.doki.util.toColor
 import io.acari.doki.util.toOptional
+import java.awt.Color
 import java.util.*
-import javax.swing.UIManager
 
 class Stickers(
   val default: String,
@@ -14,6 +14,7 @@ class Stickers(
 
 class DokiThemeDefinition(
   val name: String,
+  val displayName: String?,
   val dark: Boolean,
   val stickers: Stickers,
   val group: String,
@@ -28,12 +29,19 @@ class DokiTheme(private val uiTheme: DokiThemeDefinition) {
   }
 
   val groupName: String
-  get() = uiTheme.group
+    get() = uiTheme.group
   val isDark: Boolean
     get() = uiTheme.dark
 
   val name: String
     get() = uiTheme.name
+
+  val displayName: String
+    get() = uiTheme.displayName ?: throw IllegalStateException(
+      """
+|${name}'s theme.json requires "displayName" to be defined""".trimMargin()
+    )
+
 
   fun getStickerPath(): Optional<String> {
     return when (ThemeConfig.instance.currentSticker) {
@@ -54,11 +62,16 @@ class DokiTheme(private val uiTheme: DokiThemeDefinition) {
     get() = uiTheme.colors["testScopeColor"] as? String
       ?: throw IllegalStateException("Expected 'colors.testScopeColor' to be present in theme $name json.")
 
+  val contrastColor: Color
+    get() = (uiTheme.colors["contrastColor"] as? String)?.toColor()
+      ?: throw IllegalStateException("Expected 'colors.contrastColor' to be present in theme $name json.")
+
 
   companion object {
+    val ACCENT_COLOR = "Doki.Accent.color"
     //todo: read from json...
     val requiredNamedColors = listOf(
-      "Doki.Accent.color",
+      ACCENT_COLOR,
       "Doki.startColor",
       "Doki.stopColor"
     )
@@ -67,6 +80,7 @@ class DokiTheme(private val uiTheme: DokiThemeDefinition) {
   private fun validateThemeDefinition() {
     nonProjectFileScopeColor
     testScopeColor
+    displayName
     try {
       if (!uiTheme.stickers.default.matches("^/stickers/.+\\.png\$".toRegex())) {
         throw NullPointerException()

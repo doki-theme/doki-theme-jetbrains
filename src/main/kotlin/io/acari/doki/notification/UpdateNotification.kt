@@ -5,18 +5,15 @@ import com.intellij.openapi.project.Project
 
 val UPDATE_MESSAGE: String = """
       What's New?<br>
-      <br>Please see the <a href="https://github.com/cyclic-reference/ddlc-jetbrains-theme/blob/master/changelog/CHANGELOG.md">Changelog</a> for more details.
       <ul>
-      <li>Brand New Look and Feel for all themes!</li>
-      <li>Simplified Settings.
-          <li>File Colors may need to be re-enabled.</li>
-      </li>
+      <li>Brought back configurable theme name in Status Bar.</li>
       </ul>
+      <br>Please see the <a href="https://github.com/cyclic-reference/ddlc-jetbrains-theme/blob/master/changelog/CHANGELOG.md">Changelog</a> for more details.
       <br>
       Thanks again for downloading <b>The Doki Theme</b>! •‿•<br>
 """.trimIndent()
 
-const val CURRENT_VERSION = "5.0.1"
+const val CURRENT_VERSION = "5.0.2"
 
 object UpdateNotification {
 

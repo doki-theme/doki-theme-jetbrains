@@ -25,6 +25,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "required": [
     "name",
+    "displayName",
     "dark",
     "author",
     "stickers",
@@ -39,6 +40,15 @@
       "default": "",
       "examples": [
         "My Brand New Theme"
+      ]
+    },
+    "displayName": {
+      "type": "string",
+      "title": "Display name",
+      "description": "Display name",
+      "default": "",
+      "examples": [
+        "Just Monika"
       ]
     },
     "dark": {
