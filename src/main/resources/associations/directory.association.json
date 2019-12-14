@@ -1,697 +1,699 @@
-[
-  {
-    "name": "admin",
-    "pattern": "^admin$",
-    "icon": "/netlify.svg"
-  },
-  {
-    "name": "android",
-    "pattern": "^android$",
-    "icon": "/android.svg"
-  },
-  {
-    "name": "animations",
-    "pattern": "^(animations?|anims?)$",
-    "icon": "/animations.svg"
-  },
-  {
-    "name": "api",
-    "pattern": "^(apis?|rest|swagger)$",
-    "icon": "/api.svg"
-  },
-  {
-    "name": "audio",
-    "pattern": "^(mp3|wav|musics?|audio|sounds?)$",
-    "icon": "/audio.svg"
-  },
-  {
-    "name": "archives",
-    "pattern": "^(archives?|jars?|zips?|backups?)",
-    "icon": "/archive.svg"
-  },
-  {
-    "name": "aws",
-    "pattern": "^\\.?aws$",
-    "icon": "/aws.svg"
-  },
-  {
-    "name": "azuredevops",
-    "pattern": "^(azuredevops?|azure-devops?)$",
-    "icon": "/azure-devops.svg"
-  },
-  {
-    "name": "benchmark",
-    "pattern": "^benchmarks?$",
-    "icon": "/benchmark.svg"
-  },
-  {
-    "name": "bower",
-    "pattern": "^bower_components$",
-    "icon": "/bower.svg"
-  },
-  {
-    "name": "channels",
-    "pattern": "^(channels?)$",
-    "icon": "/messages.svg"
-  },
-  {
-    "name": "ci",
-    "pattern": "^(ci|integrations?)$",
-    "icon": "/ci.svg"
-  },
-  {
-    "name": "circleci",
-    "pattern": "^\\.?circleci$",
-    "icon": "/circleci.svg"
-  },
-  {
-    "name": "components",
-    "pattern": "^(components?|modules?)$",
-    "icon": "/components.svg"
-  },
-  {
-    "name": "config",
-    "pattern": "^\\.?(config|conf|settings)$",
-    "icon": "/config.svg"
-  },
-  {
-    "name": "containers",
-    "pattern": "^(containers?)$",
-    "icon": "/container.svg"
-  },
-  {
-    "name": "content",
-    "pattern": "^(contents?|cont)$",
-    "icon": "/content.svg"
-  },
-  {
-    "name": "constants",
-    "pattern": "^(constants?|const)$",
-    "icon": "/constants.svg"
-  },
-  {
-    "name": "controllers",
-    "pattern": "^(controllers?|ctrls?)$",
-    "icon": "/controllers.svg"
-  },
-  {
-    "name": "core",
-    "pattern": "^(core|support)$",
-    "icon": "/core.svg"
-  },
-  {
-    "name": "coverage",
-    "pattern": "^coverage$",
-    "icon": "/coverage.svg"
-  },
-  {
-    "name": "custom",
-    "pattern": "^custom$",
-    "icon": "/custom.svg"
-  },
-  {
-    "name": "db",
-    "pattern": "^(db|migrate|sql|database|repos?|repositories)$",
-    "icon": "/db.svg"
-  },
-  {
-    "name": "debug",
-    "pattern": "^(debug|debugging)$",
-    "icon": "/debug.svg"
-  },
-  {
-    "name": "delta",
-    "pattern": "^(deltas?|diff)$",
-    "icon": "/delta.svg"
-  },
-  {
-    "name": "deploy",
-    "pattern": "^deploy$",
-    "icon": "/aws.svg"
-  },
-  {
-    "name": "dist",
-    "pattern": "^(dist|out|build|release)$",
-    "icon": "/dist.svg"
-  },
-  {
-    "name": "docker",
-    "pattern": "^\\.?docker$",
-    "icon": "/docker.svg"
-  },
-  {
-    "name": "docs",
-    "pattern": "^(docs?|documentation)$",
-    "icon": "/docs.svg"
-  },
-  {
-    "name": "doki-doki",
-    "pattern": "(.*)(ddlc|DDLC|DOKI|doki|Doki)(.*)",
-    "icon": "/ddlc.svg"
-  },
-  {
-    "name": "download",
-    "pattern": "^downloads?$",
-    "icon": "/download.svg"
-  },
-  {
-    "name": "dump",
-    "pattern": "^(dumps?|data)$",
-    "icon": "/dump.svg"
-  },
-  {
-    "name": "e2e",
-    "pattern": "^(e2e|scenarios?)$",
-    "icon": "/e2e.svg"
-  },
-  {
-    "name": "env",
-    "pattern": "^(envs?|environments?)$",
-    "icon": "/env.svg"
-  },
-  {
-    "name": "error",
-    "pattern": "^(errors?)$",
-    "icon": "/error.svg"
-  },
-  {
-    "name": "events",
-    "pattern": "^(events?)$",
-    "icon": "/events.svg"
-  },
-  {
-    "name": "example",
-    "pattern": "^(examples?|exs?)$",
-    "icon": "/examples.svg"
-  },
-  {
-    "name": "exclude",
-    "pattern": "^(excludes?|external)$",
-    "icon": "/exclude.svg"
-  },
-  {
-    "name": "expo",
-    "pattern": "^\\.expo(-shared)?$",
-    "icon": "/expo.svg"
-  },
-  {
-    "name": "features",
-    "pattern": "^(features?|feats?)$",
-    "icon": "/rules.svg"
-  },
-  {
-    "name": "fixtures",
-    "pattern": "^(fixtures?|fabricators?|factory|factories)$",
-    "icon": "/fixtures.svg"
-  },
-  {
-    "name": "flow",
-    "pattern": "^(flow|defs?)$",
-    "icon": "/flow.svg"
-  },
-  {
-    "name": "fonts",
-    "pattern": "^fonts?$",
-    "icon": "/fonts.svg"
-  },
-  {
-    "name": "functions",
-    "pattern": "^(functions?|services?|lambdas?)$",
-    "icon": "/functions.svg"
-  },
-  {
-    "name": "generated",
-    "pattern": "^(gen|generated|auto)$",
-    "icon": "/generated.svg"
-  },
-  {
-    "name": "git",
-    "pattern": "^(\\.git|\\.submodules)$",
-    "icon": "/git.svg"
-  },
-  {
-    "name": "github",
-    "pattern": "^\\.?github$",
-    "icon": "/github.svg"
-  },
-  {
-    "name": "global",
-    "pattern": "^global$",
-    "icon": "/global.svg"
-  },
-  {
-    "name": "gradle",
-    "pattern": "^\\.?gradle$",
-    "icon": "/gradle.svg"
-  },
-  {
-    "name": "graphql",
-    "pattern": "^(graphql|gql|schemas?)$",
-    "icon": "/graphql.svg"
-  },
-  {
-    "name": "grunt",
-    "pattern": "^grunt$",
-    "icon": "/grunt.svg"
-  },
-  {
-    "name": "guard",
-    "pattern": "^guards?$",
-    "icon": "/guard.svg"
-  },
-  {
-    "name": "gulp",
-    "pattern": "^gulp$",
-    "icon": "/gulp.svg"
-  },
-  {
-    "name": "helper",
-    "pattern": "^(helpers?|help)$",
-    "icon": "/helper.svg"
-  },
-  {
-    "name": "hooks",
-    "pattern": "^(hooks?|triggers?)",
-    "icon": "/hook.svg"
-  },
-  {
-    "name": "i18n",
-    "pattern": "^(i18n|langs?|languages?|localization|locales?|translations?)$",
-    "icon": "/i18n.svg"
-  },
-  {
-    "name": "icons",
-    "pattern": "^(icons?|ico|svg|svgicons?)$",
-    "icon": "/icons.svg"
-  },
-  {
-    "name": "idea",
-    "pattern": "^\\.idea$",
-    "icon": "/idea.svg"
-  },
-  {
-    "name": "ios",
-    "pattern": ".*\\.xc(odeproj|workspace)",
-    "icon": "/ios.svg"
-  },
-  {
-    "name": "images",
-    "pattern": "^(images?|img|medias?)$",
-    "icon": "/images.svg"
-  },
-  {
-    "name": "include",
-    "pattern": "^(includes?|imports?|concerns?)$",
-    "icon": "/include.svg"
-  },
-  {
-    "name": "init",
-    "pattern": "^(init|initializers?|startup)$",
-    "icon": "/hook.svg"
-  },
-  {
-    "name": "javascript",
-    "pattern": "^(javascripts?|js)$",
-    "icon": "/js.svg"
-  },
-  {
-    "name": "jinja",
-    "pattern": "^jinja$",
-    "icon": "/jinja.svg"
-  },
-  {
-    "name": "jobs",
-    "pattern": "^(jobs?|resque)$",
-    "icon": "/job.svg"
-  },
-  {
-    "name": "json",
-    "pattern": "^jsons?$",
-    "icon": "/json.svg"
-  },
-  {
-    "name": "keys",
-    "pattern": "^(keys?|certs?)$",
-    "icon": "/keys.svg"
-  },
-  {
-    "name": "kubernetes",
-    "pattern": "^(kubernetes|k8s)$",
-    "icon": "/kubernetes.svg"
-  },
-  {
-    "name": "layouts",
-    "pattern": "^_?layouts?$",
-    "icon": "/layouts.svg"
-  },
-  {
-    "name": "less",
-    "pattern": "^less$",
-    "icon": "/less.svg"
-  },
-  {
-    "name": "logs",
-    "pattern": "^logs?$",
-    "icon": "/logs.svg"
-  },
-  {
-    "name": "mailers",
-    "pattern": "^(mailers?|emails?|mails?)$",
-    "icon": "/mailers.svg"
-  },
-  {
-    "name": "markdown",
-    "pattern": "^(md|markdown)$",
-    "icon": "/markdown.svg"
-  },
-  {
-    "name": "maven",
-    "pattern": "^maven$",
-    "icon": "/maven.svg"
-  },
-  {
-    "name": "maps",
-    "pattern": "^(maps?|mappings?)$",
-    "icon": "/maps.svg"
-  },
-  {
-    "name": "messages",
-    "pattern": "^(messages?|msgs?)$",
-    "icon": "/messages.svg"
-  },
-  {
-    "name": "meta",
-    "pattern": "^(meta|META-INF)$",
-    "icon": "/meta.svg"
-  },
-  {
-    "name": "middlewares",
-    "pattern": "^(middlewares?|thunks?)$",
-    "icon": "/middleware.svg"
-  },
-  {
-    "name": "mocks",
-    "pattern": "^(mocks?|fakes?|stubs?)$",
-    "icon": "/mocks.svg"
-  },
-  {
-    "name": "modals",
-    "pattern": "^(modals?|portals?)$",
-    "icon": "/modals.svg"
-  },
-  {
-    "name": "models",
-    "pattern": "^(models?|structs?|class|classes)$",
-    "icon": "/models.svg"
-  },
-  {
-    "name": "netlify",
-    "pattern": "^\\.netlify",
-    "icon": "/netlify.svg"
-  },
-  {
-    "name": "node_modules",
-    "pattern": "^node_modules$",
-    "icon": "/node.svg"
-  },
-  {
-    "name": "notification",
-    "pattern": "(notif|notifications?|flash)",
-    "icon": "/notification.svg"
-  },
-  {
-    "name": "nuxt",
-    "pattern": "(nuxt|.nuxt)",
-    "icon": "/nuxt.svg"
-  },
-  {
-    "name": "nyc",
-    "pattern": "^\\.nyc",
-    "icon": "/coverage.svg"
-  },
-  {
-    "name": "other",
-    "pattern": "^(other|misc|extras?)$",
-    "icon": "/other.svg"
-  },
-  {
-    "name": "packages",
-    "pattern": "^packages?$",
-    "icon": "/packages.svg"
-  },
-  {
-    "name": "php",
-    "pattern": "^php$",
-    "icon": "/php.svg"
-  },
-  {
-    "name": "pipe",
-    "pattern": "^(pipes?|filters?)$",
-    "icon": "/pipe.svg"
-  },
-  {
-    "name": "plugin",
-    "pattern": "^(mu-)?plugins?$",
-    "icon": "/plugin.svg"
-  },
-  {
-    "name": "posts",
-    "pattern": "^posts?$",
-    "icon": "/posts.svg"
-  },
-  {
-    "name": "prisma",
-    "pattern": "^\\.prisma$",
-    "icon": "/prisma.svg"
-  },
-  {
-    "name": "private",
-    "pattern": "^private$",
-    "icon": "/private.svg"
-  },
-  {
-    "name": "providers",
-    "pattern": "^providers?$",
-    "icon": "/providers.svg"
-  },
-  {
-    "name": "python",
-    "pattern": "^python$",
-    "icon": "/python.svg"
-  },
-  {
-    "name": "react",
-    "pattern": "^react[_-]?.*",
-    "icon": "/react.svg"
-  },
-  {
-    "name": "redux-actions",
-    "pattern": "^actions?$",
-    "icon": "/redux-actions.svg"
-  },
-  {
-    "name": "redux-reducers",
-    "pattern": "^reducers?$",
-    "icon": "/redux-reducers.svg"
-  },
-  {
-    "name": "redux-stores",
-    "pattern": "^stores?$",
-    "icon": "/redux-stores.svg"
-  },
-  {
-    "name": "relay",
-    "pattern": "^relay$",
-    "icon": "/relay.svg"
-  },
-  {
-    "name": "resource",
-    "pattern": "^(res|resources?|assets?)$",
-    "icon": "/resource.svg"
-  },
-  {
-    "name": "resourceIOS",
-    "pattern": ".*\\.xcassets",
-    "icon": "/resource.svg"
-  },
-  {
-    "name": "reviews",
-    "pattern": "^reviews?$",
-    "icon": "/reviews.svg"
-  },
-  {
-    "name": "routes",
-    "pattern": "^(routes|router)$",
-    "icon": "/routes.svg"
-  },
-  {
-    "name": "rules",
-    "pattern": "^(validations?|validators?|rules?)$",
-    "icon": "/rules.svg"
-  },
-  {
-    "name": "sass",
-    "pattern": "^(sass|scss)$",
-    "icon": "/sass.svg"
-  },
-  {
-    "name": "screens",
-    "pattern": "^(screens?|screenshots?)$",
-    "icon": "/screens.svg"
-  },
-  {
-    "name": "scripts",
-    "pattern": "^(scripts?|selectors?)$",
-    "icon": "/scripts.svg"
-  },
-  {
-    "name": "security",
-    "pattern": "^(secure|security)$",
-    "icon": "/security.svg"
-  },
-  {
-    "name": "server",
-    "pattern": "^(server|http|requests?|sagas?)$",
-    "icon": "/server.svg"
-  },
-  {
-    "name": "serverless",
-    "pattern": "^\\.?serverless$",
-    "icon": "/serverless.svg"
-  },
-  {
-    "name": "shared",
-    "pattern": "^shared$",
-    "icon": "/shared.svg"
-  },
-  {
-    "name": "sources",
-    "pattern": "^(src|app)$",
-    "icon": "/src.svg"
-  },
-  {
-    "name": "stack",
-    "pattern": "^stacks?$",
-    "icon": "/stack.svg"
-  },
-  {
-    "name": "storybook",
-    "pattern": "^(stories|storybooks?)$",
-    "icon": "/storybook.svg"
-  },
-  {
-    "name": "storybookConfig",
-    "pattern": "^\\.storybook$",
-    "icon": "/storybook.svg"
-  },
-  {
-    "name": "styles",
-    "pattern": "^(css|styles?|stylesheets?)$",
-    "icon": "/styles.svg"
-  },
-  {
-    "name": "stylus",
-    "pattern": "^(styl|stylus)$",
-    "icon": "/stylus.svg"
-  },
-  {
-    "name": "sublime",
-    "pattern": "^\\.sublime$",
-    "icon": "/sublime.svg"
-  },
-  {
-    "name": "sync",
-    "pattern": "^(sync|synced)$",
-    "icon": "/sync.svg"
-  },
-  {
-    "name": "syntax",
-    "pattern": "^(syntax|syntaxes|spellcheck)$",
-    "icon": "/syntax.svg"
-  },
-  {
-    "name": "tasks",
-    "pattern": "^(tasks?)$",
-    "icon": "/tasks.svg"
-  },
-  {
-    "name": "temp",
-    "pattern": "^(\\.?tmp|\\.?temp|\\.?cache)$",
-    "icon": "/temp.svg"
-  },
-  {
-    "name": "tests",
-    "pattern": "^(tests?|specs?)$",
-    "icon": "/tests.svg"
-  },
-  {
-    "name": "themes",
-    "pattern": "^(themes?|colors?|schemes?|skins?)$",
-    "icon": "/themes.svg"
-  },
-  {
-    "name": "typescript",
-    "pattern": "^(typescripts?|ts|interfaces?)$",
-    "icon": "/ts.svg"
-  },
-  {
-    "name": "upload",
-    "pattern": "^uploads?$",
-    "icon": "/upload.svg"
-  },
-  {
-    "name": "utils",
-    "pattern": "^(utils?|tools?)$",
-    "icon": "/tools.svg"
-  },
-  {
-    "name": "vendors",
-    "pattern": "^(vendors?|libs?|Pods?)$",
-    "icon": "/lib.svg"
-  },
-  {
-    "name": "video",
-    "pattern": "^(videos?|movies?)$",
-    "icon": "/video.svg"
-  },
-  {
-    "name": "views",
-    "pattern": "^(views?|templates?|pages?)$",
-    "icon": "/views.svg"
-  },
-  {
-    "name": "vm",
-    "pattern": "^(virtual|vms?|machines?)$",
-    "icon": "/vm.svg"
-  },
-  {
-    "name": "vscode",
-    "pattern": "^\\.?vscode$",
-    "icon": "/vscode.svg"
-  },
-  {
-    "name": "vue",
-    "pattern": "^vue$",
-    "icon": "/vue.svg"
-  },
-  {
-    "name": "vuex",
-    "pattern": "^vuex$",
-    "icon": "/vuex.svg"
-  },
-  {
-    "name": "web",
-    "pattern": "^(public|static|web|www|wwwroot)$",
-    "icon": "/web.svg"
-  },
-  {
-    "name": "webpack",
-    "pattern": "^webpack$",
-    "icon": "/webpack.svg"
-  },
-  {
-    "name": "wordpress",
-    "pattern": "^wp-(admin|content|includes)$",
-    "icon": "/wordpress.svg"
-  }
-]
+{
+  "associations": [
+    {
+      "name": "admin",
+      "associationPattern": "^admin$",
+      "iconPath": "/netlify.svg"
+    },
+    {
+      "name": "android",
+      "associationPattern": "^android$",
+      "iconPath": "/android.svg"
+    },
+    {
+      "name": "animations",
+      "associationPattern": "^(animations?|anims?)$",
+      "iconPath": "/animations.svg"
+    },
+    {
+      "name": "api",
+      "associationPattern": "^(apis?|rest|swagger)$",
+      "iconPath": "/api.svg"
+    },
+    {
+      "name": "audio",
+      "associationPattern": "^(mp3|wav|musics?|audio|sounds?)$",
+      "iconPath": "/audio.svg"
+    },
+    {
+      "name": "archives",
+      "associationPattern": "^(archives?|jars?|zips?|backups?)",
+      "iconPath": "/archive.svg"
+    },
+    {
+      "name": "aws",
+      "associationPattern": "^\\.?aws$",
+      "iconPath": "/aws.svg"
+    },
+    {
+      "name": "azuredevops",
+      "associationPattern": "^(azuredevops?|azure-devops?)$",
+      "iconPath": "/azure-devops.svg"
+    },
+    {
+      "name": "benchmark",
+      "associationPattern": "^benchmarks?$",
+      "iconPath": "/benchmark.svg"
+    },
+    {
+      "name": "bower",
+      "associationPattern": "^bower_components$",
+      "iconPath": "/bower.svg"
+    },
+    {
+      "name": "channels",
+      "associationPattern": "^(channels?)$",
+      "iconPath": "/messages.svg"
+    },
+    {
+      "name": "ci",
+      "associationPattern": "^(ci|integrations?)$",
+      "iconPath": "/ci.svg"
+    },
+    {
+      "name": "circleci",
+      "associationPattern": "^\\.?circleci$",
+      "iconPath": "/circleci.svg"
+    },
+    {
+      "name": "components",
+      "associationPattern": "^(components?|modules?)$",
+      "iconPath": "/components.svg"
+    },
+    {
+      "name": "config",
+      "associationPattern": "^\\.?(config|conf|settings)$",
+      "iconPath": "/config.svg"
+    },
+    {
+      "name": "containers",
+      "associationPattern": "^(containers?)$",
+      "iconPath": "/container.svg"
+    },
+    {
+      "name": "content",
+      "associationPattern": "^(contents?|cont)$",
+      "iconPath": "/content.svg"
+    },
+    {
+      "name": "constants",
+      "associationPattern": "^(constants?|const)$",
+      "iconPath": "/constants.svg"
+    },
+    {
+      "name": "controllers",
+      "associationPattern": "^(controllers?|ctrls?)$",
+      "iconPath": "/controllers.svg"
+    },
+    {
+      "name": "core",
+      "associationPattern": "^(core|support)$",
+      "iconPath": "/core.svg"
+    },
+    {
+      "name": "coverage",
+      "associationPattern": "^coverage$",
+      "iconPath": "/coverage.svg"
+    },
+    {
+      "name": "custom",
+      "associationPattern": "^custom$",
+      "iconPath": "/custom.svg"
+    },
+    {
+      "name": "db",
+      "associationPattern": "^(db|migrate|sql|database|repos?|repositories)$",
+      "iconPath": "/db.svg"
+    },
+    {
+      "name": "debug",
+      "associationPattern": "^(debug|debugging)$",
+      "iconPath": "/debug.svg"
+    },
+    {
+      "name": "delta",
+      "associationPattern": "^(deltas?|diff)$",
+      "iconPath": "/delta.svg"
+    },
+    {
+      "name": "deploy",
+      "associationPattern": "^deploy$",
+      "iconPath": "/aws.svg"
+    },
+    {
+      "name": "dist",
+      "associationPattern": "^(dist|out|build|release)$",
+      "iconPath": "/dist.svg"
+    },
+    {
+      "name": "docker",
+      "associationPattern": "^\\.?docker$",
+      "iconPath": "/docker.svg"
+    },
+    {
+      "name": "docs",
+      "associationPattern": "^(docs?|documentation)$",
+      "iconPath": "/docs.svg"
+    },
+    {
+      "name": "doki-doki",
+      "associationPattern": "(.*)(ddlc|DDLC|DOKI|doki|Doki)(.*)",
+      "iconPath": "/ddlc.svg"
+    },
+    {
+      "name": "download",
+      "associationPattern": "^downloads?$",
+      "iconPath": "/download.svg"
+    },
+    {
+      "name": "dump",
+      "associationPattern": "^(dumps?|data)$",
+      "iconPath": "/dump.svg"
+    },
+    {
+      "name": "e2e",
+      "associationPattern": "^(e2e|scenarios?)$",
+      "iconPath": "/e2e.svg"
+    },
+    {
+      "name": "env",
+      "associationPattern": "^(envs?|environments?)$",
+      "iconPath": "/env.svg"
+    },
+    {
+      "name": "error",
+      "associationPattern": "^(errors?)$",
+      "iconPath": "/error.svg"
+    },
+    {
+      "name": "events",
+      "associationPattern": "^(events?)$",
+      "iconPath": "/events.svg"
+    },
+    {
+      "name": "example",
+      "associationPattern": "^(examples?|exs?)$",
+      "iconPath": "/examples.svg"
+    },
+    {
+      "name": "exclude",
+      "associationPattern": "^(excludes?|external)$",
+      "iconPath": "/exclude.svg"
+    },
+    {
+      "name": "expo",
+      "associationPattern": "^\\.expo(-shared)?$",
+      "iconPath": "/expo.svg"
+    },
+    {
+      "name": "features",
+      "associationPattern": "^(features?|feats?)$",
+      "iconPath": "/rules.svg"
+    },
+    {
+      "name": "fixtures",
+      "associationPattern": "^(fixtures?|fabricators?|factory|factories)$",
+      "iconPath": "/fixtures.svg"
+    },
+    {
+      "name": "flow",
+      "associationPattern": "^(flow|defs?)$",
+      "iconPath": "/flow.svg"
+    },
+    {
+      "name": "fonts",
+      "associationPattern": "^fonts?$",
+      "iconPath": "/fonts.svg"
+    },
+    {
+      "name": "functions",
+      "associationPattern": "^(functions?|services?|lambdas?)$",
+      "iconPath": "/functions.svg"
+    },
+    {
+      "name": "generated",
+      "associationPattern": "^(gen|generated|auto)$",
+      "iconPath": "/generated.svg"
+    },
+    {
+      "name": "git",
+      "associationPattern": "^(\\.git|\\.submodules)$",
+      "iconPath": "/git.svg"
+    },
+    {
+      "name": "github",
+      "associationPattern": "^\\.?github$",
+      "iconPath": "/github.svg"
+    },
+    {
+      "name": "global",
+      "associationPattern": "^global$",
+      "iconPath": "/global.svg"
+    },
+    {
+      "name": "gradle",
+      "associationPattern": "^\\.?gradle$",
+      "iconPath": "/gradle.svg"
+    },
+    {
+      "name": "graphql",
+      "associationPattern": "^(graphql|gql|schemas?)$",
+      "iconPath": "/graphql.svg"
+    },
+    {
+      "name": "grunt",
+      "associationPattern": "^grunt$",
+      "iconPath": "/grunt.svg"
+    },
+    {
+      "name": "guard",
+      "associationPattern": "^guards?$",
+      "iconPath": "/guard.svg"
+    },
+    {
+      "name": "gulp",
+      "associationPattern": "^gulp$",
+      "iconPath": "/gulp.svg"
+    },
+    {
+      "name": "helper",
+      "associationPattern": "^(helpers?|help)$",
+      "iconPath": "/helper.svg"
+    },
+    {
+      "name": "hooks",
+      "associationPattern": "^(hooks?|triggers?)",
+      "iconPath": "/hook.svg"
+    },
+    {
+      "name": "i18n",
+      "associationPattern": "^(i18n|langs?|languages?|localization|locales?|translations?)$",
+      "iconPath": "/i18n.svg"
+    },
+    {
+      "name": "icons",
+      "associationPattern": "^(icons?|ico|svg|svgicons?)$",
+      "iconPath": "/icons.svg"
+    },
+    {
+      "name": "idea",
+      "associationPattern": "^\\.idea$",
+      "iconPath": "/idea.svg"
+    },
+    {
+      "name": "ios",
+      "associationPattern": ".*\\.xc(odeproj|workspace)",
+      "iconPath": "/ios.svg"
+    },
+    {
+      "name": "images",
+      "associationPattern": "^(images?|img|medias?)$",
+      "iconPath": "/images.svg"
+    },
+    {
+      "name": "include",
+      "associationPattern": "^(includes?|imports?|concerns?)$",
+      "iconPath": "/include.svg"
+    },
+    {
+      "name": "init",
+      "associationPattern": "^(init|initializers?|startup)$",
+      "iconPath": "/hook.svg"
+    },
+    {
+      "name": "javascript",
+      "associationPattern": "^(javascripts?|js)$",
+      "iconPath": "/js.svg"
+    },
+    {
+      "name": "jinja",
+      "associationPattern": "^jinja$",
+      "iconPath": "/jinja.svg"
+    },
+    {
+      "name": "jobs",
+      "associationPattern": "^(jobs?|resque)$",
+      "iconPath": "/job.svg"
+    },
+    {
+      "name": "json",
+      "associationPattern": "^jsons?$",
+      "iconPath": "/json.svg"
+    },
+    {
+      "name": "keys",
+      "associationPattern": "^(keys?|certs?)$",
+      "iconPath": "/keys.svg"
+    },
+    {
+      "name": "kubernetes",
+      "associationPattern": "^(kubernetes|k8s)$",
+      "iconPath": "/kubernetes.svg"
+    },
+    {
+      "name": "layouts",
+      "associationPattern": "^_?layouts?$",
+      "iconPath": "/layouts.svg"
+    },
+    {
+      "name": "less",
+      "associationPattern": "^less$",
+      "iconPath": "/less.svg"
+    },
+    {
+      "name": "logs",
+      "associationPattern": "^logs?$",
+      "iconPath": "/logs.svg"
+    },
+    {
+      "name": "mailers",
+      "associationPattern": "^(mailers?|emails?|mails?)$",
+      "iconPath": "/mailers.svg"
+    },
+    {
+      "name": "markdown",
+      "associationPattern": "^(md|markdown)$",
+      "iconPath": "/markdown.svg"
+    },
+    {
+      "name": "maven",
+      "associationPattern": "^maven$",
+      "iconPath": "/maven.svg"
+    },
+    {
+      "name": "maps",
+      "associationPattern": "^(maps?|mappings?)$",
+      "iconPath": "/maps.svg"
+    },
+    {
+      "name": "messages",
+      "associationPattern": "^(messages?|msgs?)$",
+      "iconPath": "/messages.svg"
+    },
+    {
+      "name": "meta",
+      "associationPattern": "^(meta|META-INF)$",
+      "iconPath": "/meta.svg"
+    },
+    {
+      "name": "middlewares",
+      "associationPattern": "^(middlewares?|thunks?)$",
+      "iconPath": "/middleware.svg"
+    },
+    {
+      "name": "mocks",
+      "associationPattern": "^(mocks?|fakes?|stubs?)$",
+      "iconPath": "/mocks.svg"
+    },
+    {
+      "name": "modals",
+      "associationPattern": "^(modals?|portals?)$",
+      "iconPath": "/modals.svg"
+    },
+    {
+      "name": "models",
+      "associationPattern": "^(models?|structs?|class|classes)$",
+      "iconPath": "/models.svg"
+    },
+    {
+      "name": "netlify",
+      "associationPattern": "^\\.netlify",
+      "iconPath": "/netlify.svg"
+    },
+    {
+      "name": "node_modules",
+      "associationPattern": "^node_modules$",
+      "iconPath": "/node.svg"
+    },
+    {
+      "name": "notification",
+      "associationPattern": "(notif|notifications?|flash)",
+      "iconPath": "/notification.svg"
+    },
+    {
+      "name": "nuxt",
+      "associationPattern": "(nuxt|.nuxt)",
+      "iconPath": "/nuxt.svg"
+    },
+    {
+      "name": "nyc",
+      "associationPattern": "^\\.nyc",
+      "iconPath": "/coverage.svg"
+    },
+    {
+      "name": "other",
+      "associationPattern": "^(other|misc|extras?)$",
+      "iconPath": "/other.svg"
+    },
+    {
+      "name": "packages",
+      "associationPattern": "^packages?$",
+      "iconPath": "/packages.svg"
+    },
+    {
+      "name": "php",
+      "associationPattern": "^php$",
+      "iconPath": "/php.svg"
+    },
+    {
+      "name": "pipe",
+      "associationPattern": "^(pipes?|filters?)$",
+      "iconPath": "/pipe.svg"
+    },
+    {
+      "name": "plugin",
+      "associationPattern": "^(mu-)?plugins?$",
+      "iconPath": "/plugin.svg"
+    },
+    {
+      "name": "posts",
+      "associationPattern": "^posts?$",
+      "iconPath": "/posts.svg"
+    },
+    {
+      "name": "prisma",
+      "associationPattern": "^\\.prisma$",
+      "iconPath": "/prisma.svg"
+    },
+    {
+      "name": "private",
+      "associationPattern": "^private$",
+      "iconPath": "/private.svg"
+    },
+    {
+      "name": "providers",
+      "associationPattern": "^providers?$",
+      "iconPath": "/providers.svg"
+    },
+    {
+      "name": "python",
+      "associationPattern": "^python$",
+      "iconPath": "/python.svg"
+    },
+    {
+      "name": "react",
+      "associationPattern": "^react[_-]?.*",
+      "iconPath": "/react.svg"
+    },
+    {
+      "name": "redux-actions",
+      "associationPattern": "^actions?$",
+      "iconPath": "/redux-actions.svg"
+    },
+    {
+      "name": "redux-reducers",
+      "associationPattern": "^reducers?$",
+      "iconPath": "/redux-reducers.svg"
+    },
+    {
+      "name": "redux-stores",
+      "associationPattern": "^stores?$",
+      "iconPath": "/redux-stores.svg"
+    },
+    {
+      "name": "relay",
+      "associationPattern": "^relay$",
+      "iconPath": "/relay.svg"
+    },
+    {
+      "name": "resource",
+      "associationPattern": "^(res|resources?|assets?)$",
+      "iconPath": "/resource.svg"
+    },
+    {
+      "name": "resourceIOS",
+      "associationPattern": ".*\\.xcassets",
+      "iconPath": "/resource.svg"
+    },
+    {
+      "name": "reviews",
+      "associationPattern": "^reviews?$",
+      "iconPath": "/reviews.svg"
+    },
+    {
+      "name": "routes",
+      "associationPattern": "^(routes|router)$",
+      "iconPath": "/routes.svg"
+    },
+    {
+      "name": "rules",
+      "associationPattern": "^(validations?|validators?|rules?)$",
+      "iconPath": "/rules.svg"
+    },
+    {
+      "name": "sass",
+      "associationPattern": "^(sass|scss)$",
+      "iconPath": "/sass.svg"
+    },
+    {
+      "name": "screens",
+      "associationPattern": "^(screens?|screenshots?)$",
+      "iconPath": "/screens.svg"
+    },
+    {
+      "name": "scripts",
+      "associationPattern": "^(scripts?|selectors?)$",
+      "iconPath": "/scripts.svg"
+    },
+    {
+      "name": "security",
+      "associationPattern": "^(secure|security)$",
+      "iconPath": "/security.svg"
+    },
+    {
+      "name": "server",
+      "associationPattern": "^(server|http|requests?|sagas?)$",
+      "iconPath": "/server.svg"
+    },
+    {
+      "name": "serverless",
+      "associationPattern": "^\\.?serverless$",
+      "iconPath": "/serverless.svg"
+    },
+    {
+      "name": "shared",
+      "associationPattern": "^shared$",
+      "iconPath": "/shared.svg"
+    },
+    {
+      "name": "sources",
+      "associationPattern": "^(src|app)$",
+      "iconPath": "/src.svg"
+    },
+    {
+      "name": "stack",
+      "associationPattern": "^stacks?$",
+      "iconPath": "/stack.svg"
+    },
+    {
+      "name": "storybook",
+      "associationPattern": "^(stories|storybooks?)$",
+      "iconPath": "/storybook.svg"
+    },
+    {
+      "name": "storybookConfig",
+      "associationPattern": "^\\.storybook$",
+      "iconPath": "/storybook.svg"
+    },
+    {
+      "name": "styles",
+      "associationPattern": "^(css|styles?|stylesheets?)$",
+      "iconPath": "/styles.svg"
+    },
+    {
+      "name": "stylus",
+      "associationPattern": "^(styl|stylus)$",
+      "iconPath": "/stylus.svg"
+    },
+    {
+      "name": "sublime",
+      "associationPattern": "^\\.sublime$",
+      "iconPath": "/sublime.svg"
+    },
+    {
+      "name": "sync",
+      "associationPattern": "^(sync|synced)$",
+      "iconPath": "/sync.svg"
+    },
+    {
+      "name": "syntax",
+      "associationPattern": "^(syntax|syntaxes|spellcheck)$",
+      "iconPath": "/syntax.svg"
+    },
+    {
+      "name": "tasks",
+      "associationPattern": "^(tasks?)$",
+      "iconPath": "/tasks.svg"
+    },
+    {
+      "name": "temp",
+      "associationPattern": "^(\\.?tmp|\\.?temp|\\.?cache)$",
+      "iconPath": "/temp.svg"
+    },
+    {
+      "name": "tests",
+      "associationPattern": "^(tests?|specs?)$",
+      "iconPath": "/tests.svg"
+    },
+    {
+      "name": "themes",
+      "associationPattern": "^(themes?|colors?|schemes?|skins?)$",
+      "iconPath": "/themes.svg"
+    },
+    {
+      "name": "typescript",
+      "associationPattern": "^(typescripts?|ts|interfaces?)$",
+      "iconPath": "/ts.svg"
+    },
+    {
+      "name": "upload",
+      "associationPattern": "^uploads?$",
+      "iconPath": "/upload.svg"
+    },
+    {
+      "name": "utils",
+      "associationPattern": "^(utils?|tools?)$",
+      "iconPath": "/tools.svg"
+    },
+    {
+      "name": "vendors",
+      "associationPattern": "^(vendors?|libs?|Pods?)$",
+      "iconPath": "/lib.svg"
+    },
+    {
+      "name": "video",
+      "associationPattern": "^(videos?|movies?)$",
+      "iconPath": "/video.svg"
+    },
+    {
+      "name": "views",
+      "associationPattern": "^(views?|templates?|pages?)$",
+      "iconPath": "/views.svg"
+    },
+    {
+      "name": "vm",
+      "associationPattern": "^(virtual|vms?|machines?)$",
+      "iconPath": "/vm.svg"
+    },
+    {
+      "name": "vscode",
+      "associationPattern": "^\\.?vscode$",
+      "iconPath": "/vscode.svg"
+    },
+    {
+      "name": "vue",
+      "associationPattern": "^vue$",
+      "iconPath": "/vue.svg"
+    },
+    {
+      "name": "vuex",
+      "associationPattern": "^vuex$",
+      "iconPath": "/vuex.svg"
+    },
+    {
+      "name": "web",
+      "associationPattern": "^(public|static|web|www|wwwroot)$",
+      "iconPath": "/web.svg"
+    },
+    {
+      "name": "webpack",
+      "associationPattern": "^webpack$",
+      "iconPath": "/webpack.svg"
+    },
+    {
+      "name": "wordpress",
+      "associationPattern": "^wp-(admin|content|includes)$",
+      "iconPath": "/wordpress.svg"
+    }
+  ]
+}
