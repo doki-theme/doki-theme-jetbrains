@@ -10,6 +10,9 @@ import com.intellij.openapi.ui.popup.ListPopup
 import com.intellij.openapi.wm.StatusBar
 import com.intellij.openapi.wm.StatusBarWidget
 import com.intellij.util.Consumer
+import io.acari.doki.config.THEME_CONFIG_TOPIC
+import io.acari.doki.config.ThemeConfig
+import io.acari.doki.config.ThemeConfigListener
 import io.acari.doki.settings.ThemeSettings.Companion.THEME_SETTINGS_DISPLAY_NAME
 import io.acari.doki.themes.ThemeManager
 import java.awt.event.MouseEvent
@@ -30,6 +33,14 @@ class ThemeStatusBarWidget(private val project: Project) :
         myStatusBar.updateWidget(ID)
       }
     })
+    val self = this
+    connect.subscribe(THEME_CONFIG_TOPIC, object : ThemeConfigListener {
+      override fun themeConfigUpdated(themeConfig: ThemeConfig) {
+        if (self::myStatusBar.isInitialized) {
+          self.myStatusBar.updateWidget(ID)
+        }
+      }
+    })
   }
 
   private lateinit var myStatusBar: StatusBar
@@ -38,6 +49,7 @@ class ThemeStatusBarWidget(private val project: Project) :
 
   override fun getSelectedValue(): String? =
     ThemeManager.instance.currentTheme
+      .filter { ThemeConfig.instance.showThemeStatusBar }
       .map { it.displayName }
       .orElseGet { null }
 
@@ -57,6 +69,7 @@ class ThemeStatusBarWidget(private val project: Project) :
 
   override fun getIcon(): Icon? =
     ThemeManager.instance.currentTheme
+      .filter { ThemeConfig.instance.showThemeStatusBar }
       .map { AllIcons.Nodes.Favorite }
       .orElseGet { null }
 

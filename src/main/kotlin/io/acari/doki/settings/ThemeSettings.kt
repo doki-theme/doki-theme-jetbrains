@@ -1,10 +1,13 @@
 package io.acari.doki.settings
 
 import com.intellij.ide.BrowserUtil.browse
+import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.options.SearchableConfigurable
 import com.intellij.openapi.ui.ComboBox
 import com.intellij.ui.layout.panel
+import io.acari.doki.config.THEME_CONFIG_TOPIC
 import io.acari.doki.config.ThemeConfig
+import io.acari.doki.config.ThemeConfigListener
 import io.acari.doki.settings.actors.*
 import io.acari.doki.stickers.CurrentSticker
 import io.acari.doki.stickers.StickerLevel
@@ -20,6 +23,7 @@ data class ThemeSettingsModel(
   var currentTheme: String,
   var isThemedTitleBar: Boolean,
   var isFileColors: Boolean,
+  var showThemeStatusBar: Boolean,
   var isSwappedSticker: Boolean
 )
 
@@ -43,6 +47,7 @@ class ThemeSettings : SearchableConfigurable {
     ThemeManager.instance.currentTheme.map { it.name }.orElseGet { ThemeManager.MONIKA_LIGHT },
     ThemeConfig.instance.isThemedTitleBar,
     ThemeConfig.instance.isDokiFileColors,
+    ThemeConfig.instance.showThemeStatusBar,
     ThemeConfig.instance.currentSticker == CurrentSticker.SECONDARY
   )
 
@@ -59,6 +64,10 @@ class ThemeSettings : SearchableConfigurable {
     StickerActor.swapStickers(themeSettingsModel.isSwappedSticker, false)
     ThemedTitleBarActor.enableThemedTitleBar(themeSettingsModel.isThemedTitleBar)
     ThemeActor.applyTheme(themeSettingsModel.currentTheme)
+    ThemeStatusBarActor.applyConfig(themeSettingsModel.showThemeStatusBar)
+    ApplicationManager.getApplication().messageBus.syncPublisher(
+      THEME_CONFIG_TOPIC
+    ).themeConfigUpdated(ThemeConfig.instance)
   }
 
   override fun createComponent(): JComponent? {
