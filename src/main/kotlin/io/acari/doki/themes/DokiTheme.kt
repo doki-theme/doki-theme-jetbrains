@@ -14,6 +14,7 @@ class Stickers(
 
 class DokiThemeDefinition(
   val name: String,
+  val displayName: String?,
   val dark: Boolean,
   val stickers: Stickers,
   val group: String,
@@ -28,12 +29,19 @@ class DokiTheme(private val uiTheme: DokiThemeDefinition) {
   }
 
   val groupName: String
-  get() = uiTheme.group
+    get() = uiTheme.group
   val isDark: Boolean
     get() = uiTheme.dark
 
   val name: String
     get() = uiTheme.name
+
+  val displayName: String
+    get() = uiTheme.displayName ?: throw IllegalStateException(
+      """
+|${name}'s theme.json requires "displayName" to be defined""".trimMargin()
+    )
+
 
   fun getStickerPath(): Optional<String> {
     return when (ThemeConfig.instance.currentSticker) {
@@ -72,6 +80,7 @@ class DokiTheme(private val uiTheme: DokiThemeDefinition) {
   private fun validateThemeDefinition() {
     nonProjectFileScopeColor
     testScopeColor
+    displayName
     try {
       if (!uiTheme.stickers.default.matches("^/stickers/.+\\.png\$".toRegex())) {
         throw NullPointerException()

@@ -38,7 +38,7 @@ class ThemeStatusBarWidget(private val project: Project) :
 
   override fun getSelectedValue(): String? =
     ThemeManager.instance.currentTheme
-      .map { it.name }
+      .map { it.displayName }
       .orElseGet { null }
 
   override fun ID(): String = ID
