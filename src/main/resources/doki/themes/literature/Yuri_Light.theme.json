@@ -161,6 +161,8 @@
     "Borders.color": "borderColor",
     "EditorTabs.borderColor": "borderColor",
     "Group.separatorColor": "borderColor",
+    "Group.disabledSeparatorColor": "borderColor",
+    "TabbedPane.contentAreaColor": "borderColor",
     "Separator.separatorColor": "borderColor",
     "SearchEverywhere.List.separatorColor": "borderColor",
     "Borders.ContrastBorderColor": "borderColor",
