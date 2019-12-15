@@ -11,11 +11,11 @@ data class IconAssociation(
   val iconPath: String
 )
 
+// todo: schema
 enum class Associations(val fileName: String) {
   DIRECTORY("directory.association.json"),
   FILE("file.association.json");
 }
-
 
 class AssociationModels(
   val associations: List<IconAssociationDefinition>

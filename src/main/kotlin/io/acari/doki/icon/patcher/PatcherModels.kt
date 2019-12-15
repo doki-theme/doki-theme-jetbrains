@@ -12,7 +12,6 @@ class PathPatchersDefinition(
   val glyphs: List<PathPatcherDefinition>
 )
 
-
 class MaterialPathPatchers(
   val glyphs: List<MaterialPathPatcher> = Collections.emptyList()
 )
