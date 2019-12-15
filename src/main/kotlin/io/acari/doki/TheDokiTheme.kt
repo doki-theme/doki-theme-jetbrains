@@ -11,6 +11,7 @@ import com.intellij.openapi.project.impl.ProjectLifecycleListener
 import io.acari.doki.config.ThemeConfig
 import io.acari.doki.hax.HackComponent.hackLAF
 import io.acari.doki.hax.SvgLoaderHacker.setSVGColorPatcher
+import io.acari.doki.icon.patcher.MaterialPathPatcherManager
 import io.acari.doki.laf.DokiAddFileColorsAction.setFileScopes
 import io.acari.doki.laf.FileScopeColors.attemptToInstallColors
 import io.acari.doki.laf.FileScopeColors.attemptToRemoveColors
@@ -36,6 +37,8 @@ class TheDokiTheme : Disposable {
     installAllUIComponents()
 
     migrateLegacyTheme()
+
+    MaterialPathPatcherManager.installPatchPatcher()
 
     connection.subscribe(LafManagerListener.TOPIC, LafManagerListener {
       ThemeManager.instance.currentTheme

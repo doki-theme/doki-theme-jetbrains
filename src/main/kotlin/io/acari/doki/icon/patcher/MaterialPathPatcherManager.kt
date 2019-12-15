@@ -1,12 +1,17 @@
 package io.acari.doki.icon.patcher
 
 import com.google.gson.Gson
+import com.intellij.openapi.util.IconLoader
 import com.intellij.util.ResourceUtil
 import java.io.InputStreamReader
 import java.nio.charset.StandardCharsets
 
 object MaterialPathPatcherManager {
-
+  fun installPatchPatcher() {
+    MaterialPathPatcherFactory.materialPathPatchers.glyphs.forEach {
+      IconLoader.installPathPatcher(it)
+    }
+  }
 }
 
 object MaterialPathPatcherFactory {
