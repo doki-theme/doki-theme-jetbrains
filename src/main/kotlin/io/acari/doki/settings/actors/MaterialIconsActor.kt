@@ -1,6 +1,9 @@
 package io.acari.doki.settings.actors
 
+import com.intellij.openapi.util.IconLoader
 import io.acari.doki.config.ThemeConfig
+import io.acari.doki.icon.patcher.MaterialPathPatcher
+import io.acari.doki.icon.patcher.MaterialPathPatcherFactory
 
 object MaterialIconsActor {
 
@@ -21,7 +24,23 @@ object MaterialIconsActor {
   fun enablePSIIcons(enabled: Boolean){
     if(ThemeConfig.instance.isMaterialPSIIcons != enabled) {
       ThemeConfig.instance.isMaterialPSIIcons = enabled
-      // refresh icons
+      addOrRemovePatchers(enabled,
+        MaterialPathPatcherFactory.materialPathPatchers.glyphs)
+    }
+  }
+
+  private fun addOrRemovePatchers(
+    enabled: Boolean,
+    patchers: List<MaterialPathPatcher>
+  ) {
+    if (enabled) {
+      patchers.forEach {
+        IconLoader.installPathPatcher(it)
+      }
+    } else {
+      patchers.forEach {
+        IconLoader.removePathPatcher(it)
+      }
     }
   }
 }

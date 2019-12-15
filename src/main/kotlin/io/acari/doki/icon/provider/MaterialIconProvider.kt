@@ -2,7 +2,6 @@ package io.acari.doki.icon.provider
 
 import com.intellij.ide.IconProvider
 import com.intellij.openapi.project.DumbAware
-import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.psi.PsiDirectory
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
@@ -40,16 +39,4 @@ class MaterialIconProvider : IconProvider(), DumbAware {
       .map { FileIconProvider.getIcon(it) }
       .orElseGet { null }
   }
-}
-
-class VirtualFileInfo(
-  val psiElement: PsiElement,
-  private val virtualFile: VirtualFile
-) {
-  val name: String?
-    get() = virtualFile.name
-
-  val fileType: String?
-    get() = virtualFile.fileType.name
-
 }
