@@ -1,5 +1,13 @@
 # Changelog
 ---
+# 5.1.0 
+- Brought back Configurable Material Icons
+    - Icons Brought Back:
+        - Directory Icons
+        - File Icons
+        - PSI Icons
+    - Icons are off by default, so be sure to go to the theme settings to turn them on.
+
 # 5.0.3
 
 - Fixed Stickers not showing up in certain environments.
