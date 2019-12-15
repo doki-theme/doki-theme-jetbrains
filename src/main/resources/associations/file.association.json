@@ -3,2162 +3,2162 @@
     {
       "name": "Github CODE",
       "associationPattern": "^CODE_OF_CONDUCT\\.(md|txt)$",
-      "iconPath": "/icons/files/github.svg"
+      "iconPath": "/github.svg"
     },
     {
       "name": "Github CONTRIBUTING",
       "associationPattern": "^CONTRIBUTING\\.(md|txt)$",
-      "iconPath": "/icons/files/github.svg"
+      "iconPath": "/github.svg"
     },
     {
       "name": "Github COMMIT",
       "associationPattern": "^COMMIT_MESSAGE_CONVENTION\\.md$",
-      "iconPath": "/icons/files/github.svg"
+      "iconPath": "/github.svg"
     },
     {
       "name": "Github TEMPLATE",
       "associationPattern": ".*TEMPLATE\\.md$",
-      "iconPath": "/icons/files/github.svg"
+      "iconPath": "/github.svg"
     },
     {
       "name": "README",
       "associationPattern": "^(README|readme)(\\.(md|txt))?$",
-      "iconPath": "/icons/files/readme.svg"
+      "iconPath": "/readme.svg"
     },
     {
       "name": "Plugin",
       "associationPattern": "^plugin.xml$",
-      "iconPath": "/icons/files/plugin.svg"
+      "iconPath": "/plugin.svg"
     },
     {
       "name": "Prefs",
       "associationPattern": ".*\\.prefs$",
-      "iconPath": "/icons/files/config.svg"
+      "iconPath": "/config.svg"
     },
     {
       "name": "webp",
       "associationPattern": ".*\\.webp$",
-      "iconPath": "/icons/files/image.svg"
+      "iconPath": "/image.svg"
     },
     {
       "name": "3D",
       "associationPattern": ".*\\.(stl|obj|dae|3ds|dxf|ac)",
-      "iconPath": "/icons/files/3d.svg"
+      "iconPath": "/3d.svg"
     },
     {
       "name": "Access",
       "associationPattern": ".*\\.(adn|accdb|accdr|accdt|accda|mdw|accde|mam|maq|mar|mat|maf|laccdb)$",
-      "iconPath": "/icons/files/access.svg"
+      "iconPath": "/access.svg"
     },
     {
       "name": "ActionScript",
       "associationPattern": ".*\\.as$",
-      "iconPath": "/icons/files/actionscript.svg"
+      "iconPath": "/actionscript.svg"
     },
     {
       "name": "Adobe Elements",
       "associationPattern": ".*\\.ae(p|t)$",
-      "iconPath": "/icons/files/ae.svg"
+      "iconPath": "/ae.svg"
     },
     {
       "name": "Adobe Illustrator",
       "associationPattern": ".*\\.ai$",
-      "iconPath": "/icons/files/ai.svg"
+      "iconPath": "/ai.svg"
     },
     {
       "name": "Ada",
       "associationPattern": ".*\\.(ada|adb)$",
-      "iconPath": "/icons/files/ada.svg"
+      "iconPath": "/ada.svg"
     },
     {
       "name": "Akka",
       "associationPattern": ".*\\.akka$",
-      "iconPath": "/icons/files/akka.svg"
+      "iconPath": "/akka.svg"
     },
     {
       "name": "Android Manifest",
       "associationPattern": "^AndroidManifest\\.xml$",
-      "iconPath": "/icons/files/android.svg"
+      "iconPath": "/android.svg"
     },
     {
       "name": "Android Main",
       "associationPattern": "^MainActivity\\.java$",
-      "iconPath": "/icons/files/android.svg"
+      "iconPath": "/android.svg"
     },
     {
       "name": "Angular-CLI",
       "associationPattern": "^angular(-cli)?\\.json$",
-      "iconPath": "/icons/files/angular.svg"
+      "iconPath": "/angular.svg"
     },
     {
       "name": "AngularJS",
       "associationPattern": "^angular\\.(min\\.)?js$",
-      "iconPath": "/icons/files/angular.svg"
+      "iconPath": "/angular.svg"
     },
     {
       "name": "Angular",
       "associationPattern": ".*\\.(ng\\.html|ng\\.js|module\\.[tj]s|ng-template)$",
-      "iconPath": "/icons/files/angular.svg"
+      "iconPath": "/angular.svg"
     },
     {
       "name": "Angular Component",
       "associationPattern": ".*\\.component\\.[tj]s$",
-      "iconPath": "/icons/files/angularcomponent.svg"
+      "iconPath": "/angularcomponent.svg"
     },
     {
       "name": "Angular Directive",
       "associationPattern": ".*\\.directive\\.[tj]s$",
-      "iconPath": "/icons/files/angulardirective.svg"
+      "iconPath": "/angulardirective.svg"
     },
     {
       "name": "Angular Guard",
       "associationPattern": ".*\\.guard\\.[tj]s$",
-      "iconPath": "/icons/files/angularguard.svg"
+      "iconPath": "/angularguard.svg"
     },
     {
       "name": "Angular Service",
       "associationPattern": ".*\\.service\\.[tj]s$",
-      "iconPath": "/icons/files/angularservice.svg"
+      "iconPath": "/angularservice.svg"
     },
     {
       "name": "Angular Pipe",
       "associationPattern": ".*\\.pipe\\.[tj]s$",
-      "iconPath": "/icons/files/angularpipe.svg"
+      "iconPath": "/angularpipe.svg"
     },
     {
       "name": "Angular Routing",
       "associationPattern": ".*\\.routing\\.[tj]s$",
-      "iconPath": "/icons/files/angularrouting.svg"
+      "iconPath": "/angularrouting.svg"
     },
     {
       "name": "Angular Resolver",
       "associationPattern": ".*\\.resolver\\.[tj]s$",
-      "iconPath": "/icons/files/angularresolver.svg"
+      "iconPath": "/angularresolver.svg"
     },
     {
       "name": "Ansible",
       "associationPattern": "^site\\.yml$",
-      "iconPath": "/icons/files/ansible.svg"
+      "iconPath": "/ansible.svg"
     },
     {
       "name": "ANTLR",
       "associationPattern": ".*\\.g4$",
-      "iconPath": "/icons/files/antlr.svg"
+      "iconPath": "/antlr.svg"
     },
     {
       "name": "API Blueprint",
       "associationPattern": ".*\\.apib$",
-      "iconPath": "/icons/files/apib.svg"
+      "iconPath": "/apib.svg"
     },
     {
       "name": "APK",
       "associationPattern": ".*\\.apk$",
-      "iconPath": "/icons/files/android.svg"
+      "iconPath": "/android.svg"
     },
     {
       "name": "Appveyor",
       "associationPattern": "^\\.?appveyor\\.yml$",
-      "iconPath": "/icons/files/appveyor.svg"
+      "iconPath": "/appveyor.svg"
     },
     {
       "name": "AppleScript",
       "associationPattern": ".*\\.applescript$",
-      "iconPath": "/icons/files/applescript.svg"
+      "iconPath": "/applescript.svg"
     },
     {
       "name": "Arduino",
       "associationPattern": ".*\\.ino$",
-      "iconPath": "/icons/files/arduino.svg"
+      "iconPath": "/arduino.svg"
     },
     {
       "name": "Asciidoc",
       "associationPattern": ".*\\.(ad|adoc|asciidoc)$",
-      "iconPath": "/icons/files/asciidoc.svg"
+      "iconPath": "/asciidoc.svg"
     },
     {
       "name": "AspectJ",
       "associationPattern": ".*\\.aj$",
-      "iconPath": "/icons/files/eclipse.svg"
+      "iconPath": "/eclipse.svg"
     },
     {
       "name": "ASM",
       "associationPattern": ".*\\.(asm|nasm|inc|ms|agc|aes|aea|argus|mitigus)$",
-      "iconPath": "/icons/files/asm.svg"
+      "iconPath": "/asm.svg"
     },
     {
       "name": "ASP",
       "associationPattern": ".*\\.(asp|asa|aspx)$",
-      "iconPath": "/icons/files/asp.svg"
+      "iconPath": "/asp.svg"
     },
     {
       "name": "Atom",
       "associationPattern": ".*\\.atom$",
-      "iconPath": "/icons/files/atom.svg"
+      "iconPath": "/atom.svg"
     },
     {
       "name": "Aurelia",
       "associationPattern": "^aurelia(file)?\\.js(on)?$",
-      "iconPath": "/icons/files/aurelia.svg"
+      "iconPath": "/aurelia.svg"
     },
     {
       "name": "Authors",
       "associationPattern": "^(AUTHORS|authors)(\\.(md|txt))?",
-      "iconPath": "/icons/files/authors.svg"
+      "iconPath": "/authors.svg"
     },
     {
       "name": "AutoHotKey",
       "associationPattern": ".*\\.ahk$",
-      "iconPath": "/icons/files/ahk.svg"
+      "iconPath": "/ahk.svg"
     },
     {
       "name": "AutoIt",
       "associationPattern": ".*\\.au3",
-      "iconPath": "/icons/files/autoit.svg"
+      "iconPath": "/autoit.svg"
     },
     {
       "name": "Azure",
       "associationPattern": ".*\\.azcli$",
-      "iconPath": "/icons/files/azure.svg"
+      "iconPath": "/azure.svg"
     },
     {
       "name": "Azure Pipelines",
       "associationPattern": "azure-pipelines\\.yml$",
-      "iconPath": "/icons/files/azure.svg"
+      "iconPath": "/azure.svg"
     },
     {
       "name": "Babel",
       "associationPattern": "^(\\.babelrc|babel\\.json)$",
-      "iconPath": "/icons/files/babel.svg"
+      "iconPath": "/babel.svg"
     },
     {
       "name": "Ballerina",
       "associationPattern": ".*\\.balx?$",
-      "iconPath": "/icons/files/ballerina.svg"
+      "iconPath": "/ballerina.svg"
     },
     {
       "name": "Basic",
       "associationPattern": ".*\\.(bas|vb|vbs)$",
-      "iconPath": "/icons/files/vs.svg"
+      "iconPath": "/vs.svg"
     },
     {
       "name": "Bazel",
       "associationPattern": ".*\\.(bzl|bazel)$",
-      "iconPath": "/icons/files/bazel.svg"
+      "iconPath": "/bazel.svg"
     },
     {
       "name": "Bean",
       "associationPattern": ".*(b|B)ean\\.java$",
-      "iconPath": "/icons/files/bean.svg"
+      "iconPath": "/bean.svg"
     },
     {
       "name": "Behat",
       "associationPattern": ".*\\.feature(\\.php)?$",
-      "iconPath": "/icons/files/behat.svg"
+      "iconPath": "/behat.svg"
     },
     {
       "name": "BitHound",
       "associationPattern": "\\.bithoundrc$",
-      "iconPath": "/icons/files/bithound.svg"
+      "iconPath": "/bithound.svg"
     },
     {
       "name": "Bitbucket Pipelines",
       "associationPattern": "^bitbucket-pipelines\\.yml$",
-      "iconPath": "/icons/files/bitbucket.svg"
+      "iconPath": "/bitbucket.svg"
     },
     {
       "name": "Blade",
       "associationPattern": ".*\\.blade(\\.php)?$",
-      "iconPath": "/icons/files/blade.svg"
+      "iconPath": "/blade.svg"
     },
     {
       "name": "Blink",
       "associationPattern": ".*\\.blink$",
-      "iconPath": "/icons/files/blink.svg"
+      "iconPath": "/blink.svg"
     },
     {
       "name": "Bower",
       "associationPattern": "^(\\.bowerrc|bower\\.json)$",
-      "iconPath": "/icons/files/bower.svg"
+      "iconPath": "/bower.svg"
     },
     {
       "name": "Brainfuck",
       "associationPattern": ".*\\.(b|bf)$",
-      "iconPath": "/icons/files/brainfuck.svg"
+      "iconPath": "/brainfuck.svg"
     },
     {
       "name": "Bro",
       "associationPattern": ".*\\.bro$",
-      "iconPath": "/icons/files/bro.svg"
+      "iconPath": "/bro.svg"
     },
     {
       "name": "Browserslist",
       "associationPattern": "\\.browserslist(rc)?$",
-      "iconPath": "/icons/files/browserslist.svg"
+      "iconPath": "/browserslist.svg"
     },
     {
       "name": "BuckleScript",
       "associationPattern": ".*\\.cmj$",
-      "iconPath": "/icons/files/bucklescript.svg"
+      "iconPath": "/bucklescript.svg"
     },
     {
       "name": "BuildKite",
       "associationPattern": "^buildkite\\.(yml|yaml)$",
-      "iconPath": "/icons/files/buildkite.svg"
+      "iconPath": "/buildkite.svg"
     },
     {
       "name": "Bundler",
       "associationPattern": "^Gemfile$",
-      "iconPath": "/icons/files/bundle.svg"
+      "iconPath": "/bundle.svg"
     },
     {
       "name": "C",
       "associationPattern": ".*\\.(c|objc)$",
-      "iconPath": "/icons/files/c.svg"
+      "iconPath": "/c.svg"
     },
     {
       "name": "Cabal",
       "associationPattern": ".*\\.cabal$",
-      "iconPath": "/icons/files/cabal.svg"
+      "iconPath": "/cabal.svg"
     },
     {
       "name": "Cabal Project",
       "associationPattern": "^cabal\\.project$",
-      "iconPath": "/icons/files/cabal.svg"
+      "iconPath": "/cabal.svg"
     },
     {
       "name": "CakePHP",
       "associationPattern": ".*\\.cake$",
-      "iconPath": "/icons/files/cakephp.svg"
+      "iconPath": "/cakephp.svg"
     },
     {
       "name": "Cargo",
       "associationPattern": "cargo\\.(toml|lock)$",
-      "iconPath": "/icons/files/cargo.svg"
+      "iconPath": "/cargo.svg"
     },
     {
       "name": "Certificate",
       "associationPattern": ".*\\.(crt|cert|x509|pks)$",
-      "iconPath": "/icons/files/certificate.svg"
+      "iconPath": "/certificate.svg"
     },
     {
       "name": "CFC",
       "associationPattern": ".*\\.(cfc|cfm|cfml|lucee)$",
-      "iconPath": "/icons/files/cfc.svg"
+      "iconPath": "/cfc.svg"
     },
     {
       "name": "Changelog",
       "associationPattern": "^(CHANGELOG|changelog)(\\.(md|txt))?",
-      "iconPath": "/icons/files/log.svg"
+      "iconPath": "/log.svg"
     },
     {
       "name": "Chef Knife",
       "associationPattern": "^knife.rb$",
-      "iconPath": "/icons/files/chef.svg"
+      "iconPath": "/chef.svg"
     },
     {
       "name": "Chef Berksfile",
       "associationPattern": "^Berksfile$",
-      "iconPath": "/icons/files/chef.svg"
+      "iconPath": "/chef.svg"
     },
     {
       "name": "CircleCI",
       "associationPattern": "^\\.circleci$",
-      "iconPath": "/icons/files/circleci.svg"
+      "iconPath": "/circleci.svg"
     },
     {
       "name": "CircleCI Conf",
       "associationPattern": "^(circle|config)\\.yml$",
-      "iconPath": "/icons/files/circleci.svg"
+      "iconPath": "/circleci.svg"
     },
     {
       "name": "Class",
       "associationPattern": ".*\\.(class|o)$",
-      "iconPath": "/icons/files/class.svg"
+      "iconPath": "/class.svg"
     },
     {
       "name": "Clojure",
       "associationPattern": ".*\\.(cljs|clj|cljc|clojure)$",
-      "iconPath": "/icons/files/clojure.svg"
+      "iconPath": "/clojure.svg"
     },
     {
       "name": "CMake",
       "associationPattern": ".*\\.cmake$",
-      "iconPath": "/icons/files/cmake.svg"
+      "iconPath": "/cmake.svg"
     },
     {
       "name": "CMakelists",
       "associationPattern": "^CMakeLists",
-      "iconPath": "/icons/files/cmake.svg"
+      "iconPath": "/cmake.svg"
     },
     {
       "name": "CNAME",
       "associationPattern": "^CNAME$",
-      "iconPath": "/icons/files/cname.svg"
+      "iconPath": "/cname.svg"
     },
     {
       "name": "Cobol",
       "associationPattern": ".*\\.(cobol|cbl)$",
-      "iconPath": "/icons/files/cobol.svg"
+      "iconPath": "/cobol.svg"
     },
     {
       "name": "Codecov",
       "associationPattern": "^.*codecov\\.yml$",
-      "iconPath": "/icons/files/codecov.svg"
+      "iconPath": "/codecov.svg"
     },
     {
       "name": "Codeowners",
       "associationPattern": "^codeowners$",
-      "iconPath": "/icons/files/codeowners.svg"
+      "iconPath": "/codeowners.svg"
     },
     {
       "name": "CoffeeScript",
       "associationPattern": ".*\\.(coffee|iced)$",
-      "iconPath": "/icons/files/coffeescript.svg"
+      "iconPath": "/coffeescript.svg"
     },
     {
       "name": "ColdFusion",
       "associationPattern": ".*\\.cf$",
-      "iconPath": "/icons/files/cf.svg"
+      "iconPath": "/cf.svg"
     },
     {
       "name": "Commitlint",
       "associationPattern": ".*\\.commitlintrc\\.(js(on)?|yml)$",
-      "iconPath": "/icons/files/commitlint.svg"
+      "iconPath": "/commitlint.svg"
     },
     {
       "name": "Commitlint Config",
       "associationPattern": "^commitlint\\.config\\.js$",
-      "iconPath": "/icons/files/commitlint.svg"
+      "iconPath": "/commitlint.svg"
     },
     {
       "name": "Compass",
       "associationPattern": "^config\\.rb$",
-      "iconPath": "/icons/files/compass.svg"
+      "iconPath": "/compass.svg"
     },
     {
       "name": "Composer",
       "associationPattern": "^composer\\.json$",
-      "iconPath": "/icons/files/composer.svg"
+      "iconPath": "/composer.svg"
     },
     {
       "name": "Composer Phar",
       "associationPattern": "^composer\\.phar$",
-      "iconPath": "/icons/files/composer.svg"
+      "iconPath": "/composer.svg"
     },
     {
       "name": "Cordova",
       "associationPattern": "^cordova",
-      "iconPath": "/icons/files/cordova.svg"
+      "iconPath": "/cordova.svg"
     },
     {
       "name": "Credits",
       "associationPattern": "(CREDITS|credits).*",
-      "iconPath": "/icons/files/credits.svg"
+      "iconPath": "/credits.svg"
     },
     {
       "name": "Crystal",
       "associationPattern": ".*\\.(cr|ecr)$",
-      "iconPath": "/icons/files/crystal.svg"
+      "iconPath": "/crystal.svg"
     },
     {
       "name": "CSS",
       "associationPattern": ".*\\.css$",
-      "iconPath": "/icons/files/css.svg"
+      "iconPath": "/css.svg"
     },
     {
       "name": "CSS Map",
       "associationPattern": ".*\\.css\\.map$",
-      "iconPath": "/icons/files/cssmap.svg"
+      "iconPath": "/cssmap.svg"
     },
     {
       "name": "CSV",
       "associationPattern": ".*\\.(csv|tsv)$",
-      "iconPath": "/icons/files/csv.svg"
+      "iconPath": "/csv.svg"
     },
     {
       "name": "Cucumber",
       "associationPattern": ".*\\.feature\\.rb$",
-      "iconPath": "/icons/files/cucumber.svg"
+      "iconPath": "/cucumber.svg"
     },
     {
       "name": "Cython",
       "associationPattern": "^.*\\.(pyx|pxd)$",
-      "iconPath": "/icons/files/cython.svg"
+      "iconPath": "/cython.svg"
     },
     {
       "name": "Cypress",
       "associationPattern": "^cypress\\.json$",
-      "iconPath": "/icons/files/cypress.svg"
+      "iconPath": "/cypress.svg"
     },
     {
       "name": "C++",
       "associationPattern": ".*\\.(cpp|cc|cp|ii|mii|cxx)$",
-      "iconPath": "/icons/files/cpp.svg"
+      "iconPath": "/cpp.svg"
     },
     {
       "name": "C#",
       "associationPattern": ".*\\.csx?$",
-      "iconPath": "/icons/files/csharp.svg"
+      "iconPath": "/csharp.svg"
     },
     {
       "name": "Dart",
       "associationPattern": ".*\\.dart$",
-      "iconPath": "/icons/files/dart.svg"
+      "iconPath": "/dart.svg"
     },
     {
       "name": "DB",
       "associationPattern": ".*\\.(db|ddl)$",
-      "iconPath": "/icons/files/db.svg"
+      "iconPath": "/db.svg"
     },
     {
       "name": "Delphi",
       "associationPattern": ".*\\.delphi$",
-      "iconPath": "/icons/files/delphi.svg"
+      "iconPath": "/delphi.svg"
     },
     {
       "name": "DLang",
       "associationPattern": ".*\\.d$",
-      "iconPath": "/icons/files/dlang.svg"
+      "iconPath": "/dlang.svg"
     },
     {
       "name": "Diff",
       "associationPattern": ".*\\.diff$",
-      "iconPath": "/icons/files/diff.svg"
+      "iconPath": "/diff.svg"
     },
     {
       "name": "Django",
       "associationPattern": ".*\\.(flake8|djt)$",
-      "iconPath": "/icons/files/django.svg"
+      "iconPath": "/django.svg"
     },
     {
       "name": "DLL",
       "associationPattern": ".*\\.(dll|dlc)$",
-      "iconPath": "/icons/files/dylib.svg"
+      "iconPath": "/dylib.svg"
     },
     {
       "name": "Do",
       "associationPattern": ".*\\.do$",
-      "iconPath": "/icons/files/tomcat.svg"
+      "iconPath": "/tomcat.svg"
     },
     {
       "name": "Docker",
       "associationPattern": ".*\\.?(d|D)ockerfile$",
-      "iconPath": "/icons/files/docker.svg"
+      "iconPath": "/docker.svg"
     },
     {
       "name": "DockerCompose",
       "associationPattern": "^docker-compose(.*)\\.(yml|yaml)$",
-      "iconPath": "/icons/files/docker.svg"
+      "iconPath": "/docker.svg"
     },
     {
       "name": "Dot",
       "associationPattern": ".*\\.(def|dot|jst)$",
-      "iconPath": "/icons/files/dotjs.svg"
+      "iconPath": "/dotjs.svg"
     },
     {
       "name": "DotNET",
       "associationPattern": ".*\\.(xaml|csproj)$",
-      "iconPath": "/icons/files/dotnet.svg"
+      "iconPath": "/dotnet.svg"
     },
     {
       "name": "Doxygen",
       "associationPattern": "^(D|d)oxyfile$",
-      "iconPath": "/icons/files/doxygen.svg"
+      "iconPath": "/doxygen.svg"
     },
     {
       "name": "Drupal",
       "associationPattern": ".*\\.drupal$",
-      "iconPath": "/icons/files/drupal.svg"
+      "iconPath": "/drupal.svg"
     },
     {
       "name": "Dylib",
       "associationPattern": ".*\\.dylib$",
-      "iconPath": "/icons/files/dylib.svg"
+      "iconPath": "/dylib.svg"
     },
     {
       "name": "Eclipse",
       "associationPattern": ".*\\.eclipse",
-      "iconPath": "/icons/files/eclipse.svg"
+      "iconPath": "/eclipse.svg"
     },
     {
       "name": "Edge",
       "associationPattern": ".*\\.edge$",
-      "iconPath": "/icons/files/adonis.svg"
+      "iconPath": "/adonis.svg"
     },
     {
       "name": "EditorConfig",
       "associationPattern": "^\\.editorconfig$",
-      "iconPath": "/icons/files/editorconfig.svg"
+      "iconPath": "/editorconfig.svg"
     },
     {
       "name": "Eiffel",
       "associationPattern": ".*\\.e$",
-      "iconPath": "/icons/files/eiffel.svg"
+      "iconPath": "/eiffel.svg"
     },
     {
       "name": "Emacs",
       "associationPattern": "^\\.emacs.*$",
-      "iconPath": "/icons/files/emacs.svg"
+      "iconPath": "/emacs.svg"
     },
     {
       "name": "Emacs Lisp",
       "associationPattern": "^.*\\.(el|elc)$",
-      "iconPath": "/icons/files/emacs.svg"
+      "iconPath": "/emacs.svg"
     },
     {
       "name": "Ember CLI",
       "associationPattern": "^\\.ember-cli$",
-      "iconPath": "/icons/files/ember.svg"
+      "iconPath": "/ember.svg"
     },
     {
       "name": "Ember",
       "associationPattern": "^\\.ember\\.json$",
-      "iconPath": "/icons/files/ember.svg"
+      "iconPath": "/ember.svg"
     },
     {
       "name": "EJS",
       "associationPattern": ".*\\.(ejs)$",
-      "iconPath": "/icons/files/ejs.svg"
+      "iconPath": "/ejs.svg"
     },
     {
       "name": "Elixir",
       "associationPattern": ".*\\.(ex|eex|exs|elixir|leex)$",
-      "iconPath": "/icons/files/ex.svg"
+      "iconPath": "/ex.svg"
     },
     {
       "name": "Elm",
       "associationPattern": ".*\\.elm$",
-      "iconPath": "/icons/files/elm.svg"
+      "iconPath": "/elm.svg"
     },
     {
       "name": "ESLint",
       "associationPattern": ".*\\.eslintrc(\\.js(on)?|\\.y(a)?ml)?$",
-      "iconPath": "/icons/files/eslint.svg"
+      "iconPath": "/eslint.svg"
     },
     {
       "name": "ERB",
       "associationPattern": ".*\\.(erb|ru)$",
-      "iconPath": "/icons/files/erb.svg"
+      "iconPath": "/erb.svg"
     },
     {
       "name": "ErLang",
       "associationPattern": ".*\\.(erc|erl|erlang)$",
-      "iconPath": "/icons/files/erlang.svg"
+      "iconPath": "/erlang.svg"
     },
     {
       "name": "Excel",
       "associationPattern": ".*\\.(xls|xlsx|xlm|xlt|xlsb|odx)$",
-      "iconPath": "/icons/files/excel.svg"
+      "iconPath": "/excel.svg"
     },
     {
       "name": "Favicon",
       "associationPattern": "^favicon\\.(ico|png|jpg)$",
-      "iconPath": "/icons/files/favicon.svg"
+      "iconPath": "/favicon.svg"
     },
     {
       "name": "Finder",
       "associationPattern": "^\\._*?MACOSX$",
-      "iconPath": "/icons/files/finder.svg"
+      "iconPath": "/finder.svg"
     },
     {
       "name": "Firebase",
       "associationPattern": ".*\\.(firebaserc)$",
-      "iconPath": "/icons/files/firebase.svg"
+      "iconPath": "/firebase.svg"
     },
     {
       "name": "Firebase JSON",
       "associationPattern": "^firebase\\.json$",
-      "iconPath": "/icons/files/firebase.svg"
+      "iconPath": "/firebase.svg"
     },
     {
       "name": "Flash",
       "associationPattern": ".*\\.(swf|flash)$",
-      "iconPath": "/icons/files/flash.svg"
+      "iconPath": "/flash.svg"
     },
     {
       "name": "Flow",
       "associationPattern": ".*\\.(flow|flowconfig)$",
-      "iconPath": "/icons/files/flow.svg"
+      "iconPath": "/flow.svg"
     },
     {
       "name": "Fortran",
       "associationPattern": ".*\\.(f77|f90)$",
-      "iconPath": "/icons/files/fortran.svg"
+      "iconPath": "/fortran.svg"
     },
     {
       "name": "FreeMarker",
       "associationPattern": ".*\\.(ftl|freemarker)$",
-      "iconPath": "/icons/files/freemarker.svg"
+      "iconPath": "/freemarker.svg"
     },
     {
       "name": "FSharp",
       "associationPattern": ".*\\.(fs|fsi|fsx|fsproj)$",
-      "iconPath": "/icons/files/fsharp.svg"
+      "iconPath": "/fsharp.svg"
     },
     {
       "name": "Gatsby",
       "associationPattern": "^gatsby.*\\.js",
-      "iconPath": "/icons/files/gatsby.svg"
+      "iconPath": "/gatsby.svg"
     },
     {
       "name": "GhostScript",
       "associationPattern": ".*\\.ghostscript$",
-      "iconPath": "/icons/files/ghostscript.svg"
+      "iconPath": "/ghostscript.svg"
     },
     {
       "name": "Gemfile",
       "associationPattern": "^(G|g)emfile\\.lock$",
-      "iconPath": "/icons/files/gemfile.svg"
+      "iconPath": "/gemfile.svg"
     },
     {
       "name": "GitLab CI",
       "associationPattern": "^\\.gitlab-ci\\.yml$",
-      "iconPath": "/icons/files/gitlab.svg"
+      "iconPath": "/gitlab.svg"
     },
     {
       "name": "Git",
       "associationPattern": "^\\.git.*",
-      "iconPath": "/icons/files/git.svg"
+      "iconPath": "/git.svg"
     },
     {
       "name": "Go",
       "associationPattern": ".*\\.(go|gohtml)$",
-      "iconPath": "/icons/files/go.svg"
+      "iconPath": "/go.svg"
     },
     {
       "name": "Godot",
       "associationPattern": ".*\\.(gd|godot|tres|tscn)$",
-      "iconPath": "/icons/files/godot.svg"
+      "iconPath": "/godot.svg"
     },
     {
       "name": "Gradle",
       "associationPattern": ".*\\.gradle$",
-      "iconPath": "/icons/files/gradle.svg"
+      "iconPath": "/gradle.svg"
     },
     {
       "name": "Gradlew",
       "associationPattern": "gradlew$",
-      "iconPath": "/icons/files/gradle.svg"
+      "iconPath": "/gradle.svg"
     },
     {
       "name": "Graphcool",
       "associationPattern": ".*\\.(graphcool)$",
-      "iconPath": "/icons/files/graphcool.svg"
+      "iconPath": "/graphcool.svg"
     },
     {
       "name": "GraphQL",
       "associationPattern": ".*\\.(gql|graphql)$",
-      "iconPath": "/icons/files/graphql.svg"
+      "iconPath": "/graphql.svg"
     },
     {
       "name": "GraphQL Config",
       "associationPattern": "\\.graphqlconfig$",
-      "iconPath": "/icons/files/graphql.svg"
+      "iconPath": "/graphql.svg"
     },
     {
       "name": "Graphviz",
       "associationPattern": ".*\\.(dot|graphviz)$",
-      "iconPath": "/icons/files/graphviz.svg"
+      "iconPath": "/graphviz.svg"
     },
     {
       "name": "Gridsome",
       "associationPattern": "^gridsome\\.(config|server)\\.js$",
-      "iconPath": "/icons/files/gridsome.svg"
+      "iconPath": "/gridsome.svg"
     },
     {
       "name": "Groovy",
       "associationPattern": ".*\\.(gy|gdsl|groovy)$",
-      "iconPath": "/icons/files/groovy.svg"
+      "iconPath": "/groovy.svg"
     },
     {
       "name": "Grunt",
       "associationPattern": "(g|G)runtfile.*",
-      "iconPath": "/icons/files/gruntfile.svg"
+      "iconPath": "/gruntfile.svg"
     },
     {
       "name": "Gulp",
       "associationPattern": "(g|G)ulpfile.*",
-      "iconPath": "/icons/files/gulpfile.svg"
+      "iconPath": "/gulpfile.svg"
     },
     {
       "name": "H",
       "associationPattern": ".*\\.(objh|h|hh|hp|hpp|tcc|hxx)$",
-      "iconPath": "/icons/files/hh.svg"
+      "iconPath": "/hh.svg"
     },
     {
       "name": "Hack",
       "associationPattern": ".*\\.(hhconfig|hh)$",
-      "iconPath": "/icons/files/hack.svg"
+      "iconPath": "/hack.svg"
     },
     {
       "name": "HAML",
       "associationPattern": ".*\\.haml$",
-      "iconPath": "/icons/files/haml.svg"
+      "iconPath": "/haml.svg"
     },
     {
       "name": "Hashicorp",
       "associationPattern": ".*\\.hcl$",
-      "iconPath": "/icons/files/hcl.svg"
+      "iconPath": "/hcl.svg"
     },
     {
       "name": "Haskell",
       "associationPattern": ".*\\.(haskell|hs)$",
-      "iconPath": "/icons/files/haskell.svg"
+      "iconPath": "/haskell.svg"
     },
     {
       "name": "Haxe",
       "associationPattern": ".*\\.(haxe|hx)$",
-      "iconPath": "/icons/files/haxe.svg"
+      "iconPath": "/haxe.svg"
     },
     {
       "name": "Helm",
       "associationPattern": ".*\\.(helm|helmignore)",
-      "iconPath": "/icons/files/helm.svg"
+      "iconPath": "/helm.svg"
     },
     {
       "name": "Heroku",
       "associationPattern": "^((P|p)rocfile(\\.windows)?|\\.slugignore)$",
-      "iconPath": "/icons/files/heroku.svg"
+      "iconPath": "/heroku.svg"
     },
     {
       "name": "History",
       "associationPattern": "history.*$",
-      "iconPath": "/icons/files/history.svg"
+      "iconPath": "/history.svg"
     },
     {
       "name": "Houdini",
       "associationPattern": ".*\\.(vfl|hip|pic|geo)$",
-      "iconPath": "/icons/files/houdini.svg"
+      "iconPath": "/houdini.svg"
     },
     {
       "name": "HTAccess",
       "associationPattern": ".*\\.(htaccess|htpasswd)$",
-      "iconPath": "/icons/files/htaccess.svg"
+      "iconPath": "/htaccess.svg"
     },
     {
       "name": "HTML",
       "associationPattern": ".*\\.(html|htm)$",
-      "iconPath": "/icons/files/html.svg"
+      "iconPath": "/html.svg"
     },
     {
       "name": "HTTP",
       "associationPattern": ".*\\.(http|rest)$",
-      "iconPath": "/icons/files/http.svg"
+      "iconPath": "/http.svg"
     },
     {
       "name": "Husky",
       "associationPattern": ".*\\.huskyrc(.js(on)?)?$",
-      "iconPath": "/icons/files/husky.svg"
+      "iconPath": "/husky.svg"
     },
     {
       "name": "i18n",
       "associationPattern": ".*\\.(pot|po|mo)$",
-      "iconPath": "/icons/files/i18n.svg"
+      "iconPath": "/i18n.svg"
     },
     {
       "name": "IDEA",
       "associationPattern": ".*\\.(iml|icls)$",
-      "iconPath": "/icons/files/idea.svg"
+      "iconPath": "/idea.svg"
     },
     {
       "name": "Idris",
       "associationPattern": ".*\\.(idr|idris)$",
-      "iconPath": "/icons/files/idris.svg"
+      "iconPath": "/idris.svg"
     },
     {
       "name": "InDesign",
       "associationPattern": ".*\\.(id|indl|indt|indb)$",
-      "iconPath": "/icons/files/indesign.svg"
+      "iconPath": "/indesign.svg"
     },
     {
       "name": "Istanbul",
       "associationPattern": ".*\\.nycrc(\\.json)?$",
-      "iconPath": "/icons/files/istanbul.svg"
+      "iconPath": "/istanbul.svg"
     },
     {
       "name": "IO",
       "associationPattern": ".*\\.(io)$",
-      "iconPath": "/icons/files/io.svg"
+      "iconPath": "/io.svg"
     },
     {
       "name": "Ionic",
       "associationPattern": ".*\\.ionic\\.config$",
-      "iconPath": "/icons/files/ionic.svg"
+      "iconPath": "/ionic.svg"
     },
     {
       "name": "J",
       "associationPattern": ".*\\.(ijs)$",
-      "iconPath": "/icons/files/j.svg"
+      "iconPath": "/j.svg"
     },
     {
       "name": "Jade/Pug",
       "associationPattern": ".*\\.(jade|pug)$",
-      "iconPath": "/icons/files/pug.svg"
+      "iconPath": "/pug.svg"
     },
     {
       "name": "Jekyll",
       "associationPattern": "^_config\\.yml$",
-      "iconPath": "/icons/files/jekyll.svg"
+      "iconPath": "/jekyll.svg"
     },
     {
       "name": "Jenkins",
       "associationPattern": "^(j|J)enkinsfile.*",
-      "iconPath": "/icons/files/jenkins.svg"
+      "iconPath": "/jenkins.svg"
     },
     {
       "name": "Jest",
       "associationPattern": "^jest\\.(config|setup|teardown).*",
-      "iconPath": "/icons/files/jest.svg"
+      "iconPath": "/jest.svg"
     },
     {
       "name": "Jestrc",
       "associationPattern": "^\\.jestrc.*",
-      "iconPath": "/icons/files/jest.svg"
+      "iconPath": "/jest.svg"
     },
     {
       "name": "Jinja",
       "associationPattern": ".*\\.(jinja2?|j2|jnj2?)$",
-      "iconPath": "/icons/files/jinja.svg"
+      "iconPath": "/jinja.svg"
     },
     {
       "name": "Joomla",
       "associationPattern": ".*\\.smarty$",
-      "iconPath": "/icons/files/joomla.svg"
+      "iconPath": "/joomla.svg"
     },
     {
       "name": "jQuery",
       "associationPattern": "jquery.*\\.js",
-      "iconPath": "/icons/files/jquery.svg"
+      "iconPath": "/jquery.svg"
     },
     {
       "name": "JS Map",
       "associationPattern": ".*\\.js\\.map$",
-      "iconPath": "/icons/files/jsmap.svg"
+      "iconPath": "/jsmap.svg"
     },
     {
       "name": "JSP",
       "associationPattern": ".*\\.(jsp|jsf|jspx)",
-      "iconPath": "/icons/files/jsp.svg"
+      "iconPath": "/jsp.svg"
     },
     {
       "name": "Julia",
       "associationPattern": ".*\\.(julia|jl)$",
-      "iconPath": "/icons/files/julia.svg"
+      "iconPath": "/julia.svg"
     },
     {
       "name": "Jupyter Notebook",
       "associationPattern": ".*\\.ipynb$",
-      "iconPath": "/icons/files/jupyter.svg"
+      "iconPath": "/jupyter.svg"
     },
     {
       "name": "Karma",
       "associationPattern": "^karma\\.conf.*",
-      "iconPath": "/icons/files/karma.svg"
+      "iconPath": "/karma.svg"
     },
     {
       "name": "Key",
       "associationPattern": ".*\\.(key|pem|gpg|pub)",
-      "iconPath": "/icons/files/key.svg"
+      "iconPath": "/key.svg"
     },
     {
       "name": "Kivy",
       "associationPattern": ".*\\.kv$",
-      "iconPath": "/icons/files/kivy.svg"
+      "iconPath": "/kivy.svg"
     },
     {
       "name": "KL",
       "associationPattern": ".*\\.kl$",
-      "iconPath": "/icons/files/kl.svg"
+      "iconPath": "/kl.svg"
     },
     {
       "name": "Knockout",
       "associationPattern": ".*\\.(knockout|ko)$",
-      "iconPath": "/icons/files/knockout.svg"
+      "iconPath": "/knockout.svg"
     },
     {
       "name": "Kotlin",
       "associationPattern": ".*\\.(kt|kts|kotlin)$",
-      "iconPath": "/icons/files/kotlin.svg"
+      "iconPath": "/kotlin.svg"
     },
     {
       "name": "Lerna",
       "associationPattern": "^lerna\\.json$",
-      "iconPath": "/icons/files/lerna.svg"
+      "iconPath": "/lerna.svg"
     },
     {
       "name": "Less",
       "associationPattern": ".*\\.less$",
-      "iconPath": "/icons/files/less.svg"
+      "iconPath": "/less.svg"
     },
     {
       "name": "Lib",
       "associationPattern": ".*\\.(lib|bib|s)$",
-      "iconPath": "/icons/files/lib.svg"
+      "iconPath": "/lib.svg"
     },
     {
       "name": "LICENSE",
       "associationPattern": "^(license|LICENSE).*",
-      "iconPath": "/icons/files/license.svg"
+      "iconPath": "/license.svg"
     },
     {
       "name": "LICENCE",
       "associationPattern": "^(licence|LICENCE).*",
-      "iconPath": "/icons/files/license.svg"
+      "iconPath": "/license.svg"
     },
     {
       "name": "Lint Staged",
       "associationPattern": ".*\\.lintstagedrc\\.(json|yml)$",
-      "iconPath": "/icons/files/lint-staged.svg"
+      "iconPath": "/lint-staged.svg"
     },
     {
       "name": "Lint Staged Config",
       "associationPattern": "^lint-staged\\.config\\.js$",
-      "iconPath": "/icons/files/lint-staged.svg"
+      "iconPath": "/lint-staged.svg"
     },
     {
       "name": "LiveScript",
       "associationPattern": ".*\\.ls$",
-      "iconPath": "/icons/files/livescript.svg"
+      "iconPath": "/livescript.svg"
     },
     {
       "name": "Liquid",
       "associationPattern": ".*\\.liquid$",
-      "iconPath": "/icons/files/liquid.svg"
+      "iconPath": "/liquid.svg"
     },
     {
       "name": "LISP",
       "associationPattern": ".*\\.lisp$",
-      "iconPath": "/icons/files/lisp.svg"
+      "iconPath": "/lisp.svg"
     },
     {
       "name": "Log",
       "associationPattern": ".*\\.log([0-9])?",
-      "iconPath": "/icons/files/log.svg"
+      "iconPath": "/log.svg"
     },
     {
       "name": "LSL",
       "associationPattern": ".*\\.lsl",
-      "iconPath": "/icons/files/lsl.svg"
+      "iconPath": "/lsl.svg"
     },
     {
       "name": "Lua",
       "associationPattern": ".*\\.lua$",
-      "iconPath": "/icons/files/lua.svg"
+      "iconPath": "/lua.svg"
     },
     {
       "name": "Magento",
       "associationPattern": ".*\\.mage$",
-      "iconPath": "/icons/files/magento.svg"
+      "iconPath": "/magento.svg"
     },
     {
       "name": "MarkoJS",
       "associationPattern": ".*\\.marko$",
-      "iconPath": "/icons/files/marko.svg"
+      "iconPath": "/marko.svg"
     },
     {
       "name": "Makefile",
       "associationPattern": ".*\\.?(m|M)akefile$",
-      "iconPath": "/icons/files/makefile.svg"
+      "iconPath": "/makefile.svg"
     },
     {
       "name": "Manpage",
       "associationPattern": ".*\\.man([1-8])?$",
-      "iconPath": "/icons/files/manpage.svg"
+      "iconPath": "/manpage.svg"
     },
     {
       "name": "Manifest",
       "associationPattern": "manifest\\.json$",
-      "iconPath": "/icons/files/manifest.svg"
+      "iconPath": "/manifest.svg"
     },
     {
       "name": "Markdown",
       "associationPattern": ".*\\.(md|markdown|mson)$",
-      "iconPath": "/icons/files/markdown.svg"
+      "iconPath": "/markdown.svg"
     },
     {
       "name": "Markup",
       "associationPattern": ".*\\.(shtml|dhtml|dtd)$",
-      "iconPath": "/icons/files/markup.svg"
+      "iconPath": "/markup.svg"
     },
     {
       "name": "Mathematica",
       "associationPattern": ".*\\.(nb|ma|mb|cdf)$",
-      "iconPath": "/icons/files/mathematica.svg"
+      "iconPath": "/mathematica.svg"
     },
     {
       "name": "Matlab",
       "associationPattern": ".*\\.matlab$",
-      "iconPath": "/icons/files/matlab.svg"
+      "iconPath": "/matlab.svg"
     },
     {
       "name": "Maven",
       "associationPattern": "^pom\\.xml$",
-      "iconPath": "/icons/files/maven.svg"
+      "iconPath": "/maven.svg"
     },
     {
       "name": "Maya",
       "associationPattern": ".*\\.(maya|mel)$",
-      "iconPath": "/icons/files/maya.svg"
+      "iconPath": "/maya.svg"
     },
     {
       "name": "MDX",
       "associationPattern": ".*\\.(mdx)$",
-      "iconPath": "/icons/files/mdx.svg"
+      "iconPath": "/mdx.svg"
     },
     {
       "name": "Mercurial",
       "associationPattern": ".*\\.hg$",
-      "iconPath": "/icons/files/mercurial.svg"
+      "iconPath": "/mercurial.svg"
     },
     {
       "name": "Merlin",
       "associationPattern": ".*\\.merlin$",
-      "iconPath": "/icons/files/merlin.svg"
+      "iconPath": "/merlin.svg"
     },
     {
       "name": "Meteor",
       "associationPattern": ".*\\.meteor$",
-      "iconPath": "/icons/files/meteor.svg"
+      "iconPath": "/meteor.svg"
     },
     {
       "name": "Mint",
       "associationPattern": ".*\\.mint",
-      "iconPath": "/icons/files/mint.svg"
+      "iconPath": "/mint.svg"
     },
     {
       "name": "MJML",
       "associationPattern": ".*\\.mjml$",
-      "iconPath": "/icons/files/mjml.svg"
+      "iconPath": "/mjml.svg"
     },
     {
       "name": "Moonscript",
       "associationPattern": ".*\\.moon$",
-      "iconPath": "/icons/files/moonscript.svg"
+      "iconPath": "/moonscript.svg"
     },
     {
       "name": "Mocha",
       "associationPattern": "^(mocha\\.opts|\\.mocharc)$",
-      "iconPath": "/icons/files/mocha.svg"
+      "iconPath": "/mocha.svg"
     },
     {
       "name": "Mocha JSON",
       "associationPattern": "^\\.mocha\\.(js|json|yml)$",
-      "iconPath": "/icons/files/mocha.svg"
+      "iconPath": "/mocha.svg"
     },
     {
       "name": "Mongodb",
       "associationPattern": ".*\\.(mongodb|bson)$",
-      "iconPath": "/icons/files/mongodb.svg"
+      "iconPath": "/mongodb.svg"
     },
     {
       "name": "Mustache",
       "associationPattern": ".*\\.(mustache|handlebars|hbs|hamlbars)$",
-      "iconPath": "/icons/files/mustache.svg"
+      "iconPath": "/mustache.svg"
     },
     {
       "name": "MXML",
       "associationPattern": ".*\\.mxml$",
-      "iconPath": "/icons/files/mxml.svg"
+      "iconPath": "/mxml.svg"
     },
     {
       "name": "Nest",
       "associationPattern": "\\.?nest-cli\\.json",
-      "iconPath": "/icons/files/nest.svg"
+      "iconPath": "/nest.svg"
     },
     {
       "name": "Nest Config",
       "associationPattern": "\\.?nestconfig\\.json",
-      "iconPath": "/icons/files/nest.svg"
+      "iconPath": "/nest.svg"
     },
     {
       "name": "Netlify",
       "associationPattern": "^netlify\\.toml$",
-      "iconPath": "/icons/files/netlify.svg"
+      "iconPath": "/netlify.svg"
     },
     {
       "name": "Netlify headers",
       "associationPattern": "^_headers$",
-      "iconPath": "/icons/files/netlify_headers.svg"
+      "iconPath": "/netlify_headers.svg"
     },
     {
       "name": "Netlify redirects",
       "associationPattern": "^_redirects$",
-      "iconPath": "/icons/files/netlify_redirects.svg"
+      "iconPath": "/netlify_redirects.svg"
     },
     {
       "name": "nginx",
       "associationPattern": ".*\\.(nginx|conf)$",
-      "iconPath": "/icons/files/nginx.svg"
+      "iconPath": "/nginx.svg"
     },
     {
       "name": "Nib",
       "associationPattern": ".*\\.nib$",
-      "iconPath": "/icons/files/nib.svg"
+      "iconPath": "/nib.svg"
     },
     {
       "name": "Nimble",
       "associationPattern": ".*\\.(nim|nimble)$",
-      "iconPath": "/icons/files/nim.svg"
+      "iconPath": "/nim.svg"
     },
     {
       "name": "Node",
       "associationPattern": "^(server|app)\\.(js|ts|es6)$",
-      "iconPath": "/icons/files/nodejs.svg"
+      "iconPath": "/nodejs.svg"
     },
     {
       "name": "Node Version",
       "associationPattern": "^\\.node-version$",
-      "iconPath": "/icons/files/nodejs.svg"
+      "iconPath": "/nodejs.svg"
     },
     {
       "name": "Nodemon",
       "associationPattern": ".*\\.nodemon\\.(js|json)$",
-      "iconPath": "/icons/files/nodemon.svg"
+      "iconPath": "/nodemon.svg"
     },
     {
       "name": "Note",
       "associationPattern": ".*\\.(scratch|note)$",
-      "iconPath": "/icons/files/note.svg"
+      "iconPath": "/note.svg"
     },
     {
       "name": "Now",
       "associationPattern": "now\\.json$",
-      "iconPath": "/icons/files/now.svg"
+      "iconPath": "/now.svg"
     },
     {
       "name": "Nowignore",
       "associationPattern": "\\.nowignore$",
-      "iconPath": "/icons/files/now.svg"
+      "iconPath": "/now.svg"
     },
     {
       "name": "NPM",
       "associationPattern": "^package\\.json$",
-      "iconPath": "/icons/files/npm.svg"
+      "iconPath": "/npm.svg"
     },
     {
       "name": "NPM lock",
       "associationPattern": "^package-lock\\.json$",
-      "iconPath": "/icons/files/lock.svg"
+      "iconPath": "/lock.svg"
     },
     {
       "name": "NPMFiles",
       "associationPattern": "^\\.(npmignore|npmrc)$",
-      "iconPath": "/icons/files/npm.svg"
+      "iconPath": "/npm.svg"
     },
     {
       "name": "NSIS",
       "associationPattern": ".*\\.nsis?$",
-      "iconPath": "/icons/files/nsis.svg"
+      "iconPath": "/nsis.svg"
     },
     {
       "name": "NVM",
       "associationPattern": ".*\\.(nvmrc|esmrc)$",
-      "iconPath": "/icons/files/nodejs.svg"
+      "iconPath": "/nodejs.svg"
     },
     {
       "name": "Nuclide",
       "associationPattern": ".*\\.nuclide$",
-      "iconPath": "/icons/files/nuclide.svg"
+      "iconPath": "/nuclide.svg"
     },
     {
       "name": "NuGet",
       "associationPattern": ".*\\.nuspec$",
-      "iconPath": "/icons/files/nuget.svg"
+      "iconPath": "/nuget.svg"
     },
     {
       "name": "Nunjucks",
       "associationPattern": ".*\\.(njk|nunjucks)$",
-      "iconPath": "/icons/files/nunjucks.svg"
+      "iconPath": "/nunjucks.svg"
     },
     {
       "name": "Nuxt",
       "associationPattern": ".*nuxt\\.config\\.(js|ts)",
-      "iconPath": "/icons/files/nuxt.svg"
+      "iconPath": "/nuxt.svg"
     },
     {
       "name": "Objective-C",
       "associationPattern": ".*\\.mm?$",
-      "iconPath": "/icons/files/objc.svg"
+      "iconPath": "/objc.svg"
     },
     {
       "name": "OCaml",
       "associationPattern": ".*\\.(ocaml|ml|mli|cmx|ocamllex|ocamlyacc)$",
-      "iconPath": "/icons/files/ocaml.svg"
+      "iconPath": "/ocaml.svg"
     },
     {
       "name": "OneNote",
       "associationPattern": ".*\\.(one|onenote)$",
-      "iconPath": "/icons/files/onenote.svg"
+      "iconPath": "/onenote.svg"
     },
     {
       "name": "OpenOffice",
       "associationPattern": ".*\\.(odf|ods)$",
-      "iconPath": "/icons/files/openoffice.svg"
+      "iconPath": "/openoffice.svg"
     },
     {
       "name": "Pascal",
       "associationPattern": ".*\\.(pas|pascal)$",
-      "iconPath": "/icons/files/pascal.svg"
+      "iconPath": "/pascal.svg"
     },
     {
       "name": "Patch",
       "associationPattern": ".*\\.(patch|meld)$",
-      "iconPath": "/icons/files/patch.svg"
+      "iconPath": "/patch.svg"
     },
     {
       "name": "PDF",
       "associationPattern": ".*\\.pdf$",
-      "iconPath": "/icons/files/pdf.svg"
+      "iconPath": "/pdf.svg"
     },
     {
       "name": "Perl",
       "associationPattern": ".*\\.(perl|pl|pm)$",
-      "iconPath": "/icons/files/perl.svg"
+      "iconPath": "/perl.svg"
     },
     {
       "name": "Perforce",
       "associationPattern": "^\\.p4ignore$",
-      "iconPath": "/icons/files/p4.svg"
+      "iconPath": "/p4.svg"
     },
     {
       "name": "Phalcon",
       "associationPattern": ".*\\.volt$",
-      "iconPath": "/icons/files/phalcon.svg"
+      "iconPath": "/phalcon.svg"
     },
     {
       "name": "Photoshop",
       "associationPattern": ".*\\.(psb|psd)$",
-      "iconPath": "/icons/files/psd.svg"
+      "iconPath": "/psd.svg"
     },
     {
       "name": "PHPUnit",
       "associationPattern": ".*(t|T)est\\.php$",
-      "iconPath": "/icons/files/phpunit.svg"
+      "iconPath": "/phpunit.svg"
     },
     {
       "name": "PHTML",
       "associationPattern": ".*\\.phtml$",
-      "iconPath": "/icons/files/phtml.svg"
+      "iconPath": "/phtml.svg"
     },
     {
       "name": "Pipfile",
       "associationPattern": "Pipfile$",
-      "iconPath": "/icons/files/pipfile.svg"
+      "iconPath": "/pipfile.svg"
     },
     {
       "name": "Pipfile.lock",
       "associationPattern": "Pipfile\\.lock$",
-      "iconPath": "/icons/files/lock.svg"
+      "iconPath": "/lock.svg"
     },
     {
       "name": "Play",
       "associationPattern": ".*\\.play$",
-      "iconPath": "/icons/files/play.svg"
+      "iconPath": "/play.svg"
     },
     {
       "name": "PList",
       "associationPattern": ".*\\.plist$",
-      "iconPath": "/icons/files/plist.svg"
+      "iconPath": "/plist.svg"
     },
     {
       "name": "Pnpm",
       "associationPattern": "^pnpm-(lock|workspace|debug)\\.yaml",
-      "iconPath": "/icons/files/pnpm.svg"
+      "iconPath": "/pnpm.svg"
     },
     {
       "name": "Pnpmfile",
       "associationPattern": "^pnpmfile\\.js",
-      "iconPath": "/icons/files/pnpm.svg"
+      "iconPath": "/pnpm.svg"
     },
     {
       "name": "PostCSS",
       "associationPattern": ".*\\.(pcss|postcss|sss)$",
-      "iconPath": "/icons/files/postcss.svg"
+      "iconPath": "/postcss.svg"
     },
     {
       "name": "PostCSS Config",
       "associationPattern": "^(\\.postcssrc|postcss\\.config\\.js(on)?)$",
-      "iconPath": "/icons/files/postcss.svg"
+      "iconPath": "/postcss.svg"
     },
     {
       "name": "PostHTML",
       "associationPattern": "^(\\.posthtmlrc|posthtml\\.config\\.(yml|js|json))$",
-      "iconPath": "/icons/files/posthtml.svg"
+      "iconPath": "/posthtml.svg"
     },
     {
       "name": "PostScript",
       "associationPattern": ".*\\.(ps|eps)$",
-      "iconPath": "/icons/files/postscript.svg"
+      "iconPath": "/postscript.svg"
     },
     {
       "name": "Polymer",
       "associationPattern": "^polymer\\.json",
-      "iconPath": "/icons/files/polymer.svg"
+      "iconPath": "/polymer.svg"
     },
     {
       "name": "Powerpoint",
       "associationPattern": ".*\\.(ppt|pptx|pps|ppsx|pot|potx|ppa|ppam)$",
-      "iconPath": "/icons/files/powerpoint.svg"
+      "iconPath": "/powerpoint.svg"
     },
     {
       "name": "PowerShell",
       "associationPattern": ".*\\.(powershell|ps1|psd1|psc1|pssc|cmd)$",
-      "iconPath": "/icons/files/powershell.svg"
+      "iconPath": "/powershell.svg"
     },
     {
       "name": "Premiere",
       "associationPattern": ".*\\.(prel|prproj|psq)$",
-      "iconPath": "/icons/files/premiere.svg"
+      "iconPath": "/premiere.svg"
     },
     {
       "name": "Prettier",
       "associationPattern": "^\\.prettierrc(\\.js(on)?|\\.y(a)?ml)?$",
-      "iconPath": "/icons/files/prettier.svg"
+      "iconPath": "/prettier.svg"
     },
     {
       "name": "Prettier Config",
       "associationPattern": "^prettier\\.config\\.js$",
-      "iconPath": "/icons/files/prettier.svg"
+      "iconPath": "/prettier.svg"
     },
     {
       "name": "Prisma",
       "associationPattern": "prisma\\.yml",
-      "iconPath": "/icons/files/prisma.svg"
+      "iconPath": "/prisma.svg"
     },
     {
       "name": "Processing",
       "associationPattern": ".*\\.pde$",
-      "iconPath": "/icons/files/processing.svg"
+      "iconPath": "/processing.svg"
     },
     {
       "name": "Prolog",
       "associationPattern": ".*\\.(pro|prolog)$",
-      "iconPath": "/icons/files/prolog.svg"
+      "iconPath": "/prolog.svg"
     },
     {
       "name": "Properties",
       "associationPattern": ".*\\.properties$",
-      "iconPath": "/icons/files/source.svg"
+      "iconPath": "/source.svg"
     },
     {
       "name": "Protractor",
       "associationPattern": "^protractor\\.js(on)?$",
-      "iconPath": "/icons/files/protractor.svg"
+      "iconPath": "/protractor.svg"
     },
     {
       "name": "Puppet",
       "associationPattern": ".*\\.(puppet|pp|epp)$",
-      "iconPath": "/icons/files/puppet.svg"
+      "iconPath": "/puppet.svg"
     },
     {
       "name": "PureScript",
       "associationPattern": ".*\\.(purescript|purs|pure)$",
-      "iconPath": "/icons/files/purescript.svg"
+      "iconPath": "/purescript.svg"
     },
     {
       "name": "R",
       "associationPattern": ".*\\.(r|rmd)$",
-      "iconPath": "/icons/files/r.svg"
+      "iconPath": "/r.svg"
     },
     {
       "name": "Racket",
       "associationPattern": ".*\\.rkt",
-      "iconPath": "/icons/files/racket.svg"
+      "iconPath": "/racket.svg"
     },
     {
       "name": "Raml",
       "associationPattern": ".*\\.raml$",
-      "iconPath": "/icons/files/raml.svg"
+      "iconPath": "/raml.svg"
     },
     {
       "name": "Rails",
       "associationPattern": "^rails$",
-      "iconPath": "/icons/files/rails.svg"
+      "iconPath": "/rails.svg"
     },
     {
       "name": "Rake",
       "associationPattern": ".*rake$",
-      "iconPath": "/icons/files/rake.svg"
+      "iconPath": "/rake.svg"
     },
     {
       "name": "Rakefile",
       "associationPattern": "Rakefile",
-      "iconPath": "/icons/files/rake.svg"
+      "iconPath": "/rake.svg"
     },
     {
       "name": "Razor",
       "associationPattern": ".*\\.(cshtml|vbhtml)$",
-      "iconPath": "/icons/files/razor.svg"
+      "iconPath": "/razor.svg"
     },
     {
       "name": "RDoc",
       "associationPattern": ".*\\.rdoc$",
-      "iconPath": "/icons/files/rdoc.svg"
+      "iconPath": "/rdoc.svg"
     },
     {
       "name": "RestQL",
       "associationPattern": ".*\\.(rql|restql)$",
-      "iconPath": "/icons/files/restql.svg"
+      "iconPath": "/restql.svg"
     },
     {
       "name": "React",
       "associationPattern": ".*\\.react-cli$",
-      "iconPath": "/icons/files/react.svg"
+      "iconPath": "/react.svg"
     },
     {
       "name": "ReasonML",
       "associationPattern": ".*\\.rei?",
-      "iconPath": "/icons/files/reason.svg"
+      "iconPath": "/reason.svg"
     },
     {
       "name": "Red",
       "associationPattern": ".*\\.red",
-      "iconPath": "/icons/files/red.svg"
+      "iconPath": "/red.svg"
     },
     {
       "name": "Redis",
       "associationPattern": "^redis.*",
-      "iconPath": "/icons/files/redis.svg"
+      "iconPath": "/redis.svg"
     },
     {
       "name": "Redux Action",
       "associationPattern": ".*(a|A)ctions?\\.(js|ts)$",
-      "iconPath": "/icons/files/redux-action.svg"
+      "iconPath": "/redux-action.svg"
     },
     {
       "name": "Redux Reducer",
       "associationPattern": ".*(r|R)educer\\.(js|ts)$",
-      "iconPath": "/icons/files/redux-reducer.svg"
+      "iconPath": "/redux-reducer.svg"
     },
     {
       "name": "Redux Store",
       "associationPattern": ".*(s|S)tore\\.(js|ts)$",
-      "iconPath": "/icons/files/redux-store.svg"
+      "iconPath": "/redux-store.svg"
     },
     {
       "name": "Restructured",
       "associationPattern": ".*\\.rst$",
-      "iconPath": "/icons/files/rst.svg"
+      "iconPath": "/rst.svg"
     },
     {
       "name": "Riot",
       "associationPattern": ".*\\.(riot|tag)$",
-      "iconPath": "/icons/files/riot.svg"
+      "iconPath": "/riot.svg"
     },
     {
       "name": "Robot",
       "associationPattern": ".*\\.robot$",
-      "iconPath": "/icons/files/robot.svg"
+      "iconPath": "/robot.svg"
     },
     {
       "name": "Rollup",
       "associationPattern": "^rollup.*",
-      "iconPath": "/icons/files/rollup.svg"
+      "iconPath": "/rollup.svg"
     },
     {
       "name": "Routes",
       "associationPattern": "(routing|routes)\\.(js|jsx|ts|tsx)$",
-      "iconPath": "/icons/files/angularrouting.svg"
+      "iconPath": "/angularrouting.svg"
     },
     {
       "name": "RSpec",
       "associationPattern": ".*_spec\\.rb$",
-      "iconPath": "/icons/files/rspec.svg"
+      "iconPath": "/rspec.svg"
     },
     {
       "name": "RSpec Config",
       "associationPattern": ".*\\.rspec$",
-      "iconPath": "/icons/files/rspec.svg"
+      "iconPath": "/rspec.svg"
     },
     {
       "name": "Rubocop",
       "associationPattern": ".*\\.rubocop.*\\.yml$",
-      "iconPath": "/icons/files/rubocop.svg"
+      "iconPath": "/rubocop.svg"
     },
     {
       "name": "Ruby Gemset",
       "associationPattern": "^\\.ruby-gemset$",
-      "iconPath": "/icons/files/gemfile.svg"
+      "iconPath": "/gemfile.svg"
     },
     {
       "name": "Ruby Version",
       "associationPattern": "^\\.ruby-version$",
-      "iconPath": "/icons/files/ruby.svg"
+      "iconPath": "/ruby.svg"
     },
     {
       "name": "Rust",
       "associationPattern": ".*\\.(rs|rust)$",
-      "iconPath": "/icons/files/rust.svg"
+      "iconPath": "/rust.svg"
     },
     {
       "name": "RVM",
       "associationPattern": "^\\.rvmrc$",
-      "iconPath": "/icons/files/ruby.svg"
+      "iconPath": "/ruby.svg"
     },
     {
       "name": "San",
       "associationPattern": ".*\\.san$",
-      "iconPath": "/icons/files/san.svg"
+      "iconPath": "/san.svg"
     },
     {
       "name": "SASS",
       "associationPattern": ".*\\.sass$",
-      "iconPath": "/icons/files/sass.svg"
+      "iconPath": "/sass.svg"
     },
     {
       "name": "Sapper",
       "associationPattern": "sapper\\.js$",
-      "iconPath": "/icons/files/sapper.svg"
+      "iconPath": "/sapper.svg"
     },
     {
       "name": "SBT",
       "associationPattern": ".*\\.sbt$",
-      "iconPath": "/icons/files/sbt.svg"
+      "iconPath": "/sbt.svg"
     },
     {
       "name": "Scala",
       "associationPattern": ".*\\.scala$",
-      "iconPath": "/icons/files/scala.svg"
+      "iconPath": "/scala.svg"
     },
     {
       "name": "SCSS",
       "associationPattern": ".*\\.scss$",
-      "iconPath": "/icons/files/sass.svg"
+      "iconPath": "/sass.svg"
     },
     {
       "name": "Scheme",
       "associationPattern": ".*\\.(scheme|scm)$",
-      "iconPath": "/icons/files/scheme.svg"
+      "iconPath": "/scheme.svg"
     },
     {
       "name": "Semantic Release",
       "associationPattern": ".*\\.releaserc(.js(on)?|.y(a)?ml)?$",
-      "iconPath": "/icons/files/semantic-release.svg"
+      "iconPath": "/semantic-release.svg"
     },
     {
       "name": "Semantic Release Config",
       "associationPattern": "^release\\.config\\.js$",
-      "iconPath": "/icons/files/semantic-release.svg"
+      "iconPath": "/semantic-release.svg"
     },
     {
       "name": "Settings",
       "associationPattern": ".*\\.settings$",
-      "iconPath": "/icons/files/settings.svg"
+      "iconPath": "/settings.svg"
     },
     {
       "name": "Sequelize",
       "associationPattern": "\\.sequelizerc$",
-      "iconPath": "/icons/files/sequelize.svg"
+      "iconPath": "/sequelize.svg"
     },
     {
       "name": "Shell",
       "associationPattern": ".*\\.(sh|zsh|fish|bash|fishrc|zshrc|bashrc|tcsh)$",
-      "iconPath": "/icons/files/shell.svg"
+      "iconPath": "/shell.svg"
     },
     {
       "name": "SilverStripe",
       "associationPattern": ".*\\.ss$",
-      "iconPath": "/icons/files/silverstripe.svg"
+      "iconPath": "/silverstripe.svg"
     },
     {
       "name": "Sketch",
       "associationPattern": ".*\\.sketch$",
-      "iconPath": "/icons/files/sketch.svg"
+      "iconPath": "/sketch.svg"
     },
     {
       "name": "Slim",
       "associationPattern": ".*\\.slim$",
-      "iconPath": "/icons/files/slim.svg"
+      "iconPath": "/slim.svg"
     },
     {
       "name": "Smarty",
       "associationPattern": ".*\\.tpl$",
-      "iconPath": "/icons/files/smarty.svg"
+      "iconPath": "/smarty.svg"
     },
     {
       "name": "Snapshots",
       "associationPattern": ".*\\.snap$",
-      "iconPath": "/icons/files/snapshot.svg"
+      "iconPath": "/snapshot.svg"
     },
     {
       "name": "Solidity",
       "associationPattern": ".*\\.sol$",
-      "iconPath": "/icons/files/solidity.svg"
+      "iconPath": "/solidity.svg"
     },
     {
       "name": "Sonar",
       "associationPattern": ".*\\.sonarrc$",
-      "iconPath": "/icons/files/sonar.svg"
+      "iconPath": "/sonar.svg"
     },
     {
       "name": "Spring",
       "associationPattern": ".*\\.spring$",
-      "iconPath": "/icons/files/spring.svg"
+      "iconPath": "/spring.svg"
     },
     {
       "name": "SQL",
       "associationPattern": ".*\\.(sql|pdb|pgsql|mysql|hql|qml|psql|pkb)$",
-      "iconPath": "/icons/files/sql.svg"
+      "iconPath": "/sql.svg"
     },
     {
       "name": "SQLite",
       "associationPattern": ".*\\.sqlite3?$",
-      "iconPath": "/icons/files/sqlite.svg"
+      "iconPath": "/sqlite.svg"
     },
     {
       "name": "Stata",
       "associationPattern": ".*\\.stata$",
-      "iconPath": "/icons/files/stata.svg"
+      "iconPath": "/stata.svg"
     },
     {
       "name": "Stencil",
       "associationPattern": "^stencil\\.config\\.(js|ts)$",
-      "iconPath": "/icons/files/stencil.svg"
+      "iconPath": "/stencil.svg"
     },
     {
       "name": "Storybook",
       "associationPattern": ".*\\.(story|stories)\\.(jsx?|tsx?)$",
-      "iconPath": "/icons/files/storybook.svg"
+      "iconPath": "/storybook.svg"
     },
     {
       "name": "Stylelint",
       "associationPattern": "^(\\.stylelintrc|stylelint\\.config\\.js(on)?)$",
-      "iconPath": "/icons/files/stylelint.svg"
+      "iconPath": "/stylelint.svg"
     },
     {
       "name": "Stylus",
       "associationPattern": ".*\\.styl$",
-      "iconPath": "/icons/files/stylus.svg"
+      "iconPath": "/stylus.svg"
     },
     {
       "name": "Sublime",
       "associationPattern": ".*\\.sublime-.*",
-      "iconPath": "/icons/files/sublime.svg"
+      "iconPath": "/sublime.svg"
     },
     {
       "name": "SuperCollider",
       "associationPattern": ".*\\.scd$",
-      "iconPath": "/icons/files/scd.svg"
+      "iconPath": "/scd.svg"
     },
     {
       "name": "Svelte",
       "associationPattern": ".*\\.svelte",
-      "iconPath": "/icons/files/svelte.svg"
+      "iconPath": "/svelte.svg"
     },
     {
       "name": "Svelte Config",
       "associationPattern": "svelte\\.config\\.js(on)?",
-      "iconPath": "/icons/files/svelte.svg"
+      "iconPath": "/svelte.svg"
     },
     {
       "name": "SVN",
       "associationPattern": "^\\.svn",
-      "iconPath": "/icons/files/svn.svg"
+      "iconPath": "/svn.svg"
     },
     {
       "name": "Swagger",
       "associationPattern": ".*\\.(swagger|swag)$",
-      "iconPath": "/icons/files/swagger.svg"
+      "iconPath": "/swagger.svg"
     },
     {
       "name": "Swagger Config",
       "associationPattern": "((swagger|api)\\.(yml|yaml|json))$",
-      "iconPath": "/icons/files/swagger.svg"
+      "iconPath": "/swagger.svg"
     },
     {
       "name": "SWC",
       "associationPattern": ".*\\.swc$",
-      "iconPath": "/icons/files/swc.svg"
+      "iconPath": "/swc.svg"
     },
     {
       "name": "Swift",
       "associationPattern": ".*\\.swift$",
-      "iconPath": "/icons/files/swift.svg"
+      "iconPath": "/swift.svg"
     },
     {
       "name": "Swig",
       "associationPattern": ".*\\.swig$",
-      "iconPath": "/icons/files/swig.svg"
+      "iconPath": "/swig.svg"
     },
     {
       "name": "Symfony",
       "associationPattern": ".*\\.symfony",
-      "iconPath": "/icons/files/symfony.svg"
+      "iconPath": "/symfony.svg"
     },
     {
       "name": "Tailwind CSS Config",
       "associationPattern": "^tailwind.*\\.[jt]s$",
-      "iconPath": "/icons/files/tailwindcss.svg"
+      "iconPath": "/tailwindcss.svg"
     },
     {
       "name": "TCL",
       "associationPattern": ".*\\.tcl$",
-      "iconPath": "/icons/files/tcl.svg"
+      "iconPath": "/tcl.svg"
     },
     {
       "name": "TerraForm",
       "associationPattern": ".*\\.(tf|tfstate|tfvars)$",
-      "iconPath": "/icons/files/terraform.svg"
+      "iconPath": "/terraform.svg"
     },
     {
       "name": "TeX",
       "associationPattern": ".*\\.(tex|cls|sty|dtx|ltx)$",
-      "iconPath": "/icons/files/tex.svg"
+      "iconPath": "/tex.svg"
     },
     {
       "name": "Tern",
       "associationPattern": ".*\\.tern-(config|project)$",
-      "iconPath": "/icons/files/tern.svg"
+      "iconPath": "/tern.svg"
     },
     {
       "name": "Tern Config",
       "associationPattern": "^\\.ternconfig$",
-      "iconPath": "/icons/files/tern.svg"
+      "iconPath": "/tern.svg"
     },
     {
       "name": "Test Java",
       "associationPattern": "(t|T)est\\.java$",
-      "iconPath": "/icons/files/testjava.svg"
+      "iconPath": "/testjava.svg"
     },
     {
       "name": "Test JS",
       "associationPattern": ".*\\.?(test|spec)\\.(js|es6)$",
-      "iconPath": "/icons/files/testjs.svg"
+      "iconPath": "/testjs.svg"
     },
     {
       "name": "Test React",
       "associationPattern": ".*\\.?(test|spec)\\.(jsx|tsx)$",
-      "iconPath": "/icons/files/testreact.svg"
+      "iconPath": "/testreact.svg"
     },
     {
       "name": "Test Python",
       "associationPattern": ".*\\.(test|spec)\\.py$",
-      "iconPath": "/icons/files/testpy.svg"
+      "iconPath": "/testpy.svg"
     },
     {
       "name": "Test Ruby",
       "associationPattern": "_(test|spec)\\.rb$",
-      "iconPath": "/icons/files/testruby.svg"
+      "iconPath": "/testruby.svg"
     },
     {
       "name": "Test TypeScript",
       "associationPattern": ".*\\.?(test|spec)\\.ts$",
-      "iconPath": "/icons/files/testts.svg"
+      "iconPath": "/testts.svg"
     },
     {
       "name": "Textile",
       "associationPattern": ".*\\.textile$",
-      "iconPath": "/icons/files/textile.svg"
+      "iconPath": "/textile.svg"
     },
     {
       "name": "Textmate",
       "associationPattern": ".*\\.(tmPreferences|tmTheme|tmLanguage)",
-      "iconPath": "/icons/files/textmate.svg"
+      "iconPath": "/textmate.svg"
     },
     {
       "name": "Tomcat",
       "associationPattern": "^tomcat.*",
-      "iconPath": "/icons/files/tomcat.svg"
+      "iconPath": "/tomcat.svg"
     },
     {
       "name": "TOML",
       "associationPattern": ".*\\.toml$",
-      "iconPath": "/icons/files/toml.svg"
+      "iconPath": "/toml.svg"
     },
     {
       "name": "TODO",
       "associationPattern": "^(TODO|todo).*",
-      "iconPath": "/icons/files/todo.svg"
+      "iconPath": "/todo.svg"
     },
     {
       "name": "TSConfig",
       "associationPattern": "\\.?tsconfig.*\\.(js|json)$",
-      "iconPath": "/icons/files/tslint.svg"
+      "iconPath": "/tslint.svg"
     },
     {
       "name": "TSLint",
       "associationPattern": "\\.?tslint.*\\.(js|json)$",
-      "iconPath": "/icons/files/tslint.svg"
+      "iconPath": "/tslint.svg"
     },
     {
       "name": "Travis",
       "associationPattern": ".*\\.travis\\.yml$",
-      "iconPath": "/icons/files/travis.svg"
+      "iconPath": "/travis.svg"
     },
     {
       "name": "Turing",
       "associationPattern": ".*\\.t$",
-      "iconPath": "/icons/files/turing.svg"
+      "iconPath": "/turing.svg"
     },
     {
       "name": "Twig",
       "associationPattern": ".*\\.twig$",
-      "iconPath": "/icons/files/twig.svg"
+      "iconPath": "/twig.svg"
     },
     {
       "name": "Typescript Defs",
       "associationPattern": ".*\\.d\\.ts$",
-      "iconPath": "/icons/files/dts.svg"
+      "iconPath": "/dts.svg"
     },
     {
       "name": "Typings",
       "associationPattern": "^typings\\.json$",
-      "iconPath": "/icons/files/typings.svg"
+      "iconPath": "/typings.svg"
     },
     {
       "name": "UML",
       "associationPattern": ".*\\.(uml|iuml|puml|pu|plantuml|wsd)",
-      "iconPath": "/icons/files/uml.svg"
+      "iconPath": "/uml.svg"
     },
     {
       "name": "Unity",
       "associationPattern": ".*\\.(unity|unity3d|fbx)",
-      "iconPath": "/icons/files/unity.svg"
+      "iconPath": "/unity.svg"
     },
     {
       "name": "Unreal",
       "associationPattern": ".*\\.(u|unr|utx|umx|uax|ukx|uz|upkg|uc|upl|asc|lwo)$",
-      "iconPath": "/icons/files/unreal.svg"
+      "iconPath": "/unreal.svg"
     },
     {
       "name": "Vagrant",
       "associationPattern": "^(V|v)agrantfile$",
-      "iconPath": "/icons/files/vagrant.svg"
+      "iconPath": "/vagrant.svg"
     },
     {
       "name": "Vala",
       "associationPattern": ".*\\.vala$",
-      "iconPath": "/icons/files/vala.svg"
+      "iconPath": "/vala.svg"
     },
     {
       "name": "Velocity",
       "associationPattern": ".*\\.(vm|vtl|fhtml)",
-      "iconPath": "/icons/files/velocity.svg"
+      "iconPath": "/velocity.svg"
     },
     {
       "name": "VERSION",
       "associationPattern": "^(VERSION|version)$",
-      "iconPath": "/icons/files/version.svg"
+      "iconPath": "/version.svg"
     },
     {
       "name": "V",
       "associationPattern": ".*\\.(v|vh)$",
-      "iconPath": "/icons/files/v.svg"
+      "iconPath": "/v.svg"
     },
     {
       "name": "VHDL",
       "associationPattern": ".*\\.(vhdl|vhd|sv)$",
-      "iconPath": "/icons/files/vhdl.svg"
+      "iconPath": "/vhdl.svg"
     },
     {
       "name": "Vim",
       "associationPattern": ".*\\.(vim|viml|vimrc|gvimrc)$",
-      "iconPath": "/icons/files/vim.svg"
+      "iconPath": "/vim.svg"
     },
     {
       "name": "Visio",
       "associationPattern": ".*\\.visio$",
-      "iconPath": "/icons/files/visio.svg"
+      "iconPath": "/visio.svg"
     },
     {
       "name": "Visual Studio",
       "associationPattern": ".*\\.(vscode|vssettings|vsix|sln|suo)$",
-      "iconPath": "/icons/files/vs.svg"
+      "iconPath": "/vs.svg"
     },
     {
       "name": "VM",
       "associationPattern": ".*\\.(vbox|vdi|vmware)$",
-      "iconPath": "/icons/files/vm.svg"
+      "iconPath": "/vm.svg"
     },
     {
       "name": "Vue",
       "associationPattern": ".*\\.vue$",
-      "iconPath": "/icons/files/vue.svg"
+      "iconPath": "/vue.svg"
     },
     {
       "name": "Vuex",
       "associationPattern": ".*\\.vuex$",
-      "iconPath": "/icons/files/vuex.svg"
+      "iconPath": "/vuex.svg"
     },
     {
       "name": "Wallaby",
       "associationPattern": "^wallaby.*",
-      "iconPath": "/icons/files/wallaby.svg"
+      "iconPath": "/wallaby.svg"
     },
     {
       "name": "WebAssembly",
       "associationPattern": ".*\\.(wat|wasm)$",
-      "iconPath": "/icons/files/webassembly.svg"
+      "iconPath": "/webassembly.svg"
     },
     {
       "name": "Webpack",
       "associationPattern": "^webpack\\.(common|config|dev|prod)\\.(js|es|es6|coffee|ts)$",
-      "iconPath": "/icons/files/webpack.svg"
+      "iconPath": "/webpack.svg"
     },
     {
       "name": "Webhint",
       "associationPattern": ".*\\.hintrc$",
-      "iconPath": "/icons/files/webhint.svg"
+      "iconPath": "/webhint.svg"
     },
     {
       "name": "WePy",
       "associationPattern": ".*\\.wpy$",
-      "iconPath": "/icons/files/wepy.svg"
+      "iconPath": "/wepy.svg"
     },
     {
       "name": "Windows",
       "associationPattern": ".*\\.(bat|exe|dos|ms|msi)$",
-      "iconPath": "/icons/files/windows.svg"
+      "iconPath": "/windows.svg"
     },
     {
       "name": "Word",
       "associationPattern": ".*\\.(doc|docx|docm|docxml|dotm|dotx|wri|odt|odtx)$",
-      "iconPath": "/icons/files/word.svg"
+      "iconPath": "/word.svg"
     },
     {
       "name": "Xamarin",
       "associationPattern": ".*\\.xamarin",
-      "iconPath": "/icons/files/xamarin.svg"
+      "iconPath": "/xamarin.svg"
     },
     {
       "name": "XCode",
       "associationPattern": ".*\\.xcodeproj$",
-      "iconPath": "/icons/files/appstore.svg"
+      "iconPath": "/appstore.svg"
     },
     {
       "name": "XCode Playground",
       "associationPattern": ".*\\.xcplayground$",
-      "iconPath": "/icons/files/appstore.svg"
+      "iconPath": "/appstore.svg"
     },
     {
       "name": "XCode Workspace",
       "associationPattern": ".*\\.xcworkspacedata$",
-      "iconPath": "/icons/files/appstore.svg"
+      "iconPath": "/appstore.svg"
     },
     {
       "name": "XCode Storyboard",
       "associationPattern": ".*\\.storyboard$",
-      "iconPath": "/icons/files/appstore.svg"
+      "iconPath": "/appstore.svg"
     },
     {
       "name": "Yang",
       "associationPattern": ".*\\.yang$",
-      "iconPath": "/icons/files/yang.svg"
+      "iconPath": "/yang.svg"
     },
     {
       "name": "Yarn",
       "associationPattern": "(\\.yarnrc|yarn.js(on)?)",
-      "iconPath": "/icons/files/yarn.svg"
+      "iconPath": "/yarn.svg"
     },
     {
       "name": "Yarn Lock",
       "associationPattern": "^yarn\\.lock$",
-      "iconPath": "/icons/files/yarn.svg"
+      "iconPath": "/yarn.svg"
     },
     {
       "name": "Yarn Clean",
       "associationPattern": "^\\.yarnclean$",
-      "iconPath": "/icons/files/yarn.svg"
+      "iconPath": "/yarn.svg"
     },
     {
       "name": "YVM",
       "associationPattern": "^\\.yvmrc",
-      "iconPath": "/icons/files/yvmrc.svg"
+      "iconPath": "/yvmrc.svg"
     },
     {
       "name": "Preferences",
       "associationPattern": ".*\\.(ini|config|env|cfg)$",
-      "iconPath": "/icons/files/preferences.svg"
+      "iconPath": "/preferences.svg"
     },
     {
       "name": "Envs",
       "associationPattern": ".*\\.env\\.(.*)$",
-      "iconPath": "/icons/files/preferences.svg"
+      "iconPath": "/preferences.svg"
     },
     {
       "name": "Binary",
       "associationPattern": "^[^.]+$",
-      "iconPath": "/icons/files/binary.svg"
+      "iconPath": "/binary.svg"
     },
     {
       "name": "Font",
       "associationPattern": ".*\\.(ttf|ttc|pfb|pfm|otf|dfont|pfa|afm|eot|woff2?)$",
-      "iconPath": "/icons/files/font.svg"
+      "iconPath": "/font.svg"
     },
     {
       "name": "Lockfiles",
       "associationPattern": ".*\\.lock$",
-      "iconPath": "/icons/files/lock.svg"
+      "iconPath": "/lock.svg"
     },
     {
       "name": "XML",
       "associationPattern": ".*\\.(xml|xhtml|fxml|jrxml|jnlp|pom|rng|tld|wsdl|xsd|xsl|xslt|xul)$",
-      "iconPath": "/icons/files/xml.svg"
+      "iconPath": "/xml.svg"
     },
     {
       "name": "YAML",
       "associationPattern": ".*\\.(yml|yaml|info)$",
-      "iconPath": "/icons/files/yaml.svg"
+      "iconPath": "/yaml.svg"
     },
     {
       "name": "Archive",
       "associationPattern": ".*\\.(7z|7zip|gzip|zip|rar|tar|gz|pzip|saz|tgz)$",
-      "iconPath": "/icons/files/archive.svg"
+      "iconPath": "/archive.svg"
     },
     {
       "name": "Audio",
       "associationPattern": ".*\\.(mp3|aac|aiff|au|flac|m4a|mpc|mp+|mpp|ogg|oga|opus|ra|rm|wav|wma|snd|mid|cda)$",
-      "iconPath": "/icons/files/audio.svg"
+      "iconPath": "/audio.svg"
     },
     {
       "name": "Video",
       "associationPattern": ".*\\.(avi|mp4|mpg|mpeg|mov|mkv|flv|h264|webm|wmv|ogv|3gp|m4v|3gpp|ogm|dvd|divx|qt|yuv)$",
-      "iconPath": "/icons/files/video.svg"
+      "iconPath": "/video.svg"
     },
     {
       "name": "Text",
       "associationPattern": ".*\\.(txt|rtf)$",
-      "iconPath": "/icons/files/text.svg"
+      "iconPath": "/text.svg"
     },
     {
       "name": "Javascript Minified",
       "associationPattern": ".*\\.min\\.(js|es6|es|jsx|ts)$",
-      "iconPath": "/icons/files/jsmin.svg"
+      "iconPath": "/jsmin.svg"
     },
     {
       "name": "Java",
       "associationPattern": ".*\\.(java|jar|war)$",
-      "iconPath": "/icons/files/java.svg"
+      "iconPath": "/java.svg"
     },
     {
       "name": "JSX",
       "associationPattern": ".*\\.(jsx|tsx)$",
-      "iconPath": "/icons/files/jsx.svg"
+      "iconPath": "/jsx.svg"
     },
     {
       "name": "TypeScript",
       "associationPattern": ".*\\.(ts|tsx|tslint)$",
-      "iconPath": "/icons/files/typeScript.svg"
+      "iconPath": "/typeScript.svg"
     },
     {
       "name": "Javascript",
       "associationPattern": ".*\\.(js|es6|es|mjs)$",
-      "iconPath": "/icons/files/js.svg"
+      "iconPath": "/js.svg"
     },
     {
       "name": "Python",
       "associationPattern": ".*\\.(py|python|pyc|whl)$",
-      "iconPath": "/icons/files/python.svg"
+      "iconPath": "/python.svg"
     },
     {
       "name": "Ruby",
       "associationPattern": ".*\\.rb$",
-      "iconPath": "/icons/files/ruby.svg"
+      "iconPath": "/ruby.svg"
     },
     {
       "name": "JSON",
       "associationPattern": ".*\\.(json|cson)$",
-      "iconPath": "/icons/files/json.svg"
+      "iconPath": "/json.svg"
     }
   ]
 }
