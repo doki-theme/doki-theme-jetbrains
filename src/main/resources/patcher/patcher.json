@@ -1,0 +1,9 @@
+{
+  "glyph": [
+    {
+      "name": "Glyph",
+      "pathToRemove": "/nodes",
+      "pathToAppend": "/nodes/glyphs"
+    }
+  ]
+}
