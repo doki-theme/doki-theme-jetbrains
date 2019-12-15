@@ -17,10 +17,10 @@ object IconAssociatiorFactory {
           InputStreamReader(it, StandardCharsets.UTF_8),
           AssociationModels::class.java
         )
-        IconAssociatior(def.associations.map { iad ->
+        IconAssociatior(def.associations.map { associationDefinition ->
           IconAssociation(
-            Regex(iad.associationPattern),
-            iad.iconPath
+            Regex(associationDefinition.associationPattern),
+            associationDefinition.iconPath
           )
         })
       }

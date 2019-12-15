@@ -17,13 +17,13 @@ class MaterialPathPatcher(
       cache[path]
     } else {
       val adjustedPath = path.replace(patcherDefinition.pathToRemove, "")
-      val pathBoi = "$MATERIAL_DIRECTORY${patcherDefinition.pathToAppend}$adjustedPath"
-      val toCache = if (javaClass.getResource(pathBoi) != null)
-        pathBoi
+      val fullIconPath = "$MATERIAL_DIRECTORY${patcherDefinition.pathToAppend}$adjustedPath"
+      val patchedIconPath = if (javaClass.getResource(fullIconPath) != null)
+        fullIconPath
       else
         null
-      cache[path] = toCache
-      toCache
+      cache[path] = patchedIconPath
+      patchedIconPath
     }
   }
 }
