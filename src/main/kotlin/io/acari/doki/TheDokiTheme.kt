@@ -12,6 +12,7 @@ import io.acari.doki.config.ThemeConfig
 import io.acari.doki.hax.HackComponent.hackLAF
 import io.acari.doki.hax.SvgLoaderHacker.setSVGColorPatcher
 import io.acari.doki.icon.patcher.MaterialPathPatcherManager.attemptToAddIcons
+import io.acari.doki.icon.patcher.MaterialPathPatcherManager.attemptToRemoveIcons
 import io.acari.doki.laf.DokiAddFileColorsAction.setFileScopes
 import io.acari.doki.laf.FileScopeColors.attemptToInstallColors
 import io.acari.doki.laf.FileScopeColors.attemptToRemoveColors
@@ -46,11 +47,13 @@ class TheDokiTheme : Disposable {
           setSVGColorPatcher()
           installAllUIComponents()
           attemptToInstallColors()
+          attemptToAddIcons()
         })
         {
           if (ThemeConfig.instance.isDokiFileColors) {
             attemptToRemoveColors()
           }
+          attemptToRemoveIcons()
         }
     })
 
