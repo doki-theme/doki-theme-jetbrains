@@ -731,16 +731,6 @@
       "iconPath": "/godot.svg"
     },
     {
-      "name": "Gradle",
-      "associationPattern": ".*\\.gradle$",
-      "iconPath": "/gradle.svg"
-    },
-    {
-      "name": "Gradlew",
-      "associationPattern": "gradlew$",
-      "iconPath": "/gradle.svg"
-    },
-    {
       "name": "Graphcool",
       "associationPattern": ".*\\.(graphcool)$",
       "iconPath": "/graphcool.svg"
