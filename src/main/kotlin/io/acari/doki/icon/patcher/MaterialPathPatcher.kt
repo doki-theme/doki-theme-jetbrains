@@ -1,6 +1,7 @@
 package io.acari.doki.icon.patcher
 
 import com.intellij.openapi.util.IconPathPatcher
+import io.acari.doki.icon.provider.MaterialIconProvider.Companion.MATERIAL_DIRECTORY
 
 class MaterialPathPatcher(
   private val patcherDefinition: PathPatcherDefinition
@@ -16,7 +17,7 @@ class MaterialPathPatcher(
       cache[path]
     } else {
       val adjustedPath = path.replace(patcherDefinition.pathToRemove, "")
-      val pathBoi = "/icons/material${patcherDefinition.pathToAppend}$adjustedPath"
+      val pathBoi = "$MATERIAL_DIRECTORY${patcherDefinition.pathToAppend}$adjustedPath"
       val toCache = if (javaClass.getResource(pathBoi) != null)
         pathBoi
       else

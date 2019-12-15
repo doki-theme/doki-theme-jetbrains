@@ -12,6 +12,10 @@ import javax.swing.Icon
 
 
 class MaterialIconProvider : IconProvider(), DumbAware {
+  companion object{
+    const val MATERIAL_DIRECTORY = "/icons/material"
+  }
+
   override fun getIcon(element: PsiElement, flags: Int): Icon? =
     when (element) {
       is PsiDirectory -> getDirectoryIcon(element)
