@@ -6,15 +6,23 @@ class MaterialPathPatcher(
   private val patcherDefinition: PathPatcherDefinition
 ) : IconPathPatcher() {
 
+  private val cache: MutableMap<String, String?> = HashMap(512)
+
   override fun getContextClassLoader(path: String, originalClassLoader: ClassLoader?): ClassLoader? =
     javaClass.classLoader
 
   override fun patchPath(path: String, classLoader: ClassLoader?): String? {
-    val adjustedPath = path.replace(patcherDefinition.pathToRemove, "")
-    val pathBoi = "/icons/material${patcherDefinition.pathToAppend}$adjustedPath"
-    return if(javaClass.getResource(pathBoi) != null)
-      pathBoi
-    else
-      null
+    return if (cache.containsKey(path)) {
+      cache[path]
+    } else {
+      val adjustedPath = path.replace(patcherDefinition.pathToRemove, "")
+      val pathBoi = "/icons/material${patcherDefinition.pathToAppend}$adjustedPath"
+      val toCache = if (javaClass.getResource(pathBoi) != null)
+        pathBoi
+      else
+        null
+      cache[path] = toCache
+      toCache
+    }
   }
 }
