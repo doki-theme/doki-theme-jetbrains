@@ -7,9 +7,9 @@ import com.intellij.psi.PsiDirectory
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
 import com.intellij.psi.util.PsiUtilCore
+import io.acari.doki.config.ThemeConfig
 import io.acari.doki.util.toOptional
 import javax.swing.Icon
-
 
 class MaterialIconProvider : IconProvider(), DumbAware {
   companion object{
@@ -26,7 +26,7 @@ class MaterialIconProvider : IconProvider(), DumbAware {
   private fun getDirectoryIcon(element: PsiDirectory): Icon? {
     return PsiUtilCore.getVirtualFile(element)
       .toOptional()
-      //todo: configure enable directory
+      .filter{ ThemeConfig.instance.isMaterialDirectories }
       .map { VirtualFileInfo(element, it) }
       .map { DirectoryIconProvider.getIcon(it) }
       .orElseGet { null }
@@ -35,7 +35,7 @@ class MaterialIconProvider : IconProvider(), DumbAware {
   private fun getFileIcon(element: PsiFile): Icon? {
     return PsiUtilCore.getVirtualFile(element)
       .toOptional()
-      //todo: configure enable file
+      .filter{ ThemeConfig.instance.isMaterialFiles }
       .map { VirtualFileInfo(element, it) }
       .map { FileIconProvider.getIcon(it) }
       .orElseGet { null }
