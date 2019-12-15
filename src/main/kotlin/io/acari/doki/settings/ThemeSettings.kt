@@ -1,9 +1,12 @@
 package io.acari.doki.settings
 
+import com.intellij.icons.AllIcons
 import com.intellij.ide.BrowserUtil.browse
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.options.SearchableConfigurable
 import com.intellij.openapi.ui.ComboBox
+import com.intellij.openapi.ui.DialogPanel
+import com.intellij.ui.components.JBTabbedPane
 import com.intellij.ui.layout.panel
 import io.acari.doki.config.THEME_CONFIG_TOPIC
 import io.acari.doki.config.ThemeConfig
@@ -16,6 +19,7 @@ import java.net.URI
 import java.util.*
 import javax.swing.DefaultComboBoxModel
 import javax.swing.JComponent
+import javax.swing.JTabbedPane
 
 data class ThemeSettingsModel(
   var areStickersEnabled: Boolean,
@@ -71,6 +75,13 @@ class ThemeSettings : SearchableConfigurable {
   }
 
   override fun createComponent(): JComponent? {
+    val tabbedPanel = JBTabbedPane()
+    tabbedPanel.add("Main", createSettingsPane())
+    tabbedPanel.add("Material Icons", panel {})
+    return tabbedPanel
+  }
+
+  private fun createSettingsPane(): DialogPanel {
     val themeComboBox = ComboBox(DefaultComboBoxModel(
       Vector(ThemeManager.instance.allThemes
         .groupBy { it.groupName }
@@ -83,7 +94,7 @@ class ThemeSettings : SearchableConfigurable {
     themeComboBox.addActionListener {
       themeSettingsModel.currentTheme = themeComboBox.model.selectedItem as String
     }
-    return panel {
+    val settingsPane = panel {
       titledRow("Main Settings") {
         row {
           cell {
@@ -133,8 +144,8 @@ class ThemeSettings : SearchableConfigurable {
             "Enable File Colors",
             themeSettingsModel.isFileColors,
             comment = """The file colors remain part of your IDE  after the plugin has been uninstalled.
-              |To Prevent this, disable this setting or you can remove them from "Settings -> Appearance -> File Colors".
-            """.trimMargin(),
+                |To Prevent this, disable this setting or you can remove them from "Settings -> Appearance -> File Colors".
+              """.trimMargin(),
             actionListener = { _, component ->
               themeSettingsModel.isFileColors = component.isSelected
             }
@@ -145,8 +156,8 @@ class ThemeSettings : SearchableConfigurable {
             "Theme Transition Animation",
             themeSettingsModel.isFileColors,
             comment = """The animations will remain in your IDE after uninstalling the plugin.
-          |To remove them, un-check this action or remove them at "Help -> Find Action -> ide.intellij.laf.enable.animation". 
-          """.trimMargin()
+            |To remove them, un-check this action or remove them at "Help -> Find Action -> ide.intellij.laf.enable.animation". 
+            """.trimMargin()
             ,
             actionListener = { _, component ->
               themeSettingsModel.isFileColors = component.isSelected
@@ -154,7 +165,7 @@ class ThemeSettings : SearchableConfigurable {
           )
         }
       }
-      titledRow("Miscellaneous") {
+      titledRow("Miscellaneous Items") {
         row {
           cell {
             button("View Issues") {
@@ -169,6 +180,8 @@ class ThemeSettings : SearchableConfigurable {
           }
         }
       }
+
     }
+    return settingsPane
   }
 }
