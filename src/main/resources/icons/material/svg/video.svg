@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round"
-     stroke-miterlimit="1.4142" version="1.1" viewBox="0 0 24 24" width="16px" height="16px"
-     xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
-    <path d="M 1,19.260657 H 22.968108 V 5.1383012 H 11.959843 L 9.9383992,3.116435 C 9.1935075,2.4481407 8.2427303,2.0542611 7.243462,2 H 1.080466 C 1.0360259,2 1,2.0360259 1,2.080466 Z" fill="#ff9800" fill-rule="nonzero"/>
-    <path d="m21.159 10.275 1.3031 2.6062h-1.9547l-1.3031-2.6062h-1.3031l1.3031 2.6062h-1.9547l-1.3031-2.6062h-1.3031l1.3031 2.6062h-1.9547l-1.3031-2.6062h-0.65156a1.3031 1.3031 0 0 0 -1.3031 1.3031v7.8188a1.3031 1.3031 0 0 0 1.3031 1.3031h10.425a1.3031 1.3031 0 0 0 1.3031 -1.3031v-9.1219z" fill="#ffe0b2" stroke-width=".65156"/>
-</svg>
