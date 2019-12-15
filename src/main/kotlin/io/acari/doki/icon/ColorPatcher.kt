@@ -49,14 +49,23 @@ class ColorPatcher(
 
     val themedStartAttr = svg.getAttribute("themedStart")
     val themedStopAttr = svg.getAttribute("themedStop")
-    if ("true" == themedStartAttr){
-      val themedStart = getThemedStartColor()
-      svg.setAttribute("stop-color",themedStart)
-      svg.setAttribute("fill",themedStart)
-    } else if ("true" == themedStopAttr){
-      val themedStop = getThemedStopColor()
-      svg.setAttribute("stop-color",themedStop)
-      svg.setAttribute("fill",themedStop)
+    val themedFillAttr = svg.getAttribute("themedFill")
+    when {
+      "true" == themedStartAttr -> {
+        val themedStart = getThemedStartColor()
+        svg.setAttribute("stop-color",themedStart)
+        svg.setAttribute("fill",themedStart)
+      }
+      "true" == themedStopAttr -> {
+        val themedStop = getThemedStopColor()
+        svg.setAttribute("stop-color",themedStop)
+        svg.setAttribute("fill",themedStop)
+      }
+      "true" == themedFillAttr -> {
+        val themedStart = getThemedStartColor()
+        svg.setAttribute("fill",themedStart)
+        svg.setAttribute("stroke",themedStart)
+      }
     }
 
 
