@@ -21,7 +21,7 @@ import javax.xml.bind.DatatypeConverter
 
 const val DOKI_BACKGROUND_PROP: String = "io.acari.doki.background"
 private val messageDigest: MessageDigest = MessageDigest.getInstance("MD5")
-private const val SOURCE_CODE = "https://raw.githubusercontent.com/cyclic-reference/ddlc-jetbrains-theme/stickerFix"
+private const val SOURCE_CODE = "https://raw.githubusercontent.com/cyclic-reference/ddlc-jetbrains-theme/master"
 private const val ASSETS_DIRECTORY = "${SOURCE_CODE}/assets"
 private const val RESOURCES_DIRECTORY = "${SOURCE_CODE}/src/main/resources"
 const val DOKI_STICKER_PROP: String = "io.acari.doki.stickers"
