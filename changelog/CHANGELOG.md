@@ -7,7 +7,9 @@
         - File Icons
         - PSI Icons
     - Icons are off by default, so be sure to go to the theme settings to turn them on.
-- Updated Light Natsuki's color scheme. 
+- Updated Light Natsuki's color scheme.
+- Replacing the SSV Normandy Loading Indicator Icon with a Doki Themed Icon.  
+ 
 # 5.0.3
 
 - Fixed Stickers not showing up in certain environments.

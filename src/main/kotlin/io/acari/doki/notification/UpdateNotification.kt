@@ -9,6 +9,7 @@ val UPDATE_MESSAGE: String = """
       <li>Doki Themed Material Icons, see settings to enable them.</li>
       <li>Brought back configurable theme name in Status Bar.</li>
       <li>Updated Light Natsuki's color scheme.</li>
+      <li>Themed the SSV Normandy Progress Bar Icon.</li>
       </ul>
       <br>Please see the <a href="https://github.com/cyclic-reference/ddlc-jetbrains-theme/blob/master/changelog/CHANGELOG.md">Changelog</a> for more details.
       <br>
