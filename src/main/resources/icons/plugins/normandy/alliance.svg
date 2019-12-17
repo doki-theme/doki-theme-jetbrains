@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<svg
+   xmlns="http://www.w3.org/2000/svg"
+   width="18.959044"
+   height="22.080694"
+   viewBox="-2.7755576e-17 0 13.042242 15.189675">
+  <g
+     transform="translate(-65.491561,-193.6871)">
+    <g
+        style="stroke-width:0.34327039;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0"
+       transform="matrix(0.65102011,0,0,0.65102011,23.095306,72.653723)">
+      <path
+         fill="#9AA7B0"
+         d="m 66.36006,207.9864 c 0.306281,-5.92471 3.065848,-14.69834 6.813891,-20.84467 h 1.603753 v 8.10923 c -3.304829,3.84405 -5.090451,8.27241 -6.711088,12.76422 z"
+         style="fill-opacity:1;stroke-width:0.34327039;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         transform="matrix(0.68791662,0,0,0.68791662,64.436898,184.87192)"
+         d="m 15.558594,19.175781 -1.232422,3.060547 -2.964844,0.04883 2.378906,1.996094 -0.716796,2.929688 2.558593,-1.697266 2.509766,1.697266 -0.716797,-2.929688 2.378906,-1.996094 -2.964844,-0.04883 z"
+         style="fill-opacity:1;stroke-width:0.49900001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         fill="#9AA7B0"
+         accentTint="fill"
+      />
+      <path
+         style="fill-opacity:1;stroke-width:0.49900001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         fill="#9AA7B0"
+         accentTint="fill"
+         d="m 10.134766,27.888672 -0.7851566,1.949219 -1.8867188,0.03125 1.5136719,1.271484 -0.4570313,1.865234 1.5996098,-1.082031 1.628906,1.082031 -0.457031,-1.865234 1.515625,-1.271484 -1.888672,-0.03125 z"
+         transform="matrix(0.68791662,0,0,0.68791662,64.436898,184.87192)"/>
+      <path
+         style="fill-opacity:1;stroke-width:0.34327039;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         fill="#9AA7B0"
+         d="m 83.919093,207.9864 c -0.306281,-5.92471 -3.065848,-14.69834 -6.813891,-20.84467 h -1.603753 v 8.10923 c 3.304829,3.84405 5.090451,8.27241 6.711088,12.76422 z"
+         />
+      <path
+         style="fill-opacity:1;stroke-width:0.49900001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         fill="#9AA7B0"
+         accentTint="fill"
+         d="m 20.982422,27.888672 -0.785156,1.949219 -1.888672,0.03125 1.515625,1.271484 -0.457031,1.865234 1.599609,-1.082031 1.628906,1.082031 -0.457031,-1.865234 1.515625,-1.271484 -1.888672,-0.03125 z"
+         transform="matrix(0.68791662,0,0,0.68791662,64.436898,184.87192)"/>
+    </g>
+  </g>
+</svg>

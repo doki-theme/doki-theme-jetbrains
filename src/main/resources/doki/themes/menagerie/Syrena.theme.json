@@ -429,6 +429,7 @@
       "Checkbox.Focus.Thin.Selected.Dark": "#FD7C4B",
       "Checkbox.Focus.Wide.Dark":"#FD7C4B"
     },
+    "/alliance.svg": "/icons/plugins/normandy/alliance.svg",
     "/actions/new.svg": "/icons/actions/new.svg",
     "/actions/checked.svg": "/icons/actions/checked.svg",
     "/actions/diffWithClipboard.svg": "/icons/actions/diffWithClipboard.svg",
