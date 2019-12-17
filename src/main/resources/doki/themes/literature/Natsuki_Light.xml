@@ -931,7 +931,7 @@
         </option>
         <option name="KOTLIN_ENUM_ENTRY">
             <value>
-                <option name="FOREGROUND" value="4569A6" />
+                <option name="FOREGROUND" value="4C94D6" />
             </value>
         </option>
         <option name="KOTLIN_IMPLICIT_EXHAUSTIVE_WHEN">
@@ -2236,7 +2236,7 @@
         </option>
         <option name="ReSharper.ENUM_IDENTIFIER">
             <value>
-                <option name="FOREGROUND" value="4569A6" />
+                <option name="FOREGROUND" value="4C94D6" />
             </value>
         </option>
         <option name="ReSharper.EVENT_IDENTIFIER">
@@ -2376,7 +2376,7 @@
         </option>
         <option name="STATIC_FINAL_FIELD_ATTRIBUTES">
             <value>
-                <option name="FOREGROUND" value="4569A6" />
+                <option name="FOREGROUND" value="4c94d6" />
                 <option name="BACKGROUND"/>
                 <option name="EFFECT_COLOR"/>
                 <option name="FONT_TYPE" value="1"/>
