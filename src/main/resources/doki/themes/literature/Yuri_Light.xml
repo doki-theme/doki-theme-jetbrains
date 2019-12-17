@@ -484,6 +484,12 @@
                 <option name="FOREGROUND" value="80666E" />
             </value>
         </option>
+        <option name="DEFAULT_LABEL">
+            <value>
+                <option name="EFFECT_COLOR" value="808080"/>
+                <option name="EFFECT_TYPE" value="1"/>
+            </value>
+        </option>
         <option name="DEFAULT_LINE_COMMENT">
             <value>
                 <option name="FOREGROUND" value="6a737d" />
