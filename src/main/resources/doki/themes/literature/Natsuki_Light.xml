@@ -219,7 +219,7 @@
         </option>
         <option name="CONSOLE_GREEN_OUTPUT">
             <value>
-                <option name="FOREGROUND" value="31AC51" />
+                <option name="FOREGROUND" value="3dd664" />
             </value>
         </option>
         <option name="CONSOLE_MAGENTA_BRIGHT_OUTPUT">
@@ -521,7 +521,7 @@
         <option name="DEFAULT_REASSIGNED_LOCAL_VARIABLE">
             <value>
                 <option name="FOREGROUND" value="4D4D4A" />
-                <option name="EFFECT_COLOR" value="eeffff" />
+                <option name="EFFECT_COLOR" value="a5a5a5" />
                 <option name="EFFECT_TYPE" value="1" />
             </value>
         </option>
@@ -813,7 +813,7 @@
                 <option name="BACKGROUND"/>
                 <option name="EFFECT_COLOR" value="C0C0C0"/>
                 <option name="EFFECT_TYPE" value="2"/>
-                <option name="ERROR_STRIPE_COLOR" value="d9cfad" deuteranopia="C0C0C0" protanopia="C0C0C0"/>
+                <option name="ERROR_STRIPE_COLOR" value="c0c0c0" deuteranopia="C0C0C0" protanopia="C0C0C0"/>
             </value>
         </option>
         <option name="INJECTED_LANGUAGE_FRAGMENT">
@@ -2496,6 +2496,8 @@
         <option name="WRONG_REFERENCES_ATTRIBUTES">
             <value>
                 <option name="FOREGROUND" value="ff5555" />
+                <option name="EFFECT_COLOR" value="ff4444" />
+                <option name="EFFECT_TYPE" value="2" />
             </value>
         </option>
         <option name="XML_ATTRIBUTE_NAME">
