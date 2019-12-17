@@ -1,5 +1,9 @@
 # Changelog
 ---
+# 5.0.3
+
+- Fixed Stickers not showing up in certain environments.
+
 # 5.0.2
 
 - Brought back configurable the theme name in the lower right hand of the IDE.
