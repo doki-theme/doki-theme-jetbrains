@@ -1,0 +1,2154 @@
+{
+  "associations": [
+    {
+      "name": "Github CODE",
+      "associationPattern": "^CODE_OF_CONDUCT\\.(md|txt)$",
+      "iconPath": "/github.svg"
+    },
+    {
+      "name": "Github CONTRIBUTING",
+      "associationPattern": "^CONTRIBUTING\\.(md|txt)$",
+      "iconPath": "/github.svg"
+    },
+    {
+      "name": "Github COMMIT",
+      "associationPattern": "^COMMIT_MESSAGE_CONVENTION\\.md$",
+      "iconPath": "/github.svg"
+    },
+    {
+      "name": "Github TEMPLATE",
+      "associationPattern": ".*TEMPLATE\\.md$",
+      "iconPath": "/github.svg"
+    },
+    {
+      "name": "README",
+      "associationPattern": "^(README|readme)(\\.(md|txt))?$",
+      "iconPath": "/readme.svg"
+    },
+    {
+      "name": "Plugin",
+      "associationPattern": "^plugin.xml$",
+      "iconPath": "/plugin.svg"
+    },
+    {
+      "name": "Prefs",
+      "associationPattern": ".*\\.prefs$",
+      "iconPath": "/config.svg"
+    },
+    {
+      "name": "webp",
+      "associationPattern": ".*\\.webp$",
+      "iconPath": "/image.svg"
+    },
+    {
+      "name": "3D",
+      "associationPattern": ".*\\.(stl|obj|dae|3ds|dxf|ac)",
+      "iconPath": "/3d.svg"
+    },
+    {
+      "name": "Access",
+      "associationPattern": ".*\\.(adn|accdb|accdr|accdt|accda|mdw|accde|mam|maq|mar|mat|maf|laccdb)$",
+      "iconPath": "/access.svg"
+    },
+    {
+      "name": "ActionScript",
+      "associationPattern": ".*\\.as$",
+      "iconPath": "/actionscript.svg"
+    },
+    {
+      "name": "Adobe Elements",
+      "associationPattern": ".*\\.ae(p|t)$",
+      "iconPath": "/ae.svg"
+    },
+    {
+      "name": "Adobe Illustrator",
+      "associationPattern": ".*\\.ai$",
+      "iconPath": "/ai.svg"
+    },
+    {
+      "name": "Ada",
+      "associationPattern": ".*\\.(ada|adb)$",
+      "iconPath": "/ada.svg"
+    },
+    {
+      "name": "Akka",
+      "associationPattern": ".*\\.akka$",
+      "iconPath": "/akka.svg"
+    },
+    {
+      "name": "Android Manifest",
+      "associationPattern": "^AndroidManifest\\.xml$",
+      "iconPath": "/android.svg"
+    },
+    {
+      "name": "Android Main",
+      "associationPattern": "^MainActivity\\.java$",
+      "iconPath": "/android.svg"
+    },
+    {
+      "name": "Angular-CLI",
+      "associationPattern": "^angular(-cli)?\\.json$",
+      "iconPath": "/angular.svg"
+    },
+    {
+      "name": "AngularJS",
+      "associationPattern": "^angular\\.(min\\.)?js$",
+      "iconPath": "/angular.svg"
+    },
+    {
+      "name": "Angular",
+      "associationPattern": ".*\\.(ng\\.html|ng\\.js|module\\.[tj]s|ng-template)$",
+      "iconPath": "/angular.svg"
+    },
+    {
+      "name": "Angular Component",
+      "associationPattern": ".*\\.component\\.[tj]s$",
+      "iconPath": "/angularcomponent.svg"
+    },
+    {
+      "name": "Angular Directive",
+      "associationPattern": ".*\\.directive\\.[tj]s$",
+      "iconPath": "/angulardirective.svg"
+    },
+    {
+      "name": "Angular Guard",
+      "associationPattern": ".*\\.guard\\.[tj]s$",
+      "iconPath": "/angularguard.svg"
+    },
+    {
+      "name": "Angular Service",
+      "associationPattern": ".*\\.service\\.[tj]s$",
+      "iconPath": "/angularservice.svg"
+    },
+    {
+      "name": "Angular Pipe",
+      "associationPattern": ".*\\.pipe\\.[tj]s$",
+      "iconPath": "/angularpipe.svg"
+    },
+    {
+      "name": "Angular Routing",
+      "associationPattern": ".*\\.routing\\.[tj]s$",
+      "iconPath": "/angularrouting.svg"
+    },
+    {
+      "name": "Angular Resolver",
+      "associationPattern": ".*\\.resolver\\.[tj]s$",
+      "iconPath": "/angularresolver.svg"
+    },
+    {
+      "name": "Ansible",
+      "associationPattern": "^site\\.yml$",
+      "iconPath": "/ansible.svg"
+    },
+    {
+      "name": "ANTLR",
+      "associationPattern": ".*\\.g4$",
+      "iconPath": "/antlr.svg"
+    },
+    {
+      "name": "API Blueprint",
+      "associationPattern": ".*\\.apib$",
+      "iconPath": "/apib.svg"
+    },
+    {
+      "name": "APK",
+      "associationPattern": ".*\\.apk$",
+      "iconPath": "/android.svg"
+    },
+    {
+      "name": "Appveyor",
+      "associationPattern": "^\\.?appveyor\\.yml$",
+      "iconPath": "/appveyor.svg"
+    },
+    {
+      "name": "AppleScript",
+      "associationPattern": ".*\\.applescript$",
+      "iconPath": "/applescript.svg"
+    },
+    {
+      "name": "Arduino",
+      "associationPattern": ".*\\.ino$",
+      "iconPath": "/arduino.svg"
+    },
+    {
+      "name": "Asciidoc",
+      "associationPattern": ".*\\.(ad|adoc|asciidoc)$",
+      "iconPath": "/asciidoc.svg"
+    },
+    {
+      "name": "AspectJ",
+      "associationPattern": ".*\\.aj$",
+      "iconPath": "/eclipse.svg"
+    },
+    {
+      "name": "ASM",
+      "associationPattern": ".*\\.(asm|nasm|inc|ms|agc|aes|aea|argus|mitigus)$",
+      "iconPath": "/asm.svg"
+    },
+    {
+      "name": "ASP",
+      "associationPattern": ".*\\.(asp|asa|aspx)$",
+      "iconPath": "/asp.svg"
+    },
+    {
+      "name": "Atom",
+      "associationPattern": ".*\\.atom$",
+      "iconPath": "/atom.svg"
+    },
+    {
+      "name": "Aurelia",
+      "associationPattern": "^aurelia(file)?\\.js(on)?$",
+      "iconPath": "/aurelia.svg"
+    },
+    {
+      "name": "Authors",
+      "associationPattern": "^(AUTHORS|authors)(\\.(md|txt))?",
+      "iconPath": "/authors.svg"
+    },
+    {
+      "name": "AutoHotKey",
+      "associationPattern": ".*\\.ahk$",
+      "iconPath": "/ahk.svg"
+    },
+    {
+      "name": "AutoIt",
+      "associationPattern": ".*\\.au3",
+      "iconPath": "/autoit.svg"
+    },
+    {
+      "name": "Azure",
+      "associationPattern": ".*\\.azcli$",
+      "iconPath": "/azure.svg"
+    },
+    {
+      "name": "Azure Pipelines",
+      "associationPattern": "azure-pipelines\\.yml$",
+      "iconPath": "/azure.svg"
+    },
+    {
+      "name": "Babel",
+      "associationPattern": "^(\\.babelrc|babel\\.json)$",
+      "iconPath": "/babel.svg"
+    },
+    {
+      "name": "Ballerina",
+      "associationPattern": ".*\\.balx?$",
+      "iconPath": "/ballerina.svg"
+    },
+    {
+      "name": "Basic",
+      "associationPattern": ".*\\.(bas|vb|vbs)$",
+      "iconPath": "/vs.svg"
+    },
+    {
+      "name": "Bazel",
+      "associationPattern": ".*\\.(bzl|bazel)$",
+      "iconPath": "/bazel.svg"
+    },
+    {
+      "name": "Bean",
+      "associationPattern": ".*(b|B)ean\\.java$",
+      "iconPath": "/bean.svg"
+    },
+    {
+      "name": "Behat",
+      "associationPattern": ".*\\.feature(\\.php)?$",
+      "iconPath": "/behat.svg"
+    },
+    {
+      "name": "BitHound",
+      "associationPattern": "\\.bithoundrc$",
+      "iconPath": "/bithound.svg"
+    },
+    {
+      "name": "Bitbucket Pipelines",
+      "associationPattern": "^bitbucket-pipelines\\.yml$",
+      "iconPath": "/bitbucket.svg"
+    },
+    {
+      "name": "Blade",
+      "associationPattern": ".*\\.blade(\\.php)?$",
+      "iconPath": "/blade.svg"
+    },
+    {
+      "name": "Blink",
+      "associationPattern": ".*\\.blink$",
+      "iconPath": "/blink.svg"
+    },
+    {
+      "name": "Bower",
+      "associationPattern": "^(\\.bowerrc|bower\\.json)$",
+      "iconPath": "/bower.svg"
+    },
+    {
+      "name": "Brainfuck",
+      "associationPattern": ".*\\.(b|bf)$",
+      "iconPath": "/brainfuck.svg"
+    },
+    {
+      "name": "Bro",
+      "associationPattern": ".*\\.bro$",
+      "iconPath": "/bro.svg"
+    },
+    {
+      "name": "Browserslist",
+      "associationPattern": "\\.browserslist(rc)?$",
+      "iconPath": "/browserslist.svg"
+    },
+    {
+      "name": "BuckleScript",
+      "associationPattern": ".*\\.cmj$",
+      "iconPath": "/bucklescript.svg"
+    },
+    {
+      "name": "BuildKite",
+      "associationPattern": "^buildkite\\.(yml|yaml)$",
+      "iconPath": "/buildkite.svg"
+    },
+    {
+      "name": "Bundler",
+      "associationPattern": "^Gemfile$",
+      "iconPath": "/bundle.svg"
+    },
+    {
+      "name": "C",
+      "associationPattern": ".*\\.(c|objc)$",
+      "iconPath": "/c.svg"
+    },
+    {
+      "name": "Cabal",
+      "associationPattern": ".*\\.cabal$",
+      "iconPath": "/cabal.svg"
+    },
+    {
+      "name": "Cabal Project",
+      "associationPattern": "^cabal\\.project$",
+      "iconPath": "/cabal.svg"
+    },
+    {
+      "name": "CakePHP",
+      "associationPattern": ".*\\.cake$",
+      "iconPath": "/cakephp.svg"
+    },
+    {
+      "name": "Cargo",
+      "associationPattern": "cargo\\.(toml|lock)$",
+      "iconPath": "/cargo.svg"
+    },
+    {
+      "name": "Certificate",
+      "associationPattern": ".*\\.(crt|cert|x509|pks)$",
+      "iconPath": "/certificate.svg"
+    },
+    {
+      "name": "CFC",
+      "associationPattern": ".*\\.(cfc|cfm|cfml|lucee)$",
+      "iconPath": "/cfc.svg"
+    },
+    {
+      "name": "Changelog",
+      "associationPattern": "^(CHANGELOG|changelog)(\\.(md|txt))?",
+      "iconPath": "/log.svg"
+    },
+    {
+      "name": "Chef Knife",
+      "associationPattern": "^knife.rb$",
+      "iconPath": "/chef.svg"
+    },
+    {
+      "name": "Chef Berksfile",
+      "associationPattern": "^Berksfile$",
+      "iconPath": "/chef.svg"
+    },
+    {
+      "name": "CircleCI",
+      "associationPattern": "^\\.circleci$",
+      "iconPath": "/circleci.svg"
+    },
+    {
+      "name": "CircleCI Conf",
+      "associationPattern": "^(circle|config)\\.yml$",
+      "iconPath": "/circleci.svg"
+    },
+    {
+      "name": "Class",
+      "associationPattern": ".*\\.(class|o)$",
+      "iconPath": "/class.svg"
+    },
+    {
+      "name": "Clojure",
+      "associationPattern": ".*\\.(cljs|clj|cljc|clojure)$",
+      "iconPath": "/clojure.svg"
+    },
+    {
+      "name": "CMake",
+      "associationPattern": ".*\\.cmake$",
+      "iconPath": "/cmake.svg"
+    },
+    {
+      "name": "CMakelists",
+      "associationPattern": "^CMakeLists",
+      "iconPath": "/cmake.svg"
+    },
+    {
+      "name": "CNAME",
+      "associationPattern": "^CNAME$",
+      "iconPath": "/cname.svg"
+    },
+    {
+      "name": "Cobol",
+      "associationPattern": ".*\\.(cobol|cbl)$",
+      "iconPath": "/cobol.svg"
+    },
+    {
+      "name": "Codecov",
+      "associationPattern": "^.*codecov\\.yml$",
+      "iconPath": "/codecov.svg"
+    },
+    {
+      "name": "Codeowners",
+      "associationPattern": "^codeowners$",
+      "iconPath": "/codeowners.svg"
+    },
+    {
+      "name": "CoffeeScript",
+      "associationPattern": ".*\\.(coffee|iced)$",
+      "iconPath": "/coffeescript.svg"
+    },
+    {
+      "name": "ColdFusion",
+      "associationPattern": ".*\\.cf$",
+      "iconPath": "/cf.svg"
+    },
+    {
+      "name": "Commitlint",
+      "associationPattern": ".*\\.commitlintrc\\.(js(on)?|yml)$",
+      "iconPath": "/commitlint.svg"
+    },
+    {
+      "name": "Commitlint Config",
+      "associationPattern": "^commitlint\\.config\\.js$",
+      "iconPath": "/commitlint.svg"
+    },
+    {
+      "name": "Compass",
+      "associationPattern": "^config\\.rb$",
+      "iconPath": "/compass.svg"
+    },
+    {
+      "name": "Composer",
+      "associationPattern": "^composer\\.json$",
+      "iconPath": "/composer.svg"
+    },
+    {
+      "name": "Composer Phar",
+      "associationPattern": "^composer\\.phar$",
+      "iconPath": "/composer.svg"
+    },
+    {
+      "name": "Cordova",
+      "associationPattern": "^cordova",
+      "iconPath": "/cordova.svg"
+    },
+    {
+      "name": "Credits",
+      "associationPattern": "(CREDITS|credits).*",
+      "iconPath": "/credits.svg"
+    },
+    {
+      "name": "Crystal",
+      "associationPattern": ".*\\.(cr|ecr)$",
+      "iconPath": "/crystal.svg"
+    },
+    {
+      "name": "CSS",
+      "associationPattern": ".*\\.css$",
+      "iconPath": "/css.svg"
+    },
+    {
+      "name": "CSS Map",
+      "associationPattern": ".*\\.css\\.map$",
+      "iconPath": "/cssmap.svg"
+    },
+    {
+      "name": "CSV",
+      "associationPattern": ".*\\.(csv|tsv)$",
+      "iconPath": "/csv.svg"
+    },
+    {
+      "name": "Cucumber",
+      "associationPattern": ".*\\.feature\\.rb$",
+      "iconPath": "/cucumber.svg"
+    },
+    {
+      "name": "Cython",
+      "associationPattern": "^.*\\.(pyx|pxd)$",
+      "iconPath": "/cython.svg"
+    },
+    {
+      "name": "Cypress",
+      "associationPattern": "^cypress\\.json$",
+      "iconPath": "/cypress.svg"
+    },
+    {
+      "name": "C++",
+      "associationPattern": ".*\\.(cpp|cc|cp|ii|mii|cxx)$",
+      "iconPath": "/cpp.svg"
+    },
+    {
+      "name": "C#",
+      "associationPattern": ".*\\.csx?$",
+      "iconPath": "/csharp.svg"
+    },
+    {
+      "name": "Dart",
+      "associationPattern": ".*\\.dart$",
+      "iconPath": "/dart.svg"
+    },
+    {
+      "name": "DB",
+      "associationPattern": ".*\\.(db|ddl)$",
+      "iconPath": "/db.svg"
+    },
+    {
+      "name": "Delphi",
+      "associationPattern": ".*\\.delphi$",
+      "iconPath": "/delphi.svg"
+    },
+    {
+      "name": "DLang",
+      "associationPattern": ".*\\.d$",
+      "iconPath": "/dlang.svg"
+    },
+    {
+      "name": "Diff",
+      "associationPattern": ".*\\.diff$",
+      "iconPath": "/diff.svg"
+    },
+    {
+      "name": "Django",
+      "associationPattern": ".*\\.(flake8|djt)$",
+      "iconPath": "/django.svg"
+    },
+    {
+      "name": "DLL",
+      "associationPattern": ".*\\.(dll|dlc)$",
+      "iconPath": "/dylib.svg"
+    },
+    {
+      "name": "Do",
+      "associationPattern": ".*\\.do$",
+      "iconPath": "/tomcat.svg"
+    },
+    {
+      "name": "Docker",
+      "associationPattern": ".*\\.?(d|D)ockerfile$",
+      "iconPath": "/docker.svg"
+    },
+    {
+      "name": "DockerCompose",
+      "associationPattern": "^docker-compose(.*)\\.(yml|yaml)$",
+      "iconPath": "/docker.svg"
+    },
+    {
+      "name": "Dot",
+      "associationPattern": ".*\\.(def|dot|jst)$",
+      "iconPath": "/dotjs.svg"
+    },
+    {
+      "name": "DotNET",
+      "associationPattern": ".*\\.(xaml|csproj)$",
+      "iconPath": "/dotnet.svg"
+    },
+    {
+      "name": "Doxygen",
+      "associationPattern": "^(D|d)oxyfile$",
+      "iconPath": "/doxygen.svg"
+    },
+    {
+      "name": "Drupal",
+      "associationPattern": ".*\\.drupal$",
+      "iconPath": "/drupal.svg"
+    },
+    {
+      "name": "Dylib",
+      "associationPattern": ".*\\.dylib$",
+      "iconPath": "/dylib.svg"
+    },
+    {
+      "name": "Eclipse",
+      "associationPattern": ".*\\.eclipse",
+      "iconPath": "/eclipse.svg"
+    },
+    {
+      "name": "Edge",
+      "associationPattern": ".*\\.edge$",
+      "iconPath": "/adonis.svg"
+    },
+    {
+      "name": "EditorConfig",
+      "associationPattern": "^\\.editorconfig$",
+      "iconPath": "/editorconfig.svg"
+    },
+    {
+      "name": "Eiffel",
+      "associationPattern": ".*\\.e$",
+      "iconPath": "/eiffel.svg"
+    },
+    {
+      "name": "Emacs",
+      "associationPattern": "^\\.emacs.*$",
+      "iconPath": "/emacs.svg"
+    },
+    {
+      "name": "Emacs Lisp",
+      "associationPattern": "^.*\\.(el|elc)$",
+      "iconPath": "/emacs.svg"
+    },
+    {
+      "name": "Ember CLI",
+      "associationPattern": "^\\.ember-cli$",
+      "iconPath": "/ember.svg"
+    },
+    {
+      "name": "Ember",
+      "associationPattern": "^\\.ember\\.json$",
+      "iconPath": "/ember.svg"
+    },
+    {
+      "name": "EJS",
+      "associationPattern": ".*\\.(ejs)$",
+      "iconPath": "/ejs.svg"
+    },
+    {
+      "name": "Elixir",
+      "associationPattern": ".*\\.(ex|eex|exs|elixir|leex)$",
+      "iconPath": "/ex.svg"
+    },
+    {
+      "name": "Elm",
+      "associationPattern": ".*\\.elm$",
+      "iconPath": "/elm.svg"
+    },
+    {
+      "name": "ESLint",
+      "associationPattern": ".*\\.eslintrc(\\.js(on)?|\\.y(a)?ml)?$",
+      "iconPath": "/eslint.svg"
+    },
+    {
+      "name": "ERB",
+      "associationPattern": ".*\\.(erb|ru)$",
+      "iconPath": "/erb.svg"
+    },
+    {
+      "name": "ErLang",
+      "associationPattern": ".*\\.(erc|erl|erlang)$",
+      "iconPath": "/erlang.svg"
+    },
+    {
+      "name": "Excel",
+      "associationPattern": ".*\\.(xls|xlsx|xlm|xlt|xlsb|odx)$",
+      "iconPath": "/excel.svg"
+    },
+    {
+      "name": "Favicon",
+      "associationPattern": "^favicon\\.(ico|png|jpg)$",
+      "iconPath": "/favicon.svg"
+    },
+    {
+      "name": "Finder",
+      "associationPattern": "^\\._*?MACOSX$",
+      "iconPath": "/finder.svg"
+    },
+    {
+      "name": "Firebase",
+      "associationPattern": ".*\\.(firebaserc)$",
+      "iconPath": "/firebase.svg"
+    },
+    {
+      "name": "Firebase JSON",
+      "associationPattern": "^firebase\\.json$",
+      "iconPath": "/firebase.svg"
+    },
+    {
+      "name": "Flash",
+      "associationPattern": ".*\\.(swf|flash)$",
+      "iconPath": "/flash.svg"
+    },
+    {
+      "name": "Flow",
+      "associationPattern": ".*\\.(flow|flowconfig)$",
+      "iconPath": "/flow.svg"
+    },
+    {
+      "name": "Fortran",
+      "associationPattern": ".*\\.(f77|f90)$",
+      "iconPath": "/fortran.svg"
+    },
+    {
+      "name": "FreeMarker",
+      "associationPattern": ".*\\.(ftl|freemarker)$",
+      "iconPath": "/freemarker.svg"
+    },
+    {
+      "name": "FSharp",
+      "associationPattern": ".*\\.(fs|fsi|fsx|fsproj)$",
+      "iconPath": "/fsharp.svg"
+    },
+    {
+      "name": "Gatsby",
+      "associationPattern": "^gatsby.*\\.js",
+      "iconPath": "/gatsby.svg"
+    },
+    {
+      "name": "GhostScript",
+      "associationPattern": ".*\\.ghostscript$",
+      "iconPath": "/ghostscript.svg"
+    },
+    {
+      "name": "Gemfile",
+      "associationPattern": "^(G|g)emfile\\.lock$",
+      "iconPath": "/gemfile.svg"
+    },
+    {
+      "name": "GitLab CI",
+      "associationPattern": "^\\.gitlab-ci\\.yml$",
+      "iconPath": "/gitlab.svg"
+    },
+    {
+      "name": "Git",
+      "associationPattern": "^\\.git.*",
+      "iconPath": "/git.svg"
+    },
+    {
+      "name": "Go",
+      "associationPattern": ".*\\.(go|gohtml)$",
+      "iconPath": "/go.svg"
+    },
+    {
+      "name": "Godot",
+      "associationPattern": ".*\\.(gd|godot|tres|tscn)$",
+      "iconPath": "/godot.svg"
+    },
+    {
+      "name": "Graphcool",
+      "associationPattern": ".*\\.(graphcool)$",
+      "iconPath": "/graphcool.svg"
+    },
+    {
+      "name": "GraphQL",
+      "associationPattern": ".*\\.(gql|graphql)$",
+      "iconPath": "/graphql.svg"
+    },
+    {
+      "name": "GraphQL Config",
+      "associationPattern": "\\.graphqlconfig$",
+      "iconPath": "/graphql.svg"
+    },
+    {
+      "name": "Graphviz",
+      "associationPattern": ".*\\.(dot|graphviz)$",
+      "iconPath": "/graphviz.svg"
+    },
+    {
+      "name": "Gridsome",
+      "associationPattern": "^gridsome\\.(config|server)\\.js$",
+      "iconPath": "/gridsome.svg"
+    },
+    {
+      "name": "Groovy",
+      "associationPattern": ".*\\.(gy|gdsl|groovy)$",
+      "iconPath": "/groovy.svg"
+    },
+    {
+      "name": "Grunt",
+      "associationPattern": "(g|G)runtfile.*",
+      "iconPath": "/gruntfile.svg"
+    },
+    {
+      "name": "Gulp",
+      "associationPattern": "(g|G)ulpfile.*",
+      "iconPath": "/gulpfile.svg"
+    },
+    {
+      "name": "H",
+      "associationPattern": ".*\\.(objh|h|hh|hp|hpp|tcc|hxx)$",
+      "iconPath": "/hh.svg"
+    },
+    {
+      "name": "Hack",
+      "associationPattern": ".*\\.(hhconfig|hh)$",
+      "iconPath": "/hack.svg"
+    },
+    {
+      "name": "HAML",
+      "associationPattern": ".*\\.haml$",
+      "iconPath": "/haml.svg"
+    },
+    {
+      "name": "Hashicorp",
+      "associationPattern": ".*\\.hcl$",
+      "iconPath": "/hcl.svg"
+    },
+    {
+      "name": "Haskell",
+      "associationPattern": ".*\\.(haskell|hs)$",
+      "iconPath": "/haskell.svg"
+    },
+    {
+      "name": "Haxe",
+      "associationPattern": ".*\\.(haxe|hx)$",
+      "iconPath": "/haxe.svg"
+    },
+    {
+      "name": "Helm",
+      "associationPattern": ".*\\.(helm|helmignore)",
+      "iconPath": "/helm.svg"
+    },
+    {
+      "name": "Heroku",
+      "associationPattern": "^((P|p)rocfile(\\.windows)?|\\.slugignore)$",
+      "iconPath": "/heroku.svg"
+    },
+    {
+      "name": "History",
+      "associationPattern": "history.*$",
+      "iconPath": "/history.svg"
+    },
+    {
+      "name": "Houdini",
+      "associationPattern": ".*\\.(vfl|hip|pic|geo)$",
+      "iconPath": "/houdini.svg"
+    },
+    {
+      "name": "HTAccess",
+      "associationPattern": ".*\\.(htaccess|htpasswd)$",
+      "iconPath": "/htaccess.svg"
+    },
+    {
+      "name": "HTML",
+      "associationPattern": ".*\\.(html|htm)$",
+      "iconPath": "/html.svg"
+    },
+    {
+      "name": "HTTP",
+      "associationPattern": ".*\\.(http|rest)$",
+      "iconPath": "/http.svg"
+    },
+    {
+      "name": "Husky",
+      "associationPattern": ".*\\.huskyrc(.js(on)?)?$",
+      "iconPath": "/husky.svg"
+    },
+    {
+      "name": "i18n",
+      "associationPattern": ".*\\.(pot|po|mo)$",
+      "iconPath": "/i18n.svg"
+    },
+    {
+      "name": "IDEA",
+      "associationPattern": ".*\\.(iml|icls)$",
+      "iconPath": "/idea.svg"
+    },
+    {
+      "name": "Idris",
+      "associationPattern": ".*\\.(idr|idris)$",
+      "iconPath": "/idris.svg"
+    },
+    {
+      "name": "InDesign",
+      "associationPattern": ".*\\.(id|indl|indt|indb)$",
+      "iconPath": "/indesign.svg"
+    },
+    {
+      "name": "Istanbul",
+      "associationPattern": ".*\\.nycrc(\\.json)?$",
+      "iconPath": "/istanbul.svg"
+    },
+    {
+      "name": "IO",
+      "associationPattern": ".*\\.(io)$",
+      "iconPath": "/io.svg"
+    },
+    {
+      "name": "Ionic",
+      "associationPattern": ".*\\.ionic\\.config$",
+      "iconPath": "/ionic.svg"
+    },
+    {
+      "name": "J",
+      "associationPattern": ".*\\.(ijs)$",
+      "iconPath": "/j.svg"
+    },
+    {
+      "name": "Jade/Pug",
+      "associationPattern": ".*\\.(jade|pug)$",
+      "iconPath": "/pug.svg"
+    },
+    {
+      "name": "Jekyll",
+      "associationPattern": "^_config\\.yml$",
+      "iconPath": "/jekyll.svg"
+    },
+    {
+      "name": "Jenkins",
+      "associationPattern": "^(j|J)enkinsfile.*",
+      "iconPath": "/jenkins.svg"
+    },
+    {
+      "name": "Jest",
+      "associationPattern": "^jest\\.(config|setup|teardown).*",
+      "iconPath": "/jest.svg"
+    },
+    {
+      "name": "Jestrc",
+      "associationPattern": "^\\.jestrc.*",
+      "iconPath": "/jest.svg"
+    },
+    {
+      "name": "Jinja",
+      "associationPattern": ".*\\.(jinja2?|j2|jnj2?)$",
+      "iconPath": "/jinja.svg"
+    },
+    {
+      "name": "Joomla",
+      "associationPattern": ".*\\.smarty$",
+      "iconPath": "/joomla.svg"
+    },
+    {
+      "name": "jQuery",
+      "associationPattern": "jquery.*\\.js",
+      "iconPath": "/jquery.svg"
+    },
+    {
+      "name": "JS Map",
+      "associationPattern": ".*\\.js\\.map$",
+      "iconPath": "/jsmap.svg"
+    },
+    {
+      "name": "JSP",
+      "associationPattern": ".*\\.(jsp|jsf|jspx)",
+      "iconPath": "/jsp.svg"
+    },
+    {
+      "name": "Julia",
+      "associationPattern": ".*\\.(julia|jl)$",
+      "iconPath": "/julia.svg"
+    },
+    {
+      "name": "Jupyter Notebook",
+      "associationPattern": ".*\\.ipynb$",
+      "iconPath": "/jupyter.svg"
+    },
+    {
+      "name": "Karma",
+      "associationPattern": "^karma\\.conf.*",
+      "iconPath": "/karma.svg"
+    },
+    {
+      "name": "Key",
+      "associationPattern": ".*\\.(key|pem|gpg|pub)",
+      "iconPath": "/key.svg"
+    },
+    {
+      "name": "Kivy",
+      "associationPattern": ".*\\.kv$",
+      "iconPath": "/kivy.svg"
+    },
+    {
+      "name": "KL",
+      "associationPattern": ".*\\.kl$",
+      "iconPath": "/kl.svg"
+    },
+    {
+      "name": "Knockout",
+      "associationPattern": ".*\\.(knockout|ko)$",
+      "iconPath": "/knockout.svg"
+    },
+    {
+      "name": "Kotlin",
+      "associationPattern": ".*\\.(kt|kts|kotlin)$",
+      "iconPath": "/kotlin.svg"
+    },
+    {
+      "name": "Lerna",
+      "associationPattern": "^lerna\\.json$",
+      "iconPath": "/lerna.svg"
+    },
+    {
+      "name": "Less",
+      "associationPattern": ".*\\.less$",
+      "iconPath": "/less.svg"
+    },
+    {
+      "name": "Lib",
+      "associationPattern": ".*\\.(lib|bib|s)$",
+      "iconPath": "/lib.svg"
+    },
+    {
+      "name": "LICENSE",
+      "associationPattern": "^(license|LICENSE).*",
+      "iconPath": "/license.svg"
+    },
+    {
+      "name": "LICENCE",
+      "associationPattern": "^(licence|LICENCE).*",
+      "iconPath": "/license.svg"
+    },
+    {
+      "name": "Lint Staged",
+      "associationPattern": ".*\\.lintstagedrc\\.(json|yml)$",
+      "iconPath": "/lint-staged.svg"
+    },
+    {
+      "name": "Lint Staged Config",
+      "associationPattern": "^lint-staged\\.config\\.js$",
+      "iconPath": "/lint-staged.svg"
+    },
+    {
+      "name": "LiveScript",
+      "associationPattern": ".*\\.ls$",
+      "iconPath": "/livescript.svg"
+    },
+    {
+      "name": "Liquid",
+      "associationPattern": ".*\\.liquid$",
+      "iconPath": "/liquid.svg"
+    },
+    {
+      "name": "LISP",
+      "associationPattern": ".*\\.lisp$",
+      "iconPath": "/lisp.svg"
+    },
+    {
+      "name": "Log",
+      "associationPattern": ".*\\.log([0-9])?",
+      "iconPath": "/log.svg"
+    },
+    {
+      "name": "LSL",
+      "associationPattern": ".*\\.lsl",
+      "iconPath": "/lsl.svg"
+    },
+    {
+      "name": "Lua",
+      "associationPattern": ".*\\.lua$",
+      "iconPath": "/lua.svg"
+    },
+    {
+      "name": "Magento",
+      "associationPattern": ".*\\.mage$",
+      "iconPath": "/magento.svg"
+    },
+    {
+      "name": "MarkoJS",
+      "associationPattern": ".*\\.marko$",
+      "iconPath": "/marko.svg"
+    },
+    {
+      "name": "Makefile",
+      "associationPattern": ".*\\.?(m|M)akefile$",
+      "iconPath": "/makefile.svg"
+    },
+    {
+      "name": "Manpage",
+      "associationPattern": ".*\\.man([1-8])?$",
+      "iconPath": "/manpage.svg"
+    },
+    {
+      "name": "Manifest",
+      "associationPattern": "manifest\\.json$",
+      "iconPath": "/manifest.svg"
+    },
+    {
+      "name": "Markdown",
+      "associationPattern": ".*\\.(md|markdown|mson)$",
+      "iconPath": "/markdown.svg"
+    },
+    {
+      "name": "Markup",
+      "associationPattern": ".*\\.(shtml|dhtml|dtd)$",
+      "iconPath": "/markup.svg"
+    },
+    {
+      "name": "Mathematica",
+      "associationPattern": ".*\\.(nb|ma|mb|cdf)$",
+      "iconPath": "/mathematica.svg"
+    },
+    {
+      "name": "Matlab",
+      "associationPattern": ".*\\.matlab$",
+      "iconPath": "/matlab.svg"
+    },
+    {
+      "name": "Maven",
+      "associationPattern": "^pom\\.xml$",
+      "iconPath": "/maven.svg"
+    },
+    {
+      "name": "Maya",
+      "associationPattern": ".*\\.(maya|mel)$",
+      "iconPath": "/maya.svg"
+    },
+    {
+      "name": "MDX",
+      "associationPattern": ".*\\.(mdx)$",
+      "iconPath": "/mdx.svg"
+    },
+    {
+      "name": "Mercurial",
+      "associationPattern": ".*\\.hg$",
+      "iconPath": "/mercurial.svg"
+    },
+    {
+      "name": "Merlin",
+      "associationPattern": ".*\\.merlin$",
+      "iconPath": "/merlin.svg"
+    },
+    {
+      "name": "Meteor",
+      "associationPattern": ".*\\.meteor$",
+      "iconPath": "/meteor.svg"
+    },
+    {
+      "name": "Mint",
+      "associationPattern": ".*\\.mint",
+      "iconPath": "/mint.svg"
+    },
+    {
+      "name": "MJML",
+      "associationPattern": ".*\\.mjml$",
+      "iconPath": "/mjml.svg"
+    },
+    {
+      "name": "Moonscript",
+      "associationPattern": ".*\\.moon$",
+      "iconPath": "/moonscript.svg"
+    },
+    {
+      "name": "Mocha",
+      "associationPattern": "^(mocha\\.opts|\\.mocharc)$",
+      "iconPath": "/mocha.svg"
+    },
+    {
+      "name": "Mocha JSON",
+      "associationPattern": "^\\.mocha\\.(js|json|yml)$",
+      "iconPath": "/mocha.svg"
+    },
+    {
+      "name": "Mongodb",
+      "associationPattern": ".*\\.(mongodb|bson)$",
+      "iconPath": "/mongodb.svg"
+    },
+    {
+      "name": "Mustache",
+      "associationPattern": ".*\\.(mustache|handlebars|hbs|hamlbars)$",
+      "iconPath": "/mustache.svg"
+    },
+    {
+      "name": "MXML",
+      "associationPattern": ".*\\.mxml$",
+      "iconPath": "/mxml.svg"
+    },
+    {
+      "name": "Nest",
+      "associationPattern": "\\.?nest-cli\\.json",
+      "iconPath": "/nest.svg"
+    },
+    {
+      "name": "Nest Config",
+      "associationPattern": "\\.?nestconfig\\.json",
+      "iconPath": "/nest.svg"
+    },
+    {
+      "name": "Netlify",
+      "associationPattern": "^netlify\\.toml$",
+      "iconPath": "/netlify.svg"
+    },
+    {
+      "name": "Netlify headers",
+      "associationPattern": "^_headers$",
+      "iconPath": "/netlify_headers.svg"
+    },
+    {
+      "name": "Netlify redirects",
+      "associationPattern": "^_redirects$",
+      "iconPath": "/netlify_redirects.svg"
+    },
+    {
+      "name": "nginx",
+      "associationPattern": ".*\\.(nginx|conf)$",
+      "iconPath": "/nginx.svg"
+    },
+    {
+      "name": "Nib",
+      "associationPattern": ".*\\.nib$",
+      "iconPath": "/nib.svg"
+    },
+    {
+      "name": "Nimble",
+      "associationPattern": ".*\\.(nim|nimble)$",
+      "iconPath": "/nim.svg"
+    },
+    {
+      "name": "Node",
+      "associationPattern": "^(server|app)\\.(js|ts|es6)$",
+      "iconPath": "/nodejs.svg"
+    },
+    {
+      "name": "Node Version",
+      "associationPattern": "^\\.node-version$",
+      "iconPath": "/nodejs.svg"
+    },
+    {
+      "name": "Nodemon",
+      "associationPattern": ".*\\.nodemon\\.(js|json)$",
+      "iconPath": "/nodemon.svg"
+    },
+    {
+      "name": "Note",
+      "associationPattern": ".*\\.(scratch|note)$",
+      "iconPath": "/note.svg"
+    },
+    {
+      "name": "Now",
+      "associationPattern": "now\\.json$",
+      "iconPath": "/now.svg"
+    },
+    {
+      "name": "Nowignore",
+      "associationPattern": "\\.nowignore$",
+      "iconPath": "/now.svg"
+    },
+    {
+      "name": "NPM",
+      "associationPattern": "^package\\.json$",
+      "iconPath": "/npm.svg"
+    },
+    {
+      "name": "NPM lock",
+      "associationPattern": "^package-lock\\.json$",
+      "iconPath": "/lock.svg"
+    },
+    {
+      "name": "NPMFiles",
+      "associationPattern": "^\\.(npmignore|npmrc)$",
+      "iconPath": "/npm.svg"
+    },
+    {
+      "name": "NSIS",
+      "associationPattern": ".*\\.nsis?$",
+      "iconPath": "/nsis.svg"
+    },
+    {
+      "name": "NVM",
+      "associationPattern": ".*\\.(nvmrc|esmrc)$",
+      "iconPath": "/nodejs.svg"
+    },
+    {
+      "name": "Nuclide",
+      "associationPattern": ".*\\.nuclide$",
+      "iconPath": "/nuclide.svg"
+    },
+    {
+      "name": "NuGet",
+      "associationPattern": ".*\\.nuspec$",
+      "iconPath": "/nuget.svg"
+    },
+    {
+      "name": "Nunjucks",
+      "associationPattern": ".*\\.(njk|nunjucks)$",
+      "iconPath": "/nunjucks.svg"
+    },
+    {
+      "name": "Nuxt",
+      "associationPattern": ".*nuxt\\.config\\.(js|ts)",
+      "iconPath": "/nuxt.svg"
+    },
+    {
+      "name": "Objective-C",
+      "associationPattern": ".*\\.mm?$",
+      "iconPath": "/objc.svg"
+    },
+    {
+      "name": "OCaml",
+      "associationPattern": ".*\\.(ocaml|ml|mli|cmx|ocamllex|ocamlyacc)$",
+      "iconPath": "/ocaml.svg"
+    },
+    {
+      "name": "OneNote",
+      "associationPattern": ".*\\.(one|onenote)$",
+      "iconPath": "/onenote.svg"
+    },
+    {
+      "name": "OpenOffice",
+      "associationPattern": ".*\\.(odf|ods)$",
+      "iconPath": "/openoffice.svg"
+    },
+    {
+      "name": "Pascal",
+      "associationPattern": ".*\\.(pas|pascal)$",
+      "iconPath": "/pascal.svg"
+    },
+    {
+      "name": "Patch",
+      "associationPattern": ".*\\.(patch|meld)$",
+      "iconPath": "/patch.svg"
+    },
+    {
+      "name": "PDF",
+      "associationPattern": ".*\\.pdf$",
+      "iconPath": "/pdf.svg"
+    },
+    {
+      "name": "Perl",
+      "associationPattern": ".*\\.(perl|pl|pm)$",
+      "iconPath": "/perl.svg"
+    },
+    {
+      "name": "Perforce",
+      "associationPattern": "^\\.p4ignore$",
+      "iconPath": "/p4.svg"
+    },
+    {
+      "name": "Phalcon",
+      "associationPattern": ".*\\.volt$",
+      "iconPath": "/phalcon.svg"
+    },
+    {
+      "name": "Photoshop",
+      "associationPattern": ".*\\.(psb|psd)$",
+      "iconPath": "/psd.svg"
+    },
+    {
+      "name": "PHPUnit",
+      "associationPattern": ".*(t|T)est\\.php$",
+      "iconPath": "/phpunit.svg"
+    },
+    {
+      "name": "PHTML",
+      "associationPattern": ".*\\.phtml$",
+      "iconPath": "/phtml.svg"
+    },
+    {
+      "name": "Pipfile",
+      "associationPattern": "Pipfile$",
+      "iconPath": "/pipfile.svg"
+    },
+    {
+      "name": "Pipfile.lock",
+      "associationPattern": "Pipfile\\.lock$",
+      "iconPath": "/lock.svg"
+    },
+    {
+      "name": "Play",
+      "associationPattern": ".*\\.play$",
+      "iconPath": "/play.svg"
+    },
+    {
+      "name": "PList",
+      "associationPattern": ".*\\.plist$",
+      "iconPath": "/plist.svg"
+    },
+    {
+      "name": "Pnpm",
+      "associationPattern": "^pnpm-(lock|workspace|debug)\\.yaml",
+      "iconPath": "/pnpm.svg"
+    },
+    {
+      "name": "Pnpmfile",
+      "associationPattern": "^pnpmfile\\.js",
+      "iconPath": "/pnpm.svg"
+    },
+    {
+      "name": "PostCSS",
+      "associationPattern": ".*\\.(pcss|postcss|sss)$",
+      "iconPath": "/postcss.svg"
+    },
+    {
+      "name": "PostCSS Config",
+      "associationPattern": "^(\\.postcssrc|postcss\\.config\\.js(on)?)$",
+      "iconPath": "/postcss.svg"
+    },
+    {
+      "name": "PostHTML",
+      "associationPattern": "^(\\.posthtmlrc|posthtml\\.config\\.(yml|js|json))$",
+      "iconPath": "/posthtml.svg"
+    },
+    {
+      "name": "PostScript",
+      "associationPattern": ".*\\.(ps|eps)$",
+      "iconPath": "/postscript.svg"
+    },
+    {
+      "name": "Polymer",
+      "associationPattern": "^polymer\\.json",
+      "iconPath": "/polymer.svg"
+    },
+    {
+      "name": "Powerpoint",
+      "associationPattern": ".*\\.(ppt|pptx|pps|ppsx|pot|potx|ppa|ppam)$",
+      "iconPath": "/powerpoint.svg"
+    },
+    {
+      "name": "PowerShell",
+      "associationPattern": ".*\\.(powershell|ps1|psd1|psc1|pssc|cmd)$",
+      "iconPath": "/powershell.svg"
+    },
+    {
+      "name": "Premiere",
+      "associationPattern": ".*\\.(prel|prproj|psq)$",
+      "iconPath": "/premiere.svg"
+    },
+    {
+      "name": "Prettier",
+      "associationPattern": "^\\.prettierrc(\\.js(on)?|\\.y(a)?ml)?$",
+      "iconPath": "/prettier.svg"
+    },
+    {
+      "name": "Prettier Config",
+      "associationPattern": "^prettier\\.config\\.js$",
+      "iconPath": "/prettier.svg"
+    },
+    {
+      "name": "Prisma",
+      "associationPattern": "prisma\\.yml",
+      "iconPath": "/prisma.svg"
+    },
+    {
+      "name": "Processing",
+      "associationPattern": ".*\\.pde$",
+      "iconPath": "/processing.svg"
+    },
+    {
+      "name": "Prolog",
+      "associationPattern": ".*\\.(pro|prolog)$",
+      "iconPath": "/prolog.svg"
+    },
+    {
+      "name": "Properties",
+      "associationPattern": ".*\\.properties$",
+      "iconPath": "/source.svg"
+    },
+    {
+      "name": "Protractor",
+      "associationPattern": "^protractor\\.js(on)?$",
+      "iconPath": "/protractor.svg"
+    },
+    {
+      "name": "Puppet",
+      "associationPattern": ".*\\.(puppet|pp|epp)$",
+      "iconPath": "/puppet.svg"
+    },
+    {
+      "name": "PureScript",
+      "associationPattern": ".*\\.(purescript|purs|pure)$",
+      "iconPath": "/purescript.svg"
+    },
+    {
+      "name": "R",
+      "associationPattern": ".*\\.(r|rmd)$",
+      "iconPath": "/r.svg"
+    },
+    {
+      "name": "Racket",
+      "associationPattern": ".*\\.rkt",
+      "iconPath": "/racket.svg"
+    },
+    {
+      "name": "Raml",
+      "associationPattern": ".*\\.raml$",
+      "iconPath": "/raml.svg"
+    },
+    {
+      "name": "Rails",
+      "associationPattern": "^rails$",
+      "iconPath": "/rails.svg"
+    },
+    {
+      "name": "Rake",
+      "associationPattern": ".*rake$",
+      "iconPath": "/rake.svg"
+    },
+    {
+      "name": "Rakefile",
+      "associationPattern": "Rakefile",
+      "iconPath": "/rake.svg"
+    },
+    {
+      "name": "Razor",
+      "associationPattern": ".*\\.(cshtml|vbhtml)$",
+      "iconPath": "/razor.svg"
+    },
+    {
+      "name": "RDoc",
+      "associationPattern": ".*\\.rdoc$",
+      "iconPath": "/rdoc.svg"
+    },
+    {
+      "name": "RestQL",
+      "associationPattern": ".*\\.(rql|restql)$",
+      "iconPath": "/restql.svg"
+    },
+    {
+      "name": "React",
+      "associationPattern": ".*\\.react-cli$",
+      "iconPath": "/react.svg"
+    },
+    {
+      "name": "ReasonML",
+      "associationPattern": ".*\\.rei?",
+      "iconPath": "/reason.svg"
+    },
+    {
+      "name": "Red",
+      "associationPattern": ".*\\.red",
+      "iconPath": "/red.svg"
+    },
+    {
+      "name": "Redis",
+      "associationPattern": "^redis.*",
+      "iconPath": "/redis.svg"
+    },
+    {
+      "name": "Redux Action",
+      "associationPattern": ".*(a|A)ctions?\\.(js|ts)$",
+      "iconPath": "/redux-action.svg"
+    },
+    {
+      "name": "Redux Reducer",
+      "associationPattern": ".*(r|R)educer\\.(js|ts)$",
+      "iconPath": "/redux-reducer.svg"
+    },
+    {
+      "name": "Redux Store",
+      "associationPattern": ".*(s|S)tore\\.(js|ts)$",
+      "iconPath": "/redux-store.svg"
+    },
+    {
+      "name": "Restructured",
+      "associationPattern": ".*\\.rst$",
+      "iconPath": "/rst.svg"
+    },
+    {
+      "name": "Riot",
+      "associationPattern": ".*\\.(riot|tag)$",
+      "iconPath": "/riot.svg"
+    },
+    {
+      "name": "Robot",
+      "associationPattern": ".*\\.robot$",
+      "iconPath": "/robot.svg"
+    },
+    {
+      "name": "Rollup",
+      "associationPattern": "^rollup.*",
+      "iconPath": "/rollup.svg"
+    },
+    {
+      "name": "Routes",
+      "associationPattern": "(routing|routes)\\.(js|jsx|ts|tsx)$",
+      "iconPath": "/angularrouting.svg"
+    },
+    {
+      "name": "RSpec",
+      "associationPattern": ".*_spec\\.rb$",
+      "iconPath": "/rspec.svg"
+    },
+    {
+      "name": "RSpec Config",
+      "associationPattern": ".*\\.rspec$",
+      "iconPath": "/rspec.svg"
+    },
+    {
+      "name": "Rubocop",
+      "associationPattern": ".*\\.rubocop.*\\.yml$",
+      "iconPath": "/rubocop.svg"
+    },
+    {
+      "name": "Ruby Gemset",
+      "associationPattern": "^\\.ruby-gemset$",
+      "iconPath": "/gemfile.svg"
+    },
+    {
+      "name": "Ruby Version",
+      "associationPattern": "^\\.ruby-version$",
+      "iconPath": "/ruby.svg"
+    },
+    {
+      "name": "Rust",
+      "associationPattern": ".*\\.(rs|rust)$",
+      "iconPath": "/rust.svg"
+    },
+    {
+      "name": "RVM",
+      "associationPattern": "^\\.rvmrc$",
+      "iconPath": "/ruby.svg"
+    },
+    {
+      "name": "San",
+      "associationPattern": ".*\\.san$",
+      "iconPath": "/san.svg"
+    },
+    {
+      "name": "SASS",
+      "associationPattern": ".*\\.sass$",
+      "iconPath": "/sass.svg"
+    },
+    {
+      "name": "Sapper",
+      "associationPattern": "sapper\\.js$",
+      "iconPath": "/sapper.svg"
+    },
+    {
+      "name": "SBT",
+      "associationPattern": ".*\\.sbt$",
+      "iconPath": "/sbt.svg"
+    },
+    {
+      "name": "Scala",
+      "associationPattern": ".*\\.scala$",
+      "iconPath": "/scala.svg"
+    },
+    {
+      "name": "SCSS",
+      "associationPattern": ".*\\.scss$",
+      "iconPath": "/sass.svg"
+    },
+    {
+      "name": "Scheme",
+      "associationPattern": ".*\\.(scheme|scm)$",
+      "iconPath": "/scheme.svg"
+    },
+    {
+      "name": "Semantic Release",
+      "associationPattern": ".*\\.releaserc(.js(on)?|.y(a)?ml)?$",
+      "iconPath": "/semantic-release.svg"
+    },
+    {
+      "name": "Semantic Release Config",
+      "associationPattern": "^release\\.config\\.js$",
+      "iconPath": "/semantic-release.svg"
+    },
+    {
+      "name": "Settings",
+      "associationPattern": ".*\\.settings$",
+      "iconPath": "/settings.svg"
+    },
+    {
+      "name": "Sequelize",
+      "associationPattern": "\\.sequelizerc$",
+      "iconPath": "/sequelize.svg"
+    },
+    {
+      "name": "Shell",
+      "associationPattern": ".*\\.(sh|zsh|fish|bash|fishrc|zshrc|bashrc|tcsh)$",
+      "iconPath": "/shell.svg"
+    },
+    {
+      "name": "SilverStripe",
+      "associationPattern": ".*\\.ss$",
+      "iconPath": "/silverstripe.svg"
+    },
+    {
+      "name": "Sketch",
+      "associationPattern": ".*\\.sketch$",
+      "iconPath": "/sketch.svg"
+    },
+    {
+      "name": "Slim",
+      "associationPattern": ".*\\.slim$",
+      "iconPath": "/slim.svg"
+    },
+    {
+      "name": "Smarty",
+      "associationPattern": ".*\\.tpl$",
+      "iconPath": "/smarty.svg"
+    },
+    {
+      "name": "Snapshots",
+      "associationPattern": ".*\\.snap$",
+      "iconPath": "/snapshot.svg"
+    },
+    {
+      "name": "Solidity",
+      "associationPattern": ".*\\.sol$",
+      "iconPath": "/solidity.svg"
+    },
+    {
+      "name": "Sonar",
+      "associationPattern": ".*\\.sonarrc$",
+      "iconPath": "/sonar.svg"
+    },
+    {
+      "name": "Spring",
+      "associationPattern": ".*\\.spring$",
+      "iconPath": "/spring.svg"
+    },
+    {
+      "name": "SQL",
+      "associationPattern": ".*\\.(sql|pdb|pgsql|mysql|hql|qml|psql|pkb)$",
+      "iconPath": "/sql.svg"
+    },
+    {
+      "name": "SQLite",
+      "associationPattern": ".*\\.sqlite3?$",
+      "iconPath": "/sqlite.svg"
+    },
+    {
+      "name": "Stata",
+      "associationPattern": ".*\\.stata$",
+      "iconPath": "/stata.svg"
+    },
+    {
+      "name": "Stencil",
+      "associationPattern": "^stencil\\.config\\.(js|ts)$",
+      "iconPath": "/stencil.svg"
+    },
+    {
+      "name": "Storybook",
+      "associationPattern": ".*\\.(story|stories)\\.(jsx?|tsx?)$",
+      "iconPath": "/storybook.svg"
+    },
+    {
+      "name": "Stylelint",
+      "associationPattern": "^(\\.stylelintrc|stylelint\\.config\\.js(on)?)$",
+      "iconPath": "/stylelint.svg"
+    },
+    {
+      "name": "Stylus",
+      "associationPattern": ".*\\.styl$",
+      "iconPath": "/stylus.svg"
+    },
+    {
+      "name": "Sublime",
+      "associationPattern": ".*\\.sublime-.*",
+      "iconPath": "/sublime.svg"
+    },
+    {
+      "name": "SuperCollider",
+      "associationPattern": ".*\\.scd$",
+      "iconPath": "/scd.svg"
+    },
+    {
+      "name": "Svelte",
+      "associationPattern": ".*\\.svelte",
+      "iconPath": "/svelte.svg"
+    },
+    {
+      "name": "Svelte Config",
+      "associationPattern": "svelte\\.config\\.js(on)?",
+      "iconPath": "/svelte.svg"
+    },
+    {
+      "name": "SVN",
+      "associationPattern": "^\\.svn",
+      "iconPath": "/svn.svg"
+    },
+    {
+      "name": "Swagger",
+      "associationPattern": ".*\\.(swagger|swag)$",
+      "iconPath": "/swagger.svg"
+    },
+    {
+      "name": "Swagger Config",
+      "associationPattern": "((swagger|api)\\.(yml|yaml|json))$",
+      "iconPath": "/swagger.svg"
+    },
+    {
+      "name": "SWC",
+      "associationPattern": ".*\\.swc$",
+      "iconPath": "/swc.svg"
+    },
+    {
+      "name": "Swift",
+      "associationPattern": ".*\\.swift$",
+      "iconPath": "/swift.svg"
+    },
+    {
+      "name": "Swig",
+      "associationPattern": ".*\\.swig$",
+      "iconPath": "/swig.svg"
+    },
+    {
+      "name": "Symfony",
+      "associationPattern": ".*\\.symfony",
+      "iconPath": "/symfony.svg"
+    },
+    {
+      "name": "Tailwind CSS Config",
+      "associationPattern": "^tailwind.*\\.[jt]s$",
+      "iconPath": "/tailwindcss.svg"
+    },
+    {
+      "name": "TCL",
+      "associationPattern": ".*\\.tcl$",
+      "iconPath": "/tcl.svg"
+    },
+    {
+      "name": "TerraForm",
+      "associationPattern": ".*\\.(tf|tfstate|tfvars)$",
+      "iconPath": "/terraform.svg"
+    },
+    {
+      "name": "TeX",
+      "associationPattern": ".*\\.(tex|cls|sty|dtx|ltx)$",
+      "iconPath": "/tex.svg"
+    },
+    {
+      "name": "Tern",
+      "associationPattern": ".*\\.tern-(config|project)$",
+      "iconPath": "/tern.svg"
+    },
+    {
+      "name": "Tern Config",
+      "associationPattern": "^\\.ternconfig$",
+      "iconPath": "/tern.svg"
+    },
+    {
+      "name": "Test Java",
+      "associationPattern": "(t|T)est\\.java$",
+      "iconPath": "/testjava.svg"
+    },
+    {
+      "name": "Test JS",
+      "associationPattern": ".*\\.?(test|spec)\\.(js|es6)$",
+      "iconPath": "/testjs.svg"
+    },
+    {
+      "name": "Test React",
+      "associationPattern": ".*\\.?(test|spec)\\.(jsx|tsx)$",
+      "iconPath": "/testreact.svg"
+    },
+    {
+      "name": "Test Python",
+      "associationPattern": ".*\\.(test|spec)\\.py$",
+      "iconPath": "/testpy.svg"
+    },
+    {
+      "name": "Test Ruby",
+      "associationPattern": "_(test|spec)\\.rb$",
+      "iconPath": "/testruby.svg"
+    },
+    {
+      "name": "Test TypeScript",
+      "associationPattern": ".*\\.?(test|spec)\\.ts$",
+      "iconPath": "/testts.svg"
+    },
+    {
+      "name": "Textile",
+      "associationPattern": ".*\\.textile$",
+      "iconPath": "/textile.svg"
+    },
+    {
+      "name": "Textmate",
+      "associationPattern": ".*\\.(tmPreferences|tmTheme|tmLanguage)",
+      "iconPath": "/textmate.svg"
+    },
+    {
+      "name": "Tomcat",
+      "associationPattern": "^tomcat.*",
+      "iconPath": "/tomcat.svg"
+    },
+    {
+      "name": "TOML",
+      "associationPattern": ".*\\.toml$",
+      "iconPath": "/toml.svg"
+    },
+    {
+      "name": "TODO",
+      "associationPattern": "^(TODO|todo).*",
+      "iconPath": "/todo.svg"
+    },
+    {
+      "name": "TSConfig",
+      "associationPattern": "\\.?tsconfig.*\\.(js|json)$",
+      "iconPath": "/tslint.svg"
+    },
+    {
+      "name": "TSLint",
+      "associationPattern": "\\.?tslint.*\\.(js|json)$",
+      "iconPath": "/tslint.svg"
+    },
+    {
+      "name": "Travis",
+      "associationPattern": ".*\\.travis\\.yml$",
+      "iconPath": "/travis.svg"
+    },
+    {
+      "name": "Turing",
+      "associationPattern": ".*\\.t$",
+      "iconPath": "/turing.svg"
+    },
+    {
+      "name": "Twig",
+      "associationPattern": ".*\\.twig$",
+      "iconPath": "/twig.svg"
+    },
+    {
+      "name": "Typescript Defs",
+      "associationPattern": ".*\\.d\\.ts$",
+      "iconPath": "/dts.svg"
+    },
+    {
+      "name": "Typings",
+      "associationPattern": "^typings\\.json$",
+      "iconPath": "/typings.svg"
+    },
+    {
+      "name": "UML",
+      "associationPattern": ".*\\.(uml|iuml|puml|pu|plantuml|wsd)",
+      "iconPath": "/uml.svg"
+    },
+    {
+      "name": "Unity",
+      "associationPattern": ".*\\.(unity|unity3d|fbx)",
+      "iconPath": "/unity.svg"
+    },
+    {
+      "name": "Unreal",
+      "associationPattern": ".*\\.(u|unr|utx|umx|uax|ukx|uz|upkg|uc|upl|asc|lwo)$",
+      "iconPath": "/unreal.svg"
+    },
+    {
+      "name": "Vagrant",
+      "associationPattern": "^(V|v)agrantfile$",
+      "iconPath": "/vagrant.svg"
+    },
+    {
+      "name": "Vala",
+      "associationPattern": ".*\\.vala$",
+      "iconPath": "/vala.svg"
+    },
+    {
+      "name": "Velocity",
+      "associationPattern": ".*\\.(vm|vtl|fhtml)",
+      "iconPath": "/velocity.svg"
+    },
+    {
+      "name": "VERSION",
+      "associationPattern": "^(VERSION|version)$",
+      "iconPath": "/version.svg"
+    },
+    {
+      "name": "V",
+      "associationPattern": ".*\\.(v|vh)$",
+      "iconPath": "/v.svg"
+    },
+    {
+      "name": "VHDL",
+      "associationPattern": ".*\\.(vhdl|vhd|sv)$",
+      "iconPath": "/vhdl.svg"
+    },
+    {
+      "name": "Vim",
+      "associationPattern": ".*\\.(vim|viml|vimrc|gvimrc)$",
+      "iconPath": "/vim.svg"
+    },
+    {
+      "name": "Visio",
+      "associationPattern": ".*\\.visio$",
+      "iconPath": "/visio.svg"
+    },
+    {
+      "name": "Visual Studio",
+      "associationPattern": ".*\\.(vscode|vssettings|vsix|sln|suo)$",
+      "iconPath": "/vs.svg"
+    },
+    {
+      "name": "VM",
+      "associationPattern": ".*\\.(vbox|vdi|vmware)$",
+      "iconPath": "/vm.svg"
+    },
+    {
+      "name": "Vue",
+      "associationPattern": ".*\\.vue$",
+      "iconPath": "/vue.svg"
+    },
+    {
+      "name": "Vuex",
+      "associationPattern": ".*\\.vuex$",
+      "iconPath": "/vuex.svg"
+    },
+    {
+      "name": "Wallaby",
+      "associationPattern": "^wallaby.*",
+      "iconPath": "/wallaby.svg"
+    },
+    {
+      "name": "WebAssembly",
+      "associationPattern": ".*\\.(wat|wasm)$",
+      "iconPath": "/webassembly.svg"
+    },
+    {
+      "name": "Webpack",
+      "associationPattern": "^webpack\\.(common|config|dev|prod)\\.(js|es|es6|coffee|ts)$",
+      "iconPath": "/webpack.svg"
+    },
+    {
+      "name": "Webhint",
+      "associationPattern": ".*\\.hintrc$",
+      "iconPath": "/webhint.svg"
+    },
+    {
+      "name": "WePy",
+      "associationPattern": ".*\\.wpy$",
+      "iconPath": "/wepy.svg"
+    },
+    {
+      "name": "Windows",
+      "associationPattern": ".*\\.(bat|exe|dos|ms|msi)$",
+      "iconPath": "/windows.svg"
+    },
+    {
+      "name": "Word",
+      "associationPattern": ".*\\.(doc|docx|docm|docxml|dotm|dotx|wri|odt|odtx)$",
+      "iconPath": "/word.svg"
+    },
+    {
+      "name": "Xamarin",
+      "associationPattern": ".*\\.xamarin",
+      "iconPath": "/xamarin.svg"
+    },
+    {
+      "name": "XCode",
+      "associationPattern": ".*\\.xcodeproj$",
+      "iconPath": "/appstore.svg"
+    },
+    {
+      "name": "XCode Playground",
+      "associationPattern": ".*\\.xcplayground$",
+      "iconPath": "/appstore.svg"
+    },
+    {
+      "name": "XCode Workspace",
+      "associationPattern": ".*\\.xcworkspacedata$",
+      "iconPath": "/appstore.svg"
+    },
+    {
+      "name": "XCode Storyboard",
+      "associationPattern": ".*\\.storyboard$",
+      "iconPath": "/appstore.svg"
+    },
+    {
+      "name": "Yang",
+      "associationPattern": ".*\\.yang$",
+      "iconPath": "/yang.svg"
+    },
+    {
+      "name": "Yarn",
+      "associationPattern": "(\\.yarnrc|yarn.js(on)?)",
+      "iconPath": "/yarn.svg"
+    },
+    {
+      "name": "Yarn Lock",
+      "associationPattern": "^yarn\\.lock$",
+      "iconPath": "/yarn.svg"
+    },
+    {
+      "name": "Yarn Clean",
+      "associationPattern": "^\\.yarnclean$",
+      "iconPath": "/yarn.svg"
+    },
+    {
+      "name": "YVM",
+      "associationPattern": "^\\.yvmrc",
+      "iconPath": "/yvmrc.svg"
+    },
+    {
+      "name": "Preferences",
+      "associationPattern": ".*\\.(ini|config|env|cfg)$",
+      "iconPath": "/preferences.svg"
+    },
+    {
+      "name": "Envs",
+      "associationPattern": ".*\\.env\\.(.*)$",
+      "iconPath": "/preferences.svg"
+    },
+    {
+      "name": "Binary",
+      "associationPattern": "^[^.]+$",
+      "iconPath": "/binary.svg"
+    },
+    {
+      "name": "Font",
+      "associationPattern": ".*\\.(ttf|ttc|pfb|pfm|otf|dfont|pfa|afm|eot|woff2?)$",
+      "iconPath": "/font.svg"
+    },
+    {
+      "name": "Lockfiles",
+      "associationPattern": ".*\\.lock$",
+      "iconPath": "/lock.svg"
+    },
+    {
+      "name": "XML",
+      "associationPattern": ".*\\.(xml|xhtml|fxml|jrxml|jnlp|pom|rng|tld|wsdl|xsd|xsl|xslt|xul)$",
+      "iconPath": "/xml.svg"
+    },
+    {
+      "name": "YAML",
+      "associationPattern": ".*\\.(yml|yaml|info)$",
+      "iconPath": "/yaml.svg"
+    },
+    {
+      "name": "Archive",
+      "associationPattern": ".*\\.(7z|7zip|gzip|zip|rar|tar|gz|pzip|saz|tgz)$",
+      "iconPath": "/archive.svg"
+    },
+    {
+      "name": "Audio",
+      "associationPattern": ".*\\.(mp3|aac|aiff|au|flac|m4a|mpc|mp+|mpp|ogg|oga|opus|ra|rm|wav|wma|snd|mid|cda)$",
+      "iconPath": "/audio.svg"
+    },
+    {
+      "name": "Video",
+      "associationPattern": ".*\\.(avi|mp4|mpg|mpeg|mov|mkv|flv|h264|webm|wmv|ogv|3gp|m4v|3gpp|ogm|dvd|divx|qt|yuv)$",
+      "iconPath": "/video.svg"
+    },
+    {
+      "name": "Text",
+      "associationPattern": ".*\\.(txt|rtf)$",
+      "iconPath": "/text.svg"
+    },
+    {
+      "name": "Javascript Minified",
+      "associationPattern": ".*\\.min\\.(js|es6|es|jsx|ts)$",
+      "iconPath": "/jsmin.svg"
+    },
+    {
+      "name": "Java",
+      "associationPattern": ".*\\.(java|jar|war)$",
+      "iconPath": "/java.svg"
+    },
+    {
+      "name": "JSX",
+      "associationPattern": ".*\\.(jsx|tsx)$",
+      "iconPath": "/jsx.svg"
+    },
+    {
+      "name": "TypeScript",
+      "associationPattern": ".*\\.(ts|tsx|tslint)$",
+      "iconPath": "/typeScript.svg"
+    },
+    {
+      "name": "Javascript",
+      "associationPattern": ".*\\.(js|es6|es|mjs)$",
+      "iconPath": "/js.svg"
+    },
+    {
+      "name": "Python",
+      "associationPattern": ".*\\.(py|python|pyc|whl)$",
+      "iconPath": "/python.svg"
+    },
+    {
+      "name": "Ruby",
+      "associationPattern": ".*\\.rb$",
+      "iconPath": "/ruby.svg"
+    },
+    {
+      "name": "JSON",
+      "associationPattern": ".*\\.(json|cson)$",
+      "iconPath": "/json.svg"
+    }
+  ]
+}

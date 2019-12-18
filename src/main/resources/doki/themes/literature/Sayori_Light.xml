@@ -484,6 +484,13 @@
                 <option name="FOREGROUND" value="A89097" />
             </value>
         </option>
+        <option name="DEFAULT_LABEL">
+            <value>
+                <option name="EFFECT_COLOR" value="808080"/>
+                <option name="EFFECT_TYPE" value="1"/>
+            </value>
+        </option>
+
         <option name="DEFAULT_LINE_COMMENT">
             <value>
                 <option name="FOREGROUND" value="6a737d" />
@@ -521,7 +528,7 @@
         <option name="DEFAULT_REASSIGNED_LOCAL_VARIABLE">
             <value>
                 <option name="FOREGROUND" value="4D4D4A" />
-                <option name="EFFECT_COLOR" value="eeffff" />
+                <option name="EFFECT_COLOR" value="a5a5a5" />
                 <option name="EFFECT_TYPE" value="1" />
             </value>
         </option>

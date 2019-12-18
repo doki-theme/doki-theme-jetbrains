@@ -32,6 +32,10 @@ class ThemeConfig : PersistentStateComponent<ThemeConfig>, Cloneable {
   var processedLegacyStartup: Boolean = false
   var currentStickerName: String = CurrentSticker.DEFAULT.name
 
+  var isMaterialDirectories: Boolean = false
+  var isMaterialFiles: Boolean = false
+  var isMaterialPSIIcons: Boolean = false
+
   override fun getState(): ThemeConfig? =
     createCopy(this)
 
@@ -46,6 +50,9 @@ class ThemeConfig : PersistentStateComponent<ThemeConfig>, Cloneable {
     "selectedTheme" to selectedTheme,
     "isDokiFileColors" to isDokiFileColors,
     "currentSticker" to currentSticker,
+    "isMaterialDirectories" to isMaterialDirectories,
+    "isMaterialFiles" to isMaterialFiles,
+    "isMaterialPSIIcons" to isMaterialPSIIcons,
     "processedLegacyStickers" to processedLegacyStickers,
     "processedLegacyStartup" to processedLegacyStartup
   )

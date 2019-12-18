@@ -11,6 +11,8 @@ import com.intellij.openapi.project.impl.ProjectLifecycleListener
 import io.acari.doki.config.ThemeConfig
 import io.acari.doki.hax.HackComponent.hackLAF
 import io.acari.doki.hax.SvgLoaderHacker.setSVGColorPatcher
+import io.acari.doki.icon.patcher.MaterialPathPatcherManager.attemptToAddIcons
+import io.acari.doki.icon.patcher.MaterialPathPatcherManager.attemptToRemoveIcons
 import io.acari.doki.laf.DokiAddFileColorsAction.setFileScopes
 import io.acari.doki.laf.FileScopeColors.attemptToInstallColors
 import io.acari.doki.laf.FileScopeColors.attemptToRemoveColors
@@ -37,27 +39,31 @@ class TheDokiTheme : Disposable {
 
     migrateLegacyTheme()
 
+    attemptToAddIcons()
+
     connection.subscribe(LafManagerListener.TOPIC, LafManagerListener {
       ThemeManager.instance.currentTheme
         .ifPresentOrElse({
           setSVGColorPatcher()
           installAllUIComponents()
           attemptToInstallColors()
+          attemptToAddIcons()
         })
         {
           if (ThemeConfig.instance.isDokiFileColors) {
             attemptToRemoveColors()
           }
+          attemptToRemoveIcons()
         }
     })
 
     connection.subscribe(ProjectLifecycleListener.TOPIC, object : ProjectLifecycleListener {
       override fun projectComponentsInitialized(project: Project) {
-        if(ThemeConfig.instance.isDokiFileColors){
+        if (ThemeConfig.instance.isDokiFileColors) {
           setFileScopes(project)
         }
 
-        if(ThemeConfig.instance.version != CURRENT_VERSION){
+        if (ThemeConfig.instance.version != CURRENT_VERSION) {
           ThemeConfig.instance.version = CURRENT_VERSION
           UpdateNotification.display(project)
         }
@@ -66,7 +72,7 @@ class TheDokiTheme : Disposable {
   }
 
   private fun migrateLegacyTheme() {
-    if(!ThemeConfig.instance.processedLegacyStartup){
+    if (!ThemeConfig.instance.processedLegacyStartup) {
       migrateLegacyCurrentSticker()
       migrateLegacyCurrentTheme()
       ThemeConfig.instance.processedLegacyStartup = true

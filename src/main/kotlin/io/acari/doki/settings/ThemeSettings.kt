@@ -4,10 +4,11 @@ import com.intellij.ide.BrowserUtil.browse
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.options.SearchableConfigurable
 import com.intellij.openapi.ui.ComboBox
+import com.intellij.openapi.ui.DialogPanel
+import com.intellij.ui.components.JBTabbedPane
 import com.intellij.ui.layout.panel
 import io.acari.doki.config.THEME_CONFIG_TOPIC
 import io.acari.doki.config.ThemeConfig
-import io.acari.doki.config.ThemeConfigListener
 import io.acari.doki.settings.actors.*
 import io.acari.doki.stickers.CurrentSticker
 import io.acari.doki.stickers.StickerLevel
@@ -15,7 +16,9 @@ import io.acari.doki.themes.ThemeManager
 import java.net.URI
 import java.util.*
 import javax.swing.DefaultComboBoxModel
+import javax.swing.ImageIcon
 import javax.swing.JComponent
+import javax.swing.JLabel
 
 data class ThemeSettingsModel(
   var areStickersEnabled: Boolean,
@@ -24,14 +27,18 @@ data class ThemeSettingsModel(
   var isThemedTitleBar: Boolean,
   var isFileColors: Boolean,
   var showThemeStatusBar: Boolean,
-  var isSwappedSticker: Boolean
+  var isSwappedSticker: Boolean,
+  var isMaterialDirectories: Boolean,
+  var isMaterialFiles: Boolean,
+  var isMaterialPSIIcons: Boolean
 )
 
 class ThemeSettings : SearchableConfigurable {
 
   companion object {
     const val THEME_SETTINGS_DISPLAY_NAME = "Doki Theme Settings"
-    val CHANGELOG_URI = URI("https://github.com/cyclic-reference/ddlc-jetbrains-theme/blob/master/changelog/CHANGELOG.md")
+    val CHANGELOG_URI =
+      URI("https://github.com/cyclic-reference/ddlc-jetbrains-theme/blob/master/changelog/CHANGELOG.md")
     val ISSUES_URI = URI("https://github.com/cyclic-reference/ddlc-jetbrains-theme/issues")
     val MARKETPLACE_URI = URI("https://plugins.jetbrains.com/plugin/10804-the-doki-doki-theme")
   }
@@ -48,7 +55,10 @@ class ThemeSettings : SearchableConfigurable {
     ThemeConfig.instance.isThemedTitleBar,
     ThemeConfig.instance.isDokiFileColors,
     ThemeConfig.instance.showThemeStatusBar,
-    ThemeConfig.instance.currentSticker == CurrentSticker.SECONDARY
+    ThemeConfig.instance.currentSticker == CurrentSticker.SECONDARY,
+    ThemeConfig.instance.isMaterialDirectories,
+    ThemeConfig.instance.isMaterialFiles,
+    ThemeConfig.instance.isMaterialPSIIcons
   )
 
   private val themeSettingsModel = initialThemeSettingsModel.copy()
@@ -65,12 +75,71 @@ class ThemeSettings : SearchableConfigurable {
     ThemedTitleBarActor.enableThemedTitleBar(themeSettingsModel.isThemedTitleBar)
     ThemeActor.applyTheme(themeSettingsModel.currentTheme)
     ThemeStatusBarActor.applyConfig(themeSettingsModel.showThemeStatusBar)
+    MaterialIconsActor.enableDirectoryIcons(themeSettingsModel.isMaterialDirectories)
+    MaterialIconsActor.enableFileIcons(themeSettingsModel.isMaterialFiles)
+    MaterialIconsActor.enablePSIIcons(themeSettingsModel.isMaterialPSIIcons)
     ApplicationManager.getApplication().messageBus.syncPublisher(
       THEME_CONFIG_TOPIC
     ).themeConfigUpdated(ThemeConfig.instance)
   }
 
   override fun createComponent(): JComponent? {
+    val tabbedPanel = JBTabbedPane()
+    tabbedPanel.add("Main", createSettingsPane())
+    tabbedPanel.add("Material Icons", createMaterialIconsPane())
+    return tabbedPanel
+  }
+
+  private fun createMaterialIconsPane(): DialogPanel {
+    val directoryIcon = JLabel()
+    directoryIcon.icon = ImageIcon(javaClass.getResource("/icons/settings/directoryIcon.png"))
+    val fileIcon = JLabel()
+    fileIcon.icon = ImageIcon(javaClass.getResource("/icons/settings/fileIcon.png"))
+    val psiIcon = JLabel()
+    psiIcon.icon = ImageIcon(javaClass.getResource("/icons/settings/psiIcon.png"))
+    return panel {
+      titledRow("Doki Themed Material Icons") {
+        row {
+          cell {
+            directoryIcon()
+            checkBox(
+              "Directory Icons",
+              themeSettingsModel.isMaterialDirectories,
+              actionListener = { _, component ->
+                themeSettingsModel.isMaterialDirectories = component.isSelected
+              }
+            )
+          }
+        }
+        row {
+          cell {
+            fileIcon()
+            checkBox(
+              "File Icons",
+              themeSettingsModel.isMaterialFiles,
+              actionListener = { _, component ->
+                themeSettingsModel.isMaterialFiles = component.isSelected
+              }
+            )
+          }
+        }
+        row {
+          cell{
+            psiIcon()
+            checkBox(
+              "PSI Icons",
+              themeSettingsModel.isMaterialPSIIcons,
+              actionListener = { _, component ->
+                themeSettingsModel.isMaterialPSIIcons = component.isSelected
+              }
+            )
+          }
+        }
+      }
+    }
+  }
+
+  private fun createSettingsPane(): DialogPanel {
     val themeComboBox = ComboBox(DefaultComboBoxModel(
       Vector(ThemeManager.instance.allThemes
         .groupBy { it.groupName }
@@ -83,7 +152,7 @@ class ThemeSettings : SearchableConfigurable {
     themeComboBox.addActionListener {
       themeSettingsModel.currentTheme = themeComboBox.model.selectedItem as String
     }
-    return panel {
+    val settingsPane = panel {
       titledRow("Main Settings") {
         row {
           cell {
@@ -133,8 +202,8 @@ class ThemeSettings : SearchableConfigurable {
             "Enable File Colors",
             themeSettingsModel.isFileColors,
             comment = """The file colors remain part of your IDE  after the plugin has been uninstalled.
-              |To Prevent this, disable this setting or you can remove them from "Settings -> Appearance -> File Colors".
-            """.trimMargin(),
+                |To Prevent this, disable this setting or you can remove them from "Settings -> Appearance -> File Colors".
+              """.trimMargin(),
             actionListener = { _, component ->
               themeSettingsModel.isFileColors = component.isSelected
             }
@@ -145,8 +214,8 @@ class ThemeSettings : SearchableConfigurable {
             "Theme Transition Animation",
             themeSettingsModel.isFileColors,
             comment = """The animations will remain in your IDE after uninstalling the plugin.
-          |To remove them, un-check this action or remove them at "Help -> Find Action -> ide.intellij.laf.enable.animation". 
-          """.trimMargin()
+            |To remove them, un-check this action or remove them at "Help -> Find Action -> ide.intellij.laf.enable.animation". 
+            """.trimMargin()
             ,
             actionListener = { _, component ->
               themeSettingsModel.isFileColors = component.isSelected
@@ -154,7 +223,7 @@ class ThemeSettings : SearchableConfigurable {
           )
         }
       }
-      titledRow("Miscellaneous") {
+      titledRow("Miscellaneous Items") {
         row {
           cell {
             button("View Issues") {
@@ -169,6 +238,8 @@ class ThemeSettings : SearchableConfigurable {
           }
         }
       }
+
     }
+    return settingsPane
   }
 }

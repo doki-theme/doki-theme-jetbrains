@@ -160,6 +160,8 @@
     "Borders.color": "borderColor",
     "EditorTabs.borderColor": "borderColor",
     "Group.separatorColor": "borderColor",
+    "Group.disabledSeparatorColor": "borderColor",
+    "TabbedPane.contentAreaColor": "borderColor",
     "Separator.separatorColor": "borderColor",
     "SearchEverywhere.List.separatorColor": "borderColor",
     "Borders.ContrastBorderColor": "borderColor",
@@ -427,6 +429,7 @@
       "Checkbox.Focus.Thin.Selected.Dark": "#CCA331",
       "Checkbox.Focus.Wide.Dark":"#CCA331"
     },
+    "/alliance.svg": "/icons/plugins/normandy/alliance.svg",
     "/actions/new.svg": "/icons/actions/new.svg",
     "/actions/checked.svg": "/icons/actions/checked.svg",
     "/actions/diffWithClipboard.svg": "/icons/actions/diffWithClipboard.svg",
