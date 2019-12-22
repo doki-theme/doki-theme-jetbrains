@@ -1,5 +1,9 @@
 # Changelog
 ---
+# 5.1.1
+
+- Fixed some missing Material Directory icons.
+
 # 5.1.0 
 - Brought back Configurable Material Icons
     - Icons Brought Back:
