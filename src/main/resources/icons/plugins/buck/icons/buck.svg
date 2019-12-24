@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="13px" height="13px"
+     viewBox="0 0 26 26">
+  <path id="Unnamed"
+        fill="none" stroke="#389FD6" accentTint="stroke"
+        style="stroke-width:2.27503324;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
+        d="M 6.52,22.78 12.3,17.43 9,13.65 24.61,13.78 24.52,16.04 C 19.61,18 13.99,23.69 14.48,23.61 M 13.790557,13.431606 10.22,10.38 6.06,10.47 2.31,7 V 2.25 M 10.25,10.38 7.38,6.97 7.44,2.28 M 18.504787,13.66059 13.59,8.44 13.62,4.16 m 2.85,6.96 2.09,-2.21 0.1,-4.79" />
+</svg>

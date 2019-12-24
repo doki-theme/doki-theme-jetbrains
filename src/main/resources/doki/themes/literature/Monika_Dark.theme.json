@@ -443,6 +443,10 @@
     "/general/add_dark.svg": "/icons/general/add_dark.svg",
     "/general/gearPlain.svg": "/icons/general/gearPlain.svg",
     "/general/gearPlain_dark.svg": "/icons/general/gearPlain_dark.svg",
+    "/icons/actions/GoTo.png": "/icons/plugins/buck/icons/actions/GoTo.svg",
+    "/icons/actions/Find.png": "/icons/plugins/buck/icons/actions/Find.svg",
+    "/icons/buck_icon.png": "/icons/plugins/buck/icons/buck.svg",
+    "/icons/buck_tool_window_icon.png": "/icons/plugins/buck/icons/toolWindowBuck.svg",
     "/icons/task.svg": "/icons/icons/task.svg",
     "/org/jetbrains/kotlin/idea/icons/abstractClassKotlin.svg": "/icons/plugins/kotlin/abstractClassKotlin.svg",
     "/org/jetbrains/kotlin/idea/icons/annotationKotlin.svg":"/icons/plugins/kotlin/annotationKotlin.svg",
@@ -479,6 +483,7 @@
     "/nodes/shared.svg": "/icons/nodes/shared.svg",
     "/nodes/staticMark.svg": "/icons/nodes/staticMark.svg",
     "/nodes/symlink.svg": "/icons/nodes/symlink.svg",
+    "/studio/icons/shell/filetree/android-module.svg": "/icons/plugins/studio/icons/shell/filetree/android-module.svg",
     "/toolwindows/toolWindowFavorites.svg": "/icons/toolwindows/toolWindowFavorites.svg",
     "/welcome/createNewProject.svg": "/icons/welcome/createNewProject.svg",
     "/welcome/createNewProject_dark.svg": "/icons/welcome/createNewProject_dark.svg"
