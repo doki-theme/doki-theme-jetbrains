@@ -449,6 +449,8 @@
     "/icons/buck_icon.png": "/icons/plugins/buck/icons/buck.svg",
     "/icons/buck_tool_window_icon.png": "/icons/plugins/buck/icons/toolWindowBuck.svg",
     "/icons/task.svg": "/icons/icons/task.svg",
+    "/images/psi.png": "/icons/plugins/images/psi.svg",
+    "/images/psiToolWindow.png": "/icons/plugins/images/psiToolWindow.svg",
     "/org/jetbrains/kotlin/idea/icons/abstractClassKotlin.svg": "/icons/plugins/kotlin/abstractClassKotlin.svg",
     "/org/jetbrains/kotlin/idea/icons/annotationKotlin.svg":"/icons/plugins/kotlin/annotationKotlin.svg",
     "/org/jetbrains/kotlin/idea/icons/classInitializerKotlin.svg": "/icons/plugins/kotlin/classInitializerKotlin.svg",
