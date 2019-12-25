@@ -436,6 +436,8 @@
     "/actions/diffWithClipboard_dark.svg": "/icons/actions/diffWithClipboard_dark.svg",
     "/actions/refresh.svg": "/icons/actions/refresh.svg",
     "/actions/refresh_dark.svg": "/icons/actions/refresh_dark.svg",
+    "/actions/menu-saveall.svg": "/icons/actions/menu-saveall.svg",
+    "/actions/menu-saveall_dark.svg": "/icons/actions/menu-saveall_dark.svg",
     "/fileTypes/properties.svg": "/icons/fileTypes/properties.svg",
     "/fileTypes/json.svg": "/icons/fileTypes/json.svg",
     "/fileTypes/json_dark.svg": "/icons/fileTypes/json_dark.svg",

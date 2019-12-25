@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <path fill="#6E6E6E"
+        fill-rule="evenodd"
+        d="M 11,14 V 11 H 5 v 3 H 2 V 2 H 14 V 14 Z M 4,4 v 4 h 8 V 4 Z"/>
+  <path fill="#6E6E6E"
+        fill-rule="evenodd"
+        accentTint="fill"
+        d="m 6,12 h 4 v 2 H 6 Z"/>
+</svg>
