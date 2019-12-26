@@ -1,9 +1,8 @@
-- Complete buck
+- Theme Definition Schema
+    - Madatory Colors
+- Colors in gutter
 
 
-- PSI PLUGIN
-    - FIX TOOL WINDOW WHITENESS
-    - FIX STATIC ICONS
 
 Stretch Goals
 ----
@@ -20,3 +19,10 @@ Stretch Goals
 - Editor Tabs
     - Active Outline
     - File Scope colorings
+
+- Complete buck
+
+
+- PSI PLUGIN
+    - FIX TOOL WINDOW WHITENESS
+    - FIX STATIC ICONS
