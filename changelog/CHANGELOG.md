@@ -1,5 +1,12 @@
 # Changelog
 ---
+# 5.1.2
+
+- Small Color Consistency improvements.
+- Replaced Icons from other plugins to become more consistent with the themes.
+    - Buck
+    - Android
+
 # 5.1.1
 
 - Fixed some missing Material Directory icons.
