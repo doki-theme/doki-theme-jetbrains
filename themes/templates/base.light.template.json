@@ -1,0 +1,8 @@
+{
+  "extends": "base",
+  "ui": {
+    "Notification.ToolWindow.informativeForeground": "#33412e",
+    "Notification.ToolWindow.warningForeground": "#5a5221",
+    "Notification.ToolWindow.errorForeground": "#704745"
+  }
+}
