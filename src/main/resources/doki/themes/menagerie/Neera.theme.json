@@ -80,6 +80,8 @@
     "ToolWindow.Header.background": "headerColor",
     "List.background": "headerColor",
     "Tree.background": "headerColor",
+    "EditorPane.inactiveBackground": "headerColor",
+    "PasswordField.background": "headerColor",
     "ComboBox.disabledBackground": "headerColor",
     "Editor.background": "headerColor",
     "ScrollPane.background": "headerColor",
