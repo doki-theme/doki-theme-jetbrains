@@ -1,12 +1,16 @@
 {
+  "id": "fc466b4f-8eb7-472c-8cbb-d99a09d4c469",
   "name": "Cleo",
   "displayName": "Cleo",
   "dark": false,
   "author": "cyclic-reference",
-  "editorScheme": "/doki/themes/menagerie/Cleo.xml",
   "group": "Mistress",
+  "editorScheme": {
+    "type": "custom",
+    "file": "Cleo.xml"
+  },
   "stickers": {
-    "default": "/stickers/menagerie/cleo.png"
+    "default": "cleo.png"
   },
   "colors": {
     "baseIconColor": "#898989",

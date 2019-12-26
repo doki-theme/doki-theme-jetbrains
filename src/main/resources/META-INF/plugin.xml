@@ -72,7 +72,6 @@
         <themeProvider id="a14733d6-8e15-4e75-b6b8-509f323e5b3b" path="/doki/themes/literature/Yuri_Dark.theme.json"/>
         <themeProvider id="cecf3f92-76d4-4f14-9a9c-3d558b6b3b68" path="/doki/themes/literature/Yuri_Light.theme.json"/>
 
-        <themeProvider id="fc466b4f-8eb7-472c-8cbb-d99a09d4c469" path="/doki/themes/menagerie/Cleo.theme.json"/>
         <themeProvider id="c915211e-faab-4696-8af2-230892052ba6" path="/doki/themes/menagerie/Eleniel.theme.json"/>
         <themeProvider id="4693f34f-f400-4431-87f8-0be7fde660d9" path="/doki/themes/menagerie/Neera.theme.json"/>
         <themeProvider id="436ff3a0-4072-4b38-8d6f-888b18b5d0ab" path="/doki/themes/menagerie/Sanya.theme.json"/>
