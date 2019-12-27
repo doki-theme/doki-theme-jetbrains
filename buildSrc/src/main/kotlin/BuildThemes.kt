@@ -1,16 +1,17 @@
-import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.TaskAction
 import java.io.InputStreamReader
 import java.nio.charset.StandardCharsets
-import java.nio.file.Files
+import java.nio.file.Files.*
 import java.nio.file.Path
-import java.nio.file.Paths
+import java.nio.file.Paths.get
+import java.nio.file.StandardOpenOption
 import java.util.stream.Collectors
 
 open class BuildThemes : DefaultTask() {
 
-  private val gson = Gson()
+  private val gson = GsonBuilder().setPrettyPrinting().create()
 
   init {
     group = "doki"
@@ -19,36 +20,36 @@ open class BuildThemes : DefaultTask() {
 
   @TaskAction
   fun run() {
-    val themeDirectory = Paths.get(project.rootDir.absolutePath, "themes")
-    val themeTemplates = Files.walk(Paths.get(themeDirectory.toString(), "templates"))
-      .filter { !Files.isDirectory(it) }
-      .filter { it.fileName.toString().endsWith(".template.json") }
-      .map { Files.newInputStream(it) }
-      .map {
-        gson.fromJson(
-          InputStreamReader(it, StandardCharsets.UTF_8),
-          ThemeTemplateDefinition::class.java
-        )
-      }.collect(Collectors.toMap({ it.name }, { it }, { a, _ -> a }))
+    val themeDirectory = get(project.rootDir.absolutePath, "themes")
+    val themeTemplates =
+      walk(get(themeDirectory.toString(), "templates"))
+        .filter { !isDirectory(it) }
+        .filter { it.fileName.toString().endsWith(".template.json") }
+        .map { newInputStream(it) }
+        .map {
+          gson.fromJson(
+            InputStreamReader(it, StandardCharsets.UTF_8),
+            ThemeTemplateDefinition::class.java
+          )
+        }.collect(Collectors.toMap({ it.name }, { it }, { a, _ -> a }))
 
-    val themeDefDir = Paths.get(themeDirectory.toString(), "definitions")
-    Files.walk(themeDefDir)
-      .filter { !Files.isDirectory(it) }
+    val themeDefDir = get(themeDirectory.toString(), "definitions")
+    walk(themeDefDir)
+      .filter { !isDirectory(it) }
       .filter { it.fileName.toString().endsWith(".doki.json") }
-      .map { it to Files.newInputStream(it) }
+      .map { it to newInputStream(it) }
       .map {
         it.first to gson.fromJson(
           InputStreamReader(it.second, StandardCharsets.UTF_8),
           DokiBuildThemeDefinition::class.java
         )
       }
-      .map { constructIntellijTheme(
-        it,
-        themeTemplates,
-        themeDefDir
-      ) }
       .forEach {
-        println(it)
+        constructIntellijTheme(
+          it,
+          themeTemplates,
+          themeDefDir
+        )
       }
   }
 
@@ -56,8 +57,31 @@ open class BuildThemes : DefaultTask() {
     dokiBuildThemeDefinition: Pair<Path, DokiBuildThemeDefinition>,
     themeTemplates: Map<String, ThemeTemplateDefinition>,
     themeDefDir: Path
-  ): Any {
-    return dokiBuildThemeDefinition.second
+  ) {
+    val (definitionDirectory, themeDefinition) = dokiBuildThemeDefinition
+    val resourceDirectory = get(
+      project.rootDir.absolutePath,
+      "src",
+      "main",
+      "resources",
+      "doki",
+      "themes",
+      themeDefinition.group.toLowerCase()
+    )
+    if (!exists(resourceDirectory)) {
+      createDirectories(resourceDirectory)
+    }
+
+    val themeJson = get(resourceDirectory.toString(), "${themeDefinition.name}.theme.json")
+
+    if (exists(themeJson)) {
+      delete(themeJson)
+    }
+
+    newBufferedWriter(themeJson, StandardOpenOption.CREATE_NEW)
+      .use { writer ->
+        gson.toJson(themeDefinition, writer)
+      }
   }
 }
 
