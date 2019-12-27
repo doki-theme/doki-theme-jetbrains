@@ -79,6 +79,7 @@ open class BuildThemes : DefaultTask() {
       delete(themeJson)
     }
 
+    val templateName = if (themeDefinition.dark) "dark" else "light"
     val finalTheme = IntellijDokiThemeDefinition(
       name = themeDefinition.name,
       displayName = themeDefinition.displayName,
@@ -88,7 +89,11 @@ open class BuildThemes : DefaultTask() {
       group = themeDefinition.group,
       stickers = themeDefinition.stickers,
       colors = themeDefinition.colors,
-      ui = getUIDef(themeDefinition.ui, themeTemplates),
+      ui = getUIDef(
+        themeDefinition.ui,
+        themeTemplates[templateName] ?: throw IllegalStateException("Theme $templateName does not exist."),
+        themeTemplates
+      ),
       icons = getIcons(themeDefinition.icons, themeTemplates)
     )
 
@@ -105,8 +110,36 @@ open class BuildThemes : DefaultTask() {
     return mapOf()
   }
 
-  private fun getUIDef(ui: Map<String, Any>, themeTemplates: Map<String, ThemeTemplateDefinition>): Map<String, Any> {
-    return mapOf()
+  private fun getUIDef(
+    ui: Map<String, Any>,
+    themeTemplates: ThemeTemplateDefinition,
+    themeTemplates1: Map<String, ThemeTemplateDefinition>
+  ): Map<String, Any> {
+    return Stream.of(
+      getAllEntries(themeTemplates, themeTemplates1) { it.ui },
+      ui.entries.stream()
+    )
+      .flatMap { it }
+      .collect(Collectors.toMap({ it.key }, { it.value }, { a, b -> b }))
+  }
+
+  private fun getAllEntries(
+    themeTemplates: ThemeTemplateDefinition,
+    allThemeTemplates: Map<String, ThemeTemplateDefinition>,
+    entryExtractor: (ThemeTemplateDefinition) -> Map<String, Any>
+  ): Stream<Map.Entry<String, Any>> {
+    return if (themeTemplates.extends == null) {
+      entryExtractor(themeTemplates).entries.stream()
+    } else {
+      Stream.concat(
+        getAllEntries(
+          allThemeTemplates[themeTemplates.extends]
+            ?: throw IllegalStateException("Theme template ${themeTemplates.extends} is not a valid parent template"),
+          allThemeTemplates,
+          entryExtractor
+        ), entryExtractor(themeTemplates).entries.stream()
+      )
+    }.sorted(Comparator.comparing { it.key })
   }
 
   private fun createEditorScheme(
