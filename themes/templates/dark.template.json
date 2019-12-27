@@ -1,4 +1,5 @@
 {
+  "name": "dark",
   "extends": "base",
   "ui": {
     "Notification.ToolWindow.informativeForeground": "#baeeba",

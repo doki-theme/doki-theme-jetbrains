@@ -1,4 +1,5 @@
 {
+  "name": "base",
   "ui": {
     "Panel.background": "baseBackground",
     "Button.background": "baseBackground",
