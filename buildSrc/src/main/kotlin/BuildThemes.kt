@@ -8,6 +8,7 @@ import java.nio.file.Path
 import java.nio.file.Paths.get
 import java.nio.file.StandardOpenOption
 import java.util.stream.Collectors
+import java.util.stream.Stream
 
 open class BuildThemes : DefaultTask() {
 
@@ -78,10 +79,42 @@ open class BuildThemes : DefaultTask() {
       delete(themeJson)
     }
 
+    val finalTheme = IntellijDokiThemeDefinition(
+      name = themeDefinition.name,
+      displayName = themeDefinition.displayName,
+      dark = themeDefinition.dark,
+      author = themeDefinition.author,
+      editorScheme = createEditorScheme(themeDefinition, themeTemplates, definitionDirectory),
+      group = themeDefinition.group,
+      stickers = themeDefinition.stickers,
+      colors = themeDefinition.colors,
+      ui = getUIDef(themeDefinition.ui, themeTemplates),
+      icons = getIcons(themeDefinition.icons, themeTemplates)
+    )
+
     newBufferedWriter(themeJson, StandardOpenOption.CREATE_NEW)
       .use { writer ->
-        gson.toJson(themeDefinition, writer)
+        gson.toJson(finalTheme, writer)
       }
+  }
+
+  private fun getIcons(
+    icons: Map<String, Any>,
+    themeTemplates: Map<String, ThemeTemplateDefinition>
+  ): Map<String, Any> {
+    return mapOf()
+  }
+
+  private fun getUIDef(ui: Map<String, Any>, themeTemplates: Map<String, ThemeTemplateDefinition>): Map<String, Any> {
+    return mapOf()
+  }
+
+  private fun createEditorScheme(
+    editorScheme: DokiBuildThemeDefinition,
+    themeTemplates: Map<String, ThemeTemplateDefinition>,
+    themeDefDir: Path
+  ): String {
+    return "yeet"
   }
 }
 
@@ -108,6 +141,20 @@ data class DokiBuildThemeDefinition(
   val editorScheme: Map<String, Any>,
   val stickers: BuildStickers,
   val colors: Map<String, Any>,
-  val ui: Map<String, Any>
+  val ui: Map<String, Any>,
+  val icons: Map<String, Any>
 )
 
+
+data class IntellijDokiThemeDefinition(
+  val name: String,
+  val displayName: String?,
+  val dark: Boolean,
+  val author: String?,
+  val editorScheme: String,
+  val group: String,
+  val stickers: BuildStickers,
+  val colors: Map<String, Any>,
+  val ui: Map<String, Any>,
+  val icons: Map<String, Any>
+)

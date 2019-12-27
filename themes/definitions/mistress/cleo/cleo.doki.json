@@ -45,5 +45,6 @@
     "testScopeColor": "#C0EDCC",
     "popupMask": "#EAEAF050"
   },
-  "ui": {}
+  "ui": {},
+  "icons": {}
 }
