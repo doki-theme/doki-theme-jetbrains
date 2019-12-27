@@ -459,6 +459,7 @@
     "/icons/actions/Stop.png": "/icons/actions/suspend.svg",
     "/icons/buck_icon.png": "/icons/plugins/buck/icons/buck.svg",
     "/icons/buck_tool_window_icon.png": "/icons/plugins/buck/icons/toolWindowBuck.svg",
+    "/icons/ideavim.svg": "/icons/plugins/vim/icons/ideavim.svg",
     "/icons/task.svg": "/icons/icons/task.svg",
     "/images/psi.png": "/icons/plugins/psi/images/psi.svg",
     "/images/psi18x18.png": "/icons/plugins/psi/images/psi_18.svg",
