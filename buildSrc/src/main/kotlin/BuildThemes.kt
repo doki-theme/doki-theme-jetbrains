@@ -6,6 +6,7 @@ import java.nio.charset.StandardCharsets
 import java.nio.file.Files.*
 import java.nio.file.Path
 import java.nio.file.Paths.get
+import java.nio.file.StandardCopyOption
 import java.nio.file.StandardOpenOption
 import java.util.*
 import java.util.stream.Collectors
@@ -61,15 +62,7 @@ open class BuildThemes : DefaultTask() {
     themeDefDir: Path
   ) {
     val (definitionDirectory, themeDefinition) = dokiBuildThemeDefinition
-    val resourceDirectory = get(
-      project.rootDir.absolutePath,
-      "src",
-      "main",
-      "resources",
-      "doki",
-      "themes",
-      themeDefinition.group.toLowerCase()
-    )
+    val resourceDirectory = getResourceDirectory(themeDefinition)
     if (!exists(resourceDirectory)) {
       createDirectories(resourceDirectory)
     }
@@ -104,6 +97,18 @@ open class BuildThemes : DefaultTask() {
       .use { writer ->
         gson.toJson(finalTheme, writer)
       }
+  }
+
+  private fun getResourceDirectory(themeDefinition: DokiBuildThemeDefinition): Path {
+    return get(
+      project.rootDir.absolutePath,
+      "src",
+      "main",
+      "resources",
+      "doki",
+      "themes",
+      themeDefinition.group.toLowerCase()
+    )
   }
 
   private fun getIcons(
@@ -167,11 +172,25 @@ open class BuildThemes : DefaultTask() {
   }
 
   private fun createEditorScheme(
-    editorScheme: DokiBuildThemeDefinition,
+    dokiDefinition: DokiBuildThemeDefinition,
     themeTemplates: Map<String, ThemeTemplateDefinition>,
     themeDefDir: Path
   ): String {
-    return "yeet"
+    return when (dokiDefinition.editorScheme["type"]) {
+      "custom" -> copyXml(dokiDefinition, themeDefDir)
+      else -> TODO("THEME TEMPLATE NOT SUPPORTED YET")
+    }
+  }
+
+  private fun copyXml(dokiDefinition: DokiBuildThemeDefinition, themeDefDir: Path): String {
+    val customXmlFile = dokiDefinition.editorScheme["file"] as String
+    val destination = get(
+      getResourceDirectory(dokiDefinition).toString(),
+      customXmlFile
+    )
+    copy(get(themeDefDir.parent.toString(), customXmlFile), destination, StandardCopyOption.REPLACE_EXISTING)
+    val fullResourcesPath = destination.toString()
+    return fullResourcesPath.substring(fullResourcesPath.indexOf("/doki/theme"))
   }
 }
 
