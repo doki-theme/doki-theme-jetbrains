@@ -150,7 +150,10 @@ open class BuildThemes : DefaultTask() {
       author = themeDefinition.author,
       editorScheme = createEditorScheme(themeDefinition, themeTemplates, definitionDirectory),
       group = themeDefinition.group,
-      stickers = themeDefinition.stickers,
+      stickers = remapStickers(
+        themeDefinition,
+        extractResourcesPath(themeJson.parent)
+      ),
       colors = TreeMap(themeDefinition.colors),
       ui = getUIDef(
         themeDefinition.ui,
@@ -165,6 +168,15 @@ open class BuildThemes : DefaultTask() {
         gson.toJson(finalTheme, writer)
       }
     return extractResourcesPath(themeJson)
+  }
+
+  // todo: copy stickers
+  private fun remapStickers(themeDefinition: DokiBuildThemeDefinition, extractResourcesPath: String): BuildStickers {
+    val stickers = themeDefinition.stickers
+    return BuildStickers(
+      "$extractResourcesPath/${stickers.default}",
+      if(stickers.secondary != null) "$extractResourcesPath/${stickers.secondary}" else null
+    )
   }
 
   private fun getResourceDirectory(themeDefinition: DokiBuildThemeDefinition): Path {

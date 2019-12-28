@@ -6,7 +6,7 @@
   "editorScheme": "/doki/themes/mistress/Cleo.xml",
   "group": "Mistress",
   "stickers": {
-    "default": "cleo.png"
+    "default": "/doki/themes/mistress/cleo.png"
   },
   "colors": {
     "accentColor": "#2D79E9",
