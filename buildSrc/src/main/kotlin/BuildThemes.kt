@@ -1,7 +1,17 @@
 import com.google.gson.GsonBuilder
+import groovy.util.Node
+import groovy.util.NodeList
+import groovy.util.XmlNodePrinter
+import groovy.util.XmlParser
 import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.TaskAction
+import org.xml.sax.ErrorHandler
+import org.xml.sax.InputSource
+import org.xml.sax.SAXParseException
+import java.io.BufferedOutputStream
 import java.io.InputStreamReader
+import java.io.OutputStreamWriter
+import java.io.PrintWriter
 import java.nio.charset.StandardCharsets
 import java.nio.file.Files.*
 import java.nio.file.Path
@@ -36,6 +46,8 @@ open class BuildThemes : DefaultTask() {
           )
         }.collect(Collectors.toMap({ it.name }, { it }, { a, _ -> a }))
 
+    val (pluginXmlAndParsed, extension) = getExtension()
+    val (pluginXml, parsedPluginXml) = pluginXmlAndParsed
     val themeDefDir = get(themeDirectory.toString(), "definitions")
     walk(themeDefDir)
       .filter { !isDirectory(it) }
@@ -47,20 +59,75 @@ open class BuildThemes : DefaultTask() {
           DokiBuildThemeDefinition::class.java
         )
       }
-      .forEach {
-        constructIntellijTheme(
-          it,
+      .forEach { stuff ->
+        val resourcesPath = constructIntellijTheme(
+          stuff,
           themeTemplates,
           themeDefDir
         )
+        val themeId = stuff.second.id
+        val themeProviders = extension["themeProvider"] as NodeList
+        val preExistingThemeProvider = themeProviders
+          .map { it as Node }
+          .find { it.attribute("id") == themeId }
+        if (preExistingThemeProvider != null) {
+          extension.remove(preExistingThemeProvider)
+        }
+        extension.appendNode(
+          "themeProvider",
+          mutableMapOf(
+            "id" to themeId,
+            "path" to resourcesPath
+          )
+        )
       }
+
+    newOutputStream(pluginXml).use {
+      val outputStream = BufferedOutputStream(it)
+      val writer = PrintWriter(OutputStreamWriter(outputStream, StandardCharsets.UTF_8))
+      val printer = XmlNodePrinter(writer)
+      printer.isPreserveWhitespace = true
+      printer.print(parsedPluginXml)
+    }
+  }
+
+  private fun getExtension(): Pair<Pair<Path, Node>, Node> {
+    val pluginXml = get(
+      getResourcesDirectory().toString(),
+      "META-INF", "plugin.xml"
+    )
+    val parsedPlugin = newInputStream(pluginXml).use { input ->
+      val inputSource = InputSource(InputStreamReader(input, "UTF-8"))
+      val parser = XmlParser(false, true, true)
+      parser.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false)
+      parser.errorHandler = object : ErrorHandler {
+        override fun warning(exception: SAXParseException?) {
+
+        }
+
+        override fun error(exception: SAXParseException?) {
+
+        }
+
+        override fun fatalError(exception: SAXParseException) {
+          throw exception
+        }
+      }
+
+      parser.parse(inputSource)
+    }
+    return pluginXml to parsedPlugin to (parsedPlugin["extensions"] as NodeList)
+      .map { it as Node }
+      .find { node ->
+        node.attribute("defaultExtensionNs") == "com.intellij"
+      }!!
   }
 
   private fun constructIntellijTheme(
     dokiBuildThemeDefinition: Pair<Path, DokiBuildThemeDefinition>,
     themeTemplates: Map<String, ThemeTemplateDefinition>,
     themeDefDir: Path
-  ) {
+  ): String {
     val (definitionDirectory, themeDefinition) = dokiBuildThemeDefinition
     val resourceDirectory = getResourceDirectory(themeDefinition)
     if (!exists(resourceDirectory)) {
@@ -97,19 +164,24 @@ open class BuildThemes : DefaultTask() {
       .use { writer ->
         gson.toJson(finalTheme, writer)
       }
+    return extractResourcesPath(themeJson)
   }
 
   private fun getResourceDirectory(themeDefinition: DokiBuildThemeDefinition): Path {
     return get(
-      project.rootDir.absolutePath,
-      "src",
-      "main",
-      "resources",
+      getResourcesDirectory().toString(),
       "doki",
       "themes",
       themeDefinition.group.toLowerCase()
     )
   }
+
+  private fun getResourcesDirectory(): Path = get(
+    project.rootDir.absolutePath,
+    "src",
+    "main",
+    "resources"
+  )
 
   private fun getIcons(
     colors: Map<String, Any>,
@@ -189,48 +261,11 @@ open class BuildThemes : DefaultTask() {
       customXmlFile
     )
     copy(get(themeDefDir.parent.toString(), customXmlFile), destination, StandardCopyOption.REPLACE_EXISTING)
+    return extractResourcesPath(destination)
+  }
+
+  private fun extractResourcesPath(destination: Path): String {
     val fullResourcesPath = destination.toString()
     return fullResourcesPath.substring(fullResourcesPath.indexOf("/doki/theme"))
   }
 }
-
-
-data class ThemeTemplateDefinition(
-  val extends: String?,
-  val name: String,
-  val ui: Map<String, Any>,
-  val icons: Map<String, Any>?
-)
-
-data class BuildStickers(
-  val default: String,
-  val secondary: String?
-)
-
-data class DokiBuildThemeDefinition(
-  val id: String,
-  val name: String,
-  val displayName: String?,
-  val dark: Boolean,
-  val author: String?,
-  val group: String,
-  val editorScheme: Map<String, Any>,
-  val stickers: BuildStickers,
-  val colors: Map<String, Any>,
-  val ui: Map<String, Any>,
-  val icons: Map<String, Any>
-)
-
-
-data class IntellijDokiThemeDefinition(
-  val name: String,
-  val displayName: String?,
-  val dark: Boolean,
-  val author: String?,
-  val editorScheme: String,
-  val group: String,
-  val stickers: BuildStickers,
-  val colors: Map<String, Any>,
-  val ui: Map<String, Any>,
-  val icons: Map<String, Any>
-)
