@@ -7,6 +7,7 @@ import java.nio.file.Files.*
 import java.nio.file.Path
 import java.nio.file.Paths.get
 import java.nio.file.StandardOpenOption
+import java.util.*
 import java.util.stream.Collectors
 import java.util.stream.Stream
 
@@ -80,6 +81,8 @@ open class BuildThemes : DefaultTask() {
     }
 
     val templateName = if (themeDefinition.dark) "dark" else "light"
+    val topThemeDefinition =
+      themeTemplates[templateName] ?: throw IllegalStateException("Theme $templateName does not exist.")
     val finalTheme = IntellijDokiThemeDefinition(
       name = themeDefinition.name,
       displayName = themeDefinition.displayName,
@@ -88,13 +91,13 @@ open class BuildThemes : DefaultTask() {
       editorScheme = createEditorScheme(themeDefinition, themeTemplates, definitionDirectory),
       group = themeDefinition.group,
       stickers = themeDefinition.stickers,
-      colors = themeDefinition.colors,
+      colors = TreeMap(themeDefinition.colors),
       ui = getUIDef(
         themeDefinition.ui,
-        themeTemplates[templateName] ?: throw IllegalStateException("Theme $templateName does not exist."),
+        topThemeDefinition,
         themeTemplates
       ),
-      icons = getIcons(themeDefinition.icons, themeTemplates)
+      icons = getIcons(themeDefinition.colors, topThemeDefinition, themeTemplates)
     )
 
     newBufferedWriter(themeJson, StandardOpenOption.CREATE_NEW)
@@ -104,10 +107,29 @@ open class BuildThemes : DefaultTask() {
   }
 
   private fun getIcons(
-    icons: Map<String, Any>,
-    themeTemplates: Map<String, ThemeTemplateDefinition>
+    colors: Map<String, Any>,
+    topThemeDef: ThemeTemplateDefinition,
+    themeDefs: Map<String, ThemeTemplateDefinition>
   ): Map<String, Any> {
-    return mapOf()
+    return getAllEntries(topThemeDef, themeDefs) { it.icons ?: mapOf() }
+      .map { entry ->
+        if (entry.key == "ColorPalette") {
+          val palette = entry.value as Map<String, String>
+          val updatedPalette: Map<String, String> = palette.entries.stream()
+            .map { paletteEntry ->
+              paletteEntry.key to colors.getOrDefault(paletteEntry.value, paletteEntry.value)
+            }.collect(Collectors.toMap({ it.first }, { it.second },
+              { a, b -> b },
+              { TreeMap(Comparator.comparing { item -> item.toLowerCase() }) })
+            )
+          entry.key to updatedPalette
+        } else {
+          entry.key to entry.value
+        }
+      }
+      .collect(Collectors.toMap({ it.first }, { it.second }, { a, b -> b },
+        { TreeMap(Comparator.comparing { item -> item.toLowerCase() }) })
+      )
   }
 
   private fun getUIDef(
@@ -120,7 +142,9 @@ open class BuildThemes : DefaultTask() {
       ui.entries.stream()
     )
       .flatMap { it }
-      .collect(Collectors.toMap({ it.key }, { it.value }, { a, b -> b }))
+      .collect(Collectors.toMap({ it.key }, { it.value }, { a, b -> b },
+        { TreeMap(Comparator.comparing { item -> item.toLowerCase() }) })
+      )
   }
 
   private fun getAllEntries(
@@ -139,7 +163,7 @@ open class BuildThemes : DefaultTask() {
           entryExtractor
         ), entryExtractor(themeTemplates).entries.stream()
       )
-    }.sorted(Comparator.comparing { it.key })
+    }
   }
 
   private fun createEditorScheme(
@@ -156,7 +180,7 @@ data class ThemeTemplateDefinition(
   val extends: String?,
   val name: String,
   val ui: Map<String, Any>,
-  val icons: Map<String, Any>
+  val icons: Map<String, Any>?
 )
 
 data class BuildStickers(

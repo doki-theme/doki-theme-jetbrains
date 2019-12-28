@@ -81,7 +81,7 @@
     "OptionPane.errorDialog.titlePane.foreground": "foregroundColor",
     "OptionPane.foreground": "foregroundColor",
     "OptionPane.messageForeground": "foregroundColor",
-    "OptionPane.questionoDialog.titlePane.foreground": "foregroundColor",
+    "OptionPane.questionDialog.titlePane.foreground": "foregroundColor",
     "OptionPane.warningDialog.titlePane.foreground": "foregroundColor",
     "Panel.foreground": "foregroundColor",
     "PasswordField.foreground": "foregroundColor",
