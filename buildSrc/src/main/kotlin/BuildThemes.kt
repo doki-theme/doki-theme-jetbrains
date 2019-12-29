@@ -329,7 +329,30 @@ open class BuildThemes : DefaultTask() {
     val templateName = dokiDefinition.editorScheme["name"]
     val editorTemplate = dokiEditorThemeTemplates[templateName]
       ?: throw IllegalArgumentException("Unrecognized template name $templateName")
-    val themeTemplate = editorTemplate.clone()
+
+    val themeTemplate = editorTemplate.clone() as Node
+    themeTemplate.breadthFirst()
+      .map { it as Node }
+      .forEach{
+        when (it.name()){
+          "scheme" -> {
+            it.attributes().replace("name", dokiDefinition.name)
+          }
+          "option" -> {
+            val value = it.attribute("value") as? String
+            if(value?.contains('$') == true){
+              val start = value.indexOf('$')
+              val end = value.lastIndexOf('$')
+              val templateColor = value.subSequence(start+1, end)
+              val replacementHexColor = dokiDefinition.colors[templateColor] as? String
+                ?: throw IllegalArgumentException("$templateColor is not in ${dokiDefinition.name}'s color definition.")
+              val replacementColor = replacementHexColor.substring(1)
+              it.attributes()["value"] = "$replacementColor${value.substring(end + 1)}"
+            }
+          }
+        }
+    }
+
     val themeName = dokiDefinition.usableName
     val destination = get(
       getResourceDirectory(dokiDefinition).toString(),
