@@ -42,7 +42,8 @@
     "accentColor": "#CCA331",
     "accentContrastColor": "#271c21",
     "stopColor": "#eeb416",
-    "testScopeColor": "#243125"
+    "testScopeColor": "#243125",
+    "popopMask": "#EAEAF00A"
   },
   "ui": {},
   "icons": {}

@@ -1,0 +1,50 @@
+{
+  "id": "c8df9413-5d9f-4e0c-ae64-5d5c1cffe9a5",
+  "name": "Syrena",
+  "displayName": "Syrena",
+  "dark": true,
+  "author": "cyclic-reference",
+  "group": "Mistress",
+  "editorScheme": {
+    "type": "custom",
+    "file": "Syrena.xml"
+  },
+  "stickers": {
+    "default": "syrena.png"
+  },
+  "colors": {
+    "baseIconColor": "#97818B",
+    "ghostColor": "#FFFFFF00",
+    "contrastColor": "#392525",
+    "nonProjectFileScopeColor":  "#452f25",
+    "editorBackground": "#3A2525",
+    "secondaryBackground": "#392524",
+    "selectionForeground": "#ffffff",
+    "inactiveBackground": "#49434c",
+    "inactiveBackgroundDarker": "#3c373f",
+    "headerColor": "#362222",
+    "baseBackground": "#321f1f",
+    "borderColor": "#3c292b",
+    "buttonColor": "#422c2c",
+    "selectionInactive": "#543939",
+    "tagColor": "#7A7A7A",
+    "secondaryForegroundColor": "#B9AA9F",
+    "selectionBackground":  "#564135",
+    "selectionBackgroundTransparent":  "#564135A5",
+    "buttonFont": "#B9AA9F",
+    "foregroundColor": "#bbbbbb",
+    "startColor":  "#972e26",
+    "highlightColor": "#433330",
+    "disabledColor": "#7F818F",
+    "accentColorTransparent": "#FD7C4B5A",
+    "accentColorLessTransparent": "#FD7C4B9A",
+    "accentColorMoreTransparent": "#FD7C4B2A",
+    "accentColor": "#FD7C4B",
+    "accentContrastColor": "#321f1f",
+    "stopColor": "#fd7c4b",
+    "testScopeColor": "#29392C",
+    "popupMask": "#EAEAF009"
+  },
+  "ui": {},
+  "icons": {}
+}
