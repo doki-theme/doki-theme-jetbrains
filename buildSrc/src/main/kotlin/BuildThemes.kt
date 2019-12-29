@@ -53,10 +53,10 @@ open class BuildThemes : DefaultTask() {
         addThemeToPluginXml(extension, themeId, dokiThemeResourcePath)
       }
 
-    writeThemeChangesToPluginXml(pluginXml, parsedPluginXml)
+    writeXmlToFile(pluginXml, parsedPluginXml)
   }
 
-  private fun writeThemeChangesToPluginXml(pluginXml: Path, parsedPluginXml: Node) {
+  private fun writeXmlToFile(pluginXml: Path, parsedPluginXml: Node) {
     newOutputStream(pluginXml).use {
       val outputStream = BufferedOutputStream(it)
       val writer = PrintWriter(OutputStreamWriter(outputStream, StandardCharsets.UTF_8))
@@ -358,6 +358,12 @@ open class BuildThemes : DefaultTask() {
       getResourceDirectory(dokiDefinition).toString(),
       "$themeName.xml"
     )
+
+    if(exists(destination)){
+      delete(destination)
+    }
+
+    writeXmlToFile(destination, themeTemplate)
 
     return extractResourcesPath(destination)
   }
