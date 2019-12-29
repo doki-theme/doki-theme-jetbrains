@@ -61,7 +61,7 @@
     <themeProvider id="4693f34f-f400-4431-87f8-0be7fde660d9" path="/doki/themes/menagerie/Neera.theme.json"/>
     <themeProvider id="436ff3a0-4072-4b38-8d6f-888b18b5d0ab" path="/doki/themes/menagerie/Sanya.theme.json"/>
     <themeProvider id="c8df9413-5d9f-4e0c-ae64-5d5c1cffe9a5" path="/doki/themes/menagerie/Syrena.theme.json"/>
-    <themeProvider id="9f62362a-49e0-4b82-8f63-d1f98ae7799f" path="/doki/themes/menagerie/Wyla.theme.json"/>
+    <themeProvider id="9f62362a-49e0-4b82-8f63-d1f98ae7799f" path="/doki/themes/mistress/Wyla.theme.json"/>
     <themeProvider id="fc466b4f-8eb7-472c-8cbb-d99a09d4c469" path="/doki/themes/mistress/Cleo.theme.json"/>
   </extensions>
   <extensions defaultExtensionNs="JavaScript.JsonSchema">
