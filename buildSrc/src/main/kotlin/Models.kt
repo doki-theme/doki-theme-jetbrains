@@ -22,7 +22,12 @@ data class DokiBuildThemeDefinition(
   val colors: Map<String, Any>,
   val ui: Map<String, Any>,
   val icons: Map<String, Any>
-)
+) {
+ val usableName: String
+  get() = name.replace(' ', '_')
+ val usableGroup: String
+  get() = group.replace(' ', '_')
+}
 
 data class IntellijDokiThemeDefinition(
   val name: String,

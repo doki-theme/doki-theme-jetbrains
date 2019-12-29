@@ -36,6 +36,8 @@ open class BuildThemes : DefaultTask() {
     val themeDirectory = get(project.rootDir.absolutePath, "themes")
     val dokiThemeTemplates = createThemeDefinitions(themeDirectory)
 
+    val dokiEditorThemeTemplates = createEditorThemeDefinitions(themeDirectory)
+
     val (pluginXmlAndParsed, extension) = getPluginXmlMutationStuff()
     val (pluginXml, parsedPluginXml) = pluginXmlAndParsed
 
@@ -43,7 +45,8 @@ open class BuildThemes : DefaultTask() {
       .forEach { stuff ->
         val dokiThemeResourcePath = constructIntellijTheme(
           stuff,
-          dokiThemeTemplates
+          dokiThemeTemplates,
+          dokiEditorThemeTemplates
         )
 
         val themeId = stuff.second.id
@@ -105,11 +108,27 @@ open class BuildThemes : DefaultTask() {
         )
       }.collect(Collectors.toMap({ it.name }, { it }, { a, _ -> a }))
 
+  private fun createEditorThemeDefinitions(themeDirectory: Path): Map<String, Node> =
+    walk(get(themeDirectory.toString(), "templates"))
+      .filter { !isDirectory(it) }
+      .filter { it.fileName.toString().endsWith(".template.xml") }
+      .map { parseXml(it) }
+      .collect(Collectors.toMap({ it.attribute("name") as String }, { it }, { a, _ -> a }))
+
   private fun getPluginXmlMutationStuff(): Pair<Pair<Path, Node>, Node> {
     val pluginXml = get(
       getResourcesDirectory().toString(),
       "META-INF", "plugin.xml"
     )
+    val parsedPlugin = parseXml(pluginXml)
+    return pluginXml to parsedPlugin to (parsedPlugin["extensions"] as NodeList)
+      .map { it as Node }
+      .find { node ->
+        node.attribute("defaultExtensionNs") == "com.intellij"
+      }!!
+  }
+
+  private fun parseXml(pluginXml: Path): Node {
     val parsedPlugin = newInputStream(pluginXml).use { input ->
       val inputSource = InputSource(InputStreamReader(input, "UTF-8"))
       val parser = XmlParser(false, true, true)
@@ -130,16 +149,13 @@ open class BuildThemes : DefaultTask() {
 
       parser.parse(inputSource)
     }
-    return pluginXml to parsedPlugin to (parsedPlugin["extensions"] as NodeList)
-      .map { it as Node }
-      .find { node ->
-        node.attribute("defaultExtensionNs") == "com.intellij"
-      }!!
+    return parsedPlugin
   }
 
   private fun constructIntellijTheme(
     dokiBuildThemeDefinition: Pair<Path, DokiBuildThemeDefinition>,
-    dokiThemeTemplates: Map<String, ThemeTemplateDefinition>
+    dokiThemeTemplates: Map<String, ThemeTemplateDefinition>,
+    dokiEditorThemeTemplates: Map<String, Node>
   ): String {
     val (dokiThemeDefinitionPath, themeDefinition) = dokiBuildThemeDefinition
     val resourceDirectory = getResourceDirectory(themeDefinition)
@@ -147,7 +163,7 @@ open class BuildThemes : DefaultTask() {
       createDirectories(resourceDirectory)
     }
 
-    val themeJson = get(resourceDirectory.toString(), "${themeDefinition.name}.theme.json")
+    val themeJson = get(resourceDirectory.toString(), "${themeDefinition.usableName}.theme.json")
 
     if (exists(themeJson)) {
       delete(themeJson)
@@ -161,7 +177,11 @@ open class BuildThemes : DefaultTask() {
       displayName = themeDefinition.displayName,
       dark = themeDefinition.dark,
       author = themeDefinition.author,
-      editorScheme = createEditorScheme(themeDefinition, dokiThemeDefinitionPath),
+      editorScheme = createEditorScheme(
+        themeDefinition,
+        dokiThemeDefinitionPath,
+        dokiEditorThemeTemplates
+      ),
       group = themeDefinition.group,
       stickers = remapStickers(
         themeDefinition,
@@ -188,7 +208,7 @@ open class BuildThemes : DefaultTask() {
     dokiThemeDefinitionPath: Path
   ): BuildStickers {
     val stickers = themeDefinition.stickers
-    val stickerDirectory = "/stickers/${themeDefinition.group.toLowerCase()}/${themeDefinition.name}/"
+    val stickerDirectory = "/stickers/${themeDefinition.usableGroup.toLowerCase()}/${themeDefinition.usableName}/"
     val localStickerPath = get(getResourcesDirectory().toString(), stickerDirectory)
 
     if(!exists(localStickerPath)){
@@ -205,17 +225,18 @@ open class BuildThemes : DefaultTask() {
     val secondarySticker = Optional.ofNullable(stickers.secondary)
 
     secondarySticker
-      .map { get(localDefaultStickerPath.toString(), it) }
-      .filter { exists(it)}
+      .map { get(localStickerPath.toString(), it) }
       .ifPresent {
-        delete(it)
+        if(exists(it)){
+          delete(it)
+        }
         copy(get(dokiThemeDefinitionPath.parent.toString(), stickers.secondary), it)
       }
 
     val defaultStickerResourcesPath = "$stickerDirectory${stickers.default}"
     return BuildStickers(
       defaultStickerResourcesPath,
-      secondarySticker.orElseGet { null }
+      secondarySticker.map { "$stickerDirectory$it" }.orElseGet { null }
     )
   }
 
@@ -223,7 +244,7 @@ open class BuildThemes : DefaultTask() {
     getResourcesDirectory().toString(),
     "doki",
     "themes",
-    themeDefinition.group.toLowerCase()
+    themeDefinition.usableGroup.toLowerCase()
   )
 
   private fun getResourcesDirectory(): Path = get(
@@ -290,12 +311,32 @@ open class BuildThemes : DefaultTask() {
 
   private fun createEditorScheme(
     dokiDefinition: DokiBuildThemeDefinition,
-    dokiThemeDefinitionDirectory: Path
+    dokiThemeDefinitionDirectory: Path,
+    dokiEditorThemeTemplates: Map<String, Node>
   ): String {
-    return when (dokiDefinition.editorScheme["type"]) {
+    return when (val variant = dokiDefinition.editorScheme["type"]) {
       "custom" -> copyXml(dokiDefinition, dokiThemeDefinitionDirectory)
-      else -> TODO("THEME TEMPLATE NOT SUPPORTED YET")
+      "template" -> createEditorSchemeFromTemplate(dokiDefinition, dokiEditorThemeTemplates)
+      "templateExtension" -> TODO("Template extension not ready yet!")
+      else -> throw IllegalArgumentException("I can't build a theme of type $variant.")
     }
+  }
+
+  private fun createEditorSchemeFromTemplate(
+    dokiDefinition: DokiBuildThemeDefinition,
+    dokiEditorThemeTemplates: Map<String, Node>
+  ): String {
+    val templateName = dokiDefinition.editorScheme["name"]
+    val editorTemplate = dokiEditorThemeTemplates[templateName]
+      ?: throw IllegalArgumentException("Unrecognized template name $templateName")
+    val themeTemplate = editorTemplate.clone()
+    val themeName = dokiDefinition.usableName
+    val destination = get(
+      getResourceDirectory(dokiDefinition).toString(),
+      "$themeName.xml"
+    )
+
+    return extractResourcesPath(destination)
   }
 
   private fun copyXml(dokiDefinition: DokiBuildThemeDefinition, dokiThemeDefinitionDirectory: Path): String {
