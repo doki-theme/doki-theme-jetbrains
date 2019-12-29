@@ -141,7 +141,7 @@ open class BuildThemes : DefaultTask() {
     dokiBuildThemeDefinition: Pair<Path, DokiBuildThemeDefinition>,
     dokiThemeTemplates: Map<String, ThemeTemplateDefinition>
   ): String {
-    val (definitionDirectory, themeDefinition) = dokiBuildThemeDefinition
+    val (dokiThemeDefinitionPath, themeDefinition) = dokiBuildThemeDefinition
     val resourceDirectory = getResourceDirectory(themeDefinition)
     if (!exists(resourceDirectory)) {
       createDirectories(resourceDirectory)
@@ -161,11 +161,11 @@ open class BuildThemes : DefaultTask() {
       displayName = themeDefinition.displayName,
       dark = themeDefinition.dark,
       author = themeDefinition.author,
-      editorScheme = createEditorScheme(themeDefinition, dokiThemeTemplates, definitionDirectory),
+      editorScheme = createEditorScheme(themeDefinition, dokiThemeTemplates, dokiThemeDefinitionPath),
       group = themeDefinition.group,
       stickers = remapStickers(
         themeDefinition,
-        extractResourcesPath(themeJson.parent)
+        dokiThemeDefinitionPath
       ),
       colors = TreeMap(themeDefinition.colors),
       ui = getUIDef(
@@ -183,12 +183,39 @@ open class BuildThemes : DefaultTask() {
     return extractResourcesPath(themeJson)
   }
 
-  // todo: copy stickers
-  private fun remapStickers(themeDefinition: DokiBuildThemeDefinition, extractResourcesPath: String): BuildStickers {
+  private fun remapStickers(
+    themeDefinition: DokiBuildThemeDefinition,
+    dokiThemeDefinitionPath: Path
+  ): BuildStickers {
     val stickers = themeDefinition.stickers
+    val stickerDirectory = "/stickers/${themeDefinition.group.toLowerCase()}/${themeDefinition.name}/"
+    val localStickerPath = get(getResourcesDirectory().toString(), stickerDirectory)
+
+    if(!exists(localStickerPath)){
+      createDirectories(localStickerPath)
+    }
+
+    val localDefaultStickerPath = get(localStickerPath.toString(), stickers.default)
+    if(exists(localDefaultStickerPath)){
+      delete(localDefaultStickerPath)
+    }
+
+    copy(get(dokiThemeDefinitionPath.parent.toString(), stickers.default), localDefaultStickerPath)
+
+    val secondarySticker = Optional.ofNullable(stickers.secondary)
+
+    secondarySticker
+      .map { get(localDefaultStickerPath.toString(), it) }
+      .filter { exists(it)}
+      .ifPresent {
+        delete(it)
+        copy(get(dokiThemeDefinitionPath.parent.toString(), stickers.secondary), it)
+      }
+
+    val defaultStickerResourcesPath = "$stickerDirectory${stickers.default}"
     return BuildStickers(
-      "$extractResourcesPath/${stickers.default}",
-      if (stickers.secondary != null) "$extractResourcesPath/${stickers.secondary}" else null
+      defaultStickerResourcesPath,
+      secondarySticker.orElseGet { null }
     )
   }
 
