@@ -34,54 +34,26 @@ open class BuildThemes : DefaultTask() {
   @TaskAction
   fun run() {
     val themeDirectory = get(project.rootDir.absolutePath, "themes")
-    val themeTemplates =
-      walk(get(themeDirectory.toString(), "templates"))
-        .filter { !isDirectory(it) }
-        .filter { it.fileName.toString().endsWith(".template.json") }
-        .map { newInputStream(it) }
-        .map {
-          gson.fromJson(
-            InputStreamReader(it, StandardCharsets.UTF_8),
-            ThemeTemplateDefinition::class.java
-          )
-        }.collect(Collectors.toMap({ it.name }, { it }, { a, _ -> a }))
+    val dokiThemeTemplates = createThemeDefinitions(themeDirectory)
 
-    val (pluginXmlAndParsed, extension) = getExtension()
+    val (pluginXmlAndParsed, extension) = getPluginXmlMutationStuff()
     val (pluginXml, parsedPluginXml) = pluginXmlAndParsed
-    val themeDefDir = get(themeDirectory.toString(), "definitions")
-    walk(themeDefDir)
-      .filter { !isDirectory(it) }
-      .filter { it.fileName.toString().endsWith(".doki.json") }
-      .map { it to newInputStream(it) }
-      .map {
-        it.first to gson.fromJson(
-          InputStreamReader(it.second, StandardCharsets.UTF_8),
-          DokiBuildThemeDefinition::class.java
-        )
-      }
+
+    getAllDokiThemeDefinitions(get(themeDirectory.toString(), "definitions"))
       .forEach { stuff ->
-        val resourcesPath = constructIntellijTheme(
+        val dokiThemeResourcePath = constructIntellijTheme(
           stuff,
-          themeTemplates,
-          themeDefDir
+          dokiThemeTemplates
         )
+
         val themeId = stuff.second.id
-        val themeProviders = extension["themeProvider"] as NodeList
-        val preExistingThemeProvider = themeProviders
-          .map { it as Node }
-          .find { it.attribute("id") == themeId }
-        if (preExistingThemeProvider != null) {
-          extension.remove(preExistingThemeProvider)
-        }
-        extension.appendNode(
-          "themeProvider",
-          mutableMapOf(
-            "id" to themeId,
-            "path" to resourcesPath
-          )
-        )
+        addThemeToPluginXml(extension, themeId, dokiThemeResourcePath)
       }
 
+    writeThemeChangesToPluginXml(pluginXml, parsedPluginXml)
+  }
+
+  private fun writeThemeChangesToPluginXml(pluginXml: Path, parsedPluginXml: Node) {
     newOutputStream(pluginXml).use {
       val outputStream = BufferedOutputStream(it)
       val writer = PrintWriter(OutputStreamWriter(outputStream, StandardCharsets.UTF_8))
@@ -91,7 +63,49 @@ open class BuildThemes : DefaultTask() {
     }
   }
 
-  private fun getExtension(): Pair<Pair<Path, Node>, Node> {
+  private fun addThemeToPluginXml(extension: Node, themeId: String, dokiThemeResourcePath: String) {
+    val themeProviders = extension["themeProvider"] as NodeList
+    val preExistingThemeProvider = themeProviders
+      .map { it as Node }
+      .find { it.attribute("id") == themeId }
+    if (preExistingThemeProvider != null) {
+      extension.remove(preExistingThemeProvider)
+    }
+    extension.appendNode(
+      "themeProvider",
+      mutableMapOf(
+        "id" to themeId,
+        "path" to dokiThemeResourcePath
+      )
+    )
+  }
+
+  private fun getAllDokiThemeDefinitions(dokiThemeDefinitionDirectory: Path): Stream<Pair<Path, DokiBuildThemeDefinition>> {
+    return walk(dokiThemeDefinitionDirectory)
+      .filter { !isDirectory(it) }
+      .filter { it.fileName.toString().endsWith(".doki.json") }
+      .map { it to newInputStream(it) }
+      .map {
+        it.first to gson.fromJson(
+          InputStreamReader(it.second, StandardCharsets.UTF_8),
+          DokiBuildThemeDefinition::class.java
+        )
+      }
+  }
+
+  private fun createThemeDefinitions(themeDirectory: Path): Map<String, ThemeTemplateDefinition> =
+    walk(get(themeDirectory.toString(), "templates"))
+      .filter { !isDirectory(it) }
+      .filter { it.fileName.toString().endsWith(".template.json") }
+      .map { newInputStream(it) }
+      .map {
+        gson.fromJson(
+          InputStreamReader(it, StandardCharsets.UTF_8),
+          ThemeTemplateDefinition::class.java
+        )
+      }.collect(Collectors.toMap({ it.name }, { it }, { a, _ -> a }))
+
+  private fun getPluginXmlMutationStuff(): Pair<Pair<Path, Node>, Node> {
     val pluginXml = get(
       getResourcesDirectory().toString(),
       "META-INF", "plugin.xml"
@@ -125,8 +139,7 @@ open class BuildThemes : DefaultTask() {
 
   private fun constructIntellijTheme(
     dokiBuildThemeDefinition: Pair<Path, DokiBuildThemeDefinition>,
-    themeTemplates: Map<String, ThemeTemplateDefinition>,
-    themeDefDir: Path
+    dokiThemeTemplates: Map<String, ThemeTemplateDefinition>
   ): String {
     val (definitionDirectory, themeDefinition) = dokiBuildThemeDefinition
     val resourceDirectory = getResourceDirectory(themeDefinition)
@@ -142,13 +155,13 @@ open class BuildThemes : DefaultTask() {
 
     val templateName = if (themeDefinition.dark) "dark" else "light"
     val topThemeDefinition =
-      themeTemplates[templateName] ?: throw IllegalStateException("Theme $templateName does not exist.")
+      dokiThemeTemplates[templateName] ?: throw IllegalStateException("Theme $templateName does not exist.")
     val finalTheme = IntellijDokiThemeDefinition(
       name = themeDefinition.name,
       displayName = themeDefinition.displayName,
       dark = themeDefinition.dark,
       author = themeDefinition.author,
-      editorScheme = createEditorScheme(themeDefinition, themeTemplates, definitionDirectory),
+      editorScheme = createEditorScheme(themeDefinition, dokiThemeTemplates, definitionDirectory),
       group = themeDefinition.group,
       stickers = remapStickers(
         themeDefinition,
@@ -158,9 +171,9 @@ open class BuildThemes : DefaultTask() {
       ui = getUIDef(
         themeDefinition.ui,
         topThemeDefinition,
-        themeTemplates
+        dokiThemeTemplates
       ),
-      icons = getIcons(themeDefinition.colors, topThemeDefinition, themeTemplates)
+      icons = getIcons(themeDefinition.colors, topThemeDefinition, dokiThemeTemplates)
     )
 
     newBufferedWriter(themeJson, StandardOpenOption.CREATE_NEW)
@@ -175,18 +188,16 @@ open class BuildThemes : DefaultTask() {
     val stickers = themeDefinition.stickers
     return BuildStickers(
       "$extractResourcesPath/${stickers.default}",
-      if(stickers.secondary != null) "$extractResourcesPath/${stickers.secondary}" else null
+      if (stickers.secondary != null) "$extractResourcesPath/${stickers.secondary}" else null
     )
   }
 
-  private fun getResourceDirectory(themeDefinition: DokiBuildThemeDefinition): Path {
-    return get(
-      getResourcesDirectory().toString(),
-      "doki",
-      "themes",
-      themeDefinition.group.toLowerCase()
-    )
-  }
+  private fun getResourceDirectory(themeDefinition: DokiBuildThemeDefinition): Path = get(
+    getResourcesDirectory().toString(),
+    "doki",
+    "themes",
+    themeDefinition.group.toLowerCase()
+  )
 
   private fun getResourcesDirectory(): Path = get(
     project.rootDir.absolutePath,
@@ -199,80 +210,78 @@ open class BuildThemes : DefaultTask() {
     colors: Map<String, Any>,
     topThemeDef: ThemeTemplateDefinition,
     themeDefs: Map<String, ThemeTemplateDefinition>
-  ): Map<String, Any> {
-    return getAllEntries(topThemeDef, themeDefs) { it.icons ?: mapOf() }
-      .map { entry ->
-        if (entry.key == "ColorPalette") {
-          val palette = entry.value as Map<String, String>
-          val updatedPalette: Map<String, String> = palette.entries.stream()
-            .map { paletteEntry ->
-              paletteEntry.key to colors.getOrDefault(paletteEntry.value, paletteEntry.value)
-            }.collect(Collectors.toMap({ it.first }, { it.second },
-              { a, b -> b },
-              { TreeMap(Comparator.comparing { item -> item.toLowerCase() }) })
-            )
-          entry.key to updatedPalette
-        } else {
-          entry.key to entry.value
-        }
+  ): Map<String, Any> = getAllEntries(topThemeDef, themeDefs) { it.icons ?: mapOf() }
+    .map { entry ->
+      if (entry.key == "ColorPalette") {
+        val palette = entry.value as Map<String, String>
+        val updatedPalette: Map<String, String> = palette.entries.stream()
+          .map { paletteEntry ->
+            paletteEntry.key to colors.getOrDefault(paletteEntry.value, paletteEntry.value)
+          }.collect(Collectors.toMap({ it.first }, { it.second },
+            { a, b -> b },
+            { TreeMap(Comparator.comparing { item -> item.toLowerCase() }) })
+          )
+        entry.key to updatedPalette
+      } else {
+        entry.key to entry.value
       }
-      .collect(Collectors.toMap({ it.first }, { it.second }, { a, b -> b },
-        { TreeMap(Comparator.comparing { item -> item.toLowerCase() }) })
-      )
-  }
+    }
+    .collect(Collectors.toMap({ it.first }, { it.second }, { a, b -> b },
+      { TreeMap(Comparator.comparing { item -> item.toLowerCase() }) })
+    )
 
   private fun getUIDef(
     ui: Map<String, Any>,
-    themeTemplates: ThemeTemplateDefinition,
-    themeTemplates1: Map<String, ThemeTemplateDefinition>
-  ): Map<String, Any> {
-    return Stream.of(
-      getAllEntries(themeTemplates, themeTemplates1) { it.ui },
-      ui.entries.stream()
+    dokiThemeTemplates: ThemeTemplateDefinition,
+    dokiThemeTemplates1: Map<String, ThemeTemplateDefinition>
+  ): Map<String, Any> = Stream.of(
+    getAllEntries(dokiThemeTemplates, dokiThemeTemplates1) { it.ui },
+    ui.entries.stream()
+  )
+    .flatMap { it }
+    .collect(Collectors.toMap({ it.key }, { it.value }, { a, b -> b },
+      { TreeMap(Comparator.comparing { item -> item.toLowerCase() }) })
     )
-      .flatMap { it }
-      .collect(Collectors.toMap({ it.key }, { it.value }, { a, b -> b },
-        { TreeMap(Comparator.comparing { item -> item.toLowerCase() }) })
-      )
-  }
 
   private fun getAllEntries(
-    themeTemplates: ThemeTemplateDefinition,
+    dokiThemeTemplates: ThemeTemplateDefinition,
     allThemeTemplates: Map<String, ThemeTemplateDefinition>,
     entryExtractor: (ThemeTemplateDefinition) -> Map<String, Any>
-  ): Stream<Map.Entry<String, Any>> {
-    return if (themeTemplates.extends == null) {
-      entryExtractor(themeTemplates).entries.stream()
-    } else {
-      Stream.concat(
-        getAllEntries(
-          allThemeTemplates[themeTemplates.extends]
-            ?: throw IllegalStateException("Theme template ${themeTemplates.extends} is not a valid parent template"),
-          allThemeTemplates,
-          entryExtractor
-        ), entryExtractor(themeTemplates).entries.stream()
-      )
-    }
+  ): Stream<Map.Entry<String, Any>> = if (dokiThemeTemplates.extends == null) {
+    entryExtractor(dokiThemeTemplates).entries.stream()
+  } else {
+    Stream.concat(
+      getAllEntries(
+        allThemeTemplates[dokiThemeTemplates.extends]
+          ?: throw IllegalStateException("Theme template ${dokiThemeTemplates.extends} is not a valid parent template"),
+        allThemeTemplates,
+        entryExtractor
+      ), entryExtractor(dokiThemeTemplates).entries.stream()
+    )
   }
 
   private fun createEditorScheme(
     dokiDefinition: DokiBuildThemeDefinition,
-    themeTemplates: Map<String, ThemeTemplateDefinition>,
-    themeDefDir: Path
+    dokiThemeTemplates: Map<String, ThemeTemplateDefinition>,
+    dokiThemeDefinitionDirectory: Path
   ): String {
     return when (dokiDefinition.editorScheme["type"]) {
-      "custom" -> copyXml(dokiDefinition, themeDefDir)
+      "custom" -> copyXml(dokiDefinition, dokiThemeDefinitionDirectory)
       else -> TODO("THEME TEMPLATE NOT SUPPORTED YET")
     }
   }
 
-  private fun copyXml(dokiDefinition: DokiBuildThemeDefinition, themeDefDir: Path): String {
+  private fun copyXml(dokiDefinition: DokiBuildThemeDefinition, dokiThemeDefinitionDirectory: Path): String {
     val customXmlFile = dokiDefinition.editorScheme["file"] as String
     val destination = get(
       getResourceDirectory(dokiDefinition).toString(),
       customXmlFile
     )
-    copy(get(themeDefDir.parent.toString(), customXmlFile), destination, StandardCopyOption.REPLACE_EXISTING)
+    copy(
+      get(dokiThemeDefinitionDirectory.parent.toString(), customXmlFile),
+      destination,
+      StandardCopyOption.REPLACE_EXISTING
+    )
     return extractResourcesPath(destination)
   }
 
