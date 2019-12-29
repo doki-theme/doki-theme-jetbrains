@@ -161,7 +161,7 @@ open class BuildThemes : DefaultTask() {
       displayName = themeDefinition.displayName,
       dark = themeDefinition.dark,
       author = themeDefinition.author,
-      editorScheme = createEditorScheme(themeDefinition, dokiThemeTemplates, dokiThemeDefinitionPath),
+      editorScheme = createEditorScheme(themeDefinition, dokiThemeDefinitionPath),
       group = themeDefinition.group,
       stickers = remapStickers(
         themeDefinition,
@@ -233,6 +233,7 @@ open class BuildThemes : DefaultTask() {
     "resources"
   )
 
+  @Suppress("UNCHECKED_CAST")
   private fun getIcons(
     colors: Map<String, Any>,
     topThemeDef: ThemeTemplateDefinition,
@@ -245,7 +246,7 @@ open class BuildThemes : DefaultTask() {
           .map { paletteEntry ->
             paletteEntry.key to colors.getOrDefault(paletteEntry.value, paletteEntry.value)
           }.collect(Collectors.toMap({ it.first }, { it.second },
-            { a, b -> b },
+            { _, b -> b },
             { TreeMap(Comparator.comparing { item -> item.toLowerCase() }) })
           )
         entry.key to updatedPalette
@@ -253,7 +254,7 @@ open class BuildThemes : DefaultTask() {
         entry.key to entry.value
       }
     }
-    .collect(Collectors.toMap({ it.first }, { it.second }, { a, b -> b },
+    .collect(Collectors.toMap({ it.first }, { it.second }, { _, b -> b },
       { TreeMap(Comparator.comparing { item -> item.toLowerCase() }) })
     )
 
@@ -266,7 +267,7 @@ open class BuildThemes : DefaultTask() {
     ui.entries.stream()
   )
     .flatMap { it }
-    .collect(Collectors.toMap({ it.key }, { it.value }, { a, b -> b },
+    .collect(Collectors.toMap({ it.key }, { it.value }, { _, b -> b },
       { TreeMap(Comparator.comparing { item -> item.toLowerCase() }) })
     )
 
@@ -289,7 +290,6 @@ open class BuildThemes : DefaultTask() {
 
   private fun createEditorScheme(
     dokiDefinition: DokiBuildThemeDefinition,
-    dokiThemeTemplates: Map<String, ThemeTemplateDefinition>,
     dokiThemeDefinitionDirectory: Path
   ): String {
     return when (dokiDefinition.editorScheme["type"]) {
