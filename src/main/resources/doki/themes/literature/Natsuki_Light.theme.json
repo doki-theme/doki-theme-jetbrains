@@ -38,7 +38,16 @@
     "accentColor": "#E94686",
     "accentContrastColor": "#252427",
     "stopColor": "#fbadff",
-    "testScopeColor": "#ede8e4"
+    "testScopeColor": "#ede8e4",
+    "popupMask": "#EAEAF030",
+
+    "codeBlock": "#FDD8FF",
+    "textEditorBackground": "#FFE5F1",
+    "searchResultBackground": "#CECAFF",
+    "classNameColor": "#df81b8",
+    "htmlTagColor": "#7B6970",
+    "stringColor": "#DC872E",
+    "keyColor": "#7C75EF"
   },
   "ui": {
     "Panel.background": "baseBackground",

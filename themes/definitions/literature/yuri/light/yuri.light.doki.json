@@ -60,11 +60,8 @@
     "CompletionPopup.selectionBackground": "selectionBackground",
     "CompletionPopup.selectionInactiveBackground": "selectionBackground",
 
-    "SearchEverywhere.Tab.selectedBackground": "highlightColorDarker",
     "SearchEverywhere.Header.background": "headerColor",
-    "SearchEverywhere.SearchField.background": "headerColor",
-
-    "CompletionPopup.matchForeground": "accentColorDarker"
+    "SearchEverywhere.SearchField.background": "headerColor"
   },
   "icons": {}
 }
