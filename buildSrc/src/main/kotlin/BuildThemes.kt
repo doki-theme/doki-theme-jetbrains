@@ -317,9 +317,37 @@ open class BuildThemes : DefaultTask() {
     return when (val variant = dokiDefinition.editorScheme["type"]) {
       "custom" -> copyXml(dokiDefinition, dokiThemeDefinitionDirectory)
       "template" -> createEditorSchemeFromTemplate(dokiDefinition, dokiEditorThemeTemplates)
-      "templateExtension" -> TODO("Template extension not ready yet!")
+      "templateExtension" -> createEditorSchemeFromTemplateExtension(
+        dokiDefinition,
+        dokiEditorThemeTemplates,
+        dokiThemeDefinitionDirectory
+      )
       else -> throw IllegalArgumentException("I can't build a theme of type $variant.")
     }
+  }
+
+  private fun createEditorSchemeFromTemplateExtension(
+    dokiDefinition: DokiBuildThemeDefinition,
+    dokiEditorThemeTemplates: Map<String, Node>,
+    dokiThemeDefinitionDirectory: Path
+  ): String {
+    val childTheme = parseXml(get(
+      dokiThemeDefinitionDirectory.parent.toString(),
+      dokiDefinition.editorScheme["file"] as String
+    ))
+
+    val extendedTheme =
+      extendTheme(
+        childTheme,
+        dokiEditorThemeTemplates
+      )
+
+    return createXmlFromDefinition(dokiDefinition, extendedTheme)
+  }
+
+  // todo: theme extension
+  private fun extendTheme(childTheme: Node, dokiEditorThemeTemplates: Map<String, Node>): Node {
+    return childTheme
   }
 
   private fun createEditorSchemeFromTemplate(
@@ -353,13 +381,20 @@ open class BuildThemes : DefaultTask() {
         }
     }
 
+    return createXmlFromDefinition(dokiDefinition, themeTemplate)
+  }
+
+  private fun createXmlFromDefinition(
+    dokiDefinition: DokiBuildThemeDefinition,
+    themeTemplate: Node
+  ): String {
     val themeName = dokiDefinition.usableName
     val destination = get(
       getResourceDirectory(dokiDefinition).toString(),
       "$themeName.xml"
     )
 
-    if(exists(destination)){
+    if (exists(destination)) {
       delete(destination)
     }
 

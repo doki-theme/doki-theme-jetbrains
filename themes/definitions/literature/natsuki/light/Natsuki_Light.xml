@@ -1,4 +1,4 @@
-<scheme name="Natsuki Light" version="142" parent_scheme="Default">
+<scheme name="Natsuki Light" version="142" parent_scheme="Doki Light">
     <attributes>
         <option name="CONSOLE_GREEN_OUTPUT">
             <value>

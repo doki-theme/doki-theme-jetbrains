@@ -267,7 +267,7 @@
     "SearchEverywhere.List.separatorColor": "borderColor",
     "SearchEverywhere.SearchField.background": "headerColor",
     "SearchEverywhere.SearchField.borderColor": "borderColor",
-    "SearchEverywhere.Tab.selectedBackground": "highlightColorDarker",
+    "SearchEverywhere.Tab.selectedBackground": "highlightColor",
     "SearchEverywhere.Tab.selectedForeground": "foregroundColor",
     "SearchMatch.endBackground": "accentColor",
     "SearchMatch.startBackground": "accentColor",
