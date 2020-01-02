@@ -211,12 +211,12 @@ open class BuildThemes : DefaultTask() {
     val stickerDirectory = "/stickers/${themeDefinition.usableGroup.toLowerCase()}/${themeDefinition.usableName}/"
     val localStickerPath = get(getResourcesDirectory().toString(), stickerDirectory)
 
-    if(!exists(localStickerPath)){
+    if (!exists(localStickerPath)) {
       createDirectories(localStickerPath)
     }
 
     val localDefaultStickerPath = get(localStickerPath.toString(), stickers.default)
-    if(exists(localDefaultStickerPath)){
+    if (exists(localDefaultStickerPath)) {
       delete(localDefaultStickerPath)
     }
 
@@ -227,7 +227,7 @@ open class BuildThemes : DefaultTask() {
     secondarySticker
       .map { get(localStickerPath.toString(), it) }
       .ifPresent {
-        if(exists(it)){
+        if (exists(it)) {
           delete(it)
         }
         copy(get(dokiThemeDefinitionPath.parent.toString(), stickers.secondary), it)
@@ -331,10 +331,12 @@ open class BuildThemes : DefaultTask() {
     dokiEditorThemeTemplates: Map<String, Node>,
     dokiThemeDefinitionDirectory: Path
   ): String {
-    val childTheme = parseXml(get(
-      dokiThemeDefinitionDirectory.parent.toString(),
-      dokiDefinition.editorScheme["file"] as String
-    ))
+    val childTheme = parseXml(
+      get(
+        dokiThemeDefinitionDirectory.parent.toString(),
+        dokiDefinition.editorScheme["file"] as String
+      )
+    )
 
     val extendedTheme =
       extendTheme(
@@ -347,7 +349,45 @@ open class BuildThemes : DefaultTask() {
 
   // todo: theme extension
   private fun extendTheme(childTheme: Node, dokiEditorThemeTemplates: Map<String, Node>): Node {
-    return childTheme
+    val parentScheme = childTheme.attribute("parent_scheme")
+    val parentTheme = dokiEditorThemeTemplates[parentScheme]?.clone() as? Node
+      ?: throw IllegalArgumentException("Expected parent scheme $parentScheme to be valid!")
+
+    listOf("colors", "attributes")
+      .forEach { attribute ->
+        val childList = childTheme[attribute] as NodeList
+        val parentListNode = parentTheme[attribute] as NodeList
+        childList.zip(parentListNode)
+          .filter { it.first is Node && it.second is Node }
+          .map { it.first as Node to it.second as Node }
+          .flatMap { (it.first.value() as NodeList).map {
+            childNode -> childNode as Node to it.second.value() as NodeList
+          } }
+          .forEach { childeNodeWithParent ->
+            val (childeNode, parentList) = childeNodeWithParent
+            val childName = childeNode.attribute("name")
+            val parentNode = parentList.map { it as Node }
+              .indexOfFirst { parentNode ->
+              parentNode.attribute("name") == childName
+            }
+
+            if (parentNode > -1) {
+              parentList.removeAt(parentNode)
+            }
+              parentList.add(childeNode)
+          }
+      }
+
+
+    return parentTheme
+  }
+
+  private fun getRelevantChildren(parentTheme: Node): List<Node> {
+    return parentTheme.breadthFirst()
+      .map { it as Node }
+      .filter { it.name() == "option" }
+      .filter { it.parent() != null }
+      .filter { it.parent()?.name() !== "value" }
   }
 
   private fun createEditorSchemeFromTemplate(
@@ -361,17 +401,17 @@ open class BuildThemes : DefaultTask() {
     val themeTemplate = editorTemplate.clone() as Node
     themeTemplate.breadthFirst()
       .map { it as Node }
-      .forEach{
-        when (it.name()){
+      .forEach {
+        when (it.name()) {
           "scheme" -> {
             it.attributes().replace("name", dokiDefinition.name)
           }
           "option" -> {
             val value = it.attribute("value") as? String
-            if(value?.contains('$') == true){
+            if (value?.contains('$') == true) {
               val start = value.indexOf('$')
               val end = value.lastIndexOf('$')
-              val templateColor = value.subSequence(start+1, end)
+              val templateColor = value.subSequence(start + 1, end)
               val replacementHexColor = dokiDefinition.colors[templateColor] as? String
                 ?: throw IllegalArgumentException("$templateColor is not in ${dokiDefinition.name}'s color definition.")
               val replacementColor = replacementHexColor.substring(1)
@@ -379,7 +419,7 @@ open class BuildThemes : DefaultTask() {
             }
           }
         }
-    }
+      }
 
     return createXmlFromDefinition(dokiDefinition, themeTemplate)
   }
