@@ -347,13 +347,16 @@ open class BuildThemes : DefaultTask() {
     return createXmlFromDefinition(dokiDefinition, extendedTheme)
   }
 
+  private val childrenICareAbout = listOf("colors", "attributes")
+
   // todo: theme extension
   private fun extendTheme(childTheme: Node, dokiEditorThemeTemplates: Map<String, Node>): Node {
+
     val parentScheme = childTheme.attribute("parent_scheme")
     val parentTheme = dokiEditorThemeTemplates[parentScheme]?.clone() as? Node
       ?: throw IllegalArgumentException("Expected parent scheme $parentScheme to be valid!")
 
-    listOf("colors", "attributes")
+    childrenICareAbout
       .forEach { attribute ->
         val childList = childTheme[attribute] as NodeList
         val parentListNode = parentTheme[attribute] as NodeList
@@ -378,9 +381,40 @@ open class BuildThemes : DefaultTask() {
           }
       }
 
+    sortThatShit(parentTheme)
 
     return parentTheme
   }
+
+  private fun sortThatShit(parentTheme: Node) {
+    val queue = LinkedList<Any>()
+    queue.addAll(childrenICareAbout.map { parentTheme[it] })
+    while (queue.isNotEmpty()){
+      when(val currentDude = queue.pollFirst()){
+        is Node -> {
+          val value = currentDude.value()
+          // todo do not sort value list
+          if(value != null ){
+            queue.push(value)
+          }
+        }
+        is NodeList -> {
+          Collections.sort(currentDude) { a, b ->
+            val left = a as Node
+            val right = b as Node
+
+            getComparable(left).compareTo(
+              getComparable(right)
+            )
+          }
+          queue.addAll(currentDude)
+        }
+      }
+    }
+  }
+
+  private fun getComparable(left: Node): String =
+    (left.attribute("name") as? String) ?: left.name().toString()
 
   private fun getRelevantChildren(parentTheme: Node): List<Node> {
     return parentTheme.breadthFirst()

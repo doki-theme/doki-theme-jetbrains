@@ -90,8 +90,8 @@
   <attributes>
     <option name="ABSTRACT_CLASS_NAME_ATTRIBUTES">
       <value>
-        <option name="FOREGROUND" value="$classNameColor$"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="$classNameColor$"/>
       </value>
     </option>
     <option name="ANNOTATION_ATTRIBUTE_NAME_ATTRIBUTES">
@@ -101,14 +101,14 @@
     </option>
     <option name="ANNOTATION_NAME_ATTRIBUTES">
       <value>
-        <option name="FOREGROUND" value="$accentColor$"/>
         <option name="EFFECT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="$accentColor$"/>
       </value>
     </option>
     <option name="ANONYMOUS_CLASS_NAME_ATTRIBUTES">
       <value>
-        <option name="FOREGROUND" value="$keyColor$"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="$keyColor$"/>
       </value>
     </option>
     <option name="BACKGROUND">
@@ -116,38 +116,38 @@
     </option>
     <option name="BASH.EXTERNAL_COMMAND">
       <value>
-        <option name="FOREGROUND" value="$keyColor$"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="$keyColor$"/>
       </value>
     </option>
     <option name="BASH.INTERNAL_COMMAND">
       <value>
-        <option name="FOREGROUND" value="$keyColor$"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="$keyColor$"/>
       </value>
     </option>
     <option name="BREADCRUMBS_CURRENT">
       <value>
-        <option name="FOREGROUND" value="3b3b3b"/>
         <option name="BACKGROUND" value="$highlightColor$"/>
+        <option name="FOREGROUND" value="3b3b3b"/>
       </value>
     </option>
     <option name="BREADCRUMBS_DEFAULT">
       <value>
-        <option name="FOREGROUND" value="aaaaaa"/>
         <option name="BACKGROUND" value="$textEditorBackground$"/>
+        <option name="FOREGROUND" value="aaaaaa"/>
       </value>
     </option>
     <option name="BREADCRUMBS_HOVERED">
       <value>
-        <option name="FOREGROUND" value="ffffff"/>
         <option name="BACKGROUND" value="$selectionBackground$"/>
+        <option name="FOREGROUND" value="ffffff"/>
       </value>
     </option>
     <option name="BREADCRUMBS_INACTIVE">
       <value>
-        <option name="FOREGROUND" value="ffffff"/>
         <option name="BACKGROUND" value="$selectionInactive$"/>
+        <option name="FOREGROUND" value="ffffff"/>
       </value>
     </option>
     <option name="BREAKPOINT_ATTRIBUTES">
@@ -217,6 +217,11 @@
         <option name="FOREGROUND" value="$classNameColor$"/>
       </value>
     </option>
+    <option name="CONSOLE_GREEN_OUTPUT">
+      <value>
+        <option name="FOREGROUND" value="3dd664"/>
+      </value>
+    </option>
     <option name="CONSOLE_MAGENTA_BRIGHT_OUTPUT">
       <value>
         <option name="FOREGROUND" value="ff5555"/>
@@ -254,8 +259,8 @@
     </option>
     <option name="CONSOLE_USER_INPUT">
       <value>
-        <option name="FOREGROUND" value="$classNameColor$"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="$classNameColor$"/>
       </value>
     </option>
     <option name="CONSOLE_WHITE_OUTPUT">
@@ -280,8 +285,8 @@
     </option>
     <option name="CSS.COLON">
       <value>
-        <option name="FOREGROUND" value="$htmlTagColor$"/>
         <option name="EFFECT_TYPE" value="5"/>
+        <option name="FOREGROUND" value="$htmlTagColor$"/>
       </value>
     </option>
     <option name="CSS.COLOR">
@@ -296,8 +301,8 @@
     </option>
     <option name="CSS.HASH">
       <value>
-        <option name="FOREGROUND" value="$classNameColor$"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="$classNameColor$"/>
       </value>
     </option>
     <option name="CSS.IDENT">
@@ -317,8 +322,8 @@
     </option>
     <option name="CSS.PROPERTY_NAME">
       <value>
-        <option name="FOREGROUND" value="$keyColor$"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="$keyColor$"/>
       </value>
     </option>
     <option name="CSS.PROPERTY_VALUE">
@@ -328,8 +333,8 @@
     </option>
     <option name="CSS.PSEUDO">
       <value>
-        <option name="FOREGROUND" value="$classNameColor$"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="$classNameColor$"/>
       </value>
     </option>
     <option name="CSS.TAG_NAME">
@@ -344,34 +349,39 @@
     </option>
     <option name="CSS.URL">
       <value>
-        <option name="FOREGROUND" value="$stringColor$"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="$stringColor$"/>
       </value>
     </option>
     <option name="CTRL_CLICKABLE">
       <value>
-        <option name="FOREGROUND" value="$stringColor$"/>
         <option name="EFFECT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="$stringColor$"/>
+      </value>
+    </option>
+    <option name="CUSTOM_KEYWORD1_ATTRIBUTES">
+      <value>
+        <option name="FOREGROUND" value="C869A3"/>
       </value>
     </option>
     <option name="CUSTOM_KEYWORD2_ATTRIBUTES">
       <value>
-        <option name="FOREGROUND" value="$keyColor$"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="$keyColor$"/>
       </value>
     </option>
     <option name="CUSTOM_KEYWORD3_ATTRIBUTES">
       <value>
-        <option name="FOREGROUND" value="4C94D6"/>
         <option name="FONT_TYPE" value="3"/>
+        <option name="FOREGROUND" value="4C94D6"/>
       </value>
     </option>
     <option name="CUSTOM_KEYWORD4_ATTRIBUTES">
       <value>
-        <option name="FOREGROUND" value="61afef"/>
         <option name="BACKGROUND"/>
         <option name="EFFECT_COLOR"/>
         <option name="FONT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="61afef"/>
       </value>
     </option>
     <option name="CUSTOM_STRING_ATTRIBUTES" baseAttributes="DEFAULT_STRING"/>
@@ -379,14 +389,14 @@
     <option name="Class" baseAttributes="CLASS_NAME_ATTRIBUTES"/>
     <option name="DEFAULT_ATTRIBUTE">
       <value>
-        <option name="FOREGROUND" value="$accentColor$"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="$accentColor$"/>
       </value>
     </option>
     <option name="DEFAULT_BLOCK_COMMENT">
       <value>
-        <option name="FOREGROUND" value="6a737d"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="6a737d"/>
       </value>
     </option>
     <option name="DEFAULT_CLASS_NAME">
@@ -404,21 +414,21 @@
     </option>
     <option name="DEFAULT_CONSTANT">
       <value>
-        <option name="FOREGROUND" value="4C94D6"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="4C94D6"/>
       </value>
     </option>
     <option name="DEFAULT_DOC_COMMENT">
       <value>
-        <option name="FOREGROUND" value="6a737d"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="6a737d"/>
       </value>
     </option>
     <option name="DEFAULT_DOC_COMMENT_TAG">
       <value>
-        <option name="FOREGROUND" value="$keyColor$"/>
-        <option name="FONT_TYPE" value="3"/>
         <option name="EFFECT_TYPE" value="1"/>
+        <option name="FONT_TYPE" value="3"/>
+        <option name="FOREGROUND" value="$keyColor$"/>
       </value>
     </option>
     <option name="DEFAULT_DOC_COMMENT_TAG_VALUE">
@@ -458,27 +468,38 @@
     </option>
     <option name="DEFAULT_INTERFACE_NAME">
       <value>
-        <option name="FOREGROUND" value="$keyColor$"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="$keyColor$"/>
       </value>
     </option>
     <option name="DEFAULT_INVALID_STRING_ESCAPE">
       <value>
-        <option name="FOREGROUND" value="$classNameColor$"/>
         <option name="EFFECT_COLOR" value="ff5555"/>
         <option name="EFFECT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="$classNameColor$"/>
+      </value>
+    </option>
+    <option name="DEFAULT_KEYWORD">
+      <value>
+        <option name="FOREGROUND" value="C869A3"/>
+      </value>
+    </option>
+    <option name="DEFAULT_LABEL">
+      <value>
+        <option name="EFFECT_COLOR" value="808080"/>
+        <option name="EFFECT_TYPE" value="1"/>
       </value>
     </option>
     <option name="DEFAULT_LINE_COMMENT">
       <value>
-        <option name="FOREGROUND" value="6a737d"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="6a737d"/>
       </value>
     </option>
     <option name="DEFAULT_METADATA">
       <value>
-        <option name="FOREGROUND" value="$accentColor$"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="$accentColor$"/>
       </value>
     </option>
     <option name="DEFAULT_NUMBER">
@@ -493,21 +514,28 @@
     </option>
     <option name="DEFAULT_PARAMETER">
       <value>
-        <option name="FOREGROUND" value="$stringColor$"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="$stringColor$"/>
       </value>
     </option>
     <option name="DEFAULT_PREDEFINED_SYMBOL">
       <value>
-        <option name="FOREGROUND" value="$classNameColor$"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="$classNameColor$"/>
+      </value>
+    </option>
+    <option name="DEFAULT_REASSIGNED_LOCAL_VARIABLE">
+      <value>
+        <option name="EFFECT_COLOR" value="a5a5a5"/>
+        <option name="EFFECT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="4D4D4A"/>
       </value>
     </option>
     <option name="DEFAULT_REASSIGNED_PARAMETER">
       <value>
-        <option name="FOREGROUND" value="$stringColor$"/>
         <option name="EFFECT_COLOR" value="$stringColor$"/>
         <option name="EFFECT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="$stringColor$"/>
       </value>
     </option>
     <option name="DEFAULT_SEMICOLON">
@@ -515,14 +543,14 @@
     </option>
     <option name="DEFAULT_STATIC_FIELD">
       <value>
-        <option name="FOREGROUND" value="4D4D4A"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="4D4D4A"/>
       </value>
     </option>
     <option name="DEFAULT_STATIC_METHOD">
       <value>
-        <option name="FOREGROUND" value="$accentColor$"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="$accentColor$"/>
       </value>
     </option>
     <option name="DEFAULT_STRING">
@@ -532,8 +560,8 @@
     </option>
     <option name="DEFAULT_TAG">
       <value>
-        <option name="FOREGROUND" value="$htmlTagColor$"/>
         <option name="EFFECT_TYPE" value="5"/>
+        <option name="FOREGROUND" value="$htmlTagColor$"/>
       </value>
     </option>
     <option name="DEFAULT_TEMPLATE_LANGUAGE_COLOR">
@@ -548,24 +576,24 @@
     </option>
     <option name="DELETED_TEXT_ATTRIBUTES">
       <value>
-        <option name="FOREGROUND" value="4D4D4A"/>
         <option name="BACKGROUND" value="FFF4F2"/>
         <option name="EFFECT_COLOR" value="c3c3c3"/>
         <option name="EFFECT_TYPE" value="3"/>
+        <option name="FOREGROUND" value="4D4D4A"/>
       </value>
     </option>
     <option name="DIFF_CONFLICT">
       <value>
-        <option name="FOREGROUND" value="FFB6AE"/>
         <option name="BACKGROUND" value="FFC3C8"/>
         <option name="ERROR_STRIPE_COLOR" value="8f5247"/>
+        <option name="FOREGROUND" value="FFB6AE"/>
       </value>
     </option>
     <option name="DIFF_DELETED">
       <value>
-        <option name="FOREGROUND" value="ffffff"/>
         <option name="BACKGROUND" value="EBEBEB"/>
         <option name="ERROR_STRIPE_COLOR" value="656e76"/>
+        <option name="FOREGROUND" value="ffffff"/>
       </value>
     </option>
     <option name="DIFF_INSERTED">
@@ -588,15 +616,15 @@
     </option>
     <option name="ENUM_NAME_ATTRIBUTES">
       <value>
-        <option name="FOREGROUND" value="$keyColor$"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="$keyColor$"/>
       </value>
     </option>
     <option name="ERRORS_ATTRIBUTES">
       <value>
         <option name="EFFECT_COLOR" value="ff5555"/>
-        <option name="ERROR_STRIPE_COLOR" value="9e2927"/>
         <option name="EFFECT_TYPE" value="2"/>
+        <option name="ERROR_STRIPE_COLOR" value="9e2927"/>
       </value>
     </option>
     <option name="EXECUTIONPOINT_ATTRIBUTES">
@@ -611,9 +639,9 @@
     </option>
     <option name="FOLLOWED_HYPERLINK_ATTRIBUTES">
       <value>
-        <option name="FOREGROUND" value="4C94D6"/>
         <option name="EFFECT_COLOR" value="4C94D6"/>
         <option name="EFFECT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="4C94D6"/>
       </value>
     </option>
     <option name="GO_BUILTIN_TYPE_REFERENCE">
@@ -633,25 +661,31 @@
     </option>
     <option name="GO_PACKAGE_EXPORTED_CONSTANT">
       <value>
-        <option name="FOREGROUND" value="4C94D6"/>
         <option name="BACKGROUND"/>
         <option name="EFFECT_COLOR"/>
         <option name="FONT_TYPE" value="3"/>
+        <option name="FOREGROUND" value="4C94D6"/>
       </value>
     </option>
     <option name="GO_PACKAGE_LOCAL_CONSTANT">
       <value>
-        <option name="FOREGROUND" value="4C94D6"/>
         <option name="BACKGROUND"/>
         <option name="EFFECT_COLOR"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="4C94D6"/>
       </value>
     </option>
     <option name="GRID_ERROR_VALUE">
       <value>
         <option name="EFFECT_COLOR" value="ff5555"/>
-        <option name="ERROR_STRIPE_COLOR" value="cd4848"/>
         <option name="EFFECT_TYPE" value="2"/>
+        <option name="ERROR_STRIPE_COLOR" value="cd4848"/>
+      </value>
+    </option>
+    <option name="GROOVY_KEYWORD">
+      <value>
+        <option name="FONT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="C869A3"/>
       </value>
     </option>
     <option name="HAML_CLASS">
@@ -664,8 +698,8 @@
     <option name="HAML_FILTER_CONTENT" baseAttributes="DEFAULT_TEMPLATE_LANGUAGE_COLOR"/>
     <option name="HAML_ID">
       <value>
-        <option name="FOREGROUND" value="$classNameColor$"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="$classNameColor$"/>
       </value>
     </option>
     <option name="HAML_RUBY_CODE" baseAttributes="INJECTED_LANGUAGE_FRAGMENT"/>
@@ -709,9 +743,9 @@
     </option>
     <option name="HYPERLINK_ATTRIBUTES">
       <value>
-        <option name="FOREGROUND" value="$stringColor$"/>
         <option name="EFFECT_COLOR" value="$stringColor$"/>
         <option name="EFFECT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="$stringColor$"/>
       </value>
     </option>
     <option name="IDENTIFIER_UNDER_CARET_ATTRIBUTES">
@@ -722,8 +756,8 @@
     </option>
     <option name="IGNORE.BRACKET">
       <value>
-        <option name="FOREGROUND" value="4D4D4A"/>
         <option name="FONT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="4D4D4A"/>
       </value>
     </option>
     <option name="IGNORE.COMMENT">
@@ -733,15 +767,15 @@
     </option>
     <option name="IGNORE.HEADER">
       <value>
-        <option name="FOREGROUND" value="$stringColor$"/>
         <option name="BACKGROUND" value="c1eec9"/>
         <option name="FONT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="$stringColor$"/>
       </value>
     </option>
     <option name="IGNORE.NEGATION">
       <value>
-        <option name="FOREGROUND" value="$keyColor$"/>
         <option name="FONT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="$keyColor$"/>
       </value>
     </option>
     <option name="IGNORE.SECTION">
@@ -756,8 +790,8 @@
     </option>
     <option name="IGNORE.SYNTAX">
       <value>
-        <option name="FOREGROUND" value="$htmlTagColor$"/>
         <option name="FONT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="$htmlTagColor$"/>
       </value>
     </option>
     <option name="IGNORE.VALUE">
@@ -767,16 +801,25 @@
     </option>
     <option name="IMPLICIT_ANONYMOUS_CLASS_PARAMETER_ATTRIBUTES">
       <value>
-        <option name="FOREGROUND" value="$stringColor$"/>
         <option name="EFFECT_COLOR" value="$stringColor$"/>
         <option name="EFFECT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="$stringColor$"/>
       </value>
     </option>
     <option name="INACTIVE_HYPERLINK_ATTRIBUTES">
       <value>
-        <option name="FOREGROUND" value="B9B9B9"/>
         <option name="EFFECT_COLOR" value="B9B9B9"/>
         <option name="EFFECT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="B9B9B9"/>
+      </value>
+    </option>
+    <option name="INFO_ATTRIBUTES">
+      <value>
+        <option name="BACKGROUND"/>
+        <option name="EFFECT_COLOR" value="C0C0C0"/>
+        <option name="EFFECT_TYPE" value="2"/>
+        <option name="ERROR_STRIPE_COLOR" value="c0c0c0" deuteranopia="C0C0C0" protanopia="C0C0C0"/>
+        <option name="FOREGROUND"/>
       </value>
     </option>
     <option name="INJECTED_LANGUAGE_FRAGMENT">
@@ -786,47 +829,52 @@
     </option>
     <option name="INLINE_PARAMETER_HINT">
       <value>
-        <option name="FOREGROUND" value="B0B0B0"/>
         <option name="BACKGROUND" value="$textEditorBackground$"/>
+        <option name="FOREGROUND" value="B0B0B0"/>
       </value>
     </option>
     <option name="INLINE_PARAMETER_HINT_CURRENT">
       <value>
-        <option name="FOREGROUND" value="$stringColor$"/>
         <option name="BACKGROUND" value="$textEditorBackground$"/>
+        <option name="FOREGROUND" value="$stringColor$"/>
       </value>
     </option>
     <option name="INLINE_PARAMETER_HINT_HIGHLIGHTED">
       <value>
-        <option name="FOREGROUND" value="B0B0B0"/>
         <option name="BACKGROUND" value="$textEditorBackground$"/>
+        <option name="FOREGROUND" value="B0B0B0"/>
       </value>
     </option>
     <option name="INSTANCE_FIELD_ATTRIBUTES" baseAttributes="DEFAULT_INSTANCE_FIELD"/>
     <option name="Instance property reference ID" baseAttributes="INSTANCE_FIELD_ATTRIBUTES"/>
     <option name="JAVA.THIS_SUPER">
       <value>
-        <option name="FOREGROUND" value="4C94D6"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="4C94D6"/>
+      </value>
+    </option>
+    <option name="JAVA_KEYWORD">
+      <value>
+        <option name="FOREGROUND" value="C869A3"/>
       </value>
     </option>
     <option name="JAVA_VALID_STRING_ESCAPE" baseAttributes="DEFAULT_VALID_STRING_ESCAPE"/>
     <option name="JS.CONSOLE">
       <value>
-        <option name="FOREGROUND" value="$keyColor$"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="$keyColor$"/>
       </value>
     </option>
     <option name="JS.DEBUGGER_STMT">
       <value>
-        <option name="FOREGROUND" value="$stringColor$"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="$stringColor$"/>
       </value>
     </option>
     <option name="JS.GLOBAL_VARIABLE">
       <value>
-        <option name="FOREGROUND" value="4C94D6"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="4C94D6"/>
       </value>
     </option>
     <option name="JS.INSTANCE_MEMBER_FUNCTION" baseAttributes="DEFAULT_INSTANCE_METHOD"/>
@@ -842,8 +890,8 @@
     </option>
     <option name="JS.THIS_SUPER">
       <value>
-        <option name="FOREGROUND" value="4C94D6"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="4C94D6"/>
       </value>
     </option>
     <option name="JSON.KEYWORD">
@@ -853,8 +901,8 @@
     </option>
     <option name="JSON.PROPERTY_KEY">
       <value>
-        <option name="FOREGROUND" value="4d4d4a"/>
         <option name="FONT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="4d4d4a"/>
       </value>
     </option>
     <option name="JSP_DIRECTIVE_NAME" baseAttributes="DEFAULT_KEYWORD"/>
@@ -865,20 +913,20 @@
     </option>
     <option name="KOTLIN_ANNOTATION">
       <value>
-        <option name="FOREGROUND" value="$accentColor$"/>
         <option name="EFFECT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="$accentColor$"/>
       </value>
     </option>
     <option name="KOTLIN_CLOSURE_DEFAULT_PARAMETER">
       <value>
-        <option name="FOREGROUND" value="$keyColor$"/>
         <option name="FONT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="$keyColor$"/>
       </value>
     </option>
     <option name="KOTLIN_DYNAMIC_FUNCTION_CALL">
       <value>
-        <option name="FOREGROUND" value="$accentColor$"/>
         <option name="FONT_TYPE" value="3"/>
+        <option name="FOREGROUND" value="$accentColor$"/>
       </value>
     </option>
     <option name="KOTLIN_ENUM_ENTRY">
@@ -967,33 +1015,33 @@
     </option>
     <option name="MARKDOWN_AUTO_LINK">
       <value>
-        <option name="FOREGROUND" value="$keyColor$"/>
         <option name="EFFECT_COLOR" value="287bde"/>
         <option name="EFFECT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="$keyColor$"/>
       </value>
     </option>
     <option name="MARKDOWN_HEADER_LEVEL_1">
       <value>
-        <option name="FOREGROUND" value="4C94D6"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="4C94D6"/>
       </value>
     </option>
     <option name="MARKDOWN_LINK_DESTINATION">
       <value>
-        <option name="FOREGROUND" value="$keyColor$"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="$keyColor$"/>
       </value>
     </option>
     <option name="MARKDOWN_LINK_LABEL">
       <value>
-        <option name="FOREGROUND" value="$keyColor$"/>
         <option name="FONT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="$keyColor$"/>
       </value>
     </option>
     <option name="MARKDOWN_LINK_TEXT">
       <value>
-        <option name="FOREGROUND" value="$htmlTagColor$"/>
         <option name="EFFECT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="$htmlTagColor$"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.ABBREVIATED_TEXT">
@@ -1014,21 +1062,21 @@
     </option>
     <option name="MARKDOWN_NAVIGATOR.ATX_HEADER">
       <value>
-        <option name="FOREGROUND" value="4C94D6"/>
         <option name="FONT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="4C94D6"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.AUTO_LINK">
       <value>
-        <option name="FOREGROUND" value="$keyColor$"/>
         <option name="EFFECT_COLOR" value="$keyColor$"/>
         <option name="EFFECT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="$keyColor$"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.BOLD">
       <value>
-        <option name="FOREGROUND" value="$stringColor$"/>
         <option name="FONT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="$stringColor$"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.BOLD_MARKER">
@@ -1038,28 +1086,28 @@
     </option>
     <option name="MARKDOWN_NAVIGATOR.BOLD_TEXT_CODE_TEXT">
       <value>
-        <option name="FOREGROUND" value="$stringColor$"/>
         <option name="BACKGROUND" value="$codeBlock$"/>
         <option name="FONT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="$stringColor$"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.BOLD_TEXT_ITALIC_TEXT">
       <value>
-        <option name="FOREGROUND" value="f2b882"/>
         <option name="FONT_TYPE" value="3"/>
+        <option name="FOREGROUND" value="f2b882"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.BOLD_TEXT_ITALIC_TEXT_CODE_TEXT">
       <value>
-        <option name="FOREGROUND" value="f2b882"/>
         <option name="BACKGROUND" value="$codeBlock$"/>
         <option name="FONT_TYPE" value="3"/>
+        <option name="FOREGROUND" value="f2b882"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.BULLET_LIST">
       <value>
-        <option name="FOREGROUND" value="$classNameColor$"/>
         <option name="FONT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="$classNameColor$"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.DEBUG_FORMAT_PREFIX">
@@ -1074,26 +1122,26 @@
     </option>
     <option name="MARKDOWN_NAVIGATOR.DEFINITION_MARKER">
       <value>
-        <option name="FOREGROUND" value="$htmlTagColor$"/>
         <option name="FONT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="$htmlTagColor$"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.DEFINITION_TERM">
       <value>
-        <option name="FOREGROUND" value="$stringColor$"/>
         <option name="FONT_TYPE" value="3"/>
+        <option name="FOREGROUND" value="$stringColor$"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.EMOJI_ID">
       <value>
-        <option name="FOREGROUND" value="$keyColor$"/>
         <option name="FONT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="$keyColor$"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.EMOJI_MARKER">
       <value>
-        <option name="FOREGROUND" value="$htmlTagColor$"/>
         <option name="FONT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="$htmlTagColor$"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.FOOTNOTE">
@@ -1108,26 +1156,26 @@
     </option>
     <option name="MARKDOWN_NAVIGATOR.FOOTNOTE_REF">
       <value>
-        <option name="FOREGROUND" value="$htmlTagColor$"/>
         <option name="FONT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="$htmlTagColor$"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.HEADER_TEXT">
       <value>
-        <option name="FOREGROUND" value="4C94D6"/>
         <option name="FONT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="4C94D6"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.IMAGE_LINK_REF_TITLE">
       <value>
-        <option name="FOREGROUND" value="$htmlTagColor$"/>
         <option name="EFFECT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="$htmlTagColor$"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.ITALIC">
       <value>
-        <option name="FOREGROUND" value="$stringColor$"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="$stringColor$"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.ITALIC_MARKER">
@@ -1137,9 +1185,9 @@
     </option>
     <option name="MARKDOWN_NAVIGATOR.ITALIC_TEXT_CODE_TEXT">
       <value>
-        <option name="FOREGROUND" value="$stringColor$"/>
         <option name="BACKGROUND" value="$codeBlock$"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="$stringColor$"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.LINK_REF_TITLE">
@@ -1169,9 +1217,9 @@
     </option>
     <option name="MARKDOWN_NAVIGATOR.STRIKETHROUGH">
       <value>
-        <option name="FOREGROUND" value="$stringColor$"/>
         <option name="EFFECT_COLOR" value="$stringColor$"/>
         <option name="EFFECT_TYPE" value="3"/>
+        <option name="FOREGROUND" value="$stringColor$"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.STRIKETHROUGH_MARKER">
@@ -1181,61 +1229,61 @@
     </option>
     <option name="MARKDOWN_NAVIGATOR.STRIKETHROUGH_TEXT_BOLD_TEXT">
       <value>
-        <option name="FOREGROUND" value="f2b882"/>
-        <option name="FONT_TYPE" value="1"/>
         <option name="EFFECT_COLOR" value="$stringColor$"/>
         <option name="EFFECT_TYPE" value="3"/>
+        <option name="FONT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="f2b882"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.STRIKETHROUGH_TEXT_BOLD_TEXT_CODE_TEXT">
       <value>
-        <option name="FOREGROUND" value="f2b882"/>
         <option name="BACKGROUND" value="$codeBlock$"/>
-        <option name="FONT_TYPE" value="1"/>
         <option name="EFFECT_COLOR" value="$stringColor$"/>
         <option name="EFFECT_TYPE" value="3"/>
+        <option name="FONT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="f2b882"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.STRIKETHROUGH_TEXT_BOLD_TEXT_ITALIC_TEXT">
       <value>
-        <option name="FOREGROUND" value="e6b84e"/>
-        <option name="FONT_TYPE" value="3"/>
         <option name="EFFECT_COLOR" value="$stringColor$"/>
         <option name="EFFECT_TYPE" value="3"/>
+        <option name="FONT_TYPE" value="3"/>
+        <option name="FOREGROUND" value="e6b84e"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.STRIKETHROUGH_TEXT_BOLD_TEXT_ITALIC_TEXT_CODE_TEXT">
       <value>
-        <option name="FOREGROUND" value="e6b84e"/>
         <option name="BACKGROUND" value="$codeBlock$"/>
-        <option name="FONT_TYPE" value="3"/>
         <option name="EFFECT_COLOR" value="$stringColor$"/>
         <option name="EFFECT_TYPE" value="3"/>
+        <option name="FONT_TYPE" value="3"/>
+        <option name="FOREGROUND" value="e6b84e"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.STRIKETHROUGH_TEXT_CODE_TEXT">
       <value>
-        <option name="FOREGROUND" value="$stringColor$"/>
         <option name="BACKGROUND" value="$codeBlock$"/>
         <option name="EFFECT_COLOR" value="$stringColor$"/>
         <option name="EFFECT_TYPE" value="3"/>
+        <option name="FOREGROUND" value="$stringColor$"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.STRIKETHROUGH_TEXT_ITALIC_TEXT">
       <value>
-        <option name="FOREGROUND" value="e5f653"/>
-        <option name="FONT_TYPE" value="2"/>
         <option name="EFFECT_COLOR" value="$stringColor$"/>
         <option name="EFFECT_TYPE" value="3"/>
+        <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="e5f653"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.STRIKETHROUGH_TEXT_ITALIC_TEXT_CODE_TEXT">
       <value>
-        <option name="FOREGROUND" value="e5f653"/>
         <option name="BACKGROUND" value="$codeBlock$"/>
-        <option name="FONT_TYPE" value="2"/>
         <option name="EFFECT_COLOR" value="$stringColor$"/>
         <option name="EFFECT_TYPE" value="3"/>
+        <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="e5f653"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.SUBSCRIPT">
@@ -1251,15 +1299,15 @@
     </option>
     <option name="MARKDOWN_NAVIGATOR.SUPERSCRIPT">
       <value>
-        <option name="FOREGROUND" value="$stringColor$"/>
         <option name="EFFECT_COLOR" value="$stringColor$"/>
         <option name="EFFECT_TYPE" value="4"/>
+        <option name="FOREGROUND" value="$stringColor$"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.SUPERSCRIPT_MARKER">
       <value>
-        <option name="FOREGROUND" value="$stringColor$"/>
         <option name="EFFECT_TYPE" value="4"/>
+        <option name="FOREGROUND" value="$stringColor$"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE">
@@ -1269,14 +1317,14 @@
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_CAPTION">
       <value>
-        <option name="FOREGROUND" value="$stringColor$"/>
         <option name="FONT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="$stringColor$"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_CAPTION_MARKER">
       <value>
-        <option name="FOREGROUND" value="$stringColor$"/>
         <option name="FONT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="$stringColor$"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_REVEN_CEVEN">
@@ -1286,58 +1334,58 @@
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_REVEN_CEVEN_BOLD_TEXT">
       <value>
-        <option name="FOREGROUND" value="$stringColor$"/>
         <option name="BACKGROUND" value="$codeBlock$"/>
         <option name="FONT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="$stringColor$"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_REVEN_CEVEN_BOLD_TEXT_ITALIC_TEXT">
       <value>
-        <option name="FOREGROUND" value="f2b882"/>
         <option name="BACKGROUND" value="$codeBlock$"/>
         <option name="FONT_TYPE" value="3"/>
+        <option name="FOREGROUND" value="f2b882"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_REVEN_CEVEN_ITALIC_TEXT">
       <value>
-        <option name="FOREGROUND" value="$stringColor$"/>
         <option name="BACKGROUND" value="$codeBlock$"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="$stringColor$"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_REVEN_CEVEN_STRIKETHROUGH_TEXT">
       <value>
-        <option name="FOREGROUND" value="$stringColor$"/>
         <option name="BACKGROUND" value="$codeBlock$"/>
         <option name="EFFECT_COLOR" value="$stringColor$"/>
         <option name="EFFECT_TYPE" value="3"/>
+        <option name="FOREGROUND" value="$stringColor$"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_REVEN_CEVEN_STRIKETHROUGH_TEXT_BOLD_TEXT">
       <value>
-        <option name="FOREGROUND" value="f2b882"/>
         <option name="BACKGROUND" value="$codeBlock$"/>
-        <option name="FONT_TYPE" value="1"/>
         <option name="EFFECT_COLOR" value="$stringColor$"/>
         <option name="EFFECT_TYPE" value="3"/>
+        <option name="FONT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="f2b882"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_REVEN_CEVEN_STRIKETHROUGH_TEXT_BOLD_TEXT_ITALIC_TEXT">
       <value>
-        <option name="FOREGROUND" value="e6b84e"/>
         <option name="BACKGROUND" value="$codeBlock$"/>
-        <option name="FONT_TYPE" value="3"/>
         <option name="EFFECT_COLOR" value="$stringColor$"/>
         <option name="EFFECT_TYPE" value="3"/>
+        <option name="FONT_TYPE" value="3"/>
+        <option name="FOREGROUND" value="e6b84e"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_REVEN_CEVEN_STRIKETHROUGH_TEXT_ITALIC_TEXT">
       <value>
-        <option name="FOREGROUND" value="e5f653"/>
         <option name="BACKGROUND" value="$codeBlock$"/>
-        <option name="FONT_TYPE" value="2"/>
         <option name="EFFECT_COLOR" value="$stringColor$"/>
         <option name="EFFECT_TYPE" value="3"/>
+        <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="e5f653"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_REVEN_CODD">
@@ -1347,58 +1395,58 @@
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_REVEN_CODD_BOLD_TEXT">
       <value>
-        <option name="FOREGROUND" value="$stringColor$"/>
         <option name="BACKGROUND" value="$codeBlock$"/>
         <option name="FONT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="$stringColor$"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_REVEN_CODD_BOLD_TEXT_ITALIC_TEXT">
       <value>
-        <option name="FOREGROUND" value="f2b882"/>
         <option name="BACKGROUND" value="$codeBlock$"/>
         <option name="FONT_TYPE" value="3"/>
+        <option name="FOREGROUND" value="f2b882"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_REVEN_CODD_ITALIC_TEXT">
       <value>
-        <option name="FOREGROUND" value="$stringColor$"/>
         <option name="BACKGROUND" value="$codeBlock$"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="$stringColor$"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_REVEN_CODD_STRIKETHROUGH_TEXT">
       <value>
-        <option name="FOREGROUND" value="$stringColor$"/>
         <option name="BACKGROUND" value="$codeBlock$"/>
         <option name="EFFECT_COLOR" value="$stringColor$"/>
         <option name="EFFECT_TYPE" value="3"/>
+        <option name="FOREGROUND" value="$stringColor$"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_REVEN_CODD_STRIKETHROUGH_TEXT_BOLD_TEXT">
       <value>
-        <option name="FOREGROUND" value="f2b882"/>
         <option name="BACKGROUND" value="$codeBlock$"/>
-        <option name="FONT_TYPE" value="1"/>
         <option name="EFFECT_COLOR" value="$stringColor$"/>
         <option name="EFFECT_TYPE" value="3"/>
+        <option name="FONT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="f2b882"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_REVEN_CODD_STRIKETHROUGH_TEXT_BOLD_TEXT_ITALIC_TEXT">
       <value>
-        <option name="FOREGROUND" value="e6b84e"/>
         <option name="BACKGROUND" value="$codeBlock$"/>
-        <option name="FONT_TYPE" value="3"/>
         <option name="EFFECT_COLOR" value="$stringColor$"/>
         <option name="EFFECT_TYPE" value="3"/>
+        <option name="FONT_TYPE" value="3"/>
+        <option name="FOREGROUND" value="e6b84e"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_REVEN_CODD_STRIKETHROUGH_TEXT_ITALIC_TEXT">
       <value>
-        <option name="FOREGROUND" value="e5f653"/>
         <option name="BACKGROUND" value="$codeBlock$"/>
-        <option name="FONT_TYPE" value="2"/>
         <option name="EFFECT_COLOR" value="$stringColor$"/>
         <option name="EFFECT_TYPE" value="3"/>
+        <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="e5f653"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_RODD_CEVEN">
@@ -1406,100 +1454,100 @@
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_RODD_CEVEN_BOLD_TEXT">
       <value>
-        <option name="FOREGROUND" value="$stringColor$"/>
         <option name="FONT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="$stringColor$"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_RODD_CEVEN_BOLD_TEXT_ITALIC_TEXT">
       <value>
-        <option name="FOREGROUND" value="f2b882"/>
         <option name="FONT_TYPE" value="3"/>
+        <option name="FOREGROUND" value="f2b882"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_RODD_CEVEN_ITALIC_TEXT">
       <value>
-        <option name="FOREGROUND" value="$stringColor$"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="$stringColor$"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_RODD_CEVEN_STRIKETHROUGH_TEXT">
       <value>
-        <option name="FOREGROUND" value="$stringColor$"/>
         <option name="EFFECT_COLOR" value="$stringColor$"/>
         <option name="EFFECT_TYPE" value="3"/>
+        <option name="FOREGROUND" value="$stringColor$"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_RODD_CEVEN_STRIKETHROUGH_TEXT_BOLD_TEXT">
       <value>
-        <option name="FOREGROUND" value="f2b882"/>
-        <option name="FONT_TYPE" value="1"/>
         <option name="EFFECT_COLOR" value="$stringColor$"/>
         <option name="EFFECT_TYPE" value="3"/>
+        <option name="FONT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="f2b882"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_RODD_CEVEN_STRIKETHROUGH_TEXT_BOLD_TEXT_ITALIC_TEXT">
       <value>
-        <option name="FOREGROUND" value="e6b84e"/>
-        <option name="FONT_TYPE" value="3"/>
         <option name="EFFECT_COLOR" value="$stringColor$"/>
         <option name="EFFECT_TYPE" value="3"/>
+        <option name="FONT_TYPE" value="3"/>
+        <option name="FOREGROUND" value="e6b84e"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_RODD_CEVEN_STRIKETHROUGH_TEXT_ITALIC_TEXT">
       <value>
-        <option name="FOREGROUND" value="e5f653"/>
-        <option name="FONT_TYPE" value="2"/>
         <option name="EFFECT_COLOR" value="$stringColor$"/>
         <option name="EFFECT_TYPE" value="3"/>
+        <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="e5f653"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_RODD_CODD_BOLD_TEXT">
       <value>
-        <option name="FOREGROUND" value="$stringColor$"/>
         <option name="FONT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="$stringColor$"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_RODD_CODD_BOLD_TEXT_ITALIC_TEXT">
       <value>
-        <option name="FOREGROUND" value="f2b882"/>
         <option name="FONT_TYPE" value="3"/>
+        <option name="FOREGROUND" value="f2b882"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_RODD_CODD_ITALIC_TEXT">
       <value>
-        <option name="FOREGROUND" value="$stringColor$"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="$stringColor$"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_RODD_CODD_STRIKETHROUGH_TEXT">
       <value>
-        <option name="FOREGROUND" value="$stringColor$"/>
         <option name="EFFECT_COLOR" value="$stringColor$"/>
         <option name="EFFECT_TYPE" value="3"/>
+        <option name="FOREGROUND" value="$stringColor$"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_RODD_CODD_STRIKETHROUGH_TEXT_BOLD_TEXT">
       <value>
-        <option name="FOREGROUND" value="f2b882"/>
-        <option name="FONT_TYPE" value="1"/>
         <option name="EFFECT_COLOR" value="$stringColor$"/>
         <option name="EFFECT_TYPE" value="3"/>
+        <option name="FONT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="f2b882"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_RODD_CODD_STRIKETHROUGH_TEXT_BOLD_TEXT_ITALIC_TEXT">
       <value>
-        <option name="FOREGROUND" value="e6b84e"/>
-        <option name="FONT_TYPE" value="3"/>
         <option name="EFFECT_COLOR" value="$stringColor$"/>
         <option name="EFFECT_TYPE" value="3"/>
+        <option name="FONT_TYPE" value="3"/>
+        <option name="FOREGROUND" value="e6b84e"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_CELL_RODD_CODD_STRIKETHROUGH_TEXT_ITALIC_TEXT">
       <value>
-        <option name="FOREGROUND" value="e5f653"/>
-        <option name="FONT_TYPE" value="2"/>
         <option name="EFFECT_COLOR" value="$stringColor$"/>
         <option name="EFFECT_TYPE" value="3"/>
+        <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="e5f653"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_REVEN_CEVEN">
@@ -1510,59 +1558,59 @@
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_REVEN_CEVEN_BOLD_TEXT">
       <value>
-        <option name="FOREGROUND" value="$stringColor$"/>
         <option name="BACKGROUND" value="$codeBlock$"/>
         <option name="FONT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="$stringColor$"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_REVEN_CEVEN_BOLD_TEXT_ITALIC_TEXT">
       <value>
-        <option name="FOREGROUND" value="f2b882"/>
         <option name="BACKGROUND" value="$codeBlock$"/>
         <option name="FONT_TYPE" value="3"/>
+        <option name="FOREGROUND" value="f2b882"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_REVEN_CEVEN_ITALIC_TEXT">
       <value>
-        <option name="FOREGROUND" value="$stringColor$"/>
         <option name="BACKGROUND" value="$codeBlock$"/>
         <option name="FONT_TYPE" value="3"/>
+        <option name="FOREGROUND" value="$stringColor$"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_REVEN_CEVEN_STRIKETHROUGH_TEXT">
       <value>
-        <option name="FOREGROUND" value="$stringColor$"/>
         <option name="BACKGROUND" value="$codeBlock$"/>
-        <option name="FONT_TYPE" value="1"/>
         <option name="EFFECT_COLOR" value="$stringColor$"/>
         <option name="EFFECT_TYPE" value="3"/>
+        <option name="FONT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="$stringColor$"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_REVEN_CEVEN_STRIKETHROUGH_TEXT_BOLD_TEXT">
       <value>
-        <option name="FOREGROUND" value="f2b882"/>
         <option name="BACKGROUND" value="$codeBlock$"/>
-        <option name="FONT_TYPE" value="1"/>
         <option name="EFFECT_COLOR" value="$stringColor$"/>
         <option name="EFFECT_TYPE" value="3"/>
+        <option name="FONT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="f2b882"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_REVEN_CEVEN_STRIKETHROUGH_TEXT_BOLD_TEXT_ITALIC_TEXT">
       <value>
-        <option name="FOREGROUND" value="e6b84e"/>
         <option name="BACKGROUND" value="$codeBlock$"/>
-        <option name="FONT_TYPE" value="3"/>
         <option name="EFFECT_COLOR" value="$stringColor$"/>
         <option name="EFFECT_TYPE" value="3"/>
+        <option name="FONT_TYPE" value="3"/>
+        <option name="FOREGROUND" value="e6b84e"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_REVEN_CEVEN_STRIKETHROUGH_TEXT_ITALIC_TEXT">
       <value>
-        <option name="FOREGROUND" value="e5f653"/>
         <option name="BACKGROUND" value="$codeBlock$"/>
-        <option name="FONT_TYPE" value="3"/>
         <option name="EFFECT_COLOR" value="$stringColor$"/>
         <option name="EFFECT_TYPE" value="3"/>
+        <option name="FONT_TYPE" value="3"/>
+        <option name="FOREGROUND" value="e5f653"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_REVEN_CODD">
@@ -1573,59 +1621,59 @@
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_REVEN_CODD_BOLD_TEXT">
       <value>
-        <option name="FOREGROUND" value="$stringColor$"/>
         <option name="BACKGROUND" value="$codeBlock$"/>
         <option name="FONT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="$stringColor$"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_REVEN_CODD_BOLD_TEXT_ITALIC_TEXT">
       <value>
-        <option name="FOREGROUND" value="f2b882"/>
         <option name="BACKGROUND" value="$codeBlock$"/>
         <option name="FONT_TYPE" value="3"/>
+        <option name="FOREGROUND" value="f2b882"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_REVEN_CODD_ITALIC_TEXT">
       <value>
-        <option name="FOREGROUND" value="$stringColor$"/>
         <option name="BACKGROUND" value="$codeBlock$"/>
         <option name="FONT_TYPE" value="3"/>
+        <option name="FOREGROUND" value="$stringColor$"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_REVEN_CODD_STRIKETHROUGH_TEXT">
       <value>
-        <option name="FOREGROUND" value="$stringColor$"/>
         <option name="BACKGROUND" value="$codeBlock$"/>
-        <option name="FONT_TYPE" value="1"/>
         <option name="EFFECT_COLOR" value="$stringColor$"/>
         <option name="EFFECT_TYPE" value="3"/>
+        <option name="FONT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="$stringColor$"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_REVEN_CODD_STRIKETHROUGH_TEXT_BOLD_TEXT">
       <value>
-        <option name="FOREGROUND" value="f2b882"/>
         <option name="BACKGROUND" value="$codeBlock$"/>
-        <option name="FONT_TYPE" value="1"/>
         <option name="EFFECT_COLOR" value="$stringColor$"/>
         <option name="EFFECT_TYPE" value="3"/>
+        <option name="FONT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="f2b882"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_REVEN_CODD_STRIKETHROUGH_TEXT_BOLD_TEXT_ITALIC_TEXT">
       <value>
-        <option name="FOREGROUND" value="e6b84e"/>
         <option name="BACKGROUND" value="$codeBlock$"/>
-        <option name="FONT_TYPE" value="3"/>
         <option name="EFFECT_COLOR" value="$stringColor$"/>
         <option name="EFFECT_TYPE" value="3"/>
+        <option name="FONT_TYPE" value="3"/>
+        <option name="FOREGROUND" value="e6b84e"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_REVEN_CODD_STRIKETHROUGH_TEXT_ITALIC_TEXT">
       <value>
-        <option name="FOREGROUND" value="e5f653"/>
         <option name="BACKGROUND" value="$codeBlock$"/>
-        <option name="FONT_TYPE" value="3"/>
         <option name="EFFECT_COLOR" value="$stringColor$"/>
         <option name="EFFECT_TYPE" value="3"/>
+        <option name="FONT_TYPE" value="3"/>
+        <option name="FOREGROUND" value="e5f653"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_RODD_CEVEN">
@@ -1635,52 +1683,52 @@
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_RODD_CEVEN_BOLD_TEXT">
       <value>
-        <option name="FOREGROUND" value="$stringColor$"/>
         <option name="FONT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="$stringColor$"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_RODD_CEVEN_BOLD_TEXT_ITALIC_TEXT">
       <value>
-        <option name="FOREGROUND" value="f2b882"/>
         <option name="FONT_TYPE" value="3"/>
+        <option name="FOREGROUND" value="f2b882"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_RODD_CEVEN_ITALIC_TEXT">
       <value>
-        <option name="FOREGROUND" value="$stringColor$"/>
         <option name="FONT_TYPE" value="3"/>
+        <option name="FOREGROUND" value="$stringColor$"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_RODD_CEVEN_STRIKETHROUGH_TEXT">
       <value>
-        <option name="FOREGROUND" value="$stringColor$"/>
-        <option name="FONT_TYPE" value="1"/>
         <option name="EFFECT_COLOR" value="$stringColor$"/>
         <option name="EFFECT_TYPE" value="3"/>
+        <option name="FONT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="$stringColor$"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_RODD_CEVEN_STRIKETHROUGH_TEXT_BOLD_TEXT">
       <value>
-        <option name="FOREGROUND" value="f2b882"/>
-        <option name="FONT_TYPE" value="1"/>
         <option name="EFFECT_COLOR" value="$stringColor$"/>
         <option name="EFFECT_TYPE" value="3"/>
+        <option name="FONT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="f2b882"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_RODD_CEVEN_STRIKETHROUGH_TEXT_BOLD_TEXT_ITALIC_TEXT">
       <value>
-        <option name="FOREGROUND" value="e6b84e"/>
-        <option name="FONT_TYPE" value="3"/>
         <option name="EFFECT_COLOR" value="$stringColor$"/>
         <option name="EFFECT_TYPE" value="3"/>
+        <option name="FONT_TYPE" value="3"/>
+        <option name="FOREGROUND" value="e6b84e"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_RODD_CEVEN_STRIKETHROUGH_TEXT_ITALIC_TEXT">
       <value>
-        <option name="FOREGROUND" value="e5f653"/>
-        <option name="FONT_TYPE" value="3"/>
         <option name="EFFECT_COLOR" value="$stringColor$"/>
         <option name="EFFECT_TYPE" value="3"/>
+        <option name="FONT_TYPE" value="3"/>
+        <option name="FOREGROUND" value="e5f653"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_RODD_CODD">
@@ -1690,52 +1738,52 @@
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_RODD_CODD_BOLD_TEXT">
       <value>
-        <option name="FOREGROUND" value="$stringColor$"/>
         <option name="FONT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="$stringColor$"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_RODD_CODD_BOLD_TEXT_ITALIC_TEXT">
       <value>
-        <option name="FOREGROUND" value="f2b882"/>
         <option name="FONT_TYPE" value="3"/>
+        <option name="FOREGROUND" value="f2b882"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_RODD_CODD_ITALIC_TEXT">
       <value>
-        <option name="FOREGROUND" value="$stringColor$"/>
         <option name="FONT_TYPE" value="3"/>
+        <option name="FOREGROUND" value="$stringColor$"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_RODD_CODD_STRIKETHROUGH_TEXT">
       <value>
-        <option name="FOREGROUND" value="$stringColor$"/>
-        <option name="FONT_TYPE" value="1"/>
         <option name="EFFECT_COLOR" value="$stringColor$"/>
         <option name="EFFECT_TYPE" value="3"/>
+        <option name="FONT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="$stringColor$"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_RODD_CODD_STRIKETHROUGH_TEXT_BOLD_TEXT">
       <value>
-        <option name="FOREGROUND" value="f2b882"/>
-        <option name="FONT_TYPE" value="1"/>
         <option name="EFFECT_COLOR" value="$stringColor$"/>
         <option name="EFFECT_TYPE" value="3"/>
+        <option name="FONT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="f2b882"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_RODD_CODD_STRIKETHROUGH_TEXT_BOLD_TEXT_ITALIC_TEXT">
       <value>
-        <option name="FOREGROUND" value="e6b84e"/>
-        <option name="FONT_TYPE" value="3"/>
         <option name="EFFECT_COLOR" value="$stringColor$"/>
         <option name="EFFECT_TYPE" value="3"/>
+        <option name="FONT_TYPE" value="3"/>
+        <option name="FOREGROUND" value="e6b84e"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_CELL_RODD_CODD_STRIKETHROUGH_TEXT_ITALIC_TEXT">
       <value>
-        <option name="FOREGROUND" value="e5f653"/>
-        <option name="FONT_TYPE" value="3"/>
         <option name="EFFECT_COLOR" value="$stringColor$"/>
         <option name="EFFECT_TYPE" value="3"/>
+        <option name="FONT_TYPE" value="3"/>
+        <option name="FOREGROUND" value="e5f653"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TABLE_HDR_ROW_EVEN">
@@ -1761,46 +1809,46 @@
     </option>
     <option name="MARKDOWN_NAVIGATOR.TASK_ITEM_MARKER">
       <value>
-        <option name="FOREGROUND" value="ff6188"/>
         <option name="FONT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="ff6188"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TOC">
       <value>
-        <option name="FOREGROUND" value="$htmlTagColor$"/>
         <option name="FONT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="$htmlTagColor$"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.TOC_OPTION">
       <value>
-        <option name="FOREGROUND" value="$keyColor$"/>
         <option name="FONT_TYPE" value="3"/>
+        <option name="FOREGROUND" value="$keyColor$"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.UNDERLINE">
       <value>
-        <option name="FOREGROUND" value="$stringColor$"/>
         <option name="EFFECT_COLOR" value="$stringColor$"/>
         <option name="EFFECT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="$stringColor$"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.UNDERLINE_MARKER">
       <value>
-        <option name="FOREGROUND" value="$stringColor$"/>
-        <option name="FONT_TYPE" value="1"/>
         <option name="EFFECT_TYPE" value="1"/>
+        <option name="FONT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="$stringColor$"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.VERBATIM_LANG">
       <value>
-        <option name="FOREGROUND" value="$classNameColor$"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="$classNameColor$"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.VERBATIM_MARKER">
       <value>
-        <option name="FOREGROUND" value="$htmlTagColor$"/>
         <option name="FONT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="$htmlTagColor$"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.WIKI_LINK_REF">
@@ -1810,15 +1858,15 @@
     </option>
     <option name="MARKDOWN_NAVIGATOR.WIKI_LINK_TEXT">
       <value>
-        <option name="FOREGROUND" value="$htmlTagColor$"/>
         <option name="EFFECT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="$htmlTagColor$"/>
       </value>
     </option>
     <option name="MATCHED_BRACE_ATTRIBUTES">
       <value>
         <option name="BACKGROUND" value="$searchResultBackground$"/>
-        <option name="FONT_TYPE" value="1"/>
         <option name="EFFECT_COLOR" value="C0C0C0"/>
+        <option name="FONT_TYPE" value="1"/>
       </value>
     </option>
     <option name="NG.EXPANSION_FORM">
@@ -1829,9 +1877,9 @@
     </option>
     <option name="NOT_USED_ELEMENT_ATTRIBUTES">
       <value>
-        <option name="FOREGROUND" value="B7B7B7"/>
         <option name="BACKGROUND"/>
         <option name="EFFECT_COLOR"/>
+        <option name="FOREGROUND" value="B7B7B7"/>
       </value>
     </option>
     <option name="OC.CONDITIONALLY_NOT_COMPILED">
@@ -1839,8 +1887,8 @@
     </option>
     <option name="OC.MACRONAME">
       <value>
-        <option name="FOREGROUND" value="$stringColor$"/>
         <option name="FONT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="$stringColor$"/>
       </value>
     </option>
     <option name="OC.MACRO_PARAMETER">
@@ -1855,8 +1903,8 @@
     </option>
     <option name="OC.SELFSUPERTHIS">
       <value>
-        <option name="FOREGROUND" value="4C94D6"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="4C94D6"/>
       </value>
     </option>
     <option name="OC.STRUCT_FIELD">
@@ -1869,8 +1917,8 @@
     </option>
     <option name="OC.TYPEDEF">
       <value>
-        <option name="FOREGROUND" value="$keyColor$"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="$keyColor$"/>
       </value>
     </option>
     <option name="PHP_PARAMETER">
@@ -1878,27 +1926,27 @@
         <option name="FOREGROUND" value="$stringColor$"/>
       </value>
     </option>
+    <option name="PHP_SCRIPTING_BACKGROUND">
+      <value/>
+    </option>
     <option name="PHP_VAR">
       <value>
         <option name="FOREGROUND" value="458383"/>
       </value>
     </option>
-    <option name="PHP_SCRIPTING_BACKGROUND">
-      <value/>
-    </option>
     <option name="PROPERTIES.INVALID_STRING_ESCAPE" baseAttributes="DEFAULT_INVALID_STRING_ESCAPE"/>
     <option name="PROPERTIES.KEY">
       <value>
-        <option name="FOREGROUND" value="$keyColor$"/>
         <option name="EFFECT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="$keyColor$"/>
       </value>
     </option>
     <option name="PROPERTIES.KEY_VALUE_SEPARATOR" baseAttributes="DEFAULT_OPERATION_SIGN"/>
     <option name="PROPERTIES.VALID_STRING_ESCAPE" baseAttributes="DEFAULT_VALID_STRING_ESCAPE"/>
     <option name="PY.BUILTIN_NAME">
       <value>
-        <option name="FOREGROUND" value="$keyColor$"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="$keyColor$"/>
       </value>
     </option>
     <option name="PY.DECORATOR">
@@ -1923,8 +1971,8 @@
     </option>
     <option name="PY.SELF_PARAMETER">
       <value>
-        <option name="FOREGROUND" value="4C94D6"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="4C94D6"/>
       </value>
     </option>
     <option name="RDOC_DIRECTIVE">
@@ -1939,13 +1987,19 @@
     </option>
     <option name="RDOC_HEADINGS">
       <value>
-        <option name="FOREGROUND" value="4C94D6"/>
         <option name="FONT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="4C94D6"/>
       </value>
     </option>
     <option name="RDOC_IDENTIFIER">
       <value>
         <option name="FOREGROUND" value="$stringColor$"/>
+      </value>
+    </option>
+    <option name="RDOC_KEYWORD">
+      <value>
+        <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="C869A3"/>
       </value>
     </option>
     <option name="RDOC_URL">
@@ -1980,9 +2034,9 @@
     </option>
     <option name="REGEXP.INVALID_STRING_ESCAPE">
       <value>
-        <option name="FOREGROUND" value="4D4D4A"/>
         <option name="EFFECT_COLOR" value="ff5555"/>
         <option name="EFFECT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="4D4D4A"/>
       </value>
     </option>
     <option name="REGEXP.META">
@@ -2032,20 +2086,20 @@
     </option>
     <option name="RUBY_IVAR">
       <value>
-        <option name="FOREGROUND" value="ab9df2"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="ab9df2"/>
       </value>
     </option>
     <option name="RUBY_PARAMDEF_CALL">
       <value>
-        <option name="FOREGROUND" value="$keyColor$"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="$keyColor$"/>
       </value>
     </option>
     <option name="RUBY_SPECIFIC_CALL">
       <value>
-        <option name="FOREGROUND" value="$keyColor$"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="$keyColor$"/>
       </value>
     </option>
     <option name="RUBY_SYMBOL">
@@ -2055,8 +2109,8 @@
     </option>
     <option name="ReSharper.ASP_NET_ATTRIBUTE_NAME">
       <value>
-        <option name="FOREGROUND" value="$accentColor$"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="$accentColor$"/>
       </value>
     </option>
     <option name="ReSharper.ASP_NET_ATTRIBUTE_VALUE">
@@ -2066,14 +2120,14 @@
     </option>
     <option name="ReSharper.ASP_NET_COMMENT">
       <value>
-        <option name="FOREGROUND" value="6a737d"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="6a737d"/>
       </value>
     </option>
     <option name="ReSharper.ASP_NET_DIRECTIVE_NAME">
       <value>
-        <option name="FOREGROUND" value="$htmlTagColor$"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="$htmlTagColor$"/>
       </value>
     </option>
     <option name="ReSharper.ASP_NET_ENTITY_REFERENCE">
@@ -2083,39 +2137,39 @@
     </option>
     <option name="ReSharper.ASP_NET_MVC_ACTION">
       <value>
-        <option name="FOREGROUND" value="$accentColor$"/>
         <option name="EFFECT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="$accentColor$"/>
       </value>
     </option>
     <option name="ReSharper.ASP_NET_MVC_AREA">
       <value>
-        <option name="FOREGROUND" value="4C94D6"/>
         <option name="EFFECT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="4C94D6"/>
       </value>
     </option>
     <option name="ReSharper.ASP_NET_MVC_CONTROLLER">
       <value>
-        <option name="FOREGROUND" value="$htmlTagColor$"/>
         <option name="EFFECT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="$htmlTagColor$"/>
       </value>
     </option>
     <option name="ReSharper.ASP_NET_MVC_VIEW">
       <value>
-        <option name="FOREGROUND" value="$stringColor$"/>
         <option name="EFFECT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="$stringColor$"/>
       </value>
     </option>
     <option name="ReSharper.ASP_NET_MVC_VIEW_COMPONENT">
       <value>
-        <option name="FOREGROUND" value="$stringColor$"/>
-        <option name="FONT_TYPE" value="2"/>
         <option name="EFFECT_TYPE" value="1"/>
+        <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="$stringColor$"/>
       </value>
     </option>
     <option name="ReSharper.ASP_NET_RAZOR_ATTRIBUTE_NAME">
       <value>
-        <option name="FOREGROUND" value="$accentColor$"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="$accentColor$"/>
       </value>
     </option>
     <option name="ReSharper.ASP_NET_RAZOR_ATTRIBUTE_VALUE">
@@ -2130,8 +2184,8 @@
     </option>
     <option name="ReSharper.ASP_NET_RAZOR_COMMENT">
       <value>
-        <option name="FOREGROUND" value="6a737d"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="6a737d"/>
       </value>
     </option>
     <option name="ReSharper.ASP_NET_RAZOR_ENTITY_REFERENCE">
@@ -2159,8 +2213,8 @@
     </option>
     <option name="ReSharper.CPP_DOXYGEN_COMMAND">
       <value>
-        <option name="FOREGROUND" value="6a737d"/>
         <option name="FONT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="6a737d"/>
       </value>
     </option>
     <option name="ReSharper.CPP_ENUM_ENUMERATOR_IDENTIFIER">
@@ -2170,14 +2224,14 @@
     </option>
     <option name="ReSharper.CPP_PREPROCESSOR_MACRO_IDENTIFIER">
       <value>
-        <option name="FOREGROUND" value="$htmlTagColor$"/>
         <option name="FONT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="$htmlTagColor$"/>
       </value>
     </option>
     <option name="ReSharper.DELEGATE_IDENTIFIER">
       <value>
-        <option name="FOREGROUND" value="f78c6c"/>
         <option name="FONT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="f78c6c"/>
       </value>
     </option>
     <option name="ReSharper.ENUM_IDENTIFIER">
@@ -2187,8 +2241,8 @@
     </option>
     <option name="ReSharper.EVENT_IDENTIFIER">
       <value>
-        <option name="FOREGROUND" value="4D4D4A"/>
         <option name="FONT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="4D4D4A"/>
       </value>
     </option>
     <option name="ReSharper.EXTENSION_METHOD_IDENTIFIER">
@@ -2203,8 +2257,8 @@
     </option>
     <option name="ReSharper.MATCHED_FORMAT_STRING_ITEM">
       <value>
-        <option name="FOREGROUND" value="$stringColor$"/>
         <option name="EFFECT_COLOR" value="$stringColor$"/>
+        <option name="FOREGROUND" value="$stringColor$"/>
       </value>
     </option>
     <option name="ReSharper.OUTLINED_ENTITY">
@@ -2212,21 +2266,21 @@
     </option>
     <option name="ReSharper.STATIC_CLASS_IDENTIFIER">
       <value>
-        <option name="FOREGROUND" value="$keyColor$"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="$keyColor$"/>
       </value>
     </option>
     <option name="ReSharper.STRUCT_IDENTIFIER">
       <value>
-        <option name="FOREGROUND" value="$keyColor$"/>
         <option name="EFFECT_COLOR" value="$keyColor$"/>
         <option name="EFFECT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="$keyColor$"/>
       </value>
     </option>
     <option name="ReSharper.TYPE_PARAMETER_IDENTIFIER">
       <value>
-        <option name="FOREGROUND" value="$keyColor$"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="$keyColor$"/>
       </value>
     </option>
     <option name="SASS_COMMENT" baseAttributes="CSS.COMMENT"/>
@@ -2250,14 +2304,14 @@
     </option>
     <option name="SLIM_CLASS">
       <value>
-        <option name="FOREGROUND" value="$classNameColor$"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="$classNameColor$"/>
       </value>
     </option>
     <option name="SLIM_TAG_ATTR_KEY">
       <value>
-        <option name="FOREGROUND" value="$keyColor$"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="$keyColor$"/>
       </value>
     </option>
     <option name="SMARTY_BACKGROUND">
@@ -2313,6 +2367,21 @@
         <option name="FOREGROUND" value="87cefa"/>
       </value>
     </option>
+    <option name="STATIC_FIELD_ATTRIBUTES">
+      <value>
+        <option name="BACKGROUND"/>
+        <option name="EFFECT_COLOR"/>
+        <option name="FOREGROUND" value="4569A6" deuteranopia="1948a6" protanopia="1948a6"/>
+      </value>
+    </option>
+    <option name="STATIC_FINAL_FIELD_ATTRIBUTES">
+      <value>
+        <option name="BACKGROUND"/>
+        <option name="EFFECT_COLOR"/>
+        <option name="FONT_TYPE" value="1"/>
+        <option name="FOREGROUND" value="4c94d6"/>
+      </value>
+    </option>
     <option name="STATIC_METHOD_ATTRIBUTES" baseAttributes="DEFAULT_STATIC_METHOD"/>
     <option name="SUGGESTION">
       <value>
@@ -2356,9 +2425,9 @@
     </option>
     <option name="TEXT">
       <value>
-        <option name="FOREGROUND" value="4D4D4A"/>
         <option name="BACKGROUND" value="$textEditorBackground$"/>
         <option name="EFFECT_TYPE" value="5"/>
+        <option name="FOREGROUND" value="4D4D4A"/>
       </value>
     </option>
     <option name="TEXT_SEARCH_RESULT_ATTRIBUTES">
@@ -2369,21 +2438,21 @@
     </option>
     <option name="TODO_DEFAULT_ATTRIBUTES">
       <value>
-        <option name="FOREGROUND" value="5EABBC"/>
-        <option name="FONT_TYPE" value="2"/>
         <option name="ERROR_STRIPE_COLOR" value="977ab"/>
+        <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="5EABBC"/>
       </value>
     </option>
     <option name="TS.PRIVATE_PUBLIC">
       <value>
-        <option name="FOREGROUND" value="$keyColor$"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="$keyColor$"/>
       </value>
     </option>
     <option name="TS.TYPE_PARAMETER">
       <value>
-        <option name="FOREGROUND" value="$keyColor$"/>
         <option name="FONT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="$keyColor$"/>
       </value>
     </option>
     <option name="TWIG_BACKGROUND">
@@ -2414,8 +2483,8 @@
     <option name="WARNING_ATTRIBUTES">
       <value>
         <option name="EFFECT_COLOR" value="D37B11"/>
-        <option name="ERROR_STRIPE_COLOR" value="be9117"/>
         <option name="EFFECT_TYPE" value="2"/>
+        <option name="ERROR_STRIPE_COLOR" value="be9117"/>
       </value>
     </option>
     <option name="WRITE_IDENTIFIER_UNDER_CARET_ATTRIBUTES">
@@ -2427,6 +2496,18 @@
     <option name="WRITE_SEARCH_RESULT_ATTRIBUTES">
       <value>
         <option name="BACKGROUND" value="FFF4F2"/>
+      </value>
+    </option>
+    <option name="WRONG_REFERENCES_ATTRIBUTES">
+      <value>
+        <option name="EFFECT_COLOR" value="ff4444"/>
+        <option name="EFFECT_TYPE" value="2"/>
+        <option name="FOREGROUND" value="ff5555"/>
+      </value>
+    </option>
+    <option name="XML_ATTRIBUTE_NAME">
+      <value>
+        <option name="FOREGROUND" value="df81b8"/>
       </value>
     </option>
     <option name="XML_ENTITY_REFERENCE" baseAttributes="DEFAULT_ENTITY"/>
@@ -2460,87 +2541,6 @@
     <option name="org.rust.MACRO">
       <value>
         <option name="FOREGROUND" value="$keyColor$"/>
-      </value>
-    </option>
-    <option name="CONSOLE_GREEN_OUTPUT">
-      <value>
-        <option name="FOREGROUND" value="3dd664"/>
-      </value>
-    </option>
-    <option name="CUSTOM_KEYWORD1_ATTRIBUTES">
-      <value>
-        <option name="FOREGROUND" value="C869A3"/>
-      </value>
-    </option>
-    <option name="DEFAULT_KEYWORD">
-      <value>
-        <option name="FOREGROUND" value="C869A3"/>
-      </value>
-    </option>
-    <option name="DEFAULT_LABEL">
-      <value>
-        <option name="EFFECT_COLOR" value="808080"/>
-        <option name="EFFECT_TYPE" value="1"/>
-      </value>
-    </option>
-    <option name="DEFAULT_REASSIGNED_LOCAL_VARIABLE">
-      <value>
-        <option name="FOREGROUND" value="4D4D4A"/>
-        <option name="EFFECT_COLOR" value="a5a5a5"/>
-        <option name="EFFECT_TYPE" value="1"/>
-      </value>
-    </option>
-    <option name="GROOVY_KEYWORD">
-      <value>
-        <option name="FOREGROUND" value="C869A3"/>
-        <option name="FONT_TYPE" value="1"/>
-      </value>
-    </option>
-    <option name="INFO_ATTRIBUTES">
-      <value>
-        <option name="FOREGROUND"/>
-        <option name="BACKGROUND"/>
-        <option name="EFFECT_COLOR" value="C0C0C0"/>
-        <option name="EFFECT_TYPE" value="2"/>
-        <option name="ERROR_STRIPE_COLOR" value="c0c0c0" deuteranopia="C0C0C0" protanopia="C0C0C0"/>
-      </value>
-    </option>
-    <option name="JAVA_KEYWORD">
-      <value>
-        <option name="FOREGROUND" value="C869A3"/>
-      </value>
-    </option>
-    <option name="RDOC_KEYWORD">
-      <value>
-        <option name="FOREGROUND" value="C869A3"/>
-        <option name="FONT_TYPE" value="2"/>
-      </value>
-    </option>
-    <option name="STATIC_FIELD_ATTRIBUTES">
-      <value>
-        <option name="FOREGROUND" value="4569A6" deuteranopia="1948a6" protanopia="1948a6"/>
-        <option name="BACKGROUND"/>
-        <option name="EFFECT_COLOR"/>
-      </value>
-    </option>
-    <option name="STATIC_FINAL_FIELD_ATTRIBUTES">
-      <value>
-        <option name="FOREGROUND" value="4c94d6"/>
-        <option name="BACKGROUND"/>
-        <option name="EFFECT_COLOR"/>
-        <option name="FONT_TYPE" value="1"/>
-      </value>
-    </option>
-    <option name="WRONG_REFERENCES_ATTRIBUTES">
-      <value>
-        <option name="FOREGROUND" value="ff5555"/>
-        <option name="EFFECT_COLOR" value="ff4444"/>
-        <option name="EFFECT_TYPE" value="2"/>
-      </value>
-    </option>
-    <option name="XML_ATTRIBUTE_NAME">
-      <value>
-        <option name="FOREGROUND" value="df81b8"/>
       </value>
     </option>
   </attributes>
