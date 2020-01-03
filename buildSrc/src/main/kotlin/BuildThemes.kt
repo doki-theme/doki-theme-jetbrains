@@ -344,12 +344,12 @@ open class BuildThemes : DefaultTask() {
         dokiEditorThemeTemplates
       )
 
-    return createXmlFromDefinition(dokiDefinition, extendedTheme)
+    val themeTemplate = applyColorsToTemplate(extendedTheme, dokiDefinition)
+    return createXmlFromDefinition(dokiDefinition, themeTemplate)
   }
 
   private val childrenICareAbout = listOf("colors", "attributes")
 
-  // todo: theme extension
   private fun extendTheme(childTheme: Node, dokiEditorThemeTemplates: Map<String, Node>): Node {
 
     val parentScheme = childTheme.attribute("parent_scheme")
@@ -432,6 +432,14 @@ open class BuildThemes : DefaultTask() {
     val editorTemplate = dokiEditorThemeTemplates[templateName]
       ?: throw IllegalArgumentException("Unrecognized template name $templateName")
 
+    val themeTemplate = applyColorsToTemplate(editorTemplate, dokiDefinition)
+    return createXmlFromDefinition(dokiDefinition, themeTemplate)
+  }
+
+  private fun applyColorsToTemplate(
+    editorTemplate: Node,
+    dokiDefinition: DokiBuildThemeDefinition
+  ): Node {
     val themeTemplate = editorTemplate.clone() as Node
     themeTemplate.breadthFirst()
       .map { it as Node }
@@ -454,8 +462,7 @@ open class BuildThemes : DefaultTask() {
           }
         }
       }
-
-    return createXmlFromDefinition(dokiDefinition, themeTemplate)
+    return themeTemplate
   }
 
   private fun createXmlFromDefinition(
