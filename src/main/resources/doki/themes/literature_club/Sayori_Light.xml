@@ -13,7 +13,7 @@
     <option name="ADDED_LINES_COLOR" value="D0FDC9"/>
     <option name="ANNOTATIONS_COLOR" value="45393e"/>
     <option name="CARET_COLOR" value="45393e"/>
-    <option name="CARET_ROW_COLOR" value="D7F0D5"/>
+    <option name="CARET_ROW_COLOR" value="95c7cf"/>
     <option name="CONSOLE_BACKGROUND_KEY" value="CDF8FF"/>
     <option name="DELETED_LINES_COLOR" value="EBEBEB"/>
     <option name="DOCUMENTATION_COLOR" value="cdf8ff"/>
@@ -152,7 +152,7 @@
     </option>
     <option name="BREAKPOINT_ATTRIBUTES">
       <value>
-        <option name="BACKGROUND" value="E9FBD7"/>
+        <option name="BACKGROUND" value="E4FBF8"/>
       </value>
     </option>
     <option name="BROWSEWORDATCARET">
@@ -577,7 +577,7 @@
     <option name="DELETED_TEXT_ATTRIBUTES">
       <value>
         <option name="FOREGROUND" value="4D4D4A"/>
-        <option name="BACKGROUND" value="FFF4F2"/>
+        <option name="BACKGROUND" value="CECAFF"/>
         <option name="EFFECT_COLOR" value="c3c3c3"/>
         <option name="EFFECT_TYPE" value="3"/>
       </value>

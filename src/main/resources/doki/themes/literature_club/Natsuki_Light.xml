@@ -13,7 +13,7 @@
     <option name="ADDED_LINES_COLOR" value="D0FDC9"/>
     <option name="ANNOTATIONS_COLOR" value="45393e"/>
     <option name="CARET_COLOR" value="45393e"/>
-    <option name="CARET_ROW_COLOR" value="D7F0D5"/>
+    <option name="CARET_ROW_COLOR" value="FFD9E2"/>
     <option name="CONSOLE_BACKGROUND_KEY" value="FFE5F1"/>
     <option name="DELETED_LINES_COLOR" value="EBEBEB"/>
     <option name="DOCUMENTATION_COLOR" value="FFE0F0"/>
@@ -49,8 +49,8 @@
     <option name="RIGHT_MARGIN_COLOR" value="F1D7E6"/>
     <option name="SELECTED_INDENT_GUIDE" value="F1D7E6"/>
     <option name="SELECTED_TEARLINE_COLOR" value="e0e0b0"/>
-    <option name="SELECTION_BACKGROUND" value="dc99bb"/>
-    <option name="SELECTION_FOREGROUND" value="ffffff"/>
+    <option name="SELECTION_BACKGROUND" value="fad2f2"/>
+    <option name="SELECTION_FOREGROUND" value="f049da"/>
     <option name="SEPARATOR_ABOVE_COLOR" value="F1D7E6"/>
     <option name="SEPARATOR_BELOW_COLOR" value="F1D7E6"/>
     <option name="ScrollBar.Mac.Transparent.hoverThumbBorderColor" value="E946869a"/>
@@ -80,9 +80,9 @@
     <option name="TEARLINE_COLOR" value="FFE5F1"/>
     <option name="VCS_ANNOTATIONS_COLOR_1" value="FFE0F0"/>
     <option name="VCS_ANNOTATIONS_COLOR_2" value="FFE5F1"/>
-    <option name="VCS_ANNOTATIONS_COLOR_3" value="b7dcbd"/>
-    <option name="VCS_ANNOTATIONS_COLOR_4" value="FFD9E2"/>
-    <option name="VCS_ANNOTATIONS_COLOR_5" value="dc99bb"/>
+    <option name="VCS_ANNOTATIONS_COLOR_3" value="fbdde9"/>
+    <option name="VCS_ANNOTATIONS_COLOR_4" value="f0c3e3"/>
+    <option name="VCS_ANNOTATIONS_COLOR_5" value="fad2f2"/>
     <option name="VISUAL_INDENT_GUIDE" value="F1D7E6"/>
     <option name="WHITESPACES" value="b5b5b5"/>
     <option name="WHITESPACES_MODIFIED_LINES_COLOR" value="f6f0de"/>
@@ -146,13 +146,13 @@
     </option>
     <option name="BREADCRUMBS_INACTIVE">
       <value>
-        <option name="FOREGROUND" value="ffffff"/>
+        <option name="FOREGROUND" value="3b3b3b"/>
         <option name="BACKGROUND" value="FFD9E2"/>
       </value>
     </option>
     <option name="BREAKPOINT_ATTRIBUTES">
       <value>
-        <option name="BACKGROUND" value="E9FBD7"/>
+        <option name="BACKGROUND" value="FFE4E3"/>
       </value>
     </option>
     <option name="BROWSEWORDATCARET">
@@ -317,7 +317,7 @@
     </option>
     <option name="CSS.KEYWORD">
       <value>
-        <option name="FOREGROUND" value="7B6970"/>
+        <option name="FOREGROUND" value="C869A3"/>
       </value>
     </option>
     <option name="CSS.PROPERTY_NAME">
@@ -566,7 +566,7 @@
     </option>
     <option name="DEFAULT_TEMPLATE_LANGUAGE_COLOR">
       <value>
-        <option name="BACKGROUND" value="CECAFF"/>
+        <option name="BACKGROUND" value="F1E5FA"/>
       </value>
     </option>
     <option name="DEFAULT_VALID_STRING_ESCAPE">
@@ -577,15 +577,15 @@
     <option name="DELETED_TEXT_ATTRIBUTES">
       <value>
         <option name="FOREGROUND" value="4D4D4A"/>
-        <option name="BACKGROUND" value="FFF4F2"/>
+        <option name="BACKGROUND" value="CECAFF"/>
         <option name="EFFECT_COLOR" value="c3c3c3"/>
         <option name="EFFECT_TYPE" value="3"/>
       </value>
     </option>
     <option name="DIFF_CONFLICT">
       <value>
-        <option name="FOREGROUND" value="FFB6AE"/>
-        <option name="BACKGROUND" value="FFC3C8"/>
+        <option name="FOREGROUND" value="FFA9BF"/>
+        <option name="BACKGROUND" value="FF8984"/>
         <option name="ERROR_STRIPE_COLOR" value="8f5247"/>
       </value>
     </option>
@@ -634,7 +634,7 @@
     </option>
     <option name="FOLDED_TEXT_ATTRIBUTES">
       <value>
-        <option name="BACKGROUND" value="CECAFF"/>
+        <option name="BACKGROUND" value="F1E5FA"/>
       </value>
     </option>
     <option name="FOLLOWED_HYPERLINK_ATTRIBUTES">
@@ -750,7 +750,7 @@
     </option>
     <option name="IDENTIFIER_UNDER_CARET_ATTRIBUTES">
       <value>
-        <option name="BACKGROUND" value="CECAFF"/>
+        <option name="BACKGROUND" value="F1E5FA"/>
         <option name="EFFECT_TYPE" value="1"/>
       </value>
     </option>
@@ -829,7 +829,7 @@
     </option>
     <option name="INLINE_PARAMETER_HINT">
       <value>
-        <option name="FOREGROUND" value="B0B0B0"/>
+        <option name="FOREGROUND" value="A4A4A4"/>
         <option name="BACKGROUND" value="FFE5F1"/>
       </value>
     </option>
@@ -908,7 +908,7 @@
     <option name="JSP_DIRECTIVE_NAME" baseAttributes="DEFAULT_KEYWORD"/>
     <option name="JUPYTER_SELECTED_CELL">
       <value>
-        <option name="BACKGROUND" value="CECAFF"/>
+        <option name="BACKGROUND" value="F1E5FA"/>
       </value>
     </option>
     <option name="KOTLIN_ANNOTATION">
@@ -1864,7 +1864,7 @@
     </option>
     <option name="MATCHED_BRACE_ATTRIBUTES">
       <value>
-        <option name="BACKGROUND" value="CECAFF"/>
+        <option name="BACKGROUND" value="F1E5FA"/>
         <option name="FONT_TYPE" value="1"/>
         <option name="EFFECT_COLOR" value="C0C0C0"/>
       </value>
@@ -2299,7 +2299,7 @@
     </option>
     <option name="SEARCH_RESULT_ATTRIBUTES">
       <value>
-        <option name="BACKGROUND" value="CECAFF"/>
+        <option name="BACKGROUND" value="F1E5FA"/>
       </value>
     </option>
     <option name="SLIM_CLASS">
@@ -2327,13 +2327,13 @@
     </option>
     <option name="SPY-JS.FUNCTION_SCOPE">
       <value>
-        <option name="BACKGROUND" value="CECAFF"/>
+        <option name="BACKGROUND" value="F1E5FA"/>
         <option name="EFFECT_TYPE" value="2"/>
       </value>
     </option>
     <option name="SPY-JS.PROGRAM_SCOPE">
       <value>
-        <option name="BACKGROUND" value="CECAFF"/>
+        <option name="BACKGROUND" value="F1E5FA"/>
         <option name="EFFECT_TYPE" value="2"/>
       </value>
     </option>
@@ -2489,7 +2489,7 @@
     </option>
     <option name="WRITE_IDENTIFIER_UNDER_CARET_ATTRIBUTES">
       <value>
-        <option name="BACKGROUND" value="CECAFF"/>
+        <option name="BACKGROUND" value="F1E5FA"/>
         <option name="EFFECT_TYPE" value="1"/>
       </value>
     </option>
