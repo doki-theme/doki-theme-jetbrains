@@ -393,21 +393,26 @@ open class BuildThemes : DefaultTask() {
       when(val currentDude = queue.pollFirst()){
         is Node -> {
           val value = currentDude.value()
-          // todo do not sort value list
-          if(value != null ){
+          if(value != null){
             queue.push(value)
           }
         }
         is NodeList -> {
-          Collections.sort(currentDude) { a, b ->
-            val left = a as Node
-            val right = b as Node
+          if(currentDude.isNotEmpty() &&
+            currentDude.firstOrNull { dudeChild ->
+              dudeChild !is Node ||
+                  (dudeChild.name().toString() != "value")
+            } != null){
+            Collections.sort(currentDude) { a, b ->
+              val left = a as Node
+              val right = b as Node
 
-            getComparable(left).compareTo(
-              getComparable(right)
-            )
+              getComparable(left).compareTo(
+                getComparable(right)
+              )
+            }
+            queue.addAll(currentDude)
           }
-          queue.addAll(currentDude)
         }
       }
     }
