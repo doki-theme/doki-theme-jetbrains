@@ -1,5 +1,16 @@
 <scheme name="Natsuki Light" version="142" parent_scheme="Doki Light">
     <attributes>
+        <option name="BREADCRUMBS_INACTIVE">
+            <value>
+                <option name="FOREGROUND" value="3b3b3b"/>
+                <option name="BACKGROUND" value="$selectionInactive$"/>
+            </value>
+        </option>
+        <option name="BREAKPOINT_ATTRIBUTES">
+            <value>
+                <option name="BACKGROUND" value="FFE4E3" />
+            </value>
+        </option>
         <option name="CONSOLE_GREEN_OUTPUT">
             <value>
                 <option name="FOREGROUND" value="3dd664" />
