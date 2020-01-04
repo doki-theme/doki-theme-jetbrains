@@ -1,17 +1,9 @@
 import com.google.gson.GsonBuilder
 import groovy.util.Node
 import groovy.util.NodeList
-import groovy.util.XmlNodePrinter
-import groovy.util.XmlParser
 import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.TaskAction
-import org.xml.sax.ErrorHandler
-import org.xml.sax.InputSource
-import org.xml.sax.SAXParseException
-import java.io.BufferedOutputStream
 import java.io.InputStreamReader
-import java.io.OutputStreamWriter
-import java.io.PrintWriter
 import java.nio.charset.StandardCharsets
 import java.nio.file.Files.*
 import java.nio.file.Path
@@ -42,28 +34,18 @@ open class BuildThemes : DefaultTask() {
     val (pluginXml, parsedPluginXml) = pluginXmlAndParsed
 
     getAllDokiThemeDefinitions(get(themeDirectory.toString(), "definitions"))
-      .forEach { stuff ->
+      .forEach { themeDefinitionAndPath ->
         val dokiThemeResourcePath = constructIntellijTheme(
-          stuff,
+          themeDefinitionAndPath,
           dokiThemeTemplates,
           dokiEditorThemeTemplates
         )
 
-        val themeId = stuff.second.id
+        val themeId = themeDefinitionAndPath.second.id
         addThemeToPluginXml(extension, themeId, dokiThemeResourcePath)
       }
 
     writeXmlToFile(pluginXml, parsedPluginXml)
-  }
-
-  private fun writeXmlToFile(pluginXml: Path, parsedPluginXml: Node) {
-    newOutputStream(pluginXml).use {
-      val outputStream = BufferedOutputStream(it)
-      val writer = PrintWriter(OutputStreamWriter(outputStream, StandardCharsets.UTF_8))
-      val printer = XmlNodePrinter(writer)
-      printer.isPreserveWhitespace = true
-      printer.print(parsedPluginXml)
-    }
   }
 
   private fun addThemeToPluginXml(extension: Node, themeId: String, dokiThemeResourcePath: String) {
@@ -126,30 +108,6 @@ open class BuildThemes : DefaultTask() {
       .find { node ->
         node.attribute("defaultExtensionNs") == "com.intellij"
       }!!
-  }
-
-  private fun parseXml(pluginXml: Path): Node {
-    val parsedPlugin = newInputStream(pluginXml).use { input ->
-      val inputSource = InputSource(InputStreamReader(input, "UTF-8"))
-      val parser = XmlParser(false, true, true)
-      parser.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false)
-      parser.errorHandler = object : ErrorHandler {
-        override fun warning(exception: SAXParseException?) {
-
-        }
-
-        override fun error(exception: SAXParseException?) {
-
-        }
-
-        override fun fatalError(exception: SAXParseException) {
-          throw exception
-        }
-      }
-
-      parser.parse(inputSource)
-    }
-    return parsedPlugin
   }
 
   private fun constructIntellijTheme(
@@ -367,8 +325,8 @@ open class BuildThemes : DefaultTask() {
             childNode -> childNode as Node to it.second.value() as NodeList
           } }
           .forEach { childeNodeWithParent ->
-            val (childeNode, parentList) = childeNodeWithParent
-            val childName = childeNode.attribute("name")
+            val (childNode, parentList) = childeNodeWithParent
+            val childName = childNode.attribute("name")
             val parentNode = parentList.map { it as Node }
               .indexOfFirst { parentNode ->
               parentNode.attribute("name") == childName
@@ -377,16 +335,16 @@ open class BuildThemes : DefaultTask() {
             if (parentNode > -1) {
               parentList.removeAt(parentNode)
             }
-              parentList.add(childeNode)
+              parentList.add(childNode)
           }
       }
 
-    sortThatShit(parentTheme)
+    sortXmlAttributes(parentTheme)
 
     return parentTheme
   }
 
-  private fun sortThatShit(parentTheme: Node) {
+  private fun sortXmlAttributes(parentTheme: Node) {
     val queue = LinkedList<Any>()
     queue.addAll(childrenICareAbout.map { parentTheme[it] })
     while (queue.isNotEmpty()){
