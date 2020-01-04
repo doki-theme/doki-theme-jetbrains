@@ -1,3 +1,12 @@
+data class SchemaDefinition(
+  val required: List<String>?
+)
+
+data class ThemeDefinitionSchema(
+  val properties: Map<String, SchemaDefinition>
+)
+
+
 data class ThemeTemplateDefinition(
   val extends: String?,
   val name: String,

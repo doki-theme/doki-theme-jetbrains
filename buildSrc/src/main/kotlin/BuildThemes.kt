@@ -11,10 +11,18 @@ import java.nio.file.Paths.get
 import java.nio.file.StandardCopyOption
 import java.nio.file.StandardOpenOption
 import java.util.*
+import java.util.regex.Pattern
 import java.util.stream.Collectors
 import java.util.stream.Stream
 
 open class BuildThemes : DefaultTask() {
+
+  companion object {
+    private val COLOR_HEX_PATTERN_RGB = Pattern.compile("^#([A-Fa-f0-9]{6})$")
+    private val COLOR_HEX_PATTERN_RGBA = Pattern.compile("^#([A-Fa-f0-9]{8})$")
+    private const val HEX_COLOR_LENGTH_RGB = 7
+    private const val HEX_COLOR_LENGTH_RGBA = 9
+  }
 
   private val gson = GsonBuilder().setPrettyPrinting().create()
 
@@ -22,6 +30,16 @@ open class BuildThemes : DefaultTask() {
     group = "doki"
     description = "Builds all the themes and places them in the proper places"
   }
+
+  private val themeSchema: ThemeDefinitionSchema = getThemeSchema()
+
+  private fun getThemeSchema(): ThemeDefinitionSchema =
+    newInputStream(get(getResourcesDirectory().toString(), "theme-schema","doki.theme.schema.json")).use {
+      gson.fromJson(
+        InputStreamReader(it, StandardCharsets.UTF_8),
+        ThemeDefinitionSchema::class.java
+      )
+    }
 
   @TaskAction
   fun run() {
@@ -145,7 +163,7 @@ open class BuildThemes : DefaultTask() {
         themeDefinition,
         dokiThemeDefinitionPath
       ),
-      colors = TreeMap(themeDefinition.colors),
+      colors = validateColors(themeDefinition),
       ui = getUIDef(
         themeDefinition.ui,
         topThemeDefinition,
@@ -159,6 +177,32 @@ open class BuildThemes : DefaultTask() {
         gson.toJson(finalTheme, writer)
       }
     return extractResourcesPath(themeJson)
+  }
+
+  private fun validateColors(themeDefinition: DokiBuildThemeDefinition): TreeMap<String, Any> {
+    val colorz = TreeMap(themeDefinition.colors)
+    val colorsSchema = themeSchema.properties["colors"]?.required?.toSet()
+      ?: throw IllegalStateException("doki.theme.schema.json is missing required attribute 'properties.colors.required'!")
+    val missingColors = colorsSchema
+      .filter { !isColorCode(colorz[it] as? String) }
+    return if (missingColors.isEmpty()) colorz
+    else throw IllegalArgumentException(
+      """Theme definition for ${themeDefinition.name} is missing colors: 
+      ${missingColors.joinToString(",\n\t  ")}
+    """.trimIndent()
+    )
+  }
+
+  private fun isColorCode(text: String?): Boolean {
+    if (text == null || !text.startsWith('#')) return false
+    return if (text.length != HEX_COLOR_LENGTH_RGB &&
+      text.length != HEX_COLOR_LENGTH_RGBA
+    ) false
+    else COLOR_HEX_PATTERN_RGB.matcher(
+      text
+    ).matches() || COLOR_HEX_PATTERN_RGBA.matcher(
+      text
+    ).matches()
   }
 
   private fun remapStickers(
