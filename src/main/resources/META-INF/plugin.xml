@@ -42,7 +42,6 @@
   <depends>com.intellij.modules.lang</depends>
   <extensions defaultExtensionNs="com.intellij">
     <annotator language="JSON" implementationClass="io.acari.doki.ide.DokiThemeColorAnnotator"/>
-    <psi.referenceContributor language="JSON" implementation="io.acari.doki.ide.DokiThemeJsonPsiReferenceContributor"/>
     <applicationService serviceInterface="io.acari.doki.themes.ThemeManager" serviceImplementation="io.acari.doki.themes.impl.ThemeManagerImpl"/>
     <applicationService serviceInterface="io.acari.doki.stickers.StickerService" serviceImplementation="io.acari.doki.stickers.impl.StickerServiceImpl"/>
     <applicationService serviceImplementation="io.acari.doki.config.ThemeConfig"/>

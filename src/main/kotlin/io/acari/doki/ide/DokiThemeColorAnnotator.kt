@@ -5,7 +5,7 @@ import com.intellij.json.psi.JsonElementGenerator
 import com.intellij.json.psi.JsonFile
 import com.intellij.json.psi.JsonProperty
 import com.intellij.json.psi.JsonStringLiteral
-import com.intellij.json.psi.impl.JsonPsiImplUtils.*
+import com.intellij.json.psi.impl.JsonPsiImplUtils.isPropertyName
 import com.intellij.lang.annotation.AnnotationHolder
 import com.intellij.lang.annotation.Annotator
 import com.intellij.openapi.actionSystem.AnAction
@@ -20,7 +20,6 @@ import com.intellij.psi.PsiFile
 import com.intellij.ui.ColorChooser
 import com.intellij.ui.ColorLineMarkerProvider
 import com.intellij.ui.ColorPicker.showColorPickerPopup
-import com.intellij.ui.ColorUtil
 import com.intellij.ui.ColorUtil.toAlpha
 import com.intellij.ui.ColorUtil.toHex
 import com.intellij.util.containers.ContainerUtil
@@ -138,16 +137,16 @@ class DokiThemeColorAnnotator : Annotator {
       private fun parseColor(colorHex: String): Color? {
         return colorHex.toOptional()
           .map { isRgbaColorHex(it) }
-          .filter { it || isRgbColorHex(colorHex)}
+          .filter { it || isRgbColorHex(colorHex) }
           .map {
             try {
-              val alpha = if(it) colorHex.substring(HEX_COLOR_LENGTH_RGB) else null
-              val colorHexWithoutAlpha = if(it) colorHex.substring(0, HEX_COLOR_LENGTH_RGB)
+              val alpha = if (it) colorHex.substring(HEX_COLOR_LENGTH_RGB) else null
+              val colorHexWithoutAlpha = if (it) colorHex.substring(0, HEX_COLOR_LENGTH_RGB)
               else colorHex
               val color = colorHexWithoutAlpha.toColor()
-              if(it) toAlpha(color, alpha?.toInt(16) ?: 1)
+              if (it) toAlpha(color, alpha?.toInt(16) ?: 1)
               else color
-            } catch (t: Throwable){
+            } catch (t: Throwable) {
               null
             }
           }
@@ -175,13 +174,13 @@ class DokiThemeColorAnnotator : Annotator {
 
     private fun isTargetElement(element: PsiElement, containingFile: PsiFile): Boolean {
       return element.toOptional()
-        .filter { it is JsonStringLiteral}
+        .filter { it is JsonStringLiteral }
         .map { it as JsonStringLiteral }
-        .filter { isThemeFilename(containingFile.name)}
+        .filter { isThemeFilename(containingFile.name) }
         .filter { !isPropertyName(it) }
         .map { it.value }
         .map { isColorCode(it) || isNamedColor(it) }
-        .orElse(false);
+        .orElse(false)
     }
 
     private fun isNamedColor(text: String): Boolean =
