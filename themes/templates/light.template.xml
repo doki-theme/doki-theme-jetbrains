@@ -11,8 +11,8 @@
     <option name="EDITOR_LIGATURES" value="true" />
     <colors>
         <option name="ADDED_LINES_COLOR" value="D0FDC9" />
-        <option name="ANNOTATIONS_COLOR" value="45393e" />
-        <option name="CARET_COLOR" value="45393e" />
+        <option name="ANNOTATIONS_COLOR" value="$accentColor$" />
+        <option name="CARET_COLOR" value="$accentColor$" />
         <option name="CARET_ROW_COLOR" value="$selectionInactive$" />
         <option name="CONSOLE_BACKGROUND_KEY" value="$textEditorBackground$" />
         <option name="DELETED_LINES_COLOR" value="EBEBEB" />
@@ -45,7 +45,7 @@
         <option name="LINE_NUMBER_ON_CARET_ROW_COLOR" value="1b1f23" />
         <option name="METHOD_SEPARATORS_COLOR" value="f3f2e2" />
         <option name="MODIFIED_LINES_COLOR" value="9fe7ff" />
-        <option name="NOTIFICATION_BACKGROUND" value="f5e9ab" />
+        <option name="NOTIFICATION_BACKGROUND" value="$accentColor$5a" />
         <option name="RIGHT_MARGIN_COLOR" value="$borderColor$" />
         <option name="SELECTED_INDENT_GUIDE" value="$borderColor$" />
         <option name="SELECTED_TEARLINE_COLOR" value="e0e0b0" />
@@ -2454,16 +2454,13 @@
                 <option name="EFFECT_COLOR" value="$selectionInactive$" />
             </value>
         </option>
-
-        <!--        todo: dis-->
         <option name="TODO_DEFAULT_ATTRIBUTES">
             <value>
-                <option name="FOREGROUND" value="5EABBC" />
+                <option name="FOREGROUND" value="$startColor$" />
                 <option name="FONT_TYPE" value="2" />
                 <option name="ERROR_STRIPE_COLOR" value="977ab" />
             </value>
         </option>
-
         <option name="TS.PRIVATE_PUBLIC">
             <value>
                 <option name="FOREGROUND" value="$keyColor$" />
