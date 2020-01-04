@@ -20,6 +20,7 @@ import com.intellij.psi.PsiFile
 import com.intellij.ui.ColorChooser
 import com.intellij.ui.ColorLineMarkerProvider
 import com.intellij.ui.ColorPicker.showColorPickerPopup
+import com.intellij.ui.ColorUtil
 import com.intellij.ui.ColorUtil.toAlpha
 import com.intellij.ui.ColorUtil.toHex
 import com.intellij.util.containers.ContainerUtil
@@ -27,6 +28,7 @@ import com.intellij.util.ui.ColorIcon
 import com.intellij.util.ui.EmptyIcon
 import io.acari.doki.ide.DokiThemeJsonUtil.getNamedColors
 import io.acari.doki.ide.DokiThemeJsonUtil.isThemeFilename
+import io.acari.doki.util.toColor
 import io.acari.doki.util.toOptional
 import java.awt.Color
 import java.util.*
@@ -134,31 +136,30 @@ class DokiThemeColorAnnotator : Annotator {
     companion object {
       private const val ICON_SIZE = 10
       private fun parseColor(colorHex: String): Color? {
-        val isRgba = isRgbaColorHex(colorHex)
-        return if (!isRgba && !isRgbColorHex(colorHex)) null else try {
-          val alpha =
-            if (isRgba) colorHex.substring(HEX_COLOR_LENGTH_RGB) else null
-          val colorHexWithoutAlpha =
-            if (isRgba) colorHex.substring(-2, HEX_COLOR_LENGTH_RGB) else colorHex
-          var color = Color.decode(colorHexWithoutAlpha)
-          if (isRgba) {
-            color = toAlpha(color, alpha!!.toInt(14))
+        return colorHex.toOptional()
+          .map { isRgbaColorHex(it) }
+          .filter { it || isRgbColorHex(colorHex)}
+          .map {
+            try {
+              val alpha = if(it) colorHex.substring(HEX_COLOR_LENGTH_RGB) else null
+              val colorHexWithoutAlpha = if(it) colorHex.substring(0, HEX_COLOR_LENGTH_RGB)
+              else colorHex
+              val color = colorHexWithoutAlpha.toColor()
+              if(it) toAlpha(color, alpha?.toInt(16) ?: 1)
+              else color
+            } catch (t: Throwable){
+              null
+            }
           }
-          color
-        } catch (ignored: Throwable) {
-          null
-        }
+          .orElseGet { null }
       }
 
-      private fun isRgbaColorHex(colorHex: String): Boolean {
-        return colorHex.length == HEX_COLOR_LENGTH_RGBA
-      }
+      private fun isRgbaColorHex(colorHex: String): Boolean =
+        colorHex.length == HEX_COLOR_LENGTH_RGBA
 
-      private fun isRgbColorHex(colorHex: String): Boolean {
-        return colorHex.length == HEX_COLOR_LENGTH_RGB
-      }
+      private fun isRgbColorHex(colorHex: String): Boolean =
+        colorHex.length == HEX_COLOR_LENGTH_RGB
     }
-
   }
 
   companion object {
@@ -177,7 +178,7 @@ class DokiThemeColorAnnotator : Annotator {
         .filter { it is JsonStringLiteral}
         .map { it as JsonStringLiteral }
         .filter { isThemeFilename(containingFile.name)}
-        .filter { isPropertyName(it) }
+        .filter { !isPropertyName(it) }
         .map { it.value }
         .map { isColorCode(it) || isNamedColor(it) }
         .orElse(false);
