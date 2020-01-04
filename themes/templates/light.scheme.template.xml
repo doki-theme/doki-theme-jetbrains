@@ -80,12 +80,9 @@
         <option name="TEARLINE_COLOR" value="$textEditorBackground$" />
         <option name="VCS_ANNOTATIONS_COLOR_1" value="$headerColor$"/>
         <option name="VCS_ANNOTATIONS_COLOR_2" value="$textEditorBackground$"/>
-        <!--        todo: deez-->
-        <option name="VCS_ANNOTATIONS_COLOR_3" value="b7dcbd"/>
-
+        <option name="VCS_ANNOTATIONS_COLOR_3" value="$buttonColor$"/>
         <option name="VCS_ANNOTATIONS_COLOR_4" value="$selectionInactive$"/>
         <option name="VCS_ANNOTATIONS_COLOR_5" value="$selectionBackground$"/>
-
         <option name="VISUAL_INDENT_GUIDE" value="$borderColor$" />
         <option name="WHITESPACES" value="b5b5b5" />
         <option name="WHITESPACES_MODIFIED_LINES_COLOR" value="f6f0de" />
@@ -631,15 +628,11 @@
                 <option name="EFFECT_TYPE" value="2" />
             </value>
         </option>
-
-<!--        todo, dis-->
         <option name="EXECUTIONPOINT_ATTRIBUTES">
             <value>
-                <option name="BACKGROUND" value="B6F3FA" />
+                <option name="BACKGROUND" value="$testScopeColor$" />
             </value>
         </option>
-
-
         <option name="FOLDED_TEXT_ATTRIBUTES">
             <value>
                 <option name="BACKGROUND" value="$searchResultBackground$" />
@@ -815,17 +808,13 @@
                 <option name="EFFECT_TYPE" value="1" />
             </value>
         </option>
-
-        <!--        todo dis-->
         <option name="INACTIVE_HYPERLINK_ATTRIBUTES">
             <value>
-                <option name="FOREGROUND" value="B9B9B9" />
-                <option name="EFFECT_COLOR" value="B9B9B9" />
+                <option name="FOREGROUND" value="$accentColor$" />
+                <option name="EFFECT_COLOR" value="$accentColor$" />
                 <option name="EFFECT_TYPE" value="1" />
             </value>
         </option>
-
-
         <option name="INFO_ATTRIBUTES">
             <value>
                 <option name="FOREGROUND"/>
@@ -840,16 +829,13 @@
                 <option name="BACKGROUND" value="$codeBlock$" />
             </value>
         </option>
-
-        <!--        todo: deez colorz-->
         <option name="INLINE_PARAMETER_HINT">
             <value>
-                <option name="FOREGROUND" value="B0B0B0" />
+<!--                todo test dis-->
+                <option name="FOREGROUND" value="$accentColor$5a" />
                 <option name="BACKGROUND" value="$textEditorBackground$" />
             </value>
         </option>
-
-
         <option name="INLINE_PARAMETER_HINT_CURRENT">
             <value>
                 <option name="FOREGROUND" value="$stringColor$" />
@@ -2511,14 +2497,11 @@
                 <option name="EFFECT_TYPE" value="1" />
             </value>
         </option>
-
-        <!--        todo dis-->
         <option name="WRITE_SEARCH_RESULT_ATTRIBUTES">
             <value>
-                <option name="BACKGROUND" value="FFF4F2" />
+                <option name="BACKGROUND" value="$selectionInactive$" />
             </value>
         </option>
-
         <option name="WRONG_REFERENCES_ATTRIBUTES">
             <value>
                 <option name="FOREGROUND" value="ff5555" />
