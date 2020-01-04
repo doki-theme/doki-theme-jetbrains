@@ -43,7 +43,14 @@
     "accentContrastColor": "#252427",
     "stopColor": "#6ACCFC",
     "testScopeColor": "#C0EDCC",
-    "popupMask": "#EAEAF050"
+    "popupMask": "#EAEAF050",
+    "codeBlock": "#ECEDF8",
+    "textEditorBackground": "#e3e4ef",
+    "searchResultBackground": "#C4C3CF",
+    "classNameColor": "#da85dd",
+    "htmlTagColor": "#e53935",
+    "stringColor": "#b8397e",
+    "keyColor": "#3961f6"
   },
   "ui": {},
   "icons": {}
