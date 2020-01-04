@@ -5,7 +5,6 @@ import com.intellij.json.psi.JsonElementGenerator
 import com.intellij.json.psi.JsonFile
 import com.intellij.json.psi.JsonProperty
 import com.intellij.json.psi.JsonStringLiteral
-import com.intellij.json.psi.impl.JsonPsiImplUtils
 import com.intellij.json.psi.impl.JsonPsiImplUtils.*
 import com.intellij.lang.annotation.AnnotationHolder
 import com.intellij.lang.annotation.Annotator
@@ -26,15 +25,15 @@ import com.intellij.ui.ColorUtil.toHex
 import com.intellij.util.containers.ContainerUtil
 import com.intellij.util.ui.ColorIcon
 import com.intellij.util.ui.EmptyIcon
-import io.acari.doki.ide.ThemeJsonUtil.getNamedColors
-import io.acari.doki.ide.ThemeJsonUtil.isThemeFilename
+import io.acari.doki.ide.DokiThemeJsonUtil.getNamedColors
+import io.acari.doki.ide.DokiThemeJsonUtil.isThemeFilename
 import io.acari.doki.util.toOptional
 import java.awt.Color
 import java.util.*
 import java.util.regex.Pattern
 import javax.swing.Icon
 
-class ThemeColorAnnotator : Annotator {
+class DokiThemeColorAnnotator : Annotator {
   override fun annotate(element: PsiElement, holder: AnnotationHolder) {
     if (!isColorLineMarkerProviderEnabled || !isTargetElement(
         element,

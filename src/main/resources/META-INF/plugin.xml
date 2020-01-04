@@ -41,11 +41,11 @@
   <depends>com.intellij.modules.platform</depends>
   <depends>com.intellij.modules.lang</depends>
   <extensions defaultExtensionNs="com.intellij">
+    <annotator language="JSON" implementationClass="io.acari.doki.ide.DokiThemeColorAnnotator"/>
     <applicationService serviceInterface="io.acari.doki.themes.ThemeManager" serviceImplementation="io.acari.doki.themes.impl.ThemeManagerImpl"/>
     <applicationService serviceInterface="io.acari.doki.stickers.StickerService" serviceImplementation="io.acari.doki.stickers.impl.StickerServiceImpl"/>
     <applicationService serviceImplementation="io.acari.doki.config.ThemeConfig"/>
     <applicationConfigurable id="0d570cb2-96df-43cc-80da-7f777e6d0afe" instance="io.acari.doki.settings.ThemeSettings" groupId="appearance"/>
-    <annotator language="JSON" implementationClass="io.acari.doki.ide.ThemeColorAnnotator"/>
     <errorHandler id="9782e40c-e6d2-488f-8611-71f5cca6695e" implementation="io.acari.doki.integrations.ErrorReporter"/>
     <iconProvider implementation="io.acari.doki.icon.provider.MaterialIconProvider" order="first"/>
     <statusBarWidgetProvider implementation="io.acari.doki.ui.status.ThemeStatusBarProvider"/>

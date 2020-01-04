@@ -7,8 +7,8 @@ import com.intellij.openapi.util.text.StringUtil.endsWithIgnoreCase
 import io.acari.doki.util.toOptional
 import org.jetbrains.annotations.NonNls
 
-object ThemeJsonUtil {
-  private const val DOKI_THEME_EXTENSION = "doki.json"
+object DokiThemeJsonUtil {
+  const val DOKI_THEME_EXTENSION = "doki.json"
   private val COLORS_PROPERTY_NAME = "colors"
 
 
