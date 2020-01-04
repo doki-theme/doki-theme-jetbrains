@@ -6,6 +6,7 @@ import com.intellij.json.psi.JsonFile
 import com.intellij.json.psi.JsonProperty
 import com.intellij.json.psi.JsonStringLiteral
 import com.intellij.json.psi.impl.JsonPsiImplUtils
+import com.intellij.json.psi.impl.JsonPsiImplUtils.*
 import com.intellij.lang.annotation.AnnotationHolder
 import com.intellij.lang.annotation.Annotator
 import com.intellij.openapi.actionSystem.AnAction
@@ -27,6 +28,7 @@ import com.intellij.util.ui.ColorIcon
 import com.intellij.util.ui.EmptyIcon
 import io.acari.doki.ide.ThemeJsonUtil.getNamedColors
 import io.acari.doki.ide.ThemeJsonUtil.isThemeFilename
+import io.acari.doki.util.toOptional
 import java.awt.Color
 import java.util.*
 import java.util.regex.Pattern
@@ -165,24 +167,25 @@ class ThemeColorAnnotator : Annotator {
     private val COLOR_HEX_PATTERN_RGBA = Pattern.compile("^#([A-Fa-f0-9]{8})$")
     private const val HEX_COLOR_LENGTH_RGB = 7
     private const val HEX_COLOR_LENGTH_RGBA = 9
-    private val isColorLineMarkerProviderEnabled: Boolean
-      private get() = LineMarkerSettings.getSettings().isEnabled(ColorLineMarkerProvider.INSTANCE)
 
-    fun isTargetElement(element: PsiElement): Boolean {
-      return isTargetElement(element, element.containingFile)
-    }
+    private val isColorLineMarkerProviderEnabled: Boolean
+      get() = LineMarkerSettings.getSettings().isEnabled(ColorLineMarkerProvider.INSTANCE)
+
+    fun isTargetElement(element: PsiElement): Boolean = isTargetElement(element, element.containingFile)
 
     private fun isTargetElement(element: PsiElement, containingFile: PsiFile): Boolean {
-      if (element !is JsonStringLiteral) return false
-      if (!isThemeFilename(containingFile.name)) return false
-      if (JsonPsiImplUtils.isPropertyName(element)) return false
-      val text = element.value
-      return isColorCode(text) || isNamedColor(text)
+      return element.toOptional()
+        .filter { it is JsonStringLiteral}
+        .map { it as JsonStringLiteral }
+        .filter { isThemeFilename(containingFile.name)}
+        .filter { isPropertyName(it) }
+        .map { it.value }
+        .map { isColorCode(it) || isNamedColor(it) }
+        .orElse(false);
     }
 
-    private fun isNamedColor(text: String): Boolean {
-      return StringUtil.isLatinAlphanumeric(text)
-    }
+    private fun isNamedColor(text: String): Boolean =
+      StringUtil.isLatinAlphanumeric(text)
 
     private fun isColorCode(text: String?): Boolean {
       if (!StringUtil.startsWithChar(text, '#')) return false
