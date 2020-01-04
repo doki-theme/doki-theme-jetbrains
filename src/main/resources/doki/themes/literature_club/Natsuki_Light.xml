@@ -13,7 +13,7 @@
     <option name="ADDED_LINES_COLOR" value="D0FDC9"/>
     <option name="ANNOTATIONS_COLOR" value="E94686"/>
     <option name="CARET_COLOR" value="E94686"/>
-    <option name="CARET_ROW_COLOR" value="FFD9E2"/>
+    <option name="CARET_ROW_COLOR" value="FFD9E2aa"/>
     <option name="CONSOLE_BACKGROUND_KEY" value="FFE5F1"/>
     <option name="DELETED_LINES_COLOR" value="EBEBEB"/>
     <option name="DOCUMENTATION_COLOR" value="FFE0F0"/>
