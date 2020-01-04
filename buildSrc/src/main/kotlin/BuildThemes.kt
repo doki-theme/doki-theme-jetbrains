@@ -379,14 +379,6 @@ open class BuildThemes : DefaultTask() {
   private fun getComparable(left: Node): String =
     (left.attribute("name") as? String) ?: left.name().toString()
 
-  private fun getRelevantChildren(parentTheme: Node): List<Node> {
-    return parentTheme.breadthFirst()
-      .map { it as Node }
-      .filter { it.name() == "option" }
-      .filter { it.parent() != null }
-      .filter { it.parent()?.name() !== "value" }
-  }
-
   private fun createEditorSchemeFromTemplate(
     dokiDefinition: DokiBuildThemeDefinition,
     dokiEditorThemeTemplates: Map<String, Node>
