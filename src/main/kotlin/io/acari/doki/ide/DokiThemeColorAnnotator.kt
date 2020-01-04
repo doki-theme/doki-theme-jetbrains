@@ -3,7 +3,6 @@ package io.acari.doki.ide
 import com.intellij.codeInsight.daemon.LineMarkerSettings
 import com.intellij.json.psi.JsonElementGenerator
 import com.intellij.json.psi.JsonFile
-import com.intellij.json.psi.JsonProperty
 import com.intellij.json.psi.JsonStringLiteral
 import com.intellij.json.psi.impl.JsonPsiImplUtils.isPropertyName
 import com.intellij.lang.annotation.AnnotationHolder
@@ -35,6 +34,7 @@ import java.util.regex.Pattern
 import javax.swing.Icon
 
 class DokiThemeColorAnnotator : Annotator {
+
   override fun annotate(element: PsiElement, holder: AnnotationHolder) {
     if (!isColorLineMarkerProviderEnabled || !isTargetElement(
         element,
@@ -43,115 +43,127 @@ class DokiThemeColorAnnotator : Annotator {
     ) return
     val annotation = holder.createInfoAnnotation(element, null)
     val literal = element as JsonStringLiteral
-    annotation.gutterIconRenderer = MyRenderer(literal.value, literal)
+    annotation.gutterIconRenderer = ColorBoxRenderer(literal.value, literal)
   }
 
-  private class MyRenderer internal constructor(
+  private class ColorBoxRenderer internal constructor(
     private val myColorText: String,
     private var myLiteral: JsonStringLiteral
-  ) :
-    GutterIconRenderer() {
-    override fun getIcon(): Icon {
-      val color = getColor(myColorText)
-      return color?.let { ColorIcon(ICON_SIZE, it) } ?: EmptyIcon.create(ICON_SIZE)
-    }
+  ) : GutterIconRenderer() {
+
+    override fun getIcon(): Icon =
+      getColor(myColorText)
+        ?.let { ColorIcon(ICON_SIZE, it) }
+        ?: EmptyIcon.create(ICON_SIZE)
 
     override fun isNavigateAction(): Boolean = canChooseColor()
 
-    override fun getTooltipText(): String? = if (canChooseColor()) "Choose Color" else null
+    override fun getTooltipText(): String? =
+      if (canChooseColor()) "Choose Color"
+      else null
 
-    override fun getClickAction(): AnAction? = if (!canChooseColor()) null else object : AnAction("Choose Color...") {
-      override fun actionPerformed(e: AnActionEvent) {
-        val editor =
-          e.getData(CommonDataKeys.EDITOR) ?: return
-        val currentColor = getColor(myColorText) ?: return
-        val withAlpha =
-          isRgbaColorHex(myColorText)
-        if (Registry.`is`("ide.new.color.picker")) {
-          showColorPickerPopup(
-            e.project,
-            currentColor
-          ) { c: Color?, l: Any? -> applyColor(currentColor, withAlpha, c) }
-        } else {
-          val newColor = ColorChooser.chooseColor(
-            editor.project,
-            editor.component,
-            "Choose Color",
-            currentColor,
-            withAlpha
-          )
-          applyColor(currentColor, withAlpha, newColor)
+    override fun getClickAction(): AnAction? =
+      if (canChooseColor()) buildColorChooseAction()
+      else null
+
+    private fun buildColorChooseAction(): AnAction {
+      return object : AnAction("Choose Color...") {
+        override fun actionPerformed(e: AnActionEvent) {
+          e.getData(CommonDataKeys.EDITOR).toOptional()
+            .flatMap {
+              getColor(myColorText).toOptional()
+                .map { color -> color to it }
+            }.ifPresent { colorAndEditor ->
+              val (currentColor, editor) = colorAndEditor
+              val withAlpha = isRgbaColorHex(myColorText)
+              if (Registry.`is`("ide.new.color.picker")) {
+                showColorPickerPopup(
+                  e.project,
+                  currentColor
+                ) { c: Color?, _ -> applyColor(currentColor, withAlpha, c) }
+              } else {
+                val newColor = ColorChooser.chooseColor(
+                  editor.project,
+                  editor.component,
+                  "Choose Color",
+                  currentColor,
+                  withAlpha
+                )
+                applyColor(currentColor, withAlpha, newColor)
+              }
+            }
+        }
+
+        private fun applyColor(
+          currentColor: Color,
+          withAlpha: Boolean,
+          newColor: Color?
+        ) {
+          newColor.toOptional()
+            .filter { it != currentColor }
+            .ifPresent {
+              val newColorHex = "#" + toHex(it, withAlpha)
+              val project = myLiteral.project
+              val newLiteral = JsonElementGenerator(project).createStringLiteral(newColorHex)
+              writeCommandAction(project, myLiteral.containingFile)
+                .run<RuntimeException> { myLiteral = myLiteral.replace(newLiteral) as JsonStringLiteral }
+            }
         }
       }
-
-      private fun applyColor(
-        currentColor: Color,
-        withAlpha: Boolean,
-        newColor: Color?
-      ) {
-        if (newColor == null || newColor == currentColor) return
-        val newColorHex = "#" + toHex(newColor, withAlpha)
-        val project = myLiteral.project
-        val newLiteral = JsonElementGenerator(project).createStringLiteral(newColorHex)
-        writeCommandAction(project, myLiteral.containingFile)
-          .run<RuntimeException> { myLiteral = myLiteral.replace(newLiteral) as JsonStringLiteral }
-      }
     }
 
-    private fun canChooseColor(): Boolean {
-      return isColorCode(myColorText)
-    }
+    private fun canChooseColor(): Boolean =
+      isColorCode(myColorText)
 
-    private fun getColor(colorText: String): Color? {
-      return if (!isColorCode(colorText)) {
-        findNamedColor(colorText)
-      } else parseColor(colorText)
-    }
+    private fun getColor(colorText: String): Color? =
+      if (!isColorCode(colorText)) findNamedColor(colorText)
+      else parseColor(colorText)
 
-    private fun findNamedColor(colorText: String): Color? {
-      val file = myLiteral.containingFile as? JsonFile ?: return null
-      val colors =
-        getNamedColors(file)
-      val namedColor = ContainerUtil.find(
-        colors
-      ) { property: JsonProperty -> property.name == colorText }
-        ?: return null
-      val value = namedColor.value
-      return if (value !is JsonStringLiteral) null else parseColor(value.value)
-    }
+    private fun findNamedColor(colorText: String): Color? =
+      myLiteral.containingFile.toOptional()
+        .map { it as JsonFile }
+        .map { file ->
+          val namedColors = getNamedColors(file)
+          ContainerUtil.find(namedColors) { property ->
+            property.name == colorText
+          }?.value
+        }
+        .filter { it is JsonStringLiteral }
+        .map { it as JsonStringLiteral }
+        .map { parseColor(it.value) }
+        .orElseGet { null }
 
     override fun equals(o: Any?): Boolean {
       if (this === o) return true
       if (o == null || javaClass != o.javaClass) return false
       val renderer =
-        o as MyRenderer
-      return myColorText == renderer.myColorText && myLiteral == renderer.myLiteral
+        o as ColorBoxRenderer
+      return myColorText == renderer.myColorText &&
+          myLiteral == renderer.myLiteral
     }
 
-    override fun hashCode(): Int {
-      return Objects.hash(myColorText, myLiteral)
-    }
+    override fun hashCode(): Int =
+      Objects.hash(myColorText, myLiteral)
 
     companion object {
       private const val ICON_SIZE = 10
-      private fun parseColor(colorHex: String): Color? {
-        return colorHex.toOptional()
+      private fun parseColor(colorHex: String): Color? =
+        colorHex.toOptional()
           .map { isRgbaColorHex(it) }
           .filter { it || isRgbColorHex(colorHex) }
-          .map {
+          .map { isRgba ->
             try {
-              val alpha = if (it) colorHex.substring(HEX_COLOR_LENGTH_RGB) else null
-              val colorHexWithoutAlpha = if (it) colorHex.substring(0, HEX_COLOR_LENGTH_RGB)
+              val alpha = if (isRgba) colorHex.substring(HEX_COLOR_LENGTH_RGB) else null
+              val colorHexWithoutAlpha = if (isRgba) colorHex.substring(0, HEX_COLOR_LENGTH_RGB)
               else colorHex
               val color = colorHexWithoutAlpha.toColor()
-              if (it) toAlpha(color, alpha?.toInt(16) ?: 1)
+              if (isRgba) toAlpha(color, alpha?.toInt(16) ?: 1)
               else color
             } catch (t: Throwable) {
               null
             }
           }
           .orElseGet { null }
-      }
 
       private fun isRgbaColorHex(colorHex: String): Boolean =
         colorHex.length == HEX_COLOR_LENGTH_RGBA
@@ -170,8 +182,6 @@ class DokiThemeColorAnnotator : Annotator {
     private val isColorLineMarkerProviderEnabled: Boolean
       get() = LineMarkerSettings.getSettings().isEnabled(ColorLineMarkerProvider.INSTANCE)
 
-    fun isTargetElement(element: PsiElement): Boolean = isTargetElement(element, element.containingFile)
-
     private fun isTargetElement(element: PsiElement, containingFile: PsiFile): Boolean {
       return element.toOptional()
         .filter { it is JsonStringLiteral }
@@ -188,7 +198,10 @@ class DokiThemeColorAnnotator : Annotator {
 
     private fun isColorCode(text: String?): Boolean {
       if (!StringUtil.startsWithChar(text, '#')) return false
-      return if (text!!.length != HEX_COLOR_LENGTH_RGB && text.length != HEX_COLOR_LENGTH_RGBA) false else COLOR_HEX_PATTERN_RGB.matcher(
+      return if (text!!.length != HEX_COLOR_LENGTH_RGB &&
+        text.length != HEX_COLOR_LENGTH_RGBA
+      ) false
+      else COLOR_HEX_PATTERN_RGB.matcher(
         text
       ).matches() || COLOR_HEX_PATTERN_RGBA.matcher(
         text
