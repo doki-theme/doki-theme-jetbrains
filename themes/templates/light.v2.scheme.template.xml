@@ -1,0 +1,31 @@
+<scheme name="Doki Light v2" version="2" parent_scheme="Doki Light">
+    <attributes>
+        <option name="CUSTOM_KEYWORD1_ATTRIBUTES">
+            <value>
+                <option name="FOREGROUND" value="$keywordColor$" />
+            </value>
+        </option>
+        <option name="DEFAULT_KEYWORD">
+            <value>
+                <option name="FOREGROUND" value="$keywordColor$" />
+            </value>
+        </option>
+        <option name="GROOVY_KEYWORD">
+            <value>
+                <option name="FOREGROUND" value="$keywordColor$" />
+                <option name="FONT_TYPE" value="1" />
+            </value>
+        </option>
+        <option name="JAVA_KEYWORD">
+            <value>
+                <option name="FOREGROUND" value="$keywordColor$" />
+            </value>
+        </option>
+        <option name="RDOC_KEYWORD">
+            <value>
+                <option name="FOREGROUND" value="$keywordColor$" />
+                <option name="FONT_TYPE" value="2" />
+            </value>
+        </option>
+    </attributes>
+</scheme>

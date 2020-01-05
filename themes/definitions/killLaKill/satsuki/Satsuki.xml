@@ -1,30 +1,16 @@
-<scheme name="Satsuki" version="142" parent_scheme="Doki Light">
+<scheme name="Satsuki" version="142" parent_scheme="Doki Light v2">
     <attributes>
-        <option name="CUSTOM_KEYWORD1_ATTRIBUTES">
+        <option name="DIFF_DELETED">
             <value>
-                <option name="FOREGROUND" value="$keywordColor$" />
+                <option name="FOREGROUND" value="ffffff"/>
+                <option name="BACKGROUND" value="$selectionInactive$"/>
+                <option name="ERROR_STRIPE_COLOR" value="656e76"/>
             </value>
         </option>
-        <option name="DEFAULT_KEYWORD">
+        <option name="DIFF_MODIFIED">
             <value>
-                <option name="FOREGROUND" value="$keywordColor$" />
-            </value>
-        </option>
-        <option name="GROOVY_KEYWORD">
-            <value>
-                <option name="FOREGROUND" value="$keywordColor$" />
-                <option name="FONT_TYPE" value="1" />
-            </value>
-        </option>
-        <option name="JAVA_KEYWORD">
-            <value>
-                <option name="FOREGROUND" value="$keywordColor$" />
-            </value>
-        </option>
-        <option name="RDOC_KEYWORD">
-            <value>
-                <option name="FOREGROUND" value="$keywordColor$" />
-                <option name="FONT_TYPE" value="2" />
+                <option name="BACKGROUND" value="$selectionBackground$"/>
+                <option name="ERROR_STRIPE_COLOR" value="43698d"/>
             </value>
         </option>
     </attributes>

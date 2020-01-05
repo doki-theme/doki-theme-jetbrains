@@ -353,10 +353,15 @@ open class BuildThemes : DefaultTask() {
   private val childrenICareAbout = listOf("colors", "attributes")
 
   private fun extendTheme(childTheme: Node, dokiEditorThemeTemplates: Map<String, Node>): Node {
-
     val parentScheme = childTheme.attribute("parent_scheme")
-    val parentTheme = dokiEditorThemeTemplates[parentScheme]?.clone() as? Node
-      ?: throw IllegalArgumentException("Expected parent scheme $parentScheme to be valid!")
+    if(parentScheme == "Default" || parentScheme == "Darcula"){
+      return childTheme
+    }
+
+    val parentToExtend = (dokiEditorThemeTemplates[parentScheme]?.clone() as? Node
+      ?: throw IllegalArgumentException("Expected parent scheme $parentScheme to be valid!"))
+
+    val parentTheme = extendTheme(parentToExtend, dokiEditorThemeTemplates)
 
     childrenICareAbout
       .forEach { attribute ->
@@ -428,8 +433,10 @@ open class BuildThemes : DefaultTask() {
     dokiEditorThemeTemplates: Map<String, Node>
   ): String {
     val templateName = dokiDefinition.editorScheme["name"]
-    val editorTemplate = dokiEditorThemeTemplates[templateName]
-      ?: throw IllegalArgumentException("Unrecognized template name $templateName")
+
+    val childTheme = (dokiEditorThemeTemplates[templateName]
+      ?: throw IllegalArgumentException("Unrecognized template name $templateName"))
+    val editorTemplate = extendTheme(childTheme, dokiEditorThemeTemplates)
 
     val themeTemplate = applyColorsToTemplate(editorTemplate, dokiDefinition)
     return createXmlFromDefinition(dokiDefinition, themeTemplate)
