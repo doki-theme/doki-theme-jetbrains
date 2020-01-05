@@ -104,7 +104,8 @@
           "description": "The name of the file you want to extend, take as template, or use directly.",
           "pattern": "^.+\\.xml$",
           "examples": [
-            "Doki Light.xml",
+            "Doki Light",
+            "Doki Dark",
             "Natsuki_Light.xml",
             "Yuri_Dark.xml"
           ],
