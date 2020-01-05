@@ -347,7 +347,8 @@
         "classNameColor",
         "htmlTagColor",
         "stringColor",
-        "keyColor"
+        "keyColor",
+        "keywordColor"
       ],
       "patternProperties": {
         "baseIconColor": {
@@ -459,6 +460,9 @@
           "$ref": "#/definitions/color"
         },
         "keyColor": {
+          "$ref": "#/definitions/color"
+        },
+        "keywordColor": {
           "$ref": "#/definitions/color"
         },
         ".*": {

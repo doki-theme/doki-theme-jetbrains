@@ -51,7 +51,8 @@
     "classNameColor": "#FF9CD6",
     "htmlTagColor": "#bca3aa",
     "stringColor": "#f1fa8c",
-    "keyColor": "#FF9CD6"
+    "keyColor": "#FF9CD6",
+    "keywordColor": "#bca3aa"
   },
   "ui": {
     "Plugins.lightSelectionBackground": "selectionBackground",

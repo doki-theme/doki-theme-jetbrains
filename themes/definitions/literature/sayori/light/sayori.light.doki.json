@@ -52,7 +52,8 @@
     "classNameColor": "#FF3889",
     "htmlTagColor": "#A89097",
     "stringColor": "#DC872E",
-    "keyColor": "#3F77EF"
+    "keyColor": "#3F77EF",
+    "keywordColor": "#A89097"
   },
   "ui": {
     "CompletionPopup.background": "testScopeColor",

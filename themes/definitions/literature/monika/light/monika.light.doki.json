@@ -53,7 +53,8 @@
     "stringColor": "#EC9130",
     "htmlTagColor": "#3eae5d",
     "codeBlock": "#D4ECD2",
-    "searchResultBackground": "#DCF5DA"
+    "searchResultBackground": "#DCF5DA",
+    "keywordColor": "#3eae5d"
   },
   "ui": {
     "CompletionPopup.background": "testScopeColor",

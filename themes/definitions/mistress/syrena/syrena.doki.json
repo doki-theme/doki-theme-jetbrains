@@ -50,7 +50,8 @@
     "classNameColor": "#E85160",
     "htmlTagColor": "#F59762",
     "stringColor": "#ffd866",
-    "keyColor": "#b9a491"
+    "keyColor": "#b9a491",
+    "keywordColor": "#F59762"
   },
   "ui": {},
   "icons": {}
