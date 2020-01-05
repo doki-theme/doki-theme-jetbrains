@@ -1,5 +1,8 @@
 scripts/
 
+# Generated Themes Directory
+src/main/resources/doki/themes
+
 # macOS
 .DS_Store
 

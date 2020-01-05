@@ -1,0 +1,9 @@
+{
+  "name": "dark",
+  "extends": "base",
+  "ui": {
+    "Notification.ToolWindow.informativeForeground": "#baeeba",
+    "Notification.ToolWindow.warningForeground": "#f9f78e",
+    "Notification.ToolWindow.errorForeground": "#ffcccc"
+  }
+}

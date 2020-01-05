@@ -1,143 +1,103 @@
 <idea-plugin>
-    <id>io.acari.DDLCTheme</id>
-    <name>The Doki-Doki Theme</name>
-    <version>@version@</version>
-    <vendor email="alexsimons9999@gmail.com" url="https://github.com/cyclic-reference">cyclic-reference</vendor>
-
-    <description><![CDATA[
-        <h2>Ṱ͙̠͔́̈́͐̇h̳̳̗̘͂̇́̊e̮̰̼̮̿́̋͗ ̝͇͎̱̊̚̕͝o͙͈̼̜̓̀̉̀n͚̩̣̣̅̍̐̈́l̻̺̩̠͋̑̎͠y̧̱̘͕̿͐̎͘ ̧͎̹̙̓̅̈́͆t̢͔̩̮́̐̕͠h̨͓͔͉̿́͑͝é̹̙̤̮̀̍̈m̙̥̙̺̋̾͑̊e̳̗̖̩̽͐͆͒s͖̰͎̏̍̓̈́ͅ ͎̻͔͍͗͒̾̀y̢̻̜͎̾̄͒̋o̗̝̮̞͛̿̏͐ǔ̥̜̹̘̓̿̕ ̢̛̫͕͔̎̂́ẻ̲̜̰͙̍̌͑v̜̻̗̥̈́̓̈́̔e̡͚͇̫̎̆̋͑r̺̮͓̳̍̊͗̋ ̻̻̣̹͋͑́̈́ǹ̨̲͚͇̒̆͘e̗͉̫̱͂͑͗̓e̳̬̬͈̓̊̂͘d̪̻̞̮̈͂͠͝.͍͇͍̫̒͆̓͝</h2>
-        <br/>
-        <p>
+  <id>io.acari.DDLCTheme</id>
+  <name>The Doki-Doki Theme</name>
+  <version>@version@</version>
+  <vendor email="alexsimons9999@gmail.com" url="https://github.com/cyclic-reference">cyclic-reference</vendor>
+  <description>
+        &lt;h2&gt;Ṱ͙̠͔́̈́͐̇h̳̳̗̘͂̇́̊e̮̰̼̮̿́̋͗ ̝͇͎̱̊̚̕͝o͙͈̼̜̓̀̉̀n͚̩̣̣̅̍̐̈́l̻̺̩̠͋̑̎͠y̧̱̘͕̿͐̎͘ ̧͎̹̙̓̅̈́͆t̢͔̩̮́̐̕͠h̨͓͔͉̿́͑͝é̹̙̤̮̀̍̈m̙̥̙̺̋̾͑̊e̳̗̖̩̽͐͆͒s͖̰͎̏̍̓̈́ͅ ͎̻͔͍͗͒̾̀y̢̻̜͎̾̄͒̋o̗̝̮̞͛̿̏͐ǔ̥̜̹̘̓̿̕ ̢̛̫͕͔̎̂́ẻ̲̜̰͙̍̌͑v̜̻̗̥̈́̓̈́̔e̡͚͇̫̎̆̋͑r̺̮͓̳̍̊͗̋ ̻̻̣̹͋͑́̈́ǹ̨̲͚͇̒̆͘e̗͉̫̱͂͑͗̓e̳̬̬͈̓̊̂͘d̪̻̞̮̈͂͠͝.͍͇͍̫̒͆̓͝&lt;/h2&gt;
+        &lt;br/&gt;
+        &lt;p&gt;
             Hey! Before we go any further, I would like to ask you a couple of questions:
-        </p>
-        <ul>
-            <li>Do you need a bit more spice in your development life? <input type="checkbox" checked></li>
-            <li>Are Light or Dark themes your thing? <input type="checkbox" checked></li>
-            <li>Is your tolerance for all things moe, high? <input type="checkbox" checked></li>
-            <li>Do you like stickers? <input type="checkbox" checked></li>
-            <li>Is having a lot of choices a must? <input type="checkbox" checked></li>
-        </ul><br/>
-        <p>
-            Well look no further friend, <strong>I've got what you are looking for!</strong>
-        </p><br/>
-        <p>
+        &lt;/p&gt;
+        &lt;ul&gt;
+            &lt;li&gt;Do you need a bit more spice in your development life? &lt;input type="checkbox" checked&gt;&lt;/li&gt;
+            &lt;li&gt;Are Light or Dark themes your thing? &lt;input type="checkbox" checked&gt;&lt;/li&gt;
+            &lt;li&gt;Is your tolerance for all things moe, high? &lt;input type="checkbox" checked&gt;&lt;/li&gt;
+            &lt;li&gt;Do you like stickers? &lt;input type="checkbox" checked&gt;&lt;/li&gt;
+            &lt;li&gt;Is having a lot of choices a must? &lt;input type="checkbox" checked&gt;&lt;/li&gt;
+        &lt;/ul&gt;&lt;br/&gt;
+        &lt;p&gt;
+            Well look no further friend, &lt;strong&gt;I've got what you are looking for!&lt;/strong&gt;
+        &lt;/p&gt;&lt;br/&gt;
+        &lt;p&gt;
             With 14 themes (light and dark) I think you will be able to find your favorite.
-            You can even find one that fits your mood for the day.
-        </p><br/>
-        <p>
+            You can even find one fits your mood for the day.
+        &lt;/p&gt;&lt;br/&gt;
+        &lt;p&gt;
             Variety is the spice of life! So you can choose themes from the following Doki-Doki Theme Suites:
-        <ul>
-            <li>Doki-Doki Literature Club</li>
-            <li>Mistress's Menagerie</li>
-        </ul>
-        </p>
-        <p>
+        &lt;ul&gt;
+            &lt;li&gt;Doki-Doki Literature Club&lt;/li&gt;
+            &lt;li&gt;Mistress's Menagerie&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;/p&gt;
+        &lt;p&gt;
             Too distracted by the sticker in the corner of your IDE?
             No worries! You can configure them to be on or off at your leisure.
-        </p>
-        <br/>
-        <div align="center"><img src="https://raw.githubusercontent.com/cyclic-reference/jetbrains-theme/master/assets/logo.png" alt="Doki Theme"/></div>
-        ]]></description>
-
-    <idea-version since-build="193.4099"/>
-    <depends>com.intellij.modules.platform</depends>
-    <depends>com.intellij.modules.lang</depends>
-
-    <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceInterface="io.acari.doki.themes.ThemeManager"
-                            serviceImplementation="io.acari.doki.themes.impl.ThemeManagerImpl"/>
-        <applicationService serviceInterface="io.acari.doki.stickers.StickerService"
-                            serviceImplementation="io.acari.doki.stickers.impl.StickerServiceImpl"/>
-        <applicationService serviceImplementation="io.acari.doki.config.ThemeConfig"/>
-
-        <applicationConfigurable id="0d570cb2-96df-43cc-80da-7f777e6d0afe"
-                                 instance="io.acari.doki.settings.ThemeSettings"
-                                 groupId="appearance"/>
-
-        <errorHandler id="9782e40c-e6d2-488f-8611-71f5cca6695e" implementation="io.acari.doki.integrations.ErrorReporter"/>
-
-        <iconProvider implementation="io.acari.doki.icon.provider.MaterialIconProvider"
-                      order="first"/>
-
-        <statusBarWidgetProvider implementation="io.acari.doki.ui.status.ThemeStatusBarProvider"/>
-
-        <themeMetadataProvider path="/theme-schema/DokiTheme.themeMetadata.json"/>
-
-        <themeProvider id="dce48196-ff46-470c-b5f9-d1e23f4a79d3" path="/doki/themes/literature/Monika_Dark.theme.json"/>
-        <themeProvider id="9a310731-ab2d-40f5-b502-fa5419f799a2" path="/doki/themes/literature/Monika_Light.theme.json"/>
-        <themeProvider id="91415015-8fe3-48eb-9951-70a5cd6cbb7f" path="/doki/themes/literature/Natsuki_Light.theme.json"/>
-        <themeProvider id="a7e0aa28-739a-4671-80ae-3980997e6b71" path="/doki/themes/literature/Natsuki_Dark.theme.json"/>
-        <themeProvider id="b0340303-0a5a-4a20-9b9c-fc8ce9880078" path="/doki/themes/literature/Sayori_Dark.theme.json"/>
-        <themeProvider id="cb8ef4b7-0844-4a04-b08b-754086598de4" path="/doki/themes/literature/Sayori_Light.theme.json"/>
-        <themeProvider id="a14733d6-8e15-4e75-b6b8-509f323e5b3b" path="/doki/themes/literature/Yuri_Dark.theme.json"/>
-        <themeProvider id="cecf3f92-76d4-4f14-9a9c-3d558b6b3b68" path="/doki/themes/literature/Yuri_Light.theme.json"/>
-
-        <themeProvider id="fc466b4f-8eb7-472c-8cbb-d99a09d4c469" path="/doki/themes/menagerie/Cleo.theme.json"/>
-        <themeProvider id="c915211e-faab-4696-8af2-230892052ba6" path="/doki/themes/menagerie/Eleniel.theme.json"/>
-        <themeProvider id="4693f34f-f400-4431-87f8-0be7fde660d9" path="/doki/themes/menagerie/Neera.theme.json"/>
-        <themeProvider id="436ff3a0-4072-4b38-8d6f-888b18b5d0ab" path="/doki/themes/menagerie/Sanya.theme.json"/>
-        <themeProvider id="c8df9413-5d9f-4e0c-ae64-5d5c1cffe9a5" path="/doki/themes/menagerie/Syrena.theme.json"/>
-        <themeProvider id="9f62362a-49e0-4b82-8f63-d1f98ae7799f" path="/doki/themes/menagerie/Wyla.theme.json"/>
-    </extensions>
-
-    <extensions defaultExtensionNs="JavaScript.JsonSchema">
-        <ProviderFactory implementation="io.acari.doki.schema.DokiThemeJsonSchemaProvider"/>
-    </extensions>
-
-    <application-components>
-        <component>
-            <implementation-class>io.acari.doki.TheDokiTheme</implementation-class>
-        </component>
-        <component>
-            <implementation-class>io.acari.doki.stickers.StickerComponent</implementation-class>
-        </component>
-        <component>
-            <implementation-class>io.acari.doki.hax.HackComponent</implementation-class>
-        </component>
-    </application-components>
-
-    <actions>
-        <group id="DokiThemeActions"
-               text="Doki Theme Options"
-               popup="true"
-               icon="/icons/doki/pen.svg">
-            <action id="StickerEnabler" class="io.acari.doki.actions.StickersToggleAction"
-                    text="Enable Stickers"
-                    icon="/icons/nodes/favorite.svg"
-                    description="Enables the sticker in the lower right hand corner">
-            </action>
-            <add-to-group group-id="MainToolBar" anchor="last"/>
-        </group>
-
-        <action id="io.acari.doki.actions.FileColorToggleAction" class="io.acari.doki.actions.FileColorToggleAction"
-                text="Enable File Colors"
-                icon="/icons/nodes/package.svg"
-                description="Adds a themed background to certain directories in the project tree.">
-            <add-to-group group-id="DokiThemeActions" anchor="first"/>
-        </action>
-        <action id="io.acari.doki.actions.ThemedTitleBarAction" class="io.acari.doki.actions.ThemedTitleBarAction"
-                text="Themed Title Bar"
-                icon="/icons/doki/themedTitleBar.svg"
-                description="Makes the MacOS title bar the same color as your selected theme.">
-            <add-to-group group-id="DokiThemeActions" anchor="last"/>
-        </action>
-        <action id="io.acari.doki.actions.SwapStickerAction" class="io.acari.doki.actions.SwapStickerAction"
-                text="Swap Sticker"
-                icon="/icons/actions/diff.svg"
-                description="Changes the current sticker at the bottom right hand corner of the screen.">
-            <add-to-group group-id="DokiThemeActions" anchor="last"/>
-        </action>
-        <action id="io.acari.doki.actions.ThemeAnimationToggle" class="io.acari.doki.actions.ThemeAnimationToggle"
-                text="Enable Transition Animation"
-                icon="/icons/doki/magic.svg"
-                description="Fancy fade transition animation when changing any look and feel.">
-            <add-to-group group-id="DokiThemeActions" anchor="last"/>
-        </action>
-        <action id="io.acari.doki.actions.ShowSettingsAction" class="io.acari.doki.actions.ShowSettingsAction"
-                text="Show Settings"
-                icon="/icons/general/gearPlain.svg"
-                description="Shows the Doki Theme&#39;s settings window.">
-            <add-to-group group-id="DokiThemeActions" anchor="last"/>
-        </action>
-    </actions>
+        &lt;/p&gt;
+        &lt;br/&gt;
+        &lt;div align="center"&gt;&lt;img src="https://raw.githubusercontent.com/cyclic-reference/jetbrains-theme/master/assets/logo.png" alt="Doki Theme"/&gt;&lt;/div&gt;
+        </description>
+  <idea-version since-build="193.4099"/>
+  <depends>com.intellij.modules.platform</depends>
+  <depends>com.intellij.modules.lang</depends>
+  <extensions defaultExtensionNs="com.intellij">
+    <annotator language="JSON" implementationClass="io.acari.doki.ide.DokiThemeColorAnnotator"/>
+    <applicationService serviceInterface="io.acari.doki.themes.ThemeManager" serviceImplementation="io.acari.doki.themes.impl.ThemeManagerImpl"/>
+    <applicationService serviceInterface="io.acari.doki.stickers.StickerService" serviceImplementation="io.acari.doki.stickers.impl.StickerServiceImpl"/>
+    <applicationService serviceImplementation="io.acari.doki.config.ThemeConfig"/>
+    <applicationConfigurable id="0d570cb2-96df-43cc-80da-7f777e6d0afe" instance="io.acari.doki.settings.ThemeSettings" groupId="appearance"/>
+    <errorHandler id="9782e40c-e6d2-488f-8611-71f5cca6695e" implementation="io.acari.doki.integrations.ErrorReporter"/>
+    <iconProvider implementation="io.acari.doki.icon.provider.MaterialIconProvider" order="first"/>
+    <statusBarWidgetProvider implementation="io.acari.doki.ui.status.ThemeStatusBarProvider"/>
+    <themeMetadataProvider path="/theme-schema/DokiTheme.themeMetadata.json"/>
+    <themeProvider id="9f62362a-49e0-4b82-8f63-d1f98ae7799f" path="/doki/themes/mistress/Wyla.theme.json"/>
+    <themeProvider id="c8df9413-5d9f-4e0c-ae64-5d5c1cffe9a5" path="/doki/themes/mistress/Syrena.theme.json"/>
+    <themeProvider id="4693f34f-f400-4431-87f8-0be7fde660d9" path="/doki/themes/mistress/Neera.theme.json"/>
+    <themeProvider id="c915211e-faab-4696-8af2-230892052ba6" path="/doki/themes/mistress/Eleniel.theme.json"/>
+    <themeProvider id="436ff3a0-4072-4b38-8d6f-888b18b5d0ab" path="/doki/themes/mistress/Sanya.theme.json"/>
+    <themeProvider id="fc466b4f-8eb7-472c-8cbb-d99a09d4c469" path="/doki/themes/mistress/Cleo.theme.json"/>
+    <themeProvider id="91415015-8fe3-48eb-9951-70a5cd6cbb7f" path="/doki/themes/literature_club/Natsuki_Light.theme.json"/>
+    <themeProvider id="a7e0aa28-739a-4671-80ae-3980997e6b71" path="/doki/themes/literature_club/Natsuki_Dark.theme.json"/>
+    <themeProvider id="cecf3f92-76d4-4f14-9a9c-3d558b6b3b68" path="/doki/themes/literature_club/Yuri_Light.theme.json"/>
+    <themeProvider id="a14733d6-8e15-4e75-b6b8-509f323e5b3b" path="/doki/themes/literature_club/Yuri_Dark.theme.json"/>
+    <themeProvider id="cb8ef4b7-0844-4a04-b08b-754086598de4" path="/doki/themes/literature_club/Sayori_Light.theme.json"/>
+    <themeProvider id="b0340303-0a5a-4a20-9b9c-fc8ce9880078" path="/doki/themes/literature_club/Sayori_Dark.theme.json"/>
+    <themeProvider id="9a310731-ab2d-40f5-b502-fa5419f799a2" path="/doki/themes/literature_club/Monika_Light.theme.json"/>
+    <themeProvider id="dce48196-ff46-470c-b5f9-d1e23f4a79d3" path="/doki/themes/literature_club/Monika_Dark.theme.json"/>
+  </extensions>
+  <extensions defaultExtensionNs="JavaScript.JsonSchema">
+    <ProviderFactory implementation="io.acari.doki.schema.DokiThemeJsonSchemaProvider"/>
+  </extensions>
+  <application-components>
+    <component>
+      <implementation-class>io.acari.doki.TheDokiTheme</implementation-class>
+    </component>
+    <component>
+      <implementation-class>io.acari.doki.stickers.StickerComponent</implementation-class>
+    </component>
+    <component>
+      <implementation-class>io.acari.doki.hax.HackComponent</implementation-class>
+    </component>
+  </application-components>
+  <actions>
+    <group id="DokiThemeActions" text="Doki Theme Options" popup="true" icon="/icons/doki/pen.svg">
+      <action id="StickerEnabler" class="io.acari.doki.actions.StickersToggleAction" text="Enable Stickers" icon="/icons/nodes/favorite.svg" description="Enables the sticker in the lower right hand corner"/>
+      <add-to-group group-id="MainToolBar" anchor="last"/>
+    </group>
+    <action id="io.acari.doki.actions.FileColorToggleAction" class="io.acari.doki.actions.FileColorToggleAction" text="Enable File Colors" icon="/icons/nodes/package.svg" description="Adds a themed background to certain directories in the project tree.">
+      <add-to-group group-id="DokiThemeActions" anchor="first"/>
+    </action>
+    <action id="io.acari.doki.actions.ThemedTitleBarAction" class="io.acari.doki.actions.ThemedTitleBarAction" text="Themed Title Bar" icon="/icons/doki/themedTitleBar.svg" description="Makes the MacOS title bar the same color as your selected theme.">
+      <add-to-group group-id="DokiThemeActions" anchor="last"/>
+    </action>
+    <action id="io.acari.doki.actions.SwapStickerAction" class="io.acari.doki.actions.SwapStickerAction" text="Swap Sticker" icon="/icons/actions/diff.svg" description="Changes the current sticker at the bottom right hand corner of the screen.">
+      <add-to-group group-id="DokiThemeActions" anchor="last"/>
+    </action>
+    <action id="io.acari.doki.actions.ThemeAnimationToggle" class="io.acari.doki.actions.ThemeAnimationToggle" text="Enable Transition Animation" icon="/icons/doki/magic.svg" description="Fancy fade transition animation when changing any look and feel.">
+      <add-to-group group-id="DokiThemeActions" anchor="last"/>
+    </action>
+    <action id="io.acari.doki.actions.ShowSettingsAction" class="io.acari.doki.actions.ShowSettingsAction" text="Show Settings" icon="/icons/general/gearPlain.svg" description="Shows the Doki Theme's settings window.">
+      <add-to-group group-id="DokiThemeActions" anchor="last"/>
+    </action>
+  </actions>
 </idea-plugin>

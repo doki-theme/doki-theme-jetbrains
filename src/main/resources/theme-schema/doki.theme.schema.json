@@ -12,18 +12,19 @@
     },
     "sticker": {
       "type": "string",
-      "pattern": "^/stickers/.+\\.png$",
-      "title": "Path to the background image",
-      "description": "Path to the background image starting with '/stickers'",
-      "default": "/stickers/literature/just_monika.png",
+      "pattern": "^.+\\.png$",
+      "title": "Sticker File Name",
+      "description": "The name of the background image that is in the same directory as the definition",
+      "default": "just_monika.png",
       "examples": [
-        "/stickers/literature/just_monika.png"
+        "just_monika.png"
       ]
     }
   },
   "type": "object",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "required": [
+    "id",
     "name",
     "displayName",
     "dark",
@@ -33,6 +34,17 @@
     "ui"
   ],
   "properties": {
+    "id": {
+      "type": "string",
+      "title": "Theme Id",
+      "description": "Unique Identifier for the theme.",
+      "default": "",
+      "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      "examples": [
+        "91415015-8fe3-48eb-9951-70a5cd6cbb7f",
+        "a14733d6-8e15-4e75-b6b8-509f323e5b3b"
+      ]
+    },
     "name": {
       "type": "string",
       "title": "Theme name",
@@ -45,7 +57,7 @@
     "displayName": {
       "type": "string",
       "title": "Display name",
-      "description": "Display name",
+      "description": "The name used in various theme components such as the Status Bar",
       "default": "",
       "examples": [
         "Just Monika"
@@ -66,17 +78,39 @@
       "description": "The author of the theme",
       "default": "",
       "examples": [
-        "John Doe"
+        "Leroy Jenkins"
       ]
     },
     "editorScheme": {
-      "type": "string",
-      "title": "Path to the editor schema xml file starting with '/'",
-      "default": "",
-      "pattern": "^/",
-      "examples": [
-        "/editorScheme.xml"
-      ]
+      "type": "object",
+      "title": "The code colors",
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "How you want to create the theme xml file.",
+          "pattern": "(templateExtension)|(template)|(custom)",
+          "default": "template",
+          "examples": [
+            "template",
+            "templateExtension",
+            "custom"
+          ]
+        },
+        "file": {
+          "type": "string",
+          "description": "The name of the file you want to extend, take as template, or use directly.",
+          "pattern": "^.+\\.xml$",
+          "examples": [
+            "Doki Light.xml",
+            "Natsuki_Light.xml",
+            "Yuri_Dark.xml"
+          ],
+          "default": "Doki Light.xml"
+        }
+      }
     },
     "ui": {
       "type": "object"
@@ -275,8 +309,160 @@
       "type": "object",
       "title": "Theme Color Palette",
       "description": "Define common colors here and use color names in 'ui' section instead of #rrggbb values",
+      "required": [
+        "baseIconColor",
+        "ghostColor",
+        "contrastColor",
+        "nonProjectFileScopeColor",
+        "editorBackground",
+        "secondaryBackground",
+        "selectionForeground",
+        "inactiveBackground",
+        "inactiveBackgroundDarker",
+        "headerColor",
+        "baseBackground",
+        "borderColor",
+        "buttonColor",
+        "selectionInactive",
+        "tagColor",
+        "secondaryForegroundColor",
+        "selectionBackground",
+        "buttonFont",
+        "foregroundColor",
+        "startColor",
+        "highlightColor",
+        "disabledColor",
+        "accentColorTransparent",
+        "accentColorLessTransparent",
+        "accentColorMoreTransparent",
+        "accentColor",
+        "accentContrastColor",
+        "stopColor",
+        "testScopeColor",
+        "popupMask",
+        "codeBlock",
+        "textEditorBackground",
+        "searchResultBackground",
+        "classNameColor",
+        "htmlTagColor",
+        "stringColor",
+        "keyColor"
+      ],
       "patternProperties": {
-        ".*": {"$ref": "#/definitions/color"}
+        "baseIconColor": {
+          "$ref": "#/definitions/color"
+        },
+        "ghostColor": {
+          "$ref": "#/definitions/color"
+        },
+        "contrastColor": {
+          "$ref": "#/definitions/color"
+        },
+        "nonProjectFileScopeColor": {
+          "$ref": "#/definitions/color"
+        },
+        "editorBackground": {
+          "$ref": "#/definitions/color"
+        },
+        "secondaryBackground": {
+          "$ref": "#/definitions/color"
+        },
+        "selectionForeground": {
+          "$ref": "#/definitions/color"
+        },
+        "inactiveBackground": {
+          "$ref": "#/definitions/color"
+        },
+        "inactiveBackgroundDarker": {
+          "$ref": "#/definitions/color"
+        },
+        "headerColor": {
+          "$ref": "#/definitions/color"
+        },
+        "baseBackground": {
+          "$ref": "#/definitions/color"
+        },
+        "borderColor": {
+          "$ref": "#/definitions/color"
+        },
+        "buttonColor": {
+          "$ref": "#/definitions/color"
+        },
+        "selectionInactive": {
+          "$ref": "#/definitions/color"
+        },
+        "tagColor": {
+          "$ref": "#/definitions/color"
+        },
+        "secondaryForegroundColor": {
+          "$ref": "#/definitions/color"
+        },
+        "selectionBackground": {
+          "$ref": "#/definitions/color"
+        },
+        "buttonFont": {
+          "$ref": "#/definitions/color"
+        },
+        "foregroundColor": {
+          "$ref": "#/definitions/color"
+        },
+        "startColor": {
+          "$ref": "#/definitions/color"
+        },
+        "highlightColor": {
+          "$ref": "#/definitions/color"
+        },
+        "disabledColor": {
+          "$ref": "#/definitions/color"
+        },
+        "accentColorTransparent": {
+          "$ref": "#/definitions/color"
+        },
+        "accentColorLessTransparent": {
+          "$ref": "#/definitions/color"
+        },
+        "accentColorMoreTransparent": {
+          "$ref": "#/definitions/color"
+        },
+        "accentColor": {
+          "$ref": "#/definitions/color"
+        },
+        "accentContrastColor": {
+          "$ref": "#/definitions/color"
+        },
+        "stopColor": {
+          "$ref": "#/definitions/color"
+        },
+        "testScopeColor": {
+          "$ref": "#/definitions/color"
+        },
+        "popupMask": {
+          "$ref": "#/definitions/color"
+        },
+        "codeBlock": {
+          "$ref": "#/definitions/color"
+        },
+        "textEditorBackground": {
+          "$ref": "#/definitions/color"
+        },
+        "searchResultBackground": {
+          "$ref": "#/definitions/color"
+        },
+        "classNameColor": {
+          "$ref": "#/definitions/color"
+        },
+        "htmlTagColor": {
+          "$ref": "#/definitions/color"
+        },
+        "stringColor": {
+          "$ref": "#/definitions/color"
+        },
+        "keyColor": {
+          "$ref": "#/definitions/color"
+        },
+        ".*": {
+          "$ref": "#/definitions/color"
+        }
       }
     }
   }

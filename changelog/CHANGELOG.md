@@ -1,5 +1,12 @@
 # Changelog
 ---
+
+# 5.2.0
+
+- Replaced Idea Vim Icon With Themed Icon
+- Made themes easier to maintain so more can be added without significantly increasing maintenance work.
+    - As a side effect the light Literature club themes may have changed slightly. 
+    
 # 5.1.2
 
 - Small Color Consistency improvements.
