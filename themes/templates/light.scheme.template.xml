@@ -79,6 +79,7 @@
         <option name="ScrollBar.thumbColor" value="$accentColor$5a" />
         <option name="ScrollBar.trackColor" value="$textEditorBackground$" />
         <option name="TEARLINE_COLOR" value="$textEditorBackground$" />
+        <option name="TOOLTIP" value="$textEditorBackground$" />
         <option name="VCS_ANNOTATIONS_COLOR_1" value="$headerColor$"/>
         <option name="VCS_ANNOTATIONS_COLOR_2" value="$textEditorBackground$"/>
         <option name="VCS_ANNOTATIONS_COLOR_3" value="$buttonColor$"/>
@@ -900,7 +901,7 @@
         </option>
         <option name="JSON.KEYWORD">
             <value>
-                <option name="FOREGROUND" value="4C94D6" />
+                <option name="FOREGROUND" value="$keywordColor$" />
             </value>
         </option>
         <option name="JSON.PROPERTY_KEY">
@@ -1925,6 +1926,12 @@
                 <option name="FONT_TYPE" value="2" />
             </value>
         </option>
+        <option name="PHP_EXEC_COMMAND_ID">
+            <value>
+                <option name="FOREGROUND" value="458383" />
+                <option name="BACKGROUND" value="$codeBlock$" />
+            </value>
+        </option>
         <option name="PHP_PARAMETER">
             <value>
                 <option name="FOREGROUND" value="$stringColor$" />
@@ -2477,7 +2484,7 @@
         </option>
         <option name="Unresolved reference access">
             <value>
-                <option name="FOREGROUND" value="666b87" />
+                <option name="FOREGROUND" value="$codeBlock$" />
             </value>
         </option>
         <option name="Valid string escape">
