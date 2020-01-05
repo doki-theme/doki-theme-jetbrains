@@ -43,7 +43,14 @@
     "accentContrastColor": "#2a1e35",
     "stopColor": "#F667FF",
     "testScopeColor": "#423658",
-    "popupMask": "#EAEAF00A"
+    "popupMask": "#EAEAF00A",
+    "codeBlock": "#392A54",
+    "textEditorBackground": "#422D5A",
+    "searchResultBackground": "#3C1D55",
+    "classNameColor": "#FF9CD6",
+    "htmlTagColor": "#bca3aa",
+    "stringColor": "#f1fa8c",
+    "keyColor": "#FF9CD6"
   },
   "ui": {
     "Plugins.lightSelectionBackground": "selectionBackground",
