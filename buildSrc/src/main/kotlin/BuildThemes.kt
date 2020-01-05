@@ -179,8 +179,8 @@ open class BuildThemes : DefaultTask() {
     return extractResourcesPath(themeJson)
   }
 
-  private fun validateColors(themeDefinition: DokiBuildThemeDefinition): TreeMap<String, Any> {
-    val colorz = TreeMap(themeDefinition.colors)
+  private fun validateColors(themeDefinition: DokiBuildThemeDefinition): Map<String, Any> {
+    val colorz = themeDefinition.colors
     val colorsSchema = themeSchema.properties["colors"]?.required?.toSet()
       ?: throw IllegalStateException("doki.theme.schema.json is missing required attribute 'properties.colors.required'!")
     val missingColors = colorsSchema
