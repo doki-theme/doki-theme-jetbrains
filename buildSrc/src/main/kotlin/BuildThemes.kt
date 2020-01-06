@@ -457,18 +457,41 @@ open class BuildThemes : DefaultTask() {
           "option" -> {
             val value = it.attribute("value") as? String
             if (value?.contains('$') == true) {
-              val start = value.indexOf('$')
-              val end = value.lastIndexOf('$')
-              val templateColor = value.subSequence(start + 1, end)
-              val replacementHexColor = dokiDefinition.colors[templateColor] as? String
-                ?: throw IllegalArgumentException("$templateColor is not in ${dokiDefinition.name}'s color definition.")
-              val replacementColor = replacementHexColor.substring(1)
-              it.attributes()["value"] = "$replacementColor${value.substring(end + 1)}"
+              val (end, replacementColor) = getReplacementColor(value, '$') {
+                templateColor ->
+                dokiDefinition.overrides?.editorScheme?.colors?.get(templateColor) as? String
+                  ?: dokiDefinition.colors[templateColor] as? String
+                  ?: throw IllegalArgumentException("$templateColor is not in ${dokiDefinition.name}'s color definition.")
+              }
+              it.attributes()["value"] = buildReplacement(replacementColor, value, end)
+            } else if (value?.contains('%') == true) {
+              val (end, replacementColor) = getReplacementColor(value, '%') {
+                  templateColor ->
+                  dokiDefinition.colors[templateColor] as? String
+                  ?: throw IllegalArgumentException("$templateColor is not in ${dokiDefinition.name}'s color definition.")
+              }
+              it.attributes()["value"] = buildReplacement(replacementColor, value, end)
             }
           }
         }
       }
     return themeTemplate
+  }
+
+  private fun buildReplacement(replacementColor: String, value: String, end: Int) =
+    "$replacementColor${value.substring(end + 1)}"
+
+  private fun getReplacementColor(
+    value: String,
+    templateDelemiter: Char,
+    replacementSupplier: (CharSequence) -> String
+  ): Pair<Int, String> {
+    val start = value.indexOf(templateDelemiter)
+    val end = value.lastIndexOf(templateDelemiter)
+    val templateColor = value.subSequence(start + 1, end)
+    val replacementHexColor = replacementSupplier(templateColor)
+    val replacementColor = replacementHexColor.substring(1)
+    return Pair(end, replacementColor)
   }
 
   private fun createXmlFromDefinition(

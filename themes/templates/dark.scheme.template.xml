@@ -68,17 +68,17 @@
         <option name="ScrollBar.Mac.thumbBorderColor" value="$accentColor$5a" />
         <option name="ScrollBar.Mac.thumbColor" value="$accentColor$5a" />
         <option name="ScrollBar.Mac.trackColor" value="$textEditorBackground$" />
-        <option name="ScrollBar.Transparent.hoverThumbBorderColor" value="$accentColor$9a" />
-        <option name="ScrollBar.Transparent.hoverThumbColor" value="$accentColor$9a" />
+        <option name="ScrollBar.Transparent.hoverThumbBorderColor" value="%accentColor%9a" />
+        <option name="ScrollBar.Transparent.hoverThumbColor" value="%accentColor%9a" />
         <option name="ScrollBar.Transparent.hoverTrackColor" value="$textEditorBackground$" />
-        <option name="ScrollBar.Transparent.thumbBorderColor" value="$accentColor$5a" />
-        <option name="ScrollBar.Transparent.thumbColor" value="$accentColor$5a" />
+        <option name="ScrollBar.Transparent.thumbBorderColor" value="%accentColor%5a" />
+        <option name="ScrollBar.Transparent.thumbColor" value="%accentColor%5a" />
         <option name="ScrollBar.Transparent.trackColor" value="$textEditorBackground$" />
-        <option name="ScrollBar.hoverThumbBorderColor" value="$accentColor$9a" />
-        <option name="ScrollBar.hoverThumbColor" value="$accentColor$9a" />
+        <option name="ScrollBar.hoverThumbBorderColor" value="%accentColor%9a" />
+        <option name="ScrollBar.hoverThumbColor" value="%accentColor%9a" />
         <option name="ScrollBar.hoverTrackColor" value="$textEditorBackground$" />
-        <option name="ScrollBar.thumbBorderColor" value="$accentColor$5a" />
-        <option name="ScrollBar.thumbColor" value="$accentColor$5a" />
+        <option name="ScrollBar.thumbBorderColor" value="%accentColor%5a" />
+        <option name="ScrollBar.thumbColor" value="%accentColor%5a" />
         <option name="ScrollBar.trackColor" value="$textEditorBackground$" />
         <option name="TEARLINE_COLOR" value="$textEditorBackground$" />
         <option name="TOOLTIP" value="$textEditorBackground$" />
@@ -816,8 +816,7 @@
         </option>
         <option name="INLINE_PARAMETER_HINT">
             <value>
-<!--                todo test dis-->
-                <option name="FOREGROUND" value="$accentColor$5a" />
+                <option name="FOREGROUND" value="$accentColor$a9" />
                 <option name="BACKGROUND" value="$textEditorBackground$"/>
             </value>
         </option>

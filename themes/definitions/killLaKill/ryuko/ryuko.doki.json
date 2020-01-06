@@ -6,12 +6,19 @@
   "author": "cyclic-reference",
   "group": "Kill la Kill",
   "editorScheme": {
-    "type": "template",
-    "name": "Doki Dark"
+    "type": "templateExtension",
+    "file": "Ryuko.xml"
   },
   "stickers": {
     "default": "ryuko.png",
     "secondary": "ryuko_senketsu.png"
+  },
+  "overrides": {
+    "editorScheme": {
+      "colors": {
+        "accentColor": "#e4ff10"
+      }
+    }
   },
   "colors": {
     "baseIconColor": "#717981",
@@ -48,11 +55,11 @@
     "codeBlock": "#292e34",
     "textEditorBackground": "#2b3238",
     "searchResultBackground": "#272e34",
-    "classNameColor": "#eaf24a",
+    "classNameColor": "#ef2066",
     "htmlTagColor": "#a28a92",
-    "stringColor": "#ffd866",
+    "stringColor": "#f4fa8c",
     "keyColor": "#6d7ac9",
-    "keywordColor": "#a28a92"
+    "keywordColor": "#bd84dd"
   },
   "ui": {},
   "icons": {}
