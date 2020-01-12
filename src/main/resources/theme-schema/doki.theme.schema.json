@@ -326,7 +326,6 @@
         "buttonColor",
         "selectionInactive",
         "tagColor",
-        "secondaryForegroundColor",
         "selectionBackground",
         "buttonFont",
         "foregroundColor",
@@ -394,9 +393,6 @@
           "$ref": "#/definitions/color"
         },
         "tagColor": {
-          "$ref": "#/definitions/color"
-        },
-        "secondaryForegroundColor": {
           "$ref": "#/definitions/color"
         },
         "selectionBackground": {
