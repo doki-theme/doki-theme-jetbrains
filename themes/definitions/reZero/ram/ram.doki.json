@@ -15,7 +15,7 @@
   "overrides": {
     "editorScheme": {
       "colors": {
-        "accentColor": "#F375C8"
+        "accentColor": "#a87ff8"
       }
     }
   },
@@ -57,7 +57,7 @@
     "classNameColor": "#EF9FD8",
     "htmlTagColor": "#a28a92",
     "stringColor": "#f4fa8c",
-    "keyColor": "#bd84dd",
+    "keyColor": "#F375C8",
     "keywordColor": "#988F9A"
   },
   "ui": {},
