@@ -12,6 +12,13 @@
   "stickers": {
     "default": "ram.png"
   },
+  "overrides": {
+    "editorScheme": {
+      "colors": {
+        "accentColor": "#F375C8"
+      }
+    }
+  },
   "colors": {
     "baseIconColor": "#717981",
     "ghostColor": "#FFFFFF00",
@@ -47,11 +54,11 @@
     "codeBlock": "#292e34",
     "textEditorBackground": "#2f3036",
     "searchResultBackground": "#272e34",
-    "classNameColor": "#ef2066",
+    "classNameColor": "#EF9FD8",
     "htmlTagColor": "#a28a92",
     "stringColor": "#f4fa8c",
-    "keyColor": "#6d7ac9",
-    "keywordColor": "#bd84dd"
+    "keyColor": "#bd84dd",
+    "keywordColor": "#988F9A"
   },
   "ui": {},
   "icons": {}
