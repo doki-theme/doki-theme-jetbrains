@@ -1,0 +1,11 @@
+<scheme name="Megumin" version="142" parent_scheme="Doki Dark">
+    <attributes>
+        <option name="INLINE_PARAMETER_HINT">
+            <value>
+                <option name="FOREGROUND" value="ff5555a9" />
+                <option name="BACKGROUND" value="$textEditorBackground$"/>
+            </value>
+        </option>
+
+    </attributes>
+</scheme>
