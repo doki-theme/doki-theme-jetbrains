@@ -149,7 +149,7 @@ open class BuildThemes : DefaultTask() {
     val topThemeDefinition =
       dokiThemeTemplates[templateName] ?: throw IllegalStateException("Theme $templateName does not exist.")
     val finalTheme = IntellijDokiThemeDefinition(
-      name = themeDefinition.name,
+      name = "${getLafNamePrefix(themeDefinition.group)}${themeDefinition.name}",
       displayName = themeDefinition.displayName,
       dark = themeDefinition.dark,
       author = themeDefinition.author,

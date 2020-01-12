@@ -12,6 +12,13 @@
   "stickers": {
     "default": "megumin.png"
   },
+  "overrides": {
+    "editorScheme": {
+      "colors": {
+        "accentColor": "#e4ff10"
+      }
+    }
+  },
   "colors": {
     "baseIconColor": "#979087",
     "ghostColor": "#FFFFFF00",
@@ -50,7 +57,7 @@
     "classNameColor": "#dae838",
     "htmlTagColor": "#a28a92",
     "stringColor": "#ffd866",
-    "keyColor": "#a28a92",
+    "keyColor": "#AF5C5A",
     "keywordColor": "#a28a92"
   },
   "ui": {},
