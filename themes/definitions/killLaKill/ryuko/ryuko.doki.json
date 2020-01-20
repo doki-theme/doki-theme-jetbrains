@@ -10,8 +10,7 @@
     "file": "Ryuko.xml"
   },
   "stickers": {
-    "default": "ryuko.png",
-    "secondary": "ryuko_senketsu.png"
+    "default": "ryuko.png"
   },
   "overrides": {
     "editorScheme": {
