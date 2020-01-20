@@ -1,7 +1,6 @@
 package io.acari.doki.themes.impl
 
 import com.google.gson.Gson
-import com.intellij.ide.ui.UITheme
 import com.intellij.ide.ui.laf.LafManagerImpl
 import com.intellij.ide.ui.laf.UIThemeBasedLookAndFeelInfo
 import com.intellij.util.io.inputStream
@@ -10,13 +9,10 @@ import io.acari.doki.themes.DokiThemeDefinition
 import io.acari.doki.themes.ThemeManager
 import io.acari.doki.util.toOptional
 import java.io.InputStreamReader
-import java.net.URI
-import java.net.URI.*
+import java.net.URI.create
 import java.nio.charset.StandardCharsets
-import java.nio.file.FileSystems
-import java.nio.file.FileSystems.*
+import java.nio.file.FileSystems.newFileSystem
 import java.nio.file.Files.walk
-import java.nio.file.Paths.get
 import java.util.*
 import java.util.stream.Collectors
 import javax.swing.UIManager
@@ -29,7 +25,7 @@ class ThemeManagerImpl : ThemeManager {
     val gson = Gson()
     val themeURI = javaClass.classLoader
       .getResource("/doki/themes")
-      .toURI()
+      ?.toURI()
       .toString()
       .split("!")
     val fileSystem = newFileSystem(create(themeURI[0]), mapOf<String, String>())

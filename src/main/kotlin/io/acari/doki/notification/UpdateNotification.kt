@@ -7,13 +7,14 @@ val UPDATE_MESSAGE: String = """
       What's New?<br>
       <ul>
       <li>More Color and Icon Consistency.</li>
+      <li>Android Studio 4.0 Support</li>
       </ul>
       <br>Please see the <a href="https://github.com/cyclic-reference/ddlc-jetbrains-theme/blob/master/changelog/CHANGELOG.md">Changelog</a> for more details.
       <br>
       Thanks again for downloading <b>The Doki Theme</b>! •‿•<br>
 """.trimIndent()
 
-const val CURRENT_VERSION = "5.2.0"
+const val CURRENT_VERSION = "5.2.1"
 
 object UpdateNotification {
 

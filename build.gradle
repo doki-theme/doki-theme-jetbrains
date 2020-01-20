@@ -6,7 +6,7 @@ plugins {
 }
 
 group 'io.acari'
-version '5.2.0'
+version '5.2.1'
 
 repositories {
     maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
@@ -20,7 +20,7 @@ dependencies {
 }
 
 intellij {
-    version 'LATEST-EAP-SNAPSHOT'
+    version '2019.3.1'
     type 'IU'
     alternativeIdePath idePath
 }

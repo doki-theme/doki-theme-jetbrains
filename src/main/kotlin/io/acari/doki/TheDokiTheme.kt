@@ -24,6 +24,7 @@ import io.acari.doki.themes.ThemeManager
 import io.acari.doki.util.LegacyThemeUtilities
 import io.acari.doki.util.LegacyThemeUtilities.DARK_MODE_PROP
 import io.acari.doki.util.LegacyThemeUtilities.SAVED_STATE
+import io.acari.doki.util.doOrElse
 import io.acari.doki.util.toOptional
 
 class TheDokiTheme : Disposable {
@@ -43,7 +44,7 @@ class TheDokiTheme : Disposable {
 
     connection.subscribe(LafManagerListener.TOPIC, LafManagerListener {
       ThemeManager.instance.currentTheme
-        .ifPresentOrElse({
+        .doOrElse({
           setSVGColorPatcher()
           installAllUIComponents()
           attemptToInstallColors()
