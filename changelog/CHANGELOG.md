@@ -1,5 +1,9 @@
 # Changelog
 ---
+# 5.2.1
+
+- Java 8 Runtime support.
+    - Android 4.0 Support
 
 # 5.2.0
 
