@@ -20,7 +20,7 @@ dependencies {
 }
 
 intellij {
-    version 'LATEST-EAP-SNAPSHOT'
+    version '2019.3.1'
     type 'IU'
     alternativeIdePath idePath
 }
