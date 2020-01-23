@@ -13,6 +13,7 @@
     "default": "cleo.png"
   },
   "colors": {
+    "caretRow": "#E7EDF0",
     "baseIconColor": "#898989",
     "ghostColor": "#FFFFFF00",
     "contrastColor": "#EAEAF0",

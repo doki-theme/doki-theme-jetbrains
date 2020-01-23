@@ -13,6 +13,7 @@
     "default": "wyla.png"
   },
   "colors": {
+    "caretRow": "#3b3539",
     "baseIconColor": "#979087",
     "ghostColor": "#FFFFFF00",
     "contrastColor": "#2e2b32",

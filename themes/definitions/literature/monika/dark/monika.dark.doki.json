@@ -14,6 +14,7 @@
     "secondary": "just_monika_dark_joy.png"
   },
   "colors": {
+    "caretRow": "#292D1F",
     "baseIconColor": "#657F6E",
     "ghostColor": "#FFFFFF00",
     "contrastColor": "#244020",

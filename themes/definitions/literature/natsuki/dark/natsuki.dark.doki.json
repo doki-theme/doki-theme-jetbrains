@@ -14,6 +14,7 @@
     "secondary": "natsuki_dark_normal.png"
   },
   "colors": {
+    "caretRow": "#4D2339",
     "baseIconColor": "#7F707A",
     "ghostColor": "#FFFFFF00",
     "contrastColor": "#56324C",

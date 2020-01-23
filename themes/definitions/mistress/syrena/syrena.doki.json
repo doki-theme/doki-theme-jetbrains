@@ -13,6 +13,7 @@
     "default": "syrena.png"
   },
   "colors": {
+    "caretRow": "#564135",
     "baseIconColor": "#97818B",
     "ghostColor": "#FFFFFF00",
     "contrastColor": "#392525",

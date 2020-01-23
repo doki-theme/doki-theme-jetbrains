@@ -13,6 +13,7 @@
     "default": "sanya.png"
   },
   "colors": {
+    "caretRow": "#402d41",
     "ghostColor": "#FFFFFF00",
     "contrastColor": "#341F2D",
     "nonProjectFileScopeColor":  "#413037",
