@@ -13,6 +13,7 @@
     "default": "satsuki.png"
   },
   "colors": {
+    "caretRow": "#e0dfe6",
     "baseIconColor": "#85838b",
     "ghostColor": "#FFFFFF00",
     "contrastColor": "#f0f0f6",

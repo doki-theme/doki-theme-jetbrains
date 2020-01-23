@@ -14,6 +14,7 @@
     "secondary": "just_monika_joy.png"
   },
   "colors": {
+    "caretRow": "#dcf0db",
     "baseIconColor": "#657F6E",
     "ghostColor": "#FFFFFF00",
     "contrastColor": "#c6f0cc",

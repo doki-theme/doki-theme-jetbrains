@@ -14,6 +14,7 @@
     "secondary": "yuri_joy.png"
   },
   "colors": {
+    "caretRow": "#c3c5f0",
     "baseIconColor": "#615E7F",
     "ghostColor": "#FFFFFF00",
     "contrastColor": "#A8B0F0",

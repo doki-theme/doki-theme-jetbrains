@@ -311,6 +311,7 @@
       "title": "Theme Color Palette",
       "description": "Define common colors here and use color names in 'ui' section instead of #rrggbb values",
       "required": [
+        "caretRow",
         "baseIconColor",
         "ghostColor",
         "contrastColor",
@@ -350,6 +351,9 @@
         "keywordColor"
       ],
       "patternProperties": {
+        "caretRow": {
+          "$ref": "#/definitions/color"
+        },
         "baseIconColor": {
           "$ref": "#/definitions/color"
         },

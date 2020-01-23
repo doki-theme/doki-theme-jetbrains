@@ -20,6 +20,7 @@
     }
   },
   "colors": {
+    "caretRow": "#ffdce6",
     "baseIconColor": "#7F707A",
     "ghostColor": "#FFFFFF00",
     "contrastColor": "#f0c3e3",
