@@ -2426,11 +2426,7 @@
                 <option name="FOREGROUND" value="cd4848" />
             </value>
         </option>
-        <option name="Unresolved reference access">
-            <value>
-                <option name="FOREGROUND" value="$codeBlock$" />
-            </value>
-        </option>
+        <option name="Unresolved reference access" baseAttributes="DEFAULT_IDENTIFIER"/>
         <option name="Valid string escape">
             <value>
                 <option name="FOREGROUND" value="cc7832" />
