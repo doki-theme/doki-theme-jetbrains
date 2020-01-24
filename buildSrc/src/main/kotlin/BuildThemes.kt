@@ -3,13 +3,12 @@ import groovy.util.Node
 import groovy.util.NodeList
 import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.TaskAction
+import java.io.File
 import java.io.InputStreamReader
 import java.nio.charset.StandardCharsets
+import java.nio.file.*
 import java.nio.file.Files.*
-import java.nio.file.Path
 import java.nio.file.Paths.get
-import java.nio.file.StandardCopyOption
-import java.nio.file.StandardOpenOption
 import java.util.*
 import java.util.regex.Pattern
 import java.util.stream.Collectors
@@ -210,7 +209,8 @@ open class BuildThemes : DefaultTask() {
     dokiThemeDefinitionPath: Path
   ): BuildStickers {
     val stickers = themeDefinition.stickers
-    val stickerDirectory = "/stickers/${themeDefinition.usableGroup.toLowerCase()}/${themeDefinition.usableName}/"
+    val separator = File.separator
+    val stickerDirectory = buildStickerPath(separator, themeDefinition)
     val localStickerPath = get(getResourcesDirectory().toString(), stickerDirectory)
 
     if (!exists(localStickerPath)) {
@@ -235,12 +235,16 @@ open class BuildThemes : DefaultTask() {
         copy(get(dokiThemeDefinitionPath.parent.toString(), stickers.secondary), it)
       }
 
-    val defaultStickerResourcesPath = "$stickerDirectory${stickers.default}"
+    val stickerResourcesDirectory = buildStickerPath("/", themeDefinition)
+    val defaultStickerResourcesPath = "$stickerResourcesDirectory${stickers.default}"
     return BuildStickers(
       defaultStickerResourcesPath,
-      secondarySticker.map { "$stickerDirectory$it" }.orElseGet { null }
+      secondarySticker.map { "$stickerResourcesDirectory$it" }.orElseGet { null }
     )
   }
+
+  private fun buildStickerPath(separator: String?, themeDefinition: DokiBuildThemeDefinition) =
+    "${separator}stickers${separator}${themeDefinition.usableGroup.toLowerCase()}${separator}${themeDefinition.usableName}${separator}"
 
   private fun getResourceDirectory(themeDefinition: DokiBuildThemeDefinition): Path = get(
     getResourcesDirectory().toString(),
@@ -529,6 +533,8 @@ open class BuildThemes : DefaultTask() {
 
   private fun extractResourcesPath(destination: Path): String {
     val fullResourcesPath = destination.toString()
-    return fullResourcesPath.substring(fullResourcesPath.indexOf("/doki/theme"))
+    val separator = File.separator
+    val editorPathResources = fullResourcesPath.substring(fullResourcesPath.indexOf("${separator}doki${separator}theme"))
+    return editorPathResources.replace(separator.toString(), "/")
   }
 }
