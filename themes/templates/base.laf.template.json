@@ -192,6 +192,7 @@
     "TextPane.selectionBackground": "selectionBackground",
     "Tree.selectionBackground":  "selectionBackground",
     "WelcomeScreen.Projects.selectionBackground":"selectionBackground",
+    "Popup.Advertiser.background": "selectionBackground",
 
     "CheckBoxMenuItem.selectionForeground": "selectionForeground",
     "ComboBox.selectionForeground":"selectionForeground",

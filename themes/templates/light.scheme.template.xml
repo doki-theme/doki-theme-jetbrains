@@ -41,6 +41,7 @@
         <option name="GUTTER_BACKGROUND" value="$textEditorBackground$" />
         <option name="INDENT_GUIDE" value="$borderColor$" />
         <option name="INFORMATION_HINT" value="$baseBackground$" />
+        <option name="QUESTION_HINT" value="$selectionBackground$" />
         <option name="LINE_NUMBERS_COLOR" value="aaaaaa" />
         <option name="LINE_NUMBER_ON_CARET_ROW_COLOR" value="1b1f23" />
         <option name="METHOD_SEPARATORS_COLOR" value="f3f2e2" />

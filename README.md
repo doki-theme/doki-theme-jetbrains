@@ -19,12 +19,15 @@ Hey! Before we go any further, I would like to ask you a couple of questions:
 
 Well look no further friend, **I've got what you are looking for!**
 
-With over 14 themes (light and dark) I think you will be able to find your favorite.
+With over 15 themes (light and dark) I think you will be able to find your favorite.
 You can even find one that fits your mood for the day.
 
 Variety is the spice of life! So you can choose themes from the following Doki-Doki Theme Suites:
 
 - Doki-Doki Literature Club
+- Re:Zero
+- Kill La Kill
+- KonoSuba
 - Mistress's Menagerie
 
 Too distracted by the sticker in the corner of your IDE?
@@ -32,9 +35,6 @@ No worries! You can configure them to be on or off at your leisure.
 
 These themes are easy to install, there are minimal configurations so you can enjoy the themes faster.
 They also play well with other theme, so feel free to come an go as your mood changes :)
-
-
-
 
 # Got Contributions, fun ideas, or issues?
 
