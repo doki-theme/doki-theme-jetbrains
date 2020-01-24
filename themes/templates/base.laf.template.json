@@ -182,7 +182,7 @@
     "MenuBar.selectionBackground": "selectionBackground",
     "MenuItem.selectionBackground":  "selectionBackground",
     "PasswordField.selectionBackground": "selectionBackground",
-    "Plugins.lightSelectionBackground": "selectionBackgroundTransparent",
+    "Plugins.lightSelectionBackground": "selectionBackground",
     "PopupMenu.selectionBackground":  "selectionBackground",
     "ProgressBar.selectionBackground": "selectionBackground",
     "RadioButtonMenuItem.selectionBackground":  "selectionBackground",
