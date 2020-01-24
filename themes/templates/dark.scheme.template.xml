@@ -882,6 +882,12 @@
                 <option name="FOREGROUND" value="$keywordColor$" />
             </value>
         </option>
+        <option name="JSON.PROPERTY_KEY" baseAttributes="DEFAULT_IDENTIFIER">
+            <value>
+                <option name="FOREGROUND" value="f8f8f2" />
+                <option name="FONT_TYPE" value="1" />
+            </value>
+        </option>
         <option name="JSP_DIRECTIVE_NAME" baseAttributes="DEFAULT_KEYWORD" />
         <option name="JUPYTER_SELECTED_CELL">
             <value>
