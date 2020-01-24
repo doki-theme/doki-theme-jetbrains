@@ -1,7 +1,4 @@
 <scheme name="Ryuko" version="142" parent_scheme="Doki Dark">
-    <colors>
-        <option name="CARET_COLOR" value="$caretColor$" />
-    </colors>
     <attributes>
         <option name="INLINE_PARAMETER_HINT">
             <value>
