@@ -1,5 +1,3 @@
-[![Gitter](https://badges.gitter.im/doki-theme-jetbrains/community.svg)](https://gitter.im/doki-theme-jetbrains/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
-
 <div align="center">
     <img src="https://raw.githubusercontent.com/cyclic-reference/jetbrains-theme/master/assets/logo.png" alt="Just Monika"></img>
 </div>
@@ -10,6 +8,7 @@
 </div>
 
 ---
+[![Gitter](https://badges.gitter.im/doki-theme-jetbrains/community.svg)](https://gitter.im/doki-theme-jetbrains/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 Hey! Before we go any further, I would like to ask you a couple of questions:
 
