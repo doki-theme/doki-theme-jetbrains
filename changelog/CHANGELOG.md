@@ -1,5 +1,19 @@
 # Changelog
 ---
+
+# 6.0.0
+
+- Added new themes based on characters from various anime shows!
+    - KillLaKill
+        - Ryuko Matoi (Dark Theme)
+        - Satsuki Kiruin (Light Theme)
+    - Re:Zero
+        - Ram (Dark Theme)
+        - Rem (Dark Theme)
+        - Beatrice (Light Theme)
+    - KonoSuba
+        - Megumin (Dark Theme)
+
 # 5.2.1
 
 - Java 8 Runtime support.
