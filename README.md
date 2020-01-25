@@ -1,3 +1,5 @@
+[![Gitter](https://badges.gitter.im/doki-theme-jetbrains/community.svg)](https://gitter.im/doki-theme-jetbrains/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
 <div align="center">
     <img src="https://raw.githubusercontent.com/cyclic-reference/jetbrains-theme/master/assets/logo.png" alt="Just Monika"></img>
 </div>
@@ -38,7 +40,7 @@ They also play well with other theme, so feel free to come an go as your mood ch
 
 # Got Contributions, fun ideas, or issues?
 
-Don't be afraid to reach out and join the [Slack Community](https://join.slack.com/t/doki-doki-theme/shared_invite/enQtNzIzMDY4MjkwNDUzLTE3MWFkNTUxMjVmMjFiNjIwMzA1NTliZDFlNjM4ZGQ1NThmYWQ4NmVjN2ExOWQ2YzA4MzgxMzQ3NjQ0YmQ2OGU)!
+Don't be afraid to reach out and join the [Gitter Community](https://gitter.im/doki-theme-jetbrains/community?utm_source=share-link&utm_medium=link&utm_campaign=share-link)!
 
 ## Enjoying the plugin and want more people to use it?
 
