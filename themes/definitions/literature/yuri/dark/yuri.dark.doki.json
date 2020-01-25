@@ -14,6 +14,7 @@
     "secondary": "yuri_dark_normal.png"
   },
   "colors": {
+    "caretRow": "#473466",
     "baseIconColor": "#6d6b96",
     "ghostColor": "#FFFFFF00",
     "contrastColor": "#473960",
@@ -29,7 +30,6 @@
     "buttonColor": "#483967",
     "selectionInactive": "#473466",
     "tagColor": "#7A7A7A",
-    "secondaryForegroundColor": "#36363A",
     "selectionBackground": "#4c2a70",
     "buttonFont": "#9c99e3",
     "foregroundColor": "#DADADA",
@@ -50,7 +50,8 @@
     "classNameColor": "#FF9CD6",
     "htmlTagColor": "#bca3aa",
     "stringColor": "#f1fa8c",
-    "keyColor": "#FF9CD6"
+    "keyColor": "#FF9CD6",
+    "keywordColor": "#bca3aa"
   },
   "ui": {
     "Plugins.lightSelectionBackground": "selectionBackground",

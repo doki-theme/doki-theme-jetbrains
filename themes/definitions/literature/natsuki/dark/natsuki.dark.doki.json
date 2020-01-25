@@ -14,6 +14,7 @@
     "secondary": "natsuki_dark_normal.png"
   },
   "colors": {
+    "caretRow": "#4D2339",
     "baseIconColor": "#7F707A",
     "ghostColor": "#FFFFFF00",
     "contrastColor": "#56324C",
@@ -29,7 +30,6 @@
     "buttonColor": "#56324C",
     "selectionInactive": "#6F3654",
     "tagColor": "#7A7A7A",
-    "secondaryForegroundColor": "#BB47A8",
     "selectionBackground": "#5D2960",
     "selectionBackgroundTransparent": "#5d29606c",
     "buttonFont": "#BBBBBBBB",
@@ -51,7 +51,8 @@
     "classNameColor": "#FF9CD6",
     "htmlTagColor": "#bca3aa",
     "stringColor": "#f1fa8c",
-    "keyColor": "#FF9CD6"
+    "keyColor": "#FF9CD6",
+    "keywordColor": "#bca3aa"
   },
   "ui": {
     "Plugins.lightSelectionBackground": "selectionBackground",

@@ -14,6 +14,7 @@
     "secondary": "just_monika_dark_joy.png"
   },
   "colors": {
+    "caretRow": "#292D1F",
     "baseIconColor": "#657F6E",
     "ghostColor": "#FFFFFF00",
     "contrastColor": "#244020",
@@ -29,7 +30,6 @@
     "buttonColor": "#1e3219",
     "selectionInactive": "#122D13",
     "tagColor": "#7A7A7A",
-    "secondaryForegroundColor": "#6f9a65",
     "selectionBackground": "#30432B",
     "buttonFont": "#6f9a65",
     "foregroundColor":  "#bbbbbb",
@@ -50,7 +50,8 @@
     "classNameColor": "#bca3aa",
     "htmlTagColor": "#3eae5d",
     "stringColor": "#f1fa8c",
-    "keyColor": "#bca3aa"
+    "keyColor": "#bca3aa",
+    "keywordColor": "#3eae5d"
   },
   "ui": {
     "Plugins.lightSelectionBackground": "selectionBackground",

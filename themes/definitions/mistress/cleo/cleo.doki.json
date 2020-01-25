@@ -13,6 +13,7 @@
     "default": "cleo.png"
   },
   "colors": {
+    "caretRow": "#E7EDF0",
     "baseIconColor": "#898989",
     "ghostColor": "#FFFFFF00",
     "contrastColor": "#EAEAF0",
@@ -28,7 +29,6 @@
     "buttonColor":  "#CFCFD5",
     "selectionInactive": "#C4C3CF",
     "tagColor": "#7A7A7A",
-    "secondaryForegroundColor": "#36363A",
     "selectionBackground":  "#242528",
     "selectionBackgroundTransparent":  "#24252833",
     "buttonFont": "#252427",
@@ -50,8 +50,11 @@
     "classNameColor": "#da85dd",
     "htmlTagColor": "#e53935",
     "stringColor": "#b8397e",
-    "keyColor": "#3961f6"
+    "keyColor": "#3961f6",
+    "keywordColor": "#3961f6"
   },
-  "ui": {},
+  "ui": {
+    "Plugins.lightSelectionBackground": "#b7b8c1"
+  },
   "icons": {}
 }

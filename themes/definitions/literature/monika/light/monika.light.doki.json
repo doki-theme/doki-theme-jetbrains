@@ -14,6 +14,7 @@
     "secondary": "just_monika_joy.png"
   },
   "colors": {
+    "caretRow": "#dcf0db",
     "baseIconColor": "#657F6E",
     "ghostColor": "#FFFFFF00",
     "contrastColor": "#c6f0cc",
@@ -29,7 +30,6 @@
     "buttonColor": "#b7dcbd",
     "selectionInactive": "#b6cfb9",
     "tagColor": "#7A7A7A",
-    "secondaryForegroundColor": "#36363A",
     "selectionBackground": "#789b7a",
     "selectionBackgroundTransparent": "#789b7a55",
     "buttonFont": "#252427",
@@ -53,7 +53,8 @@
     "stringColor": "#EC9130",
     "htmlTagColor": "#3eae5d",
     "codeBlock": "#D4ECD2",
-    "searchResultBackground": "#DCF5DA"
+    "searchResultBackground": "#DCF5DA",
+    "keywordColor": "#3eae5d"
   },
   "ui": {
     "CompletionPopup.background": "testScopeColor",

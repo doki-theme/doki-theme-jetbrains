@@ -13,6 +13,7 @@
     "default": "eleniel.png"
   },
   "colors": {
+    "caretRow": "#58515C",
     "baseIconColor": "#808597",
     "ghostColor": "#FFFFFF00",
     "contrastColor": "#2e2b32",
@@ -28,7 +29,6 @@
     "buttonColor": "#443e48",
     "selectionInactive": "#4c454f",
     "tagColor": "#7A7A7A",
-    "secondaryForegroundColor": "#9e9199",
     "selectionBackground":  "#58515C",
     "selectionBackgroundTransparent":  "#58515C",
     "buttonFont": "#91858c",
@@ -50,7 +50,8 @@
     "classNameColor": "#AA9BEF",
     "htmlTagColor": "#bca3aa",
     "stringColor": "#f1fa8c",
-    "keyColor": "#bca3aa"
+    "keyColor": "#bca3aa",
+    "keywordColor": "#bca3aa"
   },
   "ui": {},
   "icons": {}

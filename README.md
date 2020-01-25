@@ -8,6 +8,7 @@
 </div>
 
 ---
+[![Gitter](https://badges.gitter.im/doki-theme-jetbrains/community.svg)](https://gitter.im/doki-theme-jetbrains/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 Hey! Before we go any further, I would like to ask you a couple of questions:
 
@@ -19,12 +20,15 @@ Hey! Before we go any further, I would like to ask you a couple of questions:
 
 Well look no further friend, **I've got what you are looking for!**
 
-With over 14 themes (light and dark) I think you will be able to find your favorite.
+With over 15 themes (light and dark) I think you will be able to find your favorite.
 You can even find one that fits your mood for the day.
 
 Variety is the spice of life! So you can choose themes from the following Doki-Doki Theme Suites:
 
 - Doki-Doki Literature Club
+- Re:Zero
+- Kill La Kill
+- KonoSuba
 - Mistress's Menagerie
 
 Too distracted by the sticker in the corner of your IDE?
@@ -33,12 +37,9 @@ No worries! You can configure them to be on or off at your leisure.
 These themes are easy to install, there are minimal configurations so you can enjoy the themes faster.
 They also play well with other theme, so feel free to come an go as your mood changes :)
 
-
-
-
 # Got Contributions, fun ideas, or issues?
 
-Don't be afraid to reach out and join the [Slack Community](https://join.slack.com/t/doki-doki-theme/shared_invite/enQtNzIzMDY4MjkwNDUzLTE3MWFkNTUxMjVmMjFiNjIwMzA1NTliZDFlNjM4ZGQ1NThmYWQ4NmVjN2ExOWQ2YzA4MzgxMzQ3NjQ0YmQ2OGU)!
+Don't be afraid to reach out and join the [Gitter Community](https://gitter.im/doki-theme-jetbrains/community?utm_source=share-link&utm_medium=link&utm_campaign=share-link)!
 
 ## Enjoying the plugin and want more people to use it?
 
@@ -62,6 +63,31 @@ Help make this plugin better!
 ![Only Monika](assets/screenshots/only_monika_code.png)
 
 # [More Literature club theme Screenshots!!](theme_album.md)
+
+---
+## Re:Zero (Sample):
+
+![Rem](assets/screenshots/reZero/rem_code.png)
+![Ram](assets/screenshots/reZero/ram_code.png)
+
+
+# [More Re:Zero theme Screenshots!!](r0_album.md)
+
+---
+## Kill la Kill (Sample):
+
+![Ryuko](assets/screenshots/killLaKill/ryuko_code.png)
+![Satsuki](assets/screenshots/killLaKill/satsuki_code.png)
+
+
+# [More Kill la Kill theme Screenshots!!](klk_album.md)
+
+---
+## KonoSuba (Sample):
+
+![Megumin](assets/screenshots/konoSuba/megumin_code.png)
+
+# [More KonoSuba theme Screenshots!!](ks_album.md)
 
 ---
 

@@ -13,7 +13,7 @@
         <option name="ADDED_LINES_COLOR" value="D0FDC9" />
         <option name="ANNOTATIONS_COLOR" value="$accentColor$" />
         <option name="CARET_COLOR" value="$accentColor$" />
-        <option name="CARET_ROW_COLOR" value="$selectionInactive$4a" />
+        <option name="CARET_ROW_COLOR" value="$caretRow$" />
         <option name="CONSOLE_BACKGROUND_KEY" value="$textEditorBackground$" />
         <option name="DELETED_LINES_COLOR" value="EBEBEB" />
         <option name="DOCUMENTATION_COLOR" value="$headerColor$" />
@@ -41,6 +41,7 @@
         <option name="GUTTER_BACKGROUND" value="$textEditorBackground$" />
         <option name="INDENT_GUIDE" value="$borderColor$" />
         <option name="INFORMATION_HINT" value="$baseBackground$" />
+        <option name="QUESTION_HINT" value="$selectionBackground$" />
         <option name="LINE_NUMBERS_COLOR" value="aaaaaa" />
         <option name="LINE_NUMBER_ON_CARET_ROW_COLOR" value="1b1f23" />
         <option name="METHOD_SEPARATORS_COLOR" value="f3f2e2" />
@@ -48,11 +49,12 @@
         <option name="NOTIFICATION_BACKGROUND" value="$accentColor$5a" />
         <option name="RIGHT_MARGIN_COLOR" value="$borderColor$" />
         <option name="SELECTED_INDENT_GUIDE" value="$borderColor$" />
-        <option name="SELECTED_TEARLINE_COLOR" value="e0e0b0" />
+        <option name="SELECTED_TEARLINE_COLOR" value="$accentColor$" />
         <option name="SELECTION_BACKGROUND" value="$selectionBackground$" />
         <option name="SELECTION_FOREGROUND" value="$selectionForeground$" />
         <option name="SEPARATOR_ABOVE_COLOR" value="$borderColor$" />
         <option name="SEPARATOR_BELOW_COLOR" value="$borderColor$" />
+        <option name="SOFT_WRAP_SIGN_COLOR" value="$borderColor$" />
         <option name="ScrollBar.Mac.Transparent.hoverThumbBorderColor" value="$accentColor$9a" />
         <option name="ScrollBar.Mac.Transparent.hoverThumbColor" value="$accentColor$9a" />
         <option name="ScrollBar.Mac.Transparent.hoverTrackColor" value="$textEditorBackground$" />
@@ -78,6 +80,7 @@
         <option name="ScrollBar.thumbColor" value="$accentColor$5a" />
         <option name="ScrollBar.trackColor" value="$textEditorBackground$" />
         <option name="TEARLINE_COLOR" value="$textEditorBackground$" />
+        <option name="TOOLTIP" value="$textEditorBackground$" />
         <option name="VCS_ANNOTATIONS_COLOR_1" value="$headerColor$"/>
         <option name="VCS_ANNOTATIONS_COLOR_2" value="$textEditorBackground$"/>
         <option name="VCS_ANNOTATIONS_COLOR_3" value="$buttonColor$"/>
@@ -899,7 +902,7 @@
         </option>
         <option name="JSON.KEYWORD">
             <value>
-                <option name="FOREGROUND" value="4C94D6" />
+                <option name="FOREGROUND" value="$keywordColor$" />
             </value>
         </option>
         <option name="JSON.PROPERTY_KEY">
@@ -1924,6 +1927,12 @@
                 <option name="FONT_TYPE" value="2" />
             </value>
         </option>
+        <option name="PHP_EXEC_COMMAND_ID">
+            <value>
+                <option name="FOREGROUND" value="458383" />
+                <option name="BACKGROUND" value="$codeBlock$" />
+            </value>
+        </option>
         <option name="PHP_PARAMETER">
             <value>
                 <option name="FOREGROUND" value="$stringColor$" />
@@ -2474,11 +2483,7 @@
                 <option name="FOREGROUND" value="cd4848" />
             </value>
         </option>
-        <option name="Unresolved reference access">
-            <value>
-                <option name="FOREGROUND" value="666b87" />
-            </value>
-        </option>
+        <option name="Unresolved reference access" baseAttributes="DEFAULT_IDENTIFIER"/>
         <option name="Valid string escape">
             <value>
                 <option name="FOREGROUND" value="cc7832" />

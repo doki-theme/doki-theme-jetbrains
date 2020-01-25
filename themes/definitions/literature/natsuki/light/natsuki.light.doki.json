@@ -14,6 +14,7 @@
     "secondary": "natsuki_joy.png"
   },
   "colors": {
+    "caretRow": "#ffdce6",
     "baseIconColor": "#7F707A",
     "ghostColor": "#FFFFFF00",
     "contrastColor": "#f0c3e3",
@@ -29,7 +30,6 @@
     "buttonColor": "#e5c5d3",
     "selectionInactive": "#FFD9E2",
     "tagColor": "#7A7A7A",
-    "secondaryForegroundColor": "#36363A",
     "selectionBackground": "#dc99bb",
     "buttonFont": "#252427",
     "foregroundColor":  "#000000",
@@ -51,7 +51,8 @@
     "classNameColor": "#df81b8",
     "htmlTagColor": "#7B6970",
     "stringColor": "#DC872E",
-    "keyColor": "#7C75EF"
+    "keyColor": "#7C75EF",
+    "keywordColor": "#C869A3"
   },
   "ui": {
     "CompletionPopup.background": "testScopeColor",

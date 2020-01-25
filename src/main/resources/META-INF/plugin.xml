@@ -20,13 +20,16 @@
             Well look no further friend, &lt;strong&gt;I've got what you are looking for!&lt;/strong&gt;
         &lt;/p&gt;&lt;br/&gt;
         &lt;p&gt;
-            With 14 themes (light and dark) I think you will be able to find your favorite.
+            With over 15 themes (light and dark) I think you will be able to find your favorite.
             You can even find one fits your mood for the day.
         &lt;/p&gt;&lt;br/&gt;
         &lt;p&gt;
             Variety is the spice of life! So you can choose themes from the following Doki-Doki Theme Suites:
         &lt;ul&gt;
             &lt;li&gt;Doki-Doki Literature Club&lt;/li&gt;
+            &lt;li&gt;Kill la Kill&lt;/li&gt;
+            &lt;li&gt;Re:Zero&lt;/li&gt;
+            &lt;li&gt;KonoSuba&lt;/li&gt;
             &lt;li&gt;Mistress's Menagerie&lt;/li&gt;
         &lt;/ul&gt;
         &lt;/p&gt;
@@ -49,6 +52,7 @@
     <errorHandler id="9782e40c-e6d2-488f-8611-71f5cca6695e" implementation="io.acari.doki.integrations.ErrorReporter"/>
     <iconProvider implementation="io.acari.doki.icon.provider.MaterialIconProvider" order="first"/>
     <statusBarWidgetProvider implementation="io.acari.doki.ui.status.ThemeStatusBarProvider"/>
+    <editorNotificationProvider implementation="io.acari.doki.internal.DokiEditorNotificationProvider"/>
     <themeMetadataProvider path="/theme-schema/DokiTheme.themeMetadata.json"/>
     <themeProvider id="9f62362a-49e0-4b82-8f63-d1f98ae7799f" path="/doki/themes/mistress/Wyla.theme.json"/>
     <themeProvider id="c8df9413-5d9f-4e0c-ae64-5d5c1cffe9a5" path="/doki/themes/mistress/Syrena.theme.json"/>
@@ -64,6 +68,12 @@
     <themeProvider id="b0340303-0a5a-4a20-9b9c-fc8ce9880078" path="/doki/themes/literature_club/Sayori_Dark.theme.json"/>
     <themeProvider id="9a310731-ab2d-40f5-b502-fa5419f799a2" path="/doki/themes/literature_club/Monika_Light.theme.json"/>
     <themeProvider id="dce48196-ff46-470c-b5f9-d1e23f4a79d3" path="/doki/themes/literature_club/Monika_Dark.theme.json"/>
+    <themeProvider id="3a78b13e-dbf2-410f-bb20-12b57bff7735" path="/doki/themes/kill_la_kill/Satsuki.theme.json"/>
+    <themeProvider id="19b65ec8-133c-4655-a77b-13623d8e97d3" path="/doki/themes/kill_la_kill/Ryuko.theme.json"/>
+    <themeProvider id="63fe4617-4cac-47a5-9b93-6794514c35ad" path="/doki/themes/konosuba/Megumin.theme.json"/>
+    <themeProvider id="35422aa4-1396-4e76-8ec6-c5560884df22" path="/doki/themes/re_zero/Beatrice.theme.json"/>
+    <themeProvider id="f770dcfc-f41e-4b49-aa17-66e9ffc208fd" path="/doki/themes/re_zero/Rem.theme.json"/>
+    <themeProvider id="ecb74f1c-8c84-40c4-916f-601039ba2af0" path="/doki/themes/re_zero/Ram.theme.json"/>
   </extensions>
   <extensions defaultExtensionNs="JavaScript.JsonSchema">
     <ProviderFactory implementation="io.acari.doki.schema.DokiThemeJsonSchemaProvider"/>
@@ -99,5 +109,6 @@
     <action id="io.acari.doki.actions.ShowSettingsAction" class="io.acari.doki.actions.ShowSettingsAction" text="Show Settings" icon="/icons/general/gearPlain.svg" description="Shows the Doki Theme's settings window.">
       <add-to-group group-id="DokiThemeActions" anchor="last"/>
     </action>
+    <action id="io.acari.doki.action.ShowEditorNotification" class="io.acari.doki.actions.ShowNotification" text="Show Editor Notification" description="Shows the editor's notification"/>
   </actions>
 </idea-plugin>

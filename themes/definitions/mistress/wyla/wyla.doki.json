@@ -13,6 +13,7 @@
     "default": "wyla.png"
   },
   "colors": {
+    "caretRow": "#3b3539",
     "baseIconColor": "#979087",
     "ghostColor": "#FFFFFF00",
     "contrastColor": "#2e2b32",
@@ -22,13 +23,12 @@
     "selectionForeground": "#E2CB14",
     "inactiveBackground": "#2a272e",
     "inactiveBackgroundDarker": "#333037",
-    "headerColor": "#2f2329",
+    "headerColor": "#2d2227",
     "baseBackground": "#271c21",
     "borderColor": "#2b2a32",
     "buttonColor":  "#2f2329",
     "selectionInactive": "#2a272e",
     "tagColor": "#7A7A7A",
-    "secondaryForegroundColor": "#766B6B",
     "selectionBackground":  "#40434c",
     "selectionBackgroundTransparent":  "#40434cA5",
     "buttonFont": "#766B6B",
@@ -50,7 +50,8 @@
     "classNameColor": "#dae838",
     "htmlTagColor": "#a28a92",
     "stringColor": "#ffd866",
-    "keyColor": "#a28a92"
+    "keyColor": "#a28a92",
+    "keywordColor": "#a28a92"
   },
   "ui": {},
   "icons": {}

@@ -104,7 +104,8 @@
           "description": "The name of the file you want to extend, take as template, or use directly.",
           "pattern": "^.+\\.xml$",
           "examples": [
-            "Doki Light.xml",
+            "Doki Light",
+            "Doki Dark",
             "Natsuki_Light.xml",
             "Yuri_Dark.xml"
           ],
@@ -310,6 +311,7 @@
       "title": "Theme Color Palette",
       "description": "Define common colors here and use color names in 'ui' section instead of #rrggbb values",
       "required": [
+        "caretRow",
         "baseIconColor",
         "ghostColor",
         "contrastColor",
@@ -325,7 +327,6 @@
         "buttonColor",
         "selectionInactive",
         "tagColor",
-        "secondaryForegroundColor",
         "selectionBackground",
         "buttonFont",
         "foregroundColor",
@@ -346,9 +347,13 @@
         "classNameColor",
         "htmlTagColor",
         "stringColor",
-        "keyColor"
+        "keyColor",
+        "keywordColor"
       ],
       "patternProperties": {
+        "caretRow": {
+          "$ref": "#/definitions/color"
+        },
         "baseIconColor": {
           "$ref": "#/definitions/color"
         },
@@ -392,9 +397,6 @@
           "$ref": "#/definitions/color"
         },
         "tagColor": {
-          "$ref": "#/definitions/color"
-        },
-        "secondaryForegroundColor": {
           "$ref": "#/definitions/color"
         },
         "selectionBackground": {
@@ -458,6 +460,9 @@
           "$ref": "#/definitions/color"
         },
         "keyColor": {
+          "$ref": "#/definitions/color"
+        },
+        "keywordColor": {
           "$ref": "#/definitions/color"
         },
         ".*": {

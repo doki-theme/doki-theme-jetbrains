@@ -14,6 +14,7 @@
     "secondary": "yuri_joy.png"
   },
   "colors": {
+    "caretRow": "#c3c5f0",
     "baseIconColor": "#615E7F",
     "ghostColor": "#FFFFFF00",
     "contrastColor": "#A8B0F0",
@@ -29,7 +30,6 @@
     "buttonColor": "#B6B6E5",
     "selectionInactive": "#9ba8cf",
     "tagColor": "#7A7A7A",
-    "secondaryForegroundColor": "#36363A",
     "selectionBackground": "#9ca0dc",
     "selectionBackgroundTransparent": "#9ca0dc55",
     "buttonFont": "#252427",
@@ -52,7 +52,8 @@
     "classNameColor": "#D77AB0",
     "htmlTagColor": "#80666E",
     "stringColor": "#E7653A",
-    "keyColor": "#7C75EF"
+    "keyColor": "#7C75EF",
+    "keywordColor": "#80666E"
   },
   "ui": {
     "CompletionPopup.background": "testScopeColor",

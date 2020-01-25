@@ -13,6 +13,7 @@
     "default": "syrena.png"
   },
   "colors": {
+    "caretRow": "#564135",
     "baseIconColor": "#97818B",
     "ghostColor": "#FFFFFF00",
     "contrastColor": "#392525",
@@ -28,7 +29,6 @@
     "buttonColor": "#422c2c",
     "selectionInactive": "#543939",
     "tagColor": "#7A7A7A",
-    "secondaryForegroundColor": "#B9AA9F",
     "selectionBackground":  "#564135",
     "selectionBackgroundTransparent":  "#564135A5",
     "buttonFont": "#B9AA9F",
@@ -50,7 +50,8 @@
     "classNameColor": "#E85160",
     "htmlTagColor": "#F59762",
     "stringColor": "#ffd866",
-    "keyColor": "#b9a491"
+    "keyColor": "#b9a491",
+    "keywordColor": "#F59762"
   },
   "ui": {},
   "icons": {}

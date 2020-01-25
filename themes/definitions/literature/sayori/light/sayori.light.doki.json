@@ -14,6 +14,7 @@
     "secondary": "sayori_joy.png"
   },
   "colors": {
+    "caretRow": "#bde9f0",
     "baseIconColor": "#5B777F",
     "ghostColor": "#FFFFFF00",
     "contrastColor": "#9cdaf0",
@@ -29,7 +30,6 @@
     "buttonColor": "#a4d9e1",
     "selectionInactive": "#95c7cf",
     "tagColor": "#7A7A7A",
-    "secondaryForegroundColor": "#36363A",
     "selectionBackground": "#8cbad2",
     "buttonFont": "#252427",
     "foregroundColor": "#000000",
@@ -52,7 +52,8 @@
     "classNameColor": "#FF3889",
     "htmlTagColor": "#A89097",
     "stringColor": "#DC872E",
-    "keyColor": "#3F77EF"
+    "keyColor": "#3F77EF",
+    "keywordColor": "#A89097"
   },
   "ui": {
     "CompletionPopup.background": "testScopeColor",

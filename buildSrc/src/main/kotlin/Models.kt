@@ -19,6 +19,14 @@ data class BuildStickers(
   val secondary: String?
 )
 
+data class EditorSchemeOverrides(
+  val colors: Map<String, Any>
+)
+
+data class Overrides(
+  val editorScheme: EditorSchemeOverrides?
+)
+
 data class DokiBuildThemeDefinition(
   val id: String,
   val name: String,
@@ -29,6 +37,7 @@ data class DokiBuildThemeDefinition(
   val editorScheme: Map<String, Any>,
   val stickers: BuildStickers,
   val colors: Map<String, Any>,
+  val overrides: Overrides?,
   val ui: Map<String, Any>,
   val icons: Map<String, Any>
 ) {

@@ -13,6 +13,7 @@
     "default": "neera.png"
   },
   "colors": {
+    "caretRow": "#FFF6E4",
     "baseIconColor": "#979087",
     "ghostColor": "#FFFFFF00",
     "contrastColor": "#feffdd",
@@ -28,7 +29,6 @@
     "buttonColor":  "#fffef7",
     "selectionInactive": "#FFFFBC",
     "tagColor": "#7A7A7A",
-    "secondaryForegroundColor": "#546E7A",
     "selectionBackground":  "#fff3b4",
     "selectionBackgroundTransparent":  "#fff3b455",
     "buttonFont": "#546E7A",
@@ -51,7 +51,8 @@
     "classNameColor": "#6f42c1",
     "htmlTagColor": "#22863a",
     "stringColor": "#f0a333",
-    "keyColor": "#d71b6a"
+    "keyColor": "#d71b6a",
+    "keywordColor": "#d71b6a"
   },
   "ui": {
     "Plugins.lightSelectionBackground": "selectionBackground",

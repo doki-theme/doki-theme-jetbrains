@@ -182,7 +182,7 @@
     "MenuBar.selectionBackground": "selectionBackground",
     "MenuItem.selectionBackground":  "selectionBackground",
     "PasswordField.selectionBackground": "selectionBackground",
-    "Plugins.lightSelectionBackground": "selectionBackgroundTransparent",
+    "Plugins.lightSelectionBackground": "selectionBackground",
     "PopupMenu.selectionBackground":  "selectionBackground",
     "ProgressBar.selectionBackground": "selectionBackground",
     "RadioButtonMenuItem.selectionBackground":  "selectionBackground",
@@ -192,6 +192,7 @@
     "TextPane.selectionBackground": "selectionBackground",
     "Tree.selectionBackground":  "selectionBackground",
     "WelcomeScreen.Projects.selectionBackground":"selectionBackground",
+    "Popup.Advertiser.background": "selectionBackground",
 
     "CheckBoxMenuItem.selectionForeground": "selectionForeground",
     "ComboBox.selectionForeground":"selectionForeground",
