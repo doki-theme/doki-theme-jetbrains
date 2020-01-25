@@ -6,7 +6,7 @@ import com.intellij.openapi.project.Project
 val UPDATE_MESSAGE: String = """
       What's New?<br>
       <ul>
-      <li>Brand New Themes from various anime shows!
+      <li>Brand New Themes from various anime series!
             <ul>
                 <li>KillLaKill</li>
                 <li>Re:Zero</li>

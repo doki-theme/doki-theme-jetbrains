@@ -3,7 +3,7 @@
 
 # 6.0.0
 
-- Added new themes based on characters from various anime shows!
+- Added new themes based on characters from various anime series!
     - KillLaKill
         - Ryuko Matoi (Dark Theme)
         - Satsuki Kiruin (Light Theme)
