@@ -64,6 +64,31 @@ Help make this plugin better!
 # [More Literature club theme Screenshots!!](theme_album.md)
 
 ---
+## Re:Zero (Sample):
+
+![Rem](assets/screenshots/reZero/rem_code.png)
+![Ram](assets/screenshots/reZero/ram_code.png)
+
+
+# [More Re:Zero theme Screenshots!!](r0_album.md)
+
+---
+## Kill la Kill (Sample):
+
+![Ryuko](assets/screenshots/killLaKill/ryuko_code.png)
+![Satsuki](assets/screenshots/killLaKill/satsuki_code.png)
+
+
+# [More Kill la Kill theme Screenshots!!](klk_album.md)
+
+---
+## KonoSuba (Sample):
+
+![Megumin](assets/screenshots/konoSuba/megumin_code.png)
+
+# [More KonoSuba theme Screenshots!!](ks_album.md)
+
+---
 
 ## Mistress's Menagerie (Sample):
 
