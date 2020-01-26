@@ -44,7 +44,10 @@ object IconLookup {
       !enabled -> key += "Disabled"
     }
 
-    return IconLoader.findLafIcon("darcula/$key", LafIconLookup::class.java, isThrowErrorIfNotFound)
+    return try {
+      IconLoader.findLafIcon("darcula/$key", LafIconLookup::class.java, isThrowErrorIfNotFound)
+    } catch (e: Exception) {
+      IconLoader.findLafIcon("/com/intellij/ide/ui/laf/icons/darcula/$key", LafIconLookup::class.java, isThrowErrorIfNotFound)
+    }
   }
-
 }
