@@ -46,7 +46,7 @@ object IconLookup {
 
     return try {
       IconLoader.findLafIcon("darcula/$key", LafIconLookup::class.java, isThrowErrorIfNotFound)
-    } catch (e: Exception) {
+    } catch (e: Throwable) {
       IconLoader.findLafIcon("/com/intellij/ide/ui/laf/icons/darcula/$key", LafIconLookup::class.java, isThrowErrorIfNotFound)
     }
   }
