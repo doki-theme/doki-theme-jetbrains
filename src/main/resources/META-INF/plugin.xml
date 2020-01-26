@@ -93,6 +93,7 @@
     <group id="DokiThemeActions" text="Doki Theme Options" popup="true" icon="/icons/doki/pen.svg">
       <action id="StickerEnabler" class="io.acari.doki.actions.StickersToggleAction" text="Enable Stickers" icon="/icons/nodes/favorite.svg" description="Enables the sticker in the lower right hand corner"/>
       <add-to-group group-id="MainToolBar" anchor="last"/>
+      <add-to-group group-id="ToolsMenu"/>
     </group>
     <action id="io.acari.doki.actions.FileColorToggleAction" class="io.acari.doki.actions.FileColorToggleAction" text="Enable File Colors" icon="/icons/nodes/package.svg" description="Adds a themed background to certain directories in the project tree.">
       <add-to-group group-id="DokiThemeActions" anchor="first"/>
@@ -110,21 +111,14 @@
       <add-to-group group-id="DokiThemeActions" anchor="last"/>
     </action>
     <action id="io.acari.doki.action.ShowEditorNotification" class="io.acari.doki.actions.ShowNotification" text="Show Editor Notification" description="Shows the editor's notification"/>
-      <action id="io.acari.doki.actions.MaterialDirectoryIconsAction"
-              class="io.acari.doki.actions.MaterialDirectoryIconsAction" text="Toggle Material Directory Icons"
-              description="Enables/Disables Doki-Themed Material Icons">
-          <add-to-group group-id="DokiThemeActions" anchor="before"
-                        relative-to-action="io.acari.doki.actions.ShowSettingsAction"/>
-      </action>
-      <action id="io.acari.doki.actions.MaterialFilesconsAction" class="io.acari.doki.actions.MaterialFilesconsAction"
-              text="Toggle Material File Icons" description="Enables/Disables Doki-Themed Material File Icons">
-          <add-to-group group-id="DokiThemeActions" anchor="before"
-                        relative-to-action="io.acari.doki.actions.ShowSettingsAction"/>
-      </action>
-      <action id="io.acari.doki.actions.MaterialPSIconsAction" class="io.acari.doki.actions.MaterialPSIconsAction"
-              text="Toggle Material PSI Icons" description="Enables/Disables Doki-Theme Material PSI Icons ">
-          <add-to-group group-id="DokiThemeActions" anchor="before"
-                        relative-to-action="io.acari.doki.actions.ShowSettingsAction"/>
-      </action>
+    <action id="io.acari.doki.actions.MaterialDirectoryIconsAction" class="io.acari.doki.actions.MaterialDirectoryIconsAction" text="Toggle Material Directory Icons" description="Enables/Disables Doki-Themed Material Icons" icon="/icons/material/folders/ddlc.svg">
+      <add-to-group group-id="DokiThemeActions" anchor="before" relative-to-action="io.acari.doki.actions.ShowSettingsAction"/>
+    </action>
+    <action id="io.acari.doki.actions.MaterialFilesconsAction" class="io.acari.doki.actions.MaterialFilesconsAction" text="Toggle Material File Icons" description="Enables/Disables Doki-Themed Material File Icons" icon="/icons/material/files/js.svg">
+      <add-to-group group-id="DokiThemeActions" anchor="before" relative-to-action="io.acari.doki.actions.ShowSettingsAction"/>
+    </action>
+    <action id="io.acari.doki.actions.MaterialPSIconsAction" class="io.acari.doki.actions.MaterialPSIconsAction" text="Toggle Material PSI Icons" description="Enables/Disables Doki-Theme Material PSI Icons " icon="/icons/material/nodes/glyphs/class.svg">
+      <add-to-group group-id="DokiThemeActions" anchor="before" relative-to-action="io.acari.doki.actions.ShowSettingsAction"/>
+    </action>
   </actions>
 </idea-plugin>
