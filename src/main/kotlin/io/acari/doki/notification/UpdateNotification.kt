@@ -20,7 +20,7 @@ val UPDATE_MESSAGE: String = """
       Thanks again for downloading <b>The Doki Theme</b>! •‿•<br>
 """.trimIndent()
 
-const val CURRENT_VERSION = "6.0.0"
+const val CURRENT_VERSION = "6.0.1"
 
 object UpdateNotification {
 
