@@ -15,10 +15,7 @@ import io.acari.doki.stickers.StickerLevel
 import io.acari.doki.themes.ThemeManager
 import java.net.URI
 import java.util.*
-import javax.swing.DefaultComboBoxModel
-import javax.swing.ImageIcon
-import javax.swing.JComponent
-import javax.swing.JLabel
+import javax.swing.*
 
 data class ThemeSettingsModel(
   var areStickersEnabled: Boolean,
@@ -38,8 +35,8 @@ class ThemeSettings : SearchableConfigurable {
   companion object {
     const val THEME_SETTINGS_DISPLAY_NAME = "Doki Theme Settings"
     val CHANGELOG_URI =
-      URI("https://github.com/cyclic-reference/ddlc-jetbrains-theme/blob/master/changelog/CHANGELOG.md")
-    val ISSUES_URI = URI("https://github.com/cyclic-reference/ddlc-jetbrains-theme/issues")
+      URI("https://github.com/cyclic-reference/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md")
+    val ISSUES_URI = URI("https://github.com/cyclic-reference/doki-theme-jetbrains/issues")
     val MARKETPLACE_URI = URI("https://plugins.jetbrains.com/plugin/10804-the-doki-doki-theme")
   }
 
@@ -84,10 +81,24 @@ class ThemeSettings : SearchableConfigurable {
   }
 
   override fun createComponent(): JComponent? {
-    val tabbedPanel = JBTabbedPane()
-    tabbedPanel.add("Main", createSettingsPane())
-    tabbedPanel.add("Material Icons", createMaterialIconsPane())
-    return tabbedPanel
+    return try {
+      val tabbedPanel = JBTabbedPane()
+      tabbedPanel.add("Main", createSettingsPane())
+      tabbedPanel.add("Material Icons", createMaterialIconsPane())
+      tabbedPanel
+    } catch (e: Throwable) {
+      val outOfServicePanel = JPanel()
+      val outOfServiceTextPan = JTextPane(
+      )
+      outOfServiceTextPan.text = """
+          Doki Theme Settings Menu currently unavailable in the 
+          2020 EAP Builds. All functionality is available in the 
+          Doki Theme Options in the toolbar and tool menu.
+        """.trimIndent()
+
+      outOfServicePanel.add(outOfServiceTextPan)
+      outOfServicePanel
+    }
   }
 
   private fun createMaterialIconsPane(): DialogPanel {

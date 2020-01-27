@@ -7,10 +7,16 @@ import io.acari.doki.util.toOptional
 
 object ThemeActor {
   fun applyTheme(selectedTheme: String) {
-    ThemeManager.instance.currentTheme
-      .filter {
-        it.name != selectedTheme
-      }.flatMap { ThemeManager.instance.themeByName(selectedTheme) }
+    val currentTheme = ThemeManager.instance.currentTheme
+    if (currentTheme.isPresent) {
+      currentTheme
+        .filter {
+          it.name != selectedTheme
+        }.map { "Not Same" }
+    } else {
+      "Not Doki Theme".toOptional()
+    }
+      .flatMap { ThemeManager.instance.themeByName(selectedTheme) }
       .flatMap { dokiTheme ->
         LafManager.getInstance().installedLookAndFeels
           .first { dokiTheme.name == it.name }
