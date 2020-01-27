@@ -4,7 +4,7 @@
 # 6.0.1
 
 - 2020 EAP Build Support
-    - Settings menu is currently unavailable in the 2020 builds, all actions are in the tool menu theugh.
+    - Settings menu is currently unavailable in the 2020 builds, all actions are in the tool menu though.
 - Fixed issue with not being able to select a Doki Theme from the settings menu.
 
 # 6.0.0
