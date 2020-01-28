@@ -456,6 +456,8 @@
     "/studio/icons/shell/filetree/android-module.svg": "/icons/plugins/studio/icons/shell/filetree/android-module.svg",
     "/toolwindows/toolWindowFavorites.svg": "/icons/toolwindows/toolWindowFavorites.svg",
     "/welcome/createNewProject.svg": "/icons/welcome/createNewProject.svg",
-    "/welcome/createNewProject_dark.svg": "/icons/welcome/createNewProject_dark.svg"
+    "/welcome/createNewProject_dark.svg": "/icons/welcome/createNewProject_dark.svg",
+    "/vcs/vendors/github.svg": "/icons/vcs/vendors/github.svg",
+    "/vcs/vendors/github_dark.svg": "/icons/vcs/vendors/github_dark.svg"
   }
 }
