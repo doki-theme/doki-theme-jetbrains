@@ -1,5 +1,11 @@
 # Changelog
 ---
+
+# 6.0.3
+
+- A bunch of small look and feel consistency tweaks.
+    - For more information please [see the issue](https://github.com/cyclic-reference/doki-theme-jetbrains/issues/199).
+
 # 6.0.2
 
 - Better PyCharm color support.

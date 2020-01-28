@@ -49,9 +49,11 @@
     "Popup.Header.inactiveBackground": "headerColor",
     "Popup.Header.activeBackground":"headerColor",
     "Notification.background": "headerColor",
+    "Notification.MoreButton.innerBorderColor": "headerColor",
     "TableHeader.background": "headerColor",
     "Plugins.SectionHeader.background": "headerColor",
     "SidePanel.background": "headerColor",
+    "Popup.Advertiser.background": "headerColor",
 
     "CheckBox.foreground": "foregroundColor",
     "CheckBoxMenuItem.foreground": "foregroundColor",
@@ -119,6 +121,8 @@
     "ToolWindow.Button.selectedBackground": "highlightColor",
     "ToolWindow.HeaderTab.hoverBackground": "highlightColor",
     "DefaultTabs.hoverBackground": "highlightColor",
+    "Plugins.tagBackground": "highlightColor",
+    "Notification.MoreButton.background": "highlightColor",
 
     "Borders.color": "borderColor",
     "EditorTabs.borderColor": "borderColor",
@@ -192,7 +196,6 @@
     "TextPane.selectionBackground": "selectionBackground",
     "Tree.selectionBackground":  "selectionBackground",
     "WelcomeScreen.Projects.selectionBackground":"selectionBackground",
-    "Popup.Advertiser.background": "selectionBackground",
 
     "CheckBoxMenuItem.selectionForeground": "selectionForeground",
     "ComboBox.selectionForeground":"selectionForeground",
@@ -309,6 +312,7 @@
     "ToggleButton.offForeground":"ghostColor",
     "ToggleButton.borderColor": "accentColorTransparent",
 
+    "Notification.MoreButton.foreground": "accentColor",
     "Button.default.focusColor":"accentColor",
     "Button.default.focusedBorderColor": "accentColor",
     "ComboBox.modifiedItemForeground": "accentColor",
@@ -401,6 +405,8 @@
     "/fileTypes/properties.svg": "/icons/fileTypes/properties.svg",
     "/fileTypes/json.svg": "/icons/fileTypes/json.svg",
     "/fileTypes/json_dark.svg": "/icons/fileTypes/json_dark.svg",
+    "/fileTypes/jsonSchema.svg": "/icons/fileTypes/jsonSchema.svg",
+    "/fileTypes/jsonSchema_dark.svg": "/icons/fileTypes/jsonSchema_dark.svg",
     "/general/add.svg": "/icons/general/add.svg",
     "/general/add_dark.svg": "/icons/general/add_dark.svg",
     "/general/gearPlain.svg": "/icons/general/gearPlain.svg",
@@ -455,6 +461,10 @@
     "/studio/icons/shell/filetree/android-module.svg": "/icons/plugins/studio/icons/shell/filetree/android-module.svg",
     "/toolwindows/toolWindowFavorites.svg": "/icons/toolwindows/toolWindowFavorites.svg",
     "/welcome/createNewProject.svg": "/icons/welcome/createNewProject.svg",
-    "/welcome/createNewProject_dark.svg": "/icons/welcome/createNewProject_dark.svg"
+    "/welcome/createNewProject_dark.svg": "/icons/welcome/createNewProject_dark.svg",
+    "/vcs/ignore_file.svg": "/icons/vcs/ignore_file.svg",
+    "/vcs/ignore_file_dark.svg": "/icons/vcs/ignore_file_dark.svg",
+    "/vcs/vendors/github.svg": "/icons/vcs/vendors/github.svg",
+    "/vcs/vendors/github_dark.svg": "/icons/vcs/vendors/github_dark.svg"
   }
 }
