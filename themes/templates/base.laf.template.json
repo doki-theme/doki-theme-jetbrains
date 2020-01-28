@@ -49,6 +49,7 @@
     "Popup.Header.inactiveBackground": "headerColor",
     "Popup.Header.activeBackground":"headerColor",
     "Notification.background": "headerColor",
+    "Notification.MoreButton.innerBorderColor": "headerColor",
     "TableHeader.background": "headerColor",
     "Plugins.SectionHeader.background": "headerColor",
     "SidePanel.background": "headerColor",
@@ -121,6 +122,7 @@
     "ToolWindow.HeaderTab.hoverBackground": "highlightColor",
     "DefaultTabs.hoverBackground": "highlightColor",
     "Plugins.tagBackground": "highlightColor",
+    "Notification.MoreButton.background": "highlightColor",
 
     "Borders.color": "borderColor",
     "EditorTabs.borderColor": "borderColor",
@@ -310,6 +312,7 @@
     "ToggleButton.offForeground":"ghostColor",
     "ToggleButton.borderColor": "accentColorTransparent",
 
+    "Notification.MoreButton.foreground": "accentColor",
     "Button.default.focusColor":"accentColor",
     "Button.default.focusedBorderColor": "accentColor",
     "ComboBox.modifiedItemForeground": "accentColor",
