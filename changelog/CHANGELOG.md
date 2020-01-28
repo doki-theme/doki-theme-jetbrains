@@ -1,5 +1,8 @@
 # Changelog
 ---
+# 6.0.2
+
+- Better PyCharm color support.
 
 # 6.0.1
 
