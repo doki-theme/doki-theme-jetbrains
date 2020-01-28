@@ -2,7 +2,7 @@
     <attributes>
         <option name="INLINE_PARAMETER_HINT">
             <value>
-                <option name="FOREGROUND" value="$keywordColor$a5" />
+                <option name="FOREGROUND" value="$keywordColor$" />
                 <option name="BACKGROUND" value="$textEditorBackground$"/>
             </value>
         </option>
