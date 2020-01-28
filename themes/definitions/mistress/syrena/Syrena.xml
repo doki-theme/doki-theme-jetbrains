@@ -2656,6 +2656,22 @@
                 <option name="FOREGROUND" value="219598"/>
             </value>
         </option>
+        <option name="PY.KEYWORD">
+            <value>
+                <option name="FOREGROUND" value="F59762"/>
+            </value>
+        </option>
+        <option name="PY.KEYWORD_ARGUMENT">
+            <value>
+                <option name="FOREGROUND" value="44b3d4"/>
+                <option name="FONT_TYPE" value="2"/>
+            </value>
+        </option>
+        <option name="PY.STRING.B">
+            <value>
+                <option name="FOREGROUND" value="ffd866"/>
+            </value>
+        </option>
         <option name="PY.BUILTIN_NAME">
             <value>
                 <option name="FOREGROUND" value="E85160"/>

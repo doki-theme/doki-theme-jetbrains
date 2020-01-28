@@ -21,6 +21,11 @@
                 <option name="FOREGROUND" value="$keywordColor$" />
             </value>
         </option>
+        <option name="PY.KEYWORD">
+            <value>
+                <option name="FOREGROUND" value="$keywordColor$" />
+            </value>
+        </option>
         <option name="RDOC_KEYWORD">
             <value>
                 <option name="FOREGROUND" value="$keywordColor$" />

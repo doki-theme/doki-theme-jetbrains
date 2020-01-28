@@ -6,22 +6,14 @@ import com.intellij.openapi.project.Project
 val UPDATE_MESSAGE: String = """
       What's New?<br>
       <ul>
-      <li>Brand New Themes from various anime series!
-            <ul>
-                <li>KillLaKill</li>
-                <li>Re:Zero</li>
-                <li>KonoSuba</li>
-            </ul>
-        </li>
-        <li>Android Studio 4.0 Support</li>
-        <li>2020 EAP Support</li>
+        <li>Better Pycharm color support</li>
       </ul>
-      <br>Please see the <a href="https://github.com/cyclic-reference/ddlc-jetbrains-theme/blob/master/changelog/CHANGELOG.md">Changelog</a> for more details.
+      <br>Please see the <a href="https://github.com/cyclic-reference/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md">Changelog</a> for more details.
       <br>
       Thanks again for downloading <b>The Doki Theme</b>! •‿•<br>
 """.trimIndent()
 
-const val CURRENT_VERSION = "6.0.1"
+const val CURRENT_VERSION = "6.0.2"
 
 object UpdateNotification {
 

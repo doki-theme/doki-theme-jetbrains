@@ -1966,6 +1966,11 @@
                 <option name="FOREGROUND" value="$classNameColor$" />
             </value>
         </option>
+        <option name="PY.KEYWORD">
+            <value>
+                <option name="FOREGROUND" value="$htmlTagColor$" />
+            </value>
+        </option>
         <option name="PY.KEYWORD_ARGUMENT">
             <value>
                 <option name="FOREGROUND" value="$stringColor$" />
@@ -1985,6 +1990,11 @@
             <value>
                 <option name="FOREGROUND" value="4C94D6" />
                 <option name="FONT_TYPE" value="2" />
+            </value>
+        </option>
+        <option name="PY.STRING.B">
+            <value>
+                <option name="FOREGROUND" value="$stringColor$" />
             </value>
         </option>
         <option name="RDOC_DIRECTIVE">

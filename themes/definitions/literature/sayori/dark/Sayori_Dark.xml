@@ -1993,8 +1993,16 @@
                 <option name="FOREGROUND" value="c1ff10"/>
             </value>
         </option>
-        <option name="PY.KEYWORD" baseAttributes="DEFAULT_KEYWORD"/>
-        <option name="PY.KEYWORD_ARGUMENT" baseAttributes="DEFAULT_PARAMETER"/>
+        <option name="PY.KEYWORD">
+            <value>
+                <option name="FOREGROUND" value="bca3aa"/>
+            </value>
+        </option>
+        <option name="PY.STRING.B">
+            <value>
+                <option name="FOREGROUND" value="f1fa8c"/>
+            </value>
+        </option>
         <option name="PY.PREDEFINED_DEFINITION">
             <value>
                 <option name="FOREGROUND" value="86DBFD"/>
