@@ -7,13 +7,14 @@ val UPDATE_MESSAGE: String = """
       What's New?<br>
       <ul>
         <li>Better Pycharm color support</li>
+        <li>Small look and feel updates</li>
       </ul>
       <br>Please see the <a href="https://github.com/cyclic-reference/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md">Changelog</a> for more details.
       <br>
       Thanks again for downloading <b>The Doki Theme</b>! •‿•<br>
 """.trimIndent()
 
-const val CURRENT_VERSION = "6.0.2"
+const val CURRENT_VERSION = "6.0.3"
 
 object UpdateNotification {
 
