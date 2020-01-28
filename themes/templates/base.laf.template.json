@@ -52,6 +52,7 @@
     "TableHeader.background": "headerColor",
     "Plugins.SectionHeader.background": "headerColor",
     "SidePanel.background": "headerColor",
+    "Popup.Advertiser.background": "headerColor",
 
     "CheckBox.foreground": "foregroundColor",
     "CheckBoxMenuItem.foreground": "foregroundColor",
@@ -192,7 +193,6 @@
     "TextPane.selectionBackground": "selectionBackground",
     "Tree.selectionBackground":  "selectionBackground",
     "WelcomeScreen.Projects.selectionBackground":"selectionBackground",
-    "Popup.Advertiser.background": "selectionBackground",
 
     "CheckBoxMenuItem.selectionForeground": "selectionForeground",
     "ComboBox.selectionForeground":"selectionForeground",
