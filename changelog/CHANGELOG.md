@@ -1,5 +1,19 @@
 # Changelog
 ---
+# 6.1.0
+
+- Changed a large majority of theme's code color scheme definitions. So some code colors may have changed.
+    - Themes affected:
+        - Monika Dark
+        - Natsuki Dark
+        - Sayori Dark
+        - Satsuki
+        - Megumin
+        - Cleo
+        - Eleniel
+        - Neera
+        - Sanya
+        - Syrena
 
 # 6.0.3
 
