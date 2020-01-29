@@ -340,7 +340,8 @@ open class BuildThemes : DefaultTask() {
     val childTheme = parseXml(
       get(
         dokiThemeDefinitionDirectory.parent.toString(),
-        dokiDefinition.editorScheme["file"] as String
+        dokiDefinition.editorScheme["file"] as? String
+          ?: throw IllegalArgumentException("Missing 'file' from create editor scheme from template extension definition")
       )
     )
 
@@ -437,6 +438,7 @@ open class BuildThemes : DefaultTask() {
     dokiEditorThemeTemplates: Map<String, Node>
   ): String {
     val templateName = dokiDefinition.editorScheme["name"]
+      ?: throw IllegalArgumentException("Missing 'name' from create editor scheme from template definition")
 
     val childTheme = (dokiEditorThemeTemplates[templateName]
       ?: throw IllegalArgumentException("Unrecognized template name $templateName"))
@@ -518,7 +520,8 @@ open class BuildThemes : DefaultTask() {
   }
 
   private fun copyXml(dokiDefinition: DokiBuildThemeDefinition, dokiThemeDefinitionDirectory: Path): String {
-    val customXmlFile = dokiDefinition.editorScheme["file"] as String
+    val customXmlFile = dokiDefinition.editorScheme["file"] as? String
+      ?: throw IllegalArgumentException("Missing 'file' from create editor scheme from file copy")
     val destination = get(
       getResourceDirectory(dokiDefinition).toString(),
       customXmlFile
