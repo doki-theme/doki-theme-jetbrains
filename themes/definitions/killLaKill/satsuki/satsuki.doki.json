@@ -51,7 +51,8 @@
     "htmlTagColor": "#e53935",
     "stringColor": "#b8397e",
     "keyColor": "#cd862f",
-    "keywordColor": "#275AB3"
+    "keywordColor": "#275AB3",
+    "constantColor": "#4C94D6"
   },
   "ui": {},
   "icons": {}

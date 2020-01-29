@@ -6,7 +6,7 @@
   "author": "cyclic-reference",
   "group": "Mistress",
   "editorScheme": {
-    "type": "custom",
+    "type": "templateExtension",
     "file": "Cleo.xml"
   },
   "stickers": {
@@ -50,8 +50,9 @@
     "classNameColor": "#da85dd",
     "htmlTagColor": "#e53935",
     "stringColor": "#b8397e",
-    "keyColor": "#3961f6",
-    "keywordColor": "#3961f6"
+    "keyColor": "#da85dd",
+    "keywordColor": "#3961f6",
+    "constantColor": "#cb8411"
   },
   "ui": {
     "Plugins.lightSelectionBackground": "#b7b8c1"

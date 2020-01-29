@@ -5,9 +5,32 @@
                 <option name="FOREGROUND" value="$keywordColor$" />
             </value>
         </option>
+        <option name="DEFAULT_CONSTANT">
+            <value>
+                <option name="FOREGROUND" value="$constantColor$" />
+                <option name="FONT_TYPE" value="2" />
+            </value>
+        </option>
+        <option name="DEFAULT_NUMBER">
+            <value>
+                <option name="FOREGROUND" value="$constantColor$" />
+            </value>
+        </option>
+        <option name="DEFAULT_INTERFACE_NAME">
+            <value>
+                <option name="FOREGROUND" value="$accentColor$" />
+                <option name="FONT_TYPE" value="2" />
+            </value>
+        </option>
         <option name="DEFAULT_KEYWORD">
             <value>
                 <option name="FOREGROUND" value="$keywordColor$" />
+            </value>
+        </option>
+        <option name="INLINE_PARAMETER_HINT">
+            <value>
+                <option name="FOREGROUND" value="$accentColor$" />
+                <option name="BACKGROUND" value="$textEditorBackground$" />
             </value>
         </option>
         <option name="GROOVY_KEYWORD">
