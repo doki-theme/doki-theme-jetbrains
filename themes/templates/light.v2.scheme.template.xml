@@ -1,4 +1,7 @@
 <scheme name="Doki Light v2" version="2" parent_scheme="Doki Light">
+    <colors>
+        <option name="NOTIFICATION_BACKGROUND" value="$selectionBackground$" />
+    </colors>
     <attributes>
         <option name="CUSTOM_KEYWORD1_ATTRIBUTES">
             <value>
