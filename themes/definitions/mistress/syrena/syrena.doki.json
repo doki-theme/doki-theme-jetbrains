@@ -6,11 +6,18 @@
   "author": "cyclic-reference",
   "group": "Mistress",
   "editorScheme": {
-    "type": "custom",
+    "type": "templateExtension",
     "file": "Syrena.xml"
   },
   "stickers": {
     "default": "syrena.png"
+  },
+  "overrides": {
+    "editorScheme": {
+      "colors": {
+        "accentColor": "#b9a491"
+      }
+    }
   },
   "colors": {
     "caretRow": "#564135",
@@ -49,8 +56,8 @@
     "searchResultBackground": "#532717",
     "classNameColor": "#E85160",
     "htmlTagColor": "#F59762",
-    "stringColor": "#ffd866",
-    "keyColor": "#b9a491",
+    "stringColor": "#44b3d4",
+    "keyColor": "#E85160",
     "keywordColor": "#F59762"
   },
   "ui": {},

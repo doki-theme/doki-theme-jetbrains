@@ -5,13 +5,21 @@
   "dark": true,
   "author": "cyclic-reference",
   "editorScheme": {
-    "type": "custom",
+    "type": "templateExtension",
     "file": "Yuri_Dark.xml"
   },
   "group": "Literature Club",
   "stickers": {
     "default": "yuri_dark.png",
     "secondary": "yuri_dark_normal.png"
+  },
+  "overrides": {
+    "editorScheme": {
+      "colors": {
+        "testScopeColor": "#3a4258",
+        "accentColor": "#BC60CB"
+      }
+    }
   },
   "colors": {
     "caretRow": "#473466",
@@ -47,10 +55,11 @@
     "codeBlock": "#392A54",
     "textEditorBackground": "#422D5A",
     "searchResultBackground": "#3C1D55",
+    "foldedTextBackground": "#392A54",
     "classNameColor": "#FF9CD6",
     "htmlTagColor": "#bca3aa",
     "stringColor": "#f1fa8c",
-    "keyColor": "#FF9CD6",
+    "keyColor": "#7C75EF",
     "keywordColor": "#bca3aa"
   },
   "ui": {

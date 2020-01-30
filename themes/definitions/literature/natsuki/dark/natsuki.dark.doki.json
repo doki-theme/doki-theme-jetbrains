@@ -5,13 +5,20 @@
   "dark": true,
   "author": "cyclic-reference",
   "editorScheme": {
-    "type": "custom",
+    "type": "templateExtension",
     "file": "Natsuki_Dark.xml"
   },
   "group": "Literature Club",
   "stickers": {
     "default": "natsuki_dark.png",
     "secondary": "natsuki_dark_normal.png"
+  },
+  "overrides": {
+    "editorScheme": {
+      "colors": {
+        "testScopeColor": "#243223"
+      }
+    }
   },
   "colors": {
     "caretRow": "#4D2339",
@@ -48,6 +55,7 @@
     "codeBlock": "#3C293A",
     "textEditorBackground": "#2d222b",
     "searchResultBackground": "#6F3654",
+    "foldedTextBackground": "#3C293A",
     "classNameColor": "#FF9CD6",
     "htmlTagColor": "#bca3aa",
     "stringColor": "#f1fa8c",

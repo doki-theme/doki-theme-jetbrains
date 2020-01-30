@@ -6,11 +6,18 @@
   "author": "cyclic-reference",
   "group": "Mistress",
   "editorScheme": {
-    "type": "custom",
+    "type": "templateExtension",
     "file": "Sanya.xml"
   },
   "stickers": {
     "default": "sanya.png"
+  },
+  "overrides": {
+    "editorScheme": {
+      "colors": {
+        "accentColor": "#E4FF10"
+      }
+    }
   },
   "colors": {
     "caretRow": "#402d41",
@@ -47,10 +54,11 @@
     "codeBlock": "#322130",
     "textEditorBackground": "#382536",
     "searchResultBackground": "#4C294A",
+    "foldedTextBackground": "#322130",
     "classNameColor": "#c1ff10",
     "htmlTagColor": "#BD84DD",
     "stringColor": "#f1fa8c",
-    "keyColor": "#BD84DD",
+    "keyColor": "#EF2066",
     "keywordColor": "#BD84DD"
   },
   "ui": {},

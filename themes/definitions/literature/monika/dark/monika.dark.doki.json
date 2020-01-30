@@ -5,13 +5,20 @@
   "dark": true,
   "author": "cyclic-reference",
   "editorScheme": {
-    "type": "custom",
+    "type": "templateExtension",
     "file": "Monika_Dark.xml"
   },
   "group": "Literature Club",
   "stickers": {
     "default": "just_monika_dark.png",
     "secondary": "just_monika_dark_joy.png"
+  },
+  "overrides": {
+    "editorScheme": {
+      "colors": {
+        "testScopeColor": "#222d10"
+      }
+    }
   },
   "colors": {
     "caretRow": "#292D1F",
@@ -45,8 +52,9 @@
     "testScopeColor": "#1b2610",
     "popupMask": "#EAEAF00A",
     "codeBlock": "#23271A",
-    "textEditorBackground": "#f8f8f2",
+    "textEditorBackground": "#1d2115",
     "searchResultBackground": "#1A401B",
+    "foldedTextBackground": "#252D19",
     "classNameColor": "#bca3aa",
     "htmlTagColor": "#3eae5d",
     "stringColor": "#f1fa8c",

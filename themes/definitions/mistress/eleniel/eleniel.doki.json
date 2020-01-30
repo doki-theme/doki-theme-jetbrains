@@ -6,7 +6,7 @@
   "author": "cyclic-reference",
   "group": "Mistress",
   "editorScheme": {
-    "type": "custom",
+    "type": "templateExtension",
     "file": "Eleniel.xml"
   },
   "stickers": {
@@ -49,8 +49,8 @@
     "searchResultBackground": "#4c454f",
     "classNameColor": "#AA9BEF",
     "htmlTagColor": "#bca3aa",
-    "stringColor": "#f1fa8c",
-    "keyColor": "#bca3aa",
+    "stringColor": "#ffb86c",
+    "keyColor": "#78dce8",
     "keywordColor": "#bca3aa"
   },
   "ui": {},
