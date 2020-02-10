@@ -1,5 +1,10 @@
 # Changelog
 ---
+
+# 6.2.0
+
+- Updated Dark Sayori and Natsuki to be more consistent with the other DDLC Dark themes.
+
 # 6.1.0
 
 - Changed a large majority of theme's code color scheme definitions. So some code colors may have changed.
