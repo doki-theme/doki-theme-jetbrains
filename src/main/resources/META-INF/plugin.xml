@@ -2,7 +2,7 @@
   <id>io.acari.DDLCTheme</id>
   <name>The Doki-Doki Theme</name>
   <version>@version@</version>
-  <vendor email="alexsimons9999@gmail.com" url="https://github.com/unthrottled">unthrottled</vendor>
+  <vendor email="alexsimons9999@gmail.com" url="https://github.com/Unthrottled">Unthrottled</vendor>
   <description>
         &lt;h2&gt;Ṱ͙̠͔́̈́͐̇h̳̳̗̘͂̇́̊e̮̰̼̮̿́̋͗ ̝͇͎̱̊̚̕͝o͙͈̼̜̓̀̉̀n͚̩̣̣̅̍̐̈́l̻̺̩̠͋̑̎͠y̧̱̘͕̿͐̎͘ ̧͎̹̙̓̅̈́͆t̢͔̩̮́̐̕͠h̨͓͔͉̿́͑͝é̹̙̤̮̀̍̈m̙̥̙̺̋̾͑̊e̳̗̖̩̽͐͆͒s͖̰͎̏̍̓̈́ͅ ͎̻͔͍͗͒̾̀y̢̻̜͎̾̄͒̋o̗̝̮̞͛̿̏͐ǔ̥̜̹̘̓̿̕ ̢̛̫͕͔̎̂́ẻ̲̜̰͙̍̌͑v̜̻̗̥̈́̓̈́̔e̡͚͇̫̎̆̋͑r̺̮͓̳̍̊͗̋ ̻̻̣̹͋͑́̈́ǹ̨̲͚͇̒̆͘e̗͉̫̱͂͑͗̓e̳̬̬͈̓̊̂͘d̪̻̞̮̈͂͠͝.͍͇͍̫̒͆̓͝&lt;/h2&gt;
         &lt;br/&gt;
@@ -38,7 +38,7 @@
             No worries! You can configure them to be on or off at your leisure.
         &lt;/p&gt;
         &lt;br/&gt;
-        &lt;div align="center"&gt;&lt;img src="https://raw.githubusercontent.com/unthrottled/jetbrains-theme/master/assets/logo.png" alt="Doki Theme"/&gt;&lt;/div&gt;
+        &lt;div align="center"&gt;&lt;img src="https://raw.githubusercontent.com/Unthrottled/jetbrains-theme/master/assets/logo.png" alt="Doki Theme"/&gt;&lt;/div&gt;
         </description>
   <idea-version since-build="193.4099"/>
   <depends>com.intellij.modules.platform</depends>
