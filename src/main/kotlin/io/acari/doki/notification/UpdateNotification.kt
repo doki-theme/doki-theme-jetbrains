@@ -9,7 +9,7 @@ val UPDATE_MESSAGE: String = """
         <li>Better Pycharm color support</li>
         <li>Small look and feel updates</li>
       </ul>
-      <br>Please see the <a href="https://github.com/cyclic-reference/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md">Changelog</a> for more details.
+      <br>Please see the <a href="https://github.com/unthrottled/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md">Changelog</a> for more details.
       <br>
       Thanks again for downloading <b>The Doki Theme</b>! •‿•<br>
 """.trimIndent()

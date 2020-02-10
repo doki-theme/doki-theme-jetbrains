@@ -3,7 +3,7 @@
   "name": "Natsuki Dark",
   "displayName": "Natsuki",
   "dark": true,
-  "author": "cyclic-reference",
+  "author": "unthrottled",
   "editorScheme": {
     "type": "templateExtension",
     "file": "Natsuki_Dark.xml"
