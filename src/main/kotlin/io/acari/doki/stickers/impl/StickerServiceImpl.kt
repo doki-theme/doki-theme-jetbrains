@@ -21,9 +21,11 @@ import javax.xml.bind.DatatypeConverter
 
 const val DOKI_BACKGROUND_PROP: String = "io.acari.doki.background"
 private val messageDigest: MessageDigest = MessageDigest.getInstance("MD5")
-private const val SOURCE_CODE = "https://raw.githubusercontent.com/cyclic-reference/ddlc-jetbrains-theme/master"
-private const val ASSETS_DIRECTORY = "${SOURCE_CODE}/assets"
+private const val SOURCE_CODE = "https://raw.githubusercontent.com/Unthrottled/ddlc-jetbrains-theme/master"
+// todo: migrate to assets
 private const val RESOURCES_DIRECTORY = "${SOURCE_CODE}/src/main/resources"
+private const val ASSETS_SOURCE = "https://doki.assets.acari.io"
+private const val BACKGROUND_DIRECTORY = "${ASSETS_SOURCE}/backgrounds"
 const val DOKI_STICKER_PROP: String = "io.acari.doki.stickers"
 
 class StickerServiceImpl : StickerService {
@@ -89,7 +91,7 @@ class StickerServiceImpl : StickerService {
 
     private fun getFrameBackground(dokiTheme: DokiTheme): Optional<String> {
         return dokiTheme.getSticker()
-            .map { "$ASSETS_DIRECTORY/themes/$it" }
+            .map { "$BACKGROUND_DIRECTORY/$it" }
     }
 
     private fun getImagePath(dokiTheme: DokiTheme): Optional<String> =

@@ -6,15 +6,16 @@ import com.intellij.openapi.project.Project
 val UPDATE_MESSAGE: String = """
       What's New?<br>
       <ul>
+        <li>Made Dark Sayori and Natsuki more consistent with other DDLC Dark Themes</li>
         <li>Better Pycharm color support</li>
         <li>Small look and feel updates</li>
       </ul>
-      <br>Please see the <a href="https://github.com/cyclic-reference/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md">Changelog</a> for more details.
+      <br>Please see the <a href="https://github.com/Unthrottled/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md">Changelog</a> for more details.
       <br>
       Thanks again for downloading <b>The Doki Theme</b>! •‿•<br>
 """.trimIndent()
 
-const val CURRENT_VERSION = "6.1.0"
+const val CURRENT_VERSION = "6.2.0"
 
 object UpdateNotification {
 
