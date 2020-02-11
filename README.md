@@ -51,7 +51,7 @@ Also, giving it a good [review on the plugins page](https://plugins.jetbrains.co
 
 ## Not your thing or something bothering you?
 
-Feel free to submit your feedback as [an issue](https://github.com/Unthrottled/ddlc-jetbrains-theme/issues/new).
+Feel free to submit your feedback as [an issue](https://github.com/Unthrottled/doki-theme-jetbrains/issues/new).
 Help make this plugin better! 
 
 # Screen Samples!
@@ -103,9 +103,9 @@ Help make this plugin better!
 # Is the theme not working? Do things do not work the way you expect them to work?!
 
 # 👇👇👇
-# [Please see this page for help!](https://github.com/Unthrottled/ddlc-jetbrains-theme/wiki/Trouble-Shooting!) 👈👈
+# [Please see this page for help!](https://github.com/Unthrottled/doki-theme-jetbrains/wiki/Trouble-Shooting!) 👈👈
 # ☝️☝️☝️
 
 Enjoy!
 ---
-##### You can also see the [project wiki](https://github.com/Unthrottled/ddlc-jetbrains-theme/wiki) for Doki-Doki theme specific information!
+##### You can also see the [project wiki](https://github.com/Unthrottled/doki-theme-jetbrains/wiki) for Doki-Doki theme specific information!

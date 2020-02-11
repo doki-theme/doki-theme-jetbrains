@@ -202,7 +202,7 @@ So both themes can not be cleanly used side by side. Sorry for any inconvenience
     - 6 Light and Dark Themes to choose from.
     
 - Updated Light Monika's look to be less "Holy cow, green!".
-    - See the [GitHub Merge Request](https://github.com/Unthrottled/ddlc-jetbrains-theme/pull/168#issuecomment-520269641) for more details.
+    - See the [GitHub Merge Request](https://github.com/Unthrottled/doki-theme-jetbrains/pull/168#issuecomment-520269641) for more details.
 
 - Enhanced plugin's first usage user experience.
 
@@ -249,7 +249,7 @@ So both themes can not be cleanly used side by side. Sorry for any inconvenience
 - Better External Theme integration
     - Material UI no longer overrides Doki-Doki icons when the Doki Them is active.
     - Less left over Doki-Doki Icons when Material UI is activated.
-    - See the [Github pull request for more details](https://github.com/Unthrottled/ddlc-jetbrains-theme/pull/161).
+    - See the [Github pull request for more details](https://github.com/Unthrottled/doki-theme-jetbrains/pull/161).
 
 
 # 3.2.4
@@ -289,7 +289,7 @@ So both themes can not be cleanly used side by side. Sorry for any inconvenience
 # 3.1.4
 
 - A bunch of small theme tweaks (icon adjustments and readability tweaks)!
-    - See the [Github Issue for more details.](https://github.com/Unthrottled/ddlc-jetbrains-theme/issues/143)
+    - See the [Github Issue for more details.](https://github.com/Unthrottled/doki-theme-jetbrains/issues/143)
 
 # 3.1.3
 
@@ -316,7 +316,7 @@ So both themes can not be cleanly used side by side. Sorry for any inconvenience
 - Brand new light theme look.
     - Changed overall look and feel to have less contrast.
     - Modifications to the syntax highlighting colors.
-    - [See this link for changes](https://github.com/Unthrottled/ddlc-jetbrains-theme/pull/137#issuecomment-469076145)
+    - [See this link for changes](https://github.com/Unthrottled/doki-theme-jetbrains/pull/137#issuecomment-469076145)
 - Small Dark theme tweaks
     - Better button foreground coloring.
     - Yuri and Sayori themes panel backgrounds have less contrast.
