@@ -1,5 +1,8 @@
 # Changelog
 ---
+# 6.2.1
+
+- Updated default font.
 
 # 6.2.0
 
