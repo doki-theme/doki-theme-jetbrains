@@ -6,7 +6,15 @@
         <property name="ideVersion">2019.3.0.0</property>
         <property name="modified">2019-12-02T04:09:44</property>
     </metaInfo>
-    <option name="LINE_SPACING" value="1.4" />
+    <option name="LINE_SPACING" value="1.1" />
+    <font>
+        <option name="EDITOR_FONT_NAME" value="Victor Mono" />
+        <option name="EDITOR_FONT_SIZE" value="12" />
+    </font>
+    <font>
+        <option name="EDITOR_FONT_NAME" value="JetBrains Mono" />
+        <option name="EDITOR_FONT_SIZE" value="12" />
+    </font>
     <option name="EDITOR_FONT_SIZE" value="12" />
     <option name="EDITOR_LIGATURES" value="true" />
     <colors>

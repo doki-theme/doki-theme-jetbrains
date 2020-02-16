@@ -8,7 +8,17 @@
         <property name="modified">2018-08-11T20:57:58</property>
         <property name="originalScheme">Monokai Pro</property>
     </metaInfo>
-    <option name="LINE_SPACING" value="1.4"/>
+    <option name="LINE_SPACING" value="1.1" />
+    <font>
+        <option name="EDITOR_FONT_NAME" value="Victor Mono" />
+        <option name="EDITOR_FONT_SIZE" value="12" />
+    </font>
+    <font>
+        <option name="EDITOR_FONT_NAME" value="JetBrains Mono" />
+        <option name="EDITOR_FONT_SIZE" value="12" />
+    </font>
+    <option name="EDITOR_FONT_SIZE" value="12" />
+    <option name="EDITOR_LIGATURES" value="true" />
     <colors>
         <option name="INFORMATION_HINT" value="271c21"/>
         <option name="ERROR_HINT" value="704745"/>
