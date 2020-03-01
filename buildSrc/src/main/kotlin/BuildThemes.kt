@@ -6,9 +6,11 @@ import org.gradle.api.tasks.TaskAction
 import java.io.File
 import java.io.InputStreamReader
 import java.nio.charset.StandardCharsets
-import java.nio.file.*
 import java.nio.file.Files.*
+import java.nio.file.Path
 import java.nio.file.Paths.get
+import java.nio.file.StandardCopyOption
+import java.nio.file.StandardOpenOption
 import java.util.*
 import java.util.regex.Pattern
 import java.util.stream.Collectors
@@ -33,7 +35,7 @@ open class BuildThemes : DefaultTask() {
   private val themeSchema: ThemeDefinitionSchema = getThemeSchema()
 
   private fun getThemeSchema(): ThemeDefinitionSchema =
-    newInputStream(get(getResourcesDirectory().toString(), "theme-schema","doki.theme.schema.json")).use {
+    newInputStream(get(getResourcesDirectory().toString(), "theme-schema", "doki.theme.schema.json")).use {
       gson.fromJson(
         InputStreamReader(it, StandardCharsets.UTF_8),
         ThemeDefinitionSchema::class.java
@@ -50,7 +52,9 @@ open class BuildThemes : DefaultTask() {
     val (pluginXmlAndParsed, extension) = getPluginXmlMutationStuff()
     val (pluginXml, parsedPluginXml) = pluginXmlAndParsed
 
-    getAllDokiThemeDefinitions(get(themeDirectory.toString(), "definitions"))
+    val masterThemeDirectory = get(project.rootDir.absolutePath, "masterThemes")
+    val jetbrainsDokiThemeDefinitionDirectory = get(themeDirectory.toString(), "definitions")
+    getAllDokiThemeDefinitions(jetbrainsDokiThemeDefinitionDirectory, masterThemeDirectory)
       .forEach { themeDefinitionAndPath ->
         val dokiThemeResourcePath = constructIntellijTheme(
           themeDefinitionAndPath,
@@ -82,13 +86,20 @@ open class BuildThemes : DefaultTask() {
     )
   }
 
-  private fun getAllDokiThemeDefinitions(dokiThemeDefinitionDirectory: Path): Stream<Pair<Path, DokiBuildThemeDefinition>> {
-    return walk(dokiThemeDefinitionDirectory)
+  private fun getAllDokiThemeDefinitions(
+    dokiThemeDefinitionDirectory: Path,
+    masterThemeDirectory: Path
+  ): Stream<Pair<Path, DokiBuildThemeDefinition>> {
+    return walk(masterThemeDirectory)
       .filter { !isDirectory(it) }
       .filter { it.fileName.toString().endsWith(".doki.json") }
       .map { it to newInputStream(it) }
       .map {
-        it.first to gson.fromJson(
+        val masterThemePath = it.first.toString()
+        val masterFileDefinition = masterThemePath.substringAfter("${masterThemeDirectory}")
+        val jetbrainsThemeDefinitionPath =
+          get(dokiThemeDefinitionDirectory.toString(), masterFileDefinition)
+        jetbrainsThemeDefinitionPath to gson.fromJson(
           InputStreamReader(it.second, StandardCharsets.UTF_8),
           DokiBuildThemeDefinition::class.java
         )
@@ -359,7 +370,7 @@ open class BuildThemes : DefaultTask() {
 
   private fun extendTheme(childTheme: Node, dokiEditorThemeTemplates: Map<String, Node>): Node {
     val parentScheme = childTheme.attribute("parent_scheme")
-    if(parentScheme == "Default" || parentScheme == "Darcula"){
+    if (parentScheme == "Default" || parentScheme == "Darcula") {
       return childTheme
     }
 
@@ -375,21 +386,23 @@ open class BuildThemes : DefaultTask() {
         childList.zip(parentListNode)
           .filter { it.first is Node && it.second is Node }
           .map { it.first as Node to it.second as Node }
-          .flatMap { (it.first.value() as NodeList).map {
-            childNode -> childNode as Node to it.second.value() as NodeList
-          } }
+          .flatMap {
+            (it.first.value() as NodeList).map { childNode ->
+              childNode as Node to it.second.value() as NodeList
+            }
+          }
           .forEach { childeNodeWithParent ->
             val (childNode, parentList) = childeNodeWithParent
             val childName = childNode.attribute("name")
             val parentNode = parentList.map { it as Node }
               .indexOfFirst { parentNode ->
-              parentNode.attribute("name") == childName
-            }
+                parentNode.attribute("name") == childName
+              }
 
             if (parentNode > -1) {
               parentList.removeAt(parentNode)
             }
-              parentList.add(childNode)
+            parentList.add(childNode)
           }
       }
 
@@ -401,20 +414,21 @@ open class BuildThemes : DefaultTask() {
   private fun sortXmlAttributes(parentTheme: Node) {
     val queue = LinkedList<Any>()
     queue.addAll(childrenICareAbout.map { parentTheme[it] })
-    while (queue.isNotEmpty()){
-      when(val currentDude = queue.pollFirst()){
+    while (queue.isNotEmpty()) {
+      when (val currentDude = queue.pollFirst()) {
         is Node -> {
           val value = currentDude.value()
-          if(value != null){
+          if (value != null) {
             queue.push(value)
           }
         }
         is NodeList -> {
-          if(currentDude.isNotEmpty() &&
+          if (currentDude.isNotEmpty() &&
             currentDude.firstOrNull { dudeChild ->
               dudeChild !is Node ||
                   (dudeChild.name().toString() != "value")
-            } != null){
+            } != null
+          ) {
             Collections.sort(currentDude) { a, b ->
               val left = a as Node
               val right = b as Node
@@ -463,17 +477,15 @@ open class BuildThemes : DefaultTask() {
           "option" -> {
             val value = it.attribute("value") as? String
             if (value?.contains('$') == true) {
-              val (end, replacementColor) = getReplacementColor(value, '$') {
-                templateColor ->
+              val (end, replacementColor) = getReplacementColor(value, '$') { templateColor ->
                 dokiDefinition.overrides?.editorScheme?.colors?.get(templateColor) as? String
                   ?: dokiDefinition.colors[templateColor] as? String
                   ?: throw IllegalArgumentException("$templateColor is not in ${dokiDefinition.name}'s color definition.")
               }
               it.attributes()["value"] = buildReplacement(replacementColor, value, end)
             } else if (value?.contains('%') == true) {
-              val (end, replacementColor) = getReplacementColor(value, '%') {
-                  templateColor ->
-                  dokiDefinition.colors[templateColor] as? String
+              val (end, replacementColor) = getReplacementColor(value, '%') { templateColor ->
+                dokiDefinition.colors[templateColor] as? String
                   ?: throw IllegalArgumentException("$templateColor is not in ${dokiDefinition.name}'s color definition.")
               }
               it.attributes()["value"] = buildReplacement(replacementColor, value, end)
@@ -537,7 +549,8 @@ open class BuildThemes : DefaultTask() {
   private fun extractResourcesPath(destination: Path): String {
     val fullResourcesPath = destination.toString()
     val separator = File.separator
-    val editorPathResources = fullResourcesPath.substring(fullResourcesPath.indexOf("${separator}doki${separator}theme"))
+    val editorPathResources =
+      fullResourcesPath.substring(fullResourcesPath.indexOf("${separator}doki${separator}theme"))
     return editorPathResources.replace(separator.toString(), "/")
   }
 }
