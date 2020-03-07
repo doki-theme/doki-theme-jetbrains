@@ -1,5 +1,10 @@
 # Changelog
 ---
+
+# 6.2.2
+
+- Migrated theme build process to centralized management strategy.
+
 # 6.2.1
 
 - Updated default font.

@@ -21,3 +21,5 @@ classes/
 #gradle.properties
 *.icls
 src/test/resources/
+
+/masterThemes
