@@ -1,14 +1,11 @@
 <idea-plugin>
   <id>io.acari.DDLCTheme</id>
-  <name>The Doki-Doki Theme</name>
+  <name>The Doki Theme</name>
   <version>@version@</version>
   <vendor email="alexsimons9999@gmail.com" url="https://github.com/Unthrottled">Unthrottled</vendor>
   <description>
         &lt;h2&gt;Ṱ͙̠͔́̈́͐̇h̳̳̗̘͂̇́̊e̮̰̼̮̿́̋͗ ̝͇͎̱̊̚̕͝o͙͈̼̜̓̀̉̀n͚̩̣̣̅̍̐̈́l̻̺̩̠͋̑̎͠y̧̱̘͕̿͐̎͘ ̧͎̹̙̓̅̈́͆t̢͔̩̮́̐̕͠h̨͓͔͉̿́͑͝é̹̙̤̮̀̍̈m̙̥̙̺̋̾͑̊e̳̗̖̩̽͐͆͒s͖̰͎̏̍̓̈́ͅ ͎̻͔͍͗͒̾̀y̢̻̜͎̾̄͒̋o̗̝̮̞͛̿̏͐ǔ̥̜̹̘̓̿̕ ̢̛̫͕͔̎̂́ẻ̲̜̰͙̍̌͑v̜̻̗̥̈́̓̈́̔e̡͚͇̫̎̆̋͑r̺̮͓̳̍̊͗̋ ̻̻̣̹͋͑́̈́ǹ̨̲͚͇̒̆͘e̗͉̫̱͂͑͗̓e̳̬̬͈̓̊̂͘d̪̻̞̮̈͂͠͝.͍͇͍̫̒͆̓͝&lt;/h2&gt;
         &lt;br/&gt;
-        &lt;p&gt;
-            Hey! Before we go any further, I would like to ask you a couple of questions:
-        &lt;/p&gt;
         &lt;ul&gt;
             &lt;li&gt;Do you need a bit more spice in your development life? &lt;input type="checkbox" checked&gt;&lt;/li&gt;
             &lt;li&gt;Are Light or Dark themes your thing? &lt;input type="checkbox" checked&gt;&lt;/li&gt;
@@ -20,7 +17,7 @@
             Well look no further friend, &lt;strong&gt;I've got what you are looking for!&lt;/strong&gt;
         &lt;/p&gt;&lt;br/&gt;
         &lt;p&gt;
-            With over 15 themes (light and dark) I think you will be able to find your favorite.
+            With over 10 themes (light and dark) I think you will be able to find your favorite.
             You can even find one fits your mood for the day.
         &lt;/p&gt;&lt;br/&gt;
         &lt;p&gt;
@@ -30,7 +27,6 @@
             &lt;li&gt;Kill la Kill&lt;/li&gt;
             &lt;li&gt;Re:Zero&lt;/li&gt;
             &lt;li&gt;KonoSuba&lt;/li&gt;
-            &lt;li&gt;Mistress's Menagerie&lt;/li&gt;
         &lt;/ul&gt;
         &lt;/p&gt;
         &lt;p&gt;

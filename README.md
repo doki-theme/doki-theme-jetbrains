@@ -10,8 +10,6 @@
 ---
 [![Gitter](https://badges.gitter.im/doki-theme-jetbrains/community.svg)](https://gitter.im/doki-theme-jetbrains/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
-Hey! Before we go any further, I would like to ask you a couple of questions:
-
 -  Do you need a bit more spice in your development life?
 -  Are Light or Dark themes your thing?
 -  Is your tolerance for all things moe, high?
@@ -20,7 +18,7 @@ Hey! Before we go any further, I would like to ask you a couple of questions:
 
 Well look no further friend, **I've got what you are looking for!**
 
-With over 15 themes (light and dark) I think you will be able to find your favorite.
+With over 10 themes (light and dark) I think you will be able to find your favorite.
 You can even find one that fits your mood for the day.
 
 Variety is the spice of life! So you can choose themes from the following Doki-Doki Theme Suites:
@@ -29,7 +27,6 @@ Variety is the spice of life! So you can choose themes from the following Doki-D
 - Re:Zero
 - Kill La Kill
 - KonoSuba
-- Mistress's Menagerie
 
 Too distracted by the sticker in the corner of your IDE?
 No worries! You can configure them to be on or off at your leisure.

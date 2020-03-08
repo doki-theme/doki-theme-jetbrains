@@ -19,11 +19,14 @@ import java.util.stream.Stream
 open class BuildThemes : DefaultTask() {
 
   companion object {
+    private const val COMMUNITY_PLUGIN_ID = "io.acari.DDLCTheme"
+    private const val ULTIMATE_PLUGIN_ID = "io.unthrottled.DokiTheme"
+    private const val PLUGIN_NAME = "The Doki Theme"
     private val COLOR_HEX_PATTERN_RGB = Pattern.compile("^#([A-Fa-f0-9]{6})$")
     private val COLOR_HEX_PATTERN_RGBA = Pattern.compile("^#([A-Fa-f0-9]{8})$")
     private const val HEX_COLOR_LENGTH_RGB = 7
     private const val HEX_COLOR_LENGTH_RGBA = 9
-    private const val DOKI_THEME_ULTIMATE =  "ultimate"
+    private const val DOKI_THEME_ULTIMATE = "ultimate"
   }
 
   private val gson = GsonBuilder().setPrettyPrinting().create()
@@ -68,7 +71,20 @@ open class BuildThemes : DefaultTask() {
         addThemeToPluginXml(extension, themeId, dokiThemeResourcePath)
       }
 
+    writeProductName(parsedPluginXml)
+
     writeXmlToFile(pluginXml, parsedPluginXml)
+  }
+
+  private fun writeProductName(pluginXml: Node) {
+    val nameNodeList = pluginXml["name"] as NodeList
+    val productPostfix = if (isUltimateBuild()) " Ultimate" else ""
+    val nameNode = nameNodeList.get(0) as Node
+    nameNode.setValue("$PLUGIN_NAME$productPostfix")
+    val pluginId = if (isUltimateBuild()) ULTIMATE_PLUGIN_ID else COMMUNITY_PLUGIN_ID
+    val idNodeList = pluginXml["id"] as NodeList
+    val idNode = idNodeList.get(0) as Node
+    idNode.setValue(pluginId)
   }
 
   private fun cleanPluginXml(extension: Node) {
@@ -76,8 +92,8 @@ open class BuildThemes : DefaultTask() {
     themeProviders
       .map { it as Node }
       .forEach {
-      extension.remove(it)
-    }
+        extension.remove(it)
+      }
   }
 
 
@@ -116,10 +132,12 @@ open class BuildThemes : DefaultTask() {
           DokiBuildThemeDefinition::class.java
         )
       }.filter {
-        (it.second.product == DOKI_THEME_ULTIMATE && System.getenv("PRODUCT") == DOKI_THEME_ULTIMATE) ||
+        (it.second.product == DOKI_THEME_ULTIMATE && isUltimateBuild()) ||
             it.second.product != DOKI_THEME_ULTIMATE
       }
   }
+
+  private fun isUltimateBuild() = System.getenv("PRODUCT") == DOKI_THEME_ULTIMATE
 
   private fun createThemeDefinitions(themeDirectory: Path): Map<String, ThemeTemplateDefinition> =
     walk(get(themeDirectory.toString(), "templates"))
@@ -316,9 +334,9 @@ open class BuildThemes : DefaultTask() {
     dokiThemeTemplates: ThemeTemplateDefinition,
     dokiThemeTemplates1: Map<String, ThemeTemplateDefinition>
   ): Map<String, Any> = Stream.of(
-    getAllEntries(dokiThemeTemplates, dokiThemeTemplates1) { it.ui },
-    ui.entries.stream()
-  )
+      getAllEntries(dokiThemeTemplates, dokiThemeTemplates1) { it.ui },
+      ui.entries.stream()
+    )
     .flatMap { it }
     .collect(Collectors.toMap({ it.key }, { it.value }, { _, b -> b },
       { TreeMap(Comparator.comparing { item -> item.toLowerCase() }) })
