@@ -4,9 +4,11 @@ import com.intellij.openapi.components.ServiceManager
 import java.util.*
 import javax.swing.UIManager
 
+const val DDLC_THEME_NAME_PREFIX = "DDLC: "
+
 interface ThemeManager {
   companion object {
-    const val MONIKA_DARK = "Monika Dark"
+    const val MONIKA_DARK = "${DDLC_THEME_NAME_PREFIX}Monika Dark"
 
     val instance: ThemeManager
       get() = ServiceManager.getService(ThemeManager::class.java)

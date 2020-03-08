@@ -1,10 +1,10 @@
 
-
+const val DDLC_THEME_NAME_PREFIX = "DDLC: "
 private val nameMapping =
   mapOf(
     "Kill la Kill" to "KillLaKill: ",
     "Re Zero" to "Re:Zero: ",
-    "Literature Club" to "DDLC: ",
+    "Literature Club" to DDLC_THEME_NAME_PREFIX,
     "KonoSuba" to "KonoSuba: ",
     "Mistress" to "Miss: "
   )

@@ -24,6 +24,19 @@ object UpdateNotification {
       NotificationType.INFORMATION)
   }
 
+  fun sendMessage(
+    title: String,
+    message: String,
+    project: Project? = null
+  ) {
+    notificationManager.notify(
+      title,
+      message,
+      project = project,
+      listener = NotificationListener.URL_OPENING_LISTENER
+    )
+  }
+
   fun display(project: Project) {
     notificationManager.notify(
       "The Doki Theme updated to v${CURRENT_VERSION}",
