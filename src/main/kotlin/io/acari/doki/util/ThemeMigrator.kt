@@ -37,17 +37,18 @@ object ThemeMigrator {
       .map { ThemeManager.instance.themeByName(ThemeManager.MONIKA_DARK) }
       .ifPresent {
         setDokiTheme(it)
-      }
-    UpdateNotification.sendMessage(
-      "Theme Not Available",
-      """
-      <p>Sorry friend, but your previously selected theme is no longer part of the "Doki Theme Community".</p>
-      <p>You need the "Doki Theme Ultimate" (which is free) to gain access your previous theme.</p>
+        StickerService.instance.clearPreviousSticker()
+        UpdateNotification.sendMessage(
+          "Theme Not Available",
+          """
+      <p>Sorry friend, but your previously selected theme is no longer part of the Community Doki Theme.</p>
+      <p>You need the Ultimate Doki Theme (which is free) to gain access your previous theme.</p>
       <p>The <a href='${ThemeSettings.REPOSITORY}'>README</a> on the repository should show you what you need to do to get it.</p>
       <p>Thanks!</p>
     """.trimIndent(),
-      project
-    )
+          project
+        )
+      }
   }
 
   fun migrateLegacyTheme() {

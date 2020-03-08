@@ -15,4 +15,5 @@ interface StickerService {
     }
 
   fun getPreviousSticker(): Optional<String>
+  fun clearPreviousSticker()
 }

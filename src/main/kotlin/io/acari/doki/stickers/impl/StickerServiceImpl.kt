@@ -47,6 +47,10 @@ class StickerServiceImpl : StickerService {
   override fun getPreviousSticker(): Optional<String> =
     PropertiesComponent.getInstance().getValue(PREVIOUS_STICKER).toOptional()
 
+  override fun clearPreviousSticker() {
+    PropertiesComponent.getInstance().unsetValue(PREVIOUS_STICKER)
+  }
+
   private fun removeWeebShit() {
     // todo: do not do dis, move to first class theme settings
     val propertiesComponent = PropertiesComponent.getInstance()
