@@ -96,7 +96,6 @@ open class BuildThemes : DefaultTask() {
       }
   }
 
-
   private fun addThemeToPluginXml(extension: Node, themeId: String, dokiThemeResourcePath: String) {
     val themeProviders = extension["themeProvider"] as NodeList
     val preExistingThemeProvider = themeProviders

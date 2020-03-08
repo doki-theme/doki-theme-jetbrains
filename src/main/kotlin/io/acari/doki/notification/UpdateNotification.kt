@@ -1,6 +1,5 @@
 package io.acari.doki.notification
 
-import com.intellij.ide.plugins.PluginManagerCore
 import com.intellij.ide.plugins.PluginManagerCore.*
 import com.intellij.notification.*
 import com.intellij.openapi.project.Project

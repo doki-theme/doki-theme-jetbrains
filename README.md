@@ -88,21 +88,4 @@ Help make this plugin better!
 
 ---
 
-## Mistress's Menagerie (Sample):
-
-![Neera](assets/screenshots/anthro/neera.png)
-
-![Eleniel](assets/screenshots/anthro/eleniel.png)
-
-# [More theme Screenshots!!](menagerie_album.md)
-
----
-# Is the theme not working? Do things do not work the way you expect them to work?!
-
-# 👇👇👇
-# [Please see this page for help!](https://github.com/Unthrottled/doki-theme-jetbrains/wiki/Trouble-Shooting!) 👈👈
-# ☝️☝️☝️
-
 Enjoy!
----
-##### You can also see the [project wiki](https://github.com/Unthrottled/doki-theme-jetbrains/wiki) for Doki-Doki theme specific information!
