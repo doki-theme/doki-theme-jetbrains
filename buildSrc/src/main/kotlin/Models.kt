@@ -34,6 +34,7 @@ data class DokiBuildThemeDefinition(
   val dark: Boolean,
   val author: String?,
   val group: String,
+  val product: String?,
   val editorScheme: Map<String, Any>,
   val stickers: BuildStickers,
   val colors: Map<String, Any>,

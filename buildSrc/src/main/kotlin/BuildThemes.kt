@@ -23,6 +23,7 @@ open class BuildThemes : DefaultTask() {
     private val COLOR_HEX_PATTERN_RGBA = Pattern.compile("^#([A-Fa-f0-9]{8})$")
     private const val HEX_COLOR_LENGTH_RGB = 7
     private const val HEX_COLOR_LENGTH_RGBA = 9
+    private const val DOKI_THEME_ULTIMATE =  "ultimate"
   }
 
   private val gson = GsonBuilder().setPrettyPrinting().create()
@@ -51,6 +52,7 @@ open class BuildThemes : DefaultTask() {
 
     val (pluginXmlAndParsed, extension) = getPluginXmlMutationStuff()
     val (pluginXml, parsedPluginXml) = pluginXmlAndParsed
+    cleanPluginXml(extension)
 
     val masterThemeDirectory = get(project.rootDir.absolutePath, "masterThemes")
     val jetbrainsDokiThemeDefinitionDirectory = get(themeDirectory.toString(), "definitions")
@@ -68,6 +70,16 @@ open class BuildThemes : DefaultTask() {
 
     writeXmlToFile(pluginXml, parsedPluginXml)
   }
+
+  private fun cleanPluginXml(extension: Node) {
+    val themeProviders = extension["themeProvider"] as NodeList
+    themeProviders
+      .map { it as Node }
+      .forEach {
+      extension.remove(it)
+    }
+  }
+
 
   private fun addThemeToPluginXml(extension: Node, themeId: String, dokiThemeResourcePath: String) {
     val themeProviders = extension["themeProvider"] as NodeList
@@ -96,13 +108,16 @@ open class BuildThemes : DefaultTask() {
       .map { it to newInputStream(it) }
       .map {
         val masterThemePath = it.first.toString()
-        val masterFileDefinition = masterThemePath.substringAfter("${masterThemeDirectory}")
+        val masterFileDefinition = masterThemePath.substringAfter("$masterThemeDirectory")
         val jetbrainsThemeDefinitionPath =
           get(dokiThemeDefinitionDirectory.toString(), masterFileDefinition)
         jetbrainsThemeDefinitionPath to gson.fromJson(
           InputStreamReader(it.second, StandardCharsets.UTF_8),
           DokiBuildThemeDefinition::class.java
         )
+      }.filter {
+        (it.second.product == DOKI_THEME_ULTIMATE && System.getenv("PRODUCT") == DOKI_THEME_ULTIMATE) ||
+            it.second.product != DOKI_THEME_ULTIMATE
       }
   }
 
