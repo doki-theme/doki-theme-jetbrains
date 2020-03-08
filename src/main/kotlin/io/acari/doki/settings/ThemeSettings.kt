@@ -39,8 +39,7 @@ class ThemeSettings : SearchableConfigurable {
     val ISSUES_URI = URI("https://github.com/Unthrottled/doki-theme-jetbrains/issues")
     val MARKETPLACE_URI = URI("https://plugins.jetbrains.com/plugin/10804-the-doki-doki-theme")
   }
-
-  override fun getId(): String = "io.acari.doki.settings.ThemeSettings"
+override fun getId(): String = "io.acari.doki.settings.ThemeSettings"
 
   override fun getDisplayName(): String =
     THEME_SETTINGS_DISPLAY_NAME
@@ -48,7 +47,7 @@ class ThemeSettings : SearchableConfigurable {
   private val initialThemeSettingsModel = ThemeSettingsModel(
     ThemeConfig.instance.currentStickerLevel == StickerLevel.ON,
     ThemeConfig.instance.isLafAnimation,
-    ThemeManager.instance.currentTheme.map { it.name }.orElseGet { ThemeManager.MONIKA_LIGHT },
+    ThemeManager.instance.currentTheme.map { it.name }.orElseGet { ThemeManager.MONIKA_DARK },
     ThemeConfig.instance.isThemedTitleBar,
     ThemeConfig.instance.isDokiFileColors,
     ThemeConfig.instance.showThemeStatusBar,

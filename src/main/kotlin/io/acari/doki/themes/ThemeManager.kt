@@ -6,7 +6,7 @@ import javax.swing.UIManager
 
 interface ThemeManager {
   companion object {
-    const val MONIKA_LIGHT = "Monika Light"
+    const val MONIKA_DARK = "Monika Dark"
 
     val instance: ThemeManager
       get() = ServiceManager.getService(ThemeManager::class.java)

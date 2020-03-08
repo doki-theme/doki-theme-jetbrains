@@ -24,7 +24,7 @@ class ThemeConfig : PersistentStateComponent<ThemeConfig>, Cloneable {
   var version: String = "0.0.0"
   var chibiLevel: String = StickerLevel.ON.name
   var stickerLevel: String = StickerLevel.ON.name
-  var selectedTheme: String = ThemeManager.MONIKA_LIGHT
+  var selectedTheme: String = ThemeManager.MONIKA_DARK
   var isDokiFileColors: Boolean = false
   var isThemedTitleBar: Boolean = true
   var showThemeStatusBar: Boolean = true
