@@ -200,7 +200,7 @@
         </option>
         <option name="CONSOLE_BLUE_OUTPUT">
             <value>
-                <option name="FOREGROUND" value="9b6bdf" />
+                <option name="FOREGROUND" value="$terminal.ansiBlue$" />
             </value>
         </option>
         <option name="CONSOLE_CYAN_BRIGHT_OUTPUT">
@@ -210,7 +210,7 @@
         </option>
         <option name="CONSOLE_CYAN_OUTPUT">
             <value>
-                <option name="FOREGROUND" value="75d7ec" />
+                <option name="FOREGROUND" value="$terminal.ansiCyan$" />
             </value>
         </option>
         <option name="CONSOLE_DARKGRAY_OUTPUT">
@@ -230,7 +230,7 @@
         </option>
         <option name="CONSOLE_GREEN_OUTPUT">
             <value>
-                <option name="FOREGROUND" value="31BB29" />
+                <option name="FOREGROUND" value="$terminal.ansiGreen$" />
             </value>
         </option>
         <option name="CONSOLE_MAGENTA_BRIGHT_OUTPUT">
@@ -240,7 +240,7 @@
         </option>
         <option name="CONSOLE_MAGENTA_OUTPUT">
             <value>
-                <option name="FOREGROUND" value="e64747" />
+                <option name="FOREGROUND" value="$terminal.ansiMagenta$" />
             </value>
         </option>
         <option name="CONSOLE_NORMAL_OUTPUT">
@@ -260,7 +260,7 @@
         </option>
         <option name="CONSOLE_RED_OUTPUT">
             <value>
-                <option name="FOREGROUND" value="e356a7" />
+                <option name="FOREGROUND" value="$terminal.ansiRed$" />
             </value>
         </option>
         <option name="CONSOLE_SELECTED_PARAMETER">
@@ -842,7 +842,6 @@
         </option>
         <option name="INLINE_PARAMETER_HINT">
             <value>
-<!--                todo test dis-->
                 <option name="FOREGROUND" value="$accentColor$5a" />
                 <option name="BACKGROUND" value="$textEditorBackground$" />
             </value>

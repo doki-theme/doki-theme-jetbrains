@@ -8,7 +8,7 @@ data class ThemeDefinitionSchema(
 
 
 data class ThemeTemplateDefinition(
-  val type: String,
+  val type: String?,
   val extends: String?,
   val name: String,
   val ui: Map<String, Any>?,

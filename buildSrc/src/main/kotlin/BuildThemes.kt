@@ -559,7 +559,7 @@ open class BuildThemes : DefaultTask() {
             if (value?.contains('$') == true) {
               val (end, replacementColor) = getReplacementColor(value, '$') { templateColor ->
                 dokiDefinition.overrides?.editorScheme?.colors?.get(templateColor) as? String
-                  ?: dokiDefinition.colors[templateColor] as? String
+                  ?: resolvedNamedColors[templateColor] as? String
                   ?: throw IllegalArgumentException("$templateColor is not in ${dokiDefinition.name}'s color definition.")
               }
               it.attributes()["value"] = buildReplacement(replacementColor, value, end)
