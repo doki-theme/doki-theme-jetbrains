@@ -49,7 +49,8 @@ open class BuildThemes : DefaultTask() {
   @TaskAction
   fun run() {
     val themeDirectory = get(project.rootDir.absolutePath, "themes")
-    val dokiThemeTemplates = createThemeDefinitions(themeDirectory)
+    val masterThemeDirectory = get(project.rootDir.absolutePath, "masterThemes")
+    val dokiThemeTemplates = createThemeDefinitions(themeDirectory, masterThemeDirectory)
 
     val dokiEditorThemeTemplates = createEditorThemeDefinitions(themeDirectory)
 
@@ -57,7 +58,6 @@ open class BuildThemes : DefaultTask() {
     val (pluginXml, parsedPluginXml) = pluginXmlAndParsed
     cleanPluginXml(extension)
 
-    val masterThemeDirectory = get(project.rootDir.absolutePath, "masterThemes")
     val jetbrainsDokiThemeDefinitionDirectory = get(themeDirectory.toString(), "definitions")
     getAllDokiThemeDefinitions(jetbrainsDokiThemeDefinitionDirectory, masterThemeDirectory)
       .forEach { themeDefinitionAndPath ->
@@ -138,8 +138,14 @@ open class BuildThemes : DefaultTask() {
 
   private fun isUltimateBuild() = System.getenv("PRODUCT") == DOKI_THEME_ULTIMATE
 
-  private fun createThemeDefinitions(themeDirectory: Path): Map<String, ThemeTemplateDefinition> =
-    walk(get(themeDirectory.toString(), "templates"))
+  private fun createThemeDefinitions(
+    themeDirectory: Path,
+    masterThemeDirectory: Path
+  ): Map<String, Map<String, ThemeTemplateDefinition>> =
+    Stream.concat(
+        walk(get(themeDirectory.toString(), "templates")),
+        walk(get(masterThemeDirectory.toString(), "templates"))
+      )
       .filter { !isDirectory(it) }
       .filter { it.fileName.toString().endsWith(".template.json") }
       .map { newInputStream(it) }
@@ -148,7 +154,9 @@ open class BuildThemes : DefaultTask() {
           InputStreamReader(it, StandardCharsets.UTF_8),
           ThemeTemplateDefinition::class.java
         )
-      }.collect(Collectors.toMap({ it.name }, { it }, { a, _ -> a }))
+      }.collect(
+        Collectors.groupingBy({it.templateType},
+        Collectors.toMap({ it.name }, { it }, { a, _ -> a })))
 
   private fun createEditorThemeDefinitions(themeDirectory: Path): Map<String, Node> =
     walk(get(themeDirectory.toString(), "templates"))
@@ -172,7 +180,7 @@ open class BuildThemes : DefaultTask() {
 
   private fun constructIntellijTheme(
     dokiBuildThemeDefinition: Pair<Path, DokiBuildThemeDefinition>,
-    dokiThemeTemplates: Map<String, ThemeTemplateDefinition>,
+    dokiThemeTemplates: Map<String, Map<String, ThemeTemplateDefinition>>,
     dokiEditorThemeTemplates: Map<String, Node>
   ): String {
     val (dokiThemeDefinitionPath, themeDefinition) = dokiBuildThemeDefinition
@@ -187,9 +195,11 @@ open class BuildThemes : DefaultTask() {
       delete(themeJson)
     }
 
+
     val templateName = if (themeDefinition.dark) "dark" else "light"
     val topThemeDefinition =
       dokiThemeTemplates[templateName] ?: throw IllegalStateException("Theme $templateName does not exist.")
+//    val resolvedNamedColors = resolveNamedColors()
     val finalTheme = IntellijDokiThemeDefinition(
       name = "${getLafNamePrefix(themeDefinition.group)}${themeDefinition.name}",
       displayName = themeDefinition.displayName,

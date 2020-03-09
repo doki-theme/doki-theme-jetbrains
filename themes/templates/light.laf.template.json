@@ -1,4 +1,5 @@
 {
+  "type": "LAF",
   "name": "light",
   "extends": "base",
   "ui": {
