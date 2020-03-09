@@ -22,206 +22,225 @@ import javax.xml.bind.DatatypeConverter
 const val DOKI_BACKGROUND_PROP: String = "io.acari.doki.background"
 private val messageDigest: MessageDigest = MessageDigest.getInstance("MD5")
 private const val SOURCE_CODE = "https://raw.githubusercontent.com/Unthrottled/ddlc-jetbrains-theme/master"
+
 // todo: migrate to assets
 private const val RESOURCES_DIRECTORY = "${SOURCE_CODE}/src/main/resources"
 private const val ASSETS_SOURCE = "https://doki.assets.acari.io"
 private const val BACKGROUND_DIRECTORY = "${ASSETS_SOURCE}/backgrounds"
 const val DOKI_STICKER_PROP: String = "io.acari.doki.stickers"
+private const val PREVIOUS_STICKER = "io.unthrottled.doki.sticker.previous"
 
 class StickerServiceImpl : StickerService {
 
-    private val stickerLevel: StickerLevel
-        get() = ThemeConfig.instance.currentStickerLevel
+  private val stickerLevel: StickerLevel
+    get() = ThemeConfig.instance.currentStickerLevel
 
-    override fun activateForTheme(dokiTheme: DokiTheme) {
-        removeWeebShit()
-        turnOnIfNecessary(dokiTheme)
+  override fun activateForTheme(dokiTheme: DokiTheme) {
+    removeWeebShit()
+    turnOnIfNecessary(dokiTheme)
+  }
+
+  override fun remove() {
+    removeWeebShit()
+  }
+
+  override fun getPreviousSticker(): Optional<String> =
+    PropertiesComponent.getInstance().getValue(PREVIOUS_STICKER).toOptional()
+
+  override fun clearPreviousSticker() {
+    PropertiesComponent.getInstance().unsetValue(PREVIOUS_STICKER)
+  }
+
+  private fun removeWeebShit() {
+    // todo: do not do dis, move to first class theme settings
+    val propertiesComponent = PropertiesComponent.getInstance()
+    val previousSticker = propertiesComponent.getValue(DOKI_STICKER_PROP, "")
+    if (previousSticker.isNotEmpty()) {
+      propertiesComponent.setValue(
+        PREVIOUS_STICKER,
+        previousSticker
+      )
     }
 
-    override fun remove() {
-        removeWeebShit()
-    }
+    propertiesComponent.unsetValue(DOKI_STICKER_PROP)
+    propertiesComponent.unsetValue(DOKI_BACKGROUND_PROP)
+    repaintWindows()
+  }
 
-    private fun removeWeebShit() {
-        PropertiesComponent.getInstance().unsetValue(DOKI_STICKER_PROP)
-        PropertiesComponent.getInstance().unsetValue(DOKI_BACKGROUND_PROP)
-        repaintWindows()
-    }
+  private fun repaintWindows() = try {
+    IdeBackgroundUtil.repaintAllWindows()
+  } catch (e: Throwable) {
+  }
 
-    private fun repaintWindows() = try {
-        IdeBackgroundUtil.repaintAllWindows()
-    } catch (e: Throwable) {
-    }
+  private fun weebShitOn(): Boolean =
+    stickerLevel != StickerLevel.OFF
 
-    private fun weebShitOn(): Boolean =
-        stickerLevel != StickerLevel.OFF
+  private fun turnOnIfNecessary(dokiTheme: DokiTheme) {
+    if (weebShitOn())
+      turnOnWeebShit(dokiTheme)
+  }
 
-    private fun turnOnIfNecessary(dokiTheme: DokiTheme) {
-        if (weebShitOn())
-            turnOnWeebShit(dokiTheme)
-    }
-
-    private fun turnOnWeebShit(dokiTheme: DokiTheme) {
-        val stickerOpacity = 100
-        getImagePath(dokiTheme)
-            .ifPresent {
-                setProperty(
-                    it,
-                    "$stickerOpacity",
-                    IdeBackgroundUtil.Fill.PLAIN.name,
-                    IdeBackgroundUtil.Anchor.BOTTOM_RIGHT.name,
-                    DOKI_STICKER_PROP
-                )
-            }
-
-        getFrameBackground(dokiTheme)
-            .ifPresent {
-                setProperty(
-                    it,
-                    "$stickerOpacity",
-                    IdeBackgroundUtil.Fill.SCALE.name,
-                    IdeBackgroundUtil.Anchor.CENTER.name,
-                    DOKI_BACKGROUND_PROP
-                )
-
-            }
-        repaintWindows()
-    }
-
-
-    private fun getFrameBackground(dokiTheme: DokiTheme): Optional<String> {
-        return dokiTheme.getSticker()
-            .map { "$BACKGROUND_DIRECTORY/$it" }
-    }
-
-    private fun getImagePath(dokiTheme: DokiTheme): Optional<String> =
-        dokiTheme.getStickerPath()
-            .flatMap { fullstickerClasspath ->
-                getLocalClubMemberParentDirectory()
-                    .map { localParentDirectory ->
-                        val weebStuff =
-                            Paths.get(localParentDirectory, fullstickerClasspath)
-                                .normalize()
-                                .toAbsolutePath()
-                        if (shouldCopyToDisk(weebStuff, fullstickerClasspath)) {
-                            createDirectories(weebStuff)
-                            copyAnimes(fullstickerClasspath, weebStuff)
-                                .map { it.toOptional() }
-                                .orElseGet { getClubMemberFallback(dokiTheme) }
-                        } else {
-                            weebStuff.toString().toOptional()
-                        }
-                    }
-                    .orElseGet {
-                        getClubMemberFallback(dokiTheme)
-                    }
-            }
-
-    private fun shouldCopyToDisk(weebStuff: Path, theAnimesPath: String) =
-        !(Files.exists(weebStuff) && checksumMatches(weebStuff, theAnimesPath))
-
-    private fun checksumMatches(weebStuff: Path, theAnimesPath: String): Boolean =
-        try {
-            getAnimesInputStream(theAnimesPath)
-                .map { IOUtils.toByteArray(it) }
-                .map { computeCheckSum(it) }
-                .map { computedCheckSum ->
-                    val onDiskCheckSum = getOnDiskCheckSum(weebStuff)
-                    computedCheckSum == onDiskCheckSum
-                }.orElseGet { false }
-        } catch (e: IOException) {
-            e.printStackTrace()
-            false
-        }
-
-    private fun getOnDiskCheckSum(weebStuff: Path): String =
-        computeCheckSum(Files.readAllBytes(weebStuff))
-
-    private fun computeCheckSum(byteArray: ByteArray): String {
-        messageDigest.update(byteArray)
-        val digest = messageDigest.digest()
-        return DatatypeConverter.printHexBinary(digest).toUpperCase()
-    }
-
-    private fun createDirectories(weebStuff: Path) {
-        try {
-            Files.createDirectories(weebStuff.parent)
-        } catch (e: IOException) {
-            e.printStackTrace()
-        }
-    }
-
-    private fun getAnimesInputStream(theAnimesPath: String): Optional<BufferedInputStream> =
-        try {
-            this.javaClass
-                .classLoader
-                .getResourceAsStream(theAnimesPath).toOptional()
-                .map { BufferedInputStream(it) }
-        } catch (e: IOException) {
-            Optional.empty()
-        }
-
-    private fun copyAnimes(theAnimesPath: String, weebStuff: Path): Optional<String> =
-        try {
-            getAnimesInputStream(theAnimesPath)
-                .map { bufferedInputStream ->
-                    bufferedInputStream.use { inputStream ->
-                        Files.newOutputStream(
-                            weebStuff,
-                            StandardOpenOption.CREATE,
-                            StandardOpenOption.TRUNCATE_EXISTING
-                        ).use { bufferedWriter ->
-                            IOUtils.copy(inputStream, bufferedWriter)
-                        }
-                    }
-                    weebStuff.toString()
-                }
-        } catch (e: IOException) {
-            Optional.empty()
-        }
-
-
-    private fun getClubMemberFallback(dokiTheme: DokiTheme): Optional<String> {
-        return dokiTheme.getStickerPath()
-            .map { "${RESOURCES_DIRECTORY}$it" }
-    }
-
-
-    private fun getLocalClubMemberParentDirectory(): Optional<String> =
-        Optional.ofNullable(
-            System.getProperties()["jb.vmOptionsFile"] as? String
-                ?: System.getProperties()["idea.config.path"] as? String
+  private fun turnOnWeebShit(dokiTheme: DokiTheme) {
+    val stickerOpacity = 100
+    getImagePath(dokiTheme)
+      .ifPresent {
+        setProperty(
+          it,
+          "$stickerOpacity",
+          IdeBackgroundUtil.Fill.PLAIN.name,
+          IdeBackgroundUtil.Anchor.BOTTOM_RIGHT.name,
+          DOKI_STICKER_PROP
         )
-            .map { property -> property.split(",") }
-            .filter { properties -> properties.isNotEmpty() }
-            .map { paths -> paths[paths.size - 1] }
-            .map { property ->
-                val directory = Paths.get(property)
-                if (directory.isFile()) {
-                    directory.parent
-                } else {
-                    directory
-                }.toAbsolutePath().toString()
+      }
+
+    getFrameBackground(dokiTheme)
+      .ifPresent {
+        setProperty(
+          it,
+          "$stickerOpacity",
+          IdeBackgroundUtil.Fill.SCALE.name,
+          IdeBackgroundUtil.Anchor.CENTER.name,
+          DOKI_BACKGROUND_PROP
+        )
+
+      }
+    repaintWindows()
+  }
+
+
+  private fun getFrameBackground(dokiTheme: DokiTheme): Optional<String> {
+    return dokiTheme.getSticker()
+      .map { "$BACKGROUND_DIRECTORY/$it" }
+  }
+
+  private fun getImagePath(dokiTheme: DokiTheme): Optional<String> =
+    dokiTheme.getStickerPath()
+      .flatMap { fullstickerClasspath ->
+        getLocalClubMemberParentDirectory()
+          .map { localParentDirectory ->
+            val weebStuff =
+              Paths.get(localParentDirectory, fullstickerClasspath)
+                .normalize()
+                .toAbsolutePath()
+            if (shouldCopyToDisk(weebStuff, fullstickerClasspath)) {
+              createDirectories(weebStuff)
+              copyAnimes(fullstickerClasspath, weebStuff)
+                .map { it.toOptional() }
+                .orElseGet { getClubMemberFallback(dokiTheme) }
+            } else {
+              weebStuff.toString().toOptional()
             }
+          }
+          .orElseGet {
+            getClubMemberFallback(dokiTheme)
+          }
+      }
 
+  private fun shouldCopyToDisk(weebStuff: Path, theAnimesPath: String) =
+    !(Files.exists(weebStuff) && checksumMatches(weebStuff, theAnimesPath))
 
-    private fun setProperty(
-        imagePath: String,
-        opacity: String,
-        fill: String, anchor: String,
-        propertyKey: String
-    ) {
-        //org.intellij.images.editor.actions.SetBackgroundImageDialog has all of the answers
-        //as to why this looks this way
-        val propertyValue = listOf(imagePath, opacity, fill, anchor)
-            .reduceRight { a, b -> "$a,$b" }
-        setPropertyValue(propertyKey, propertyValue)
+  private fun checksumMatches(weebStuff: Path, theAnimesPath: String): Boolean =
+    try {
+      getAnimesInputStream(theAnimesPath)
+        .map { IOUtils.toByteArray(it) }
+        .map { computeCheckSum(it) }
+        .map { computedCheckSum ->
+          val onDiskCheckSum = getOnDiskCheckSum(weebStuff)
+          computedCheckSum == onDiskCheckSum
+        }.orElseGet { false }
+    } catch (e: IOException) {
+      e.printStackTrace()
+      false
     }
 
-    private fun setPropertyValue(propertyKey: String, propertyValue: String) {
-        PropertiesComponent.getInstance().unsetValue(propertyKey)
-        PropertiesComponent.getInstance().setValue(propertyKey, propertyValue)
+  private fun getOnDiskCheckSum(weebStuff: Path): String =
+    computeCheckSum(Files.readAllBytes(weebStuff))
+
+  private fun computeCheckSum(byteArray: ByteArray): String {
+    messageDigest.update(byteArray)
+    val digest = messageDigest.digest()
+    return DatatypeConverter.printHexBinary(digest).toUpperCase()
+  }
+
+  private fun createDirectories(weebStuff: Path) {
+    try {
+      Files.createDirectories(weebStuff.parent)
+    } catch (e: IOException) {
+      e.printStackTrace()
     }
+  }
+
+  private fun getAnimesInputStream(theAnimesPath: String): Optional<BufferedInputStream> =
+    try {
+      this.javaClass
+        .classLoader
+        .getResourceAsStream(theAnimesPath).toOptional()
+        .map { BufferedInputStream(it) }
+    } catch (e: IOException) {
+      Optional.empty()
+    }
+
+  private fun copyAnimes(theAnimesPath: String, weebStuff: Path): Optional<String> =
+    try {
+      getAnimesInputStream(theAnimesPath)
+        .map { bufferedInputStream ->
+          bufferedInputStream.use { inputStream ->
+            Files.newOutputStream(
+              weebStuff,
+              StandardOpenOption.CREATE,
+              StandardOpenOption.TRUNCATE_EXISTING
+            ).use { bufferedWriter ->
+              IOUtils.copy(inputStream, bufferedWriter)
+            }
+          }
+          weebStuff.toString()
+        }
+    } catch (e: IOException) {
+      Optional.empty()
+    }
+
+
+  private fun getClubMemberFallback(dokiTheme: DokiTheme): Optional<String> {
+    return dokiTheme.getStickerPath()
+      .map { "${RESOURCES_DIRECTORY}$it" }
+  }
+
+
+  private fun getLocalClubMemberParentDirectory(): Optional<String> =
+    Optional.ofNullable(
+        System.getProperties()["jb.vmOptionsFile"] as? String
+          ?: System.getProperties()["idea.config.path"] as? String
+      )
+      .map { property -> property.split(",") }
+      .filter { properties -> properties.isNotEmpty() }
+      .map { paths -> paths[paths.size - 1] }
+      .map { property ->
+        val directory = Paths.get(property)
+        if (directory.isFile()) {
+          directory.parent
+        } else {
+          directory
+        }.toAbsolutePath().toString()
+      }
+
+
+  private fun setProperty(
+    imagePath: String,
+    opacity: String,
+    fill: String, anchor: String,
+    propertyKey: String
+  ) {
+    //org.intellij.images.editor.actions.SetBackgroundImageDialog has all of the answers
+    //as to why this looks this way
+    val propertyValue = listOf(imagePath, opacity, fill, anchor)
+      .reduceRight { a, b -> "$a,$b" }
+    setPropertyValue(propertyKey, propertyValue)
+  }
+
+  private fun setPropertyValue(propertyKey: String, propertyValue: String) {
+    PropertiesComponent.getInstance().unsetValue(propertyKey)
+    PropertiesComponent.getInstance().setValue(propertyKey, propertyValue)
+  }
 
 
 }

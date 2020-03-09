@@ -8,10 +8,12 @@ data class ThemeDefinitionSchema(
 
 
 data class ThemeTemplateDefinition(
+  val type: String?,
   val extends: String?,
   val name: String,
-  val ui: Map<String, Any>,
-  val icons: Map<String, Any>?
+  val ui: Map<String, Any>?,
+  val icons: Map<String, Any>?,
+  val colors: Map<String, String>?
 )
 
 data class BuildStickers(
@@ -34,6 +36,7 @@ data class DokiBuildThemeDefinition(
   val dark: Boolean,
   val author: String?,
   val group: String,
+  val product: String?,
   val editorScheme: Map<String, Any>,
   val stickers: BuildStickers,
   val colors: Map<String, Any>,
@@ -41,10 +44,10 @@ data class DokiBuildThemeDefinition(
   val ui: Map<String, Any>,
   val icons: Map<String, Any>
 ) {
- val usableName: String
-  get() = name.replace(' ', '_')
- val usableGroup: String
-  get() = group.replace(' ', '_')
+  val usableName: String
+    get() = name.replace(' ', '_')
+  val usableGroup: String
+    get() = group.replace(' ', '_')
 }
 
 data class IntellijDokiThemeDefinition(

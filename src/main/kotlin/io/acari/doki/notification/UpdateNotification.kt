@@ -1,5 +1,6 @@
 package io.acari.doki.notification
 
+import com.intellij.ide.plugins.PluginManagerCore.*
 import com.intellij.notification.*
 import com.intellij.openapi.project.Project
 
@@ -13,7 +14,7 @@ val UPDATE_MESSAGE: String = """
       Thanks again for downloading <b>The Doki Theme</b>! •‿•<br>
 """.trimIndent()
 
-const val CURRENT_VERSION = "6.2.2"
+const val CURRENT_VERSION = "7.0.0-ALPHA"
 
 object UpdateNotification {
 
@@ -24,9 +25,26 @@ object UpdateNotification {
       NotificationType.INFORMATION)
   }
 
-  fun display(project: Project) {
+  fun sendMessage(
+    title: String,
+    message: String,
+    project: Project? = null
+  ) {
     notificationManager.notify(
-      "The Doki Theme updated to v${CURRENT_VERSION}",
+      title,
+      message,
+      project = project,
+      listener = NotificationListener.URL_OPENING_LISTENER
+    )
+  }
+
+  fun display(project: Project) {
+    val pluginName =
+      getPlugin(
+      getPluginOrPlatformByClassName(UpdateNotification::class.java.canonicalName)
+      )?.name
+    notificationManager.notify(
+      "$pluginName updated to v${CURRENT_VERSION}",
       UPDATE_MESSAGE,
       project,
       NotificationListener.URL_OPENING_LISTENER

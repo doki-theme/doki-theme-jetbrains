@@ -36,7 +36,8 @@ class ThemeSettings : SearchableConfigurable {
     const val THEME_SETTINGS_DISPLAY_NAME = "Doki Theme Settings"
     val CHANGELOG_URI =
       URI("https://github.com/Unthrottled/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md")
-    val ISSUES_URI = URI("https://github.com/Unthrottled/doki-theme-jetbrains/issues")
+    const val REPOSITORY = "https://github.com/Unthrottled/doki-theme-jetbrains"
+    val ISSUES_URI = URI("$REPOSITORY/issues")
     val MARKETPLACE_URI = URI("https://plugins.jetbrains.com/plugin/10804-the-doki-doki-theme")
   }
 
@@ -48,7 +49,7 @@ class ThemeSettings : SearchableConfigurable {
   private val initialThemeSettingsModel = ThemeSettingsModel(
     ThemeConfig.instance.currentStickerLevel == StickerLevel.ON,
     ThemeConfig.instance.isLafAnimation,
-    ThemeManager.instance.currentTheme.map { it.name }.orElseGet { ThemeManager.MONIKA_LIGHT },
+    ThemeManager.instance.currentTheme.map { it.name }.orElseGet { ThemeManager.MONIKA_DARK },
     ThemeConfig.instance.isThemedTitleBar,
     ThemeConfig.instance.isDokiFileColors,
     ThemeConfig.instance.showThemeStatusBar,
@@ -135,7 +136,7 @@ class ThemeSettings : SearchableConfigurable {
           }
         }
         row {
-          cell{
+          cell {
             psiIcon()
             checkBox(
               "PSI Icons",

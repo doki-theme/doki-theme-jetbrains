@@ -19,10 +19,16 @@ import java.util.stream.Stream
 open class BuildThemes : DefaultTask() {
 
   companion object {
+    private const val COMMUNITY_PLUGIN_ID = "io.acari.DDLCTheme"
+    private const val ULTIMATE_PLUGIN_ID = "io.unthrottled.DokiTheme"
+    private const val PLUGIN_NAME = "The Doki Theme"
     private val COLOR_HEX_PATTERN_RGB = Pattern.compile("^#([A-Fa-f0-9]{6})$")
     private val COLOR_HEX_PATTERN_RGBA = Pattern.compile("^#([A-Fa-f0-9]{8})$")
     private const val HEX_COLOR_LENGTH_RGB = 7
     private const val HEX_COLOR_LENGTH_RGBA = 9
+    private const val DOKI_THEME_ULTIMATE = "ultimate"
+    private const val LAF_TEMPLATE = "LAF"
+    private const val COLOR_TEMPLATE = "COLOR"
   }
 
   private val gson = GsonBuilder().setPrettyPrinting().create()
@@ -45,14 +51,15 @@ open class BuildThemes : DefaultTask() {
   @TaskAction
   fun run() {
     val themeDirectory = get(project.rootDir.absolutePath, "themes")
-    val dokiThemeTemplates = createThemeDefinitions(themeDirectory)
+    val masterThemeDirectory = get(project.rootDir.absolutePath, "masterThemes")
+    val dokiThemeTemplates = createThemeDefinitions(themeDirectory, masterThemeDirectory)
 
     val dokiEditorThemeTemplates = createEditorThemeDefinitions(themeDirectory)
 
     val (pluginXmlAndParsed, extension) = getPluginXmlMutationStuff()
     val (pluginXml, parsedPluginXml) = pluginXmlAndParsed
+    cleanPluginXml(extension)
 
-    val masterThemeDirectory = get(project.rootDir.absolutePath, "masterThemes")
     val jetbrainsDokiThemeDefinitionDirectory = get(themeDirectory.toString(), "definitions")
     getAllDokiThemeDefinitions(jetbrainsDokiThemeDefinitionDirectory, masterThemeDirectory)
       .forEach { themeDefinitionAndPath ->
@@ -66,7 +73,29 @@ open class BuildThemes : DefaultTask() {
         addThemeToPluginXml(extension, themeId, dokiThemeResourcePath)
       }
 
+    writeProductName(parsedPluginXml)
+
     writeXmlToFile(pluginXml, parsedPluginXml)
+  }
+
+  private fun writeProductName(pluginXml: Node) {
+    val nameNodeList = pluginXml["name"] as NodeList
+    val productPostfix = if (isUltimateBuild()) " Ultimate" else ""
+    val nameNode = nameNodeList.get(0) as Node
+    nameNode.setValue("$PLUGIN_NAME$productPostfix")
+    val pluginId = if (isUltimateBuild()) ULTIMATE_PLUGIN_ID else COMMUNITY_PLUGIN_ID
+    val idNodeList = pluginXml["id"] as NodeList
+    val idNode = idNodeList.get(0) as Node
+    idNode.setValue(pluginId)
+  }
+
+  private fun cleanPluginXml(extension: Node) {
+    val themeProviders = extension["themeProvider"] as NodeList
+    themeProviders
+      .map { it as Node }
+      .forEach {
+        extension.remove(it)
+      }
   }
 
   private fun addThemeToPluginXml(extension: Node, themeId: String, dokiThemeResourcePath: String) {
@@ -96,18 +125,29 @@ open class BuildThemes : DefaultTask() {
       .map { it to newInputStream(it) }
       .map {
         val masterThemePath = it.first.toString()
-        val masterFileDefinition = masterThemePath.substringAfter("${masterThemeDirectory}")
+        val masterFileDefinition = masterThemePath.substringAfter("$masterThemeDirectory")
         val jetbrainsThemeDefinitionPath =
           get(dokiThemeDefinitionDirectory.toString(), masterFileDefinition)
         jetbrainsThemeDefinitionPath to gson.fromJson(
           InputStreamReader(it.second, StandardCharsets.UTF_8),
           DokiBuildThemeDefinition::class.java
         )
+      }.filter {
+        (it.second.product == DOKI_THEME_ULTIMATE && isUltimateBuild()) ||
+            it.second.product != DOKI_THEME_ULTIMATE
       }
   }
 
-  private fun createThemeDefinitions(themeDirectory: Path): Map<String, ThemeTemplateDefinition> =
-    walk(get(themeDirectory.toString(), "templates"))
+  private fun isUltimateBuild() = System.getenv("PRODUCT") == DOKI_THEME_ULTIMATE
+
+  private fun createThemeDefinitions(
+    themeDirectory: Path,
+    masterThemeDirectory: Path
+  ): Map<String, Map<String, ThemeTemplateDefinition>> =
+    Stream.concat(
+      walk(get(themeDirectory.toString(), "templates")),
+      walk(get(masterThemeDirectory.toString(), "templates"))
+    )
       .filter { !isDirectory(it) }
       .filter { it.fileName.toString().endsWith(".template.json") }
       .map { newInputStream(it) }
@@ -116,7 +156,12 @@ open class BuildThemes : DefaultTask() {
           InputStreamReader(it, StandardCharsets.UTF_8),
           ThemeTemplateDefinition::class.java
         )
-      }.collect(Collectors.toMap({ it.name }, { it }, { a, _ -> a }))
+      }.collect(
+      Collectors.groupingBy { it.type ?: throw IllegalArgumentException("Expected template ${it.name} to have a type") }
+    )
+      .entries.map {
+      it.key to (it.value.map { kv -> kv.name to kv }.toMap())
+    }.toMap()
 
   private fun createEditorThemeDefinitions(themeDirectory: Path): Map<String, Node> =
     walk(get(themeDirectory.toString(), "templates"))
@@ -140,7 +185,7 @@ open class BuildThemes : DefaultTask() {
 
   private fun constructIntellijTheme(
     dokiBuildThemeDefinition: Pair<Path, DokiBuildThemeDefinition>,
-    dokiThemeTemplates: Map<String, ThemeTemplateDefinition>,
+    dokiTemplates: Map<String, Map<String, ThemeTemplateDefinition>>,
     dokiEditorThemeTemplates: Map<String, Node>
   ): String {
     val (dokiThemeDefinitionPath, themeDefinition) = dokiBuildThemeDefinition
@@ -155,9 +200,23 @@ open class BuildThemes : DefaultTask() {
       delete(themeJson)
     }
 
+
     val templateName = if (themeDefinition.dark) "dark" else "light"
+    val dokiThemeTemplates =
+      dokiTemplates[LAF_TEMPLATE] ?: throw IllegalStateException("Expected the $LAF_TEMPLATE template to be present")
     val topThemeDefinition =
       dokiThemeTemplates[templateName] ?: throw IllegalStateException("Theme $templateName does not exist.")
+
+    val dokiColorTemplates =
+      dokiTemplates[COLOR_TEMPLATE]
+        ?: throw IllegalStateException("Expected the $COLOR_TEMPLATE template to be present")
+    val resolvedNamedColors = resolveAttributes(
+      dokiColorTemplates[templateName] ?: throw IllegalStateException("Theme $templateName does not exist."),
+      dokiColorTemplates,
+      themeDefinition.colors
+    ) {
+      it.colors ?: throw IllegalArgumentException("Expected the $LAF_TEMPLATE to have a 'colors' attribute")
+    }
     val finalTheme = IntellijDokiThemeDefinition(
       name = "${getLafNamePrefix(themeDefinition.group)}${themeDefinition.name}",
       displayName = themeDefinition.displayName,
@@ -166,20 +225,21 @@ open class BuildThemes : DefaultTask() {
       editorScheme = createEditorScheme(
         themeDefinition,
         dokiThemeDefinitionPath,
-        dokiEditorThemeTemplates
+        dokiEditorThemeTemplates,
+        resolvedNamedColors
       ),
       group = themeDefinition.group,
       stickers = remapStickers(
         themeDefinition,
         dokiThemeDefinitionPath
       ),
-      colors = validateColors(themeDefinition),
+      colors = validateColors(themeDefinition, resolvedNamedColors),
       ui = getUIDef(
         themeDefinition.ui,
         topThemeDefinition,
         dokiThemeTemplates
       ),
-      icons = getIcons(themeDefinition.colors, topThemeDefinition, dokiThemeTemplates)
+      icons = getIcons(resolvedNamedColors, topThemeDefinition, dokiThemeTemplates)
     )
 
     newBufferedWriter(themeJson, StandardOpenOption.CREATE_NEW)
@@ -189,8 +249,10 @@ open class BuildThemes : DefaultTask() {
     return extractResourcesPath(themeJson)
   }
 
-  private fun validateColors(themeDefinition: DokiBuildThemeDefinition): Map<String, Any> {
-    val colorz = themeDefinition.colors
+  private fun validateColors(
+    themeDefinition: DokiBuildThemeDefinition,
+    colorz: Map<String, Any>
+  ): Map<String, Any> {
     val colorsSchema = themeSchema.properties["colors"]?.required?.toSet()
       ?: throw IllegalStateException("doki.theme.schema.json is missing required attribute 'properties.colors.required'!")
     val missingColors = colorsSchema
@@ -276,7 +338,7 @@ open class BuildThemes : DefaultTask() {
     colors: Map<String, Any>,
     topThemeDef: ThemeTemplateDefinition,
     themeDefs: Map<String, ThemeTemplateDefinition>
-  ): Map<String, Any> = getAllEntries(topThemeDef, themeDefs) { it.icons ?: mapOf() }
+  ): Map<String, Any> = resolveTemplate(topThemeDef, themeDefs) { it.icons ?: mapOf() }
     .map { entry ->
       if (entry.key == "ColorPalette") {
         val palette = entry.value as Map<String, String>
@@ -300,44 +362,59 @@ open class BuildThemes : DefaultTask() {
     ui: Map<String, Any>,
     dokiThemeTemplates: ThemeTemplateDefinition,
     dokiThemeTemplates1: Map<String, ThemeTemplateDefinition>
-  ): Map<String, Any> = Stream.of(
-    getAllEntries(dokiThemeTemplates, dokiThemeTemplates1) { it.ui },
-    ui.entries.stream()
-  )
-    .flatMap { it }
-    .collect(Collectors.toMap({ it.key }, { it.value }, { _, b -> b },
-      { TreeMap(Comparator.comparing { item -> item.toLowerCase() }) })
-    )
+  ): Map<String, Any> =
+    resolveAttributes(dokiThemeTemplates, dokiThemeTemplates1, ui) {
+      it.ui ?: throw IllegalArgumentException("Expected the $LAF_TEMPLATE to have a ui attribute")
+    }
 
-  private fun getAllEntries(
-    dokiThemeTemplates: ThemeTemplateDefinition,
+  private fun resolveAttributes(
+    childTemplate: ThemeTemplateDefinition,
+    dokiTemplateDefinitions: Map<String, ThemeTemplateDefinition>,
+    definitionAttributes: Map<String, Any>,
+    attributeExtractor: (ThemeTemplateDefinition) -> Map<String, Any>
+  ): Map<String, Any> {
+    return Stream.of(
+        resolveTemplate(childTemplate, dokiTemplateDefinitions, attributeExtractor),
+        definitionAttributes.entries.stream()
+      )
+      .flatMap { it }
+      .collect(Collectors.toMap({ it.key }, { it.value }, { _, b -> b },
+        { TreeMap(Comparator.comparing { item -> item.toLowerCase() }) })
+      )
+  }
+
+  private fun resolveTemplate(
+    childTemplate: ThemeTemplateDefinition,
     allThemeTemplates: Map<String, ThemeTemplateDefinition>,
     entryExtractor: (ThemeTemplateDefinition) -> Map<String, Any>
-  ): Stream<Map.Entry<String, Any>> = if (dokiThemeTemplates.extends == null) {
-    entryExtractor(dokiThemeTemplates).entries.stream()
-  } else {
-    Stream.concat(
-      getAllEntries(
-        allThemeTemplates[dokiThemeTemplates.extends]
-          ?: throw IllegalStateException("Theme template ${dokiThemeTemplates.extends} is not a valid parent template"),
-        allThemeTemplates,
-        entryExtractor
-      ), entryExtractor(dokiThemeTemplates).entries.stream()
-    )
-  }
+  ): Stream<Map.Entry<String, Any>> =
+    if (childTemplate.extends == null) {
+      entryExtractor(childTemplate).entries.stream()
+    } else {
+      Stream.concat(
+        resolveTemplate(
+          allThemeTemplates[childTemplate.extends]
+            ?: throw IllegalStateException("Theme template ${childTemplate.extends} is not a valid parent template"),
+          allThemeTemplates,
+          entryExtractor
+        ), entryExtractor(childTemplate).entries.stream()
+      )
+    }
 
   private fun createEditorScheme(
     dokiDefinition: DokiBuildThemeDefinition,
     dokiThemeDefinitionDirectory: Path,
-    dokiEditorThemeTemplates: Map<String, Node>
+    dokiEditorThemeTemplates: Map<String, Node>,
+    resolvedNamedColors: Map<String, Any>
   ): String {
     return when (val variant = dokiDefinition.editorScheme["type"]) {
       "custom" -> copyXml(dokiDefinition, dokiThemeDefinitionDirectory)
-      "template" -> createEditorSchemeFromTemplate(dokiDefinition, dokiEditorThemeTemplates)
+      "template" -> createEditorSchemeFromTemplate(dokiDefinition, dokiEditorThemeTemplates, resolvedNamedColors)
       "templateExtension" -> createEditorSchemeFromTemplateExtension(
         dokiDefinition,
         dokiEditorThemeTemplates,
-        dokiThemeDefinitionDirectory
+        dokiThemeDefinitionDirectory,
+        resolvedNamedColors
       )
       else -> throw IllegalArgumentException("I can't build a theme of type $variant.")
     }
@@ -346,7 +423,8 @@ open class BuildThemes : DefaultTask() {
   private fun createEditorSchemeFromTemplateExtension(
     dokiDefinition: DokiBuildThemeDefinition,
     dokiEditorThemeTemplates: Map<String, Node>,
-    dokiThemeDefinitionDirectory: Path
+    dokiThemeDefinitionDirectory: Path,
+    resolvedNamedColors: Map<String, Any>
   ): String {
     val childTheme = parseXml(
       get(
@@ -362,7 +440,7 @@ open class BuildThemes : DefaultTask() {
         dokiEditorThemeTemplates
       )
 
-    val themeTemplate = applyColorsToTemplate(extendedTheme, dokiDefinition)
+    val themeTemplate = applyColorsToTemplate(extendedTheme, dokiDefinition, resolvedNamedColors)
     return createXmlFromDefinition(dokiDefinition, themeTemplate)
   }
 
@@ -449,7 +527,8 @@ open class BuildThemes : DefaultTask() {
 
   private fun createEditorSchemeFromTemplate(
     dokiDefinition: DokiBuildThemeDefinition,
-    dokiEditorThemeTemplates: Map<String, Node>
+    dokiEditorThemeTemplates: Map<String, Node>,
+    resolvedNamedColors: Map<String, Any>
   ): String {
     val templateName = dokiDefinition.editorScheme["name"]
       ?: throw IllegalArgumentException("Missing 'name' from create editor scheme from template definition")
@@ -458,13 +537,14 @@ open class BuildThemes : DefaultTask() {
       ?: throw IllegalArgumentException("Unrecognized template name $templateName"))
     val editorTemplate = extendTheme(childTheme, dokiEditorThemeTemplates)
 
-    val themeTemplate = applyColorsToTemplate(editorTemplate, dokiDefinition)
+    val themeTemplate = applyColorsToTemplate(editorTemplate, dokiDefinition, resolvedNamedColors)
     return createXmlFromDefinition(dokiDefinition, themeTemplate)
   }
 
   private fun applyColorsToTemplate(
     editorTemplate: Node,
-    dokiDefinition: DokiBuildThemeDefinition
+    dokiDefinition: DokiBuildThemeDefinition,
+    resolvedNamedColors: Map<String, Any>
   ): Node {
     val themeTemplate = editorTemplate.clone() as Node
     themeTemplate.breadthFirst()
@@ -479,13 +559,13 @@ open class BuildThemes : DefaultTask() {
             if (value?.contains('$') == true) {
               val (end, replacementColor) = getReplacementColor(value, '$') { templateColor ->
                 dokiDefinition.overrides?.editorScheme?.colors?.get(templateColor) as? String
-                  ?: dokiDefinition.colors[templateColor] as? String
+                  ?: resolvedNamedColors[templateColor] as? String
                   ?: throw IllegalArgumentException("$templateColor is not in ${dokiDefinition.name}'s color definition.")
               }
               it.attributes()["value"] = buildReplacement(replacementColor, value, end)
             } else if (value?.contains('%') == true) {
               val (end, replacementColor) = getReplacementColor(value, '%') { templateColor ->
-                dokiDefinition.colors[templateColor] as? String
+                resolvedNamedColors[templateColor] as? String
                   ?: throw IllegalArgumentException("$templateColor is not in ${dokiDefinition.name}'s color definition.")
               }
               it.attributes()["value"] = buildReplacement(replacementColor, value, end)
