@@ -1,6 +1,6 @@
 <idea-plugin>
-  <id>io.unthrottled.DokiTheme</id>
-  <name>The Doki Theme Ultimate</name>
+  <id>io.acari.DDLCTheme</id>
+  <name>The Doki Theme</name>
   <version>@version@</version>
   <vendor email="alexsimons9999@gmail.com" url="https://github.com/Unthrottled">Unthrottled</vendor>
   <description>
@@ -50,12 +50,6 @@
     <statusBarWidgetProvider implementation="io.acari.doki.ui.status.ThemeStatusBarProvider"/>
     <editorNotificationProvider implementation="io.acari.doki.internal.DokiEditorNotificationProvider"/>
     <themeMetadataProvider path="/theme-schema/DokiTheme.themeMetadata.json"/>
-    <themeProvider id="9f62362a-49e0-4b82-8f63-d1f98ae7799f" path="/doki/themes/mistress/Wyla.theme.json"/>
-    <themeProvider id="c8df9413-5d9f-4e0c-ae64-5d5c1cffe9a5" path="/doki/themes/mistress/Syrena.theme.json"/>
-    <themeProvider id="4693f34f-f400-4431-87f8-0be7fde660d9" path="/doki/themes/mistress/Neera.theme.json"/>
-    <themeProvider id="c915211e-faab-4696-8af2-230892052ba6" path="/doki/themes/mistress/Eleniel.theme.json"/>
-    <themeProvider id="436ff3a0-4072-4b38-8d6f-888b18b5d0ab" path="/doki/themes/mistress/Sanya.theme.json"/>
-    <themeProvider id="fc466b4f-8eb7-472c-8cbb-d99a09d4c469" path="/doki/themes/mistress/Cleo.theme.json"/>
     <themeProvider id="91415015-8fe3-48eb-9951-70a5cd6cbb7f" path="/doki/themes/literature_club/Natsuki_Light.theme.json"/>
     <themeProvider id="a7e0aa28-739a-4671-80ae-3980997e6b71" path="/doki/themes/literature_club/Natsuki_Dark.theme.json"/>
     <themeProvider id="cecf3f92-76d4-4f14-9a9c-3d558b6b3b68" path="/doki/themes/literature_club/Yuri_Light.theme.json"/>
