@@ -8,12 +8,12 @@ data class ThemeDefinitionSchema(
 
 
 data class ThemeTemplateDefinition(
-  val templateType: String,
+  val type: String,
   val extends: String?,
   val name: String,
   val ui: Map<String, Any>?,
   val icons: Map<String, Any>?,
-  val colors: Map<String, String>
+  val colors: Map<String, String>?
 )
 
 data class BuildStickers(
