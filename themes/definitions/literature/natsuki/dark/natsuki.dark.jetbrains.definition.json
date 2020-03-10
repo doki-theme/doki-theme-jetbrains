@@ -1,0 +1,21 @@
+{
+  "id": "a7e0aa28-739a-4671-80ae-3980997e6b71",
+  "editorScheme": {
+    "type": "templateExtension",
+    "file": "Natsuki_Dark.xml"
+  },
+  "overrides": {
+    "editorScheme": {
+      "colors": {
+        "testScopeColor": "#243223"
+      }
+    }
+  },
+  "ui": {
+    "Plugins.lightSelectionBackground": "selectionBackground",
+    "CompletionPopup.selectionBackground": "selectionBackground",
+    "CompletionPopup.selectionInactiveBackground": "selectionInactive",
+    "SearchEverywhere.Header.background": "headerColor",
+    "SearchEverywhere.SearchField.background": "headerColor"
+  }
+}

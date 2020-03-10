@@ -1,0 +1,15 @@
+{
+  "id": "436ff3a0-4072-4b38-8d6f-888b18b5d0ab",
+  "editorScheme": {
+    "type": "templateExtension",
+    "file": "Sanya.xml"
+  },
+  "overrides": {
+    "editorScheme": {
+      "colors": {
+        "accentColor": "#E4FF10"
+      }
+    }
+  },
+  "ui": {}
+}

@@ -1,0 +1,16 @@
+{
+  "id": "63fe4617-4cac-47a5-9b93-6794514c35ad",
+  "editorScheme": {
+    "type": "templateExtension",
+    "file": "Megumin.xml"
+  },
+  "overrides": {
+    "editorScheme": {
+      "colors": {
+        "accentColor": "#e4ff10",
+        "startColor": "#e4ff10"
+      }
+    }
+  },
+  "ui": {}
+}

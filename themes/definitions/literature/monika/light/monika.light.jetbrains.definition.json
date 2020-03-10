@@ -1,0 +1,14 @@
+{
+  "id": "9a310731-ab2d-40f5-b502-fa5419f799a2",
+  "editorScheme": {
+    "type": "template",
+    "name": "Doki Light"
+  },
+  "ui": {
+    "CompletionPopup.background": "testScopeColor",
+    "CompletionPopup.selectionForeground": "selectionForeground",
+    "CompletionPopup.selectionBackground": "selectionBackground",
+    "CompletionPopup.selectionInactiveBackground": "selectionBackground",
+    "SearchEverywhere.Tab.selectedBackground": "highlightColorDarker"
+  }
+}

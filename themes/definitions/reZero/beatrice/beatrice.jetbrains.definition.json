@@ -1,0 +1,40 @@
+{
+  "id": "35422aa4-1396-4e76-8ec6-c5560884df22",
+  "editorScheme": {
+    "type": "templateExtension",
+    "file": "Beatrice.xml"
+  },
+  "overrides": {
+    "editorScheme": {
+      "colors": {
+        "accentColor": "#5c84da"
+      }
+    }
+  },
+  "ui": {
+    "CompletionPopup.background": "testScopeColor",
+    "CompletionPopup.selectionForeground": "selectionForeground",
+    "CompletionPopup.selectionBackground": "selectionBackground",
+    "CompletionPopup.selectionInactiveBackground": "selectionBackground",
+    "CompletionPopup.matchForeground": "accentColorDarker",
+    "SearchEverywhere.Tab.selectedBackground": "selectionBackground",
+    "SearchEverywhere.Header.background": "headerColor",
+    "SearchEverywhere.SearchField.background": "headerColor",
+    "ScrollBar.Transparent.thumbColor": "accentColorSecondaryTransparent",
+    "ScrollBar.Transparent.thumbBorderColor": "accentColorSecondaryTransparent",
+    "ScrollBar.Transparent.hoverThumbColor": "accentColorSecondaryLessTransparent",
+    "ScrollBar.Transparent.hoverThumbBorderColor": "accentColorSecondaryLessTransparent",
+    "ScrollBar.thumbBorderColor": "accentColorSecondaryTransparent",
+    "ScrollBar.thumbColor": "accentColorSecondaryTransparent",
+    "ScrollBar.hoverThumbBorderColor": "accentColorSecondaryTransparent",
+    "ScrollBar.hoverThumbColor": "accentColorSecondaryTransparent",
+    "ScrollBar.Mac.Transparent.thumbColor": "accentColorSecondaryTransparent",
+    "ScrollBar.Mac.Transparent.thumbBorderColor": "accentColorSecondaryTransparent",
+    "ScrollBar.Mac.Transparent.hoverThumbColor": "accentColorSecondaryLessTransparent",
+    "ScrollBar.Mac.Transparent.hoverThumbBorderColor": "accentColorSecondaryLessTransparent",
+    "ScrollBar.Mac.thumbBorderColor": "accentColorSecondaryTransparent",
+    "ScrollBar.Mac.thumbColor": "accentColorSecondaryTransparent",
+    "ScrollBar.Mac.hoverThumbBorderColor": "accentColorSecondaryTransparent",
+    "ScrollBar.Mac.hoverThumbColor": "accentColorSecondaryTransparent"
+  }
+}

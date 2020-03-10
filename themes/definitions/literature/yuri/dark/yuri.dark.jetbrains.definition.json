@@ -1,0 +1,21 @@
+{
+  "id": "a14733d6-8e15-4e75-b6b8-509f323e5b3b",
+  "editorScheme": {
+    "type": "templateExtension",
+    "file": "Yuri_Dark.xml"
+  },
+  "overrides": {
+    "editorScheme": {
+      "colors": {
+        "testScopeColor": "#3a4258",
+        "accentColor": "#BC60CB"
+      }
+    }
+  },
+  "ui": {
+    "Plugins.lightSelectionBackground": "selectionBackground",
+    "CompletionPopup.selectionBackground": "selectionBackground",
+    "SearchEverywhere.Header.background": "headerColor",
+    "SearchEverywhere.SearchField.background": "headerColor"
+  }
+}
