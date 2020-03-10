@@ -62,14 +62,14 @@ open class BuildThemes : DefaultTask() {
 
     val jetbrainsDokiThemeDefinitionDirectory = get(themeDirectory.toString(), "definitions")
     getAllDokiThemeDefinitions(jetbrainsDokiThemeDefinitionDirectory, masterThemeDirectory)
-      .forEach { themeDefinitionAndPath ->
+      .forEach { pathMasterDefinitionAndJetbrainsDefinition ->
         val dokiThemeResourcePath = constructIntellijTheme(
-          themeDefinitionAndPath,
+          pathMasterDefinitionAndJetbrainsDefinition,
           dokiThemeTemplates,
           dokiEditorThemeTemplates
         )
 
-        val themeId = themeDefinitionAndPath.second.id
+        val themeId = pathMasterDefinitionAndJetbrainsDefinition.second.id
         addThemeToPluginXml(extension, themeId, dokiThemeResourcePath)
       }
 
@@ -81,11 +81,11 @@ open class BuildThemes : DefaultTask() {
   private fun writeProductName(pluginXml: Node) {
     val nameNodeList = pluginXml["name"] as NodeList
     val productPostfix = if (isUltimateBuild()) " Ultimate" else ""
-    val nameNode = nameNodeList.get(0) as Node
+    val nameNode = nameNodeList[0] as Node
     nameNode.setValue("$PLUGIN_NAME$productPostfix")
     val pluginId = if (isUltimateBuild()) ULTIMATE_PLUGIN_ID else COMMUNITY_PLUGIN_ID
     val idNodeList = pluginXml["id"] as NodeList
-    val idNode = idNodeList.get(0) as Node
+    val idNode = idNodeList[0] as Node
     idNode.setValue(pluginId)
   }
 
@@ -118,20 +118,40 @@ open class BuildThemes : DefaultTask() {
   private fun getAllDokiThemeDefinitions(
     dokiThemeDefinitionDirectory: Path,
     masterThemeDirectory: Path
-  ): Stream<Pair<Path, DokiBuildMasterThemeDefinition>> {
-    return walk(masterThemeDirectory)
+  ): Stream<Triple<Path, DokiBuildMasterThemeDefinition, DokiBuildJetbrainsThemeDefinition>> {
+    val jetbrainsDefinitions =
+      walk(dokiThemeDefinitionDirectory)
+        .filter { !isDirectory(it) }
+        .filter { it.fileName.toString().endsWith("jetbrains.definition.json") }
+        .map { newInputStream(it) }
+        .map {
+          gson.fromJson(
+            InputStreamReader(it, StandardCharsets.UTF_8),
+            DokiBuildJetbrainsThemeDefinition::class.java
+          )
+        }.collect(Collectors.toMap(
+          {it.id}, {it}
+        ))
+
+    val masterThemeDefinitionPath = get(masterThemeDirectory.toString(), "definitions")
+    return walk(masterThemeDefinitionPath)
       .filter { !isDirectory(it) }
-      .filter { it.fileName.toString().endsWith(".doki.json") }
+      .filter { it.fileName.toString().endsWith("master.definition.json") }
       .map { it to newInputStream(it) }
       .map {
         val masterThemePath = it.first.toString()
-        val masterFileDefinition = masterThemePath.substringAfter("$masterThemeDirectory")
+        val masterFileDefinition = masterThemePath.substringAfter("$masterThemeDefinitionPath")
         val jetbrainsThemeDefinitionPath =
           get(dokiThemeDefinitionDirectory.toString(), masterFileDefinition)
-        jetbrainsThemeDefinitionPath to gson.fromJson(
+        val masterThemeDefinition = gson.fromJson(
           InputStreamReader(it.second, StandardCharsets.UTF_8),
           DokiBuildMasterThemeDefinition::class.java
         )
+        val jetbrainsThemeDefinition =
+          jetbrainsDefinitions[masterThemeDefinition.id] ?: throw IllegalArgumentException("""
+            Master Theme ${masterThemeDefinition.displayName} is missing the JetBrains definition file!
+          """.trimIndent())
+        Triple(jetbrainsThemeDefinitionPath, masterThemeDefinition, jetbrainsThemeDefinition)
       }.filter {
         (it.second.product == DOKI_THEME_ULTIMATE && isUltimateBuild()) ||
             it.second.product != DOKI_THEME_ULTIMATE
@@ -184,11 +204,15 @@ open class BuildThemes : DefaultTask() {
   }
 
   private fun constructIntellijTheme(
-    dokiBuildMasterThemeDefinition: Pair<Path, DokiBuildMasterThemeDefinition>,
+    pathMasterAndJetbrainsDefinition: Triple<Path, DokiBuildMasterThemeDefinition, DokiBuildJetbrainsThemeDefinition>,
     dokiTemplates: Map<String, Map<String, ThemeTemplateDefinition>>,
     dokiEditorThemeTemplates: Map<String, Node>
   ): String {
-    val (dokiThemeDefinitionPath, themeDefinition) = dokiBuildMasterThemeDefinition
+    val (
+      dokiThemeDefinitionPath,
+      themeDefinition,
+      jetbrainsDefinition
+    ) = pathMasterAndJetbrainsDefinition
     val resourceDirectory = getResourceDirectory(themeDefinition)
     if (!exists(resourceDirectory)) {
       createDirectories(resourceDirectory)
@@ -224,6 +248,7 @@ open class BuildThemes : DefaultTask() {
       author = themeDefinition.author,
       editorScheme = createEditorScheme(
         themeDefinition,
+        jetbrainsDefinition,
         dokiThemeDefinitionPath,
         dokiEditorThemeTemplates,
         resolvedNamedColors
@@ -235,7 +260,7 @@ open class BuildThemes : DefaultTask() {
       ),
       colors = validateColors(themeDefinition, resolvedNamedColors),
       ui = getUIDef(
-        themeDefinition.ui,
+        jetbrainsDefinition.ui,
         topThemeDefinition,
         dokiThemeTemplates
       ),
@@ -403,15 +428,17 @@ open class BuildThemes : DefaultTask() {
 
   private fun createEditorScheme(
     dokiDefinitionMaster: DokiBuildMasterThemeDefinition,
+    dokiDefinitionJetbrains: DokiBuildJetbrainsThemeDefinition,
     dokiThemeDefinitionDirectory: Path,
     dokiEditorThemeTemplates: Map<String, Node>,
     resolvedNamedColors: Map<String, Any>
   ): String {
-    return when (val variant = dokiDefinitionMaster.editorScheme["type"]) {
-      "custom" -> copyXml(dokiDefinitionMaster, dokiThemeDefinitionDirectory)
-      "template" -> createEditorSchemeFromTemplate(dokiDefinitionMaster, dokiEditorThemeTemplates, resolvedNamedColors)
+    return when (val variant = dokiDefinitionJetbrains.editorScheme["type"]) {
+      "custom" -> copyXml(dokiDefinitionMaster, dokiDefinitionJetbrains, dokiThemeDefinitionDirectory)
+      "template" -> createEditorSchemeFromTemplate(dokiDefinitionMaster, dokiDefinitionJetbrains, dokiEditorThemeTemplates, resolvedNamedColors)
       "templateExtension" -> createEditorSchemeFromTemplateExtension(
         dokiDefinitionMaster,
+        dokiDefinitionJetbrains,
         dokiEditorThemeTemplates,
         dokiThemeDefinitionDirectory,
         resolvedNamedColors
@@ -422,6 +449,7 @@ open class BuildThemes : DefaultTask() {
 
   private fun createEditorSchemeFromTemplateExtension(
     dokiDefinitionMaster: DokiBuildMasterThemeDefinition,
+    dokiDefinitionJetbrains: DokiBuildJetbrainsThemeDefinition,
     dokiEditorThemeTemplates: Map<String, Node>,
     dokiThemeDefinitionDirectory: Path,
     resolvedNamedColors: Map<String, Any>
@@ -429,7 +457,7 @@ open class BuildThemes : DefaultTask() {
     val childTheme = parseXml(
       get(
         dokiThemeDefinitionDirectory.parent.toString(),
-        dokiDefinitionMaster.editorScheme["file"] as? String
+        dokiDefinitionJetbrains.editorScheme["file"] as? String
           ?: throw IllegalArgumentException("Missing 'file' from create editor scheme from template extension definition")
       )
     )
@@ -440,7 +468,7 @@ open class BuildThemes : DefaultTask() {
         dokiEditorThemeTemplates
       )
 
-    val themeTemplate = applyColorsToTemplate(extendedTheme, dokiDefinitionMaster, resolvedNamedColors)
+    val themeTemplate = applyColorsToTemplate(extendedTheme, dokiDefinitionMaster, dokiDefinitionJetbrains, resolvedNamedColors)
     return createXmlFromDefinition(dokiDefinitionMaster, themeTemplate)
   }
 
@@ -527,23 +555,25 @@ open class BuildThemes : DefaultTask() {
 
   private fun createEditorSchemeFromTemplate(
     dokiDefinitionMaster: DokiBuildMasterThemeDefinition,
+    dokiDefinitionJetbrains: DokiBuildJetbrainsThemeDefinition,
     dokiEditorThemeTemplates: Map<String, Node>,
     resolvedNamedColors: Map<String, Any>
   ): String {
-    val templateName = dokiDefinitionMaster.editorScheme["name"]
+    val templateName = dokiDefinitionJetbrains.editorScheme["name"]
       ?: throw IllegalArgumentException("Missing 'name' from create editor scheme from template definition")
 
     val childTheme = (dokiEditorThemeTemplates[templateName]
       ?: throw IllegalArgumentException("Unrecognized template name $templateName"))
     val editorTemplate = extendTheme(childTheme, dokiEditorThemeTemplates)
 
-    val themeTemplate = applyColorsToTemplate(editorTemplate, dokiDefinitionMaster, resolvedNamedColors)
+    val themeTemplate = applyColorsToTemplate(editorTemplate, dokiDefinitionMaster, dokiDefinitionJetbrains, resolvedNamedColors)
     return createXmlFromDefinition(dokiDefinitionMaster, themeTemplate)
   }
 
   private fun applyColorsToTemplate(
     editorTemplate: Node,
     dokiDefinitionMaster: DokiBuildMasterThemeDefinition,
+    dokiDefinitionJetbrains: DokiBuildJetbrainsThemeDefinition,
     resolvedNamedColors: Map<String, Any>
   ): Node {
     val themeTemplate = editorTemplate.clone() as Node
@@ -558,7 +588,7 @@ open class BuildThemes : DefaultTask() {
             val value = it.attribute("value") as? String
             if (value?.contains('$') == true) {
               val (end, replacementColor) = getReplacementColor(value, '$') { templateColor ->
-                dokiDefinitionMaster.overrides?.editorScheme?.colors?.get(templateColor) as? String
+                dokiDefinitionJetbrains.overrides?.editorScheme?.colors?.get(templateColor) as? String
                   ?: resolvedNamedColors[templateColor] as? String
                   ?: throw IllegalArgumentException("$templateColor is not in ${dokiDefinitionMaster.name}'s color definition.")
               }
@@ -611,8 +641,12 @@ open class BuildThemes : DefaultTask() {
     return extractResourcesPath(destination)
   }
 
-  private fun copyXml(dokiDefinitionMaster: DokiBuildMasterThemeDefinition, dokiThemeDefinitionDirectory: Path): String {
-    val customXmlFile = dokiDefinitionMaster.editorScheme["file"] as? String
+  private fun copyXml(
+    dokiDefinitionMaster: DokiBuildMasterThemeDefinition,
+    dokiDefinitionJetbrains: DokiBuildJetbrainsThemeDefinition,
+    dokiThemeDefinitionDirectory: Path
+  ): String {
+    val customXmlFile = dokiDefinitionJetbrains.editorScheme["file"] as? String
       ?: throw IllegalArgumentException("Missing 'file' from create editor scheme from file copy")
     val destination = get(
       getResourceDirectory(dokiDefinitionMaster).toString(),

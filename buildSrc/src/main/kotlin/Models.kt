@@ -31,7 +31,6 @@ data class Overrides(
 data class DokiBuildJetbrainsThemeDefinition(
  val id: String,
  val editorScheme: Map<String, Any>,
- val colors: Map<String, Any>,
  val overrides: Overrides?,
  val ui: Map<String, Any>,
  val icons: Map<String, Any>
@@ -45,7 +44,8 @@ data class DokiBuildMasterThemeDefinition(
   val author: String?,
   val group: String,
   val product: String?,
-  val stickers: BuildStickers
+  val stickers: BuildStickers,
+  val colors: Map<String, Any>
 ) {
   val usableName: String
     get() = name.replace(' ', '_')
