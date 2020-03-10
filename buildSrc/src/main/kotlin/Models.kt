@@ -6,7 +6,6 @@ data class ThemeDefinitionSchema(
   val properties: Map<String, SchemaDefinition>
 )
 
-
 data class ThemeTemplateDefinition(
   val type: String?,
   val extends: String?,
@@ -29,7 +28,16 @@ data class Overrides(
   val editorScheme: EditorSchemeOverrides?
 )
 
-data class DokiBuildThemeDefinition(
+data class DokiBuildJetbrainsThemeDefinition(
+ val id: String,
+ val editorScheme: Map<String, Any>,
+ val colors: Map<String, Any>,
+ val overrides: Overrides?,
+ val ui: Map<String, Any>,
+ val icons: Map<String, Any>
+)
+
+data class DokiBuildMasterThemeDefinition(
   val id: String,
   val name: String,
   val displayName: String?,
@@ -37,12 +45,7 @@ data class DokiBuildThemeDefinition(
   val author: String?,
   val group: String,
   val product: String?,
-  val editorScheme: Map<String, Any>,
-  val stickers: BuildStickers,
-  val colors: Map<String, Any>,
-  val overrides: Overrides?,
-  val ui: Map<String, Any>,
-  val icons: Map<String, Any>
+  val stickers: BuildStickers
 ) {
   val usableName: String
     get() = name.replace(' ', '_')
@@ -50,7 +53,7 @@ data class DokiBuildThemeDefinition(
     get() = group.replace(' ', '_')
 }
 
-data class IntellijDokiThemeDefinition(
+data class JetbrainsThemeDefinition(
   val name: String,
   val displayName: String?,
   val dark: Boolean,
