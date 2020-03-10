@@ -188,6 +188,8 @@ class TitlePaneUI : DarculaRootPaneUI() {
       is JDialog -> window.title
       is JFrame -> window.title
       else -> LOL_NOPE
+    }.ifBlank {
+      LOL_NOPE
     }
 }
 
