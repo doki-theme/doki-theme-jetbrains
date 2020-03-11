@@ -4,6 +4,9 @@
 # 7.0.0
 
 - Fixed all reported exceptions. Thank you for submitting them!
+    - Status Bar no longer throw exceptions when being disposed
+    - 2020.1 EAP for MacOS can now drag editor tabs out of IDE into separate window again.
+    
 - The themes from Mistress's Menagerie have been moved from the Community Theme Suite.
     - If you where using one of those themes and would like them back feel free to [follow these instructions here](todo)
 
