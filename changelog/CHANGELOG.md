@@ -1,6 +1,12 @@
 # Changelog
 ---
 
+# 7.0.0
+
+- Fixed all reported exceptions. Thank you for submitting them!
+- The themes from Mistress's Menagerie have been moved from the Community Theme Suite.
+    - If you where using one of those themes and would like them back feel free to [follow these instructions here](todo)
+
 # 6.2.2
 
 - Migrated theme build process to centralized management strategy.

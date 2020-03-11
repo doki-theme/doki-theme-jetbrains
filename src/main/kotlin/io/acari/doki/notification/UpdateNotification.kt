@@ -7,14 +7,14 @@ import com.intellij.openapi.project.Project
 val UPDATE_MESSAGE: String = """
       What's New?<br>
       <ul>
-        <li>Changed default font</li>
+        <li>Fixed all reported exceptions.</li>
       </ul>
       <br>Please see the <a href="https://github.com/Unthrottled/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md">Changelog</a> for more details.
       <br>
       Thanks again for downloading <b>The Doki Theme</b>! •‿•<br>
 """.trimIndent()
 
-const val CURRENT_VERSION = "7.0.0-BETA"
+const val CURRENT_VERSION = "7.0.0-GAMMA"
 
 object UpdateNotification {
 
