@@ -41,7 +41,7 @@ open class BuildThemes : DefaultTask() {
   private val themeSchema: ThemeDefinitionSchema = getThemeSchema()
 
   private fun getThemeSchema(): ThemeDefinitionSchema =
-    newInputStream(get(getResourcesDirectory().toString(), "theme-schema", "doki.theme.schema.json")).use {
+    newInputStream(get(getResourcesDirectory().toString(), "theme-schema", "master.theme.schema.json")).use {
       gson.fromJson(
         InputStreamReader(it, StandardCharsets.UTF_8),
         ThemeDefinitionSchema::class.java
