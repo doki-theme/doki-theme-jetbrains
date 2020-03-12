@@ -68,6 +68,7 @@
   </extensions>
   <extensions defaultExtensionNs="JavaScript.JsonSchema">
     <ProviderFactory implementation="io.acari.doki.schema.DokiMasterThemeJsonSchemaProvider"/>
+    <ProviderFactory implementation="io.acari.doki.schema.DokiJetbrainsThemeJsonSchemaProvider"/>
   </extensions>
   <application-components>
     <component>
