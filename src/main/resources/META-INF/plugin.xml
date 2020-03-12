@@ -67,7 +67,7 @@
     <themeProvider id="ecb74f1c-8c84-40c4-916f-601039ba2af0" path="/doki/themes/re_zero/Ram.theme.json"/>
   </extensions>
   <extensions defaultExtensionNs="JavaScript.JsonSchema">
-    <ProviderFactory implementation="io.acari.doki.schema.DokiThemeJsonSchemaProvider"/>
+    <ProviderFactory implementation="io.acari.doki.schema.DokiMasterThemeJsonSchemaProvider"/>
   </extensions>
   <application-components>
     <component>
