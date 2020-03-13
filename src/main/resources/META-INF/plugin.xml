@@ -58,6 +58,7 @@
     <themeProvider id="b0340303-0a5a-4a20-9b9c-fc8ce9880078" path="/doki/themes/literature_club/Sayori_Dark.theme.json"/>
     <themeProvider id="9a310731-ab2d-40f5-b502-fa5419f799a2" path="/doki/themes/literature_club/Monika_Light.theme.json"/>
     <themeProvider id="dce48196-ff46-470c-b5f9-d1e23f4a79d3" path="/doki/themes/literature_club/Monika_Dark.theme.json"/>
+    <themeProvider id="bc12b380-1f2a-4a9d-89d8-388a07f1e15f" path="/doki/themes/miscellaneous/Hatsune_Miku.theme.json"/>
     <themeProvider id="3a78b13e-dbf2-410f-bb20-12b57bff7735" path="/doki/themes/kill_la_kill/Satsuki.theme.json"/>
     <themeProvider id="19b65ec8-133c-4655-a77b-13623d8e97d3" path="/doki/themes/kill_la_kill/Ryuko.theme.json"/>
     <themeProvider id="63fe4617-4cac-47a5-9b93-6794514c35ad" path="/doki/themes/konosuba/Megumin.theme.json"/>
