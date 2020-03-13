@@ -1,0 +1,21 @@
+{
+  "id": "696de7c1-3a8e-4445-83ee-3eb7e9dca47f",
+  "editorScheme": {
+    "type": "template",
+    "name": "Doki Dark"
+  },
+  "overrides": {
+    "editorScheme": {
+      "colors": {
+        "testScopeColor": "#3a4258",
+        "accentColor": "#BC60CB"
+      }
+    }
+  },
+  "ui": {
+    "Plugins.lightSelectionBackground": "selectionBackground",
+    "CompletionPopup.selectionBackground": "selectionBackground",
+    "SearchEverywhere.Header.background": "headerColor",
+    "SearchEverywhere.SearchField.background": "headerColor"
+  }
+}
