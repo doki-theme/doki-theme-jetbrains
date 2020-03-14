@@ -7,6 +7,7 @@ private val nameMapping =
     "Literature Club" to DDLC_THEME_NAME_PREFIX,
     "KonoSuba" to "KonoSuba: ",
     "Mistress" to "Miss: ",
+    "DanganRonpa" to "DR: ",
     "Miscellaneous" to "Misc: "
   )
 
