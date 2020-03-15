@@ -61,7 +61,8 @@
     <themeProvider id="bc12b380-1f2a-4a9d-89d8-388a07f1e15f" path="/doki/themes/miscellaneous/Hatsune_Miku.theme.json"/>
     <themeProvider id="3a78b13e-dbf2-410f-bb20-12b57bff7735" path="/doki/themes/kill_la_kill/Satsuki.theme.json"/>
     <themeProvider id="19b65ec8-133c-4655-a77b-13623d8e97d3" path="/doki/themes/kill_la_kill/Ryuko.theme.json"/>
-    <themeProvider id="420b0ed5-803c-4127-97e3-dae6aa1a5972" path="/doki/themes/danganronpa/Ibuki_Mioda.theme.json"/>
+    <themeProvider id="697e8564-0975-4907-a34c-51f65177ebf3" path="/doki/themes/danganronpa/Ibuki_Mioda_Light.theme.json"/>
+    <themeProvider id="420b0ed5-803c-4127-97e3-dae6aa1a5972" path="/doki/themes/danganronpa/Ibuki_Mioda_Dark.theme.json"/>
     <themeProvider id="63fe4617-4cac-47a5-9b93-6794514c35ad" path="/doki/themes/konosuba/Megumin.theme.json"/>
     <themeProvider id="35422aa4-1396-4e76-8ec6-c5560884df22" path="/doki/themes/re_zero/Beatrice.theme.json"/>
     <themeProvider id="f770dcfc-f41e-4b49-aa17-66e9ffc208fd" path="/doki/themes/re_zero/Rem.theme.json"/>
