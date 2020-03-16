@@ -1,6 +1,3 @@
-- Miku
-    - Syntax Highlighting
-        - todo color
 - Emilia
     - Dark
         - Syntax
@@ -8,6 +5,7 @@
         - laf
             - compare with branch selection background border
             - Background Image
+            - test/nonproject background
     - Light
         - Syntax
             - all of it (should not be like satsuki)
@@ -17,6 +15,7 @@
             - Highlight color
             - Search input box background color
             - Background Image
+            - test/nonproject background
 
 - Ibuki
     - Chibi....
@@ -26,11 +25,13 @@
         - laf
             - All of it
                 - Dark blue/grey, white/grey selections, blue accents
+                - test/nonproject background
     - Light
         - syntax
         - laf
             - All of it.
                 - Light pink, light blue selections, pink accents
+                - test/nonproject background.
             - Background image border needs to be moar light
 
 - Last name First, First Name Last.
