@@ -5,6 +5,7 @@ import com.intellij.ide.ui.laf.darcula.ui.DarculaCheckBoxUI
 import com.intellij.ide.ui.laf.darcula.ui.DarculaRadioButtonMenuItemUI
 import io.acari.doki.icon.DokiIcons
 import io.acari.doki.ui.*
+import javax.swing.BorderFactory
 import javax.swing.UIManager
 
 
@@ -19,6 +20,12 @@ object LookAndFeelInstaller {
     installButtons()
     installCheckboxes()
     installRadioButtons()
+    installDefaults()
+  }
+
+  private fun installDefaults() {
+    val defaults = UIManager.getLookAndFeelDefaults()
+    defaults["List.focusCellHighlightBorder"] = { BorderFactory.createEmptyBorder() }
   }
 
   private fun installIcons() {
