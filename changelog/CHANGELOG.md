@@ -3,6 +3,13 @@
 
 # 7.0.0
 
+- Added 5 new themes from various characters!
+    - Re:Zero:
+        - Emilia (Dark/Light Theme)
+    - Danganronpa:
+        - Mioda Ibuki (Dark/Light Theme)
+    - Hatsune Miku (Dark Theme)
+
 - Fixed all reported exceptions. Thank you for submitting them!
     - Status Bar no longer throw exceptions when being disposed
     - 2020.1 EAP for MacOS can now drag editor tabs out of IDE into separate window again.
