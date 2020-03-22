@@ -7,7 +7,7 @@
   "overrides": {
     "editorScheme": {
       "colors": {
-        "accentColor": "#fb53b9",
+        "accentColor": "#ff69df",
         "nonProjectFileScopeColor": "#343635",
         "testScopeColor": "#2f393a"
       }
