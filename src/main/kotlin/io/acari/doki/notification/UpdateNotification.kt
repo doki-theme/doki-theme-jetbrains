@@ -7,6 +7,7 @@ import com.intellij.openapi.project.Project
 val UPDATE_MESSAGE: String = """
       What's New?<br>
       <ul>
+        <li>Added 5 new themes!</li>
         <li>Fixed all reported exceptions.</li>
       </ul>
       <br>Please see the <a href="https://github.com/Unthrottled/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md">Changelog</a> for more details.
