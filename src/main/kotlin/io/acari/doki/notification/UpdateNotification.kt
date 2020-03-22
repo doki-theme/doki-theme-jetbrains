@@ -7,7 +7,13 @@ import com.intellij.openapi.project.Project
 val UPDATE_MESSAGE: String = """
       What's New?<br>
       <ul>
-        <li>Added 5 new themes!</li>
+        <li>Added 5 new themes!
+            <ul>
+                <li>Re:Zero - Emilia (light/dark)</li>
+                <li>DanganRonpa - Mioda Ibuki (light/dark)</li>
+                <li>Hatsune Miku (dark)</li>
+            </ul>
+        </li>
         <li>Fixed all reported exceptions.</li>
       </ul>
       <br>Please see the <a href="https://github.com/Unthrottled/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md">Changelog</a> for more details.
