@@ -3,7 +3,7 @@
 
 # 7.0.0
 
-- Added 5 new themes from various characters!
+- Added 5 new themes based on various new characters!
     - Re:Zero:
         - Emilia (Dark/Light Theme)
     - Danganronpa:
