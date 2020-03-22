@@ -7,7 +7,6 @@ import io.acari.doki.ui.*
 import javax.swing.BorderFactory
 import javax.swing.UIManager
 
-
 object LookAndFeelInstaller {
   init {
     installAllUIComponents()
@@ -24,7 +23,7 @@ object LookAndFeelInstaller {
 
   private fun installDefaults() {
     val defaults = UIManager.getLookAndFeelDefaults()
-    defaults["List.focusCellHighlightBorder"] = { BorderFactory.createEmptyBorder() }
+    defaults["List.focusCellHighlightBorder"] = BorderFactory.createEmptyBorder()
   }
 
   private fun installIcons() {
