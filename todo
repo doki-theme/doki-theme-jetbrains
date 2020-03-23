@@ -1,9 +1,9 @@
-- material icons no worky
+- Normalize Dark Literature Club
 
 Stretch Goals
 ----
+- material icons no worky
 - lint
-- Color scheme cleanup (alphabetize that shit yo)
 - markdown
 - Usage Statistics
 - theme schema
@@ -12,12 +12,6 @@ Stretch Goals
 - Icons
     - daemon icon
 - svg xsd
-- Editor Tabs
-    - Active Outline
-    - File Scope colorings
-
-- Complete buck
-
 
 - PSI PLUGIN
     - FIX TOOL WINDOW WHITENESS
