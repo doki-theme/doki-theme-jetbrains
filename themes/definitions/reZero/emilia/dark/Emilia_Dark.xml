@@ -1,0 +1,10 @@
+<scheme name="Emilia Dark" version="142" parent_scheme="Doki Dark">
+  <attributes>
+    <option name="INLINE_PARAMETER_HINT">
+      <value>
+        <option name="FOREGROUND" value="$accentColor$9a" />
+        <option name="BACKGROUND" value="$textEditorBackground$" />
+      </value>
+    </option>
+  </attributes>
+</scheme>
