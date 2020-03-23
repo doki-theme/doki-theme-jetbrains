@@ -1,0 +1,13 @@
+{
+  "id": "697e8564-0975-4907-a34c-51f65177ebf3",
+  "editorScheme": {
+    "type": "templateExtension",
+    "file": "Ibuki_Light.xml"
+  },
+  "overrides": {
+    "editorScheme": {
+      "colors": {}
+    }
+  },
+  "ui": {}
+}

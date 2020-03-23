@@ -6,7 +6,9 @@ private val nameMapping =
     "Re Zero" to "Re:Zero: ",
     "Literature Club" to DDLC_THEME_NAME_PREFIX,
     "KonoSuba" to "KonoSuba: ",
-    "Mistress" to "Miss: "
+    "Mistress" to "Miss: ",
+    "DanganRonpa" to "DR: ",
+    "Miscellaneous" to "Misc: "
   )
 
 fun getLafNamePrefix(groupName: String): String =

@@ -1,0 +1,64 @@
+{
+  "version": "1.0",
+  "definitions": {
+  },
+  "type": "object",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "required": [
+    "id",
+    "editorScheme",
+    "overrides",
+    "ui"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "title": "Theme Id",
+      "description": "Unique Identifier for the theme.",
+      "default": "",
+      "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      "examples": [
+        "91415015-8fe3-48eb-9951-70a5cd6cbb7f",
+        "a14733d6-8e15-4e75-b6b8-509f323e5b3b"
+      ]
+    },
+    "editorScheme": {
+      "type": "object",
+      "title": "The code colors",
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "How you want to create the theme xml file.",
+          "pattern": "(templateExtension)|(template)|(custom)",
+          "default": "template",
+          "examples": [
+            "template",
+            "templateExtension",
+            "custom"
+          ]
+        },
+        "file": {
+          "type": "string",
+          "description": "The name of the file you want to extend, take as template, or use directly.",
+          "pattern": "^.+\\.xml$",
+          "examples": [
+            "Doki Light",
+            "Doki Dark",
+            "Natsuki_Light.xml",
+            "Yuri_Dark.xml"
+          ],
+          "default": "Doki Light.xml"
+        }
+      }
+    },
+    "overrides": {
+      "type": "object"
+    },
+    "ui": {
+      "type": "object"
+    }
+  }
+}
