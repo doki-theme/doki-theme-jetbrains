@@ -1,6 +1,10 @@
 # Changelog
 ---
 
+# 7.0.1
+
+- Small Theme consistency and usability tweaks.
+
 # 7.0.0
 
 - Added 5 new themes based on various new characters!
@@ -15,7 +19,7 @@
     - 2020.1 EAP for MacOS can now drag editor tabs out of IDE into separate window again.
     
 - The themes from Mistress's Menagerie have been moved from the Community Theme Suite.
-    - If you where using one of those themes and would like them back feel free to [follow these instructions here](todo)
+    - If you where using one of those themes and would like them back feel free to [follow these instructions here](https://github.com/Unthrottled/doki-theme-jetbrains/wiki/Ultimate-Theme-Setup)
 
 # 6.2.2
 
