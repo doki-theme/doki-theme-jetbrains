@@ -8,21 +8,16 @@
 </div>
 
 ---
-[![Gitter](https://badges.gitter.im/doki-theme-jetbrains/community.svg)](https://gitter.im/doki-theme-jetbrains/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
-
 # Screen Sample!
 ![Rem](assets/screenshots/reZero/rem_code.png)
 
--  Do you need a bit more spice in your development life?
--  Are Light or Dark themes your thing?
--  Is your tolerance for all things moe, high?
--  Do you like stickers?
--  Is having a lot of choices a must?
+[Complete Theme Album.](complete_theme_album.md)
+---
 
-Well look no further friend, **I've got what you are looking for!**
+[![Gitter](https://badges.gitter.im/doki-theme-jetbrains/community.svg)](https://gitter.im/doki-theme-jetbrains/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 With well over **10 themes** (light and dark) I think you will be able to find your favorite.
-You can even find one that fits your mood for the day.
+You can even find a theme that fits your mood for the day.
 
 Variety is the spice of life! So you can choose themes from the following Doki-Doki Theme Suites:
 
@@ -35,8 +30,8 @@ Variety is the spice of life! So you can choose themes from the following Doki-D
 Too distracted by the sticker in the corner of your IDE?
 No worries! You can configure them to be on or off at your leisure.
 
-These themes are easy to install, there are minimal configurations so you can enjoy the themes faster.
-They also play well with other theme, so feel free to come an go as your mood changes :)
+These themes are easy to install, there are minimal configurations, so you can enjoy the themes faster.
+They also play well with other themes, so feel free to come and go as your mood changes :)
 
 # Got Contributions, fun ideas, or issues?
 
@@ -54,7 +49,6 @@ Also, giving it a good [review on the plugins page](https://plugins.jetbrains.co
 
 Feel free to submit your feedback as [an issue](https://github.com/Unthrottled/doki-theme-jetbrains/issues/new).
 Help make this plugin better! 
-
 
 ---
 
