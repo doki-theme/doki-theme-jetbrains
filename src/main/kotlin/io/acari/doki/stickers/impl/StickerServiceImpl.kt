@@ -25,7 +25,7 @@ private const val SOURCE_CODE = "https://raw.githubusercontent.com/Unthrottled/d
 
 // todo: migrate to assets
 private const val RESOURCES_DIRECTORY = "${SOURCE_CODE}/src/main/resources"
-private const val ASSETS_SOURCE = "https://doki.assets.acari.io"
+private const val ASSETS_SOURCE = "https://doki.assets.unthrottled.io"
 private const val BACKGROUND_DIRECTORY = "${ASSETS_SOURCE}/backgrounds"
 const val DOKI_STICKER_PROP: String = "io.acari.doki.stickers"
 private const val PREVIOUS_STICKER = "io.unthrottled.doki.sticker.previous"

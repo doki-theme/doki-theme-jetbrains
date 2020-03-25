@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="https://doki.assets.acari.io/misc/logo.png" alt="Just Monika"></img>
+    <img src="https://doki.assets.unthrottled.io/misc/logo.png" alt="Just Monika"></img>
 </div>
 
 ---

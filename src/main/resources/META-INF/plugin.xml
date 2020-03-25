@@ -35,7 +35,7 @@
             No worries! You can configure them to be on or off at your leisure.
         &lt;/p&gt;
         &lt;br/&gt;
-        &lt;div align="center"&gt;&lt;img src="https://doki.assets.acari.io/misc/logo.png" alt="Doki Theme"/&gt;&lt;/div&gt;
+        &lt;div align="center"&gt;&lt;img src="https://doki.assets.unthrottled.io/misc/logo.png" alt="Doki Theme"/&gt;&lt;/div&gt;
         </description>
   <idea-version since-build="193.4099"/>
   <depends>com.intellij.modules.platform</depends>

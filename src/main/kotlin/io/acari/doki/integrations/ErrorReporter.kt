@@ -29,7 +29,7 @@ import java.util.stream.Collectors
 class ErrorReporter : ErrorReportSubmitter() {
   companion object {
     private val httpClient = HttpClients.createMinimal()
-    private const val errorReportingUrl = "https://doki.api.acari.io/slack/error"
+    private const val errorReportingUrl = "https://doki.api.unthrottled.io/slack/error"
     private val gson = GsonBuilder().create()
   }
 
