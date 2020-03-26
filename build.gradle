@@ -6,7 +6,7 @@ plugins {
 }
 
 group 'io.acari'
-version '7.0.1'
+version '7.0.2'
 
 repositories {
     maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
