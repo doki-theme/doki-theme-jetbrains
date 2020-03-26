@@ -12,6 +12,19 @@
 ![Rem](assets/screenshots/reZero/rem_code.png)
 
 [Complete Theme Album.](complete_theme_album.md)
+
+[Doki-Doki Literature Club Album](theme_album.md)
+
+[Re:Zero Album](r0_album.md)
+
+[DanganRonpa Album](dr_themes.md)
+
+[Kill La Kill Album](klk_album.md)
+
+[KonoSuba Album](ks_album.md)
+
+[Miscellaneous Album](misc_themes.md)
+
 ---
 
 [![Gitter](https://badges.gitter.im/doki-theme-jetbrains/community.svg)](https://gitter.im/doki-theme-jetbrains/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
@@ -49,6 +62,10 @@ Also, giving it a good [review on the plugins page](https://plugins.jetbrains.co
 
 Feel free to submit your feedback as [an issue](https://github.com/Unthrottled/doki-theme-jetbrains/issues/new).
 Help make this plugin better! 
+
+## Missing Something?
+
+Be sure to checkout the [project wiki!](https://github.com/Unthrottled/doki-theme-jetbrains/wiki)
 
 ---
 
