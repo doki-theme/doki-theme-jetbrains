@@ -1,6 +1,10 @@
 # Changelog
 ---
 
+# 7.0.2
+
+- Better Legacy Theme Migration.
+
 # 7.0.1
 
 - Small Theme consistency and usability tweaks.

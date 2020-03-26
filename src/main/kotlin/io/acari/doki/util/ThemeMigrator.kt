@@ -4,6 +4,7 @@ import com.intellij.ide.actions.QuickChangeLookAndFeel
 import com.intellij.ide.plugins.PluginManagerCore
 import com.intellij.ide.ui.LafManager
 import com.intellij.ide.util.PropertiesComponent
+import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.extensions.PluginId
 import com.intellij.openapi.project.Project
 import io.acari.doki.TheDokiTheme
@@ -37,16 +38,18 @@ object ThemeMigrator {
       .ifPresent {
         setDokiTheme(it)
         StickerService.instance.clearPreviousSticker()
-        UpdateNotification.sendMessage(
-          "Theme Not Available",
-          """
+        ApplicationManager.getApplication().invokeLater {
+          UpdateNotification.sendMessage(
+            "Theme Not Available",
+            """
       <p>Sorry friend, but your previously selected theme is no longer part of the Community Doki Theme.</p>
       <p>You need the Ultimate Doki Theme (which is free) to gain access your previous theme.</p>
       <p>The <a href='${ThemeSettings.ULTIMATE_INSTRUCTIONS}'>wiki</a> on the repository should show you what you need to do to get it.</p>
       <p>Thanks!</p>
     """.trimIndent(),
-          project
-        )
+            project
+          )
+        }
       }
   }
 
