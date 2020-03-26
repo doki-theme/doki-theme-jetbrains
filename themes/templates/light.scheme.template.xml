@@ -2473,6 +2473,11 @@
                 <option name="ERROR_STRIPE_COLOR" value="977ab" />
             </value>
         </option>
+        <option name="TS.TYPE_GUARD">
+            <value>
+                <option name="BACKGROUND" value="$codeBlock$" />
+            </value>
+        </option>
         <option name="TS.INSTANCE_MEMBER_FUNCTION">
             <value>
                 <option name="FOREGROUND" value="$keyColor$" />

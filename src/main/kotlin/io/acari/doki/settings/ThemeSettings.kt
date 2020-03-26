@@ -37,6 +37,7 @@ class ThemeSettings : SearchableConfigurable {
     val CHANGELOG_URI =
       URI("https://github.com/Unthrottled/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md")
     const val REPOSITORY = "https://github.com/Unthrottled/doki-theme-jetbrains"
+    const val ULTIMATE_INSTRUCTIONS = "${REPOSITORY}/wiki/Ultimate-Theme-Setup"
     val ISSUES_URI = URI("$REPOSITORY/issues")
     val MARKETPLACE_URI = URI("https://plugins.jetbrains.com/plugin/10804-the-doki-doki-theme")
   }

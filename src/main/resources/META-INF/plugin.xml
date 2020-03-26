@@ -4,38 +4,31 @@
   <version>@version@</version>
   <vendor email="alexsimons9999@gmail.com" url="https://github.com/Unthrottled">Unthrottled</vendor>
   <description>
-        &lt;h2&gt;Ṱ͙̠͔́̈́͐̇h̳̳̗̘͂̇́̊e̮̰̼̮̿́̋͗ ̝͇͎̱̊̚̕͝o͙͈̼̜̓̀̉̀n͚̩̣̣̅̍̐̈́l̻̺̩̠͋̑̎͠y̧̱̘͕̿͐̎͘ ̧͎̹̙̓̅̈́͆t̢͔̩̮́̐̕͠h̨͓͔͉̿́͑͝é̹̙̤̮̀̍̈m̙̥̙̺̋̾͑̊e̳̗̖̩̽͐͆͒s͖̰͎̏̍̓̈́ͅ ͎̻͔͍͗͒̾̀y̢̻̜͎̾̄͒̋o̗̝̮̞͛̿̏͐ǔ̥̜̹̘̓̿̕ ̢̛̫͕͔̎̂́ẻ̲̜̰͙̍̌͑v̜̻̗̥̈́̓̈́̔e̡͚͇̫̎̆̋͑r̺̮͓̳̍̊͗̋ ̻̻̣̹͋͑́̈́ǹ̨̲͚͇̒̆͘e̗͉̫̱͂͑͗̓e̳̬̬͈̓̊̂͘d̪̻̞̮̈͂͠͝.͍͇͍̫̒͆̓͝&lt;/h2&gt;
-        &lt;br/&gt;
-        &lt;ul&gt;
-            &lt;li&gt;Do you need a bit more spice in your development life? &lt;input type="checkbox" checked&gt;&lt;/li&gt;
-            &lt;li&gt;Are Light or Dark themes your thing? &lt;input type="checkbox" checked&gt;&lt;/li&gt;
-            &lt;li&gt;Is your tolerance for all things moe, high? &lt;input type="checkbox" checked&gt;&lt;/li&gt;
-            &lt;li&gt;Do you like stickers? &lt;input type="checkbox" checked&gt;&lt;/li&gt;
-            &lt;li&gt;Is having a lot of choices a must? &lt;input type="checkbox" checked&gt;&lt;/li&gt;
-        &lt;/ul&gt;&lt;br/&gt;
-        &lt;p&gt;
-            Well look no further friend, &lt;strong&gt;I've got what you are looking for!&lt;/strong&gt;
+    &lt;h2&gt;
+      Theme Sample!
+    &lt;/h2&gt;
+    &lt;p&gt;&lt;br/&gt;&lt;img alt="Theme Sample" src="https://doki.assets.unthrottled.io/screenshots/doki-theme-jetbrains-sample.png" width="400"/&gt;&lt;/p&gt;
+    &lt;br/&gt;
+    &lt;p&gt;
+          With well over 10 themes (light and dark) I think you will be able to find your favorite.
+          You can even find a theme fits your mood for the day.
         &lt;/p&gt;&lt;br/&gt;
-        &lt;p&gt;
-            With well over 10 themes (light and dark) I think you will be able to find your favorite.
-            You can even find one fits your mood for the day.
-        &lt;/p&gt;&lt;br/&gt;
-        &lt;p&gt;
-            Variety is the spice of life! So you can choose themes from the following Doki-Doki Theme Suites:
-        &lt;ul&gt;
-            &lt;li&gt;Doki-Doki Literature Club&lt;/li&gt;
-            &lt;li&gt;Kill la Kill&lt;/li&gt;
-            &lt;li&gt;Re:Zero&lt;/li&gt;
-            &lt;li&gt;KonoSuba&lt;/li&gt;
-            &lt;li&gt;DanganRonpa&lt;/li&gt;
-      &lt;/ul&gt;
-        &lt;/p&gt;
-        &lt;p&gt;
-            Too distracted by the sticker in the corner of your IDE?
-            No worries! You can configure them to be on or off at your leisure.
+    &lt;p&gt;
+          Variety is the spice of life! So you can choose themes from the following Doki-Doki Theme Suites:
+    &lt;ul&gt;
+      &lt;li&gt;Doki-Doki Literature Club&lt;/li&gt;
+      &lt;li&gt;Kill la Kill&lt;/li&gt;
+      &lt;li&gt;Re:Zero&lt;/li&gt;
+      &lt;li&gt;KonoSuba&lt;/li&gt;
+      &lt;li&gt;DanganRonpa&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+          Too distracted by the sticker in the corner of your IDE?
+          No worries! You can configure them to be on or off at your leisure.
         &lt;/p&gt;
         &lt;br/&gt;
-        &lt;div align="center"&gt;&lt;img src="https://doki.assets.acari.io/misc/logo.png" alt="Doki Theme"/&gt;&lt;/div&gt;
+        &lt;div align="center"&gt;&lt;img src="https://doki.assets.unthrottled.io/misc/logo.png" alt="Doki Theme"/&gt;&lt;/div&gt;
         </description>
   <idea-version since-build="193.4099"/>
   <depends>com.intellij.modules.platform</depends>

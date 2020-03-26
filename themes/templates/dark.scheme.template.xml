@@ -2436,6 +2436,11 @@
                 <option name="FONT_TYPE" value="2" />
             </value>
         </option>
+        <option name="TS.TYPE_GUARD">
+            <value>
+                <option name="BACKGROUND" value="$codeBlock$" />
+            </value>
+        </option>
         <option name="TS.TYPE_PARAMETER">
             <value>
                 <option name="FOREGROUND" value="$keyColor$" />
