@@ -60,7 +60,11 @@ Be sure to checkout the [project wiki!](https://github.com/Unthrottled/doki-them
 
 # More!
 
+## VS Code
+
 Hey! Did you know The Doki Theme is also available in VSCode? Then be sure to install [the VSCode Doki Theme plugin as well!](https://github.com/Unthrottled/doki-theme-vscode)
+
+## Hyper 
 
 Enhance your command line experience! Install [the Doki Theme for Hyper!](https://github.com/Unthrottled/doki-theme-hyper)
 
