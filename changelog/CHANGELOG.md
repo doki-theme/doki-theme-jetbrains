@@ -1,5 +1,9 @@
 # Changelog
 ---
+# 7.0.3
+
+- Fixed issue with unavailable themes showing up in settings.
+    - Thanks for reporting the issue!
 
 # 7.0.2
 

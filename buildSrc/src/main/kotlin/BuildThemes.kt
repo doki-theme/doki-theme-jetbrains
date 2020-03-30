@@ -6,6 +6,7 @@ import org.gradle.api.tasks.TaskAction
 import java.io.File
 import java.io.InputStreamReader
 import java.nio.charset.StandardCharsets
+import java.nio.file.Files
 import java.nio.file.Files.*
 import java.nio.file.Path
 import java.nio.file.Paths.get
@@ -58,7 +59,9 @@ open class BuildThemes : DefaultTask() {
 
     val (pluginXmlAndParsed, extension) = getPluginXmlMutationStuff()
     val (pluginXml, parsedPluginXml) = pluginXmlAndParsed
+
     cleanPluginXml(extension)
+    cleanThemeDirectory()
 
     val jetbrainsDokiThemeDefinitionDirectory = get(themeDirectory.toString(), "definitions")
     getAllDokiThemeDefinitions(jetbrainsDokiThemeDefinitionDirectory, masterThemeDirectory)
@@ -343,6 +346,17 @@ open class BuildThemes : DefaultTask() {
 
   private fun buildStickerPath(separator: String?, masterThemeDefinition: DokiBuildMasterThemeDefinition) =
     "${separator}stickers${separator}${masterThemeDefinition.usableGroup.toLowerCase()}${separator}${masterThemeDefinition.usableName}${separator}"
+
+  private fun cleanThemeDirectory() {
+    val themeDirectory = get(
+      getResourcesDirectory().toString(),
+      "doki",
+      "themes"
+    )
+    walk(themeDirectory)
+      .sorted(Comparator.reverseOrder())
+      .forEach(Files::delete)
+  }
 
   private fun getResourceDirectory(masterThemeDefinition: DokiBuildMasterThemeDefinition): Path = get(
     getResourcesDirectory().toString(),
