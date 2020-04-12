@@ -1,8 +1,11 @@
 package io.acari.doki.stickers.impl
 
 import com.intellij.ide.util.PropertiesComponent
+import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil
 import com.intellij.util.io.isFile
+import com.jetbrains.rd.util.getLogger
+import com.jetbrains.rd.util.info
 import io.acari.doki.config.ThemeConfig
 import io.acari.doki.stickers.StickerLevel
 import io.acari.doki.stickers.StickerService
@@ -36,6 +39,7 @@ class StickerServiceImpl : StickerService {
 
   companion object {
     private val httpClient = HttpClients.createMinimal()
+    private val log = Logger.getInstance(this::class.java)
   }
 
   private val stickerLevel: StickerLevel
@@ -85,6 +89,7 @@ class StickerServiceImpl : StickerService {
     localStickerPath: Path,
     remoteUrl: String
   ): Optional<Path> = try {
+    log.info("Attempting to download $remoteUrl")
     val remoteStickerRequest = HttpGet(remoteUrl)
     val stickerResponse = httpClient.execute(remoteStickerRequest)
     if (stickerResponse.statusLine.statusCode == 200) {
@@ -180,6 +185,7 @@ class StickerServiceImpl : StickerService {
     return getClubMemberFallback(dokiTheme)
       .map { "$it.checksum.txt" }
       .flatMap {
+        log.info("Attempting to fetch checksum $it")
         val request = HttpGet(it)
         val response = httpClient.execute(request)
         if (response.statusLine.statusCode == 200) {
