@@ -27,8 +27,6 @@ const val DOKI_BACKGROUND_PROP: String = "io.acari.doki.background"
 private val messageDigest: MessageDigest = MessageDigest.getInstance("MD5")
 private const val SOURCE_CODE = "https://raw.githubusercontent.com/Unthrottled/ddlc-jetbrains-theme/master"
 
-// todo: migrate to assets
-private const val RESOURCES_DIRECTORY = "${SOURCE_CODE}/src/main/resources"
 private const val ASSETS_SOURCE = "https://doki.assets.unthrottled.io"
 private const val BACKGROUND_DIRECTORY = "${ASSETS_SOURCE}/backgrounds"
 const val DOKI_STICKER_PROP: String = "io.acari.doki.stickers"
