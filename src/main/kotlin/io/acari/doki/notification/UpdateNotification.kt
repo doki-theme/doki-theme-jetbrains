@@ -7,21 +7,14 @@ import com.intellij.openapi.project.Project
 val UPDATE_MESSAGE: String = """
       What's New?<br>
       <ul>
-        <li>Added 5 new themes!
-            <ul>
-                <li>Re:Zero - Emilia (light/dark)</li>
-                <li>DanganRonpa - Mioda Ibuki (light/dark)</li>
-                <li>Hatsune Miku (dark)</li>
-            </ul>
-        </li>
-        <li>Fixed all reported exceptions.</li>
+        <li>The Doki-Theme settings menu is back!</li>
       </ul>
       <br>Please see the <a href="https://github.com/Unthrottled/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md">Changelog</a> for more details.
       <br>
       Thanks again for downloading <b>The Doki Theme</b>! •‿•<br>
 """.trimIndent()
 
-const val CURRENT_VERSION = "7.0.3"
+const val CURRENT_VERSION = "7.0.4"
 
 object UpdateNotification {
 
@@ -79,7 +72,16 @@ object UpdateNotification {
       notificationManager.notify(
         "Theme Transition Animation Enabled",
         """The animations will remain in your IDE after uninstalling the plugin.
-          |To remove them, un-check this action or remove them at "Help -> Find Action -> ide.intellij.laf.enable.animation". 
+          |To remove them, un-check this action or toggle the action at "Help -> Find Action -> ide.intellij.laf.enable.animation". 
+        """.trimMargin()
+      )
+    }
+
+    fun displayReadmeInstallMessage() {
+      notificationManager.notify(
+        "README.md will not show on startup",
+        """This behavior will remain in your IDE after uninstalling the plugin.
+          |To re-enable it, un-check this action or toggle the action at "Help -> Find Action -> ide.open.readme.md.on.startup". 
         """.trimMargin()
       )
     }
