@@ -60,15 +60,51 @@ class StickerServiceImpl : StickerService {
   override fun checkForUpdates() {
     ThemeManager.instance.currentTheme
       .filter { weebShitOn() }
+      .flatMap {
+        getLocalInstalledStickerPath(it).map { path ->
+          path to it
+        }
+      }
       .ifPresent {
-        if (stickerHasChanged(it)) {
-          downloadNewSticker(it)
+        val (localStickePath, dokiTheme) = it
+        if (stickerHasChanged(localStickePath, dokiTheme)) {
+          downloadNewSticker(localStickePath, dokiTheme)
         }
       }
   }
 
-  private fun downloadNewSticker(dokiTheme: DokiTheme) {
-    //todo: need to do
+  private fun downloadNewSticker(localStickerPath: Path, dokiTheme: DokiTheme): Optional<Path> {
+    createDirectories(localStickerPath)
+    return getClubMemberFallback(dokiTheme)
+      .flatMap {
+        downloadRemoteSticker(localStickerPath, it)
+      }
+  }
+
+  private fun downloadRemoteSticker(
+    localStickerPath: Path,
+    remoteUrl: String
+  ): Optional<Path> {
+    return try {
+      val remoteStickerRequest = HttpGet(remoteUrl)
+      val stickerResponse = httpClient.execute(remoteStickerRequest)
+      if(stickerResponse.statusLine.statusCode == 200) {
+        stickerResponse.entity.content.use { inputStream ->
+          Files.newOutputStream(
+            localStickerPath,
+            StandardOpenOption.CREATE,
+            StandardOpenOption.TRUNCATE_EXISTING
+          ).use { bufferedWriter ->
+            IOUtils.copy(inputStream, bufferedWriter)
+          }
+        }
+        localStickerPath.toOptional()
+      } else {
+        empty()
+      }
+    } catch (e: Throwable) {
+      empty()
+    }
   }
 
   private fun removeWeebShit() {
@@ -122,31 +158,24 @@ class StickerServiceImpl : StickerService {
           IdeBackgroundUtil.Anchor.CENTER.name,
           DOKI_BACKGROUND_PROP
         )
-
       }
     repaintWindows()
   }
-
 
   private fun getFrameBackground(dokiTheme: DokiTheme): Optional<String> {
     return dokiTheme.getSticker()
       .map { "$BACKGROUND_DIRECTORY/$it" }
   }
 
-  private fun stickerHasChanged(dokiTheme: DokiTheme): Boolean {
-    return getLocalInstalledStickerPath(dokiTheme)
-      .filter {
-        !Files.exists(it) ||
-          isLocalDifferentFromRemote(it, dokiTheme)
-      }.isPresent
-  }
+  private fun stickerHasChanged(localInstallPath: Path, dokiTheme: DokiTheme): Boolean =
+    !Files.exists(localInstallPath) ||
+      isLocalDifferentFromRemote(localInstallPath, dokiTheme)
 
   private fun isLocalDifferentFromRemote(
     localInstallPath: Path, dokiTheme: DokiTheme
-  ): Boolean {
-    return getOnDiskCheckSum(localInstallPath) ==
+  ): Boolean =
+    getOnDiskCheckSum(localInstallPath) ==
       getRemoteChecksum(dokiTheme)
-  }
 
   private fun getRemoteChecksum(dokiTheme: DokiTheme): String {
     return getClubMemberFallback(dokiTheme)
@@ -173,53 +202,28 @@ class StickerServiceImpl : StickerService {
         getLocalClubMemberParentDirectory()
           .map { localInstallDirectory ->
             Paths.get(
-              localInstallDirectory, themeStickerLocation
+              localInstallDirectory, "stickers", themeStickerLocation
             ).normalize().toAbsolutePath()
           }
       }
 
-  private fun getImagePath(dokiTheme: DokiTheme): Optional<String> =
-    dokiTheme.getStickerPath()
-      .flatMap { fullstickerClasspath ->
-        getLocalClubMemberParentDirectory()
-          .map { localParentDirectory ->
-            val weebStuff =
-              Paths.get(localParentDirectory, fullstickerClasspath)
-                .normalize()
-                .toAbsolutePath()
-            if (shouldCopyToDisk(weebStuff, fullstickerClasspath)) {
-              createDirectories(weebStuff)
-              copyAnimes(fullstickerClasspath, weebStuff)
-                .map { it.toOptional() }
-                .orElseGet { getClubMemberFallback(dokiTheme) }
+  private fun getImagePath(dokiTheme: DokiTheme): Optional<String> {
+    return getLocalClubMemberParentDirectory()
+      .map { Paths.get(it) }
+      .filter { Files.isWritable(it) }
+      .map {
+        getLocalInstalledStickerPath(dokiTheme)
+          .map { localStickerPath ->
+            if (stickerHasChanged(localStickerPath, dokiTheme)) {
+              downloadNewSticker(localStickerPath, dokiTheme)
             } else {
-              weebStuff.toString().toOptional()
+              localStickerPath.toOptional()
             }
-          }
-          .orElseGet {
-            getClubMemberFallback(dokiTheme)
-          }
+          }.map { it.toString() }
       }
-
-  private fun shouldCopyToDisk(weebStuff: Path, theAnimesPath: String) =
-    !(Files.exists(weebStuff) && checksumMatches(weebStuff, theAnimesPath))
-
-  private fun checksumMatches(weebStuff: Path, theAnimesPath: String): Boolean =
-    try {
-      computeChecksumFromClasspath(theAnimesPath)
-        .map { computedCheckSum ->
-          val onDiskCheckSum = getOnDiskCheckSum(weebStuff)
-          computedCheckSum == onDiskCheckSum
-        }.orElseGet { false }
-    } catch (e: IOException) {
-      e.printStackTrace()
-      false
-    }
-
-  private fun computeChecksumFromClasspath(theAnimesPath: String): Optional<String> {
-    return getAnimesInputStream(theAnimesPath)
-      .map { IOUtils.toByteArray(it) }
-      .map { computeCheckSum(it) }
+      .orElseGet {
+        getClubMemberFallback(dokiTheme)
+      }
   }
 
   private fun getOnDiskCheckSum(weebStuff: Path): String =
@@ -239,41 +243,10 @@ class StickerServiceImpl : StickerService {
     }
   }
 
-  private fun getAnimesInputStream(theAnimesPath: String): Optional<BufferedInputStream> =
-    try {
-      this.javaClass
-        .classLoader
-        .getResourceAsStream(theAnimesPath).toOptional()
-        .map { BufferedInputStream(it) }
-    } catch (e: IOException) {
-      Optional.empty()
-    }
-
-  private fun copyAnimes(theAnimesPath: String, weebStuff: Path): Optional<String> =
-    try {
-      getAnimesInputStream(theAnimesPath)
-        .map { bufferedInputStream ->
-          bufferedInputStream.use { inputStream ->
-            Files.newOutputStream(
-              weebStuff,
-              StandardOpenOption.CREATE,
-              StandardOpenOption.TRUNCATE_EXISTING
-            ).use { bufferedWriter ->
-              IOUtils.copy(inputStream, bufferedWriter)
-            }
-          }
-          weebStuff.toString()
-        }
-    } catch (e: IOException) {
-      Optional.empty()
-    }
-
-
   private fun getClubMemberFallback(dokiTheme: DokiTheme): Optional<String> {
     return dokiTheme.getStickerPath()
-      .map { "${ASSETS_SOURCE}$it" }
+      .map { "${ASSETS_SOURCE}/stickers/jetbrains$it" }
   }
-
 
   private fun getLocalClubMemberParentDirectory(): Optional<String> =
     Optional.ofNullable(
