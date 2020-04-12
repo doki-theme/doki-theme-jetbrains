@@ -1,5 +1,11 @@
 # Changelog
 ---
+# 7.0.4
+
+- Settings menu available for 2020 Builds
+- Added `Don't show readme on startup` option.
+    - That way you can admire your theme's background art!
+
 # 7.0.3
 
 - Fixed issue with unavailable themes showing up in settings.
