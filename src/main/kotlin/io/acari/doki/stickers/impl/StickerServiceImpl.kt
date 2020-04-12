@@ -1,6 +1,7 @@
 package io.acari.doki.stickers.impl
 
 import com.intellij.ide.util.PropertiesComponent
+import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil
 import com.intellij.util.io.isFile
@@ -23,12 +24,12 @@ import java.util.*
 import java.util.Optional.empty
 import javax.xml.bind.DatatypeConverter
 
-const val DOKI_BACKGROUND_PROP: String = "io.acari.doki.background"
+const val DOKI_BACKGROUND_PROP: String = "io.unthrottled.doki.background"
 private val messageDigest: MessageDigest = MessageDigest.getInstance("MD5")
 
 private const val ASSETS_SOURCE = "https://doki.assets.unthrottled.io"
 private const val BACKGROUND_DIRECTORY = "${ASSETS_SOURCE}/backgrounds"
-const val DOKI_STICKER_PROP: String = "io.acari.doki.stickers"
+const val DOKI_STICKER_PROP: String = "io.unthrottled.doki.stickers"
 private const val PREVIOUS_STICKER = "io.unthrottled.doki.sticker.previous"
 
 class StickerServiceImpl : StickerService {
@@ -43,7 +44,9 @@ class StickerServiceImpl : StickerService {
 
   override fun activateForTheme(dokiTheme: DokiTheme) {
     removeWeebShit()
-    turnOnIfNecessary(dokiTheme)
+    ApplicationManager.getApplication().executeOnPooledThread {
+      turnOnIfNecessary(dokiTheme)
+    }
   }
 
   override fun remove() {
@@ -57,21 +60,22 @@ class StickerServiceImpl : StickerService {
     PropertiesComponent.getInstance().unsetValue(PREVIOUS_STICKER)
   }
 
-  // todo: check if online
   override fun checkForUpdates() {
-    ThemeManager.instance.currentTheme
-      .filter { weebShitOn() }
-      .flatMap {
-        getLocalInstalledStickerPath(it).map { path ->
-          path to it
+    ApplicationManager.getApplication().executeOnPooledThread {
+      ThemeManager.instance.currentTheme
+        .filter { weebShitOn() }
+        .flatMap {
+          getLocalInstalledStickerPath(it).map { path ->
+            path to it
+          }
         }
-      }
-      .ifPresent {
-        val (localStickePath, dokiTheme) = it
-        if (stickerHasChanged(localStickePath, dokiTheme)) {
-          downloadNewSticker(localStickePath, dokiTheme)
+        .ifPresent {
+          val (localStickerPath, dokiTheme) = it
+          if (stickerHasChanged(localStickerPath, dokiTheme)) {
+            downloadNewSticker(localStickerPath, dokiTheme)
+          }
         }
-      }
+    }
   }
 
   private fun downloadNewSticker(localStickerPath: Path, dokiTheme: DokiTheme): Optional<Path> {
@@ -99,16 +103,14 @@ class StickerServiceImpl : StickerService {
           IOUtils.copy(inputStream, bufferedWriter)
         }
       }
-      localStickerPath.toOptional()
-    } else {
-      empty()
     }
+    localStickerPath.toOptional()
   } catch (e: Throwable) {
-    empty()
+    log.error("Unable to get remote sticker $remoteUrl for raisins", e)
+    localStickerPath.toOptional()
   }
 
   private fun removeWeebShit() {
-    // todo: do not do dis, move to first class theme settings
     val propertiesComponent = PropertiesComponent.getInstance()
     val previousSticker = propertiesComponent.getValue(DOKI_STICKER_PROP, "")
     if (previousSticker.isNotEmpty()) {
@@ -170,13 +172,13 @@ class StickerServiceImpl : StickerService {
 
   private fun stickerHasChanged(localInstallPath: Path, dokiTheme: DokiTheme): Boolean =
     !Files.exists(localInstallPath) ||
-      isLocalDifferentFromRemote(localInstallPath, dokiTheme)
+        isLocalDifferentFromRemote(localInstallPath, dokiTheme)
 
   private fun isLocalDifferentFromRemote(
     localInstallPath: Path, dokiTheme: DokiTheme
   ): Boolean =
     getOnDiskCheckSum(localInstallPath) !=
-      getRemoteChecksum(dokiTheme)
+        getRemoteChecksum(dokiTheme)
 
   private fun getRemoteChecksum(dokiTheme: DokiTheme): String {
     return getClubMemberFallback(dokiTheme)
@@ -184,13 +186,19 @@ class StickerServiceImpl : StickerService {
       .flatMap {
         log.info("Attempting to fetch checksum $it")
         val request = HttpGet(it)
-        val response = httpClient.execute(request)
-        if (response.statusLine.statusCode == 200) {
-          response.entity.content.use { responseBody ->
-            String(responseBody.readAllBytes())
-          }.toOptional()
-        } else {
-          empty()
+        try {
+          val response = httpClient.execute(request)
+          log.info("Checksum has responded for $it")
+          if (response.statusLine.statusCode == 200) {
+            response.entity.content.use { responseBody ->
+              String(responseBody.readAllBytes())
+            }.toOptional()
+          } else {
+            empty()
+          }
+        } catch (e: Exception) {
+          log.warn("Unable to get remote checksum for $it for raisins", e)
+          empty<String>()
         }
       }
       .orElseGet {
@@ -209,8 +217,8 @@ class StickerServiceImpl : StickerService {
           }
       }
 
-  private fun getImagePath(dokiTheme: DokiTheme): Optional<String> {
-    return getLocalClubMemberParentDirectory()
+  private fun getImagePath(dokiTheme: DokiTheme): Optional<String> =
+    getLocalClubMemberParentDirectory()
       .map { Paths.get(it) }
       .filter { Files.isWritable(it) }
       .map {
@@ -226,7 +234,6 @@ class StickerServiceImpl : StickerService {
       .orElseGet {
         getClubMemberFallback(dokiTheme)
       }
-  }
 
   private fun getOnDiskCheckSum(weebStuff: Path): String =
     computeCheckSum(Files.readAllBytes(weebStuff))
