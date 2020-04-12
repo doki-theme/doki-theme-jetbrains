@@ -7,8 +7,11 @@ import io.acari.doki.config.ThemeConfig
 import io.acari.doki.stickers.StickerLevel
 import io.acari.doki.stickers.StickerService
 import io.acari.doki.themes.DokiTheme
+import io.acari.doki.themes.ThemeManager
 import io.acari.doki.util.toOptional
 import org.apache.commons.io.IOUtils
+import org.apache.http.client.methods.HttpGet
+import org.apache.http.impl.client.HttpClients
 import java.io.BufferedInputStream
 import java.io.IOException
 import java.nio.file.Files
@@ -17,6 +20,7 @@ import java.nio.file.Paths
 import java.nio.file.StandardOpenOption
 import java.security.MessageDigest
 import java.util.*
+import java.util.Optional.empty
 import javax.xml.bind.DatatypeConverter
 
 const val DOKI_BACKGROUND_PROP: String = "io.acari.doki.background"
@@ -31,6 +35,10 @@ const val DOKI_STICKER_PROP: String = "io.acari.doki.stickers"
 private const val PREVIOUS_STICKER = "io.unthrottled.doki.sticker.previous"
 
 class StickerServiceImpl : StickerService {
+
+  companion object {
+    private val httpClient = HttpClients.createMinimal()
+  }
 
   private val stickerLevel: StickerLevel
     get() = ThemeConfig.instance.currentStickerLevel
@@ -49,6 +57,20 @@ class StickerServiceImpl : StickerService {
 
   override fun clearPreviousSticker() {
     PropertiesComponent.getInstance().unsetValue(PREVIOUS_STICKER)
+  }
+
+  override fun checkForUpdates() {
+    ThemeManager.instance.currentTheme
+      .filter { weebShitOn() }
+      .ifPresent {
+        if (stickerHasChanged(it)) {
+          downloadNewSticker(it)
+        }
+      }
+  }
+
+  private fun downloadNewSticker(dokiTheme: DokiTheme) {
+    //todo: need to do
   }
 
   private fun removeWeebShit() {
@@ -113,6 +135,51 @@ class StickerServiceImpl : StickerService {
       .map { "$BACKGROUND_DIRECTORY/$it" }
   }
 
+  private fun stickerHasChanged(dokiTheme: DokiTheme): Boolean {
+    return getLocalInstalledStickerPath(dokiTheme)
+      .filter {
+        !Files.exists(it) ||
+          isLocalDifferentFromRemote(it, dokiTheme)
+      }.isPresent
+  }
+
+  private fun isLocalDifferentFromRemote(
+    localInstallPath: Path, dokiTheme: DokiTheme
+  ): Boolean {
+    return getOnDiskCheckSum(localInstallPath) ==
+      getRemoteChecksum(dokiTheme)
+  }
+
+  private fun getRemoteChecksum(dokiTheme: DokiTheme): String {
+    return getClubMemberFallback(dokiTheme)
+      .map { "$it.checksum.txt" }
+      .flatMap {
+        val request = HttpGet(it)
+        val response = httpClient.execute(request)
+        if (response.statusLine.statusCode == 200) {
+          response.entity.content.use { responseBody ->
+            String(responseBody.readAllBytes())
+          }.toOptional()
+        } else {
+          empty()
+        }
+      }
+      .orElseGet {
+        "I AM BECOME DEATH, DESTROYER OF WORLDS"
+      }
+  }
+
+  private fun getLocalInstalledStickerPath(dokiTheme: DokiTheme): Optional<Path> =
+    dokiTheme.getStickerPath()
+      .flatMap { themeStickerLocation ->
+        getLocalClubMemberParentDirectory()
+          .map { localInstallDirectory ->
+            Paths.get(
+              localInstallDirectory, themeStickerLocation
+            ).normalize().toAbsolutePath()
+          }
+      }
+
   private fun getImagePath(dokiTheme: DokiTheme): Optional<String> =
     dokiTheme.getStickerPath()
       .flatMap { fullstickerClasspath ->
@@ -141,9 +208,7 @@ class StickerServiceImpl : StickerService {
 
   private fun checksumMatches(weebStuff: Path, theAnimesPath: String): Boolean =
     try {
-      getAnimesInputStream(theAnimesPath)
-        .map { IOUtils.toByteArray(it) }
-        .map { computeCheckSum(it) }
+      computeChecksumFromClasspath(theAnimesPath)
         .map { computedCheckSum ->
           val onDiskCheckSum = getOnDiskCheckSum(weebStuff)
           computedCheckSum == onDiskCheckSum
@@ -152,6 +217,12 @@ class StickerServiceImpl : StickerService {
       e.printStackTrace()
       false
     }
+
+  private fun computeChecksumFromClasspath(theAnimesPath: String): Optional<String> {
+    return getAnimesInputStream(theAnimesPath)
+      .map { IOUtils.toByteArray(it) }
+      .map { computeCheckSum(it) }
+  }
 
   private fun getOnDiskCheckSum(weebStuff: Path): String =
     computeCheckSum(Files.readAllBytes(weebStuff))
@@ -202,15 +273,15 @@ class StickerServiceImpl : StickerService {
 
   private fun getClubMemberFallback(dokiTheme: DokiTheme): Optional<String> {
     return dokiTheme.getStickerPath()
-      .map { "${RESOURCES_DIRECTORY}$it" }
+      .map { "${ASSETS_SOURCE}$it" }
   }
 
 
   private fun getLocalClubMemberParentDirectory(): Optional<String> =
     Optional.ofNullable(
-        System.getProperties()["jb.vmOptionsFile"] as? String
-          ?: System.getProperties()["idea.config.path"] as? String
-      )
+      System.getProperties()["jb.vmOptionsFile"] as? String
+        ?: System.getProperties()["idea.config.path"] as? String
+    )
       .map { property -> property.split(",") }
       .filter { properties -> properties.isNotEmpty() }
       .map { paths -> paths[paths.size - 1] }
