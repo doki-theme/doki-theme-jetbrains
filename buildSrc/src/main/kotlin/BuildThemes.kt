@@ -51,7 +51,7 @@ open class BuildThemes : DefaultTask() {
 
   @TaskAction
   fun run() {
-    val themeDirectory = get(project.rootDir.absolutePath, "themes")
+    val themeDirectory = getThemeDirectory()
     val masterThemeDirectory = get(project.rootDir.absolutePath, "masterThemes")
     val dokiThemeTemplates = createThemeDefinitions(themeDirectory, masterThemeDirectory)
 
@@ -63,7 +63,7 @@ open class BuildThemes : DefaultTask() {
     cleanPluginXml(extension)
     cleanThemeDirectory()
 
-    val jetbrainsDokiThemeDefinitionDirectory = get(themeDirectory.toString(), "definitions")
+    val jetbrainsDokiThemeDefinitionDirectory = getThemeDefinitionDirectory()
     getAllDokiThemeDefinitions(jetbrainsDokiThemeDefinitionDirectory, masterThemeDirectory)
       .forEach { pathMasterDefinitionAndJetbrainsDefinition ->
         val dokiThemeResourcePath = constructIntellijTheme(
@@ -80,6 +80,10 @@ open class BuildThemes : DefaultTask() {
 
     writeXmlToFile(pluginXml, parsedPluginXml)
   }
+
+  private fun getThemeDefinitionDirectory() = get(getThemeDirectory().toString(), "definitions")
+
+  private fun getThemeDirectory() = get(project.rootDir.absolutePath, "themes")
 
   private fun writeProductName(pluginXml: Node) {
     val nameNodeList = pluginXml["name"] as NodeList
@@ -323,7 +327,8 @@ open class BuildThemes : DefaultTask() {
       delete(localDefaultStickerPath)
     }
 
-    copy(get(dokiThemeDefinitionPath.parent.toString(), stickers.default), localDefaultStickerPath)
+    val defaultStickerPath = get(dokiThemeDefinitionPath.parent.toString(), stickers.default)
+    copy(defaultStickerPath, localDefaultStickerPath)
 
     val secondarySticker = Optional.ofNullable(stickers.secondary)
 
@@ -337,8 +342,11 @@ open class BuildThemes : DefaultTask() {
       }
 
     val stickerResourcesDirectory = buildStickerPath("/", masterThemeDefinition)
-    val defaultStickerResourcesPath = "$stickerResourcesDirectory${stickers.default}"
-    return BuildStickers(
+    val defaultStickerResourcesPath =
+      defaultStickerPath.toString().substringAfter(
+        getThemeDefinitionDirectory().toString()
+      )
+      return BuildStickers(
       defaultStickerResourcesPath,
       secondarySticker.map { "$stickerResourcesDirectory$it" }.orElseGet { null }
     )
