@@ -318,37 +318,33 @@ open class BuildThemes : DefaultTask() {
     val stickerDirectory = buildStickerPath(separator, masterThemeDefinition)
     val localStickerPath = get(getResourcesDirectory().toString(), stickerDirectory)
 
-    if (!exists(localStickerPath)) {
-      createDirectories(localStickerPath)
-    }
+    // todo: clean out directory when you can
+//    val localDefaultStickerPath = get(localStickerPath.toString(), stickers.default)
+//    if (exists(localDefaultStickerPath)) {
+//      delete(localDefaultStickerPath)
+//    }
 
-    val localDefaultStickerPath = get(localStickerPath.toString(), stickers.default)
-    if (exists(localDefaultStickerPath)) {
-      delete(localDefaultStickerPath)
-    }
-
-    val defaultStickerPath = get(dokiThemeDefinitionPath.parent.toString(), stickers.default)
-    copy(defaultStickerPath, localDefaultStickerPath)
+    val defaultStickerPath = get(dokiThemeDefinitionPath.parent.toString(), stickers.default).toString()
 
     val secondarySticker = Optional.ofNullable(stickers.secondary)
 
-    secondarySticker
+    val secondaryStickerPath = secondarySticker
       .map { get(localStickerPath.toString(), it) }
-      .ifPresent {
-        if (exists(it)) {
-          delete(it)
-        }
-        copy(get(dokiThemeDefinitionPath.parent.toString(), stickers.secondary), it)
+      .map {
+        get(dokiThemeDefinitionPath.parent.toString(), stickers.secondary).toString()
       }
 
-    val stickerResourcesDirectory = buildStickerPath("/", masterThemeDefinition)
     val defaultStickerResourcesPath =
-      defaultStickerPath.toString().substringAfter(
-        getThemeDefinitionDirectory().toString()
-      )
+      getStickerDefinitionPath(defaultStickerPath)
       return BuildStickers(
       defaultStickerResourcesPath,
-      secondarySticker.map { "$stickerResourcesDirectory$it" }.orElseGet { null }
+      secondaryStickerPath.map { getStickerDefinitionPath(it) }.orElseGet { null }
+    )
+  }
+
+  private fun getStickerDefinitionPath(defaultStickerPath: String): String {
+    return defaultStickerPath.substringAfter(
+      getThemeDefinitionDirectory().toString()
     )
   }
 
