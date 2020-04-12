@@ -84,27 +84,25 @@ class StickerServiceImpl : StickerService {
   private fun downloadRemoteSticker(
     localStickerPath: Path,
     remoteUrl: String
-  ): Optional<Path> {
-    return try {
-      val remoteStickerRequest = HttpGet(remoteUrl)
-      val stickerResponse = httpClient.execute(remoteStickerRequest)
-      if(stickerResponse.statusLine.statusCode == 200) {
-        stickerResponse.entity.content.use { inputStream ->
-          Files.newOutputStream(
-            localStickerPath,
-            StandardOpenOption.CREATE,
-            StandardOpenOption.TRUNCATE_EXISTING
-          ).use { bufferedWriter ->
-            IOUtils.copy(inputStream, bufferedWriter)
-          }
+  ): Optional<Path> = try {
+    val remoteStickerRequest = HttpGet(remoteUrl)
+    val stickerResponse = httpClient.execute(remoteStickerRequest)
+    if (stickerResponse.statusLine.statusCode == 200) {
+      stickerResponse.entity.content.use { inputStream ->
+        Files.newOutputStream(
+          localStickerPath,
+          StandardOpenOption.CREATE,
+          StandardOpenOption.TRUNCATE_EXISTING
+        ).use { bufferedWriter ->
+          IOUtils.copy(inputStream, bufferedWriter)
         }
-        localStickerPath.toOptional()
-      } else {
-        empty()
       }
-    } catch (e: Throwable) {
+      localStickerPath.toOptional()
+    } else {
       empty()
     }
+  } catch (e: Throwable) {
+    empty()
   }
 
   private fun removeWeebShit() {
@@ -132,8 +130,9 @@ class StickerServiceImpl : StickerService {
     stickerLevel != StickerLevel.OFF
 
   private fun turnOnIfNecessary(dokiTheme: DokiTheme) {
-    if (weebShitOn())
+    if (weebShitOn()) {
       turnOnWeebShit(dokiTheme)
+    }
   }
 
   private fun turnOnWeebShit(dokiTheme: DokiTheme) {
@@ -174,7 +173,7 @@ class StickerServiceImpl : StickerService {
   private fun isLocalDifferentFromRemote(
     localInstallPath: Path, dokiTheme: DokiTheme
   ): Boolean =
-    getOnDiskCheckSum(localInstallPath) ==
+    getOnDiskCheckSum(localInstallPath) !=
       getRemoteChecksum(dokiTheme)
 
   private fun getRemoteChecksum(dokiTheme: DokiTheme): String {
@@ -213,7 +212,7 @@ class StickerServiceImpl : StickerService {
       .filter { Files.isWritable(it) }
       .map {
         getLocalInstalledStickerPath(dokiTheme)
-          .map { localStickerPath ->
+          .flatMap { localStickerPath ->
             if (stickerHasChanged(localStickerPath, dokiTheme)) {
               downloadNewSticker(localStickerPath, dokiTheme)
             } else {
@@ -232,7 +231,7 @@ class StickerServiceImpl : StickerService {
   private fun computeCheckSum(byteArray: ByteArray): String {
     messageDigest.update(byteArray)
     val digest = messageDigest.digest()
-    return DatatypeConverter.printHexBinary(digest).toUpperCase()
+    return DatatypeConverter.printHexBinary(digest).toLowerCase()
   }
 
   private fun createDirectories(weebStuff: Path) {
@@ -265,7 +264,6 @@ class StickerServiceImpl : StickerService {
         }.toAbsolutePath().toString()
       }
 
-
   private fun setProperty(
     imagePath: String,
     opacity: String,
@@ -283,6 +281,4 @@ class StickerServiceImpl : StickerService {
     PropertiesComponent.getInstance().unsetValue(propertyKey)
     PropertiesComponent.getInstance().setValue(propertyKey, propertyValue)
   }
-
-
 }
