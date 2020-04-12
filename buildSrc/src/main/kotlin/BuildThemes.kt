@@ -318,12 +318,6 @@ open class BuildThemes : DefaultTask() {
     val stickerDirectory = buildStickerPath(separator, masterThemeDefinition)
     val localStickerPath = get(getResourcesDirectory().toString(), stickerDirectory)
 
-    // todo: clean out directory when you can
-//    val localDefaultStickerPath = get(localStickerPath.toString(), stickers.default)
-//    if (exists(localDefaultStickerPath)) {
-//      delete(localDefaultStickerPath)
-//    }
-
     val defaultStickerPath = get(dokiThemeDefinitionPath.parent.toString(), stickers.default).toString()
 
     val secondarySticker = Optional.ofNullable(stickers.secondary)

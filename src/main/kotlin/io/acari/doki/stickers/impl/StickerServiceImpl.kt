@@ -4,8 +4,6 @@ import com.intellij.ide.util.PropertiesComponent
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil
 import com.intellij.util.io.isFile
-import com.jetbrains.rd.util.getLogger
-import com.jetbrains.rd.util.info
 import io.acari.doki.config.ThemeConfig
 import io.acari.doki.stickers.StickerLevel
 import io.acari.doki.stickers.StickerService
@@ -15,7 +13,6 @@ import io.acari.doki.util.toOptional
 import org.apache.commons.io.IOUtils
 import org.apache.http.client.methods.HttpGet
 import org.apache.http.impl.client.HttpClients
-import java.io.BufferedInputStream
 import java.io.IOException
 import java.nio.file.Files
 import java.nio.file.Path
@@ -28,7 +25,6 @@ import javax.xml.bind.DatatypeConverter
 
 const val DOKI_BACKGROUND_PROP: String = "io.acari.doki.background"
 private val messageDigest: MessageDigest = MessageDigest.getInstance("MD5")
-private const val SOURCE_CODE = "https://raw.githubusercontent.com/Unthrottled/ddlc-jetbrains-theme/master"
 
 private const val ASSETS_SOURCE = "https://doki.assets.unthrottled.io"
 private const val BACKGROUND_DIRECTORY = "${ASSETS_SOURCE}/backgrounds"
@@ -61,6 +57,7 @@ class StickerServiceImpl : StickerService {
     PropertiesComponent.getInstance().unsetValue(PREVIOUS_STICKER)
   }
 
+  // todo: check if online
   override fun checkForUpdates() {
     ThemeManager.instance.currentTheme
       .filter { weebShitOn() }
