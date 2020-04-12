@@ -1,5 +1,12 @@
 # Changelog
 ---
+
+# 7.0.5
+
+- Non-Functional Changes:
+    - Changed how the plugin gets stickers. 
+        - I am now able to update the stickers without you having to download a new version.
+
 # 7.0.4
 
 - Settings menu available for 2020 Builds
