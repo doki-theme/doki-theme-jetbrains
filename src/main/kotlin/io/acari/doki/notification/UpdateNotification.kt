@@ -79,7 +79,16 @@ object UpdateNotification {
       notificationManager.notify(
         "Theme Transition Animation Enabled",
         """The animations will remain in your IDE after uninstalling the plugin.
-          |To remove them, un-check this action or remove them at "Help -> Find Action -> ide.intellij.laf.enable.animation". 
+          |To remove them, un-check this action or toggle the action at "Help -> Find Action -> ide.intellij.laf.enable.animation". 
+        """.trimMargin()
+      )
+    }
+
+    fun displayReadmeInstallMessage() {
+      notificationManager.notify(
+        "README.md will not show on startup",
+        """This behavior will remain in your IDE after uninstalling the plugin.
+          |To re-enable it, un-check this action or toggle the action at "Help -> Find Action -> ide.open.readme.md.on.startup". 
         """.trimMargin()
       )
     }

@@ -27,7 +27,8 @@ data class ThemeSettingsModel(
   var isSwappedSticker: Boolean,
   var isMaterialDirectories: Boolean,
   var isMaterialFiles: Boolean,
-  var isMaterialPSIIcons: Boolean
+  var isMaterialPSIIcons: Boolean,
+  var isNotShowReadmeAtStartup: Boolean
 )
 
 class ThemeSettings : SearchableConfigurable {
@@ -57,7 +58,8 @@ class ThemeSettings : SearchableConfigurable {
     ThemeConfig.instance.currentSticker == CurrentSticker.SECONDARY,
     ThemeConfig.instance.isMaterialDirectories,
     ThemeConfig.instance.isMaterialFiles,
-    ThemeConfig.instance.isMaterialPSIIcons
+    ThemeConfig.instance.isMaterialPSIIcons,
+    ThemeConfig.instance.isNotShowReadmeAtStartup
   )
 
   private val themeSettingsModel = initialThemeSettingsModel.copy()
@@ -68,6 +70,7 @@ class ThemeSettings : SearchableConfigurable {
 
   override fun apply() {
     LafAnimationActor.enableAnimation(themeSettingsModel.isLafAnimation)
+    ShowReadmeActor.dontShowReadmeOnStartup(themeSettingsModel.isNotShowReadmeAtStartup)
     FileColorActor.enableFileColors(themeSettingsModel.isFileColors)
     StickerActor.enableStickers(themeSettingsModel.areStickersEnabled, false)
     StickerActor.swapStickers(themeSettingsModel.isSwappedSticker, false)
@@ -227,11 +230,26 @@ class ThemeSettings : SearchableConfigurable {
             "Theme Transition Animation",
             themeSettingsModel.isFileColors,
             comment = """The animations will remain in your IDE after uninstalling the plugin.
-            |To remove them, un-check this action or remove them at "Help -> Find Action -> ide.intellij.laf.enable.animation". 
+            |To remove them, un-check this action or toggle the action at "Help -> Find Action -> ide.intellij.laf.enable.animation". 
             """.trimMargin()
             ,
             actionListener = { _, component ->
               themeSettingsModel.isFileColors = component.isSelected
+            }
+          )
+        }
+        row {
+          checkBox(
+            "Don't show README on project startup",
+            themeSettingsModel.isNotShowReadmeAtStartup,
+            comment = """Anytime you open a new project, don't automatically open the README.
+              |That way you can admire your theme's background art instead!
+            |This will stay even after you uninstall the plugin.
+|To re-enable it, un-check this action or toggle the action at "Help -> Find Action -> ide.open.readme.md.on.startup". 
+            """.trimMargin()
+            ,
+            actionListener = { _, component ->
+              themeSettingsModel.isNotShowReadmeAtStartup = component.isSelected
             }
           )
         }
