@@ -7,14 +7,14 @@ import com.intellij.openapi.project.Project
 val UPDATE_MESSAGE: String = """
       What's New?<br>
       <ul>
-        <li>The Doki-Theme settings menu is back!</li>
+        <li>Nothing you can see! (I did change stuff though!)</li>
       </ul>
       <br>Please see the <a href="https://github.com/Unthrottled/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md">Changelog</a> for more details.
       <br>
       Thanks again for downloading <b>The Doki Theme</b>! •‿•<br>
 """.trimIndent()
 
-const val CURRENT_VERSION = "7.0.4"
+const val CURRENT_VERSION = "7.0.5"
 
 object UpdateNotification {
 

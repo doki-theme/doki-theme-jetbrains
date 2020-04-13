@@ -16,6 +16,7 @@ import io.acari.doki.laf.FileScopeColors.attemptToRemoveColors
 import io.acari.doki.laf.LookAndFeelInstaller.installAllUIComponents
 import io.acari.doki.notification.CURRENT_VERSION
 import io.acari.doki.notification.UpdateNotification
+import io.acari.doki.stickers.StickerService
 import io.acari.doki.themes.ThemeManager
 import io.acari.doki.util.ThemeMigrator
 import io.acari.doki.util.doOrElse
@@ -63,6 +64,8 @@ class TheDokiTheme : Disposable {
         }
 
         ThemeMigrator.migrateToCommunityIfNecessary(project)
+
+        StickerService.instance.checkForUpdates()
 
         if (ThemeConfig.instance.version != CURRENT_VERSION) {
           ThemeConfig.instance.version = CURRENT_VERSION

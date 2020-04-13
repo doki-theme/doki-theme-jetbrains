@@ -81,25 +81,6 @@ class DokiTheme(private val uiTheme: DokiThemeDefinition) {
     nonProjectFileScopeColor
     testScopeColor
     displayName
-    try {
-      if (!uiTheme.stickers.default.matches("^/stickers/.+\\.png\$".toRegex())) {
-        throw NullPointerException()
-      }
-    } catch (e: NullPointerException) {
-      throw IllegalStateException(
-        """
-|${name}'s theme.json requires 'stickers.default' to match '^/stickers/.+\\.png\$' 
-|(eg /stickers/literature/just_monika.png)""".trimMargin()
-      )
-    }
-
-    if (uiTheme.stickers.secondary?.matches("^/stickers/.+\\.png\$".toRegex()) == false) {
-      throw IllegalStateException(
-        """
-|${name}'s theme.json requires 'stickers.secondary' to match '^/stickers/.+\\.png\$' 
-|if provided (eg /stickers/literature/just_monika.png) """.trimMargin()
-      )
-    }
 
     requiredNamedColors.forEach { requiredColor ->
       val requiredNamedColor = uiTheme.ui[requiredColor] as? String
