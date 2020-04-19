@@ -318,7 +318,10 @@ open class BuildThemes : DefaultTask() {
     val stickerDirectory = buildStickerPath(separator, masterThemeDefinition)
     val localStickerPath = get(getResourcesDirectory().toString(), stickerDirectory)
 
-    val defaultStickerPath = get(dokiThemeDefinitionPath.parent.toString(), stickers.default).toString()
+    val defaultStickerPath = get(
+      dokiThemeDefinitionPath.parent.toString(),
+      stickers.default
+    ).toString()
 
     val secondarySticker = Optional.ofNullable(stickers.secondary)
 
@@ -331,10 +334,13 @@ open class BuildThemes : DefaultTask() {
     val defaultStickerResourcesPath =
       getStickerDefinitionPath(defaultStickerPath)
       return BuildStickers(
-      defaultStickerResourcesPath,
-      secondaryStickerPath.map { getStickerDefinitionPath(it) }.orElseGet { null }
+      sanitizePath(defaultStickerResourcesPath),
+      secondaryStickerPath.map { sanitizePath(getStickerDefinitionPath(it)) }.orElseGet { null }
     )
   }
+
+  private fun sanitizePath(dirtyPath: String): String =
+    dirtyPath.replace(File.separator, "/")
 
   private fun getStickerDefinitionPath(defaultStickerPath: String): String {
     return defaultStickerPath.substringAfter(
