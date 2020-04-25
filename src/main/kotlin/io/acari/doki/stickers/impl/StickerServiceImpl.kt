@@ -1,7 +1,7 @@
 package io.acari.doki.stickers.impl
 
 import com.intellij.ide.util.PropertiesComponent
-import com.intellij.openapi.application.ApplicationManager.*
+import com.intellij.openapi.application.ApplicationManager.getApplication
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil
 import com.intellij.util.io.isFile
@@ -9,6 +9,7 @@ import io.acari.doki.stickers.StickerService
 import io.acari.doki.themes.DokiTheme
 import io.acari.doki.util.toOptional
 import org.apache.commons.io.IOUtils
+import org.apache.http.client.config.RequestConfig
 import org.apache.http.client.methods.HttpGet
 import org.apache.http.impl.client.HttpClients
 import java.io.IOException
@@ -20,6 +21,7 @@ import java.security.MessageDigest
 import java.util.*
 import java.util.Optional.empty
 import java.util.concurrent.Future
+import java.util.concurrent.TimeUnit
 import javax.xml.bind.DatatypeConverter
 
 const val DOKI_BACKGROUND_PROP: String = "io.unthrottled.doki.background"
@@ -38,6 +40,7 @@ class StickerServiceImpl : StickerService {
   }
 
   override fun activateForTheme(dokiTheme: DokiTheme) {
+    // todo: Does this really need to be executed concurrently??
     val tasks = listOf({
       installSticker(dokiTheme)
     },
@@ -47,7 +50,6 @@ class StickerServiceImpl : StickerService {
     ).map {
       getApplication().executeOnPooledThread(it)
     }
-
     waitForTasksToComplete(tasks)
   }
 
@@ -121,13 +123,15 @@ class StickerServiceImpl : StickerService {
     }
   }
 
-
   private fun downloadRemoteSticker(
     localStickerPath: Path,
     remoteUrl: String
   ): Optional<Path> = try {
     log.info("Attempting to download $remoteUrl")
     val remoteStickerRequest = HttpGet(remoteUrl)
+    remoteStickerRequest.config = RequestConfig.custom()
+      .setConnectTimeout(TimeUnit.MILLISECONDS.convert(5L, TimeUnit.SECONDS).toInt())
+      .build()
     val stickerResponse = httpClient.execute(remoteStickerRequest)
     if (stickerResponse.statusLine.statusCode == 200) {
       stickerResponse.entity.content.use { inputStream ->
