@@ -7,14 +7,16 @@ import com.intellij.openapi.project.Project
 val UPDATE_MESSAGE: String = """
       What's New?<br>
       <ul>
-        <li>Nothing you can see! (I did change stuff though!)</li>
+        <li>Touched up light Emilia.</li>
+        <li>Background wallpapers available offline!</li>
+        <li>I can change stickers/wallpapers without you having to update.</li>
       </ul>
       <br>Please see the <a href="https://github.com/Unthrottled/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md">Changelog</a> for more details.
       <br>
       Thanks again for downloading <b>The Doki Theme</b>! •‿•<br>
 """.trimIndent()
 
-const val CURRENT_VERSION = "7.0.5"
+const val CURRENT_VERSION = "7.1.0"
 
 object UpdateNotification {
 

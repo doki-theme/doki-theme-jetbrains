@@ -1,27 +1,27 @@
 package io.acari.doki.stickers.impl
 
 import com.intellij.ide.util.PropertiesComponent
-import com.intellij.openapi.application.ApplicationManager
+import com.intellij.openapi.application.ApplicationManager.getApplication
+import com.intellij.openapi.application.PathManager
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil
-import com.intellij.util.io.isFile
-import io.acari.doki.config.ThemeConfig
-import io.acari.doki.stickers.StickerLevel
 import io.acari.doki.stickers.StickerService
 import io.acari.doki.themes.DokiTheme
-import io.acari.doki.themes.ThemeManager
 import io.acari.doki.util.toOptional
 import org.apache.commons.io.IOUtils
+import org.apache.http.client.config.RequestConfig
 import org.apache.http.client.methods.HttpGet
 import org.apache.http.impl.client.HttpClients
 import java.io.IOException
 import java.nio.file.Files
 import java.nio.file.Path
-import java.nio.file.Paths
+import java.nio.file.Paths.get
 import java.nio.file.StandardOpenOption
 import java.security.MessageDigest
 import java.util.*
 import java.util.Optional.empty
+import java.util.Optional.ofNullable
+import java.util.concurrent.TimeUnit
 import javax.xml.bind.DatatypeConverter
 
 const val DOKI_BACKGROUND_PROP: String = "io.unthrottled.doki.background"
@@ -32,6 +32,10 @@ private const val BACKGROUND_DIRECTORY = "${ASSETS_SOURCE}/backgrounds"
 const val DOKI_STICKER_PROP: String = "io.unthrottled.doki.stickers"
 private const val PREVIOUS_STICKER = "io.unthrottled.doki.sticker.previous"
 
+private enum class AssetChangedStatus {
+  SAME, DIFFERENT, LUL_DUNNO
+}
+
 class StickerServiceImpl : StickerService {
 
   companion object {
@@ -39,78 +43,251 @@ class StickerServiceImpl : StickerService {
     private val log = Logger.getInstance(this::class.java)
   }
 
-  private val stickerLevel: StickerLevel
-    get() = ThemeConfig.instance.currentStickerLevel
-
   override fun activateForTheme(dokiTheme: DokiTheme) {
-    removeWeebShit()
-    ApplicationManager.getApplication().executeOnPooledThread {
-      turnOnIfNecessary(dokiTheme)
+    listOf({
+      installSticker(dokiTheme)
+    },
+      {
+        installBackgroundImage(dokiTheme)
+      }
+    ).forEach {
+      getApplication().executeOnPooledThread(it)
     }
   }
 
-  override fun remove() {
-    removeWeebShit()
-  }
-
-  override fun getPreviousSticker(): Optional<String> =
-    PropertiesComponent.getInstance().getValue(PREVIOUS_STICKER).toOptional()
-
-  override fun clearPreviousSticker() {
-    PropertiesComponent.getInstance().unsetValue(PREVIOUS_STICKER)
-  }
-
-  override fun checkForUpdates() {
-    ApplicationManager.getApplication().executeOnPooledThread {
-      ThemeManager.instance.currentTheme
-        .filter { weebShitOn() }
-        .flatMap {
-          getLocalInstalledStickerPath(it).map { path ->
-            path to it
-          }
-        }
-        .ifPresent {
-          val (localStickerPath, dokiTheme) = it
-          if (stickerHasChanged(localStickerPath, dokiTheme)) {
-            downloadNewSticker(localStickerPath, dokiTheme)
-          }
+  override fun checkForUpdates(dokiTheme: DokiTheme) {
+    getApplication().executeOnPooledThread {
+      listOf(
+        getLocalStickerPath(dokiTheme) to getRemoteStickerUrl(dokiTheme),
+        getLocalBackgroundImagePath(dokiTheme) to getRemoteBackgroundUrl(dokiTheme)
+      )
+        .forEach { localAndRemoteAssetPaths ->
+          val (localAssetPath, remoteAssetUrl) = localAndRemoteAssetPaths
+          localAssetPath
+            .filter { hasAssetChanged(it, remoteAssetUrl) }
+            .ifPresent {
+              downloadAsset(it, remoteAssetUrl)
+            }
         }
     }
   }
 
-  private fun downloadNewSticker(localStickerPath: Path, dokiTheme: DokiTheme): Optional<Path> {
-    createDirectories(localStickerPath)
-    return getClubMemberFallback(dokiTheme)
-      .flatMap {
-        downloadRemoteSticker(localStickerPath, it)
+  private fun installSticker(dokiTheme: DokiTheme) =
+    getLocallyInstalledStickerPath(dokiTheme)
+      .ifPresent {
+        setBackgroundImageProperty(
+          it,
+          "98",
+          IdeBackgroundUtil.Fill.PLAIN.name,
+          IdeBackgroundUtil.Anchor.BOTTOM_RIGHT.name,
+          DOKI_STICKER_PROP
+        )
+      }
+
+  private fun installBackgroundImage(dokiTheme: DokiTheme) =
+    getLocallyInstalledBackgroundImagePath(dokiTheme)
+      .ifPresent {
+        setBackgroundImageProperty(
+          it,
+          "100",
+          IdeBackgroundUtil.Fill.SCALE.name,
+          IdeBackgroundUtil.Anchor.CENTER.name,
+          DOKI_BACKGROUND_PROP
+        )
+      }
+
+  private fun getLocallyInstalledBackgroundImagePath(
+    dokiTheme: DokiTheme
+  ): Optional<String> =
+    getLocallyInstalledAssetPath({
+      getLocalBackgroundImagePath(dokiTheme)
+    }) {
+      getRemoteBackgroundUrl(dokiTheme)
+    }
+
+  private fun getLocallyInstalledStickerPath(
+    dokiTheme: DokiTheme
+  ): Optional<String> =
+    getLocallyInstalledAssetPath({
+      getLocalStickerPath(dokiTheme)
+    }) {
+      getRemoteStickerUrl(dokiTheme)
+    }
+
+  private fun getLocallyInstalledAssetPath(
+    localAssetPathSupplier: () -> Optional<Path>,
+    remoteAssetUrlSupplier: () -> Optional<String>
+  ): Optional<String> {
+    val remoteAssetUrl = remoteAssetUrlSupplier()
+    return canWriteAssetsLocally()
+      .map {
+        val localAssetPath = localAssetPathSupplier()
+        localAssetPath
+          .flatMap { localStickerPath ->
+            if (hasAssetChanged(localStickerPath, remoteAssetUrl)) {
+              downloadAsset(localStickerPath, remoteAssetUrl)
+            } else {
+              localStickerPath.toOptional()
+            }
+          }.map { it.toString() }
+      }
+      .orElseGet {
+        remoteAssetUrl
       }
   }
 
-  private fun downloadRemoteSticker(
+  private fun canWriteAssetsLocally(): Optional<Boolean> =
+    getLocalAssetDirectory()
+      .map { get(it) }
+      .filter { Files.isWritable(it.parent) }
+      .map { true }
+
+  private fun downloadAsset(
     localStickerPath: Path,
-    remoteUrl: String
+    remoteAssetUrl: Optional<String>
+  ): Optional<Path> {
+    createDirectories(localStickerPath)
+    return remoteAssetUrl
+      .flatMap {
+        downloadRemoteAsset(localStickerPath, it)
+      }
+  }
+
+  private fun createDirectories(directoriesToCreate: Path) {
+    try {
+      Files.createDirectories(directoriesToCreate.parent)
+    } catch (e: IOException) {
+      log.error("Unable to create directories $directoriesToCreate for raisins", e)
+    }
+  }
+
+  private fun downloadRemoteAsset(
+    localAssetPath: Path,
+    remoteAssetPath: String
   ): Optional<Path> = try {
-    log.info("Attempting to download $remoteUrl")
-    val remoteStickerRequest = HttpGet(remoteUrl)
-    val stickerResponse = httpClient.execute(remoteStickerRequest)
-    if (stickerResponse.statusLine.statusCode == 200) {
-      stickerResponse.entity.content.use { inputStream ->
+    log.info("Attempting to download asset $remoteAssetPath")
+    val remoteAssetRequest = createGetRequest(remoteAssetPath)
+    val remoteAssetResponse = httpClient.execute(remoteAssetRequest)
+    if (remoteAssetResponse.statusLine.statusCode == 200) {
+      remoteAssetResponse.entity.content.use { inputStream ->
         Files.newOutputStream(
-          localStickerPath,
+          localAssetPath,
           StandardOpenOption.CREATE,
           StandardOpenOption.TRUNCATE_EXISTING
         ).use { bufferedWriter ->
           IOUtils.copy(inputStream, bufferedWriter)
         }
       }
+    } else {
+      log.warn("Asset request for $remoteAssetPath responded with $remoteAssetResponse")
     }
-    localStickerPath.toOptional()
-  } catch (e: Throwable) {
-    log.error("Unable to get remote sticker $remoteUrl for raisins", e)
-    localStickerPath.toOptional()
+    localAssetPath.toOptional()
+  } catch (e: Exception) {
+    log.error("Unable to get remote remote asset $remoteAssetPath for raisins", e)
+    localAssetPath.toOptional()
   }
 
-  private fun removeWeebShit() {
+  private fun createGetRequest(remoteUrl: String): HttpGet {
+    val remoteAssetRequest = HttpGet(remoteUrl)
+    remoteAssetRequest.config = RequestConfig.custom()
+      .setConnectTimeout(TimeUnit.MILLISECONDS.convert(5L, TimeUnit.SECONDS).toInt())
+      .build()
+    return remoteAssetRequest
+  }
+
+  private fun hasAssetChanged(
+    localInstallPath: Path,
+    remoteAssetUrl: Optional<String>
+  ): Boolean =
+    !Files.exists(localInstallPath) ||
+        isLocalDifferentFromRemote(localInstallPath, remoteAssetUrl) == AssetChangedStatus.DIFFERENT
+
+  private fun isLocalDifferentFromRemote(
+    localInstallPath: Path,
+    remoteAssetUrl: Optional<String>
+  ): AssetChangedStatus =
+    getRemoteAssetChecksum(remoteAssetUrl)
+      .map {
+        if (it == getOnDiskCheckSum(localInstallPath)) {
+          AssetChangedStatus.SAME
+        } else {
+          AssetChangedStatus.DIFFERENT
+        }
+      }.orElseGet { AssetChangedStatus.LUL_DUNNO }
+
+  private fun getRemoteAssetChecksum(remoteAssetUrl: Optional<String>): Optional<String> =
+    remoteAssetUrl
+      .map { "$it.checksum.txt" }
+      .flatMap {
+        log.info("Attempting to fetch checksum for remote asset: $it")
+        val request = createGetRequest(it)
+        try {
+          val response = httpClient.execute(request)
+          log.info("Checksum has responded for remote asset: $it")
+          if (response.statusLine.statusCode == 200) {
+            response.entity.content.use { responseBody ->
+              String(responseBody.readAllBytes())
+            }.toOptional()
+          } else {
+            empty()
+          }
+        } catch (e: Exception) {
+          log.warn("Unable to get checksum for remote asset: $it for raisins", e)
+          empty<String>()
+        }
+      }
+
+  private fun getOnDiskCheckSum(weebStuff: Path): String =
+    computeCheckSum(Files.readAllBytes(weebStuff))
+
+  private fun computeCheckSum(byteArray: ByteArray): String {
+    messageDigest.update(byteArray)
+    val digest = messageDigest.digest()
+    return DatatypeConverter.printHexBinary(digest).toLowerCase()
+  }
+
+  private fun getRemoteStickerUrl(dokiTheme: DokiTheme): Optional<String> =
+    dokiTheme.getStickerPath()
+      .map { "${ASSETS_SOURCE}/stickers/jetbrains$it" }
+
+  private fun getRemoteBackgroundUrl(dokiTheme: DokiTheme): Optional<String> =
+    dokiTheme.getSticker()
+      .map { "$BACKGROUND_DIRECTORY/$it" }
+
+  private fun getLocalStickerPath(dokiTheme: DokiTheme): Optional<Path> =
+    constructLocalAssetPath("stickers") {
+      dokiTheme.getStickerPath()
+    }
+
+  private fun getLocalBackgroundImagePath(
+    dokiTheme: DokiTheme
+  ): Optional<Path> =
+    constructLocalAssetPath("backgrounds") {
+      dokiTheme.getSticker()
+    }
+
+  private fun constructLocalAssetPath(
+    assetCategory: String,
+    stickerPath: () -> Optional<String>
+  ): Optional<Path> =
+    stickerPath()
+      .flatMap { themeStickerLocation ->
+        getLocalAssetDirectory()
+          .map { localInstallDirectory ->
+            get(
+              localInstallDirectory, assetCategory, themeStickerLocation
+            ).normalize().toAbsolutePath()
+          }
+      }
+
+  private fun getLocalAssetDirectory(): Optional<String> =
+    ofNullable(
+      PathManager.getConfigPath()
+    ).map {
+      get(it, "dokiThemeAssets").toAbsolutePath().toString()
+    }
+
+  override fun remove() {
     val propertiesComponent = PropertiesComponent.getInstance()
     val previousSticker = propertiesComponent.getValue(DOKI_STICKER_PROP, "")
     if (previousSticker.isNotEmpty()) {
@@ -130,151 +307,15 @@ class StickerServiceImpl : StickerService {
   } catch (e: Throwable) {
   }
 
-  private fun weebShitOn(): Boolean =
-    stickerLevel != StickerLevel.OFF
 
-  private fun turnOnIfNecessary(dokiTheme: DokiTheme) {
-    if (weebShitOn()) {
-      turnOnWeebShit(dokiTheme)
-    }
+  override fun getPreviousSticker(): Optional<String> =
+    PropertiesComponent.getInstance().getValue(PREVIOUS_STICKER).toOptional()
+
+  override fun clearPreviousSticker() {
+    PropertiesComponent.getInstance().unsetValue(PREVIOUS_STICKER)
   }
 
-  private fun turnOnWeebShit(dokiTheme: DokiTheme) {
-    val stickerOpacity = 100
-    getImagePath(dokiTheme)
-      .ifPresent {
-        setProperty(
-          it,
-          "$stickerOpacity",
-          IdeBackgroundUtil.Fill.PLAIN.name,
-          IdeBackgroundUtil.Anchor.BOTTOM_RIGHT.name,
-          DOKI_STICKER_PROP
-        )
-      }
-
-    getFrameBackground(dokiTheme)
-      .ifPresent {
-        setProperty(
-          it,
-          "$stickerOpacity",
-          IdeBackgroundUtil.Fill.SCALE.name,
-          IdeBackgroundUtil.Anchor.CENTER.name,
-          DOKI_BACKGROUND_PROP
-        )
-      }
-    repaintWindows()
-  }
-
-  private fun getFrameBackground(dokiTheme: DokiTheme): Optional<String> {
-    return dokiTheme.getSticker()
-      .map { "$BACKGROUND_DIRECTORY/$it" }
-  }
-
-  private fun stickerHasChanged(localInstallPath: Path, dokiTheme: DokiTheme): Boolean =
-    !Files.exists(localInstallPath) ||
-        isLocalDifferentFromRemote(localInstallPath, dokiTheme)
-
-  private fun isLocalDifferentFromRemote(
-    localInstallPath: Path, dokiTheme: DokiTheme
-  ): Boolean =
-    getOnDiskCheckSum(localInstallPath) !=
-        getRemoteChecksum(dokiTheme)
-
-  private fun getRemoteChecksum(dokiTheme: DokiTheme): String {
-    return getClubMemberFallback(dokiTheme)
-      .map { "$it.checksum.txt" }
-      .flatMap {
-        log.info("Attempting to fetch checksum $it")
-        val request = HttpGet(it)
-        try {
-          val response = httpClient.execute(request)
-          log.info("Checksum has responded for $it")
-          if (response.statusLine.statusCode == 200) {
-            response.entity.content.use { responseBody ->
-              String(responseBody.readAllBytes())
-            }.toOptional()
-          } else {
-            empty()
-          }
-        } catch (e: Exception) {
-          log.warn("Unable to get remote checksum for $it for raisins", e)
-          empty<String>()
-        }
-      }
-      .orElseGet {
-        "I AM BECOME DEATH, DESTROYER OF WORLDS"
-      }
-  }
-
-  private fun getLocalInstalledStickerPath(dokiTheme: DokiTheme): Optional<Path> =
-    dokiTheme.getStickerPath()
-      .flatMap { themeStickerLocation ->
-        getLocalClubMemberParentDirectory()
-          .map { localInstallDirectory ->
-            Paths.get(
-              localInstallDirectory, "stickers", themeStickerLocation
-            ).normalize().toAbsolutePath()
-          }
-      }
-
-  private fun getImagePath(dokiTheme: DokiTheme): Optional<String> =
-    getLocalClubMemberParentDirectory()
-      .map { Paths.get(it) }
-      .filter { Files.isWritable(it) }
-      .map {
-        getLocalInstalledStickerPath(dokiTheme)
-          .flatMap { localStickerPath ->
-            if (stickerHasChanged(localStickerPath, dokiTheme)) {
-              downloadNewSticker(localStickerPath, dokiTheme)
-            } else {
-              localStickerPath.toOptional()
-            }
-          }.map { it.toString() }
-      }
-      .orElseGet {
-        getClubMemberFallback(dokiTheme)
-      }
-
-  private fun getOnDiskCheckSum(weebStuff: Path): String =
-    computeCheckSum(Files.readAllBytes(weebStuff))
-
-  private fun computeCheckSum(byteArray: ByteArray): String {
-    messageDigest.update(byteArray)
-    val digest = messageDigest.digest()
-    return DatatypeConverter.printHexBinary(digest).toLowerCase()
-  }
-
-  private fun createDirectories(weebStuff: Path) {
-    try {
-      Files.createDirectories(weebStuff.parent)
-    } catch (e: IOException) {
-      e.printStackTrace()
-    }
-  }
-
-  private fun getClubMemberFallback(dokiTheme: DokiTheme): Optional<String> {
-    return dokiTheme.getStickerPath()
-      .map { "${ASSETS_SOURCE}/stickers/jetbrains$it" }
-  }
-
-  private fun getLocalClubMemberParentDirectory(): Optional<String> =
-    Optional.ofNullable(
-      System.getProperties()["jb.vmOptionsFile"] as? String
-        ?: System.getProperties()["idea.config.path"] as? String
-    )
-      .map { property -> property.split(",") }
-      .filter { properties -> properties.isNotEmpty() }
-      .map { paths -> paths[paths.size - 1] }
-      .map { property ->
-        val directory = Paths.get(property)
-        if (directory.isFile()) {
-          directory.parent
-        } else {
-          directory
-        }.toAbsolutePath().toString()
-      }
-
-  private fun setProperty(
+  private fun setBackgroundImageProperty(
     imagePath: String,
     opacity: String,
     fill: String, anchor: String,

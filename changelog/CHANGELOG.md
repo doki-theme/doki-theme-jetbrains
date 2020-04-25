@@ -1,6 +1,11 @@
 # Changelog
 ---
 
+# 7.1.0
+
+- Updated the look and feel of the light Emilia theme.
+- Theme background wallpapers are now available offline.
+
 # 7.0.5
 
 - Non-Functional Changes:
