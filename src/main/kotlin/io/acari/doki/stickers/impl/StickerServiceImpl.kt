@@ -39,44 +39,52 @@ class StickerServiceImpl : StickerService {
     private val log = Logger.getInstance(this::class.java)
   }
 
-  private val stickerLevel: StickerLevel
-    get() = ThemeConfig.instance.currentStickerLevel
-
   override fun activateForTheme(dokiTheme: DokiTheme) {
-    removeWeebShit()
     ApplicationManager.getApplication().executeOnPooledThread {
-      turnOnIfNecessary(dokiTheme)
+      installSticker(dokiTheme)
     }
-  }
 
-  override fun remove() {
-    removeWeebShit()
-  }
-
-  override fun getPreviousSticker(): Optional<String> =
-    PropertiesComponent.getInstance().getValue(PREVIOUS_STICKER).toOptional()
-
-  override fun clearPreviousSticker() {
-    PropertiesComponent.getInstance().unsetValue(PREVIOUS_STICKER)
+    ApplicationManager.getApplication().executeOnPooledThread {
+      installBackgroundImage(dokiTheme)
+    }
   }
 
   override fun checkForUpdates() {
     ApplicationManager.getApplication().executeOnPooledThread {
-      ThemeManager.instance.currentTheme
-        .filter { weebShitOn() }
-        .flatMap {
-          getLocalInstalledStickerPath(it).map { path ->
-            path to it
-          }
-        }
-        .ifPresent {
-          val (localStickerPath, dokiTheme) = it
-          if (stickerHasChanged(localStickerPath, dokiTheme)) {
-            downloadNewSticker(localStickerPath, dokiTheme)
-          }
-        }
     }
   }
+
+  private fun installSticker(dokiTheme: DokiTheme) {
+    getImagePath(dokiTheme)
+      .ifPresent {
+        setProperty(
+          it,
+          "98",
+          IdeBackgroundUtil.Fill.PLAIN.name,
+          IdeBackgroundUtil.Anchor.BOTTOM_RIGHT.name,
+          DOKI_STICKER_PROP
+        )
+      }
+
+  }
+
+  private fun getImagePath(dokiTheme: DokiTheme): Optional<String> =
+    getLocalClubMemberParentDirectory()
+      .map { Paths.get(it) }
+      .filter { Files.isWritable(it) }
+      .map {
+        getLocalInstalledStickerPath(dokiTheme)
+          .flatMap { localStickerPath ->
+            if (stickerHasChanged(localStickerPath, dokiTheme)) {
+              downloadNewSticker(localStickerPath, dokiTheme)
+            } else {
+              localStickerPath.toOptional()
+            }
+          }.map { it.toString() }
+      }
+      .orElseGet {
+        getClubMemberFallback(dokiTheme)
+      }
 
   private fun downloadNewSticker(localStickerPath: Path, dokiTheme: DokiTheme): Optional<Path> {
     createDirectories(localStickerPath)
@@ -85,6 +93,15 @@ class StickerServiceImpl : StickerService {
         downloadRemoteSticker(localStickerPath, it)
       }
   }
+
+  private fun createDirectories(weebStuff: Path) {
+    try {
+      Files.createDirectories(weebStuff.parent)
+    } catch (e: IOException) {
+      e.printStackTrace()
+    }
+  }
+
 
   private fun downloadRemoteSticker(
     localStickerPath: Path,
@@ -110,65 +127,6 @@ class StickerServiceImpl : StickerService {
     localStickerPath.toOptional()
   }
 
-  private fun removeWeebShit() {
-    val propertiesComponent = PropertiesComponent.getInstance()
-    val previousSticker = propertiesComponent.getValue(DOKI_STICKER_PROP, "")
-    if (previousSticker.isNotEmpty()) {
-      propertiesComponent.setValue(
-        PREVIOUS_STICKER,
-        previousSticker
-      )
-    }
-
-    propertiesComponent.unsetValue(DOKI_STICKER_PROP)
-    propertiesComponent.unsetValue(DOKI_BACKGROUND_PROP)
-    repaintWindows()
-  }
-
-  private fun repaintWindows() = try {
-    IdeBackgroundUtil.repaintAllWindows()
-  } catch (e: Throwable) {
-  }
-
-  private fun weebShitOn(): Boolean =
-    stickerLevel != StickerLevel.OFF
-
-  private fun turnOnIfNecessary(dokiTheme: DokiTheme) {
-    if (weebShitOn()) {
-      turnOnWeebShit(dokiTheme)
-    }
-  }
-
-  private fun turnOnWeebShit(dokiTheme: DokiTheme) {
-    val stickerOpacity = 100
-    getImagePath(dokiTheme)
-      .ifPresent {
-        setProperty(
-          it,
-          "$stickerOpacity",
-          IdeBackgroundUtil.Fill.PLAIN.name,
-          IdeBackgroundUtil.Anchor.BOTTOM_RIGHT.name,
-          DOKI_STICKER_PROP
-        )
-      }
-
-    getFrameBackground(dokiTheme)
-      .ifPresent {
-        setProperty(
-          it,
-          "$stickerOpacity",
-          IdeBackgroundUtil.Fill.SCALE.name,
-          IdeBackgroundUtil.Anchor.CENTER.name,
-          DOKI_BACKGROUND_PROP
-        )
-      }
-    repaintWindows()
-  }
-
-  private fun getFrameBackground(dokiTheme: DokiTheme): Optional<String> {
-    return dokiTheme.getSticker()
-      .map { "$BACKGROUND_DIRECTORY/$it" }
-  }
 
   private fun stickerHasChanged(localInstallPath: Path, dokiTheme: DokiTheme): Boolean =
     !Files.exists(localInstallPath) ||
@@ -179,6 +137,7 @@ class StickerServiceImpl : StickerService {
   ): Boolean =
     getOnDiskCheckSum(localInstallPath) !=
         getRemoteChecksum(dokiTheme)
+
 
   private fun getRemoteChecksum(dokiTheme: DokiTheme): String {
     return getClubMemberFallback(dokiTheme)
@@ -206,6 +165,21 @@ class StickerServiceImpl : StickerService {
       }
   }
 
+  private fun getOnDiskCheckSum(weebStuff: Path): String =
+    computeCheckSum(Files.readAllBytes(weebStuff))
+
+  private fun computeCheckSum(byteArray: ByteArray): String {
+    messageDigest.update(byteArray)
+    val digest = messageDigest.digest()
+    return DatatypeConverter.printHexBinary(digest).toLowerCase()
+  }
+
+  private fun getClubMemberFallback(dokiTheme: DokiTheme): Optional<String> {
+    return dokiTheme.getStickerPath()
+      .map { "${ASSETS_SOURCE}/stickers/jetbrains$it" }
+  }
+
+
   private fun getLocalInstalledStickerPath(dokiTheme: DokiTheme): Optional<Path> =
     dokiTheme.getStickerPath()
       .flatMap { themeStickerLocation ->
@@ -217,45 +191,6 @@ class StickerServiceImpl : StickerService {
           }
       }
 
-  private fun getImagePath(dokiTheme: DokiTheme): Optional<String> =
-    getLocalClubMemberParentDirectory()
-      .map { Paths.get(it) }
-      .filter { Files.isWritable(it) }
-      .map {
-        getLocalInstalledStickerPath(dokiTheme)
-          .flatMap { localStickerPath ->
-            if (stickerHasChanged(localStickerPath, dokiTheme)) {
-              downloadNewSticker(localStickerPath, dokiTheme)
-            } else {
-              localStickerPath.toOptional()
-            }
-          }.map { it.toString() }
-      }
-      .orElseGet {
-        getClubMemberFallback(dokiTheme)
-      }
-
-  private fun getOnDiskCheckSum(weebStuff: Path): String =
-    computeCheckSum(Files.readAllBytes(weebStuff))
-
-  private fun computeCheckSum(byteArray: ByteArray): String {
-    messageDigest.update(byteArray)
-    val digest = messageDigest.digest()
-    return DatatypeConverter.printHexBinary(digest).toLowerCase()
-  }
-
-  private fun createDirectories(weebStuff: Path) {
-    try {
-      Files.createDirectories(weebStuff.parent)
-    } catch (e: IOException) {
-      e.printStackTrace()
-    }
-  }
-
-  private fun getClubMemberFallback(dokiTheme: DokiTheme): Optional<String> {
-    return dokiTheme.getStickerPath()
-      .map { "${ASSETS_SOURCE}/stickers/jetbrains$it" }
-  }
 
   private fun getLocalClubMemberParentDirectory(): Optional<String> =
     Optional.ofNullable(
@@ -274,6 +209,55 @@ class StickerServiceImpl : StickerService {
         }.toAbsolutePath().toString()
       }
 
+
+
+  private fun installBackgroundImage(dokiTheme: DokiTheme) {
+    getFrameBackground(dokiTheme)
+      .ifPresent {
+        setProperty(
+          it,
+          "100",
+          IdeBackgroundUtil.Fill.SCALE.name,
+          IdeBackgroundUtil.Anchor.CENTER.name,
+          DOKI_BACKGROUND_PROP
+        )
+      }
+    repaintWindows()
+  }
+
+  private fun getFrameBackground(dokiTheme: DokiTheme): Optional<String> =
+    dokiTheme.getSticker()
+      .map { "$BACKGROUND_DIRECTORY/$it" }
+
+
+  override fun remove() {
+    val propertiesComponent = PropertiesComponent.getInstance()
+    val previousSticker = propertiesComponent.getValue(DOKI_STICKER_PROP, "")
+    if (previousSticker.isNotEmpty()) {
+      propertiesComponent.setValue(
+        PREVIOUS_STICKER,
+        previousSticker
+      )
+    }
+
+    propertiesComponent.unsetValue(DOKI_STICKER_PROP)
+    propertiesComponent.unsetValue(DOKI_BACKGROUND_PROP)
+    repaintWindows()
+  }
+
+  private fun repaintWindows() = try {
+    IdeBackgroundUtil.repaintAllWindows()
+  } catch (e: Throwable) {
+  }
+
+
+  override fun getPreviousSticker(): Optional<String> =
+    PropertiesComponent.getInstance().getValue(PREVIOUS_STICKER).toOptional()
+
+  override fun clearPreviousSticker() {
+    PropertiesComponent.getInstance().unsetValue(PREVIOUS_STICKER)
+  }
+
   private fun setProperty(
     imagePath: String,
     opacity: String,
@@ -291,4 +275,5 @@ class StickerServiceImpl : StickerService {
     PropertiesComponent.getInstance().unsetValue(propertyKey)
     PropertiesComponent.getInstance().setValue(propertyKey, propertyValue)
   }
+
 }
