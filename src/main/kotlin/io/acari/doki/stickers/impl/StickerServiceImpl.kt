@@ -128,10 +128,7 @@ class StickerServiceImpl : StickerService {
     remoteUrl: String
   ): Optional<Path> = try {
     log.info("Attempting to download $remoteUrl")
-    val remoteStickerRequest = HttpGet(remoteUrl)
-    remoteStickerRequest.config = RequestConfig.custom()
-      .setConnectTimeout(TimeUnit.MILLISECONDS.convert(5L, TimeUnit.SECONDS).toInt())
-      .build()
+    val remoteStickerRequest = createGetRequest(remoteUrl)
     val stickerResponse = httpClient.execute(remoteStickerRequest)
     if (stickerResponse.statusLine.statusCode == 200) {
       stickerResponse.entity.content.use { inputStream ->
@@ -148,6 +145,14 @@ class StickerServiceImpl : StickerService {
   } catch (e: Throwable) {
     log.error("Unable to get remote sticker $remoteUrl for raisins", e)
     localStickerPath.toOptional()
+  }
+
+  private fun createGetRequest(remoteUrl: String): HttpGet {
+    val remoteStickerRequest = HttpGet(remoteUrl)
+    remoteStickerRequest.config = RequestConfig.custom()
+      .setConnectTimeout(TimeUnit.MILLISECONDS.convert(5L, TimeUnit.SECONDS).toInt())
+      .build()
+    return remoteStickerRequest
   }
 
 
@@ -167,7 +172,7 @@ class StickerServiceImpl : StickerService {
       .map { "$it.checksum.txt" }
       .flatMap {
         log.info("Attempting to fetch checksum $it")
-        val request = HttpGet(it)
+        val request = createGetRequest(it)
         try {
           val response = httpClient.execute(request)
           log.info("Checksum has responded for $it")
