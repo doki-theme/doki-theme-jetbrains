@@ -32,6 +32,10 @@ private const val BACKGROUND_DIRECTORY = "${ASSETS_SOURCE}/backgrounds"
 const val DOKI_STICKER_PROP: String = "io.unthrottled.doki.stickers"
 private const val PREVIOUS_STICKER = "io.unthrottled.doki.sticker.previous"
 
+private enum class AssetChangedStatus {
+  SAME, DIFFERENT, LUL_DUNNO
+}
+
 class StickerServiceImpl : StickerService {
 
   companion object {
@@ -132,12 +136,11 @@ class StickerServiceImpl : StickerService {
       }
   }
 
-  private fun canWriteAssetsLocally(): Optional<Boolean> {
-    return getLocalAssetDirectory()
+  private fun canWriteAssetsLocally(): Optional<Boolean> =
+    getLocalAssetDirectory()
       .map { get(it) }
       .filter { Files.isWritable(it.parent) }
       .map { true }
-  }
 
   private fun downloadAsset(
     localStickerPath: Path,
@@ -197,20 +200,26 @@ class StickerServiceImpl : StickerService {
     remoteAssetUrl: Optional<String>
   ): Boolean =
     !Files.exists(localInstallPath) ||
-        isLocalDifferentFromRemote(localInstallPath, remoteAssetUrl)
+        isLocalDifferentFromRemote(localInstallPath, remoteAssetUrl) == AssetChangedStatus.DIFFERENT
 
   private fun isLocalDifferentFromRemote(
     localInstallPath: Path,
     remoteAssetUrl: Optional<String>
-  ): Boolean =
-    getOnDiskCheckSum(localInstallPath) !=
-        getRemoteChecksum(remoteAssetUrl)
+  ): AssetChangedStatus =
+    getRemoteAssetChecksum(remoteAssetUrl)
+      .map {
+        if (it == getOnDiskCheckSum(localInstallPath)) {
+          AssetChangedStatus.SAME
+        } else {
+          AssetChangedStatus.DIFFERENT
+        }
+      }.orElseGet { AssetChangedStatus.LUL_DUNNO }
 
-  private fun getRemoteChecksum(remoteAssetUrl: Optional<String>): String {
+  private fun getRemoteChecksum(remoteAssetUrl: Optional<String>): Optional<String> {
     return getRemoteAssetChecksum(remoteAssetUrl)
   }
 
-  private fun getRemoteAssetChecksum(remoteAssetUrl: Optional<String>): String =
+  private fun getRemoteAssetChecksum(remoteAssetUrl: Optional<String>): Optional<String> =
     remoteAssetUrl
       .map { "$it.checksum.txt" }
       .flatMap {
@@ -230,9 +239,6 @@ class StickerServiceImpl : StickerService {
           log.warn("Unable to get checksum for remote asset: $it for raisins", e)
           empty<String>()
         }
-      }
-      .orElseGet {
-        "I AM BECOME DEATH, DESTROYER OF WORLDS"
       }
 
   private fun getOnDiskCheckSum(weebStuff: Path): String =
