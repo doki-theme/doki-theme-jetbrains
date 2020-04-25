@@ -215,10 +215,6 @@ class StickerServiceImpl : StickerService {
         }
       }.orElseGet { AssetChangedStatus.LUL_DUNNO }
 
-  private fun getRemoteChecksum(remoteAssetUrl: Optional<String>): Optional<String> {
-    return getRemoteAssetChecksum(remoteAssetUrl)
-  }
-
   private fun getRemoteAssetChecksum(remoteAssetUrl: Optional<String>): Optional<String> =
     remoteAssetUrl
       .map { "$it.checksum.txt" }
