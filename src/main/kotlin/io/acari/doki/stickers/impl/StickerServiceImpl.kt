@@ -40,8 +40,7 @@ class StickerServiceImpl : StickerService {
   }
 
   override fun activateForTheme(dokiTheme: DokiTheme) {
-    // todo: Does this really need to be executed concurrently??
-    val tasks = listOf({
+    listOf({
       installSticker(dokiTheme)
     },
       {
@@ -50,7 +49,6 @@ class StickerServiceImpl : StickerService {
     ).map {
       getApplication().executeOnPooledThread(it)
     }
-    waitForTasksToComplete(tasks)
   }
 
   private fun waitForTasksToComplete(tasks: List<Future<*>>) {
@@ -59,7 +57,6 @@ class StickerServiceImpl : StickerService {
         future.get()
         future.isDone && acc
       }
-      repaintWindows()
     } catch (t: Throwable) {
       log.error("Unable to activate stickers for raisins", t)
     }
@@ -115,9 +112,9 @@ class StickerServiceImpl : StickerService {
       }
   }
 
-  private fun createDirectories(weebStuff: Path) {
+  private fun createDirectories(directoriesToCreate: Path) {
     try {
-      Files.createDirectories(weebStuff.parent)
+      Files.createDirectories(directoriesToCreate.parent)
     } catch (e: IOException) {
       e.printStackTrace()
     }
@@ -125,10 +122,10 @@ class StickerServiceImpl : StickerService {
 
   private fun downloadRemoteSticker(
     localStickerPath: Path,
-    remoteUrl: String
+    remoteStickerUrl: String
   ): Optional<Path> = try {
-    log.info("Attempting to download $remoteUrl")
-    val remoteStickerRequest = createGetRequest(remoteUrl)
+    log.info("Attempting to download $remoteStickerUrl")
+    val remoteStickerRequest = createGetRequest(remoteStickerUrl)
     val stickerResponse = httpClient.execute(remoteStickerRequest)
     if (stickerResponse.statusLine.statusCode == 200) {
       stickerResponse.entity.content.use { inputStream ->
@@ -143,7 +140,7 @@ class StickerServiceImpl : StickerService {
     }
     localStickerPath.toOptional()
   } catch (e: Throwable) {
-    log.error("Unable to get remote sticker $remoteUrl for raisins", e)
+    log.error("Unable to get remote sticker $remoteStickerUrl for raisins", e)
     localStickerPath.toOptional()
   }
 
@@ -220,6 +217,7 @@ class StickerServiceImpl : StickerService {
       }
 
 
+  // todo: find a better place to put dem stickers, yo!
   private fun getLocalClubMemberParentDirectory(): Optional<String> =
     Optional.ofNullable(
       System.getProperties()["jb.vmOptionsFile"] as? String
@@ -301,5 +299,4 @@ class StickerServiceImpl : StickerService {
     PropertiesComponent.getInstance().unsetValue(propertyKey)
     PropertiesComponent.getInstance().setValue(propertyKey, propertyValue)
   }
-
 }

@@ -4,6 +4,7 @@ import com.google.gson.GsonBuilder
 import com.intellij.ide.IdeBundle
 import com.intellij.ide.plugins.PluginManagerCore
 import com.intellij.ide.ui.LafManager
+import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.application.ApplicationNamesInfo
 import com.intellij.openapi.application.ex.ApplicationInfoEx
 import com.intellij.openapi.application.impl.ApplicationInfoImpl
@@ -52,7 +53,9 @@ class ErrorReporter : ErrorReportSubmitter() {
         $supplementedInfo""".trimIndent()
       val message = ErrorMessage(formattedMessage)
       httpPost.entity = StringEntity(gson.toJson(message), ContentType.APPLICATION_JSON)
-      httpClient.execute(httpPost)
+      ApplicationManager.getApplication().executeOnPooledThread {
+        httpClient.execute(httpPost)
+      }
       true
     } catch (e: Exception) {
       false
