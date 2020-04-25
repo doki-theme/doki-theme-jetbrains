@@ -1,15 +1,12 @@
 package io.acari.doki.stickers.impl
 
 import com.intellij.ide.util.PropertiesComponent
-import com.intellij.openapi.application.ApplicationManager
+import com.intellij.openapi.application.ApplicationManager.*
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil
 import com.intellij.util.io.isFile
-import io.acari.doki.config.ThemeConfig
-import io.acari.doki.stickers.StickerLevel
 import io.acari.doki.stickers.StickerService
 import io.acari.doki.themes.DokiTheme
-import io.acari.doki.themes.ThemeManager
 import io.acari.doki.util.toOptional
 import org.apache.commons.io.IOUtils
 import org.apache.http.client.methods.HttpGet
@@ -22,6 +19,7 @@ import java.nio.file.StandardOpenOption
 import java.security.MessageDigest
 import java.util.*
 import java.util.Optional.empty
+import java.util.concurrent.Future
 import javax.xml.bind.DatatypeConverter
 
 const val DOKI_BACKGROUND_PROP: String = "io.unthrottled.doki.background"
@@ -40,17 +38,39 @@ class StickerServiceImpl : StickerService {
   }
 
   override fun activateForTheme(dokiTheme: DokiTheme) {
-    ApplicationManager.getApplication().executeOnPooledThread {
+    val tasks = listOf({
       installSticker(dokiTheme)
+    },
+      {
+        installBackgroundImage(dokiTheme)
+      }
+    ).map {
+      getApplication().executeOnPooledThread(it)
     }
 
-    ApplicationManager.getApplication().executeOnPooledThread {
-      installBackgroundImage(dokiTheme)
+    waitForTasksToComplete(tasks)
+  }
+
+  private fun waitForTasksToComplete(tasks: List<Future<*>>) {
+    try {
+      tasks.fold(true) { acc, future ->
+        future.get()
+        future.isDone && acc
+      }
+      repaintWindows()
+    } catch (t: Throwable) {
+      log.error("Unable to activate stickers for raisins", t)
     }
   }
 
-  override fun checkForUpdates() {
-    ApplicationManager.getApplication().executeOnPooledThread {
+  override fun checkForUpdates(dokiTheme: DokiTheme) {
+    getApplication().executeOnPooledThread {
+      getLocalInstalledStickerPath(dokiTheme)
+        .ifPresent { localStickerPath ->
+          if (stickerHasChanged(localStickerPath, dokiTheme)) {
+            downloadNewSticker(localStickerPath, dokiTheme)
+          }
+        }
     }
   }
 
@@ -65,7 +85,6 @@ class StickerServiceImpl : StickerService {
           DOKI_STICKER_PROP
         )
       }
-
   }
 
   private fun getImagePath(dokiTheme: DokiTheme): Optional<String> =
@@ -210,7 +229,6 @@ class StickerServiceImpl : StickerService {
       }
 
 
-
   private fun installBackgroundImage(dokiTheme: DokiTheme) {
     getFrameBackground(dokiTheme)
       .ifPresent {
@@ -222,7 +240,6 @@ class StickerServiceImpl : StickerService {
           DOKI_BACKGROUND_PROP
         )
       }
-    repaintWindows()
   }
 
   private fun getFrameBackground(dokiTheme: DokiTheme): Optional<String> =

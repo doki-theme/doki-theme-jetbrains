@@ -16,5 +16,5 @@ interface StickerService {
 
   fun getPreviousSticker(): Optional<String>
   fun clearPreviousSticker()
-  fun checkForUpdates()
+  fun checkForUpdates(dokiTheme: DokiTheme)
 }
