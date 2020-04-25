@@ -2,6 +2,7 @@ package io.acari.doki.stickers.impl
 
 import com.intellij.ide.util.PropertiesComponent
 import com.intellij.openapi.application.ApplicationManager.getApplication
+import com.intellij.openapi.application.PathManager
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil
 import com.intellij.util.io.isFile
@@ -89,7 +90,7 @@ class StickerServiceImpl : StickerService {
   private fun getImagePath(dokiTheme: DokiTheme): Optional<String> =
     getLocalClubMemberParentDirectory()
       .map { Paths.get(it) }
-      .filter { Files.isWritable(it) }
+      .filter { Files.isWritable(it.parent) }
       .map {
         getLocalInstalledStickerPath(dokiTheme)
           .flatMap { localStickerPath ->
@@ -217,24 +218,12 @@ class StickerServiceImpl : StickerService {
       }
 
 
-  // todo: find a better place to put dem stickers, yo!
   private fun getLocalClubMemberParentDirectory(): Optional<String> =
     Optional.ofNullable(
-      System.getProperties()["jb.vmOptionsFile"] as? String
-        ?: System.getProperties()["idea.config.path"] as? String
-    )
-      .map { property -> property.split(",") }
-      .filter { properties -> properties.isNotEmpty() }
-      .map { paths -> paths[paths.size - 1] }
-      .map { property ->
-        val directory = Paths.get(property)
-        if (directory.isFile()) {
-          directory.parent
-        } else {
-          directory
-        }.toAbsolutePath().toString()
-      }
-
+      PathManager.getConfigPath()
+    ).map {
+      Paths.get(it, "dokiThemeAssets").toAbsolutePath().toString()
+    }
 
   private fun installBackgroundImage(dokiTheme: DokiTheme) {
     getFrameBackground(dokiTheme)
