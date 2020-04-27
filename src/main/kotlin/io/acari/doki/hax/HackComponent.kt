@@ -8,6 +8,9 @@ import com.intellij.ide.util.ChooseElementsDialog
 import com.intellij.ide.util.ExportToFileUtil
 import com.intellij.ide.util.TipPanel
 import com.intellij.ide.util.gotoByName.CustomMatcherModel
+import com.intellij.internal.inspector.PropertyBean
+import com.intellij.internal.inspector.UiInspectorContextProvider
+import com.intellij.internal.ml.Feature
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.fileEditor.impl.EditorComposite
 import com.intellij.openapi.fileEditor.impl.EditorHistoryManager
@@ -35,7 +38,28 @@ object HackComponent : Disposable {
   private fun enableBackgroundConsistency() {
     hackParameterInfoBackground()
     hackSheetWindow()
+    hackUiInspector()
   }
+
+  private fun hackUiInspector() {
+    try {
+      val cp = ClassPool(true)
+      cp.insertClassPath(ClassClassPath(Feature::class.java))
+      val ctClass = cp.get("com.intellij.internal.inspector.UiDropperAction\$DimensionsComponent")
+      val init = ctClass.declaredConstructors[0]
+      init.instrument(object : ExprEditor() {
+        override fun edit(e: MethodCall?) {
+          if (e?.methodName == "setBackground") {
+            e.replace("{ \$1 = com.intellij.ui.JBColor.namedColor(\"Panel.background\", java.awt.Color.LIME); \$_ = \$proceed(\$\$); }")
+          }
+        }
+      })
+      ctClass.toClass()
+    } catch (e: Exception) {
+      e.printStackTrace()
+    }
+  }
+
 
   // todo: revisit this
   private fun hackSheetWindow() {
