@@ -23,6 +23,8 @@
     "Table.background": "editorBackground",
     "Viewport.background": "editorBackground",
 
+    "Toolbar.Floating.background": "contrastColor",
+    "ToolBar.floatingForeground": "contrastColor",
     "SpeedSearch.background": "contrastColor",
     "SpeedSearch.borderColor": "contrastColor",
     "ToolTip.background": "contrastColor",
