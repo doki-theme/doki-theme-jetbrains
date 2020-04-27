@@ -8,6 +8,7 @@
     "editorScheme": {
       "colors": {
         "testScopeColor": "#3a4258",
+        "startColor": "#BC60CB",
         "accentColor": "#BC60CB"
       }
     }

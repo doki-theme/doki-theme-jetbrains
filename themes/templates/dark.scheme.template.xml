@@ -867,7 +867,6 @@
                 <option name="FONT_TYPE" value="2" />
             </value>
         </option>
-<!--        todo test dis-->
         <option name="JS.GLOBAL_VARIABLE">
             <value>
                 <option name="FOREGROUND" value="4C94D6" />

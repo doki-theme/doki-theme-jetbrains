@@ -8,6 +8,7 @@
     "editorScheme": {
       "colors": {
         "accentColor": "#ff69df",
+        "startColor": "#68c4ee",
         "nonProjectFileScopeColor": "#343635",
         "testScopeColor": "#2f393a"
       }
