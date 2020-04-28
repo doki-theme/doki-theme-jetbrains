@@ -20,6 +20,7 @@ import io.acari.doki.hax.FeildHacker.setFinalStatic
 import io.acari.doki.stickers.impl.DOKI_BACKGROUND_PROP
 import io.acari.doki.stickers.impl.DOKI_STICKER_PROP
 import javassist.*
+import javassist.expr.ConstructorCall
 import javassist.expr.ExprEditor
 import javassist.expr.MethodCall
 import javassist.expr.NewExpr
@@ -33,6 +34,11 @@ object HackComponent : Disposable {
     enableSearchEverywhereConsistency()
     enableAccentConsistency()
     enableBackgroundConsistency()
+    enableSelectionConsistency()
+  }
+
+  private fun enableSelectionConsistency() {
+    hackWelcomeScreen()
   }
 
   private fun enableBackgroundConsistency() {
@@ -54,6 +60,19 @@ object HackComponent : Disposable {
           }
         }
       })
+      ctClass.toClass()
+    } catch (e: Exception) {
+      e.printStackTrace()
+    }
+  }
+
+  private fun hackWelcomeScreen() {
+    try {
+      val cp = ClassPool(true)
+      cp.insertClassPath(ClassClassPath(Class.forName("com.intellij.openapi.wm.impl.welcomeScreen.EditProjectGroupAction")))
+      val ctClass = cp.get("com.intellij.openapi.wm.impl.welcomeScreen.FlatWelcomeFrame")
+      val init = ctClass.getDeclaredMethods("getActionLinkSelectionColor")[0]
+      init.insertAfter("\$_ = com.intellij.ui.JBColor.namedColor(\"List.selectionBackground\", java.awt.Color.GREEN);")
       ctClass.toClass()
     } catch (e: Exception) {
       e.printStackTrace()
