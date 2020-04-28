@@ -20,13 +20,18 @@
     "Plugins.background": "baseBackground",
     "control": "baseBackground",
 
+    "UIDesigner.Canvas.background": "editorBackground",
+    "Content.background": "editorBackground",
     "Table.background": "editorBackground",
     "Viewport.background": "editorBackground",
 
+    "Toolbar.Floating.background": "contrastColor",
+    "ToolBar.floatingForeground": "contrastColor",
     "SpeedSearch.background": "contrastColor",
     "SpeedSearch.borderColor": "contrastColor",
     "ToolTip.background": "contrastColor",
     "ToolTip.Actions.background": "contrastColor",
+    "Canvas.Tooltip.background": "contrastColor",
     "ToolTip.borderColor": "borderColor",
 
     "TextField.background": "secondaryBackground",
@@ -35,6 +40,7 @@
     "NewClass.SearchField.background": "secondaryBackground",
     "FormattedTextField.background": "secondaryBackground",
 
+    "UIDesigner.Panel.background": "headerColor",
     "Menu.background": "headerColor",
     "NewClass.Panel.background": "headerColor",
     "ToolWindow.Header.background": "headerColor",
@@ -126,6 +132,8 @@
     "Notification.MoreButton.background": "highlightColor",
 
     "Borders.color": "borderColor",
+    "UIDesigner.Panel.borderColor": "borderColor",
+    "Canvas.Tooltip.borderColor": "borderColor",
     "EditorTabs.borderColor": "borderColor",
     "Group.separatorColor": "borderColor",
     "Group.disabledSeparatorColor": "borderColor",
@@ -313,6 +321,7 @@
     "ToggleButton.offForeground":"ghostColor",
     "ToggleButton.borderColor": "accentColorTransparent",
 
+    "TabbedPane.focus": "accentColor",
     "Notification.MoreButton.foreground": "accentColor",
     "Button.default.focusColor":"accentColor",
     "Button.default.focusedBorderColor": "accentColor",
@@ -403,6 +412,7 @@
     "/actions/refresh_dark.svg": "/icons/actions/refresh_dark.svg",
     "/actions/menu-saveall.svg": "/icons/actions/menu-saveall.svg",
     "/actions/menu-saveall_dark.svg": "/icons/actions/menu-saveall_dark.svg",
+    "/debugger/watch.svg": "/icons/debugger/watch.svg",
     "/fileTypes/properties.svg": "/icons/fileTypes/properties.svg",
     "/fileTypes/json.svg": "/icons/fileTypes/json.svg",
     "/fileTypes/json_dark.svg": "/icons/fileTypes/json_dark.svg",

@@ -1,0 +1,11 @@
+<scheme name="Ibuki Dark" version="142" parent_scheme="Doki Dark">
+    <attributes>
+        <option name="DIFF_DELETED">
+            <value>
+                <option name="FOREGROUND" value="585858" />
+                <option name="BACKGROUND" value="404040" />
+                <option name="ERROR_STRIPE_COLOR" value="545B62" />
+            </value>
+        </option>
+    </attributes>
+</scheme>

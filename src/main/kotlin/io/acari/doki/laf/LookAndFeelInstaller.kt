@@ -2,6 +2,7 @@ package io.acari.doki.laf
 
 import com.intellij.ide.ui.laf.darcula.ui.DarculaCheckBoxMenuItemUI
 import com.intellij.ide.ui.laf.darcula.ui.DarculaRadioButtonMenuItemUI
+import com.intellij.ui.JBColor.*
 import io.acari.doki.icon.DokiIcons
 import io.acari.doki.ui.*
 import javax.swing.BorderFactory
@@ -24,6 +25,9 @@ object LookAndFeelInstaller {
   private fun installDefaults() {
     val defaults = UIManager.getLookAndFeelDefaults()
     defaults["List.focusCellHighlightBorder"] = BorderFactory.createEmptyBorder()
+    defaults["TitledBorder.border"] = BorderFactory.createLineBorder(
+      namedColor("Doki.Accent.color", DARK_GRAY)
+    )
   }
 
   private fun installIcons() {

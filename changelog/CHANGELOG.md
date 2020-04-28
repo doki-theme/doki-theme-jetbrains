@@ -1,5 +1,9 @@
 # Changelog
 ---
+# 7.1.1
+
+- Made a large amount of small changes.
+    - Does that mean I made a medium change? lul dunno.
 
 # 7.1.0
 

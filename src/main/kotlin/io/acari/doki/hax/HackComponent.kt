@@ -16,7 +16,11 @@ import com.intellij.ui.messages.JBMacMessages
 import io.acari.doki.hax.FeildHacker.setFinalStatic
 import io.acari.doki.stickers.impl.DOKI_BACKGROUND_PROP
 import io.acari.doki.stickers.impl.DOKI_STICKER_PROP
-import javassist.*
+import javassist.CannotCompileException
+import javassist.ClassClassPath
+import javassist.ClassPool
+import javassist.CtClass
+import javassist.CtMethod
 import javassist.expr.ExprEditor
 import javassist.expr.MethodCall
 import javassist.expr.NewExpr
@@ -30,12 +34,31 @@ object HackComponent : Disposable {
     enableSearchEverywhereConsistency()
     enableAccentConsistency()
     enableBackgroundConsistency()
+    enableSelectionConsistency()
+  }
+
+  private fun enableSelectionConsistency() {
+    hackWelcomeScreen()
   }
 
   private fun enableBackgroundConsistency() {
     hackParameterInfoBackground()
     hackSheetWindow()
   }
+
+  private fun hackWelcomeScreen() {
+    try {
+      val cp = ClassPool(true)
+      cp.insertClassPath(ClassClassPath(Class.forName("com.intellij.openapi.wm.impl.welcomeScreen.EditProjectGroupAction")))
+      val ctClass = cp.get("com.intellij.openapi.wm.impl.welcomeScreen.FlatWelcomeFrame")
+      val init = ctClass.getDeclaredMethods("getActionLinkSelectionColor")[0]
+      init.insertAfter("\$_ = com.intellij.ui.JBColor.namedColor(\"List.selectionBackground\", java.awt.Color.GREEN);")
+      ctClass.toClass()
+    } catch (e: Exception) {
+      e.printStackTrace()
+    }
+  }
+
 
   // todo: revisit this
   private fun hackSheetWindow() {
@@ -45,12 +68,12 @@ object HackComponent : Disposable {
       val ctClass = cp.get("com.intellij.ui.messages.SheetController")
       ctClass.declaredClasses
         .filter { it.declaredMethods.any { m -> m.name == "paintComponent" } }
-        .forEach {classDude ->
-          classDude.getDeclaredMethods("paintComponent").forEach{
+        .forEach { classDude ->
+          classDude.getDeclaredMethods("paintComponent").forEach {
             it.instrument(object : ExprEditor() {
               override fun edit(e: NewExpr?) {
-                if(e?.className == JBColor::class.java.name) {
-                    e?.replace("{ \$_ = com.intellij.util.ui.UIUtil.getPanelBackground(); }")
+                if (e?.className == JBColor::class.java.name) {
+                  e?.replace("{ \$_ = com.intellij.util.ui.UIUtil.getPanelBackground(); }")
                 }
               }
 
@@ -97,7 +120,34 @@ object HackComponent : Disposable {
 
   private fun enableAccentConsistency() {
     hackLiveIndicator()
+    hackSearchHighlightBorder()
   }
+
+  private fun hackSearchHighlightBorder() {
+    try {
+      val cp = ClassPool(true)
+      cp.insertClassPath(ClassClassPath(Class.forName("com.intellij.openapi.options.ex.ConfigurableWrapper")))
+      val ctClass = cp.get("com.intellij.openapi.options.ex.GlassPanel")
+      val init = ctClass.getDeclaredMethods(
+        "paintSpotlight"
+      )[0]
+      var colors = 0
+      init.instrument(object : ExprEditor() {
+        override fun edit(e: MethodCall?) {
+          if (e?.methodName == "setColor") {
+            colors++
+            if (colors > 1) {
+              e.replace("{ \$1 = com.intellij.ui.JBColor.namedColor(\"Doki.Accent.color\", com.intellij.ui.JBColor.ORANGE);  \$_ = \$proceed(\$\$); }")
+            }
+          }
+        }
+      })
+      ctClass.toClass()
+    } catch (e: Exception) {
+      e.printStackTrace()
+    }
+  }
+
 
   private fun hackLiveIndicator() {
     try {

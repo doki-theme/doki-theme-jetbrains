@@ -23,7 +23,7 @@
         <option name="CARET_COLOR" value="%accentColor%" />
         <option name="CARET_ROW_COLOR" value="$caretRow$" />
         <option name="CONSOLE_BACKGROUND_KEY" value="$textEditorBackground$" />
-        <option name="DELETED_LINES_COLOR" value="EBEBEB" />
+        <option name="DELETED_LINES_COLOR" value="DCDCDC" />
         <option name="DOCUMENTATION_COLOR" value="$headerColor$" />
         <option name="FILESTATUS_ADDED" value="10b15a" />
         <option name="FILESTATUS_COPIED" value="10b15a" />
@@ -52,6 +52,7 @@
         <option name="QUESTION_HINT" value="$selectionBackground$" />
         <option name="LINE_NUMBERS_COLOR" value="aaaaaa" />
         <option name="LINE_NUMBER_ON_CARET_ROW_COLOR" value="1b1f23" />
+        <option name="PROMOTION_PANE" value="%accentColor%5a"/>
         <option name="METHOD_SEPARATORS_COLOR" value="f3f2e2" />
         <option name="MODIFIED_LINES_COLOR" value="9fe7ff" />
         <option name="NOTIFICATION_BACKGROUND" value="$accentColor$5a" />
@@ -636,7 +637,7 @@
             <value>
                 <option name="EFFECT_COLOR" value="ff5555" />
                 <option name="ERROR_STRIPE_COLOR" value="9e2927" />
-                <option name="EFFECT_TYPE" value="2" />
+                <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
         <option name="EXECUTIONPOINT_ATTRIBUTES">
@@ -2537,6 +2538,8 @@
         <option name="WRONG_REFERENCES_ATTRIBUTES">
             <value>
                 <option name="FOREGROUND" value="ff5555" />
+                <option name="EFFECT_COLOR" value="ff5555" />
+                <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
         <option name="XML_ATTRIBUTE_NAME">
