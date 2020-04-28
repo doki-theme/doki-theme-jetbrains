@@ -2,7 +2,6 @@ package io.acari.doki.laf
 
 import com.intellij.ide.ui.laf.darcula.ui.DarculaCheckBoxMenuItemUI
 import com.intellij.ide.ui.laf.darcula.ui.DarculaRadioButtonMenuItemUI
-import com.intellij.ui.JBColor
 import com.intellij.ui.JBColor.*
 import io.acari.doki.icon.DokiIcons
 import io.acari.doki.ui.*
