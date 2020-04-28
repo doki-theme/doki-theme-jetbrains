@@ -34,15 +34,15 @@
   <depends>com.intellij.modules.platform</depends>
   <depends>com.intellij.modules.lang</depends>
   <extensions defaultExtensionNs="com.intellij">
-    <annotator language="JSON" implementationClass="io.acari.doki.ide.DokiThemeColorAnnotator"/>
-    <applicationService serviceInterface="io.acari.doki.themes.ThemeManager" serviceImplementation="io.acari.doki.themes.impl.ThemeManagerImpl"/>
-    <applicationService serviceInterface="io.acari.doki.stickers.StickerService" serviceImplementation="io.acari.doki.stickers.impl.StickerServiceImpl"/>
-    <applicationService serviceImplementation="io.acari.doki.config.ThemeConfig"/>
-    <applicationConfigurable id="0d570cb2-96df-43cc-80da-7f777e6d0afe" instance="io.acari.doki.settings.ThemeSettings" groupId="appearance"/>
-    <errorHandler id="9782e40c-e6d2-488f-8611-71f5cca6695e" implementation="io.acari.doki.integrations.ErrorReporter"/>
-    <iconProvider implementation="io.acari.doki.icon.provider.MaterialIconProvider" order="first"/>
-    <statusBarWidgetProvider implementation="io.acari.doki.ui.status.ThemeStatusBarProvider"/>
-    <editorNotificationProvider implementation="io.acari.doki.internal.DokiEditorNotificationProvider"/>
+    <annotator language="JSON" implementationClass="io.unthrottled.doki.ide.DokiThemeColorAnnotator"/>
+    <applicationService serviceInterface="io.unthrottled.doki.themes.ThemeManager" serviceImplementation="io.unthrottled.doki.themes.impl.ThemeManagerImpl"/>
+    <applicationService serviceInterface="io.unthrottled.doki.stickers.StickerService" serviceImplementation="io.unthrottled.doki.stickers.impl.StickerServiceImpl"/>
+    <applicationService serviceImplementation="io.unthrottled.doki.config.ThemeConfig"/>
+    <applicationConfigurable id="0d570cb2-96df-43cc-80da-7f777e6d0afe" instance="io.unthrottled.doki.settings.ThemeSettings" groupId="appearance"/>
+    <errorHandler id="9782e40c-e6d2-488f-8611-71f5cca6695e" implementation="io.unthrottled.doki.integrations.ErrorReporter"/>
+    <iconProvider implementation="io.unthrottled.doki.icon.provider.MaterialIconProvider" order="first"/>
+    <statusBarWidgetProvider implementation="io.unthrottled.doki.ui.status.ThemeStatusBarProvider"/>
+    <editorNotificationProvider implementation="io.unthrottled.doki.internal.DokiEditorNotificationProvider"/>
     <themeMetadataProvider path="/theme-schema/DokiTheme.themeMetadata.json"/>
     <themeProvider id="91415015-8fe3-48eb-9951-70a5cd6cbb7f" path="/doki/themes/literature_club/Natsuki_Light.theme.json"/>
     <themeProvider id="a7e0aa28-739a-4671-80ae-3980997e6b71" path="/doki/themes/literature_club/Natsuki_Dark.theme.json"/>
@@ -65,50 +65,50 @@
     <themeProvider id="ecb74f1c-8c84-40c4-916f-601039ba2af0" path="/doki/themes/re_zero/Ram.theme.json"/>
   </extensions>
   <extensions defaultExtensionNs="JavaScript.JsonSchema">
-    <ProviderFactory implementation="io.acari.doki.schema.DokiMasterThemeJsonSchemaProvider"/>
-    <ProviderFactory implementation="io.acari.doki.schema.DokiJetbrainsThemeJsonSchemaProvider"/>
+    <ProviderFactory implementation="io.unthrottled.doki.schema.DokiMasterThemeJsonSchemaProvider"/>
+    <ProviderFactory implementation="io.unthrottled.doki.schema.DokiJetbrainsThemeJsonSchemaProvider"/>
   </extensions>
   <application-components>
     <component>
-      <implementation-class>io.acari.doki.TheDokiTheme</implementation-class>
+      <implementation-class>io.unthrottled.doki.TheDokiTheme</implementation-class>
     </component>
     <component>
-      <implementation-class>io.acari.doki.stickers.StickerComponent</implementation-class>
+      <implementation-class>io.unthrottled.doki.stickers.StickerComponent</implementation-class>
     </component>
     <component>
-      <implementation-class>io.acari.doki.hax.HackComponent</implementation-class>
+      <implementation-class>io.unthrottled.doki.hax.HackComponent</implementation-class>
     </component>
   </application-components>
   <actions>
     <group id="DokiThemeActions" text="Doki Theme Options" popup="true" icon="/icons/doki/pen.svg">
-      <action id="StickerEnabler" class="io.acari.doki.actions.StickersToggleAction" text="Enable Stickers" icon="/icons/nodes/favorite.svg" description="Enables the sticker in the lower right hand corner"/>
+      <action id="StickerEnabler" class="io.unthrottled.doki.actions.StickersToggleAction" text="Enable Stickers" icon="/icons/nodes/favorite.svg" description="Enables the sticker in the lower right hand corner"/>
       <add-to-group group-id="MainToolBar" anchor="last"/>
       <add-to-group group-id="ToolsMenu"/>
     </group>
-    <action id="io.acari.doki.actions.FileColorToggleAction" class="io.acari.doki.actions.FileColorToggleAction" text="Enable File Colors" icon="/icons/nodes/package.svg" description="Adds a themed background to certain directories in the project tree.">
+    <action id="io.unthrottled.doki.actions.FileColorToggleAction" class="io.unthrottled.doki.actions.FileColorToggleAction" text="Enable File Colors" icon="/icons/nodes/package.svg" description="Adds a themed background to certain directories in the project tree.">
       <add-to-group group-id="DokiThemeActions" anchor="first"/>
     </action>
-    <action id="io.acari.doki.actions.ThemedTitleBarAction" class="io.acari.doki.actions.ThemedTitleBarAction" text="Themed Title Bar" icon="/icons/doki/themedTitleBar.svg" description="Makes the MacOS title bar the same color as your selected theme.">
+    <action id="io.unthrottled.doki.actions.ThemedTitleBarAction" class="io.unthrottled.doki.actions.ThemedTitleBarAction" text="Themed Title Bar" icon="/icons/doki/themedTitleBar.svg" description="Makes the MacOS title bar the same color as your selected theme.">
       <add-to-group group-id="DokiThemeActions" anchor="last"/>
     </action>
-    <action id="io.acari.doki.actions.SwapStickerAction" class="io.acari.doki.actions.SwapStickerAction" text="Swap Sticker" icon="/icons/actions/diff.svg" description="Changes the current sticker at the bottom right hand corner of the screen.">
+    <action id="io.unthrottled.doki.actions.SwapStickerAction" class="io.unthrottled.doki.actions.SwapStickerAction" text="Swap Sticker" icon="/icons/actions/diff.svg" description="Changes the current sticker at the bottom right hand corner of the screen.">
       <add-to-group group-id="DokiThemeActions" anchor="last"/>
     </action>
-    <action id="io.acari.doki.actions.ThemeAnimationToggle" class="io.acari.doki.actions.ThemeAnimationToggle" text="Enable Transition Animation" icon="/icons/doki/magic.svg" description="Fancy fade transition animation when changing any look and feel.">
+    <action id="io.unthrottled.doki.actions.ThemeAnimationToggle" class="io.unthrottled.doki.actions.ThemeAnimationToggle" text="Enable Transition Animation" icon="/icons/doki/magic.svg" description="Fancy fade transition animation when changing any look and feel.">
       <add-to-group group-id="DokiThemeActions" anchor="last"/>
     </action>
-    <action id="io.acari.doki.actions.ShowSettingsAction" class="io.acari.doki.actions.ShowSettingsAction" text="Show Settings" icon="/icons/general/gearPlain.svg" description="Shows the Doki Theme's settings window.">
+    <action id="io.unthrottled.doki.actions.ShowSettingsAction" class="io.unthrottled.doki.actions.ShowSettingsAction" text="Show Settings" icon="/icons/general/gearPlain.svg" description="Shows the Doki Theme's settings window.">
       <add-to-group group-id="DokiThemeActions" anchor="last"/>
     </action>
-    <action id="io.acari.doki.action.ShowEditorNotification" class="io.acari.doki.actions.ShowNotification" text="Show Editor Notification" description="Shows the editor's notification"/>
-    <action id="io.acari.doki.actions.MaterialDirectoryIconsAction" class="io.acari.doki.actions.MaterialDirectoryIconsAction" text="Toggle Material Directory Icons" description="Enables/Disables Doki-Themed Material Icons" icon="/icons/material/folders/ddlc.svg">
-      <add-to-group group-id="DokiThemeActions" anchor="before" relative-to-action="io.acari.doki.actions.ShowSettingsAction"/>
+    <action id="io.unthrottled.doki.action.ShowEditorNotification" class="io.unthrottled.doki.actions.ShowNotification" text="Show Editor Notification" description="Shows the editor's notification"/>
+    <action id="io.unthrottled.doki.actions.MaterialDirectoryIconsAction" class="io.unthrottled.doki.actions.MaterialDirectoryIconsAction" text="Toggle Material Directory Icons" description="Enables/Disables Doki-Themed Material Icons" icon="/icons/material/folders/ddlc.svg">
+      <add-to-group group-id="DokiThemeActions" anchor="before" relative-to-action="io.unthrottled.doki.actions.ShowSettingsAction"/>
     </action>
-    <action id="io.acari.doki.actions.MaterialFilesconsAction" class="io.acari.doki.actions.MaterialFilesconsAction" text="Toggle Material File Icons" description="Enables/Disables Doki-Themed Material File Icons" icon="/icons/material/files/js.svg">
-      <add-to-group group-id="DokiThemeActions" anchor="before" relative-to-action="io.acari.doki.actions.ShowSettingsAction"/>
+    <action id="io.unthrottled.doki.actions.MaterialFilesconsAction" class="io.unthrottled.doki.actions.MaterialFilesconsAction" text="Toggle Material File Icons" description="Enables/Disables Doki-Themed Material File Icons" icon="/icons/material/files/js.svg">
+      <add-to-group group-id="DokiThemeActions" anchor="before" relative-to-action="io.unthrottled.doki.actions.ShowSettingsAction"/>
     </action>
-    <action id="io.acari.doki.actions.MaterialPSIconsAction" class="io.acari.doki.actions.MaterialPSIconsAction" text="Toggle Material PSI Icons" description="Enables/Disables Doki-Theme Material PSI Icons " icon="/icons/material/nodes/glyphs/class.svg">
-      <add-to-group group-id="DokiThemeActions" anchor="before" relative-to-action="io.acari.doki.actions.ShowSettingsAction"/>
+    <action id="io.unthrottled.doki.actions.MaterialPSIconsAction" class="io.unthrottled.doki.actions.MaterialPSIconsAction" text="Toggle Material PSI Icons" description="Enables/Disables Doki-Theme Material PSI Icons " icon="/icons/material/nodes/glyphs/class.svg">
+      <add-to-group group-id="DokiThemeActions" anchor="before" relative-to-action="io.unthrottled.doki.actions.ShowSettingsAction"/>
     </action>
   </actions>
 </idea-plugin>

@@ -6,7 +6,7 @@ plugins {
   id "org.jlleitschuh.gradle.ktlint" version "8.2.0"
 }
 
-group 'io.acari'
+group 'io.unthrottled'
 version '7.1.2-alpha'
 
 repositories {
