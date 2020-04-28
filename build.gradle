@@ -1,45 +1,46 @@
 plugins {
-    id 'doki-theme-plugin'
-    id 'org.jetbrains.intellij' version '0.4.16'
-    id 'org.jetbrains.kotlin.jvm' version '1.3.60-eap-143'
-    id 'org.kordamp.gradle.markdown' version '2.0.0'
+  id 'doki-theme-plugin'
+  id 'org.jetbrains.intellij' version '0.4.16'
+  id 'org.jetbrains.kotlin.jvm' version '1.3.60-eap-143'
+  id 'org.kordamp.gradle.markdown' version '2.0.0'
+  id "org.jlleitschuh.gradle.ktlint" version "8.2.0"
 }
 
 group 'io.acari'
 version '7.1.1'
 
 repositories {
-    maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
-    mavenCentral()
+  maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
+  mavenCentral()
 }
 
 dependencies {
-    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
-    implementation 'commons-io:commons-io:2.6'
-    implementation 'org.javassist:javassist:3.21.0-GA'
+  implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
+  implementation 'commons-io:commons-io:2.6'
+  implementation 'org.javassist:javassist:3.21.0-GA'
 }
 
 intellij {
-    version '2020.1'
-    type 'IU'
-    alternativeIdePath idePath
+  version '2020.1'
+  type 'IU'
+  alternativeIdePath idePath
 }
 compileKotlin {
-    kotlinOptions.jvmTarget = "1.8"
+  kotlinOptions.jvmTarget = "1.8"
 }
 compileTestKotlin {
-    kotlinOptions.jvmTarget = "1.8"
+  kotlinOptions.jvmTarget = "1.8"
 }
 
 markdownToHtml {
-    sourceDir new File("$projectDir/changelog")
-    outputDir new File("$projectDir/changelog")
+  sourceDir new File("$projectDir/changelog")
+  outputDir new File("$projectDir/changelog")
 }
 
 patchPluginXml {
-    changeNotes file("$projectDir/changelog/CHANGELOG.html").text
-    sinceBuild sinceBuildVersion
-    untilBuild untilBuildVersion
+  changeNotes file("$projectDir/changelog/CHANGELOG.html").text
+  sinceBuild sinceBuildVersion
+  untilBuild untilBuildVersion
 }
 
 tasks.patchPluginXml.dependsOn("buildThemes")
