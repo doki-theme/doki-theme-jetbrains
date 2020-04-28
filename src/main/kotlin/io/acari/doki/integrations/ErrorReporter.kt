@@ -36,7 +36,12 @@ class ErrorReporter : ErrorReportSubmitter() {
 
   override fun getReportActionText(): String = "Report Anonymously"
 
-  override fun submit(events: Array<out IdeaLoggingEvent>, additionalInfo: String?, parentComponent: Component, consumer: Consumer<SubmittedReportInfo>): Boolean {
+  override fun submit(
+    events: Array<out IdeaLoggingEvent>,
+    additionalInfo: String?,
+    parentComponent: Component,
+    consumer: Consumer<SubmittedReportInfo>
+  ): Boolean {
     return try {
       val httpPost = HttpPost(errorReportingUrl)
       val eventMessages = events.map {
@@ -96,18 +101,19 @@ class ErrorReporter : ErrorReportSubmitter() {
 
   private fun extraInfo(): String {
     return SystemInfo.getOsNameAndVersion() + "\n" +
-        "GC: " + ManagementFactory.getGarbageCollectorMXBeans().stream()
-        .map<String> { it.name }.collect(Collectors.joining(",")) + "\n" +
+      "GC: " + ManagementFactory.getGarbageCollectorMXBeans().stream()
+      .map<String> { it.name }.collect(Collectors.joining(",")) + "\n" +
 
-        "Memory: " + Runtime.getRuntime().maxMemory() / FileUtilRt.MEGABYTE + "M" + "\n" +
+      "Memory: " + Runtime.getRuntime().maxMemory() / FileUtilRt.MEGABYTE + "M" + "\n" +
 
-        "Cores: " + Runtime.getRuntime().availableProcessors() + "\n" +
+      "Cores: " + Runtime.getRuntime().availableProcessors() + "\n" +
 
-        "Registry: " + Registry.getAll().stream().filter { it.isChangedFromDefault }
-        .map { v -> v.key + "=" + v.asString() }.collect(Collectors.joining(",")) + "\n" +
+      "Registry: " + Registry.getAll().stream().filter { it.isChangedFromDefault }
+      .map { v -> v.key + "=" + v.asString() }.collect(Collectors.joining(",")) + "\n" +
 
-        "Non-Bundled Plugins: " + Arrays.stream(PluginManagerCore.getPlugins()).filter { p -> !p.isBundled && p.isEnabled }
-        .map { p -> p.pluginId.idString }.collect(Collectors.joining(","))
+      "Non-Bundled Plugins: " + Arrays.stream(PluginManagerCore.getPlugins())
+      .filter { p -> !p.isBundled && p.isEnabled }
+      .map { p -> p.pluginId.idString }.collect(Collectors.joining(","))
   }
 
 }

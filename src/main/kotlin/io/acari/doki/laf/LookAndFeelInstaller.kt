@@ -2,11 +2,16 @@ package io.acari.doki.laf
 
 import com.intellij.ide.ui.laf.darcula.ui.DarculaCheckBoxMenuItemUI
 import com.intellij.ide.ui.laf.darcula.ui.DarculaRadioButtonMenuItemUI
-import com.intellij.ui.JBColor.*
+import com.intellij.ui.JBColor.DARK_GRAY
+import com.intellij.ui.JBColor.namedColor
 import io.acari.doki.icon.DokiIcons
-import io.acari.doki.ui.*
+import io.acari.doki.ui.DokiCheckboxUI
+import io.acari.doki.ui.DokiRadioButtonUI
+import io.acari.doki.ui.TitlePaneUI
+import io.acari.doki.ui.ToggleButtonUI
 import javax.swing.BorderFactory
 import javax.swing.UIManager
+import kotlin.collections.set
 
 object LookAndFeelInstaller {
   init {

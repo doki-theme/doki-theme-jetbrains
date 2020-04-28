@@ -139,7 +139,7 @@ class DokiThemeColorAnnotator : Annotator {
       val renderer =
         o as ColorBoxRenderer
       return myColorText == renderer.myColorText &&
-          myLiteral == renderer.myLiteral
+        myLiteral == renderer.myLiteral
     }
 
     override fun hashCode(): Int =

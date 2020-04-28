@@ -9,6 +9,6 @@ class MaterialPSIconsAction : BaseToggleAction() {
     ThemeConfig.instance.isMaterialPSIIcons
 
   override fun setSelected(e: AnActionEvent, state: Boolean) {
-      MaterialIconsActor.enablePSIIcons(state)
+    MaterialIconsActor.enablePSIIcons(state)
   }
 }

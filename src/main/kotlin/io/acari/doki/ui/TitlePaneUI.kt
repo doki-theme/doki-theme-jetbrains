@@ -1,7 +1,9 @@
 package io.acari.doki.ui
 
 import com.intellij.ide.ui.laf.darcula.ui.DarculaRootPaneUI
-import com.intellij.openapi.util.SystemInfo.*
+import com.intellij.openapi.util.SystemInfo.isJavaVersionAtLeast
+import com.intellij.openapi.util.SystemInfo.isLinux
+import com.intellij.openapi.util.SystemInfo.isMac
 import com.intellij.openapi.wm.ex.IdeFrameEx
 import com.intellij.ui.JBColor.GRAY
 import com.intellij.ui.JBColor.namedColor
@@ -13,13 +15,24 @@ import com.intellij.util.ui.UIUtil.getWindow
 import io.acari.doki.config.ThemeConfig
 import io.acari.doki.themes.ThemeManager
 import io.acari.doki.util.toOptional
-import java.awt.*
+import java.awt.Color
+import java.awt.Component
+import java.awt.Graphics
+import java.awt.Graphics2D
+import java.awt.Insets
+import java.awt.Rectangle
+import java.awt.RenderingHints
+import java.awt.Window
 import java.awt.event.WindowAdapter
 import java.awt.event.WindowEvent
 import java.awt.geom.AffineTransform
 import java.beans.PropertyChangeListener
 import java.util.*
-import javax.swing.*
+import javax.swing.JComponent
+import javax.swing.JDialog
+import javax.swing.JFrame
+import javax.swing.JRootPane
+import javax.swing.UIManager
 import javax.swing.border.AbstractBorder
 import javax.swing.plaf.ComponentUI
 import javax.swing.plaf.basic.BasicRootPaneUI

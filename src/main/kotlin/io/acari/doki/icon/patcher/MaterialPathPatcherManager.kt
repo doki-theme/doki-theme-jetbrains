@@ -6,7 +6,7 @@ import io.acari.doki.themes.ThemeManager
 
 object MaterialPathPatcherManager {
   fun attemptToAddIcons() {
-    if(removed){
+    if (removed) {
       ThemeManager.instance.currentTheme
         .ifPresent {
           getAllEnabledPatchers().forEach {
@@ -20,7 +20,7 @@ object MaterialPathPatcherManager {
   private var removed = true
 
   fun attemptToRemoveIcons() {
-    if(!removed){
+    if (!removed) {
       getAllEnabledPatchers().forEach {
         IconLoader.removePathPatcher(it)
       }

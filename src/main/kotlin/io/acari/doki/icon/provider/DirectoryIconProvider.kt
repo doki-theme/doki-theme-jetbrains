@@ -6,7 +6,7 @@ import io.acari.doki.icon.provider.associations.Associations
 import io.acari.doki.icon.provider.associations.IconAssociatiorFactory
 import javax.swing.Icon
 
-object DirectoryIconProvider: IconProvider {
+object DirectoryIconProvider : IconProvider {
   private val associator = IconAssociatiorFactory.create(Associations.DIRECTORY)
   override fun getIcon(virtualFileInfo: VirtualFileInfo): Icon? {
     return associator.findAssociation(virtualFileInfo)

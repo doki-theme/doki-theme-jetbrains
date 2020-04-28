@@ -1,7 +1,6 @@
 package io.acari.doki.ui
 
 import com.intellij.ide.ui.laf.darcula.ui.DarculaRadioButtonUI
-import com.intellij.util.ui.LafIconLookup
 import io.acari.doki.icon.IconLookup.getIcon
 import java.awt.Graphics2D
 import java.awt.Rectangle

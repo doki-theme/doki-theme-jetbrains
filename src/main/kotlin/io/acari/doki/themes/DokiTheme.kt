@@ -69,6 +69,7 @@ class DokiTheme(private val uiTheme: DokiThemeDefinition) {
 
   companion object {
     val ACCENT_COLOR = "Doki.Accent.color"
+
     //todo: read from json...
     val requiredNamedColors = listOf(
       ACCENT_COLOR,

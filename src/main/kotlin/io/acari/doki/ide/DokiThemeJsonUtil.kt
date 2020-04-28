@@ -13,7 +13,7 @@ object DokiThemeJsonUtil {
 
   fun isThemeFilename(string: String): Boolean =
     endsWithIgnoreCase(string, DOKI_THEME_EXTENSION) ||
-        endsWithIgnoreCase(string, DOKI_TEMPLATE_EXTENSION)
+      endsWithIgnoreCase(string, DOKI_TEMPLATE_EXTENSION)
 
   fun getNamedColors(themeFile: JsonFile): List<JsonProperty> =
     themeFile.toOptional()

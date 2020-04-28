@@ -24,25 +24,25 @@ object SvgLoaderHacker {
   }
 
   private fun collectOtherPatcher(): Optional<SVGLoader.SvgElementColorPatcherProvider> =
-      Optional.ofNullable(SVGLoader::class.java.declaredFields
-          .firstOrNull { it.name == "ourColorPatcher" })
-          .map { ourColorPatcherField ->
-            ourColorPatcherField.isAccessible = true
-            ourColorPatcherField.get(null)
-          }
-          .filter { it is SVGLoader.SvgElementColorPatcherProvider }
-          .filter { it !is ColorPatcher }
-          .map {
-            val otherPatcher = it as SVGLoader.SvgElementColorPatcherProvider
-            otherColorPatcher = otherPatcher
-            otherPatcher
-          }
-          .map { Optional.of(it) }
-          .orElseGet { useFallBackPatcher() }
+    Optional.ofNullable(SVGLoader::class.java.declaredFields
+      .firstOrNull { it.name == "ourColorPatcher" })
+      .map { ourColorPatcherField ->
+        ourColorPatcherField.isAccessible = true
+        ourColorPatcherField.get(null)
+      }
+      .filter { it is SVGLoader.SvgElementColorPatcherProvider }
+      .filter { it !is ColorPatcher }
+      .map {
+        val otherPatcher = it as SVGLoader.SvgElementColorPatcherProvider
+        otherColorPatcher = otherPatcher
+        otherPatcher
+      }
+      .map { Optional.of(it) }
+      .orElseGet { useFallBackPatcher() }
 
 
   private fun useFallBackPatcher(): Optional<SVGLoader.SvgElementColorPatcherProvider> =
-      if (this::otherColorPatcher.isInitialized) Optional.of(otherColorPatcher)
-      else Optional.empty()
+    if (this::otherColorPatcher.isInitialized) Optional.of(otherColorPatcher)
+    else Optional.empty()
 
 }

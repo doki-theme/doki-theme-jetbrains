@@ -9,6 +9,6 @@ class MaterialDirectoryIconsAction : BaseToggleAction() {
     ThemeConfig.instance.isMaterialDirectories
 
   override fun setSelected(e: AnActionEvent, state: Boolean) {
-      MaterialIconsActor.enableDirectoryIcons(state)
+    MaterialIconsActor.enableDirectoryIcons(state)
   }
 }

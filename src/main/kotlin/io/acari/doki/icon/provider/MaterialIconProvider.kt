@@ -12,7 +12,7 @@ import io.acari.doki.util.toOptional
 import javax.swing.Icon
 
 class MaterialIconProvider : IconProvider(), DumbAware {
-  companion object{
+  companion object {
     const val MATERIAL_DIRECTORY = "/icons/material"
   }
 
@@ -26,7 +26,7 @@ class MaterialIconProvider : IconProvider(), DumbAware {
   private fun getDirectoryIcon(element: PsiDirectory): Icon? {
     return ThemeManager.instance.currentTheme
       .flatMap { PsiUtilCore.getVirtualFile(element).toOptional() }
-      .filter{ ThemeConfig.instance.isMaterialDirectories }
+      .filter { ThemeConfig.instance.isMaterialDirectories }
       .map { VirtualFileInfo(element, it) }
       .map { DirectoryIconProvider.getIcon(it) }
       .orElseGet { null }
@@ -35,7 +35,7 @@ class MaterialIconProvider : IconProvider(), DumbAware {
   private fun getFileIcon(element: PsiFile): Icon? {
     return ThemeManager.instance.currentTheme
       .flatMap { PsiUtilCore.getVirtualFile(element).toOptional() }
-      .filter{ ThemeConfig.instance.isMaterialFiles }
+      .filter { ThemeConfig.instance.isMaterialFiles }
       .map { VirtualFileInfo(element, it) }
       .map { FileIconProvider.getIcon(it) }
       .orElseGet { null }

@@ -7,23 +7,25 @@ import io.acari.doki.icon.patcher.MaterialPathPatcherFactory
 
 object MaterialIconsActor {
 
-  fun enableDirectoryIcons(enabled: Boolean){
-    if(ThemeConfig.instance.isMaterialDirectories != enabled) {
+  fun enableDirectoryIcons(enabled: Boolean) {
+    if (ThemeConfig.instance.isMaterialDirectories != enabled) {
       ThemeConfig.instance.isMaterialDirectories = enabled
     }
   }
 
-  fun enableFileIcons(enabled: Boolean){
-    if(ThemeConfig.instance.isMaterialFiles != enabled) {
+  fun enableFileIcons(enabled: Boolean) {
+    if (ThemeConfig.instance.isMaterialFiles != enabled) {
       ThemeConfig.instance.isMaterialFiles = enabled
     }
   }
 
-  fun enablePSIIcons(enabled: Boolean){
-    if(ThemeConfig.instance.isMaterialPSIIcons != enabled) {
+  fun enablePSIIcons(enabled: Boolean) {
+    if (ThemeConfig.instance.isMaterialPSIIcons != enabled) {
       ThemeConfig.instance.isMaterialPSIIcons = enabled
-      addOrRemovePatchers(enabled,
-        MaterialPathPatcherFactory.materialPathPatchers.glyphs)
+      addOrRemovePatchers(
+        enabled,
+        MaterialPathPatcherFactory.materialPathPatchers.glyphs
+      )
     }
   }
 

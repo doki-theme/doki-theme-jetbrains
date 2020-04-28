@@ -9,6 +9,6 @@ class ThemeAnimationToggle : BaseToggleAction() {
     ThemeConfig.instance.isLafAnimation
 
   override fun setSelected(e: AnActionEvent, state: Boolean) {
-      LafAnimationActor.enableAnimation(state)
+    LafAnimationActor.enableAnimation(state)
   }
 }

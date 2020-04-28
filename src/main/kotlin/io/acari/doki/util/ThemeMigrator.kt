@@ -69,8 +69,8 @@ object ThemeMigrator {
       isDarkMode
     )
     LafManager.getInstance().installedLookAndFeels.find {
-        it.name.equals(lastTheme, true)
-      }.toOptional()
+      it.name.equals(lastTheme, true)
+    }.toOptional()
       .ifPresent {
         QuickChangeLookAndFeel.switchLafAndUpdateUI(
           LafManager.getInstance(),

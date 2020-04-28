@@ -9,6 +9,6 @@ class MaterialFilesconsAction : BaseToggleAction() {
     ThemeConfig.instance.isMaterialFiles
 
   override fun setSelected(e: AnActionEvent, state: Boolean) {
-      MaterialIconsActor.enableFileIcons(state)
+    MaterialIconsActor.enableFileIcons(state)
   }
 }

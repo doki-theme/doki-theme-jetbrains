@@ -9,13 +9,25 @@ import com.intellij.ui.components.JBTabbedPane
 import com.intellij.ui.layout.panel
 import io.acari.doki.config.THEME_CONFIG_TOPIC
 import io.acari.doki.config.ThemeConfig
-import io.acari.doki.settings.actors.*
+import io.acari.doki.settings.actors.FileColorActor
+import io.acari.doki.settings.actors.LafAnimationActor
+import io.acari.doki.settings.actors.MaterialIconsActor
+import io.acari.doki.settings.actors.ShowReadmeActor
+import io.acari.doki.settings.actors.StickerActor
+import io.acari.doki.settings.actors.ThemeActor
+import io.acari.doki.settings.actors.ThemeStatusBarActor
+import io.acari.doki.settings.actors.ThemedTitleBarActor
 import io.acari.doki.stickers.CurrentSticker
 import io.acari.doki.stickers.StickerLevel
 import io.acari.doki.themes.ThemeManager
 import java.net.URI
 import java.util.*
-import javax.swing.*
+import javax.swing.DefaultComboBoxModel
+import javax.swing.ImageIcon
+import javax.swing.JComponent
+import javax.swing.JLabel
+import javax.swing.JPanel
+import javax.swing.JTextPane
 
 data class ThemeSettingsModel(
   var areStickersEnabled: Boolean,

@@ -10,7 +10,7 @@ object LafAnimationActor {
       ThemeConfig.instance.isLafAnimation = enabled
       Registry.get("ide.intellij.laf.enable.animation").setValue(enabled)
       if (enabled) {
-          UpdateNotification.displayAnimationInstallMessage()
+        UpdateNotification.displayAnimationInstallMessage()
       }
     }
   }

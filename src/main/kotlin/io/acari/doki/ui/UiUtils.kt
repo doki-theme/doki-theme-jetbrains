@@ -10,7 +10,7 @@ object UiUtils {
   )
 
   val renderingHints: Map<Any, Any>
-  get() = Collections.unmodifiableMap(RENDERING_HINTS)
+    get() = Collections.unmodifiableMap(RENDERING_HINTS)
 
   init {
     RENDERING_HINTS[RenderingHints.KEY_ANTIALIASING] = RenderingHints.VALUE_ANTIALIAS_ON

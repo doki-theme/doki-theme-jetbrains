@@ -65,7 +65,8 @@ class ThemeStatusBarWidget(private val project: Project) :
     if (this::myStatusBar.isInitialized) {
       try {
         myStatusBar.dispose()
-      } catch (e: Throwable){ }
+      } catch (e: Throwable) {
+      }
     }
   }
 

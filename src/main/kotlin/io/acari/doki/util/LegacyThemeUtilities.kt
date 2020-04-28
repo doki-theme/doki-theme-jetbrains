@@ -11,7 +11,7 @@ object LegacyThemeUtilities {
     "yuri" to mapOf(true to "Yuri Dark", false to "Yuri Light")
   )
 
-  fun legacyThemeNameMapping(oldThemeName: String, darkMode: Boolean) : String {
+  fun legacyThemeNameMapping(oldThemeName: String, darkMode: Boolean): String {
     val lowercaseThemeName = oldThemeName.toLowerCase()
     val legacyTheme = legacyThemes[lowercaseThemeName]
     return legacyTheme?.get(darkMode) ?: lowercaseThemeName

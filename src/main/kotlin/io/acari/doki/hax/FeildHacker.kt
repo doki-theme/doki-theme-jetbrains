@@ -6,9 +6,11 @@ import java.lang.reflect.Modifier
 
 object FeildHacker {
 
-  fun setFinalStatic(cls: Class<*>,
-                     @NonNls fieldName: String,
-                     newValue: Any?) {
+  fun setFinalStatic(
+    cls: Class<*>,
+    @NonNls fieldName: String,
+    newValue: Any?
+  ) {
     val fields = cls.declaredFields
     for (field in fields) {
       if (field.name == fieldName) {
@@ -18,9 +20,11 @@ object FeildHacker {
     }
   }
 
-  fun setFieldValue(objectToHack: Any,
-                    fieldName: String?,
-                    value: Any?) {
+  fun setFieldValue(
+    objectToHack: Any,
+    fieldName: String?,
+    value: Any?
+  ) {
     try {
       val field = objectToHack.javaClass.getDeclaredField(fieldName)
       field.isAccessible = true

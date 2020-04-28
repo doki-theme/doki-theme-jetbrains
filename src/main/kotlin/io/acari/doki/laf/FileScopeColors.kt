@@ -5,14 +5,14 @@ import io.acari.doki.config.ThemeConfig
 
 object FileScopeColors {
 
-  fun attemptToInstallColors(){
-    if(ThemeConfig.instance.isDokiFileColors){
+  fun attemptToInstallColors() {
+    if (ThemeConfig.instance.isDokiFileColors) {
       addColors()
     }
   }
 
   fun attemptToRemoveColors() {
-    if(ThemeConfig.instance.isDokiFileColors) {
+    if (ThemeConfig.instance.isDokiFileColors) {
       removeColors()
     }
   }

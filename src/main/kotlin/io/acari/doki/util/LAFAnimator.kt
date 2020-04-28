@@ -5,7 +5,11 @@ import com.intellij.util.ui.Animator
 import com.intellij.util.ui.GraphicsUtil
 import com.intellij.util.ui.ImageUtil
 import com.intellij.util.ui.UIUtil
-import java.awt.*
+import java.awt.AlphaComposite
+import java.awt.Graphics
+import java.awt.Graphics2D
+import java.awt.Rectangle
+import java.awt.Window
 import java.awt.image.BufferedImage
 import javax.swing.JComponent
 import javax.swing.JLayeredPane

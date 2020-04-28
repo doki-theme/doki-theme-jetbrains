@@ -200,7 +200,7 @@ class StickerServiceImpl : StickerService {
     remoteAssetUrl: Optional<String>
   ): Boolean =
     !Files.exists(localInstallPath) ||
-        isLocalDifferentFromRemote(localInstallPath, remoteAssetUrl) == AssetChangedStatus.DIFFERENT
+      isLocalDifferentFromRemote(localInstallPath, remoteAssetUrl) == AssetChangedStatus.DIFFERENT
 
   private fun isLocalDifferentFromRemote(
     localInstallPath: Path,

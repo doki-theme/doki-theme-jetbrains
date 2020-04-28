@@ -10,7 +10,7 @@ object ShowReadmeActor {
       ThemeConfig.instance.isNotShowReadmeAtStartup = enabled
       Registry.get("ide.open.readme.md.on.startup").setValue(!enabled)
       if (enabled) {
-          UpdateNotification.displayReadmeInstallMessage()
+        UpdateNotification.displayReadmeInstallMessage()
       }
     }
   }

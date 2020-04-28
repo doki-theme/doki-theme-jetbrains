@@ -25,13 +25,22 @@
  */
 package io.acari.doki.ui
 
-import com.intellij.ui.ColorUtil
-import com.intellij.ui.ColorUtil.*
+import com.intellij.ui.ColorUtil.brighter
+import com.intellij.ui.ColorUtil.darker
+import com.intellij.ui.ColorUtil.isDark
+import com.intellij.ui.ColorUtil.withAlpha
 import com.intellij.ui.Gray
 import com.intellij.ui.JBColor
 import com.intellij.ui.components.OnOffButton
-import com.intellij.util.ui.*
-import java.awt.*
+import com.intellij.util.ui.GraphicsUtil
+import com.intellij.util.ui.JBDimension
+import com.intellij.util.ui.JBInsets
+import com.intellij.util.ui.JBUI
+import java.awt.Color
+import java.awt.Dimension
+import java.awt.Graphics
+import java.awt.Graphics2D
+import java.awt.Point
 import javax.swing.JComponent
 import javax.swing.border.Border
 import javax.swing.plaf.ComponentUI
@@ -60,10 +69,10 @@ class ToggleButtonUI : BasicToggleButtonUI() {
         )
 
         g2.color =
-          if(button.isSelected) withAlpha(ON_BACKGROUND, 0.45)
+          if (button.isSelected) withAlpha(ON_BACKGROUND, 0.45)
           else {
             val parentBackground = button.parent.background
-            if(isDark(parentBackground))  brighter(parentBackground, 2)
+            if (isDark(parentBackground)) brighter(parentBackground, 2)
             else darker(parentBackground.darker(), 2)
           }
 
