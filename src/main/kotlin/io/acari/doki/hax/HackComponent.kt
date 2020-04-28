@@ -50,7 +50,7 @@ object HackComponent : Disposable {
       init.instrument(object : ExprEditor() {
         override fun edit(e: MethodCall?) {
           if (e?.methodName == "setBackground") {
-            e.replace("{ \$1 = com.intellij.ui.JBColor.namedColor(\"Panel.background\", java.awt.Color.LIME); \$_ = \$proceed(\$\$); }")
+            e.replace("{ \$1 = com.intellij.ui.JBColor.namedColor(\"Panel.background\", java.awt.Color.GREEN); \$_ = \$proceed(\$\$); }")
           }
         }
       })
