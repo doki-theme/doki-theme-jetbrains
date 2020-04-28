@@ -1,8 +1,8 @@
 {
   "id": "420b0ed5-803c-4127-97e3-dae6aa1a5972",
   "editorScheme": {
-    "type": "template",
-    "name": "Doki Dark"
+    "type": "templateExtension",
+    "file": "Ibuki_Dark.xml"
   },
   "overrides": {
     "editorScheme": {
