@@ -4,7 +4,6 @@ import com.intellij.ide.ui.laf.darcula.ui.DarculaRootPaneUI
 import com.intellij.openapi.util.SystemInfo.isJavaVersionAtLeast
 import com.intellij.openapi.util.SystemInfo.isLinux
 import com.intellij.openapi.util.SystemInfo.isMac
-import com.intellij.openapi.wm.ex.IdeFrameEx
 import com.intellij.ui.JBColor.GRAY
 import com.intellij.ui.JBColor.namedColor
 import com.intellij.util.ui.GraphicsUtil
