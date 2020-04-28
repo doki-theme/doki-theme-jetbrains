@@ -7,7 +7,7 @@ import com.intellij.openapi.project.Project
 val UPDATE_MESSAGE: String = """
       What's New?<br>
       <ul>
-        <li>Touched up light Emilia.</li>
+        <li>Touched up a bunch of small things.</li>
         <li>Background wallpapers available offline!</li>
         <li>I can change stickers/wallpapers without you having to update.</li>
       </ul>
@@ -16,7 +16,7 @@ val UPDATE_MESSAGE: String = """
       Thanks again for downloading <b>The Doki Theme</b>! •‿•<br>
 """.trimIndent()
 
-const val CURRENT_VERSION = "7.1.0"
+const val CURRENT_VERSION = "7.1.1"
 
 object UpdateNotification {
 
