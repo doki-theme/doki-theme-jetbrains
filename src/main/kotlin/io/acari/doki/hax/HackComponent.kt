@@ -140,7 +140,34 @@ object HackComponent : Disposable {
 
   private fun enableAccentConsistency() {
     hackLiveIndicator()
+    hackSearchHighlightBorder()
   }
+
+  private fun hackSearchHighlightBorder() {
+    try {
+      val cp = ClassPool(true)
+      cp.insertClassPath(ClassClassPath(Class.forName("com.intellij.openapi.options.ex.ConfigurableWrapper")))
+      val ctClass = cp.get("com.intellij.openapi.options.ex.GlassPanel")
+      val init = ctClass.getDeclaredMethods(
+        "paintSpotlight"
+      )[0]
+      var colors = 0
+      init.instrument(object : ExprEditor() {
+        override fun edit(e: MethodCall?) {
+          if (e?.methodName == "setColor") {
+            colors++
+            if(colors > 1){
+              e.replace("{ \$1 = com.intellij.ui.JBColor.namedColor(\"Doki.Accent.color\", com.intellij.ui.JBColor.ORANGE);  \$_ = \$proceed(\$\$); }")
+            }
+          }
+        }
+      })
+      ctClass.toClass()
+    } catch (e: Exception) {
+      e.printStackTrace()
+    }
+  }
+
 
   private fun hackLiveIndicator() {
     try {
