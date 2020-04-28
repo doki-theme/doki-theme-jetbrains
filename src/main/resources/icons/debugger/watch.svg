@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16" height="16" version="1.1" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+  <g transform="matrix(.014406 0 0 .014406 -.68432 2.0695)" stroke="#000">
+    <path
+      fill="#9AA7B0"
+      id="Selection"
+          d="m48 220v64h32v32h32v32h32v32h224v-32h32v-32h32v-64h64v64h32v32h32v32h224v-32h32v-32h32v-32h32v-64h-832z"/>
+    <path
+      d="m100.34 250.73v32h32v32h32v32h32v-32h32v32h32v-32h-32v-32h-32v-32h-32v32h-32v-32h-32zm452 0v32h32v32h32v32h32v-32h32v32h32v-32h-32v-32h-32v-32h-32v32h-32v-32h-32zm-356 32v32h-32v-32h32zm452 0v32h-32v-32h32z"
+      fill="#fff"/>
+  </g>
+</svg>
