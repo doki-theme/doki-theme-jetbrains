@@ -54,7 +54,7 @@ object UpdateNotification {
         getPluginOrPlatformByClassName(UpdateNotification::class.java.canonicalName)
       )?.name
     notificationManager.notify(
-      "$pluginName updated to v${CURRENT_VERSION}",
+      "$pluginName updated to v$CURRENT_VERSION",
       UPDATE_MESSAGE,
       project,
       NotificationListener.URL_OPENING_LISTENER
@@ -75,7 +75,6 @@ object UpdateNotification {
           |To remove them, un-check this action or remove them at "Settings -> Appearance -> File Colors". 
         """.trimMargin()
     )
-
   }
 
   fun displayAnimationInstallMessage() {

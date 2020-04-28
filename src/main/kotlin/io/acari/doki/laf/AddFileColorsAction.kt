@@ -28,7 +28,6 @@ object DokiAddFileColorsAction {
           selectedTheme.nonProjectFileScopeColor ==
           ColorUtil.toHex(quickScope)
       }.orElse(false)
-
   }
 
   fun setFileScopes(project: Project?) {
@@ -53,7 +52,6 @@ object DokiAddFileColorsAction {
           Pair("Android Instrumented Tests", selectedTheme.testScopeColor)
         )
       }.orElseGet { Collections.emptyList() }
-
 
   private fun replaceFileScopes(
     project: Project?,

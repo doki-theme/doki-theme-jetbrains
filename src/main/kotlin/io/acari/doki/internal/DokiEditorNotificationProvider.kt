@@ -17,7 +17,6 @@ class DokiEditorNotificationProvider : EditorNotifications.Provider<EditorNotifi
 
   override fun getKey(): Key<EditorNotificationPanel> = PROVIDER_KEY
 
-
   override fun createNotificationPanel(file: VirtualFile, fileEditor: FileEditor): EditorNotificationPanel? =
     buildNotification()
 
@@ -26,10 +25,8 @@ class DokiEditorNotificationProvider : EditorNotifications.Provider<EditorNotifi
 
     val panel = EditorNotificationPanel()
     panel.createActionLabel("Link One") {
-
     }
     panel.createActionLabel("Link Two") {
-
     }
     return panel
   }

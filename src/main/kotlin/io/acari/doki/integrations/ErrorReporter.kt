@@ -115,7 +115,6 @@ class ErrorReporter : ErrorReportSubmitter() {
       .filter { p -> !p.isBundled && p.isEnabled }
       .map { p -> p.pluginId.idString }.collect(Collectors.joining(","))
   }
-
 }
 
 data class ErrorMessage(val text: String)

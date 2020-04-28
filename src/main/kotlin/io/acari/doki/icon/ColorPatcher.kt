@@ -68,7 +68,6 @@ class ColorPatcher(
       }
     }
 
-
     val nodes = svg.childNodes
     val length = nodes.length
     for (i in 0 until length) {

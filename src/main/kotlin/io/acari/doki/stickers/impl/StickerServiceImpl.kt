@@ -28,7 +28,7 @@ const val DOKI_BACKGROUND_PROP: String = "io.unthrottled.doki.background"
 private val messageDigest: MessageDigest = MessageDigest.getInstance("MD5")
 
 private const val ASSETS_SOURCE = "https://doki.assets.unthrottled.io"
-private const val BACKGROUND_DIRECTORY = "${ASSETS_SOURCE}/backgrounds"
+private const val BACKGROUND_DIRECTORY = "$ASSETS_SOURCE/backgrounds"
 const val DOKI_STICKER_PROP: String = "io.unthrottled.doki.stickers"
 private const val PREVIOUS_STICKER = "io.unthrottled.doki.sticker.previous"
 
@@ -248,7 +248,7 @@ class StickerServiceImpl : StickerService {
 
   private fun getRemoteStickerUrl(dokiTheme: DokiTheme): Optional<String> =
     dokiTheme.getStickerPath()
-      .map { "${ASSETS_SOURCE}/stickers/jetbrains$it" }
+      .map { "$ASSETS_SOURCE/stickers/jetbrains$it" }
 
   private fun getRemoteBackgroundUrl(dokiTheme: DokiTheme): Optional<String> =
     dokiTheme.getSticker()
@@ -307,7 +307,6 @@ class StickerServiceImpl : StickerService {
   } catch (e: Throwable) {
   }
 
-
   override fun getPreviousSticker(): Optional<String> =
     PropertiesComponent.getInstance().getValue(PREVIOUS_STICKER).toOptional()
 
@@ -318,11 +317,12 @@ class StickerServiceImpl : StickerService {
   private fun setBackgroundImageProperty(
     imagePath: String,
     opacity: String,
-    fill: String, anchor: String,
+    fill: String,
+    anchor: String,
     propertyKey: String
   ) {
-    //org.intellij.images.editor.actions.SetBackgroundImageDialog has all of the answers
-    //as to why this looks this way
+    // org.intellij.images.editor.actions.SetBackgroundImageDialog has all of the answers
+    // as to why this looks this way
     val propertyValue = listOf(imagePath, opacity, fill, anchor)
       .reduceRight { a, b -> "$a,$b" }
     setPropertyValue(propertyKey, propertyValue)

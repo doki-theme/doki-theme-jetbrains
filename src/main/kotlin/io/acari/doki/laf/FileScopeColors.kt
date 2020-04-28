@@ -30,6 +30,4 @@ object FileScopeColors {
         DokiAddFileColorsAction.removeFileScopes(project)
       }
   }
-
-
 }

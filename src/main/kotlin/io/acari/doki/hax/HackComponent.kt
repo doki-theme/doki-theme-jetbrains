@@ -59,7 +59,6 @@ object HackComponent : Disposable {
     }
   }
 
-
   // todo: revisit this
   private fun hackSheetWindow() {
     try {
@@ -92,7 +91,6 @@ object HackComponent : Disposable {
     }
   }
 
-
   private fun hackParameterInfoBackground() {
     try {
       val cp = ClassPool(true)
@@ -115,7 +113,6 @@ object HackComponent : Disposable {
     } catch (e: Exception) {
       e.printStackTrace()
     }
-
   }
 
   private fun enableAccentConsistency() {
@@ -147,7 +144,6 @@ object HackComponent : Disposable {
       e.printStackTrace()
     }
   }
-
 
   private fun hackLiveIndicator() {
     try {
@@ -214,7 +210,6 @@ object HackComponent : Disposable {
     }
   }
 
-
   private fun enableSwitcherLafConsistency() {
     hackSwitcherSelection()
   }
@@ -254,7 +249,6 @@ object HackComponent : Disposable {
     } catch (e: Exception) {
       e.printStackTrace()
     }
-
   }
 
   private fun hackSwitcherBorder() {
@@ -274,8 +268,6 @@ object HackComponent : Disposable {
     } catch (e: Exception) {
       e.printStackTrace()
     }
-
-
   }
 
   private fun enablePluginWindowConsistency() {
@@ -299,7 +291,6 @@ object HackComponent : Disposable {
     } catch (e: Exception) {
       e.printStackTrace()
     }
-
   }
 
   private fun createMonikasWritingTipOfTheDay() {
@@ -428,7 +419,6 @@ object HackComponent : Disposable {
         }
       })
 
-
       val initEditorPaintersMethod = ctClass2.getDeclaredMethod("initEditorPainters")
       initEditorPaintersMethod.instrument(object : ExprEditor() {
         @Throws(CannotCompileException::class)
@@ -457,9 +447,7 @@ object HackComponent : Disposable {
     } catch (e: Exception) {
       e.printStackTrace()
     }
-
   }
-
 
   override fun dispose() {
   }

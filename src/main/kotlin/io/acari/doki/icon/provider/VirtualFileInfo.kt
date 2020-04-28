@@ -12,5 +12,4 @@ class VirtualFileInfo(
 
   val fileType: String?
     get() = virtualFile.fileType.name
-
 }

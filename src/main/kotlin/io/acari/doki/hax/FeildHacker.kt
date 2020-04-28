@@ -34,7 +34,6 @@ object FeildHacker {
     }
   }
 
-
   fun setFinalStatic(field: Field, newValue: Any?) {
     field.isAccessible = true
     val modifiersField = Field::class.java.getDeclaredField("modifiers")

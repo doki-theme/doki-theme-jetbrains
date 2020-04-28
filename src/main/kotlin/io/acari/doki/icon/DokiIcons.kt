@@ -18,7 +18,6 @@ object DokiIcons {
     val EXPANDED = load("/icons/tree/treeExpanded.svg")
   }
 
-
   private fun load(path: String): Icon =
     getInstance().getIcon(path, DokiIcons::class.java)
 }

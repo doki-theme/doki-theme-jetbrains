@@ -31,10 +31,8 @@ class TheDokiTheme : Disposable {
   private val connection = ApplicationManager.getApplication().messageBus.connect()
 
   init {
-    //////////// hax ////////////
     setSVGColorPatcher()
     hackLAF()
-    //////////// ._. ////////////
 
     installAllUIComponents()
 
@@ -49,8 +47,7 @@ class TheDokiTheme : Disposable {
           installAllUIComponents()
           attemptToInstallColors()
           attemptToAddIcons()
-        })
-        {
+        }) {
           if (ThemeConfig.instance.isDokiFileColors) {
             attemptToRemoveColors()
           }

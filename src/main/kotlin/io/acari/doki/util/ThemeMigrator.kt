@@ -92,5 +92,4 @@ object ThemeMigrator {
 
     PropertiesComponent.getInstance().unsetValue(LegacyThemeUtilities.SAVED_STATE)
   }
-
 }

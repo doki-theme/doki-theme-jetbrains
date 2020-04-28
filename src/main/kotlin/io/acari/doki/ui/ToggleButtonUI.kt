@@ -76,7 +76,6 @@ class ToggleButtonUI : BasicToggleButtonUI() {
             else darker(parentBackground.darker(), 2)
           }
 
-
         g2.fillRoundRect(origin.x, origin.y, BUTTON_SIZE.width, BUTTON_SIZE.height, ARC, ARC)
 
         g2.color = BUTTON_COLOR

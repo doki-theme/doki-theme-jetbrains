@@ -50,7 +50,7 @@ class ThemeSettings : SearchableConfigurable {
     val CHANGELOG_URI =
       URI("https://github.com/Unthrottled/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md")
     const val REPOSITORY = "https://github.com/Unthrottled/doki-theme-jetbrains"
-    const val ULTIMATE_INSTRUCTIONS = "${REPOSITORY}/wiki/Ultimate-Theme-Setup"
+    const val ULTIMATE_INSTRUCTIONS = "$REPOSITORY/wiki/Ultimate-Theme-Setup"
     val ISSUES_URI = URI("$REPOSITORY/issues")
     val MARKETPLACE_URI = URI("https://plugins.jetbrains.com/plugin/10804-the-doki-doki-theme")
   }
@@ -105,8 +105,7 @@ class ThemeSettings : SearchableConfigurable {
       tabbedPanel
     } catch (e: Throwable) {
       val outOfServicePanel = JPanel()
-      val outOfServiceTextPan = JTextPane(
-      )
+      val outOfServiceTextPan = JTextPane()
       outOfServiceTextPan.text = """
           Doki Theme Settings Menu currently unavailable in the 
           2020 EAP Builds. All functionality is available in the 
@@ -243,8 +242,7 @@ class ThemeSettings : SearchableConfigurable {
             themeSettingsModel.isFileColors,
             comment = """The animations will remain in your IDE after uninstalling the plugin.
             |To remove them, un-check this action or toggle the action at "Help -> Find Action -> ide.intellij.laf.enable.animation". 
-            """.trimMargin()
-            ,
+            """.trimMargin(),
             actionListener = { _, component ->
               themeSettingsModel.isFileColors = component.isSelected
             }
@@ -258,8 +256,7 @@ class ThemeSettings : SearchableConfigurable {
               |That way you can admire your theme's background art instead!
             |This will stay even after you uninstall the plugin.
 |To re-enable it, un-check this action or toggle the action at "Help -> Find Action -> ide.open.readme.md.on.startup". 
-            """.trimMargin()
-            ,
+            """.trimMargin(),
             actionListener = { _, component ->
               themeSettingsModel.isNotShowReadmeAtStartup = component.isSelected
             }
@@ -281,7 +278,6 @@ class ThemeSettings : SearchableConfigurable {
           }
         }
       }
-
     }
     return settingsPane
   }

@@ -13,4 +13,3 @@ class StickersToggleAction : BaseToggleAction() {
     StickerActor.enableStickers(state)
   }
 }
-

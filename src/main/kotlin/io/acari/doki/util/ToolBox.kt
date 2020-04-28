@@ -19,7 +19,6 @@ fun runSafely(runner: Runner): Unit =
   } catch (e: Throwable) {
   }
 
-
 fun <T> T?.toOptional() = Optional.ofNullable(this)
 
 fun <T> T?.toStream(): Stream<T> = Stream.of(this)
