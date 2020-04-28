@@ -4,7 +4,8 @@ import com.intellij.ide.ui.LafManagerListener
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.project.Project
-import com.intellij.openapi.project.impl.ProjectLifecycleListener
+import com.intellij.openapi.project.ProjectManager
+import com.intellij.openapi.project.ProjectManagerListener
 import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.hax.HackComponent.hackLAF
 import io.unthrottled.doki.hax.SvgLoaderHacker.setSVGColorPatcher
@@ -55,8 +56,8 @@ class TheDokiTheme : Disposable {
         }
     })
 
-    connection.subscribe(ProjectLifecycleListener.TOPIC, object : ProjectLifecycleListener {
-      override fun projectComponentsInitialized(project: Project) {
+    connection.subscribe(ProjectManager.TOPIC, object : ProjectManagerListener {
+      override fun projectOpened(project: Project) {
         if (ThemeConfig.instance.isDokiFileColors) {
           setFileScopes(project)
         }
