@@ -8,9 +8,6 @@ import com.intellij.ide.util.ChooseElementsDialog
 import com.intellij.ide.util.ExportToFileUtil
 import com.intellij.ide.util.TipPanel
 import com.intellij.ide.util.gotoByName.CustomMatcherModel
-import com.intellij.internal.inspector.PropertyBean
-import com.intellij.internal.inspector.UiInspectorContextProvider
-import com.intellij.internal.ml.Feature
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.fileEditor.impl.EditorComposite
 import com.intellij.openapi.fileEditor.impl.EditorHistoryManager
@@ -19,8 +16,11 @@ import com.intellij.ui.messages.JBMacMessages
 import io.acari.doki.hax.FeildHacker.setFinalStatic
 import io.acari.doki.stickers.impl.DOKI_BACKGROUND_PROP
 import io.acari.doki.stickers.impl.DOKI_STICKER_PROP
-import javassist.*
-import javassist.expr.ConstructorCall
+import javassist.CannotCompileException
+import javassist.ClassClassPath
+import javassist.ClassPool
+import javassist.CtClass
+import javassist.CtMethod
 import javassist.expr.ExprEditor
 import javassist.expr.MethodCall
 import javassist.expr.NewExpr
@@ -44,26 +44,6 @@ object HackComponent : Disposable {
   private fun enableBackgroundConsistency() {
     hackParameterInfoBackground()
     hackSheetWindow()
-    hackUiInspector()
-  }
-
-  private fun hackUiInspector() {
-    try {
-      val cp = ClassPool(true)
-      cp.insertClassPath(ClassClassPath(Feature::class.java))
-      val ctClass = cp.get("com.intellij.internal.inspector.UiDropperAction\$DimensionsComponent")
-      val init = ctClass.declaredConstructors[0]
-      init.instrument(object : ExprEditor() {
-        override fun edit(e: MethodCall?) {
-          if (e?.methodName == "setBackground") {
-            e.replace("{ \$1 = com.intellij.ui.JBColor.namedColor(\"Panel.background\", java.awt.Color.GREEN); \$_ = \$proceed(\$\$); }")
-          }
-        }
-      })
-      ctClass.toClass()
-    } catch (e: Exception) {
-      e.printStackTrace()
-    }
   }
 
   private fun hackWelcomeScreen() {
@@ -88,12 +68,12 @@ object HackComponent : Disposable {
       val ctClass = cp.get("com.intellij.ui.messages.SheetController")
       ctClass.declaredClasses
         .filter { it.declaredMethods.any { m -> m.name == "paintComponent" } }
-        .forEach {classDude ->
-          classDude.getDeclaredMethods("paintComponent").forEach{
+        .forEach { classDude ->
+          classDude.getDeclaredMethods("paintComponent").forEach {
             it.instrument(object : ExprEditor() {
               override fun edit(e: NewExpr?) {
-                if(e?.className == JBColor::class.java.name) {
-                    e?.replace("{ \$_ = com.intellij.util.ui.UIUtil.getPanelBackground(); }")
+                if (e?.className == JBColor::class.java.name) {
+                  e?.replace("{ \$_ = com.intellij.util.ui.UIUtil.getPanelBackground(); }")
                 }
               }
 
@@ -156,7 +136,7 @@ object HackComponent : Disposable {
         override fun edit(e: MethodCall?) {
           if (e?.methodName == "setColor") {
             colors++
-            if(colors > 1){
+            if (colors > 1) {
               e.replace("{ \$1 = com.intellij.ui.JBColor.namedColor(\"Doki.Accent.color\", com.intellij.ui.JBColor.ORANGE);  \$_ = \$proceed(\$\$); }")
             }
           }
