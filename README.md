@@ -1,7 +1,8 @@
 [![Gitter](https://badges.gitter.im/doki-theme-jetbrains/community.svg)](https://gitter.im/doki-theme-jetbrains/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
-# Screen Sample!
-![Rem](assets/screenshots/reZero/rem_code.png)
+# Quick Preview
+
+![Themes](assets/screenshots/flagship_themes.gif)
 
 [Complete Theme Album.](complete_theme_album.md)
 
@@ -30,8 +31,7 @@ Variety is the spice of life! So you can choose themes from the following Doki-D
 - KonoSuba
 - DanganRonpa
 
-Too distracted by the sticker in the corner of your IDE?
-No worries! You can configure them to be on or off at your leisure.
+Sticker in the way? No worries! You can configure them to be on or off at your leisure.
 
 These themes are easy to install, there are minimal configurations, so you can enjoy the themes faster.
 They also play well with other themes, so feel free to come and go as your mood changes :)
