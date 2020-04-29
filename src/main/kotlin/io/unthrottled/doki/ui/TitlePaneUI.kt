@@ -204,11 +204,11 @@ class TitlePaneUI : DarculaRootPaneUI() {
       " "
     }
 }
-private val ideFramEx = Class.forName("com.intellij.openapi.wm.ex.IdeFrameEx")
-private val isFullScreen = ideFramEx.getDeclaredMethod("isInFullScreen")
+private val ideFrameEx = Class.forName("com.intellij.openapi.wm.ex.IdeFrameEx")
+private val isFullScreen = ideFrameEx.getDeclaredMethod("isInFullScreen")
 private fun isInFullScreen(window: Window?): Boolean {
   val ultimateParent = UIUtil.findUltimateParent(window)
-  if (ultimateParent == window && ideFramEx.isInstance(ideFramEx)) {
+  if (ultimateParent == window && ideFrameEx.isInstance(ideFrameEx)) {
     val isFullScreen = isFullScreen.invoke(ultimateParent) as Boolean
     return isFullScreen
   }
