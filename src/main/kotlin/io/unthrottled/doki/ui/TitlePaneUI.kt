@@ -1,6 +1,7 @@
 package io.unthrottled.doki.ui
 
 import com.intellij.ide.ui.laf.darcula.ui.DarculaRootPaneUI
+import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.util.SystemInfo.isJavaVersionAtLeast
 import com.intellij.openapi.util.SystemInfo.isLinux
 import com.intellij.openapi.util.SystemInfo.isMac
@@ -45,6 +46,7 @@ class TitlePaneUI : DarculaRootPaneUI() {
     private const val defaultPane = "com.sun.java.swing.plaf.windows.WindowsRootPaneUI"
     const val WINDOW_DARK_APPEARANCE = "jetbrains.awt.windowDarkAppearance"
     const val TRANSPARENT_TITLE_BAR_APPEARANCE = "jetbrains.awt.transparentTitleBarAppearance"
+    private val log = Logger.getInstance(this::class.java)
 
     @JvmStatic
     @Suppress("ACCIDENTAL_OVERRIDE", "UNUSED", "UNUSED_PARAMETER")
@@ -203,14 +205,13 @@ class TitlePaneUI : DarculaRootPaneUI() {
     }.ifEmpty {
       " "
     }
-}
-private val ideFrameEx = Class.forName("com.intellij.openapi.wm.ex.IdeFrameEx")
-private val isFullScreen = ideFrameEx.getDeclaredMethod("isInFullScreen")
-private fun isInFullScreen(window: Window?): Boolean {
-  val ultimateParent = UIUtil.findUltimateParent(window)
-  if (ultimateParent == window && ideFrameEx.isInstance(ideFrameEx)) {
-    val isFullScreen = isFullScreen.invoke(ultimateParent) as Boolean
-    return isFullScreen
+  private val ideFrameEx = Class.forName("com.intellij.openapi.wm.ex.IdeFrameEx")
+  private val isFullScreen = ideFrameEx.getDeclaredMethod("isInFullScreen")
+  private fun isInFullScreen(window: Window?): Boolean {
+    val ultimateParent = UIUtil.findUltimateParent(window)
+    if (ultimateParent == window && ideFrameEx.isInstance(ideFrameEx)) {
+      return this.isFullScreen.invoke(ultimateParent) as Boolean
+    }
+    return false
   }
-  return false
 }
