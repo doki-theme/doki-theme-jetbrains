@@ -1,5 +1,11 @@
 # Changelog
 ---
+
+# 7.1.2
+
+- Many Non-Functional changes.
+- Changed the `collapsed region` (when looking at a diff) divider color.
+
 # 7.1.1
 
 - Made a large amount of small changes.

@@ -4,6 +4,7 @@ import com.intellij.ide.util.PropertiesComponent
 import com.intellij.openapi.application.ApplicationManager.getApplication
 import com.intellij.openapi.application.PathManager
 import com.intellij.openapi.diagnostic.Logger
+import com.intellij.openapi.util.text.StringUtil.toHexString
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil
 import io.unthrottled.doki.stickers.StickerService
 import io.unthrottled.doki.themes.DokiTheme
@@ -22,10 +23,8 @@ import java.util.*
 import java.util.Optional.empty
 import java.util.Optional.ofNullable
 import java.util.concurrent.TimeUnit
-import javax.xml.bind.DatatypeConverter
 
 const val DOKI_BACKGROUND_PROP: String = "io.unthrottled.doki.background"
-private val messageDigest: MessageDigest = MessageDigest.getInstance("MD5")
 
 private const val ASSETS_SOURCE = "https://doki.assets.unthrottled.io"
 private const val BACKGROUND_DIRECTORY = "$ASSETS_SOURCE/backgrounds"
@@ -165,7 +164,7 @@ class StickerServiceImpl : StickerService {
     localAssetPath: Path,
     remoteAssetPath: String
   ): Optional<Path> = try {
-    log.info("Attempting to download asset $remoteAssetPath")
+    log.warn("Attempting to download asset $remoteAssetPath")
     val remoteAssetRequest = createGetRequest(remoteAssetPath)
     val remoteAssetResponse = httpClient.execute(remoteAssetRequest)
     if (remoteAssetResponse.statusLine.statusCode == 200) {
@@ -208,9 +207,16 @@ class StickerServiceImpl : StickerService {
   ): AssetChangedStatus =
     getRemoteAssetChecksum(remoteAssetUrl)
       .map {
-        if (it == getOnDiskCheckSum(localInstallPath)) {
+        val onDiskCheckSum = getOnDiskCheckSum(localInstallPath)
+        if (it == onDiskCheckSum) {
           AssetChangedStatus.SAME
         } else {
+          log.warn("""
+            Local asset: $localInstallPath
+            is different from remote asset ${remoteAssetUrl.orElse("No Remote Asset.")}
+            Local Checksum: $onDiskCheckSum
+            Remote Checksum: $it
+          """.trimIndent())
           AssetChangedStatus.DIFFERENT
         }
       }.orElseGet { AssetChangedStatus.LUL_DUNNO }
@@ -241,9 +247,9 @@ class StickerServiceImpl : StickerService {
     computeCheckSum(Files.readAllBytes(weebStuff))
 
   private fun computeCheckSum(byteArray: ByteArray): String {
+    val messageDigest = MessageDigest.getInstance("MD5")
     messageDigest.update(byteArray)
-    val digest = messageDigest.digest()
-    return DatatypeConverter.printHexBinary(digest).toLowerCase()
+    return toHexString(messageDigest.digest())
   }
 
   private fun getRemoteStickerUrl(dokiTheme: DokiTheme): Optional<String> =

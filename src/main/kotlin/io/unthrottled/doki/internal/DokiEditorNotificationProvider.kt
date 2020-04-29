@@ -17,9 +17,6 @@ class DokiEditorNotificationProvider : EditorNotifications.Provider<EditorNotifi
 
   override fun getKey(): Key<EditorNotificationPanel> = PROVIDER_KEY
 
-  override fun createNotificationPanel(file: VirtualFile, fileEditor: FileEditor): EditorNotificationPanel? =
-    buildNotification()
-
   private fun buildNotification(): EditorNotificationPanel? {
     if (!EditorNotificationManager.shouldShowNotification()) return null
 

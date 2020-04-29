@@ -25,6 +25,7 @@
         <option name="CONSOLE_BACKGROUND_KEY" value="$textEditorBackground$" />
         <option name="DELETED_LINES_COLOR" value="656565" />
         <option name="DOCUMENTATION_COLOR" value="$headerColor$" />
+        <option name="DIFF_SEPARATORS_BACKGROUND" value="%accentColor%2a"/>
         <option name="ERROR_HINT" value="704745" />
         <option name="FILESTATUS_ADDED" value="10b15a" />
         <option name="FILESTATUS_COPIED" value="10b15a" />
