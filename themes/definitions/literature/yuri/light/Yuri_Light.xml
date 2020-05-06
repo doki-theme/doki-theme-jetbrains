@@ -1,4 +1,4 @@
-<scheme name="Emilia Light" version="142" parent_scheme="Doki Light">
+<scheme name="Yuri Light" version="142" parent_scheme="Doki Light">
     <colors>
         <option name="ScrollBar.Mac.Transparent.hoverThumbBorderColor" value="$accentColorTransparent$" />
         <option name="ScrollBar.Mac.Transparent.hoverThumbColor" value="$accentColorTransparent$" />
