@@ -357,9 +357,13 @@ open class BuildThemes : DefaultTask() {
       "doki",
       "themes"
     )
-    walk(themeDirectory)
-      .sorted(Comparator.reverseOrder())
-      .forEach(Files::delete)
+    if(Files.notExists(themeDirectory)) {
+      createDirectories(themeDirectory)
+    } else {
+      walk(themeDirectory)
+        .sorted(Comparator.reverseOrder())
+        .forEach(Files::delete)
+    }
   }
 
   private fun getResourceDirectory(masterThemeDefinition: DokiBuildMasterThemeDefinition): Path = get(
