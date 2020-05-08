@@ -5,8 +5,10 @@
     "file": "Sayori_Light.xml"
   },
   "overrides": {
-    "colors": {
-      "accentColor": "#467290"
+    "editorScheme": {
+      "colors": {
+        "accentColor": "#2e7093"
+      }
     }
   },
   "ui": {
