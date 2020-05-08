@@ -1,6 +1,16 @@
 # Changelog
 ---
 
+# 7.2.0
+
+- Revisited most of the light themes so they are all consistent with the other themes.
+  - Themes affected:
+    - Light Monika
+    - Light Natsuki
+    - Light Yuri
+    - Light Sayori
+    - Beatrice
+
 # 7.1.2
 
 - Many Non-Functional changes.
