@@ -207,10 +207,8 @@ class TitlePaneUI : DarculaRootPaneUI() {
 }
 
 private fun isInFullScreen(window: Window?): Boolean {
-  val ultimateParent = UIUtil.findUltimateParent(window)
-  if (ultimateParent == window && ultimateParent is IdeFrame) {
-    val ultimateParentWindowForEvent = ultimateParent as IdeFrame
-    return ultimateParentWindowForEvent.isInFullScreen
+  return when (val parent = UIUtil.findUltimateParent(window)) {
+    is IdeFrame -> parent.isInFullScreen
+    else -> false
   }
-  return false
 }
