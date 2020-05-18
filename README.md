@@ -53,30 +53,28 @@ Also, giving it a good [review on the plugins page](https://plugins.jetbrains.co
 Feel free to submit your feedback as [an issue](https://github.com/Unthrottled/doki-theme-jetbrains/issues/new).
 Help make this plugin better! 
 
-## Missing Something?
+## Want updates sooner?
 
-Be sure to checkout the [project wiki!](https://github.com/Unthrottled/doki-theme-jetbrains/wiki)
+I have a [canary release channel](https://github.com/Unthrottled/jetbrains-plugin-repository) that you can set up to get the latest and greatest!
 
 
-# More!
+# Even more Doki-Theme!
 
+![VS Code](./assets/vs_code_logo.png)
 ## VS Code
 
-Hey! Did you know The Doki Theme is also available in VSCode? Then be sure to install [the VSCode Doki Theme plugin as well!](https://github.com/Unthrottled/doki-theme-vscode)
+The Doki Theme is also [available in VSCode!](https://github.com/Unthrottled/doki-theme-vscode)
+Because Jetbrains cannot provide every feature, make your VSCode editor more familiar.
 
-## Hyper 
+![Hyper.js Terminal](./assets/hyper_logo.png)
+## Hyper.js
 
 Enhance your command line experience! Install [the Doki Theme for Hyper!](https://github.com/Unthrottled/doki-theme-hyper)
 
 ---
 
 <div align="center">
-    <img src="https://doki.assets.unthrottled.io/misc/logo.png" alt="Just Monika"></img>
+    <img src="https://doki.assets.unthrottled.io/misc/logo.svg" ></img>
 </div>
 
----
-<div align="center">
-    <h3 style="color: pink;">Ṱ͙̠͔́̈́͐̇h̳̳̗̘͂̇́̊e̮̰̼̮̿́̋͗ ̝͇͎̱̊̚̕͝o͙͈̼̜̓̀̉̀n͚̩̣̣̅̍̐̈́l̻̺̩̠͋̑̎͠y̧̱̘͕̿͐̎͘ ̧͎̹̙̓̅̈́͆t̢͔̩̮́̐̕͠h̨͓͔͉̿́͑͝é̹̙̤̮̀̍̈m̙̥̙̺̋̾͑̊e̳̗̖̩̽͐͆͒s͖̰͎̏̍̓̈́ͅ ͎̻͔͍͗͒̾̀y̢̻̜͎̾̄͒̋o̗̝̮̞͛̿̏͐ǔ̥̜̹̘̓̿̕ ̢̛̫͕͔̎̂́ẻ̲̜̰͙̍̌͑v̜̻̗̥̈́̓̈́̔e̡͚͇̫̎̆̋͑r̺̮͓̳̍̊͗̋ ̻̻̣̹͋͑́̈́ǹ̨̲͚͇̒̆͘e̗͉̫̱͂͑͗̓e̳̬̬͈̓̊̂͘d̪̻̞̮̈͂͠͝.͍͇͍̫̒͆̓͝</h3>
-</div>
 
----
