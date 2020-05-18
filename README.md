@@ -64,7 +64,7 @@ I have a [canary release channel](https://github.com/Unthrottled/jetbrains-plugi
 ## VS Code
 
 The Doki Theme is also [available in VSCode!](https://github.com/Unthrottled/doki-theme-vscode)
-Because Jetbrains cannot provide every feature, make your VSCode editor more familiar.
+Make your VSCode editor more familiar!
 
 ![Hyper.js Terminal](./assets/hyper_logo.png)
 ## Hyper.js
