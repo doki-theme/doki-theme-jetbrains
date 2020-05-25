@@ -1,0 +1,13 @@
+{
+  "id": "774ec7ad-d6a0-4d9c-b195-2f54d72ab664",
+  "editorScheme": {
+    "type": "template",
+    "name": "Doki Light"
+  },
+  "overrides": {
+    "editorScheme": {
+      "colors": {}
+    }
+  },
+  "ui": {}
+}
