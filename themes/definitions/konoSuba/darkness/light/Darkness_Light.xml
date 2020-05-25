@@ -1,0 +1,11 @@
+<scheme name="Neera" version="142" parent_scheme="Doki Light v2">
+    <colors>
+    </colors>
+    <attributes>
+        <option name="DEFAULT_STRING">
+            <value>
+                <option name="FOREGROUND" value="f0a333"/>
+            </value>
+        </option>
+    </attributes>
+</scheme>
