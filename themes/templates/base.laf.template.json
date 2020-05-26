@@ -156,6 +156,7 @@
     "Notification.ToolWindow.warningBorderColor": "borderColor",
     "Notification.ToolWindow.errorBorderColor": "borderColor",
     "TextField.borderColor": "borderColor",
+    "Tooltip.separatorColor": "borderColor",
     "ParameterInfo.borderColor": "borderColor",
     "Plugins.SearchField.borderColor": "borderColor",
     "Popup.Advertiser.borderColor": "borderColor",
