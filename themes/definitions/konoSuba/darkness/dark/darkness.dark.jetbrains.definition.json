@@ -2,11 +2,17 @@
   "id": "774ec7ad-d6a0-4d9c-b195-2f54d72ab664",
   "editorScheme": {
     "type": "template",
-    "name": "Doki Light"
+    "name": "Doki Dark"
   },
   "overrides": {
     "editorScheme": {
-      "colors": {}
+      "colors": {
+        "accentColor": "#ff9d2b",
+        "startColor": "#6899ee",
+        "nonProjectFileScopeColor": "#343635",
+        "testScopeColor": "#2f393a"
+      }
+
     }
   },
   "ui": {}
