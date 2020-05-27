@@ -372,7 +372,33 @@
     "ToolWindow.HeaderTab.underlineColor":"accentColor",
     "Tree.modifiedItemForeground": "accentColor",
     "VersionControl.GitLog.localBranchIconColor":"accentColor",
-    "VersionControl.HgLog.branchIconColor": "accentColor"
+    "VersionControl.HgLog.branchIconColor": "accentColor",
+
+    "Menu.disabledForeground": "disabledColor",
+    "Button.disabledText": "disabledColor",
+    "CheckBox.disabledText": "disabledColor",
+    "CheckBoxMenuItem.disabledForeground": "disabledColor",
+    "MenuItem.disabledForeground": "disabledColor",
+    "MenuBar.disabledForeground": "disabledColor",
+    "ComboBox.disabledForeground": "disabledColor",
+    "ParameterInfo.disabledForeground": "disabledColor",
+    "Plugins.disabledForeground": "disabledColor",
+    "RadioButton.disabledText": "disabledColor",
+    "TabbedPane.disabledForeground": "disabledColor",
+    "ToggleButton.disabledText": "disabledColor",
+    "RadioButtonMenuItem.disabledForeground": "disabledColor",
+    "Label.disabledForeground": "disabledColor",
+    "Label.disabledText": "disabledColor",
+
+    "Component.infoForeground": "infoForeground",
+    "CompletionPopup.infoForeground": "infoForeground",
+    "GutterTooltip.infoForeground": "infoForeground",
+    "HelpTooltip.infoForeground": "infoForeground",
+    "SearchEverywhere.SearchField.infoForeground": "infoForeground",
+    "TitlePane.infoForeground": "infoForeground",
+    "ToolTip.infoForeground": "infoForeground",
+    "ToolTip.Actions.infoForeground": "infoForeground",
+    "Label.infoForeground": "infoForeground"
   },
   "icons": {
     "ColorPalette": {
