@@ -12,14 +12,14 @@ import com.intellij.openapi.project.Project
 val UPDATE_MESSAGE: String = """
       What's New?<br>
       <ul>
-        <li>Updated the light themes.</li>
+        <li>2020.2 Build Support</li>
       </ul>
       <br>Please see the <a href="https://github.com/Unthrottled/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md">Changelog</a> for more details.
       <br>
       Thanks again for downloading <b>The Doki Theme</b>! •‿•<br>
 """.trimIndent()
 
-const val CURRENT_VERSION = "7.2.0"
+const val CURRENT_VERSION = "7.2.1"
 
 object UpdateNotification {
 
