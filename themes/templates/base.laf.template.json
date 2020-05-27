@@ -109,6 +109,7 @@
     "text": "foregroundColor",
     "TextArea.foreground": "foregroundColor",
     "TextField.foreground": "foregroundColor",
+    "Notification.foreground": "foregroundColor",
     "TextPane.foreground": "foregroundColor",
     "textText": "foregroundColor",
     "TitledBorder.titleColor": "foregroundColor",
