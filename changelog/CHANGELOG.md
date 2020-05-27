@@ -1,6 +1,10 @@
 # Changelog
 ---
 
+# 7.2.1
+
+- 2020.2 Build Support.
+
 # 7.2.0
 
 - Revisited most of the light themes so they are all consistent with the other themes.
