@@ -169,6 +169,8 @@
     "SearchEverywhere.SearchField.borderColor": "borderColor",
     "Slider.buttonBorderColor": "borderColor",
     "StatusBar.borderColor": "borderColor",
+    "TableHeader.separatorColor": "borderColor",
+    "TableHeader.bottomSeparatorColor": "borderColor",
     "ToolBar.borderHandleColor": "borderColor",
     "ToolWindow.Header.borderColor": "borderColor",
     "ValidationTooltip.errorBorderColor": "borderColor",
