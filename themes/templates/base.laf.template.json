@@ -75,6 +75,7 @@
     "darcula.textForeground": "foregroundColor",
     "DefaultTabs.underlinedTabForeground": "foregroundColor",
     "DesktopIcon.foreground": "foregroundColor",
+    "DragAndDrop.areaForeground": "foregroundColor",
     "EditorPane.foreground": "foregroundColor",
     "EditorPane.inactiveForeground": "foregroundColor",
     "EditorTabs.underlinedTabForeground": "foregroundColor",
@@ -350,7 +351,7 @@
     "Link.pressedForeground":"accentColor",
     "Link.visitedForeground":"accentColor",
     "Notification.errorForeground":"accentColor",
-	"ParameterInfo.currentParameterForeground":"accentColor",
+	  "ParameterInfo.currentParameterForeground":"accentColor",
     "ParameterInfo.infoForeground": "accentColor",
     "PasswordField.caretForeground":"accentColor",
     "Plugins.tagForeground": "accentColor",
@@ -399,6 +400,9 @@
     "TitlePane.infoForeground": "infoForeground",
     "ToolTip.infoForeground": "infoForeground",
     "ToolTip.Actions.infoForeground": "infoForeground",
+    "Plugins.SectionHeader.foreground": "infoForeground",
+    "UIDesigner.stroke.acceleratorForeground": "infoForeground",
+    "SearchEverywhere.List.separatorForeground": "infoForeground",
     "Label.infoForeground": "infoForeground"
   },
   "icons": {
