@@ -11,6 +11,7 @@ import com.intellij.ide.util.gotoByName.CustomMatcherModel
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.fileEditor.impl.EditorComposite
 import com.intellij.openapi.fileEditor.impl.EditorHistoryManager
+import com.intellij.openapi.wm.impl.TitleInfoProvider
 import com.intellij.ui.Gray
 import com.intellij.ui.JBColor
 import com.intellij.ui.messages.JBMacMessages
@@ -45,6 +46,7 @@ object HackComponent : Disposable {
   private fun enableBackgroundConsistency() {
     hackParameterInfoBackground()
     hackSheetWindow()
+    hackToolWindowDecorator()
   }
 
   private fun hackWelcomeScreen() {
@@ -178,6 +180,27 @@ object HackComponent : Disposable {
       val ctClass = cp.get("com.intellij.ide.util.gotoByName.GotoActionModel\$GotoActionListCellRenderer")
       val init = ctClass.getDeclaredMethods(
         "getListCellRendererComponent"
+      )[0]
+      init.instrument(object : ExprEditor() {
+        override fun edit(e: MethodCall?) {
+          if (e?.methodName == "isUnderDarcula") { // dis for OptionDescription
+            e.replace("{ \$_ = true; }")
+          }
+        }
+      })
+      ctClass.toClass()
+    } catch (e: Exception) {
+      e.printStackTrace()
+    }
+  }
+
+  private fun hackToolWindowDecorator() {
+    try {
+      val cp = ClassPool(true)
+      cp.insertClassPath(ClassClassPath(TitleInfoProvider::class.java))
+      val ctClass = cp.get("com.intellij.openapi.wm.impl.ToolWindowHeader")
+      val init = ctClass.getDeclaredMethods(
+        "paintChildren"
       )[0]
       init.instrument(object : ExprEditor() {
         override fun edit(e: MethodCall?) {
