@@ -45,7 +45,8 @@ data class DokiBuildMasterThemeDefinition(
   val group: String,
   val product: String?,
   val stickers: BuildStickers,
-  val colors: Map<String, Any>
+  val colors: Map<String, Any>,
+  val meta: Map<String, String>?
 ) {
   val usableName: String
     get() = name.replace(' ', '_')
@@ -63,5 +64,6 @@ data class JetbrainsThemeDefinition(
   val stickers: BuildStickers,
   val colors: Map<String, Any>,
   val ui: Map<String, Any>,
-  val icons: Map<String, Any>
+  val icons: Map<String, Any>,
+  val meta: Map<String, String>
 )

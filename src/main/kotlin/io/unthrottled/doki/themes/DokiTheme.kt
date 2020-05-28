@@ -19,7 +19,8 @@ class DokiThemeDefinition(
   val stickers: Stickers,
   val group: String,
   val colors: Map<String, Any>,
-  val ui: Map<String, Any>
+  val ui: Map<String, Any>,
+  val meta: Map<String, String>
 )
 
 class DokiTheme(private val uiTheme: DokiThemeDefinition) {

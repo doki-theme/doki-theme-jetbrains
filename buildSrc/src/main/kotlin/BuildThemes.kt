@@ -271,7 +271,8 @@ open class BuildThemes : DefaultTask() {
         topThemeDefinition,
         dokiThemeTemplates
       ),
-      icons = getIcons(resolvedNamedColors, topThemeDefinition, dokiThemeTemplates)
+      icons = getIcons(resolvedNamedColors, topThemeDefinition, dokiThemeTemplates),
+      meta = themeDefinition.meta ?: Collections.emptyMap()
     )
 
     newBufferedWriter(themeJson, StandardOpenOption.CREATE_NEW)
