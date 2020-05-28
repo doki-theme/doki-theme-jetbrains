@@ -10,7 +10,7 @@
     }
   },
   "ui": {
-    "Button.paintShadow": false,
+    "Plugins.tagForeground": "foregroundColor",
     "ToolWindow.Button.selectedForeground": "foregroundColor"
   }
 }

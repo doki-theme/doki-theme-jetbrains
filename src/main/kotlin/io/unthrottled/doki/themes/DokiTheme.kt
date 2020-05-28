@@ -54,6 +54,9 @@ class DokiTheme(private val uiTheme: DokiThemeDefinition) {
     getStickerPath()
       .map { it.substring(it.lastIndexOf("/") + 1) }
 
+  val isVivid: Boolean
+    get() = uiTheme.meta.getOrDefault("isVivid", "false") == "true"
+
   val nonProjectFileScopeColor: String
     get() = uiTheme.colors["nonProjectFileScopeColor"] as? String
       ?: throw IllegalStateException("Expected 'colors.nonProjectFileScopeColor' to be present in $name theme json")

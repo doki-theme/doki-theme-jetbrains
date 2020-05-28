@@ -19,6 +19,7 @@
     "EditorPane.background" : "baseBackground",
     "Plugins.background": "baseBackground",
     "control": "baseBackground",
+    "Plugins.Button.installFillBackground":"baseBackground",
 
     "UIDesigner.Canvas.background": "editorBackground",
     "Content.background": "editorBackground",
@@ -375,6 +376,10 @@
     "Tree.modifiedItemForeground": "accentColor",
     "VersionControl.GitLog.localBranchIconColor":"accentColor",
     "VersionControl.HgLog.branchIconColor": "accentColor",
+    "Plugins.Button.installFillForeground": "accentColor",
+    "Plugins.Button.installFocusedBackground":"accentColor",
+    "Plugins.Button.installBorderColor":"accentColor",
+    "Plugins.Button.installForeground": "accentColor",
 
     "Menu.disabledForeground": "disabledColor",
     "Button.disabledText": "disabledColor",
@@ -403,7 +408,9 @@
     "Plugins.SectionHeader.foreground": "infoForeground",
     "UIDesigner.stroke.acceleratorForeground": "infoForeground",
     "SearchEverywhere.List.separatorForeground": "infoForeground",
-    "Label.infoForeground": "infoForeground"
+    "Label.infoForeground": "infoForeground",
+
+    "Button.paintShadow": false
   },
   "icons": {
     "ColorPalette": {

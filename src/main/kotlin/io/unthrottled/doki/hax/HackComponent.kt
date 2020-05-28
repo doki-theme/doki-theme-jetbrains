@@ -11,6 +11,7 @@ import com.intellij.ide.util.gotoByName.CustomMatcherModel
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.fileEditor.impl.EditorComposite
 import com.intellij.openapi.fileEditor.impl.EditorHistoryManager
+import com.intellij.ui.Gray
 import com.intellij.ui.JBColor
 import com.intellij.ui.messages.JBMacMessages
 import io.unthrottled.doki.hax.FeildHacker.setFinalStatic
@@ -194,6 +195,7 @@ object HackComponent : Disposable {
   fun hackLAF() {
     enableSwitcherLafConsistency()
     enableLafBorderConsistency()
+    enableForegroundConsistency()
   }
 
   private fun enableLafBorderConsistency() {
@@ -204,6 +206,20 @@ object HackComponent : Disposable {
     try {
       val naughtySelectionColor = TipPanel::class.java.getDeclaredField("DIVIDER_COLOR")
       val namedColor = JBColor.namedColor("Borders.color", 0xf2f2f2)
+      setFinalStatic(naughtySelectionColor, namedColor)
+    } catch (e: Throwable) {
+      e.printStackTrace()
+    }
+  }
+
+  private fun enableForegroundConsistency() {
+    hackColors()
+  }
+
+  private fun hackColors() {
+    try {
+      val naughtySelectionColor = JBColor::class.java.getDeclaredField("GRAY")
+      val namedColor = JBColor.namedColor("Label.infoForeground", Gray._128)
       setFinalStatic(naughtySelectionColor, namedColor)
     } catch (e: Throwable) {
       e.printStackTrace()
