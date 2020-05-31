@@ -7,6 +7,7 @@ import com.intellij.json.psi.JsonStringLiteral
 import com.intellij.json.psi.impl.JsonPsiImplUtils.isPropertyName
 import com.intellij.lang.annotation.AnnotationHolder
 import com.intellij.lang.annotation.Annotator
+import com.intellij.lang.annotation.HighlightSeverity
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.CommonDataKeys
@@ -41,9 +42,10 @@ class DokiThemeColorAnnotator : Annotator {
         holder.currentAnnotationSession.file
       )
     ) return
-    val annotation = holder.createInfoAnnotation(element, null)
+    val annotation = holder.newAnnotation(HighlightSeverity.INFORMATION, "")
     val literal = element as JsonStringLiteral
-    annotation.gutterIconRenderer = ColorBoxRenderer(literal.value, literal)
+    annotation.gutterIconRenderer(ColorBoxRenderer(literal.value, literal))
+    annotation.create()
   }
 
   private class ColorBoxRenderer internal constructor(
