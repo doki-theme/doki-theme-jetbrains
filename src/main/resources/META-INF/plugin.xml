@@ -29,7 +29,7 @@
         &lt;br/&gt;
         &lt;div align="center"&gt;&lt;img src="https://doki.assets.unthrottled.io/misc/logo.png" alt="Doki Theme"/&gt;&lt;/div&gt;
         </description>
-  <idea-version since-build="201.3803.32"/>
+  <idea-version since-build="201.5985.32"/>
   <depends>com.intellij.modules.platform</depends>
   <depends>com.intellij.modules.lang</depends>
   <extensions defaultExtensionNs="com.intellij">
@@ -40,7 +40,7 @@
     <applicationConfigurable id="0d570cb2-96df-43cc-80da-7f777e6d0afe" instance="io.unthrottled.doki.settings.ThemeSettings" groupId="appearance"/>
     <errorHandler id="9782e40c-e6d2-488f-8611-71f5cca6695e" implementation="io.unthrottled.doki.integrations.ErrorReporter"/>
     <iconProvider implementation="io.unthrottled.doki.icon.provider.MaterialIconProvider" order="first"/>
-    <statusBarWidgetProvider implementation="io.unthrottled.doki.ui.status.ThemeStatusBarProvider"/>
+    <statusBarWidgetFactory implementation="io.unthrottled.doki.ui.status.ThemeStatusBarProvider"/>
     <editorNotificationProvider implementation="io.unthrottled.doki.internal.DokiEditorNotificationProvider"/>
     <themeMetadataProvider path="/theme-schema/DokiTheme.themeMetadata.json"/>
     <themeProvider id="3a78b13e-dbf2-410f-bb20-12b57bff7735" path="/doki/themes/kill_la_kill/Satsuki.theme.json"/>
