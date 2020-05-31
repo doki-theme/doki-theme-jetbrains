@@ -52,7 +52,7 @@ class ThemeSettings : SearchableConfigurable {
     const val REPOSITORY = "https://github.com/Unthrottled/doki-theme-jetbrains"
     const val ULTIMATE_INSTRUCTIONS = "$REPOSITORY/wiki/Ultimate-Theme-Setup"
     val ISSUES_URI = URI("$REPOSITORY/issues")
-    val MARKETPLACE_URI = URI("https://plugins.jetbrains.com/plugin/10804-the-doki-doki-theme")
+    val REVIEW_URI = URI("https://plugins.jetbrains.com/plugin/10804-the-doki-theme/reviews")
   }
 
   override fun getId(): String = "io.unthrottled.doki.settings.ThemeSettings"
@@ -272,8 +272,8 @@ class ThemeSettings : SearchableConfigurable {
             button("View Changelog") {
               browse(CHANGELOG_URI)
             }
-            button("Marketplace Homepage") {
-              browse(MARKETPLACE_URI)
+            button("Rate and Review") {
+              browse(REVIEW_URI)
             }
           }
         }
