@@ -59,6 +59,7 @@ class ThemeStatusBarWidget(private val project: Project) :
 
   override fun install(statusBar: StatusBar) {
     myStatusBar = statusBar
+    statusBar.updateWidget(ID)
   }
 
   override fun dispose() {

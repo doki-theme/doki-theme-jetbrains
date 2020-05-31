@@ -1,6 +1,11 @@
 # Changelog
 ---
 
+# 7.2.2 [Non-Functional]
+
+- Migrated away from deprecated platform APIs.
+- Made version upgrades more maintainable.
+
 # 7.2.1
 
 - 2020.2 Build Support.
