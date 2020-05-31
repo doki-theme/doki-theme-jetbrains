@@ -19,8 +19,6 @@ val UPDATE_MESSAGE: String = """
       Thanks again for downloading <b>The Doki Theme</b>! •‿•<br>
 """.trimIndent()
 
-const val CURRENT_VERSION = "7.2.1"
-
 object UpdateNotification {
 
   private val notificationManager by lazy {
@@ -46,13 +44,16 @@ object UpdateNotification {
     )
   }
 
-  fun display(project: Project) {
+  fun display(
+    project: Project,
+    newVersion: String
+  ) {
     val pluginName =
       getPlugin(
         getPluginOrPlatformByClassName(UpdateNotification::class.java.canonicalName)
       )?.name
     notificationManager.notify(
-      "$pluginName updated to v$CURRENT_VERSION",
+      "$pluginName updated to v$newVersion",
       UPDATE_MESSAGE,
       project,
       NotificationListener.URL_OPENING_LISTENER
