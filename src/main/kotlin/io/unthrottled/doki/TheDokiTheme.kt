@@ -13,6 +13,7 @@ import io.unthrottled.doki.hax.HackComponent.hackLAF
 import io.unthrottled.doki.hax.SvgLoaderHacker.setSVGColorPatcher
 import io.unthrottled.doki.icon.patcher.MaterialPathPatcherManager.attemptToAddIcons
 import io.unthrottled.doki.icon.patcher.MaterialPathPatcherManager.attemptToRemoveIcons
+import io.unthrottled.doki.integrations.SentryReporter
 import io.unthrottled.doki.laf.DokiAddFileColorsAction.setFileScopes
 import io.unthrottled.doki.laf.FileScopeColors.attemptToInstallColors
 import io.unthrottled.doki.laf.FileScopeColors.attemptToRemoveColors
@@ -35,9 +36,9 @@ class TheDokiTheme : Disposable {
   private val connection = ApplicationManager.getApplication().messageBus.connect()
 
   init {
+    SentryReporter.toString()
     setSVGColorPatcher()
     hackLAF()
-
     installAllUIComponents()
 
     ThemeMigrator.migrateLegacyTheme()

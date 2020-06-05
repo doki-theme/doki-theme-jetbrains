@@ -16,6 +16,9 @@ import com.intellij.openapi.util.io.FileUtilRt
 import com.intellij.openapi.util.registry.Registry
 import com.intellij.util.Consumer
 import com.intellij.util.text.DateFormatUtil
+import io.sentry.Sentry
+import io.sentry.event.BreadcrumbBuilder
+import io.sentry.event.UserBuilder
 import io.unthrottled.doki.config.ThemeConfig
 import org.apache.http.client.methods.HttpPost
 import org.apache.http.entity.ContentType
@@ -24,8 +27,55 @@ import org.apache.http.impl.client.HttpClients
 import java.awt.Component
 import java.lang.management.ManagementFactory
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Arrays
 import java.util.stream.Collectors
+
+object SentryReporter {
+  fun initialize() {
+
+  }
+
+  init {
+    Sentry.init("https://54daf566d8854f7d98e4c09ced2d34c5@o403546.ingest.sentry.io/5266340")
+
+    Sentry.getContext().recordBreadcrumb(
+      BreadcrumbBuilder().setMessage("User made an action").build()
+    )
+
+    // Set the user in the current context.
+
+    // Set the user in the current context.
+    Sentry.getContext().user = UserBuilder().setEmail("hello@sentry.io").build()
+
+    // Add extra data to future events in this context.
+
+    // Add extra data to future events in this context.
+    Sentry.getContext().addExtra("extra", "thing")
+
+    // Add an additional tag to future events in this context.
+
+    // Add an additional tag to future events in this context.
+    Sentry.getContext().addTag("tagName", "tagValue")
+
+    /*
+       This sends a simple event to Sentry using the statically stored instance
+       that was created in the ``main`` method.
+       */
+
+    /*
+       This sends a simple event to Sentry using the statically stored instance
+       that was created in the ``main`` method.
+       */
+//    Sentry.capture("This is a test")
+
+    try {
+      throw RuntimeException("Yeet!")
+    } catch (e: RuntimeException) {
+//      Sentry.capture(e)
+    }
+  }
+}
+
 
 class ErrorReporter : ErrorReportSubmitter() {
   companion object {
