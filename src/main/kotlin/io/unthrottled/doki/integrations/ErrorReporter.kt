@@ -36,10 +36,9 @@ class ErrorReporter : ErrorReportSubmitter() {
     consumer: Consumer<SubmittedReportInfo>
   ): Boolean {
     return try {
-      Sentry.getContext().user =
-        UserBuilder().setUsername(ThemeConfig.instance.userId).build()
-      val systemInfo = getSystemInfo()
       events.forEach {
+        Sentry.getContext().user =
+          UserBuilder().setId(ThemeConfig.instance.userId).build()
         Sentry.getContext().addExtra(
           "Message",
           it.message
@@ -54,10 +53,9 @@ class ErrorReporter : ErrorReportSubmitter() {
             additionalInfo
           )
         }
-        Sentry.getContext().addExtra(
-          "System Info", systemInfo
-        )
+        addSystemInfo()
         Sentry.capture(it.throwable)
+        Sentry.clearContext()
       }
       true
     } catch (e: Exception) {
@@ -65,13 +63,12 @@ class ErrorReporter : ErrorReportSubmitter() {
     }
   }
 
-  private fun getSystemInfo(): String {
-    val myInfo = StringBuilder()
+  private fun addSystemInfo() {
     val appInfo = ApplicationInfoEx.getInstanceEx() as ApplicationInfoImpl
     var appName = appInfo.fullApplicationName
     val edition = ApplicationNamesInfo.getInstance().editionName
     if (edition != null) appName += " ($edition)"
-    myInfo.append(appName).append("\n")
+    Sentry.getContext().addExtra("App Name", appName)
 
     var buildInfo = IdeBundle.message("about.box.build.number", appInfo.build.asString())
     val cal = appInfo.buildDate
@@ -81,37 +78,35 @@ class ErrorReporter : ErrorReportSubmitter() {
     }
     buildDate += DateFormatUtil.formatAboutDialogDate(cal.time)
     buildInfo += IdeBundle.message("about.box.build.date", buildDate)
-    myInfo.append(buildInfo).append("\n")
+    Sentry.getContext().addExtra("Build Info", buildInfo)
 
     val properties = System.getProperties()
     val javaVersion = properties.getProperty("java.runtime.version", properties.getProperty("java.version", "unknown"))
     val arch = properties.getProperty("os.arch", "")
-    myInfo.append(IdeBundle.message("about.box.jre", javaVersion, arch)).append("\n")
+    Sentry.getContext().addExtra("JRE", IdeBundle.message("about.box.jre", javaVersion, arch))
 
     val vmVersion = properties.getProperty("java.vm.name", "unknown")
     val vmVendor = properties.getProperty("java.vendor", "unknown")
-    myInfo.append(IdeBundle.message("about.box.vm", vmVersion, vmVendor)).append("\n")
+    Sentry.getContext().addExtra("VM", IdeBundle.message("about.box.vm", vmVersion, vmVendor))
 
-    return """$myInfo${extraInfo()}
-      |Current Laf: ${LafManager.getInstance().currentLookAndFeel?.name}
-      |Doki-Doki Config: ${ThemeConfig.instance.asJson()}""".trimMargin()
-  }
-
-  private fun extraInfo(): String {
-    return SystemInfo.getOsNameAndVersion() + "\n" +
-      "GC: " + ManagementFactory.getGarbageCollectorMXBeans().stream()
-      .map<String> { it.name }.collect(Collectors.joining(",")) + "\n" +
-
-      "Memory: " + Runtime.getRuntime().maxMemory() / FileUtilRt.MEGABYTE + "M" + "\n" +
-
-      "Cores: " + Runtime.getRuntime().availableProcessors() + "\n" +
-
-      "Registry: " + Registry.getAll().stream().filter { it.isChangedFromDefault }
-      .map { v -> v.key + "=" + v.asString() }.collect(Collectors.joining(",")) + "\n" +
-
-      "Non-Bundled Plugins: " + Arrays.stream(PluginManagerCore.getPlugins())
+    Sentry.getContext().addExtra("System Info", SystemInfo.getOsNameAndVersion())
+    Sentry.getContext().addExtra(
+      "GC", ManagementFactory.getGarbageCollectorMXBeans().stream()
+        .map { it.name }.collect(Collectors.joining(","))
+    )
+    Sentry.getContext().addExtra("Memory", Runtime.getRuntime().maxMemory() / FileUtilRt.MEGABYTE)
+    Sentry.getContext().addExtra("Cores", Runtime.getRuntime().availableProcessors())
+    Sentry.getContext().addExtra("Registry", Registry.getAll().stream().filter { it.isChangedFromDefault }
+      .map { v -> v.key + "=" + v.asString() }.collect(Collectors.joining(",")))
+    Sentry.getContext().addExtra("Non-Bundled Plugins", Arrays.stream(PluginManagerCore.getPlugins())
       .filter { p -> !p.isBundled && p.isEnabled }
       .map { p -> p.pluginId.idString }.collect(Collectors.joining(","))
+    )
+
+
+    Sentry.getContext().addExtra("Current LAF", LafManager.getInstance().currentLookAndFeel?.name)
+
+    Sentry.getContext().addExtra("Doki Config", ThemeConfig.instance.asJson())
   }
 }
 
