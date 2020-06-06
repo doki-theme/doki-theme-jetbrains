@@ -20,6 +20,7 @@ class ThemeConfig : PersistentStateComponent<ThemeConfig>, Cloneable {
       get() = ServiceManager.getService(ThemeConfig::class.java)
   }
 
+  var userId: String = ""
   var isLafAnimation: Boolean = false
   var isNotShowReadmeAtStartup: Boolean = false
   var version: String = "0.0.0"

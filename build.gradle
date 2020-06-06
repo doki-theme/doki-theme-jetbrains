@@ -7,7 +7,7 @@ plugins {
 }
 
 group 'io.unthrottled'
-version '7.2.2'
+version '7.2.3'
 
 repositories {
   maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
@@ -18,6 +18,11 @@ dependencies {
   implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
   implementation 'commons-io:commons-io:2.6'
   implementation 'org.javassist:javassist:3.21.0-GA'
+  implementation 'io.sentry:sentry:1.7.30'
+}
+
+configurations {
+  implementation.exclude group: 'org.slf4j'
 }
 
 intellij {

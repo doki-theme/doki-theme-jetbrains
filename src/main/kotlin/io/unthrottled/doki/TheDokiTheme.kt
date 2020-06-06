@@ -8,6 +8,7 @@ import com.intellij.openapi.extensions.PluginId
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.project.ProjectManager
 import com.intellij.openapi.project.ProjectManagerListener
+import io.sentry.Sentry
 import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.hax.HackComponent.hackLAF
 import io.unthrottled.doki.hax.SvgLoaderHacker.setSVGColorPatcher
@@ -25,9 +26,15 @@ import io.unthrottled.doki.util.ThemeMigrator
 import io.unthrottled.doki.util.doOrElse
 import io.unthrottled.doki.util.toOptional
 import java.util.Optional
+import java.util.UUID
 
 class TheDokiTheme : Disposable {
   companion object {
+
+    init {
+      Sentry.init("https://54daf566d8854f7d98e4c09ced2d34c5@o403546.ingest.sentry.io/5266340?maxmessagelength=50000")
+    }
+
     const val COMMUNITY_PLUGIN_ID = "io.acari.DDLCTheme"
     const val ULTIMATE_PLUGIN_ID = "io.unthrottled.DokiTheme"
   }
@@ -35,9 +42,9 @@ class TheDokiTheme : Disposable {
   private val connection = ApplicationManager.getApplication().messageBus.connect()
 
   init {
+    registerUser()
     setSVGColorPatcher()
     hackLAF()
-
     installAllUIComponents()
 
     ThemeMigrator.migrateLegacyTheme()
@@ -81,6 +88,12 @@ class TheDokiTheme : Disposable {
           }
       }
     })
+  }
+
+  private fun registerUser() {
+    if (ThemeConfig.instance.userId.isEmpty()) {
+      ThemeConfig.instance.userId = UUID.randomUUID().toString()
+    }
   }
 
   private fun getVersion(): Optional<String> =
