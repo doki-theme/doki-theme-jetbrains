@@ -15,6 +15,7 @@ import com.intellij.openapi.util.registry.Registry
 import com.intellij.util.Consumer
 import com.intellij.util.text.DateFormatUtil
 import io.sentry.Sentry
+import io.sentry.event.EventBuilder
 import io.sentry.event.UserBuilder
 import io.unthrottled.doki.config.ThemeConfig
 import java.awt.Component
@@ -25,8 +26,6 @@ import java.util.stream.Collectors
 
 
 class ErrorReporter : ErrorReportSubmitter() {
-  companion object;
-
   override fun getReportActionText(): String = "Report Anonymously"
 
   override fun submit(
@@ -43,10 +42,6 @@ class ErrorReporter : ErrorReportSubmitter() {
           "Message",
           it.message
         )
-        Sentry.getContext().addExtra(
-          "Data",
-          it.data
-        )
         if (additionalInfo != null) {
           Sentry.getContext().addExtra(
             "Additional Info",
@@ -54,7 +49,7 @@ class ErrorReporter : ErrorReportSubmitter() {
           )
         }
         addSystemInfo()
-        Sentry.capture(it.throwable)
+        Sentry.capture(it.throwableText)
         Sentry.clearContext()
       }
       true
@@ -64,10 +59,9 @@ class ErrorReporter : ErrorReportSubmitter() {
   }
 
   private fun addSystemInfo() {
-    val appInfo = ApplicationInfoEx.getInstanceEx() as ApplicationInfoImpl
-    var appName = appInfo.fullApplicationName
-    val edition = ApplicationNamesInfo.getInstance().editionName
-    if (edition != null) appName += " ($edition)"
+    val pair = getAppName()
+    val appInfo = pair.first
+    val appName = pair.second
     Sentry.getContext().addExtra("App Name", appName)
 
     var buildInfo = IdeBundle.message("about.box.build.number", appInfo.build.asString())
@@ -107,6 +101,14 @@ class ErrorReporter : ErrorReportSubmitter() {
     Sentry.getContext().addExtra("Current LAF", LafManager.getInstance().currentLookAndFeel?.name)
 
     Sentry.getContext().addExtra("Doki Config", ThemeConfig.instance.asJson())
+  }
+
+  private fun getAppName(): Pair<ApplicationInfoImpl, String> {
+    val appInfo = ApplicationInfoEx.getInstanceEx() as ApplicationInfoImpl
+    var appName = appInfo.fullApplicationName
+    val edition = ApplicationNamesInfo.getInstance().editionName
+    if (edition != null) appName += " ($edition)"
+    return Pair(appInfo, appName)
   }
 }
 
