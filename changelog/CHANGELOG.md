@@ -1,6 +1,10 @@
 # Changelog
 ---
 
+# 7.2.3 [Non-Functional]
+
+- Migrated error reporting to https://sentry.io
+
 # 7.2.2 [Non-Functional]
 
 - Migrated away from deprecated platform APIs.
