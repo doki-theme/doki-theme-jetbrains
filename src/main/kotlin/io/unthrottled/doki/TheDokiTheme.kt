@@ -8,12 +8,12 @@ import com.intellij.openapi.extensions.PluginId
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.project.ProjectManager
 import com.intellij.openapi.project.ProjectManagerListener
+import io.sentry.Sentry
 import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.hax.HackComponent.hackLAF
 import io.unthrottled.doki.hax.SvgLoaderHacker.setSVGColorPatcher
 import io.unthrottled.doki.icon.patcher.MaterialPathPatcherManager.attemptToAddIcons
 import io.unthrottled.doki.icon.patcher.MaterialPathPatcherManager.attemptToRemoveIcons
-import io.unthrottled.doki.integrations.SentryReporter
 import io.unthrottled.doki.laf.DokiAddFileColorsAction.setFileScopes
 import io.unthrottled.doki.laf.FileScopeColors.attemptToInstallColors
 import io.unthrottled.doki.laf.FileScopeColors.attemptToRemoveColors
@@ -29,6 +29,11 @@ import java.util.Optional
 
 class TheDokiTheme : Disposable {
   companion object {
+
+    init {
+      Sentry.init("https://54daf566d8854f7d98e4c09ced2d34c5@o403546.ingest.sentry.io/5266340")
+    }
+
     const val COMMUNITY_PLUGIN_ID = "io.acari.DDLCTheme"
     const val ULTIMATE_PLUGIN_ID = "io.unthrottled.DokiTheme"
   }
@@ -36,7 +41,6 @@ class TheDokiTheme : Disposable {
   private val connection = ApplicationManager.getApplication().messageBus.connect()
 
   init {
-    SentryReporter.toString()
     setSVGColorPatcher()
     hackLAF()
     installAllUIComponents()
