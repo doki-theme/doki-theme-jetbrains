@@ -15,6 +15,7 @@ import com.intellij.openapi.util.registry.Registry
 import com.intellij.util.Consumer
 import com.intellij.util.text.DateFormatUtil
 import io.sentry.Sentry
+import io.sentry.event.Event
 import io.sentry.event.EventBuilder
 import io.sentry.event.UserBuilder
 import io.unthrottled.doki.config.ThemeConfig
@@ -22,8 +23,8 @@ import java.awt.Component
 import java.lang.management.ManagementFactory
 import java.text.SimpleDateFormat
 import java.util.Arrays
+import java.util.Properties
 import java.util.stream.Collectors
-
 
 class ErrorReporter : ErrorReportSubmitter() {
   override fun getReportActionText(): String = "Report Anonymously"
@@ -38,18 +39,15 @@ class ErrorReporter : ErrorReportSubmitter() {
       events.forEach {
         Sentry.getContext().user =
           UserBuilder().setId(ThemeConfig.instance.userId).build()
-        Sentry.getContext().addExtra(
-          "Message",
-          it.message
+        Sentry.capture(
+          addSystemInfo(
+            EventBuilder()
+              .withLevel(Event.Level.ERROR)
+              .withServerName(getAppName().second)
+              .withExtra("Message", it.message)
+              .withExtra("Additional Info", additionalInfo ?: "None")
+          ).withMessage(it.throwableText)
         )
-        if (additionalInfo != null) {
-          Sentry.getContext().addExtra(
-            "Additional Info",
-            additionalInfo
-          )
-        }
-        addSystemInfo()
-        Sentry.capture(it.throwableText)
         Sentry.clearContext()
       }
       true
@@ -58,12 +56,51 @@ class ErrorReporter : ErrorReportSubmitter() {
     }
   }
 
-  private fun addSystemInfo() {
+  private fun addSystemInfo(event: EventBuilder): EventBuilder {
     val pair = getAppName()
     val appInfo = pair.first
     val appName = pair.second
-    Sentry.getContext().addExtra("App Name", appName)
+    val properties = System.getProperties()
+    return event
+      .withExtra("App Name", appName)
+      .withExtra("Build Info", getBuildInfo(appInfo))
+      .withExtra("JRE", getJRE(properties))
+      .withExtra("VM", getVM(properties))
+      .withExtra("System Info", SystemInfo.getOsNameAndVersion())
+      .withExtra("GC", getGC())
+      .withExtra("Memory", Runtime.getRuntime().maxMemory() / FileUtilRt.MEGABYTE)
+      .withExtra("Cores", Runtime.getRuntime().availableProcessors())
+      .withExtra("Registry", getRegistry())
+      .withExtra("Non-Bundled Plugins", getNonBundledPlugins())
+      .withExtra("Current LAF", LafManager.getInstance().currentLookAndFeel?.name)
+      .withExtra("Doki Config", ThemeConfig.instance.asJson())
+  }
 
+  private fun getJRE(properties: Properties): String? {
+    val javaVersion = properties.getProperty("java.runtime.version", properties.getProperty("java.version", "unknown"))
+    val arch = properties.getProperty("os.arch", "")
+    return IdeBundle.message("about.box.jre", javaVersion, arch)
+  }
+
+  private fun getVM(properties: Properties): String? {
+    val vmVersion = properties.getProperty("java.vm.name", "unknown")
+    val vmVendor = properties.getProperty("java.vendor", "unknown")
+    return IdeBundle.message("about.box.vm", vmVersion, vmVendor)
+  }
+
+  private fun getNonBundledPlugins(): String? {
+    return Arrays.stream(PluginManagerCore.getPlugins())
+      .filter { p -> !p.isBundled && p.isEnabled }
+      .map { p -> p.pluginId.idString }.collect(Collectors.joining(","))
+  }
+
+  private fun getRegistry() = Registry.getAll().stream().filter { it.isChangedFromDefault }
+    .map { v -> v.key + "=" + v.asString() }.collect(Collectors.joining(","))
+
+  private fun getGC() = ManagementFactory.getGarbageCollectorMXBeans().stream()
+    .map { it.name }.collect(Collectors.joining(","))
+
+  private fun getBuildInfo(appInfo: ApplicationInfoImpl): String? {
     var buildInfo = IdeBundle.message("about.box.build.number", appInfo.build.asString())
     val cal = appInfo.buildDate
     var buildDate = ""
@@ -72,35 +109,7 @@ class ErrorReporter : ErrorReportSubmitter() {
     }
     buildDate += DateFormatUtil.formatAboutDialogDate(cal.time)
     buildInfo += IdeBundle.message("about.box.build.date", buildDate)
-    Sentry.getContext().addExtra("Build Info", buildInfo)
-
-    val properties = System.getProperties()
-    val javaVersion = properties.getProperty("java.runtime.version", properties.getProperty("java.version", "unknown"))
-    val arch = properties.getProperty("os.arch", "")
-    Sentry.getContext().addExtra("JRE", IdeBundle.message("about.box.jre", javaVersion, arch))
-
-    val vmVersion = properties.getProperty("java.vm.name", "unknown")
-    val vmVendor = properties.getProperty("java.vendor", "unknown")
-    Sentry.getContext().addExtra("VM", IdeBundle.message("about.box.vm", vmVersion, vmVendor))
-
-    Sentry.getContext().addExtra("System Info", SystemInfo.getOsNameAndVersion())
-    Sentry.getContext().addExtra(
-      "GC", ManagementFactory.getGarbageCollectorMXBeans().stream()
-        .map { it.name }.collect(Collectors.joining(","))
-    )
-    Sentry.getContext().addExtra("Memory", Runtime.getRuntime().maxMemory() / FileUtilRt.MEGABYTE)
-    Sentry.getContext().addExtra("Cores", Runtime.getRuntime().availableProcessors())
-    Sentry.getContext().addExtra("Registry", Registry.getAll().stream().filter { it.isChangedFromDefault }
-      .map { v -> v.key + "=" + v.asString() }.collect(Collectors.joining(",")))
-    Sentry.getContext().addExtra("Non-Bundled Plugins", Arrays.stream(PluginManagerCore.getPlugins())
-      .filter { p -> !p.isBundled && p.isEnabled }
-      .map { p -> p.pluginId.idString }.collect(Collectors.joining(","))
-    )
-
-
-    Sentry.getContext().addExtra("Current LAF", LafManager.getInstance().currentLookAndFeel?.name)
-
-    Sentry.getContext().addExtra("Doki Config", ThemeConfig.instance.asJson())
+    return buildInfo
   }
 
   private fun getAppName(): Pair<ApplicationInfoImpl, String> {
@@ -111,4 +120,3 @@ class ErrorReporter : ErrorReportSubmitter() {
     return Pair(appInfo, appName)
   }
 }
-

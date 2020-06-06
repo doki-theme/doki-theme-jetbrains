@@ -91,7 +91,7 @@ class TheDokiTheme : Disposable {
   }
 
   private fun registerUser() {
-    if(ThemeConfig.instance.userId.isEmpty()) {
+    if (ThemeConfig.instance.userId.isEmpty()) {
       ThemeConfig.instance.userId = UUID.randomUUID().toString()
     }
   }
