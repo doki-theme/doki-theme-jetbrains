@@ -1,8 +1,0 @@
-Build Notification stuff
-
-// Example
-Toolwindow
-Type:error
-Content:Build completed successfully in 7 s 851 ms
-----
-
