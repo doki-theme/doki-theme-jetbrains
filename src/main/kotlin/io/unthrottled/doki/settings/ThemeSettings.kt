@@ -95,7 +95,6 @@ class ThemeSettings : SearchableConfigurable {
     ApplicationManager.getApplication().messageBus.syncPublisher(
       THEME_CONFIG_TOPIC
     ).themeConfigUpdated(ThemeConfig.instance)
-    throw RuntimeException("Yeet!")
   }
 
   override fun createComponent(): JComponent? {
