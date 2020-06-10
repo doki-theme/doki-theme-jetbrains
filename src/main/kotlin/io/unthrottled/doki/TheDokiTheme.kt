@@ -19,6 +19,7 @@ import io.unthrottled.doki.laf.FileScopeColors.attemptToInstallColors
 import io.unthrottled.doki.laf.FileScopeColors.attemptToRemoveColors
 import io.unthrottled.doki.laf.LookAndFeelInstaller.installAllUIComponents
 import io.unthrottled.doki.notification.UpdateNotification
+import io.unthrottled.doki.settings.actors.setDokiTheme
 import io.unthrottled.doki.stickers.StickerLevel
 import io.unthrottled.doki.stickers.StickerService
 import io.unthrottled.doki.themes.ThemeManager
@@ -47,9 +48,9 @@ class TheDokiTheme : Disposable {
     hackLAF()
     installAllUIComponents()
 
-    ThemeMigrator.migrateLegacyTheme()
-
     attemptToAddIcons()
+
+    userOnBoarding()
 
     connection.subscribe(LafManagerListener.TOPIC, LafManagerListener {
       ThemeManager.instance.currentTheme
@@ -88,6 +89,16 @@ class TheDokiTheme : Disposable {
           }
       }
     })
+  }
+
+  private fun userOnBoarding() {
+    if(ThemeConfig.instance.isFirstTime.not() &&
+      ThemeManager.instance.currentTheme.isPresent.not()){
+      setDokiTheme(ThemeManager.instance.themeByName(ThemeManager.DEFAULT_THEME_NAME))
+      ThemeConfig.instance.isFirstTime = false
+    } else if(ThemeConfig.instance.isFirstTime.not()) {
+      ThemeConfig.instance.isFirstTime = false
+    }
   }
 
   private fun registerUser() {

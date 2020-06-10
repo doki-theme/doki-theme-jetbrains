@@ -26,12 +26,10 @@ class ThemeConfig : PersistentStateComponent<ThemeConfig>, Cloneable {
   var version: String = "0.0.0"
   var chibiLevel: String = StickerLevel.ON.name
   var stickerLevel: String = StickerLevel.ON.name
-  var selectedTheme: String = ThemeManager.MONIKA_DARK
+  var isFirstTime: Boolean = false
   var isDokiFileColors: Boolean = false
   var isThemedTitleBar: Boolean = true
   var showThemeStatusBar: Boolean = true
-  var processedLegacyStickers: Boolean = false
-  var processedLegacyStartup: Boolean = false
   var currentStickerName: String = CurrentSticker.DEFAULT.name
 
   var isMaterialDirectories: Boolean = false
@@ -49,14 +47,11 @@ class ThemeConfig : PersistentStateComponent<ThemeConfig>, Cloneable {
     "version" to version,
     "chibiLevel" to chibiLevel,
     "stickerLevel" to stickerLevel,
-    "selectedTheme" to selectedTheme,
     "isDokiFileColors" to isDokiFileColors,
     "currentSticker" to currentSticker,
     "isMaterialDirectories" to isMaterialDirectories,
     "isMaterialFiles" to isMaterialFiles,
-    "isMaterialPSIIcons" to isMaterialPSIIcons,
-    "processedLegacyStickers" to processedLegacyStickers,
-    "processedLegacyStartup" to processedLegacyStartup
+    "isMaterialPSIIcons" to isMaterialPSIIcons
   )
 
   var currentSticker: CurrentSticker
@@ -66,11 +61,5 @@ class ThemeConfig : PersistentStateComponent<ThemeConfig>, Cloneable {
     }
 
   val currentStickerLevel: StickerLevel
-    get() {
-      if (processedLegacyStickers) {
-        processedLegacyStickers = true
-        stickerLevel = chibiLevel
-      }
-      return StickerLevel.valueOf(stickerLevel)
-    }
+    get() = StickerLevel.valueOf(stickerLevel)
 }

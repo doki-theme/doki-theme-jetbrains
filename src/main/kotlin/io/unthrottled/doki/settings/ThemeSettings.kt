@@ -63,7 +63,7 @@ class ThemeSettings : SearchableConfigurable {
   private val initialThemeSettingsModel = ThemeSettingsModel(
     ThemeConfig.instance.currentStickerLevel == StickerLevel.ON,
     ThemeConfig.instance.isLafAnimation,
-    ThemeManager.instance.currentTheme.map { it.name }.orElseGet { ThemeManager.MONIKA_DARK },
+    ThemeManager.instance.currentTheme.map { it.name }.orElseGet { ThemeManager.DEFAULT_THEME_NAME },
     ThemeConfig.instance.isThemedTitleBar,
     ThemeConfig.instance.isDokiFileColors,
     ThemeConfig.instance.showThemeStatusBar,
