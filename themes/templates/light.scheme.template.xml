@@ -286,12 +286,12 @@
                 <option name="FOREGROUND" value="$stringColor$" />
             </value>
         </option>
-        <option name="CONSOLE_YELLOW_OUTPUT">
-            <value>
-                <option name="FOREGROUND" value="cd862f" />
-            </value>
-        </option>
-        <option name="CONSTRUCTOR_CALL_ATTRIBUTES">
+      <option name="CONSOLE_YELLOW_OUTPUT">
+        <value>
+          <option name="FOREGROUND" value="$terminal.ansiYellow$" />
+        </value>
+      </option>
+      <option name="CONSTRUCTOR_CALL_ATTRIBUTES">
             <value>
                 <option name="FOREGROUND" value="$keyColor$" />
             </value>
@@ -451,7 +451,7 @@
         </option>
         <option name="DEFAULT_DOC_MARKUP">
             <value>
-                <option name="FOREGROUND" value="7282b7" />
+                <option name="FOREGROUND" value="$htmlTagColor$" />
             </value>
         </option>
         <option name="DEFAULT_ENTITY">
@@ -1006,7 +1006,7 @@
         </option>
         <option name="LOG_ERROR_OUTPUT">
             <value>
-                <option name="FOREGROUND" value="ff5555" />
+                <option name="FOREGROUND" value="$terminal.AnsiRed$" />
             </value>
         </option>
         <option name="LOG_INFO_OUTPUT">
