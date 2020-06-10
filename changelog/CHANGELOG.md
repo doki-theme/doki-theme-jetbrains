@@ -1,6 +1,20 @@
 # Changelog
 ---
 
+# 8.0.0 [New Themes!]
+
+- Added 5 new themes based on various new characters!
+    - High School DxD:
+        - Rias Gremory (Dark Theme)
+    - Sword Art Online:
+        - Yuuki Asuna (Light Theme)
+    - Lucky Star:
+        - Izumi Konata (Light Theme/2 Stickers)
+    - KonoSuba:
+        - Darkness (Light/Dark Theme)
+
+- New users will be given Rem as their first theme now.
+
 # 7.2.3 [Non-Functional]
 
 - Migrated error reporting to https://sentry.io
