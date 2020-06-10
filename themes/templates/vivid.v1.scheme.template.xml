@@ -3,6 +3,16 @@
       <option name="LINE_NUMBERS_COLOR" value="$lineNumberColor$" />
     </colors>
     <attributes>
+      <option name="JS.LOCAL_VARIABLE">
+        <value>
+          <option name="FOREGROUND" value="fcfcfa" />
+        </value>
+      </option>
+      <option name="DEFAULT_LOCAL_VARIABLE">
+        <value>
+          <option name="FOREGROUND" value="fcfcfa"/>
+        </value>
+      </option>
       <option name="ANNOTATION_ATTRIBUTE_NAME_ATTRIBUTES">
         <value>
           <option name="FOREGROUND" value="fcfcf3" />
@@ -447,18 +457,6 @@
           <option name="FOREGROUND" value="$constantColor$" />
         </value>
       </option>
-
-
-
-
-
-
-
-
-
-
-
-
 
     </attributes>
 </scheme>
