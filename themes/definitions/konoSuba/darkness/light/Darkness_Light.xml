@@ -2,10 +2,5 @@
     <colors>
     </colors>
     <attributes>
-        <option name="DEFAULT_STRING">
-            <value>
-                <option name="FOREGROUND" value="f0a333"/>
-            </value>
-        </option>
     </attributes>
 </scheme>
