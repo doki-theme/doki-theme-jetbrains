@@ -17,7 +17,7 @@ val UPDATE_MESSAGE: String = """
             <ul>
                 <li>HighSchoolDxD - Rias Gremory (Dark)</li>
                 <li>SwordArtOnline - Yuuki Asuna (Light)</li>
-                <li>LuckyStar - Konata (Light/2 Stickers)</li>
+                <li>LuckyStar - Izumi Konata (Light/2 Stickers)</li>
                 <li>KonoSuba - Darkness (Light/Dark)</li>
             </ul>
         </li>
