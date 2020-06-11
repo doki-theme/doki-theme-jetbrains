@@ -39,7 +39,7 @@ fun setDokiTheme(possibleDokiTheme: Optional<DokiTheme>) {
   possibleDokiTheme
     .flatMap { dokiTheme ->
       LafManager.getInstance().installedLookAndFeels
-        .first { dokiTheme.name == it.name }
+        .firstOrNull { dokiTheme.name == it.name }
         .toOptional()
     }
     .ifPresent {
