@@ -11,6 +11,8 @@ import com.intellij.ide.util.gotoByName.CustomMatcherModel
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.fileEditor.impl.EditorComposite
 import com.intellij.openapi.fileEditor.impl.EditorHistoryManager
+import com.intellij.openapi.wm.impl.TitleInfoProvider
+import com.intellij.ui.Gray
 import com.intellij.ui.JBColor
 import com.intellij.ui.messages.JBMacMessages
 import io.unthrottled.doki.hax.FeildHacker.setFinalStatic
@@ -44,6 +46,7 @@ object HackComponent : Disposable {
   private fun enableBackgroundConsistency() {
     hackParameterInfoBackground()
     hackSheetWindow()
+    hackToolWindowDecorator()
   }
 
   private fun hackWelcomeScreen() {
@@ -191,9 +194,31 @@ object HackComponent : Disposable {
     }
   }
 
+  private fun hackToolWindowDecorator() {
+    try {
+      val cp = ClassPool(true)
+      cp.insertClassPath(ClassClassPath(TitleInfoProvider::class.java))
+      val ctClass = cp.get("com.intellij.openapi.wm.impl.ToolWindowHeader")
+      val init = ctClass.getDeclaredMethods(
+        "paintChildren"
+      )[0]
+      init.instrument(object : ExprEditor() {
+        override fun edit(e: MethodCall?) {
+          if (e?.methodName == "isUnderDarcula") { // dis for OptionDescription
+            e.replace("{ \$_ = true; }")
+          }
+        }
+      })
+      ctClass.toClass()
+    } catch (e: Exception) {
+      e.printStackTrace()
+    }
+  }
+
   fun hackLAF() {
     enableSwitcherLafConsistency()
     enableLafBorderConsistency()
+    enableForegroundConsistency()
   }
 
   private fun enableLafBorderConsistency() {
@@ -204,6 +229,20 @@ object HackComponent : Disposable {
     try {
       val naughtySelectionColor = TipPanel::class.java.getDeclaredField("DIVIDER_COLOR")
       val namedColor = JBColor.namedColor("Borders.color", 0xf2f2f2)
+      setFinalStatic(naughtySelectionColor, namedColor)
+    } catch (e: Throwable) {
+      e.printStackTrace()
+    }
+  }
+
+  private fun enableForegroundConsistency() {
+    hackColors()
+  }
+
+  private fun hackColors() {
+    try {
+      val naughtySelectionColor = JBColor::class.java.getDeclaredField("GRAY")
+      val namedColor = JBColor.namedColor("Label.infoForeground", Gray._128)
       setFinalStatic(naughtySelectionColor, namedColor)
     } catch (e: Throwable) {
       e.printStackTrace()

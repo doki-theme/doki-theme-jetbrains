@@ -1,0 +1,41 @@
+{
+  "id": "8474d98d-7bb1-462c-82b1-dd7c512142a6",
+  "editorScheme": {
+    "type": "templateExtension",
+    "file": "Darkness_Light.xml"
+  },
+  "overrides": {
+    "editorScheme": {
+      "colors": {
+        "accentColor": "#b6323f"
+      }
+    }
+  },
+  "ui": {
+    "Plugins.lightSelectionBackground": "selectionBackground",
+    "ComboBox.modifiedItemForeground": "darkerAccentColor",
+    "CompletionPopup.matchForeground": "darkerAccentColor",
+    "Debugger.Variables.changedValueForeground": "darkerAccentColor",
+    "Debugger.Variables.modifyingValueForeground": "darkerAccentColor",
+    "Debugger.Variables.valueForeground": "darkerAccentColor",
+    "EditorPane.caretForeground": "darkerAccentColor",
+    "FormattedTextField.caretForeground": "darkerAccentColor",
+    "Label.errorForeground": "darkerAccentColor",
+    "Link.activeForeground": "darkerAccentColor",
+    "Link.hoverForeground": "darkerAccentColor",
+    "Link.pressedForeground": "darkerAccentColor",
+    "Link.visitedForeground": "darkerAccentColor",
+    "Notification.errorForeground": "darkerAccentColor",
+    "ParameterInfo.currentParameterForeground": "darkerAccentColor",
+    "ParameterInfo.infoForeground": "darkerAccentColor",
+    "PasswordField.caretForeground": "darkerAccentColor",
+    "Plugins.tagForeground": "darkerAccentColor",
+    "Popup.Advertiser.foreground": "darkerAccentColor",
+    "ProgressBar.foreground": "darkerAccentColor",
+    "SearchEverywhere.Advertiser.foreground": "darkerAccentColor",
+    "TextArea.caretForeground": "darkerAccentColor",
+    "TextField.caretForeground": "darkerAccentColor",
+    "TextPane.caretForeground": "darkerAccentColor",
+    "Tree.modifiedItemForeground": "darkerAccentColor"
+  }
+}

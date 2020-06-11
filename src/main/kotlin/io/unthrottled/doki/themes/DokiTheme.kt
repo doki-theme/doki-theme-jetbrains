@@ -19,7 +19,8 @@ class DokiThemeDefinition(
   val stickers: Stickers,
   val group: String,
   val colors: Map<String, Any>,
-  val ui: Map<String, Any>
+  val ui: Map<String, Any>,
+  val meta: Map<String, String>
 )
 
 class DokiTheme(private val uiTheme: DokiThemeDefinition) {
@@ -52,6 +53,9 @@ class DokiTheme(private val uiTheme: DokiThemeDefinition) {
   fun getSticker(): Optional<String> =
     getStickerPath()
       .map { it.substring(it.lastIndexOf("/") + 1) }
+
+  val isVivid: Boolean
+    get() = uiTheme.meta.getOrDefault("isVivid", "false") == "true"
 
   val nonProjectFileScopeColor: String
     get() = uiTheme.colors["nonProjectFileScopeColor"] as? String

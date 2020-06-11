@@ -1,0 +1,18 @@
+{
+  "id": "be058474-b967-4afb-b6d9-bda1948b33ec",
+  "editorScheme": {
+    "type": "templateExtension",
+    "file": "Konata_Light.xml"
+  },
+  "overrides": {
+    "editorScheme": {
+      "colors": {
+        "accentColor": "#60ff62"
+      }
+    }
+  },
+  "ui": {
+    "Plugins.tagForeground": "foregroundColor",
+    "ToolWindow.Button.selectedForeground": "foregroundColor"
+  }
+}

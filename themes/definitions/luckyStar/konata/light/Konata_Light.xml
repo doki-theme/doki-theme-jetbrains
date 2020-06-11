@@ -1,0 +1,61 @@
+<scheme name="Konata Light" version="142" parent_scheme="Doki Vivid v1">
+  <colors>
+    <option name="FILESTATUS_ADDED" value="$terminal.ansiCyan$" />
+    <option name="FILESTATUS_COPIED" value="$terminal.ansiCyan$" />
+    <option name="FILESTATUS_DELETED" value="6272a4" />
+    <option name="FILESTATUS_HIJACKED" value="f1fa8c" />
+    <option name="FILESTATUS_IDEA_FILESTATUS_DELETED_FROM_FILE_SYSTEM" value="6272a4" />
+    <option name="FILESTATUS_IDEA_FILESTATUS_IGNORED" value="$disabledColor$" />
+    <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_BOTH_CONFLICTS" value="$accentColor$" />
+    <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_CONFLICTS" value="$accentColor$" />
+    <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_PROPERTY_CONFLICTS" value="$accentColor$" />
+    <option name="FILESTATUS_IDEA_SVN_FILESTATUS_EXTERNAL" value="$terminal.ansiCyan$" />
+    <option name="FILESTATUS_addedOutside" value="$terminal.ansiCyan$" />
+    <option name="FILESTATUS_IGNORE.PROJECT_VIEW.IGNORED" value="$disabledColor$" />
+    <option name="FILESTATUS_MERGED" value="D1C0FD" />
+    <option name="FILESTATUS_MODIFIED" value="FDFFB9" />
+    <option name="FILESTATUS_NOT_CHANGED_IMMEDIATE" value="FDFFB9" />
+    <option name="FILESTATUS_NOT_CHANGED_RECURSIVE" value="FDFFB9" />
+    <option name="FILESTATUS_OBSOLETE" value="$stringColor$" />
+    <option name="FILESTATUS_SUPPRESSED" value="6272a4" />
+    <option name="FILESTATUS_SWITCHED" value="$stringColor$" />
+    <option name="FILESTATUS_UNKNOWN" value="D1C0FD" />
+    <option name="FILESTATUS_addedOutside" value="6272a4" />
+    <option name="FILESTATUS_changelistConflict" value="$accentColor$" />
+    <option name="FILESTATUS_modifiedOutside" value="D1C0FD" />
+
+    <option name="ERROR_HINT" value="d38e96" />
+    <option name="ADDED_LINES_COLOR" value="4FAEA3" />
+    <option name="MODIFIED_LINES_COLOR" value="63A2FF" />
+    <option name="WHITESPACES_MODIFIED_LINES_COLOR" value="63a2ff" />
+  </colors>
+  <attributes>
+    <option name="DIFF_CONFLICT">
+      <value>
+        <option name="FOREGROUND" value="c2828a"/>
+        <option name="BACKGROUND" value="d38e96"/>
+        <option name="ERROR_STRIPE_COLOR" value="8f5247"/>
+      </value>
+    </option>
+    <option name="DIFF_DELETED">
+      <value>
+        <option name="FOREGROUND" value="82a8d6"/>
+        <option name="BACKGROUND" value="789ac4"/>
+        <option name="ERROR_STRIPE_COLOR" value="656e76"/>
+      </value>
+    </option>
+    <option name="DIFF_INSERTED">
+      <value>
+        <option name="BACKGROUND" value="4FAEA3"/>
+        <option name="ERROR_STRIPE_COLOR" value="447152"/>
+      </value>
+    </option>
+    <option name="DIFF_MODIFIED">
+      <value>
+        <option name="BACKGROUND" value="63A2FF"/>
+        <option name="WHITESPACES_MODIFIED_LINES_COLOR" value="63a2ff" />
+        <option name="ERROR_STRIPE_COLOR" value="43698d"/>
+      </value>
+    </option>
+  </attributes>
+</scheme>

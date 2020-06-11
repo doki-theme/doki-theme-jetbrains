@@ -8,6 +8,9 @@ private val nameMapping =
     "KonoSuba" to "KonoSuba: ",
     "Mistress" to "Miss: ",
     "DanganRonpa" to "DR: ",
+    "High School DxD" to "DxD: ",
+    "Sword Art Online" to "SAO: ",
+    "Lucky Star" to "LS: ",
     "Miscellaneous" to "Misc: "
   )
 
