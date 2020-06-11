@@ -9,7 +9,6 @@ import com.intellij.notification.NotificationType
 import com.intellij.notification.SingletonNotificationManager
 import com.intellij.openapi.project.Project
 
-
 val UPDATE_MESSAGE: String = """
       What's New?<br>
       <ul>

@@ -92,11 +92,11 @@ class TheDokiTheme : Disposable {
   }
 
   private fun userOnBoarding() {
-    if(ThemeConfig.instance.isFirstTime.not() &&
-      ThemeManager.instance.currentTheme.isPresent.not()){
+    if (ThemeConfig.instance.isFirstTime.not() &&
+      ThemeManager.instance.currentTheme.isPresent.not()) {
       setDokiTheme(ThemeManager.instance.themeByName(ThemeManager.DEFAULT_THEME_NAME))
       ThemeConfig.instance.isFirstTime = false
-    } else if(ThemeConfig.instance.isFirstTime.not()) {
+    } else if (ThemeConfig.instance.isFirstTime.not()) {
       ThemeConfig.instance.isFirstTime = false
     }
   }

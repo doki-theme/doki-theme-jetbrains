@@ -8,7 +8,6 @@ import com.intellij.util.xmlb.XmlSerializerUtil.copyBean
 import com.intellij.util.xmlb.XmlSerializerUtil.createCopy
 import io.unthrottled.doki.stickers.CurrentSticker
 import io.unthrottled.doki.stickers.StickerLevel
-import io.unthrottled.doki.themes.ThemeManager
 
 @State(
   name = "DokiDokiThemeConfig",
