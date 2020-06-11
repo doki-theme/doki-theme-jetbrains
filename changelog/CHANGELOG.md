@@ -15,7 +15,7 @@
 
 - New users will be given Rem as their first theme now.
 
-![The New Girls](https://doki.assets.unthrottled.io/misc/v8_girls.png)
+![The New Girls](https://doki.assets.unthrottled.io/misc/v8_girls.png?version=1)
 
 # 7.2.3 [Non-Functional]
 
