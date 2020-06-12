@@ -147,7 +147,7 @@
         </option>
         <option name="BREADCRUMBS_DEFAULT">
             <value>
-                <option name="FOREGROUND" value="aaaaaa"/>
+                <option name="FOREGROUND" value="$lineNumberColor$"/>
                 <option name="BACKGROUND" value="$textEditorBackground$"/>
             </value>
         </option>
