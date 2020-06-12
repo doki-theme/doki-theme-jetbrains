@@ -517,6 +517,7 @@
     "/nodes/staticMark.svg": "/icons/nodes/staticMark.svg",
     "/nodes/symlink.svg": "/icons/nodes/symlink.svg",
     "/plugins/rating.svg": "/icons/plugins/rating.svg",
+    "/runConfigurations/testFailed.svg": "/icons/runConfigurations/testFailed.svg",
     "/studio/icons/shell/filetree/android-module.svg": "/icons/plugins/studio/icons/shell/filetree/android-module.svg",
     "/toolwindows/toolWindowFavorites.svg": "/icons/toolwindows/toolWindowFavorites.svg",
     "/welcome/createNewProject.svg": "/icons/welcome/createNewProject.svg",
