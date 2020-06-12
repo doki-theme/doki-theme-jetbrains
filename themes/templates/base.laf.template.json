@@ -95,6 +95,7 @@
     "OptionPane.questionDialog.titlePane.foreground": "foregroundColor",
     "OptionPane.warningDialog.titlePane.foreground": "foregroundColor",
     "Panel.foreground": "foregroundColor",
+    "ParameterInfo.foreground": "foregroundColor",
     "PasswordField.foreground": "foregroundColor",
     "PopupMenu.foreground": "foregroundColor",
     "RadioButton.foreground": "foregroundColor",

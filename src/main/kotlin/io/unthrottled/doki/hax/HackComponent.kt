@@ -14,7 +14,9 @@ import com.intellij.openapi.fileEditor.impl.EditorHistoryManager
 import com.intellij.openapi.wm.impl.TitleInfoProvider
 import com.intellij.ui.Gray
 import com.intellij.ui.JBColor
+import com.intellij.ui.SimpleTextAttributes
 import com.intellij.ui.messages.JBMacMessages
+import com.intellij.util.ui.UIUtil
 import io.unthrottled.doki.hax.FeildHacker.setFinalStatic
 import io.unthrottled.doki.stickers.impl.DOKI_BACKGROUND_PROP
 import io.unthrottled.doki.stickers.impl.DOKI_STICKER_PROP
@@ -237,12 +239,23 @@ object HackComponent : Disposable {
 
   private fun enableForegroundConsistency() {
     hackColors()
+    hackSdkComboBox()
   }
 
   private fun hackColors() {
     try {
       val naughtySelectionColor = JBColor::class.java.getDeclaredField("GRAY")
       val namedColor = JBColor.namedColor("Label.infoForeground", Gray._128)
+      setFinalStatic(naughtySelectionColor, namedColor)
+    } catch (e: Throwable) {
+      e.printStackTrace()
+    }
+  }
+
+  private fun hackSdkComboBox() {
+    try {
+      val naughtySelectionColor = SimpleTextAttributes::class.java.getDeclaredField("SIMPLE_CELL_ATTRIBUTES")
+      val namedColor = SimpleTextAttributes(SimpleTextAttributes.STYLE_PLAIN, UIUtil.getLabelForeground())
       setFinalStatic(naughtySelectionColor, namedColor)
     } catch (e: Throwable) {
       e.printStackTrace()
