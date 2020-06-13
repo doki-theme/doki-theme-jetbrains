@@ -288,7 +288,6 @@ object HackComponent : Disposable {
     } catch (e: Throwable) {
       e.printStackTrace()
     }
-
   }
 
   private fun enableSwitcherLafConsistency() {
@@ -369,7 +368,6 @@ object HackComponent : Disposable {
       e.printStackTrace()
     }
   }
-
 
   private fun enablePluginWindowConsistency() {
     hackPluginWindow()
