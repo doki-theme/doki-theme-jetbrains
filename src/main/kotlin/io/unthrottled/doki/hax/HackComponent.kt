@@ -9,6 +9,7 @@ import com.intellij.ide.util.ExportToFileUtil
 import com.intellij.ide.util.TipPanel
 import com.intellij.ide.util.gotoByName.CustomMatcherModel
 import com.intellij.openapi.Disposable
+import com.intellij.openapi.actionSystem.impl.ActionMenu
 import com.intellij.openapi.fileEditor.impl.EditorComposite
 import com.intellij.openapi.fileEditor.impl.EditorHistoryManager
 import com.intellij.openapi.wm.impl.TitleInfoProvider
@@ -242,6 +243,7 @@ object HackComponent : Disposable {
     hackColors()
     hackSdkComboBox()
     hackDebuggerAttributes()
+    hackFindInPath()
   }
 
   private fun hackColors() {
@@ -348,6 +350,26 @@ object HackComponent : Disposable {
       e.printStackTrace()
     }
   }
+
+  private fun hackFindInPath() {
+    try {
+      val cp = ClassPool(true)
+      cp.insertClassPath(ClassClassPath(ActionMenu::class.java))
+      val ctClass = cp.get("com.intellij.openapi.actionSystem.impl.ActionToolbarImpl")
+      val init = ctClass.getDeclaredMethod("tweakActionComponentUI")
+      init.instrument(object : ExprEditor() {
+        override fun edit(e: MethodCall?) {
+          if (e?.methodName == "dimmer") {
+            e.replace("{ \$_ = com.intellij.util.ui.UIUtil.getLabelTextForeground(); }")
+          }
+        }
+      })
+      ctClass.toClass()
+    } catch (e: Exception) {
+      e.printStackTrace()
+    }
+  }
+
 
   private fun enablePluginWindowConsistency() {
     hackPluginWindow()
