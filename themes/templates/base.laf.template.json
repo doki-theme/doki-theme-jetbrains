@@ -410,6 +410,7 @@
     "UIDesigner.stroke.acceleratorForeground": "infoForeground",
     "SearchEverywhere.List.separatorForeground": "infoForeground",
     "Label.infoForeground": "infoForeground",
+    "Debugger.Variables.collectingDataForeground": "infoForeground",
 
     "Button.paintShadow": false
   },
