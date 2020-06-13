@@ -13,6 +13,7 @@
   },
   "ui": {
     "Plugins.tagForeground": "foregroundColor",
+    "CompletionPopup.selectionBackground": "accentColorMoreTransparent",
     "ToolWindow.Button.selectedForeground": "foregroundColor"
   }
 }

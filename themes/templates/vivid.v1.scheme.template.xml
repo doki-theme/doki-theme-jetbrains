@@ -30,6 +30,13 @@
           <option name="FOREGROUND" value="fcfcf3" />
         </value>
       </option>
+      <option name="JSON.PROPERTY_KEY">
+        <value>
+          <option name="FOREGROUND" value="fcfcf3" />
+          <option name="FONT_TYPE" value="1" />
+        </value>
+      </option>
+
 
       <option name="DEFAULT_IDENTIFIER">
         <value>

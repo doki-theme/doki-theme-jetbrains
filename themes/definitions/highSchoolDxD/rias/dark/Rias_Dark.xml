@@ -1,0 +1,30 @@
+<scheme name="Rias Dark" version="142" parent_scheme="Doki Dark">
+    <attributes>
+      <option name="DIFF_CONFLICT">
+        <value>
+          <option name="FOREGROUND" value="57171A" />
+          <option name="BACKGROUND" value="5D1923" />
+          <option name="ERROR_STRIPE_COLOR" value="8f5247" />
+        </value>
+      </option>
+      <option name="DIFF_DELETED">
+        <value>
+          <option name="FOREGROUND" value="573F41" />
+          <option name="BACKGROUND" value="412A2B" />
+          <option name="ERROR_STRIPE_COLOR" value="656e76" />
+        </value>
+      </option>
+      <option name="DIFF_INSERTED">
+        <value>
+          <option name="BACKGROUND" value="102D0E" />
+          <option name="ERROR_STRIPE_COLOR" value="227125" />
+        </value>
+      </option>
+      <option name="DIFF_MODIFIED">
+        <value>
+          <option name="BACKGROUND" value="1C2331" />
+          <option name="ERROR_STRIPE_COLOR" value="344c69" />
+        </value>
+      </option>
+    </attributes>
+</scheme>

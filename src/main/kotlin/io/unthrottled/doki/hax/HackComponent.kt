@@ -9,12 +9,16 @@ import com.intellij.ide.util.ExportToFileUtil
 import com.intellij.ide.util.TipPanel
 import com.intellij.ide.util.gotoByName.CustomMatcherModel
 import com.intellij.openapi.Disposable
+import com.intellij.openapi.actionSystem.impl.ActionMenu
 import com.intellij.openapi.fileEditor.impl.EditorComposite
 import com.intellij.openapi.fileEditor.impl.EditorHistoryManager
 import com.intellij.openapi.wm.impl.TitleInfoProvider
 import com.intellij.ui.Gray
 import com.intellij.ui.JBColor
+import com.intellij.ui.SimpleTextAttributes
 import com.intellij.ui.messages.JBMacMessages
+import com.intellij.util.ui.UIUtil
+import com.intellij.xdebugger.impl.ui.XDebuggerUIConstants
 import io.unthrottled.doki.hax.FeildHacker.setFinalStatic
 import io.unthrottled.doki.stickers.impl.DOKI_BACKGROUND_PROP
 import io.unthrottled.doki.stickers.impl.DOKI_STICKER_PROP
@@ -237,12 +241,49 @@ object HackComponent : Disposable {
 
   private fun enableForegroundConsistency() {
     hackColors()
+    hackSdkComboBox()
+    hackDebuggerAttributes()
+    hackFindInPath()
   }
 
   private fun hackColors() {
     try {
       val naughtySelectionColor = JBColor::class.java.getDeclaredField("GRAY")
       val namedColor = JBColor.namedColor("Label.infoForeground", Gray._128)
+      setFinalStatic(naughtySelectionColor, namedColor)
+    } catch (e: Throwable) {
+      e.printStackTrace()
+    }
+  }
+
+  private fun hackSdkComboBox() {
+    try {
+      val naughtySelectionColor = SimpleTextAttributes::class.java.getDeclaredField("SIMPLE_CELL_ATTRIBUTES")
+      val namedColor = SimpleTextAttributes(SimpleTextAttributes.STYLE_PLAIN, UIUtil.getLabelForeground())
+      setFinalStatic(naughtySelectionColor, namedColor)
+    } catch (e: Throwable) {
+      e.printStackTrace()
+    }
+  }
+
+  private fun hackDebuggerAttributes() {
+    try {
+      val naughtySelectionColor = XDebuggerUIConstants::class.java.getDeclaredField("TYPE_ATTRIBUTES")
+      val namedColor = SimpleTextAttributes(SimpleTextAttributes.STYLE_PLAIN, UIUtil.getContextHelpForeground())
+      setFinalStatic(naughtySelectionColor, namedColor)
+    } catch (e: Throwable) {
+      e.printStackTrace()
+    }
+    try {
+      val naughtySelectionColor = SimpleTextAttributes::class.java.getDeclaredField("REGULAR_ITALIC_ATTRIBUTES")
+      val namedColor = SimpleTextAttributes(SimpleTextAttributes.STYLE_ITALIC, UIUtil.getLabelForeground())
+      setFinalStatic(naughtySelectionColor, namedColor)
+    } catch (e: Throwable) {
+      e.printStackTrace()
+    }
+    try {
+      val naughtySelectionColor = SimpleTextAttributes::class.java.getDeclaredField("GRAY_ITALIC_ATTRIBUTES")
+      val namedColor = SimpleTextAttributes(SimpleTextAttributes.STYLE_ITALIC, UIUtil.getContextHelpForeground())
       setFinalStatic(naughtySelectionColor, namedColor)
     } catch (e: Throwable) {
       e.printStackTrace()
@@ -300,6 +341,25 @@ object HackComponent : Disposable {
         override fun edit(e: NewExpr?) {
           if (e?.className == "com.intellij.ui.JBColor") {
             e.replace("{ \$_ = com.intellij.util.ui.JBUI.CurrentTheme.Advertiser.borderColor(); }")
+          }
+        }
+      })
+      ctClass.toClass()
+    } catch (e: Exception) {
+      e.printStackTrace()
+    }
+  }
+
+  private fun hackFindInPath() {
+    try {
+      val cp = ClassPool(true)
+      cp.insertClassPath(ClassClassPath(ActionMenu::class.java))
+      val ctClass = cp.get("com.intellij.openapi.actionSystem.impl.ActionToolbarImpl")
+      val init = ctClass.getDeclaredMethod("tweakActionComponentUI")
+      init.instrument(object : ExprEditor() {
+        override fun edit(e: MethodCall?) {
+          if (e?.methodName == "dimmer") {
+            e.replace("{ \$_ = com.intellij.util.ui.UIUtil.getLabelTextForeground(); }")
           }
         }
       })
