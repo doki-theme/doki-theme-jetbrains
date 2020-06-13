@@ -1,6 +1,10 @@
 # Changelog
 ---
 
+# 8.0.1 [Consistency]
+
+- Many small usability and consistency changes.
+
 # 8.0.0 [New Themes!]
 
 - Added 5 new themes based on various new characters!
