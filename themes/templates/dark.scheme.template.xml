@@ -169,7 +169,22 @@
                 <option name="BACKGROUND" value="$nonProjectFileScopeColor$" />
             </value>
         </option>
-        <option name="BROWSEWORDATCARET">
+      <option name="EVALUATED_EXPRESSION_EXECUTION_LINE_ATTRIBUTES">
+        <value>
+          <option name="BACKGROUND" value="$codeBlock$" />
+        </value>
+      </option>
+      <option name="EVALUATED_EXPRESSION_ATTRIBUTES">
+        <value>
+          <option name="BACKGROUND" value="$codeBlock$" />
+        </value>
+      </option>
+      <option name="NOT_TOP_FRAME_ATTRIBUTES">
+        <value>
+          <option name="BACKGROUND" value="$caretRow$"/>
+        </value>
+      </option>
+      <option name="BROWSEWORDATCARET">
             <value>
                 <option name="EFFECT_COLOR" value="86dbfd" />
                 <option name="ERROR_STRIPE_COLOR" value="86dbfd" />

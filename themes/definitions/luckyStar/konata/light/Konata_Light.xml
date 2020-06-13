@@ -58,6 +58,13 @@
       </value>
     </option>
 
+    <option name="DEBUGGER_INLINED_VALUES">
+      <value>
+        <option name="FOREGROUND" value="$infoForeground$" />
+        <option name="FONT_TYPE" value="1" />
+      </value>
+    </option>
+
     <option name="CONSOLE_GRAY_OUTPUT">
       <value>
         <option name="FOREGROUND" value="C1BFC8" />

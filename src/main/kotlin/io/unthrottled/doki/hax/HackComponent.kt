@@ -272,6 +272,21 @@ object HackComponent : Disposable {
     } catch (e: Throwable) {
       e.printStackTrace()
     }
+    try {
+      val naughtySelectionColor = SimpleTextAttributes::class.java.getDeclaredField("REGULAR_ITALIC_ATTRIBUTES")
+      val namedColor = SimpleTextAttributes(SimpleTextAttributes.STYLE_ITALIC, UIUtil.getLabelForeground())
+      setFinalStatic(naughtySelectionColor, namedColor)
+    } catch (e: Throwable) {
+      e.printStackTrace()
+    }
+    try {
+      val naughtySelectionColor = SimpleTextAttributes::class.java.getDeclaredField("GRAY_ITALIC_ATTRIBUTES")
+      val namedColor = SimpleTextAttributes(SimpleTextAttributes.STYLE_ITALIC, UIUtil.getContextHelpForeground())
+      setFinalStatic(naughtySelectionColor, namedColor)
+    } catch (e: Throwable) {
+      e.printStackTrace()
+    }
+
   }
 
   private fun enableSwitcherLafConsistency() {
