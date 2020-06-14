@@ -1,0 +1,9 @@
+<scheme name="Darkness Dark" version="142" parent_scheme="Doki Dark">
+  <colors>
+    <option name="RIGHT_MARGIN_COLOR" value="%accentColor%3a" />
+  </colors>
+  <attributes>
+
+
+  </attributes>
+</scheme>
