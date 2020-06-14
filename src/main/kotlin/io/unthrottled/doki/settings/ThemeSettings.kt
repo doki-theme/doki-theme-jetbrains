@@ -48,8 +48,8 @@ class ThemeSettings : SearchableConfigurable {
   companion object {
     const val THEME_SETTINGS_DISPLAY_NAME = "Doki Theme Settings"
     val CHANGELOG_URI =
-      URI("https://github.com/Unthrottled/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md")
-    const val REPOSITORY = "https://github.com/Unthrottled/doki-theme-jetbrains"
+      URI("https://github.com/doki-theme/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md")
+    private const val REPOSITORY = "https://github.com/doki-theme/doki-theme-jetbrains"
     const val ULTIMATE_INSTRUCTIONS = "$REPOSITORY/wiki/Ultimate-Theme-Setup"
     val ISSUES_URI = URI("$REPOSITORY/issues")
     val REVIEW_URI = URI("https://plugins.jetbrains.com/plugin/10804-the-doki-theme/reviews")
