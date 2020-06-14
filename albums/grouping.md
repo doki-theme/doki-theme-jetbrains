@@ -11,4 +11,10 @@ Themes grouped by album
 
 [KonoSuba Album](../albums/ks_album.md)
 
+[Lucky Star Album](../albums/ls_album.md)
+
+[High School DxD Album](../albums/dxd_album.md)
+
+[Sword Art Online Album](../albums/sao_album.md)
+
 [Miscellaneous Album](../albums/misc_themes.md)
