@@ -42,6 +42,17 @@ KonoSuba
 ![megumin code](../assets/screenshots/konoSuba/megumin_code.png)
 ![megumin background](../assets/screenshots/konoSuba/megumin_background.png)
 
+### Darkness
+![darkness code](../assets/screenshots/konoSuba/darkness_dark_code.png)
+![darkness background](../assets/screenshots/konoSuba/darkness_dark_background.png)
+![darkness code](../assets/screenshots/konoSuba/darkness_light_code.png)
+![darkness background](../assets/screenshots/konoSuba/darkness_light_background.png)
+
+Sword Art Online
+---
+### Yuuki Asuna
+![asuna code](../assets/screenshots/sao/asuna_light_code.png)
+![asuna background](../assets/screenshots/sao/asuna_light_background.png)
 
 Kill La Kill
 ---
@@ -53,6 +64,22 @@ Kill La Kill
 ### Satsuki
 ![satsuki code](../assets/screenshots/killLaKill/satsuki_code.png)
 ![satsuki background](../assets/screenshots/killLaKill/satsuki_background.png)
+
+High School DxD
+---
+
+### Rias Gremory
+![rias code](../assets/screenshots/dxd/rias_dark_code.png)
+![rias background](../assets/screenshots/dxd/rias_dark_background.png)
+
+Lucky Star
+---
+
+### Izumi Konata
+![konata code](../assets/screenshots/luckyStar/konata_light_code.png)
+![konata background](../assets/screenshots/luckyStar/konata_light_background.png)
+![konata code](../assets/screenshots/luckyStar/konata_light_secondary_code.png)
+![konata background](../assets/screenshots/luckyStar/konata_light_secondary_background.png)
 
 Doki-Doki Literature Club
 ---

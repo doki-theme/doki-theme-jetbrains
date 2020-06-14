@@ -4,23 +4,13 @@
 
 ![Themes](assets/screenshots/flagship_themes.gif)
 
-[Complete Theme Album.](./albums/complete_theme_album.md)
+# [Complete Theme Album.](./albums/complete_theme_album.md)
 
-[Doki-Doki Literature Club Album](./albums/theme_album.md)
-
-[Re:Zero Album](./albums/r0_album.md)
-
-[DanganRonpa Album](./albums/dr_themes.md)
-
-[Kill La Kill Album](./albums/klk_album.md)
-
-[KonoSuba Album](./albums/ks_album.md)
-
-[Miscellaneous Album](./albums/misc_themes.md)
+Themes grouped [by anime](./albums/grouping.md)
 
 ---
 
-With well over **10 themes** (light and dark) I think you will be able to find your favorite.
+With well over **20 themes** (light and dark) I think you will be able to find your favorite.
 You can even find a theme that fits your mood for the day.
 
 Variety is the spice of life! So you can choose themes from the following Doki-Doki Theme Suites:
@@ -30,6 +20,9 @@ Variety is the spice of life! So you can choose themes from the following Doki-D
 - Kill La Kill
 - KonoSuba
 - DanganRonpa
+- High School DxD
+- Lucky Star
+- Sword Art Online
 
 Sticker in the way? No worries! You can configure them to be on or off at your leisure.
 
@@ -50,12 +43,12 @@ Also, giving it a good [review on the plugins page](https://plugins.jetbrains.co
 
 ## Not your thing or something bothering you?
 
-Feel free to submit your feedback as [an issue](https://github.com/Unthrottled/doki-theme-jetbrains/issues/new).
+Feel free to submit your feedback as [an issue](https://github.com/doki-theme/doki-theme-jetbrains/issues/new).
 Help make this plugin better! 
 
 ## Want updates sooner?
 
-I have a [canary release channel](https://github.com/Unthrottled/jetbrains-plugin-repository) that you can set up to get the latest and greatest!
+I have a [canary release channel](https://github.com/doki-theme/jetbrains-plugin-repository) that you can set up to get the latest and greatest!
 
 
 # Even more Doki-Theme!
@@ -63,13 +56,13 @@ I have a [canary release channel](https://github.com/Unthrottled/jetbrains-plugi
 ![VS Code](./assets/vs_code_logo.png)
 ## VS Code
 
-The Doki Theme is also [available in VSCode!](https://github.com/Unthrottled/doki-theme-vscode)
+The Doki Theme is also [available in VSCode!](https://github.com/doki-theme/doki-theme-vscode)
 Make your VSCode editor more familiar!
 
 ![Hyper.js Terminal](./assets/hyper_logo.png)
 ## Hyper.js
 
-Enhance your command line experience! Install [the Doki Theme for Hyper!](https://github.com/Unthrottled/doki-theme-hyper)
+Enhance your command line experience! Install [the Doki Theme for Hyper!](https://github.com/doki-theme/doki-theme-hyper)
 
 ---
 
