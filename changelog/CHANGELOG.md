@@ -1,6 +1,11 @@
 # Changelog
 ---
 
+# 8.0.2 [Consistency]
+
+- Small adjustments to Darkness's Dark theme and Konata's Light theme.
+- Fixed issue where non-Doki themes would be replaced by Rem after restarting.
+
 # 8.0.1 [Consistency]
 
 - Many small usability and consistency changes.

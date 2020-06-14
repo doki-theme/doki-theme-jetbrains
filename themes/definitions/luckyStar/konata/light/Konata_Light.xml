@@ -2,25 +2,19 @@
   <colors>
     <option name="FILESTATUS_ADDED" value="$terminal.ansiCyan$" />
     <option name="FILESTATUS_COPIED" value="$terminal.ansiCyan$" />
-    <option name="FILESTATUS_DELETED" value="$disabledColor$" />
     <option name="FILESTATUS_HIJACKED" value="f1fa8c" />
-    <option name="FILESTATUS_IDEA_FILESTATUS_DELETED_FROM_FILE_SYSTEM" value="$disabledColor$" />
-    <option name="FILESTATUS_IDEA_FILESTATUS_IGNORED" value="$disabledColor$" />
     <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_BOTH_CONFLICTS" value="$accentColor$" />
     <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_CONFLICTS" value="$accentColor$" />
     <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_PROPERTY_CONFLICTS" value="$accentColor$" />
     <option name="FILESTATUS_IDEA_SVN_FILESTATUS_EXTERNAL" value="$terminal.ansiCyan$" />
     <option name="FILESTATUS_addedOutside" value="$terminal.ansiCyan$" />
-    <option name="FILESTATUS_IGNORE.PROJECT_VIEW.IGNORED" value="$disabledColor$" />
     <option name="FILESTATUS_MERGED" value="D1C0FD" />
     <option name="FILESTATUS_MODIFIED" value="FDFFB9" />
     <option name="FILESTATUS_NOT_CHANGED_IMMEDIATE" value="FDFFB9" />
     <option name="FILESTATUS_NOT_CHANGED_RECURSIVE" value="FDFFB9" />
     <option name="FILESTATUS_OBSOLETE" value="$stringColor$" />
-    <option name="FILESTATUS_SUPPRESSED" value="$disabledColor$" />
     <option name="FILESTATUS_SWITCHED" value="$stringColor$" />
     <option name="FILESTATUS_UNKNOWN" value="D1C0FD" />
-    <option name="FILESTATUS_addedOutside" value="$disabledColor$" />
     <option name="FILESTATUS_changelistConflict" value="$accentColor$" />
     <option name="FILESTATUS_modifiedOutside" value="D1C0FD" />
 

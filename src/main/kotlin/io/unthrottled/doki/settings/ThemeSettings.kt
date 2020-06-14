@@ -272,7 +272,7 @@ class ThemeSettings : SearchableConfigurable {
             button("View Changelog") {
               browse(CHANGELOG_URI)
             }
-            button("Rate and Review") {
+            button("Leave a Review") {
               browse(REVIEW_URI)
             }
           }
