@@ -1,6 +1,10 @@
 # Changelog
 ---
 
+# 8.0.3 [Consistency]
+
+- Updated all the light theme's ignored file status to be the disabled color.
+
 # 8.0.2 [Consistency]
 
 - Small adjustments to Darkness's Dark theme and Konata's Light theme.
