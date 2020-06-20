@@ -310,6 +310,7 @@
     },
 
     "WelcomeScreen": {
+      "separatorColor": "borderColor",
       "background": "baseBackground",
       "footerBackground": "baseBackground",
       "Projects": {

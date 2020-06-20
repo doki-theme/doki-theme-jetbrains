@@ -60,6 +60,14 @@ object HackComponent : Disposable {
       val ctClass = cp.get("com.intellij.openapi.wm.impl.welcomeScreen.FlatWelcomeFrame")
       val init = ctClass.getDeclaredMethods("getActionLinkSelectionColor")[0]
       init.insertAfter("\$_ = com.intellij.ui.JBColor.namedColor(\"List.selectionBackground\", java.awt.Color.GREEN);")
+      val createLink = ctClass.getDeclaredMethod("getLinkNormalColor")
+      createLink.instrument(object : ExprEditor() {
+        override fun edit(e: NewExpr?) {
+          if (e?.className == "com.intellij.ui.JBColor") {
+            e.replace("{ \$_ = com.intellij.ui.JBColor.namedColor(\"Doki.Accent.color\", com.intellij.ui.JBColor.BLACK); }")
+          }
+        }
+      })
       ctClass.toClass()
     } catch (e: Exception) {
       e.printStackTrace()
@@ -245,7 +253,34 @@ object HackComponent : Disposable {
     hackDebuggerAttributes()
     hackSwitcher()
     hackFindInPath()
+    hackTitleFrame()
   }
+
+  private fun hackTitleFrame() {
+    try {
+      val cp = ClassPool(true)
+      cp.insertClassPath(ClassClassPath(Class.forName("com.intellij.openapi.wm.impl.welcomeScreen.CardActionsPanel")))
+      val ctClass = cp.get("com.intellij.openapi.wm.impl.welcomeScreen.FlatWelcomeFrame\$FlatWelcomeScreen")
+      val init = ctClass.getDeclaredMethod(
+        "createLogo"
+      )
+      var setForegrounds = 0
+      init.instrument(object : ExprEditor() {
+        override fun edit(e: MethodCall?) {
+          if (e?.methodName == "setForeground") {
+            setForegrounds++
+            if (setForegrounds > 1) {
+              e.replace("{ \$1 = com.intellij.util.ui.UIUtil.getContextHelpForeground();  \$_ = \$proceed(\$\$); }")
+            }
+          }
+        }
+      })
+      ctClass.toClass()
+    } catch (e: Exception) {
+      e.printStackTrace()
+    }
+  }
+
 
   private fun hackColors() {
     try {
