@@ -1,6 +1,8 @@
 package io.unthrottled.doki.hax
 
+import com.intellij.codeInsight.actions.DirectoryFormattingOptions
 import com.intellij.codeInsight.hint.HintUtil
+import com.intellij.codeInsight.hint.TooltipRenderer
 import com.intellij.execution.runners.ProcessProxy
 import com.intellij.ide.actions.Switcher
 import com.intellij.ide.plugins.newui.PluginLogo
@@ -235,6 +237,43 @@ object HackComponent : Disposable {
 
   private fun enableLafBorderConsistency() {
     hackTipBorder()
+    hackPopupBorder()
+  }
+
+  private fun hackPopupBorder(){
+    try {
+      val cp = ClassPool(true)
+      cp.insertClassPath(ClassClassPath(TooltipRenderer::class.java))
+      val ctClass = cp.get("com.intellij.codeInsight.hint.HintManagerImpl")
+      val init = ctClass.getDeclaredMethods("createHintHint")[1]
+      init.instrument(object : ExprEditor() {
+        override fun edit(e: NewExpr?) {
+          if (e?.className == "com.intellij.ui.JBColor") {
+            e.replace("{ \$_ = com.intellij.util.ui.UIUtil.getBorderSeparatorColor(); }")
+          }
+        }
+      })
+      ctClass.toClass()
+    } catch (e: Exception) {
+      e.printStackTrace()
+    }
+
+    try {
+      val cp = ClassPool(true)
+      cp.insertClassPath(ClassClassPath(DirectoryFormattingOptions::class.java))
+      val ctClass = cp.get("com.intellij.codeInsight.actions.FileInEditorProcessor\$FormattedMessageBuilder")
+      val init = ctClass.getDeclaredMethod("getMessage")
+      init.instrument(object : ExprEditor() {
+        override fun edit(e: MethodCall?) {
+          if (e?.methodName == "toHex") {
+            e.replace("{ \$_ = com.intellij.ui.ColorUtil.toHex(com.intellij.util.ui.UIUtil.getContextHelpForeground()); }")
+          }
+        }
+      })
+      ctClass.toClass()
+    } catch (e: Exception) {
+      e.printStackTrace()
+    }
   }
 
   private fun hackTipBorder() {
