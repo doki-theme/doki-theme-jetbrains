@@ -243,6 +243,7 @@ object HackComponent : Disposable {
     hackColors()
     hackSdkComboBox()
     hackDebuggerAttributes()
+    hackSwitcher()
     hackFindInPath()
   }
 
@@ -260,6 +261,16 @@ object HackComponent : Disposable {
     try {
       val naughtySelectionColor = SimpleTextAttributes::class.java.getDeclaredField("SIMPLE_CELL_ATTRIBUTES")
       val namedColor = SimpleTextAttributes(SimpleTextAttributes.STYLE_PLAIN, UIUtil.getLabelForeground())
+      setFinalStatic(naughtySelectionColor, namedColor)
+    } catch (e: Throwable) {
+      e.printStackTrace()
+    }
+  }
+
+  private fun hackSwitcher() {
+    try {
+      val naughtySelectionColor = SimpleTextAttributes::class.java.getDeclaredField("GRAY_ATTRIBUTES")
+      val namedColor = SimpleTextAttributes(SimpleTextAttributes.STYLE_PLAIN, UIUtil.getContextHelpForeground())
       setFinalStatic(naughtySelectionColor, namedColor)
     } catch (e: Throwable) {
       e.printStackTrace()
