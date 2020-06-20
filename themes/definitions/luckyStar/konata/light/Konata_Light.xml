@@ -19,7 +19,7 @@
     <option name="FILESTATUS_modifiedOutside" value="D1C0FD" />
 
     <option name="ERROR_HINT" value="d38e96" />
-    <option name="ADDED_LINES_COLOR" value="4FAEA3" />
+    <option name="ADDED_LINES_COLOR" value="59a1cd" />
     <option name="MODIFIED_LINES_COLOR" value="63A2FF" />
     <option name="WHITESPACES_MODIFIED_LINES_COLOR" value="63a2ff" />
   </colors>
@@ -40,7 +40,7 @@
     </option>
     <option name="DIFF_INSERTED">
       <value>
-        <option name="BACKGROUND" value="4FAEA3"/>
+        <option name="BACKGROUND" value="59a1cd"/>
         <option name="ERROR_STRIPE_COLOR" value="447152"/>
       </value>
     </option>
