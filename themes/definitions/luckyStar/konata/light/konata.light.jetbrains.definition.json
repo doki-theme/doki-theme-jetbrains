@@ -14,6 +14,24 @@
   "ui": {
     "Plugins.tagForeground": "foregroundColor",
     "CompletionPopup.selectionBackground": "accentColorMoreTransparent",
+    "CompletionPopup.matchForeground": "#fff400",
+    "ComboBox.modifiedItemForeground": "accentColorBrighter",
+    "Debugger.Variables.changedValueForeground":"accentColorBrighter",
+    "Debugger.Variables.modifyingValueForeground": "accentColorBrighter",
+    "Debugger.Variables.valueForeground":"accentColorBrighter",
+    "EditorPane.caretForeground": "accentColorBrighter",
+    "FormattedTextField.caretForeground":"accentColorBrighter",
+    "Label.errorForeground":"accentColorBrighter",
+    "Link.activeForeground": "accentColorBrighter",
+    "Link.hoverForeground":"accentColorBrighter",
+    "Link.pressedForeground":"accentColorBrighter",
+    "Link.visitedForeground":"accentColorBrighter",
+    "Notification.errorForeground":"accentColorBrighter",
+    "ParameterInfo.currentParameterForeground":"accentColorBrighter",
+    "ParameterInfo.infoForeground": "accentColorBrighter",
+    "PasswordField.caretForeground":"accentColorBrighter",
+    "TextArea.caretForeground": "accentColorBrighter",
+    "Tree.modifiedItemForeground": "accentColorBrighter",
     "ToolWindow.Button.selectedForeground": "foregroundColor"
   }
 }
