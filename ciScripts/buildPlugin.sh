@@ -1,4 +1,5 @@
 #!/bin/bash
+./preBuild.sh
 ./gradlew clean buildPlugin
 git add .
 git stash
