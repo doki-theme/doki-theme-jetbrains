@@ -1,6 +1,11 @@
 # Changelog
 ---
 
+# 8.0.4 [Usability & Consistency]
+
+- Improved the usability of the new v8 themes.
+- Increased consistency for many small UI elements 
+
 # 8.0.3 [Consistency]
 
 - Updated all the light theme's ignored file status to be the disabled color.
