@@ -152,6 +152,7 @@
     "DragAndDrop.areaBorderColor": "borderColor",
     "HelpTooltip.borderColor": "borderColor",
     "InformationHint.borderColor": "borderColor",
+    "GutterTooltip.lineSeparatorColor": "borderColor",
     "Menu.borderColor": "borderColor",
     "MenuBar.borderColor": "borderColor",
     "Menu.separatorColor": "borderColor",
@@ -310,6 +311,7 @@
     },
 
     "WelcomeScreen": {
+      "separatorColor": "borderColor",
       "background": "baseBackground",
       "footerBackground": "baseBackground",
       "Projects": {
