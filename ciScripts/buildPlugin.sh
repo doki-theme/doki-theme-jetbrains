@@ -1,5 +1,5 @@
 #!/bin/bash
-./preBuild.sh
+./ciScripts/preBuild.sh
 ./gradlew clean buildPlugin
 git add .
 git stash
