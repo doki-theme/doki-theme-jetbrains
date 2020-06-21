@@ -39,13 +39,13 @@ compileTestKotlin {
 
 markdownToHtml {
   sourceDir file("$projectDir/changelog")
-  outputDir file("$projectDir/build")
+  outputDir file("$projectDir/build/html")
 }
 
 patchPluginXml {
-  def changeLogPath ="$projectDir/build/CHANGELOG.html"
-  if(file(changeLogPath).exists()){
-    changeNotes file(changeLogPath).text
+  def releaseNotes ="$projectDir/build/html/RELEASE-NOTES.html"
+  if(file(releaseNotes).exists()){
+    changeNotes file(releaseNotes).text
   }
   sinceBuild sinceBuildVersion
   untilBuild untilBuildVersion
