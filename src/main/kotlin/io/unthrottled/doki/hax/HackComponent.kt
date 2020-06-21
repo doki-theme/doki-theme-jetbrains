@@ -240,7 +240,7 @@ object HackComponent : Disposable {
     hackPopupBorder()
   }
 
-  private fun hackPopupBorder(){
+  private fun hackPopupBorder() {
     try {
       val cp = ClassPool(true)
       cp.insertClassPath(ClassClassPath(TooltipRenderer::class.java))
@@ -319,7 +319,6 @@ object HackComponent : Disposable {
       e.printStackTrace()
     }
   }
-
 
   private fun hackColors() {
     try {

@@ -11,7 +11,7 @@ Themes grouped [by anime](./albums/grouping.md)
 ---
 
 This plugin is for serious Otaku programmers.
-With over **20** themes (light and dark) based off of various waifus,
+With over **20** themes, based off of various waifus,
 I think you will find your best girl.
 
 Variety is the spice of life! So you can choose themes from various, Anime, Manga, or Visual Novels:
