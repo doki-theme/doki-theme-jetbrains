@@ -8,6 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Pull down the Master Themes
+        run: ./getMasterThemes.sh
       - uses: actions/setup-java@v1
         with:
           java-version: 11
