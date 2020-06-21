@@ -43,7 +43,10 @@ markdownToHtml {
 }
 
 patchPluginXml {
-  changeNotes file("$projectDir/build/CHANGELOG.html").text
+  def changeLogPath ="$projectDir/build/CHANGELOG.html"
+  if(file(changeLogPath).exists()){
+    changeNotes file(changeLogPath).text
+  }
   sinceBuild sinceBuildVersion
   untilBuild untilBuildVersion
 }
