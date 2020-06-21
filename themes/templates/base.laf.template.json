@@ -79,6 +79,7 @@
     "DragAndDrop.areaForeground": "foregroundColor",
     "EditorPane.foreground": "foregroundColor",
     "EditorPane.inactiveForeground": "foregroundColor",
+    "Editor.foreground": "foregroundColor",
     "EditorTabs.underlinedTabForeground": "foregroundColor",
     "infoText": "foregroundColor",
     "Label.foreground": "foregroundColor",
