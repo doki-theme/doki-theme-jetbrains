@@ -19,6 +19,7 @@ import com.intellij.ui.Gray
 import com.intellij.ui.JBColor
 import com.intellij.ui.SimpleTextAttributes
 import com.intellij.ui.messages.JBMacMessages
+import com.intellij.ui.popup.util.MasterDetailPopupBuilder
 import com.intellij.util.ui.UIUtil
 import com.intellij.xdebugger.impl.ui.XDebuggerUIConstants
 import io.unthrottled.doki.hax.FeildHacker.setFinalStatic
@@ -71,6 +72,16 @@ object HackComponent : Disposable {
         }
       })
       ctClass.toClass()
+    } catch (e: Exception) {
+      e.printStackTrace()
+    }
+  }
+
+  private fun hackBookmarkBorder() {
+    try {
+      val naughtySelectionColor = MasterDetailPopupBuilder::class.java.getDeclaredField("BORDER_COLOR")
+      val namedColor = JBColor.namedColor("Borders.color", Gray._135)
+      setFinalStatic(naughtySelectionColor, namedColor)
     } catch (e: Exception) {
       e.printStackTrace()
     }
@@ -392,6 +403,7 @@ object HackComponent : Disposable {
   private fun enableBorderConsistency() {
     hackSwitcherBorder()
     hackEditorBorder()
+    hackBookmarkBorder()
   }
 
   private fun hackEditorBorder() {
