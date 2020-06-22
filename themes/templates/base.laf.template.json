@@ -79,6 +79,7 @@
     "DragAndDrop.areaForeground": "foregroundColor",
     "EditorPane.foreground": "foregroundColor",
     "EditorPane.inactiveForeground": "foregroundColor",
+    "Editor.foreground": "foregroundColor",
     "EditorTabs.underlinedTabForeground": "foregroundColor",
     "infoText": "foregroundColor",
     "Label.foreground": "foregroundColor",
@@ -194,6 +195,7 @@
     "TextComponent.selectionBackgroundInactive": "selectionInactive",
     "Tree.selectionInactiveBackground": "selectionInactive",
     "WelcomeScreen.Projects.selectionInactiveBackground": "selectionInactive",
+    "Component.inactiveErrorFocusColor": "selectionInactive",
 
     "CheckBoxMenuItem.selectionBackground": "selectionBackground",
     "ComboBox.selectionBackground": "selectionBackground",
@@ -371,8 +373,12 @@
     "SearchMatch.startBackground": "accentColor",
     "TabbedPane.focusColor":"accentColor",
     "TabbedPane.underlineColor":"accentColor",
+    "Table.dropLineColor": "accentColor",
+    "Tree.selectionBorderColor": "accentColor",
+    "TabbedPaned.borderHighlightColor": "accentColor",
     "TextArea.caretForeground": "accentColor",
     "TextField.caretForeground":"accentColor",
+    "InplaceRefactoringPopup.borderColor": "accentColor",
     "TextPane.caretForeground":"accentColor",
     "ToolWindow.HeaderTab.inactiveUnderlineColor": "accentColor",
     "ToolWindow.HeaderTab.underlineColor":"accentColor",
@@ -412,6 +418,7 @@
     "UIDesigner.stroke.acceleratorForeground": "infoForeground",
     "SearchEverywhere.List.separatorForeground": "infoForeground",
     "Label.infoForeground": "infoForeground",
+    "Editor.shortcutForeground": "infoForeground",
     "Debugger.Variables.collectingDataForeground": "infoForeground",
 
     "Button.paintShadow": false

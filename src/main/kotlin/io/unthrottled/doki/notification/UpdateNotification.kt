@@ -12,15 +12,7 @@ import com.intellij.openapi.project.Project
 val UPDATE_MESSAGE: String = """
       What's New?<br>
       <ul>
-        <li>Added 5 new themes!
-            <ul>
-                <li>HighSchoolDxD - Rias Gremory (Dark)</li>
-                <li>SwordArtOnline - Yuuki Asuna (Light)</li>
-                <li>LuckyStar - Izumi Konata (Light/2 Stickers)</li>
-                <li>KonoSuba - Darkness (Light/Dark)</li>
-            </ul>
-        </li>
-        <li>2020.2 Build Support</li>
+        <li>Small issue fixes.</li>
       </ul>
       <br>Please see the <a href="https://github.com/doki-theme/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md">Changelog</a> for more details.
       <br>

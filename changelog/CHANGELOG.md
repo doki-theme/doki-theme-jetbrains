@@ -1,6 +1,11 @@
 # Changelog
 ---
 
+# 8.0.5 [Consistency & Bug Fixes]
+
+- Wrapped up the last of the major consistency issues!
+- Fixed issue with creating unneeded log statements.
+
 # 8.0.4 [Usability & Consistency]
 
 - Improved the usability of the new v8 themes.

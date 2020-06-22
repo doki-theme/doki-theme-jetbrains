@@ -19,6 +19,7 @@ import com.intellij.ui.Gray
 import com.intellij.ui.JBColor
 import com.intellij.ui.SimpleTextAttributes
 import com.intellij.ui.messages.JBMacMessages
+import com.intellij.ui.popup.util.MasterDetailPopupBuilder
 import com.intellij.util.ui.UIUtil
 import com.intellij.xdebugger.impl.ui.XDebuggerUIConstants
 import io.unthrottled.doki.hax.FeildHacker.setFinalStatic
@@ -71,6 +72,16 @@ object HackComponent : Disposable {
         }
       })
       ctClass.toClass()
+    } catch (e: Exception) {
+      e.printStackTrace()
+    }
+  }
+
+  private fun hackBookmarkBorder() {
+    try {
+      val naughtySelectionColor = MasterDetailPopupBuilder::class.java.getDeclaredField("BORDER_COLOR")
+      val namedColor = JBColor.namedColor("Borders.color", Gray._135)
+      setFinalStatic(naughtySelectionColor, namedColor)
     } catch (e: Exception) {
       e.printStackTrace()
     }
@@ -392,6 +403,7 @@ object HackComponent : Disposable {
   private fun enableBorderConsistency() {
     hackSwitcherBorder()
     hackEditorBorder()
+    hackBookmarkBorder()
   }
 
   private fun hackEditorBorder() {
@@ -492,29 +504,7 @@ object HackComponent : Disposable {
     }
   }
 
-  private val titleInstrument = object : ExprEditor() {
-    @Throws(CannotCompileException::class)
-    override fun edit(m: MethodCall?) {
-      if (m!!.methodName == "message") {
-        m.replace("{ \$_ = \"Monika's Writing Tip of the Day\"; }")
-      }
-    }
-  }
-
   private fun hackTip(ctClass: CtClass) {
-    try {
-      val init = ctClass.getDeclaredMethod("initialize")
-      init.instrument(titleInstrument)
-      ctClass.toClass()
-    } catch (e: Exception) {
-      if (e !is NullPointerException) {
-        e.printStackTrace()
-      }
-      hackLegacyTip(ctClass)
-    }
-  }
-
-  private fun hackLegacyTip(ctClass: CtClass) {
     try {
       val declaredConstructor = ctClass.constructors
       declaredConstructor.forEach {

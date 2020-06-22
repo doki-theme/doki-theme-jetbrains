@@ -2493,8 +2493,22 @@
         <option name="WRITE_IDENTIFIER_UNDER_CARET_ATTRIBUTES">
             <value>
                 <option name="BACKGROUND" value="$searchResultBackground$" />
-                <option name="EFFECT_TYPE" value="1" />
+                <option name="ERROR_STRIPE_COLOR" value="$accentColor$"/>
             </value>
+        </option>
+      <option name="LIVE_TEMPLATE_ATTRIBUTES">
+        <value>
+          <option name="FOREGROUND" value="$selectionForeground$"/>
+          <option name="BACKGROUND" value="$selectionBackground$" />
+          <option name="EFFECT_COLOR" value="%accentColor%"/>
+          <option name="EFFECT_TYPE" value="0"/>
+        </value>
+      </option>
+      <option name="DEFAULT_HIGHLIGHTED_REFERENCE">
+          <value>
+            <option name="BACKGROUND" value="$searchResultBackground$" />
+            <option name="ERROR_STRIPE_COLOR" value="$accentColor$"/>
+          </value>
         </option>
         <option name="WRITE_SEARCH_RESULT_ATTRIBUTES">
             <value>
