@@ -49,7 +49,7 @@ Help make this plugin better!
 
 ## Want updates sooner?
 
-I have a [canary release channel](https://github.com/doki-theme/jetbrains-plugin-repository) that you can set up to get the latest and greatest!
+I have a [canary release channel](https://github.com/Unthrottled/jetbrains-plugin-repository) that you can set up to get the latest and greatest!
 
 
 # Even more Doki-Theme!
