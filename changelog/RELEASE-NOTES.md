@@ -11,5 +11,6 @@
 - New users will be given Rem as their first theme now.
 - Migrated error reporting to https://sentry.io
 - 2020.2 Build Support.
+- Small Issue Fixes
 
 ![The New Girls](https://doki.assets.unthrottled.io/misc/v8_girls.png?version=1)
