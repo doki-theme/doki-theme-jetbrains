@@ -2592,5 +2592,13 @@
                 <option name="FOREGROUND" value="$keyColor$" />
             </value>
         </option>
+      <option name="LIVE_TEMPLATE_ATTRIBUTES">
+        <value>
+          <option name="FOREGROUND" value="$selectionForeground$"/>
+          <option name="BACKGROUND" value="$selectionBackground$" />
+          <option name="EFFECT_COLOR" value="%accentColor%"/>
+          <option name="EFFECT_TYPE" value="0"/>
+        </value>
+      </option>
     </attributes>
 </scheme>

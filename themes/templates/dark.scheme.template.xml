@@ -2437,7 +2437,6 @@
             <value>
                 <option name="BACKGROUND" value="$selectionInactive$" />
                 <option name="EFFECT_COLOR" value="$selectionInactive$" />
-                <option name="ERROR_STRIPE_COLOR" value="$accentColor$" />
             </value>
         </option>
         <option name="TODO_DEFAULT_ATTRIBUTES">
@@ -2497,7 +2496,15 @@
                 <option name="ERROR_STRIPE_COLOR" value="$accentColor$"/>
             </value>
         </option>
-        <option name="DEFAULT_HIGHLIGHTED_REFERENCE">
+      <option name="LIVE_TEMPLATE_ATTRIBUTES">
+        <value>
+          <option name="FOREGROUND" value="$selectionForeground$"/>
+          <option name="BACKGROUND" value="$selectionBackground$" />
+          <option name="EFFECT_COLOR" value="%accentColor%"/>
+          <option name="EFFECT_TYPE" value="0"/>
+        </value>
+      </option>
+      <option name="DEFAULT_HIGHLIGHTED_REFERENCE">
           <value>
             <option name="BACKGROUND" value="$searchResultBackground$" />
             <option name="ERROR_STRIPE_COLOR" value="$accentColor$"/>
