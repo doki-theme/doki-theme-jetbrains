@@ -378,6 +378,7 @@
     "TabbedPaned.borderHighlightColor": "accentColor",
     "TextArea.caretForeground": "accentColor",
     "TextField.caretForeground":"accentColor",
+    "InplaceRefactoringPopup.borderColor": "accentColor",
     "TextPane.caretForeground":"accentColor",
     "ToolWindow.HeaderTab.inactiveUnderlineColor": "accentColor",
     "ToolWindow.HeaderTab.underlineColor":"accentColor",

@@ -2437,6 +2437,7 @@
             <value>
                 <option name="BACKGROUND" value="$selectionInactive$" />
                 <option name="EFFECT_COLOR" value="$selectionInactive$" />
+                <option name="ERROR_STRIPE_COLOR" value="$accentColor$" />
             </value>
         </option>
         <option name="TODO_DEFAULT_ATTRIBUTES">
@@ -2493,8 +2494,14 @@
         <option name="WRITE_IDENTIFIER_UNDER_CARET_ATTRIBUTES">
             <value>
                 <option name="BACKGROUND" value="$searchResultBackground$" />
-                <option name="EFFECT_TYPE" value="1" />
+                <option name="ERROR_STRIPE_COLOR" value="$accentColor$"/>
             </value>
+        </option>
+        <option name="DEFAULT_HIGHLIGHTED_REFERENCE">
+          <value>
+            <option name="BACKGROUND" value="$searchResultBackground$" />
+            <option name="ERROR_STRIPE_COLOR" value="$accentColor$"/>
+          </value>
         </option>
         <option name="WRITE_SEARCH_RESULT_ATTRIBUTES">
             <value>
