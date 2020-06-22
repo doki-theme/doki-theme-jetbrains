@@ -7,6 +7,7 @@ import com.intellij.ui.JBColor.namedColor
 import io.unthrottled.doki.icon.DokiIcons
 import io.unthrottled.doki.ui.DokiCheckboxUI
 import io.unthrottled.doki.ui.DokiRadioButtonUI
+import io.unthrottled.doki.ui.DokiTableSelectedCellHighlightBorder
 import io.unthrottled.doki.ui.TitlePaneUI
 import io.unthrottled.doki.ui.ToggleButtonUI
 import javax.swing.BorderFactory
@@ -30,6 +31,9 @@ object LookAndFeelInstaller {
   private fun installDefaults() {
     val defaults = UIManager.getLookAndFeelDefaults()
     defaults["TextPaneUI"] = "javax.swing.plaf.basic.BasicTextPaneUI"
+    val tableSelectedBorder = DokiTableSelectedCellHighlightBorder()
+    defaults["Table.focusSelectedCellHighlightBorder"] = tableSelectedBorder
+    defaults["Table.focusCellHighlightBorder"] = tableSelectedBorder
     defaults["List.focusCellHighlightBorder"] = BorderFactory.createEmptyBorder()
     defaults["TitledBorder.border"] = BorderFactory.createLineBorder(
       namedColor("Doki.Accent.color", DARK_GRAY)
