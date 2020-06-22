@@ -504,29 +504,7 @@ object HackComponent : Disposable {
     }
   }
 
-  private val titleInstrument = object : ExprEditor() {
-    @Throws(CannotCompileException::class)
-    override fun edit(m: MethodCall?) {
-      if (m!!.methodName == "message") {
-        m.replace("{ \$_ = \"Monika's Writing Tip of the Day\"; }")
-      }
-    }
-  }
-
   private fun hackTip(ctClass: CtClass) {
-    try {
-      val init = ctClass.getDeclaredMethod("initialize")
-      init.instrument(titleInstrument)
-      ctClass.toClass()
-    } catch (e: Exception) {
-      if (e !is NullPointerException) {
-        e.printStackTrace()
-      }
-      hackLegacyTip(ctClass)
-    }
-  }
-
-  private fun hackLegacyTip(ctClass: CtClass) {
     try {
       val declaredConstructor = ctClass.constructors
       declaredConstructor.forEach {
