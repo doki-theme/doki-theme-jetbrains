@@ -29,6 +29,7 @@ object LookAndFeelInstaller {
 
   private fun installDefaults() {
     val defaults = UIManager.getLookAndFeelDefaults()
+    defaults["TextPaneUI"] = "javax.swing.plaf.basic.BasicTextPaneUI"
     defaults["List.focusCellHighlightBorder"] = BorderFactory.createEmptyBorder()
     defaults["TitledBorder.border"] = BorderFactory.createLineBorder(
       namedColor("Doki.Accent.color", DARK_GRAY)
