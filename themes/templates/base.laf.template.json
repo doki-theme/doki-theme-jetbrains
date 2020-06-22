@@ -195,6 +195,7 @@
     "TextComponent.selectionBackgroundInactive": "selectionInactive",
     "Tree.selectionInactiveBackground": "selectionInactive",
     "WelcomeScreen.Projects.selectionInactiveBackground": "selectionInactive",
+    "Component.inactiveErrorFocusColor": "selectionInactive",
 
     "CheckBoxMenuItem.selectionBackground": "selectionBackground",
     "ComboBox.selectionBackground": "selectionBackground",
@@ -372,6 +373,9 @@
     "SearchMatch.startBackground": "accentColor",
     "TabbedPane.focusColor":"accentColor",
     "TabbedPane.underlineColor":"accentColor",
+    "Table.dropLineColor": "accentColor",
+    "Tree.selectionBorderColor": "accentColor",
+    "TabbedPaned.borderHighlightColor": "accentColor",
     "TextArea.caretForeground": "accentColor",
     "TextField.caretForeground":"accentColor",
     "TextPane.caretForeground":"accentColor",
