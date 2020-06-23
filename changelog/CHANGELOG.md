@@ -1,6 +1,10 @@
 # Changelog
 ---
 
+# 8.0.6 [Bug Fix]
+
+- Fixed issue with manually disabling/enabling the `Doki Theme Display` status bar widget.
+
 # 8.0.5 [Consistency & Bug Fixes]
 
 - Wrapped up the last of the major consistency issues!
