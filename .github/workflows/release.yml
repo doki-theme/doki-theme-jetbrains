@@ -15,7 +15,7 @@ jobs:
           java-version: 11
       - run: ./ciScripts/buildPlugin.sh
       - name: Copy zip file
-        run: cp build/libs/*.zip doki-theme.zip
+        run: cp build/distributions/*.zip doki-theme.zip
       - uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
