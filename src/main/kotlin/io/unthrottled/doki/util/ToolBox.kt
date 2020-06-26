@@ -48,5 +48,4 @@ fun Color.toHexString() = "#${ColorUtil.toHex(this)}"
 
 fun String.toColor() = ColorUtil.fromHex(this)
 
-
 fun InputStream.readAllTheBytes(): ByteArray = IOUtils.toByteArray(this)
