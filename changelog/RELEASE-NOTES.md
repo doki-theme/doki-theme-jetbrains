@@ -12,5 +12,6 @@
 - Migrated error reporting to https://sentry.io
 - 2020.2 Build Support.
 - Small Issue Fixes
+- Android Studio 4.2 Support. 
 
 ![The New Girls](https://doki.assets.unthrottled.io/misc/v8_girls.png?version=1)

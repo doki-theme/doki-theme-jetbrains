@@ -12,6 +12,7 @@ import com.intellij.openapi.project.Project
 val UPDATE_MESSAGE: String = """
       What's New?<br>
       <ul>
+        <li>Android Studio 4.2 Support</li>
         <li>Small issue fixes.</li>
       </ul>
       <br>Please see the <a href="https://github.com/doki-theme/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md">Changelog</a> for more details.

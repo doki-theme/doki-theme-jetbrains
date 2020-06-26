@@ -1,6 +1,10 @@
 # Changelog
 ---
 
+# 8.0.7 [Bug Fix]
+
+- Fixed issue where Sticker/Background did not show up in Android Studio 4.2.
+
 # 8.0.6 [Bug Fix]
 
 - Fixed issue with manually disabling/enabling the `Doki Theme Display` status bar widget.
