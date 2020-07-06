@@ -1,5 +1,7 @@
 package io.unthrottled.doki.icon
 
+import com.intellij.ui.ColorUtil
+import com.intellij.ui.JBColor
 import com.intellij.ui.JBColor.namedColor
 import com.intellij.util.SVGLoader
 import io.unthrottled.doki.util.toHexString
@@ -36,15 +38,11 @@ class ColorPatcher(
   }
 
   private fun patchChildren(svg: Element, otherPatcher: (Element) -> Unit) {
-    when (val accentTintAttribute = svg.getAttribute("accentTint")) {
-      "fill" -> svg.setAttribute("fill", getAccentColor())
-      "stroke" -> svg.setAttribute("stroke", getAccentColor())
-      "both", "partialFill" -> {
-        val accentColor = getAccentColor()
-        svg.setAttribute("stroke", accentColor)
-        svg.setAttribute("stroke-opacity", if (accentTintAttribute == "both") "1" else "0.25")
-        svg.setAttribute("fill", accentColor)
-      }
+    patchAccent(svg.getAttribute("accentTint"), svg) {
+      it.toHexString()
+    }
+    patchAccent(svg.getAttribute("accentTintDarker"), svg) {
+      ColorUtil.darker(it, 1).toHexString()
     }
 
     val themedStartAttr = svg.getAttribute("themedStart")
@@ -78,8 +76,21 @@ class ColorPatcher(
     }
   }
 
+  private fun patchAccent(attribute: String?, svg: Element, colorDecorator: (Color) -> String) {
+    when (val accentTintAttribute = attribute) {
+      "fill" -> svg.setAttribute("fill", colorDecorator(getAccentColor()))
+      "stroke" -> svg.setAttribute("stroke", colorDecorator(getAccentColor()))
+      "both", "partialFill" -> {
+        val accentColor = colorDecorator(getAccentColor())
+        svg.setAttribute("stroke", accentColor)
+        svg.setAttribute("stroke-opacity", if (accentTintAttribute == "both") "1" else "0.25")
+        svg.setAttribute("fill", accentColor)
+      }
+    }
+  }
+
   private fun getAccentColor() =
-    namedColor("Doki.Accent.color", Color.CYAN).toHexString()
+    namedColor("Doki.Accent.color", Color.CYAN)
 
   private fun getThemedStartColor() =
     namedColor("Doki.startColor", Color.CYAN).toHexString()
