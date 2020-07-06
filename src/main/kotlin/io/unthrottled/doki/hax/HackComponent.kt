@@ -4,6 +4,7 @@ import com.intellij.codeInsight.actions.DirectoryFormattingOptions
 import com.intellij.codeInsight.hint.HintUtil
 import com.intellij.codeInsight.hint.TooltipRenderer
 import com.intellij.execution.runners.ProcessProxy
+import com.intellij.ide.IdeTooltipManager
 import com.intellij.ide.actions.Switcher
 import com.intellij.ide.plugins.newui.PluginLogo
 import com.intellij.ide.util.ChooseElementsDialog
@@ -54,6 +55,34 @@ object HackComponent : Disposable {
     hackParameterInfoBackground()
     hackSheetWindow()
     hackToolWindowDecorator()
+    hackLivePreview()
+  }
+
+  private fun hackLivePreview() {
+    try {
+      val naughtySelectionColor = IdeTooltipManager::class.java.getDeclaredField("GRAPHITE_COLOR")
+      val namedColor = JBColor.namedColor("TextPane.background", 0xf2f2f2)
+      setFinalStatic(naughtySelectionColor, namedColor)
+    } catch (e: Throwable) {
+      e.printStackTrace()
+    }
+
+    try {
+      val cp = ClassPool(true)
+      cp.insertClassPath(ClassClassPath(Class.forName("com.intellij.find.impl.livePreview.SearchResults")))
+      val ctClass = cp.get("com.intellij.find.impl.livePreview.ReplacementView")
+      val init = ctClass.declaredConstructors[0]
+      init.instrument(object : ExprEditor() {
+        override fun edit(e: MethodCall?) {
+          if (e?.methodName == "setForeground") {
+            e.replace("{ \$1 = com.intellij.util.ui.UIUtil.getLabelForeground(); \$_ = \$proceed(\$\$);}")
+          }
+        }
+      })
+      ctClass.toClass()
+    } catch (e: Exception) {
+      e.printStackTrace()
+    }
   }
 
   private fun hackWelcomeScreen() {
