@@ -70,7 +70,7 @@
         </option>
         <option name="DIFF_CONFLICT">
             <value>
-                <option name="FOREGROUND" value="FFA9BF"/>
+                <option name="FOREGROUND" value="$diff.conflict$"/>
                 <option name="BACKGROUND" value="FF8984"/>
                 <option name="ERROR_STRIPE_COLOR" value="8f5247"/>
             </value>

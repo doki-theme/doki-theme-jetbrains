@@ -18,6 +18,7 @@
     <option name="FILESTATUS_changelistConflict" value="$accentColor$" />
     <option name="FILESTATUS_modifiedOutside" value="D1C0FD" />
 
+    <option name="LINE_NUMBER_ON_CARET_ROW_COLOR" value="$infoForeground$" />
     <option name="ERROR_HINT" value="d38e96" />
     <option name="ADDED_LINES_COLOR" value="59a1cd" />
     <option name="MODIFIED_LINES_COLOR" value="63A2FF" />
@@ -26,7 +27,7 @@
   <attributes>
     <option name="DIFF_CONFLICT">
       <value>
-        <option name="FOREGROUND" value="c2828a"/>
+        <option name="FOREGROUND" value="$diff.conflict$"/>
         <option name="BACKGROUND" value="d38e96"/>
         <option name="ERROR_STRIPE_COLOR" value="8f5247"/>
       </value>
@@ -34,19 +35,13 @@
     <option name="DIFF_DELETED">
       <value>
         <option name="FOREGROUND" value="82a8d6"/>
-        <option name="BACKGROUND" value="789ac4"/>
+        <option name="BACKGROUND" value="$diff.deleted$"/>
         <option name="ERROR_STRIPE_COLOR" value="656e76"/>
-      </value>
-    </option>
-    <option name="DIFF_INSERTED">
-      <value>
-        <option name="BACKGROUND" value="59a1cd"/>
-        <option name="ERROR_STRIPE_COLOR" value="447152"/>
       </value>
     </option>
     <option name="DIFF_MODIFIED">
       <value>
-        <option name="BACKGROUND" value="63A2FF"/>
+        <option name="BACKGROUND" value="$diff.modified$"/>
         <option name="WHITESPACES_MODIFIED_LINES_COLOR" value="63a2ff" />
         <option name="ERROR_STRIPE_COLOR" value="43698d"/>
       </value>
