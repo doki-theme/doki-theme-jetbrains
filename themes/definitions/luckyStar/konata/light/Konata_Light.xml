@@ -18,6 +18,7 @@
     <option name="FILESTATUS_changelistConflict" value="$accentColor$" />
     <option name="FILESTATUS_modifiedOutside" value="D1C0FD" />
 
+    <option name="LINE_NUMBER_ON_CARET_ROW_COLOR" value="$infoForeground$" />
     <option name="ERROR_HINT" value="d38e96" />
     <option name="ADDED_LINES_COLOR" value="59a1cd" />
     <option name="MODIFIED_LINES_COLOR" value="63A2FF" />
