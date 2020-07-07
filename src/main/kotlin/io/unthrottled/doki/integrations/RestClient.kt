@@ -35,7 +35,7 @@ object RestClient {
 
   private fun createGetRequest(remoteUrl: String): HttpGet {
     val remoteAssetRequest = HttpGet(remoteUrl)
-    remoteAssetRequest.addHeader("User-Agent", "One-Dark")
+    remoteAssetRequest.addHeader("User-Agent", "Doki-Theme-Jetbrains")
     remoteAssetRequest.config = RequestConfig.custom()
       .setConnectTimeout(TimeUnit.MILLISECONDS.convert(5L, TimeUnit.SECONDS).toInt())
       .build()
