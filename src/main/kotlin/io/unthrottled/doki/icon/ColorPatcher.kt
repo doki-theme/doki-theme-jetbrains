@@ -76,7 +76,7 @@ class ColorPatcher(
   }
 
   private fun patchAccent(attribute: String?, svg: Element, colorDecorator: (Color) -> String) {
-    when(attribute)  {
+    when (attribute) {
       "fill" -> svg.setAttribute("fill", colorDecorator(getAccentColor()))
       "stroke" -> svg.setAttribute("stroke", colorDecorator(getAccentColor()))
       "both", "partialFill" -> {

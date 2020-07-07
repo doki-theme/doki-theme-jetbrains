@@ -40,7 +40,6 @@ class ErrorReporter : ErrorReportSubmitter() {
           .map { it.trim() }
           .orElse("https://54daf566d8854f7d98e4c09ced2d34c5@o403546.ingest.sentry.io/5266340?maxmessagelength=50000")
       ))
-
   }
 
   override fun submit(

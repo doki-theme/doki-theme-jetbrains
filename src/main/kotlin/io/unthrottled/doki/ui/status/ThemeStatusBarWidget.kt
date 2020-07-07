@@ -64,7 +64,6 @@ class ThemeStatusBarWidget(private val project: Project) :
   }
 
   override fun dispose() {
-
   }
 
   override fun getIcon(): Icon? =
