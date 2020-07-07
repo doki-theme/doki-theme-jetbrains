@@ -31,11 +31,6 @@ import java.util.UUID
 
 class TheDokiTheme : Disposable {
   companion object {
-
-    init {
-      Sentry.init("https://54daf566d8854f7d98e4c09ced2d34c5@o403546.ingest.sentry.io/5266340?maxmessagelength=50000")
-    }
-
     const val COMMUNITY_PLUGIN_ID = "io.acari.DDLCTheme"
     const val ULTIMATE_PLUGIN_ID = "io.unthrottled.DokiTheme"
   }
