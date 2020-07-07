@@ -1,25 +1,39 @@
 package io.unthrottled.doki.notification
 
+import com.intellij.ide.BrowserUtil
 import com.intellij.ide.plugins.PluginManagerCore.getPlugin
 import com.intellij.ide.plugins.PluginManagerCore.getPluginOrPlatformByClassName
+import com.intellij.notification.Notification
+import com.intellij.notification.NotificationAction
 import com.intellij.notification.NotificationDisplayType
 import com.intellij.notification.NotificationGroup
 import com.intellij.notification.NotificationListener
 import com.intellij.notification.NotificationType
 import com.intellij.notification.SingletonNotificationManager
+import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.project.Project
+import java.net.URI
 
 val UPDATE_MESSAGE: String = """
       What's New?<br>
       <ul>
-        <li>Android Studio 4.2 Support</li>
         <li>Small issue fixes.</li>
+        <li>Updated plugin icon.</li>
       </ul>
       <br>Please see the <a href="https://github.com/doki-theme/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md">Changelog</a> for more details.
       <br>
       Thanks again for downloading <b>The Doki Theme</b>! •‿•<br>
 """.trimIndent()
+
 object UpdateNotification {
+
+  private val notificationGroup = NotificationGroup(
+    "Doki Theme Updates",
+    NotificationDisplayType.BALLOON,
+    false,
+    "Doki Theme Updates"
+  )
+
 
   private val notificationManager by lazy {
     SingletonNotificationManager(
@@ -52,12 +66,14 @@ object UpdateNotification {
       getPlugin(
         getPluginOrPlatformByClassName(UpdateNotification::class.java.canonicalName)
       )?.name
-    notificationManager.notify(
+    notificationGroup.createNotification(
       "$pluginName updated to v$newVersion",
       UPDATE_MESSAGE,
-      project,
-      NotificationListener.URL_OPENING_LISTENER
+      NotificationType.INFORMATION
     )
+      .addAction(ShowDokiThemesAction("Show me more Doki-Theme"))
+      .setListener(NotificationListener.URL_OPENING_LISTENER)
+      .notify(project)
   }
 
   fun displayRestartMessage() {
@@ -92,5 +108,11 @@ object UpdateNotification {
           |To re-enable it, un-check this action or toggle the action at "Help -> Find Action -> ide.open.readme.md.on.startup". 
         """.trimMargin()
     )
+  }
+}
+
+class ShowDokiThemesAction(text: String) : NotificationAction(text) {
+  override fun actionPerformed(e: AnActionEvent, notification: Notification) {
+    BrowserUtil.browse(URI("https://github.com/doki-theme"))
   }
 }
