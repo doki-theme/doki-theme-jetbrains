@@ -34,7 +34,6 @@ object UpdateNotification {
     "Doki Theme Updates"
   )
 
-
   private val notificationManager by lazy {
     SingletonNotificationManager(
       NotificationGroup(
