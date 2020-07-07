@@ -11,8 +11,8 @@
     &lt;br/&gt;
     &lt;p&gt;
       This plugin is for serious Otaku programmers.
-      With over 20 themes, based off of various waifus,
-      I think you will find your best girl.
+      Code with your waifu. With over 20 themes,
+      I think you will find best girl.
     &lt;/p&gt;&lt;br/&gt;
     &lt;p&gt;
           Variety is the spice of life! So you can choose themes from various, Anime, Manga, or Visual Novels:
@@ -31,7 +31,7 @@
       Sticker in the way? No worries! You can configure them to be on or off at your leisure.
         &lt;/p&gt;
         &lt;br/&gt;
-        &lt;div align="center"&gt;&lt;img src="https://doki.assets.unthrottled.io/misc/logo.png" alt="Doki Theme"/&gt;&lt;/div&gt;
+        &lt;div align="center"&gt;&lt;img width="256" src="https://doki.assets.unthrottled.io/misc/logo.png" alt="Doki Theme"/&gt;&lt;/div&gt;
         </description>
   <idea-version since-build="201.5985.32"/>
   <depends>com.intellij.modules.platform</depends>
