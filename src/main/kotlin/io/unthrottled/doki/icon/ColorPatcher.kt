@@ -1,7 +1,6 @@
 package io.unthrottled.doki.icon
 
 import com.intellij.ui.ColorUtil
-import com.intellij.ui.JBColor
 import com.intellij.ui.JBColor.namedColor
 import com.intellij.util.SVGLoader
 import io.unthrottled.doki.util.toHexString
@@ -77,13 +76,13 @@ class ColorPatcher(
   }
 
   private fun patchAccent(attribute: String?, svg: Element, colorDecorator: (Color) -> String) {
-    when (val accentTintAttribute = attribute) {
+    when(attribute)  {
       "fill" -> svg.setAttribute("fill", colorDecorator(getAccentColor()))
       "stroke" -> svg.setAttribute("stroke", colorDecorator(getAccentColor()))
       "both", "partialFill" -> {
         val accentColor = colorDecorator(getAccentColor())
         svg.setAttribute("stroke", accentColor)
-        svg.setAttribute("stroke-opacity", if (accentTintAttribute == "both") "1" else "0.25")
+        svg.setAttribute("stroke-opacity", if (attribute == "both") "1" else "0.25")
         svg.setAttribute("fill", accentColor)
       }
     }
