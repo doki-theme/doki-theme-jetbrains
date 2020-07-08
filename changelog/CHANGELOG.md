@@ -1,6 +1,10 @@
 # Changelog
 ---
 
+# 8.0.9 [Non-Functional]
+
+- Changed Master Schema to not require accent contrast color.
+
 # 8.0.8 [Consistency & Bug Fixes]
 
 - Fixed issue with status bar not updating theme name when changing themes.
@@ -133,6 +137,8 @@
     
 - The themes from Mistress's Menagerie have been moved from the Community Theme Suite.
     - If you where using one of those themes and would like them back feel free to [follow these instructions here](https://github.com/doki-theme/doki-theme-jetbrains/wiki/Ultimate-Theme-Setup)
+
+![The New Girls](https://doki.assets.unthrottled.io/misc/v7_girls.png?version=1)
 
 # 6.2.2
 
