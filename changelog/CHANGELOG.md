@@ -1,6 +1,11 @@
 # Changelog
 ---
 
+# 8.0.10 [Non-Functional]
+
+- Removed all legacy assets that where un-used.
+    - This makes the repository much lighter weight now.
+
 # 8.0.9 [Non-Functional]
 
 - Changed Master Schema to not require accent contrast color.
