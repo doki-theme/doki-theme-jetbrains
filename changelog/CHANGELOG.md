@@ -1,6 +1,12 @@
 # Changelog
 ---
 
+# 9.0.0 [Misato Katsuragi]
+
+- Added Neon Genesis Evangelion's `Misato Katsuragi` as a dark theme!
+
+![The New Woman](https://doki.assets.unthrottled.io/misc/v9_girl.png?version=1)
+
 # 8.0.10 [Non-Functional]
 
 - Removed all legacy assets that where un-used.

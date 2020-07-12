@@ -1,9 +1,0 @@
-<scheme name="Eleniel" version="142" parent_scheme="Doki Dark">
-  <attributes>
-    <option name="DEFAULT_STRING">
-      <value>
-        <option name="FOREGROUND" value="f1fa8c"/>
-      </value>
-    </option>
-  </attributes>
-</scheme>

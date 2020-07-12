@@ -3,6 +3,7 @@ package io.unthrottled.doki.stickers.impl
 import com.intellij.ide.util.PropertiesComponent
 import com.intellij.openapi.application.ApplicationManager.getApplication
 import com.intellij.openapi.application.PathManager
+import com.intellij.openapi.application.ex.ApplicationInfoEx
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.util.text.StringUtil.toHexString
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil
@@ -39,7 +40,9 @@ private enum class AssetChangedStatus {
 class StickerServiceImpl : StickerService {
 
   companion object {
-    private val httpClient = HttpClients.createMinimal()
+    private val httpClient = HttpClients.custom()
+      .setUserAgent(ApplicationInfoEx.getInstance().fullApplicationName)
+      .build()
     private val log = Logger.getInstance(this::class.java)
   }
 

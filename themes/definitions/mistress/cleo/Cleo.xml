@@ -1,8 +1,0 @@
-<scheme name="Cleo" version="142" parent_scheme="Doki Light v2">
-    <colors>
-        <option name="NOTIFICATION_BACKGROUND" value="$accentColor$5a" />
-        <option name="QUESTION_HINT" value="$accentColor$" />
-    </colors>
-    <attributes>
-    </attributes>
-</scheme>
