@@ -7,6 +7,8 @@ Themes grouped by album
 
 [DanganRonpa Album](../albums/dr_themes.md)
 
+[Neon Genesis Evangelion](../albums/eva_album.md)
+
 [Kill La Kill Album](../albums/klk_album.md)
 
 [KonoSuba Album](../albums/ks_album.md)
