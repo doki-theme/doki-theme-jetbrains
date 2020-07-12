@@ -1,13 +1,14 @@
 {
-  "id": "436ff3a0-4072-4b38-8d6f-888b18b5d0ab",
+  "id": "8e8773ee-4bbb-4812-b311-005f04f6bb20",
   "editorScheme": {
     "type": "templateExtension",
-    "file": "Sanya.xml"
+    "file": "Misato_Dark.xml"
   },
   "overrides": {
     "editorScheme": {
       "colors": {
-        "accentColor": "#E4FF10"
+        "accentColor": "#6cfa48",
+        "startColor": "#ff7400"
       }
     }
   },

@@ -11,6 +11,7 @@ private val nameMapping =
     "High School DxD" to "DxD: ",
     "Sword Art Online" to "SAO: ",
     "Lucky Star" to "LS: ",
+    "Evangelion" to "EVA: ",
     "Miscellaneous" to "Misc: "
   )
 
