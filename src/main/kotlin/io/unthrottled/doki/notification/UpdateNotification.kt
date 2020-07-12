@@ -17,6 +17,7 @@ import java.net.URI
 val UPDATE_MESSAGE: String = """
       What's New?<br>
       <ul>
+        <li>Added Misato Katsuragi from Neon Genesis Evangelion! (Dark Theme)</li>
         <li>Small issue fixes.</li>
         <li>Updated plugin icon.</li>
       </ul>
