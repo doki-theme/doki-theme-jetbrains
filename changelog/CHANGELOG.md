@@ -1,6 +1,10 @@
 # Changelog
 ---
 
+#9.0.1 [Small Adjustment]
+
+- Updated Misato's green syntax highlight color.
+
 # 9.0.0 [Misato Katsuragi]
 
 - Added Neon Genesis Evangelion's `Misato Katsuragi` as a dark theme!
