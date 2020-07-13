@@ -7,7 +7,7 @@ plugins {
 }
 
 group 'io.unthrottled'
-version '9.0.0'
+version '9.0.1'
 
 repositories {
   maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
