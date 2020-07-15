@@ -1,13 +1,17 @@
 # Changelog
 ---
 
-#9.0.2 [Usability]
+# 9.0.3 [Consistency]
+
+- Updated Misato's `diff & merge` colors.
+
+# 9.0.2 [Usability]
 
 - Updated Misato's selection inactive color
 
 ![image](https://user-images.githubusercontent.com/15972415/87482539-38dfb380-c5f7-11ea-828e-b347ff9c29f7.png)
 
-#9.0.1 [Small Adjustment]
+# 9.0.1 [Small Adjustment]
 
 - Updated Misato's green syntax highlight color.
 
