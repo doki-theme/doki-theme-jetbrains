@@ -19,6 +19,7 @@ import java.awt.Point
 val UPDATE_MESSAGE: String = """
       What's New?<br>
       <ul>
+        <li>Enhanced update notification.</li>
       </ul>
       Please see the <a href="https://github.com/doki-theme/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md">changelog</a> for more details.
       <br><br>
