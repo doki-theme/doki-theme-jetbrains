@@ -1,6 +1,10 @@
 # Changelog
 ---
 
+# 9.0.4 [Updates]
+
+- Changed how the plugin's update message appears.
+
 # 9.0.3 [Consistency]
 
 - Updated Misato's `diff & merge` colors.
