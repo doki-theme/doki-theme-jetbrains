@@ -23,6 +23,12 @@ val UPDATE_MESSAGE: String = """
       Please see the <a href="https://github.com/doki-theme/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md">changelog</a> for more details.
       <br><br>
       Did you the <b>Doki Theme</b> is available <a href='https://github.com/doki-theme'>on other platforms?</a>
+      <br><br>
+      Thanks for downloading!
+      <br><br>
+      <img alt='Thanks for downloading!' src="https://doki.assets.unthrottled.io/misc/update_celebration.gif" width='256'>
+       <br><br><br><br><br><br><br><br>
+       Thanks!
 """.trimIndent()
 
 object UpdateNotification {
