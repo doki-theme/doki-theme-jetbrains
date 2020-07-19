@@ -47,7 +47,6 @@ patchPluginXml {
   if(file(releaseNotes).exists()){
     changeNotes file(releaseNotes).text
   }
-  sinceBuild sinceBuildVersion
   untilBuild untilBuildVersion
 }
 tasks.patchPluginXml.dependsOn("markdownToHtml")
