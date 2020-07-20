@@ -9,11 +9,14 @@ import com.intellij.notification.NotificationListener
 import com.intellij.notification.NotificationType
 import com.intellij.notification.SingletonNotificationManager
 import com.intellij.notification.impl.NotificationsManagerImpl
+import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.popup.Balloon
 import com.intellij.openapi.wm.WindowManager
 import com.intellij.ui.BalloonLayoutData
+import com.intellij.ui.IconManager
 import com.intellij.ui.awt.RelativePoint
+import org.jetbrains.annotations.Nls
 import java.awt.Point
 
 val UPDATE_MESSAGE: String = """
@@ -34,21 +37,31 @@ val UPDATE_MESSAGE: String = """
 
 object UpdateNotification {
 
+  private val NOTIFICATION_ICON = IconManager.getInstance().getIcon(
+    "/icons/doki/Doki-Doki-Logo.svg",
+    UpdateNotification::class.java
+  )
+
   private val notificationGroup = NotificationGroup(
     "Doki Theme Updates",
     NotificationDisplayType.BALLOON,
     false,
-    "Doki Theme Updates"
+    "Doki Theme Updates",
+    NOTIFICATION_ICON
   )
 
-  private val notificationManager by lazy {
-    SingletonNotificationManager(
-      NotificationGroup(
-        "Doki Updates",
-        NotificationDisplayType.STICKY_BALLOON, true
-      ),
-      NotificationType.INFORMATION
-    )
+  private val defaultListener = NotificationListener.UrlOpeningListener(false)
+
+  private fun showDokiNotification(
+    @Nls(capitalization = Nls.Capitalization.Sentence) title: String = "",
+    @Nls(capitalization = Nls.Capitalization.Sentence) content: String,
+    project: Project? = null, listener: NotificationListener? = defaultListener
+  ) {
+    notificationGroup.createNotification(
+      title, content,
+      listener = listener
+    ).setIcon(NOTIFICATION_ICON)
+      .notify(project)
   }
 
   fun sendMessage(
@@ -56,11 +69,11 @@ object UpdateNotification {
     message: String,
     project: Project? = null
   ) {
-    notificationManager.notify(
+    showDokiNotification(
       title,
       message,
       project = project,
-      listener = NotificationListener.URL_OPENING_LISTENER
+      listener = defaultListener
     )
   }
 
@@ -80,6 +93,7 @@ object UpdateNotification {
         NotificationType.INFORMATION
       )
         .setListener(NotificationListener.UrlOpeningListener(false))
+        .setIcon(NOTIFICATION_ICON)
     )
   }
 
@@ -106,14 +120,14 @@ object UpdateNotification {
   }
 
   fun displayRestartMessage() {
-    notificationManager.notify(
+    showDokiNotification(
       "Please restart your IDE",
       "In order for the change to take effect, please restart your IDE. Thanks! ~"
     )
   }
 
   fun displayFileColorInstallMessage() {
-    notificationManager.notify(
+    showDokiNotification(
       "File Colors Installed",
       """File colors will remain in your IDE after uninstalling the plugin.
           |To remove them, un-check this action or remove them at "Settings -> Appearance -> File Colors". 
@@ -122,7 +136,7 @@ object UpdateNotification {
   }
 
   fun displayAnimationInstallMessage() {
-    notificationManager.notify(
+    showDokiNotification(
       "Theme Transition Animation Enabled",
       """The animations will remain in your IDE after uninstalling the plugin.
           |To remove them, un-check this action or toggle the action at "Help -> Find Action -> ide.intellij.laf.enable.animation". 
@@ -131,7 +145,7 @@ object UpdateNotification {
   }
 
   fun displayReadmeInstallMessage() {
-    notificationManager.notify(
+    showDokiNotification(
       "README.md will not show on startup",
       """This behavior will remain in your IDE after uninstalling the plugin.
           |To re-enable it, un-check this action or toggle the action at "Help -> Find Action -> ide.open.readme.md.on.startup". 
