@@ -2,8 +2,9 @@ package io.unthrottled.doki.actions
 
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
+import com.intellij.openapi.project.DumbAware
 
-class ShowNotification : AnAction() {
+class ShowNotification : AnAction(), DumbAware {
   override fun actionPerformed(e: AnActionEvent) {
     EditorNotificationManager.toggle()
   }
