@@ -5,7 +5,7 @@
 
 - Added `Show Update Notification` to settings, just in case you missed something :)
 - Replaced notification icons with the Doki Theme logo.
-
+![Peek 2020-07-20 19-07](https://user-images.githubusercontent.com/15972415/87998145-b8b8c280-cabc-11ea-96d9-74baebfb6ed8.gif)
 
 # 9.0.4 [Updates]
 
