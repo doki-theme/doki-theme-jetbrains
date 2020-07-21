@@ -43,7 +43,6 @@ class TheDokiTheme : Disposable {
           ).toOptional()
         }
         .map { it.version }
-
   }
 
   private val connection = ApplicationManager.getApplication().messageBus.connect()

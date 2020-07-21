@@ -53,7 +53,8 @@ object UpdateNotification {
   private fun showDokiNotification(
     @Nls(capitalization = Nls.Capitalization.Sentence) title: String = "",
     @Nls(capitalization = Nls.Capitalization.Sentence) content: String,
-    project: Project? = null, listener: NotificationListener? = defaultListener
+    project: Project? = null,
+    listener: NotificationListener? = defaultListener
   ) {
     notificationGroup.createNotification(
       title, content,

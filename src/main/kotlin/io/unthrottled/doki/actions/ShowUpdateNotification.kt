@@ -6,7 +6,7 @@ import com.intellij.openapi.project.DumbAware
 import io.unthrottled.doki.TheDokiTheme
 import io.unthrottled.doki.notification.UpdateNotification
 
-class ShowUpdateNotification: AnAction(), DumbAware {
+class ShowUpdateNotification : AnAction(), DumbAware {
 
   override fun actionPerformed(e: AnActionEvent) {
     TheDokiTheme.getVersion()
