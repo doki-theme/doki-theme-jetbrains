@@ -1,9 +1,17 @@
 # Changelog
 ---
 
+# 9.1.0 [Notifications]
+
+- Added `Show Update Notification` to settings, just in case you missed something :)
+- Replaced notification icons with the Doki Theme logo.
+
+
 # 9.0.4 [Updates]
 
 - Changed how the plugin's update message appears.
+![New update](https://user-images.githubusercontent.com/15972415/87887451-f51bee00-c9ea-11ea-93c1-ebf44cf2069e.gif)
+
 
 # 9.0.3 [Consistency]
 

@@ -7,9 +7,7 @@ import com.intellij.notification.NotificationDisplayType
 import com.intellij.notification.NotificationGroup
 import com.intellij.notification.NotificationListener
 import com.intellij.notification.NotificationType
-import com.intellij.notification.SingletonNotificationManager
 import com.intellij.notification.impl.NotificationsManagerImpl
-import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.popup.Balloon
 import com.intellij.openapi.wm.WindowManager
