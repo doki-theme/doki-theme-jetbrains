@@ -31,7 +31,18 @@ import java.util.UUID
 class TheDokiTheme : Disposable {
   companion object {
     const val COMMUNITY_PLUGIN_ID = "io.acari.DDLCTheme"
-    const val ULTIMATE_PLUGIN_ID = "io.unthrottled.DokiTheme"
+    private const val ULTIMATE_PLUGIN_ID = "io.unthrottled.DokiTheme"
+
+    fun getVersion(): Optional<String> =
+      PluginManagerCore.getPlugin(PluginId.getId(COMMUNITY_PLUGIN_ID))
+        .toOptional()
+        .map { it.toOptional() }
+        .orElseGet {
+          PluginManagerCore.getPlugin(
+            PluginId.getId(ULTIMATE_PLUGIN_ID)
+          ).toOptional()
+        }
+        .map { it.version }
   }
 
   private val connection = ApplicationManager.getApplication().messageBus.connect()
@@ -100,17 +111,6 @@ class TheDokiTheme : Disposable {
       ThemeConfig.instance.userId = UUID.randomUUID().toString()
     }
   }
-
-  private fun getVersion(): Optional<String> =
-    PluginManagerCore.getPlugin(PluginId.getId(COMMUNITY_PLUGIN_ID))
-      .toOptional()
-      .map { it.toOptional() }
-      .orElseGet {
-        PluginManagerCore.getPlugin(
-          PluginId.getId(ULTIMATE_PLUGIN_ID)
-        ).toOptional()
-      }
-      .map { it.version }
 
   override fun dispose() {
     connection.dispose()
