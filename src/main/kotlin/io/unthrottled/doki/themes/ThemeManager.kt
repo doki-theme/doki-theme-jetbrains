@@ -1,10 +1,11 @@
 package io.unthrottled.doki.themes
 
+import com.intellij.openapi.Disposable
 import com.intellij.openapi.components.ServiceManager
 import java.util.*
 import javax.swing.UIManager
 
-interface ThemeManager {
+interface ThemeManager : Disposable {
   companion object {
     const val DEFAULT_THEME_NAME = "Re:Zero: Rem"
 
