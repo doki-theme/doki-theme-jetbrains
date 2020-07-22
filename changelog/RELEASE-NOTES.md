@@ -1,1 +1,2 @@
 - Enhanced update notification
+- Updated Rias Gremory's diff colors.
