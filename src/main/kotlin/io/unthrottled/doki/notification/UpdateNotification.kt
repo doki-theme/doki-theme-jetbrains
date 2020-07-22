@@ -8,6 +8,7 @@ import com.intellij.notification.NotificationGroup
 import com.intellij.notification.NotificationListener
 import com.intellij.notification.NotificationType
 import com.intellij.notification.impl.NotificationsManagerImpl
+import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.popup.Balloon
 import com.intellij.openapi.wm.WindowManager
@@ -110,8 +111,9 @@ object UpdateNotification {
         updateNotification,
         true,
         false,
-        BalloonLayoutData.fullContent()
-      ) {}
+        BalloonLayoutData.fullContent(),
+        project
+      )
       balloon.show(notificationPosition, Balloon.Position.atLeft)
     } catch (e: Throwable) {
       updateNotification.notify(project)
