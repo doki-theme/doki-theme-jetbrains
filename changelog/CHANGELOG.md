@@ -1,6 +1,13 @@
 # Changelog
 ---
 
+# 9.1.1 [Consistency]
+
+- Rias Gremory's diff/merge colors are now the same as the other themes.
+    - Blue for changes to existing code
+    - Green for additions
+- Showing update notification when project is loaded to avoid jumpy animation. 
+
 # 9.1.0 [Notifications]
 
 - Added `Show Update Notification` to settings, just in case you missed something :)

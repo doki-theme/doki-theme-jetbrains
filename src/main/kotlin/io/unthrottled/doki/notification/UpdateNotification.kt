@@ -14,6 +14,7 @@ import com.intellij.openapi.wm.WindowManager
 import com.intellij.ui.BalloonLayoutData
 import com.intellij.ui.IconManager
 import com.intellij.ui.awt.RelativePoint
+import io.unthrottled.doki.themes.ThemeManager
 import org.jetbrains.annotations.Nls
 import java.awt.Point
 
@@ -110,8 +111,9 @@ object UpdateNotification {
         updateNotification,
         true,
         false,
-        BalloonLayoutData.fullContent()
-      ) {}
+        BalloonLayoutData.fullContent(),
+        ThemeManager.instance
+      )
       balloon.show(notificationPosition, Balloon.Position.atLeft)
     } catch (e: Throwable) {
       updateNotification.notify(project)

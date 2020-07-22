@@ -8,6 +8,7 @@ import com.intellij.openapi.extensions.PluginId
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.project.ProjectManager
 import com.intellij.openapi.project.ProjectManagerListener
+import com.intellij.openapi.startup.StartupManager
 import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.hax.HackComponent.hackLAF
 import io.unthrottled.doki.hax.SvgLoaderHacker.setSVGColorPatcher
@@ -90,7 +91,9 @@ class TheDokiTheme : Disposable {
           .filter { it != ThemeConfig.instance.version }
           .ifPresent { newVersion ->
             ThemeConfig.instance.version = newVersion
-            UpdateNotification.display(project, newVersion)
+            StartupManager.getInstance(project).runWhenProjectIsInitialized {
+              UpdateNotification.display(project, newVersion)
+            }
           }
       }
     })
