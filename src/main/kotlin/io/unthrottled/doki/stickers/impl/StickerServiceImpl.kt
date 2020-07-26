@@ -197,7 +197,6 @@ class StickerServiceImpl : StickerService {
       else -> remoteAssetPath
     }.toOptional()
 
-
   private fun createGetRequest(remoteUrl: String): HttpGet {
     val remoteAssetRequest = HttpGet(remoteUrl)
     remoteAssetRequest.config = RequestConfig.custom()
