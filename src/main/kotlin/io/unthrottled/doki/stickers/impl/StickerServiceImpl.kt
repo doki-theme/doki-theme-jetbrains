@@ -130,9 +130,9 @@ class StickerServiceImpl : StickerService {
             if (hasAssetChanged(localStickerPath, remoteAssetUrl)) {
               downloadAsset(localStickerPath, remoteAssetUrl)
             } else {
-              localStickerPath.toOptional()
+              localStickerPath.toString().toOptional()
             }
-          }.map { it.toString() }
+          }
       }
       .orElseGet {
         remoteAssetUrl
@@ -148,7 +148,7 @@ class StickerServiceImpl : StickerService {
   private fun downloadAsset(
     localStickerPath: Path,
     remoteAssetUrl: Optional<String>
-  ): Optional<Path> {
+  ): Optional<String> {
     createDirectories(localStickerPath)
     return remoteAssetUrl
       .flatMap {
@@ -167,7 +167,7 @@ class StickerServiceImpl : StickerService {
   private fun downloadRemoteAsset(
     localAssetPath: Path,
     remoteAssetPath: String
-  ): Optional<Path> = try {
+  ): Optional<String> = try {
     log.warn("Attempting to download asset $remoteAssetPath")
     val remoteAssetRequest = createGetRequest(remoteAssetPath)
     val remoteAssetResponse = httpClient.execute(remoteAssetRequest)
@@ -181,14 +181,21 @@ class StickerServiceImpl : StickerService {
           IOUtils.copy(inputStream, bufferedWriter)
         }
       }
+      localAssetPath.toString().toOptional()
     } else {
       log.warn("Asset request for $remoteAssetPath responded with $remoteAssetResponse")
+      getFallbackURL(localAssetPath, remoteAssetPath)
     }
-    localAssetPath.toOptional()
-  } catch (e: Exception) {
+  } catch (e: Throwable) {
     log.error("Unable to get remote remote asset $remoteAssetPath for raisins", e)
-    localAssetPath.toOptional()
+    getFallbackURL(localAssetPath, remoteAssetPath)
   }
+
+  private fun getFallbackURL(localAssetPath: Path, remoteAssetPath: String) =
+    when {
+      Files.exists(localAssetPath) -> localAssetPath.toUri().toString()
+      else -> remoteAssetPath
+    }.toOptional()
 
   private fun createGetRequest(remoteUrl: String): HttpGet {
     val remoteAssetRequest = HttpGet(remoteUrl)
@@ -241,7 +248,7 @@ class StickerServiceImpl : StickerService {
           } else {
             empty()
           }
-        } catch (e: Exception) {
+        } catch (e: Throwable) {
           log.warn("Unable to get checksum for remote asset: $it for raisins", e)
           empty<String>()
         }

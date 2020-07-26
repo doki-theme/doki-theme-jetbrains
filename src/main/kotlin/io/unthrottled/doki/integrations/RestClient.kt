@@ -27,7 +27,7 @@ object RestClient {
       } else {
         Optional.empty()
       }
-    } catch (e: Exception) {
+    } catch (e: Throwable) {
       log.warn("Unable to get remote asset: $url for raisins", e)
       Optional.empty<String>()
     }

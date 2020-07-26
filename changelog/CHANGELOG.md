@@ -1,6 +1,10 @@
 # Changelog
 ---
 
+# 9.1.2 [Asset Resiliency]
+
+- Able to handle network errors, when downloading remote assets, better.
+
 # 9.1.1 [Consistency]
 
 - Rias Gremory's diff/merge colors are now the same as the other themes.

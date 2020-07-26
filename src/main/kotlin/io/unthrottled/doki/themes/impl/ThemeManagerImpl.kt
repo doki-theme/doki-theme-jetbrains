@@ -68,6 +68,5 @@ class ThemeManagerImpl : ThemeManager {
     themeMap[selectedTheme].toOptional()
 
   override fun dispose() {
-
   }
 }
