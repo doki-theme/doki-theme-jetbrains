@@ -1,2 +1,3 @@
 - Enhanced update notification
 - Updated Rias Gremory's diff colors.
+- Able to handle network errors, when downloading remote assets, better.
