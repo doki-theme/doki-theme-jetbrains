@@ -64,7 +64,7 @@ class ErrorReporter : ErrorReportSubmitter() {
         sentryClient.clearContext()
       }
       true
-    } catch (e: Exception) {
+    } catch (e: Throwable) {
       false
     }
   }
