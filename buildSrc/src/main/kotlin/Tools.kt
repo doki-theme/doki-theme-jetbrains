@@ -12,6 +12,7 @@ private val nameMapping =
     "Sword Art Online" to "SAO: ",
     "Lucky Star" to "LS: ",
     "Evangelion" to "EVA: ",
+    "Miss Kobayashi's Dragon Maid" to "DM: ",
     "Miscellaneous" to "Misc: "
   )
 
