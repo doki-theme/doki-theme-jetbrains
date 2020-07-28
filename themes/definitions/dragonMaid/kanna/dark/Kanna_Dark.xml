@@ -1,0 +1,9 @@
+<scheme name="Kanna Dark" version="142" parent_scheme="Legacy Dark">
+  <attributes>
+    <option name="DEFAULT_STRING">
+      <value>
+        <option name="FOREGROUND" value="ffb86c"/>
+      </value>
+    </option>
+  </attributes>
+</scheme>
