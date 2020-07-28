@@ -6,7 +6,12 @@
   },
   "overrides": {
     "editorScheme": {
-      "colors": {}
+      "colors": {
+        "accentColor": "#69ecf5",
+        "startColor": "#ff69df",
+        "nonProjectFileScopeColor": "#343635",
+        "testScopeColor": "#2f393a"
+      }
     }
   },
   "ui": {}
