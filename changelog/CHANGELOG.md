@@ -1,5 +1,13 @@
-# Changelog
+Changelog
 ---
+
+# 10.0.0 [Kanna Kamui]
+
+- Added Miss Kobayashi's Dragon Maid's `Kanna` as a dark theme!
+    - This theme has 2 stickers to choose from!
+- Fixed inconsistencies with the `Recent Location` window.
+
+![The Girl](https://doki.assets.unthrottled.io/misc/v10_girl.png?version=1)
 
 # 9.1.2 [Asset Resiliency]
 
