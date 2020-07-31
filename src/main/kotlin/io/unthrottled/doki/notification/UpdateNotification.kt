@@ -21,7 +21,11 @@ import java.awt.Point
 val UPDATE_MESSAGE: String = """
       What's New?<br>
       <ul>
-        <li>Added Miss Kobayashi's Dragon Maid's `Kanna`! (Dark/2 Stickers)</li>
+        <li>Added Miss Kobayashi's Dragon Maid's <code>Kanna</code>!
+        <ul>
+            <li>Dark Theme & 2 Stickers</li>
+        </ul>
+        </li>
         <li>Small consistency fixes.</li>
       </ul>
       Please see the <a href="https://github.com/doki-theme/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md">changelog</a> for more details.

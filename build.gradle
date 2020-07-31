@@ -26,7 +26,7 @@ configurations {
 }
 
 intellij {
-  version '2020.1'
+  version '2020.2'
   type 'IU'
   alternativeIdePath idePath
 }
@@ -47,6 +47,7 @@ patchPluginXml {
   if(file(releaseNotes).exists()){
     changeNotes file(releaseNotes).text
   }
+  sinceBuild sinceBuildVersion
   untilBuild untilBuildVersion
 }
 tasks.patchPluginXml.dependsOn("markdownToHtml")
