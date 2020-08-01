@@ -6,6 +6,7 @@ Changelog
 - Added Miss Kobayashi's Dragon Maid's `Kanna` as a dark theme!
     - This theme has 2 stickers to choose from!
 - Fixed inconsistencies with the `Recent Location` window.
+- Updated all of the theme's diff/merge colors.
 
 ![The Girl](https://doki.assets.unthrottled.io/misc/v10_girl.png?version=1)
 
