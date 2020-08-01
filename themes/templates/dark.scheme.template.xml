@@ -57,8 +57,9 @@
         <option name="LINE_NUMBER_ON_CARET_ROW_COLOR" value="$lineNumberColor$" />
         <option name="PROMOTION_PANE" value="%accentColor%5a"/>
         <option name="MODIFIED_LINES_COLOR" value="296c2a" />
+        <option name="METHOD_SEPARATORS_COLOR" value="$borderColor$" />
         <option name="NOTIFICATION_BACKGROUND" value="$selectionBackground$" />
-        <option name="RECENT_LOCATIONS_SELECTION" value="191a21" />
+        <option name="RECENT_LOCATIONS_SELECTION" value="$codeBlock$" />
         <option name="RIGHT_MARGIN_COLOR" value="$borderColor$" />
         <option name="SELECTED_INDENT_GUIDE" value="$borderColor$" />
         <option name="SELECTED_TEARLINE_COLOR" value="$accentColor$" />
