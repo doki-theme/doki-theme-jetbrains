@@ -8,7 +8,7 @@ Changelog
 - Fixed inconsistencies with the `Recent Location` window.
 - Updated all of the theme's diff/merge colors.
 
-![The Girl](https://doki.assets.unthrottled.io/misc/v10_girl.png?version=1)
+![The New Girl](https://doki.assets.unthrottled.io/misc/v10_girl.png?version=1)
 
 # 9.1.2 [Asset Resiliency]
 
