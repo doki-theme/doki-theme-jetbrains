@@ -4,5 +4,6 @@
 - Enhanced update notification
 - Updated Rias Gremory's diff colors.
 - Able to handle network errors, when downloading remote assets, better.
+- Updated all of the theme's diff/merge colors.
 
 ![The New Girl](https://doki.assets.unthrottled.io/misc/v10_girl.png?version=1)
