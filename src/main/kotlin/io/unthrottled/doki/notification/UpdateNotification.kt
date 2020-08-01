@@ -21,9 +21,9 @@ import java.awt.Point
 val UPDATE_MESSAGE: String = """
       What's New?<br>
       <ul>
-        <li>Added Miss Kobayashi's Dragon Maid's <code>Kanna</code>!
+        <li>Added Miss Kobayashi's Dragon Maid's: Kanna!
         <ul>
-            <li>Dark Theme & 2 Stickers</li>
+            <li>A cute dark Theme & 2 stickers</li>
         </ul>
         </li>
         <li>Small consistency fixes.</li>
