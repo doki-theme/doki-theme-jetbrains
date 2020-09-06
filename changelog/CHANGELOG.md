@@ -1,6 +1,10 @@
 Changelog
 ---
 
+# 10.0.1 [Consistency]
+
+- Added Key-Promoter-X icon integrations
+
 # 10.0.0 [Kanna Kamui]
 
 - Added Miss Kobayashi's Dragon Maid's `Kanna` as a dark theme!

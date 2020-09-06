@@ -29,6 +29,12 @@ intellij {
   version '2020.2'
   type 'IU'
   alternativeIdePath idePath
+
+  if(System.getenv().get("ENV","") == "DEV") {
+    plugins (
+      'Key Promoter X:2020.2'
+    )
+  }
 }
 compileKotlin {
   kotlinOptions.jvmTarget = "1.8"
