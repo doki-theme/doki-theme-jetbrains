@@ -332,6 +332,8 @@
     "ToggleButton.offForeground":"ghostColor",
     "ToggleButton.borderColor": "accentColorTransparent",
 
+    "FileColor.Green": "testScopeColor",
+
     "TabbedPane.focus": "accentColor",
     "Notification.MoreButton.foreground": "accentColor",
     "Button.default.focusColor":"accentColor",
