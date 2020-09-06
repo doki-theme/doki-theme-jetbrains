@@ -495,6 +495,8 @@
     "/images/psi.png": "/icons/plugins/psi/images/psi.svg",
     "/images/psi18x18.png": "/icons/plugins/psi/images/psi_18.svg",
     "/images/psiToolWindow.png": "/icons/plugins/psi/images/psiToolWindow.svg",
+    "/org/jetbrains/plugins/jumpToLine/nextStatement.svg":  "/icons/plugins/jumpToLine/nextStatement.svg",
+    "/org/jetbrains/plugins/jumpToLine/nextStatementFail.svg": "/icons/plugins/jumpToLine/nextStatementFail.svg",
     "/org/jetbrains/kotlin/idea/icons/abstractClassKotlin.svg": "/icons/plugins/kotlin/abstractClassKotlin.svg",
     "/org/jetbrains/kotlin/idea/icons/annotationKotlin.svg":"/icons/plugins/kotlin/annotationKotlin.svg",
     "/org/jetbrains/kotlin/idea/icons/classInitializerKotlin.svg": "/icons/plugins/kotlin/classInitializerKotlin.svg",

@@ -30,9 +30,10 @@ intellij {
   type 'IU'
   alternativeIdePath idePath
 
-  if(System.getenv().get("ENV","") == "DEV") {
+  if(System.getenv().getOrDefault("ENV", "") == "DEV") {
     plugins (
-      'Key Promoter X:2020.2'
+      'Key Promoter X:2020.2',
+      'org.jetbrains.jumpToLine:0.1.1'
     )
   }
 }
