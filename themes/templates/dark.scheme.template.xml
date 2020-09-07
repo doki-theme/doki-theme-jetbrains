@@ -18,6 +18,8 @@
     <option name="EDITOR_FONT_SIZE" value="12" />
     <option name="EDITOR_LIGATURES" value="true" />
     <colors>
+<!--      todo: this-->
+<!--        <option name="ActionButton.iconTextForeground" value="$infoForeground$" />-->
         <option name="ADDED_LINES_COLOR" value="203952" />
         <option name="ANNOTATIONS_COLOR" value="$accentColor$" />
         <option name="CARET_COLOR" value="%accentColor%" />
