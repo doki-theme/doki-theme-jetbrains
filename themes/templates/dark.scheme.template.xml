@@ -55,6 +55,8 @@
         <option name="INDENT_GUIDE" value="$borderColor$" />
         <option name="INFORMATION_HINT" value="$baseBackground$" />
         <option name="QUESTION_HINT" value="$selectionBackground$" />
+<!--      todo: this-->
+<!--        <option name="LINE_NUMBERS_COLOR" value="$infoForeground$" />-->
         <option name="LINE_NUMBERS_COLOR" value="$lineNumberColor$" />
         <option name="LINE_NUMBER_ON_CARET_ROW_COLOR" value="$lineNumberColor$" />
         <option name="PROMOTION_PANE" value="%accentColor%5a"/>
