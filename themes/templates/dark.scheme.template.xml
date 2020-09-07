@@ -18,8 +18,7 @@
     <option name="EDITOR_FONT_SIZE" value="12" />
     <option name="EDITOR_LIGATURES" value="true" />
     <colors>
-<!--      todo: this-->
-<!--        <option name="ActionButton.iconTextForeground" value="$infoForeground$" />-->
+        <option name="ActionButton.iconTextForeground" value="$infoForeground$" />
         <option name="ADDED_LINES_COLOR" value="203952" />
         <option name="ANNOTATIONS_COLOR" value="$accentColor$" />
         <option name="CARET_COLOR" value="%accentColor%" />
@@ -55,8 +54,6 @@
         <option name="INDENT_GUIDE" value="$borderColor$" />
         <option name="INFORMATION_HINT" value="$baseBackground$" />
         <option name="QUESTION_HINT" value="$selectionBackground$" />
-<!--      todo: this-->
-<!--        <option name="LINE_NUMBERS_COLOR" value="$infoForeground$" />-->
         <option name="LINE_NUMBERS_COLOR" value="$lineNumberColor$" />
         <option name="LINE_NUMBER_ON_CARET_ROW_COLOR" value="$lineNumberColor$" />
         <option name="PROMOTION_PANE" value="%accentColor%5a"/>
@@ -291,7 +288,12 @@
                 <option name="BACKGROUND" value="$selectionBackground$" />
             </value>
         </option>
-        <option name="CONSOLE_USER_INPUT">
+      <option name="CONSOLE_SYSTEM_OUTPUT">
+        <value>
+          <option name="FOREGROUND" value="$infoForeground$" />
+        </value>
+      </option>
+      <option name="CONSOLE_USER_INPUT">
             <value>
                 <option name="FOREGROUND" value="$classNameColor$" />
                 <option name="FONT_TYPE" value="2" />
