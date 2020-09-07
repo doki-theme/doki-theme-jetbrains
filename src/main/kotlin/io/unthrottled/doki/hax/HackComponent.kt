@@ -114,7 +114,6 @@ object HackComponent : Disposable {
     }
   }
 
-  // todo: revisit this
   private fun hackSheetWindow() {
     try {
       val cp = ClassPool(true)
