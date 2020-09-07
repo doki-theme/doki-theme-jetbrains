@@ -96,7 +96,7 @@ object HackComponent : Disposable {
       createLink.instrument(object : ExprEditor() {
         override fun edit(e: NewExpr?) {
           if (e?.className == "com.intellij.ui.JBColor") {
-            e.replace("{ \$_ = com.intellij.ui.JBColor.namedColor(\"Link.activeForeground\", com.intellij.ui.JBColor.BLACK); }")
+            e.replace("{ \$_ = com.intellij.ui.JBColor.namedColor(\"Label.foreground\", com.intellij.ui.JBColor.BLACK); }")
           }
         }
       })
