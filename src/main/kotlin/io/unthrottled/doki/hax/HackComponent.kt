@@ -346,7 +346,6 @@ object HackComponent : Disposable {
     } catch (e: Throwable) {
       e.printStackTrace()
     }
-
   }
 
   private fun hackTitleFrame() {
