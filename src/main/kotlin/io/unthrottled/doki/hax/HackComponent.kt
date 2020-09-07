@@ -15,6 +15,7 @@ import com.intellij.openapi.Disposable
 import com.intellij.openapi.actionSystem.impl.ActionMenu
 import com.intellij.openapi.fileEditor.impl.EditorComposite
 import com.intellij.openapi.fileEditor.impl.EditorHistoryManager
+import com.intellij.openapi.progress.util.ColorProgressBar
 import com.intellij.openapi.wm.impl.TitleInfoProvider
 import com.intellij.ui.Gray
 import com.intellij.ui.JBColor
@@ -26,14 +27,11 @@ import com.intellij.xdebugger.impl.ui.XDebuggerUIConstants
 import io.unthrottled.doki.hax.FeildHacker.setFinalStatic
 import io.unthrottled.doki.stickers.impl.DOKI_BACKGROUND_PROP
 import io.unthrottled.doki.stickers.impl.DOKI_STICKER_PROP
-import javassist.CannotCompileException
-import javassist.ClassClassPath
-import javassist.ClassPool
-import javassist.CtClass
-import javassist.CtMethod
+import javassist.*
 import javassist.expr.ExprEditor
 import javassist.expr.MethodCall
 import javassist.expr.NewExpr
+import java.awt.Color
 
 object HackComponent : Disposable {
   init {
@@ -333,6 +331,19 @@ object HackComponent : Disposable {
     hackSwitcher()
     hackFindInPath()
     hackTitleFrame()
+    hackTestResults()
+  }
+
+  private fun hackTestResults() {
+    val switcherClass = ColorProgressBar::class.java
+    try {
+      val naughtySelectionColor = switcherClass.getDeclaredField("YELLOW")
+      val namedColor = JBColor.namedColor("ColorProgress.bar.yellow", JBColor(Color(0xa67a21), Color(0x91703a)))
+      setFinalStatic(naughtySelectionColor, namedColor)
+    } catch (e: Throwable) {
+      e.printStackTrace()
+    }
+
   }
 
   private fun hackTitleFrame() {

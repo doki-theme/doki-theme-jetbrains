@@ -272,6 +272,12 @@
                 <option name="BACKGROUND" value="$selectionBackground$" />
             </value>
         </option>
+<!--      todo: this-->
+<!--        <option name="CONSOLE_SYSTEM_OUTPUT">-->
+<!--            <value>-->
+<!--                <option name="FOREGROUND" value="$infoForeground$" />-->
+<!--            </value>-->
+<!--        </option>-->
         <option name="CONSOLE_USER_INPUT">
             <value>
                 <option name="FOREGROUND" value="$classNameColor$" />
