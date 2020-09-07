@@ -27,7 +27,11 @@ import com.intellij.xdebugger.impl.ui.XDebuggerUIConstants
 import io.unthrottled.doki.hax.FeildHacker.setFinalStatic
 import io.unthrottled.doki.stickers.impl.DOKI_BACKGROUND_PROP
 import io.unthrottled.doki.stickers.impl.DOKI_STICKER_PROP
-import javassist.*
+import javassist.CannotCompileException
+import javassist.ClassClassPath
+import javassist.ClassPool
+import javassist.CtClass
+import javassist.CtMethod
 import javassist.expr.ExprEditor
 import javassist.expr.MethodCall
 import javassist.expr.NewExpr

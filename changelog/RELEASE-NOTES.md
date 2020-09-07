@@ -1,9 +1,8 @@
-- Added Miss Kobayashi's Dragon Maid's `Kanna` as a dark theme!
-    - This theme has 2 stickers to choose from
-- Fixed inconsistencies with the `Recent Location` window.
-- Enhanced update notification
-- Updated Rias Gremory's diff colors.
-- Able to handle network errors, when downloading remote assets, better.
-- Updated all of the theme's diff/merge colors.
-
-![The New Girl](https://doki.assets.unthrottled.io/misc/v10_girl.png?version=1)
+- All theme's secondary text (the greyed text to the right of options) are now colored!
+- Changed The Line Number Colors for the following themes
+    - Beatrice, Natsuki Light, Yuri Dark, Emilia Dark, 
+- Changed Emilia Dark's syntax coloring
+    - Keywords, Comments, and Strings
+- A bunch of small fixes. [Please see issue for more details](https://github.com/doki-theme/doki-theme-jetbrains/issues/262)
+- Added [Jump To Line](https://blog.jetbrains.com/idea/2020/08/jump-to-any-line-while-debugging/) integrations
+- Added [Key-Promoter-X](https://plugins.jetbrains.com/plugin/9792-key-promoter-x) icon integrations
