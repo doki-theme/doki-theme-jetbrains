@@ -3,6 +3,9 @@
   "name": "dark",
   "extends": "base",
   "ui": {
+    "Notification.ToolWindow.errorBackground": "#371010",
+    "Notification.ToolWindow.informativeBackground": "#0f2613",
+    "Notification.ToolWindow.warningBackground":  "#2a2207",
     "Notification.ToolWindow.informativeForeground": "#baeeba",
     "Notification.ToolWindow.warningForeground": "#f9f78e",
     "Notification.ToolWindow.errorForeground": "#ffcccc"
