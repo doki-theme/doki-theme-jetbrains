@@ -1,6 +1,7 @@
 <scheme name="Emilia Dark" version="142" parent_scheme="Doki Dark">
   <colors>
     <option name="LINE_NUMBERS_COLOR" value="$infoForeground$" />
+    <option name="LINE_NUMBER_ON_CARET_ROW_COLOR" value="infoForeground" />
   </colors>
   <attributes>
     <option name="INLINE_PARAMETER_HINT">

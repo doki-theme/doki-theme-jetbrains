@@ -53,7 +53,7 @@
         <option name="INFORMATION_HINT" value="$baseBackground$" />
         <option name="QUESTION_HINT" value="$selectionBackground$" />
         <option name="LINE_NUMBERS_COLOR" value="aaaaaa" />
-        <option name="LINE_NUMBER_ON_CARET_ROW_COLOR" value="1b1f23" />
+        <option name="LINE_NUMBER_ON_CARET_ROW_COLOR" value="aaaaaa" />
         <option name="PROMOTION_PANE" value="%accentColor%5a"/>
         <option name="METHOD_SEPARATORS_COLOR" value="$borderColor$" />
         <option name="RECENT_LOCATIONS_SELECTION" value="$codeBlock$" />
