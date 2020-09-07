@@ -902,7 +902,7 @@
         </option>
         <option name="JS.REGEXP">
             <value>
-                <option name="FOREGROUND" value="009926" />
+                <option name="FOREGROUND" value="$accentColor$" />
             </value>
         </option>
         <option name="JS.THIS_SUPER">

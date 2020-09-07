@@ -897,6 +897,11 @@
                 <option name="FOREGROUND" value="86dbfd" />
             </value>
         </option>
+        <option name="JS.REGEXP">
+          <value>
+            <option name="FOREGROUND" value="$accentColor$" />
+          </value>
+        </option>
         <option name="JS.THIS_SUPER">
             <value>
                 <option name="FOREGROUND" value="86dbfd" />

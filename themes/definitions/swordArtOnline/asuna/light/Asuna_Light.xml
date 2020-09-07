@@ -18,5 +18,10 @@
     <option name="ScrollBar.thumbColor" value="$accentColorMoreTransparent$"/>
   </colors>
   <attributes>
+    <option name="JS.REGEXP">
+      <value>
+        <option name="FOREGROUND" value="%accentColor%" />
+      </value>
+    </option>
   </attributes>
 </scheme>
