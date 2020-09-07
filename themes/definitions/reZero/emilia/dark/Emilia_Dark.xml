@@ -10,6 +10,12 @@
         <option name="BACKGROUND" value="$textEditorBackground$" />
       </value>
     </option>
+    <option name="BREADCRUMBS_DEFAULT">
+      <value>
+        <option name="FOREGROUND" value="$infoForeground$" />
+        <option name="BACKGROUND" value="$textEditorBackground$" />
+      </value>
+    </option>
     <option name="CODE_VISION_DEFAULT">
       <value>
         <option name="FOREGROUND" value="$lineNumberColor$" />

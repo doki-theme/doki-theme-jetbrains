@@ -3,7 +3,7 @@ Changelog
 
 # 10.1.0 [Enhancements]
 
-- All theme's secondary text (the greyed text to the right of options) are now colored!
+- All themes' secondary text (the greyed text to the right of options) are now colored!
 - Changed The Line Number Colors for the following themes
     - Beatrice, Natsuki Light, Yuri Dark, Emilia Dark, 
 - Changed Emilia Dark's syntax coloring
