@@ -3,6 +3,7 @@
   "name": "dark",
   "extends": "base",
   "ui": {
+    "ColorProgress.bar.yellow": "#91703a",
     "Notification.ToolWindow.errorBackground": "#371010",
     "Notification.ToolWindow.informativeBackground": "#0f2613",
     "Notification.ToolWindow.warningBackground":  "#2a2207",
