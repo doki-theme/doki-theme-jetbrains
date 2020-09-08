@@ -1,5 +1,10 @@
 <scheme name="Yuri Dark" version="142" parent_scheme="Legacy Dark">
   <attributes>
-
+    <option name="BREADCRUMBS_DEFAULT">
+      <value>
+        <option name="FOREGROUND" value="$infoForeground$" />
+        <option name="BACKGROUND" value="$textEditorBackground$" />
+      </value>
+    </option>
   </attributes>
 </scheme>

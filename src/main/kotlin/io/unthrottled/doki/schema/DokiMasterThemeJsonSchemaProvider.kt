@@ -9,7 +9,6 @@ import com.jetbrains.jsonSchema.extension.JsonSchemaProviderFactory
 import com.jetbrains.jsonSchema.extension.SchemaType
 import java.util.*
 
-// todo: revisit this when you have time
 class DokiMasterThemeJsonSchemaProvider : JsonSchemaProviderFactory {
   companion object {
     const val THEME_SCHEMA = "/theme-schema/master.theme.schema.json"

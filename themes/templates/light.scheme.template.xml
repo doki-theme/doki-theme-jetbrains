@@ -18,6 +18,7 @@
     <option name="EDITOR_FONT_SIZE" value="12" />
     <option name="EDITOR_LIGATURES" value="true" />
     <colors>
+        <option name="ActionButton.iconTextForeground" value="$infoForeground$" />
         <option name="ADDED_LINES_COLOR" value="D0FDC9" />
         <option name="ANNOTATIONS_COLOR" value="$accentColor$" />
         <option name="CARET_COLOR" value="%accentColor%" />
@@ -52,7 +53,7 @@
         <option name="INFORMATION_HINT" value="$baseBackground$" />
         <option name="QUESTION_HINT" value="$selectionBackground$" />
         <option name="LINE_NUMBERS_COLOR" value="aaaaaa" />
-        <option name="LINE_NUMBER_ON_CARET_ROW_COLOR" value="1b1f23" />
+        <option name="LINE_NUMBER_ON_CARET_ROW_COLOR" value="aaaaaa" />
         <option name="PROMOTION_PANE" value="%accentColor%5a"/>
         <option name="METHOD_SEPARATORS_COLOR" value="$borderColor$" />
         <option name="RECENT_LOCATIONS_SELECTION" value="$codeBlock$" />
@@ -270,6 +271,11 @@
         <option name="CONSOLE_SELECTED_PARAMETER">
             <value>
                 <option name="BACKGROUND" value="$selectionBackground$" />
+            </value>
+        </option>
+        <option name="CONSOLE_SYSTEM_OUTPUT">
+            <value>
+                <option name="FOREGROUND" value="$infoForeground$" />
             </value>
         </option>
         <option name="CONSOLE_USER_INPUT">
@@ -902,7 +908,7 @@
         </option>
         <option name="JS.REGEXP">
             <value>
-                <option name="FOREGROUND" value="009926" />
+                <option name="FOREGROUND" value="$accentColor$" />
             </value>
         </option>
         <option name="JS.THIS_SUPER">

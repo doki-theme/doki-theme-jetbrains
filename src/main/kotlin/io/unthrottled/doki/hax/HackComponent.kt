@@ -15,6 +15,7 @@ import com.intellij.openapi.Disposable
 import com.intellij.openapi.actionSystem.impl.ActionMenu
 import com.intellij.openapi.fileEditor.impl.EditorComposite
 import com.intellij.openapi.fileEditor.impl.EditorHistoryManager
+import com.intellij.openapi.progress.util.ColorProgressBar
 import com.intellij.openapi.wm.impl.TitleInfoProvider
 import com.intellij.ui.Gray
 import com.intellij.ui.JBColor
@@ -34,6 +35,7 @@ import javassist.CtMethod
 import javassist.expr.ExprEditor
 import javassist.expr.MethodCall
 import javassist.expr.NewExpr
+import java.awt.Color
 
 object HackComponent : Disposable {
   init {
@@ -96,7 +98,7 @@ object HackComponent : Disposable {
       createLink.instrument(object : ExprEditor() {
         override fun edit(e: NewExpr?) {
           if (e?.className == "com.intellij.ui.JBColor") {
-            e.replace("{ \$_ = com.intellij.ui.JBColor.namedColor(\"Link.activeForeground\", com.intellij.ui.JBColor.BLACK); }")
+            e.replace("{ \$_ = com.intellij.ui.JBColor.namedColor(\"Label.foreground\", com.intellij.ui.JBColor.BLACK); }")
           }
         }
       })
@@ -116,7 +118,6 @@ object HackComponent : Disposable {
     }
   }
 
-  // todo: revisit this
   private fun hackSheetWindow() {
     try {
       val cp = ClassPool(true)
@@ -333,6 +334,18 @@ object HackComponent : Disposable {
     hackSwitcher()
     hackFindInPath()
     hackTitleFrame()
+    hackTestResults()
+  }
+
+  private fun hackTestResults() {
+    val switcherClass = ColorProgressBar::class.java
+    try {
+      val naughtySelectionColor = switcherClass.getDeclaredField("YELLOW")
+      val namedColor = JBColor.namedColor("ColorProgress.bar.yellow", JBColor(Color(0xa67a21), Color(0x91703a)))
+      setFinalStatic(naughtySelectionColor, namedColor)
+    } catch (e: Throwable) {
+      e.printStackTrace()
+    }
   }
 
   private fun hackTitleFrame() {

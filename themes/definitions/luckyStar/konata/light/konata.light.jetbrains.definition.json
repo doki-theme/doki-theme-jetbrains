@@ -17,6 +17,7 @@
     "SearchField.errorBackground": "#d38e96",
     "CompletionPopup.selectionBackground": "accentColorMoreTransparent",
     "CompletionPopup.matchForeground": "#fff400",
+    "ColorProgress.bar.yellow": "#fff400",
     "ComboBox.modifiedItemForeground": "accentColorBrighter",
     "Debugger.Variables.changedValueForeground":"accentColorBrighter",
     "Debugger.Variables.modifyingValueForeground": "accentColorBrighter",

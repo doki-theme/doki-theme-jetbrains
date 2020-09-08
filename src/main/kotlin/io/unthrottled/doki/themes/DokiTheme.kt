@@ -1,10 +1,14 @@
 package io.unthrottled.doki.themes
 
+import com.google.gson.Gson
+import com.intellij.ide.ui.UIThemeMetadata
 import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.stickers.CurrentSticker
 import io.unthrottled.doki.util.toColor
 import io.unthrottled.doki.util.toOptional
 import java.awt.Color
+import java.io.InputStreamReader
+import java.nio.charset.StandardCharsets
 import java.util.*
 
 class Stickers(
@@ -70,14 +74,23 @@ class DokiTheme(private val uiTheme: DokiThemeDefinition) {
       ?: throw IllegalStateException("Expected 'colors.contrastColor' to be present in theme $name json.")
 
   companion object {
-    val ACCENT_COLOR = "Doki.Accent.color"
+    private const val ACCENT_COLOR = "Doki.Accent.color"
 
-    // todo: read from json...
-    val requiredNamedColors = listOf(
-      ACCENT_COLOR,
-      "Doki.startColor",
-      "Doki.stopColor"
-    )
+    val requiredNamedColors: List<String>
+
+    init {
+      val gson = Gson()
+      requiredNamedColors = this::class.java.classLoader
+        .getResourceAsStream("/theme-schema/DokiTheme.themeMetadata.json")
+        .use {
+          gson.fromJson(
+            InputStreamReader(it!!, StandardCharsets.UTF_8),
+            UIThemeMetadata::class.java
+          )
+        }.uiKeyMetadata.map {
+          it.key
+        }.toMutableList().plus(ACCENT_COLOR)
+    }
   }
 
   private fun validateThemeDefinition() {

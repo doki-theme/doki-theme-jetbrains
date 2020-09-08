@@ -13,6 +13,10 @@
     {
       "key": "Doki.stopColor",
       "description": "The other color used for icon gradients"
+    },
+    {
+      "key": "ColorProgress.bar.yellow",
+      "description": "The yellow color used in the progress bar, such as 'Tests Ignored'"
     }
   ]
 }
