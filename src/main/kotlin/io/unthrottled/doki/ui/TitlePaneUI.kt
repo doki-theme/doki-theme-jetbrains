@@ -131,7 +131,7 @@ class TitlePaneUI : DarculaRootPaneUI() {
           graphics.fill(headerRectangle)
           graphics.font = UIManager.getFont("Panel.font")
           val color: Color =
-            if (window!!.isActive) namedColor("Label.foreground", Color.black)
+            if (window!!.isActive) namedColor("Label.infoForeground", Color.black)
             else namedColor("Label.disabledForeground", GRAY)
           graphics.color = color
           val controlButtonsWidth = 70
