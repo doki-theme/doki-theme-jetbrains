@@ -4,10 +4,6 @@
 ![Build](https://github.com/doki-theme/doki-theme-jetbrains/workflows/Release/badge.svg)
 [![Gitter](https://badges.gitter.im/doki-theme-jetbrains/community.svg)](https://gitter.im/doki-theme-jetbrains/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
-<div>
-  <iframe frameborder="none" width="245px" height="48px" src="https://plugins.jetbrains.com/embeddable/install/10804"></iframe>
-</div>
-
 # Quick Preview
 
 ![Themes](assets/screenshots/flagship_themes.gif)
