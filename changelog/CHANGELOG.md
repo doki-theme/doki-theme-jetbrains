@@ -1,6 +1,10 @@
 Changelog
 ---
 
+# 10.1.1 [Title Pane]
+
+- Changed the MacOS Title pane font color to be the `infoForeground` color when active.
+
 # 10.1.0 [Enhancements]
 
 - All themes' secondary text (the greyed text to the right of options) are now colored!

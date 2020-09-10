@@ -1,3 +1,7 @@
+![Downloads](https://img.shields.io/jetbrains/plugin/d/10804)
+![Rating](https://img.shields.io/jetbrains/plugin/r/rating/10804)
+![Version](https://img.shields.io/jetbrains/plugin/v/10804)
+![Build](https://github.com/doki-theme/doki-theme-jetbrains/workflows/Release/badge.svg)
 [![Gitter](https://badges.gitter.im/doki-theme-jetbrains/community.svg)](https://gitter.im/doki-theme-jetbrains/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 # Quick Preview
