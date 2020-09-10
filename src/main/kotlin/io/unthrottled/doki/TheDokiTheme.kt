@@ -87,6 +87,10 @@ class TheDokiTheme : Disposable {
             StickerService.instance.checkForUpdates(it)
           }
 
+        val plugin = PluginManagerCore.getPlugin(
+          PluginId.getId("zd.zero.waifu-motivator-plugin")
+        )
+
         getVersion()
           .filter { it != ThemeConfig.instance.version }
           .ifPresent { newVersion ->
