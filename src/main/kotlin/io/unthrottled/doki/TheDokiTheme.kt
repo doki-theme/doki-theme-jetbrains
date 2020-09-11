@@ -19,6 +19,7 @@ import io.unthrottled.doki.laf.FileScopeColors.attemptToInstallColors
 import io.unthrottled.doki.laf.FileScopeColors.attemptToRemoveColors
 import io.unthrottled.doki.laf.LookAndFeelInstaller.installAllUIComponents
 import io.unthrottled.doki.notification.UpdateNotification
+import io.unthrottled.doki.promotions.PromotionManager
 import io.unthrottled.doki.settings.actors.setDokiTheme
 import io.unthrottled.doki.stickers.StickerLevel
 import io.unthrottled.doki.stickers.StickerService
@@ -87,13 +88,19 @@ class TheDokiTheme : Disposable {
             StickerService.instance.checkForUpdates(it)
           }
 
-        val plugin = PluginManagerCore.getPlugin(
-          PluginId.getId("zd.zero.waifu-motivator-plugin")
-        )
+        PromotionManager.attemptToRegisterPromotion()
+
+        getVersion()
+          .ifPresent {
+            PromotionManager.markVersionInstall(it)
+          }
 
         getVersion()
           .filter { it != ThemeConfig.instance.version }
           .ifPresent { newVersion ->
+// todo: bring back
+//            PromotionManager.markVersionInstall(newVersion)
+
             ThemeConfig.instance.version = newVersion
             StartupManager.getInstance(project).runWhenProjectIsInitialized {
               UpdateNotification.display(project, newVersion)

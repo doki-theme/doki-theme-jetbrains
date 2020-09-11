@@ -5,6 +5,7 @@ import com.google.gson.reflect.TypeToken
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.util.text.StringUtil
 import io.unthrottled.doki.integrations.RestClient
+import io.unthrottled.doki.util.toOptional
 import java.nio.charset.Charset
 import java.nio.file.Files
 import java.nio.file.Path
@@ -70,22 +71,20 @@ object LocalAssetService {
             Instant.now().truncatedTo(ChronoUnit.DAYS)
 
     private fun writeCheckedDate(localInstallPath: Path) {
-        assetChecks[getAssetCheckKey(localInstallPath)] = Instant.now()
-        getAssetChecksFile()
-            .ifPresent {
-                LocalStorageService.createDirectories(it)
-                Files.newBufferedWriter(
-                        it, Charset.defaultCharset(),
-                        StandardOpenOption.CREATE,
-                        StandardOpenOption.TRUNCATE_EXISTING
-                ).use { writer ->
-                    writer.write(gson.toJson(assetChecks))
-                }
-            }
+      assetChecks[getAssetCheckKey(localInstallPath)] = Instant.now()
+      val assetCheckPath = getAssetChecksFile()
+      LocalStorageService.createDirectories(assetCheckPath)
+      Files.newBufferedWriter(
+        assetCheckPath, Charset.defaultCharset(),
+        StandardOpenOption.CREATE,
+        StandardOpenOption.TRUNCATE_EXISTING
+      ).use { writer ->
+        writer.write(gson.toJson(assetChecks))
+      }
     }
 
     private fun readPreviousAssetChecks(): MutableMap<String, Instant> = try {
-        getAssetChecksFile()
+        getAssetChecksFile().toOptional()
             .filter { Files.exists(it) }
             .map {
                 Files.newBufferedReader(it).use { reader ->
@@ -100,8 +99,9 @@ object LocalAssetService {
         mutableMapOf()
     }
 
-    private fun getAssetChecksFile() = LocalStorageService.getLocalAssetDirectory()
-        .map { Paths.get(it, "assetChecks.json") }
+    private fun getAssetChecksFile() =
+        Paths.get(LocalStorageService.getLocalAssetDirectory(), "assetChecks.json")
+
 
     private fun getAssetCheckKey(localInstallPath: Path) =
         localInstallPath.toAbsolutePath().toString()
