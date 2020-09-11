@@ -1,15 +1,21 @@
 package io.unthrottled.doki.promotions
 
 import com.google.gson.GsonBuilder
+import com.intellij.ide.plugins.PluginManagerCore
 import com.intellij.openapi.diagnostic.Logger
+import com.intellij.openapi.extensions.PluginId
 import com.intellij.util.io.exists
 import io.unthrottled.doki.assets.AssetCategory
 import io.unthrottled.doki.assets.AssetManager
 import io.unthrottled.doki.assets.LocalStorageService.createDirectories
+import io.unthrottled.doki.config.ThemeConfig
+import io.unthrottled.doki.stickers.StickerLevel
+import io.unthrottled.doki.stickers.StickerService
 import java.io.InputStreamReader
 import java.nio.charset.StandardCharsets
 import java.nio.file.Files
 import java.nio.file.StandardOpenOption
+import java.time.Duration
 import java.time.Instant
 
 object PromotionManager {
@@ -50,19 +56,37 @@ object PromotionManager {
   }
 
   fun registerPromotion(newVersion: String) {
-    if(initalized.not()){
+    if (initalized.not()) {
       promotionRegistry(newVersion)
     }
   }
 
   private fun promotionRegistry(newVersion: String) {
-    if (promotionLedger.versionInstallDates.containsKey(newVersion).not()) {
-      promotionLedger.versionInstallDates[newVersion] = Instant.now()
+    val versionInstallDates = promotionLedger.versionInstallDates
+    if (versionInstallDates.containsKey(newVersion).not()) {
+      versionInstallDates[newVersion] = Instant.now()
       persistLedger()
     } else {
-      // attempt to register promotion
+//      val latestInstallDate = versionInstallDates[newVersion]!!
+//      if (Duration.between(latestInstallDate, Instant.now()).toDays() > 2) {
+        setupPromotion()
+//      }
     }
   }
+
+  private fun setupPromotion() {
+    if (isMotivatorInstalled().not() && shouldPromote()) {
+        MotivatorPluginPromotion().registerPromotion()
+    }
+  }
+
+  private fun shouldPromote(): Boolean =
+    ThemeConfig.instance.currentStickerLevel == StickerLevel.ON
+
+  private fun isMotivatorInstalled(): Boolean =
+    PluginManagerCore.getPlugin(
+      PluginId.getId("zd.zero.waifu-motivator-plugin")
+    ) != null
 
   private fun persistLedger() {
     if (ledgerPath.exists().not()) {
@@ -82,6 +106,13 @@ object PromotionManager {
     } catch (e: Throwable) {
       log.warn("Unable to persist ledger for raisins", e)
     }
+  }
+}
+
+class MotivatorPluginPromotion {
+
+  fun registerPromotion() {
+
   }
 }
 
