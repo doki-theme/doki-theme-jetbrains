@@ -7,6 +7,8 @@ import com.intellij.openapi.application.ex.ApplicationInfoEx
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.util.text.StringUtil.toHexString
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil
+import io.unthrottled.doki.assets.LocalStorageService.createDirectories
+import io.unthrottled.doki.assets.LocalStorageService.getLocalAssetDirectory
 import io.unthrottled.doki.stickers.StickerService
 import io.unthrottled.doki.themes.DokiTheme
 import io.unthrottled.doki.util.readAllTheBytes
@@ -156,14 +158,6 @@ class StickerServiceImpl : StickerService {
       }
   }
 
-  private fun createDirectories(directoriesToCreate: Path) {
-    try {
-      Files.createDirectories(directoriesToCreate.parent)
-    } catch (e: IOException) {
-      log.error("Unable to create directories $directoriesToCreate for raisins", e)
-    }
-  }
-
   private fun downloadRemoteAsset(
     localAssetPath: Path,
     remoteAssetPath: String
@@ -297,12 +291,6 @@ class StickerServiceImpl : StickerService {
           }
       }
 
-  private fun getLocalAssetDirectory(): Optional<String> =
-    ofNullable(
-      PathManager.getConfigPath()
-    ).map {
-      get(it, "dokiThemeAssets").toAbsolutePath().toString()
-    }
 
   override fun remove() {
     val propertiesComponent = PropertiesComponent.getInstance()
