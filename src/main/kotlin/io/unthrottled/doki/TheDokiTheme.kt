@@ -88,19 +88,14 @@ class TheDokiTheme : Disposable {
             StickerService.instance.checkForUpdates(it)
           }
 
-        PromotionManager.attemptToRegisterPromotion()
-
         getVersion()
           .ifPresent {
-            PromotionManager.markVersionInstall(it)
+            PromotionManager.registerPromotion(it)
           }
 
         getVersion()
           .filter { it != ThemeConfig.instance.version }
           .ifPresent { newVersion ->
-// todo: bring back
-//            PromotionManager.markVersionInstall(newVersion)
-
             ThemeConfig.instance.version = newVersion
             StartupManager.getInstance(project).runWhenProjectIsInitialized {
               UpdateNotification.display(project, newVersion)

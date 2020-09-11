@@ -20,6 +20,8 @@ object PromotionManager {
     .setPrettyPrinting()
     .create()
 
+  private var initalized = false
+
   private val ledgerPath = AssetManager.constructLocalAssetPath(
     AssetCategory.PROMOTION,
     "ledger.json"
@@ -47,15 +49,18 @@ object PromotionManager {
     }
   }
 
-
-  fun attemptToRegisterPromotion() {
-
+  fun registerPromotion(newVersion: String) {
+    if(initalized.not()){
+      promotionRegistry(newVersion)
+    }
   }
 
-  fun markVersionInstall(newVersion: String) {
+  private fun promotionRegistry(newVersion: String) {
     if (promotionLedger.versionInstallDates.containsKey(newVersion).not()) {
       promotionLedger.versionInstallDates[newVersion] = Instant.now()
       persistLedger()
+    } else {
+      // attempt to register promotion
     }
   }
 
