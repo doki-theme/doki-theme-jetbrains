@@ -5,11 +5,13 @@ import com.intellij.ide.IdeEventQueue
 import com.intellij.ide.plugins.PluginManagerCore
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.extensions.PluginId
+import com.intellij.openapi.project.ProjectManager
 import com.intellij.util.io.exists
 import io.unthrottled.doki.assets.AssetCategory
 import io.unthrottled.doki.assets.AssetManager
 import io.unthrottled.doki.assets.LocalStorageService.createDirectories
 import io.unthrottled.doki.config.ThemeConfig
+import io.unthrottled.doki.notification.UpdateNotification
 import io.unthrottled.doki.stickers.StickerLevel
 import io.unthrottled.doki.themes.DokiTheme
 import io.unthrottled.doki.themes.ThemeManager
@@ -133,7 +135,23 @@ class MotivatorPluginPromotion(
     ThemeManager.instance.currentTheme.ifPresent { dokiTheme ->
       val themeId = dokiTheme.id
       val promotionAsset = getPromotionAsset(dokiTheme)
+      UpdateNotification.displayPromotionMessage(
+        ProjectManager.getInstance().openProjects.first(),
+        """
+          <div style="margin: 5px 5px 5px 10px; width: 400px; height: 400px" >
+              <h2>Do you want more ${dokiTheme.displayName}?</h2>
+              <p>The <a href='https://plugins.jetbrains.com/plugin/13381-waifu-motivator'>Waifu Motivator Plugin</a>
+              gives you a virtual companion.</p>
+              <p>Your companion will interact with you as code is being built.</p>
+              <p>These reactions are collection of various anime memes and gifs, most of which include your favorite character!</p>
+              <br/>
+              <img src='https://doki.assets.unthrottled.io/misc/update_celebration.gif' alt='momsspaghetti'/>
+          </div>
+        """.trimIndent()
+      )
     }
+
+    IdeEventQueue.getInstance().removeIdleListener(this)
   }
 
   private fun getPromotionAsset(dokiTheme: DokiTheme): String {

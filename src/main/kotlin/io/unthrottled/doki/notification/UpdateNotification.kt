@@ -10,6 +10,8 @@ import com.intellij.notification.NotificationType
 import com.intellij.notification.impl.NotificationsManagerImpl
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.popup.Balloon
+import com.intellij.openapi.util.Ref
+import com.intellij.openapi.wm.IdeFrame
 import com.intellij.openapi.wm.WindowManager
 import com.intellij.ui.BalloonLayoutData
 import com.intellij.ui.IconManager
@@ -97,6 +99,47 @@ object UpdateNotification {
         .setIcon(NOTIFICATION_ICON)
     )
   }
+
+  fun displayPromotionMessage(
+    project: Project,
+    messageContent: String
+  ) {
+    val updateNotification = notificationGroup.createNotification()
+      .setContent(messageContent)
+    try {
+      val (ideFrame, notificationPosition) = fetchBalloonParameters(project)
+      val balloon = NotificationsManagerImpl.createBalloon(
+        ideFrame,
+        updateNotification,
+        true,
+        true,
+        createLayoutDataRef(),
+        ThemeManager.instance
+      )
+      balloon.setAnimationEnabled(true)
+      balloon.show(notificationPosition, Balloon.Position.atLeft)
+    } catch (e: Throwable) {
+      updateNotification.notify(project)
+    }
+  }
+
+  private fun createLayoutDataRef(): Ref<BalloonLayoutData> {
+    val balloonLayoutData = BalloonLayoutData.createEmpty()
+    balloonLayoutData.showFullContent = true
+    balloonLayoutData.showMinSize = false
+    balloonLayoutData.welcomeScreen = true
+    return Ref(balloonLayoutData)
+  }
+
+  fun fetchBalloonParameters(project: Project): Pair<IdeFrame, RelativePoint> {
+    val ideFrame = WindowManager.getInstance().getIdeFrame(project)
+      ?: WindowManager.getInstance().allProjectFrames.first()
+    val frameBounds = ideFrame.component.bounds
+    val notificationPosition = RelativePoint(ideFrame.component, Point(frameBounds.x + frameBounds.width, 20))
+    return Pair(ideFrame, notificationPosition)
+  }
+
+
 
   private fun showNotification(
     project: Project,

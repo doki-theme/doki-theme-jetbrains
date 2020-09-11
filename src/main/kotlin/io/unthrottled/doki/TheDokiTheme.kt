@@ -27,8 +27,7 @@ import io.unthrottled.doki.themes.ThemeManager
 import io.unthrottled.doki.util.ThemeMigrator
 import io.unthrottled.doki.util.doOrElse
 import io.unthrottled.doki.util.toOptional
-import java.util.Optional
-import java.util.UUID
+import java.util.*
 
 class TheDokiTheme : Disposable {
   companion object {
@@ -89,16 +88,16 @@ class TheDokiTheme : Disposable {
           }
 
         getVersion()
-          .ifPresent {
-            PromotionManager.registerPromotion(it)
-          }
+          .ifPresent { version ->
+            if (version != ThemeConfig.instance.version) {
+              ThemeConfig.instance.version = version
+              StartupManager.getInstance(project).runWhenProjectIsInitialized {
+                UpdateNotification.display(project, version)
+              }
+            }
 
-        getVersion()
-          .filter { it != ThemeConfig.instance.version }
-          .ifPresent { newVersion ->
-            ThemeConfig.instance.version = newVersion
             StartupManager.getInstance(project).runWhenProjectIsInitialized {
-              UpdateNotification.display(project, newVersion)
+              PromotionManager.registerPromotion(version)
             }
           }
       }
@@ -107,7 +106,8 @@ class TheDokiTheme : Disposable {
 
   private fun userOnBoarding() {
     if (ThemeConfig.instance.isFirstTime &&
-      ThemeManager.instance.currentTheme.isPresent.not()) {
+      ThemeManager.instance.currentTheme.isPresent.not()
+    ) {
       setDokiTheme(ThemeManager.instance.themeByName(ThemeManager.DEFAULT_THEME_NAME))
       ThemeConfig.instance.isFirstTime = false
     } else if (ThemeConfig.instance.isFirstTime) {
