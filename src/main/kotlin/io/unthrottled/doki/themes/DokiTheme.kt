@@ -17,6 +17,7 @@ class Stickers(
 )
 
 class DokiThemeDefinition(
+  val id: String,
   val name: String,
   val displayName: String?,
   val dark: Boolean,
@@ -32,6 +33,9 @@ class DokiTheme(private val uiTheme: DokiThemeDefinition) {
   init {
     validateThemeDefinition()
   }
+
+  val id: String
+    get() = uiTheme.id
 
   val groupName: String
     get() = uiTheme.group

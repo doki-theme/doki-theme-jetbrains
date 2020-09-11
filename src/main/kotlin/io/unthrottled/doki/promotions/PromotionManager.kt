@@ -1,6 +1,7 @@
 package io.unthrottled.doki.promotions
 
 import com.google.gson.GsonBuilder
+import com.intellij.ide.IdeEventQueue
 import com.intellij.ide.plugins.PluginManagerCore
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.extensions.PluginId
@@ -10,12 +11,12 @@ import io.unthrottled.doki.assets.AssetManager
 import io.unthrottled.doki.assets.LocalStorageService.createDirectories
 import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.stickers.StickerLevel
-import io.unthrottled.doki.stickers.StickerService
+import io.unthrottled.doki.themes.DokiTheme
+import io.unthrottled.doki.themes.ThemeManager
 import java.io.InputStreamReader
 import java.nio.charset.StandardCharsets
 import java.nio.file.Files
 import java.nio.file.StandardOpenOption
-import java.time.Duration
 import java.time.Instant
 
 object PromotionManager {
@@ -69,17 +70,20 @@ object PromotionManager {
     } else {
 //      val latestInstallDate = versionInstallDates[newVersion]!!
 //      if (Duration.between(latestInstallDate, Instant.now()).toDays() > 2) {
-        setupPromotion()
+      setupPromotion()
 //      }
     }
   }
 
   private fun setupPromotion() {
     if (isMotivatorInstalled().not() && shouldPromote()) {
-        MotivatorPluginPromotion().registerPromotion()
+      MotivatorPluginPromotion {
+        // mark promoted
+      }
     }
   }
 
+  // todo: has been promoted as well
   private fun shouldPromote(): Boolean =
     ThemeConfig.instance.currentStickerLevel == StickerLevel.ON
 
@@ -109,10 +113,33 @@ object PromotionManager {
   }
 }
 
-class MotivatorPluginPromotion {
+class MotivatorPluginPromotion(
+  private val onPromotion: () -> Unit
+) : Runnable {
 
-  fun registerPromotion() {
+  init {
+    IdeEventQueue.getInstance().addIdleListener(
+      this,
+      5000
+//      TimeUnit.MILLISECONDS.convert(
+//        5,
+//        TimeUnit.MINUTES
+//      ).toInt()
+    )
 
+  }
+
+  override fun run() {
+    ThemeManager.instance.currentTheme.ifPresent { dokiTheme ->
+      val themeId = dokiTheme.id
+      val promotionAsset = getPromotionAsset(dokiTheme)
+    }
+  }
+
+  private fun getPromotionAsset(dokiTheme: DokiTheme): String {
+    return when (dokiTheme.id) {
+      else -> "promotion.gif"
+    }
   }
 }
 
