@@ -31,7 +31,7 @@ object HttpClientFactory {
 }
 
 object AssetManager {
-    private const val ASSETS_SOURCE = "https://waifu.assets.unthrottled.io"
+    private const val ASSETS_SOURCE = "https://doki.assets.unthrottled.io"
 
     private val httpClient = HttpClientFactory.createHttpClient()
     private val log = Logger.getInstance(this::class.java)
@@ -72,7 +72,10 @@ object AssetManager {
     private fun constructRemoteAssetUrl(
         assetCategory: AssetCategory,
         assetPath: String
-    ): String = "$ASSETS_SOURCE/${assetCategory.category}/$assetPath"
+    ): String = when(assetCategory) {
+      AssetCategory.STICKERS -> "$ASSETS_SOURCE/${assetCategory.category}/jetbrains$assetPath"
+      else -> "$ASSETS_SOURCE/${assetCategory.category}/$assetPath"
+    }
 
     private fun resolveTheAssetUrl(localAssetPath: Path, remoteAssetUrl: String): Optional<String> =
         when {
@@ -83,7 +86,7 @@ object AssetManager {
             else -> Optional.empty()
         }
 
-    fun constructLocalAssetPath(
+    private fun constructLocalAssetPath(
         assetCategory: AssetCategory,
         assetPath: String
     ): Optional<Path> =

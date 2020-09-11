@@ -7,6 +7,8 @@ import com.intellij.openapi.application.ex.ApplicationInfoEx
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.util.text.StringUtil.toHexString
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil
+import io.unthrottled.doki.assets.AssetCategory
+import io.unthrottled.doki.assets.AssetManager
 import io.unthrottled.doki.assets.LocalStorageService.createDirectories
 import io.unthrottled.doki.assets.LocalStorageService.getLocalAssetDirectory
 import io.unthrottled.doki.stickers.StickerService
@@ -104,20 +106,24 @@ class StickerServiceImpl : StickerService {
   private fun getLocallyInstalledBackgroundImagePath(
     dokiTheme: DokiTheme
   ): Optional<String> =
-    getLocallyInstalledAssetPath({
-      getLocalBackgroundImagePath(dokiTheme)
-    }) {
-      getRemoteBackgroundUrl(dokiTheme)
-    }
+    dokiTheme.getSticker()
+      .flatMap {
+        AssetManager.resolveAssetUrl(
+          AssetCategory.BACKGROUNDS,
+          it
+        )
+      }
 
   private fun getLocallyInstalledStickerPath(
     dokiTheme: DokiTheme
   ): Optional<String> =
-    getLocallyInstalledAssetPath({
-      getLocalStickerPath(dokiTheme)
-    }) {
-      getRemoteStickerUrl(dokiTheme)
-    }
+    dokiTheme.getStickerPath()
+      .flatMap {
+        AssetManager.resolveAssetUrl(
+          AssetCategory.STICKERS,
+          it
+        )
+      }
 
   private fun getLocallyInstalledAssetPath(
     localAssetPathSupplier: () -> Optional<Path>,
@@ -261,6 +267,7 @@ class StickerServiceImpl : StickerService {
     dokiTheme.getStickerPath()
       .map { "$ASSETS_SOURCE/stickers/jetbrains$it" }
 
+  // todo: this
   private fun getRemoteBackgroundUrl(dokiTheme: DokiTheme): Optional<String> =
     dokiTheme.getSticker()
       .map { "$BACKGROUND_DIRECTORY/$it" }
