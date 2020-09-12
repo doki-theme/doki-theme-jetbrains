@@ -3,6 +3,7 @@ package io.unthrottled.doki.promotions
 import com.google.gson.GsonBuilder
 import com.intellij.AbstractBundle
 import com.intellij.CommonBundle
+import com.intellij.ide.BrowserUtil
 import com.intellij.ide.IdeEventQueue
 import com.intellij.ide.plugins.PluginManagerCore
 import com.intellij.openapi.diagnostic.Logger
@@ -29,6 +30,7 @@ import java.nio.file.StandardOpenOption
 import java.time.Instant
 import javax.swing.JComponent
 import javax.swing.JEditorPane
+import javax.swing.event.HyperlinkEvent
 
 object PromotionManager {
 
@@ -179,20 +181,37 @@ class MotivatorPromotion(
     title = MessageBundle.message("motivator.title")
     setCancelButtonText(CommonBundle.getCloseButtonText())
     setDoNotAskOption(DoNotPromote())
+    horizontalStretch = 1.33f
+    verticalStretch = 1.25f
+    init()
   }
 
   override fun createCenterPanel(): JComponent? {
     val pane = JEditorPane()
-    pane.text = """
-          <div style="margin: 5px 5px 5px 10px; width: 400px; height: 400px" >
-              <h2>Do you want more ${dokiTheme.displayName}?</h2>
-              <p>The <a href='https://plugins.jetbrains.com/plugin/13381-waifu-motivator'>Waifu Motivator Plugin</a>
-              gives you a virtual companion.</p>
-              <p>Your companion will interact with you as code is being built.</p>
-              <p>These reactions are collection of various anime memes and gifs, most of which include your favorite character!</p>
-              <br/>
-              <img src='https://doki.assets.unthrottled.io/misc/update_celebration.gif' alt='momsspaghetti'/>
-          </div>
+    pane.addHyperlinkListener {
+      if (it.eventType == HyperlinkEvent.EventType.ACTIVATED) {
+        BrowserUtil.browse(it.url)
+      }
+    }
+
+    pane.contentType = "text/html"
+    pane.text = """<html lang="en">
+<body>
+<h2 class="title">{{name}}</h2>
+<p class="subtitle">{{anime}}</p>
+<div style="margin: 5px 5px 5px 10px; width: 400px; height: 400px">
+    <h2>Do you want more ${dokiTheme.displayName}?</h2>
+    <p>The <a href='https://plugins.jetbrains.com/plugin/13381-waifu-motivator'>Waifu Motivator Plugin</a>
+        gives you a virtual companion.</p>
+    <p>Your companion will interact with you as code is being built.</p>
+    <p>These reactions are collection of various anime memes and gifs, most of which include your favorite
+        character!</p>
+    <br/>
+    <img src='https://doki.assets.unthrottled.io/misc/update_celebration.gif' alt='momsspaghetti'/>
+</div>
+<br>
+</body>
+</html>
     """.trimIndent()
     return panel {
       row {
