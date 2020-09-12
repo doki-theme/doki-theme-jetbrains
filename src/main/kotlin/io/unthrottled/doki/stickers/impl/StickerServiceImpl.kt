@@ -2,33 +2,13 @@ package io.unthrottled.doki.stickers.impl
 
 import com.intellij.ide.util.PropertiesComponent
 import com.intellij.openapi.application.ApplicationManager.getApplication
-import com.intellij.openapi.application.PathManager
-import com.intellij.openapi.application.ex.ApplicationInfoEx
-import com.intellij.openapi.diagnostic.Logger
-import com.intellij.openapi.util.text.StringUtil.toHexString
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil
 import io.unthrottled.doki.assets.AssetCategory
 import io.unthrottled.doki.assets.AssetManager
-import io.unthrottled.doki.assets.LocalStorageService.createDirectories
-import io.unthrottled.doki.assets.LocalStorageService.getLocalAssetDirectory
 import io.unthrottled.doki.stickers.StickerService
 import io.unthrottled.doki.themes.DokiTheme
-import io.unthrottled.doki.util.readAllTheBytes
 import io.unthrottled.doki.util.toOptional
-import org.apache.commons.io.IOUtils
-import org.apache.http.client.config.RequestConfig
-import org.apache.http.client.methods.HttpGet
-import org.apache.http.impl.client.HttpClients
-import java.io.IOException
-import java.nio.file.Files
-import java.nio.file.Path
-import java.nio.file.Paths.get
-import java.nio.file.StandardOpenOption
-import java.security.MessageDigest
 import java.util.*
-import java.util.Optional.empty
-import java.util.Optional.ofNullable
-import java.util.concurrent.TimeUnit
 
 const val DOKI_BACKGROUND_PROP: String = "io.unthrottled.doki.background"
 

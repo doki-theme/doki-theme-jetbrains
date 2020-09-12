@@ -2,12 +2,10 @@ package io.unthrottled.doki.assets
 
 import com.intellij.openapi.application.PathManager
 import com.intellij.openapi.diagnostic.Logger
-import io.unthrottled.doki.util.toOptional
 import java.io.IOException
 import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.Paths
-import java.util.*
 
 object LocalStorageService {
   private val log = Logger.getInstance(this::class.java)
