@@ -1,25 +1,34 @@
 package io.unthrottled.doki.promotions
 
 import com.google.gson.GsonBuilder
+import com.intellij.AbstractBundle
+import com.intellij.CommonBundle
 import com.intellij.ide.IdeEventQueue
 import com.intellij.ide.plugins.PluginManagerCore
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.extensions.PluginId
 import com.intellij.openapi.project.ProjectManager
+import com.intellij.openapi.ui.DialogWrapper
+import com.intellij.openapi.wm.WindowManager
+import com.intellij.ui.layout.panel
 import com.intellij.util.io.exists
 import io.unthrottled.doki.assets.AssetCategory
 import io.unthrottled.doki.assets.AssetManager
 import io.unthrottled.doki.assets.LocalStorageService.createDirectories
 import io.unthrottled.doki.config.ThemeConfig
-import io.unthrottled.doki.notification.UpdateNotification
 import io.unthrottled.doki.stickers.StickerLevel
 import io.unthrottled.doki.themes.DokiTheme
 import io.unthrottled.doki.themes.ThemeManager
+import io.unthrottled.doki.util.toOptional
+import org.jetbrains.annotations.PropertyKey
+import java.awt.Window
 import java.io.InputStreamReader
 import java.nio.charset.StandardCharsets
 import java.nio.file.Files
 import java.nio.file.StandardOpenOption
 import java.time.Instant
+import javax.swing.JComponent
+import javax.swing.JEditorPane
 
 object PromotionManager {
 
@@ -135,20 +144,14 @@ class MotivatorPluginPromotion(
     ThemeManager.instance.currentTheme.ifPresent { dokiTheme ->
       val themeId = dokiTheme.id
       val promotionAsset = getPromotionAsset(dokiTheme)
-      UpdateNotification.displayPromotionMessage(
-        ProjectManager.getInstance().openProjects.first(),
-        """
-          <div style="margin: 5px 5px 5px 10px; width: 400px; height: 400px" >
-              <h2>Do you want more ${dokiTheme.displayName}?</h2>
-              <p>The <a href='https://plugins.jetbrains.com/plugin/13381-waifu-motivator'>Waifu Motivator Plugin</a>
-              gives you a virtual companion.</p>
-              <p>Your companion will interact with you as code is being built.</p>
-              <p>These reactions are collection of various anime memes and gifs, most of which include your favorite character!</p>
-              <br/>
-              <img src='https://doki.assets.unthrottled.io/misc/update_celebration.gif' alt='momsspaghetti'/>
-          </div>
-        """.trimIndent()
-      )
+      WindowManager.getInstance().suggestParentWindow(
+        ProjectManager.getInstance().openProjects.first()
+      ).toOptional()
+        .ifPresent {
+          MotivatorPromotion(
+            dokiTheme, it
+          ).show()
+        }
     }
 
     IdeEventQueue.getInstance().removeIdleListener(this)
@@ -161,6 +164,69 @@ class MotivatorPluginPromotion(
   }
 }
 
+// todo: global ledger
 data class PromotionLedger(
   val versionInstallDates: MutableMap<String, Instant>
 )
+
+class MotivatorPromotion(
+  private val dokiTheme: DokiTheme,
+  parent: Window
+) : DialogWrapper(parent, true) {
+
+  init {
+    isModal = false
+    title = MessageBundle.message("motivator.title")
+    setCancelButtonText(CommonBundle.getCloseButtonText())
+    setDoNotAskOption(DoNotPromote())
+  }
+
+  override fun createCenterPanel(): JComponent? {
+    val pane = JEditorPane()
+    pane.text = """
+          <div style="margin: 5px 5px 5px 10px; width: 400px; height: 400px" >
+              <h2>Do you want more ${dokiTheme.displayName}?</h2>
+              <p>The <a href='https://plugins.jetbrains.com/plugin/13381-waifu-motivator'>Waifu Motivator Plugin</a>
+              gives you a virtual companion.</p>
+              <p>Your companion will interact with you as code is being built.</p>
+              <p>These reactions are collection of various anime memes and gifs, most of which include your favorite character!</p>
+              <br/>
+              <img src='https://doki.assets.unthrottled.io/misc/update_celebration.gif' alt='momsspaghetti'/>
+          </div>
+    """.trimIndent()
+    return panel {
+      row {
+        pane()
+      }
+    }
+  }
+
+}
+
+const val MESSAGE_BUNDLE = "messages.MessageBundle"
+
+object MessageBundle : AbstractBundle(MESSAGE_BUNDLE) {
+  fun message(
+    @PropertyKey(resourceBundle = MESSAGE_BUNDLE) key: String,
+    vararg params: Any
+  ): String {
+    return getMessage(key, params)
+  }
+}
+
+class DoNotPromote : DialogWrapper.DoNotAskOption {
+  // todo : this
+  override fun isToBeShown(): Boolean = true
+
+  override fun setToBeShown(toBeShown: Boolean, exitCode: Int) {
+
+  }
+
+  override fun canBeHidden(): Boolean = true
+
+  override fun shouldSaveOptionsOnCancel(): Boolean = true
+
+  override fun getDoNotShowMessage(): String =
+    MessageBundle.message("promotions.dont.ask")
+
+}
