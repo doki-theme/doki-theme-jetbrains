@@ -78,7 +78,7 @@ class DokiTheme(private val uiTheme: DokiThemeDefinition) {
       ?: throw IllegalStateException("Expected 'colors.contrastColor' to be present in theme $name json.")
 
   companion object {
-    private const val ACCENT_COLOR = "Doki.Accent.color"
+    const val ACCENT_COLOR = "Doki.Accent.color"
 
     val requiredNamedColors: List<String>
 

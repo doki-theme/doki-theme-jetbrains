@@ -4,6 +4,11 @@ import com.intellij.ui.IconManager.getInstance
 import javax.swing.Icon
 
 object DokiIcons {
+  object Plugins {
+    object Motivator {
+      val TOOL_WINDOW = load("/icons/plugins/motivator/motivator_toolwindow.svg")
+    }
+  }
   object CheckBox {
     const val CHECK_MARK_KEY = "CheckBoxMenuItem.checkIcon"
     val CHECK_MARK = load("/icons/icons/checkmark.svg")
