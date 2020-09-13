@@ -34,6 +34,11 @@ object PromotionManager {
     "ledger.json"
   )
 
+  private val lockPath = AssetManager.constructLocalAssetPath(
+    AssetCategory.PROMOTION,
+    "lock.json"
+  )
+
   private val promotionLedger: PromotionLedger =
     if (ledgerPath.exists()) {
       readLedger()
@@ -84,14 +89,14 @@ object PromotionManager {
   }
 
   // todo: has been promoted as well
+  // todo: not locked
   private fun shouldPromote(): Boolean =
     ThemeConfig.instance.currentStickerLevel == StickerLevel.ON
 
-  private fun isMotivatorInstalled(): Boolean {
-    return PluginManagerCore.getPlugin(
+  private fun isMotivatorInstalled(): Boolean =
+    PluginManagerCore.isPluginInstalled(
       PluginId.getId(MOTIVATOR_PLUGIN_ID)
-      ) != null
-  }
+    )
 
   private fun persistLedger() {
     if (ledgerPath.exists().not()) {
@@ -113,6 +118,11 @@ object PromotionManager {
     }
   }
 }
+
+data class Lock(
+  val lockedBy: String,
+  val lockedDate: Instant
+)
 
 data class PromotionLedger(
   val versionInstallDates: MutableMap<String, Instant>
