@@ -1,10 +1,13 @@
+The Doki Theme: Jetbrains IDEs
+---
+
 ![Downloads](https://img.shields.io/jetbrains/plugin/d/10804)
 ![Rating](https://img.shields.io/jetbrains/plugin/r/rating/10804)
 ![Version](https://img.shields.io/jetbrains/plugin/v/10804)
 ![Build](https://github.com/doki-theme/doki-theme-jetbrains/workflows/Release/badge.svg)
 [![Gitter](https://badges.gitter.im/doki-theme-jetbrains/community.svg)](https://gitter.im/doki-theme-jetbrains/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
-# Quick Preview
+## Quick Theme Preview
 
 ![Themes](assets/screenshots/flagship_themes.gif)
 
@@ -28,6 +31,7 @@ You can choose themes from various, Anime, Manga, or Visual Novels:
 - High School DxD
 - Lucky Star
 - Sword Art Online
+- Neon Genesis Evangelion
 
 Sticker in the way? No worries! You can configure them to be on or off at your leisure.
 
@@ -54,20 +58,6 @@ Help make this plugin better!
 ## Want updates sooner?
 
 I have a [canary release channel](https://github.com/Unthrottled/jetbrains-plugin-repository) that you can set up to get the latest and greatest!
-
-
-# Even more Doki-Theme!
-
-![VS Code](./assets/vs_code_logo.png)
-## VS Code
-
-The Doki Theme is also [available in VSCode!](https://github.com/doki-theme/doki-theme-vscode)
-Make your VSCode editor more familiar!
-
-![Hyper.js Terminal](./assets/hyper_logo.png)
-## Hyper.js
-
-Enhance your command line experience! Install [the Doki Theme for Hyper!](https://github.com/doki-theme/doki-theme-hyper)
 
 ---
 

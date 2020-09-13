@@ -28,6 +28,7 @@ object PromotionManager {
 
   private var initalized = false
 
+  // todo: global ledger
   private val ledgerPath = AssetManager.constructLocalAssetPath(
     AssetCategory.PROMOTION,
     "ledger.json"
@@ -113,7 +114,6 @@ object PromotionManager {
   }
 }
 
-// todo: global ledger
 data class PromotionLedger(
   val versionInstallDates: MutableMap<String, Instant>
 )
