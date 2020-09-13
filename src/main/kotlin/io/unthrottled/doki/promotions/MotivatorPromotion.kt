@@ -20,17 +20,30 @@ import javax.swing.JEditorPane
 import javax.swing.JTextPane
 import javax.swing.event.HyperlinkEvent
 
-// todo: get project referenece
 class MotivatorPromotion(
   private val dokiTheme: DokiTheme,
-  parent: Window
+  parent: Window,
+  private val onPromotion: (PromotionResults) -> Unit
 ) : DialogWrapper(parent, true) {
 
+  companion object {
+    private const val INSTALLED_EXIT_CODE = 69
+  }
+
   init {
-    isModal = false
     title = MessageBundle.message("motivator.title")
     setCancelButtonText(MessageBundle.message("motivator.action.cancel"))
-    setDoNotAskOption(DoNotPromote())
+    setDoNotAskOption(DoNotPromote { shouldContinuePromotion, exitCode ->
+      onPromotion(
+        PromotionResults(
+          when {
+            !shouldContinuePromotion -> PromotionStatus.BLOCKED
+            exitCode == INSTALLED_EXIT_CODE -> PromotionStatus.ACCEPTED
+            else -> PromotionStatus.REJECTED
+          }
+        )
+      )
+    })
     init()
   }
 
@@ -55,17 +68,17 @@ class MotivatorPromotion(
             PluginId.getId(MOTIVATOR_PLUGIN_ID)
           )
         ) {
-          close(0, true)
+          close(INSTALLED_EXIT_CODE, true)
         }
       }
     }
   }
 
   override fun createCenterPanel(): JComponent? {
-    val pane = buildPromotionPane()
+    val promotionPane = buildPromotionPane()
     return panel {
       row {
-        pane()
+        promotionPane()
       }
     }
   }
@@ -77,6 +90,7 @@ class MotivatorPromotion(
     val accentHex = JBColor.namedColor(
       DokiTheme.ACCENT_COLOR, UIUtil.getTextAreaForeground()
     ).toHexString()
+    val promotionAsset = getPromotionAsset(dokiTheme)
     pane.text = """
       <html lang="en">
       <head>
@@ -103,7 +117,7 @@ class MotivatorPromotion(
         </p>
       </div>
       <br/>
-      <div style='text-align: center'><img src='https://doki.assets.unthrottled.io/misc/update_celebration.gif' alt='momsspaghetti'/></div>
+      <div style='text-align: center'><img src='https://doki.assets.unthrottled.io/misc/promotion/$promotionAsset' alt='momsspaghetti'/></div>
       </body>
       </html>
     """.trimIndent()
@@ -116,14 +130,21 @@ class MotivatorPromotion(
     return pane
   }
 
+  // TODO: 9/12/20 this
+  private fun getPromotionAsset(dokiTheme: DokiTheme): String {
+    return when (dokiTheme.id) {
+      else -> "promotion.gif"
+    }
+  }
 }
 
-class DoNotPromote : DialogWrapper.DoNotAskOption {
-  // todo : this
+class DoNotPromote(
+  private val onToBeShown: (Boolean, Int) -> Unit
+) : DialogWrapper.DoNotAskOption {
   override fun isToBeShown(): Boolean = true
 
   override fun setToBeShown(toBeShown: Boolean, exitCode: Int) {
-
+    onToBeShown(toBeShown, exitCode)
   }
 
   override fun canBeHidden(): Boolean = true
