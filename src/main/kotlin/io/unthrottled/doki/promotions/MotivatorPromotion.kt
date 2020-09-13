@@ -1,7 +1,9 @@
 package io.unthrottled.doki.promotions
 
 import com.intellij.ide.BrowserUtil
+import com.intellij.openapi.extensions.PluginId
 import com.intellij.openapi.ui.DialogWrapper
+import com.intellij.openapi.updateSettings.impl.pluginsAdvertisement.PluginsAdvertiser
 import com.intellij.ui.JBColor
 import com.intellij.ui.layout.panel
 import com.intellij.util.ui.UIUtil
@@ -10,32 +12,61 @@ import io.unthrottled.doki.themes.DokiTheme
 import io.unthrottled.doki.util.toHexString
 import java.awt.Dimension
 import java.awt.Window
+import java.awt.event.ActionEvent
+import javax.swing.AbstractAction
+import javax.swing.Action
 import javax.swing.JComponent
 import javax.swing.JEditorPane
 import javax.swing.JTextPane
 import javax.swing.event.HyperlinkEvent
 
+// todo: get project referenece
 class MotivatorPromotion(
-    private val dokiTheme: DokiTheme,
-    parent: Window
+  private val dokiTheme: DokiTheme,
+  parent: Window
 ) : DialogWrapper(parent, true) {
 
   init {
     isModal = false
     title = MessageBundle.message("motivator.title")
     setCancelButtonText(MessageBundle.message("motivator.action.cancel"))
-    setOKButtonIcon(DokiIcons.Plugins.Motivator.TOOL_WINDOW)
-    setOKButtonText(MessageBundle.message("motivator.action.ok"))
     setDoNotAskOption(DoNotPromote())
     init()
+  }
+
+  override fun createActions(): Array<Action> {
+    return arrayOf(
+      buildInstallAction(),
+      cancelAction
+    )
+  }
+
+  private fun buildInstallAction(): AbstractAction {
+    return object : AbstractAction() {
+      init {
+        val message = MessageBundle.message("motivator.action.ok")
+        putValue(NAME, message)
+        putValue(SMALL_ICON, DokiIcons.Plugins.Motivator.TOOL_WINDOW)
+      }
+
+      override fun actionPerformed(e: ActionEvent) {
+        PluginsAdvertiser.installAndEnable(
+          setOf(
+            PluginId.getId(MOTIVATOR_PLUGIN_ID)
+          )
+        ) {
+          close(0, true)
+        }
+      }
+    }
   }
 
   override fun createCenterPanel(): JComponent? {
     val pane = buildPromotionPane()
     return panel {
-        row {
-            pane()
-        }
+      row {
+        pane()
+      }
     }
   }
 
@@ -44,7 +75,7 @@ class MotivatorPromotion(
     pane.isEditable = false
     pane.contentType = "text/html"
     val accentHex = JBColor.namedColor(
-        DokiTheme.ACCENT_COLOR, UIUtil.getTextAreaForeground()
+      DokiTheme.ACCENT_COLOR, UIUtil.getTextAreaForeground()
     ).toHexString()
     pane.text = """
       <html lang="en">
@@ -79,7 +110,7 @@ class MotivatorPromotion(
     pane.preferredSize = Dimension(pane.preferredSize.width + 150, pane.preferredSize.height)
     pane.addHyperlinkListener {
       if (it.eventType == HyperlinkEvent.EventType.ACTIVATED) {
-          BrowserUtil.browse(it.url)
+        BrowserUtil.browse(it.url)
       }
     }
     return pane

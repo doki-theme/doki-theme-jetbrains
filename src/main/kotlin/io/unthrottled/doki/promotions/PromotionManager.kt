@@ -16,6 +16,8 @@ import java.nio.file.Files
 import java.nio.file.StandardOpenOption
 import java.time.Instant
 
+const val MOTIVATOR_PLUGIN_ID = "zd.zero.waifu-motivator-plugin"
+
 object PromotionManager {
 
   private val log = Logger.getInstance(PromotionManager::class.java)
@@ -84,10 +86,11 @@ object PromotionManager {
   private fun shouldPromote(): Boolean =
     ThemeConfig.instance.currentStickerLevel == StickerLevel.ON
 
-  private fun isMotivatorInstalled(): Boolean =
-    PluginManagerCore.getPlugin(
-      PluginId.getId("zd.zero.waifu-motivator-plugin")
-    ) != null
+  private fun isMotivatorInstalled(): Boolean {
+    return PluginManagerCore.getPlugin(
+      PluginId.getId(MOTIVATOR_PLUGIN_ID)
+      ) != null
+  }
 
   private fun persistLedger() {
     if (ledgerPath.exists().not()) {
