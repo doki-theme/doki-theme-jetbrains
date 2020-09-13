@@ -20,7 +20,7 @@ import javax.swing.JEditorPane
 import javax.swing.JTextPane
 import javax.swing.event.HyperlinkEvent
 
-class MotivatorPromotion(
+class MotivatorPromotionDialog(
   private val dokiTheme: DokiTheme,
   parent: Window,
   private val onPromotion: (PromotionResults) -> Unit
@@ -90,13 +90,13 @@ class MotivatorPromotion(
     val accentHex = JBColor.namedColor(
       DokiTheme.ACCENT_COLOR, UIUtil.getTextAreaForeground()
     ).toHexString()
+    val infoForegroundHex = UIUtil.getContextHelpForeground().toHexString()
     val promotionAsset = getPromotionAsset(dokiTheme)
     pane.text = """
       <html lang="en">
       <head>
           <style>
               a {
-                  text-decoration: none;
                   color: $accentHex
               }
               p {
@@ -107,21 +107,23 @@ class MotivatorPromotion(
       </head>
       <body>
       <div style='text-align: center; margin-top: 8px'><img src="https://doki.assets.unthrottled.io/misc/motivator_logo.png" alt='Motivator Plugin Logo'> </div>
-      <h2 style='text-align: center; color: $accentHex'>Your new virtual IDE companion!</h2>
-      <div style='margin: 8px 0 0 115px'>
+      <h2 style='text-align: center; color: $accentHex'>Your new virtual companion!</h2>
+      <div style='margin: 8px 0 0 100px'>
         <p>
           The <a href='https://plugins.jetbrains.com/plugin/13381-waifu-motivator'>Waifu Motivator Plugin</a>
-          gives you a virtual companion. <br/> Your companion will interact with you as code is being built.<br/>
-          These reactions are collection of various anime memes and gifs,<br/> most of which include your favorite
-          character!
+          gives your IDE more personality. <br/> Your assistant will interact with you as you build code.
+          <br/>Such as when your programs fail to run or tests pass/fail, <br/> 
+          then you'll receive a motivation event. Which will most likely <br/> take the form of a reaction gif of your favorite character(s)!
         </p>
       </div>
       <br/>
-      <div style='text-align: center'><img src='https://doki.assets.unthrottled.io/misc/promotion/$promotionAsset' alt='momsspaghetti'/></div>
+      <h3 style='text-align: center; color: $infoForegroundHex'>Bring Anime Memes to your IDE today!</h3>
+      <br/>
+      <div style='text-align: center'><img src='https://doki.assets.unthrottled.io/misc/promotion/$promotionAsset' alt='Character Promotion Asset'/></div>
       </body>
       </html>
     """.trimIndent()
-    pane.preferredSize = Dimension(pane.preferredSize.width + 150, pane.preferredSize.height)
+    pane.preferredSize = Dimension(pane.preferredSize.width + 120, pane.preferredSize.height)
     pane.addHyperlinkListener {
       if (it.eventType == HyperlinkEvent.EventType.ACTIVATED) {
         BrowserUtil.browse(it.url)

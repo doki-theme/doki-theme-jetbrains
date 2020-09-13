@@ -36,7 +36,7 @@ class MotivatorPluginPromotion(
         ProjectManager.getInstance().openProjects.first()
       ).toOptional()
         .ifPresent {
-          MotivatorPromotion(
+          MotivatorPromotionDialog(
             dokiTheme, it, onPromotion
           ).show()
         }

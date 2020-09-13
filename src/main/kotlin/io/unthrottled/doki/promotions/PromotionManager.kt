@@ -82,6 +82,7 @@ object PromotionManager {
 
   private fun setupPromotion() {
     if (isMotivatorInstalled().not() && shouldPromote()) {
+      // todo: check if online first
       MotivatorPluginPromotion {
         // mark promoted
       }
