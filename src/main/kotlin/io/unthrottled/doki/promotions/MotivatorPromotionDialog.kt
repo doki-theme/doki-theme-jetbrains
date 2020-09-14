@@ -132,7 +132,7 @@ class MotivatorPromotionDialog(
     return pane
   }
 
-  // TODO: 9/12/20 this
+  // TODO: 9/12/20 this (download locally)
   private fun getPromotionAsset(dokiTheme: DokiTheme): String {
     return when (dokiTheme.id) {
       else -> "promotion.gif"
