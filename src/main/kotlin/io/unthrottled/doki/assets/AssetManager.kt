@@ -4,6 +4,7 @@ import com.intellij.openapi.application.ApplicationInfo
 import com.intellij.openapi.diagnostic.Logger
 import io.unthrottled.doki.assets.LocalAssetService.hasAssetChanged
 import io.unthrottled.doki.assets.LocalStorageService.createDirectories
+import io.unthrottled.doki.assets.LocalStorageService.getGlobalAssetDirectory
 import io.unthrottled.doki.assets.LocalStorageService.getLocalAssetDirectory
 import io.unthrottled.doki.util.toOptional
 import org.apache.commons.io.IOUtils
@@ -94,6 +95,17 @@ object AssetManager {
     Paths.get(
       getLocalAssetDirectory(), assetCategory.category, assetPath
     ).normalize().toAbsolutePath()
+
+  fun constructGlobalAssetPath(
+    assetCategory: AssetCategory,
+    assetPath: String
+  ): Optional<Path> =
+    getGlobalAssetDirectory()
+      .map {
+        Paths.get(
+          it, assetCategory.category, assetPath
+        )
+      }
 
   private fun downloadAndGetAssetUrl(
     localAssetPath: Path,

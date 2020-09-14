@@ -15,6 +15,7 @@ import java.nio.charset.StandardCharsets
 import java.nio.file.Files
 import java.nio.file.StandardOpenOption
 import java.time.Instant
+import java.util.UUID
 
 const val MOTIVATOR_PLUGIN_ID = "zd.zero.waifu-motivator-plugin"
 
@@ -26,24 +27,33 @@ object PromotionManager {
     .setPrettyPrinting()
     .create()
 
-  private var initalized = false
+  private var initialized = false
 
-  // todo: global ledger
-  private val ledgerPath = AssetManager.constructLocalAssetPath(
+  private val ledgerPath = AssetManager.constructGlobalAssetPath(
     AssetCategory.PROMOTION,
     "ledger.json"
-  )
+  ).orElseGet {
+    AssetManager.constructLocalAssetPath(
+      AssetCategory.PROMOTION,
+      "ledger.json"
+    )
+  }
 
-  private val lockPath = AssetManager.constructLocalAssetPath(
+  private val lockPath = AssetManager.constructGlobalAssetPath(
     AssetCategory.PROMOTION,
     "lock.json"
-  )
+  ).orElseGet {
+    AssetManager.constructLocalAssetPath(
+      AssetCategory.PROMOTION,
+      "lock.json"
+    )
+  }
 
   private val promotionLedger: PromotionLedger =
     if (ledgerPath.exists()) {
       readLedger()
     } else {
-      PromotionLedger(mutableMapOf())
+      PromotionLedger(UUID.randomUUID(), mutableMapOf())
     }
 
   private fun readLedger(): PromotionLedger {
@@ -57,12 +67,12 @@ object PromotionManager {
         }
     } catch (e: Throwable) {
       log.warn("Unable to read promotion ledger for raisins.", e)
-      PromotionLedger(mutableMapOf())
+      PromotionLedger(UUID.randomUUID(), mutableMapOf())
     }
   }
 
   fun registerPromotion(newVersion: String) {
-    if (initalized.not()) {
+    if (initialized.not()) {
       promotionRegistry(newVersion)
     }
   }
@@ -126,5 +136,6 @@ data class Lock(
 )
 
 data class PromotionLedger(
+  val user: UUID,
   val versionInstallDates: MutableMap<String, Instant>
 )
