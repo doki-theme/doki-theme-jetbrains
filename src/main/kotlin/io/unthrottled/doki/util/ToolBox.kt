@@ -22,6 +22,13 @@ fun runSafely(runner: () -> Unit, onError: (Throwable) -> Unit): Unit =
     onError(e)
   }
 
+fun <T> runSafelyWithResult(runner: () -> T, onError: (Throwable) -> T): T =
+  try {
+    runner()
+  } catch (e: Throwable) {
+    onError(e)
+  }
+
 fun <T> T?.toOptional() = Optional.ofNullable(this)
 
 fun <T> T?.toStream(): Stream<T> = Stream.of(this)

@@ -14,11 +14,13 @@ import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.integrations.RestClient.performGet
 import io.unthrottled.doki.stickers.StickerLevel
 import io.unthrottled.doki.util.runSafely
+import io.unthrottled.doki.util.runSafelyWithResult
 import io.unthrottled.doki.util.toOptional
 import java.io.InputStreamReader
 import java.nio.charset.StandardCharsets
 import java.nio.file.Files
 import java.nio.file.StandardOpenOption
+import java.time.Duration
 import java.time.Instant
 import java.util.Optional
 import java.util.UUID
@@ -120,40 +122,56 @@ object PromotionManager {
 
   private fun releaseLock() {
     if (holdingLock()) {
-      runSafely({
-        Files.deleteIfExists(lockPath)
-      }) {
-        log.warn("Unable to release lock for raisins", it)
-      }
+      breakLock()
     }
   }
 
-  private fun holdingLock(): Boolean {
-    return false
-  }
+  private fun holdingLock(): Boolean =
+    readLock()
+      .map { it.lockedBy == id }
+      .orElse(false)
 
-  private fun acquireLock(): Boolean {
-    return when {
+  private fun acquireLock(): Boolean =
+    when {
       Files.notExists(lockPath) -> lockPromotion()
       canBreakLock() -> breakAndLockPromotion()
       else -> false
     }
-  }
 
-  private fun canBreakLock(): Boolean {
-    return false
-  }
+  private fun canBreakLock(): Boolean =
+    readLock()
+      .map {
+        it.lockedBy == id || Duration.between(
+          it.lockedDate, Instant.now()
+        ).toHours() > 1
+      }
+      .orElse(true)
 
-  private fun breakAndLockPromotion(): Boolean {
-    return lockPromotion()
-  }
+  private fun breakAndLockPromotion(): Boolean =
+    if (breakLock()) {
+      lockPromotion()
+    } else {
+      false
+    }
 
-  private fun lockPromotion(): Boolean {
-    return true
-  }
+  private fun breakLock(): Boolean =
+    if (Files.exists(lockPath)) {
+      runSafelyWithResult({
+        Files.delete(lockPath)
+        true
+      }) {
+        log.warn("Unable to remove previous lock for raisins", it)
+        false
+      }
+    } else {
+      true
+    }
+
+  private fun lockPromotion(): Boolean =
+    writeLock(Lock(id, Instant.now()))
 
   private fun readLock(): Optional<Lock> =
-    try {
+    runSafelyWithResult({
       Files.newInputStream(lockPath)
         .use {
           gson.fromJson(
@@ -161,9 +179,21 @@ object PromotionManager {
             Lock::class.java
           )
         }.toOptional()
-    } catch (e: Throwable) {
-      log.warn("Unable to read promotion ledger for raisins.", e)
+    }) {
+      log.warn("Unable to read promotion ledger for raisins.", it)
       Optional.empty()
+    }
+
+  private fun writeLock(lock: Lock): Boolean =
+    runSafelyWithResult({
+      Files.newBufferedWriter(lockPath, StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING)
+        .use {
+          it.write(gson.toJson(lock))
+        }
+      true
+    }) {
+      log.warn("Unable to write promotion ledger for raisins.", it)
+      false
     }
 
   // todo: has been promoted as well
