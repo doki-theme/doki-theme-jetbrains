@@ -155,5 +155,4 @@ class DoNotPromote(
 
   override fun getDoNotShowMessage(): String =
     MessageBundle.message("promotions.dont.ask")
-
 }

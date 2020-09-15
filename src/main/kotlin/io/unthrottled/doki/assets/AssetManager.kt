@@ -23,7 +23,6 @@ enum class AssetCategory(val category: String) {
   STICKERS("stickers"), BACKGROUNDS("backgrounds"), PROMOTION("promotion")
 }
 
-
 object HttpClientFactory {
   fun createHttpClient(): CloseableHttpClient =
     HttpClients.custom()
@@ -32,7 +31,7 @@ object HttpClientFactory {
 }
 
 object AssetManager {
-  private const val ASSETS_SOURCE = "https://doki.assets.unthrottled.io"
+  const val ASSETS_SOURCE = "https://doki.assets.unthrottled.io"
 
   private val httpClient = HttpClientFactory.createHttpClient()
   private val log = Logger.getInstance(this::class.java)

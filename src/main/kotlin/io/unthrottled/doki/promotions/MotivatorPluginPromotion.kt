@@ -5,6 +5,7 @@ import com.intellij.openapi.project.ProjectManager
 import com.intellij.openapi.wm.WindowManager
 import io.unthrottled.doki.themes.ThemeManager
 import io.unthrottled.doki.util.toOptional
+import kotlin.random.Random
 
 enum class PromotionStatus {
   ACCEPTED, REJECTED, BLOCKED
@@ -21,13 +22,13 @@ class MotivatorPluginPromotion(
   init {
     IdeEventQueue.getInstance().addIdleListener(
       this,
-      3000
+      3000 + Random(System.currentTimeMillis())
+        .nextInt(0, 2000)
 //      TimeUnit.MILLISECONDS.convert(
-//        5,
+//        5 ,
 //        TimeUnit.MINUTES
 //      ).toInt()
     )
-
   }
 
   override fun run() {

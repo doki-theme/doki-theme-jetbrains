@@ -8,8 +8,10 @@ import com.intellij.openapi.extensions.PluginId
 import com.intellij.util.io.exists
 import io.unthrottled.doki.assets.AssetCategory
 import io.unthrottled.doki.assets.AssetManager
+import io.unthrottled.doki.assets.AssetManager.ASSETS_SOURCE
 import io.unthrottled.doki.assets.LocalStorageService.createDirectories
 import io.unthrottled.doki.config.ThemeConfig
+import io.unthrottled.doki.integrations.RestClient.performGet
 import io.unthrottled.doki.stickers.StickerLevel
 import io.unthrottled.doki.util.runSafely
 import io.unthrottled.doki.util.toOptional
@@ -95,9 +97,8 @@ object PromotionManager {
   }
 
   private fun setupPromotion() {
-    if (isMotivatorInstalled().not() && shouldPromote()) {
+    if (isMotivatorInstalled().not() && shouldPromote() && isOnline()) {
       try {
-        // todo: check if online first
         if (acquireLock()) {
           MotivatorPluginPromotion {
             // mark promoted
@@ -109,6 +110,10 @@ object PromotionManager {
     }
   }
 
+  private fun isOnline(): Boolean =
+    performGet("$ASSETS_SOURCE/misc/am-i-online.txt")
+      .map { it.trim() == "yes" }
+      .orElse(false)
 
   private val id: String
     get() = ApplicationNamesInfo.getInstance().fullProductNameWithEdition
@@ -140,12 +145,11 @@ object PromotionManager {
   }
 
   private fun breakAndLockPromotion(): Boolean {
-
     return lockPromotion()
   }
 
   private fun lockPromotion(): Boolean {
-    return false
+    return true
   }
 
   private fun readLock(): Optional<Lock> =
@@ -161,7 +165,6 @@ object PromotionManager {
       log.warn("Unable to read promotion ledger for raisins.", e)
       Optional.empty()
     }
-
 
   // todo: has been promoted as well
   private fun shouldPromote(): Boolean =

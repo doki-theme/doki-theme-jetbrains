@@ -5,8 +5,8 @@ import org.jetbrains.annotations.PropertyKey
 
 object MessageBundle : AbstractBundle(MESSAGE_BUNDLE) {
   fun message(
-      @PropertyKey(resourceBundle = MESSAGE_BUNDLE) key: String,
-      vararg params: Any
+    @PropertyKey(resourceBundle = MESSAGE_BUNDLE) key: String,
+    vararg params: Any
   ): String {
     return getMessage(key, params)
   }

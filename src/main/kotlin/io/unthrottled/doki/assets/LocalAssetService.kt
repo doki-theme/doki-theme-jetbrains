@@ -26,8 +26,8 @@ object LocalAssetService {
     private val assetChecks: MutableMap<String, Instant> = readPreviousAssetChecks()
 
     fun hasAssetChanged(
-        localInstallPath: Path,
-        remoteAssetUrl: String
+      localInstallPath: Path,
+      remoteAssetUrl: String
     ): Boolean =
         !Files.exists(localInstallPath) ||
             (!hasBeenCheckedToday(localInstallPath) &&
@@ -46,8 +46,8 @@ object LocalAssetService {
             RestClient.performGet("$remoteAssetUrl.checksum.txt")
 
     private fun isLocalDifferentFromRemote(
-        localInstallPath: Path,
-        remoteAssetUrl: String
+      localInstallPath: Path,
+      remoteAssetUrl: String
     ): AssetChangedStatus =
         getRemoteAssetChecksum(remoteAssetUrl)
             .map {
@@ -101,7 +101,6 @@ object LocalAssetService {
 
     private fun getAssetChecksFile() =
         Paths.get(LocalStorageService.getLocalAssetDirectory(), "assetChecks.json")
-
 
     private fun getAssetCheckKey(localInstallPath: Path) =
         localInstallPath.toAbsolutePath().toString()
