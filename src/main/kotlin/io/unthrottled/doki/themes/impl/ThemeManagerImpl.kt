@@ -5,7 +5,7 @@ import com.intellij.ide.ui.laf.LafManagerImpl
 import com.intellij.ide.ui.laf.UIThemeBasedLookAndFeelInfo
 import com.intellij.util.io.inputStream
 import io.unthrottled.doki.themes.DokiTheme
-import io.unthrottled.doki.themes.DokiThemeDefinition
+import io.unthrottled.doki.themes.JetBrainsThemeDefinition
 import io.unthrottled.doki.themes.ThemeManager
 import io.unthrottled.doki.util.toOptional
 import java.io.InputStreamReader
@@ -39,7 +39,7 @@ class ThemeManagerImpl : ThemeManager {
       .map {
         gson.fromJson(
           InputStreamReader(it, StandardCharsets.UTF_8),
-          DokiThemeDefinition::class.java
+          JetBrainsThemeDefinition::class.java
         )
       }
       .map { DokiTheme(it) }

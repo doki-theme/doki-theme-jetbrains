@@ -55,6 +55,7 @@ data class DokiBuildMasterThemeDefinition(
 }
 
 data class JetbrainsThemeDefinition(
+  val id: String,
   val name: String,
   val displayName: String?,
   val dark: Boolean,

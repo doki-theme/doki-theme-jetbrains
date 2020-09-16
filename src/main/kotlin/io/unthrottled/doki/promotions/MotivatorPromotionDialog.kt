@@ -7,6 +7,8 @@ import com.intellij.openapi.updateSettings.impl.pluginsAdvertisement.PluginsAdve
 import com.intellij.ui.JBColor
 import com.intellij.ui.layout.panel
 import com.intellij.util.ui.UIUtil
+import io.unthrottled.doki.assets.AssetCategory
+import io.unthrottled.doki.assets.AssetManager
 import io.unthrottled.doki.icon.DokiIcons
 import io.unthrottled.doki.themes.DokiTheme
 import io.unthrottled.doki.util.toHexString
@@ -91,7 +93,11 @@ class MotivatorPromotionDialog(
       DokiTheme.ACCENT_COLOR, UIUtil.getTextAreaForeground()
     ).toHexString()
     val infoForegroundHex = UIUtil.getContextHelpForeground().toHexString()
-    val promotionAsset = getPromotionAsset(dokiTheme)
+    val motivatorLogoURL = AssetManager.resolveAssetUrl(
+      AssetCategory.PROMOTION,
+      "motivator/logo.png"
+    ).orElse("${AssetManager.ASSETS_SOURCE}/promotion/motivator/logo.png") // todo: fall back on unknown host
+    val promotionAssetURL = getPromotionAsset(dokiTheme)
     pane.text = """
       <html lang="en">
       <head>
@@ -106,7 +112,7 @@ class MotivatorPromotionDialog(
           <title>Motivator</title>
       </head>
       <body>
-      <div style='text-align: center; margin-top: 8px'><img src="https://doki.assets.unthrottled.io/misc/motivator_logo.png" alt='Motivator Plugin Logo'> </div>
+      <div style='text-align: center; margin-top: 8px'><img src="$motivatorLogoURL" alt='Motivator Plugin Logo'> </div>
       <h2 style='text-align: center; color: $accentHex'>Your new virtual companion!</h2>
       <div style='margin: 8px 0 0 100px'>
         <p>
@@ -119,11 +125,12 @@ class MotivatorPromotionDialog(
       <br/>
       <h3 style='text-align: center; color: $infoForegroundHex'>Bring Anime Memes to your IDE today!</h3>
       <br/>
-      <div style='text-align: center'><img src='https://doki.assets.unthrottled.io/misc/promotion/$promotionAsset' alt='Character Promotion Asset'/></div>
+      <div style='text-align: center'><img src='$promotionAssetURL' alt='Character Promotion Asset'/></div>
+      <br/>
       </body>
       </html>
     """.trimIndent()
-    pane.preferredSize = Dimension(pane.preferredSize.width + 120, pane.preferredSize.height + 300)
+    pane.preferredSize = Dimension(pane.preferredSize.width + 120, pane.preferredSize.height)
     pane.addHyperlinkListener {
       if (it.eventType == HyperlinkEvent.EventType.ACTIVATED) {
         BrowserUtil.browse(it.url)
@@ -132,11 +139,13 @@ class MotivatorPromotionDialog(
     return pane
   }
 
-  // TODO: 9/12/20 this (download locally)
   private fun getPromotionAsset(dokiTheme: DokiTheme): String {
-    return when (dokiTheme.id) {
+    val asset =  when (dokiTheme.id) {
+      "b93ab4ea-ff96-4459-8fa2-0caae5bc7116" -> "kanna.gif"
       else -> "promotion.gif"
     }
+    return AssetManager.resolveAssetUrl(AssetCategory.PROMOTION, "motivator/$asset")
+      .orElse("${AssetManager.ASSETS_SOURCE}/promotion/motivator/promotion.gif") // todo: fallback on unknown host
   }
 }
 

@@ -16,7 +16,7 @@ class Stickers(
   val secondary: String?
 )
 
-class DokiThemeDefinition(
+class JetBrainsThemeDefinition(
   val id: String,
   val name: String,
   val displayName: String?,
@@ -28,7 +28,7 @@ class DokiThemeDefinition(
   val meta: Map<String, String>
 )
 
-class DokiTheme(private val uiTheme: DokiThemeDefinition) {
+class DokiTheme(private val uiTheme: JetBrainsThemeDefinition) {
 
   init {
     validateThemeDefinition()
