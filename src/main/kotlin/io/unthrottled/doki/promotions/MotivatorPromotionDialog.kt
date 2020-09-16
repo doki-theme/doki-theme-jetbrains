@@ -111,9 +111,9 @@ class MotivatorPromotionDialog(
       <div style='margin: 8px 0 0 100px'>
         <p>
           The <a href='https://plugins.jetbrains.com/plugin/13381-waifu-motivator'>Waifu Motivator Plugin</a>
-          gives your IDE more personality. <br/> Your assistant will interact with you as you build code.
-          <br/>Such as when your programs fail to run or tests pass/fail, <br/> 
-          then you'll receive a motivation event. Which will most likely <br/> take the form of a reaction gif of your favorite character(s)!
+          gives your IDE more personality by using anime memes. <br/> You will get an assistant that will interact with you as you build code.
+          <br/>Such as when your programs fail to run or tests pass/fail, your companion<br/> 
+          has the ability to react to that. Which will most likely take the form <br/> of a reaction gif of your favorite character(s)!
         </p>
       </div>
       <br/>
@@ -123,7 +123,7 @@ class MotivatorPromotionDialog(
       </body>
       </html>
     """.trimIndent()
-    pane.preferredSize = Dimension(pane.preferredSize.width + 120, pane.preferredSize.height)
+    pane.preferredSize = Dimension(pane.preferredSize.width + 120, pane.preferredSize.height + 300)
     pane.addHyperlinkListener {
       if (it.eventType == HyperlinkEvent.EventType.ACTIVATED) {
         BrowserUtil.browse(it.url)
