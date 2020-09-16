@@ -140,12 +140,11 @@ class MotivatorPromotionDialog(
   }
 
   private fun getPromotionAsset(dokiTheme: DokiTheme): String {
-    val asset =  when (dokiTheme.id) {
-      "b93ab4ea-ff96-4459-8fa2-0caae5bc7116" -> "kanna.gif"
-      else -> "promotion.gif"
-    }
-    return AssetManager.resolveAssetUrl(AssetCategory.PROMOTION, "motivator/$asset")
-      .orElse("${AssetManager.ASSETS_SOURCE}/promotion/motivator/promotion.gif") // todo: fallback on unknown host
+    return AssetManager.resolveAssetUrl(AssetCategory.PROMOTION, "motivator/${dokiTheme.displayName.toLowerCase()}.gif")
+      .orElseGet {
+        AssetManager.resolveAssetUrl(AssetCategory.PROMOTION, "motivator/promotion.gif")
+          .orElse("${AssetManager.ASSETS_SOURCE}/promotion/motivator/promotion.gif") // todo: fallback on unknown host
+      }
   }
 }
 
