@@ -13,7 +13,6 @@ import io.unthrottled.doki.assets.LocalStorageService.createDirectories
 import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.integrations.RestClient.performGet
 import io.unthrottled.doki.stickers.StickerLevel
-import io.unthrottled.doki.util.runSafely
 import io.unthrottled.doki.util.runSafelyWithResult
 import io.unthrottled.doki.util.toOptional
 import java.io.InputStreamReader
@@ -26,6 +25,7 @@ import java.util.Optional
 import java.util.UUID
 
 const val MOTIVATOR_PLUGIN_ID = "zd.zero.waifu-motivator-plugin"
+private val MOTIVATION_PROMOTION_ID = UUID.fromString("63e1da85-1285-40c4-873a-3ed1122995e1")
 
 object PromotionManager {
 
@@ -61,7 +61,7 @@ object PromotionManager {
     if (ledgerPath.exists()) {
       readLedger()
     } else {
-      PromotionLedger(UUID.randomUUID(), mutableMapOf())
+      PromotionLedger(UUID.randomUUID(), mutableMapOf(), mutableMapOf(), true)
     }
 
   private fun readLedger(): PromotionLedger {
@@ -75,7 +75,7 @@ object PromotionManager {
         }
     } catch (e: Throwable) {
       log.warn("Unable to read promotion ledger for raisins.", e)
-      PromotionLedger(UUID.randomUUID(), mutableMapOf())
+      PromotionLedger(UUID.randomUUID(), mutableMapOf(), mutableMapOf(), true)
     }
   }
 
@@ -103,9 +103,14 @@ object PromotionManager {
       try {
         if (acquireLock()) {
           MotivatorPluginPromotion {
-            // mark promoted
+            promotionLedger.allowedToPromote = it.status != PromotionStatus.BLOCKED
+            promotionLedger.seenPromotions[MOTIVATION_PROMOTION_ID] =
+              Promotion(MOTIVATION_PROMOTION_ID, Instant.now(), it.status)
+            persistLedger()
           }
         }
+      } catch (e: Throwable) {
+        log.warn("Unable to promote for raisins.", e)
       } finally {
         releaseLock()
       }
@@ -196,8 +201,8 @@ object PromotionManager {
       false
     }
 
-  // todo: has been promoted as well
   private fun shouldPromote(): Boolean =
+//    promotionLedger.seenPromotions.containsKey(MOTIVATOR_PLUGIN_ID).not() &&
     ThemeConfig.instance.currentStickerLevel == StickerLevel.ON
 
   private fun isMotivatorInstalled(): Boolean =
@@ -231,7 +236,15 @@ data class Lock(
   val lockedDate: Instant
 )
 
+data class Promotion(
+  val id: UUID,
+  val datePromoted: Instant,
+  val result: PromotionStatus
+)
+
 data class PromotionLedger(
   val user: UUID,
-  val versionInstallDates: MutableMap<String, Instant>
+  val versionInstallDates: MutableMap<String, Instant>,
+  val seenPromotions: MutableMap<UUID, Promotion>,
+  var allowedToPromote: Boolean
 )
