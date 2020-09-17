@@ -10,6 +10,7 @@ import com.intellij.util.ui.UIUtil
 import io.unthrottled.doki.assets.AssetCategory
 import io.unthrottled.doki.assets.AssetManager
 import io.unthrottled.doki.icon.DokiIcons
+import io.unthrottled.doki.service.MOTIVATOR_PLUGIN_ID
 import io.unthrottled.doki.themes.DokiTheme
 import io.unthrottled.doki.util.toHexString
 import java.awt.Dimension
