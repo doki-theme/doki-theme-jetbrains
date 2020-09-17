@@ -16,7 +16,7 @@ import java.time.Duration
 import java.time.Instant
 import java.util.UUID
 
-private val MOTIVATION_PROMOTION_ID = UUID.fromString("63e1da85-1285-40c4-873a-3ed1122995e1")
+val MOTIVATION_PROMOTION_ID: UUID = UUID.fromString("63e1da85-1285-40c4-873a-3ed1122995e1")
 
 object PromotionManager: PromotionManagerImpl()
 
@@ -79,5 +79,10 @@ open class PromotionManagerImpl {
   private fun shouldPromote(): Boolean =
   // todo: put me back
     promotionLedger.seenPromotions.containsKey(MOTIVATION_PROMOTION_ID).not() &&
-    ThemeConfig.instance.currentStickerLevel == StickerLevel.ON
+      WeebService.isWeebStuffOn()
+}
+
+object WeebService {
+
+  fun isWeebStuffOn(): Boolean = ThemeConfig.instance.currentStickerLevel == StickerLevel.ON
 }
