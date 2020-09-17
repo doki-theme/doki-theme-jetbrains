@@ -4,7 +4,11 @@ import com.intellij.openapi.diagnostic.Logger
 import io.unthrottled.doki.assets.AssetManager.ASSETS_SOURCE
 import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.integrations.RestClient.performGet
-import io.unthrottled.doki.service.AppService
+import io.unthrottled.doki.promotions.LedgerMaster.persistLedger
+import io.unthrottled.doki.promotions.LockMaster.acquireLock
+import io.unthrottled.doki.promotions.LockMaster.releaseLock
+import io.unthrottled.doki.promotions.MotivatorPluginService.runPromotion
+import io.unthrottled.doki.service.AppService.getApplicationName
 import io.unthrottled.doki.service.PluginService.isMotivatorInstalled
 import io.unthrottled.doki.stickers.StickerLevel
 import java.time.Instant
@@ -30,8 +34,9 @@ object PromotionManager {
     val versionInstallDates = promotionLedger.versionInstallDates
     if (versionInstallDates.containsKey(newVersion).not()) {
       versionInstallDates[newVersion] = Instant.now()
-      LedgerMaster.persistLedger(promotionLedger)
+      persistLedger(promotionLedger)
     } else {
+      // todo: put me back
 //      val latestInstallDate = versionInstallDates[newVersion]!!
 //      if (Duration.between(latestInstallDate, Instant.now()).toDays() > 2) {
       setupPromotion()
@@ -42,13 +47,13 @@ object PromotionManager {
   private fun setupPromotion() {
     if (isMotivatorInstalled().not() && shouldPromote() && isOnline()) {
       try {
-        if (LockMaster.acquireLock(id)) {
-          MotivatorPluginPromotion {
+        if (acquireLock(id)) {
+          runPromotion {
             promotionLedger.allowedToPromote = it.status != PromotionStatus.BLOCKED
             promotionLedger.seenPromotions[MOTIVATION_PROMOTION_ID] =
               Promotion(MOTIVATION_PROMOTION_ID, Instant.now(), it.status)
-            LedgerMaster.persistLedger(promotionLedger)
-            LockMaster.releaseLock(id)
+            persistLedger(promotionLedger)
+            releaseLock(id)
           }
         }
       } catch (e: Throwable) {
@@ -64,28 +69,10 @@ object PromotionManager {
       .orElse(false)
 
   private val id: String
-    get() = AppService.getApplicationName()
+    get() = getApplicationName()
 
   private fun shouldPromote(): Boolean =
+  // todo: put me back
 //    promotionLedger.seenPromotions.containsKey(MOTIVATOR_PLUGIN_ID).not() &&
     ThemeConfig.instance.currentStickerLevel == StickerLevel.ON
-
 }
-
-data class Lock(
-  val lockedBy: String,
-  val lockedDate: Instant
-)
-
-data class Promotion(
-  val id: UUID,
-  val datePromoted: Instant,
-  val result: PromotionStatus
-)
-
-data class PromotionLedger(
-  val user: UUID,
-  val versionInstallDates: MutableMap<String, Instant>,
-  val seenPromotions: MutableMap<UUID, Promotion>,
-  var allowedToPromote: Boolean
-)

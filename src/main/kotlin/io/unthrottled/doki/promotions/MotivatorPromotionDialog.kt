@@ -126,7 +126,7 @@ class MotivatorPromotionDialog(
       <br/>
       <h3 style='text-align: center; color: $infoForegroundHex'>Bring Anime Memes to your IDE today!</h3>
       <br/>
-      <div style='text-align: center'><img src='$promotionAssetURL' alt='Character Promotion Asset'/></div>
+      <div style='text-align: center'><img src='$promotionAssetURL' alt='${dokiTheme.displayName}&#39;s Promotion Asset'/></div>
       <br/>
       </body>
       </html>
@@ -140,6 +140,7 @@ class MotivatorPromotionDialog(
     return pane
   }
 
+  // todo: add more assets
   private fun getPromotionAsset(dokiTheme: DokiTheme): String {
     return AssetManager.resolveAssetUrl(AssetCategory.PROMOTION, "motivator/${dokiTheme.displayName.toLowerCase()}.gif")
       .orElseGet {

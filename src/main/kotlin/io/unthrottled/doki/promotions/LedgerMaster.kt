@@ -11,7 +11,21 @@ import java.io.InputStreamReader
 import java.nio.charset.StandardCharsets
 import java.nio.file.Files
 import java.nio.file.StandardOpenOption
+import java.time.Instant
 import java.util.UUID
+
+data class Promotion(
+  val id: UUID,
+  val datePromoted: Instant,
+  val result: PromotionStatus
+)
+
+data class PromotionLedger(
+  val user: UUID,
+  val versionInstallDates: MutableMap<String, Instant>,
+  val seenPromotions: MutableMap<UUID, Promotion>,
+  var allowedToPromote: Boolean
+)
 
 object LedgerMaster {
   private val log = Logger.getInstance(LedgerMaster::class.java)
@@ -21,32 +35,32 @@ object LedgerMaster {
     .create()
 
   private val ledgerPath = AssetManager.constructGlobalAssetPath(
+    AssetCategory.PROMOTION,
+    "ledger.json"
+  ).orElseGet {
+    AssetManager.constructLocalAssetPath(
       AssetCategory.PROMOTION,
       "ledger.json"
-  ).orElseGet {
-      AssetManager.constructLocalAssetPath(
-          AssetCategory.PROMOTION,
-          "ledger.json"
-      )
+    )
   }
 
   fun getInitialLedger(): PromotionLedger =
     if (ledgerPath.exists()) {
       readLedger()
     } else {
-        PromotionLedger(UUID.randomUUID(), mutableMapOf(), mutableMapOf(), true)
+      PromotionLedger(UUID.randomUUID(), mutableMapOf(), mutableMapOf(), true)
     }
 
   fun persistLedger(promotionLedger: PromotionLedger) {
     if (ledgerPath.exists().not()) {
-        LocalStorageService.createDirectories(ledgerPath)
+      LocalStorageService.createDirectories(ledgerPath)
     }
 
     try {
       Files.newBufferedWriter(
-          ledgerPath,
-          StandardOpenOption.CREATE,
-          StandardOpenOption.TRUNCATE_EXISTING
+        ledgerPath,
+        StandardOpenOption.CREATE,
+        StandardOpenOption.TRUNCATE_EXISTING
       ).use {
         it.write(
           gson.toJson(promotionLedger)
@@ -57,18 +71,17 @@ object LedgerMaster {
     }
   }
 
-
   private fun readLedger(): PromotionLedger =
-      runSafelyWithResult({
-          Files.newInputStream(ledgerPath)
-              .use {
-                  gson.fromJson(
-                      InputStreamReader(it, StandardCharsets.UTF_8),
-                      PromotionLedger::class.java
-                  )
-              }
-      }) {
-          log.warn("Unable to read promotion ledger for raisins.", it)
-          PromotionLedger(UUID.randomUUID(), mutableMapOf(), mutableMapOf(), true)
-      }
+    runSafelyWithResult({
+      Files.newInputStream(ledgerPath)
+        .use {
+          gson.fromJson(
+            InputStreamReader(it, StandardCharsets.UTF_8),
+            PromotionLedger::class.java
+          )
+        }
+    }) {
+      log.warn("Unable to read promotion ledger for raisins.", it)
+      PromotionLedger(UUID.randomUUID(), mutableMapOf(), mutableMapOf(), true)
+    }
 }

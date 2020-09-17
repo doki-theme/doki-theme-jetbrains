@@ -14,6 +14,11 @@ import java.time.Duration
 import java.time.Instant
 import java.util.Optional
 
+data class Lock(
+  val lockedBy: String,
+  val lockedDate: Instant
+)
+
 object LockMaster {
   private val log = Logger.getInstance(LockMaster::class.java)
 
@@ -22,13 +27,13 @@ object LockMaster {
     .create()
 
   private val lockPath = AssetManager.constructGlobalAssetPath(
+    AssetCategory.PROMOTION,
+    "lock.json"
+  ).orElseGet {
+    AssetManager.constructLocalAssetPath(
       AssetCategory.PROMOTION,
       "lock.json"
-  ).orElseGet {
-      AssetManager.constructLocalAssetPath(
-          AssetCategory.PROMOTION,
-          "lock.json"
-      )
+    )
   }
 
   fun acquireLock(id: String): Boolean =
@@ -42,7 +47,7 @@ object LockMaster {
     readLock()
       .map {
         it.lockedBy == id || Duration.between(
-            it.lockedDate, Instant.now()
+          it.lockedDate, Instant.now()
         ).toHours() > 1
       }
       .orElse(true)
@@ -65,16 +70,15 @@ object LockMaster {
       .map { it.lockedBy == id }
       .orElse(false)
 
-
   private fun breakLock(): Boolean =
     if (Files.exists(lockPath)) {
-        runSafelyWithResult({
-            Files.delete(lockPath)
-            true
-        }) {
-            log.warn("Unable to remove previous lock for raisins", it)
-            false
-        }
+      runSafelyWithResult({
+        Files.delete(lockPath)
+        true
+      }) {
+        log.warn("Unable to remove previous lock for raisins", it)
+        false
+      }
     } else {
       true
     }
@@ -83,28 +87,28 @@ object LockMaster {
     writeLock(Lock(id, Instant.now()))
 
   private fun readLock(): Optional<Lock> =
-      runSafelyWithResult({
-          Files.newInputStream(lockPath)
-              .use {
-                  gson.fromJson(
-                      InputStreamReader(it, StandardCharsets.UTF_8),
-                      Lock::class.java
-                  )
-              }.toOptional()
-      }) {
-          log.warn("Unable to read promotion ledger for raisins.", it)
-          Optional.empty()
-      }
+    runSafelyWithResult({
+      Files.newInputStream(lockPath)
+        .use {
+          gson.fromJson(
+            InputStreamReader(it, StandardCharsets.UTF_8),
+            Lock::class.java
+          )
+        }.toOptional()
+    }) {
+      log.warn("Unable to read promotion ledger for raisins.", it)
+      Optional.empty()
+    }
 
   private fun writeLock(lock: Lock): Boolean =
-      runSafelyWithResult({
-          Files.newBufferedWriter(lockPath, StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING)
-              .use {
-                  it.write(gson.toJson(lock))
-              }
-          true
-      }) {
-          log.warn("Unable to write promotion ledger for raisins.", it)
-          false
-      }
+    runSafelyWithResult({
+      Files.newBufferedWriter(lockPath, StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING)
+        .use {
+          it.write(gson.toJson(lock))
+        }
+      true
+    }) {
+      log.warn("Unable to write promotion ledger for raisins.", it)
+      false
+    }
 }

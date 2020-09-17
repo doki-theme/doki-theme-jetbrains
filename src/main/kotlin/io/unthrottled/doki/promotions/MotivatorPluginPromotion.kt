@@ -15,6 +15,13 @@ data class PromotionResults(
   val status: PromotionStatus
 )
 
+object MotivatorPluginService {
+
+  fun runPromotion(onPromotion: (PromotionResults) -> Unit) {
+    MotivatorPluginPromotion(onPromotion)
+  }
+}
+
 class MotivatorPluginPromotion(
   private val onPromotion: (PromotionResults) -> Unit
 ) : Runnable {
@@ -22,6 +29,7 @@ class MotivatorPluginPromotion(
   init {
     IdeEventQueue.getInstance().addIdleListener(
       this,
+      // todo: put me back
       3000 + Random(System.currentTimeMillis())
         .nextInt(0, 2000)
 //      TimeUnit.MILLISECONDS.convert(

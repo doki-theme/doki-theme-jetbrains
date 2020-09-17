@@ -10,5 +10,4 @@ object PluginService {
   fun isMotivatorInstalled(): Boolean = PluginManagerCore.isPluginInstalled(
     PluginId.getId(MOTIVATOR_PLUGIN_ID)
   )
-
 }
