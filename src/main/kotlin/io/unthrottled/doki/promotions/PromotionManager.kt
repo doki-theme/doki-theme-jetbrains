@@ -64,8 +64,8 @@ object PromotionManager {
       PromotionLedger(UUID.randomUUID(), mutableMapOf(), mutableMapOf(), true)
     }
 
-  private fun readLedger(): PromotionLedger {
-    return try {
+  private fun readLedger(): PromotionLedger =
+    runSafelyWithResult({
       Files.newInputStream(ledgerPath)
         .use {
           gson.fromJson(
@@ -73,11 +73,10 @@ object PromotionManager {
             PromotionLedger::class.java
           )
         }
-    } catch (e: Throwable) {
-      log.warn("Unable to read promotion ledger for raisins.", e)
+    }) {
+      log.warn("Unable to read promotion ledger for raisins.", it)
       PromotionLedger(UUID.randomUUID(), mutableMapOf(), mutableMapOf(), true)
     }
-  }
 
   fun registerPromotion(newVersion: String) {
     if (initialized.not()) {
@@ -118,6 +117,7 @@ object PromotionManager {
   }
 
   private fun isOnline(): Boolean =
+    // todo: fall back asset source
     performGet("$ASSETS_SOURCE/misc/am-i-online.txt")
       .map { it.trim() == "yes" }
       .orElse(false)
