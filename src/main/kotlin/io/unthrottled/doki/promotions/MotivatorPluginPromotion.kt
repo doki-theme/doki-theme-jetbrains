@@ -15,7 +15,7 @@ data class PromotionResults(
   val status: PromotionStatus
 )
 
-object MotivatorPluginService {
+object MotivatorPromotionService {
 
   fun runPromotion(onPromotion: (PromotionResults) -> Unit) {
     MotivatorPluginPromotion(onPromotion)

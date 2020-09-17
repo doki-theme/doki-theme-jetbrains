@@ -51,6 +51,20 @@ object LedgerMaster {
       PromotionLedger(UUID.randomUUID(), mutableMapOf(), mutableMapOf(), true)
     }
 
+  fun readLedger(): PromotionLedger =
+    runSafelyWithResult({
+      Files.newInputStream(ledgerPath)
+        .use {
+          gson.fromJson(
+            InputStreamReader(it, StandardCharsets.UTF_8),
+            PromotionLedger::class.java
+          )
+        }
+    }) {
+      log.warn("Unable to read promotion ledger for raisins.", it)
+      PromotionLedger(UUID.randomUUID(), mutableMapOf(), mutableMapOf(), true)
+    }
+
   fun persistLedger(promotionLedger: PromotionLedger) {
     if (ledgerPath.exists().not()) {
       LocalStorageService.createDirectories(ledgerPath)
@@ -70,18 +84,4 @@ object LedgerMaster {
       log.warn("Unable to persist ledger for raisins", e)
     }
   }
-
-  private fun readLedger(): PromotionLedger =
-    runSafelyWithResult({
-      Files.newInputStream(ledgerPath)
-        .use {
-          gson.fromJson(
-            InputStreamReader(it, StandardCharsets.UTF_8),
-            PromotionLedger::class.java
-          )
-        }
-    }) {
-      log.warn("Unable to read promotion ledger for raisins.", it)
-      PromotionLedger(UUID.randomUUID(), mutableMapOf(), mutableMapOf(), true)
-    }
 }

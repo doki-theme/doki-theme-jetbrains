@@ -4,13 +4,15 @@ import com.intellij.openapi.diagnostic.Logger
 import io.unthrottled.doki.assets.AssetManager.ASSETS_SOURCE
 import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.integrations.RestClient.performGet
+import io.unthrottled.doki.promotions.LedgerMaster.getInitialLedger
 import io.unthrottled.doki.promotions.LedgerMaster.persistLedger
 import io.unthrottled.doki.promotions.LockMaster.acquireLock
 import io.unthrottled.doki.promotions.LockMaster.releaseLock
-import io.unthrottled.doki.promotions.MotivatorPluginService.runPromotion
+import io.unthrottled.doki.promotions.MotivatorPromotionService.runPromotion
 import io.unthrottled.doki.service.AppService.getApplicationName
 import io.unthrottled.doki.service.PluginService.isMotivatorInstalled
 import io.unthrottled.doki.stickers.StickerLevel
+import java.time.Duration
 import java.time.Instant
 import java.util.UUID
 
@@ -22,7 +24,7 @@ object PromotionManager {
 
   private var initialized = false
 
-  private val promotionLedger: PromotionLedger = LedgerMaster.getInitialLedger()
+  private val promotionLedger: PromotionLedger = getInitialLedger()
 
   fun registerPromotion(newVersion: String) {
     if (initialized.not()) {
@@ -37,10 +39,10 @@ object PromotionManager {
       persistLedger(promotionLedger)
     } else {
       // todo: put me back
-//      val latestInstallDate = versionInstallDates[newVersion]!!
-//      if (Duration.between(latestInstallDate, Instant.now()).toDays() > 2) {
-      setupPromotion()
-//      }
+      val latestInstallDate = versionInstallDates[newVersion]!!
+      if (Duration.between(latestInstallDate, Instant.now()).toDays() > 2) {
+        setupPromotion()
+      }
     }
   }
 
@@ -73,6 +75,6 @@ object PromotionManager {
 
   private fun shouldPromote(): Boolean =
   // todo: put me back
-//    promotionLedger.seenPromotions.containsKey(MOTIVATOR_PLUGIN_ID).not() &&
+    promotionLedger.seenPromotions.containsKey(MOTIVATION_PROMOTION_ID).not() &&
     ThemeConfig.instance.currentStickerLevel == StickerLevel.ON
 }
