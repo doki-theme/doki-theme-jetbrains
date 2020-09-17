@@ -6,6 +6,7 @@ import com.intellij.util.io.exists
 import io.unthrottled.doki.assets.AssetCategory
 import io.unthrottled.doki.assets.AssetManager
 import io.unthrottled.doki.assets.LocalStorageService
+import io.unthrottled.doki.util.runSafely
 import io.unthrottled.doki.util.runSafelyWithResult
 import java.io.InputStreamReader
 import java.nio.charset.StandardCharsets
@@ -70,7 +71,7 @@ object LedgerMaster {
       LocalStorageService.createDirectories(ledgerPath)
     }
 
-    try {
+    runSafely({
       Files.newBufferedWriter(
         ledgerPath,
         StandardOpenOption.CREATE,
@@ -80,8 +81,9 @@ object LedgerMaster {
           gson.toJson(promotionLedger)
         )
       }
-    } catch (e: Throwable) {
-      log.warn("Unable to persist ledger for raisins", e)
+
+    }) {
+      log.warn("Unable to persist ledger for raisins", it)
     }
   }
 }

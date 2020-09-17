@@ -18,7 +18,9 @@ import java.util.UUID
 
 private val MOTIVATION_PROMOTION_ID = UUID.fromString("63e1da85-1285-40c4-873a-3ed1122995e1")
 
-object PromotionManager {
+object PromotionManager: PromotionManagerImpl()
+
+open class PromotionManagerImpl {
 
   private val log = Logger.getInstance(PromotionManager::class.java)
 
@@ -26,9 +28,10 @@ object PromotionManager {
 
   private val promotionLedger: PromotionLedger = getInitialLedger()
 
-  fun registerPromotion(newVersion: String) {
-    if (initialized.not()) {
+  fun registerPromotion(newVersion: String, forceRegister: Boolean = false) {
+    if (initialized.not() || forceRegister) {
       promotionRegistry(newVersion)
+      initialized = true
     }
   }
 
