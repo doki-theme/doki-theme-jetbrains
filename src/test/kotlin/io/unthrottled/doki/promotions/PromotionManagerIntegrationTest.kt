@@ -24,8 +24,11 @@ import org.junit.Test
 import java.nio.file.Files
 import java.time.Instant
 import java.time.Period
+import java.time.temporal.ChronoUnit
 import java.util.Optional
 import java.util.UUID
+import java.util.concurrent.TimeUnit
+import kotlin.test.assertTrue
 
 class PromotionManagerIntegrationTest {
 
@@ -357,7 +360,54 @@ class PromotionManagerIntegrationTest {
 
     assertThat(postLedger).isEqualTo(currentLedger)
 
-    val promotionSlot = slot<(PromotionResults)->Unit>()
+    validateLedgerCallback(currentLedger, beforePromotion)
+
+    assertTrue { LockMaster.acquireLock("Syrena") }
+  }
+
+  @Test
+  fun `should break old lock`() {
+    every { LocalStorageService.getGlobalAssetDirectory() } returns
+      TestTools.getTestAssetPath(testDirectory).toString().toOptional()
+    every { PluginService.isMotivatorInstalled() } returns false
+    every { WeebService.isWeebStuffOn() } returns true
+    every { RestClient.performGet("${AssetManager.ASSETS_SOURCE}/misc/am-i-online.txt") } returns
+      """         
+        yes       
+              
+      """.toOptional()
+
+    LockMaster.writeLock(Lock("Misato", Instant.now().minusMillis(
+      TimeUnit.MILLISECONDS.convert(3, TimeUnit.HOURS)
+    )))
+
+    val currentLedger = PromotionLedger(
+      UUID.randomUUID(),
+      mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(3))),
+      mutableMapOf(),
+      true
+    )
+
+    LedgerMaster.persistLedger(currentLedger)
+
+    val beforePromotion = Instant.now()
+    val promotionManager = PromotionManagerImpl()
+    promotionManager.registerPromotion("Ryuko", true)
+
+    val postLedger = LedgerMaster.readLedger()
+
+    assertThat(postLedger).isEqualTo(currentLedger)
+
+    validateLedgerCallback(currentLedger, beforePromotion)
+
+    assertTrue { LockMaster.acquireLock("Syrena") }
+  }
+
+  private fun validateLedgerCallback(
+      currentLedger: PromotionLedger,
+      beforePromotion: Instant?
+  ) {
+    val promotionSlot = slot<(PromotionResults) -> Unit>()
     verify { MotivatorPromotionService.runPromotion(capture(promotionSlot)) }
 
     val promotionCallback = promotionSlot.captured
@@ -370,7 +420,10 @@ class PromotionManagerIntegrationTest {
     assertThat(postBlocked.allowedToPromote).isFalse()
     assertThat(postBlocked.seenPromotions[MOTIVATION_PROMOTION_ID]?.result).isEqualTo(PromotionStatus.BLOCKED)
     assertThat(postBlocked.seenPromotions[MOTIVATION_PROMOTION_ID]?.id).isEqualTo(MOTIVATION_PROMOTION_ID)
-    assertThat(postBlocked.seenPromotions[MOTIVATION_PROMOTION_ID]?.datePromoted).isBetween(beforePromotion, postBlockedTime)
+    assertThat(postBlocked.seenPromotions[MOTIVATION_PROMOTION_ID]?.datePromoted).isBetween(
+      beforePromotion,
+      postBlockedTime
+    )
 
     promotionCallback(PromotionResults(PromotionStatus.REJECTED))
 
@@ -381,7 +434,10 @@ class PromotionManagerIntegrationTest {
     assertThat(postRejected.allowedToPromote).isTrue()
     assertThat(postRejected.seenPromotions[MOTIVATION_PROMOTION_ID]?.result).isEqualTo(PromotionStatus.REJECTED)
     assertThat(postRejected.seenPromotions[MOTIVATION_PROMOTION_ID]?.id).isEqualTo(MOTIVATION_PROMOTION_ID)
-    assertThat(postRejected.seenPromotions[MOTIVATION_PROMOTION_ID]?.datePromoted).isBetween(postBlockedTime, postRejectedTime)
+    assertThat(postRejected.seenPromotions[MOTIVATION_PROMOTION_ID]?.datePromoted).isBetween(
+      postBlockedTime,
+      postRejectedTime
+    )
 
     promotionCallback(PromotionResults(PromotionStatus.ACCEPTED))
 
@@ -392,7 +448,10 @@ class PromotionManagerIntegrationTest {
     assertThat(postAccepted.allowedToPromote).isTrue()
     assertThat(postAccepted.seenPromotions[MOTIVATION_PROMOTION_ID]?.result).isEqualTo(PromotionStatus.ACCEPTED)
     assertThat(postAccepted.seenPromotions[MOTIVATION_PROMOTION_ID]?.id).isEqualTo(MOTIVATION_PROMOTION_ID)
-    assertThat(postAccepted.seenPromotions[MOTIVATION_PROMOTION_ID]?.datePromoted).isBetween(postRejectedTime, postAcceptedTime)
+    assertThat(postAccepted.seenPromotions[MOTIVATION_PROMOTION_ID]?.datePromoted).isBetween(
+      postRejectedTime,
+      postAcceptedTime
+    )
   }
 }
 
