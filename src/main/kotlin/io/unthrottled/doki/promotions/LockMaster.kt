@@ -39,14 +39,14 @@ object LockMaster {
   fun acquireLock(id: String): Boolean =
     when {
       Files.notExists(lockPath) -> lockPromotion(id)
-      canBreakLock(id) -> breakAndLockPromotion(id)
+      canBreakLock() -> breakAndLockPromotion(id)
       else -> false
     }
 
-  private fun canBreakLock(id: String): Boolean =
+  private fun canBreakLock(): Boolean =
     readLock()
       .map {
-        it.lockedBy == id || Duration.between(
+        Duration.between(
           it.lockedDate, Instant.now()
         ).toHours() > 1
       }

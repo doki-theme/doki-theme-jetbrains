@@ -2,8 +2,10 @@ package io.unthrottled.doki.promotions
 
 import com.intellij.util.io.isFile
 import io.mockk.Called
+import io.mockk.clearMocks
 import io.mockk.every
 import io.mockk.mockkObject
+import io.mockk.slot
 import io.mockk.unmockkObject
 import io.mockk.verify
 import io.unthrottled.doki.assets.AssetManager
@@ -28,6 +30,7 @@ import java.util.UUID
 class PromotionManagerIntegrationTest {
 
   companion object {
+    private const val testDirectory = "testOne"
     @JvmStatic
     @BeforeClass
     fun setUp() {
@@ -51,7 +54,8 @@ class PromotionManagerIntegrationTest {
 
   @Before
   fun cleanUp() {
-    Files.walk(TestTools.getTestAssetPath())
+    clearMocks(MotivatorPromotionService)
+    Files.walk(TestTools.getTestAssetPath(testDirectory))
       .filter { it.isFile() }
       .forEach { Files.deleteIfExists(it) }
   }
@@ -59,7 +63,7 @@ class PromotionManagerIntegrationTest {
   @Test
   fun `should write new version`() {
     every { LocalStorageService.getGlobalAssetDirectory() } returns
-      TestTools.getTestAssetPath().toString().toOptional()
+      TestTools.getTestAssetPath(testDirectory).toString().toOptional()
 
     val beforePromotion = Instant.now()
 
@@ -82,7 +86,7 @@ class PromotionManagerIntegrationTest {
   @Test
   fun `should always write new version`() {
     every { LocalStorageService.getGlobalAssetDirectory() } returns
-      TestTools.getTestAssetPath().toString().toOptional()
+      TestTools.getTestAssetPath(testDirectory).toString().toOptional()
 
     val beforeRyuko = Instant.now()
 
@@ -122,7 +126,7 @@ class PromotionManagerIntegrationTest {
   @Test
   fun `should not do anything when install is less than a day old`() {
     every { LocalStorageService.getGlobalAssetDirectory() } returns
-      TestTools.getTestAssetPath().toString().toOptional()
+      TestTools.getTestAssetPath(testDirectory).toString().toOptional()
 
     val currentLedger = PromotionLedger(
       UUID.randomUUID(),
@@ -146,7 +150,7 @@ class PromotionManagerIntegrationTest {
   @Test
   fun `should not do anything when motivator is installed`() {
     every { LocalStorageService.getGlobalAssetDirectory() } returns
-      TestTools.getTestAssetPath().toString().toOptional()
+      TestTools.getTestAssetPath(testDirectory).toString().toOptional()
 
     every { PluginService.isMotivatorInstalled() } returns true
 
@@ -172,7 +176,7 @@ class PromotionManagerIntegrationTest {
   @Test
   fun `should not do anything when has been promoted before`() {
     every { LocalStorageService.getGlobalAssetDirectory() } returns
-      TestTools.getTestAssetPath().toString().toOptional()
+      TestTools.getTestAssetPath(testDirectory).toString().toOptional()
     every { PluginService.isMotivatorInstalled() } returns false
 
     val currentLedger = PromotionLedger(
@@ -201,7 +205,7 @@ class PromotionManagerIntegrationTest {
   @Test
   fun `should not do anything when weeb stuff is not on`() {
     every { LocalStorageService.getGlobalAssetDirectory() } returns
-      TestTools.getTestAssetPath().toString().toOptional()
+      TestTools.getTestAssetPath(testDirectory).toString().toOptional()
     every { PluginService.isMotivatorInstalled() } returns false
     every { WeebService.isWeebStuffOn() } returns false
 
@@ -227,7 +231,7 @@ class PromotionManagerIntegrationTest {
   @Test
   fun `should not do anything when not online`() {
     every { LocalStorageService.getGlobalAssetDirectory() } returns
-      TestTools.getTestAssetPath().toString().toOptional()
+      TestTools.getTestAssetPath(testDirectory).toString().toOptional()
     every { PluginService.isMotivatorInstalled() } returns false
     every { WeebService.isWeebStuffOn() } returns true
     every { RestClient.performGet("${AssetManager.ASSETS_SOURCE}/misc/am-i-online.txt") } returns
@@ -256,7 +260,7 @@ class PromotionManagerIntegrationTest {
   @Test
   fun `should not do anything when not owner of lock`() {
     every { LocalStorageService.getGlobalAssetDirectory() } returns
-      TestTools.getTestAssetPath().toString().toOptional()
+      TestTools.getTestAssetPath(testDirectory).toString().toOptional()
     every { PluginService.isMotivatorInstalled() } returns false
     every { WeebService.isWeebStuffOn() } returns true
     every { RestClient.performGet("${AssetManager.ASSETS_SOURCE}/misc/am-i-online.txt") } returns
@@ -284,6 +288,73 @@ class PromotionManagerIntegrationTest {
     assertThat(postLedger).isEqualTo(currentLedger)
 
     verify { MotivatorPromotionService wasNot Called }
+  }
+
+  @Test
+  fun `should promote when not locked`() {
+    every { LocalStorageService.getGlobalAssetDirectory() } returns
+      TestTools.getTestAssetPath(testDirectory).toString().toOptional()
+    every { PluginService.isMotivatorInstalled() } returns false
+    every { WeebService.isWeebStuffOn() } returns true
+    every { RestClient.performGet("${AssetManager.ASSETS_SOURCE}/misc/am-i-online.txt") } returns
+      """         
+        yes       
+              
+      """.toOptional()
+
+    val currentLedger = PromotionLedger(
+      UUID.randomUUID(),
+      mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(3))),
+      mutableMapOf(),
+      true
+    )
+
+    LedgerMaster.persistLedger(currentLedger)
+
+    val beforePromotion = Instant.now()
+    val promotionManager = PromotionManagerImpl()
+    promotionManager.registerPromotion("Ryuko", true)
+
+    val postLedger = LedgerMaster.readLedger()
+
+    assertThat(postLedger).isEqualTo(currentLedger)
+
+    val promotionSlot = slot<(PromotionResults)->Unit>()
+    verify { MotivatorPromotionService.runPromotion(capture(promotionSlot)) }
+
+    val promotionCallback = promotionSlot.captured
+    promotionCallback(PromotionResults(PromotionStatus.BLOCKED))
+
+    val postBlockedTime = Instant.now()
+    val postBlocked = LedgerMaster.readLedger()
+    assertThat(postBlocked.user).isEqualTo(currentLedger.user)
+    assertThat(postBlocked.versionInstallDates).isEqualTo(currentLedger.versionInstallDates)
+    assertThat(postBlocked.allowedToPromote).isFalse()
+    assertThat(postBlocked.seenPromotions[MOTIVATION_PROMOTION_ID]?.result).isEqualTo(PromotionStatus.BLOCKED)
+    assertThat(postBlocked.seenPromotions[MOTIVATION_PROMOTION_ID]?.id).isEqualTo(MOTIVATION_PROMOTION_ID)
+    assertThat(postBlocked.seenPromotions[MOTIVATION_PROMOTION_ID]?.datePromoted).isBetween(beforePromotion, postBlockedTime)
+
+    promotionCallback(PromotionResults(PromotionStatus.REJECTED))
+
+    val postRejectedTime = Instant.now()
+    val postRejected = LedgerMaster.readLedger()
+    assertThat(postRejected.user).isEqualTo(currentLedger.user)
+    assertThat(postRejected.versionInstallDates).isEqualTo(currentLedger.versionInstallDates)
+    assertThat(postRejected.allowedToPromote).isTrue()
+    assertThat(postRejected.seenPromotions[MOTIVATION_PROMOTION_ID]?.result).isEqualTo(PromotionStatus.REJECTED)
+    assertThat(postRejected.seenPromotions[MOTIVATION_PROMOTION_ID]?.id).isEqualTo(MOTIVATION_PROMOTION_ID)
+    assertThat(postRejected.seenPromotions[MOTIVATION_PROMOTION_ID]?.datePromoted).isBetween(postBlockedTime, postRejectedTime)
+
+    promotionCallback(PromotionResults(PromotionStatus.ACCEPTED))
+
+    val postAcceptedTime = Instant.now()
+    val postAccepted = LedgerMaster.readLedger()
+    assertThat(postAccepted.user).isEqualTo(currentLedger.user)
+    assertThat(postAccepted.versionInstallDates).isEqualTo(currentLedger.versionInstallDates)
+    assertThat(postAccepted.allowedToPromote).isTrue()
+    assertThat(postAccepted.seenPromotions[MOTIVATION_PROMOTION_ID]?.result).isEqualTo(PromotionStatus.ACCEPTED)
+    assertThat(postAccepted.seenPromotions[MOTIVATION_PROMOTION_ID]?.id).isEqualTo(MOTIVATION_PROMOTION_ID)
+    assertThat(postAccepted.seenPromotions[MOTIVATION_PROMOTION_ID]?.datePromoted).isBetween(postRejectedTime, postAcceptedTime)
   }
 }
 
