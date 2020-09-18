@@ -64,6 +64,13 @@ class PromotionManagerIntegrationTest {
   fun `should write new version`() {
     every { LocalStorageService.getGlobalAssetDirectory() } returns
       TestTools.getTestAssetPath(testDirectory).toString().toOptional()
+    every { PluginService.isMotivatorInstalled() } returns false
+    every { WeebService.isWeebStuffOn() } returns true
+    every { RestClient.performGet("${AssetManager.ASSETS_SOURCE}/misc/am-i-online.txt") } returns
+      """         
+        yes       
+              
+      """.toOptional()
 
     val beforePromotion = Instant.now()
 
@@ -87,6 +94,13 @@ class PromotionManagerIntegrationTest {
   fun `should always write new version`() {
     every { LocalStorageService.getGlobalAssetDirectory() } returns
       TestTools.getTestAssetPath(testDirectory).toString().toOptional()
+    every { PluginService.isMotivatorInstalled() } returns false
+    every { WeebService.isWeebStuffOn() } returns true
+    every { RestClient.performGet("${AssetManager.ASSETS_SOURCE}/misc/am-i-online.txt") } returns
+      """         
+        yes       
+              
+      """.toOptional()
 
     val beforeRyuko = Instant.now()
 
@@ -127,6 +141,13 @@ class PromotionManagerIntegrationTest {
   fun `should not do anything when install is less than a day old`() {
     every { LocalStorageService.getGlobalAssetDirectory() } returns
       TestTools.getTestAssetPath(testDirectory).toString().toOptional()
+    every { PluginService.isMotivatorInstalled() } returns false
+    every { WeebService.isWeebStuffOn() } returns true
+    every { RestClient.performGet("${AssetManager.ASSETS_SOURCE}/misc/am-i-online.txt") } returns
+      """         
+        yes       
+              
+      """.toOptional()
 
     val currentLedger = PromotionLedger(
       UUID.randomUUID(),
@@ -153,6 +174,12 @@ class PromotionManagerIntegrationTest {
       TestTools.getTestAssetPath(testDirectory).toString().toOptional()
 
     every { PluginService.isMotivatorInstalled() } returns true
+    every { WeebService.isWeebStuffOn() } returns true
+    every { RestClient.performGet("${AssetManager.ASSETS_SOURCE}/misc/am-i-online.txt") } returns
+      """         
+        yes       
+              
+      """.toOptional()
 
     val currentLedger = PromotionLedger(
       UUID.randomUUID(),
@@ -178,6 +205,12 @@ class PromotionManagerIntegrationTest {
     every { LocalStorageService.getGlobalAssetDirectory() } returns
       TestTools.getTestAssetPath(testDirectory).toString().toOptional()
     every { PluginService.isMotivatorInstalled() } returns false
+    every { WeebService.isWeebStuffOn() } returns true
+    every { RestClient.performGet("${AssetManager.ASSETS_SOURCE}/misc/am-i-online.txt") } returns
+      """         
+        yes       
+              
+      """.toOptional()
 
     val currentLedger = PromotionLedger(
       UUID.randomUUID(),
@@ -208,6 +241,11 @@ class PromotionManagerIntegrationTest {
       TestTools.getTestAssetPath(testDirectory).toString().toOptional()
     every { PluginService.isMotivatorInstalled() } returns false
     every { WeebService.isWeebStuffOn() } returns false
+    every { RestClient.performGet("${AssetManager.ASSETS_SOURCE}/misc/am-i-online.txt") } returns
+      """         
+        yes       
+              
+      """.toOptional()
 
     val currentLedger = PromotionLedger(
       UUID.randomUUID(),
