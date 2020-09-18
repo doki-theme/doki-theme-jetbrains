@@ -24,7 +24,6 @@ import org.junit.Test
 import java.nio.file.Files
 import java.time.Instant
 import java.time.Period
-import java.time.temporal.ChronoUnit
 import java.util.Optional
 import java.util.UUID
 import java.util.concurrent.TimeUnit
@@ -159,7 +158,6 @@ class PromotionManagerIntegrationTest {
       true
     )
     LedgerMaster.persistLedger(currentLedger)
-
 
     val promotionManager = PromotionManagerImpl()
     promotionManager.registerPromotion("Ryuko", true)
@@ -404,8 +402,8 @@ class PromotionManagerIntegrationTest {
   }
 
   private fun validateLedgerCallback(
-      currentLedger: PromotionLedger,
-      beforePromotion: Instant?
+    currentLedger: PromotionLedger,
+    beforePromotion: Instant?
   ) {
     val promotionSlot = slot<(PromotionResults) -> Unit>()
     verify { MotivatorPromotionService.runPromotion(capture(promotionSlot)) }
@@ -454,4 +452,3 @@ class PromotionManagerIntegrationTest {
     )
   }
 }
-

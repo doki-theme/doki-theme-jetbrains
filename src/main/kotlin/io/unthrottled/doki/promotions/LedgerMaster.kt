@@ -81,7 +81,6 @@ object LedgerMaster {
           gson.toJson(promotionLedger)
         )
       }
-
     }) {
       log.warn("Unable to persist ledger for raisins", it)
     }

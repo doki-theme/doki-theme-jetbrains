@@ -100,7 +100,6 @@ object LockMaster {
       Optional.empty()
     }
 
-
   fun writeLock(lock: Lock): Boolean =
     runSafelyWithResult({
       Files.newBufferedWriter(lockPath, StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING)

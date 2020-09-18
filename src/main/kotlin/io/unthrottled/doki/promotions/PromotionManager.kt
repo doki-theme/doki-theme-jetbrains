@@ -18,7 +18,7 @@ import java.util.UUID
 
 val MOTIVATION_PROMOTION_ID: UUID = UUID.fromString("63e1da85-1285-40c4-873a-3ed1122995e1")
 
-object PromotionManager: PromotionManagerImpl()
+object PromotionManager : PromotionManagerImpl()
 
 open class PromotionManagerImpl {
 
