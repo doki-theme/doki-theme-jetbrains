@@ -99,22 +99,57 @@ class MotivatorPromotionDialog(
       "motivator/logo.png"
     ).orElse("${AssetManager.ASSETS_SOURCE}/promotion/motivator/logo.png") // todo: fall back on unknown host
     val promotionAssetURL = getPromotionAsset(dokiTheme)
+    pane.background = JBColor.namedColor(
+      "Menu.background",
+      UIUtil.getEditorPaneBackground()
+    )
     pane.text = """
       <html lang="en">
       <head>
-          <style>
+          <style type='text/css'>
+              .center {
+                text-align: center;
+              }
               a {
-                  color: $accentHex
+                  color: $accentHex;
+                  font-weight: bold;
               }
               p {
-                color: ${UIUtil.getLabelForeground().toHexString()}
+                color: ${UIUtil.getLabelForeground().toHexString()};
+              }
+              h2 {
+                font-weight: bold;
+                font-size: 24px;
+              }
+              h3 {
+                font-weight: bold;
+                font-size: 16px;
+              }
+              .accented {
+                color: $accentHex;
+              }
+              .info-foreground {
+                color: $infoForegroundHex;
+                text-align: center;
+              }
+              .header {
+                color: $accentHex;
+                text-align: center;
+              }
+              .logo-container {
+                margin-top: 8px;
+                text-align: center;
+              }
+              .display-image {
+                max-height: 256px;
+                text-align: center;
               }
           </style>
           <title>Motivator</title>
       </head>
       <body>
-      <div style='text-align: center; margin-top: 8px'><img src="$motivatorLogoURL" alt='Motivator Plugin Logo'> </div>
-      <h2 style='text-align: center; color: $accentHex'>Your new virtual companion!</h2>
+      <div class='logo-container'><img src="$motivatorLogoURL" class='display-image' alt='Motivator Plugin Logo'/> </div>
+      <h2 class='header'>Your new virtual companion!</h2>
       <div style='margin: 8px 0 0 100px'>
         <p>
           The <a href='https://plugins.jetbrains.com/plugin/13381-waifu-motivator'>Waifu Motivator Plugin</a>
@@ -124,9 +159,9 @@ class MotivatorPromotionDialog(
         </p>
       </div>
       <br/>
-      <h3 style='text-align: center; color: $infoForegroundHex'>Bring Anime Memes to your IDE today!</h3>
+      <h3 class='info-foreground'>Bring Anime Memes to your IDE today!</h3>
       <br/>
-      <div style='text-align: center'><img src='$promotionAssetURL' alt='${dokiTheme.displayName}&#39;s Promotion Asset'/></div>
+      <div class='display-image'><img src='$promotionAssetURL' alt='${dokiTheme.displayName}&#39;s Promotion Asset'/></div>
       <br/>
       </body>
       </html>
