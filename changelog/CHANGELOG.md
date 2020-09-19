@@ -1,6 +1,15 @@
 Changelog
 ---
 
+# 10.2.0 [Promotion]
+
+- Promoting the [Waifu Motivator Plugin](https://plugins.jetbrains.com/plugin/13381-waifu-motivator)
+    - Only shows up when:
+        - The plugin is not already installed
+        - The IDE has been idle for more than 5 minutes
+        - It has been more than 2 days since the update.
+    - You will only see this once if you choose not to install.
+
 # 10.1.1 [Title Pane]
 
 - Changed the MacOS Title pane font color to be the `infoForeground` color when active.
