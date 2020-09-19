@@ -8,6 +8,7 @@ Changelog
         - The plugin is not already installed
         - The IDE has been idle for more than 5 minutes
         - It has been more than 2 days since the update.
+        - Your stickers are currently on.
     - You will only see this once if you choose not to install.
 
 # 10.1.1 [Title Pane]
