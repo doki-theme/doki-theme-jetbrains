@@ -23,4 +23,11 @@ jobs:
     - name: Pull down the Master Themes
       run: ./getMasterThemes.sh
     - name: Perform quality check
-      run: ./gradlew clean check
+      run: ./gradlew clean check buildPlugin
+    - uses: ChrisCarini/intellij-platform-plugin-verifier-action@v1.0.3
+      with:
+        ide-versions: |
+          ideaIC:2020.1.2
+          ideaIU:2020.1.2
+          ideaIC:LATEST-EAP-SNAPSHOT
+          ideaIU:LATEST-EAP-SNAPSHOT
