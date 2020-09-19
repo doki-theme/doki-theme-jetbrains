@@ -41,7 +41,6 @@ open class PromotionManagerImpl {
       versionInstallDates[newVersion] = Instant.now()
       persistLedger(promotionLedger)
     } else {
-      // todo: put me back
       val latestInstallDate = versionInstallDates[newVersion]!!
       if (Duration.between(latestInstallDate, Instant.now()).toDays() > 2) {
         setupPromotion()
@@ -77,8 +76,9 @@ open class PromotionManagerImpl {
     get() = getApplicationName()
 
   private fun shouldPromote(): Boolean =
-  // todo: put me back
-    promotionLedger.seenPromotions.containsKey(MOTIVATION_PROMOTION_ID).not() &&
+    promotionLedger.allowedToPromote &&
+      (promotionLedger.seenPromotions.containsKey(MOTIVATION_PROMOTION_ID).not() ||
+        promotionLedger.seenPromotions[MOTIVATION_PROMOTION_ID]?.result == PromotionStatus.ACCEPTED) &&
       WeebService.isWeebStuffOn()
 }
 

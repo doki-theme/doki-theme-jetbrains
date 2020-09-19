@@ -5,6 +5,7 @@ import com.intellij.openapi.project.ProjectManager
 import com.intellij.openapi.wm.WindowManager
 import io.unthrottled.doki.themes.ThemeManager
 import io.unthrottled.doki.util.toOptional
+import java.util.concurrent.TimeUnit
 import kotlin.random.Random
 
 enum class PromotionStatus {
@@ -29,13 +30,12 @@ class MotivatorPluginPromotion(
   init {
     IdeEventQueue.getInstance().addIdleListener(
       this,
-      // todo: put me back
-      3000 + Random(System.currentTimeMillis())
+      TimeUnit.MILLISECONDS.convert(
+        5,
+        TimeUnit.MINUTES
+      ).toInt() + Random(System.currentTimeMillis())
         .nextInt(0, 2000)
-//      TimeUnit.MILLISECONDS.convert(
-//        5 ,
-//        TimeUnit.MINUTES
-//      ).toInt()
+
     )
   }
 

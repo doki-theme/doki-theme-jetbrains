@@ -180,7 +180,6 @@ class MotivatorPromotionDialog(
     return pane
   }
 
-  // todo: add more assets
   private fun getPromotionAsset(dokiTheme: DokiTheme): String {
     return AssetManager.resolveAssetUrl(AssetCategory.PROMOTION, "motivator/${dokiTheme.displayName.toLowerCase()}.gif")
       .orElseGet {
