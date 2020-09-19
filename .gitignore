@@ -1,4 +1,5 @@
 scripts/
+testAssets/
 
 # Generated Themes Directory
 src/main/resources/doki/themes

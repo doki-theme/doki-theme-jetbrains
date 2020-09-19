@@ -249,6 +249,7 @@ open class BuildThemes : DefaultTask() {
       it.colors ?: throw IllegalArgumentException("Expected the $LAF_TEMPLATE to have a 'colors' attribute")
     }
     val finalTheme = JetbrainsThemeDefinition(
+      id = themeDefinition.id,
       name = "${getLafNamePrefix(themeDefinition.group)}${themeDefinition.name}",
       displayName = themeDefinition.displayName,
       dark = themeDefinition.dark,

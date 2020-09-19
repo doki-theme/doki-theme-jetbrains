@@ -7,7 +7,7 @@ plugins {
 }
 
 group 'io.unthrottled'
-version '10.1.1'
+version '10.2.0'
 
 repositories {
   maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
@@ -19,6 +19,8 @@ dependencies {
   implementation 'commons-io:commons-io:2.6'
   implementation 'org.javassist:javassist:3.21.0-GA'
   implementation 'io.sentry:sentry:1.7.30'
+  testImplementation "org.assertj:assertj-core:3.8.0"
+  testImplementation "io.mockk:mockk:1.10.0"
 }
 
 configurations {
@@ -33,7 +35,8 @@ intellij {
   if(System.getenv().getOrDefault("ENV", "") == "DEV") {
     plugins (
       'Key Promoter X:2020.2',
-      'org.jetbrains.jumpToLine:0.1.1'
+      'org.jetbrains.jumpToLine:0.1.1',
+      'zd.zero.waifu-motivator-plugin:1.2'
     )
   }
 }

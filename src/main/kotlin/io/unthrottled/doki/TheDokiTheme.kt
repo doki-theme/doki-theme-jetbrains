@@ -19,6 +19,7 @@ import io.unthrottled.doki.laf.FileScopeColors.attemptToInstallColors
 import io.unthrottled.doki.laf.FileScopeColors.attemptToRemoveColors
 import io.unthrottled.doki.laf.LookAndFeelInstaller.installAllUIComponents
 import io.unthrottled.doki.notification.UpdateNotification
+import io.unthrottled.doki.promotions.PromotionManager
 import io.unthrottled.doki.settings.actors.setDokiTheme
 import io.unthrottled.doki.stickers.StickerLevel
 import io.unthrottled.doki.stickers.StickerService
@@ -88,11 +89,16 @@ class TheDokiTheme : Disposable {
           }
 
         getVersion()
-          .filter { it != ThemeConfig.instance.version }
-          .ifPresent { newVersion ->
-            ThemeConfig.instance.version = newVersion
+          .ifPresent { version ->
+            if (version != ThemeConfig.instance.version) {
+              ThemeConfig.instance.version = version
+              StartupManager.getInstance(project).runWhenProjectIsInitialized {
+                UpdateNotification.display(project, version)
+              }
+            }
+
             StartupManager.getInstance(project).runWhenProjectIsInitialized {
-              UpdateNotification.display(project, newVersion)
+              PromotionManager.registerPromotion(version)
             }
           }
       }
@@ -101,7 +107,8 @@ class TheDokiTheme : Disposable {
 
   private fun userOnBoarding() {
     if (ThemeConfig.instance.isFirstTime &&
-      ThemeManager.instance.currentTheme.isPresent.not()) {
+      ThemeManager.instance.currentTheme.isPresent.not()
+    ) {
       setDokiTheme(ThemeManager.instance.themeByName(ThemeManager.DEFAULT_THEME_NAME))
       ThemeConfig.instance.isFirstTime = false
     } else if (ThemeConfig.instance.isFirstTime) {

@@ -16,7 +16,8 @@ class Stickers(
   val secondary: String?
 )
 
-class DokiThemeDefinition(
+class JetBrainsThemeDefinition(
+  val id: String,
   val name: String,
   val displayName: String?,
   val dark: Boolean,
@@ -27,11 +28,14 @@ class DokiThemeDefinition(
   val meta: Map<String, String>
 )
 
-class DokiTheme(private val uiTheme: DokiThemeDefinition) {
+class DokiTheme(private val uiTheme: JetBrainsThemeDefinition) {
 
   init {
     validateThemeDefinition()
   }
+
+  val id: String
+    get() = uiTheme.id
 
   val groupName: String
     get() = uiTheme.group
@@ -74,7 +78,7 @@ class DokiTheme(private val uiTheme: DokiThemeDefinition) {
       ?: throw IllegalStateException("Expected 'colors.contrastColor' to be present in theme $name json.")
 
   companion object {
-    private const val ACCENT_COLOR = "Doki.Accent.color"
+    const val ACCENT_COLOR = "Doki.Accent.color"
 
     val requiredNamedColors: List<String>
 

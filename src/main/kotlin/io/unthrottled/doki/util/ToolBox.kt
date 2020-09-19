@@ -15,10 +15,18 @@ fun <T> getSafely(callable: Callable<T>): Optional<T> =
     Optional.empty()
   }
 
-fun runSafely(runner: Runner): Unit =
+fun runSafely(runner: () -> Unit, onError: (Throwable) -> Unit): Unit =
   try {
-    runner.run()
+    runner()
   } catch (e: Throwable) {
+    onError(e)
+  }
+
+fun <T> runSafelyWithResult(runner: () -> T, onError: (Throwable) -> T): T =
+  try {
+    runner()
+  } catch (e: Throwable) {
+    onError(e)
   }
 
 fun <T> T?.toOptional() = Optional.ofNullable(this)
