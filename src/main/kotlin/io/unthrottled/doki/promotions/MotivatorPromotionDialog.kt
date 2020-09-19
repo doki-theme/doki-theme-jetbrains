@@ -107,6 +107,9 @@ class MotivatorPromotionDialog(
       <html lang="en">
       <head>
           <style type='text/css'>
+              body {
+                font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+              }
               .center {
                 text-align: center;
               }
@@ -118,12 +121,14 @@ class MotivatorPromotionDialog(
                 color: ${UIUtil.getLabelForeground().toHexString()};
               }
               h2 {
+                margin: 16px 0;
                 font-weight: bold;
-                font-size: 24px;
+                font-size: 22px;
               }
               h3 {
+                margin: 4px 0;
                 font-weight: bold;
-                font-size: 16px;
+                font-size: 14px;
               }
               .accented {
                 color: $accentHex;
@@ -154,8 +159,8 @@ class MotivatorPromotionDialog(
         <p>
           The <a href='https://plugins.jetbrains.com/plugin/13381-waifu-motivator'>Waifu Motivator Plugin</a>
           gives your IDE more personality by using anime memes. <br/> You will get an assistant that will interact with you as you build code.
-          <br/>Such as when your programs fail to run or tests pass/fail, your companion<br/> 
-          has the ability to react to that. Which will most likely take the form <br/> of a reaction gif of your favorite character(s)!
+          <br/>Such as when your programs fail to run or tests pass/fail. Your companion<br/> 
+          has the ability to react to these events. Which will most likely take the form <br/> of a reaction gif of your favorite character(s)!
         </p>
       </div>
       <br/>
