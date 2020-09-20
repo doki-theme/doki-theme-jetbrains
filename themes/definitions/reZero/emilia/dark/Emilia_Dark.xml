@@ -18,61 +18,61 @@
     </option>
     <option name="CODE_VISION_DEFAULT">
       <value>
-        <option name="FOREGROUND" value="$lineNumberColor$" />
+        <option name="FOREGROUND" value="$commentColor$" />
       </value>
     </option>
 
     <option name="DEFAULT_BLOCK_COMMENT">
       <value>
-        <option name="FOREGROUND" value="$lineNumberColor$" />
+        <option name="FOREGROUND" value="$commentColor$" />
         <option name="FONT_TYPE" value="2" />
       </value>
     </option>
 
     <option name="DEFAULT_DOC_COMMENT">
       <value>
-        <option name="FOREGROUND" value="$lineNumberColor$" />
+        <option name="FOREGROUND" value="$commentColor$" />
         <option name="FONT_TYPE" value="2" />
       </value>
     </option>
 
     <option name="DEFAULT_LINE_COMMENT">
       <value>
-        <option name="FOREGROUND" value="$lineNumberColor$" />
+        <option name="FOREGROUND" value="$commentColor$" />
         <option name="FONT_TYPE" value="2" />
       </value>
     </option>
 
     <option name="IGNORE.COMMENT">
       <value>
-        <option name="FOREGROUND" value="$lineNumberColor$" />
+        <option name="FOREGROUND" value="$commentColor$" />
       </value>
     </option>
 
     <option name="ReSharper.ASP_NET_COMMENT">
       <value>
-        <option name="FOREGROUND" value="$lineNumberColor$" />
+        <option name="FOREGROUND" value="$commentColor$" />
         <option name="FONT_TYPE" value="2" />
       </value>
     </option>
 
     <option name="ReSharper.ASP_NET_RAZOR_COMMENT">
       <value>
-        <option name="FOREGROUND" value="$lineNumberColor$" />
+        <option name="FOREGROUND" value="$commentColor$" />
         <option name="FONT_TYPE" value="2" />
       </value>
     </option>
 
     <option name="ReSharper.CPP_DOXYGEN_COMMAND">
       <value>
-        <option name="FOREGROUND" value="$lineNumberColor$" />
+        <option name="FOREGROUND" value="$commentColor$" />
         <option name="FONT_TYPE" value="1" />
       </value>
     </option>
 
     <option name="SUGGESTION">
       <value>
-        <option name="EFFECT_COLOR" value="$lineNumberColor$" />
+        <option name="EFFECT_COLOR" value="$commentColor$" />
         <option name="EFFECT_TYPE" value="2" />
       </value>
     </option>
