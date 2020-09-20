@@ -31,7 +31,7 @@ object HttpClientFactory {
 }
 
 object AssetManager {
-  const val ASSETS_SOURCE = "https://doki.assets.unthrottled.io"
+  const val ASSET_SOURCE = "https://doki.assets.unthrottled.io"
   const val FALLBACK_ASSET_SOURCE = "https://raw.githubusercontent.com/doki-theme/doki-theme-assets/master"
 
   private val httpClient = HttpClientFactory.createHttpClient()
@@ -44,7 +44,7 @@ object AssetManager {
    * will return empty if the asset is not available locally.
    */
   fun resolveAssetUrl(assetCategory: AssetCategory, assetPath: String): Optional<String> =
-    cachedResolve(assetCategory, assetPath, ASSETS_SOURCE)
+    cachedResolve(assetCategory, assetPath, ASSET_SOURCE)
       .map { it.toOptional() }
       .orElseGet {
         cachedResolve(assetCategory, assetPath, FALLBACK_ASSET_SOURCE)
@@ -55,7 +55,7 @@ object AssetManager {
    * download the remote asset.
    */
   fun forceResolveAssetUrl(assetCategory: AssetCategory, assetPath: String): Optional<String> =
-    forceResolve(assetCategory, assetPath, ASSETS_SOURCE)
+    forceResolve(assetCategory, assetPath, ASSET_SOURCE)
       .map { it.toOptional() }
       .orElseGet {
         forceResolve(assetCategory, assetPath, FALLBACK_ASSET_SOURCE)

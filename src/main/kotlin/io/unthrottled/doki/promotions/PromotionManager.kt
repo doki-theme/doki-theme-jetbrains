@@ -1,7 +1,7 @@
 package io.unthrottled.doki.promotions
 
 import com.intellij.openapi.diagnostic.Logger
-import io.unthrottled.doki.assets.AssetManager.ASSETS_SOURCE
+import io.unthrottled.doki.assets.AssetManager.ASSET_SOURCE
 import io.unthrottled.doki.assets.AssetManager.FALLBACK_ASSET_SOURCE
 import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.integrations.RestClient.performGet
@@ -87,7 +87,7 @@ object WeebService {
 object OnlineService {
 
   fun isOnline(): Boolean =
-    isOnlineCheck(ASSETS_SOURCE)
+    isOnlineCheck(ASSET_SOURCE)
       .map { it.toOptional() }
       .orElseGet { isOnlineCheck(FALLBACK_ASSET_SOURCE) }
       .orElse(false)

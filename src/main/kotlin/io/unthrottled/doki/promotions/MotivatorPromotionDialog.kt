@@ -9,6 +9,7 @@ import com.intellij.ui.layout.panel
 import com.intellij.util.ui.UIUtil
 import io.unthrottled.doki.assets.AssetCategory
 import io.unthrottled.doki.assets.AssetManager
+import io.unthrottled.doki.assets.AssetManager.ASSET_SOURCE
 import io.unthrottled.doki.assets.AssetManager.FALLBACK_ASSET_SOURCE
 import io.unthrottled.doki.icon.DokiIcons
 import io.unthrottled.doki.service.MOTIVATOR_PLUGIN_ID
@@ -25,23 +26,23 @@ import javax.swing.JTextPane
 import javax.swing.event.HyperlinkEvent
 
 class PromotionAssets(
-  private val dokiTheme: DokiTheme,
-  preLoad: Boolean = true
+  private val dokiTheme: DokiTheme
 ) {
 
+  val pluginLogoURL: String
+  val promotionAssetURL: String
+
   init {
-    if (preLoad) {
-      getPluginLogo()
-      getPromotionAsset()
-    }
+    pluginLogoURL = getPluginLogo()
+    promotionAssetURL = getPromotionAsset()
   }
 
-  fun getPluginLogo(): String = AssetManager.resolveAssetUrl(
+  private fun getPluginLogo(): String = AssetManager.resolveAssetUrl(
     AssetCategory.PROMOTION,
     "motivator/logo.png"
-  ).orElse("${AssetManager.ASSETS_SOURCE}/promotion/motivator/logo.png")
+  ).orElse("$ASSET_SOURCE/promotion/motivator/logo.png")
 
-  fun getPromotionAsset(): String =
+  private fun getPromotionAsset(): String =
     AssetManager.resolveAssetUrl(AssetCategory.PROMOTION, "motivator/${dokiTheme.displayName.toLowerCase()}.gif")
       .orElseGet {
         AssetManager.resolveAssetUrl(AssetCategory.PROMOTION, "motivator/promotion.gif")
@@ -121,8 +122,8 @@ class MotivatorPromotionDialog(
       DokiTheme.ACCENT_COLOR, UIUtil.getTextAreaForeground()
     ).toHexString()
     val infoForegroundHex = UIUtil.getContextHelpForeground().toHexString()
-    val motivatorLogoURL = promotionAssets.getPluginLogo()
-    val promotionAssetURL = promotionAssets.getPromotionAsset()
+    val motivatorLogoURL = promotionAssets.pluginLogoURL
+    val promotionAssetURL = promotionAssets.promotionAssetURL
     pane.background = JBColor.namedColor(
       "Menu.background",
       UIUtil.getEditorPaneBackground()
