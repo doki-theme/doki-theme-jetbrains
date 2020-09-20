@@ -1,7 +1,8 @@
 package io.unthrottled.doki.promotions
 
 import com.intellij.openapi.diagnostic.Logger
-import io.unthrottled.doki.assets.AssetManager.ASSETS_SOURCE
+import io.unthrottled.doki.assets.AssetManager.ASSET_SOURCE
+import io.unthrottled.doki.assets.AssetManager.FALLBACK_ASSET_SOURCE
 import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.integrations.RestClient.performGet
 import io.unthrottled.doki.promotions.LedgerMaster.getInitialLedger
@@ -9,9 +10,11 @@ import io.unthrottled.doki.promotions.LedgerMaster.persistLedger
 import io.unthrottled.doki.promotions.LockMaster.acquireLock
 import io.unthrottled.doki.promotions.LockMaster.releaseLock
 import io.unthrottled.doki.promotions.MotivatorPromotionService.runPromotion
+import io.unthrottled.doki.promotions.OnlineService.isOnline
 import io.unthrottled.doki.service.AppService.getApplicationName
 import io.unthrottled.doki.service.PluginService.isMotivatorInstalled
 import io.unthrottled.doki.stickers.StickerLevel
+import io.unthrottled.doki.util.toOptional
 import java.time.Duration
 import java.time.Instant
 import java.util.UUID
@@ -66,12 +69,6 @@ open class PromotionManagerImpl {
     }
   }
 
-  private fun isOnline(): Boolean =
-    // todo: fall back asset source
-    performGet("$ASSETS_SOURCE/misc/am-i-online.txt")
-      .map { it.trim() == "yes" }
-      .orElse(false)
-
   private val id: String
     get() = getApplicationName()
 
@@ -85,4 +82,18 @@ open class PromotionManagerImpl {
 object WeebService {
 
   fun isWeebStuffOn(): Boolean = ThemeConfig.instance.currentStickerLevel == StickerLevel.ON
+}
+
+object OnlineService {
+
+  fun isOnline(): Boolean =
+    isOnlineCheck(ASSET_SOURCE)
+      .map { it.toOptional() }
+      .orElseGet { isOnlineCheck(FALLBACK_ASSET_SOURCE) }
+      .orElse(false)
+
+  private fun isOnlineCheck(assetsSource: String) =
+    performGet("$assetsSource/misc/am-i-online.txt")
+      .map { it.trim() == "yes" }
+      .filter { it }
 }

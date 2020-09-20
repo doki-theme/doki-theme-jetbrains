@@ -8,7 +8,8 @@ import io.mockk.mockkObject
 import io.mockk.slot
 import io.mockk.unmockkObject
 import io.mockk.verify
-import io.unthrottled.doki.assets.AssetManager
+import io.unthrottled.doki.assets.AssetManager.ASSET_SOURCE
+import io.unthrottled.doki.assets.AssetManager.FALLBACK_ASSET_SOURCE
 import io.unthrottled.doki.assets.LocalStorageService
 import io.unthrottled.doki.integrations.RestClient
 import io.unthrottled.doki.service.PluginService
@@ -68,7 +69,7 @@ class PromotionManagerIntegrationTest {
       TestTools.getTestAssetPath(testDirectory).toString().toOptional()
     every { PluginService.isMotivatorInstalled() } returns false
     every { WeebService.isWeebStuffOn() } returns true
-    every { RestClient.performGet("${AssetManager.ASSETS_SOURCE}/misc/am-i-online.txt") } returns
+    every { RestClient.performGet("$ASSET_SOURCE/misc/am-i-online.txt") } returns
       """         
         yes       
               
@@ -98,7 +99,7 @@ class PromotionManagerIntegrationTest {
       TestTools.getTestAssetPath(testDirectory).toString().toOptional()
     every { PluginService.isMotivatorInstalled() } returns false
     every { WeebService.isWeebStuffOn() } returns true
-    every { RestClient.performGet("${AssetManager.ASSETS_SOURCE}/misc/am-i-online.txt") } returns
+    every { RestClient.performGet("$ASSET_SOURCE/misc/am-i-online.txt") } returns
       """         
         yes       
               
@@ -145,7 +146,7 @@ class PromotionManagerIntegrationTest {
       TestTools.getTestAssetPath(testDirectory).toString().toOptional()
     every { PluginService.isMotivatorInstalled() } returns false
     every { WeebService.isWeebStuffOn() } returns true
-    every { RestClient.performGet("${AssetManager.ASSETS_SOURCE}/misc/am-i-online.txt") } returns
+    every { RestClient.performGet("$ASSET_SOURCE/misc/am-i-online.txt") } returns
       """         
         yes       
               
@@ -176,7 +177,7 @@ class PromotionManagerIntegrationTest {
 
     every { PluginService.isMotivatorInstalled() } returns true
     every { WeebService.isWeebStuffOn() } returns true
-    every { RestClient.performGet("${AssetManager.ASSETS_SOURCE}/misc/am-i-online.txt") } returns
+    every { RestClient.performGet("$ASSET_SOURCE/misc/am-i-online.txt") } returns
       """         
         yes       
               
@@ -207,7 +208,7 @@ class PromotionManagerIntegrationTest {
       TestTools.getTestAssetPath(testDirectory).toString().toOptional()
     every { PluginService.isMotivatorInstalled() } returns false
     every { WeebService.isWeebStuffOn() } returns true
-    every { RestClient.performGet("${AssetManager.ASSETS_SOURCE}/misc/am-i-online.txt") } returns
+    every { RestClient.performGet("$ASSET_SOURCE/misc/am-i-online.txt") } returns
       """         
         yes       
               
@@ -242,7 +243,7 @@ class PromotionManagerIntegrationTest {
       TestTools.getTestAssetPath(testDirectory).toString().toOptional()
     every { PluginService.isMotivatorInstalled() } returns false
     every { WeebService.isWeebStuffOn() } returns false
-    every { RestClient.performGet("${AssetManager.ASSETS_SOURCE}/misc/am-i-online.txt") } returns
+    every { RestClient.performGet("$ASSET_SOURCE/misc/am-i-online.txt") } returns
       """         
         yes       
               
@@ -273,7 +274,9 @@ class PromotionManagerIntegrationTest {
       TestTools.getTestAssetPath(testDirectory).toString().toOptional()
     every { PluginService.isMotivatorInstalled() } returns false
     every { WeebService.isWeebStuffOn() } returns true
-    every { RestClient.performGet("${AssetManager.ASSETS_SOURCE}/misc/am-i-online.txt") } returns
+    every { RestClient.performGet("$ASSET_SOURCE/misc/am-i-online.txt") } returns
+      "no".toOptional() andThen Optional.empty()
+    every { RestClient.performGet("$FALLBACK_ASSET_SOURCE/misc/am-i-online.txt") } returns
       "no".toOptional() andThen Optional.empty()
 
     val currentLedger = PromotionLedger(
@@ -302,7 +305,7 @@ class PromotionManagerIntegrationTest {
       TestTools.getTestAssetPath(testDirectory).toString().toOptional()
     every { PluginService.isMotivatorInstalled() } returns false
     every { WeebService.isWeebStuffOn() } returns true
-    every { RestClient.performGet("${AssetManager.ASSETS_SOURCE}/misc/am-i-online.txt") } returns
+    every { RestClient.performGet("$ASSET_SOURCE/misc/am-i-online.txt") } returns
       """         
         yes       
               
@@ -335,7 +338,7 @@ class PromotionManagerIntegrationTest {
       TestTools.getTestAssetPath(testDirectory).toString().toOptional()
     every { PluginService.isMotivatorInstalled() } returns false
     every { WeebService.isWeebStuffOn() } returns true
-    every { RestClient.performGet("${AssetManager.ASSETS_SOURCE}/misc/am-i-online.txt") } returns
+    every { RestClient.performGet("$ASSET_SOURCE/misc/am-i-online.txt") } returns
       """         
         yes       
               
@@ -368,7 +371,7 @@ class PromotionManagerIntegrationTest {
       TestTools.getTestAssetPath(testDirectory).toString().toOptional()
     every { PluginService.isMotivatorInstalled() } returns false
     every { WeebService.isWeebStuffOn() } returns true
-    every { RestClient.performGet("${AssetManager.ASSETS_SOURCE}/misc/am-i-online.txt") } returns
+    every { RestClient.performGet("$ASSET_SOURCE/misc/am-i-online.txt") } returns
       """         
         yes       
               
@@ -403,7 +406,7 @@ class PromotionManagerIntegrationTest {
       TestTools.getTestAssetPath(testDirectory).toString().toOptional()
     every { PluginService.isMotivatorInstalled() } returns false
     every { WeebService.isWeebStuffOn() } returns true
-    every { RestClient.performGet("${AssetManager.ASSETS_SOURCE}/misc/am-i-online.txt") } returns
+    every { RestClient.performGet("$ASSET_SOURCE/misc/am-i-online.txt") } returns
       """         
         yes       
               
@@ -439,7 +442,46 @@ class PromotionManagerIntegrationTest {
       TestTools.getTestAssetPath(testDirectory).toString().toOptional()
     every { PluginService.isMotivatorInstalled() } returns false
     every { WeebService.isWeebStuffOn() } returns true
-    every { RestClient.performGet("${AssetManager.ASSETS_SOURCE}/misc/am-i-online.txt") } returns
+    every { RestClient.performGet("$ASSET_SOURCE/misc/am-i-online.txt") } returns
+      """         
+        yes       
+              
+      """.toOptional()
+
+    val currentLedger = PromotionLedger(
+      UUID.randomUUID(),
+      mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(3))),
+      mutableMapOf(),
+      true
+    )
+
+    LedgerMaster.persistLedger(currentLedger)
+
+    val beforePromotion = Instant.now()
+    val promotionManager = PromotionManagerImpl()
+    promotionManager.registerPromotion("Ryuko", true)
+
+    val postLedger = LedgerMaster.readLedger()
+
+    assertThat(postLedger).isEqualTo(currentLedger)
+
+    validateLedgerCallback(currentLedger, beforePromotion)
+
+    assertTrue { LockMaster.acquireLock("Syrena") }
+  }
+
+  @Test
+  fun `should promote when primary assets are down`() {
+    every { LocalStorageService.getGlobalAssetDirectory() } returns
+      TestTools.getTestAssetPath(testDirectory).toString().toOptional()
+    every { PluginService.isMotivatorInstalled() } returns false
+    every { WeebService.isWeebStuffOn() } returns true
+    every { RestClient.performGet("$ASSET_SOURCE/misc/am-i-online.txt") } returns
+      """         
+        no       
+              
+      """.toOptional()
+    every { RestClient.performGet("$FALLBACK_ASSET_SOURCE/misc/am-i-online.txt") } returns
       """         
         yes       
               
@@ -473,7 +515,7 @@ class PromotionManagerIntegrationTest {
       TestTools.getTestAssetPath(testDirectory).toString().toOptional()
     every { PluginService.isMotivatorInstalled() } returns false
     every { WeebService.isWeebStuffOn() } returns true
-    every { RestClient.performGet("${AssetManager.ASSETS_SOURCE}/misc/am-i-online.txt") } returns
+    every { RestClient.performGet("$ASSET_SOURCE/misc/am-i-online.txt") } returns
       """         
         yes       
               
