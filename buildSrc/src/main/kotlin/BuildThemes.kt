@@ -7,15 +7,28 @@ import java.io.File
 import java.io.InputStreamReader
 import java.nio.charset.StandardCharsets
 import java.nio.file.Files
-import java.nio.file.Files.*
+import java.nio.file.Files.copy
+import java.nio.file.Files.createDirectories
+import java.nio.file.Files.delete
+import java.nio.file.Files.exists
+import java.nio.file.Files.isDirectory
+import java.nio.file.Files.newBufferedWriter
+import java.nio.file.Files.newInputStream
+import java.nio.file.Files.walk
 import java.nio.file.Path
 import java.nio.file.Paths.get
 import java.nio.file.StandardCopyOption
 import java.nio.file.StandardOpenOption
-import java.util.*
+import java.util.Collections
+import java.util.Comparator
+import java.util.LinkedList
+import java.util.Optional
+import java.util.TreeMap
 import java.util.regex.Pattern
 import java.util.stream.Collectors
 import java.util.stream.Stream
+
+fun String.getStickerName(): String = this.substring(this.lastIndexOf("/") + 1)
 
 open class BuildThemes : DefaultTask() {
 
@@ -137,7 +150,7 @@ open class BuildThemes : DefaultTask() {
             DokiBuildJetbrainsThemeDefinition::class.java
           )
         }.collect(Collectors.toMap(
-          {it.id}, {it}
+          { it.id }, { it }
         ))
 
     val masterThemeDefinitionPath = get(masterThemeDirectory.toString(), "definitions")
@@ -155,13 +168,15 @@ open class BuildThemes : DefaultTask() {
           DokiBuildMasterThemeDefinition::class.java
         )
         val jetbrainsThemeDefinition =
-          jetbrainsDefinitions[masterThemeDefinition.id] ?: throw IllegalArgumentException("""
+          jetbrainsDefinitions[masterThemeDefinition.id] ?: throw IllegalArgumentException(
+            """
             Master Theme ${masterThemeDefinition.displayName} is missing the JetBrains definition file!
-          """.trimIndent())
+          """.trimIndent()
+          )
         Triple(jetbrainsThemeDefinitionPath, masterThemeDefinition, jetbrainsThemeDefinition)
       }.filter {
         (it.second.product == DOKI_THEME_ULTIMATE && isUltimateBuild()) ||
-            it.second.product != DOKI_THEME_ULTIMATE
+          it.second.product != DOKI_THEME_ULTIMATE
       }
   }
 
@@ -184,11 +199,13 @@ open class BuildThemes : DefaultTask() {
           ThemeTemplateDefinition::class.java
         )
       }.collect(
-      Collectors.groupingBy { it.type ?: throw IllegalArgumentException("Expected template ${it.name} to have a type") }
-    )
+        Collectors.groupingBy {
+          it.type ?: throw IllegalArgumentException("Expected template ${it.name} to have a type")
+        }
+      )
       .entries.map {
-      it.key to (it.value.map { kv -> kv.name to kv }.toMap())
-    }.toMap()
+        it.key to (it.value.map { kv -> kv.name to kv }.toMap())
+      }.toMap()
 
   private fun createEditorThemeDefinitions(themeDirectory: Path): Map<String, Node> =
     walk(get(themeDirectory.toString(), "templates"))
@@ -266,6 +283,11 @@ open class BuildThemes : DefaultTask() {
         themeDefinition,
         dokiThemeDefinitionPath
       ),
+      backgrounds = getBackgrounds(
+        themeDefinition,
+        jetbrainsDefinition,
+        dokiThemeDefinitionPath
+      ),
       colors = validateColors(themeDefinition, resolvedNamedColors),
       ui = getUIDef(
         jetbrainsDefinition.ui,
@@ -335,9 +357,49 @@ open class BuildThemes : DefaultTask() {
 
     val defaultStickerResourcesPath =
       getStickerDefinitionPath(defaultStickerPath)
-      return BuildStickers(
+    return BuildStickers(
       sanitizePath(defaultStickerResourcesPath),
       secondaryStickerPath.map { sanitizePath(getStickerDefinitionPath(it)) }.orElseGet { null }
+    )
+  }
+
+  private fun getBackgrounds(
+    masterThemeDefinition: DokiBuildMasterThemeDefinition,
+    jetbrainsThemeDefinition: DokiBuildJetbrainsThemeDefinition,
+    dokiThemeDefinitionPath: Path
+  ): Backgrounds {
+    val stickers = remapStickers(masterThemeDefinition, dokiThemeDefinitionPath)
+    val defaultBackground = jetbrainsThemeDefinition.backgrounds?.default
+    val secondaryBackground = jetbrainsThemeDefinition.backgrounds?.secondary
+    return Backgrounds(
+      Optional.ofNullable(defaultBackground)
+        .map {
+          Background(it.name ?: stickers.default.getStickerName(), it.position ?: "CENTER")
+        }
+        .orElse(
+          Background(
+            stickers.default.getStickerName(),
+            "CENTER"
+          )
+        ),
+      Optional.ofNullable(secondaryBackground)
+        .map {
+          Background(
+            it.name ?: stickers.secondary?.getStickerName() ?: stickers.default.getStickerName(),
+            it.position ?: "CENTER"
+          )
+        }
+        .map { Optional.of(it) }
+        .orElseGet {
+          Optional.ofNullable(stickers.secondary)
+            .map {
+              Background(
+                it?.getStickerName() ?: stickers.default.getStickerName(),
+                "CENTER"
+              )
+            }
+        }
+        .orElse(null)
     )
   }
 
@@ -359,7 +421,7 @@ open class BuildThemes : DefaultTask() {
       "doki",
       "themes"
     )
-    if(Files.notExists(themeDirectory)) {
+    if (Files.notExists(themeDirectory)) {
       createDirectories(themeDirectory)
     } else {
       walk(themeDirectory)
@@ -423,9 +485,9 @@ open class BuildThemes : DefaultTask() {
     attributeExtractor: (ThemeTemplateDefinition) -> Map<String, Any>
   ): Map<String, Any> {
     return Stream.of(
-        resolveTemplate(childTemplate, dokiTemplateDefinitions, attributeExtractor),
-        definitionAttributes.entries.stream()
-      )
+      resolveTemplate(childTemplate, dokiTemplateDefinitions, attributeExtractor),
+      definitionAttributes.entries.stream()
+    )
       .flatMap { it }
       .collect(Collectors.toMap({ it.key }, { it.value }, { _, b -> b },
         { TreeMap(Comparator.comparing { item -> item.toLowerCase() }) })
@@ -459,7 +521,12 @@ open class BuildThemes : DefaultTask() {
   ): String {
     return when (val variant = dokiDefinitionJetbrains.editorScheme["type"]) {
       "custom" -> copyXml(dokiDefinitionMaster, dokiDefinitionJetbrains, dokiThemeDefinitionDirectory)
-      "template" -> createEditorSchemeFromTemplate(dokiDefinitionMaster, dokiDefinitionJetbrains, dokiEditorThemeTemplates, resolvedNamedColors)
+      "template" -> createEditorSchemeFromTemplate(
+        dokiDefinitionMaster,
+        dokiDefinitionJetbrains,
+        dokiEditorThemeTemplates,
+        resolvedNamedColors
+      )
       "templateExtension" -> createEditorSchemeFromTemplateExtension(
         dokiDefinitionMaster,
         dokiDefinitionJetbrains,
@@ -492,7 +559,8 @@ open class BuildThemes : DefaultTask() {
         dokiEditorThemeTemplates
       )
 
-    val themeTemplate = applyColorsToTemplate(extendedTheme, dokiDefinitionMaster, dokiDefinitionJetbrains, resolvedNamedColors)
+    val themeTemplate =
+      applyColorsToTemplate(extendedTheme, dokiDefinitionMaster, dokiDefinitionJetbrains, resolvedNamedColors)
     return createXmlFromDefinition(dokiDefinitionMaster, themeTemplate)
   }
 
@@ -556,7 +624,7 @@ open class BuildThemes : DefaultTask() {
           if (currentDude.isNotEmpty() &&
             currentDude.firstOrNull { dudeChild ->
               dudeChild !is Node ||
-                  (dudeChild.name().toString() != "value")
+                (dudeChild.name().toString() != "value")
             } != null
           ) {
             Collections.sort(currentDude) { a, b ->
@@ -590,7 +658,8 @@ open class BuildThemes : DefaultTask() {
       ?: throw IllegalArgumentException("Unrecognized template name $templateName"))
     val editorTemplate = extendTheme(childTheme, dokiEditorThemeTemplates)
 
-    val themeTemplate = applyColorsToTemplate(editorTemplate, dokiDefinitionMaster, dokiDefinitionJetbrains, resolvedNamedColors)
+    val themeTemplate =
+      applyColorsToTemplate(editorTemplate, dokiDefinitionMaster, dokiDefinitionJetbrains, resolvedNamedColors)
     return createXmlFromDefinition(dokiDefinitionMaster, themeTemplate)
   }
 

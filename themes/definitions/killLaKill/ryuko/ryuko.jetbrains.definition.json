@@ -4,6 +4,11 @@
     "type": "templateExtension",
     "file": "Ryuko.xml"
   },
+  "backgrounds": {
+    "default": {
+      "position": "MIDDLE_RIGHT"
+    }
+  },
   "overrides": {
     "editorScheme": {
       "colors": {

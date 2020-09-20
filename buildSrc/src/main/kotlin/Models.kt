@@ -6,6 +6,16 @@ data class ThemeDefinitionSchema(
   val properties: Map<String, SchemaDefinition>
 )
 
+class Background(
+  val name: String,
+  val position: String
+)
+
+class Backgrounds(
+  val default: Background,
+  val secondary: Background?
+)
+
 data class ThemeTemplateDefinition(
   val type: String?,
   val extends: String?,
@@ -28,10 +38,20 @@ data class Overrides(
   val editorScheme: EditorSchemeOverrides?
 )
 
+data class BackgroundDefinition(
+  val name: String?,
+  val position: String?
+)
+data class BackgroundsDefinition(
+  val default: BackgroundDefinition?,
+  val secondary: BackgroundDefinition?
+)
+
 data class DokiBuildJetbrainsThemeDefinition(
  val id: String,
  val editorScheme: Map<String, Any>,
  val overrides: Overrides?,
+ val backgrounds: BackgroundsDefinition?,
  val ui: Map<String, Any>,
  val icons: Map<String, Any>
 )
@@ -63,6 +83,7 @@ data class JetbrainsThemeDefinition(
   val editorScheme: String,
   val group: String,
   val stickers: BuildStickers,
+  val backgrounds: Backgrounds,
   val colors: Map<String, Any>,
   val ui: Map<String, Any>,
   val icons: Map<String, Any>,
