@@ -23,8 +23,34 @@ import javax.swing.JEditorPane
 import javax.swing.JTextPane
 import javax.swing.event.HyperlinkEvent
 
+class PromotionAssets(
+  private val dokiTheme: DokiTheme,
+  preLoad: Boolean = true
+) {
+
+  init {
+    if (preLoad) {
+      getPluginLogo()
+      getPromotionAsset()
+    }
+  }
+
+  fun getPluginLogo(): String = AssetManager.resolveAssetUrl(
+    AssetCategory.PROMOTION,
+    "motivator/logo.png"
+  ).orElse("${AssetManager.ASSETS_SOURCE}/promotion/motivator/logo.png")
+
+  fun getPromotionAsset(): String =
+    AssetManager.resolveAssetUrl(AssetCategory.PROMOTION, "motivator/${dokiTheme.displayName.toLowerCase()}.gif")
+      .orElseGet {
+        AssetManager.resolveAssetUrl(AssetCategory.PROMOTION, "motivator/promotion.gif")
+          .orElse("${AssetManager.ASSETS_SOURCE}/promotion/motivator/promotion.gif") // todo: fallback on unknown host
+      }
+}
+
 class MotivatorPromotionDialog(
   private val dokiTheme: DokiTheme,
+  private val promotionAssets: PromotionAssets,
   parent: Window,
   private val onPromotion: (PromotionResults) -> Unit
 ) : DialogWrapper(parent, true) {
@@ -94,15 +120,12 @@ class MotivatorPromotionDialog(
       DokiTheme.ACCENT_COLOR, UIUtil.getTextAreaForeground()
     ).toHexString()
     val infoForegroundHex = UIUtil.getContextHelpForeground().toHexString()
-    val motivatorLogoURL = AssetManager.resolveAssetUrl(
-      AssetCategory.PROMOTION,
-      "motivator/logo.png"
-    ).orElse("${AssetManager.ASSETS_SOURCE}/promotion/motivator/logo.png") // todo: fall back on unknown host
-    val promotionAssetURL = getPromotionAsset(dokiTheme)
-    pane.background = JBColor.namedColor(
-      "Menu.background",
-      UIUtil.getEditorPaneBackground()
-    )
+    val motivatorLogoURL = promotionAssets.getPluginLogo()
+    val promotionAssetURL = promotionAssets.getPromotionAsset()
+      pane.background = JBColor.namedColor(
+        "Menu.background",
+        UIUtil.getEditorPaneBackground()
+      )
     pane.text = """
       <html lang="en">
       <head>
@@ -178,14 +201,6 @@ class MotivatorPromotionDialog(
       }
     }
     return pane
-  }
-
-  private fun getPromotionAsset(dokiTheme: DokiTheme): String {
-    return AssetManager.resolveAssetUrl(AssetCategory.PROMOTION, "motivator/${dokiTheme.displayName.toLowerCase()}.gif")
-      .orElseGet {
-        AssetManager.resolveAssetUrl(AssetCategory.PROMOTION, "motivator/promotion.gif")
-          .orElse("${AssetManager.ASSETS_SOURCE}/promotion/motivator/promotion.gif") // todo: fallback on unknown host
-      }
   }
 }
 
