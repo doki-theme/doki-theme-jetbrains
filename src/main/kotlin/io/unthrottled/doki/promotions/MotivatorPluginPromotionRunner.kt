@@ -1,6 +1,7 @@
 package io.unthrottled.doki.promotions
 
 import com.intellij.ide.IdeEventQueue
+import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.project.ProjectManager
 import com.intellij.openapi.wm.WindowManager
 import io.unthrottled.doki.themes.ThemeManager
@@ -47,15 +48,20 @@ class MotivatorPluginPromotionRunner(
 
 object MotivatorPluginPromotion {
   fun runPromotion(onPromotion: (PromotionResults) -> Unit) {
-    ThemeManager.instance.currentTheme.ifPresent { dokiTheme ->
-      WindowManager.getInstance().suggestParentWindow(
-        ProjectManager.getInstance().openProjects.first()
-      ).toOptional()
-        .ifPresent {
-          MotivatorPromotionDialog(
-            dokiTheme, it, onPromotion
-          ).show()
-        }
+    ApplicationManager.getApplication().executeOnPooledThread {
+      ThemeManager.instance.currentTheme.ifPresent { dokiTheme ->
+        WindowManager.getInstance().suggestParentWindow(
+          ProjectManager.getInstance().openProjects.first()
+        ).toOptional()
+          .ifPresent {
+            val promotionAssets = PromotionAssets(dokiTheme)
+            ApplicationManager.getApplication().invokeLater {
+              MotivatorPromotionDialog(
+                dokiTheme, promotionAssets, it, onPromotion
+              ).show()
+            }
+          }
+      }
     }
   }
 }

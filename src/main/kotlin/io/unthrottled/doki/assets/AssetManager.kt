@@ -114,6 +114,7 @@ object AssetManager {
     val remoteAssetRequest = createGetRequest(remoteAssetUrl)
     return try {
       log.warn("Attempting to download asset $remoteAssetUrl")
+      Thread.sleep(5000)
       val remoteAssetResponse = httpClient.execute(remoteAssetRequest)
       if (remoteAssetResponse.statusLine.statusCode == 200) {
         remoteAssetResponse.entity.content.use { inputStream ->
