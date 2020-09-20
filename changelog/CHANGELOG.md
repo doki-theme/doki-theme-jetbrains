@@ -1,6 +1,10 @@
 Changelog
 ---
 
+# 10.2.1 [Enhancements]
+
+- Downloading promotion assets will no longer cause the UI to freeze.
+
 # 10.2.0 [Promotion]
 
 - Promoting the [Waifu Motivator Plugin](https://plugins.jetbrains.com/plugin/13381-waifu-motivator)
