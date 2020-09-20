@@ -123,6 +123,6 @@
     <action id="io.unthrottled.doki.actions.ShowUpdateNotification" class="io.unthrottled.doki.actions.ShowUpdateNotification" text="Show Update Notification" description="Shows the current update notification window." icon="/icons/doki/Doki-Doki-Logo.svg">
       <add-to-group group-id="DokiThemeActions" anchor="last"/>
     </action>
-    <action id="io.unthrottled.doki.actions.MotivatorPromotion" class="io.unthrottled.doki.actions.MotivatorPromotion" text="Show Motivator Promotion" description="Shows the 'Waifu Motivator Plugin' promotion dialog"/>
+    <action id="io.unthrottled.doki.actions.MotivatorPromotion" class="io.unthrottled.doki.actions.MotivatorPromotion" text="Show Motivator Promotion" description="Shows the 'Waifu Motivator Plugin' promotion dialog" icon="/icons/plugins/motivator/motivator_toolwindow.svg"/>
   </actions>
 </idea-plugin>
