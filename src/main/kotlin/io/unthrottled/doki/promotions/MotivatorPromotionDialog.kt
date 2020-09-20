@@ -9,6 +9,7 @@ import com.intellij.ui.layout.panel
 import com.intellij.util.ui.UIUtil
 import io.unthrottled.doki.assets.AssetCategory
 import io.unthrottled.doki.assets.AssetManager
+import io.unthrottled.doki.assets.AssetManager.FALLBACK_ASSET_SOURCE
 import io.unthrottled.doki.icon.DokiIcons
 import io.unthrottled.doki.service.MOTIVATOR_PLUGIN_ID
 import io.unthrottled.doki.themes.DokiTheme
@@ -44,7 +45,7 @@ class PromotionAssets(
     AssetManager.resolveAssetUrl(AssetCategory.PROMOTION, "motivator/${dokiTheme.displayName.toLowerCase()}.gif")
       .orElseGet {
         AssetManager.resolveAssetUrl(AssetCategory.PROMOTION, "motivator/promotion.gif")
-          .orElse("${AssetManager.ASSETS_SOURCE}/promotion/motivator/promotion.gif") // todo: fallback on unknown host
+          .orElse("$FALLBACK_ASSET_SOURCE/promotion/motivator/promotion.gif")
       }
 }
 
@@ -122,10 +123,10 @@ class MotivatorPromotionDialog(
     val infoForegroundHex = UIUtil.getContextHelpForeground().toHexString()
     val motivatorLogoURL = promotionAssets.getPluginLogo()
     val promotionAssetURL = promotionAssets.getPromotionAsset()
-      pane.background = JBColor.namedColor(
-        "Menu.background",
-        UIUtil.getEditorPaneBackground()
-      )
+    pane.background = JBColor.namedColor(
+      "Menu.background",
+      UIUtil.getEditorPaneBackground()
+    )
     pane.text = """
       <html lang="en">
       <head>

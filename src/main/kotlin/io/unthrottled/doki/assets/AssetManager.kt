@@ -16,7 +16,7 @@ import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.Paths
 import java.nio.file.StandardOpenOption
-import java.util.*
+import java.util.Optional
 import java.util.concurrent.TimeUnit
 
 enum class AssetCategory(val category: String) {
@@ -32,6 +32,7 @@ object HttpClientFactory {
 
 object AssetManager {
   const val ASSETS_SOURCE = "https://doki.assets.unthrottled.io"
+  const val FALLBACK_ASSET_SOURCE = "https://raw.githubusercontent.com/doki-theme/doki-theme-assets/master"
 
   private val httpClient = HttpClientFactory.createHttpClient()
   private val log = Logger.getInstance(this::class.java)
@@ -43,39 +44,63 @@ object AssetManager {
    * will return empty if the asset is not available locally.
    */
   fun resolveAssetUrl(assetCategory: AssetCategory, assetPath: String): Optional<String> =
-    resolveAsset(assetCategory, assetPath) { localAssetPath, remoteAssetUrl ->
-      resolveTheAssetUrl(localAssetPath, remoteAssetUrl)
-    }
+    cachedResolve(assetCategory, assetPath, ASSETS_SOURCE)
+      .map { it.toOptional() }
+      .orElseGet {
+        cachedResolve(assetCategory, assetPath, FALLBACK_ASSET_SOURCE)
+      }
 
   /**
    * Works just like <code>resolveAssetUrl</code> except that it will always
    * download the remote asset.
    */
   fun forceResolveAssetUrl(assetCategory: AssetCategory, assetPath: String): Optional<String> =
-    resolveAsset(assetCategory, assetPath) { localAssetPath, remoteAssetUrl ->
+    forceResolve(assetCategory, assetPath, ASSETS_SOURCE)
+      .map { it.toOptional() }
+      .orElseGet {
+        forceResolve(assetCategory, assetPath, FALLBACK_ASSET_SOURCE)
+      }
+
+  private fun cachedResolve(
+    assetCategory: AssetCategory,
+    assetPath: String,
+    assetSource: String
+  ): Optional<String> =
+    resolveAsset(assetCategory, assetPath, assetSource) { localAssetPath, remoteAssetUrl ->
+      resolveTheAssetUrl(localAssetPath, remoteAssetUrl)
+    }
+
+  private fun forceResolve(
+    assetCategory: AssetCategory,
+    assetPath: String,
+    assetSource: String
+  ): Optional<String> =
+    resolveAsset(assetCategory, assetPath, assetSource) { localAssetPath, remoteAssetUrl ->
       downloadAndGetAssetUrl(localAssetPath, remoteAssetUrl)
     }
 
   private fun resolveAsset(
     assetCategory: AssetCategory,
     assetPath: String,
+    assetSource: String,
     resolveAsset: (Path, String) -> Optional<String>
   ): Optional<String> =
     constructLocalAssetPath(assetCategory, assetPath)
       .toOptional()
       .flatMap {
         val remoteAssetUrl = constructRemoteAssetUrl(
-          assetCategory, assetPath
+          assetCategory, assetPath, assetSource
         )
         resolveAsset(it, remoteAssetUrl)
       }
 
   private fun constructRemoteAssetUrl(
     assetCategory: AssetCategory,
-    assetPath: String
+    assetPath: String,
+    assetSource: String
   ): String = when (assetCategory) {
-    AssetCategory.STICKERS -> "$ASSETS_SOURCE/${assetCategory.category}/jetbrains$assetPath"
-    else -> "$ASSETS_SOURCE/${assetCategory.category}/$assetPath"
+    AssetCategory.STICKERS -> "$assetSource/${assetCategory.category}/jetbrains$assetPath"
+    else -> "$assetSource/${assetCategory.category}/$assetPath"
   }
 
   private fun resolveTheAssetUrl(localAssetPath: Path, remoteAssetUrl: String): Optional<String> =
