@@ -7,3 +7,5 @@
 - Added [Jump To Line](https://blog.jetbrains.com/idea/2020/08/jump-to-any-line-while-debugging/) integrations
 - Added [Key-Promoter-X](https://plugins.jetbrains.com/plugin/9792-key-promoter-x) icon integrations
 - Changed the MacOS Title pane font color to be the `infoForeground` color when active.
+- Added the ability to resolve theme assets from a secondary source. 
+When fetching from the primary source fails. 

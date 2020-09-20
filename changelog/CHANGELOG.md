@@ -1,6 +1,11 @@
 Changelog
 ---
 
+# 10.2.2 [Asset Fallback]
+
+- Added the ability to resolve theme assets from a secondary source. 
+When fetching from the primary source fails. 
+
 # 10.2.1 [Enhancements]
 
 - Downloading promotion assets will no longer cause the UI to freeze.
