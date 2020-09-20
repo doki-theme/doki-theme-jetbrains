@@ -6,6 +6,7 @@ import com.intellij.openapi.wm.impl.IdeBackgroundUtil
 import io.unthrottled.doki.assets.AssetCategory
 import io.unthrottled.doki.assets.AssetManager
 import io.unthrottled.doki.stickers.StickerService
+import io.unthrottled.doki.themes.Background
 import io.unthrottled.doki.themes.DokiTheme
 import io.unthrottled.doki.util.toOptional
 import java.util.*
@@ -52,23 +53,23 @@ class StickerServiceImpl : StickerService {
     getLocallyInstalledBackgroundImagePath(dokiTheme)
       .ifPresent {
         setBackgroundImageProperty(
-          it,
+          it.first,
           "100",
           IdeBackgroundUtil.Fill.SCALE.name,
-          IdeBackgroundUtil.Anchor.CENTER.name,
+          it.second.position.name,
           DOKI_BACKGROUND_PROP
         )
       }
 
   private fun getLocallyInstalledBackgroundImagePath(
     dokiTheme: DokiTheme
-  ): Optional<String> =
-    dokiTheme.getSticker()
-      .flatMap {
+  ): Optional<Pair<String, Background>> =
+    dokiTheme.getBackground()
+      .flatMap { background ->
         AssetManager.resolveAssetUrl(
           AssetCategory.BACKGROUNDS,
-          it
-        )
+          background.name
+        ).map { it to background }
       }
 
   private fun getLocallyInstalledStickerPath(

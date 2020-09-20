@@ -9,3 +9,4 @@
 - Changed the MacOS Title pane font color to be the `infoForeground` color when active.
 - Added the ability to resolve theme assets from a secondary source. 
 When fetching from the primary source fails. 
+- Changed the anchoring for various themes so that your Waifu is always front and center for different screen orientations (for the most part).

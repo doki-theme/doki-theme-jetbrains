@@ -4,6 +4,11 @@
     "type": "templateExtension",
     "file": "Emilia_Dark.xml"
   },
+  "backgrounds": {
+    "default": {
+      "position": "MIDDLE_RIGHT"
+    }
+  },
   "overrides": {
     "editorScheme": {
       "colors": {

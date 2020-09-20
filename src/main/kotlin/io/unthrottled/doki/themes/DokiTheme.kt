@@ -2,6 +2,7 @@ package io.unthrottled.doki.themes
 
 import com.google.gson.Gson
 import com.intellij.ide.ui.UIThemeMetadata
+import com.intellij.openapi.wm.impl.IdeBackgroundUtil
 import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.stickers.CurrentSticker
 import io.unthrottled.doki.util.toColor
@@ -16,12 +17,23 @@ class Stickers(
   val secondary: String?
 )
 
+class Background(
+  val name: String,
+  val position: IdeBackgroundUtil.Anchor
+)
+
+class Backgrounds(
+  val default: Background,
+  val secondary: Background?
+)
+
 class JetBrainsThemeDefinition(
   val id: String,
   val name: String,
   val displayName: String?,
   val dark: Boolean,
   val stickers: Stickers,
+  val backgrounds: Backgrounds,
   val group: String,
   val colors: Map<String, Any>,
   val ui: Map<String, Any>,
@@ -55,6 +67,13 @@ class DokiTheme(private val uiTheme: JetBrainsThemeDefinition) {
     return when (ThemeConfig.instance.currentSticker) {
       CurrentSticker.DEFAULT -> uiTheme.stickers.default
       CurrentSticker.SECONDARY -> uiTheme.stickers.secondary ?: uiTheme.stickers.default
+    }.toOptional()
+  }
+
+  fun getBackground(): Optional<Background> {
+    return when (ThemeConfig.instance.currentSticker) {
+      CurrentSticker.DEFAULT -> uiTheme.backgrounds.default
+      CurrentSticker.SECONDARY -> uiTheme.backgrounds.secondary ?: uiTheme.backgrounds.default
     }.toOptional()
   }
 

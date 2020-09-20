@@ -1,6 +1,10 @@
 Changelog
 ---
 
+# 10.2.3 [Background Responsiveness]
+
+- Changed the anchoring for various themes so that your Waifu is always front and center for different screen orientations (for the most part).
+
 # 10.2.2 [Asset Fallback]
 
 - Added the ability to resolve theme assets from a secondary source. 
