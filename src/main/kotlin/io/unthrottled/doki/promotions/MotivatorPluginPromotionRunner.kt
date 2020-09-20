@@ -19,11 +19,11 @@ data class PromotionResults(
 object MotivatorPromotionService {
 
   fun runPromotion(onPromotion: (PromotionResults) -> Unit) {
-    MotivatorPluginPromotion(onPromotion)
+    MotivatorPluginPromotionRunner(onPromotion)
   }
 }
 
-class MotivatorPluginPromotion(
+class MotivatorPluginPromotionRunner(
   private val onPromotion: (PromotionResults) -> Unit
 ) : Runnable {
 
@@ -40,6 +40,13 @@ class MotivatorPluginPromotion(
   }
 
   override fun run() {
+    MotivatorPluginPromotion.runPromotion(onPromotion)
+    IdeEventQueue.getInstance().removeIdleListener(this)
+  }
+}
+
+object MotivatorPluginPromotion {
+  fun runPromotion(onPromotion: (PromotionResults) -> Unit) {
     ThemeManager.instance.currentTheme.ifPresent { dokiTheme ->
       WindowManager.getInstance().suggestParentWindow(
         ProjectManager.getInstance().openProjects.first()
@@ -50,7 +57,5 @@ class MotivatorPluginPromotion(
           ).show()
         }
     }
-
-    IdeEventQueue.getInstance().removeIdleListener(this)
   }
 }
