@@ -139,6 +139,8 @@
     "ActionButton.pressedBorderColor": "highlightColor",
 
     "Borders.color": "borderColor",
+    "DialogWrapper.southPanelDivider": "borderColor",
+    "OnePixelDivider.background": "borderColor",
     "UIDesigner.Panel.borderColor": "borderColor",
     "Canvas.Tooltip.borderColor": "borderColor",
     "EditorTabs.borderColor": "borderColor",
