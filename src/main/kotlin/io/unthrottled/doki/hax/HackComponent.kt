@@ -295,7 +295,6 @@ object HackComponent : Disposable {
             if (e?.className == "com.intellij.ui.JBColor") {
               e.replace("{ \$_ = com.intellij.util.ui.UIUtil.getBorderSeparatorColor(); }")
             }
-
           }
         })
       }
@@ -303,7 +302,6 @@ object HackComponent : Disposable {
     } catch (e: Exception) {
       e.printStackTrace()
     }
-
   }
 
   private fun hackPopupBorder() {
