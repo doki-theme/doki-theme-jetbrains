@@ -71,6 +71,7 @@
     <themeProvider id="8474d98d-7bb1-462c-82b1-dd7c512142a6" path="/doki/themes/konosuba/Darkness_Light.theme.json"/>
     <themeProvider id="774ec7ad-d6a0-4d9c-b195-2f54d72ab664" path="/doki/themes/konosuba/Darkness_Dark.theme.json"/>
     <themeProvider id="15e51483-1ccd-46b7-90cf-885cccaaaf2c" path="/doki/themes/konosuba/Aqua.theme.json"/>
+    <themeProvider id="355d711c-2fa6-4df2-9504-dd44d8f5e350" path="/doki/themes/gate/Rory_Mercury.theme.json"/>
     <themeProvider id="b93ab4ea-ff96-4459-8fa2-0caae5bc7116" path="/doki/themes/miss_kobayashi's_dragon_maid/Kanna.theme.json"/>
     <themeProvider id="35422aa4-1396-4e76-8ec6-c5560884df22" path="/doki/themes/re_zero/Beatrice.theme.json"/>
     <themeProvider id="f770dcfc-f41e-4b49-aa17-66e9ffc208fd" path="/doki/themes/re_zero/Rem.theme.json"/>
