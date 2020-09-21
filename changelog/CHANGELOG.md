@@ -1,6 +1,11 @@
 Changelog
 ---
 
+# 10.2.4 [Enhancements]
+- Changed Emilia Dark's syntax coloring
+    - Comments
+- A bunch of small fixes. [Please see issue for more details](https://github.com/doki-theme/doki-theme-jetbrains/issues/269)
+
 # 10.2.3 [Background Responsiveness]
 
 - Changed the anchoring for various themes so that your Waifu is always front and center for different screen orientations (for the most part).

@@ -16,6 +16,7 @@ import com.intellij.openapi.actionSystem.impl.ActionMenu
 import com.intellij.openapi.fileEditor.impl.EditorComposite
 import com.intellij.openapi.fileEditor.impl.EditorHistoryManager
 import com.intellij.openapi.progress.util.ColorProgressBar
+import com.intellij.openapi.vcs.ex.LineStatusMarkerRenderer
 import com.intellij.openapi.wm.impl.TitleInfoProvider
 import com.intellij.ui.Gray
 import com.intellij.ui.JBColor
@@ -279,6 +280,28 @@ object HackComponent : Disposable {
   private fun enableLafBorderConsistency() {
     hackTipBorder()
     hackPopupBorder()
+    hackLineStatusColor()
+  }
+
+  private fun hackLineStatusColor() {
+    try {
+      val cp = ClassPool(true)
+      cp.insertClassPath(ClassClassPath(LineStatusMarkerRenderer::class.java))
+      val bitchassClass = cp.get("com.intellij.openapi.vcs.ex.LineStatusMarkerPopupRenderer\$PopupPanel")
+      bitchassClass.declaredConstructors.forEach {
+        ctConstructor ->
+        ctConstructor.instrument(object : ExprEditor() {
+          override fun edit(e: NewExpr?) {
+            if (e?.className == "com.intellij.ui.JBColor") {
+              e.replace("{ \$_ = com.intellij.util.ui.UIUtil.getBorderSeparatorColor(); }")
+            }
+          }
+        })
+      }
+      bitchassClass.toClass()
+    } catch (e: Exception) {
+      e.printStackTrace()
+    }
   }
 
   private fun hackPopupBorder() {

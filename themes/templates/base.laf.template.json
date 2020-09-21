@@ -136,8 +136,11 @@
     "DefaultTabs.hoverBackground": "highlightColor",
     "Plugins.tagBackground": "highlightColor",
     "Notification.MoreButton.background": "highlightColor",
+    "ActionButton.pressedBorderColor": "highlightColor",
 
     "Borders.color": "borderColor",
+    "DialogWrapper.southPanelDivider": "borderColor",
+    "OnePixelDivider.background": "borderColor",
     "UIDesigner.Panel.borderColor": "borderColor",
     "Canvas.Tooltip.borderColor": "borderColor",
     "EditorTabs.borderColor": "borderColor",
@@ -249,7 +252,7 @@
     "Button.default.endBorderColor": "selectionBackground",
     "Button.default.startBorderColor":"selectionBackground",
     "Button.default.foreground": "selectionForeground",
-    "ActionButton.pressedBackground": "baseBackground",
+    "ActionButton.pressedBackground": "highlightColor",
     "Button.focusedBorderColor": "baseBackground",
     "Button.arc": 2,
 
