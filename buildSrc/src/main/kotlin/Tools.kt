@@ -6,7 +6,7 @@ private val nameMapping =
     "Re Zero" to "Re:Zero: ",
     "Literature Club" to DDLC_THEME_NAME_PREFIX,
     "KonoSuba" to "KonoSuba: ",
-    "Mistress" to "Miss: ",
+    "Fate" to "Fate: ",
     "DanganRonpa" to "DR: ",
     "High School DxD" to "DxD: ",
     "Sword Art Online" to "SAO: ",
