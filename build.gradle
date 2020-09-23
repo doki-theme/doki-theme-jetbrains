@@ -7,7 +7,7 @@ plugins {
 }
 
 group 'io.unthrottled'
-version '10.2.4'
+version '10.2.5'
 
 repositories {
   maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
@@ -28,15 +28,15 @@ configurations {
 }
 
 intellij {
-  version '2020.2'
+  version 'LATEST-EAP-SNAPSHOT'
   type 'IU'
   alternativeIdePath idePath
 
   if(System.getenv().getOrDefault("ENV", "") == "DEV") {
     plugins (
-      'Key Promoter X:2020.2',
+//      'Key Promoter X:2020.2',
       'org.jetbrains.jumpToLine:0.1.1',
-      'zd.zero.waifu-motivator-plugin:1.2'
+//      'zd.zero.waifu-motivator-plugin:1.2'
     )
   }
 }
