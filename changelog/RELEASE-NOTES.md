@@ -12,3 +12,4 @@
 - Added the ability to resolve theme assets from a secondary source. 
 When fetching from the primary source fails. 
 - Changed the anchoring for various themes so that your Waifu is always front and center for different screen orientations (for the most part).
+- 2020.3 build support.
