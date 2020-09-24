@@ -23,6 +23,7 @@ val UPDATE_MESSAGE: String = """
       <ul>
         <li>A bunch of small enhancements!</li>
         <li>Adjusted Emilia's dark syntax coloring</li>
+        <li>2020.3 Build Support</li>
       </ul>
       Please see the <a href="https://github.com/doki-theme/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md">changelog</a> for more details.
       <br><br>

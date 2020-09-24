@@ -46,7 +46,7 @@ class ErrorReporter : ErrorReportSubmitter() {
     events: Array<out IdeaLoggingEvent>,
     additionalInfo: String?,
     parentComponent: Component,
-    consumer: Consumer<SubmittedReportInfo>
+    consumer: Consumer<in SubmittedReportInfo>
   ): Boolean {
     return try {
       events.forEach {

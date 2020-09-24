@@ -20,6 +20,7 @@
     "Plugins.background": "baseBackground",
     "control": "baseBackground",
     "Plugins.Button.installFillBackground":"baseBackground",
+    "WelcomeScreen.List.background": "baseBackground",
 
     "UIDesigner.Canvas.background": "editorBackground",
     "Content.background": "editorBackground",
@@ -62,6 +63,8 @@
     "Plugins.SectionHeader.background": "headerColor",
     "SidePanel.background": "headerColor",
     "Popup.Advertiser.background": "headerColor",
+    "WelcomeScreen.SidePanel.background": "headerColor",
+    "WelcomeScreen.background": "headerColor",
 
     "CheckBox.foreground": "foregroundColor",
     "CheckBoxMenuItem.foreground": "foregroundColor",
@@ -269,6 +272,9 @@
     "SearchEverywhere.Header.background": "secondaryBackground",
     "SearchEverywhere.SearchField.background": "secondaryBackground",
     "SearchEverywhere.Advertiser.background": "headerColor",
+
+    "WelcomeScreen.Projects.actions.background": "accentColorTransparent",
+    "WelcomeScreen.Projects.actions.selectionBackground": "accentColor",
 
     "ScrollBar.Transparent.thumbColor": "accentColorTransparent",
     "ScrollBar.Transparent.thumbBorderColor": "accentColorTransparent",

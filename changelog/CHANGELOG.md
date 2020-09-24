@@ -1,7 +1,12 @@
 Changelog
 ---
 
+# 10.2.5 [Maintenance]
+
+- 2020.3 build support.
+
 # 10.2.4 [Enhancements]
+
 - Changed Emilia Dark's syntax coloring
     - Comments
 - A bunch of small fixes. [Please see issue for more details](https://github.com/doki-theme/doki-theme-jetbrains/issues/269)
