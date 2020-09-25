@@ -1,8 +1,8 @@
 {
   "id": "62a4f26f-34b2-46f8-a10c-798e48c1ce9d",
   "editorScheme": {
-    "type": "templateExtension",
-    "file": "Ishtar_Dark.xml"
+    "type": "template",
+    "name": "Doki Dim"
   },
   "overrides": {
     "editorScheme": {

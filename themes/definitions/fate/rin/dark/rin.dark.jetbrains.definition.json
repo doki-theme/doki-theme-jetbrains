@@ -1,8 +1,8 @@
 {
   "id": "3546f7be-b84f-4b8e-8cad-effa3f4603af",
   "editorScheme": {
-    "type": "templateExtension",
-    "file": "Rin_Dark.xml"
+    "type": "template",
+    "name": "Doki Dim"
   },
   "overrides": {
     "editorScheme": {

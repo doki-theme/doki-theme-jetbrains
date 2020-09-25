@@ -1,8 +1,8 @@
 {
   "id": "355d711c-2fa6-4df2-9504-dd44d8f5e350",
   "editorScheme": {
-    "type": "templateExtension",
-    "file": "Rory_Dark.xml"
+    "type": "template",
+    "name": "Doki Dim"
   },
   "overrides": {
     "editorScheme": {
