@@ -6,7 +6,9 @@
   },
   "overrides": {
     "editorScheme": {
-      "colors": {}
+      "colors": {
+        "startColor": "#00c69a"
+      }
     }
   },
   "ui": {
