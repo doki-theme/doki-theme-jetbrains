@@ -6,7 +6,9 @@
   },
   "overrides": {
     "editorScheme": {
-      "colors": {}
+      "colors": {
+        "startColor": "#ee2726"
+      }
     }
   },
   "uiBase": "dark dim",
