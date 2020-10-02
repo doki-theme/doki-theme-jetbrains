@@ -4,6 +4,11 @@
     "type": "template",
     "name": "Doki Dim"
   },
+  "backgrounds": {
+    "default": {
+      "name": "rory_dark_jetbrains.png"
+    }
+  },
   "overrides": {
     "editorScheme": {
       "colors": {
