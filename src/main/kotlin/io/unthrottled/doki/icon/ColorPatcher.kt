@@ -9,11 +9,19 @@ import java.awt.Color
 import java.net.URL
 
 class ColorPatcher(
-  private val otherColorPatcherProvider: (URL?) -> (Element) -> Unit = { {} }
+  private val otherColorPatcherProvider: SVGLoader.SvgElementColorPatcherProvider
 ) : SVGLoader.SvgElementColorPatcherProvider {
-  override fun forURL(url: URL?): SVGLoader.SvgElementColorPatcher {
+
+  override fun forPath(path: String?): SVGLoader.SvgElementColorPatcher =
+    buildHackedPatcher(otherColorPatcherProvider.forPath(path))
+
+  override fun forURL(url: URL?): SVGLoader.SvgElementColorPatcher =
+    buildHackedPatcher(otherColorPatcherProvider.forURL(url))
+
+  private fun buildHackedPatcher(
+    otherPatcher: SVGLoader.SvgElementColorPatcher?
+  ): SVGLoader.SvgElementColorPatcher {
     val self = this
-    val otherPatcher = otherColorPatcherProvider(url)
     return object : SVGLoader.SvgElementColorPatcher {
       override fun patchColors(svg: Element) {
         self.patchColors(svg, otherPatcher)
@@ -27,16 +35,16 @@ class ColorPatcher(
 
   fun patchColors(
     svg: Element,
-    otherPatcher: (Element) -> Unit
+    otherPatcher: SVGLoader.SvgElementColorPatcher?
   ) {
-    otherPatcher(svg)
+    otherPatcher?.patchColors(svg)
     patchChildren(
       svg,
       otherPatcher
     )
   }
 
-  private fun patchChildren(svg: Element, otherPatcher: (Element) -> Unit) {
+  private fun patchChildren(svg: Element, otherPatcher: SVGLoader.SvgElementColorPatcher?) {
     patchAccent(svg.getAttribute("accentTint"), svg) {
       it.toHexString()
     }

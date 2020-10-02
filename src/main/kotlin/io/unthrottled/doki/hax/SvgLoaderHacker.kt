@@ -14,13 +14,12 @@ object SvgLoaderHacker {
   fun setSVGColorPatcher() {
     SVGLoader.setColorPatcherProvider(collectOtherPatcher()
       .map { patcher ->
-        ColorPatcher { url ->
-          { element ->
-            patcher.forURL(url)?.patchColors(element)
-          }
-        }
+        ColorPatcher(patcher)
       }
-      .orElseGet { ColorPatcher() })
+      .orElseGet {
+        ColorPatcher(object : SVGLoader.SvgElementColorPatcherProvider {
+        })
+      })
   }
 
   private fun collectOtherPatcher(): Optional<SVGLoader.SvgElementColorPatcherProvider> =
