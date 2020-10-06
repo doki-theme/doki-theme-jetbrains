@@ -257,6 +257,7 @@
     "Button.default.startBorderColor":"selectionBackground",
     "Button.default.foreground": "selectionForeground",
     "ActionButton.pressedBackground": "highlightColor",
+    "SearchOption.selectedBackground": "highlightColor",
     "Button.focusedBorderColor": "baseBackground",
     "Button.arc": 2,
 
