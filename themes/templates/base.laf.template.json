@@ -344,6 +344,9 @@
 
     "FileColor.Green": "testScopeColor",
 
+    "JumpToLine.dropLine.safe": "testScopeColor",
+    "JumpToLine.dropLine.unsafe": "nonProjectFileScopeColor",
+
     "TabbedPane.focus": "accentColor",
     "Notification.MoreButton.foreground": "accentColor",
     "Button.default.focusColor":"accentColor",

@@ -35,7 +35,7 @@ intellij {
   if(System.getenv().getOrDefault("ENV", "") == "DEV") {
     plugins (
 //      'Key Promoter X:2020.2',
-      'org.jetbrains.jumpToLine:0.1.1',
+      'org.jetbrains.jumpToLine:0.1.2',
 //      'zd.zero.waifu-motivator-plugin:1.2'
     )
   }
