@@ -1,6 +1,30 @@
 Changelog
 ---
 
+# 11.0.0 [New Themes!!]
+
+## 5 New Themes!
+
+Girls from the Fate series:
+
+- Ishtar (Light/Dark)
+- Tohsaka Rin (Dark)
+
+From the Gate series:
+
+- Rory Mercury (Dark)
+
+Last addition to the Konosuba series:
+
+- Aqua (Dark)
+
+![v11 Girls](http://doki.assets.unthrottled.io/misc/v11_girls_smol.png)
+
+## Other Stuff
+
+- Updated Megumin's look and feel to be more consistent with other themes.
+
+
 # 10.2.5 [Maintenance]
 
 - 2020.3 build support.
