@@ -1,3 +1,58 @@
+Fate
+---
+
+### Tohsaka Rin
+
+![rin dark code](../assets/screenshots/fate/rin_dark_code.png)
+![rin dark code](../assets/screenshots/fate/rin_dark_background.png)
+
+### Ishtar
+
+
+![ishtar dark code](../assets/screenshots/fate/ishtar_dark_code.png)
+![ishtar dark code](../assets/screenshots/fate/ishtar_dark_background.png)
+
+![ishtar light code](../assets/screenshots/fate/ishtar_light_code.png)
+![ishtar light code](../assets/screenshots/fate/ishtar_light_background.png)
+
+
+Gate
+---
+
+### Rory Mercury
+
+![rory dark code](../assets/screenshots/gate/rory_dark_code.png)
+![rory dark code](../assets/screenshots/gate/rory_dark_background.png)
+
+KonoSuba
+---
+
+### Megumin
+
+![megumin code](../assets/screenshots/konoSuba/megumin_code.png)
+![megumin background](../assets/screenshots/konoSuba/megumin_background.png)
+
+### Aqua
+
+![aqua code](../assets/screenshots/konoSuba/aqua_dark_code.png)
+![aqua background](../assets/screenshots/konoSuba/aqua_dark_background.png)
+
+### Darkness
+
+![darkness code](../assets/screenshots/konoSuba/darkness_dark_code.png)
+![darkness background](../assets/screenshots/konoSuba/darkness_dark_background.png)
+![darkness code](../assets/screenshots/konoSuba/darkness_light_code.png)
+![darkness background](../assets/screenshots/konoSuba/darkness_light_background.png)
+
+
+Miscellaneous
+---
+
+### Hatsune Miku
+
+![miku code](../assets/screenshots/miscellaneous/miku_code.png)
+![miku background](../assets/screenshots/miscellaneous/miku_background.png)
+
 Re:Zero
 ---
 
@@ -45,26 +100,6 @@ Neon Genesis Evangelion
 ![misato_dark code](../assets/screenshots/eva/misato_dark_code.png)
 ![misato_dark background](../assets/screenshots/eva/misato_dark_background.png)
 
-
-Miscellaneous
----
-
-### Hatsune Miku
-![miku code](../assets/screenshots/miscellaneous/miku_code.png)
-![miku background](../assets/screenshots/miscellaneous/miku_background.png)
-
-KonoSuba
----
-
-### Megumin
-![megumin code](../assets/screenshots/konoSuba/megumin_code.png)
-![megumin background](../assets/screenshots/konoSuba/megumin_background.png)
-
-### Darkness
-![darkness code](../assets/screenshots/konoSuba/darkness_dark_code.png)
-![darkness background](../assets/screenshots/konoSuba/darkness_dark_background.png)
-![darkness code](../assets/screenshots/konoSuba/darkness_light_code.png)
-![darkness background](../assets/screenshots/konoSuba/darkness_light_background.png)
 
 Sword Art Online
 ---
