@@ -12,5 +12,6 @@
       }
     }
   },
+  "uiBase": "dark dim",
   "ui": {}
 }

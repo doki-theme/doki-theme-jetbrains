@@ -1,0 +1,17 @@
+{
+  "id": "3546f7be-b84f-4b8e-8cad-effa3f4603af",
+  "editorScheme": {
+    "type": "template",
+    "name": "Doki Dim"
+  },
+  "overrides": {
+    "editorScheme": {
+      "colors": {
+        "accentColor": "#68a8cb",
+        "startColor": "#68ee75"
+      }
+    }
+  },
+  "uiBase": "dark dim",
+  "ui": {}
+}

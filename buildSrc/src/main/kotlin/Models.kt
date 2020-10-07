@@ -53,6 +53,7 @@ data class DokiBuildJetbrainsThemeDefinition(
  val overrides: Overrides?,
  val backgrounds: BackgroundsDefinition?,
  val ui: Map<String, Any>,
+ val uiBase: String?,
  val icons: Map<String, Any>
 )
 

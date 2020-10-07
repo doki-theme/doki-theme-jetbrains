@@ -191,7 +191,7 @@ class MotivatorPromotionDialog(
       <br/>
       <h3 class='info-foreground'>Bring Anime Memes to your IDE today!</h3>
       <br/>
-      <div class='display-image'><img src='$promotionAssetURL' alt='${dokiTheme.displayName}&#39;s Promotion Asset'/></div>
+      <div class='display-image'><img src='$promotionAssetURL' height="150" alt='${dokiTheme.displayName}&#39;s Promotion Asset'/></div>
       <br/>
       </body>
       </html>

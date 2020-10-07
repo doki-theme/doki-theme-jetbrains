@@ -1,0 +1,16 @@
+{
+  "id": "325c5d4d-5614-4c58-b296-18924f2f6928",
+  "editorScheme": {
+    "type": "template",
+    "name": "Doki Dim Light"
+  },
+  "overrides": {
+    "editorScheme": {
+      "colors": {
+        "accentColor": "#9c3123"
+      }
+    }
+  },
+  "uiBase": "light dim",
+  "ui": {}
+}

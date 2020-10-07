@@ -21,9 +21,14 @@ import java.awt.Point
 val UPDATE_MESSAGE: String = """
       What's New?<br>
       <ul>
-        <li>A bunch of small enhancements!</li>
-        <li>Adjusted Emilia's dark syntax coloring</li>
-        <li>2020.3 Build Support</li>
+        <li>5 New Themes!!
+            <ul>
+              <li>Fate - Ishtar (Light/Dark)</li>
+              <li>Fate - Tohsaka Rin (Dark)</li>
+              <li>Gate - Rory Mercury (Dark)</li>
+              <li>Konosuba - Aqua (Dark)</li>
+            </ul>
+        </li>
       </ul>
       Please see the <a href="https://github.com/doki-theme/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md">changelog</a> for more details.
       <br><br>

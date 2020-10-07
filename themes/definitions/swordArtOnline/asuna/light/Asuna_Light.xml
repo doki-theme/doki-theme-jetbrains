@@ -1,21 +1,5 @@
-<scheme name="Asuna Light" version="142" parent_scheme="Doki Light v2">
+<scheme name="Asuna Light" version="142" parent_scheme="Doki Dim Light">
   <colors>
-    <option name="ScrollBar.Mac.Transparent.hoverThumbBorderColor" value="$accentColorTransparent$"/>
-    <option name="ScrollBar.Mac.Transparent.hoverThumbColor" value="$accentColorTransparent$"/>
-    <option name="ScrollBar.Mac.Transparent.thumbBorderColor" value="$accentColorMoreTransparent$"/>
-    <option name="ScrollBar.Mac.Transparent.thumbColor" value="$accentColorMoreTransparent$"/>
-    <option name="ScrollBar.Mac.hoverThumbBorderColor" value="$accentColorTransparent$"/>
-    <option name="ScrollBar.Mac.hoverThumbColor" value="$accentColorTransparent$"/>
-    <option name="ScrollBar.Mac.thumbBorderColor" value="$accentColorMoreTransparent$"/>
-    <option name="ScrollBar.Mac.thumbColor" value="$accentColorMoreTransparent$"/>
-    <option name="ScrollBar.Transparent.hoverThumbBorderColor" value="$accentColorTransparent$"/>
-    <option name="ScrollBar.Transparent.hoverThumbColor" value="$accentColorTransparent$"/>
-    <option name="ScrollBar.Transparent.thumbBorderColor" value="$accentColorMoreTransparent$"/>
-    <option name="ScrollBar.Transparent.thumbColor" value="$accentColorMoreTransparent$"/>
-    <option name="ScrollBar.hoverThumbBorderColor" value="$accentColorTransparent$"/>
-    <option name="ScrollBar.hoverThumbColor" value="$accentColorTransparent$"/>
-    <option name="ScrollBar.thumbBorderColor" value="$accentColorMoreTransparent$"/>
-    <option name="ScrollBar.thumbColor" value="$accentColorMoreTransparent$"/>
   </colors>
   <attributes>
     <option name="JS.REGEXP">

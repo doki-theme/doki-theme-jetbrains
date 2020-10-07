@@ -1,0 +1,21 @@
+{
+  "id": "355d711c-2fa6-4df2-9504-dd44d8f5e350",
+  "editorScheme": {
+    "type": "template",
+    "name": "Doki Dim"
+  },
+  "backgrounds": {
+    "default": {
+      "name": "rory_dark_jetbrains.png"
+    }
+  },
+  "overrides": {
+    "editorScheme": {
+      "colors": {
+        "startColor": "#ee2726"
+      }
+    }
+  },
+  "uiBase": "dark dim",
+  "ui": {}
+}

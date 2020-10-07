@@ -1,3 +1,22 @@
+## 5 New Themes!
+
+Girls from the Fate series:
+
+- Ishtar (Light/Dark)
+- Tohsaka Rin (Dark)
+
+From the Gate series:
+
+- Rory Mercury (Dark)
+
+Last addition to the Konosuba series:
+
+- Aqua (Dark)
+
+<img src='http://doki.assets.unthrottled.io/misc/v11_girls_smol.png' alt='v11 Girls' />
+
+## Other Stuff
+
 - All themes' secondary text (the greyed text to the right of options) are now colored!
 - Changed The Line Number Colors for the following themes
     - Beatrice, Natsuki Light, Yuri Dark, Emilia Dark, 
@@ -13,3 +32,5 @@
 When fetching from the primary source fails. 
 - Changed the anchoring for various themes so that your Waifu is always front and center for different screen orientations (for the most part).
 - 2020.3 build support.
+- Updated Megumin's look and feel to be more consistent with other themes.
+

@@ -3,6 +3,10 @@ Themes grouped by album
 
 [Doki-Doki Literature Club Album](../albums/theme_album.md)
 
+[Fate](../albums/fate_themes.md)
+
+[Gate](../albums/gate_themes.md)
+
 [Re:Zero Album](../albums/r0_album.md)
 
 [Miss Kobayashi's Dragon Maid](../albums/dm_themes.md)

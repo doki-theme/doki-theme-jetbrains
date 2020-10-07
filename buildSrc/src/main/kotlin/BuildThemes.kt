@@ -253,7 +253,7 @@ open class BuildThemes : DefaultTask() {
     val dokiThemeTemplates =
       dokiTemplates[LAF_TEMPLATE] ?: throw IllegalStateException("Expected the $LAF_TEMPLATE template to be present")
     val topThemeDefinition =
-      dokiThemeTemplates[templateName] ?: throw IllegalStateException("Theme $templateName does not exist.")
+      dokiThemeTemplates[jetbrainsDefinition.uiBase ?: templateName] ?: throw IllegalStateException("Theme $templateName does not exist.")
 
     val dokiColorTemplates =
       dokiTemplates[COLOR_TEMPLATE]

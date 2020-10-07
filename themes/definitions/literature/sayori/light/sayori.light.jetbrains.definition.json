@@ -11,22 +11,6 @@
       }
     }
   },
-  "ui": {
-    "ScrollBar.Transparent.thumbColor": "accentColorMoreTransparent",
-    "ScrollBar.Transparent.thumbBorderColor": "accentColorMoreTransparent",
-    "ScrollBar.Transparent.hoverThumbColor": "accentColorTransparent",
-    "ScrollBar.Transparent.hoverThumbBorderColor": "accentColorTransparent",
-    "ScrollBar.thumbBorderColor": "accentColorMoreTransparent",
-    "ScrollBar.thumbColor": "accentColorMoreTransparent",
-    "ScrollBar.hoverThumbBorderColor": "accentColorMoreTransparent",
-    "ScrollBar.hoverThumbColor": "accentColorMoreTransparent",
-    "ScrollBar.Mac.Transparent.thumbColor": "accentColorMoreTransparent",
-    "ScrollBar.Mac.Transparent.thumbBorderColor": "accentColorMoreTransparent",
-    "ScrollBar.Mac.Transparent.hoverThumbColor": "accentColorTransparent",
-    "ScrollBar.Mac.Transparent.hoverThumbBorderColor": "accentColorTransparent",
-    "ScrollBar.Mac.thumbBorderColor": "accentColorMoreTransparent",
-    "ScrollBar.Mac.thumbColor": "accentColorMoreTransparent",
-    "ScrollBar.Mac.hoverThumbBorderColor": "accentColorMoreTransparent",
-    "ScrollBar.Mac.hoverThumbColor": "accentColorMoreTransparent"
-  }
+  "uiBase": "light dim",
+  "ui": {}
 }
