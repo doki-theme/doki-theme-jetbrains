@@ -32,6 +32,9 @@ You can choose themes from various, Anime, Manga, or Visual Novels:
 - Lucky Star
 - Sword Art Online
 - Neon Genesis Evangelion
+- Fate
+- Gate
+- Miss Kobayashi's Dragon Maid
 
 Sticker in the way? No worries! You can configure them to be on or off at your leisure.
 
