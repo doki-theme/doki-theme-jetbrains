@@ -18,7 +18,7 @@ Last addition to the Konosuba series:
 
 - Aqua (Dark)
 
-![v11 Girls](http://doki.assets.unthrottled.io/misc/v11_girls_smol.png)
+![v11 Girls](http://doki.assets.unthrottled.io/misc/v11_girls.png)
 
 ## Other Stuff
 
