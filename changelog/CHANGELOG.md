@@ -1,6 +1,11 @@
 Changelog
 ---
 
+# 11.0.1 [Bug Fix]
+
+- Fixed issue when trying to persist when sticker assets have been last checked. 
+Thank you for reporting the issue.
+
 # 11.0.0 [New Themes!!]
 
 ## 5 New Themes!
