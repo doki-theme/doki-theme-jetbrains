@@ -1,6 +1,10 @@
 Changelog
 ---
 
+# 11.0.2 [2020.3 Icon Consistency]
+
+- Fixed issue with Jetbrains action icons not being tinted. [Issue](https://github.com/doki-theme/doki-theme-jetbrains/issues/277)
+
 # 11.0.1 [Bug Fix]
 
 - Fixed issue when trying to persist when sticker assets have been last checked. 
