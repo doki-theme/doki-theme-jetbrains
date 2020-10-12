@@ -4,9 +4,13 @@ import com.intellij.util.SVGLoader
 import io.unthrottled.doki.icon.ColorPatcher
 import java.util.*
 
+typealias SVGL = SVGLoader
+typealias PatcherProvider = SVGLoader.SvgElementColorPatcherProvider
+typealias Patcher = SVGLoader.SvgElementColorPatcher
+
 object SvgLoaderHacker {
 
-  private lateinit var otherColorPatcher: SVGLoader.SvgElementColorPatcherProvider
+  private lateinit var otherColorPatcher: PatcherProvider
 
   /**
    * Enables the ability to have more than one color patcher.
@@ -17,29 +21,29 @@ object SvgLoaderHacker {
         ColorPatcher(patcher)
       }
       .orElseGet {
-        ColorPatcher(object : SVGLoader.SvgElementColorPatcherProvider {
+        ColorPatcher(object : PatcherProvider {
         })
       })
   }
 
-  private fun collectOtherPatcher(): Optional<SVGLoader.SvgElementColorPatcherProvider> =
+  private fun collectOtherPatcher(): Optional<PatcherProvider> =
     Optional.ofNullable(SVGLoader::class.java.declaredFields
       .firstOrNull { it.name == "ourColorPatcher" })
       .map { ourColorPatcherField ->
         ourColorPatcherField.isAccessible = true
         ourColorPatcherField.get(null)
       }
-      .filter { it is SVGLoader.SvgElementColorPatcherProvider }
+      .filter { it is PatcherProvider }
       .filter { it !is ColorPatcher }
       .map {
-        val otherPatcher = it as SVGLoader.SvgElementColorPatcherProvider
+        val otherPatcher = it as PatcherProvider
         otherColorPatcher = otherPatcher
         otherPatcher
       }
       .map { Optional.of(it) }
       .orElseGet { useFallBackPatcher() }
 
-  private fun useFallBackPatcher(): Optional<SVGLoader.SvgElementColorPatcherProvider> =
+  private fun useFallBackPatcher(): Optional<PatcherProvider> =
     if (this::otherColorPatcher.isInitialized) Optional.of(otherColorPatcher)
     else Optional.empty()
 }
