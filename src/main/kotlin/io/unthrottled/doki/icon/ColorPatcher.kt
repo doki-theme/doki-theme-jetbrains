@@ -2,19 +2,28 @@ package io.unthrottled.doki.icon
 
 import com.intellij.ui.ColorUtil
 import com.intellij.ui.JBColor.namedColor
-import com.intellij.util.SVGLoader
+import io.unthrottled.doki.hax.Patcher
+import io.unthrottled.doki.hax.PatcherProvider
 import io.unthrottled.doki.util.toHexString
 import org.w3c.dom.Element
 import java.awt.Color
 import java.net.URL
 
 class ColorPatcher(
-  private val otherColorPatcherProvider: (URL?) -> (Element) -> Unit = { {} }
-) : SVGLoader.SvgElementColorPatcherProvider {
-  override fun forURL(url: URL?): SVGLoader.SvgElementColorPatcher {
+  private val otherColorPatcherProvider: PatcherProvider
+) : PatcherProvider {
+
+  override fun forPath(path: String?) =
+    buildHackedPatcher(otherColorPatcherProvider.forPath(path))
+
+  override fun forURL(url: URL?) =
+    buildHackedPatcher(otherColorPatcherProvider.forURL(url))
+
+  private fun buildHackedPatcher(
+    otherPatcher: Patcher?
+  ): Patcher {
     val self = this
-    val otherPatcher = otherColorPatcherProvider(url)
-    return object : SVGLoader.SvgElementColorPatcher {
+    return object : Patcher {
       override fun patchColors(svg: Element) {
         self.patchColors(svg, otherPatcher)
       }
@@ -27,16 +36,16 @@ class ColorPatcher(
 
   fun patchColors(
     svg: Element,
-    otherPatcher: (Element) -> Unit
+    otherPatcher: Patcher?
   ) {
-    otherPatcher(svg)
+    otherPatcher?.patchColors(svg)
     patchChildren(
       svg,
       otherPatcher
     )
   }
 
-  private fun patchChildren(svg: Element, otherPatcher: (Element) -> Unit) {
+  private fun patchChildren(svg: Element, otherPatcher: Patcher?) {
     patchAccent(svg.getAttribute("accentTint"), svg) {
       it.toHexString()
     }
