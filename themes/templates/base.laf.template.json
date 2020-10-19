@@ -204,6 +204,13 @@
     "Tree.selectionInactiveBackground": "selectionInactive",
     "WelcomeScreen.Projects.selectionInactiveBackground": "selectionInactive",
     "Component.inactiveErrorFocusColor": "selectionInactive",
+    "List.hoverInactiveBackground": "selectionInactive",
+    "List.hoverBackground": "selectionInactive",
+    "Plugins.hoverBackground": "selectionInactive",
+    "Table.hoverBackground": "selectionInactive",
+    "Table.hoverInactiveBackground": "selectionInactive",
+    "Tree.hoverBackground": "selectionInactive",
+    "Tree.hoverInactiveBackground": "selectionInactive",
 
     "CheckBoxMenuItem.selectionBackground": "selectionBackground",
     "ComboBox.selectionBackground": "selectionBackground",
