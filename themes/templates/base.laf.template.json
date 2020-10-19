@@ -352,6 +352,7 @@
     "ToggleButton.borderColor": "accentColorTransparent",
 
     "FileColor.Green": "testScopeColor",
+    "FileColor.Yellow": "nonProjectFileScopeColor",
 
     "JumpToLine.dropLine.safe": "testScopeColor",
     "JumpToLine.dropLine.unsafe": "nonProjectFileScopeColor",
