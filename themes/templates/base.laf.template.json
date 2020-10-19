@@ -129,6 +129,7 @@
 
     "Plugins.Tab.selectedBackground": "highlightColor",
     "TabbedPane.hoverColor": "highlightColor",
+    "TabbedPane.focusColor": "highlightColor",
     "EditorTabs.hoverBackground": "highlightColor",
     "ActionButton.hoverBackground": "highlightColor",
     "ActionButton.hoverBorderColor": "highlightColor",
@@ -340,7 +341,8 @@
       }
     },
 
-	"Plugins.Button.updateForeground": "accentContrastColor",
+	  "Plugins.Button.updateForeground": "accentContrastColor",
+    "Plugins.Button.installFocusedForeground": "accentContrastColor",
 
     "Doki.startColor": "startColor",
     "Doki.stopColor":"stopColor",
@@ -396,7 +398,6 @@
     "SearchEverywhere.Advertiser.foreground":"accentColor",
     "SearchMatch.endBackground": "accentColor",
     "SearchMatch.startBackground": "accentColor",
-    "TabbedPane.focusColor":"accentColor",
     "TabbedPane.underlineColor":"accentColor",
     "Table.dropLineColor": "accentColor",
     "Tree.selectionBorderColor": "accentColor",
