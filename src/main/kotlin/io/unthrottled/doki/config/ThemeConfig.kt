@@ -54,11 +54,29 @@ class ThemeConfig : PersistentStateComponent<ThemeConfig>, Cloneable {
   )
 
   var currentSticker: CurrentSticker
-    get() = CurrentSticker.valueOf(currentStickerName)
+    get() {
+      val stickerNameType = currentStickerName.toUpperCase()
+      return if (CurrentSticker.values().none { it.name == stickerNameType }) {
+        val defaultSticker = CurrentSticker.DEFAULT
+        currentSticker = defaultSticker
+        defaultSticker
+      } else {
+        CurrentSticker.valueOf(stickerNameType)
+      }
+    }
     set(value) {
       currentStickerName = value.name
     }
 
   val currentStickerLevel: StickerLevel
-    get() = StickerLevel.valueOf(stickerLevel)
+    get() {
+      val theStickerLevel = stickerLevel.toUpperCase()
+      return if (StickerLevel.values().none { it.name == theStickerLevel }) {
+        val defaultStickerLevel = StickerLevel.ON
+        stickerLevel = defaultStickerLevel.name
+        defaultStickerLevel
+      } else {
+        StickerLevel.valueOf(theStickerLevel)
+      }
+    }
 }
