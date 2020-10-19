@@ -27,7 +27,7 @@ object StickerActor {
   }
 
   fun enableStickers(enabled: Boolean, withAnimation: Boolean = true) {
-    if (enabled != (ThemeConfig.instance.stickerLevel == StickerLevel.ON.name)) {
+    if (enabled != (ThemeConfig.instance.currentStickerLevel == StickerLevel.ON)) {
       performWithAnimation(withAnimation) {
         if (enabled) {
           ThemeConfig.instance.stickerLevel = StickerLevel.ON.name
