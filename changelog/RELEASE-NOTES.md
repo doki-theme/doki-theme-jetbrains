@@ -1,1 +1,2 @@
 - Fixed issue with Jetbrains action icons not being tinted. [Issue](https://github.com/doki-theme/doki-theme-jetbrains/issues/277)
+- Fixed issue when trying to persist/load theme settings. Thank you for reporting the issue.

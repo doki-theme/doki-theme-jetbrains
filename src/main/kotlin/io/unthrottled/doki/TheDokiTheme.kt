@@ -83,7 +83,7 @@ class TheDokiTheme : Disposable {
         ThemeMigrator.migrateToCommunityIfNecessary(project)
 
         ThemeManager.instance.currentTheme
-          .filter { ThemeConfig.instance.stickerLevel == StickerLevel.ON.name }
+          .filter { ThemeConfig.instance.currentStickerLevel == StickerLevel.ON }
           .ifPresent {
             StickerService.instance.checkForUpdates(it)
           }

@@ -21,7 +21,7 @@ class StickerComponent : Disposable {
 
   private fun processLaf(currentLaf: UIManager.LookAndFeelInfo?) {
     ThemeManager.instance.processLaf(currentLaf)
-      .filter { ThemeConfig.instance.stickerLevel == StickerLevel.ON.name }
+      .filter { ThemeConfig.instance.currentStickerLevel == StickerLevel.ON }
       .doOrElse({
         StickerService.instance.activateForTheme(it)
       }) {
