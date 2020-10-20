@@ -1890,6 +1890,11 @@
         <option name="NG.EXPRESSIONS">
             <value />
         </option>
+      <option name="NOT_USED_ELEMENT_ATTRIBUTES">
+        <value>
+          <option name="FOREGROUND" value="$unusedColor$" />
+        </value>
+      </option>
         <option name="OC.CONDITIONALLY_NOT_COMPILED">
             <value />
         </option>
