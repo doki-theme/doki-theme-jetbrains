@@ -129,6 +129,7 @@
 
     "Plugins.Tab.selectedBackground": "highlightColor",
     "TabbedPane.hoverColor": "highlightColor",
+    "TabbedPane.focusColor": "highlightColor",
     "EditorTabs.hoverBackground": "highlightColor",
     "ActionButton.hoverBackground": "highlightColor",
     "ActionButton.hoverBorderColor": "highlightColor",
@@ -204,6 +205,13 @@
     "Tree.selectionInactiveBackground": "selectionInactive",
     "WelcomeScreen.Projects.selectionInactiveBackground": "selectionInactive",
     "Component.inactiveErrorFocusColor": "selectionInactive",
+    "List.hoverInactiveBackground": "selectionInactive",
+    "List.hoverBackground": "selectionInactive",
+    "Plugins.hoverBackground": "selectionInactive",
+    "Table.hoverBackground": "selectionInactive",
+    "Table.hoverInactiveBackground": "selectionInactive",
+    "Tree.hoverBackground": "selectionInactive",
+    "Tree.hoverInactiveBackground": "selectionInactive",
 
     "CheckBoxMenuItem.selectionBackground": "selectionBackground",
     "ComboBox.selectionBackground": "selectionBackground",
@@ -333,7 +341,8 @@
       }
     },
 
-	"Plugins.Button.updateForeground": "accentContrastColor",
+	  "Plugins.Button.updateForeground": "accentContrastColor",
+    "Plugins.Button.installFocusedForeground": "accentContrastColor",
 
     "Doki.startColor": "startColor",
     "Doki.stopColor":"stopColor",
@@ -344,7 +353,9 @@
     "ToggleButton.offForeground":"ghostColor",
     "ToggleButton.borderColor": "accentColorTransparent",
 
+    "EditorTabs.inactiveColoredFileBackground": "ghostColor",
     "FileColor.Green": "testScopeColor",
+    "FileColor.Yellow": "nonProjectFileScopeColor",
 
     "JumpToLine.dropLine.safe": "testScopeColor",
     "JumpToLine.dropLine.unsafe": "nonProjectFileScopeColor",
@@ -388,7 +399,6 @@
     "SearchEverywhere.Advertiser.foreground":"accentColor",
     "SearchMatch.endBackground": "accentColor",
     "SearchMatch.startBackground": "accentColor",
-    "TabbedPane.focusColor":"accentColor",
     "TabbedPane.underlineColor":"accentColor",
     "Table.dropLineColor": "accentColor",
     "Tree.selectionBorderColor": "accentColor",
@@ -506,6 +516,7 @@
     "/ide/rating4.svg": "/icons/ide/rating4.svg",
     "/icons/actions/GoTo.png": "/icons/plugins/buck/icons/actions/GoTo.svg",
     "/icons/actions/Find.png": "/icons/plugins/buck/icons/actions/Find.svg",
+    "/icons/config.png": "/icons/general/gearPlain.svg",
     "/icons/ideavim.svg": "/icons/plugins/vim/icons/ideavim.svg",
     "/icons/actions/Project.png": "/icons/nodes/folder.svg",
     "/icons/actions/Run.png": "/icons/actions/execute.svg",

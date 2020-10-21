@@ -53,6 +53,9 @@
         <option name="GUTTER_BACKGROUND" value="$textEditorBackground$" />
         <option name="INDENT_GUIDE" value="$borderColor$" />
         <option name="INFORMATION_HINT" value="$baseBackground$" />
+        <option name="INLINE_REFACTORING_SETTINGS_DEFAULT" value="%accentColorMoreTransparent%"/>
+        <option name="INLINE_REFACTORING_SETTINGS_FOCUSED" value="%accentColorTransparent%"/>
+        <option name="INLINE_REFACTORING_SETTINGS_HOVERED" value="%accentColorTransparent%"/>
         <option name="QUESTION_HINT" value="$selectionBackground$" />
         <option name="LINE_NUMBERS_COLOR" value="$lineNumberColor$" />
         <option name="LINE_NUMBER_ON_CARET_ROW_COLOR" value="$lineNumberColor$" />
@@ -613,14 +616,12 @@
         </option>
         <option name="DIFF_CONFLICT">
             <value>
-                <option name="FOREGROUND" value="572a2a" />
                 <option name="BACKGROUND" value="$diff.conflict$" />
                 <option name="ERROR_STRIPE_COLOR" value="8f5247" />
             </value>
         </option>
         <option name="DIFF_DELETED">
             <value>
-                <option name="FOREGROUND" value="656565" />
                 <option name="BACKGROUND" value="$diff.deleted$" />
                 <option name="ERROR_STRIPE_COLOR" value="656e76" />
             </value>
@@ -1889,6 +1890,11 @@
         <option name="NG.EXPRESSIONS">
             <value />
         </option>
+      <option name="NOT_USED_ELEMENT_ATTRIBUTES">
+        <value>
+          <option name="FOREGROUND" value="$unusedColor$" />
+        </value>
+      </option>
         <option name="OC.CONDITIONALLY_NOT_COMPILED">
             <value />
         </option>

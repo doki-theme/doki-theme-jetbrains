@@ -7,7 +7,6 @@
     </option>
     <option name="DIFF_DELETED">
       <value>
-        <option name="FOREGROUND" value="4D424E" />
         <option name="BACKGROUND" value="$diff.deleted$" />
         <option name="ERROR_STRIPE_COLOR" value="545B62" />
       </value>

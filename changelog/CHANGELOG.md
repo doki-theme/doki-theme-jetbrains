@@ -1,6 +1,13 @@
 Changelog
 ---
 
+# 11.1.0 [Usability & Consistency]
+
+- Adjusted the syntax coloring of the Ishtar dark & Rory theme to have better contrast against `unused` items.
+- Enhanced every theme's diff & merge colors (again!)
+- Better 2020.3 support
+- Many small fixes, see the [issue for more details](https://github.com/doki-theme/doki-theme-jetbrains/issues/279)
+
 # 11.0.3 [Bug Fix]
 
 - Fixed issue when trying to persist/load theme settings.
