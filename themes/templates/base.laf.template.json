@@ -353,6 +353,7 @@
     "ToggleButton.offForeground":"ghostColor",
     "ToggleButton.borderColor": "accentColorTransparent",
 
+    "EditorTabs.inactiveColoredFileBackground": "ghostColor",
     "FileColor.Green": "testScopeColor",
     "FileColor.Yellow": "nonProjectFileScopeColor",
 
