@@ -21,6 +21,7 @@ import java.awt.Point
 val UPDATE_MESSAGE: String = """
       What's New?<br>
       <ul>
+        <li>Fixed MacOS Title Bug Issue</li>
         <li>Better 2020.3 Support</li>
         <li>Enhanced Rory's & Ishtar's dark theme.</li>
       </ul>
