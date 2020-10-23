@@ -42,7 +42,7 @@ typealias Disposer = () -> Unit
 class TitlePaneUI : DarculaRootPaneUI() {
 
   companion object {
-    private const val LOL_NOPE = "This should not be shown"
+    const val LOL_NOPE = "This should not be shown"
     private const val defaultPane = "com.sun.java.swing.plaf.windows.WindowsRootPaneUI"
     const val WINDOW_DARK_APPEARANCE = "jetbrains.awt.windowDarkAppearance"
     const val TRANSPARENT_TITLE_BAR_APPEARANCE = "jetbrains.awt.transparentTitleBarAppearance"

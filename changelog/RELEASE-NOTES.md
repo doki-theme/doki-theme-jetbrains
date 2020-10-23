@@ -1,3 +1,4 @@
+- Fixed issue with the slide-in dialog window buttons being cut off on MacOS. [See issue for more details](https://github.com/doki-theme/doki-theme-jetbrains/issues/283)
 - Adjusted the syntax coloring of the Ishtar dark & Rory theme to have better contrast against `unused` items.
 - Enhanced every theme's diff & merge colors (again!)
 - Better 2020.3 support

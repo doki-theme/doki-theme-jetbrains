@@ -1,5 +1,8 @@
 Changelog
 ---
+# 11.1.1 [Bug Fix]
+
+- Fixed issue with the slide-in dialog window buttons being cut off on MacOS. [See issue for more details](https://github.com/doki-theme/doki-theme-jetbrains/issues/283)
 
 # 11.1.0 [Usability & Consistency]
 
