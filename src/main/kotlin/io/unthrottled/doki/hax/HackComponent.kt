@@ -28,15 +28,13 @@ import com.intellij.xdebugger.impl.ui.XDebuggerUIConstants
 import io.unthrottled.doki.hax.FeildHacker.setFinalStatic
 import io.unthrottled.doki.stickers.impl.DOKI_BACKGROUND_PROP
 import io.unthrottled.doki.stickers.impl.DOKI_STICKER_PROP
-import javassist.CannotCompileException
-import javassist.ClassClassPath
-import javassist.ClassPool
-import javassist.CtClass
-import javassist.CtMethod
+import io.unthrottled.doki.ui.TitlePaneUI.Companion.LOL_NOPE
+import javassist.*
 import javassist.expr.ExprEditor
 import javassist.expr.MethodCall
 import javassist.expr.NewExpr
 import java.awt.Color
+import javax.swing.JDialog
 
 object HackComponent : Disposable {
   init {
@@ -48,6 +46,11 @@ object HackComponent : Disposable {
     enableAccentConsistency()
     enableBackgroundConsistency()
     enableSelectionConsistency()
+    enableTitlePaneConsistency()
+  }
+
+  private fun enableTitlePaneConsistency() {
+    hackSheetMessage()
   }
 
   private fun enableSelectionConsistency() {
@@ -114,6 +117,27 @@ object HackComponent : Disposable {
       val naughtySelectionColor = MasterDetailPopupBuilder::class.java.getDeclaredField("BORDER_COLOR")
       val namedColor = JBColor.namedColor("Borders.color", Gray._135)
       setFinalStatic(naughtySelectionColor, namedColor)
+    } catch (e: Exception) {
+      e.printStackTrace()
+    }
+  }
+
+  private fun hackSheetMessage() {
+    try {
+      val cp = ClassPool(true)
+      cp.insertClassPath(ClassClassPath(JBMacMessages::class.java))
+      val ctClass = cp.get("com.intellij.ui.messages.SheetMessage")
+      ctClass.declaredConstructors
+        .forEach { constructorDude ->
+          constructorDude.instrument(object : ExprEditor() {
+            override fun edit(e: NewExpr?) {
+              if (e?.className == JDialog::class.java.name) {
+                e?.replace("{ \$2 = \"$LOL_NOPE\"; \$_ = \$proceed(\$\$); }")
+              }
+            }
+          })
+        }
+      ctClass.toClass()
     } catch (e: Exception) {
       e.printStackTrace()
     }
@@ -288,8 +312,7 @@ object HackComponent : Disposable {
       val cp = ClassPool(true)
       cp.insertClassPath(ClassClassPath(LineStatusMarkerRenderer::class.java))
       val bitchassClass = cp.get("com.intellij.openapi.vcs.ex.LineStatusMarkerPopupRenderer\$PopupPanel")
-      bitchassClass.declaredConstructors.forEach {
-        ctConstructor ->
+      bitchassClass.declaredConstructors.forEach { ctConstructor ->
         ctConstructor.instrument(object : ExprEditor() {
           override fun edit(e: NewExpr?) {
             if (e?.className == "com.intellij.ui.JBColor") {
