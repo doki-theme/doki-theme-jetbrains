@@ -13,6 +13,7 @@ import com.intellij.ide.util.TipPanel
 import com.intellij.ide.util.gotoByName.CustomMatcherModel
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.actionSystem.impl.ActionMenu
+import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.fileEditor.impl.EditorComposite
 import com.intellij.openapi.fileEditor.impl.EditorHistoryManager
 import com.intellij.openapi.progress.util.ColorProgressBar
@@ -37,6 +38,8 @@ import java.awt.Color
 import javax.swing.JDialog
 
 object HackComponent : Disposable {
+  private val log = Logger.getInstance(javaClass)
+
   init {
     enableDisposableStickers()
     createMonikasWritingTipOfTheDay()
@@ -70,7 +73,7 @@ object HackComponent : Disposable {
       val namedColor = JBColor.namedColor("TextPane.background", 0xf2f2f2)
       setFinalStatic(naughtySelectionColor, namedColor)
     } catch (e: Throwable) {
-      e.printStackTrace()
+      log.warn("Unable to hackLivePreview for reasons.")
     }
 
     try {
@@ -87,7 +90,7 @@ object HackComponent : Disposable {
       })
       ctClass.toClass()
     } catch (e: Exception) {
-      e.printStackTrace()
+      log.warn("Unable to hackLivePreview for reasons.")
     }
   }
 
@@ -108,7 +111,7 @@ object HackComponent : Disposable {
       })
       ctClass.toClass()
     } catch (e: Exception) {
-      e.printStackTrace()
+      log.warn("Unable to hackWelcomeScreen for reasons.")
     }
   }
 
@@ -118,7 +121,7 @@ object HackComponent : Disposable {
       val namedColor = JBColor.namedColor("Borders.color", Gray._135)
       setFinalStatic(naughtySelectionColor, namedColor)
     } catch (e: Exception) {
-      e.printStackTrace()
+      log.warn("Unable to hackBookMarkBorder  for reasons.")
     }
   }
 
@@ -139,7 +142,7 @@ object HackComponent : Disposable {
         }
       ctClass.toClass()
     } catch (e: Exception) {
-      e.printStackTrace()
+      log.warn("Unable to hackSheetMessage for reasons.")
     }
   }
 
@@ -170,7 +173,7 @@ object HackComponent : Disposable {
         }
       ctClass.toClass()
     } catch (e: Exception) {
-      e.printStackTrace()
+      log.warn("Unable to hackSheetWindow for reasons.")
     }
   }
 
@@ -194,38 +197,12 @@ object HackComponent : Disposable {
       bitchassClass.getDeclaredMethods("doSetup").forEach(hackBackground)
       bitchassClass.toClass()
     } catch (e: Exception) {
-      e.printStackTrace()
+      log.warn("Unable to hackParameterInfoBackground for reasons.")
     }
   }
 
   private fun enableAccentConsistency() {
     hackLiveIndicator()
-    hackSearchHighlightBorder()
-  }
-
-  private fun hackSearchHighlightBorder() {
-    try {
-      val cp = ClassPool(true)
-      cp.insertClassPath(ClassClassPath(Class.forName("com.intellij.openapi.options.ex.ConfigurableWrapper")))
-      val ctClass = cp.get("com.intellij.openapi.options.ex.GlassPanel")
-      val init = ctClass.getDeclaredMethods(
-        "paintSpotlight"
-      )[0]
-      var colors = 0
-      init.instrument(object : ExprEditor() {
-        override fun edit(e: MethodCall?) {
-          if (e?.methodName == "setColor") {
-            colors++
-            if (colors > 1) {
-              e.replace("{ \$1 = com.intellij.ui.JBColor.namedColor(\"Doki.Accent.color\", com.intellij.ui.JBColor.ORANGE);  \$_ = \$proceed(\$\$); }")
-            }
-          }
-        }
-      })
-      ctClass.toClass()
-    } catch (e: Exception) {
-      e.printStackTrace()
-    }
   }
 
   private fun hackLiveIndicator() {
@@ -245,7 +222,7 @@ object HackComponent : Disposable {
       })
       ctClass.toClass()
     } catch (e: Exception) {
-      e.printStackTrace()
+      log.warn("Unable to hackLiveIndicator for reasons.")
     }
   }
 
@@ -270,7 +247,7 @@ object HackComponent : Disposable {
       })
       ctClass.toClass()
     } catch (e: Exception) {
-      e.printStackTrace()
+      log.warn("Unable to hackActionModel for reasons.")
     }
   }
 
@@ -291,7 +268,7 @@ object HackComponent : Disposable {
       })
       ctClass.toClass()
     } catch (e: Exception) {
-      e.printStackTrace()
+      log.warn("Unable to hackToolWindowDecorator for reasons.")
     }
   }
 
@@ -323,7 +300,7 @@ object HackComponent : Disposable {
       }
       bitchassClass.toClass()
     } catch (e: Exception) {
-      e.printStackTrace()
+      log.warn("Unable to hackStatusLineColor for reasons.")
     }
   }
 
@@ -342,7 +319,7 @@ object HackComponent : Disposable {
       })
       ctClass.toClass()
     } catch (e: Exception) {
-      e.printStackTrace()
+      log.warn("Unable to hackPopupBorder for reasons.")
     }
 
     try {
@@ -359,7 +336,7 @@ object HackComponent : Disposable {
       })
       ctClass.toClass()
     } catch (e: Exception) {
-      e.printStackTrace()
+      log.warn("Unable to hackPopupBorder for reasons.")
     }
   }
 
@@ -369,7 +346,7 @@ object HackComponent : Disposable {
       val namedColor = JBColor.namedColor("Borders.color", 0xf2f2f2)
       setFinalStatic(naughtySelectionColor, namedColor)
     } catch (e: Throwable) {
-      e.printStackTrace()
+      log.warn("Unable to hackTipBorder for reasons.")
     }
   }
 
@@ -390,7 +367,7 @@ object HackComponent : Disposable {
       val namedColor = JBColor.namedColor("ColorProgress.bar.yellow", JBColor(Color(0xa67a21), Color(0x91703a)))
       setFinalStatic(naughtySelectionColor, namedColor)
     } catch (e: Throwable) {
-      e.printStackTrace()
+      log.warn("Unable to hackTestResults for reasons.")
     }
   }
 
@@ -415,7 +392,7 @@ object HackComponent : Disposable {
       })
       ctClass.toClass()
     } catch (e: Exception) {
-      e.printStackTrace()
+      log.warn("Unable to hackTitleFrame for reasons.")
     }
   }
 
@@ -425,7 +402,7 @@ object HackComponent : Disposable {
       val namedColor = JBColor.namedColor("Label.infoForeground", Gray._128)
       setFinalStatic(naughtySelectionColor, namedColor)
     } catch (e: Throwable) {
-      e.printStackTrace()
+      log.warn("Unable to hackColors for reasons.")
     }
   }
 
@@ -435,7 +412,7 @@ object HackComponent : Disposable {
       val namedColor = SimpleTextAttributes(SimpleTextAttributes.STYLE_PLAIN, UIUtil.getLabelForeground())
       setFinalStatic(naughtySelectionColor, namedColor)
     } catch (e: Throwable) {
-      e.printStackTrace()
+      log.warn("Unable to hackSdkComboBox for reasons.")
     }
   }
 
@@ -445,7 +422,7 @@ object HackComponent : Disposable {
       val namedColor = SimpleTextAttributes(SimpleTextAttributes.STYLE_PLAIN, UIUtil.getContextHelpForeground())
       setFinalStatic(naughtySelectionColor, namedColor)
     } catch (e: Throwable) {
-      e.printStackTrace()
+      log.warn("Unable to hackSwitcher for reasons.")
     }
   }
 
@@ -455,21 +432,21 @@ object HackComponent : Disposable {
       val namedColor = SimpleTextAttributes(SimpleTextAttributes.STYLE_PLAIN, UIUtil.getContextHelpForeground())
       setFinalStatic(naughtySelectionColor, namedColor)
     } catch (e: Throwable) {
-      e.printStackTrace()
+      log.warn("Unable to hackDebuggerAttributes for reasons.")
     }
     try {
       val naughtySelectionColor = SimpleTextAttributes::class.java.getDeclaredField("REGULAR_ITALIC_ATTRIBUTES")
       val namedColor = SimpleTextAttributes(SimpleTextAttributes.STYLE_ITALIC, UIUtil.getLabelForeground())
       setFinalStatic(naughtySelectionColor, namedColor)
     } catch (e: Throwable) {
-      e.printStackTrace()
+      log.warn("Unable to hackDebuggerAttributes for reasons.")
     }
     try {
       val naughtySelectionColor = SimpleTextAttributes::class.java.getDeclaredField("GRAY_ITALIC_ATTRIBUTES")
       val namedColor = SimpleTextAttributes(SimpleTextAttributes.STYLE_ITALIC, UIUtil.getContextHelpForeground())
       setFinalStatic(naughtySelectionColor, namedColor)
     } catch (e: Throwable) {
-      e.printStackTrace()
+      log.warn("Unable to hackDebuggerAttributes for reasons.")
     }
   }
 
@@ -484,7 +461,7 @@ object HackComponent : Disposable {
       val namedColor = JBColor.namedColor("List.selectionBackground", 0xf2f2f2)
       setFinalStatic(naughtySelectionColor, namedColor)
     } catch (e: Throwable) {
-      e.printStackTrace()
+      log.warn("Unable to hackSwitcherSelection for reasons.")
     }
   }
 
@@ -511,7 +488,7 @@ object HackComponent : Disposable {
       })
       ctClass.toClass()
     } catch (e: Exception) {
-      e.printStackTrace()
+      log.warn("Unable to hackEditorBorder for reasons.")
     }
   }
 
@@ -530,7 +507,7 @@ object HackComponent : Disposable {
       })
       ctClass.toClass()
     } catch (e: Exception) {
-      e.printStackTrace()
+      log.warn("Unable to hackSwitcherBorder for reasons.")
     }
   }
 
@@ -549,7 +526,7 @@ object HackComponent : Disposable {
       })
       ctClass.toClass()
     } catch (e: Exception) {
-      e.printStackTrace()
+      log.warn("Unable to hackFindInPath for reasons.")
     }
   }
 
@@ -572,7 +549,7 @@ object HackComponent : Disposable {
       })
       ctClass.toClass()
     } catch (e: Exception) {
-      e.printStackTrace()
+      log.warn("Unable to hackPluginWindow for reasons.")
     }
   }
 
@@ -588,7 +565,7 @@ object HackComponent : Disposable {
       val ctClass = cp.get("com.intellij.ide.util.TipDialog")
       hackTip(ctClass)
     } catch (e: Throwable) {
-      e.printStackTrace()
+      log.warn("Unable to hackTipDialog for reasons.")
     }
   }
 
@@ -600,7 +577,7 @@ object HackComponent : Disposable {
       }
       ctClass.toClass()
     } catch (e: Throwable) {
-      e.printStackTrace()
+      log.warn("Unable to hackTip for reasons.")
     }
   }
 
@@ -620,7 +597,7 @@ object HackComponent : Disposable {
       })
       ctClass.toClass()
     } catch (e: Exception) {
-      e.printStackTrace()
+      log.warn("Unable to hackTipPanel for reasons.")
     }
   }
 
@@ -706,7 +683,7 @@ object HackComponent : Disposable {
 
       ctClass2.toClass()
     } catch (e: Exception) {
-      e.printStackTrace()
+      log.warn("Unable to hackBackgroundPaintingComponent for reasons.")
     }
   }
 

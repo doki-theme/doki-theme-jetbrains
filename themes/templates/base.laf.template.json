@@ -399,6 +399,7 @@
     "SearchEverywhere.Advertiser.foreground":"accentColor",
     "SearchMatch.endBackground": "accentColor",
     "SearchMatch.startBackground": "accentColor",
+    "Settings.Spotlight.borderColor": "accentColor",
     "TabbedPane.underlineColor":"accentColor",
     "Table.dropLineColor": "accentColor",
     "Tree.selectionBorderColor": "accentColor",
