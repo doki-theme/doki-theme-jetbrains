@@ -50,7 +50,7 @@ object RestTools {
     }
   }
 
-  fun createGetRequest(remoteUrl: String): HttpGet {
+  private fun createGetRequest(remoteUrl: String): HttpGet {
     val remoteAssetRequest = HttpGet(remoteUrl)
     remoteAssetRequest.addHeader("User-Agent", "Doki-Theme-Jetbrains")
     remoteAssetRequest.config = RequestConfig.custom()
