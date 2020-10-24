@@ -10,7 +10,7 @@ import io.unthrottled.doki.util.toOptional
 import java.awt.Color
 import java.io.InputStreamReader
 import java.nio.charset.StandardCharsets
-import java.util.*
+import java.util.Optional
 
 class Stickers(
   val default: String,
@@ -27,6 +27,7 @@ class Backgrounds(
   val secondary: Background?
 )
 
+@Suppress("LongParameterList")
 class JetBrainsThemeDefinition(
   val id: String,
   val name: String,
@@ -134,7 +135,7 @@ class DokiTheme(private val uiTheme: JetBrainsThemeDefinition) {
           """
           Expected "$requiredColor" to be present in "colors" as a valid hex color in $name's theme json.
            "$requiredNamedColor" is not a valid hex color or reference to a defined color
-        """.trimIndent()
+          """.trimIndent()
         )
       }
     }

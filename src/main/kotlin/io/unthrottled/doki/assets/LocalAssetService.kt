@@ -14,7 +14,7 @@ import java.nio.file.StandardOpenOption
 import java.security.MessageDigest
 import java.time.Instant
 import java.time.temporal.ChronoUnit
-import java.util.*
+import java.util.Optional
 import java.util.concurrent.ConcurrentHashMap
 
 private enum class AssetChangedStatus {
@@ -31,8 +31,10 @@ object LocalAssetService {
     remoteAssetUrl: String
   ): Boolean =
     !Files.exists(localInstallPath) ||
-      (!hasBeenCheckedToday(localInstallPath) &&
-        isLocalDifferentFromRemote(localInstallPath, remoteAssetUrl) == AssetChangedStatus.DIFFERENT)
+      (
+        !hasBeenCheckedToday(localInstallPath) &&
+          isLocalDifferentFromRemote(localInstallPath, remoteAssetUrl) == AssetChangedStatus.DIFFERENT
+        )
 
   private fun getOnDiskCheckSum(localAssetPath: Path): String =
     computeCheckSum(Files.readAllBytes(localAssetPath))
@@ -63,7 +65,7 @@ object LocalAssetService {
                       is different from remote asset $remoteAssetUrl
                       Local Checksum: $onDiskCheckSum
                       Remote Checksum: $it
-                    """.trimIndent()
+            """.trimIndent()
           )
           AssetChangedStatus.DIFFERENT
         }
@@ -78,7 +80,8 @@ object LocalAssetService {
     val assetCheckPath = getAssetChecksFile()
     LocalStorageService.createDirectories(assetCheckPath)
     Files.newBufferedWriter(
-      assetCheckPath, Charset.defaultCharset(),
+      assetCheckPath,
+      Charset.defaultCharset(),
       StandardOpenOption.CREATE,
       StandardOpenOption.TRUNCATE_EXISTING
     ).use { writer ->

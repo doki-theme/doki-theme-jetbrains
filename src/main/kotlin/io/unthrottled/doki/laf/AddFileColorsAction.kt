@@ -9,14 +9,15 @@ import com.intellij.ui.tabs.FileColorManagerImpl
 import com.intellij.ui.tabs.FileColorsModel
 import io.unthrottled.doki.themes.ThemeManager
 import java.lang.reflect.Constructor
-import java.util.*
+import java.util.Collections
 import java.util.stream.Collectors
 
-object DokiAddFileColorsAction {
+object AddFileColorsAction {
 
   fun removeFileScopes(project: Project?) {
-    if (project != null)
+    if (project != null) {
       replaceFileScopes(project) { emptyList() }
+    }
   }
 
   fun isSet(project: Project?): Boolean {
@@ -31,7 +32,7 @@ object DokiAddFileColorsAction {
   }
 
   fun setFileScopes(project: Project?) {
-    if (project != null)
+    if (project != null) {
       replaceFileScopes(project) {
         try {
           mutableList(getScopes(), it)
@@ -39,6 +40,7 @@ object DokiAddFileColorsAction {
           Collections.emptyList<Any>()
         }
       }
+    }
   }
 
   private fun getScopes(): List<Pair<String, String>> =

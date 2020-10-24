@@ -1,6 +1,6 @@
 package io.unthrottled.doki.icon.patcher
 
-import java.util.*
+import java.util.Collections
 
 class PathPatcherDefinition(
   val name: String,

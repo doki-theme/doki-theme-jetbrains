@@ -64,17 +64,19 @@ class MotivatorPromotionDialog(
   init {
     title = MessageBundle.message("motivator.title")
     setCancelButtonText(MessageBundle.message("motivator.action.cancel"))
-    setDoNotAskOption(DoNotPromote { shouldContinuePromotion, exitCode ->
-      onPromotion(
-        PromotionResults(
-          when {
-            !shouldContinuePromotion -> PromotionStatus.BLOCKED
-            exitCode == INSTALLED_EXIT_CODE -> PromotionStatus.ACCEPTED
-            else -> PromotionStatus.REJECTED
-          }
+    setDoNotAskOption(
+      DoNotPromote { shouldContinuePromotion, exitCode ->
+        onPromotion(
+          PromotionResults(
+            when {
+              !shouldContinuePromotion -> PromotionStatus.BLOCKED
+              exitCode == INSTALLED_EXIT_CODE -> PromotionStatus.ACCEPTED
+              else -> PromotionStatus.REJECTED
+            }
+          )
         )
-      )
-    })
+      }
+    )
     init()
   }
 
@@ -114,12 +116,14 @@ class MotivatorPromotionDialog(
     }
   }
 
+  @Suppress("LongMethod")
   private fun buildPromotionPane(): JEditorPane {
     val pane = JTextPane()
     pane.isEditable = false
     pane.contentType = "text/html"
     val accentHex = JBColor.namedColor(
-      DokiTheme.ACCENT_COLOR, UIUtil.getTextAreaForeground()
+      DokiTheme.ACCENT_COLOR,
+      UIUtil.getTextAreaForeground()
     ).toHexString()
     val infoForegroundHex = UIUtil.getContextHelpForeground().toHexString()
     val motivatorLogoURL = promotionAssets.pluginLogoURL
@@ -128,7 +132,8 @@ class MotivatorPromotionDialog(
       "Menu.background",
       UIUtil.getEditorPaneBackground()
     )
-    pane.text = """
+    pane.text =
+      """
       <html lang="en">
       <head>
           <style type='text/css'>
@@ -178,24 +183,28 @@ class MotivatorPromotionDialog(
           <title>Motivator</title>
       </head>
       <body>
-      <div class='logo-container'><img src="$motivatorLogoURL" class='display-image' alt='Motivator Plugin Logo'/> </div>
+      <div class='logo-container'><img src="$motivatorLogoURL" class='display-image' alt='Motivator Plugin Logo'/> 
+      </div>
       <h2 class='header'>Your new virtual companion!</h2>
       <div style='margin: 8px 0 0 100px'>
         <p>
           The <a href='https://plugins.jetbrains.com/plugin/13381-waifu-motivator'>Waifu Motivator Plugin</a>
-          gives your IDE more personality by using anime memes. <br/> You will get an assistant that will interact with you as you build code.
+          gives your IDE more personality by using anime memes. <br/> You will get an assistant that will interact 
+          with you as you build code.
           <br/>Such as when your programs fail to run or tests pass/fail. Your companion<br/> 
-          has the ability to react to these events. Which will most likely take the form <br/> of a reaction gif of your favorite character(s)!
+          has the ability to react to these events. Which will most likely take the form <br/> of a reaction gif of 
+          your favorite character(s)!
         </p>
       </div>
       <br/>
       <h3 class='info-foreground'>Bring Anime Memes to your IDE today!</h3>
       <br/>
-      <div class='display-image'><img src='$promotionAssetURL' height="150" alt='${dokiTheme.displayName}&#39;s Promotion Asset'/></div>
+      <div class='display-image'><img src='$promotionAssetURL' height="150" 
+      alt='${dokiTheme.displayName}&#39;s Promotion Asset'/></div>
       <br/>
       </body>
       </html>
-    """.trimIndent()
+      """.trimIndent()
     pane.preferredSize = Dimension(pane.preferredSize.width + 120, pane.preferredSize.height)
     pane.addHyperlinkListener {
       if (it.eventType == HyperlinkEvent.EventType.ACTIVATED) {

@@ -30,14 +30,20 @@ class ThemeStatusBarWidget(private val project: Project) :
   private val connect = ApplicationManager.getApplication().messageBus.connect()
 
   init {
-    connect.subscribe(LafManagerListener.TOPIC, LafManagerListener {
-      updateWidget()
-    })
-    connect.subscribe(THEME_CONFIG_TOPIC, object : ThemeConfigListener {
-      override fun themeConfigUpdated(themeConfig: ThemeConfig) {
+    connect.subscribe(
+      LafManagerListener.TOPIC,
+      LafManagerListener {
         updateWidget()
       }
-    })
+    )
+    connect.subscribe(
+      THEME_CONFIG_TOPIC,
+      object : ThemeConfigListener {
+        override fun themeConfigUpdated(themeConfig: ThemeConfig) {
+          updateWidget()
+        }
+      }
+    )
   }
 
   private fun updateWidget() {
@@ -73,11 +79,15 @@ class ThemeStatusBarWidget(private val project: Project) :
       .orElseGet { null }
 
   override fun getClickConsumer(): Consumer<MouseEvent> = Consumer {
-    ApplicationManager.getApplication().invokeLater({
-      ShowSettingsUtil.getInstance().showSettingsDialog(
-        project, THEME_SETTINGS_DISPLAY_NAME
-      )
-    }, ModalityState.NON_MODAL)
+    ApplicationManager.getApplication().invokeLater(
+      {
+        ShowSettingsUtil.getInstance().showSettingsDialog(
+          project,
+          THEME_SETTINGS_DISPLAY_NAME
+        )
+      },
+      ModalityState.NON_MODAL
+    )
   }
 
   override fun getPopupStep(): ListPopup? = null

@@ -24,6 +24,8 @@ style:
   ForbiddenComment:
     active: true
     values: []
+  MagicNumber:
+    active: false
 
 empty-blocks:
   active: false

@@ -48,7 +48,8 @@ class DokiCheckboxUI : DarculaCheckBoxUI() {
             scale(18).toFloat(),
             scale(8).toFloat(),
             scale(8).toFloat()
-          ), false
+          ),
+          false
         )
         outline.append(
           RoundRectangle2D.Float(

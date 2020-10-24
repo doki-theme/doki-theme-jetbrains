@@ -15,7 +15,7 @@ fun <T> getSafely(callable: Callable<T>): Optional<T> =
     Optional.empty()
   }
 
-fun runSafely(runner: () -> Unit, onError: (Throwable) -> Unit): Unit =
+fun runSafely(runner: () -> Unit, onError: (Throwable) -> Unit = {}): Unit =
   try {
     runner()
   } catch (e: Throwable) {

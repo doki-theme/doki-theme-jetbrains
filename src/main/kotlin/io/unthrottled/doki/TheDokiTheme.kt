@@ -14,7 +14,7 @@ import io.unthrottled.doki.hax.HackComponent.hackLAF
 import io.unthrottled.doki.hax.SvgLoaderHacker.setSVGColorPatcher
 import io.unthrottled.doki.icon.patcher.MaterialPathPatcherManager.attemptToAddIcons
 import io.unthrottled.doki.icon.patcher.MaterialPathPatcherManager.attemptToRemoveIcons
-import io.unthrottled.doki.laf.DokiAddFileColorsAction.setFileScopes
+import io.unthrottled.doki.laf.AddFileColorsAction.setFileScopes
 import io.unthrottled.doki.laf.FileScopeColors.attemptToInstallColors
 import io.unthrottled.doki.laf.FileScopeColors.attemptToRemoveColors
 import io.unthrottled.doki.laf.LookAndFeelInstaller.installAllUIComponents
@@ -59,50 +59,56 @@ class TheDokiTheme : Disposable {
 
     userOnBoarding()
 
-    connection.subscribe(LafManagerListener.TOPIC, LafManagerListener {
-      ThemeManager.instance.currentTheme
-        .doOrElse({
-          setSVGColorPatcher()
-          installAllUIComponents()
-          attemptToInstallColors()
-          attemptToAddIcons()
-        }) {
-          if (ThemeConfig.instance.isDokiFileColors) {
-            attemptToRemoveColors()
-          }
-          attemptToRemoveIcons()
-        }
-    })
-
-    connection.subscribe(ProjectManager.TOPIC, object : ProjectManagerListener {
-      override fun projectOpened(project: Project) {
-        if (ThemeConfig.instance.isDokiFileColors) {
-          setFileScopes(project)
-        }
-
-        ThemeMigrator.migrateToCommunityIfNecessary(project)
-
+    connection.subscribe(
+      LafManagerListener.TOPIC,
+      LafManagerListener {
         ThemeManager.instance.currentTheme
-          .filter { ThemeConfig.instance.currentStickerLevel == StickerLevel.ON }
-          .ifPresent {
-            StickerService.instance.checkForUpdates(it)
-          }
-
-        getVersion()
-          .ifPresent { version ->
-            if (version != ThemeConfig.instance.version) {
-              ThemeConfig.instance.version = version
-              StartupManager.getInstance(project).runWhenProjectIsInitialized {
-                UpdateNotification.display(project, version)
-              }
+          .doOrElse({
+            setSVGColorPatcher()
+            installAllUIComponents()
+            attemptToInstallColors()
+            attemptToAddIcons()
+          }) {
+            if (ThemeConfig.instance.isDokiFileColors) {
+              attemptToRemoveColors()
             }
-
-            StartupManager.getInstance(project).runWhenProjectIsInitialized {
-              PromotionManager.registerPromotion(version)
-            }
+            attemptToRemoveIcons()
           }
       }
-    })
+    )
+
+    connection.subscribe(
+      ProjectManager.TOPIC,
+      object : ProjectManagerListener {
+        override fun projectOpened(project: Project) {
+          if (ThemeConfig.instance.isDokiFileColors) {
+            setFileScopes(project)
+          }
+
+          ThemeMigrator.migrateToCommunityIfNecessary(project)
+
+          ThemeManager.instance.currentTheme
+            .filter { ThemeConfig.instance.currentStickerLevel == StickerLevel.ON }
+            .ifPresent {
+              StickerService.instance.checkForUpdates(it)
+            }
+
+          getVersion()
+            .ifPresent { version ->
+              if (version != ThemeConfig.instance.version) {
+                ThemeConfig.instance.version = version
+                StartupManager.getInstance(project).runWhenProjectIsInitialized {
+                  UpdateNotification.display(project, version)
+                }
+              }
+
+              StartupManager.getInstance(project).runWhenProjectIsInitialized {
+                PromotionManager.registerPromotion(version)
+              }
+            }
+        }
+      }
+    )
   }
 
   private fun userOnBoarding() {

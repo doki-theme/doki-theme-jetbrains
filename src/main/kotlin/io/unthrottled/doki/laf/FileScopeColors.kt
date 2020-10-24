@@ -20,14 +20,14 @@ object FileScopeColors {
   fun addColors() {
     ProjectManager.getInstance()
       .openProjects
-      .forEach { project -> DokiAddFileColorsAction.setFileScopes(project) }
+      .forEach { project -> AddFileColorsAction.setFileScopes(project) }
   }
 
   fun removeColors() {
     ProjectManager.getInstance()
       .openProjects
       .forEach { project ->
-        DokiAddFileColorsAction.removeFileScopes(project)
+        AddFileColorsAction.removeFileScopes(project)
       }
   }
 }

@@ -47,7 +47,8 @@ object LockMaster {
     readLock()
       .map {
         Duration.between(
-          it.lockedDate, Instant.now()
+          it.lockedDate,
+          Instant.now()
         ).toHours() > 1
       }
       .orElse(true)

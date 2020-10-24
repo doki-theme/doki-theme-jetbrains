@@ -14,9 +14,12 @@ class StickerComponent : Disposable {
 
   init {
     processLaf(LafManagerImpl.getInstance().currentLookAndFeel)
-    connection.subscribe(LafManagerListener.TOPIC, LafManagerListener {
-      processLaf(it.currentLookAndFeel)
-    })
+    connection.subscribe(
+      LafManagerListener.TOPIC,
+      LafManagerListener {
+        processLaf(it.currentLookAndFeel)
+      }
+    )
   }
 
   private fun processLaf(currentLaf: UIManager.LookAndFeelInfo?) {

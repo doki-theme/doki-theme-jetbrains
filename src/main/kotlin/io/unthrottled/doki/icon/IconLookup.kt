@@ -7,6 +7,7 @@ import io.unthrottled.doki.util.runSafelyWithResult
 import javax.swing.Icon
 
 // og class: com.intellij.util.ui.LafIconLookup
+@Suppress("LongParameterList")
 object IconLookup {
   fun getIcon(
     name: String,
@@ -47,7 +48,12 @@ object IconLookup {
     }
 
     return runSafelyWithResult({
-      IconLoader.findIcon("/com/intellij/ide/ui/laf/icons/darcula/$key.svg", LafIconLookup::class.java, true, isThrowErrorIfNotFound)
+      IconLoader.findIcon(
+        "/com/intellij/ide/ui/laf/icons/darcula/$key.svg",
+        LafIconLookup::class.java,
+        true,
+        isThrowErrorIfNotFound
+      )
     }) {
       attemptToGetLegacy(key, isThrowErrorIfNotFound)
     }
@@ -56,12 +62,12 @@ object IconLookup {
   private fun attemptToGetLegacy(key: String, isThrowErrorIfNotFound: Boolean): Icon? {
     return try {
       IconLoader.findLafIcon("darcula/$key", LafIconLookup::class.java, isThrowErrorIfNotFound)
-      } catch (e: Throwable) {
+    } catch (e: Throwable) {
       IconLoader.findLafIcon(
         "/com/intellij/ide/ui/laf/icons/darcula/$key",
         LafIconLookup::class.java,
         isThrowErrorIfNotFound
       )
-      }
+    }
   }
 }

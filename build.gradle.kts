@@ -115,7 +115,7 @@ tasks {
     untilBuild(pluginUntilBuild)
 
     val releaseNotes = file("$projectDir/build/html/RELEASE-NOTES.html")
-    if(releaseNotes.exists()) {
+    if (releaseNotes.exists()) {
       changeNotes(releaseNotes.readText())
     }
 

@@ -30,17 +30,19 @@ import io.unthrottled.doki.ide.DokiThemeJsonUtil.isThemeFilename
 import io.unthrottled.doki.util.toColor
 import io.unthrottled.doki.util.toOptional
 import java.awt.Color
-import java.util.*
+import java.util.Objects
 import java.util.regex.Pattern
 import javax.swing.Icon
 
 class DokiThemeColorAnnotator : Annotator {
 
-  override fun annotate(element: PsiElement, holder: AnnotationHolder) {
-    if (!isColorLineMarkerProviderEnabled || !isTargetElement(
-        element,
-        holder.currentAnnotationSession.file
-      )
+  override fun annotate(
+    element: PsiElement,
+    holder: AnnotationHolder
+  ) {
+    if (
+      !isColorLineMarkerProviderEnabled ||
+      !isTargetElement(element, holder.currentAnnotationSession.file)
     ) return
     val annotation = holder.newAnnotation(HighlightSeverity.INFORMATION, "")
     val literal = element as JsonStringLiteral
@@ -48,7 +50,7 @@ class DokiThemeColorAnnotator : Annotator {
     annotation.create()
   }
 
-  private class ColorBoxRenderer internal constructor(
+  private class ColorBoxRenderer(
     private val myColorText: String,
     private var myLiteral: JsonStringLiteral
   ) : GutterIconRenderer() {

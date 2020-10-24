@@ -1,7 +1,7 @@
 package io.unthrottled.doki.ui
 
 import java.awt.RenderingHints
-import java.util.*
+import java.util.Collections
 
 object UiUtils {
   private val RENDERING_HINTS = RenderingHints(

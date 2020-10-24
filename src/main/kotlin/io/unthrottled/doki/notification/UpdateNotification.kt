@@ -18,23 +18,26 @@ import io.unthrottled.doki.themes.ThemeManager
 import org.jetbrains.annotations.Nls
 import java.awt.Point
 
-val UPDATE_MESSAGE: String = """
+val UPDATE_MESSAGE: String =
+  """
       What's New?<br>
       <ul>
         <li>Fixed MacOS Title Bug Issue</li>
         <li>Better 2020.3 Support</li>
         <li>Enhanced Rory's & Ishtar's dark theme.</li>
       </ul>
-      Please see the <a href="https://github.com/doki-theme/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md">changelog</a> for more details.
+      Please see the <a href="https://github.com/doki-theme/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md">
+      changelog</a> for more details.
       <br><br>
       Did you the <b>Doki Theme</b> is available <a href='https://github.com/doki-theme'>on other platforms?</a>
       <br><br>
       Thanks for downloading!
       <br><br>
-      <img alt='Thanks for downloading!' src="https://doki.assets.unthrottled.io/misc/update_celebration.gif" width='256'>
+      <img alt='Thanks for downloading!' src="https://doki.assets.unthrottled.io/misc/update_celebration.gif" 
+      width='256'>
        <br><br><br><br><br><br><br><br>
        Thanks!
-""".trimIndent()
+  """.trimIndent()
 
 object UpdateNotification {
 
@@ -60,7 +63,8 @@ object UpdateNotification {
     listener: NotificationListener? = defaultListener
   ) {
     notificationGroup.createNotification(
-      title, content,
+      title,
+      content,
       listener = listener
     ).setIcon(NOTIFICATION_ICON)
       .notify(project)
@@ -142,7 +146,8 @@ object UpdateNotification {
     showDokiNotification(
       "Theme Transition Animation Enabled",
       """The animations will remain in your IDE after uninstalling the plugin.
-          |To remove them, un-check this action or toggle the action at "Help -> Find Action -> ide.intellij.laf.enable.animation". 
+          |To remove them, un-check this action or toggle the action at 
+          |"Help -> Find Action -> ide.intellij.laf.enable.animation". 
         """.trimMargin()
     )
   }
@@ -151,7 +156,8 @@ object UpdateNotification {
     showDokiNotification(
       "README.md will not show on startup",
       """This behavior will remain in your IDE after uninstalling the plugin.
-          |To re-enable it, un-check this action or toggle the action at "Help -> Find Action -> ide.open.readme.md.on.startup". 
+          |To re-enable it, un-check this action or toggle the action at 
+          |"Help -> Find Action -> ide.open.readme.md.on.startup". 
         """.trimMargin()
     )
   }

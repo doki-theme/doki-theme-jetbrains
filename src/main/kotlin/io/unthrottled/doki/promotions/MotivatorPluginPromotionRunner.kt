@@ -57,7 +57,10 @@ object MotivatorPluginPromotion {
             val promotionAssets = PromotionAssets(dokiTheme)
             ApplicationManager.getApplication().invokeLater {
               MotivatorPromotionDialog(
-                dokiTheme, promotionAssets, it, onPromotion
+                dokiTheme,
+                promotionAssets,
+                it,
+                onPromotion
               ).show()
             }
           }
