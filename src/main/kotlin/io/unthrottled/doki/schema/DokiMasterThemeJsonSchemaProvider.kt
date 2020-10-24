@@ -7,7 +7,7 @@ import com.intellij.openapi.vfs.VirtualFile
 import com.jetbrains.jsonSchema.extension.JsonSchemaFileProvider
 import com.jetbrains.jsonSchema.extension.JsonSchemaProviderFactory
 import com.jetbrains.jsonSchema.extension.SchemaType
-import java.util.*
+import java.util.Collections
 
 class DokiMasterThemeJsonSchemaProvider : JsonSchemaProviderFactory {
   companion object {
@@ -15,16 +15,18 @@ class DokiMasterThemeJsonSchemaProvider : JsonSchemaProviderFactory {
   }
 
   override fun getProviders(project: Project): MutableList<JsonSchemaFileProvider> =
-    Collections.singletonList(object : JsonSchemaFileProvider {
-      override fun getName(): String = "Doki Master Themes"
+    Collections.singletonList(
+      object : JsonSchemaFileProvider {
+        override fun getName(): String = "Doki Master Themes"
 
-      override fun isAvailable(file: VirtualFile): Boolean =
-        StringUtil.endsWithIgnoreCase(file.name, ".master.definition.json")
+        override fun isAvailable(file: VirtualFile): Boolean =
+          StringUtil.endsWithIgnoreCase(file.name, ".master.definition.json")
 
-      override fun getSchemaFile(): VirtualFile? =
-        VfsUtil.findFileByURL(javaClass.getResource(THEME_SCHEMA))
+        override fun getSchemaFile(): VirtualFile? =
+          VfsUtil.findFileByURL(javaClass.getResource(THEME_SCHEMA))
 
-      override fun getSchemaType(): SchemaType =
-        SchemaType.embeddedSchema
-    })
+        override fun getSchemaType(): SchemaType =
+          SchemaType.embeddedSchema
+      }
+    )
 }

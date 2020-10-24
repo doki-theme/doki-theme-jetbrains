@@ -58,49 +58,52 @@ class ToggleButtonUI : BasicToggleButtonUI() {
   override fun getMinimumSize(c: JComponent): Dimension = getPreferredSize(c)
 
   override fun paint(g: Graphics, button: JComponent) {
-    if (button is OnOffButton) {
-      val g2 = g.create() as Graphics2D
-      val config = GraphicsUtil.setupAAPainting(g2)
-      try {
-        val insets = button.getInsets()
-        val origin = Point(
-          (button.getWidth() - BUTTON_SIZE.width) / 2 + insets.left,
-          (button.getHeight() - BUTTON_SIZE.height) / 2 + insets.top
-        )
+    if (button !is OnOffButton) return
+    val g2 = g.create() as Graphics2D
+    val config = GraphicsUtil.setupAAPainting(g2)
+    try {
+      val insets = button.getInsets()
+      val origin = Point(
+        (button.getWidth() - BUTTON_SIZE.width) / 2 + insets.left,
+        (button.getHeight() - BUTTON_SIZE.height) / 2 + insets.top
+      )
 
-        g2.color =
-          if (button.isSelected) withAlpha(ON_BACKGROUND, 0.45)
-          else {
-            val parentBackground = button.parent.background
-            if (isDark(parentBackground)) brighter(parentBackground, 2)
-            else darker(parentBackground.darker(), 2)
-          }
+      g2.color =
+        if (button.isSelected) withAlpha(ON_BACKGROUND, 0.45)
+        else {
+          val parentBackground = button.parent.background
+          if (isDark(parentBackground)) brighter(parentBackground, 2)
+          else darker(parentBackground.darker(), 2)
+        }
 
-        g2.fillRoundRect(origin.x, origin.y, BUTTON_SIZE.width, BUTTON_SIZE.height, ARC, ARC)
+      g2.fillRoundRect(origin.x, origin.y, BUTTON_SIZE.width, BUTTON_SIZE.height, ARC, ARC)
 
-        g2.color = BUTTON_COLOR
-        val halfWay = BUTTON_SIZE.width / 2
-        val location = Point(
-          (if (button.isSelected) JBUI.scale(halfWay) else JBUI.scale(0)) + origin.x,
-          origin.y
-        )
-        g2.fillRoundRect(location.x, location.y, halfWay, BUTTON_SIZE.height, ARC, ARC)
-        config.restore()
-      } finally {
-        g2.dispose()
-      }
+      g2.color = BUTTON_COLOR
+      val halfWay = BUTTON_SIZE.width / 2
+      val location = Point(
+        (if (button.isSelected) JBUI.scale(halfWay) else JBUI.scale(0)) + origin.x,
+        origin.y
+      )
+      g2.fillRoundRect(location.x, location.y, halfWay, BUTTON_SIZE.height, ARC, ARC)
+      config.restore()
+    } finally {
+      g2.dispose()
     }
   }
 
   companion object {
     val BUTTON_COLOR: Color = JBColor.namedColor(
-      "ToggleButton.buttonColor", JBColor(
-        Gray._200, Gray._100
+      "ToggleButton.buttonColor",
+      JBColor(
+        Gray._200,
+        Gray._100
       )
     )
     val ON_BACKGROUND: Color = JBColor.namedColor(
-      "ToggleButton.onBackground", JBColor(
-        Color(74, 146, 73), Color(77, 105, 76)
+      "ToggleButton.onBackground",
+      JBColor(
+        Color(74, 146, 73),
+        Color(77, 105, 76)
       )
     )
 

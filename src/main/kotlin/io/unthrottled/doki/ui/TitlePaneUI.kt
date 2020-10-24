@@ -27,7 +27,7 @@ import java.awt.event.WindowAdapter
 import java.awt.event.WindowEvent
 import java.awt.geom.AffineTransform
 import java.beans.PropertyChangeListener
-import java.util.*
+import java.util.Optional
 import javax.swing.JComponent
 import javax.swing.JDialog
 import javax.swing.JFrame

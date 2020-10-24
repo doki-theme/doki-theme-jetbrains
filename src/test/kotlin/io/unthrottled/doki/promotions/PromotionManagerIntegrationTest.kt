@@ -87,7 +87,8 @@ class PromotionManagerIntegrationTest {
     assertThat(postLedger.seenPromotions.isEmpty()).isTrue()
     assertThat(postLedger.versionInstallDates.size).isEqualTo(1)
     assertThat(postLedger.versionInstallDates["Ryuko"]).isBetween(
-      beforePromotion, Instant.now()
+      beforePromotion,
+      Instant.now()
     )
 
     verify { MotivatorPromotionService wasNot Called }
@@ -117,7 +118,8 @@ class PromotionManagerIntegrationTest {
     assertThat(postRyukoLedger.seenPromotions.isEmpty()).isTrue()
     assertThat(postRyukoLedger.versionInstallDates.size).isEqualTo(1)
     assertThat(postRyukoLedger.versionInstallDates["Ryuko"]).isBetween(
-      beforeRyuko, Instant.now()
+      beforeRyuko,
+      Instant.now()
     )
 
     val beforeRin = Instant.now()
@@ -131,10 +133,12 @@ class PromotionManagerIntegrationTest {
     assertThat(postRinLedger.seenPromotions.isEmpty()).isTrue()
     assertThat(postRinLedger.versionInstallDates.size).isEqualTo(2)
     assertThat(postRyukoLedger.versionInstallDates["Ryuko"]).isBetween(
-      beforeRyuko, Instant.now()
+      beforeRyuko,
+      Instant.now()
     )
     assertThat(postRinLedger.versionInstallDates["Rin"]).isBetween(
-      beforeRin, Instant.now()
+      beforeRin,
+      Instant.now()
     )
 
     verify { MotivatorPromotionService wasNot Called }
@@ -219,7 +223,9 @@ class PromotionManagerIntegrationTest {
       mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(3))),
       mutableMapOf(
         MOTIVATION_PROMOTION_ID to Promotion(
-          MOTIVATION_PROMOTION_ID, Instant.now(), PromotionStatus.REJECTED
+          MOTIVATION_PROMOTION_ID,
+          Instant.now(),
+          PromotionStatus.REJECTED
         )
       ),
       true
@@ -521,9 +527,14 @@ class PromotionManagerIntegrationTest {
               
       """.toOptional()
 
-    LockMaster.writeLock(Lock("Misato", Instant.now().minusMillis(
-      TimeUnit.MILLISECONDS.convert(3, TimeUnit.HOURS)
-    )))
+    LockMaster.writeLock(
+      Lock(
+        "Misato",
+        Instant.now().minusMillis(
+          TimeUnit.MILLISECONDS.convert(3, TimeUnit.HOURS)
+        )
+      )
+    )
 
     val currentLedger = PromotionLedger(
       UUID.randomUUID(),

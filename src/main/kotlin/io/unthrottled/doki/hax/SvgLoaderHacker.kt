@@ -2,7 +2,7 @@ package io.unthrottled.doki.hax
 
 import com.intellij.util.SVGLoader
 import io.unthrottled.doki.icon.ColorPatcher
-import java.util.*
+import java.util.Optional
 
 typealias SVGL = SVGLoader
 typealias PatcherProvider = SVGLoader.SvgElementColorPatcherProvider
@@ -16,19 +16,25 @@ object SvgLoaderHacker {
    * Enables the ability to have more than one color patcher.
    */
   fun setSVGColorPatcher() {
-    SVGLoader.setColorPatcherProvider(collectOtherPatcher()
-      .map { patcher ->
-        ColorPatcher(patcher)
-      }
-      .orElseGet {
-        ColorPatcher(object : PatcherProvider {
-        })
-      })
+    SVGLoader.setColorPatcherProvider(
+      collectOtherPatcher()
+        .map { patcher ->
+          ColorPatcher(patcher)
+        }
+        .orElseGet {
+          ColorPatcher(
+            object : PatcherProvider {
+            }
+          )
+        }
+    )
   }
 
   private fun collectOtherPatcher(): Optional<PatcherProvider> =
-    Optional.ofNullable(SVGLoader::class.java.declaredFields
-      .firstOrNull { it.name == "ourColorPatcher" })
+    Optional.ofNullable(
+      SVGLoader::class.java.declaredFields
+        .firstOrNull { it.name == "ourColorPatcher" }
+    )
       .map { ourColorPatcherField ->
         ourColorPatcherField.isAccessible = true
         ourColorPatcherField.get(null)

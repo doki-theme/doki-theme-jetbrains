@@ -2,7 +2,7 @@ package io.unthrottled.doki.themes
 
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.components.ServiceManager
-import java.util.*
+import java.util.Optional
 import javax.swing.UIManager
 
 interface ThemeManager : Disposable {

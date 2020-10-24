@@ -9,6 +9,7 @@ object DokiIcons {
       val TOOL_WINDOW = load("/icons/plugins/motivator/motivator_toolwindow.svg")
     }
   }
+
   object CheckBox {
     const val CHECK_MARK_KEY = "CheckBoxMenuItem.checkIcon"
     val CHECK_MARK = load("/icons/icons/checkmark.svg")

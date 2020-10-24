@@ -11,10 +11,10 @@ class ShowUpdateNotification : AnAction(), DumbAware {
   override fun actionPerformed(e: AnActionEvent) {
     TheDokiTheme.getVersion()
       .ifPresent {
-          UpdateNotification.display(
-              e.project!!,
-              it
-          )
+        UpdateNotification.display(
+          e.project!!,
+          it
+        )
       }
   }
 }

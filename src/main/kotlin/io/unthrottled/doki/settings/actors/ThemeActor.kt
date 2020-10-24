@@ -5,7 +5,7 @@ import com.intellij.ide.ui.LafManager
 import io.unthrottled.doki.themes.DokiTheme
 import io.unthrottled.doki.themes.ThemeManager
 import io.unthrottled.doki.util.toOptional
-import java.util.*
+import java.util.Optional
 
 object ThemeActor {
   fun applyTheme(selectedTheme: String) {

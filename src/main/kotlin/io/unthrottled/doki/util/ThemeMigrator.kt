@@ -39,9 +39,10 @@ object ThemeMigrator {
             """
       <p>Sorry friend, but your previously selected theme is no longer part of the Community Doki Theme.</p>
       <p>You need the Ultimate Doki Theme (which is free) to gain access your previous theme.</p>
-      <p>The <a href='${ThemeSettings.ULTIMATE_INSTRUCTIONS}'>wiki</a> on the repository should show you what you need to do to get it.</p>
+      <p>The <a href='${ThemeSettings.ULTIMATE_INSTRUCTIONS}'>wiki</a> on the repository 
+      should show you what you need to do to get it.</p>
       <p>Thanks!</p>
-    """.trimIndent(),
+            """.trimIndent(),
             project
           )
         }

@@ -21,7 +21,7 @@ import io.unthrottled.doki.stickers.CurrentSticker
 import io.unthrottled.doki.stickers.StickerLevel
 import io.unthrottled.doki.themes.ThemeManager
 import java.net.URI
-import java.util.*
+import java.util.Vector
 import javax.swing.DefaultComboBoxModel
 import javax.swing.ImageIcon
 import javax.swing.JComponent
@@ -106,7 +106,8 @@ class ThemeSettings : SearchableConfigurable {
     } catch (e: Throwable) {
       val outOfServicePanel = JPanel()
       val outOfServiceTextPan = JTextPane()
-      outOfServiceTextPan.text = """
+      outOfServiceTextPan.text =
+        """
           Doki Theme Settings Menu currently unavailable in the 
           2020 EAP Builds. All functionality is available in the 
           Doki Theme Options in the toolbar and tool menu.
@@ -166,14 +167,18 @@ class ThemeSettings : SearchableConfigurable {
     }
   }
 
+  @Suppress("LongMethod")
   private fun createSettingsPane(): DialogPanel {
-    val themeComboBox = ComboBox(DefaultComboBoxModel(
-      Vector(ThemeManager.instance.allThemes
-        .groupBy { it.groupName }
-        .entries
-        .flatMap { it.value.sortedBy { theme -> theme.name } }
-        .map { it.name }
-      ))
+    val themeComboBox = ComboBox(
+      DefaultComboBoxModel(
+        Vector(
+          ThemeManager.instance.allThemes
+            .groupBy { it.groupName }
+            .entries
+            .flatMap { it.value.sortedBy { theme -> theme.name } }
+            .map { it.name }
+        )
+      )
     )
     themeComboBox.model.selectedItem = themeSettingsModel.currentTheme
     themeComboBox.addActionListener {
@@ -228,8 +233,10 @@ class ThemeSettings : SearchableConfigurable {
           checkBox(
             "Enable File Colors",
             themeSettingsModel.isFileColors,
-            comment = """The file colors remain part of your IDE  after the plugin has been uninstalled.
-                |To Prevent this, disable this setting or you can remove them from "Settings -> Appearance -> File Colors".
+            comment =
+              """The file colors remain part of your IDE  after the plugin has been uninstalled.
+                |To Prevent this, disable this setting or you can remove them 
+                |from "Settings -> Appearance -> File Colors".
               """.trimMargin(),
             actionListener = { _, component ->
               themeSettingsModel.isFileColors = component.isSelected
@@ -240,8 +247,10 @@ class ThemeSettings : SearchableConfigurable {
           checkBox(
             "Theme Transition Animation",
             themeSettingsModel.isFileColors,
-            comment = """The animations will remain in your IDE after uninstalling the plugin.
-            |To remove them, un-check this action or toggle the action at "Help -> Find Action -> ide.intellij.laf.enable.animation". 
+            comment =
+              """The animations will remain in your IDE after uninstalling the plugin.
+            |To remove them, un-check this action or toggle the action at 
+            |"Help -> Find Action -> ide.intellij.laf.enable.animation". 
             """.trimMargin(),
             actionListener = { _, component ->
               themeSettingsModel.isFileColors = component.isSelected
@@ -252,7 +261,8 @@ class ThemeSettings : SearchableConfigurable {
           checkBox(
             "Don't show README on project startup",
             themeSettingsModel.isNotShowReadmeAtStartup,
-            comment = """Anytime you open a new project, don't automatically open the README.
+            comment =
+              """Anytime you open a new project, don't automatically open the README.
               |That way you can admire your theme's background art instead!
             |This will stay even after you uninstall the plugin.
 |To re-enable it, un-check this action or toggle the action at "Help -> Find Action -> ide.open.readme.md.on.startup". 

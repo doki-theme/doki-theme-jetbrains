@@ -51,7 +51,9 @@ class LAFAnimator {
             UIUtil.drawImage(
               newG,
               image,
-              0, 0, this
+              0,
+              0,
+              this
             )
           }
 
@@ -64,7 +66,10 @@ class LAFAnimator {
       }
 
     myAnimator = object : Animator(
-      "ChangeLAF", 60, 800, false
+      "ChangeLAF",
+      60,
+      800,
+      false
     ) {
       override fun paintNow(frame: Int, totalFrames: Int, cycle: Int) {
         myAlpha =

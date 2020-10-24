@@ -8,8 +8,9 @@ import io.unthrottled.doki.assets.AssetManager
 import io.unthrottled.doki.stickers.StickerService
 import io.unthrottled.doki.themes.Background
 import io.unthrottled.doki.themes.DokiTheme
+import io.unthrottled.doki.util.runSafely
 import io.unthrottled.doki.util.toOptional
-import java.util.*
+import java.util.Optional
 
 const val DOKI_BACKGROUND_PROP: String = "io.unthrottled.doki.background"
 
@@ -19,9 +20,10 @@ private const val PREVIOUS_STICKER = "io.unthrottled.doki.sticker.previous"
 class StickerServiceImpl : StickerService {
 
   override fun activateForTheme(dokiTheme: DokiTheme) {
-    listOf({
-      installSticker(dokiTheme)
-    },
+    listOf(
+      {
+        installSticker(dokiTheme)
+      },
       {
         installBackgroundImage(dokiTheme)
       }
@@ -98,10 +100,9 @@ class StickerServiceImpl : StickerService {
     repaintWindows()
   }
 
-  private fun repaintWindows() = try {
+  private fun repaintWindows() = runSafely({
     IdeBackgroundUtil.repaintAllWindows()
-  } catch (e: Throwable) {
-  }
+  })
 
   override fun getPreviousSticker(): Optional<String> =
     PropertiesComponent.getInstance().getValue(PREVIOUS_STICKER).toOptional()
@@ -109,23 +110,23 @@ class StickerServiceImpl : StickerService {
   override fun clearPreviousSticker() {
     PropertiesComponent.getInstance().unsetValue(PREVIOUS_STICKER)
   }
+}
 
-  private fun setBackgroundImageProperty(
-    imagePath: String,
-    opacity: String,
-    fill: String,
-    anchor: String,
-    propertyKey: String
-  ) {
-    // org.intellij.images.editor.actions.SetBackgroundImageDialog has all of the answers
-    // as to why this looks this way
-    val propertyValue = listOf(imagePath, opacity, fill, anchor)
-      .reduceRight { a, b -> "$a,$b" }
-    setPropertyValue(propertyKey, propertyValue)
-  }
+private fun setBackgroundImageProperty(
+  imagePath: String,
+  opacity: String,
+  fill: String,
+  anchor: String,
+  propertyKey: String
+) {
+  // org.intellij.images.editor.actions.SetBackgroundImageDialog has all of the answers
+  // as to why this looks this way
+  val propertyValue = listOf(imagePath, opacity, fill, anchor)
+    .reduceRight { a, b -> "$a,$b" }
+  setPropertyValue(propertyKey, propertyValue)
+}
 
-  private fun setPropertyValue(propertyKey: String, propertyValue: String) {
-    PropertiesComponent.getInstance().unsetValue(propertyKey)
-    PropertiesComponent.getInstance().setValue(propertyKey, propertyValue)
-  }
+private fun setPropertyValue(propertyKey: String, propertyValue: String) {
+  PropertiesComponent.getInstance().unsetValue(propertyKey)
+  PropertiesComponent.getInstance().setValue(propertyKey, propertyValue)
 }

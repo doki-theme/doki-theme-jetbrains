@@ -74,8 +74,10 @@ open class PromotionManagerImpl {
 
   private fun shouldPromote(): Boolean =
     promotionLedger.allowedToPromote &&
-      (promotionLedger.seenPromotions.containsKey(MOTIVATION_PROMOTION_ID).not() ||
-        promotionLedger.seenPromotions[MOTIVATION_PROMOTION_ID]?.result == PromotionStatus.ACCEPTED) &&
+      (
+        promotionLedger.seenPromotions.containsKey(MOTIVATION_PROMOTION_ID).not() ||
+          promotionLedger.seenPromotions[MOTIVATION_PROMOTION_ID]?.result == PromotionStatus.ACCEPTED
+        ) &&
       WeebService.isWeebStuffOn()
 }
 

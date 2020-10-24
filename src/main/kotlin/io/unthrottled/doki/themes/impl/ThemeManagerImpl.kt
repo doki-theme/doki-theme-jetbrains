@@ -13,7 +13,7 @@ import java.net.URI.create
 import java.nio.charset.StandardCharsets
 import java.nio.file.FileSystems.newFileSystem
 import java.nio.file.Files.walk
-import java.util.*
+import java.util.Optional
 import java.util.stream.Collectors
 import javax.swing.UIManager
 
@@ -48,7 +48,8 @@ class ThemeManagerImpl : ThemeManager {
           { it.name },
           { it },
           { a, _ -> a }
-        ))
+        )
+      )
   }
 
   override val currentTheme: Optional<DokiTheme>

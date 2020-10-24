@@ -10,7 +10,8 @@
     </linearGradient>
   </defs>
   <g fill="none" fill-rule="evenodd">
-    <path fill="#F4AF3D" fill-opacity=".6" d="M8,15 C4.134,15 1,11.866 1,8 C1,4.134 4.134,1 8,1 C11.866,1 15,4.134 15,8 L8,8 L8,15 Z"/>
+    <path fill="#F4AF3D" fill-opacity=".6"
+          d="M8,15 C4.134,15 1,11.866 1,8 C1,4.134 4.134,1 8,1 C11.866,1 15,4.134 15,8 L8,8 L8,15 Z"/>
     <polygon fill="#231F20" fill-opacity=".7" points="5 7 11 7 11 6 5 6"/>
     <polygon fill="#231F20" fill-opacity=".7" points="5 9 8 9 8 8 5 8"/>
     <g transform="translate(9 9)">

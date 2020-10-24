@@ -11,18 +11,21 @@ object IconAssociatiorFactory {
     return try {
       ResourceUtil.getResource(
         IconAssociation::class.java,
-        "/associations/", association.fileName
+        "/associations/",
+        association.fileName
       ).openStream().use {
         val def = gson.fromJson(
           InputStreamReader(it, StandardCharsets.UTF_8),
           AssociationModels::class.java
         )
-        IconAssociatior(def.associations.map { associationDefinition ->
-          IconAssociation(
-            Regex(associationDefinition.associationPattern),
-            associationDefinition.iconPath
-          )
-        })
+        IconAssociatior(
+          def.associations.map { associationDefinition ->
+            IconAssociation(
+              Regex(associationDefinition.associationPattern),
+              associationDefinition.iconPath
+            )
+          }
+        )
       }
     } catch (t: Throwable) {
       t.printStackTrace()

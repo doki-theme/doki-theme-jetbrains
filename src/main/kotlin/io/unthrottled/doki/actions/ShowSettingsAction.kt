@@ -11,11 +11,14 @@ import io.unthrottled.doki.settings.ThemeSettings.Companion.THEME_SETTINGS_DISPL
 
 class ShowSettingsAction : AnAction(), DumbAware {
   override fun actionPerformed(e: AnActionEvent) {
-    ApplicationManager.getApplication().invokeLater({
-      ShowSettingsUtil.getInstance().showSettingsDialog(
-        ProjectManager.getInstance().defaultProject,
-        THEME_SETTINGS_DISPLAY_NAME
-      )
-    }, ModalityState.NON_MODAL)
+    ApplicationManager.getApplication().invokeLater(
+      {
+        ShowSettingsUtil.getInstance().showSettingsDialog(
+          ProjectManager.getInstance().defaultProject,
+          THEME_SETTINGS_DISPLAY_NAME
+        )
+      },
+      ModalityState.NON_MODAL
+    )
   }
 }

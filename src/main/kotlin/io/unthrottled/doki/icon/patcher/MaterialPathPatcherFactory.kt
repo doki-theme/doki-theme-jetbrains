@@ -12,7 +12,8 @@ object MaterialPathPatcherFactory {
   val materialPathPatchers: MaterialPathPatchers = try {
     ResourceUtil.getResource(
       MaterialPathPatcherFactory::class.java,
-      "/patcher/", "patcher.json"
+      "/patcher/",
+      "patcher.json"
     ).openStream().use {
       val def = gson.fromJson(
         InputStreamReader(it, StandardCharsets.UTF_8),

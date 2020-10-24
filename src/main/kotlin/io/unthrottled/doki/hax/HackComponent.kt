@@ -31,13 +31,18 @@ import io.unthrottled.doki.stickers.impl.DOKI_BACKGROUND_PROP
 import io.unthrottled.doki.stickers.impl.DOKI_STICKER_PROP
 import io.unthrottled.doki.ui.TitlePaneUI.Companion.LOL_NOPE
 import io.unthrottled.doki.util.runSafely
-import javassist.*
+import javassist.CannotCompileException
+import javassist.ClassClassPath
+import javassist.ClassPool
+import javassist.CtClass
+import javassist.CtMethod
 import javassist.expr.ExprEditor
 import javassist.expr.MethodCall
 import javassist.expr.NewExpr
 import java.awt.Color
 import javax.swing.JDialog
 
+@Suppress("TooManyFunctions")
 object HackComponent : Disposable {
   private val log = Logger.getInstance(javaClass)
 
@@ -82,13 +87,15 @@ object HackComponent : Disposable {
       cp.insertClassPath(ClassClassPath(Class.forName("com.intellij.find.impl.livePreview.SearchResults")))
       val ctClass = cp.get("com.intellij.find.impl.livePreview.ReplacementView")
       val init = ctClass.declaredConstructors[0]
-      init.instrument(object : ExprEditor() {
-        override fun edit(e: MethodCall?) {
-          if (e?.methodName == "setForeground") {
-            e.replace("{ \$1 = com.intellij.util.ui.UIUtil.getLabelForeground(); \$_ = \$proceed(\$\$);}")
+      init.instrument(
+        object : ExprEditor() {
+          override fun edit(e: MethodCall?) {
+            if (e?.methodName == "setForeground") {
+              e.replace("{ \$1 = com.intellij.util.ui.UIUtil.getLabelForeground(); \$_ = \$proceed(\$\$);}")
+            }
           }
         }
-      })
+      )
       ctClass.toClass()
     }) {
       log.warn("Unable to hackLivePreview for reasons.")
@@ -98,18 +105,28 @@ object HackComponent : Disposable {
   private fun hackWelcomeScreen() {
     runSafely({
       val cp = ClassPool(true)
-      cp.insertClassPath(ClassClassPath(Class.forName("com.intellij.openapi.wm.impl.welcomeScreen.EditProjectGroupAction")))
+      cp.insertClassPath(
+        ClassClassPath(
+          Class.forName("com.intellij.openapi.wm.impl.welcomeScreen.EditProjectGroupAction")
+        )
+      )
       val ctClass = cp.get("com.intellij.openapi.wm.impl.welcomeScreen.FlatWelcomeFrame")
       val init = ctClass.getDeclaredMethods("getActionLinkSelectionColor")[0]
-      init.insertAfter("\$_ = com.intellij.ui.JBColor.namedColor(\"List.selectionBackground\", java.awt.Color.GREEN);")
+      init.insertAfter(
+        "\$_ = com.intellij.ui.JBColor.namedColor(\"List.selectionBackground\", java.awt.Color.GREEN);"
+      )
       val createLink = ctClass.getDeclaredMethod("getLinkNormalColor")
-      createLink.instrument(object : ExprEditor() {
-        override fun edit(e: NewExpr?) {
-          if (e?.className == "com.intellij.ui.JBColor") {
-            e.replace("{ \$_ = com.intellij.ui.JBColor.namedColor(\"Label.foreground\", com.intellij.ui.JBColor.BLACK); }")
+      createLink.instrument(
+        object : ExprEditor() {
+          override fun edit(e: NewExpr?) {
+            if (e?.className == "com.intellij.ui.JBColor") {
+              e.replace(
+                "{ \$_ = com.intellij.ui.JBColor.namedColor(\"Label.foreground\", com.intellij.ui.JBColor.BLACK); }"
+              )
+            }
           }
         }
-      })
+      )
       ctClass.toClass()
     }) {
       log.warn("Unable to hackWelcomeScreen for reasons.")
@@ -133,13 +150,15 @@ object HackComponent : Disposable {
       val ctClass = cp.get("com.intellij.ui.messages.SheetMessage")
       ctClass.declaredConstructors
         .forEach { constructorDude ->
-          constructorDude.instrument(object : ExprEditor() {
-            override fun edit(e: NewExpr?) {
-              if (e?.className == JDialog::class.java.name) {
-                e?.replace("{ \$2 = \"$LOL_NOPE\"; \$_ = \$proceed(\$\$); }")
+          constructorDude.instrument(
+            object : ExprEditor() {
+              override fun edit(e: NewExpr?) {
+                if (e?.className == JDialog::class.java.name) {
+                  e?.replace("{ \$2 = \"$LOL_NOPE\"; \$_ = \$proceed(\$\$); }")
+                }
               }
             }
-          })
+          )
         }
       ctClass.toClass()
     }) {
@@ -156,19 +175,21 @@ object HackComponent : Disposable {
         .filter { it.declaredMethods.any { m -> m.name == "paintComponent" } }
         .forEach { classDude ->
           classDude.getDeclaredMethods("paintComponent").forEach {
-            it.instrument(object : ExprEditor() {
-              override fun edit(e: NewExpr?) {
-                if (e?.className == JBColor::class.java.name) {
-                  e?.replace("{ \$_ = com.intellij.util.ui.UIUtil.getPanelBackground(); }")
+            it.instrument(
+              object : ExprEditor() {
+                override fun edit(e: NewExpr?) {
+                  if (e?.className == JBColor::class.java.name) {
+                    e?.replace("{ \$_ = com.intellij.util.ui.UIUtil.getPanelBackground(); }")
+                  }
                 }
-              }
 
-              override fun edit(e: MethodCall?) {
-                if (e?.methodName == "isUnderDarcula") {
-                  e.replace("{ \$_ = true; }")
+                override fun edit(e: MethodCall?) {
+                  if (e?.methodName == "isUnderDarcula") {
+                    e.replace("{ \$_ = true; }")
+                  }
                 }
               }
-            })
+            )
           }
           classDude.toClass()
         }
@@ -184,13 +205,18 @@ object HackComponent : Disposable {
       cp.insertClassPath(ClassClassPath(HintUtil::class.java))
       val ctClass = cp.get("com.intellij.codeInsight.hint.ParameterInfoComponent\$OneElementComponent")
       val hackBackground: (CtMethod) -> Unit = {
-        it.instrument(object : ExprEditor() {
-          override fun edit(e: MethodCall?) {
-            if (e?.methodName == "setBackground") {
-              e.replace("{ \$1 = com.intellij.ui.JBColor.namedColor(\"ParameterInfo.background\", com.intellij.codeInsight.hint.HintUtil.getInformationColor()); \$_ = \$proceed(\$\$); }")
+        it.instrument(
+          object : ExprEditor() {
+            override fun edit(e: MethodCall?) {
+              if (e?.methodName == "setBackground") {
+                e.replace(
+                  "{ \$1 = com.intellij.ui.JBColor.namedColor(\"ParameterInfo.background\", " +
+                    "com.intellij.codeInsight.hint.HintUtil.getInformationColor()); \$_ = \$proceed(\$\$); }"
+                )
+              }
             }
           }
-        })
+        )
       }
       ctClass.getDeclaredMethods("setup").forEach(hackBackground)
       ctClass.toClass()
@@ -214,13 +240,18 @@ object HackComponent : Disposable {
       val init = ctClass.getDeclaredMethods(
         "getLiveIndicator"
       )[1]
-      init.instrument(object : ExprEditor() {
-        override fun edit(e: MethodCall?) {
-          if (e?.methodName == "getIndicator") {
-            e.replace("{ \$4 = com.intellij.ui.JBColor.namedColor(\"Doki.Accent.color\", java.awt.Color.GREEN); \$_ = \$proceed(\$\$); }")
+      init.instrument(
+        object : ExprEditor() {
+          override fun edit(e: MethodCall?) {
+            if (e?.methodName == "getIndicator") {
+              e.replace(
+                "{ \$4 = com.intellij.ui.JBColor.namedColor(\"Doki.Accent.color\", " +
+                  "java.awt.Color.GREEN); \$_ = \$proceed(\$\$); }"
+              )
+            }
           }
         }
-      })
+      )
       ctClass.toClass()
     }) {
       log.warn("Unable to hackLiveIndicator for reasons.")
@@ -239,13 +270,15 @@ object HackComponent : Disposable {
       val init = ctClass.getDeclaredMethods(
         "getListCellRendererComponent"
       )[0]
-      init.instrument(object : ExprEditor() {
-        override fun edit(e: MethodCall?) {
-          if (e?.methodName == "isUnderDarcula") { // dis for OptionDescription
-            e.replace("{ \$_ = true; }")
+      init.instrument(
+        object : ExprEditor() {
+          override fun edit(e: MethodCall?) {
+            if (e?.methodName == "isUnderDarcula") { // dis for OptionDescription
+              e.replace("{ \$_ = true; }")
+            }
           }
         }
-      })
+      )
       ctClass.toClass()
     }) {
       log.warn("Unable to hackActionModel for reasons.")
@@ -260,13 +293,15 @@ object HackComponent : Disposable {
       val init = ctClass.getDeclaredMethods(
         "paintChildren"
       )[0]
-      init.instrument(object : ExprEditor() {
-        override fun edit(e: MethodCall?) {
-          if (e?.methodName == "isUnderDarcula") { // dis for OptionDescription
-            e.replace("{ \$_ = true; }")
+      init.instrument(
+        object : ExprEditor() {
+          override fun edit(e: MethodCall?) {
+            if (e?.methodName == "isUnderDarcula") { // dis for OptionDescription
+              e.replace("{ \$_ = true; }")
+            }
           }
         }
-      })
+      )
       ctClass.toClass()
     }) {
       log.warn("Unable to hackToolWindowDecorator for reasons.")
@@ -291,13 +326,15 @@ object HackComponent : Disposable {
       cp.insertClassPath(ClassClassPath(LineStatusMarkerRenderer::class.java))
       val bitchassClass = cp.get("com.intellij.openapi.vcs.ex.LineStatusMarkerPopupRenderer\$PopupPanel")
       bitchassClass.declaredConstructors.forEach { ctConstructor ->
-        ctConstructor.instrument(object : ExprEditor() {
-          override fun edit(e: NewExpr?) {
-            if (e?.className == "com.intellij.ui.JBColor") {
-              e.replace("{ \$_ = com.intellij.util.ui.UIUtil.getBorderSeparatorColor(); }")
+        ctConstructor.instrument(
+          object : ExprEditor() {
+            override fun edit(e: NewExpr?) {
+              if (e?.className == "com.intellij.ui.JBColor") {
+                e.replace("{ \$_ = com.intellij.util.ui.UIUtil.getBorderSeparatorColor(); }")
+              }
             }
           }
-        })
+        )
       }
       bitchassClass.toClass()
     }) {
@@ -311,13 +348,15 @@ object HackComponent : Disposable {
       cp.insertClassPath(ClassClassPath(TooltipRenderer::class.java))
       val ctClass = cp.get("com.intellij.codeInsight.hint.HintManagerImpl")
       val init = ctClass.getDeclaredMethods("createHintHint")[1]
-      init.instrument(object : ExprEditor() {
-        override fun edit(e: NewExpr?) {
-          if (e?.className == "com.intellij.ui.JBColor") {
-            e.replace("{ \$_ = com.intellij.util.ui.UIUtil.getBorderSeparatorColor(); }")
+      init.instrument(
+        object : ExprEditor() {
+          override fun edit(e: NewExpr?) {
+            if (e?.className == "com.intellij.ui.JBColor") {
+              e.replace("{ \$_ = com.intellij.util.ui.UIUtil.getBorderSeparatorColor(); }")
+            }
           }
         }
-      })
+      )
       ctClass.toClass()
     }) {
       log.warn("Unable to hackPopupBorder for reasons.")
@@ -328,13 +367,18 @@ object HackComponent : Disposable {
       cp.insertClassPath(ClassClassPath(DirectoryFormattingOptions::class.java))
       val ctClass = cp.get("com.intellij.codeInsight.actions.FileInEditorProcessor\$FormattedMessageBuilder")
       val init = ctClass.getDeclaredMethod("getMessage")
-      init.instrument(object : ExprEditor() {
-        override fun edit(e: MethodCall?) {
-          if (e?.methodName == "toHex") {
-            e.replace("{ \$_ = com.intellij.ui.ColorUtil.toHex(com.intellij.util.ui.UIUtil.getContextHelpForeground()); }")
+      init.instrument(
+        object : ExprEditor() {
+          override fun edit(e: MethodCall?) {
+            if (e?.methodName == "toHex") {
+              e.replace(
+                "{ \$_ = com.intellij.ui.ColorUtil.toHex(" +
+                  "com.intellij.util.ui.UIUtil.getContextHelpForeground()); }"
+              )
+            }
           }
         }
-      })
+      )
       ctClass.toClass()
     }) {
       log.warn("Unable to hackPopupBorder for reasons.")
@@ -381,16 +425,18 @@ object HackComponent : Disposable {
         "createLogo"
       )
       var setForegrounds = 0
-      init.instrument(object : ExprEditor() {
-        override fun edit(e: MethodCall?) {
-          if (e?.methodName == "setForeground") {
-            setForegrounds++
-            if (setForegrounds > 1) {
-              e.replace("{ \$1 = com.intellij.util.ui.UIUtil.getContextHelpForeground();  \$_ = \$proceed(\$\$); }")
+      init.instrument(
+        object : ExprEditor() {
+          override fun edit(e: MethodCall?) {
+            if (e?.methodName == "setForeground") {
+              setForegrounds++
+              if (setForegrounds > 1) {
+                e.replace("{ \$1 = com.intellij.util.ui.UIUtil.getContextHelpForeground();  \$_ = \$proceed(\$\$); }")
+              }
             }
           }
         }
-      })
+      )
       ctClass.toClass()
     }) {
       log.warn("Unable to hackTitleFrame for reasons.")
@@ -480,13 +526,15 @@ object HackComponent : Disposable {
       val init = ctClass.getDeclaredMethods(
         "paintComponent"
       )[0]
-      init.instrument(object : ExprEditor() {
-        override fun edit(e: MethodCall?) {
-          if (e?.methodName == "isUnderDarcula") {
-            e.replace("{ \$_ = true; }")
+      init.instrument(
+        object : ExprEditor() {
+          override fun edit(e: MethodCall?) {
+            if (e?.methodName == "isUnderDarcula") {
+              e.replace("{ \$_ = true; }")
+            }
           }
         }
-      })
+      )
       ctClass.toClass()
     }) {
       log.warn("Unable to hackEditorBorder for reasons.")
@@ -499,13 +547,15 @@ object HackComponent : Disposable {
       cp.insertClassPath(ClassClassPath(Switcher::class.java))
       val ctClass = cp.get("com.intellij.ide.actions.SwitcherToolWindowsListRenderer")
       val init = ctClass.getDeclaredMethod("customizeCellRenderer")
-      init.instrument(object : ExprEditor() {
-        override fun edit(e: NewExpr?) {
-          if (e?.className == "com.intellij.ui.JBColor") {
-            e.replace("{ \$_ = com.intellij.util.ui.JBUI.CurrentTheme.Advertiser.borderColor(); }")
+      init.instrument(
+        object : ExprEditor() {
+          override fun edit(e: NewExpr?) {
+            if (e?.className == "com.intellij.ui.JBColor") {
+              e.replace("{ \$_ = com.intellij.util.ui.JBUI.CurrentTheme.Advertiser.borderColor(); }")
+            }
           }
         }
-      })
+      )
       ctClass.toClass()
     }) {
       log.warn("Unable to hackSwitcherBorder for reasons.")
@@ -518,13 +568,15 @@ object HackComponent : Disposable {
       cp.insertClassPath(ClassClassPath(ActionMenu::class.java))
       val ctClass = cp.get("com.intellij.openapi.actionSystem.impl.ActionToolbarImpl")
       val init = ctClass.getDeclaredMethod("tweakActionComponentUI")
-      init.instrument(object : ExprEditor() {
-        override fun edit(e: MethodCall?) {
-          if (e?.methodName == "dimmer") {
-            e.replace("{ \$_ = com.intellij.util.ui.UIUtil.getLabelTextForeground(); }")
+      init.instrument(
+        object : ExprEditor() {
+          override fun edit(e: MethodCall?) {
+            if (e?.methodName == "dimmer") {
+              e.replace("{ \$_ = com.intellij.util.ui.UIUtil.getLabelTextForeground(); }")
+            }
           }
         }
-      })
+      )
       ctClass.toClass()
     }) {
       log.warn("Unable to hackFindInPath for reasons.")
@@ -541,13 +593,15 @@ object HackComponent : Disposable {
       cp.insertClassPath(ClassClassPath(PluginLogo::class.java))
       val ctClass = cp.get("com.intellij.ide.plugins.newui.PluginDetailsPageComponent")
       val init = ctClass.getDeclaredMethod("createPluginPanel")
-      init.instrument(object : ExprEditor() {
-        override fun edit(e: NewExpr?) {
-          if (e?.className == "com.intellij.ui.JBColor") {
-            e.replace("{ \$_ = com.intellij.ide.plugins.PluginManagerConfigurable.SEARCH_FIELD_BORDER_COLOR; }")
+      init.instrument(
+        object : ExprEditor() {
+          override fun edit(e: NewExpr?) {
+            if (e?.className == "com.intellij.ui.JBColor") {
+              e.replace("{ \$_ = com.intellij.ide.plugins.PluginManagerConfigurable.SEARCH_FIELD_BORDER_COLOR; }")
+            }
           }
         }
-      })
+      )
       ctClass.toClass()
     }) {
       log.warn("Unable to hackPluginWindow for reasons.")
@@ -588,14 +642,16 @@ object HackComponent : Disposable {
       cp.insertClassPath(ClassClassPath(ChooseElementsDialog::class.java))
       val ctClass = cp.get("com.intellij.ide.util.TipPanel")
       val init = ctClass.getDeclaredMethod("getDoNotShowMessage")
-      init.instrument(object : ExprEditor() {
-        @Throws(CannotCompileException::class)
-        override fun edit(m: MethodCall?) {
-          if (m!!.methodName == "message") {
-            m.replace("{ \$_ = \"Show \\\"Monika's Writing Tip of the Day\\\" on Startup!\"; }")
+      init.instrument(
+        object : ExprEditor() {
+          @Throws(CannotCompileException::class)
+          override fun edit(m: MethodCall?) {
+            if (m!!.methodName == "message") {
+              m.replace("{ \$_ = \"Show \\\"Monika's Writing Tip of the Day\\\" on Startup!\"; }")
+            }
           }
         }
-      })
+      )
       ctClass.toClass()
     }) {
       log.warn("Unable to hackTipPanel for reasons.")
@@ -622,65 +678,77 @@ object HackComponent : Disposable {
 
       // enable themed startup
       val backgroundMethod = ctClass2.getDeclaredMethod("getIdeBackgroundColor")
-      backgroundMethod.instrument(object : ExprEditor() {
-        override fun edit(e: NewExpr?) {
-          e?.replace("{ \$_ = com.intellij.util.ui.UIUtil.getPanelBackground(); }")
+      backgroundMethod.instrument(
+        object : ExprEditor() {
+          override fun edit(e: NewExpr?) {
+            e?.replace("{ \$_ = com.intellij.util.ui.UIUtil.getPanelBackground(); }")
+          }
         }
-      })
+      )
 
       // enable disposable stickers
       val method = ctClass2.getDeclaredMethod("withFrameBackground")
-      method.instrument(object : ExprEditor() {
-        @Throws(CannotCompileException::class)
-        override fun edit(m: MethodCall?) {
-          if (m!!.methodName == "withNamedPainters") {
-            m.replace("{ \$2 = \"$DOKI_BACKGROUND_PROP\"; \$_ = \$proceed(\$\$); }")
+      method.instrument(
+        object : ExprEditor() {
+          @Throws(CannotCompileException::class)
+          override fun edit(m: MethodCall?) {
+            if (m!!.methodName == "withNamedPainters") {
+              m.replace("{ \$2 = \"$DOKI_BACKGROUND_PROP\"; \$_ = \$proceed(\$\$); }")
+            }
           }
         }
-      })
+      )
       val editorBackgroundMethod = ctClass2.getDeclaredMethod("withEditorBackground")
-      editorBackgroundMethod.instrument(object : ExprEditor() {
-        @Throws(CannotCompileException::class)
-        override fun edit(m: MethodCall?) {
-          if (m!!.methodName == "withNamedPainters") {
-            m.replace("{ \$2 = \"$DOKI_STICKER_PROP\"; \$_ = \$proceed(\$\$); }")
+      editorBackgroundMethod.instrument(
+        object : ExprEditor() {
+          @Throws(CannotCompileException::class)
+          override fun edit(m: MethodCall?) {
+            if (m!!.methodName == "withNamedPainters") {
+              m.replace("{ \$2 = \"$DOKI_STICKER_PROP\"; \$_ = \$proceed(\$\$); }")
+            }
           }
         }
-      })
+      )
 
       val isEditorBackgroundImageSetMethod = ctClass2.getDeclaredMethod("isEditorBackgroundImageSet")
-      isEditorBackgroundImageSetMethod.instrument(object : ExprEditor() {
-        @Throws(CannotCompileException::class)
-        override fun edit(m: MethodCall?) {
-          if (m!!.methodName == "getBackgroundSpec") {
-            m.replace("{ \$2 = \"$DOKI_STICKER_PROP\"; \$_ = \$proceed(\$\$); }")
+      isEditorBackgroundImageSetMethod.instrument(
+        object : ExprEditor() {
+          @Throws(CannotCompileException::class)
+          override fun edit(m: MethodCall?) {
+            if (m!!.methodName == "getBackgroundSpec") {
+              m.replace("{ \$2 = \"$DOKI_STICKER_PROP\"; \$_ = \$proceed(\$\$); }")
+            }
           }
         }
-      })
+      )
 
       val initEditorPaintersMethod = ctClass2.getDeclaredMethod("initEditorPainters")
-      initEditorPaintersMethod.instrument(object : ExprEditor() {
-        @Throws(CannotCompileException::class)
-        override fun edit(m: MethodCall?) {
-          if (m!!.methodName == "initWallpaperPainter") {
-            m.replace("{ \$1 = \"$DOKI_STICKER_PROP\"; \$_ = \$proceed(\$\$); }")
-          } else if (m.methodName == "getNamedPainters") {
-            m.replace("{ \$1 = \"$DOKI_STICKER_PROP\"; \$_ = \$proceed(\$\$); }")
+      initEditorPaintersMethod.instrument(
+        object : ExprEditor() {
+          @Throws(CannotCompileException::class)
+          override fun edit(m: MethodCall?) {
+            if (m!!.methodName == "initWallpaperPainter") {
+              m.replace("{ \$1 = \"$DOKI_STICKER_PROP\"; \$_ = \$proceed(\$\$); }")
+            } else if (m.methodName == "getNamedPainters") {
+              m.replace("{ \$1 = \"$DOKI_STICKER_PROP\"; \$_ = \$proceed(\$\$); }")
+            }
           }
         }
-      })
+      )
 
       val initFramePaintersMethod = ctClass2.getDeclaredMethod("initFramePainters")
-      initFramePaintersMethod.instrument(object : ExprEditor() {
-        @Throws(CannotCompileException::class)
-        override fun edit(m: MethodCall?) {
-          if (m!!.methodName == "initWallpaperPainter") {
-            m.replace("{ \$1 = \"$DOKI_BACKGROUND_PROP\"; \$_ = \$proceed(\$\$); }")
-          } else if (m.methodName == "getNamedPainters") {
-            m.replace("{ \$1 = \"$DOKI_BACKGROUND_PROP\"; \$_ = \$proceed(\$\$); }")
+      initFramePaintersMethod.instrument(
+        object : ExprEditor() {
+          @Throws(CannotCompileException::class)
+          override fun edit(m: MethodCall?) {
+            if (m!!.methodName == "initWallpaperPainter") {
+              m.replace("{ \$1 = \"$DOKI_BACKGROUND_PROP\"; \$_ = \$proceed(\$\$); }")
+            } else if (m.methodName == "getNamedPainters") {
+              m.replace("{ \$1 = \"$DOKI_BACKGROUND_PROP\"; \$_ = \$proceed(\$\$); }")
+            }
           }
         }
-      })
+      )
 
       ctClass2.toClass()
     }) {
