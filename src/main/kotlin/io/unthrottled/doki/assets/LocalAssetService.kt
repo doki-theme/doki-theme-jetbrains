@@ -5,6 +5,8 @@ import com.google.gson.reflect.TypeToken
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.util.text.StringUtil
 import io.unthrottled.doki.integrations.RestClient
+import io.unthrottled.doki.util.runSafely
+import io.unthrottled.doki.util.runSafelyWithResult
 import io.unthrottled.doki.util.toOptional
 import java.nio.charset.Charset
 import java.nio.file.Files
@@ -79,31 +81,36 @@ object LocalAssetService {
     assetChecks[getAssetCheckKey(localInstallPath)] = Instant.now()
     val assetCheckPath = getAssetChecksFile()
     LocalStorageService.createDirectories(assetCheckPath)
-    Files.newBufferedWriter(
-      assetCheckPath,
-      Charset.defaultCharset(),
-      StandardOpenOption.CREATE,
-      StandardOpenOption.TRUNCATE_EXISTING
-    ).use { writer ->
-      writer.write(gson.toJson(assetChecks))
+    runSafely({
+      Files.newBufferedWriter(
+        assetCheckPath,
+        Charset.defaultCharset(),
+        StandardOpenOption.CREATE,
+        StandardOpenOption.TRUNCATE_EXISTING
+      ).use { writer ->
+        writer.write(gson.toJson(assetChecks))
+      }
+    }) {
+      log.warn("Unable to persist checked date because of reasons", it)
     }
   }
 
-  private fun readPreviousAssetChecks(): ConcurrentHashMap<String, Instant> = try {
-    getAssetChecksFile().toOptional()
-      .filter { Files.exists(it) }
-      .map {
-        Files.newBufferedReader(it).use { reader ->
-          gson.fromJson<ConcurrentHashMap<String, Instant>>(
-            reader,
-            object : TypeToken<ConcurrentHashMap<String, Instant>>() {}.type
-          )
-        }
-      }.orElseGet { ConcurrentHashMap() }
-  } catch (e: Throwable) {
-    log.warn("Unable to get local asset checks for raisins", e)
-    ConcurrentHashMap()
-  }
+  private fun readPreviousAssetChecks(): ConcurrentHashMap<String, Instant> =
+    runSafelyWithResult({
+      getAssetChecksFile().toOptional()
+        .filter { Files.exists(it) }
+        .map {
+          Files.newBufferedReader(it).use { reader ->
+            gson.fromJson<ConcurrentHashMap<String, Instant>>(
+              reader,
+              object : TypeToken<ConcurrentHashMap<String, Instant>>() {}.type
+            )
+          }
+        }.orElseGet { ConcurrentHashMap() }
+    }) {
+      log.warn("Unable to get local asset checks for raisins", it)
+      ConcurrentHashMap()
+    }
 
   private fun getAssetChecksFile() =
     Paths.get(LocalStorageService.getLocalAssetDirectory(), "assetChecks.json")
