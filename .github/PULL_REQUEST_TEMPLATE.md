@@ -22,7 +22,7 @@
 
 #### Checklist:
 <!-- Go over all the following points, and put an `x` in all the boxes . -->
-<!-- If you're unsure about any of these, don't hesitate to ask. We're here to help! -->
+<!-- If you're unsure about any of these, don't hesitate to ask. I'm here to help! -->
 - [ ] My code follows the code style of this project (`./gradlew check` passes clean).
     - Tip: If you have lint issues just run `./gradlew :ktlintMainSourceSetFormat`.
 - [ ] I updated the version.
