@@ -1,6 +1,10 @@
 Changelog
 ---
 
+# 11.1.3 [Bug Fix]
+
+- Fixed issue with persisting assets locally. Thank you for reporting the issue!
+
 # 11.1.2 [Non-Functional]
 
 - Updated the build process
