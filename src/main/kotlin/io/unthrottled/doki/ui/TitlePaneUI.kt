@@ -7,6 +7,7 @@ import com.intellij.openapi.util.SystemInfo.isMac
 import com.intellij.openapi.wm.IdeFrame
 import com.intellij.ui.JBColor.GRAY
 import com.intellij.ui.JBColor.namedColor
+import com.intellij.util.PlatformUtils
 import com.intellij.util.ui.GraphicsUtil
 import com.intellij.util.ui.JBUI
 import com.intellij.util.ui.JBUI.insets
@@ -62,7 +63,9 @@ class TitlePaneUI : DarculaRootPaneUI() {
       BasicRootPaneUI()
     }
 
-    private fun hasTransparentTitleBar(): Boolean = isMac && ThemeConfig.instance.isThemedTitleBar
+    private fun hasTransparentTitleBar(): Boolean =
+      isMac && PlatformUtils.isJetBrainsProduct()
+        && ThemeConfig.instance.isThemedTitleBar
   }
 
   private var possibleDisposable: Optional<Disposer> = Optional.empty()
