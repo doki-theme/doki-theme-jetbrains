@@ -243,7 +243,7 @@
         </option>
         <option name="CONSOLE_ERROR_OUTPUT">
             <value>
-                <option name="FOREGROUND" value="ff5555" />
+                <option name="FOREGROUND" value="$errorColor$" />
             </value>
         </option>
         <option name="CONSOLE_GREEN_BRIGHT_OUTPUT">
@@ -258,7 +258,7 @@
         </option>
         <option name="CONSOLE_MAGENTA_BRIGHT_OUTPUT">
             <value>
-                <option name="FOREGROUND" value="ff5555" />
+                <option name="FOREGROUND" value="$errorColor$" />
             </value>
         </option>
         <option name="CONSOLE_MAGENTA_OUTPUT">
@@ -513,7 +513,7 @@
         <option name="DEFAULT_INVALID_STRING_ESCAPE">
             <value>
                 <option name="FOREGROUND" value="$classNameColor$" />
-                <option name="EFFECT_COLOR" value="ff5555" />
+                <option name="EFFECT_COLOR" value="$errorColor$" />
                 <option name="EFFECT_TYPE" value="2" />
             </value>
         </option>
@@ -652,9 +652,9 @@
         </option>
         <option name="ERRORS_ATTRIBUTES">
             <value>
-                <option name="EFFECT_COLOR" value="ff5555" />
+                <option name="EFFECT_COLOR" value="$errorColor$" />
                 <option name="ERROR_STRIPE_COLOR" value="9e2927" />
-                <option name="EFFECT_TYPE" value="3" />
+                <option name="EFFECT_TYPE" value="2" />
             </value>
         </option>
         <option name="EXECUTIONPOINT_ATTRIBUTES">
@@ -707,7 +707,7 @@
         </option>
         <option name="GRID_ERROR_VALUE">
             <value>
-                <option name="EFFECT_COLOR" value="ff5555" />
+                <option name="EFFECT_COLOR" value="$errorColor$" />
                 <option name="ERROR_STRIPE_COLOR" value="cd4848" />
                 <option name="EFFECT_TYPE" value="2" />
             </value>
@@ -1006,7 +1006,7 @@
         </option>
         <option name="LOG_ERROR_OUTPUT">
             <value>
-                <option name="FOREGROUND" value="ff5555" />
+                <option name="FOREGROUND" value="$errorColor$" />
             </value>
         </option>
         <option name="LOG_INFO_OUTPUT">
@@ -2064,7 +2064,7 @@
         <option name="REGEXP.INVALID_STRING_ESCAPE">
             <value>
                 <option name="FOREGROUND" value="f8f8f2" />
-                <option name="EFFECT_COLOR" value="ff5555" />
+                <option name="EFFECT_COLOR" value="$errorColor$" />
                 <option name="EFFECT_TYPE" value="2" />
             </value>
         </option>
@@ -2535,14 +2535,13 @@
         </option>
         <option name="WRONG_REFERENCES_ATTRIBUTES">
             <value>
-                <option name="FOREGROUND" value="ff5555" />
+              <option name="FOREGROUND" value="$errorColor$" />
+              <option name="EFFECT_COLOR" value="$errorColor$" />
+              <option name="ERROR_STRIPE_COLOR" value="9e2927" />
+              <option name="EFFECT_TYPE" value="2" />
             </value>
         </option>
-        <option name="XML_ATTRIBUTE_NAME">
-            <value>
-                <option name="FOREGROUND" value="$classNameColor$" />
-            </value>
-        </option>
+        <option name="XML_ATTRIBUTE_NAME" baseAttributes="HTML_ATTRIBUTE_NAME" />
         <option name="XML_ENTITY_REFERENCE" baseAttributes="DEFAULT_ENTITY" />
         <option name="XML_PROLOGUE" baseAttributes="TEXT" />
         <option name="XML_TAG">

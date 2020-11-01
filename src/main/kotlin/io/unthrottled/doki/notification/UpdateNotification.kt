@@ -24,7 +24,7 @@ val UPDATE_MESSAGE: String =
       <ul>
         <li>Fixed MacOS Title Bug</li>
         <li>Better 2020.3 Support</li>
-        <li>Enhanced Rory's & Ishtar's dark theme.</li>
+        <li>Enhanced Rin's, Rory's, & Ishtar's dark theme.</li>
       </ul>
       Please see the <a href="https://github.com/doki-theme/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md">
       changelog</a> for more details.
