@@ -64,8 +64,8 @@ class TitlePaneUI : DarculaRootPaneUI() {
     }
 
     private fun hasTransparentTitleBar(): Boolean =
-      isMac && PlatformUtils.isJetBrainsProduct()
-        && ThemeConfig.instance.isThemedTitleBar
+      isMac && PlatformUtils.isJetBrainsProduct() &&
+        ThemeConfig.instance.isThemedTitleBar
   }
 
   private var possibleDisposable: Optional<Disposer> = Optional.empty()

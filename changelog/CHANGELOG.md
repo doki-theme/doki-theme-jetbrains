@@ -1,6 +1,10 @@
 Changelog
 ---
 
+# 11.2.0 [Title Bar Removal]
+
+- Removed the themed title bar from MacOS Android Studio due to compatibility issues.
+
 # 11.1.3 [Bug Fix]
 
 - Fixed issue with persisting assets locally. Thank you for reporting the issue!
