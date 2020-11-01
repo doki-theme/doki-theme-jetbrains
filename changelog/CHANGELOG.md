@@ -1,6 +1,12 @@
 Changelog
 ---
 
+# 11.3.0 [Usability Enhancements]
+
+- Enhanced Rin's error and unused coloring usability.
+- Changed the XML attributes to be more consistent with the HTML attributes.
+- Temporarily fixed [this 2020.3 icon issue](https://youtrack.jetbrains.com/issue/IDEA-254333)
+
 # 11.2.0 [Title Bar Removal]
 
 - Removed the themed title bar from MacOS Android Studio due to compatibility issues.
