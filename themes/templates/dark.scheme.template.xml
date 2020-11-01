@@ -2541,11 +2541,7 @@
               <option name="EFFECT_TYPE" value="2" />
             </value>
         </option>
-        <option name="XML_ATTRIBUTE_NAME">
-            <value>
-                <option name="FOREGROUND" value="$classNameColor$" />
-            </value>
-        </option>
+        <option name="XML_ATTRIBUTE_NAME" baseAttributes="HTML_ATTRIBUTE_NAME" />
         <option name="XML_ENTITY_REFERENCE" baseAttributes="DEFAULT_ENTITY" />
         <option name="XML_PROLOGUE" baseAttributes="TEXT" />
         <option name="XML_TAG">
