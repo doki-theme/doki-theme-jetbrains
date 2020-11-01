@@ -63,6 +63,7 @@ intellij {
   type = platformType
   downloadSources = platformDownloadSources.toBoolean()
   updateSinceUntilBuild = true
+  alternativeIdePath = idePath
 
   // Plugin Dependencies. Uses `platformPlugins` property from the gradle.properties file.
   setPlugins(

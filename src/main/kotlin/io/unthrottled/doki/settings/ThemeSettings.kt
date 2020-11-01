@@ -223,7 +223,7 @@ class ThemeSettings : SearchableConfigurable {
           checkBox(
             "Themed Title Bar",
             themeSettingsModel.isThemedTitleBar,
-            comment = "Feature only works on MacOS",
+            comment = "Feature only works on MacOS and Jetbrains Products",
             actionListener = { _, component ->
               themeSettingsModel.isThemedTitleBar = component.isSelected
             }
