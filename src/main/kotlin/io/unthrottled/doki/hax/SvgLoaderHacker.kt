@@ -2,6 +2,7 @@ package io.unthrottled.doki.hax
 
 import com.intellij.util.SVGLoader
 import io.unthrottled.doki.icon.ColorPatcher
+import java.net.URL
 import java.util.Optional
 
 typealias SVGL = SVGLoader
@@ -24,6 +25,7 @@ object SvgLoaderHacker {
         .orElseGet {
           ColorPatcher(
             object : PatcherProvider {
+              override fun forURL(url: URL?): SVGLoader.SvgElementColorPatcher? = null
             }
           )
         }
