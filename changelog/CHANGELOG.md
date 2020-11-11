@@ -1,6 +1,10 @@
 Changelog
 ---
 
+# 11.3.1 [Compatibility Fix]
+
+- Fixed fatal startup issue on 2020.2.X when certain other plugins are present.
+
 # 11.3.0 [Usability Enhancements]
 
 - Enhanced Rin's error and unused coloring usability.

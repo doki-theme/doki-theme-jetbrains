@@ -18,7 +18,7 @@ class ColorPatcher(
     buildHackedPatcher(
       runSafelyWithResult({
         otherColorPatcherProvider.forPath(path)
-      }){
+      }) {
         null
       }
     )
@@ -27,7 +27,7 @@ class ColorPatcher(
     buildHackedPatcher(
       runSafelyWithResult({
         otherColorPatcherProvider.forURL(url)
-      }){
+      }) {
         null
       }
     )
