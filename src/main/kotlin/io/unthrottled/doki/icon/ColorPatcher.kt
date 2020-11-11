@@ -4,6 +4,7 @@ import com.intellij.ui.ColorUtil
 import com.intellij.ui.JBColor.namedColor
 import io.unthrottled.doki.hax.Patcher
 import io.unthrottled.doki.hax.PatcherProvider
+import io.unthrottled.doki.util.runSafely
 import io.unthrottled.doki.util.runSafelyWithResult
 import io.unthrottled.doki.util.toHexString
 import org.w3c.dom.Element
@@ -51,7 +52,9 @@ class ColorPatcher(
     svg: Element,
     otherPatcher: Patcher?
   ) {
-    otherPatcher?.patchColors(svg)
+    runSafely({
+      otherPatcher?.patchColors(svg)
+    })
     patchChildren(
       svg,
       otherPatcher
