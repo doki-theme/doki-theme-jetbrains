@@ -17,7 +17,6 @@ import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.fileEditor.impl.EditorComposite
 import com.intellij.openapi.fileEditor.impl.EditorHistoryManager
 import com.intellij.openapi.progress.util.ColorProgressBar
-import com.intellij.openapi.ui.Divider
 import com.intellij.openapi.vcs.ex.LineStatusMarkerRenderer
 import com.intellij.openapi.wm.impl.TitleInfoProvider
 import com.intellij.ui.Gray
@@ -57,11 +56,6 @@ object HackComponent : Disposable {
     enableBackgroundConsistency()
     enableSelectionConsistency()
     enableTitlePaneConsistency()
-    enableIconConsistency()
-  }
-
-  private fun enableIconConsistency() {
-    hackIconLoader()
   }
 
   private fun enableTitlePaneConsistency() {
@@ -288,28 +282,6 @@ object HackComponent : Disposable {
       ctClass.toClass()
     }) {
       log.warn("Unable to hackActionModel for reasons.")
-    }
-  }
-
-  // todo: remove once jetbrains fixes https://youtrack.jetbrains.com/issue/IDEA-254333
-  private fun hackIconLoader() {
-    runSafely({
-      val cp = ClassPool(true)
-      cp.insertClassPath(ClassClassPath(Divider::class.java))
-      val ctClass = cp.get("com.intellij.openapi.util.IconLoader\$ImageDataResolverImpl")
-      val init = ctClass.methods.find { it.name == "loadImage" }!!
-      init.instrument(
-        object : ExprEditor() {
-          override fun edit(e: MethodCall?) {
-            if (e?.methodName == "charAt") { // dis for OptionDescription
-              e.replace("{ \$_ = '/'; }")
-            }
-          }
-        }
-      )
-      ctClass.toClass()
-    }) {
-      log.warn("Unable to hackIconLoader for reasons.")
     }
   }
 
