@@ -1,1 +1,1 @@
-- Fixed fatal startup issue on 2020.2.X when certain other plugins are present.
+- Fixed small 2020.3 Look and Feel issues. [See issue for more details](https://github.com/doki-theme/doki-theme-jetbrains/issues/292)

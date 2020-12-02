@@ -75,13 +75,14 @@ object HackComponent : Disposable {
   private fun hackDebuggerTable() {
     runSafely({
       val naughtySelectionColor = ClassesTable::class.java.getDeclaredField("CLICKABLE_COLOR")
-      val namedColor = JBColor.namedColor("Table.hoverBackground",
-        JBColor(Color(250, 251, 252), Color(62, 66, 69)))
+      val namedColor = JBColor.namedColor(
+        "Table.hoverBackground",
+        JBColor(Color(250, 251, 252), Color(62, 66, 69))
+      )
       setFinalStatic(naughtySelectionColor, namedColor)
     }) {
       log.warn("Unable to hackLivePreview for reasons.")
     }
-
   }
 
   private fun enableBackgroundConsistency() {
