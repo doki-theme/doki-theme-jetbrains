@@ -26,6 +26,7 @@ import com.intellij.ui.messages.JBMacMessages
 import com.intellij.ui.popup.util.MasterDetailPopupBuilder
 import com.intellij.util.ui.UIUtil
 import com.intellij.xdebugger.impl.ui.XDebuggerUIConstants
+import com.intellij.xdebugger.memory.ui.ClassesTable
 import io.unthrottled.doki.hax.FeildHacker.setFinalStatic
 import io.unthrottled.doki.stickers.impl.DOKI_BACKGROUND_PROP
 import io.unthrottled.doki.stickers.impl.DOKI_STICKER_PROP
@@ -56,6 +57,7 @@ object HackComponent : Disposable {
     enableBackgroundConsistency()
     enableSelectionConsistency()
     enableTitlePaneConsistency()
+    enableHoverConsistency()
   }
 
   private fun enableTitlePaneConsistency() {
@@ -64,6 +66,22 @@ object HackComponent : Disposable {
 
   private fun enableSelectionConsistency() {
     hackWelcomeScreen()
+  }
+
+  private fun enableHoverConsistency() {
+    hackDebuggerTable()
+  }
+
+  private fun hackDebuggerTable() {
+    runSafely({
+      val naughtySelectionColor = ClassesTable::class.java.getDeclaredField("CLICKABLE_COLOR")
+      val namedColor = JBColor.namedColor("Table.hoverBackground",
+        JBColor(Color(250, 251, 252), Color(62, 66, 69)))
+      setFinalStatic(naughtySelectionColor, namedColor)
+    }) {
+      log.warn("Unable to hackLivePreview for reasons.")
+    }
+
   }
 
   private fun enableBackgroundConsistency() {
