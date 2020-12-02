@@ -17,7 +17,6 @@ import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.fileEditor.impl.EditorComposite
 import com.intellij.openapi.fileEditor.impl.EditorHistoryManager
 import com.intellij.openapi.progress.util.ColorProgressBar
-import com.intellij.openapi.ui.Divider
 import com.intellij.openapi.vcs.ex.LineStatusMarkerRenderer
 import com.intellij.openapi.wm.impl.TitleInfoProvider
 import com.intellij.ui.Gray
@@ -27,6 +26,7 @@ import com.intellij.ui.messages.JBMacMessages
 import com.intellij.ui.popup.util.MasterDetailPopupBuilder
 import com.intellij.util.ui.UIUtil
 import com.intellij.xdebugger.impl.ui.XDebuggerUIConstants
+import com.intellij.xdebugger.memory.ui.ClassesTable
 import io.unthrottled.doki.hax.FeildHacker.setFinalStatic
 import io.unthrottled.doki.stickers.impl.DOKI_BACKGROUND_PROP
 import io.unthrottled.doki.stickers.impl.DOKI_STICKER_PROP
@@ -57,11 +57,7 @@ object HackComponent : Disposable {
     enableBackgroundConsistency()
     enableSelectionConsistency()
     enableTitlePaneConsistency()
-    enableIconConsistency()
-  }
-
-  private fun enableIconConsistency() {
-    hackIconLoader()
+    enableHoverConsistency()
   }
 
   private fun enableTitlePaneConsistency() {
@@ -70,6 +66,23 @@ object HackComponent : Disposable {
 
   private fun enableSelectionConsistency() {
     hackWelcomeScreen()
+  }
+
+  private fun enableHoverConsistency() {
+    hackDebuggerTable()
+  }
+
+  private fun hackDebuggerTable() {
+    runSafely({
+      val naughtySelectionColor = ClassesTable::class.java.getDeclaredField("CLICKABLE_COLOR")
+      val namedColor = JBColor.namedColor(
+        "Table.hoverBackground",
+        JBColor(Color(250, 251, 252), Color(62, 66, 69))
+      )
+      setFinalStatic(naughtySelectionColor, namedColor)
+    }) {
+      log.warn("Unable to hackLivePreview for reasons.")
+    }
   }
 
   private fun enableBackgroundConsistency() {
@@ -288,28 +301,6 @@ object HackComponent : Disposable {
       ctClass.toClass()
     }) {
       log.warn("Unable to hackActionModel for reasons.")
-    }
-  }
-
-  // todo: remove once jetbrains fixes https://youtrack.jetbrains.com/issue/IDEA-254333
-  private fun hackIconLoader() {
-    runSafely({
-      val cp = ClassPool(true)
-      cp.insertClassPath(ClassClassPath(Divider::class.java))
-      val ctClass = cp.get("com.intellij.openapi.util.IconLoader\$ImageDataResolverImpl")
-      val init = ctClass.methods.find { it.name == "loadImage" }!!
-      init.instrument(
-        object : ExprEditor() {
-          override fun edit(e: MethodCall?) {
-            if (e?.methodName == "charAt") { // dis for OptionDescription
-              e.replace("{ \$_ = '/'; }")
-            }
-          }
-        }
-      )
-      ctClass.toClass()
-    }) {
-      log.warn("Unable to hackIconLoader for reasons.")
     }
   }
 

@@ -199,24 +199,6 @@ open class BuildThemes : DefaultTask() {
           ThemeTemplateDefinition::class.java
         )
       }
-      .map {
-        if (it.type == LAF_TEMPLATE && it.name == "base") {
-          // todo: remove once jetbrains fixes https://youtrack.jetbrains.com/issue/IDEA-254333
-          it.copy(
-            icons = it.icons
-              ?.entries
-              ?.flatMap { iconMapping ->
-                if (iconMapping.key != "ColorPalette")
-                  listOf(
-                    iconMapping.key to iconMapping.value,
-                    iconMapping.key.substring(1) to iconMapping.value
-                  )
-                else listOf(iconMapping.key to iconMapping.value)
-              }
-              ?.toMap()
-          )
-        } else it
-      }
       .collect(
         Collectors.groupingBy {
           it.type ?: throw IllegalArgumentException("Expected template ${it.name} to have a type")

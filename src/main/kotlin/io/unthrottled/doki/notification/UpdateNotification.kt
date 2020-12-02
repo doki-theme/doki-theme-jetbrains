@@ -22,7 +22,7 @@ val UPDATE_MESSAGE: String =
   """
       What's New?<br>
       <ul>
-        <li>Fixed Fatal 2020.2.X startup bug.</li>
+        <li>Fixed small 2020.3 look and feel issues</li>
       </ul>
       Please see the <a href="https://github.com/doki-theme/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md">
       changelog</a> for more details.
