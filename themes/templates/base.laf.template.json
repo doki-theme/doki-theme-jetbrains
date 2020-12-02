@@ -212,6 +212,7 @@
     "Table.hoverInactiveBackground": "selectionInactive",
     "Tree.hoverBackground": "selectionInactive",
     "Tree.hoverInactiveBackground": "selectionInactive",
+    "VersionControl.Log.Commit.hoveredBackground": "selectionInactive",
 
     "CheckBoxMenuItem.selectionBackground": "selectionBackground",
     "ComboBox.selectionBackground": "selectionBackground",
