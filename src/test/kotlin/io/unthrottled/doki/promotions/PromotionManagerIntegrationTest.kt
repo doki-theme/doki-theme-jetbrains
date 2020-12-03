@@ -82,9 +82,9 @@ class PromotionManagerIntegrationTest {
 
     val postLedger = LedgerMaster.readLedger()
 
-    assertThat(postLedger.allowedToPromote).isTrue()
-    assertThat(postLedger.user).isNotNull()
-    assertThat(postLedger.seenPromotions.isEmpty()).isTrue()
+    assertThat(postLedger.allowedToPromote).isTrue
+    assertThat(postLedger.user).isNotNull
+    assertThat(postLedger.seenPromotions.isEmpty()).isTrue
     assertThat(postLedger.versionInstallDates.size).isEqualTo(1)
     assertThat(postLedger.versionInstallDates["Ryuko"]).isBetween(
       beforePromotion,
@@ -113,9 +113,9 @@ class PromotionManagerIntegrationTest {
 
     val postRyukoLedger = LedgerMaster.readLedger()
 
-    assertThat(postRyukoLedger.allowedToPromote).isTrue()
-    assertThat(postRyukoLedger.user).isNotNull()
-    assertThat(postRyukoLedger.seenPromotions.isEmpty()).isTrue()
+    assertThat(postRyukoLedger.allowedToPromote).isTrue
+    assertThat(postRyukoLedger.user).isNotNull
+    assertThat(postRyukoLedger.seenPromotions.isEmpty()).isTrue
     assertThat(postRyukoLedger.versionInstallDates.size).isEqualTo(1)
     assertThat(postRyukoLedger.versionInstallDates["Ryuko"]).isBetween(
       beforeRyuko,
@@ -128,9 +128,9 @@ class PromotionManagerIntegrationTest {
 
     val postRinLedger = LedgerMaster.readLedger()
 
-    assertThat(postRinLedger.allowedToPromote).isTrue()
-    assertThat(postRinLedger.user).isNotNull()
-    assertThat(postRinLedger.seenPromotions.isEmpty()).isTrue()
+    assertThat(postRinLedger.allowedToPromote).isTrue
+    assertThat(postRinLedger.user).isNotNull
+    assertThat(postRinLedger.seenPromotions.isEmpty()).isTrue
     assertThat(postRinLedger.versionInstallDates.size).isEqualTo(2)
     assertThat(postRyukoLedger.versionInstallDates["Ryuko"]).isBetween(
       beforeRyuko,
@@ -317,7 +317,7 @@ class PromotionManagerIntegrationTest {
               
       """.toOptional()
 
-    assertThat(LockMaster.acquireLock("Misato")).isTrue()
+    assertThat(LockMaster.acquireLock("Misato")).isTrue
 
     val currentLedger = PromotionLedger(
       UUID.randomUUID(),
@@ -436,6 +436,51 @@ class PromotionManagerIntegrationTest {
     val postLedger = LedgerMaster.readLedger()
 
     assertThat(postLedger).isEqualTo(currentLedger)
+
+    validateLedgerCallback(currentLedger, beforePromotion)
+
+    assertTrue { LockMaster.acquireLock("Syrena") }
+  }
+
+  @Test
+  fun `should promote when previous promotion was not shown`() {
+    every { LocalStorageService.getGlobalAssetDirectory() } returns
+      TestTools.getTestAssetPath(testDirectory).toString().toOptional()
+    every { PluginService.isMotivatorInstalled() } returns false
+    every { WeebService.isWeebStuffOn() } returns true
+    every { RestClient.performGet("$ASSET_SOURCE/misc/am-i-online.txt") } returns
+      """         
+        yes       
+              
+      """.toOptional()
+
+    val currentLedger = PromotionLedger(
+      UUID.randomUUID(),
+      mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(3))),
+      mutableMapOf(
+        MOTIVATION_PROMOTION_ID to Promotion(MOTIVATION_PROMOTION_ID, Instant.now(), PromotionStatus.ACCEPTED)
+      ),
+      true
+    )
+
+    LedgerMaster.persistLedger(currentLedger)
+
+    val beforePromotion = Instant.now()
+    val promotionManager = PromotionManagerImpl()
+    promotionManager.registerPromotion("Ryuko", true)
+
+    val postLedger = LedgerMaster.readLedger()
+
+    assertThat(postLedger).isEqualTo(currentLedger)
+
+    val promotionSlot = slot<(PromotionResults) -> Unit>()
+    val rejectionSlot = slot<() -> Unit>()
+    verify { MotivatorPromotionService.runPromotion(capture(promotionSlot), capture(rejectionSlot)) }
+
+    rejectionSlot.captured()
+
+    assertTrue { LockMaster.acquireLock("Syrena") }
+    LockMaster.releaseLock("Syrena")
 
     validateLedgerCallback(currentLedger, beforePromotion)
 
@@ -563,7 +608,8 @@ class PromotionManagerIntegrationTest {
     beforePromotion: Instant?
   ) {
     val promotionSlot = slot<(PromotionResults) -> Unit>()
-    verify { MotivatorPromotionService.runPromotion(capture(promotionSlot)) }
+    val rejectionSlot = slot<() -> Unit>()
+    verify { MotivatorPromotionService.runPromotion(capture(promotionSlot), capture(rejectionSlot)) }
 
     val promotionCallback = promotionSlot.captured
     promotionCallback(PromotionResults(PromotionStatus.BLOCKED))
@@ -572,7 +618,7 @@ class PromotionManagerIntegrationTest {
     val postBlocked = LedgerMaster.readLedger()
     assertThat(postBlocked.user).isEqualTo(currentLedger.user)
     assertThat(postBlocked.versionInstallDates).isEqualTo(currentLedger.versionInstallDates)
-    assertThat(postBlocked.allowedToPromote).isFalse()
+    assertThat(postBlocked.allowedToPromote).isFalse
     assertThat(postBlocked.seenPromotions[MOTIVATION_PROMOTION_ID]?.result).isEqualTo(PromotionStatus.BLOCKED)
     assertThat(postBlocked.seenPromotions[MOTIVATION_PROMOTION_ID]?.id).isEqualTo(MOTIVATION_PROMOTION_ID)
     assertThat(postBlocked.seenPromotions[MOTIVATION_PROMOTION_ID]?.datePromoted).isBetween(
@@ -586,7 +632,7 @@ class PromotionManagerIntegrationTest {
     val postRejected = LedgerMaster.readLedger()
     assertThat(postRejected.user).isEqualTo(currentLedger.user)
     assertThat(postRejected.versionInstallDates).isEqualTo(currentLedger.versionInstallDates)
-    assertThat(postRejected.allowedToPromote).isTrue()
+    assertThat(postRejected.allowedToPromote).isTrue
     assertThat(postRejected.seenPromotions[MOTIVATION_PROMOTION_ID]?.result).isEqualTo(PromotionStatus.REJECTED)
     assertThat(postRejected.seenPromotions[MOTIVATION_PROMOTION_ID]?.id).isEqualTo(MOTIVATION_PROMOTION_ID)
     assertThat(postRejected.seenPromotions[MOTIVATION_PROMOTION_ID]?.datePromoted).isBetween(
@@ -600,7 +646,7 @@ class PromotionManagerIntegrationTest {
     val postAccepted = LedgerMaster.readLedger()
     assertThat(postAccepted.user).isEqualTo(currentLedger.user)
     assertThat(postAccepted.versionInstallDates).isEqualTo(currentLedger.versionInstallDates)
-    assertThat(postAccepted.allowedToPromote).isTrue()
+    assertThat(postAccepted.allowedToPromote).isTrue
     assertThat(postAccepted.seenPromotions[MOTIVATION_PROMOTION_ID]?.result).isEqualTo(PromotionStatus.ACCEPTED)
     assertThat(postAccepted.seenPromotions[MOTIVATION_PROMOTION_ID]?.id).isEqualTo(MOTIVATION_PROMOTION_ID)
     assertThat(postAccepted.seenPromotions[MOTIVATION_PROMOTION_ID]?.datePromoted).isBetween(

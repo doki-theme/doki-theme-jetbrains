@@ -6,6 +6,6 @@ import io.unthrottled.doki.promotions.MotivatorPluginPromotion
 
 class MotivatorPromotion : AnAction() {
   override fun actionPerformed(e: AnActionEvent) {
-    MotivatorPluginPromotion.runPromotion { }
+    MotivatorPluginPromotion.runPromotion({}) { }
   }
 }

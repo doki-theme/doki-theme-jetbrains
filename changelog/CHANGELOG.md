@@ -1,6 +1,10 @@
 Changelog
 ---
 
+# 11.3.3 [Promotion Bug Fix]
+
+- Fixed issue when attempting to promote the [Waifu Motivator Plugin](https://plugins.jetbrains.com/plugin/13381-waifu-motivator). 
+
 # 11.3.2 [Better 2020.3]
 
 - Fixed small 2020.3 Look and Feel issues. [See issue for more details](https://github.com/doki-theme/doki-theme-jetbrains/issues/292)
