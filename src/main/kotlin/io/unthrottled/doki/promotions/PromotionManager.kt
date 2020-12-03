@@ -55,11 +55,13 @@ open class PromotionManagerImpl {
     if (isMotivatorInstalled().not() && shouldPromote() && isOnline()) {
       try {
         if (acquireLock(id)) {
-          runPromotion {
+          runPromotion({
             promotionLedger.allowedToPromote = it.status != PromotionStatus.BLOCKED
             promotionLedger.seenPromotions[MOTIVATION_PROMOTION_ID] =
               Promotion(MOTIVATION_PROMOTION_ID, Instant.now(), it.status)
             persistLedger(promotionLedger)
+            releaseLock(id)
+          }) {
             releaseLock(id)
           }
         }
