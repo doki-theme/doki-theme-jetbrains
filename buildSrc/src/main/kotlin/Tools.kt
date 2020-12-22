@@ -4,9 +4,11 @@ private val nameMapping =
   mapOf(
     "Kill la Kill" to "KillLaKill: ",
     "Re Zero" to "Re:Zero: ",
+    "Love Live" to "LoveLive: ",
     "Literature Club" to DDLC_THEME_NAME_PREFIX,
     "KonoSuba" to "KonoSuba: ",
     "Fate" to "Fate: ",
+    "Steins Gate" to "SG: ",
     "Gate" to "Gate: ",
     "DanganRonpa" to "DR: ",
     "High School DxD" to "DxD: ",
@@ -14,6 +16,7 @@ private val nameMapping =
     "Lucky Star" to "LS: ",
     "Evangelion" to "EVA: ",
     "Miss Kobayashi's Dragon Maid" to "DM: ",
+    "OreGairu" to "OreGairu: ",
     "Miscellaneous" to "Misc: "
   )
 
