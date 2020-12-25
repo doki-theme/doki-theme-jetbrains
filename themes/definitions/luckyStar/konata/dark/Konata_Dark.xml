@@ -1,4 +1,4 @@
-<scheme name="Konata Light" version="142" parent_scheme="Doki Vivid v1">
+<scheme name="Konata Dark" version="142" parent_scheme="Doki Dark">
   <colors>
     <option name="FILESTATUS_ADDED" value="$terminal.ansiCyan$" />
     <option name="FILESTATUS_COPIED" value="$terminal.ansiCyan$" />
@@ -25,26 +25,6 @@
     <option name="WHITESPACES_MODIFIED_LINES_COLOR" value="63a2ff" />
   </colors>
   <attributes>
-    <option name="DIFF_CONFLICT">
-      <value>
-        <option name="FOREGROUND" value="$diff.conflict$"/>
-        <option name="BACKGROUND" value="d38e96"/>
-        <option name="ERROR_STRIPE_COLOR" value="8f5247"/>
-      </value>
-    </option>
-    <option name="DIFF_DELETED">
-      <value>
-        <option name="BACKGROUND" value="$diff.deleted$"/>
-        <option name="ERROR_STRIPE_COLOR" value="656e76"/>
-      </value>
-    </option>
-    <option name="DIFF_MODIFIED">
-      <value>
-        <option name="BACKGROUND" value="$diff.modified$"/>
-        <option name="WHITESPACES_MODIFIED_LINES_COLOR" value="63a2ff" />
-        <option name="ERROR_STRIPE_COLOR" value="43698d"/>
-      </value>
-    </option>
 
     <option name="DEBUGGER_INLINED_VALUES">
       <value>
@@ -65,12 +45,6 @@
     </option>
 
     <option name="CONSOLE_ERROR_OUTPUT">
-      <value>
-        <option name="FOREGROUND" value="E2001A" />
-      </value>
-    </option>
-
-    <option name="CONSOLE_MAGENTA_BRIGHT_OUTPUT">
       <value>
         <option name="FOREGROUND" value="E2001A" />
       </value>

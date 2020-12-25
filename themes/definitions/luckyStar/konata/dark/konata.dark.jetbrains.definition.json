@@ -1,8 +1,8 @@
 {
   "id": "be058474-b967-4afb-b6d9-bda1948b33ec",
   "editorScheme": {
-    "type": "template",
-    "name": "Doki Dark"
+    "type": "templateExtension",
+    "file": "Konata_Dark.xml"
   },
   "overrides": {
     "editorScheme": {
