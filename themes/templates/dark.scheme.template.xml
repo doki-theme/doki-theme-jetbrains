@@ -58,7 +58,7 @@
         <option name="INLINE_REFACTORING_SETTINGS_HOVERED" value="%accentColorTransparent%"/>
         <option name="QUESTION_HINT" value="$selectionBackground$" />
         <option name="LINE_NUMBERS_COLOR" value="$lineNumberColor$" />
-        <option name="LINE_NUMBER_ON_CARET_ROW_COLOR" value="$lineNumberColor$" />
+        <option name="LINE_NUMBER_ON_CARET_ROW_COLOR" value="$infoForeground$" />
         <option name="PROMOTION_PANE" value="%accentColor%5a"/>
         <option name="MODIFIED_LINES_COLOR" value="296c2a" />
         <option name="METHOD_SEPARATORS_COLOR" value="$borderColor$" />
