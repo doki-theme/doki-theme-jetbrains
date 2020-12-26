@@ -95,6 +95,7 @@ class TheDokiTheme : Disposable {
 
           getVersion()
             .ifPresent { version ->
+              // todo: look into renamed themes
               if (version != ThemeConfig.instance.version) {
                 ThemeConfig.instance.version = version
                 StartupManager.getInstance(project).runWhenProjectIsInitialized {

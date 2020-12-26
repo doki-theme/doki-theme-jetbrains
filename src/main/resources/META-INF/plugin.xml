@@ -79,7 +79,7 @@
     <themeProvider id="3546f7be-b84f-4b8e-8cad-effa3f4603af" path="/doki/themes/fate/Tohsaka_Rin.theme.json"/>
     <themeProvider id="62a4f26f-34b2-46f8-a10c-798e48c1ce9d" path="/doki/themes/fate/Ishtar_Dark.theme.json"/>
     <themeProvider id="325c5d4d-5614-4c58-b296-18924f2f6928" path="/doki/themes/fate/Ishtar_Light.theme.json"/>
-    <themeProvider id="8e8773ee-4bbb-4812-b311-005f04f6bb20" path="/doki/themes/evangelion/Misato_Katsuragi.theme.json"/>
+    <themeProvider id="8e8773ee-4bbb-4812-b311-005f04f6bb20" path="/doki/themes/evangelion/Katsuragi_Misato.theme.json"/>
     <themeProvider id="bc12b380-1f2a-4a9d-89d8-388a07f1e15f" path="/doki/themes/miscellaneous/Hatsune_Miku.theme.json"/>
     <themeProvider id="f770dcfc-f41e-4b49-aa17-66e9ffc208fd" path="/doki/themes/re_zero/Rem.theme.json"/>
     <themeProvider id="696de7c1-3a8e-4445-83ee-3eb7e9dca47f" path="/doki/themes/re_zero/Emilia_Dark.theme.json"/>
