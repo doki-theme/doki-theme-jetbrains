@@ -228,14 +228,14 @@ class ThemeSettings : SearchableConfigurable {
         row {
           checkBox(
             "Theme Transition Animation",
-            themeSettingsModel.isFileColors,
+            themeSettingsModel.isLafAnimation,
             comment =
               """The animations will remain in your IDE after uninstalling the plugin.
             |To remove them, un-check this action or toggle the action at 
             |"Help -> Find Action -> ide.intellij.laf.enable.animation". 
             """.trimMargin(),
             actionListener = { _, component ->
-              themeSettingsModel.isFileColors = component.isSelected
+              themeSettingsModel.isLafAnimation = component.isSelected
             }
           )
         }
