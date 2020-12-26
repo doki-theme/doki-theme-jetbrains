@@ -15,13 +15,13 @@ import io.unthrottled.doki.hax.SvgLoaderHacker.setSVGColorPatcher
 import io.unthrottled.doki.icon.patcher.MaterialPathPatcherManager.attemptToAddIcons
 import io.unthrottled.doki.icon.patcher.MaterialPathPatcherManager.attemptToRemoveIcons
 import io.unthrottled.doki.laf.LookAndFeelInstaller.installAllUIComponents
+import io.unthrottled.doki.legacy.LegacyMigration
 import io.unthrottled.doki.notification.UpdateNotification
 import io.unthrottled.doki.promotions.PromotionManager
 import io.unthrottled.doki.settings.actors.setDokiTheme
 import io.unthrottled.doki.stickers.StickerLevel
 import io.unthrottled.doki.stickers.StickerService
 import io.unthrottled.doki.themes.ThemeManager
-import io.unthrottled.doki.util.ThemeMigrator
 import io.unthrottled.doki.util.doOrElse
 import io.unthrottled.doki.util.toOptional
 import java.util.Optional
@@ -74,7 +74,7 @@ class TheDokiTheme : Disposable {
       ProjectManager.TOPIC,
       object : ProjectManagerListener {
         override fun projectOpened(project: Project) {
-          ThemeMigrator.migrateToCommunityIfNecessary(project)
+          LegacyMigration.migrateIfNecessary(project)
 
           ThemeManager.instance.currentTheme
             .filter { ThemeConfig.instance.currentStickerLevel == StickerLevel.ON }
