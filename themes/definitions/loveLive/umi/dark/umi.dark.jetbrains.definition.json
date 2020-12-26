@@ -4,10 +4,6 @@
     "type": "template",
     "name": "Doki Dim"
   },
-  "overrides": {
-    "editorScheme": {
-      "colors": {}
-    }
-  },
+  "overrides": {},
   "ui": {}
 }

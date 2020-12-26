@@ -9,10 +9,6 @@
       "position": "MIDDLE_RIGHT"
     }
   },
-  "overrides": {
-    "editorScheme": {
-      "colors": {}
-    }
-  },
+  "overrides": {},
   "ui": {}
 }

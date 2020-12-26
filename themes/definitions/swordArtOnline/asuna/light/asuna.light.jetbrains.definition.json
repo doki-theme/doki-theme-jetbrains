@@ -4,13 +4,7 @@
     "type": "templateExtension",
     "file": "Asuna_Light.xml"
   },
-  "overrides": {
-    "editorScheme": {
-      "colors": {
-        "accentColor": "#212121"
-      }
-    }
-  },
+  "overrides": {},
   "uiBase": "light dim",
   "ui": {}
 }

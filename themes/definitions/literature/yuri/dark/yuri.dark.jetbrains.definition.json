@@ -4,15 +4,7 @@
     "type": "templateExtension",
     "file": "Yuri_Dark.xml"
   },
-  "overrides": {
-    "editorScheme": {
-      "colors": {
-        "testScopeColor": "#3a4258",
-        "startColor": "#BC60CB",
-        "accentColor": "#BC60CB"
-      }
-    }
-  },
+  "overrides": {},
   "ui": {
     "Plugins.lightSelectionBackground": "selectionBackground",
     "CompletionPopup.selectionBackground": "selectionBackground",

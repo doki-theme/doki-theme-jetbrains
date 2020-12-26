@@ -4,14 +4,6 @@
     "type": "templateExtension",
     "file": "Darkness_Dark.xml"
   },
-  "overrides": {
-    "editorScheme": {
-      "colors": {
-        "accentColor": "#f4fa8c",
-        "startColor": "#bb68ee"
-      }
-
-    }
-  },
+  "overrides": {},
   "ui": {}
 }

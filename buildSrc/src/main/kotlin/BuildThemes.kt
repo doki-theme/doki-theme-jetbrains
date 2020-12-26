@@ -682,7 +682,8 @@ open class BuildThemes : DefaultTask() {
             val value = it.attribute("value") as? String
             if (value?.contains('$') == true) {
               val (end, replacementColor) = getReplacementColor(value, '$') { templateColor ->
-                dokiDefinitionJetbrains.overrides?.editorScheme?.colors?.get(templateColor) as? String
+                dokiDefinitionMaster.overrides?.editorScheme?.colors?.get(templateColor) as? String
+                  ?: dokiDefinitionJetbrains.overrides?.editorScheme?.colors?.get(templateColor) as? String
                   ?: resolvedNamedColors[templateColor] as? String
                   ?: throw IllegalArgumentException("$templateColor is not in ${dokiDefinitionMaster.name}'s color definition.")
               }

@@ -4,14 +4,7 @@
     "type": "template",
     "name": "Doki Dim"
   },
-  "overrides": {
-    "editorScheme": {
-      "colors": {
-        "accentColor": "#68a8cb",
-        "startColor": "#68ee75"
-      }
-    }
-  },
+  "overrides": {},
   "uiBase": "dark dim",
   "ui": {}
 }

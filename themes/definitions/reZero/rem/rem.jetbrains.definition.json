@@ -9,15 +9,6 @@
       "position": "MIDDLE_RIGHT"
     }
   },
-  "overrides": {
-    "editorScheme": {
-      "colors": {
-        "accentColor": "#a87ff8",
-        "startColor": "#688dee",
-        "nonProjectFileScopeColor": "#343635",
-        "testScopeColor": "#2f393a"
-      }
-    }
-  },
+  "overrides": {},
   "ui": {}
 }

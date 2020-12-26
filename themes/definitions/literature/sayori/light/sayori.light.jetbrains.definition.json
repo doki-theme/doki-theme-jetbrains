@@ -4,13 +4,7 @@
     "type": "templateExtension",
     "file": "Sayori_Light.xml"
   },
-  "overrides": {
-    "editorScheme": {
-      "colors": {
-        "accentColor": "#2e7093"
-      }
-    }
-  },
+  "overrides": {},
   "uiBase": "light dim",
   "ui": {}
 }

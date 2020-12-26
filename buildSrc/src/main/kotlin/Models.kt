@@ -66,6 +66,7 @@ data class DokiBuildMasterThemeDefinition(
   val group: String,
   val product: String?,
   val stickers: BuildStickers,
+  val overrides: Overrides?,
   val colors: Map<String, Any>,
   val meta: Map<String, String>?
 ) {
