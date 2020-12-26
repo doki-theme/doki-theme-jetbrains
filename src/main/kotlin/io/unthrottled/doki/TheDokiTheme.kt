@@ -14,9 +14,6 @@ import io.unthrottled.doki.hax.HackComponent.hackLAF
 import io.unthrottled.doki.hax.SvgLoaderHacker.setSVGColorPatcher
 import io.unthrottled.doki.icon.patcher.MaterialPathPatcherManager.attemptToAddIcons
 import io.unthrottled.doki.icon.patcher.MaterialPathPatcherManager.attemptToRemoveIcons
-import io.unthrottled.doki.laf.AddFileColorsAction.setFileScopes
-import io.unthrottled.doki.laf.FileScopeColors.attemptToInstallColors
-import io.unthrottled.doki.laf.FileScopeColors.attemptToRemoveColors
 import io.unthrottled.doki.laf.LookAndFeelInstaller.installAllUIComponents
 import io.unthrottled.doki.notification.UpdateNotification
 import io.unthrottled.doki.promotions.PromotionManager
@@ -66,12 +63,8 @@ class TheDokiTheme : Disposable {
           .doOrElse({
             setSVGColorPatcher()
             installAllUIComponents()
-            attemptToInstallColors()
             attemptToAddIcons()
           }) {
-            if (ThemeConfig.instance.isDokiFileColors) {
-              attemptToRemoveColors()
-            }
             attemptToRemoveIcons()
           }
       }
@@ -81,11 +74,6 @@ class TheDokiTheme : Disposable {
       ProjectManager.TOPIC,
       object : ProjectManagerListener {
         override fun projectOpened(project: Project) {
-          // todo: remove this
-          if (ThemeConfig.instance.isDokiFileColors) {
-            setFileScopes(project)
-          }
-
           ThemeMigrator.migrateToCommunityIfNecessary(project)
 
           ThemeManager.instance.currentTheme

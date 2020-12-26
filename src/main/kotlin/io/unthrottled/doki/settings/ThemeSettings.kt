@@ -9,7 +9,6 @@ import com.intellij.ui.components.JBTabbedPane
 import com.intellij.ui.layout.panel
 import io.unthrottled.doki.config.THEME_CONFIG_TOPIC
 import io.unthrottled.doki.config.ThemeConfig
-import io.unthrottled.doki.settings.actors.FileColorActor
 import io.unthrottled.doki.settings.actors.LafAnimationActor
 import io.unthrottled.doki.settings.actors.MaterialIconsActor
 import io.unthrottled.doki.settings.actors.ShowReadmeActor
@@ -34,7 +33,6 @@ data class ThemeSettingsModel(
   var isLafAnimation: Boolean,
   var currentTheme: String,
   var isThemedTitleBar: Boolean,
-  var isFileColors: Boolean,
   var showThemeStatusBar: Boolean,
   var isSwappedSticker: Boolean,
   var isMaterialDirectories: Boolean,
@@ -65,7 +63,6 @@ class ThemeSettings : SearchableConfigurable {
     ThemeConfig.instance.isLafAnimation,
     ThemeManager.instance.currentTheme.map { it.name }.orElseGet { ThemeManager.DEFAULT_THEME_NAME },
     ThemeConfig.instance.isThemedTitleBar,
-    ThemeConfig.instance.isDokiFileColors,
     ThemeConfig.instance.showThemeStatusBar,
     ThemeConfig.instance.currentSticker == CurrentSticker.SECONDARY,
     ThemeConfig.instance.isMaterialDirectories,
@@ -83,7 +80,6 @@ class ThemeSettings : SearchableConfigurable {
   override fun apply() {
     LafAnimationActor.enableAnimation(themeSettingsModel.isLafAnimation)
     ShowReadmeActor.dontShowReadmeOnStartup(themeSettingsModel.isNotShowReadmeAtStartup)
-    FileColorActor.enableFileColors(themeSettingsModel.isFileColors)
     StickerActor.enableStickers(themeSettingsModel.areStickersEnabled, false)
     StickerActor.swapStickers(themeSettingsModel.isSwappedSticker, false)
     ThemedTitleBarActor.enableThemedTitleBar(themeSettingsModel.isThemedTitleBar)
@@ -226,20 +222,6 @@ class ThemeSettings : SearchableConfigurable {
             comment = "Feature only works on MacOS and Jetbrains Products",
             actionListener = { _, component ->
               themeSettingsModel.isThemedTitleBar = component.isSelected
-            }
-          )
-        }
-        row {
-          checkBox(
-            "Enable File Colors",
-            themeSettingsModel.isFileColors,
-            comment =
-              """The file colors remain part of your IDE  after the plugin has been uninstalled.
-                |To Prevent this, disable this setting or you can remove them 
-                |from "Settings -> Appearance -> File Colors".
-              """.trimMargin(),
-            actionListener = { _, component ->
-              themeSettingsModel.isFileColors = component.isSelected
             }
           )
         }

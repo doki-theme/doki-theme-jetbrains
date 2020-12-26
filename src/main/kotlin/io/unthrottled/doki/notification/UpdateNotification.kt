@@ -131,15 +131,6 @@ object UpdateNotification {
     )
   }
 
-  fun displayFileColorInstallMessage() {
-    showDokiNotification(
-      "File Colors Installed",
-      """File colors will remain in your IDE after uninstalling the plugin.
-          |To remove them, un-check this action or remove them at "Settings -> Appearance -> File Colors". 
-        """.trimMargin()
-    )
-  }
-
   fun displayAnimationInstallMessage() {
     showDokiNotification(
       "Theme Transition Animation Enabled",
