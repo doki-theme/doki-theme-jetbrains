@@ -81,6 +81,7 @@ class TheDokiTheme : Disposable {
       ProjectManager.TOPIC,
       object : ProjectManagerListener {
         override fun projectOpened(project: Project) {
+          // todo: remove this
           if (ThemeConfig.instance.isDokiFileColors) {
             setFileScopes(project)
           }
@@ -95,17 +96,31 @@ class TheDokiTheme : Disposable {
 
           getVersion()
             .ifPresent { version ->
-              // todo: look into renamed themes
               if (version != ThemeConfig.instance.version) {
                 ThemeConfig.instance.version = version
                 StartupManager.getInstance(project).runWhenProjectIsInitialized {
                   UpdateNotification.display(project, version)
                 }
+
+                handleThemeRenames()
               }
 
               StartupManager.getInstance(project).runWhenProjectIsInitialized {
                 PromotionManager.registerPromotion(version)
               }
+            }
+        }
+
+        private fun handleThemeRenames() {
+          ThemeManager.instance.currentTheme
+            .filter { it.name != ThemeManager.DEFAULT_THEME_NAME }
+            .ifPresent { currentTheme ->
+              setDokiTheme(
+                ThemeManager.instance.allThemes.first {
+                  currentTheme.id != it.id
+                }.toOptional()
+              )
+              setDokiTheme(currentTheme.toOptional())
             }
         }
       }
