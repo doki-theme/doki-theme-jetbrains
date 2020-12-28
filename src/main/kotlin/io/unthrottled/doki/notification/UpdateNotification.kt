@@ -108,7 +108,8 @@ object UpdateNotification {
         "$pluginName updated to v$newVersion",
         buildUpdateMessage(
           AssetManager.resolveAssetUrl(
-            AssetCategory.MISC, "update_celebration_v2.gif"
+            AssetCategory.MISC,
+            "update_celebration_v2.gif"
           ).orElseGet {
             "https://doki.assets.unthrottled.io/misc/update_celebration.gif"
           }

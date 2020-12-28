@@ -3,7 +3,6 @@ package io.unthrottled.doki.legacy
 import com.intellij.openapi.project.Project
 import com.intellij.psi.search.scope.NonProjectFilesScope
 import com.intellij.psi.search.scope.TestsScope
-import com.intellij.ui.ColorUtil
 import com.intellij.ui.FileColorManager
 import com.intellij.ui.tabs.FileColorManagerImpl
 import com.intellij.ui.tabs.FileColorsModel
