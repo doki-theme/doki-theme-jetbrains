@@ -1,0 +1,22 @@
+<scheme name="Kanna Dark" version="142" parent_scheme="Doki Dark">
+  <colors>
+    <option name="ScrollBar.Mac.Transparent.hoverThumbBorderColor" value="$accentColorOverrideTransparent$" />
+    <option name="ScrollBar.Mac.Transparent.hoverThumbColor" value="$accentColorOverrideTransparent$" />
+    <option name="ScrollBar.Mac.Transparent.thumbBorderColor" value="$accentColorOverrideMoreTransparent$" />
+    <option name="ScrollBar.Mac.Transparent.thumbColor" value="$accentColorOverrideMoreTransparent$" />
+    <option name="ScrollBar.Mac.hoverThumbBorderColor" value="$accentColorOverrideTransparent$" />
+    <option name="ScrollBar.Mac.hoverThumbColor" value="$accentColorOverrideTransparent$" />
+    <option name="ScrollBar.Mac.thumbBorderColor" value="$accentColorOverrideMoreTransparent$" />
+    <option name="ScrollBar.Mac.thumbColor" value="$accentColorOverrideMoreTransparent$" />
+    <option name="ScrollBar.Transparent.hoverThumbBorderColor" value="$accentColorOverrideTransparent$" />
+    <option name="ScrollBar.Transparent.hoverThumbColor" value="$accentColorOverrideTransparent$" />
+    <option name="ScrollBar.Transparent.thumbBorderColor" value="$accentColorOverrideMoreTransparent$" />
+    <option name="ScrollBar.Transparent.thumbColor" value="$accentColorOverrideMoreTransparent$" />
+    <option name="ScrollBar.hoverThumbBorderColor" value="$accentColorOverrideTransparent$" />
+    <option name="ScrollBar.hoverThumbColor" value="$accentColorOverrideTransparent$" />
+    <option name="ScrollBar.thumbBorderColor" value="$accentColorOverrideMoreTransparent$" />
+    <option name="ScrollBar.thumbColor" value="$accentColorOverrideMoreTransparent$" />
+  </colors>
+  <attributes>
+  </attributes>
+</scheme>

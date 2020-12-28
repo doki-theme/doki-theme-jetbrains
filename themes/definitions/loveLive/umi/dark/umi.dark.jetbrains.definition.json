@@ -1,9 +1,26 @@
 {
   "id": "2d1112ac-04ab-4f78-82c4-22e5e2c1754b",
   "editorScheme": {
-    "type": "template",
-    "name": "Doki Dim"
+    "type": "templateExtension",
+    "file": "Umi_Dark.xml"
   },
   "overrides": {},
-  "ui": {}
+  "ui": {
+    "ScrollBar.Transparent.thumbColor": "accentColorOverrideMoreTransparent",
+    "ScrollBar.Transparent.thumbBorderColor": "accentColorOverrideMoreTransparent",
+    "ScrollBar.Transparent.hoverThumbColor": "accentColorOverrideTransparent",
+    "ScrollBar.Transparent.hoverThumbBorderColor": "accentColorOverrideTransparent",
+    "ScrollBar.thumbBorderColor": "accentColorOverrideMoreTransparent",
+    "ScrollBar.thumbColor": "accentColorOverrideMoreTransparent",
+    "ScrollBar.hoverThumbBorderColor": "accentColorOverrideMoreTransparent",
+    "ScrollBar.hoverThumbColor": "accentColorOverrideMoreTransparent",
+    "ScrollBar.Mac.Transparent.thumbColor": "accentColorOverrideMoreTransparent",
+    "ScrollBar.Mac.Transparent.thumbBorderColor": "accentColorOverrideMoreTransparent",
+    "ScrollBar.Mac.Transparent.hoverThumbColor": "accentColorOverrideTransparent",
+    "ScrollBar.Mac.Transparent.hoverThumbBorderColor": "accentColorOverrideTransparent",
+    "ScrollBar.Mac.thumbBorderColor": "accentColorOverrideMoreTransparent",
+    "ScrollBar.Mac.thumbColor": "accentColorOverrideMoreTransparent",
+    "ScrollBar.Mac.hoverThumbBorderColor": "accentColorOverrideMoreTransparent",
+    "ScrollBar.Mac.hoverThumbColor": "accentColorOverrideMoreTransparent"
+  }
 }
