@@ -26,7 +26,6 @@ class ThemeConfig : PersistentStateComponent<ThemeConfig>, Cloneable {
   var chibiLevel: String = StickerLevel.ON.name
   var stickerLevel: String = StickerLevel.ON.name
   var isFirstTime: Boolean = true
-  // todo: warn user of removal
   var isDokiFileColors: Boolean = false
   var isThemedTitleBar: Boolean = true
   var showThemeStatusBar: Boolean = true
