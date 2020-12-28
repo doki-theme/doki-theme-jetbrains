@@ -42,6 +42,8 @@ Addition to the Sword Art Online series:
 - Added search field error background color.
 - Removed obsolete File Colors action.
 
+### [See pull request for more information](https://github.com/doki-theme/doki-theme-jetbrains/pull/298)
+
 
 # 11.3.3 [Promotion Bug Fix]
 
