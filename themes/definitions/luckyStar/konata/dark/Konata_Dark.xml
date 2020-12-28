@@ -1,0 +1,93 @@
+<scheme name="Konata Dark" version="142" parent_scheme="Doki Dark">
+  <colors>
+    <option name="FILESTATUS_ADDED" value="$terminal.ansiCyan$" />
+    <option name="FILESTATUS_COPIED" value="$terminal.ansiCyan$" />
+    <option name="FILESTATUS_HIJACKED" value="f1fa8c" />
+    <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_BOTH_CONFLICTS" value="$accentColor$" />
+    <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_CONFLICTS" value="$accentColor$" />
+    <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_PROPERTY_CONFLICTS" value="$accentColor$" />
+    <option name="FILESTATUS_IDEA_SVN_FILESTATUS_EXTERNAL" value="$terminal.ansiCyan$" />
+    <option name="FILESTATUS_addedOutside" value="$terminal.ansiCyan$" />
+    <option name="FILESTATUS_MERGED" value="D1C0FD" />
+    <option name="FILESTATUS_MODIFIED" value="FDFFB9" />
+    <option name="FILESTATUS_NOT_CHANGED_IMMEDIATE" value="FDFFB9" />
+    <option name="FILESTATUS_NOT_CHANGED_RECURSIVE" value="FDFFB9" />
+    <option name="FILESTATUS_OBSOLETE" value="$stringColor$" />
+    <option name="FILESTATUS_SWITCHED" value="$stringColor$" />
+    <option name="FILESTATUS_UNKNOWN" value="D1C0FD" />
+    <option name="FILESTATUS_changelistConflict" value="$accentColor$" />
+    <option name="FILESTATUS_modifiedOutside" value="D1C0FD" />
+
+    <option name="ERROR_HINT" value="d38e96" />
+    <option name="ADDED_LINES_COLOR" value="50A067" />
+    <option name="MODIFIED_LINES_COLOR" value="63A2FF" />
+    <option name="WHITESPACES_MODIFIED_LINES_COLOR" value="63a2ff" />
+  </colors>
+  <attributes>
+
+    <option name="DEBUGGER_INLINED_VALUES">
+      <value>
+        <option name="FOREGROUND" value="$infoForeground$" />
+        <option name="FONT_TYPE" value="1" />
+      </value>
+    </option>
+
+    <option name="CONSOLE_GRAY_OUTPUT">
+      <value>
+        <option name="FOREGROUND" value="C1BFC8" />
+      </value>
+    </option>
+    <option name="CONSOLE_DARKGRAY_OUTPUT">
+      <value>
+        <option name="FOREGROUND" value="5A5C87" />
+      </value>
+    </option>
+
+    <option name="CONSOLE_ERROR_OUTPUT">
+      <value>
+        <option name="FOREGROUND" value="E2001A" />
+      </value>
+    </option>
+
+    <option name="DEFAULT_INVALID_STRING_ESCAPE">
+      <value>
+        <option name="FOREGROUND" value="$classNameColor$" />
+        <option name="EFFECT_COLOR" value="E2001A" />
+        <option name="EFFECT_TYPE" value="2" />
+      </value>
+    </option>
+
+    <option name="ERRORS_ATTRIBUTES">
+      <value>
+        <option name="EFFECT_COLOR" value="E2001A" />
+        <option name="ERROR_STRIPE_COLOR" value="9e2927" />
+        <option name="EFFECT_TYPE" value="3" />
+      </value>
+    </option>
+
+    <option name="GRID_ERROR_VALUE">
+      <value>
+        <option name="EFFECT_COLOR" value="E2001A" />
+        <option name="ERROR_STRIPE_COLOR" value="cd4848" />
+        <option name="EFFECT_TYPE" value="2" />
+      </value>
+    </option>
+
+    <option name="REGEXP.INVALID_STRING_ESCAPE">
+      <value>
+        <option name="FOREGROUND" value="4D4D4A" />
+        <option name="EFFECT_COLOR" value="E2001A" />
+        <option name="EFFECT_TYPE" value="2" />
+      </value>
+    </option>
+
+    <option name="WRONG_REFERENCES_ATTRIBUTES">
+      <value>
+        <option name="FOREGROUND" value="E2001A" />
+        <option name="EFFECT_COLOR" value="E2001A" />
+        <option name="EFFECT_TYPE" value="3" />
+      </value>
+    </option>
+
+  </attributes>
+</scheme>

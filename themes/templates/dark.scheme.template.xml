@@ -58,7 +58,7 @@
         <option name="INLINE_REFACTORING_SETTINGS_HOVERED" value="%accentColorTransparent%"/>
         <option name="QUESTION_HINT" value="$selectionBackground$" />
         <option name="LINE_NUMBERS_COLOR" value="$lineNumberColor$" />
-        <option name="LINE_NUMBER_ON_CARET_ROW_COLOR" value="$lineNumberColor$" />
+        <option name="LINE_NUMBER_ON_CARET_ROW_COLOR" value="$infoForeground$" />
         <option name="PROMOTION_PANE" value="%accentColor%5a"/>
         <option name="MODIFIED_LINES_COLOR" value="296c2a" />
         <option name="METHOD_SEPARATORS_COLOR" value="$borderColor$" />
@@ -197,7 +197,7 @@
         </option>
         <option name="CODE_VISION_DEFAULT">
             <value>
-                <option name="FOREGROUND" value="6272a4" />
+                <option name="FOREGROUND" value="$comments$" />
             </value>
         </option>
         <option name="CODE_VISION_HOVERED">
@@ -433,7 +433,7 @@
         </option>
         <option name="DEFAULT_BLOCK_COMMENT">
             <value>
-                <option name="FOREGROUND" value="6272a4" />
+                <option name="FOREGROUND" value="$comments$" />
                 <option name="FONT_TYPE" value="2" />
             </value>
         </option>
@@ -458,7 +458,7 @@
         </option>
         <option name="DEFAULT_DOC_COMMENT">
             <value>
-                <option name="FOREGROUND" value="6272a4" />
+                <option name="FOREGROUND" value="$comments$" />
                 <option name="FONT_TYPE" value="2" />
             </value>
         </option>
@@ -524,7 +524,7 @@
         </option>
         <option name="DEFAULT_LINE_COMMENT">
             <value>
-                <option name="FOREGROUND" value="6272a4" />
+                <option name="FOREGROUND" value="$comments$" />
                 <option name="FONT_TYPE" value="2" />
             </value>
         </option>
@@ -792,7 +792,7 @@
         </option>
         <option name="IGNORE.COMMENT">
             <value>
-                <option name="FOREGROUND" value="6272a4" />
+                <option name="FOREGROUND" value="$comments$" />
             </value>
         </option>
         <option name="IGNORE.HEADER">
@@ -895,6 +895,12 @@
         <option name="JS.GLOBAL_VARIABLE">
             <value>
                 <option name="FOREGROUND" value="4C94D6" />
+                <option name="FONT_TYPE" value="2" />
+            </value>
+        </option>
+        <option name="JS.GLOBAL_FUNCTION">
+            <value>
+                <option name="FOREGROUND" value="$classNameColor$" />
                 <option name="FONT_TYPE" value="2" />
             </value>
         </option>
@@ -2149,7 +2155,7 @@
         </option>
         <option name="ReSharper.ASP_NET_COMMENT">
             <value>
-                <option name="FOREGROUND" value="6272a4" />
+                <option name="FOREGROUND" value="$comments$" />
                 <option name="FONT_TYPE" value="2" />
             </value>
         </option>
@@ -2213,7 +2219,7 @@
         </option>
         <option name="ReSharper.ASP_NET_RAZOR_COMMENT">
             <value>
-                <option name="FOREGROUND" value="6272a4" />
+                <option name="FOREGROUND" value="$comments$" />
                 <option name="FONT_TYPE" value="2" />
             </value>
         </option>
@@ -2242,7 +2248,7 @@
         </option>
         <option name="ReSharper.CPP_DOXYGEN_COMMAND">
             <value>
-                <option name="FOREGROUND" value="6272a4" />
+                <option name="FOREGROUND" value="$comments$" />
                 <option name="FONT_TYPE" value="1" />
             </value>
         </option>
@@ -2406,7 +2412,7 @@
         <option name="STATIC_METHOD_ATTRIBUTES" baseAttributes="DEFAULT_STATIC_METHOD" />
         <option name="SUGGESTION">
             <value>
-                <option name="EFFECT_COLOR" value="6272a4" />
+                <option name="EFFECT_COLOR" value="$comments$" />
                 <option name="EFFECT_TYPE" value="2" />
             </value>
         </option>

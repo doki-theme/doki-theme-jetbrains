@@ -4,13 +4,6 @@
     "type": "templateExtension",
     "file": "Rias_Dark.xml"
   },
-  "overrides": {
-    "editorScheme": {
-      "colors": {
-        "accentColor": "#fbf96e",
-        "startColor": "#e03392"
-      }
-    }
-  },
+  "overrides": {},
   "ui": {}
 }

@@ -4,11 +4,6 @@
     "type": "templateExtension",
     "file": "Yuri_Light.xml"
   },
-  "overrides": {
-    "colors": {
-      "accentColor": "#90468c"
-    }
-  },
-  "ui": {
-  }
+  "overrides": {},
+  "ui": {}
 }

@@ -4,14 +4,7 @@
     "type": "templateExtension",
     "file": "Darkness_Light.xml"
   },
-  "overrides": {
-    "editorScheme": {
-      "colors": {
-        "accentColor": "#b6323f",
-        "startColor": "#c79c19"
-      }
-    }
-  },
+  "overrides": {},
   "ui": {
     "Plugins.lightSelectionBackground": "selectionBackground",
     "ComboBox.modifiedItemForeground": "darkerAccentColor",

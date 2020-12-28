@@ -9,13 +9,6 @@
       "position": "MIDDLE_RIGHT"
     }
   },
-  "overrides": {
-    "editorScheme": {
-      "colors": {
-        "accentColor": "#e4ff10",
-        "startColor": "#e4ff10"
-      }
-    }
-  },
+  "overrides": {},
   "ui": {}
 }

@@ -9,13 +9,7 @@
       "name": "rory_dark_jetbrains.png"
     }
   },
-  "overrides": {
-    "editorScheme": {
-      "colors": {
-        "startColor": "#ee2726"
-      }
-    }
-  },
+  "overrides": {},
   "uiBase": "dark dim",
   "ui": {}
 }

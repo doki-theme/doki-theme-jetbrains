@@ -9,13 +9,7 @@
       "position": "MIDDLE_RIGHT"
     }
   },
-  "overrides": {
-    "editorScheme": {
-      "colors": {
-        "testScopeColor": "#243223"
-      }
-    }
-  },
+  "overrides": {},
   "ui": {
     "Plugins.lightSelectionBackground": "selectionBackground",
     "CompletionPopup.selectionBackground": "selectionBackground",

@@ -4,13 +4,6 @@
     "type": "templateExtension",
     "file": "Misato_Dark.xml"
   },
-  "overrides": {
-    "editorScheme": {
-      "colors": {
-        "accentColor": "#42E66C",
-        "startColor": "#ff7400"
-      }
-    }
-  },
+  "overrides": {},
   "ui": {}
 }

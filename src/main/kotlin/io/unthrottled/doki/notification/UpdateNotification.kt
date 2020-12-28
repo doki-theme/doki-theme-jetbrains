@@ -14,15 +14,27 @@ import com.intellij.openapi.wm.WindowManager
 import com.intellij.ui.BalloonLayoutData
 import com.intellij.ui.IconManager
 import com.intellij.ui.awt.RelativePoint
+import io.unthrottled.doki.assets.AssetCategory
+import io.unthrottled.doki.assets.AssetManager
 import io.unthrottled.doki.themes.ThemeManager
 import org.jetbrains.annotations.Nls
 import java.awt.Point
 
-val UPDATE_MESSAGE: String =
+private fun buildUpdateMessage(updateAsset: String): String =
   """
       What's New?<br>
       <ul>
-        <li>Fixed small 2020.3 look and feel issues</li>
+        <li>5 New Themes!!
+            <ul>
+              <li>Re:Zero - Echidna (Dark)</li>
+              <li>Sword Art Online - Yuuki Asuna (Dark)</li>
+              <li>Love Live! - Sonoda Umi (Dark)</li>
+              <li>Steins Gate - Makise Kurisu (Dark)</li>
+              <li>OreGairu - Yukinoshita Yukino (Dark)</li>
+            </ul>
+        </li>
+        <li>Update Konata's theme to be bit more dark.</li>
+        <li>A bunch of other small things!</li>
       </ul>
       Please see the <a href="https://github.com/doki-theme/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md">
       changelog</a> for more details.
@@ -31,10 +43,10 @@ val UPDATE_MESSAGE: String =
       <br><br>
       Thanks for downloading!
       <br><br>
-      <img alt='Thanks for downloading!' src="https://doki.assets.unthrottled.io/misc/update_celebration.gif" 
-      width='256'>
-       <br><br><br><br><br><br><br><br>
-       Thanks!
+      <div style='text-align: center'><img alt='Thanks for downloading!' src="$updateAsset" 
+      width='256'><br/>
+      I hope you enjoy your new themes!
+      </div>
   """.trimIndent()
 
 object UpdateNotification {
@@ -60,12 +72,13 @@ object UpdateNotification {
     project: Project? = null,
     listener: NotificationListener? = defaultListener
   ) {
-    notificationGroup.createNotification(
+    val notification = notificationGroup.createNotification(
       title,
       content,
       listener = listener
     ).setIcon(NOTIFICATION_ICON)
-      .notify(project)
+    notification.isImportant = true
+    notification.notify(project)
   }
 
   fun sendMessage(
@@ -93,7 +106,14 @@ object UpdateNotification {
       project,
       notificationGroup.createNotification(
         "$pluginName updated to v$newVersion",
-        UPDATE_MESSAGE,
+        buildUpdateMessage(
+          AssetManager.resolveAssetUrl(
+            AssetCategory.MISC,
+            "update_celebration_v2.gif"
+          ).orElseGet {
+            "https://doki.assets.unthrottled.io/misc/update_celebration.gif"
+          }
+        ),
         NotificationType.INFORMATION
       )
         .setListener(NotificationListener.UrlOpeningListener(false))
@@ -128,15 +148,6 @@ object UpdateNotification {
     showDokiNotification(
       "Please restart your IDE",
       "In order for the change to take effect, please restart your IDE. Thanks! ~"
-    )
-  }
-
-  fun displayFileColorInstallMessage() {
-    showDokiNotification(
-      "File Colors Installed",
-      """File colors will remain in your IDE after uninstalling the plugin.
-          |To remove them, un-check this action or remove them at "Settings -> Appearance -> File Colors". 
-        """.trimMargin()
     )
   }
 

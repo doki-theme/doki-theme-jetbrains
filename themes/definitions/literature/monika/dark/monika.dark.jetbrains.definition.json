@@ -4,13 +4,7 @@
     "type": "templateExtension",
     "file": "Monika_Dark.xml"
   },
-  "overrides": {
-    "editorScheme": {
-      "colors": {
-        "testScopeColor": "#222d10"
-      }
-    }
-  },
+  "overrides": {},
   "ui": {
     "Plugins.lightSelectionBackground": "selectionBackground",
     "CompletionPopup.selectionBackground": "selectionBackground"

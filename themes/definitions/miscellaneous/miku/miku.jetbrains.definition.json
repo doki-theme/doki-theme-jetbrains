@@ -4,16 +4,6 @@
     "type": "template",
     "name": "Doki Dark"
   },
-  "overrides": {
-    "editorScheme": {
-      "colors": {
-        "accentColor": "#ff69df",
-        "startColor": "#68eede",
-        "nonProjectFileScopeColor": "#343635",
-        "testScopeColor": "#2f393a"
-      }
-
-    }
-  },
+  "overrides": {},
   "ui": {}
 }

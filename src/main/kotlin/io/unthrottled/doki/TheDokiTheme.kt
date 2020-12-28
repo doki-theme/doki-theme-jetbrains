@@ -14,17 +14,14 @@ import io.unthrottled.doki.hax.HackComponent.hackLAF
 import io.unthrottled.doki.hax.SvgLoaderHacker.setSVGColorPatcher
 import io.unthrottled.doki.icon.patcher.MaterialPathPatcherManager.attemptToAddIcons
 import io.unthrottled.doki.icon.patcher.MaterialPathPatcherManager.attemptToRemoveIcons
-import io.unthrottled.doki.laf.AddFileColorsAction.setFileScopes
-import io.unthrottled.doki.laf.FileScopeColors.attemptToInstallColors
-import io.unthrottled.doki.laf.FileScopeColors.attemptToRemoveColors
 import io.unthrottled.doki.laf.LookAndFeelInstaller.installAllUIComponents
+import io.unthrottled.doki.legacy.LegacyMigration
 import io.unthrottled.doki.notification.UpdateNotification
 import io.unthrottled.doki.promotions.PromotionManager
 import io.unthrottled.doki.settings.actors.setDokiTheme
 import io.unthrottled.doki.stickers.StickerLevel
 import io.unthrottled.doki.stickers.StickerService
 import io.unthrottled.doki.themes.ThemeManager
-import io.unthrottled.doki.util.ThemeMigrator
 import io.unthrottled.doki.util.doOrElse
 import io.unthrottled.doki.util.toOptional
 import java.util.Optional
@@ -66,12 +63,8 @@ class TheDokiTheme : Disposable {
           .doOrElse({
             setSVGColorPatcher()
             installAllUIComponents()
-            attemptToInstallColors()
             attemptToAddIcons()
           }) {
-            if (ThemeConfig.instance.isDokiFileColors) {
-              attemptToRemoveColors()
-            }
             attemptToRemoveIcons()
           }
       }
@@ -81,11 +74,7 @@ class TheDokiTheme : Disposable {
       ProjectManager.TOPIC,
       object : ProjectManagerListener {
         override fun projectOpened(project: Project) {
-          if (ThemeConfig.instance.isDokiFileColors) {
-            setFileScopes(project)
-          }
-
-          ThemeMigrator.migrateToCommunityIfNecessary(project)
+          LegacyMigration.migrateIfNecessary(project)
 
           ThemeManager.instance.currentTheme
             .filter { ThemeConfig.instance.currentStickerLevel == StickerLevel.ON }
@@ -100,11 +89,26 @@ class TheDokiTheme : Disposable {
                 StartupManager.getInstance(project).runWhenProjectIsInitialized {
                   UpdateNotification.display(project, version)
                 }
+
+                handleThemeRenames()
               }
 
               StartupManager.getInstance(project).runWhenProjectIsInitialized {
                 PromotionManager.registerPromotion(version)
               }
+            }
+        }
+
+        private fun handleThemeRenames() {
+          ThemeManager.instance.currentTheme
+            .filter { it.name != ThemeManager.DEFAULT_THEME_NAME }
+            .ifPresent { currentTheme ->
+              setDokiTheme(
+                ThemeManager.instance.allThemes.first {
+                  currentTheme.id != it.id
+                }.toOptional()
+              )
+              setDokiTheme(currentTheme.toOptional())
             }
         }
       }

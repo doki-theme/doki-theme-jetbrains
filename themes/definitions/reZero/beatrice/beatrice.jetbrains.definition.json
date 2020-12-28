@@ -9,13 +9,7 @@
       "position": "MIDDLE_RIGHT"
     }
   },
-  "overrides": {
-    "editorScheme": {
-      "colors": {
-        "accentColor": "#5c84da"
-      }
-    }
-  },
+  "overrides": {},
   "ui": {
     "CompletionPopup.background": "testScopeColor",
     "CompletionPopup.selectionForeground": "selectionForeground",

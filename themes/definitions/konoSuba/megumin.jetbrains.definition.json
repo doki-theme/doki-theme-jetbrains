@@ -4,14 +4,7 @@
     "type": "templateExtension",
     "file": "Megumin.xml"
   },
-  "overrides": {
-    "editorScheme": {
-      "colors": {
-        "accentColor": "#e4ff10",
-        "startColor": "#e4ff10"
-      }
-    }
-  },
+  "overrides": {},
   "uiBase": "dark dim",
   "ui": {}
 }
