@@ -18,23 +18,26 @@ Themes grouped [by anime](./albums/grouping.md)
 ---
 
 This plugin is for serious Otaku programmers.
-Code with your waifu. With over **20** themes,
+Code with your waifu. With over **30** themes,
 I think you will find best girl.
 
 You can choose themes from various, Anime, Manga, or Visual Novels:
 
-- Doki-Doki Literature Club
-- Re:Zero
-- Kill La Kill
-- KonoSuba
 - DanganRonpa
-- High School DxD
-- Lucky Star
-- Sword Art Online
-- Neon Genesis Evangelion
+- Doki-Doki Literature Club
 - Fate
 - Gate
+- High School DxD
+- Kill La Kill
+- KonoSuba
+- Love Live!
+- Lucky Star
 - Miss Kobayashi's Dragon Maid
+- Neon Genesis Evangelion
+- OreGairu
+- Re:Zero
+- Steins Gate
+- Sword Art Online
 
 Sticker in the way? No worries! You can configure them to be on or off at your leisure.
 
@@ -44,6 +47,10 @@ They also play well with other themes, so feel free to come and go as your mood 
 # Got Contributions, fun ideas, or issues?
 
 Don't be afraid to reach out and join the [Gitter Community](https://gitter.im/doki-theme-jetbrains/community?utm_source=share-link&utm_medium=link&utm_campaign=share-link)!
+
+## Theme Requests
+
+If you want your main squeeze to be featured in the Doki Theme suite, feel free to [submit a theme request](https://github.com/doki-theme/doki-master-theme/issues).
 
 ## Enjoying the plugin and want more people to use it?
 
