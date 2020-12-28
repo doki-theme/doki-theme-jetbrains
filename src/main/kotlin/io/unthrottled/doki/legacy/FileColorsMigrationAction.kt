@@ -8,6 +8,7 @@ import com.intellij.ui.FileColorManager
 import com.intellij.ui.tabs.FileColorManagerImpl
 import com.intellij.ui.tabs.FileColorsModel
 import io.unthrottled.doki.themes.ThemeManager
+import io.unthrottled.doki.util.toHexString
 import java.lang.reflect.Constructor
 import java.util.Collections
 import java.util.stream.Collectors
@@ -20,8 +21,7 @@ object FileColorsMigrationAction {
         val manager = FileColorManager.getInstance(project!!)
         val quickScope = manager.getScopeColor(NonProjectFilesScope.NAME)
         quickScope != null &&
-          selectedTheme.nonProjectFileScopeColor ==
-          ColorUtil.toHex(quickScope)
+          selectedTheme.nonProjectFileScopeColor == quickScope.toHexString()
       }.orElse(false)
   }
 

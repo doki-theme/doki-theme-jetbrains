@@ -60,12 +60,13 @@ object UpdateNotification {
     project: Project? = null,
     listener: NotificationListener? = defaultListener
   ) {
-    notificationGroup.createNotification(
+    val notification = notificationGroup.createNotification(
       title,
       content,
       listener = listener
     ).setIcon(NOTIFICATION_ICON)
-      .notify(project)
+    notification.isImportant = true
+    notification.notify(project)
   }
 
   fun sendMessage(
