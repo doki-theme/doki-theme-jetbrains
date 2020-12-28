@@ -898,6 +898,12 @@
                 <option name="FONT_TYPE" value="2" />
             </value>
         </option>
+        <option name="JS.GLOBAL_FUNCTION">
+            <value>
+                <option name="FOREGROUND" value="$classNameColor$" />
+                <option name="FONT_TYPE" value="2" />
+            </value>
+        </option>
         <option name="JS.INSTANCE_MEMBER_FUNCTION" baseAttributes="DEFAULT_INSTANCE_METHOD"/>
         <option name="JS.NULL_UNDEFINED">
             <value>
