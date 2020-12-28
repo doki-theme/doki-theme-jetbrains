@@ -14,11 +14,13 @@ import com.intellij.openapi.wm.WindowManager
 import com.intellij.ui.BalloonLayoutData
 import com.intellij.ui.IconManager
 import com.intellij.ui.awt.RelativePoint
+import io.unthrottled.doki.assets.AssetCategory
+import io.unthrottled.doki.assets.AssetManager
 import io.unthrottled.doki.themes.ThemeManager
 import org.jetbrains.annotations.Nls
 import java.awt.Point
 
-val UPDATE_MESSAGE: String =
+private fun buildUpdateMessage(updateAsset: String): String =
   """
       What's New?<br>
       <ul>
@@ -41,11 +43,10 @@ val UPDATE_MESSAGE: String =
       <br><br>
       Thanks for downloading!
       <br><br>
-      <div style='text-align: center'><img alt='Thanks for downloading!' src="https://doki.assets.unthrottled.io/misc/update_celebration_v2.gif" 
-      width='256'>
-        </div>
-       <br><br><br><br><br><br><br><br>
-       Thanks!
+      <div style='text-align: center'><img alt='Thanks for downloading!' src="$updateAsset" 
+      width='256'><br/>
+      I hope you enjoy your new themes!
+      </div>
   """.trimIndent()
 
 object UpdateNotification {
@@ -105,7 +106,13 @@ object UpdateNotification {
       project,
       notificationGroup.createNotification(
         "$pluginName updated to v$newVersion",
-        UPDATE_MESSAGE,
+        buildUpdateMessage(
+          AssetManager.resolveAssetUrl(
+            AssetCategory.MISC, "update_celebration_v2.gif"
+          ).orElseGet {
+            "https://doki.assets.unthrottled.io/misc/update_celebration.gif"
+          }
+        ),
         NotificationType.INFORMATION
       )
         .setListener(NotificationListener.UrlOpeningListener(false))
