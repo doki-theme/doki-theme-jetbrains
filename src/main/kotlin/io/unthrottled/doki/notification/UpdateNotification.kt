@@ -55,8 +55,8 @@ object UpdateNotification {
   private val defaultListener = NotificationListener.UrlOpeningListener(false)
 
   private fun showDokiNotification(
-    @Nls(capitalization = Nls.Capitalization.Sentence) title: String = "",
-    @Nls(capitalization = Nls.Capitalization.Sentence) content: String,
+    title: String = "",
+    content: String,
     project: Project? = null,
     listener: NotificationListener? = defaultListener
   ) {

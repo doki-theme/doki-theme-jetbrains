@@ -16,14 +16,6 @@ Fate
 ![ishtar light code](../assets/screenshots/fate/ishtar_light_background.png)
 
 
-Gate
----
-
-### Rory Mercury
-
-![rory dark code](../assets/screenshots/gate/rory_dark_code.png)
-![rory dark code](../assets/screenshots/gate/rory_dark_background.png)
-
 KonoSuba
 ---
 
@@ -44,6 +36,36 @@ KonoSuba
 ![darkness code](../assets/screenshots/konoSuba/darkness_light_code.png)
 ![darkness background](../assets/screenshots/konoSuba/darkness_light_background.png)
 
+Gate
+---
+
+### Rory Mercury
+
+![rory dark code](../assets/screenshots/gate/rory_dark_code.png)
+![rory dark code](../assets/screenshots/gate/rory_dark_background.png)
+
+OreGairu
+---
+
+### Yukinoshita Yukino
+![yukino_dark code](../assets/screenshots/oreGairu/yukino_dark_code.png)
+![yukino_dark background](../assets/screenshots/oreGairu/yukino_dark_background.png)
+
+
+Steins Gate
+---
+
+### Makise Kurisu
+![kurisu_dark code](../assets/screenshots/steinsGate/kurisu_dark_code.png)
+![kurisu_dark background](../assets/screenshots/steinsGate/kurisu_dark_background.png)
+
+Love Live!
+---
+
+### Sonoda Umi
+![umi_dark code](../assets/screenshots/loveLive/umi_dark_code.png)
+![umi_dark background](../assets/screenshots/loveLive/umi_dark_background.png)
+
 
 Miscellaneous
 ---
@@ -55,6 +77,10 @@ Miscellaneous
 
 Re:Zero
 ---
+
+### Echidna
+![echidna_dark code](../assets/screenshots/reZero/echidna_dark_code.png)
+![echidna_dark background](../assets/screenshots/reZero/echidna_dark_background.png)
 
 ### Emilia
 ![emilia_light code](../assets/screenshots/reZero/emilia_light_code.png)
@@ -107,6 +133,9 @@ Sword Art Online
 ![asuna code](../assets/screenshots/sao/asuna_light_code.png)
 ![asuna background](../assets/screenshots/sao/asuna_light_background.png)
 
+![asuna code](../assets/screenshots/sao/asuna_dark_code.png)
+![asuna background](../assets/screenshots/sao/asuna_dark_background.png)
+
 Kill La Kill
 ---
 
@@ -129,10 +158,10 @@ Lucky Star
 ---
 
 ### Izumi Konata
-![konata code](../assets/screenshots/luckyStar/konata_light_code.png)
-![konata background](../assets/screenshots/luckyStar/konata_light_background.png)
-![konata code](../assets/screenshots/luckyStar/konata_light_secondary_code.png)
-![konata background](../assets/screenshots/luckyStar/konata_light_secondary_background.png)
+![konata code](../assets/screenshots/luckyStar/konata_dark_code.png)
+![konata background](../assets/screenshots/luckyStar/konata_dark_background.png)
+![konata code](../assets/screenshots/luckyStar/konata_dark_secondary_code.png)
+![konata background](../assets/screenshots/luckyStar/konata_dark_secondary_background.png)
 
 Doki-Doki Literature Club
 ---

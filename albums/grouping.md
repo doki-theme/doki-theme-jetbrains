@@ -7,6 +7,8 @@ Themes grouped by album
 
 [Gate](../albums/gate_themes.md)
 
+[Steins Gate](../albums/sg_themes.md)
+
 [Re:Zero Album](../albums/r0_album.md)
 
 [Miss Kobayashi's Dragon Maid](../albums/dm_themes.md)
@@ -26,3 +28,7 @@ Themes grouped by album
 [Sword Art Online Album](../albums/sao_album.md)
 
 [Miscellaneous Album](../albums/misc_themes.md)
+
+[OreGairu](../albums/og_themes.md)
+
+[Love Live!](../albums/ll_themes.md)
