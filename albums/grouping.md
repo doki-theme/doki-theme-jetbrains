@@ -21,7 +21,7 @@ Themes grouped by album
 
 [Miscellaneous Album](../albums/misc_themes.md)
 
-[Miss Kobayashi's Dragon Maid](../albums/dm_themes.md)
+[Miss Kobayashi's Dragon Maid](dm_album.md)
 
 [Neon Genesis Evangelion](../albums/eva_album.md)
 
