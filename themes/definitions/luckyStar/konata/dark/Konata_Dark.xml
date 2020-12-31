@@ -19,9 +19,6 @@
     <option name="FILESTATUS_modifiedOutside" value="D1C0FD" />
 
     <option name="ERROR_HINT" value="d38e96" />
-    <option name="ADDED_LINES_COLOR" value="50A067" />
-    <option name="MODIFIED_LINES_COLOR" value="63A2FF" />
-    <option name="WHITESPACES_MODIFIED_LINES_COLOR" value="63a2ff" />
   </colors>
   <attributes>
 
@@ -35,57 +32,6 @@
     <option name="CONSOLE_GRAY_OUTPUT">
       <value>
         <option name="FOREGROUND" value="C1BFC8" />
-      </value>
-    </option>
-    <option name="CONSOLE_DARKGRAY_OUTPUT">
-      <value>
-        <option name="FOREGROUND" value="5A5C87" />
-      </value>
-    </option>
-
-    <option name="CONSOLE_ERROR_OUTPUT">
-      <value>
-        <option name="FOREGROUND" value="E2001A" />
-      </value>
-    </option>
-
-    <option name="DEFAULT_INVALID_STRING_ESCAPE">
-      <value>
-        <option name="FOREGROUND" value="$classNameColor$" />
-        <option name="EFFECT_COLOR" value="E2001A" />
-        <option name="EFFECT_TYPE" value="2" />
-      </value>
-    </option>
-
-    <option name="ERRORS_ATTRIBUTES">
-      <value>
-        <option name="EFFECT_COLOR" value="E2001A" />
-        <option name="ERROR_STRIPE_COLOR" value="9e2927" />
-        <option name="EFFECT_TYPE" value="3" />
-      </value>
-    </option>
-
-    <option name="GRID_ERROR_VALUE">
-      <value>
-        <option name="EFFECT_COLOR" value="E2001A" />
-        <option name="ERROR_STRIPE_COLOR" value="cd4848" />
-        <option name="EFFECT_TYPE" value="2" />
-      </value>
-    </option>
-
-    <option name="REGEXP.INVALID_STRING_ESCAPE">
-      <value>
-        <option name="FOREGROUND" value="4D4D4A" />
-        <option name="EFFECT_COLOR" value="E2001A" />
-        <option name="EFFECT_TYPE" value="2" />
-      </value>
-    </option>
-
-    <option name="WRONG_REFERENCES_ATTRIBUTES">
-      <value>
-        <option name="FOREGROUND" value="E2001A" />
-        <option name="EFFECT_COLOR" value="E2001A" />
-        <option name="EFFECT_TYPE" value="3" />
       </value>
     </option>
 
