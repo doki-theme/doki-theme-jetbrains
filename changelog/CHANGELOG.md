@@ -8,7 +8,7 @@ Changelog
 - Small change to Emilia's dark syntax coloring
 - Many small fixes, see the [issue for more details](https://github.com/doki-theme/doki-theme-jetbrains/issues/299)
 
-[See the pull request for more details]()
+[See the pull request for more details](https://github.com/doki-theme/doki-theme-jetbrains/issues/300)
 
 # 12.0.0 [New Themes!!!]
 
