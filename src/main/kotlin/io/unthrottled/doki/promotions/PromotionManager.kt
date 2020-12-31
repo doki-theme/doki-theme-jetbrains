@@ -12,6 +12,7 @@ import io.unthrottled.doki.promotions.LockMaster.releaseLock
 import io.unthrottled.doki.promotions.MotivatorPromotionService.runPromotion
 import io.unthrottled.doki.promotions.OnlineService.isOnline
 import io.unthrottled.doki.service.AppService.getApplicationName
+import io.unthrottled.doki.service.PluginService.isAmiiInstalled
 import io.unthrottled.doki.service.PluginService.isMotivatorInstalled
 import io.unthrottled.doki.stickers.StickerLevel
 import io.unthrottled.doki.util.toOptional
@@ -52,7 +53,7 @@ open class PromotionManagerImpl {
   }
 
   private fun setupPromotion() {
-    if (isMotivatorInstalled().not() && shouldPromote() && isOnline()) {
+    if (areAniMemePluginsInstalled().not() && shouldPromote() && isOnline()) {
       try {
         if (acquireLock(id)) {
           runPromotion({
@@ -70,6 +71,9 @@ open class PromotionManagerImpl {
       }
     }
   }
+
+  private fun areAniMemePluginsInstalled() =
+    isMotivatorInstalled() || isAmiiInstalled()
 
   private val id: String
     get() = getApplicationName()
