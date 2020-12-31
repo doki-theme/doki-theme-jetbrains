@@ -180,6 +180,73 @@ class PromotionManagerIntegrationTest {
       TestTools.getTestAssetPath(testDirectory).toString().toOptional()
 
     every { PluginService.isMotivatorInstalled() } returns true
+    every { PluginService.isAmiiInstalled() } returns false
+    every { WeebService.isWeebStuffOn() } returns true
+    every { RestClient.performGet("$ASSET_SOURCE/misc/am-i-online.txt") } returns
+      """         
+        yes       
+              
+      """.toOptional()
+
+    val currentLedger = PromotionLedger(
+      UUID.randomUUID(),
+      mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(3))),
+      mutableMapOf(),
+      true
+    )
+
+    LedgerMaster.persistLedger(currentLedger)
+
+    val promotionManager = PromotionManagerImpl()
+    promotionManager.registerPromotion("Ryuko", true)
+
+    val postLedger = LedgerMaster.readLedger()
+
+    assertThat(postLedger).isEqualTo(currentLedger)
+
+    verify { MotivatorPromotionService wasNot Called }
+  }
+
+  @Test
+  fun `should not do anything when AMII is installed`() {
+    every { LocalStorageService.getGlobalAssetDirectory() } returns
+      TestTools.getTestAssetPath(testDirectory).toString().toOptional()
+
+    every { PluginService.isMotivatorInstalled() } returns false
+    every { PluginService.isAmiiInstalled() } returns true
+    every { WeebService.isWeebStuffOn() } returns true
+    every { RestClient.performGet("$ASSET_SOURCE/misc/am-i-online.txt") } returns
+      """         
+        yes       
+              
+      """.toOptional()
+
+    val currentLedger = PromotionLedger(
+      UUID.randomUUID(),
+      mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(3))),
+      mutableMapOf(),
+      true
+    )
+
+    LedgerMaster.persistLedger(currentLedger)
+
+    val promotionManager = PromotionManagerImpl()
+    promotionManager.registerPromotion("Ryuko", true)
+
+    val postLedger = LedgerMaster.readLedger()
+
+    assertThat(postLedger).isEqualTo(currentLedger)
+
+    verify { MotivatorPromotionService wasNot Called }
+  }
+
+  @Test
+  fun `should not do anything when AMII and Motivator are installed`() {
+    every { LocalStorageService.getGlobalAssetDirectory() } returns
+      TestTools.getTestAssetPath(testDirectory).toString().toOptional()
+
+    every { PluginService.isMotivatorInstalled() } returns true
+    every { PluginService.isAmiiInstalled() } returns true
     every { WeebService.isWeebStuffOn() } returns true
     every { RestClient.performGet("$ASSET_SOURCE/misc/am-i-online.txt") } returns
       """         
@@ -211,6 +278,7 @@ class PromotionManagerIntegrationTest {
     every { LocalStorageService.getGlobalAssetDirectory() } returns
       TestTools.getTestAssetPath(testDirectory).toString().toOptional()
     every { PluginService.isMotivatorInstalled() } returns false
+    every { PluginService.isAmiiInstalled() } returns false
     every { WeebService.isWeebStuffOn() } returns true
     every { RestClient.performGet("$ASSET_SOURCE/misc/am-i-online.txt") } returns
       """         
@@ -248,6 +316,7 @@ class PromotionManagerIntegrationTest {
     every { LocalStorageService.getGlobalAssetDirectory() } returns
       TestTools.getTestAssetPath(testDirectory).toString().toOptional()
     every { PluginService.isMotivatorInstalled() } returns false
+    every { PluginService.isAmiiInstalled() } returns false
     every { WeebService.isWeebStuffOn() } returns false
     every { RestClient.performGet("$ASSET_SOURCE/misc/am-i-online.txt") } returns
       """         
@@ -279,6 +348,7 @@ class PromotionManagerIntegrationTest {
     every { LocalStorageService.getGlobalAssetDirectory() } returns
       TestTools.getTestAssetPath(testDirectory).toString().toOptional()
     every { PluginService.isMotivatorInstalled() } returns false
+    every { PluginService.isAmiiInstalled() } returns false
     every { WeebService.isWeebStuffOn() } returns true
     every { RestClient.performGet("$ASSET_SOURCE/misc/am-i-online.txt") } returns
       "no".toOptional() andThen Optional.empty()
@@ -310,6 +380,7 @@ class PromotionManagerIntegrationTest {
     every { LocalStorageService.getGlobalAssetDirectory() } returns
       TestTools.getTestAssetPath(testDirectory).toString().toOptional()
     every { PluginService.isMotivatorInstalled() } returns false
+    every { PluginService.isAmiiInstalled() } returns false
     every { WeebService.isWeebStuffOn() } returns true
     every { RestClient.performGet("$ASSET_SOURCE/misc/am-i-online.txt") } returns
       """         
@@ -343,6 +414,7 @@ class PromotionManagerIntegrationTest {
     every { LocalStorageService.getGlobalAssetDirectory() } returns
       TestTools.getTestAssetPath(testDirectory).toString().toOptional()
     every { PluginService.isMotivatorInstalled() } returns false
+    every { PluginService.isAmiiInstalled() } returns false
     every { WeebService.isWeebStuffOn() } returns true
     every { RestClient.performGet("$ASSET_SOURCE/misc/am-i-online.txt") } returns
       """         
@@ -376,6 +448,7 @@ class PromotionManagerIntegrationTest {
     every { LocalStorageService.getGlobalAssetDirectory() } returns
       TestTools.getTestAssetPath(testDirectory).toString().toOptional()
     every { PluginService.isMotivatorInstalled() } returns false
+    every { PluginService.isAmiiInstalled() } returns false
     every { WeebService.isWeebStuffOn() } returns true
     every { RestClient.performGet("$ASSET_SOURCE/misc/am-i-online.txt") } returns
       """         
@@ -411,6 +484,7 @@ class PromotionManagerIntegrationTest {
     every { LocalStorageService.getGlobalAssetDirectory() } returns
       TestTools.getTestAssetPath(testDirectory).toString().toOptional()
     every { PluginService.isMotivatorInstalled() } returns false
+    every { PluginService.isAmiiInstalled() } returns false
     every { WeebService.isWeebStuffOn() } returns true
     every { RestClient.performGet("$ASSET_SOURCE/misc/am-i-online.txt") } returns
       """         
@@ -447,6 +521,7 @@ class PromotionManagerIntegrationTest {
     every { LocalStorageService.getGlobalAssetDirectory() } returns
       TestTools.getTestAssetPath(testDirectory).toString().toOptional()
     every { PluginService.isMotivatorInstalled() } returns false
+    every { PluginService.isAmiiInstalled() } returns false
     every { WeebService.isWeebStuffOn() } returns true
     every { RestClient.performGet("$ASSET_SOURCE/misc/am-i-online.txt") } returns
       """         
@@ -492,6 +567,7 @@ class PromotionManagerIntegrationTest {
     every { LocalStorageService.getGlobalAssetDirectory() } returns
       TestTools.getTestAssetPath(testDirectory).toString().toOptional()
     every { PluginService.isMotivatorInstalled() } returns false
+    every { PluginService.isAmiiInstalled() } returns false
     every { WeebService.isWeebStuffOn() } returns true
     every { RestClient.performGet("$ASSET_SOURCE/misc/am-i-online.txt") } returns
       """         
@@ -526,6 +602,7 @@ class PromotionManagerIntegrationTest {
     every { LocalStorageService.getGlobalAssetDirectory() } returns
       TestTools.getTestAssetPath(testDirectory).toString().toOptional()
     every { PluginService.isMotivatorInstalled() } returns false
+    every { PluginService.isAmiiInstalled() } returns false
     every { WeebService.isWeebStuffOn() } returns true
     every { RestClient.performGet("$ASSET_SOURCE/misc/am-i-online.txt") } returns
       """         
@@ -565,6 +642,7 @@ class PromotionManagerIntegrationTest {
     every { LocalStorageService.getGlobalAssetDirectory() } returns
       TestTools.getTestAssetPath(testDirectory).toString().toOptional()
     every { PluginService.isMotivatorInstalled() } returns false
+    every { PluginService.isAmiiInstalled() } returns false
     every { WeebService.isWeebStuffOn() } returns true
     every { RestClient.performGet("$ASSET_SOURCE/misc/am-i-online.txt") } returns
       """         

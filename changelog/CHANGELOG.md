@@ -1,6 +1,15 @@
 Changelog
 ---
 
+# 12.1.0 [v12 Usability fixes]
+
+- All themes' VCS line gutter colors are now themed
+- Updated Konata's error syntax coloring
+- Small change to Emilia's dark syntax coloring
+- Many small fixes, see the [issue for more details](https://github.com/doki-theme/doki-theme-jetbrains/issues/299)
+
+[See the pull request for more details]()
+
 # 12.0.0 [New Themes!!!]
 
 ## 5 New Themes!

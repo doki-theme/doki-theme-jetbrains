@@ -19,12 +19,14 @@
     <option name="EDITOR_LIGATURES" value="true" />
     <colors>
         <option name="ActionButton.iconTextForeground" value="$infoForeground$" />
-        <option name="ADDED_LINES_COLOR" value="D0FDC9" />
+        <option name="ActionButton.hoverBackground" value="$highlightColor$" />
+        <option name="ActionButton.pressedBackground" value="$highlightColor$" />
+        <option name="ADDED_LINES_COLOR" value="$diff.inserted$AA" />
         <option name="ANNOTATIONS_COLOR" value="$accentColor$" />
         <option name="CARET_COLOR" value="%accentColor%" />
         <option name="CARET_ROW_COLOR" value="$caretRow$" />
         <option name="CONSOLE_BACKGROUND_KEY" value="$textEditorBackground$" />
-        <option name="DELETED_LINES_COLOR" value="DCDCDC" />
+        <option name="DELETED_LINES_COLOR" value="$diff.deleted$" />
         <option name="DOCUMENTATION_COLOR" value="$headerColor$" />
         <option name="FILESTATUS_ADDED" value="10b15a" />
         <option name="FILESTATUS_COPIED" value="10b15a" />
@@ -61,7 +63,7 @@
         <option name="METHOD_SEPARATORS_COLOR" value="$borderColor$" />
         <option name="RECENT_LOCATIONS_SELECTION" value="$codeBlock$" />
         <option name="DIFF_SEPARATORS_BACKGROUND" value="%accentColor%1a"/>
-        <option name="MODIFIED_LINES_COLOR" value="9fe7ff" />
+        <option name="MODIFIED_LINES_COLOR" value="$diff.modified$AA" />
         <option name="NOTIFICATION_BACKGROUND" value="$accentColor$5a" />
         <option name="RIGHT_MARGIN_COLOR" value="$borderColor$" />
         <option name="SELECTED_INDENT_GUIDE" value="$borderColor$" />
@@ -104,7 +106,7 @@
         <option name="VCS_ANNOTATIONS_COLOR_5" value="$selectionBackground$"/>
         <option name="VISUAL_INDENT_GUIDE" value="$borderColor$" />
         <option name="WHITESPACES" value="b5b5b5" />
-        <option name="WHITESPACES_MODIFIED_LINES_COLOR" value="f6f0de" />
+        <option name="WHITESPACES_MODIFIED_LINES_COLOR" value="$diff.modified$AA" />
     </colors>
     <attributes>
         <option name="ABSTRACT_CLASS_NAME_ATTRIBUTES">

@@ -37,3 +37,6 @@ Addition to the Sword Art Online series:
 - Current line number is now `infoForeground` colored for dark themes.
 - Added search field error background color.
 - Removed obsolete File Colors action.
+- All themes' VCS line gutter colors are now themed
+- Many small fixes, see the [issue for more details](https://github.com/doki-theme/doki-theme-jetbrains/issues/299)
+- Small change to Emilia's dark syntax coloring
