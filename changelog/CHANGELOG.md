@@ -3,6 +3,12 @@ Changelog
 
 # 12.0.0 [New Themes!!!]
 
+- All themes' VCS line gutter colors are now themed
+- Updated Konata's error syntax coloring
+- Many small fixes, see the [issue for more details](https://github.com/doki-theme/doki-theme-jetbrains/issues/299)
+
+[See the pull request for more details]()
+
 ## 5 New Themes!
 
 Love Live! series:
