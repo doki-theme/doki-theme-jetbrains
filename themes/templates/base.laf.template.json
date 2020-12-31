@@ -142,6 +142,7 @@
     "Plugins.tagBackground": "highlightColor",
     "Notification.MoreButton.background": "highlightColor",
     "ActionButton.pressedBorderColor": "highlightColor",
+    "ActionButton.focusedBorderColor": "highlightColor",
 
     "Borders.color": "borderColor",
     "DialogWrapper.southPanelDivider": "borderColor",
