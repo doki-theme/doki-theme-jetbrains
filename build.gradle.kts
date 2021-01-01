@@ -6,11 +6,11 @@ plugins {
   // Custom plugin for building all of the themes
   id("doki-theme-plugin")
   // Kotlin support
-  id("org.jetbrains.kotlin.jvm") version "1.4.10"
+  id("org.jetbrains.kotlin.jvm") version "1.4.21-2"
   // gradle-intellij-plugin - read more: https://github.com/JetBrains/gradle-intellij-plugin
-  id("org.jetbrains.intellij") version "0.5.0"
+  id("org.jetbrains.intellij") version "0.6.5"
   // detekt linter - read more: https://detekt.github.io/detekt/gradle.html
-  id("io.gitlab.arturbosch.detekt") version "1.14.1"
+  id("io.gitlab.arturbosch.detekt") version "1.15.0"
   // ktlint linter - read more: https://github.com/JLLeitschuh/ktlint-gradle
   id("org.jlleitschuh.gradle.ktlint") version "9.4.1"
   id("org.kordamp.gradle.markdown") version "2.2.0"
@@ -43,9 +43,9 @@ dependencies {
   detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.14.1")
   implementation("commons-io:commons-io:2.6")
   implementation("org.javassist:javassist:3.21.0-GA")
-  implementation("io.sentry:sentry:1.7.30")
-  testImplementation("org.assertj:assertj-core:3.8.0")
-  testImplementation("io.mockk:mockk:1.10.0")
+  implementation("io.sentry:sentry:3.2.0")
+  testImplementation("org.assertj:assertj-core:3.18.1")
+  testImplementation("io.mockk:mockk:1.10.4")
 }
 
 configurations {
