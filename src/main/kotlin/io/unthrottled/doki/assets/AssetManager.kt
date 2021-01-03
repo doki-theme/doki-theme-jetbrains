@@ -1,7 +1,6 @@
 package io.unthrottled.doki.assets
 
 import com.intellij.openapi.application.ApplicationInfo
-import com.intellij.openapi.diagnostic.Logger
 import io.unthrottled.doki.assets.LocalAssetService.hasAssetChanged
 import io.unthrottled.doki.assets.LocalStorageService.createDirectories
 import io.unthrottled.doki.assets.LocalStorageService.getGlobalAssetDirectory
@@ -32,9 +31,6 @@ object HttpClientFactory {
 object AssetManager {
   const val ASSET_SOURCE = "https://doki.assets.unthrottled.io"
   const val FALLBACK_ASSET_SOURCE = "https://raw.githubusercontent.com/doki-theme/doki-theme-assets/master"
-
-  private val httpClient = HttpClientFactory.createHttpClient()
-  private val log = Logger.getInstance(this::class.java)
 
   /**
    * Will return a resolvable URL that can be used to reference an asset.

@@ -40,3 +40,4 @@ Addition to the Sword Art Online series:
 - All themes' VCS line gutter colors are now themed
 - Many small fixes, see the [issue for more details](https://github.com/doki-theme/doki-theme-jetbrains/issues/299)
 - Small change to Emilia's dark syntax coloring
+- Updated Sentry error reporting client.

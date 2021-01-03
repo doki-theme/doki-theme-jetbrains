@@ -14,13 +14,14 @@ import com.intellij.openapi.util.io.FileUtilRt
 import com.intellij.openapi.util.registry.Registry
 import com.intellij.util.Consumer
 import com.intellij.util.text.DateFormatUtil
-import io.sentry.DefaultSentryClientFactory
-import io.sentry.SentryClient
-import io.sentry.dsn.Dsn
-import io.sentry.event.Event
-import io.sentry.event.EventBuilder
-import io.sentry.event.UserBuilder
+import io.sentry.Sentry
+import io.sentry.SentryEvent
+import io.sentry.SentryLevel
+import io.sentry.SentryOptions
+import io.sentry.protocol.Message
+import io.sentry.protocol.User
 import io.unthrottled.doki.config.ThemeConfig
+import io.unthrottled.doki.util.runSafelyWithResult
 import java.awt.Component
 import java.lang.management.ManagementFactory
 import java.text.SimpleDateFormat
@@ -32,16 +33,23 @@ class ErrorReporter : ErrorReportSubmitter() {
   override fun getReportActionText(): String = "Report Anonymously"
 
   companion object {
-    private val sentryClient: SentryClient =
-      DefaultSentryClientFactory().createSentryClient(
-        Dsn(
+
+    init {
+      Sentry.init { options: SentryOptions ->
+        options.dsn =
           RestClient.performGet(
             "https://jetbrains.assets.unthrottled.io/doki-theme/sentry-dsn.txt"
           )
             .map { it.trim() }
             .orElse("https://54daf566d8854f7d98e4c09ced2d34c5@o403546.ingest.sentry.io/5266340?maxmessagelength=50000")
-        )
+      }
+
+      Sentry.setUser(
+        User().apply {
+          this.id = ThemeConfig.instance.userId
+        }
       )
+    }
   }
 
   override fun submit(
@@ -50,45 +58,48 @@ class ErrorReporter : ErrorReportSubmitter() {
     parentComponent: Component,
     consumer: Consumer<in SubmittedReportInfo>
   ): Boolean {
-    return try {
+    return runSafelyWithResult({
       events.forEach {
-        sentryClient.context.user =
-          UserBuilder().setId(ThemeConfig.instance.userId).build()
-        sentryClient.sendEvent(
+        Sentry.captureEvent(
           addSystemInfo(
-            EventBuilder()
-              .withLevel(Event.Level.ERROR)
-              .withServerName(getAppName().second)
-              .withExtra("Message", it.message)
-              .withExtra("Additional Info", additionalInfo ?: "None")
-          ).withMessage(it.throwableText)
+            SentryEvent()
+              .apply {
+                this.level = SentryLevel.ERROR
+                this.serverName = getAppName().second
+                this.setExtra("Additional Info", additionalInfo ?: "None")
+              }
+          ).apply {
+            this.message = Message().apply {
+              this.message = it.throwableText
+            }
+          }
         )
-        sentryClient.clearContext()
       }
       true
-    } catch (e: Throwable) {
+    }) {
       false
     }
   }
 
-  private fun addSystemInfo(event: EventBuilder): EventBuilder {
+  private fun addSystemInfo(event: SentryEvent): SentryEvent {
     val pair = getAppName()
     val appInfo = pair.first
     val appName = pair.second
     val properties = System.getProperties()
-    return event
-      .withExtra("App Name", appName)
-      .withExtra("Build Info", getBuildInfo(appInfo))
-      .withExtra("JRE", getJRE(properties))
-      .withExtra("VM", getVM(properties))
-      .withExtra("System Info", SystemInfo.getOsNameAndVersion())
-      .withExtra("GC", getGC())
-      .withExtra("Memory", Runtime.getRuntime().maxMemory() / FileUtilRt.MEGABYTE)
-      .withExtra("Cores", Runtime.getRuntime().availableProcessors())
-      .withExtra("Registry", getRegistry())
-      .withExtra("Non-Bundled Plugins", getNonBundledPlugins())
-      .withExtra("Current LAF", LafManager.getInstance().currentLookAndFeel?.name)
-      .withExtra("Doki Config", ThemeConfig.instance.asJson())
+    return event.apply {
+      setExtra("App Name", appName)
+      setExtra("Build Info", getBuildInfo(appInfo))
+      setExtra("JRE", getJRE(properties))
+      setExtra("VM", getVM(properties))
+      setExtra("System Info", SystemInfo.getOsNameAndVersion())
+      setExtra("GC", getGC())
+      setExtra("Memory", Runtime.getRuntime().maxMemory() / FileUtilRt.MEGABYTE)
+      setExtra("Cores", Runtime.getRuntime().availableProcessors())
+      setExtra("Registry", getRegistry())
+      setExtra("Non-Bundled Plugins", getNonBundledPlugins())
+      setExtra("Current LAF", LafManager.getInstance().currentLookAndFeel?.name)
+      setExtra("Doki Config", ThemeConfig.instance.asJson())
+    }
   }
 
   private fun getJRE(properties: Properties): String? {
