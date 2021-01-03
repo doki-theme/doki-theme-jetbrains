@@ -17,9 +17,11 @@ import com.intellij.ui.awt.RelativePoint
 import io.unthrottled.doki.assets.AssetCategory
 import io.unthrottled.doki.assets.AssetManager
 import io.unthrottled.doki.themes.ThemeManager
+import org.intellij.lang.annotations.Language
 import org.jetbrains.annotations.Nls
 import java.awt.Point
 
+@Language("HTML")
 private fun buildUpdateMessage(updateAsset: String): String =
   """
       What's New?<br>
@@ -44,7 +46,7 @@ private fun buildUpdateMessage(updateAsset: String): String =
       Thanks for downloading!
       <br><br>
       <div style='text-align: center'><img alt='Thanks for downloading!' src="$updateAsset" 
-      width='256'><br/>
+      width='256'><br/><br/>
       I hope you enjoy your new themes!
       </div>
   """.trimIndent()
