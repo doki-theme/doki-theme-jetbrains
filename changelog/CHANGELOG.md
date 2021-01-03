@@ -1,5 +1,9 @@
 Changelog
 ---
+# 12.1.1 [Maintenance]
+
+- Updated Sentry error reporting client.
+- Adjusted update notification message.
 
 # 12.1.0 [v12 Usability fixes]
 
