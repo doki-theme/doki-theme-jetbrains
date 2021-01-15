@@ -717,43 +717,6 @@ object HackComponent : Disposable {
           }
         }
       )
-      val editorBackgroundMethod = ctClass2.getDeclaredMethod("withEditorBackground")
-      editorBackgroundMethod.instrument(
-        object : ExprEditor() {
-          @Throws(CannotCompileException::class)
-          override fun edit(m: MethodCall?) {
-            if (m!!.methodName == "withNamedPainters") {
-              m.replace("{ \$2 = \"$DOKI_STICKER_PROP\"; \$_ = \$proceed(\$\$); }")
-            }
-          }
-        }
-      )
-
-      val isEditorBackgroundImageSetMethod = ctClass2.getDeclaredMethod("isEditorBackgroundImageSet")
-      isEditorBackgroundImageSetMethod.instrument(
-        object : ExprEditor() {
-          @Throws(CannotCompileException::class)
-          override fun edit(m: MethodCall?) {
-            if (m!!.methodName == "getBackgroundSpec") {
-              m.replace("{ \$2 = \"$DOKI_STICKER_PROP\"; \$_ = \$proceed(\$\$); }")
-            }
-          }
-        }
-      )
-
-      val initEditorPaintersMethod = ctClass2.getDeclaredMethod("initEditorPainters")
-      initEditorPaintersMethod.instrument(
-        object : ExprEditor() {
-          @Throws(CannotCompileException::class)
-          override fun edit(m: MethodCall?) {
-            if (m!!.methodName == "initWallpaperPainter") {
-              m.replace("{ \$1 = \"$DOKI_STICKER_PROP\"; \$_ = \$proceed(\$\$); }")
-            } else if (m.methodName == "getNamedPainters") {
-              m.replace("{ \$1 = \"$DOKI_STICKER_PROP\"; \$_ = \$proceed(\$\$); }")
-            }
-          }
-        }
-      )
 
       val initFramePaintersMethod = ctClass2.getDeclaredMethod("initFramePainters")
       initFramePaintersMethod.instrument(

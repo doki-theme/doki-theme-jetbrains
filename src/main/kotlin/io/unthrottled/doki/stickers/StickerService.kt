@@ -14,7 +14,5 @@ interface StickerService {
       get() = ServiceManager.getService(StickerService::class.java)
   }
 
-  fun getPreviousSticker(): Optional<String>
-  fun clearPreviousSticker()
   fun checkForUpdates(dokiTheme: DokiTheme)
 }
