@@ -20,6 +20,8 @@ import io.unthrottled.doki.util.toOptional
 import org.intellij.lang.annotations.Language
 import java.awt.Dimension
 import java.awt.Rectangle
+import java.awt.event.ComponentAdapter
+import java.awt.event.ComponentEvent
 import java.awt.event.MouseEvent
 import java.awt.event.MouseListener
 import java.awt.event.MouseMotionListener
@@ -153,7 +155,6 @@ object StickerPanelService {
 
 }
 
-
 class StickerPane(
   private val drawablePane: JLayeredPane,
   private val stickerUrl: String,
@@ -167,12 +168,21 @@ class StickerPane(
 
   @Volatile
   private var screenX = 0
+
   @Volatile
   private var screenY = 0
+
   @Volatile
   private var myX = 0
+
   @Volatile
   private var myY = 0
+
+  @Volatile
+  private var parentX = drawablePane.width
+
+  @Volatile
+  private var parentY = drawablePane.height
 
   init {
     isOpaque = false
@@ -192,7 +202,20 @@ class StickerPane(
     drawablePane.add(this)
     drawablePane.setLayer(this, JBLayeredPane.DEFAULT_LAYER)
 
-    addMouseListener(object: MouseListener {
+    drawablePane.addComponentListener(object : ComponentAdapter() {
+      override fun componentResized(e: ComponentEvent) {
+        val layer = e.component
+        if (layer !is JBLayeredPane) return
+
+        val deltaX = layer.width - parentX
+        val deltaY = layer.height - parentY
+        setLocation(x + deltaX, y + deltaY)
+        parentX = layer.width
+        parentY = layer.height
+      }
+    })
+
+    addMouseListener(object : MouseListener {
       override fun mouseClicked(e: MouseEvent?) {}
 
       override fun mousePressed(e: MouseEvent) {
@@ -201,6 +224,7 @@ class StickerPane(
         myX = x
         myY = y
       }
+
       override fun mouseReleased(e: MouseEvent?) {}
 
       override fun mouseEntered(e: MouseEvent?) {}
@@ -218,9 +242,7 @@ class StickerPane(
       }
 
       override fun mouseMoved(e: MouseEvent?) {}
-
     })
-
   }
 
   private fun createMemeContentPanel(): Pair<JComponent, JComponent> {
@@ -257,6 +279,8 @@ class StickerPane(
       drawablePane.y + drawablePane.height,
       Rectangle(width, height)
     )
+    myX = x
+    myY = y
     setLocation(x, y)
   }
 
