@@ -2,14 +2,28 @@ package io.unthrottled.doki.stickers.impl
 
 import com.intellij.ide.util.PropertiesComponent
 import com.intellij.openapi.application.ApplicationManager.getApplication
+import com.intellij.openapi.project.Project
+import com.intellij.openapi.project.ProjectManager
+import com.intellij.openapi.wm.WindowManager
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil
+import com.intellij.ui.components.JBLabel
+import com.intellij.ui.components.JBLayeredPane
+import com.intellij.ui.jcef.HwFacadeJPanel
+import com.intellij.util.ui.UIUtil
 import io.unthrottled.doki.assets.AssetCategory
 import io.unthrottled.doki.assets.AssetManager
 import io.unthrottled.doki.stickers.StickerService
 import io.unthrottled.doki.themes.Background
 import io.unthrottled.doki.themes.DokiTheme
 import io.unthrottled.doki.util.runSafely
+import io.unthrottled.doki.util.toOptional
+import org.intellij.lang.annotations.Language
+import java.awt.Dimension
+import java.awt.Rectangle
 import java.util.Optional
+import javax.swing.JComponent
+import javax.swing.JLayeredPane
+import javax.swing.JPanel
 
 const val DOKI_BACKGROUND_PROP: String = "io.unthrottled.doki.background"
 
@@ -40,8 +54,8 @@ class StickerServiceImpl : StickerService {
 
   private fun installSticker(dokiTheme: DokiTheme) =
     getLocallyInstalledStickerPath(dokiTheme)
-      .ifPresent {
-        // todo: this
+      .ifPresent { stickerPath ->
+        StickerPanelService.installSticker(stickerPath)
       }
 
   private fun installBackgroundImage(dokiTheme: DokiTheme) =
@@ -113,4 +127,102 @@ private fun setBackgroundImageProperty(
 private fun setPropertyValue(propertyKey: String, propertyValue: String) {
   PropertiesComponent.getInstance().unsetValue(propertyKey)
   PropertiesComponent.getInstance().setValue(propertyKey, propertyValue)
+}
+
+object StickerPanelService {
+
+  fun installSticker(stickerUrl: String) {
+    ProjectManager.getInstance().openProjects.forEach { project ->
+      UIUtil.getRootPane(
+        getIDEFrame(project).component
+      )?.layeredPane.toOptional()
+        .ifPresent { layeredPane ->
+          StickerPane(layeredPane, stickerUrl)
+        }
+    }
+  }
+
+  private fun getIDEFrame(project: Project) =
+    (
+      WindowManager.getInstance().getIdeFrame(project)
+        ?: WindowManager.getInstance().allProjectFrames.first()
+      )
+
+}
+
+
+class StickerPane(
+  private val drawablePane: JLayeredPane,
+  private val stickerUrl: String,
+) : HwFacadeJPanel() {
+
+  private val memeDisplay: JComponent
+
+  companion object {
+    private const val NOTIFICATION_Y_OFFSET = 10
+  }
+
+  init {
+    isOpaque = false
+    layout = null
+
+    val (memeContent, memeDisplay) = createMemeContentPanel()
+    this.memeDisplay = memeDisplay
+    add(memeContent)
+    this.size = memeContent.size
+
+    positionMemePanel(
+      memeContent.size.width,
+      memeContent.size.height,
+    )
+
+
+    drawablePane.add(this)
+    drawablePane.setLayer(this, JBLayeredPane.DEFAULT_LAYER)
+  }
+
+  private fun createMemeContentPanel(): Pair<JComponent, JComponent> {
+    val memeContent = JPanel()
+    memeContent.layout = null
+    @Language("html")
+    val memeDisplay = JBLabel(
+      """<html>
+           <img src='${stickerUrl}' />
+         </html>
+      """
+    )
+    val memeSize = memeDisplay.preferredSize
+    memeContent.size = Dimension(
+      memeSize.width,
+      memeSize.height,
+    )
+    memeContent.isOpaque = false
+    memeContent.add(memeDisplay)
+    val parentInsets = memeDisplay.insets
+    memeDisplay.setBounds(
+      parentInsets.left,
+      parentInsets.top,
+      memeSize.width,
+      memeSize.height
+    )
+
+    return memeContent to memeDisplay
+  }
+
+  private fun positionMemePanel(width: Int, height: Int) {
+    val (x, y) = getPosition(
+      drawablePane.x + drawablePane.width,
+      drawablePane.y + drawablePane.height,
+      Rectangle(width, height)
+    )
+    setLocation(x, y)
+  }
+
+  private fun getPosition(
+    parentWidth: Int,
+    parentHeight: Int,
+    memePanelBoundingBox: Rectangle,
+  ): Pair<Int, Int> =
+    parentWidth - memePanelBoundingBox.width - NOTIFICATION_Y_OFFSET to
+      parentHeight - memePanelBoundingBox.height - NOTIFICATION_Y_OFFSET
 }
