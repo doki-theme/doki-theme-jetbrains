@@ -20,6 +20,9 @@ import io.unthrottled.doki.util.toOptional
 import org.intellij.lang.annotations.Language
 import java.awt.Dimension
 import java.awt.Rectangle
+import java.awt.event.MouseEvent
+import java.awt.event.MouseListener
+import java.awt.event.MouseMotionListener
 import java.util.Optional
 import javax.swing.JComponent
 import javax.swing.JLayeredPane
@@ -162,6 +165,15 @@ class StickerPane(
     private const val NOTIFICATION_Y_OFFSET = 10
   }
 
+  @Volatile
+  private var screenX = 0
+  @Volatile
+  private var screenY = 0
+  @Volatile
+  private var myX = 0
+  @Volatile
+  private var myY = 0
+
   init {
     isOpaque = false
     layout = null
@@ -179,6 +191,36 @@ class StickerPane(
 
     drawablePane.add(this)
     drawablePane.setLayer(this, JBLayeredPane.DEFAULT_LAYER)
+
+    addMouseListener(object: MouseListener {
+      override fun mouseClicked(e: MouseEvent?) {}
+
+      override fun mousePressed(e: MouseEvent) {
+        screenX = e.xOnScreen
+        screenY = e.yOnScreen
+        myX = x
+        myY = y
+      }
+      override fun mouseReleased(e: MouseEvent?) {}
+
+      override fun mouseEntered(e: MouseEvent?) {}
+
+      override fun mouseExited(e: MouseEvent?) {}
+
+    })
+
+    addMouseMotionListener(object : MouseMotionListener {
+      override fun mouseDragged(e: MouseEvent) {
+        val deltaX = e.xOnScreen - screenX
+        val deltaY = e.yOnScreen - screenY
+
+        setLocation(myX + deltaX, myY + deltaY)
+      }
+
+      override fun mouseMoved(e: MouseEvent?) {}
+
+    })
+
   }
 
   private fun createMemeContentPanel(): Pair<JComponent, JComponent> {
