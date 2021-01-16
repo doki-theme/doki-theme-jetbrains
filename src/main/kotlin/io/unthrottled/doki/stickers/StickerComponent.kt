@@ -17,7 +17,7 @@ class StickerComponent :
   private val connection = ApplicationManager.getApplication().messageBus.connect()
 
   init {
-    StickerPanelService.instance.init()
+    StickerPaneService.instance.init()
     processLaf(LafManagerImpl.getInstance().currentLookAndFeel)
     connection.subscribe(LafManagerListener.TOPIC, this)
   }
@@ -25,12 +25,12 @@ class StickerComponent :
   companion object {
     fun activateForTheme(dokiTheme: DokiTheme) {
       BackgroundWallpaperService.instance.activateForTheme(dokiTheme)
-      StickerPanelService.instance.activateForTheme(dokiTheme)
+      StickerPaneService.instance.activateForTheme(dokiTheme)
     }
 
     fun remove() {
       BackgroundWallpaperService.instance.remove()
-      StickerPanelService.instance.remove()
+      StickerPaneService.instance.remove()
     }
   }
 

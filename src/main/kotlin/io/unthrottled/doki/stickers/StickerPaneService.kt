@@ -3,6 +3,7 @@ package io.unthrottled.doki.stickers
 import com.intellij.openapi.application.ApplicationManager
 import io.unthrottled.doki.assets.AssetCategory
 import io.unthrottled.doki.assets.AssetManager
+import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.themes.DokiTheme
 import io.unthrottled.doki.util.toOptional
 import java.awt.AWTEvent
@@ -13,11 +14,11 @@ import java.util.Optional
 import java.util.concurrent.ConcurrentHashMap
 import javax.swing.JFrame
 
-class StickerPanelService {
+class StickerPaneService {
 
   companion object {
-    val instance: StickerPanelService
-      get() = ApplicationManager.getApplication().getService(StickerPanelService::class.java)
+    val instance: StickerPaneService
+      get() = ApplicationManager.getApplication().getService(StickerPaneService::class.java)
   }
 
   private val windowsToAddStickersTo = ConcurrentHashMap<Component, StickerPane>()
@@ -47,9 +48,12 @@ class StickerPanelService {
 
   fun activateForTheme(dokiTheme: DokiTheme) {
     currentTheme = dokiTheme
-    displayStickers { stickerUrl ->
-      {
-        stickers.forEach { it.displaySticker(stickerUrl) }
+
+    if(ThemeConfig.instance.currentStickerLevel == StickerLevel.ON) {
+      displayStickers { stickerUrl ->
+        {
+          stickers.forEach { it.displaySticker(stickerUrl) }
+        }
       }
     }
   }
@@ -78,8 +82,10 @@ class StickerPanelService {
     windowsToAddStickersTo[window] =
       stickerPane
 
-    displayStickers { stickerUrl ->
-      { stickerPane.displaySticker(stickerUrl) }
+    if(ThemeConfig.instance.currentStickerLevel == StickerLevel.ON) {
+      displayStickers { stickerUrl ->
+        { stickerPane.displaySticker(stickerUrl) }
+      }
     }
   }
 
@@ -115,4 +121,10 @@ class StickerPanelService {
           it
         )
       }
+
+  fun checkForUpdates(dokiTheme: DokiTheme) {
+    ApplicationManager.getApplication().executeOnPooledThread {
+      getLocallyInstalledStickerPath(dokiTheme)
+    }
+  }
 }

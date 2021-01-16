@@ -87,6 +87,21 @@ internal class StickerPane(
     isOpaque = false
     layout = null
 
+    drawablePane.addComponentListener(
+      object : ComponentAdapter() {
+        override fun componentResized(e: ComponentEvent) {
+          val layer = e.component
+          if (layer !is JComponent) return
+
+          val deltaX = layer.width - parentX
+          val deltaY = layer.height - parentY
+          setLocation(x + deltaX, y + deltaY)
+          parentX = layer.width
+          parentY = layer.height
+        }
+      }
+    )
+
     if (positionable) {
       addListeners()
     }
@@ -113,25 +128,10 @@ internal class StickerPane(
       memeContent.size.height,
     )
 
+    drawablePane.remove(this)
     drawablePane.add(this)
     drawablePane.setLayer(this, JBLayeredPane.DEFAULT_LAYER)
     doDumbStuff()
-
-    // todo: clean up previous
-    drawablePane.addComponentListener(
-      object : ComponentAdapter() {
-        override fun componentResized(e: ComponentEvent) {
-          val layer = e.component
-          if (layer !is JComponent) return
-
-          val deltaX = layer.width - parentX
-          val deltaY = layer.height - parentY
-          setLocation(x + deltaX, y + deltaY)
-          parentX = layer.width
-          parentY = layer.height
-        }
-      }
-    )
   }
 
   /**
@@ -199,10 +199,10 @@ internal class StickerPane(
       parentHeight - memePanelBoundingBox.height - NOTIFICATION_Y_OFFSET
 
   fun detach() {
-    // todo: dis
+    drawablePane.remove(this)
   }
 
   override fun dispose() {
-    // todo dis
+    detach()
   }
 }
