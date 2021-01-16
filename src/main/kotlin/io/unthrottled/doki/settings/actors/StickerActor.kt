@@ -2,8 +2,8 @@ package io.unthrottled.doki.settings.actors
 
 import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.stickers.CurrentSticker
-import io.unthrottled.doki.stickers.StickerLevel
 import io.unthrottled.doki.stickers.StickerComponent
+import io.unthrottled.doki.stickers.StickerLevel
 import io.unthrottled.doki.themes.ThemeManager
 import io.unthrottled.doki.util.performWithAnimation
 

@@ -27,7 +27,6 @@ internal class StickerPane(
     private const val NOTIFICATION_Y_OFFSET = 10
   }
 
-
   var positionable: Boolean = ThemeConfig.instance.isMoveableStickers
     set(value) {
       field = value
@@ -119,18 +118,20 @@ internal class StickerPane(
     doDumbStuff()
 
     // todo: clean up previous
-    drawablePane.addComponentListener(object : ComponentAdapter() {
-      override fun componentResized(e: ComponentEvent) {
-        val layer = e.component
-        if (layer !is JComponent) return
+    drawablePane.addComponentListener(
+      object : ComponentAdapter() {
+        override fun componentResized(e: ComponentEvent) {
+          val layer = e.component
+          if (layer !is JComponent) return
 
-        val deltaX = layer.width - parentX
-        val deltaY = layer.height - parentY
-        setLocation(x + deltaX, y + deltaY)
-        parentX = layer.width
-        parentY = layer.height
+          val deltaX = layer.width - parentX
+          val deltaY = layer.height - parentY
+          setLocation(x + deltaX, y + deltaY)
+          parentX = layer.width
+          parentY = layer.height
+        }
       }
-    })
+    )
   }
 
   /**
@@ -150,14 +151,13 @@ internal class StickerPane(
     drawablePane.repaint()
   }
 
-
   private fun createMemeContentPanel(stickerUrl: String): Pair<JComponent, JComponent> {
     val memeContent = JPanel()
     memeContent.layout = null
     @Language("html")
     val memeDisplay = JBLabel(
       """<html>
-           <img src='${stickerUrl}' />
+           <img src='$stickerUrl' />
          </html>
       """
     )

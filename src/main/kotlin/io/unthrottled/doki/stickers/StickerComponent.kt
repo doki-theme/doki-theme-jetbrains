@@ -5,7 +5,6 @@ import com.intellij.ide.ui.LafManagerListener
 import com.intellij.ide.ui.laf.LafManagerImpl
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.application.ApplicationManager
-import com.intellij.openapi.project.ProjectManagerListener
 import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.themes.DokiTheme
 import io.unthrottled.doki.themes.ThemeManager

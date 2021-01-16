@@ -24,20 +24,23 @@ class StickerPanelService {
   private lateinit var currentTheme: DokiTheme
 
   init {
-    Toolkit.getDefaultToolkit().addAWTEventListener({ awtEvent ->
-      when (awtEvent.id) {
-        WindowEvent.WINDOW_OPENED -> {
-          when (val window = awtEvent.source) {
-            is JFrame -> captureFrame(window)
+    Toolkit.getDefaultToolkit().addAWTEventListener(
+      { awtEvent ->
+        when (awtEvent.id) {
+          WindowEvent.WINDOW_OPENED -> {
+            when (val window = awtEvent.source) {
+              is JFrame -> captureFrame(window)
+            }
+          }
+          WindowEvent.WINDOW_CLOSING -> {
+            when (val window = awtEvent.source) {
+              is JFrame -> disposeFrame(window)
+            }
           }
         }
-        WindowEvent.WINDOW_CLOSING -> {
-          when (val window = awtEvent.source) {
-            is JFrame -> disposeFrame(window)
-          }
-        }
-      }
-    }, AWTEvent.WINDOW_EVENT_MASK)
+      },
+      AWTEvent.WINDOW_EVENT_MASK
+    )
   }
 
   fun init() {}

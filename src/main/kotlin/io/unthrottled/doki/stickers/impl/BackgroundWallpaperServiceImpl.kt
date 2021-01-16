@@ -70,7 +70,6 @@ internal class BackgroundWallpaperServiceImpl : BackgroundWallpaperService {
   private fun repaintWindows() = runSafely({
     IdeBackgroundUtil.repaintAllWindows()
   })
-
 }
 
 private fun setBackgroundImageProperty(

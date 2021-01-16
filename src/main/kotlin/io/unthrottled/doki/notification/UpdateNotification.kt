@@ -172,14 +172,4 @@ object UpdateNotification {
         """.trimMargin()
     )
   }
-
-  fun displayMoveableStickersMesage() {
-    showDokiNotification(
-      "README.md will not show on startup",
-      """This behavior will remain in your IDE after uninstalling the plugin.
-          |To re-enable it, un-check this action or toggle the action at 
-          |"Help -> Find Action -> ide.open.readme.md.on.startup". 
-        """.trimMargin()
-    )
-  }
 }
