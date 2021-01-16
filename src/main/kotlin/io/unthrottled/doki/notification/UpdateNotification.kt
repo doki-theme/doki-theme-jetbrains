@@ -32,7 +32,7 @@ private fun buildUpdateMessage(updateAsset: String): String =
       Please see the <a href="https://github.com/doki-theme/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md">
       changelog</a> for more details.
       <br><br>
-      Did you the <b>Doki Theme</b> is available <a href='https://github.com/doki-theme'>on other platforms?</a>
+      Did you know the <b>Doki Theme</b> is available <a href='https://github.com/doki-theme'>on other platforms?</a>
       <br><br>
       Thanks for downloading!
       <br><br>
