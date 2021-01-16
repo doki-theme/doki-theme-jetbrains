@@ -113,11 +113,9 @@
   <actions>
     <group id="DokiThemeActions" text="Doki Theme Options" popup="true" icon="/icons/doki/pen.svg">
       <action id="StickerEnabler" class="io.unthrottled.doki.actions.StickersToggleAction" text="Enable Stickers" icon="/icons/nodes/favorite.svg" description="Enables the sticker in the lower right hand corner"/>
-      <action id="io.unthrottled.doki.moveable-sticker"
-              class="io.unthrottled.doki.actions.MoveableStickerToggleAction"
-              text="Enable Stickers Positioning"
-              icon="AllIcons.Actions.MoveTo2"
-              description="Enables the stickers to be dragged and repositioned temporarily"/>
+      <action id="io.unthrottled.doki.moveable-sticker" class="io.unthrottled.doki.actions.MoveableStickerToggleAction" text="Enable Stickers Positioning" icon="AllIcons.Actions.MoveTo2" description="Enables the stickers to be dragged and repositioned temporarily">
+        <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt 3"/>
+      </action>
       <add-to-group group-id="MainToolBar" anchor="last"/>
       <add-to-group group-id="ToolsMenu"/>
     </group>

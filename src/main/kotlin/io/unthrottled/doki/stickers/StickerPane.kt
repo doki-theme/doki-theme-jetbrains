@@ -4,6 +4,7 @@ import com.intellij.openapi.Disposable
 import com.intellij.ui.components.JBLabel
 import com.intellij.ui.components.JBLayeredPane
 import com.intellij.ui.jcef.HwFacadeJPanel
+import io.unthrottled.doki.config.ThemeConfig
 import org.intellij.lang.annotations.Language
 import java.awt.Dimension
 import java.awt.Rectangle
@@ -25,6 +26,17 @@ internal class StickerPane(
   companion object {
     private const val NOTIFICATION_Y_OFFSET = 10
   }
+
+
+  var positionable: Boolean = ThemeConfig.instance.isMoveableStickers
+    set(value) {
+      field = value
+      if (value) {
+        addListeners()
+      } else {
+        removeListeners()
+      }
+    }
 
   @Volatile
   private var screenX = 0
@@ -76,8 +88,19 @@ internal class StickerPane(
     isOpaque = false
     layout = null
 
+    if (positionable) {
+      addListeners()
+    }
+  }
+
+  private fun addListeners() {
     addMouseListener(dragListenerInitiationListener)
     addMouseMotionListener(dragListener)
+  }
+
+  private fun removeListeners() {
+    removeMouseListener(dragListenerInitiationListener)
+    removeMouseMotionListener(dragListener)
   }
 
   fun displaySticker(stickerUrl: String) {

@@ -13,7 +13,7 @@ import java.util.Optional
 import java.util.concurrent.ConcurrentHashMap
 import javax.swing.JFrame
 
-internal class StickerPanelService {
+class StickerPanelService {
 
   companion object {
     val instance: StickerPanelService
@@ -46,11 +46,13 @@ internal class StickerPanelService {
     currentTheme = dokiTheme
     displayStickers { stickerUrl ->
       {
-        getStickers()
-          .forEach { it.displaySticker(stickerUrl) }
+        stickers.forEach { it.displaySticker(stickerUrl) }
       }
     }
+  }
 
+  fun setStickerPositioning(shouldPosition: Boolean) {
+    stickers.forEach { it.positionable = shouldPosition }
   }
 
   private fun disposeFrame(window: JFrame) {
@@ -91,11 +93,12 @@ internal class StickerPanelService {
     }
   }
 
-  private fun getStickers() = windowsToAddStickersTo.entries.map { it.value }
+  private val stickers: List<StickerPane>
+    get() = windowsToAddStickersTo.entries.map { it.value }
 
   fun remove() {
     ApplicationManager.getApplication().invokeLater {
-      getStickers().forEach { it.detach() }
+      stickers.forEach { it.detach() }
     }
   }
 
