@@ -1,6 +1,10 @@
 Changelog
 ---
 
+# 12.2.1 [Maintenance]
+
+- Update plugin's build dependencies
+
 # 12.2.0 [Sticker Placement & Background Image]
 
 - Stickers of your Waifu are no longer in the background
