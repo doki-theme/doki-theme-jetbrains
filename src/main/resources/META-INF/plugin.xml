@@ -141,5 +141,8 @@
       <add-to-group group-id="DokiThemeActions" anchor="last"/>
     </action>
     <action id="io.unthrottled.doki.actions.MotivatorPromotion" class="io.unthrottled.doki.actions.MotivatorPromotion" text="Show Motivator Promotion" description="Shows the 'Waifu Motivator Plugin' promotion dialog" icon="/icons/plugins/motivator/motivator_toolwindow.svg"/>
+    <action id="io.unthrottled.doki.FileIconAssociation" class="io.unthrottled.doki.actions.FileIconAssociation" text="Associate Icon" description="Associates Icon with file type." icon="/icons/plugins/buck/icons/actions/GoTo.svg">
+      <add-to-group group-id="BasicEditorPopupMenu" anchor="last"/>
+    </action>
   </actions>
 </idea-plugin>
