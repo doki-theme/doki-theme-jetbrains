@@ -18,7 +18,7 @@ import javax.swing.JPanel
 
 internal class StickerPane(
   private val drawablePane: JLayeredPane,
-  ) : HwFacadeJPanel(), Disposable {
+) : HwFacadeJPanel(), Disposable {
 
   private lateinit var memeDisplay: JComponent
 
@@ -91,6 +91,7 @@ internal class StickerPane(
 
     drawablePane.add(this)
     drawablePane.setLayer(this, JBLayeredPane.DEFAULT_LAYER)
+    doDumbStuff()
 
     // todo: clean up previous
     drawablePane.addComponentListener(object : ComponentAdapter() {
@@ -106,6 +107,24 @@ internal class StickerPane(
       }
     })
   }
+
+  /**
+   * I'm not going to pretend like I know what I am doing.
+   * I do know that the render issue goes away, when another
+   * component is added to the root pane. Finna treat the symptom
+   * and not fix the cause.
+   */
+  private fun doDumbStuff() {
+    val ghostHax = JPanel()
+    drawablePane.add(ghostHax)
+    drawablePane.setLayer(ghostHax, JBLayeredPane.DRAG_LAYER)
+    drawablePane.revalidate()
+    drawablePane.repaint()
+    drawablePane.remove(ghostHax)
+    drawablePane.revalidate()
+    drawablePane.repaint()
+  }
+
 
   private fun createMemeContentPanel(stickerUrl: String): Pair<JComponent, JComponent> {
     val memeContent = JPanel()
