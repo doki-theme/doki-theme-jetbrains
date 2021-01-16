@@ -96,7 +96,7 @@ object AssetManager {
     assetPath: String,
     assetSource: String
   ): String = when (assetCategory) {
-    AssetCategory.STICKERS -> "$assetSource/${assetCategory.category}/jetbrains$assetPath" // todo: cropped to content
+    AssetCategory.STICKERS -> "$assetSource/${assetCategory.category}/jetbrains/v2$assetPath"
     else -> "$assetSource/${assetCategory.category}/$assetPath"
   }
 

@@ -22,7 +22,8 @@ internal class StickerPane(
 ) : HwFacadeJPanel(), Disposable {
 
   companion object {
-    private const val NOTIFICATION_Y_OFFSET = 10
+    private const val STICKER_Y_OFFSET = 45
+    private const val STICKER_X_OFFSET = 25
   }
 
   var positionable: Boolean = ThemeConfig.instance.isMoveableStickers
@@ -198,8 +199,8 @@ internal class StickerPane(
     parentHeight: Int,
     memePanelBoundingBox: Rectangle,
   ): Pair<Int, Int> =
-    parentWidth - memePanelBoundingBox.width - NOTIFICATION_Y_OFFSET to
-      parentHeight - memePanelBoundingBox.height - NOTIFICATION_Y_OFFSET
+    parentWidth - memePanelBoundingBox.width - STICKER_X_OFFSET to
+      parentHeight - memePanelBoundingBox.height - STICKER_Y_OFFSET
 
   fun detach() {
     drawablePane.remove(this)
