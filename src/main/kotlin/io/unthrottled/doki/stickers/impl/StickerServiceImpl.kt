@@ -18,13 +18,16 @@ import io.unthrottled.doki.themes.DokiTheme
 import io.unthrottled.doki.util.runSafely
 import io.unthrottled.doki.util.toOptional
 import org.intellij.lang.annotations.Language
+import java.awt.AWTEvent
 import java.awt.Dimension
 import java.awt.Rectangle
+import java.awt.Toolkit
 import java.awt.event.ComponentAdapter
 import java.awt.event.ComponentEvent
 import java.awt.event.MouseEvent
 import java.awt.event.MouseListener
 import java.awt.event.MouseMotionListener
+import java.awt.event.WindowEvent
 import java.util.Optional
 import javax.swing.JComponent
 import javax.swing.JLayeredPane
@@ -137,9 +140,18 @@ private fun setPropertyValue(propertyKey: String, propertyValue: String) {
 object StickerPanelService {
 
   fun installSticker(stickerUrl: String) {
+    Toolkit.getDefaultToolkit().addAWTEventListener({ awtEvent ->
+      when (awtEvent.id) {
+        WindowEvent.WINDOW_OPENED -> {
+          val source = awtEvent.source
+          println(source)
+        }
+      }
+    }, AWTEvent.WINDOW_EVENT_MASK)
     ProjectManager.getInstance().openProjects.forEach { project ->
+      val ideFrame = getIDEFrame(project)
       UIUtil.getRootPane(
-        getIDEFrame(project).component
+        ideFrame.component
       )?.layeredPane.toOptional()
         .ifPresent { layeredPane ->
           StickerPane(layeredPane, stickerUrl)
