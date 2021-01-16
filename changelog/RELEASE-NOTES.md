@@ -1,43 +1,8 @@
-## 5 New Themes!
-
-Love Live! series:
-
-- Sonoda Umi (Dark)
-
-From the OreGairu series:
-
-- Yukinoshita Yukino (Dark)
-
-Addition to Re:Zero series:
-
-- Echidna (Dark)
-
-From the Steins Gate series:
-
-- Makise Kurisu (Dark)
-
-Addition to the Sword Art Online series:
-
-- Yuuki Asuna (Dark)
-
-
-<img src='http://doki.assets.unthrottled.io/misc/v12_girls_smol.png' alt='v12 Girls' />
-
-## Other Stuff
-
-### Updates
-
-- Konata's theme is now a bit darker to aid in usability
-
-### Miscellaneous
-
-- Update Rin's syntax coloring just a bit.
-- Migrated editor scheme color overrides to all themes.
-- "Last Name First Name"'d Misato.
-- Current line number is now `infoForeground` colored for dark themes.
-- Added search field error background color.
-- Removed obsolete File Colors action.
-- All themes' VCS line gutter colors are now themed
-- Many small fixes, see the [issue for more details](https://github.com/doki-theme/doki-theme-jetbrains/issues/299)
-- Small change to Emilia's dark syntax coloring
-- Updated Sentry error reporting client.
+- Stickers of your Waifu are no longer in the background
+  - You can also temporarily position your sticker!
+  - See [the feature issue](https://github.com/doki-theme/doki-theme-jetbrains/issues/295)
+    and the [pull request](https://github.com/doki-theme/doki-theme-jetbrains/pull/304) for more details!
+- Restored background image functionality.
+  - You can now have your own background, and your Waifu sticker now!
+  - Stay tuned for official Doki-Theme background images!!
+  - ![Ishtar's Background](https://raw.githubusercontent.com/doki-theme/doki-theme-jetbrains/master/assets/doki-theme-background-ishtar-dark.png)

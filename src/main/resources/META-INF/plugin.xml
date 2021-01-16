@@ -49,7 +49,8 @@
   <extensions defaultExtensionNs="com.intellij">
     <annotator language="JSON" implementationClass="io.unthrottled.doki.ide.DokiThemeColorAnnotator"/>
     <applicationService serviceInterface="io.unthrottled.doki.themes.ThemeManager" serviceImplementation="io.unthrottled.doki.themes.impl.ThemeManagerImpl"/>
-    <applicationService serviceInterface="io.unthrottled.doki.stickers.StickerService" serviceImplementation="io.unthrottled.doki.stickers.impl.StickerServiceImpl"/>
+    <applicationService serviceInterface="io.unthrottled.doki.stickers.BackgroundWallpaperService" serviceImplementation="io.unthrottled.doki.stickers.impl.BackgroundWallpaperServiceImpl"/>
+    <applicationService serviceImplementation="io.unthrottled.doki.stickers.StickerPaneService"/>
     <applicationService serviceImplementation="io.unthrottled.doki.config.ThemeConfig"/>
     <applicationConfigurable id="0d570cb2-96df-43cc-80da-7f777e6d0afe" instance="io.unthrottled.doki.settings.ThemeSettings" groupId="appearance"/>
     <errorHandler id="9782e40c-e6d2-488f-8611-71f5cca6695e" implementation="io.unthrottled.doki.integrations.ErrorReporter"/>
@@ -112,6 +113,9 @@
   <actions>
     <group id="DokiThemeActions" text="Doki Theme Options" popup="true" icon="/icons/doki/pen.svg">
       <action id="StickerEnabler" class="io.unthrottled.doki.actions.StickersToggleAction" text="Enable Stickers" icon="/icons/nodes/favorite.svg" description="Enables the sticker in the lower right hand corner"/>
+      <action id="io.unthrottled.doki.moveable-sticker" class="io.unthrottled.doki.actions.MoveableStickerToggleAction" text="Enable Stickers Positioning" icon="AllIcons.Actions.MoveTo2" description="Enables the stickers to be dragged and repositioned temporarily">
+        <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt 3"/>
+      </action>
       <add-to-group group-id="MainToolBar" anchor="last"/>
       <add-to-group group-id="ToolsMenu"/>
     </group>

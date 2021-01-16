@@ -29,7 +29,6 @@ import com.intellij.xdebugger.impl.ui.XDebuggerUIConstants
 import com.intellij.xdebugger.memory.ui.ClassesTable
 import io.unthrottled.doki.hax.FeildHacker.setFinalStatic
 import io.unthrottled.doki.stickers.impl.DOKI_BACKGROUND_PROP
-import io.unthrottled.doki.stickers.impl.DOKI_STICKER_PROP
 import io.unthrottled.doki.ui.TitlePaneUI.Companion.LOL_NOPE
 import io.unthrottled.doki.util.runSafely
 import javassist.CannotCompileException
@@ -713,43 +712,6 @@ object HackComponent : Disposable {
           override fun edit(m: MethodCall?) {
             if (m!!.methodName == "withNamedPainters") {
               m.replace("{ \$2 = \"$DOKI_BACKGROUND_PROP\"; \$_ = \$proceed(\$\$); }")
-            }
-          }
-        }
-      )
-      val editorBackgroundMethod = ctClass2.getDeclaredMethod("withEditorBackground")
-      editorBackgroundMethod.instrument(
-        object : ExprEditor() {
-          @Throws(CannotCompileException::class)
-          override fun edit(m: MethodCall?) {
-            if (m!!.methodName == "withNamedPainters") {
-              m.replace("{ \$2 = \"$DOKI_STICKER_PROP\"; \$_ = \$proceed(\$\$); }")
-            }
-          }
-        }
-      )
-
-      val isEditorBackgroundImageSetMethod = ctClass2.getDeclaredMethod("isEditorBackgroundImageSet")
-      isEditorBackgroundImageSetMethod.instrument(
-        object : ExprEditor() {
-          @Throws(CannotCompileException::class)
-          override fun edit(m: MethodCall?) {
-            if (m!!.methodName == "getBackgroundSpec") {
-              m.replace("{ \$2 = \"$DOKI_STICKER_PROP\"; \$_ = \$proceed(\$\$); }")
-            }
-          }
-        }
-      )
-
-      val initEditorPaintersMethod = ctClass2.getDeclaredMethod("initEditorPainters")
-      initEditorPaintersMethod.instrument(
-        object : ExprEditor() {
-          @Throws(CannotCompileException::class)
-          override fun edit(m: MethodCall?) {
-            if (m!!.methodName == "initWallpaperPainter") {
-              m.replace("{ \$1 = \"$DOKI_STICKER_PROP\"; \$_ = \$proceed(\$\$); }")
-            } else if (m.methodName == "getNamedPainters") {
-              m.replace("{ \$1 = \"$DOKI_STICKER_PROP\"; \$_ = \$proceed(\$\$); }")
             }
           }
         }

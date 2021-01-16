@@ -9,6 +9,7 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.project.ProjectManager
 import com.intellij.openapi.project.ProjectManagerListener
 import com.intellij.openapi.startup.StartupManager
+import io.unthrottled.doki.assets.LocalAssetService
 import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.hax.HackComponent.hackLAF
 import io.unthrottled.doki.hax.SvgLoaderHacker.setSVGColorPatcher
@@ -19,8 +20,9 @@ import io.unthrottled.doki.legacy.LegacyMigration
 import io.unthrottled.doki.notification.UpdateNotification
 import io.unthrottled.doki.promotions.PromotionManager
 import io.unthrottled.doki.settings.actors.setDokiTheme
+import io.unthrottled.doki.stickers.BackgroundWallpaperService
 import io.unthrottled.doki.stickers.StickerLevel
-import io.unthrottled.doki.stickers.StickerService
+import io.unthrottled.doki.stickers.StickerPaneService
 import io.unthrottled.doki.themes.ThemeManager
 import io.unthrottled.doki.util.doOrElse
 import io.unthrottled.doki.util.toOptional
@@ -79,7 +81,8 @@ class TheDokiTheme : Disposable {
           ThemeManager.instance.currentTheme
             .filter { ThemeConfig.instance.currentStickerLevel == StickerLevel.ON }
             .ifPresent {
-              StickerService.instance.checkForUpdates(it)
+              BackgroundWallpaperService.instance.checkForUpdates(it)
+              StickerPaneService.instance.checkForUpdates(it)
             }
 
           getVersion()
@@ -91,6 +94,9 @@ class TheDokiTheme : Disposable {
                 }
 
                 handleThemeRenames()
+
+                // todo: remove after next major release
+                LocalAssetService.clearChecks()
               }
 
               StartupManager.getInstance(project).runWhenProjectIsInitialized {

@@ -11,6 +11,7 @@ import io.unthrottled.doki.config.THEME_CONFIG_TOPIC
 import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.settings.actors.LafAnimationActor
 import io.unthrottled.doki.settings.actors.MaterialIconsActor
+import io.unthrottled.doki.settings.actors.MoveableStickerActor
 import io.unthrottled.doki.settings.actors.ShowReadmeActor
 import io.unthrottled.doki.settings.actors.StickerActor
 import io.unthrottled.doki.settings.actors.ThemeActor
@@ -38,7 +39,8 @@ data class ThemeSettingsModel(
   var isMaterialDirectories: Boolean,
   var isMaterialFiles: Boolean,
   var isMaterialPSIIcons: Boolean,
-  var isNotShowReadmeAtStartup: Boolean
+  var isNotShowReadmeAtStartup: Boolean,
+  var isMoveableStickers: Boolean,
 )
 
 class ThemeSettings : SearchableConfigurable {
@@ -68,7 +70,8 @@ class ThemeSettings : SearchableConfigurable {
     ThemeConfig.instance.isMaterialDirectories,
     ThemeConfig.instance.isMaterialFiles,
     ThemeConfig.instance.isMaterialPSIIcons,
-    ThemeConfig.instance.isNotShowReadmeAtStartup
+    ThemeConfig.instance.isNotShowReadmeAtStartup,
+    ThemeConfig.instance.isMoveableStickers,
   )
 
   private val themeSettingsModel = initialThemeSettingsModel.copy()
@@ -88,6 +91,7 @@ class ThemeSettings : SearchableConfigurable {
     MaterialIconsActor.enableDirectoryIcons(themeSettingsModel.isMaterialDirectories)
     MaterialIconsActor.enableFileIcons(themeSettingsModel.isMaterialFiles)
     MaterialIconsActor.enablePSIIcons(themeSettingsModel.isMaterialPSIIcons)
+    MoveableStickerActor.moveableStickers(themeSettingsModel.isMoveableStickers)
     ApplicationManager.getApplication().messageBus.syncPublisher(
       THEME_CONFIG_TOPIC
     ).themeConfigUpdated(ThemeConfig.instance)
@@ -194,6 +198,13 @@ class ThemeSettings : SearchableConfigurable {
             themeSettingsModel.areStickersEnabled,
             actionListener = { _, component ->
               themeSettingsModel.areStickersEnabled = component.isSelected
+            }
+          )
+          checkBox(
+            "Enable Sticker Positioning",
+            themeSettingsModel.isMoveableStickers,
+            actionListener = { _, component ->
+              themeSettingsModel.isMoveableStickers = component.isSelected
             }
           )
         }

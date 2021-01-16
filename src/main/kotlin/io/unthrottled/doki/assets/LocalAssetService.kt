@@ -28,6 +28,10 @@ object LocalAssetService {
   private val gson = GsonBuilder().setPrettyPrinting().create()
   private val assetChecks: ConcurrentHashMap<String, Instant> = readPreviousAssetChecks()
 
+  fun clearChecks() {
+    assetChecks.clear()
+  }
+
   fun hasAssetChanged(
     localInstallPath: Path,
     remoteAssetUrl: String
@@ -37,9 +41,6 @@ object LocalAssetService {
         !hasBeenCheckedToday(localInstallPath) &&
           isLocalDifferentFromRemote(localInstallPath, remoteAssetUrl) == AssetChangedStatus.DIFFERENT
         )
-
-  private fun getOnDiskCheckSum(localAssetPath: Path): String =
-    computeCheckSum(Files.readAllBytes(localAssetPath))
 
   private fun computeCheckSum(byteArray: ByteArray): String {
     val messageDigest = MessageDigest.getInstance("MD5")
@@ -57,7 +58,7 @@ object LocalAssetService {
     getRemoteAssetChecksum(remoteAssetUrl)
       .map {
         writeCheckedDate(localInstallPath)
-        val onDiskCheckSum = getOnDiskCheckSum(localInstallPath)
+        val onDiskCheckSum = computeCheckSum(Files.readAllBytes(localInstallPath))
         if (it == onDiskCheckSum) {
           AssetChangedStatus.SAME
         } else {

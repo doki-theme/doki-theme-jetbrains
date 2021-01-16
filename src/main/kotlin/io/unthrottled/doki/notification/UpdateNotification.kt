@@ -26,17 +26,8 @@ private fun buildUpdateMessage(updateAsset: String): String =
   """
       What's New?<br>
       <ul>
-        <li>5 New Themes!!
-            <ul>
-              <li>Re:Zero - Echidna (Dark)</li>
-              <li>Sword Art Online - Yuuki Asuna (Dark)</li>
-              <li>Love Live! - Sonoda Umi (Dark)</li>
-              <li>Steins Gate - Makise Kurisu (Dark)</li>
-              <li>OreGairu - Yukinoshita Yukino (Dark)</li>
-            </ul>
-        </li>
-        <li>Update Konata's theme to be bit more dark.</li>
-        <li>A bunch of other small things!</li>
+        <li>Stickers are not in the background anymore.</li>
+        <li>You can have your own background image now!</li>
       </ul>
       Please see the <a href="https://github.com/doki-theme/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md">
       changelog</a> for more details.
@@ -68,7 +59,7 @@ object UpdateNotification {
 
   private val defaultListener = NotificationListener.UrlOpeningListener(false)
 
-  private fun showDokiNotification(
+  fun showDokiNotification(
     @Nls(capitalization = Nls.Capitalization.Sentence) title: String = "",
     @Nls(capitalization = Nls.Capitalization.Sentence) content: String,
     project: Project? = null,

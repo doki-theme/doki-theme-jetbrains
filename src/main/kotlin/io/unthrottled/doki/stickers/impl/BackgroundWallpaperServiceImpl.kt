@@ -5,11 +5,10 @@ import com.intellij.openapi.application.ApplicationManager.getApplication
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil
 import io.unthrottled.doki.assets.AssetCategory
 import io.unthrottled.doki.assets.AssetManager
-import io.unthrottled.doki.stickers.StickerService
+import io.unthrottled.doki.stickers.BackgroundWallpaperService
 import io.unthrottled.doki.themes.Background
 import io.unthrottled.doki.themes.DokiTheme
 import io.unthrottled.doki.util.runSafely
-import io.unthrottled.doki.util.toOptional
 import java.util.Optional
 
 const val DOKI_BACKGROUND_PROP: String = "io.unthrottled.doki.background"
@@ -17,39 +16,27 @@ const val DOKI_BACKGROUND_PROP: String = "io.unthrottled.doki.background"
 const val DOKI_STICKER_PROP: String = "io.unthrottled.doki.stickers"
 private const val PREVIOUS_STICKER = "io.unthrottled.doki.sticker.previous"
 
-class StickerServiceImpl : StickerService {
+internal class BackgroundWallpaperServiceImpl : BackgroundWallpaperService {
+
+  init {
+
+    // todo: remove after next major release
+    val propertiesComponent = PropertiesComponent.getInstance()
+    propertiesComponent.unsetValue(DOKI_STICKER_PROP)
+    propertiesComponent.unsetValue(PREVIOUS_STICKER)
+  }
 
   override fun activateForTheme(dokiTheme: DokiTheme) {
-    listOf(
-      {
-        installSticker(dokiTheme)
-      },
-      {
-        installBackgroundImage(dokiTheme)
-      }
-    ).forEach {
-      getApplication().executeOnPooledThread(it)
+    getApplication().executeOnPooledThread {
+      installBackgroundImage(dokiTheme)
     }
   }
 
   override fun checkForUpdates(dokiTheme: DokiTheme) {
     getApplication().executeOnPooledThread {
       getLocallyInstalledBackgroundImagePath(dokiTheme)
-      getLocallyInstalledStickerPath(dokiTheme)
     }
   }
-
-  private fun installSticker(dokiTheme: DokiTheme) =
-    getLocallyInstalledStickerPath(dokiTheme)
-      .ifPresent {
-        setBackgroundImageProperty(
-          it,
-          "98",
-          IdeBackgroundUtil.Fill.PLAIN.name,
-          IdeBackgroundUtil.Anchor.BOTTOM_RIGHT.name,
-          DOKI_STICKER_PROP
-        )
-      }
 
   private fun installBackgroundImage(dokiTheme: DokiTheme) =
     getLocallyInstalledBackgroundImagePath(dokiTheme)
@@ -74,28 +61,8 @@ class StickerServiceImpl : StickerService {
         ).map { it to background }
       }
 
-  private fun getLocallyInstalledStickerPath(
-    dokiTheme: DokiTheme
-  ): Optional<String> =
-    dokiTheme.getStickerPath()
-      .flatMap {
-        AssetManager.resolveAssetUrl(
-          AssetCategory.STICKERS,
-          it
-        )
-      }
-
   override fun remove() {
     val propertiesComponent = PropertiesComponent.getInstance()
-    val previousSticker = propertiesComponent.getValue(DOKI_STICKER_PROP, "")
-    if (previousSticker.isNotEmpty()) {
-      propertiesComponent.setValue(
-        PREVIOUS_STICKER,
-        previousSticker
-      )
-    }
-
-    propertiesComponent.unsetValue(DOKI_STICKER_PROP)
     propertiesComponent.unsetValue(DOKI_BACKGROUND_PROP)
     repaintWindows()
   }
@@ -103,13 +70,6 @@ class StickerServiceImpl : StickerService {
   private fun repaintWindows() = runSafely({
     IdeBackgroundUtil.repaintAllWindows()
   })
-
-  override fun getPreviousSticker(): Optional<String> =
-    PropertiesComponent.getInstance().getValue(PREVIOUS_STICKER).toOptional()
-
-  override fun clearPreviousSticker() {
-    PropertiesComponent.getInstance().unsetValue(PREVIOUS_STICKER)
-  }
 }
 
 private fun setBackgroundImageProperty(
