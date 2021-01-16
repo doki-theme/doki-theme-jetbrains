@@ -21,8 +21,6 @@ internal class StickerPane(
   private val drawablePane: JLayeredPane,
 ) : HwFacadeJPanel(), Disposable {
 
-  private lateinit var memeDisplay: JComponent
-
   companion object {
     private const val NOTIFICATION_Y_OFFSET = 10
   }
@@ -118,8 +116,13 @@ internal class StickerPane(
   }
 
   fun displaySticker(stickerUrl: String) {
-    val (memeContent, memeDisplay) = createMemeContentPanel(stickerUrl)
-    this.memeDisplay = memeDisplay
+    // clean up old sticker
+    if(componentCount > 0) {
+      remove(0)
+    }
+
+    // add new sticker
+    val memeContent = createMemeContentPanel(stickerUrl)
     add(memeContent)
     this.size = memeContent.size
 
@@ -151,7 +154,7 @@ internal class StickerPane(
     drawablePane.repaint()
   }
 
-  private fun createMemeContentPanel(stickerUrl: String): Pair<JComponent, JComponent> {
+  private fun createMemeContentPanel(stickerUrl: String): JPanel {
     val memeContent = JPanel()
     memeContent.layout = null
     @Language("html")
@@ -176,7 +179,7 @@ internal class StickerPane(
       memeSize.height
     )
 
-    return memeContent to memeDisplay
+    return memeContent
   }
 
   private fun positionMemePanel(width: Int, height: Int) {
