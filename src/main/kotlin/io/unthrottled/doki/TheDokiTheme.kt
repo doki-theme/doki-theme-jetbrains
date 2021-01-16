@@ -20,7 +20,7 @@ import io.unthrottled.doki.notification.UpdateNotification
 import io.unthrottled.doki.promotions.PromotionManager
 import io.unthrottled.doki.settings.actors.setDokiTheme
 import io.unthrottled.doki.stickers.StickerLevel
-import io.unthrottled.doki.stickers.StickerService
+import io.unthrottled.doki.stickers.BackgroundWallpaperService
 import io.unthrottled.doki.themes.ThemeManager
 import io.unthrottled.doki.util.doOrElse
 import io.unthrottled.doki.util.toOptional
@@ -79,7 +79,7 @@ class TheDokiTheme : Disposable {
           ThemeManager.instance.currentTheme
             .filter { ThemeConfig.instance.currentStickerLevel == StickerLevel.ON }
             .ifPresent {
-              StickerService.instance.checkForUpdates(it)
+              BackgroundWallpaperService.instance.checkForUpdates(it)
             }
 
           getVersion()
