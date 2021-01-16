@@ -97,7 +97,7 @@ internal class StickerPane(
     drawablePane.addComponentListener(object : ComponentAdapter() {
       override fun componentResized(e: ComponentEvent) {
         val layer = e.component
-        if (layer !is JBLayeredPane) return
+        if (layer !is JComponent) return
 
         val deltaX = layer.width - parentX
         val deltaY = layer.height - parentY
