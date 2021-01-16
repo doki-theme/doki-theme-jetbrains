@@ -117,7 +117,7 @@ internal class StickerPane(
 
   fun displaySticker(stickerUrl: String) {
     // clean up old sticker
-    if(componentCount > 0) {
+    if (componentCount > 0) {
       remove(0)
     }
 

@@ -49,7 +49,7 @@ class StickerPaneService {
   fun activateForTheme(dokiTheme: DokiTheme) {
     currentTheme = dokiTheme
 
-    if(ThemeConfig.instance.currentStickerLevel == StickerLevel.ON) {
+    if (ThemeConfig.instance.currentStickerLevel == StickerLevel.ON) {
       displayStickers { stickerUrl ->
         {
           stickers.forEach { it.displaySticker(stickerUrl) }
@@ -82,7 +82,7 @@ class StickerPaneService {
     windowsToAddStickersTo[window] =
       stickerPane
 
-    if(ThemeConfig.instance.currentStickerLevel == StickerLevel.ON) {
+    if (ThemeConfig.instance.currentStickerLevel == StickerLevel.ON) {
       displayStickers { stickerUrl ->
         { stickerPane.displaySticker(stickerUrl) }
       }
