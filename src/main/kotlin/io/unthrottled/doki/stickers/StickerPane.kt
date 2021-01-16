@@ -44,38 +44,40 @@ internal class StickerPane(
   @Volatile
   private var parentY = drawablePane.height
 
+  private val dragListenerInitiationListener = object : MouseListener {
+    override fun mouseClicked(e: MouseEvent?) {}
+
+    override fun mousePressed(e: MouseEvent) {
+      screenX = e.xOnScreen
+      screenY = e.yOnScreen
+      myX = x
+      myY = y
+    }
+
+    override fun mouseReleased(e: MouseEvent?) {}
+
+    override fun mouseEntered(e: MouseEvent?) {}
+
+    override fun mouseExited(e: MouseEvent?) {}
+  }
+
+  private val dragListener = object : MouseMotionListener {
+    override fun mouseDragged(e: MouseEvent) {
+      val deltaX = e.xOnScreen - screenX
+      val deltaY = e.yOnScreen - screenY
+
+      setLocation(myX + deltaX, myY + deltaY)
+    }
+
+    override fun mouseMoved(e: MouseEvent?) {}
+  }
+
   init {
     isOpaque = false
     layout = null
 
-    addMouseListener(object : MouseListener {
-      override fun mouseClicked(e: MouseEvent?) {}
-
-      override fun mousePressed(e: MouseEvent) {
-        screenX = e.xOnScreen
-        screenY = e.yOnScreen
-        myX = x
-        myY = y
-      }
-
-      override fun mouseReleased(e: MouseEvent?) {}
-
-      override fun mouseEntered(e: MouseEvent?) {}
-
-      override fun mouseExited(e: MouseEvent?) {}
-
-    })
-
-    addMouseMotionListener(object : MouseMotionListener {
-      override fun mouseDragged(e: MouseEvent) {
-        val deltaX = e.xOnScreen - screenX
-        val deltaY = e.yOnScreen - screenY
-
-        setLocation(myX + deltaX, myY + deltaY)
-      }
-
-      override fun mouseMoved(e: MouseEvent?) {}
-    })
+    addMouseListener(dragListenerInitiationListener)
+    addMouseMotionListener(dragListener)
   }
 
   fun displaySticker(stickerUrl: String) {

@@ -21,6 +21,7 @@ class ThemeConfig : PersistentStateComponent<ThemeConfig>, Cloneable {
 
   var userId: String = ""
   var isLafAnimation: Boolean = false
+  var isMoveableStickers: Boolean = false
   var isNotShowReadmeAtStartup: Boolean = false
   var version: String = "0.0.0"
   var chibiLevel: String = StickerLevel.ON.name
