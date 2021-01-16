@@ -8,7 +8,7 @@ Changelog
   - See [the feature issue](https://github.com/doki-theme/doki-theme-jetbrains/issues/295) 
   and the [pull request]() for more details!
 - Restored background image functionality.
-  - You can now have your own background and your Waifu sticker now!
+  - You can now have your own background, and your Waifu sticker now!
   - Stay tuned for official Doki-Theme background images!!
   - ![Ishtar's Background](https://raw.githubusercontent.com/doki-theme/doki-theme-jetbrains/master/assets/doki-theme-background-ishtar-dark.png)
 
