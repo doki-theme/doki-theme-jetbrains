@@ -33,7 +33,7 @@ class StickerPaneService {
               is JFrame -> captureFrame(window)
             }
           }
-          WindowEvent.WINDOW_CLOSING -> {
+          WindowEvent.WINDOW_CLOSED -> {
             when (val window = awtEvent.source) {
               is JFrame -> disposeFrame(window)
             }
