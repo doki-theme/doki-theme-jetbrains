@@ -1,7 +1,9 @@
+
 - Stickers of your Waifu are no longer in the background
   - You can also temporarily position your sticker!
   - See [the feature issue](https://github.com/doki-theme/doki-theme-jetbrains/issues/295)
     and the [pull request](https://github.com/doki-theme/doki-theme-jetbrains/pull/304) for more details!
+- Many small changes to every theme's look and feel [see issue for more details](https://github.com/doki-theme/doki-theme-jetbrains/issues/306)
 - Restored background image functionality.
   - You can now have your own background, and your Waifu sticker now!
   - Stay tuned for official Doki-Theme background images!!
