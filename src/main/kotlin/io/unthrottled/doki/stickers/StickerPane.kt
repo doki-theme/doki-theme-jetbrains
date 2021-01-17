@@ -123,13 +123,13 @@ internal class StickerPane(
     }
 
     // add new sticker
-    val memeContent = createMemeContentPanel(stickerUrl)
-    add(memeContent)
-    this.size = memeContent.size
+    val stickerContent = createStickerContentPanel(stickerUrl)
+    add(stickerContent)
+    this.size = stickerContent.size
 
-    positionMemePanel(
-      memeContent.size.width,
-      memeContent.size.height,
+    positionStickerPanel(
+      stickerContent.size.width,
+      stickerContent.size.height,
     )
 
     drawablePane.remove(this)
@@ -155,35 +155,35 @@ internal class StickerPane(
     drawablePane.repaint()
   }
 
-  private fun createMemeContentPanel(stickerUrl: String): JPanel {
-    val memeContent = JPanel()
-    memeContent.layout = null
+  private fun createStickerContentPanel(stickerUrl: String): JPanel {
+    val stickerContent = JPanel()
+    stickerContent.layout = null
     @Language("html")
-    val memeDisplay = JBLabel(
+    val stickerDisplay = JBLabel(
       """<html>
            <img src='$stickerUrl' />
          </html>
       """
     )
-    val memeSize = memeDisplay.preferredSize
-    memeContent.size = Dimension(
-      memeSize.width,
-      memeSize.height,
+    val stickerSize = stickerDisplay.preferredSize
+    stickerContent.size = Dimension(
+      stickerSize.width,
+      stickerSize.height,
     )
-    memeContent.isOpaque = false
-    memeContent.add(memeDisplay)
-    val parentInsets = memeDisplay.insets
-    memeDisplay.setBounds(
+    stickerContent.isOpaque = false
+    stickerContent.add(stickerDisplay)
+    val parentInsets = stickerDisplay.insets
+    stickerDisplay.setBounds(
       parentInsets.left,
       parentInsets.top,
-      memeSize.width,
-      memeSize.height
+      stickerSize.width,
+      stickerSize.height
     )
 
-    return memeContent
+    return stickerContent
   }
 
-  private fun positionMemePanel(width: Int, height: Int) {
+  private fun positionStickerPanel(width: Int, height: Int) {
     val (x, y) = getPosition(
       drawablePane.x + drawablePane.width,
       drawablePane.y + drawablePane.height,
@@ -197,10 +197,10 @@ internal class StickerPane(
   private fun getPosition(
     parentWidth: Int,
     parentHeight: Int,
-    memePanelBoundingBox: Rectangle,
+    stickerPanelBoundingBox: Rectangle,
   ): Pair<Int, Int> =
-    parentWidth - memePanelBoundingBox.width - STICKER_X_OFFSET to
-      parentHeight - memePanelBoundingBox.height - STICKER_Y_OFFSET
+    parentWidth - stickerPanelBoundingBox.width - STICKER_X_OFFSET to
+      parentHeight - stickerPanelBoundingBox.height - STICKER_Y_OFFSET
 
   fun detach() {
     drawablePane.remove(this)

@@ -1,6 +1,11 @@
 Changelog
 ---
 
+# 12.3.0 [Consistency Updates]
+
+- Fixed bug where stickers disappear when attempting to close a window.
+- Many small changes to every theme's look and feel [see issue for more details](https://github.com/doki-theme/doki-theme-jetbrains/issues/306)
+
 # 12.2.1 [Maintenance]
 
 - Update plugin's build dependencies
