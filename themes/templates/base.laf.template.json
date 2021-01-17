@@ -329,11 +329,11 @@
       },
       "Log": {
         "Commit.currentBranchBackground": "highlightColor",
-        "Commit.unmatchedForeground": "selectionBackground"
+        "Commit.unmatchedForeground": "infoForeground"
       },
       "RefLabel": {
         "backgroundBase": "highlightColor",
-        "foreground": "tagColor"
+        "foreground": "infoForeground"
       }
     },
 
