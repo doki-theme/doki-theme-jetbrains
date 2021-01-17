@@ -160,7 +160,6 @@
     "Button.endBorderColor": "borderColor",
     "Component.borderColor": "borderColor",
     "Button.startBorderColor": "borderColor",
-    "DragAndDrop.areaBorderColor": "borderColor",
     "HelpTooltip.borderColor": "borderColor",
     "InformationHint.borderColor": "borderColor",
     "GutterTooltip.lineSeparatorColor": "borderColor",
@@ -184,6 +183,7 @@
     "PopupMenu.background": "borderColor",
     "SearchEverywhere.SearchField.borderColor": "borderColor",
     "Slider.buttonBorderColor": "borderColor",
+    "Slider.tickColor": "borderColor",
     "StatusBar.borderColor": "borderColor",
     "TableHeader.separatorColor": "borderColor",
     "TableHeader.bottomSeparatorColor": "borderColor",
@@ -287,6 +287,9 @@
 
     "WelcomeScreen.Projects.actions.background": "accentColorTransparent",
     "WelcomeScreen.Projects.actions.selectionBackground": "accentColor",
+
+    "DragAndDrop.areaBackground": "codeBlock",
+    "DragAndDrop.areaBorderColor": "codeBlock",
 
     "ScrollBar.Transparent.thumbColor": "accentColorTransparent",
     "ScrollBar.Transparent.thumbBorderColor": "accentColorTransparent",
