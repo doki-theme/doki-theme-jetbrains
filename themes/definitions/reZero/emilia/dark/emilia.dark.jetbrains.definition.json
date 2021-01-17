@@ -14,6 +14,7 @@
     "Plugins.lightSelectionBackground": "selectionBackground",
     "CompletionPopup.selectionBackground": "selectionBackground",
     "SearchEverywhere.Header.background": "headerColor",
-    "SearchEverywhere.SearchField.background": "headerColor"
+    "SearchEverywhere.SearchField.background": "headerColor",
+    "List.selectionBackground": "#5d3b70"
   }
 }
