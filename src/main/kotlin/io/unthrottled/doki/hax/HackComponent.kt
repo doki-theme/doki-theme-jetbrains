@@ -681,12 +681,8 @@ object HackComponent : Disposable {
   }
 
   /**
-   * Enables the ability to use the editor property
-   * but also allows prevents the stickers from staying after installation.
-   *
-   *
    * Enables the ability to use the frame property
-   * but also allows prevents the background image from staying after installation.
+   * but also allows prevents the background image from staying after plugin removal.
    */
   private fun hackBackgroundPaintingComponent() {
     runSafely({

@@ -24,6 +24,8 @@ private const val PREVIOUS_BACKGROUND = "io.unthrottled.doki.previous-background
 const val DOKI_STICKER_PROP: String = "io.unthrottled.doki.stickers"
 private const val PREVIOUS_STICKER = "io.unthrottled.doki.sticker.previous"
 
+// todo: fix this
+@Suppress("TooManyFunctions")
 internal class BackgroundWallpaperService {
 
   companion object {
@@ -66,12 +68,12 @@ internal class BackgroundWallpaperService {
       }
 
   private fun installEditorBackgroundImage(dokiTheme: DokiTheme) =
-    getLocallyInstalledBackgroundImagePath(dokiTheme)
+    getLocallyInstalledWallpaperImagePath(dokiTheme)
       .ifPresent {
         capturePrevious()
         setBackgroundImageProperty(
           it.first,
-          "100",
+          if (dokiTheme.isDark) "5" else "10",
           Fill.SCALE.name,
           it.second.position.name,
           EDITOR_PROP
@@ -95,6 +97,17 @@ internal class BackgroundWallpaperService {
         AssetManager.resolveAssetUrl(
           AssetCategory.BACKGROUNDS,
           background.name
+        ).map { it to background }
+      }
+
+  private fun getLocallyInstalledWallpaperImagePath(
+    dokiTheme: DokiTheme
+  ): Optional<Pair<String, Background>> =
+    dokiTheme.getBackground()
+      .flatMap { background ->
+        AssetManager.resolveAssetUrl(
+          AssetCategory.BACKGROUNDS,
+          "wallpapers/${background.name}"
         ).map { it to background }
       }
 

@@ -3,7 +3,6 @@ package io.unthrottled.doki.settings.actors
 import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.notification.UpdateNotification
 import io.unthrottled.doki.stickers.BackgroundWallpaperService
-import io.unthrottled.doki.stickers.StickerPaneService
 
 object BackgroundActor {
   fun handleBackgroundUpdate(enabled: Boolean) {
@@ -14,7 +13,7 @@ object BackgroundActor {
         UpdateNotification.showNotificationAcrossProjects(
           "Themed wallpaper set!",
           """
-            IMPORTANT! Background will remain after unistalling the plugin
+            IMPORTANT! Background will remain after uninstalling the plugin
             You can edit/remove the background using the "Set Background Image" action.
           """.trimIndent()
         )

@@ -221,11 +221,12 @@ class ThemeSettings : SearchableConfigurable {
             actionListener = { _, component ->
               themeSettingsModel.isDokiBackground = component.isSelected
             },
-            comment = """
+            comment =
+              """
               Decorates the editor background to the official Doki Theme background.
               WARNING! this change remains after uninstalling the plugin. 
               You can still edit/remove the background using the "Set Background Image" action.
-            """.trimIndent()
+              """.trimIndent()
           )
         }
         row {
