@@ -1,6 +1,15 @@
 Changelog
 ---
 
+# 12.4.0 [Official Doki-Theme Wallpapers!]
+
+- All the plugin's themes' frame backgrounds are now available at your convenience!
+  - Use the `Enable Wallpaper` action or enable it in the Settings menu!
+  - Warning! The installed wallpapers will remain on your IDE after uninstalling the plugin.
+    You still can edit/remove the background using the "Set Background Image" action. 
+    Turning off the setting/action will do the same thing.
+  
+
 # 12.3.0 [Consistency Updates]
 
 - Fixed bug where stickers disappear when attempting to close a window.
