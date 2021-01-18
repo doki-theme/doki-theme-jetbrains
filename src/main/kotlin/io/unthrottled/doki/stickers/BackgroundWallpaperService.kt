@@ -69,6 +69,12 @@ internal class BackgroundWallpaperService {
 
   private fun installEditorBackgroundImage(dokiTheme: DokiTheme) =
     getLocallyInstalledWallpaperImagePath(dokiTheme)
+      .filter {
+        PropertiesComponent.getInstance()
+          .getValue(EDITOR_PROP, "")
+          .startsWith(it.first)
+          .not()
+      }
       .ifPresent {
         capturePrevious()
         setBackgroundImageProperty(
