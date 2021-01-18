@@ -9,6 +9,7 @@ import com.intellij.notification.NotificationListener
 import com.intellij.notification.NotificationType
 import com.intellij.notification.impl.NotificationsManagerImpl
 import com.intellij.openapi.project.Project
+import com.intellij.openapi.project.ProjectManager
 import com.intellij.openapi.ui.popup.Balloon
 import com.intellij.openapi.wm.WindowManager
 import com.intellij.ui.BalloonLayoutData
@@ -72,6 +73,16 @@ object UpdateNotification {
     ).setIcon(NOTIFICATION_ICON)
     notification.isImportant = true
     notification.notify(project)
+  }
+
+  fun showNotificationAcrossProjects(
+    @Nls(capitalization = Nls.Capitalization.Sentence) title: String = "",
+    @Nls(capitalization = Nls.Capitalization.Sentence) content: String,
+    listener: NotificationListener? = defaultListener
+  ) {
+    ProjectManager.getInstance().openProjects.forEach {
+      showDokiNotification(title, content, it, listener)
+    }
   }
 
   fun sendMessage(

@@ -11,6 +11,7 @@ import io.unthrottled.doki.assets.AssetManager
 import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.themes.Background
 import io.unthrottled.doki.themes.DokiTheme
+import io.unthrottled.doki.themes.ThemeManager
 import io.unthrottled.doki.util.runSafely
 import java.util.Optional
 
@@ -102,6 +103,12 @@ internal class BackgroundWallpaperService {
   private fun repaintWindows() = runSafely({
     repaintAllWindows()
   })
+
+  fun enableEditorBackground() {
+    ThemeManager.instance.currentTheme.ifPresent { dokiTheme ->
+      installEditorBackgroundImage(dokiTheme)
+    }
+  }
 }
 
 private fun setBackgroundImageProperty(

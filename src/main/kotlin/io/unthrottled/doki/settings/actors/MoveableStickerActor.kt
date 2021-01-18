@@ -10,7 +10,7 @@ object MoveableStickerActor {
       ThemeConfig.instance.isMoveableStickers = enabled
       StickerPaneService.instance.setStickerPositioning(enabled)
       if (enabled) {
-        UpdateNotification.showDokiNotification(
+        UpdateNotification.showNotificationAcrossProjects(
           "Stickers are now draggable",
           """
             You won't be able to click through the sticker now,
@@ -18,7 +18,7 @@ object MoveableStickerActor {
           """.trimIndent()
         )
       } else {
-        UpdateNotification.showDokiNotification(
+        UpdateNotification.showNotificationAcrossProjects(
           "Stickers are now stationary",
           """
             You can now click through the stickers.
