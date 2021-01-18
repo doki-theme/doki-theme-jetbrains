@@ -49,7 +49,7 @@
   <extensions defaultExtensionNs="com.intellij">
     <annotator language="JSON" implementationClass="io.unthrottled.doki.ide.DokiThemeColorAnnotator"/>
     <applicationService serviceInterface="io.unthrottled.doki.themes.ThemeManager" serviceImplementation="io.unthrottled.doki.themes.impl.ThemeManagerImpl"/>
-    <applicationService serviceInterface="io.unthrottled.doki.stickers.BackgroundWallpaperService" serviceImplementation="io.unthrottled.doki.stickers.impl.BackgroundWallpaperServiceImpl"/>
+    <applicationService serviceImplementation="io.unthrottled.doki.stickers.BackgroundWallpaperService"/>
     <applicationService serviceImplementation="io.unthrottled.doki.stickers.StickerPaneService"/>
     <applicationService serviceImplementation="io.unthrottled.doki.config.ThemeConfig"/>
     <applicationConfigurable id="0d570cb2-96df-43cc-80da-7f777e6d0afe" instance="io.unthrottled.doki.settings.ThemeSettings" groupId="appearance"/>

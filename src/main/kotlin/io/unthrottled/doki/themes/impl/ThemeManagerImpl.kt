@@ -52,6 +52,9 @@ class ThemeManagerImpl : ThemeManager {
       )
   }
 
+  override val isCurrentThemeDoki: Boolean
+    get() = currentTheme.isPresent
+
   override val currentTheme: Optional<DokiTheme>
     get() = processLaf(LafManagerImpl.getInstance().currentLookAndFeel)
 

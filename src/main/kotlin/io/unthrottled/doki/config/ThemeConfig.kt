@@ -28,6 +28,7 @@ class ThemeConfig : PersistentStateComponent<ThemeConfig>, Cloneable {
   var stickerLevel: String = StickerLevel.ON.name
   var isFirstTime: Boolean = true
   var isDokiFileColors: Boolean = false
+  var isDokiBackground: Boolean = false
   var isThemedTitleBar: Boolean = true
   var showThemeStatusBar: Boolean = true
   var currentStickerName: String = CurrentSticker.DEFAULT.name

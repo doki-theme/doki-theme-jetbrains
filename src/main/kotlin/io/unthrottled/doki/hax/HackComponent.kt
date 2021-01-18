@@ -28,7 +28,7 @@ import com.intellij.util.ui.UIUtil
 import com.intellij.xdebugger.impl.ui.XDebuggerUIConstants
 import com.intellij.xdebugger.memory.ui.ClassesTable
 import io.unthrottled.doki.hax.FeildHacker.setFinalStatic
-import io.unthrottled.doki.stickers.impl.DOKI_BACKGROUND_PROP
+import io.unthrottled.doki.stickers.DOKI_BACKGROUND_PROP
 import io.unthrottled.doki.ui.TitlePaneUI.Companion.LOL_NOPE
 import io.unthrottled.doki.util.runSafely
 import javassist.CannotCompileException
@@ -47,7 +47,7 @@ object HackComponent : Disposable {
   private val log = Logger.getInstance(javaClass)
 
   init {
-    enableDisposableStickers()
+    enableDisposableBackground()
     createMonikasWritingTipOfTheDay()
     enablePluginWindowConsistency()
     enableBorderConsistency()
@@ -676,7 +676,7 @@ object HackComponent : Disposable {
     }
   }
 
-  private fun enableDisposableStickers() {
+  private fun enableDisposableBackground() {
     hackBackgroundPaintingComponent()
   }
 
