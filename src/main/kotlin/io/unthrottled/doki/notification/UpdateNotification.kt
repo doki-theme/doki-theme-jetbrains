@@ -8,6 +8,7 @@ import com.intellij.notification.NotificationGroup
 import com.intellij.notification.NotificationListener
 import com.intellij.notification.NotificationType
 import com.intellij.notification.impl.NotificationsManagerImpl
+import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.project.ProjectManager
 import com.intellij.openapi.ui.popup.Balloon
@@ -64,13 +65,15 @@ object UpdateNotification {
     @Nls(capitalization = Nls.Capitalization.Sentence) title: String = "",
     @Nls(capitalization = Nls.Capitalization.Sentence) content: String,
     project: Project? = null,
-    listener: NotificationListener? = defaultListener
+    listener: NotificationListener? = defaultListener,
+    actions: List<AnAction> = emptyList(),
   ) {
     val notification = notificationGroup.createNotification(
       title,
       content,
       listener = listener
     ).setIcon(NOTIFICATION_ICON)
+    notification.addActions(actions)
     notification.isImportant = true
     notification.notify(project)
   }
@@ -78,10 +81,11 @@ object UpdateNotification {
   fun showNotificationAcrossProjects(
     @Nls(capitalization = Nls.Capitalization.Sentence) title: String = "",
     @Nls(capitalization = Nls.Capitalization.Sentence) content: String,
-    listener: NotificationListener? = defaultListener
+    listener: NotificationListener? = defaultListener,
+    actions: List<(Project?) -> AnAction> = emptyList()
   ) {
-    ProjectManager.getInstance().openProjects.forEach {
-      showDokiNotification(title, content, it, listener)
+    ProjectManager.getInstance().openProjects.forEach { project ->
+      showDokiNotification(title, content, project, listener, actions.map { it(project) })
     }
   }
 
