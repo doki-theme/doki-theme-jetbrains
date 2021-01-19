@@ -12,7 +12,7 @@ import io.unthrottled.doki.assets.AssetManager
 import io.unthrottled.doki.assets.AssetManager.ASSET_SOURCE
 import io.unthrottled.doki.assets.AssetManager.FALLBACK_ASSET_SOURCE
 import io.unthrottled.doki.icon.DokiIcons
-import io.unthrottled.doki.service.MOTIVATOR_PLUGIN_ID
+import io.unthrottled.doki.service.AMII_PLUGIN_ID
 import io.unthrottled.doki.themes.DokiTheme
 import io.unthrottled.doki.util.toHexString
 import java.awt.Dimension
@@ -39,8 +39,8 @@ class PromotionAssets(
 
   private fun getPluginLogo(): String = AssetManager.resolveAssetUrl(
     AssetCategory.PROMOTION,
-    "motivator/logo.png"
-  ).orElse("$ASSET_SOURCE/promotion/motivator/logo.png")
+    "amii/logo.png"
+  ).orElse("$ASSET_SOURCE/promotion/amii/logo.png")
 
   private fun getPromotionAsset(): String =
     AssetManager.resolveAssetUrl(AssetCategory.PROMOTION, "motivator/${dokiTheme.displayName.toLowerCase()}.gif")
@@ -50,7 +50,7 @@ class PromotionAssets(
       }
 }
 
-class MotivatorPromotionDialog(
+class AniMemePromotionDialog(
   private val dokiTheme: DokiTheme,
   private val promotionAssets: PromotionAssets,
   parent: Window,
@@ -62,8 +62,8 @@ class MotivatorPromotionDialog(
   }
 
   init {
-    title = MessageBundle.message("motivator.title")
-    setCancelButtonText(MessageBundle.message("motivator.action.cancel"))
+    title = MessageBundle.message("amii.name")
+    setCancelButtonText(MessageBundle.message("promotion.action.cancel"))
     setDoNotAskOption(
       DoNotPromote { shouldContinuePromotion, exitCode ->
         onPromotion(
@@ -90,15 +90,15 @@ class MotivatorPromotionDialog(
   private fun buildInstallAction(): AbstractAction {
     return object : AbstractAction() {
       init {
-        val message = MessageBundle.message("motivator.action.ok")
+        val message = MessageBundle.message("promotion.action.ok")
         putValue(NAME, message)
-        putValue(SMALL_ICON, DokiIcons.Plugins.Motivator.TOOL_WINDOW)
+        putValue(SMALL_ICON, DokiIcons.Plugins.AMII.TOOL_WINDOW)
       }
 
       override fun actionPerformed(e: ActionEvent) {
         PluginsAdvertiser.installAndEnable(
           setOf(
-            PluginId.getId(MOTIVATOR_PLUGIN_ID)
+            PluginId.getId(AMII_PLUGIN_ID)
           )
         ) {
           close(INSTALLED_EXIT_CODE, true)
@@ -188,7 +188,7 @@ class MotivatorPromotionDialog(
       <h2 class='header'>Your new virtual companion!</h2>
       <div style='margin: 8px 0 0 100px'>
         <p>
-          The <a href='https://plugins.jetbrains.com/plugin/13381-waifu-motivator'>Waifu Motivator Plugin</a>
+          <a href='https://plugins.jetbrains.com/plugin/13381-waifu-motivator'>AMII</a>
           gives your IDE more personality by using anime memes. <br/> You will get an assistant that will interact 
           with you as you build code.
           <br/>Such as when your programs fail to run or tests pass/fail. Your companion<br/> 

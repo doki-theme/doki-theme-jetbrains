@@ -2,10 +2,10 @@ package io.unthrottled.doki.actions
 
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
-import io.unthrottled.doki.promotions.MotivatorPluginPromotion
+import io.unthrottled.doki.promotions.AniMemePluginPromotion
 
-class MotivatorPromotion : AnAction() {
+class AniMemePromotion : AnAction() {
   override fun actionPerformed(e: AnActionEvent) {
-    MotivatorPluginPromotion.runPromotion({}) { }
+    AniMemePluginPromotion.runPromotion({}) { }
   }
 }

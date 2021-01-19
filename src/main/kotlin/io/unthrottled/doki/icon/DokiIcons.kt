@@ -8,6 +8,9 @@ object DokiIcons {
     object Motivator {
       val TOOL_WINDOW = load("/icons/plugins/motivator/motivator_toolwindow.svg")
     }
+    object AMII {
+      val TOOL_WINDOW = load("/icons/plugins/amii/plugin-tool-window.svg")
+    }
   }
 
   object CheckBox {

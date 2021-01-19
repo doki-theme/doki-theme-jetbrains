@@ -38,7 +38,7 @@ class PromotionManagerIntegrationTest {
     @BeforeClass
     fun setUp() {
       setUpMocksForManager()
-      mockkObject(MotivatorPromotionService)
+      mockkObject(AniMemePromotionService)
       mockkObject(RestClient)
       mockkObject(PluginService)
       mockkObject(WeebService)
@@ -48,7 +48,7 @@ class PromotionManagerIntegrationTest {
     @AfterClass
     fun tearDown() {
       tearDownMocksForPromotionManager()
-      unmockkObject(MotivatorPromotionService)
+      unmockkObject(AniMemePromotionService)
       unmockkObject(RestClient)
       unmockkObject(PluginService)
       unmockkObject(WeebService)
@@ -57,7 +57,7 @@ class PromotionManagerIntegrationTest {
 
   @Before
   fun cleanUp() {
-    clearMocks(MotivatorPromotionService)
+    clearMocks(AniMemePromotionService)
     Files.walk(TestTools.getTestAssetPath(testDirectory))
       .filter { it.isFile() }
       .forEach { Files.deleteIfExists(it) }
@@ -91,7 +91,7 @@ class PromotionManagerIntegrationTest {
       Instant.now()
     )
 
-    verify { MotivatorPromotionService wasNot Called }
+    verify { AniMemePromotionService wasNot Called }
   }
 
   @Test
@@ -141,7 +141,7 @@ class PromotionManagerIntegrationTest {
       Instant.now()
     )
 
-    verify { MotivatorPromotionService wasNot Called }
+    verify { AniMemePromotionService wasNot Called }
   }
 
   @Test
@@ -171,7 +171,7 @@ class PromotionManagerIntegrationTest {
 
     assertThat(postLedger).isEqualTo(currentLedger)
 
-    verify { MotivatorPromotionService wasNot Called }
+    verify { AniMemePromotionService wasNot Called }
   }
 
   @Test
@@ -204,7 +204,7 @@ class PromotionManagerIntegrationTest {
 
     assertThat(postLedger).isEqualTo(currentLedger)
 
-    verify { MotivatorPromotionService wasNot Called }
+    verify { AniMemePromotionService wasNot Called }
   }
 
   @Test
@@ -237,7 +237,7 @@ class PromotionManagerIntegrationTest {
 
     assertThat(postLedger).isEqualTo(currentLedger)
 
-    verify { MotivatorPromotionService wasNot Called }
+    verify { AniMemePromotionService wasNot Called }
   }
 
   @Test
@@ -270,7 +270,7 @@ class PromotionManagerIntegrationTest {
 
     assertThat(postLedger).isEqualTo(currentLedger)
 
-    verify { MotivatorPromotionService wasNot Called }
+    verify { AniMemePromotionService wasNot Called }
   }
 
   @Test
@@ -308,7 +308,7 @@ class PromotionManagerIntegrationTest {
 
     assertThat(postLedger).isEqualTo(currentLedger)
 
-    verify { MotivatorPromotionService wasNot Called }
+    verify { AniMemePromotionService wasNot Called }
   }
 
   @Test
@@ -340,7 +340,7 @@ class PromotionManagerIntegrationTest {
 
     assertThat(postLedger).isEqualTo(currentLedger)
 
-    verify { MotivatorPromotionService wasNot Called }
+    verify { AniMemePromotionService wasNot Called }
   }
 
   @Test
@@ -372,7 +372,7 @@ class PromotionManagerIntegrationTest {
 
     assertThat(postLedger).isEqualTo(currentLedger)
 
-    verify { MotivatorPromotionService wasNot Called }
+    verify { AniMemePromotionService wasNot Called }
   }
 
   @Test
@@ -406,7 +406,7 @@ class PromotionManagerIntegrationTest {
 
     assertThat(postLedger).isEqualTo(currentLedger)
 
-    verify { MotivatorPromotionService wasNot Called }
+    verify { AniMemePromotionService wasNot Called }
   }
 
   @Test
@@ -438,7 +438,7 @@ class PromotionManagerIntegrationTest {
 
     assertThat(postLedger).isEqualTo(currentLedger)
 
-    verify { MotivatorPromotionService wasNot Called }
+    verify { AniMemePromotionService wasNot Called }
 
     assertTrue { LockMaster.acquireLock("Syrena") }
   }
@@ -474,7 +474,7 @@ class PromotionManagerIntegrationTest {
 
     assertThat(postLedger).isEqualTo(currentLedger)
 
-    verify { MotivatorPromotionService wasNot Called }
+    verify { AniMemePromotionService wasNot Called }
 
     assertTrue { LockMaster.acquireLock("Syrena") }
   }
@@ -550,7 +550,7 @@ class PromotionManagerIntegrationTest {
 
     val promotionSlot = slot<(PromotionResults) -> Unit>()
     val rejectionSlot = slot<() -> Unit>()
-    verify { MotivatorPromotionService.runPromotion(capture(promotionSlot), capture(rejectionSlot)) }
+    verify { AniMemePromotionService.runPromotion(capture(promotionSlot), capture(rejectionSlot)) }
 
     rejectionSlot.captured()
 
@@ -687,7 +687,7 @@ class PromotionManagerIntegrationTest {
   ) {
     val promotionSlot = slot<(PromotionResults) -> Unit>()
     val rejectionSlot = slot<() -> Unit>()
-    verify { MotivatorPromotionService.runPromotion(capture(promotionSlot), capture(rejectionSlot)) }
+    verify { AniMemePromotionService.runPromotion(capture(promotionSlot), capture(rejectionSlot)) }
 
     val promotionCallback = promotionSlot.captured
     promotionCallback(PromotionResults(PromotionStatus.BLOCKED))
