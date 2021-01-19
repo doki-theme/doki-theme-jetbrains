@@ -12,6 +12,7 @@ import io.unthrottled.doki.promotions.LockMaster.acquireLock
 import io.unthrottled.doki.promotions.LockMaster.releaseLock
 import io.unthrottled.doki.promotions.OnlineService.isOnline
 import io.unthrottled.doki.service.AppService.getApplicationName
+import io.unthrottled.doki.service.PluginService.canAmiiBeInstalled
 import io.unthrottled.doki.service.PluginService.isAmiiInstalled
 import io.unthrottled.doki.service.PluginService.isMotivatorInstalled
 import io.unthrottled.doki.stickers.StickerLevel
@@ -84,7 +85,8 @@ open class PromotionManagerImpl {
         promotionLedger.seenPromotions.containsKey(MOTIVATION_PROMOTION_ID).not() ||
           promotionLedger.seenPromotions[MOTIVATION_PROMOTION_ID]?.result == PromotionStatus.ACCEPTED
         ) &&
-      WeebService.isWeebStuffOn()
+      WeebService.isWeebStuffOn() &&
+      canAmiiBeInstalled()
 }
 
 object WeebService {

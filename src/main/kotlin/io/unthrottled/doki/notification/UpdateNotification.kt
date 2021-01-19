@@ -74,7 +74,9 @@ object UpdateNotification {
       content,
       listener = listener
     ).setIcon(NOTIFICATION_ICON)
-    notification.addActions(actions)
+    actions.forEach {
+      notification.addAction(it)
+    }
     notification.isImportant = true
     notification.notify(project)
   }
