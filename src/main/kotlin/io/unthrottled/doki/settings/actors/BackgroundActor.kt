@@ -17,7 +17,7 @@ object BackgroundActor {
         UpdateNotification.showNotificationAcrossProjects(
           "Themed wallpaper set!",
           """
-            IMPORTANT! Background will remain after uninstalling the plugin
+            IMPORTANT! The background will remain after uninstalling the plugin
             You can edit/remove the background using the "Set Background Image" action.
           """.trimIndent(),
           actions = listOf {
