@@ -1,6 +1,9 @@
 Changelog
 ---
 
+# 12.4.1 [Consistency Updates]
+- Forgot to put in the `Enable Wallpaper` action in the update message.
+
 # 12.4.0 [Official Doki-Theme Wallpapers!]
 
 - All the plugin's themes' frame backgrounds are now available at your convenience!
