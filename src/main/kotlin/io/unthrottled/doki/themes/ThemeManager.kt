@@ -13,6 +13,8 @@ interface ThemeManager : Disposable {
       get() = ServiceManager.getService(ThemeManager::class.java)
   }
 
+  val isCurrentThemeDoki: Boolean
+
   val currentTheme: Optional<DokiTheme>
 
   val allThemes: List<DokiTheme>

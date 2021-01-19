@@ -12,7 +12,7 @@ import java.util.Optional
 
 object LocalStorageService {
   private val log = Logger.getInstance(this::class.java)
-  private const val ASSET_DIRECTORY = "dokiThemeAssets"
+  const val ASSET_DIRECTORY = "dokiThemeAssets"
 
   fun createDirectories(directoriesToCreate: Path) {
     try {

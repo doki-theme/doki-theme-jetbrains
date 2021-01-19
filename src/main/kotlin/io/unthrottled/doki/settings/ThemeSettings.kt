@@ -9,6 +9,7 @@ import com.intellij.ui.components.JBTabbedPane
 import com.intellij.ui.layout.panel
 import io.unthrottled.doki.config.THEME_CONFIG_TOPIC
 import io.unthrottled.doki.config.ThemeConfig
+import io.unthrottled.doki.settings.actors.BackgroundActor
 import io.unthrottled.doki.settings.actors.LafAnimationActor
 import io.unthrottled.doki.settings.actors.MaterialIconsActor
 import io.unthrottled.doki.settings.actors.MoveableStickerActor
@@ -41,6 +42,7 @@ data class ThemeSettingsModel(
   var isMaterialPSIIcons: Boolean,
   var isNotShowReadmeAtStartup: Boolean,
   var isMoveableStickers: Boolean,
+  var isDokiBackground: Boolean,
 )
 
 class ThemeSettings : SearchableConfigurable {
@@ -72,6 +74,7 @@ class ThemeSettings : SearchableConfigurable {
     ThemeConfig.instance.isMaterialPSIIcons,
     ThemeConfig.instance.isNotShowReadmeAtStartup,
     ThemeConfig.instance.isMoveableStickers,
+    ThemeConfig.instance.isDokiBackground,
   )
 
   private val themeSettingsModel = initialThemeSettingsModel.copy()
@@ -92,6 +95,7 @@ class ThemeSettings : SearchableConfigurable {
     MaterialIconsActor.enableFileIcons(themeSettingsModel.isMaterialFiles)
     MaterialIconsActor.enablePSIIcons(themeSettingsModel.isMaterialPSIIcons)
     MoveableStickerActor.moveableStickers(themeSettingsModel.isMoveableStickers)
+    BackgroundActor.handleBackgroundUpdate(themeSettingsModel.isDokiBackground)
     ApplicationManager.getApplication().messageBus.syncPublisher(
       THEME_CONFIG_TOPIC
     ).themeConfigUpdated(ThemeConfig.instance)
@@ -200,12 +204,29 @@ class ThemeSettings : SearchableConfigurable {
               themeSettingsModel.areStickersEnabled = component.isSelected
             }
           )
+        }
+        row {
           checkBox(
             "Enable Sticker Positioning",
             themeSettingsModel.isMoveableStickers,
             actionListener = { _, component ->
               themeSettingsModel.isMoveableStickers = component.isSelected
             }
+          )
+        }
+        row {
+          checkBox(
+            "Enable Doki Background",
+            themeSettingsModel.isDokiBackground,
+            actionListener = { _, component ->
+              themeSettingsModel.isDokiBackground = component.isSelected
+            },
+            comment =
+              """
+              Decorates the editor background to the official Doki Theme background.
+              WARNING! this change remains after uninstalling the plugin. 
+              You can still edit/remove the background using the "Set Background Image" action.
+              """.trimIndent()
           )
         }
         row {
@@ -256,7 +277,6 @@ class ThemeSettings : SearchableConfigurable {
             themeSettingsModel.isNotShowReadmeAtStartup,
             comment =
               """Anytime you open a new project, don't automatically open the README.
-              |That way you can admire your theme's background art instead!
             |This will stay even after you uninstall the plugin.
 |To re-enable it, un-check this action or toggle the action at "Help -> Find Action -> ide.open.readme.md.on.startup". 
             """.trimMargin(),
