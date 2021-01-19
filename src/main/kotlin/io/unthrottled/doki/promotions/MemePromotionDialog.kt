@@ -188,7 +188,7 @@ class AniMemePromotionDialog(
       <h2 class='header'>Your new virtual companion!</h2>
       <div style='margin: 8px 0 0 100px'>
         <p>
-          <a href='https://plugins.jetbrains.com/plugin/13381-waifu-motivator'>AMII</a>
+          <a href='https://plugins.jetbrains.com/plugin/15865-amii'>AMII</a>
           gives your IDE more personality by using anime memes. <br/> You will get an assistant that will interact 
           with you as you build code.
           <br/>Such as when your programs fail to run or tests pass/fail. Your companion<br/> 
