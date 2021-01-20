@@ -5,13 +5,14 @@ import io.unthrottled.doki.assets.AssetManager.ASSET_SOURCE
 import io.unthrottled.doki.assets.AssetManager.FALLBACK_ASSET_SOURCE
 import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.integrations.RestClient.performGet
+import io.unthrottled.doki.promotions.AniMemePromotionService.runPromotion
 import io.unthrottled.doki.promotions.LedgerMaster.getInitialLedger
 import io.unthrottled.doki.promotions.LedgerMaster.persistLedger
 import io.unthrottled.doki.promotions.LockMaster.acquireLock
 import io.unthrottled.doki.promotions.LockMaster.releaseLock
-import io.unthrottled.doki.promotions.MotivatorPromotionService.runPromotion
 import io.unthrottled.doki.promotions.OnlineService.isOnline
 import io.unthrottled.doki.service.AppService.getApplicationName
+import io.unthrottled.doki.service.PluginService.canAmiiBeInstalled
 import io.unthrottled.doki.service.PluginService.isAmiiInstalled
 import io.unthrottled.doki.service.PluginService.isMotivatorInstalled
 import io.unthrottled.doki.stickers.StickerLevel
@@ -84,7 +85,8 @@ open class PromotionManagerImpl {
         promotionLedger.seenPromotions.containsKey(MOTIVATION_PROMOTION_ID).not() ||
           promotionLedger.seenPromotions[MOTIVATION_PROMOTION_ID]?.result == PromotionStatus.ACCEPTED
         ) &&
-      WeebService.isWeebStuffOn()
+      WeebService.isWeebStuffOn() &&
+      canAmiiBeInstalled()
 }
 
 object WeebService {

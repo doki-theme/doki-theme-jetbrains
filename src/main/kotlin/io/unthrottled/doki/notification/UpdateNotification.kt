@@ -30,6 +30,7 @@ private fun buildUpdateMessage(updateAsset: String): String =
       <ul>
         <li>Stickers are not in the background anymore.</li>
         <li>You can have your own background image now!</li>
+        <li>Added <code>Enable Wallpaper</code> to install your Waifu's background.</li>
       </ul>
       Please see the <a href="https://github.com/doki-theme/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md">
       changelog</a> for more details.
@@ -73,7 +74,9 @@ object UpdateNotification {
       content,
       listener = listener
     ).setIcon(NOTIFICATION_ICON)
-    notification.addActions(actions)
+    actions.forEach {
+      notification.addAction(it)
+    }
     notification.isImportant = true
     notification.notify(project)
   }

@@ -18,17 +18,17 @@ data class PromotionResults(
   val status: PromotionStatus
 )
 
-object MotivatorPromotionService {
+object AniMemePromotionService {
 
   fun runPromotion(
     onPromotion: (PromotionResults) -> Unit,
     onReject: () -> Unit,
   ) {
-    MotivatorPluginPromotionRunner(onPromotion, onReject)
+    AniMemePluginPromotionRunner(onPromotion, onReject)
   }
 }
 
-class MotivatorPluginPromotionRunner(
+class AniMemePluginPromotionRunner(
   private val onPromotion: (PromotionResults) -> Unit,
   private val onReject: () -> Unit
 ) : Runnable {
@@ -46,12 +46,12 @@ class MotivatorPluginPromotionRunner(
   }
 
   override fun run() {
-    MotivatorPluginPromotion.runPromotion(onPromotion, onReject)
+    AniMemePluginPromotion.runPromotion(onPromotion, onReject)
     IdeEventQueue.getInstance().removeIdleListener(this)
   }
 }
 
-object MotivatorPluginPromotion {
+object AniMemePluginPromotion {
   fun runPromotion(
     onPromotion: (PromotionResults) -> Unit,
     onReject: () -> Unit,
@@ -71,7 +71,7 @@ object MotivatorPluginPromotion {
             {
               val promotionAssets = PromotionAssets(dokiTheme)
               ApplicationManager.getApplication().invokeLater {
-                MotivatorPromotionDialog(
+                AniMemePromotionDialog(
                   dokiTheme,
                   promotionAssets,
                   it!!,
