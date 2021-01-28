@@ -1,6 +1,10 @@
 Changelog
 ---
 
+# 12.5.0 [2021.1 Build Support]
+
+- Initial 2021.1 EAP build support.
+
 # 12.4.1 [Consistency Updates]
 - Forgot to put in the `Enable Wallpaper` action in the update message.
 
