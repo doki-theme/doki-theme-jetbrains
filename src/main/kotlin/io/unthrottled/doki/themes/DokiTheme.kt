@@ -2,9 +2,11 @@ package io.unthrottled.doki.themes
 
 import com.google.gson.Gson
 import com.intellij.ide.ui.UIThemeMetadata
+import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil
 import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.stickers.CurrentSticker
+import io.unthrottled.doki.util.runSafelyWithResult
 import io.unthrottled.doki.util.toColor
 import io.unthrottled.doki.util.toOptional
 import java.awt.Color
@@ -101,19 +103,25 @@ class DokiTheme(private val uiTheme: JetBrainsThemeDefinition) {
     const val ACCENT_COLOR = "Doki.Accent.color"
 
     val requiredNamedColors: List<String>
+    private val log = Logger.getInstance(this::class.java)
 
     init {
       val gson = Gson()
-      requiredNamedColors = this::class.java.classLoader
-        .getResourceAsStream("/theme-schema/DokiTheme.themeMetadata.json")
-        .use {
-          gson.fromJson(
-            InputStreamReader(it!!, StandardCharsets.UTF_8),
-            UIThemeMetadata::class.java
-          )
-        }.uiKeyMetadata.map {
-          it.key
-        }.toMutableList().plus(ACCENT_COLOR)
+      requiredNamedColors = runSafelyWithResult({
+        this::class.java.classLoader
+          .getResourceAsStream("theme-schema/DokiTheme.themeMetadata.json")
+          .use {
+            gson.fromJson(
+              InputStreamReader(it!!, StandardCharsets.UTF_8),
+              UIThemeMetadata::class.java
+            )
+          }.uiKeyMetadata.map {
+            it.key
+          }.toMutableList().plus(ACCENT_COLOR)
+      }) {
+        log.warn("Unable to get required named colors for raisins", it)
+        listOf()
+      }
     }
   }
 

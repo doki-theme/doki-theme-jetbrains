@@ -43,7 +43,7 @@
         &lt;br/&gt;
         &lt;div align="center"&gt;&lt;img width="256" src="https://doki.assets.unthrottled.io/misc/logo.png" alt="Doki Theme"/&gt;&lt;/div&gt;
         </description>
-  <idea-version since-build="201.5985.32"/>
+  <idea-version since-build="201.668.113"/>
   <depends>com.intellij.modules.platform</depends>
   <depends>com.intellij.modules.lang</depends>
   <extensions defaultExtensionNs="com.intellij">
