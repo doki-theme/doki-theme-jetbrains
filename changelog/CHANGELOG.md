@@ -1,6 +1,10 @@
 Changelog
 ---
 
+# 12.5.2 [Non-Functional Changes]
+
+- Removed a bunch of legacy migration code.
+
 # 12.5.1 [Consistency Updates]
 
 - Fixed a bunch of small 2021.1 EAP build inconsistencies [found here](https://github.com/doki-theme/doki-theme-jetbrains/issues/316)
