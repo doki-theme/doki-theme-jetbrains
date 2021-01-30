@@ -93,8 +93,6 @@ class TheDokiTheme : Disposable {
                   UpdateNotification.display(project, version)
                 }
 
-                handleThemeRenames()
-
                 // todo: remove after next major release
                 LocalAssetService.clearChecks()
               }
@@ -102,19 +100,6 @@ class TheDokiTheme : Disposable {
               StartupManager.getInstance(project).runWhenProjectIsInitialized {
                 PromotionManager.registerPromotion(version)
               }
-            }
-        }
-
-        private fun handleThemeRenames() {
-          ThemeManager.instance.currentTheme
-            .filter { it.name != ThemeManager.DEFAULT_THEME_NAME }
-            .ifPresent { currentTheme ->
-              setDokiTheme(
-                ThemeManager.instance.allThemes.first {
-                  currentTheme.id != it.id
-                }.toOptional()
-              )
-              setDokiTheme(currentTheme.toOptional())
             }
         }
       }
