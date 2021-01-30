@@ -92,9 +92,6 @@ class TheDokiTheme : Disposable {
                 StartupManager.getInstance(project).runWhenProjectIsInitialized {
                   UpdateNotification.display(project, version)
                 }
-
-                // todo: remove after next major release
-                LocalAssetService.clearChecks()
               }
 
               StartupManager.getInstance(project).runWhenProjectIsInitialized {

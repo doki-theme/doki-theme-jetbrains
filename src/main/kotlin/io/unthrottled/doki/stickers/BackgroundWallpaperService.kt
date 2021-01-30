@@ -21,9 +21,6 @@ import java.util.Optional
 const val DOKI_BACKGROUND_PROP: String = "io.unthrottled.doki.background"
 private const val PREVIOUS_BACKGROUND = "io.unthrottled.doki.previous-background"
 
-const val DOKI_STICKER_PROP: String = "io.unthrottled.doki.stickers"
-private const val PREVIOUS_STICKER = "io.unthrottled.doki.sticker.previous"
-
 // todo: fix this
 @Suppress("TooManyFunctions")
 internal class BackgroundWallpaperService {
@@ -31,13 +28,6 @@ internal class BackgroundWallpaperService {
   companion object {
     val instance: BackgroundWallpaperService
       get() = ServiceManager.getService(BackgroundWallpaperService::class.java)
-  }
-
-  init {
-    // todo: remove after next major release
-    val propertiesComponent = PropertiesComponent.getInstance()
-    propertiesComponent.unsetValue(DOKI_STICKER_PROP)
-    propertiesComponent.unsetValue(PREVIOUS_STICKER)
   }
 
   fun activateForTheme(dokiTheme: DokiTheme) {
