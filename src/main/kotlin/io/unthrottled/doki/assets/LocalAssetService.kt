@@ -28,10 +28,6 @@ object LocalAssetService {
   private val gson = GsonBuilder().setPrettyPrinting().create()
   private val assetChecks: ConcurrentHashMap<String, Instant> = readPreviousAssetChecks()
 
-  fun clearChecks() {
-    assetChecks.clear()
-  }
-
   fun hasAssetChanged(
     localInstallPath: Path,
     remoteAssetUrl: String
