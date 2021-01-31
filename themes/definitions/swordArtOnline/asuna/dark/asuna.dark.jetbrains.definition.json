@@ -1,8 +1,8 @@
 {
   "id": "bac375a4-abb3-44d5-9bef-8039eb83fec0",
   "editorScheme": {
-    "type": "template",
-    "name": "Doki Dark"
+    "type": "templateExtension",
+    "file": "Asuna_Dark.xml"
   },
   "overrides": {},
   "ui": {}

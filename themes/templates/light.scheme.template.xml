@@ -671,7 +671,7 @@
         <option name="ERRORS_ATTRIBUTES">
             <value>
                 <option name="EFFECT_COLOR" value="$errorColor$" />
-                <option name="ERROR_STRIPE_COLOR" value="9e2927" />
+                <option name="ERROR_STRIPE_COLOR" value="$errorColor$" />
                 <option name="EFFECT_TYPE" value="3" />
             </value>
         </option>
@@ -726,7 +726,7 @@
         <option name="GRID_ERROR_VALUE">
             <value>
                 <option name="EFFECT_COLOR" value="$errorColor$" />
-                <option name="ERROR_STRIPE_COLOR" value="cd4848" />
+                <option name="ERROR_STRIPE_COLOR" value="$errorColor$" />
                 <option name="EFFECT_TYPE" value="2" />
             </value>
         </option>

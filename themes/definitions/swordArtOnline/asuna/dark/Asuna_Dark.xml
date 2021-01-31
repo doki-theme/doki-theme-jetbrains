@@ -1,0 +1,16 @@
+<scheme name="Asuna Dark" version="142" parent_scheme="Doki Dark">
+  <colors>
+  </colors>
+  <attributes>
+    <option name="WRONG_REFERENCES_ATTRIBUTES">
+      <value>
+        <option name="FOREGROUND" value="$errorColor$4A" />
+        <option name="EFFECT_COLOR" value="$errorColor$" />
+        <option name="ERROR_STRIPE_COLOR" value="$errorColor$" />
+        <option name="EFFECT_TYPE" value="2" />
+      </value>
+    </option>
+  </attributes>
+</scheme>
+
+
