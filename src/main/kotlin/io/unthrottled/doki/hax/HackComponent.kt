@@ -421,6 +421,7 @@ object HackComponent : Disposable {
     hackFindInPath()
     hackTitleFrame()
     hackTestResults()
+    hackTreeRenderer()
   }
 
   private fun hackTestResults() {
@@ -489,6 +490,10 @@ object HackComponent : Disposable {
     }) {
       log.warn("Unable to hackSwitcher for reasons.")
     }
+  }
+
+  private fun hackTreeRenderer() {
+
   }
 
   private fun hackDebuggerAttributes() {
