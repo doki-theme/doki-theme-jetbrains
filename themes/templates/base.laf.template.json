@@ -364,6 +364,10 @@
 
     "SearchField.errorBackground" : "diff.conflict",
 
+    "Notification.errorForeground":"foregroundColor",
+    "Notification.errorBackground": "nonProjectFileScopeColor",
+    "Notification.errorBorderColor": "diff.conflict",
+
     "JumpToLine.dropLine.safe": "testScopeColor",
     "JumpToLine.dropLine.unsafe": "nonProjectFileScopeColor",
 
@@ -391,7 +395,6 @@
     "Link.hoverForeground":"accentColor",
     "Link.pressedForeground":"accentColor",
     "Link.visitedForeground":"accentColor",
-    "Notification.errorForeground":"accentColor",
 	  "ParameterInfo.currentParameterForeground":"accentColor",
     "ParameterInfo.infoForeground": "accentColor",
     "PasswordField.caretForeground":"accentColor",
