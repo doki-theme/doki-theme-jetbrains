@@ -1,6 +1,10 @@
 Changelog
 ---
 
+# 12.5.1 [Consistency Updates]
+
+- Fixed a bunch of small 2021.1 EAP build inconsistencies [found here](https://github.com/doki-theme/doki-theme-jetbrains/issues/316)
+
 # 12.5.0 [2021.1 Build Support]
 
 - Initial 2021.1 EAP build support.

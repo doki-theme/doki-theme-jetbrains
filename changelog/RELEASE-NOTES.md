@@ -1,1 +1,2 @@
 - Initial 2021.1 EAP build support.
+- Fixed a bunch of small 2021.1 EAP build inconsistencies [found here](https://github.com/doki-theme/doki-theme-jetbrains/issues/316)
