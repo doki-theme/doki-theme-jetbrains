@@ -365,6 +365,8 @@
 
     "SearchField.errorBackground" : "diff.conflict",
 
+    "Label.errorForeground":"errorColor",
+
     "Notification.errorForeground":"foregroundColor",
     "Notification.errorBackground": "nonProjectFileScopeColor",
     "Notification.errorBorderColor": "diff.conflict",
@@ -391,7 +393,6 @@
     "EditorTabs.inactiveUnderlineColor": "accentColor",
     "EditorTabs.underlineColor":"accentColor",
     "FormattedTextField.caretForeground":"accentColor",
-    "Label.errorForeground":"accentColor",
     "Link.activeForeground": "accentColor",
     "Link.hoverForeground":"accentColor",
     "Link.pressedForeground":"accentColor",
