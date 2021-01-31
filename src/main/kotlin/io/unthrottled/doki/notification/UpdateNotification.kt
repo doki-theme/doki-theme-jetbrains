@@ -29,7 +29,6 @@ private fun buildUpdateMessage(updateAsset: String): String =
       What's New?<br>
       <ul>
         <li>2020.1 EAP build support</li>
-        <li>Custom editor scheme support</li>
       </ul>
       Please see the <a href="https://github.com/doki-theme/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md">
       changelog</a> for more details.
