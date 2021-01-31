@@ -145,6 +145,7 @@
     "ActionButton.focusedBorderColor": "highlightColor",
 
     "Borders.color": "borderColor",
+    "Tree.hash": "borderColor",
     "DialogWrapper.southPanelDivider": "borderColor",
     "OnePixelDivider.background": "borderColor",
     "UIDesigner.Panel.borderColor": "borderColor",
@@ -364,6 +365,12 @@
 
     "SearchField.errorBackground" : "diff.conflict",
 
+    "Label.errorForeground":"errorColor",
+
+    "Notification.errorForeground":"foregroundColor",
+    "Notification.errorBackground": "nonProjectFileScopeColor",
+    "Notification.errorBorderColor": "diff.conflict",
+
     "JumpToLine.dropLine.safe": "testScopeColor",
     "JumpToLine.dropLine.unsafe": "nonProjectFileScopeColor",
 
@@ -386,12 +393,10 @@
     "EditorTabs.inactiveUnderlineColor": "accentColor",
     "EditorTabs.underlineColor":"accentColor",
     "FormattedTextField.caretForeground":"accentColor",
-    "Label.errorForeground":"accentColor",
     "Link.activeForeground": "accentColor",
     "Link.hoverForeground":"accentColor",
     "Link.pressedForeground":"accentColor",
     "Link.visitedForeground":"accentColor",
-    "Notification.errorForeground":"accentColor",
 	  "ParameterInfo.currentParameterForeground":"accentColor",
     "ParameterInfo.infoForeground": "accentColor",
     "PasswordField.caretForeground":"accentColor",
@@ -508,6 +513,7 @@
     "/de/halirutan/keypromoterx/icons/kpxToolwindow.svg": "/icons/plugins/key/promoter/icons/kpxToolwindow.svg",
     "/de/halirutan/keypromoterx/icons/kpxToolwindow_dark.svg": "/icons/plugins/key/promoter/icons/kpxToolwindow_dark.svg",
     "/debugger/watch.svg": "/icons/debugger/watch.svg",
+    "/debugger/db_watch.svg": "/icons/debugger/watch.svg",
     "/fileTypes/properties.svg": "/icons/fileTypes/properties.svg",
     "/fileTypes/json.svg": "/icons/fileTypes/json.svg",
     "/fileTypes/json_dark.svg": "/icons/fileTypes/json_dark.svg",
