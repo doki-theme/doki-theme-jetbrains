@@ -145,6 +145,7 @@
     "ActionButton.focusedBorderColor": "highlightColor",
 
     "Borders.color": "borderColor",
+    "Tree.hash": "borderColor",
     "DialogWrapper.southPanelDivider": "borderColor",
     "OnePixelDivider.background": "borderColor",
     "UIDesigner.Panel.borderColor": "borderColor",
