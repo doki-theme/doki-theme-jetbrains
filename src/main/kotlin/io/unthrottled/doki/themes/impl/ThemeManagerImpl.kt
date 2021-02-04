@@ -24,7 +24,7 @@ class ThemeManagerImpl : ThemeManager {
   init {
     val gson = Gson()
     val themeURI = javaClass.classLoader
-      .getResource("/doki/themes")
+      .getResource("doki/themes")
       ?.toURI()
       .toString()
       .split("!")
