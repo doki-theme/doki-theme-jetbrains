@@ -6,16 +6,16 @@ import javax.swing.Icon
 object DokiIcons {
   object Plugins {
     object Motivator {
-      val TOOL_WINDOW = load("/icons/plugins/motivator/motivator_toolwindow.svg")
+      val TOOL_WINDOW = load("icons/plugins/motivator/motivator_toolwindow.svg")
     }
     object AMII {
-      val TOOL_WINDOW = load("/icons/plugins/amii/plugin-tool-window.svg")
+      val TOOL_WINDOW = load("icons/plugins/amii/plugin-tool-window.svg")
     }
   }
 
   object CheckBox {
     const val CHECK_MARK_KEY = "CheckBoxMenuItem.checkIcon"
-    val CHECK_MARK = load("/icons/icons/checkmark.svg")
+    val CHECK_MARK = load("icons/icons/checkmark.svg")
   }
 
   object Tree {
@@ -23,8 +23,8 @@ object DokiIcons {
     const val SELECTED_EXPANDED_KEY = "Tree.expandedSelectedIcon"
     const val COLLAPSED_KEY = "Tree.collapsedIcon"
     const val SELECTED_COLLAPSED_KEY = "Tree.collapsedSelectedIcon"
-    val COLLAPSED = load("/icons/tree/treeCollapsed.svg")
-    val EXPANDED = load("/icons/tree/treeExpanded.svg")
+    val COLLAPSED = load("icons/tree/treeCollapsed.svg")
+    val EXPANDED = load("icons/tree/treeExpanded.svg")
   }
 
   private fun load(path: String): Icon =

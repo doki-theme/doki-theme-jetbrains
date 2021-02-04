@@ -5,6 +5,7 @@ import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.options.SearchableConfigurable
 import com.intellij.openapi.ui.ComboBox
 import com.intellij.openapi.ui.DialogPanel
+import com.intellij.ui.IconManager
 import com.intellij.ui.components.JBTabbedPane
 import com.intellij.ui.layout.panel
 import io.unthrottled.doki.config.THEME_CONFIG_TOPIC
@@ -24,7 +25,6 @@ import io.unthrottled.doki.themes.ThemeManager
 import java.net.URI
 import java.util.Vector
 import javax.swing.DefaultComboBoxModel
-import javax.swing.ImageIcon
 import javax.swing.JComponent
 import javax.swing.JLabel
 import javax.swing.JPanel
@@ -124,11 +124,11 @@ class ThemeSettings : SearchableConfigurable {
 
   private fun createMaterialIconsPane(): DialogPanel {
     val directoryIcon = JLabel()
-    directoryIcon.icon = ImageIcon(javaClass.getResource("/icons/settings/directoryIcon.png"))
+    directoryIcon.icon = IconManager.getInstance().getIcon("icons/doki/settings/directoryIcon.png", javaClass)
     val fileIcon = JLabel()
-    fileIcon.icon = ImageIcon(javaClass.getResource("/icons/settings/fileIcon.png"))
+    fileIcon.icon = IconManager.getInstance().getIcon("icons/doki/settings/fileIcon.png", javaClass)
     val psiIcon = JLabel()
-    psiIcon.icon = ImageIcon(javaClass.getResource("/icons/settings/psiIcon.png"))
+    psiIcon.icon = IconManager.getInstance().getIcon("icons/doki/settings/psiIcon.png", javaClass)
     return panel {
       titledRow("Doki Themed Material Icons") {
         row {

@@ -1,6 +1,10 @@
 Changelog
 ---
 
+# 12.5.3 [2021.1 Build Support]
+
+- Remember what I said three releases ago? Well I lied, this time 2020.1 should be supported :)
+
 # 12.5.2 [Non-Functional Changes]
 
 - Removed a bunch of legacy migration code.
