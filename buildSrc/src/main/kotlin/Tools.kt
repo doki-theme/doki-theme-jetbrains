@@ -8,6 +8,8 @@ private val nameMapping =
     "Literature Club" to DDLC_THEME_NAME_PREFIX,
     "KonoSuba" to "KonoSuba: ",
     "Fate" to "Fate: ",
+    "Darling in the Franxx" to "Franxx: ",
+    "Bunny Senpai" to "BunnySenpai: ",
     "Steins Gate" to "SG: ",
     "Gate" to "Gate: ",
     "DanganRonpa" to "DR: ",
