@@ -73,6 +73,10 @@
     <themeProvider id="2d1112ac-04ab-4f78-82c4-22e5e2c1754b" path="/doki/themes/love_live/Sonoda_Umi.theme.json"/>
     <themeProvider id="be058474-b967-4afb-b6d9-bda1948b33ec" path="/doki/themes/lucky_star/Konata.theme.json"/>
     <themeProvider id="d39df813-8701-463b-a964-b8cb7714d1cc" path="/doki/themes/steins_gate/Makise_Kurisu.theme.json"/>
+    <themeProvider id="98878c8e-9f91-4e25-930d-dd7d280d9e35" path="/doki/themes/bunny_senpai/Mai_Light.theme.json"/>
+    <themeProvider id="0527c6fc-316a-4f80-9459-d92ced0e6492" path="/doki/themes/bunny_senpai/Mai_Dark.theme.json"/>
+    <themeProvider id="4fd5cb34-d36e-4a3c-8639-052b19b26ba1" path="/doki/themes/darling_in_the_franxx/Zero_Two_Light.theme.json"/>
+    <themeProvider id="8c99ec4b-fda0-4ab7-95ad-a6bf80c3924b" path="/doki/themes/darling_in_the_franxx/Zero_Two_Dark.theme.json"/>
     <themeProvider id="546e8fb8-6082-4ef5-a5e3-44790686f02f" path="/doki/themes/sword_art_online/Asuna_Light.theme.json"/>
     <themeProvider id="bac375a4-abb3-44d5-9bef-8039eb83fec0" path="/doki/themes/sword_art_online/Asuna_Dark.theme.json"/>
     <themeProvider id="325c5d4d-5614-4c58-b296-18924f2f6928" path="/doki/themes/fate/Ishtar_Light.theme.json"/>

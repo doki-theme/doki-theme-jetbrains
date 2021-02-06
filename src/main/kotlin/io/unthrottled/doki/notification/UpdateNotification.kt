@@ -38,7 +38,7 @@ private fun buildUpdateMessage(updateAsset: String): String =
       Thanks for downloading!
       <br><br>
       <div style='text-align: center'><img alt='Thanks for downloading!' src="$updateAsset" 
-      width='256'><br/><br/>
+      width='450'><br/><br/>
       I hope you enjoy your new themes!
       </div>
   """.trimIndent()
@@ -118,7 +118,7 @@ object UpdateNotification {
         buildUpdateMessage(
           AssetManager.resolveAssetUrl(
             AssetCategory.MISC,
-            "update_celebration_v2.gif"
+            "update_celebration_v3.gif"
           ).orElseGet {
             "https://doki.assets.unthrottled.io/misc/update_celebration.gif"
           }
