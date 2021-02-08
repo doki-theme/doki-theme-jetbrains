@@ -118,7 +118,7 @@ object UpdateNotification {
         buildUpdateMessage(
           AssetManager.resolveAssetUrl(
             AssetCategory.MISC,
-            "update_celebration_v3.gif"
+            "update_celebration_v3.1.gif"
           ).orElseGet {
             "https://doki.assets.unthrottled.io/misc/update_celebration.gif"
           }
