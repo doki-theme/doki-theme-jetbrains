@@ -222,11 +222,11 @@ class ThemeSettings : SearchableConfigurable {
               themeSettingsModel.isDokiBackground = component.isSelected
             },
             comment =
-              """
+            """
               Decorates the editor background to the official Doki Theme background.
               WARNING! this change remains after uninstalling the plugin. 
               You can still edit/remove the background using the "Set Background Image" action.
-              """.trimIndent()
+            """.trimIndent()
           )
         }
         row {
@@ -262,7 +262,7 @@ class ThemeSettings : SearchableConfigurable {
             "Theme Transition Animation",
             themeSettingsModel.isLafAnimation,
             comment =
-              """The animations will remain in your IDE after uninstalling the plugin.
+            """The animations will remain in your IDE after uninstalling the plugin.
             |To remove them, un-check this action or toggle the action at 
             |"Help -> Find Action -> ide.intellij.laf.enable.animation". 
             """.trimMargin(),
@@ -276,7 +276,7 @@ class ThemeSettings : SearchableConfigurable {
             "Don't show README on project startup",
             themeSettingsModel.isNotShowReadmeAtStartup,
             comment =
-              """Anytime you open a new project, don't automatically open the README.
+            """Anytime you open a new project, don't automatically open the README.
             |This will stay even after you uninstall the plugin.
 |To re-enable it, un-check this action or toggle the action at "Help -> Find Action -> ide.open.readme.md.on.startup". 
             """.trimMargin(),
