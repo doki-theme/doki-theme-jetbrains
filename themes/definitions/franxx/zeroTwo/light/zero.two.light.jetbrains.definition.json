@@ -5,6 +5,12 @@
     "file": "Zero_Two_Light.xml"
   },
   "overrides": {},
+  "backgrounds": {
+    "default": {
+      "position": "CENTER",
+      "opacity": 20
+    }
+  },
   "ui": {
     "ScrollBar.Transparent.thumbColor": "accentColorOverrideMoreTransparent",
     "ScrollBar.Transparent.thumbBorderColor": "accentColorOverrideMoreTransparent",
