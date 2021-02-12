@@ -4,6 +4,14 @@
     "type": "template",
     "name": "Doki Dim"
   },
+  "backgrounds": {
+    "default": {
+      "position": "MIDDLE_RIGHT"
+    },
+    "secondary": {
+      "position": "MIDDLE_RIGHT"
+    }
+  },
   "overrides": {},
   "uiBase": "dark dim",
   "ui": {}
