@@ -6,7 +6,8 @@
   },
   "backgrounds": {
     "default": {
-      "position": "MIDDLE_RIGHT"
+      "position": "MIDDLE_RIGHT",
+      "opacity": 13
     }
   },
   "overrides": {},

@@ -9,7 +9,8 @@
       "position": "MIDDLE_RIGHT"
     },
     "secondary": {
-      "position": "MIDDLE_RIGHT"
+      "position": "MIDDLE_RIGHT",
+      "opacity": 13
     }
   },
   "overrides": {},

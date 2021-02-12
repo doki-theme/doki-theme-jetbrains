@@ -375,7 +375,7 @@ open class BuildThemes : DefaultTask() {
     return Backgrounds(
       Optional.ofNullable(defaultBackground)
         .map {
-          Background(it.name ?: stickers.default.getStickerName(), it.position ?: "CENTER")
+          Background(it.name ?: stickers.default.getStickerName(), it.position ?: "CENTER", it.opacity)
         }
         .orElse(
           Background(

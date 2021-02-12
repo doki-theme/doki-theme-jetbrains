@@ -69,7 +69,7 @@ internal class BackgroundWallpaperService {
         capturePrevious()
         setBackgroundImageProperty(
           it.first,
-          if (dokiTheme.isDark) "5" else "10",
+          it.second.opacity?.toString() ?: if (dokiTheme.isDark) "5" else "10",
           Fill.SCALE.name,
           it.second.position.name,
           EDITOR_PROP
