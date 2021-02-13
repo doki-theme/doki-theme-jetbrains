@@ -146,9 +146,9 @@ Doki-Doki Literature Club
 ### Yuri
 
 ![edgy](../assets/screenshots/yuri_dark_code.png)
-![yuri](../assets/screenshots/yuri_light_code.png)
-![edgy](../assets/screenshots/yuri_dark_secondary_code.png)
 ![yuri](../assets/screenshots/yuri_light_secondary_code.png)
+![edgy](../assets/screenshots/yuri_dark_secondary_code.png)
+![yuri](../assets/screenshots/yuri_light_code.png)
 
 ### Natsuki
 
