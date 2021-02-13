@@ -9,6 +9,11 @@ The Doki Theme: Jetbrains IDEs
 
 ## Quick Theme Preview
 
+<picture>
+  <source srcset="assets/screenshots/themes.webp" type="image/webp">
+  <source srcset="assets/screenshots/themes.webp" type="image/gif"> 
+</picture>
+
 ![Themes](assets/screenshots/flagship_themes.gif)
 
 # [Complete Theme Album.](./albums/complete_theme_album.md)
