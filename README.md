@@ -11,8 +11,10 @@ The Doki Theme: Jetbrains IDEs
 
 <picture>
   <source srcset="./assets/screenshots/themes.webp" type="image/webp">
-  <source srcset="./assets/screenshots/themes.webp" type="image/gif"> 
+  <source srcset="./assets/screenshots/themes.gif" type="image/gif"> 
 </picture>
+
+![Themes](./assets/screenshots/themes.webp)
 
 
 # [Complete Theme Album.](./albums/complete_theme_album.md)
