@@ -16,9 +16,9 @@
   "backgrounds": {
     "default": {
       "position": "MIDDLE_RIGHT",
-      "opacity": 15,
+      "opacity": 15
     },
-    "default": {
+    "secondary": {
       "position": "CENTER",
       "opacity": 17
     }
