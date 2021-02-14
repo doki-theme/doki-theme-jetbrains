@@ -21,7 +21,6 @@ import javax.swing.JComponent
 import javax.swing.JLayeredPane
 import javax.swing.JPanel
 
-
 internal class StickerPane(
   private val drawablePane: JLayeredPane,
 ) : HwFacadeJPanel(), Disposable {
