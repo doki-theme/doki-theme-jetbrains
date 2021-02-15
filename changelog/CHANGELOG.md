@@ -21,7 +21,7 @@ From the Rascal does not dream of bunny girl senpai series:
 - Better 2021.1 EAP build support
 - Updated theme wallpapers to have better default opacity.
 
-![v13 Girls](http://doki.assets.unthrottled.io/misc/v13_girls.png)
+![v13 Girls](https://doki.assets.unthrottled.io/misc/v13_girls.png)
 
 
 # 12.5.3 [2021.1 Build Support]
@@ -112,7 +112,7 @@ Addition to the Sword Art Online series:
 
 - Yuuki Asuna (Dark)
 
-![v12 Girls](http://doki.assets.unthrottled.io/misc/v12_girls.png)
+![v12 Girls](https://doki.assets.unthrottled.io/misc/v12_girls.png)
 
 ## Other Stuff
 
@@ -205,7 +205,7 @@ Last addition to the Konosuba series:
 
 - Aqua (Dark)
 
-![v11 Girls](http://doki.assets.unthrottled.io/misc/v11_girls.png)
+![v11 Girls](https://doki.assets.unthrottled.io/misc/v11_girls.png)
 
 ## Other Stuff
 

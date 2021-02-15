@@ -38,7 +38,7 @@ private fun buildUpdateMessage(
             <li>Sakurajima Mai (Dark/Light). <br/> 2 Stickers (a mild one and a <b>spicy</b> one!!)</li>
         </ul>
         </li>
-        <li>2020.1 EAP build support, again...</li>
+        <li>2021.1 EAP build support, again...</li>
       </ul>
       Please see the <a href="https://github.com/doki-theme/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md">
       changelog</a> for more details.
