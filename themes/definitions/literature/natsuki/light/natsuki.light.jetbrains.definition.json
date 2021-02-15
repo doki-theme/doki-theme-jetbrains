@@ -15,7 +15,12 @@
   },
   "backgrounds": {
     "default": {
-      "position": "MIDDLE_RIGHT"
+      "position": "MIDDLE_RIGHT",
+      "opacity": 15
+    },
+    "secondary": {
+      "position": "CENTER",
+      "opacity": 17
     }
   },
   "overrides": {

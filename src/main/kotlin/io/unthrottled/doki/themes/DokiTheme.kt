@@ -21,7 +21,8 @@ class Stickers(
 
 class Background(
   val name: String,
-  val position: IdeBackgroundUtil.Anchor
+  val position: IdeBackgroundUtil.Anchor,
+  val opacity: Int?,
 )
 
 class Backgrounds(

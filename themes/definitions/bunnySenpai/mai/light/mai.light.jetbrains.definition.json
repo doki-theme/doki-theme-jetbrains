@@ -1,0 +1,18 @@
+{
+  "id": "98878c8e-9f91-4e25-930d-dd7d280d9e35",
+  "editorScheme": {
+    "type": "template",
+    "name": "Doki Light v2"
+  },
+  "backgrounds": {
+    "default": {
+      "position": "MIDDLE_RIGHT"
+    },
+    "secondary": {
+      "position": "MIDDLE_RIGHT",
+      "opacity": 13
+    }
+  },
+  "overrides": {},
+  "ui": {}
+}

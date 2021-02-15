@@ -8,7 +8,8 @@ data class ThemeDefinitionSchema(
 
 class Background(
   val name: String,
-  val position: String
+  val position: String,
+  val opacity: Int? = null
 )
 
 class Backgrounds(
@@ -40,7 +41,8 @@ data class Overrides(
 
 data class BackgroundDefinition(
   val name: String?,
-  val position: String?
+  val position: String?,
+  val opacity: Int?
 )
 data class BackgroundsDefinition(
   val default: BackgroundDefinition?,

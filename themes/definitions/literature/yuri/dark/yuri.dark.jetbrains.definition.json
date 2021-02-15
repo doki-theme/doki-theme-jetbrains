@@ -4,6 +4,12 @@
     "type": "templateExtension",
     "file": "Yuri_Dark.xml"
   },
+  "backgrounds": {
+    "default": {
+      "position": "CENTER",
+      "opacity": 7
+    }
+  },
   "overrides": {},
   "ui": {
     "Plugins.lightSelectionBackground": "selectionBackground",

@@ -21,13 +21,23 @@ import io.unthrottled.doki.assets.AssetManager
 import io.unthrottled.doki.themes.ThemeManager
 import org.intellij.lang.annotations.Language
 import org.jetbrains.annotations.Nls
+import java.awt.Dimension
 import java.awt.Point
 
 @Language("HTML")
-private fun buildUpdateMessage(updateAsset: String): String =
+private fun buildUpdateMessage(
+  updateAsset: String,
+  dimensions: Dimension
+): String =
   """
       What's New?<br>
       <ul>
+        <li>4 New Themes!!
+        <ul>
+            <li>Zero Two (Dark/Light)</li>
+            <li>Sakurajima Mai (Dark/Light). <br/> 2 Stickers (a mild one and a <b>spicy</b> one!!)</li>
+        </ul>
+        </li>
         <li>2020.1 EAP build support, again...</li>
       </ul>
       Please see the <a href="https://github.com/doki-theme/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md">
@@ -38,7 +48,7 @@ private fun buildUpdateMessage(updateAsset: String): String =
       Thanks for downloading!
       <br><br>
       <div style='text-align: center'><img alt='Thanks for downloading!' src="$updateAsset" 
-      width='256'><br/><br/>
+      width='${dimensions.width}' height='${dimensions.height}'><br/><br/>
       I hope you enjoy your new themes!
       </div>
   """.trimIndent()
@@ -118,10 +128,11 @@ object UpdateNotification {
         buildUpdateMessage(
           AssetManager.resolveAssetUrl(
             AssetCategory.MISC,
-            "update_celebration_v2.gif"
+            "update_celebration_v3.1.gif"
           ).orElseGet {
-            "https://doki.assets.unthrottled.io/misc/update_celebration.gif"
-          }
+            "https://doki.assets.unthrottled.io/misc/update_celebration_v3.1"
+          },
+          Dimension(450, 253)
         ),
         NotificationType.INFORMATION
       )

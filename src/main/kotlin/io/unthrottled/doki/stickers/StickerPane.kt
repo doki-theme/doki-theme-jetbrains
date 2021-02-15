@@ -5,6 +5,7 @@ import com.intellij.ui.components.JBLabel
 import com.intellij.ui.components.JBLayeredPane
 import com.intellij.ui.jcef.HwFacadeJPanel
 import io.unthrottled.doki.config.ThemeConfig
+import io.unthrottled.doki.util.runSafelyWithResult
 import org.intellij.lang.annotations.Language
 import java.awt.Dimension
 import java.awt.Rectangle
@@ -13,6 +14,9 @@ import java.awt.event.ComponentEvent
 import java.awt.event.MouseEvent
 import java.awt.event.MouseListener
 import java.awt.event.MouseMotionListener
+import java.io.File
+import java.net.URI
+import javax.imageio.ImageIO
 import javax.swing.JComponent
 import javax.swing.JLayeredPane
 import javax.swing.JPanel
@@ -158,10 +162,11 @@ internal class StickerPane(
   private fun createStickerContentPanel(stickerUrl: String): JPanel {
     val stickerContent = JPanel()
     stickerContent.layout = null
+    val (width, height) = getImageDimensions(stickerUrl)
     @Language("html")
     val stickerDisplay = JBLabel(
       """<html>
-           <img src='$stickerUrl' />
+           <img src='$stickerUrl' width='$width' height='$height' />
          </html>
       """
     )
@@ -182,6 +187,21 @@ internal class StickerPane(
 
     return stickerContent
   }
+
+  private fun getImageDimensions(stickerUrl: String): Pair<Int, Int> =
+    runSafelyWithResult({
+      ImageIO.createImageInputStream(File(URI(stickerUrl)))
+        .use {
+          val readers = ImageIO.getImageReaders(it)
+          if (readers.hasNext()) {
+            val reader = readers.next()
+            reader.input = it
+            reader.getWidth(0) to reader.getHeight(0)
+          } else {
+            0 to 0
+          }
+        }
+    }) { 0 to 0 }
 
   private fun positionStickerPanel(width: Int, height: Int) {
     val (x, y) = getPosition(
