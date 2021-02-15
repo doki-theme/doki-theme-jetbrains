@@ -20,6 +20,7 @@
     &lt;p&gt;
           You can choose themes from various, Anime, Manga, or Visual Novels such as:
     &lt;ul&gt;
+    &lt;li&gt;Darling in the Franxx&lt;/li&gt;
     &lt;li&gt;DanganRonpa&lt;/li&gt;
     &lt;li&gt;Doki-Doki Literature Club&lt;/li&gt;
     &lt;li&gt;Fate&lt;/li&gt;
@@ -33,6 +34,7 @@
     &lt;li&gt;Neon Genesis Evangelion&lt;/li&gt;
     &lt;li&gt;OreGairu&lt;/li&gt;
     &lt;li&gt;Re:Zero&lt;/li&gt;
+    &lt;li&gt;Rascal does not dream of bunny girl senpai&lt;/li&gt;
     &lt;li&gt;Steins Gate&lt;/li&gt;
     &lt;li&gt;Sword Art Online&lt;/li&gt;
     &lt;/ul&gt;
@@ -58,6 +60,7 @@
     <statusBarWidgetFactory implementation="io.unthrottled.doki.ui.status.ThemeStatusBarProvider"/>
     <editorNotificationProvider implementation="io.unthrottled.doki.internal.DokiEditorNotificationProvider"/>
     <themeMetadataProvider path="/theme-schema/DokiTheme.themeMetadata.json"/>
+    <registryKey defaultValue="true" description="Prevent the Doki Theme plugin from updating downloaded assets" key="doki.theme.update.assets"/>
     <themeProvider id="8e8773ee-4bbb-4812-b311-005f04f6bb20" path="/doki/themes/evangelion/Katsuragi_Misato.theme.json"/>
     <themeProvider id="c5e92ad9-2fa0-491e-b92a-48ab92d13597" path="/doki/themes/high_school_dxd/Rias.theme.json"/>
     <themeProvider id="06143cbe-2d51-4423-9a93-73a02c828119" path="/doki/themes/oregairu/Yukinoshita_Yukino.theme.json"/>

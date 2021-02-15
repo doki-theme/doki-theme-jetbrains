@@ -1,6 +1,11 @@
 Changelog
 ---
 
+# 13.0.2 [Prevent Asset Updates]
+
+- Added `doki.theme.update.assets` registry action, when disabled the plugin will not update local assets.
+  - You can toggle this feature via `help` > `Find Action...` > `doki.theme.update.assets` 
+
 # 13.0.1 [Consistency Updates]
 
 - Fixed some small 2021.1 EAP build inconsistencies [found here](https://github.com/doki-theme/doki-theme-jetbrains/issues/333)
