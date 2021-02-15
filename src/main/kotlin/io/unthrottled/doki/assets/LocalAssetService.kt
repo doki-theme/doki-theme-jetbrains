@@ -3,6 +3,7 @@ package io.unthrottled.doki.assets
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
 import com.intellij.openapi.diagnostic.Logger
+import com.intellij.openapi.util.registry.Registry
 import com.intellij.openapi.util.text.StringUtil
 import io.unthrottled.doki.integrations.RestClient
 import io.unthrottled.doki.util.runSafely
@@ -34,7 +35,8 @@ object LocalAssetService {
   ): Boolean =
     !Files.exists(localInstallPath) ||
       (
-        !hasBeenCheckedToday(localInstallPath) &&
+        Registry.`is`("doki.theme.update.assets", true) &&
+          !hasBeenCheckedToday(localInstallPath) &&
           isLocalDifferentFromRemote(localInstallPath, remoteAssetUrl) == AssetChangedStatus.DIFFERENT
         )
 
