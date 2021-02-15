@@ -6,6 +6,7 @@ import com.intellij.codeInsight.hint.TooltipRenderer
 import com.intellij.execution.runners.ProcessProxy
 import com.intellij.ide.IdeTooltipManager
 import com.intellij.ide.actions.Switcher
+import com.intellij.ide.actions.runAnything.RunAnythingAction
 import com.intellij.ide.plugins.newui.PluginLogo
 import com.intellij.ide.util.ChooseElementsDialog
 import com.intellij.ide.util.ExportToFileUtil
@@ -534,6 +535,7 @@ object HackComponent : Disposable {
     hackSwitcherBorder()
     hackEditorBorder()
     hackBookmarkBorder()
+    hackRunAnything()
   }
 
   private fun hackEditorBorder() {
@@ -556,6 +558,29 @@ object HackComponent : Disposable {
       ctClass.toClass()
     }) {
       log.warn("Unable to hackEditorBorder for reasons.")
+    }
+  }
+
+  private fun hackRunAnything() {
+    runSafely({
+      val cp = ClassPool(true)
+      cp.insertClassPath(ClassClassPath(RunAnythingAction::class.java))
+      val ctClass = cp.get("com.intellij.ide.actions.runAnything.RunAnythingUtil")
+      val init = ctClass.getDeclaredMethods(
+        "createTitle"
+      )[0]
+      init.instrument(
+        object : ExprEditor() {
+          override fun edit(e: NewExpr?) {
+            if (e?.className == "com.intellij.ui.JBColor") {
+              e.replace("{ \$_ = com.intellij.util.ui.JBUI.CurrentTheme.Advertiser.borderColor(); }")
+            }
+          }
+        }
+      )
+      ctClass.toClass()
+    }) {
+      log.warn("Unable to hackRunAnything for reasons.")
     }
   }
 
