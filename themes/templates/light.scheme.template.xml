@@ -876,7 +876,13 @@
                 <option name="BACKGROUND" value="$codeBlock$" />
             </value>
         </option>
-        <option name="INLINE_PARAMETER_HINT">
+      <option name="INLAY_DEFAULT">
+        <value>
+          <option name="FOREGROUND" value="$infoForeground$" />
+          <option name="BACKGROUND" value="$accentColor$11" />
+        </value>
+      </option>
+      <option name="INLINE_PARAMETER_HINT">
             <value>
                 <option name="FOREGROUND" value="$accentColor$5a" />
                 <option name="BACKGROUND" value="$textEditorBackground$" />
