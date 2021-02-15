@@ -3,7 +3,7 @@ Themes grouped by album
 
 [DanganRonpa Album](dr_themes.md)
 
-[Darling in the Fraxx](dif_album.md)
+[Darling in the Franxx](dif_album.md)
 
 [Doki-Doki Literature Club Album](theme_album.md)
 
