@@ -1,6 +1,12 @@
 <scheme name="Ryuko" version="142" parent_scheme="Doki Dark">
     <attributes>
-        <option name="INLINE_PARAMETER_HINT">
+      <option name="INLAY_DEFAULT">
+        <value>
+          <option name="FOREGROUND" value="$keywordColor$" />
+          <option name="BACKGROUND" value="$textEditorBackground$"/>
+        </value>
+      </option>
+      <option name="INLINE_PARAMETER_HINT">
             <value>
                 <option name="FOREGROUND" value="$keywordColor$" />
                 <option name="BACKGROUND" value="$textEditorBackground$"/>
