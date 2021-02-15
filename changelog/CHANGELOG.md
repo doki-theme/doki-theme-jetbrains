@@ -1,6 +1,10 @@
 Changelog
 ---
 
+# 13.0.1 [Consistency Updates]
+
+- Fixed some small 2021.1 EAP build inconsistencies [found here](https://github.com/doki-theme/doki-theme-jetbrains/issues/333)
+
 # 13.0.0 [New Themes!]
 
 ## 4 New Themes
