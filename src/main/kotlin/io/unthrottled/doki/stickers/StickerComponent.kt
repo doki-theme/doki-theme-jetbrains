@@ -5,7 +5,6 @@ import com.intellij.ide.ui.LafManagerListener
 import com.intellij.ide.ui.laf.LafManagerImpl
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.application.ApplicationManager
-import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.themes.DokiTheme
 import io.unthrottled.doki.themes.ThemeManager
 import io.unthrottled.doki.util.doOrElse
@@ -24,12 +23,14 @@ class StickerComponent :
 
   companion object {
     fun activateForTheme(dokiTheme: DokiTheme) {
-      BackgroundWallpaperService.instance.activateForTheme(dokiTheme)
+      EditorBackgroundWallpaperService.instance.activateForTheme(dokiTheme)
+      EmptyFrameWallpaperService.instance.activateForTheme(dokiTheme)
       StickerPaneService.instance.activateForTheme(dokiTheme)
     }
 
     fun remove() {
-      BackgroundWallpaperService.instance.remove()
+      EditorBackgroundWallpaperService.instance.remove()
+      EmptyFrameWallpaperService.instance.remove()
       StickerPaneService.instance.remove()
     }
   }
@@ -43,7 +44,6 @@ class StickerComponent :
 
   private fun processLaf(currentLaf: UIManager.LookAndFeelInfo?) {
     ThemeManager.instance.processLaf(currentLaf)
-      .filter { ThemeConfig.instance.currentStickerLevel == StickerLevel.ON }
       .doOrElse({
         activateForTheme(it)
       }) {

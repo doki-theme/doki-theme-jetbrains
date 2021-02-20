@@ -7,7 +7,7 @@ import com.intellij.openapi.application.ModalityState
 import com.intellij.openapi.options.ShowSettingsUtil
 import com.intellij.openapi.project.DumbAware
 import com.intellij.openapi.project.ProjectManager
-import io.unthrottled.doki.settings.ThemeSettings.Companion.THEME_SETTINGS_DISPLAY_NAME
+import io.unthrottled.doki.settings.ThemeSettings.THEME_SETTINGS_DISPLAY_NAME
 
 class ShowSettingsAction : AnAction(), DumbAware {
   override fun actionPerformed(e: AnActionEvent) {

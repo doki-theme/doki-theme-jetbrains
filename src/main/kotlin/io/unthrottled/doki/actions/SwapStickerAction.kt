@@ -10,6 +10,6 @@ class SwapStickerAction : BaseToggleAction() {
     ThemeConfig.instance.currentSticker == CurrentSticker.SECONDARY
 
   override fun setSelected(e: AnActionEvent, state: Boolean) {
-    StickerActor.swapStickers(state)
+    StickerActor.swapStickers(if (state) CurrentSticker.SECONDARY else CurrentSticker.DEFAULT)
   }
 }

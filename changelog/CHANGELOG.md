@@ -1,6 +1,14 @@
 Changelog
 ---
 
+# 13.1.0 [Content Settings]
+
+- You can now enable/disable content provided by this plugin:
+  - The Sticker in the corner
+  - The empty editor background image
+  - The editor wallpaper
+- Re-Vamped the settings UI
+
 # 13.0.2 [Prevent Asset Updates]
 
 - Added `doki.theme.update.assets` registry action, when disabled the plugin will not update local assets.

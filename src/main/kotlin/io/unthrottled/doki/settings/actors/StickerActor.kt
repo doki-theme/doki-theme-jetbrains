@@ -4,21 +4,16 @@ import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.stickers.CurrentSticker
 import io.unthrottled.doki.stickers.StickerComponent
 import io.unthrottled.doki.stickers.StickerLevel
+import io.unthrottled.doki.stickers.StickerPaneService
 import io.unthrottled.doki.themes.ThemeManager
 import io.unthrottled.doki.util.performWithAnimation
 
 object StickerActor {
 
-  fun swapStickers(enabled: Boolean, withAnimation: Boolean = true) {
-    if (enabled != (ThemeConfig.instance.currentSticker == CurrentSticker.SECONDARY)) {
+  fun swapStickers(newStickerType: CurrentSticker, withAnimation: Boolean = true) {
+    if (ThemeConfig.instance.currentSticker != newStickerType) {
       performWithAnimation(withAnimation) {
-        if (enabled) {
-          ThemeConfig.instance.currentSticker =
-            CurrentSticker.SECONDARY
-        } else {
-          ThemeConfig.instance.currentSticker =
-            CurrentSticker.DEFAULT
-        }
+        ThemeConfig.instance.currentSticker = newStickerType
         ThemeManager.instance.currentTheme.ifPresent {
           StickerComponent.activateForTheme(it)
         }
@@ -32,11 +27,11 @@ object StickerActor {
         if (enabled) {
           ThemeConfig.instance.stickerLevel = StickerLevel.ON.name
           ThemeManager.instance.currentTheme.ifPresent {
-            StickerComponent.activateForTheme(it)
+            StickerPaneService.instance.activateForTheme(it)
           }
         } else {
           ThemeConfig.instance.stickerLevel = StickerLevel.OFF.name
-          StickerComponent.remove()
+          StickerPaneService.instance.remove()
         }
       }
     }
