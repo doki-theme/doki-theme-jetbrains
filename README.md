@@ -40,31 +40,56 @@ You can choose themes from various, Anime, Manga, or Visual Novels:
 - Steins Gate
 - Sword Art Online
 
-Sticker in the way? No worries! You can configure them to be on or off at your leisure.
+## Installation
 
-These themes are easy to install, there are minimal configurations, so you can enjoy the themes faster.
-They also play well with other themes, so feel free to come and go as your mood changes :)
+- Using IDE built-in plugin system:
 
-# Got Contributions, fun ideas, or issues?
+  <kbd>Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>Marketplace</kbd> > <kbd>Search for "Anime Memes"</kbd> >
+  <kbd>Install Plugin</kbd>
 
-Don't be afraid to reach out and join the [Gitter Community](https://gitter.im/doki-theme-jetbrains/community?utm_source=share-link&utm_medium=link&utm_campaign=share-link)!
+- Manually:
+
+  Download the [latest release](https://github.com/Unthrottled/AMII/releases/latest) and install it manually using
+  <kbd>Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>⚙️</kbd> > <kbd>Install plugin from disk...</kbd>
+
+
+---
+
+# Documentation
+
+- [Miscellaneous](#miscellaneous)
+
+
+# Miscellaneous
 
 ## Theme Requests
 
 If you want your main squeeze to be featured in the Doki Theme suite, feel free to [submit a theme request](https://github.com/doki-theme/doki-master-theme/issues).
 
-## Enjoying the plugin and want more people to use it?
+## Enjoying the plugin?
 
 Great! I am glad you like it!
 
-Be sure to share it with others who also may like it as well!
+Be sure to ⭐ and share it with other weebs!
 
-Also, giving it a good [review on the plugins page](https://plugins.jetbrains.com/plugin/10804-doki-doki-literature-club-theme) will help this plugin will become more visible to users!
+Also, giving it a good [review on the plugins page](https://plugins.jetbrains.com/plugin/10804-doki-doki-literature-club-theme) will help this plugin will become more visible to otaku!
 
-## Not your thing or something bothering you?
+## Something bothering you or not your thing?
 
 Feel free to submit your feedback as [an issue](https://github.com/doki-theme/doki-theme-jetbrains/issues/new).
-Help make this plugin better! 
+Help make this plugin better!
+
+## Don't like the plugin?
+
+![That's fine I get that](https://i.makeagif.com/media/11-09-2016/1ejtOt.gif)
+
+
+## Got Contributions, fun ideas, or issues?
+
+Don't be afraid to reach out and join the [Gitter Community](https://gitter.im/doki-theme-jetbrains/community?utm_source=share-link&utm_medium=link&utm_campaign=share-link)!
+
+
+
 
 ## Want updates sooner?
 
