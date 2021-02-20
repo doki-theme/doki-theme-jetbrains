@@ -5,7 +5,6 @@ The Doki Theme: Jetbrains IDEs
 ![Rating](https://img.shields.io/jetbrains/plugin/r/rating/10804)
 ![Version](https://img.shields.io/jetbrains/plugin/v/10804)
 ![Build](https://github.com/doki-theme/doki-theme-jetbrains/workflows/Release/badge.svg)
-[![Gitter](https://badges.gitter.im/doki-theme-jetbrains/community.svg)](https://gitter.im/doki-theme-jetbrains/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 ## Quick Theme Preview
 
@@ -44,12 +43,12 @@ You can choose themes from various, Anime, Manga, or Visual Novels:
 
 - Using IDE built-in plugin system:
 
-  <kbd>Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>Marketplace</kbd> > <kbd>Search for "Anime Memes"</kbd> >
+  <kbd>Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>Marketplace</kbd> > <kbd>Search for "The Doki Theme"</kbd> >
   <kbd>Install Plugin</kbd>
 
 - Manually:
 
-  Download the [latest release](https://github.com/Unthrottled/AMII/releases/latest) and install it manually using
+  Download the [latest release](https://github.com/doki-theme/doki-theme-jetbrains/releases/latest) and install it manually using
   <kbd>Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>⚙️</kbd> > <kbd>Install plugin from disk...</kbd>
 
 
@@ -58,6 +57,10 @@ You can choose themes from various, Anime, Manga, or Visual Novels:
 # Documentation
 
 - [Miscellaneous](#miscellaneous)
+  - [Theme Requests](#theme-requests)
+  - [Helping the community](#enjoying-the-plugin)
+  - [Feature Requests](#contributions)
+  - [Frequent Updates](#release-channel)
 
 
 # Miscellaneous
@@ -74,26 +77,21 @@ Be sure to ⭐ and share it with other weebs!
 
 Also, giving it a good [review on the plugins page](https://plugins.jetbrains.com/plugin/10804-doki-doki-literature-club-theme) will help this plugin will become more visible to otaku!
 
-## Something bothering you or not your thing?
+## Contributions?
 
-Feel free to submit your feedback as [an issue](https://github.com/doki-theme/doki-theme-jetbrains/issues/new).
+I think your voice needs to be heard! You probably have good ideas, so feel free to submit your feedback as [an issue](https://github.com/doki-theme/doki-theme-jetbrains/issues/new).
+
 Help make this plugin better!
 
-## Don't like the plugin?
+## Release channel
 
-![That's fine I get that](https://i.makeagif.com/media/11-09-2016/1ejtOt.gif)
+Want updates sooner? I have a [canary release channel](https://github.com/Unthrottled/jetbrains-plugin-repository) that you can set up to get the latest and greatest!
 
+# Don't like the plugin?
 
-## Got Contributions, fun ideas, or issues?
+![That's fine I get that](https://media1.tenor.com/images/abeef89de1286dd086dc817739ed400b/tenor.gif?itemid=11340232)
 
-Don't be afraid to reach out and join the [Gitter Community](https://gitter.im/doki-theme-jetbrains/community?utm_source=share-link&utm_medium=link&utm_campaign=share-link)!
-
-
-
-
-## Want updates sooner?
-
-I have a [canary release channel](https://github.com/Unthrottled/jetbrains-plugin-repository) that you can set up to get the latest and greatest!
+> I'm not being serious, you are entitled to your own opinion :smile:
 
 ---
 
