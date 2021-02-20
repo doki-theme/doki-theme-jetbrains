@@ -43,47 +43,45 @@ data class ThemeSettingsModel(
   var isNotShowReadmeAtStartup: Boolean,
   var isMoveableStickers: Boolean,
   var isDokiBackground: Boolean,
-)
+) {
 
-class ThemeSettings : SearchableConfigurable {
+  fun duplicate(): ThemeSettingsModel = copy()
+}
 
-  companion object {
-    const val THEME_SETTINGS_DISPLAY_NAME = "Doki Theme Settings"
-    val CHANGELOG_URI =
-      URI("https://github.com/doki-theme/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md")
-    private const val REPOSITORY = "https://github.com/doki-theme/doki-theme-jetbrains"
-    const val ULTIMATE_INSTRUCTIONS = "$REPOSITORY/wiki/Ultimate-Theme-Setup"
-    val ISSUES_URI = URI("$REPOSITORY/issues")
-    val REVIEW_URI = URI("https://plugins.jetbrains.com/plugin/10804-the-doki-theme/reviews")
-  }
+object ThemeSettings {
 
-  override fun getId(): String = "io.unthrottled.doki.settings.ThemeSettings"
+  const val THEME_SETTINGS_DISPLAY_NAME = "Doki Theme Settings"
+  val CHANGELOG_URI =
+    URI("https://github.com/doki-theme/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md")
+  private const val REPOSITORY = "https://github.com/doki-theme/doki-theme-jetbrains"
+  const val ULTIMATE_INSTRUCTIONS = "$REPOSITORY/wiki/Ultimate-Theme-Setup"
+  val ISSUES_URI = URI("$REPOSITORY/issues")
+  val REVIEW_URI = URI("https://plugins.jetbrains.com/plugin/10804-the-doki-theme/reviews")
 
-  override fun getDisplayName(): String =
-    THEME_SETTINGS_DISPLAY_NAME
+  @JvmStatic
+  fun createThemeSettingsModel(): ThemeSettingsModel =
+    ThemeSettingsModel(
+      ThemeConfig.instance.currentStickerLevel == StickerLevel.ON,
+      ThemeConfig.instance.isLafAnimation,
+      ThemeManager.instance.currentTheme.map { it.name }.orElseGet { ThemeManager.DEFAULT_THEME_NAME },
+      ThemeConfig.instance.isThemedTitleBar,
+      ThemeConfig.instance.showThemeStatusBar,
+      ThemeConfig.instance.currentSticker == CurrentSticker.SECONDARY,
+      ThemeConfig.instance.isMaterialDirectories,
+      ThemeConfig.instance.isMaterialFiles,
+      ThemeConfig.instance.isMaterialPSIIcons,
+      ThemeConfig.instance.isNotShowReadmeAtStartup,
+      ThemeConfig.instance.isMoveableStickers,
+      ThemeConfig.instance.isDokiBackground,
+    )
 
-  private val initialThemeSettingsModel = ThemeSettingsModel(
-    ThemeConfig.instance.currentStickerLevel == StickerLevel.ON,
-    ThemeConfig.instance.isLafAnimation,
-    ThemeManager.instance.currentTheme.map { it.name }.orElseGet { ThemeManager.DEFAULT_THEME_NAME },
-    ThemeConfig.instance.isThemedTitleBar,
-    ThemeConfig.instance.showThemeStatusBar,
-    ThemeConfig.instance.currentSticker == CurrentSticker.SECONDARY,
-    ThemeConfig.instance.isMaterialDirectories,
-    ThemeConfig.instance.isMaterialFiles,
-    ThemeConfig.instance.isMaterialPSIIcons,
-    ThemeConfig.instance.isNotShowReadmeAtStartup,
-    ThemeConfig.instance.isMoveableStickers,
-    ThemeConfig.instance.isDokiBackground,
-  )
 
+  fun getId(): String = "io.unthrottled.doki.settings.ThemeSettings"
+
+  private val initialThemeSettingsModel = createThemeSettingsModel()
   private val themeSettingsModel = initialThemeSettingsModel.copy()
 
-  override fun isModified(): Boolean {
-    return initialThemeSettingsModel != themeSettingsModel
-  }
-
-  override fun apply() {
+  fun apply(themeSettingsModel: ThemeSettingsModel) {
     LafAnimationActor.enableAnimation(themeSettingsModel.isLafAnimation)
     ShowReadmeActor.dontShowReadmeOnStartup(themeSettingsModel.isNotShowReadmeAtStartup)
     StickerActor.enableStickers(themeSettingsModel.areStickersEnabled, false)
@@ -101,7 +99,7 @@ class ThemeSettings : SearchableConfigurable {
     ).themeConfigUpdated(ThemeConfig.instance)
   }
 
-  override fun createComponent(): JComponent? {
+  fun createComponent(): JComponent? {
     return try {
       val tabbedPanel = JBTabbedPane()
       tabbedPanel.add("Main", createSettingsPane())
@@ -122,7 +120,7 @@ class ThemeSettings : SearchableConfigurable {
     }
   }
 
-  private fun createMaterialIconsPane(): DialogPanel {
+  fun createMaterialIconsPane(settingsSupplier: () -> ThemeSettingsModel): DialogPanel {
     val directoryIcon = JLabel()
     directoryIcon.icon = IconManager.getInstance().getIcon("icons/doki/settings/directoryIcon.png", javaClass)
     val fileIcon = JLabel()
@@ -136,9 +134,9 @@ class ThemeSettings : SearchableConfigurable {
             directoryIcon()
             checkBox(
               "Directory Icons",
-              themeSettingsModel.isMaterialDirectories,
+              settingsSupplier().isMaterialDirectories,
               actionListener = { _, component ->
-                themeSettingsModel.isMaterialDirectories = component.isSelected
+                settingsSupplier().isMaterialDirectories = component.isSelected
               }
             )
           }
@@ -148,9 +146,9 @@ class ThemeSettings : SearchableConfigurable {
             fileIcon()
             checkBox(
               "File Icons",
-              themeSettingsModel.isMaterialFiles,
+              settingsSupplier().isMaterialFiles,
               actionListener = { _, component ->
-                themeSettingsModel.isMaterialFiles = component.isSelected
+                settingsSupplier().isMaterialFiles = component.isSelected
               }
             )
           }
@@ -160,9 +158,9 @@ class ThemeSettings : SearchableConfigurable {
             psiIcon()
             checkBox(
               "PSI Icons",
-              themeSettingsModel.isMaterialPSIIcons,
+              settingsSupplier().isMaterialPSIIcons,
               actionListener = { _, component ->
-                themeSettingsModel.isMaterialPSIIcons = component.isSelected
+                settingsSupplier().isMaterialPSIIcons = component.isSelected
               }
             )
           }

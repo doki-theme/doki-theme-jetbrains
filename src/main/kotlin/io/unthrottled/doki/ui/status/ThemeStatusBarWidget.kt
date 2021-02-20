@@ -14,7 +14,7 @@ import com.intellij.util.Consumer
 import io.unthrottled.doki.config.THEME_CONFIG_TOPIC
 import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.config.ThemeConfigListener
-import io.unthrottled.doki.settings.ThemeSettings.Companion.THEME_SETTINGS_DISPLAY_NAME
+import io.unthrottled.doki.settings.ThemeSettings.THEME_SETTINGS_DISPLAY_NAME
 import io.unthrottled.doki.themes.ThemeManager
 import io.unthrottled.doki.util.toOptional
 import java.awt.event.MouseEvent
