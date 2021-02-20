@@ -9,16 +9,10 @@ import io.unthrottled.doki.util.performWithAnimation
 
 object StickerActor {
 
-  fun swapStickers(enabled: Boolean, withAnimation: Boolean = true) {
-    if (enabled != (ThemeConfig.instance.currentSticker == CurrentSticker.SECONDARY)) {
+  fun swapStickers(newStickerType: CurrentSticker, withAnimation: Boolean = true) {
+    if (ThemeConfig.instance.currentSticker != newStickerType) {
       performWithAnimation(withAnimation) {
-        if (enabled) {
-          ThemeConfig.instance.currentSticker =
-            CurrentSticker.SECONDARY
-        } else {
-          ThemeConfig.instance.currentSticker =
-            CurrentSticker.DEFAULT
-        }
+        ThemeConfig.instance.currentSticker = newStickerType
         ThemeManager.instance.currentTheme.ifPresent {
           StickerComponent.activateForTheme(it)
         }

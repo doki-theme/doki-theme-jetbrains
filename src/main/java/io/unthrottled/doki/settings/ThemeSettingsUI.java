@@ -1,13 +1,13 @@
 package io.unthrottled.doki.settings;
 
 import com.intellij.openapi.options.Configurable;
-import com.intellij.openapi.options.ConfigurationException;
 import com.intellij.openapi.options.SearchableConfigurable;
 import com.intellij.openapi.project.DumbAware;
 import com.intellij.openapi.ui.DialogPanel;
 import com.intellij.openapi.util.NlsContexts;
-import com.intellij.util.ui.JBUI;
 import com.intellij.util.ui.UIUtil;
+import io.unthrottled.doki.config.ThemeConfig;
+import io.unthrottled.doki.stickers.CurrentSticker;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -21,7 +21,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JTabbedPane;
 
 public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoScroll, DumbAware {
-  private ThemeSettingsModel themeSettingsModel = ThemeSettings.createThemeSettingsModel();
+  private final ThemeSettingsModel themeSettingsModel = ThemeSettings.createThemeSettingsModel();
   private ThemeSettingsModel initialThemeSettingsModel = ThemeSettings.createThemeSettingsModel();
 
   private JTabbedPane tabbedPane1;
@@ -41,8 +41,9 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
 
   @Override
   public @NotNull
-  @NonNls String getId() {
-    return ThemeSettings.INSTANCE.getId();
+  @NonNls
+  String getId() {
+    return ThemeSettings.SETTINGS_ID;
   }
 
   @Override
@@ -52,12 +53,58 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
 
   @Override
   public @Nullable JComponent createComponent() {
-    initializeComponents();
+    initializeAutoCreatedComponents();
     return rootPane;
   }
 
-  private void initializeComponents() {
+  private void initializeAutoCreatedComponents() {
     warningLabel.setForeground(UIUtil.getContextHelpForeground());
+
+    // todo: this
+//    showStickerCheckBox.setSelected(initialThemeSettingsModel.isMoveableStickers());
+//    showStickerCheckBox.addActionListener(e ->
+//      themeSettingsModel.setMoveableStickers(showStickerCheckBox.isSelected())
+//    );
+
+    allowPositioningCheckBox.setSelected(initialThemeSettingsModel.isMoveableStickers());
+    allowPositioningCheckBox.addActionListener(e ->
+      themeSettingsModel.setMoveableStickers(allowPositioningCheckBox.isSelected())
+    );
+
+    primaryRadioButton.setSelected(ThemeConfig.Companion.getInstance().getCurrentSticker() == CurrentSticker.DEFAULT);
+    primaryRadioButton.addActionListener(e->
+      initialThemeSettingsModel.setCurrentSticker(
+        primaryRadioButton.isSelected() ? CurrentSticker.DEFAULT : CurrentSticker.SECONDARY
+      )
+    );
+    secondaryRadioButton.setSelected(ThemeConfig.Companion.getInstance().getCurrentSticker() == CurrentSticker.SECONDARY);
+    secondaryRadioButton.addActionListener(e->
+      initialThemeSettingsModel.setCurrentSticker(
+        secondaryRadioButton.isSelected() ? CurrentSticker.SECONDARY : CurrentSticker.DEFAULT
+      )
+    );
+
+
+    backgroundWallpaperCheckBox.setSelected(initialThemeSettingsModel.isDokiBackground());
+    backgroundWallpaperCheckBox.addActionListener(e ->
+      themeSettingsModel.setDokiBackground(backgroundWallpaperCheckBox.isSelected())
+    );
+
+    // todo: this
+//    emptyEditorBackgroundCheckBox.setSelected(initialThemeSettingsModel.isDokiBackground());
+//    emptyEditorBackgroundCheckBox.addActionListener(e ->
+//      themeSettingsModel.setMoveableStickers(emptyEditorBackgroundCheckBox.isSelected())
+//    );
+
+    nameInStatusBarCheckBox.setSelected(initialThemeSettingsModel.getShowThemeStatusBar());
+    nameInStatusBarCheckBox.addActionListener(e ->
+      themeSettingsModel.setShowThemeStatusBar(nameInStatusBarCheckBox.isSelected())
+    );
+
+    framelessModeMacOSOnlyCheckBox.setSelected(initialThemeSettingsModel.isThemedTitleBar());
+    framelessModeMacOSOnlyCheckBox.addActionListener(e ->
+      themeSettingsModel.setThemedTitleBar(framelessModeMacOSOnlyCheckBox.isSelected())
+    );
   }
 
   @Override
@@ -66,13 +113,24 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
   }
 
   @Override
-  public void apply() throws ConfigurationException {
+  public void apply() {
     ThemeSettings.INSTANCE.apply(themeSettingsModel);
+    initialThemeSettingsModel = themeSettingsModel.duplicate();
   }
 
   private void createUIComponents() {
+    currentThemeWomboComboBox = ThemeSettings.INSTANCE.createThemeComboxBoxModel(
+      () -> this.themeSettingsModel == null ?
+        ThemeSettings.createThemeSettingsModel() :
+        themeSettingsModel
+    );
+
     try {
-      materialIconPane = ThemeSettings.INSTANCE.createMaterialIconsPane(() -> this.themeSettingsModel);
+      materialIconPane = ThemeSettings.INSTANCE.createMaterialIconsPane(
+        () -> this.themeSettingsModel == null ?
+          ThemeSettings.createThemeSettingsModel() :
+          themeSettingsModel
+      );
     } catch (RuntimeException ignored) {
       materialIconPane = new DialogPanel();
     }

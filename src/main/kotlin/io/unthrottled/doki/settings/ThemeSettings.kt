@@ -1,12 +1,9 @@
 package io.unthrottled.doki.settings
 
-import com.intellij.ide.BrowserUtil.browse
 import com.intellij.openapi.application.ApplicationManager
-import com.intellij.openapi.options.SearchableConfigurable
 import com.intellij.openapi.ui.ComboBox
 import com.intellij.openapi.ui.DialogPanel
 import com.intellij.ui.IconManager
-import com.intellij.ui.components.JBTabbedPane
 import com.intellij.ui.layout.panel
 import io.unthrottled.doki.config.THEME_CONFIG_TOPIC
 import io.unthrottled.doki.config.ThemeConfig
@@ -25,10 +22,7 @@ import io.unthrottled.doki.themes.ThemeManager
 import java.net.URI
 import java.util.Vector
 import javax.swing.DefaultComboBoxModel
-import javax.swing.JComponent
 import javax.swing.JLabel
-import javax.swing.JPanel
-import javax.swing.JTextPane
 
 data class ThemeSettingsModel(
   var areStickersEnabled: Boolean,
@@ -36,7 +30,7 @@ data class ThemeSettingsModel(
   var currentTheme: String,
   var isThemedTitleBar: Boolean,
   var showThemeStatusBar: Boolean,
-  var isSwappedSticker: Boolean,
+  var currentSticker: CurrentSticker,
   var isMaterialDirectories: Boolean,
   var isMaterialFiles: Boolean,
   var isMaterialPSIIcons: Boolean,
@@ -50,6 +44,7 @@ data class ThemeSettingsModel(
 
 object ThemeSettings {
 
+  const val SETTINGS_ID = "io.unthrottled.doki.settings.ThemeSettings"
   const val THEME_SETTINGS_DISPLAY_NAME = "Doki Theme Settings"
   val CHANGELOG_URI =
     URI("https://github.com/doki-theme/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md")
@@ -66,7 +61,7 @@ object ThemeSettings {
       ThemeManager.instance.currentTheme.map { it.name }.orElseGet { ThemeManager.DEFAULT_THEME_NAME },
       ThemeConfig.instance.isThemedTitleBar,
       ThemeConfig.instance.showThemeStatusBar,
-      ThemeConfig.instance.currentSticker == CurrentSticker.SECONDARY,
+      ThemeConfig.instance.currentSticker,
       ThemeConfig.instance.isMaterialDirectories,
       ThemeConfig.instance.isMaterialFiles,
       ThemeConfig.instance.isMaterialPSIIcons,
@@ -75,17 +70,11 @@ object ThemeSettings {
       ThemeConfig.instance.isDokiBackground,
     )
 
-
-  fun getId(): String = "io.unthrottled.doki.settings.ThemeSettings"
-
-  private val initialThemeSettingsModel = createThemeSettingsModel()
-  private val themeSettingsModel = initialThemeSettingsModel.copy()
-
   fun apply(themeSettingsModel: ThemeSettingsModel) {
     LafAnimationActor.enableAnimation(themeSettingsModel.isLafAnimation)
     ShowReadmeActor.dontShowReadmeOnStartup(themeSettingsModel.isNotShowReadmeAtStartup)
     StickerActor.enableStickers(themeSettingsModel.areStickersEnabled, false)
-    StickerActor.swapStickers(themeSettingsModel.isSwappedSticker, false)
+    StickerActor.swapStickers(themeSettingsModel.currentSticker, false)
     ThemedTitleBarActor.enableThemedTitleBar(themeSettingsModel.isThemedTitleBar)
     ThemeActor.applyTheme(themeSettingsModel.currentTheme)
     ThemeStatusBarActor.applyConfig(themeSettingsModel.showThemeStatusBar)
@@ -97,26 +86,6 @@ object ThemeSettings {
     ApplicationManager.getApplication().messageBus.syncPublisher(
       THEME_CONFIG_TOPIC
     ).themeConfigUpdated(ThemeConfig.instance)
-  }
-
-  fun createComponent(): JComponent? {
-    return try {
-      val tabbedPanel = JBTabbedPane()
-      tabbedPanel.add("Main", createSettingsPane())
-      tabbedPanel
-    } catch (e: Throwable) {
-      val outOfServicePanel = JPanel()
-      val outOfServiceTextPan = JTextPane()
-      outOfServiceTextPan.text =
-        """
-          Doki Theme Settings Menu currently unavailable in the 
-          2020 EAP Builds. All functionality is available in the 
-          Doki Theme Options in the toolbar and tool menu.
-        """.trimIndent()
-
-      outOfServicePanel.add(outOfServiceTextPan)
-      outOfServicePanel
-    }
   }
 
   fun createMaterialIconsPane(settingsSupplier: () -> ThemeSettingsModel): DialogPanel {
@@ -168,8 +137,7 @@ object ThemeSettings {
     }
   }
 
-  @Suppress("LongMethod")
-  private fun createSettingsPane(): DialogPanel {
+  fun createThemeComboxBoxModel(settingsSupplier: () -> ThemeSettingsModel): ComboBox<String> {
     val themeComboBox = ComboBox(
       DefaultComboBoxModel(
         Vector(
@@ -181,121 +149,10 @@ object ThemeSettings {
         )
       )
     )
-    themeComboBox.model.selectedItem = themeSettingsModel.currentTheme
+    themeComboBox.model.selectedItem = settingsSupplier().currentTheme
     themeComboBox.addActionListener {
-      themeSettingsModel.currentTheme = themeComboBox.model.selectedItem as String
+      settingsSupplier().currentTheme = themeComboBox.model.selectedItem as String
     }
-    val settingsPane = panel {
-      titledRow("Main Settings") {
-        row {
-          cell {
-            label("Current Theme")
-            themeComboBox()
-          }
-        }
-        row {
-          checkBox(
-            "Enable Stickers",
-            themeSettingsModel.areStickersEnabled,
-            actionListener = { _, component ->
-              themeSettingsModel.areStickersEnabled = component.isSelected
-            }
-          )
-        }
-        row {
-          checkBox(
-            "Enable Sticker Positioning",
-            themeSettingsModel.isMoveableStickers,
-            actionListener = { _, component ->
-              themeSettingsModel.isMoveableStickers = component.isSelected
-            }
-          )
-        }
-        row {
-          checkBox(
-            "Enable Doki Background",
-            themeSettingsModel.isDokiBackground,
-            actionListener = { _, component ->
-              themeSettingsModel.isDokiBackground = component.isSelected
-            },
-            comment = """
-              Decorates the editor background to the official Doki Theme background.
-              WARNING! this change remains after uninstalling the plugin. 
-              You can still edit/remove the background using the "Set Background Image" action.
-            """.trimIndent()
-          )
-        }
-        row {
-          checkBox(
-            "Swap Sticker",
-            themeSettingsModel.isSwappedSticker,
-            actionListener = { _, component ->
-              themeSettingsModel.isSwappedSticker = component.isSelected
-            }
-          )
-        }
-        row {
-          checkBox(
-            "Theme Name in Status Bar",
-            themeSettingsModel.showThemeStatusBar,
-            actionListener = { _, component ->
-              themeSettingsModel.showThemeStatusBar = component.isSelected
-            }
-          )
-        }
-        row {
-          checkBox(
-            "Themed Title Bar",
-            themeSettingsModel.isThemedTitleBar,
-            comment = "Feature only works on MacOS and Jetbrains Products",
-            actionListener = { _, component ->
-              themeSettingsModel.isThemedTitleBar = component.isSelected
-            }
-          )
-        }
-        row {
-          checkBox(
-            "Theme Transition Animation",
-            themeSettingsModel.isLafAnimation,
-            comment = """The animations will remain in your IDE after uninstalling the plugin.
-            |To remove them, un-check this action or toggle the action at 
-            |"Help -> Find Action -> ide.intellij.laf.enable.animation". 
-            """.trimMargin(),
-            actionListener = { _, component ->
-              themeSettingsModel.isLafAnimation = component.isSelected
-            }
-          )
-        }
-        row {
-          checkBox(
-            "Don't show README on project startup",
-            themeSettingsModel.isNotShowReadmeAtStartup,
-            comment = """Anytime you open a new project, don't automatically open the README.
-            |This will stay even after you uninstall the plugin.
-|To re-enable it, un-check this action or toggle the action at "Help -> Find Action -> ide.open.readme.md.on.startup". 
-            """.trimMargin(),
-            actionListener = { _, component ->
-              themeSettingsModel.isNotShowReadmeAtStartup = component.isSelected
-            }
-          )
-        }
-      }
-      titledRow("Miscellaneous Items") {
-        row {
-          cell {
-            button("View Issues") {
-              browse(ISSUES_URI)
-            }
-            button("View Changelog") {
-              browse(CHANGELOG_URI)
-            }
-            button("Leave a Review") {
-              browse(REVIEW_URI)
-            }
-          }
-        }
-      }
-    }
-    return settingsPane
+    return themeComboBox
   }
 }
