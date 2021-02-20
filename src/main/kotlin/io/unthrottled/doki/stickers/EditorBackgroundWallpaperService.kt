@@ -21,18 +21,15 @@ import java.util.Optional
 const val DOKI_BACKGROUND_PROP: String = "io.unthrottled.doki.background"
 private const val PREVIOUS_BACKGROUND = "io.unthrottled.doki.previous-background"
 
-// todo: fix this
-@Suppress("TooManyFunctions")
-internal class BackgroundWallpaperService {
+internal class EditorBackgroundWallpaperService {
 
   companion object {
-    val instance: BackgroundWallpaperService
-      get() = ServiceManager.getService(BackgroundWallpaperService::class.java)
+    val instance: EditorBackgroundWallpaperService
+      get() = ServiceManager.getService(EditorBackgroundWallpaperService::class.java)
   }
 
   fun activateForTheme(dokiTheme: DokiTheme) {
     ApplicationManager.getApplication().executeOnPooledThread {
-      installFrameBackgroundImage(dokiTheme)
       if (ThemeConfig.instance.isDokiBackground) {
         installEditorBackgroundImage(dokiTheme)
       }
@@ -41,21 +38,9 @@ internal class BackgroundWallpaperService {
 
   fun checkForUpdates(dokiTheme: DokiTheme) {
     ApplicationManager.getApplication().executeOnPooledThread {
-      getLocallyInstalledBackgroundImagePath(dokiTheme)
+      getLocallyInstalledWallpaperImagePath(dokiTheme)
     }
   }
-
-  private fun installFrameBackgroundImage(dokiTheme: DokiTheme) =
-    getLocallyInstalledBackgroundImagePath(dokiTheme)
-      .ifPresent {
-        setBackgroundImageProperty(
-          it.first,
-          "100",
-          Fill.SCALE.name,
-          it.second.position.name,
-          DOKI_BACKGROUND_PROP
-        )
-      }
 
   private fun installEditorBackgroundImage(dokiTheme: DokiTheme) =
     getLocallyInstalledWallpaperImagePath(dokiTheme)
@@ -85,17 +70,6 @@ internal class BackgroundWallpaperService {
       }
   }
 
-  private fun getLocallyInstalledBackgroundImagePath(
-    dokiTheme: DokiTheme
-  ): Optional<Pair<String, Background>> =
-    dokiTheme.getBackground()
-      .flatMap { background ->
-        AssetManager.resolveAssetUrl(
-          AssetCategory.BACKGROUNDS,
-          background.name
-        ).map { it to background }
-      }
-
   private fun getLocallyInstalledWallpaperImagePath(
     dokiTheme: DokiTheme
   ): Optional<Pair<String, Background>> =
@@ -109,10 +83,7 @@ internal class BackgroundWallpaperService {
 
   fun remove() {
     val propertiesComponent = PropertiesComponent.getInstance()
-    propertiesComponent.unsetValue(DOKI_BACKGROUND_PROP)
-    if (ThemeConfig.instance.isDokiBackground) {
-      removeEditorWallpaper(propertiesComponent)
-    }
+    removeEditorWallpaper(propertiesComponent)
     repaintWindows()
   }
 
@@ -142,11 +113,12 @@ internal class BackgroundWallpaperService {
   fun enableEditorBackground() {
     ThemeManager.instance.currentTheme.ifPresent { dokiTheme ->
       installEditorBackgroundImage(dokiTheme)
+      repaintWindows()
     }
   }
 }
 
-private fun setBackgroundImageProperty(
+internal fun setBackgroundImageProperty(
   imagePath: String,
   opacity: String,
   fill: String,

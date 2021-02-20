@@ -8,6 +8,7 @@ import com.intellij.ui.layout.panel
 import io.unthrottled.doki.config.THEME_CONFIG_TOPIC
 import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.settings.actors.BackgroundActor
+import io.unthrottled.doki.settings.actors.EmptyFrameBackgroundActor
 import io.unthrottled.doki.settings.actors.LafAnimationActor
 import io.unthrottled.doki.settings.actors.MaterialIconsActor
 import io.unthrottled.doki.settings.actors.MoveableStickerActor
@@ -37,6 +38,7 @@ data class ThemeSettingsModel(
   var isNotShowReadmeAtStartup: Boolean,
   var isMoveableStickers: Boolean,
   var isDokiBackground: Boolean,
+  var isEmptyFrameBackground: Boolean,
 ) {
 
   fun duplicate(): ThemeSettingsModel = copy()
@@ -56,18 +58,19 @@ object ThemeSettings {
   @JvmStatic
   fun createThemeSettingsModel(): ThemeSettingsModel =
     ThemeSettingsModel(
-      ThemeConfig.instance.currentStickerLevel == StickerLevel.ON,
-      ThemeConfig.instance.isLafAnimation,
-      ThemeManager.instance.currentTheme.map { it.name }.orElseGet { ThemeManager.DEFAULT_THEME_NAME },
-      ThemeConfig.instance.isThemedTitleBar,
-      ThemeConfig.instance.showThemeStatusBar,
-      ThemeConfig.instance.currentSticker,
-      ThemeConfig.instance.isMaterialDirectories,
-      ThemeConfig.instance.isMaterialFiles,
-      ThemeConfig.instance.isMaterialPSIIcons,
-      ThemeConfig.instance.isNotShowReadmeAtStartup,
-      ThemeConfig.instance.isMoveableStickers,
-      ThemeConfig.instance.isDokiBackground,
+      areStickersEnabled = ThemeConfig.instance.currentStickerLevel == StickerLevel.ON,
+      isLafAnimation = ThemeConfig.instance.isLafAnimation,
+      currentTheme = ThemeManager.instance.currentTheme.map { it.name }.orElseGet { ThemeManager.DEFAULT_THEME_NAME },
+      isThemedTitleBar = ThemeConfig.instance.isThemedTitleBar,
+      showThemeStatusBar = ThemeConfig.instance.showThemeStatusBar,
+      currentSticker = ThemeConfig.instance.currentSticker,
+      isMaterialDirectories = ThemeConfig.instance.isMaterialDirectories,
+      isMaterialFiles = ThemeConfig.instance.isMaterialFiles,
+      isMaterialPSIIcons = ThemeConfig.instance.isMaterialPSIIcons,
+      isNotShowReadmeAtStartup = ThemeConfig.instance.isNotShowReadmeAtStartup,
+      isMoveableStickers = ThemeConfig.instance.isMoveableStickers,
+      isDokiBackground = ThemeConfig.instance.isDokiBackground,
+      isEmptyFrameBackground = ThemeConfig.instance.isEmptyFrameBackground,
     )
 
   fun apply(themeSettingsModel: ThemeSettingsModel) {
@@ -83,6 +86,7 @@ object ThemeSettings {
     MaterialIconsActor.enablePSIIcons(themeSettingsModel.isMaterialPSIIcons)
     MoveableStickerActor.moveableStickers(themeSettingsModel.isMoveableStickers)
     BackgroundActor.handleBackgroundUpdate(themeSettingsModel.isDokiBackground)
+    EmptyFrameBackgroundActor.handleBackgroundUpdate(themeSettingsModel.isEmptyFrameBackground)
     ApplicationManager.getApplication().messageBus.syncPublisher(
       THEME_CONFIG_TOPIC
     ).themeConfigUpdated(ThemeConfig.instance)
@@ -142,9 +146,7 @@ object ThemeSettings {
       DefaultComboBoxModel(
         Vector(
           ThemeManager.instance.allThemes
-            .groupBy { it.groupName }
-            .entries
-            .flatMap { it.value.sortedBy { theme -> theme.name } }
+            .sortedBy { theme -> theme.name }
             .map { it.name }
         )
       )

@@ -60,11 +60,10 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
   private void initializeAutoCreatedComponents() {
     warningLabel.setForeground(UIUtil.getContextHelpForeground());
 
-    // todo: this
-//    showStickerCheckBox.setSelected(initialThemeSettingsModel.isMoveableStickers());
-//    showStickerCheckBox.addActionListener(e ->
-//      themeSettingsModel.setMoveableStickers(showStickerCheckBox.isSelected())
-//    );
+    showStickerCheckBox.setSelected(initialThemeSettingsModel.getAreStickersEnabled());
+    showStickerCheckBox.addActionListener(e ->
+      themeSettingsModel.setAreStickersEnabled(showStickerCheckBox.isSelected())
+    );
 
     allowPositioningCheckBox.setSelected(initialThemeSettingsModel.isMoveableStickers());
     allowPositioningCheckBox.addActionListener(e ->
@@ -73,28 +72,26 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
 
     primaryRadioButton.setSelected(ThemeConfig.Companion.getInstance().getCurrentSticker() == CurrentSticker.DEFAULT);
     primaryRadioButton.addActionListener(e->
-      initialThemeSettingsModel.setCurrentSticker(
+      themeSettingsModel.setCurrentSticker(
         primaryRadioButton.isSelected() ? CurrentSticker.DEFAULT : CurrentSticker.SECONDARY
       )
     );
     secondaryRadioButton.setSelected(ThemeConfig.Companion.getInstance().getCurrentSticker() == CurrentSticker.SECONDARY);
     secondaryRadioButton.addActionListener(e->
-      initialThemeSettingsModel.setCurrentSticker(
+      themeSettingsModel.setCurrentSticker(
         secondaryRadioButton.isSelected() ? CurrentSticker.SECONDARY : CurrentSticker.DEFAULT
       )
     );
-
 
     backgroundWallpaperCheckBox.setSelected(initialThemeSettingsModel.isDokiBackground());
     backgroundWallpaperCheckBox.addActionListener(e ->
       themeSettingsModel.setDokiBackground(backgroundWallpaperCheckBox.isSelected())
     );
 
-    // todo: this
-//    emptyEditorBackgroundCheckBox.setSelected(initialThemeSettingsModel.isDokiBackground());
-//    emptyEditorBackgroundCheckBox.addActionListener(e ->
-//      themeSettingsModel.setMoveableStickers(emptyEditorBackgroundCheckBox.isSelected())
-//    );
+    emptyEditorBackgroundCheckBox.setSelected(initialThemeSettingsModel.isEmptyFrameBackground());
+    emptyEditorBackgroundCheckBox.addActionListener(e ->
+      themeSettingsModel.setEmptyFrameBackground(emptyEditorBackgroundCheckBox.isSelected())
+    );
 
     nameInStatusBarCheckBox.setSelected(initialThemeSettingsModel.getShowThemeStatusBar());
     nameInStatusBarCheckBox.addActionListener(e ->

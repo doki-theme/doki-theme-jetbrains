@@ -19,8 +19,8 @@ import io.unthrottled.doki.legacy.LegacyMigration
 import io.unthrottled.doki.notification.UpdateNotification
 import io.unthrottled.doki.promotions.PromotionManager
 import io.unthrottled.doki.settings.actors.setDokiTheme
-import io.unthrottled.doki.stickers.BackgroundWallpaperService
-import io.unthrottled.doki.stickers.StickerLevel
+import io.unthrottled.doki.stickers.EditorBackgroundWallpaperService
+import io.unthrottled.doki.stickers.EmptyFrameWallpaperService
 import io.unthrottled.doki.stickers.StickerPaneService
 import io.unthrottled.doki.themes.ThemeManager
 import io.unthrottled.doki.util.doOrElse
@@ -78,9 +78,9 @@ class TheDokiTheme : Disposable {
           LegacyMigration.migrateIfNecessary(project)
 
           ThemeManager.instance.currentTheme
-            .filter { ThemeConfig.instance.currentStickerLevel == StickerLevel.ON }
             .ifPresent {
-              BackgroundWallpaperService.instance.checkForUpdates(it)
+              EditorBackgroundWallpaperService.instance.checkForUpdates(it)
+              EmptyFrameWallpaperService.instance.checkForUpdates(it)
               StickerPaneService.instance.checkForUpdates(it)
             }
 
