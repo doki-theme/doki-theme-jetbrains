@@ -56,12 +56,75 @@ You can choose themes from various, Anime, Manga, or Visual Novels:
 
 # Documentation
 
+- [Configuration](#configuration)
+  - [General Settings](#general-settings)
+    - [Content Settings](#content-settings)
+      - [Stickers](#sticker)
+      - [Content Type](#content-type)
+      - [Background Images](#background-images)
+      - [Misc Content Settings](#misc-content-settings)
 - [Miscellaneous](#miscellaneous)
   - [Theme Requests](#theme-requests)
   - [Helping the community](#enjoying-the-plugin)
   - [Feature Requests](#contributions)
   - [Frequent Updates](#release-channel)
 
+# Configuration
+
+You can access the settings menu here: 
+
+<kbd>Preferences</kbd> > <kbd>Appearance & Behavior</kbd> > <kbd>Doki Theme Settings</kbd>
+
+## General Settings
+
+**Current Theme** allows you to change the look and feel of your IDE with one of the plugin's supplied themes.
+
+### Content Settings
+
+This allows you to control the decoration of your IDE.
+
+You can be a conservative weeb or a obvious otaku. 
+Customize to your heart's content!
+
+#### Sticker
+
+**Show sticker** allows you to control the presence of the cute sticker in the bottom right-hand corner of your IDE.
+
+**Allow Positioning** allows you to move your cute sticker out of the way when you need to read the logs.
+You won't be able to click through the sticker thou, so you'll need to move it or toggle this action.
+
+#### Content Type
+
+Some themes have more than one set of images, this allows you to switch in-between each of them.
+
+Themes that have more than one sticker:
+
+- Sakurajima Mai
+- Kanna Kamui
+- Izumi Konata
+- Just Monika (Light/Dark)
+- Sayori (Light/Dark)
+- Natsuki (Light/Dark)
+- Yuri (Light/Dark)
+
+#### Background Images
+
+**Background Wallpaper** is probably one of the best features of the plugin.
+This feature will set the background image to the current theme's official wallpaper.
+
+> Important: When this feature is enabled, if the plugin is uninstalled, the wallpaper will
+> remain. You can turn off this feature or use the `Set Background Image` action to adjust.
+
+**Empty Editor Background** sets the background image of the frame, 
+that appears when all tabs are closed, with the current theme's official wallpaper.
+
+#### Misc Content Settings
+
+**Name in status bar** will put the name of the character, your current theme is based on, in the status bar. 
+
+### Other Settings
+
+**Frameless Mode** is a feature only available on MacOS, and gives your IDE the frameless look and feel.
 
 # Miscellaneous
 
@@ -86,12 +149,6 @@ Help make this plugin better!
 ## Release channel
 
 Want updates sooner? I have a [canary release channel](https://github.com/Unthrottled/jetbrains-plugin-repository) that you can set up to get the latest and greatest!
-
-# Don't like the plugin?
-
-![That's fine I get that](https://media1.tenor.com/images/abeef89de1286dd086dc817739ed400b/tenor.gif?itemid=11340232)
-
-> I'm not being serious, you are entitled to your own opinion :smile:
 
 ---
 
