@@ -116,7 +116,7 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
   }
 
   private void createUIComponents() {
-    currentThemeWomboComboBox = ThemeSettings.INSTANCE.createThemeComboxBoxModel(
+    currentThemeWomboComboBox = ThemeSettings.INSTANCE.createThemeComboBoxModel(
       () -> this.themeSettingsModel == null ?
         ThemeSettings.createThemeSettingsModel() :
         themeSettingsModel

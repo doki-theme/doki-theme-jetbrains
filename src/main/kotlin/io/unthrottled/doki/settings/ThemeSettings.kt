@@ -141,7 +141,7 @@ object ThemeSettings {
     }
   }
 
-  fun createThemeComboxBoxModel(settingsSupplier: () -> ThemeSettingsModel): ComboBox<String> {
+  fun createThemeComboBoxModel(settingsSupplier: () -> ThemeSettingsModel): ComboBox<String> {
     val themeComboBox = ComboBox(
       DefaultComboBoxModel(
         Vector(
