@@ -103,7 +103,6 @@ object ThemeSettings {
     return try {
       val tabbedPanel = JBTabbedPane()
       tabbedPanel.add("Main", createSettingsPane())
-      tabbedPanel.add("Material Icons", createMaterialIconsPane())
       tabbedPanel
     } catch (e: Throwable) {
       val outOfServicePanel = JPanel()
