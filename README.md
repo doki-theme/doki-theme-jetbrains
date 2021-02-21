@@ -91,7 +91,7 @@ Customize to your heart's content!
 **Show sticker** allows you to control the presence of the cute sticker in the bottom right-hand corner of your IDE.
 
 **Allow Positioning** allows you to move your cute sticker out of the way when you need to read the logs.
-You won't be able to click through the sticker thou, so you'll need to move it or toggle this action.
+You won't be able to click through the sticker though, so you'll need to move it or toggle this action.
 
 ![Secondary Sticker](./assets/readmeAssets/moveable_stickers.gif)
 
@@ -150,7 +150,7 @@ Great! I am glad you like it!
 
 Be sure to ⭐ and share it with other weebs!
 
-Also, giving it a good [review on the plugins page](https://plugins.jetbrains.com/plugin/10804-doki-doki-literature-club-theme) will help this plugin will become more visible to otaku!
+Also, giving it a good [review on the plugins page](https://plugins.jetbrains.com/plugin/10804-doki-doki-literature-club-theme) will help this plugin become visible to more otaku!
 
 ## Contributions?
 
