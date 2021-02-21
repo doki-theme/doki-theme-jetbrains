@@ -83,7 +83,7 @@ You can access the settings menu here:
 
 This allows you to control the decoration of your IDE.
 
-You can be a conservative weeb or a obvious otaku. 
+You can be a conservative weeb or an obvious otaku. 
 Customize to your heart's content!
 
 #### Sticker
@@ -92,6 +92,8 @@ Customize to your heart's content!
 
 **Allow Positioning** allows you to move your cute sticker out of the way when you need to read the logs.
 You won't be able to click through the sticker thou, so you'll need to move it or toggle this action.
+
+![Secondary Sticker](./assets/readmeAssets/moveable_stickers.gif)
 
 #### Content Type
 
@@ -107,6 +109,8 @@ Themes that have more than one sticker:
 - Natsuki (Light/Dark)
 - Yuri (Light/Dark)
 
+![Secondary Sticker](./assets/readmeAssets/secondary_stickers.gif)
+
 #### Background Images
 
 **Background Wallpaper** is probably one of the best features of the plugin.
@@ -115,12 +119,20 @@ This feature will set the background image to the current theme's official wallp
 > Important: When this feature is enabled, if the plugin is uninstalled, the wallpaper will
 > remain. You can turn off this feature or use the `Set Background Image` action to adjust.
 
+![Editor Wallpaper](./assets/readmeAssets/wallpaper_setting.png)
+
+
 **Empty Editor Background** sets the background image of the frame, 
 that appears when all tabs are closed, with the current theme's official wallpaper.
+
+![Empty Frame Wallpaper](./assets/readmeAssets/empty_frame_wallpaper.png)
 
 #### Misc Content Settings
 
 **Name in status bar** will put the name of the character, your current theme is based on, in the status bar. 
+
+![image](https://user-images.githubusercontent.com/15972415/108612695-aedba280-73b0-11eb-8e59-2e3229918111.png)
+
 
 ### Other Settings
 
