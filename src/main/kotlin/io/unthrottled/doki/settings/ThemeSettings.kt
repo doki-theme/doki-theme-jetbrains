@@ -39,6 +39,7 @@ data class ThemeSettingsModel(
   var isMoveableStickers: Boolean,
   var isDokiBackground: Boolean,
   var isEmptyFrameBackground: Boolean,
+  var isCustomSticker: Boolean,
 ) {
 
   fun duplicate(): ThemeSettingsModel = copy()
@@ -71,6 +72,7 @@ object ThemeSettings {
       isMoveableStickers = ThemeConfig.instance.isMoveableStickers,
       isDokiBackground = ThemeConfig.instance.isDokiBackground,
       isEmptyFrameBackground = ThemeConfig.instance.isEmptyFrameBackground,
+      isCustomSticker = ThemeConfig.instance.isCustomSticker,
     )
 
   fun apply(themeSettingsModel: ThemeSettingsModel) {

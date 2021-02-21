@@ -1,8 +1,10 @@
 package io.unthrottled.doki.settings;
 
+import com.intellij.ide.util.PropertiesComponent;
 import com.intellij.openapi.options.Configurable;
 import com.intellij.openapi.options.SearchableConfigurable;
 import com.intellij.openapi.project.DumbAware;
+import com.intellij.openapi.project.ProjectManager;
 import com.intellij.openapi.ui.DialogPanel;
 import com.intellij.openapi.util.NlsContexts;
 import com.intellij.util.ui.UIUtil;
@@ -12,6 +14,7 @@ import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
@@ -19,6 +22,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTabbedPane;
+import java.util.Arrays;
+import java.util.Properties;
 
 public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoScroll, DumbAware {
   private final ThemeSettingsModel themeSettingsModel = ThemeSettings.createThemeSettingsModel();
@@ -37,6 +42,8 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
   private JLabel warningLabel;
   private JCheckBox nameInStatusBarCheckBox;
   private JCheckBox framelessModeMacOSOnlyCheckBox;
+  private JButton chooseImageButton;
+  private JCheckBox useCustomStickerCheckBox;
 
 
   @Override
@@ -58,6 +65,25 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
   }
 
   private void initializeAutoCreatedComponents() {
+    chooseImageButton.addActionListener(e -> {
+      CustomStickerChooser dialog = new CustomStickerChooser(
+        Arrays.stream(ProjectManager.getInstance().getOpenProjects()).findFirst().orElse(
+          ProjectManager.getInstance().getDefaultProject()
+        )
+      );
+      dialog.showAndGet();
+
+      PropertiesComponent.getInstance().setValue(
+        "io.unthrottled.doki.theme.custom-sticker",
+        dialog.getPath()
+      );
+    });
+
+    useCustomStickerCheckBox.setSelected(initialThemeSettingsModel.isCustomSticker());
+    useCustomStickerCheckBox.addChangeListener(e ->
+      themeSettingsModel.setCustomSticker(useCustomStickerCheckBox.isSelected())
+    );
+
     warningLabel.setForeground(UIUtil.getContextHelpForeground());
 
     showStickerCheckBox.setSelected(initialThemeSettingsModel.getAreStickersEnabled());
@@ -71,13 +97,13 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
     );
 
     primaryRadioButton.setSelected(ThemeConfig.Companion.getInstance().getCurrentSticker() == CurrentSticker.DEFAULT);
-    primaryRadioButton.addActionListener(e->
+    primaryRadioButton.addActionListener(e ->
       themeSettingsModel.setCurrentSticker(
         primaryRadioButton.isSelected() ? CurrentSticker.DEFAULT : CurrentSticker.SECONDARY
       )
     );
     secondaryRadioButton.setSelected(ThemeConfig.Companion.getInstance().getCurrentSticker() == CurrentSticker.SECONDARY);
-    secondaryRadioButton.addActionListener(e->
+    secondaryRadioButton.addActionListener(e ->
       themeSettingsModel.setCurrentSticker(
         secondaryRadioButton.isSelected() ? CurrentSticker.SECONDARY : CurrentSticker.DEFAULT
       )
