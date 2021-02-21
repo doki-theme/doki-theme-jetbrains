@@ -138,6 +138,8 @@ that appears when all tabs are closed, with the current theme's official wallpap
 
 **Frameless Mode** is a feature only available on MacOS, and gives your IDE the frameless look and feel.
 
+![Frameless mode](./assets/readmeAssets/frameless.png)
+
 # Miscellaneous
 
 ## Theme Requests
