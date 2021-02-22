@@ -4,6 +4,7 @@ import com.intellij.openapi.application.ApplicationManager
 import io.unthrottled.doki.assets.AssetCategory
 import io.unthrottled.doki.assets.AssetManager
 import io.unthrottled.doki.config.ThemeConfig
+import io.unthrottled.doki.stickers.CustomStickerService.getCustomStickerUrl
 import io.unthrottled.doki.themes.DokiTheme
 import io.unthrottled.doki.util.toOptional
 import java.awt.AWTEvent
@@ -95,7 +96,11 @@ class StickerPaneService {
     if (this::currentTheme.isInitialized.not()) return
 
     ApplicationManager.getApplication().executeOnPooledThread {
-      getLocallyInstalledStickerPath(currentTheme).ifPresent { stickerUrl ->
+      if (ThemeConfig.instance.isCustomSticker) {
+        getCustomStickerUrl()
+      } else {
+        getLocallyInstalledStickerPath(currentTheme)
+      }.ifPresent { stickerUrl ->
         ApplicationManager.getApplication()
           .invokeLater(stickerWorkerSupplier(stickerUrl))
       }

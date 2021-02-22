@@ -17,10 +17,11 @@ public class CustomStickerChooser extends DialogWrapper {
   private JPanel contentPane;
   private JTextField textField1;
 
-  public CustomStickerChooser(Project project) {
+  public CustomStickerChooser(Project project, String path) {
     super(project, true);
 
     setTitle(MessageBundle.message("settings.general.content.custom.sticker.modal.title"));
+    textField1.setText(path);
 
     init();
     pack();

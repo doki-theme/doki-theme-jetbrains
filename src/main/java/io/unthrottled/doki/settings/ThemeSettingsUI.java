@@ -1,11 +1,11 @@
 package io.unthrottled.doki.settings;
 
-import com.intellij.ide.util.PropertiesComponent;
 import com.intellij.openapi.options.Configurable;
 import com.intellij.openapi.options.SearchableConfigurable;
 import com.intellij.openapi.project.DumbAware;
 import com.intellij.openapi.project.ProjectManager;
 import com.intellij.openapi.ui.DialogPanel;
+import com.intellij.openapi.ui.DialogWrapper;
 import com.intellij.openapi.util.NlsContexts;
 import com.intellij.util.ui.UIUtil;
 import io.unthrottled.doki.config.ThemeConfig;
@@ -23,7 +23,6 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTabbedPane;
 import java.util.Arrays;
-import java.util.Properties;
 
 public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoScroll, DumbAware {
   private final ThemeSettingsModel themeSettingsModel = ThemeSettings.createThemeSettingsModel();
@@ -69,14 +68,15 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
       CustomStickerChooser dialog = new CustomStickerChooser(
         Arrays.stream(ProjectManager.getInstance().getOpenProjects()).findFirst().orElse(
           ProjectManager.getInstance().getDefaultProject()
-        )
+        ),
+        themeSettingsModel.getCustomStickerPath()
       );
+
       dialog.showAndGet();
 
-      PropertiesComponent.getInstance().setValue(
-        "io.unthrottled.doki.theme.custom-sticker",
-        dialog.getPath()
-      );
+      if (dialog.getExitCode() == DialogWrapper.OK_EXIT_CODE) {
+        themeSettingsModel.setCustomStickerPath(dialog.getPath());
+      }
     });
 
     useCustomStickerCheckBox.setSelected(initialThemeSettingsModel.isCustomSticker());
