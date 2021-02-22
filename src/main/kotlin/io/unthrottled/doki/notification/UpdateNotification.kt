@@ -32,13 +32,9 @@ private fun buildUpdateMessage(
   """
       What's New?<br>
       <ul>
-        <li>4 New Themes!!
-        <ul>
-            <li>Zero Two (Dark/Light)</li>
-            <li>Sakurajima Mai (Dark/Light). <br/> 2 Stickers (a mild one and a <b>spicy</b> one!!)</li>
-        </ul>
-        </li>
-        <li>2021.1 EAP build support, again...</li>
+        <li>Set your own sticker!</li>
+        <li>More content control.</li>
+        <li>New Settings UI!</li>
       </ul>
       Please see the <a href="https://github.com/doki-theme/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md">
       changelog</a> for more details.

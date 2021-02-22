@@ -33,7 +33,6 @@ class ThemeConfig : PersistentStateComponent<ThemeConfig>, Cloneable {
   var isThemedTitleBar: Boolean = true
   var showThemeStatusBar: Boolean = true
   var currentStickerName: String = CurrentSticker.DEFAULT.name
-  var isCustomSticker: Boolean = false
 
   var isMaterialDirectories: Boolean = false
   var isMaterialFiles: Boolean = false

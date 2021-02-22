@@ -74,7 +74,7 @@ object ThemeSettings {
       isMoveableStickers = ThemeConfig.instance.isMoveableStickers,
       isDokiBackground = ThemeConfig.instance.isDokiBackground,
       isEmptyFrameBackground = ThemeConfig.instance.isEmptyFrameBackground,
-      isCustomSticker = ThemeConfig.instance.isCustomSticker,
+      isCustomSticker = CustomStickerService.isCustomStickers,
       customStickerPath = CustomStickerService.getCustomStickerPath().orElse("")
     )
 

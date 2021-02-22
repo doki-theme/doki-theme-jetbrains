@@ -43,7 +43,7 @@ object StickerActor {
     isCustomStickers: Boolean,
     withAnimation: Boolean
   ) {
-    ThemeConfig.instance.isCustomSticker = isCustomStickers
+    CustomStickerService.isCustomStickers = isCustomStickers
 
     val newSticker = CustomStickerService.getCustomStickerPath()
       .map { it != customStickerPath }

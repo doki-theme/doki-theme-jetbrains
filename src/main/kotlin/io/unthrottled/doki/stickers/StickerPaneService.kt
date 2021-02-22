@@ -96,7 +96,7 @@ class StickerPaneService {
     if (this::currentTheme.isInitialized.not()) return
 
     ApplicationManager.getApplication().executeOnPooledThread {
-      if (ThemeConfig.instance.isCustomSticker) {
+      if (CustomStickerService.isCustomStickers) {
         getCustomStickerUrl()
       } else {
         getLocallyInstalledStickerPath(currentTheme)

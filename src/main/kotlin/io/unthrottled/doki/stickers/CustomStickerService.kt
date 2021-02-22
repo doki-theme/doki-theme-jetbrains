@@ -6,6 +6,7 @@ import java.util.Optional
 
 object CustomStickerService {
   private const val CUSTOM_STICKER_PROPERTY = "io.unthrottled.doki.theme.custom-sticker"
+  private const val CUSTOM_STICKER_ENABLED_PROPERTY = "io.unthrottled.doki.theme.custom-sticker.enabled"
   fun setCustomStickerPath(path: String) {
     PropertiesComponent.getInstance().setValue(
       CUSTOM_STICKER_PROPERTY,
@@ -21,4 +22,8 @@ object CustomStickerService {
   fun getCustomStickerUrl(): Optional<String> =
     getCustomStickerPath()
       .map { "file://${it.replace('\\', '/')}" }
+
+  var isCustomStickers: Boolean
+    get() = PropertiesComponent.getInstance().getBoolean(CUSTOM_STICKER_ENABLED_PROPERTY, false)
+    set(value) = PropertiesComponent.getInstance().setValue(CUSTOM_STICKER_ENABLED_PROPERTY, value)
 }
