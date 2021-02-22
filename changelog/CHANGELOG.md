@@ -1,6 +1,14 @@
 Changelog
 ---
 
+# 13.2.0 [Custom Sticker]
+
+- You know have the ability to set your own custom sticker.
+Which will be used for any/all the Doki themes. Supported image types: jpg, png, gif.
+
+![Custom sticker](../assets/readmeAssets/custom_sticker.gif)
+  
+
 # 13.1.0 [Content Settings]
 
 - You can now enable/disable content provided by this plugin:
