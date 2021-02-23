@@ -95,6 +95,11 @@ You won't be able to click through the sticker though, so you'll need to move it
 
 ![Secondary Sticker](./assets/readmeAssets/moveable_stickers.gif)
 
+**Use Custom Sticker** allows you to be able to set the image to be used for all the doki-themes.
+Allowed image types: jpg, png, gif
+
+![Custom sticker](./assets/readmeAssets/custom_sticker.gif)
+
 #### Content Type
 
 Some themes have more than one set of images, this allows you to switch in-between each of them.

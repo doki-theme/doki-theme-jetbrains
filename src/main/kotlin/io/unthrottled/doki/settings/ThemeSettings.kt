@@ -18,6 +18,7 @@ import io.unthrottled.doki.settings.actors.ThemeActor
 import io.unthrottled.doki.settings.actors.ThemeStatusBarActor
 import io.unthrottled.doki.settings.actors.ThemedTitleBarActor
 import io.unthrottled.doki.stickers.CurrentSticker
+import io.unthrottled.doki.stickers.CustomStickerService
 import io.unthrottled.doki.stickers.StickerLevel
 import io.unthrottled.doki.themes.ThemeManager
 import java.net.URI
@@ -39,6 +40,8 @@ data class ThemeSettingsModel(
   var isMoveableStickers: Boolean,
   var isDokiBackground: Boolean,
   var isEmptyFrameBackground: Boolean,
+  var isCustomSticker: Boolean,
+  var customStickerPath: String,
 ) {
 
   fun duplicate(): ThemeSettingsModel = copy()
@@ -71,6 +74,8 @@ object ThemeSettings {
       isMoveableStickers = ThemeConfig.instance.isMoveableStickers,
       isDokiBackground = ThemeConfig.instance.isDokiBackground,
       isEmptyFrameBackground = ThemeConfig.instance.isEmptyFrameBackground,
+      isCustomSticker = CustomStickerService.isCustomStickers,
+      customStickerPath = CustomStickerService.getCustomStickerPath().orElse("")
     )
 
   fun apply(themeSettingsModel: ThemeSettingsModel) {
@@ -78,6 +83,11 @@ object ThemeSettings {
     ShowReadmeActor.dontShowReadmeOnStartup(themeSettingsModel.isNotShowReadmeAtStartup)
     StickerActor.enableStickers(themeSettingsModel.areStickersEnabled, false)
     StickerActor.swapStickers(themeSettingsModel.currentSticker, false)
+    StickerActor.setCustomSticker(
+      themeSettingsModel.customStickerPath,
+      themeSettingsModel.isCustomSticker,
+      false
+    )
     ThemedTitleBarActor.enableThemedTitleBar(themeSettingsModel.isThemedTitleBar)
     ThemeActor.applyTheme(themeSettingsModel.currentTheme)
     ThemeStatusBarActor.applyConfig(themeSettingsModel.showThemeStatusBar)

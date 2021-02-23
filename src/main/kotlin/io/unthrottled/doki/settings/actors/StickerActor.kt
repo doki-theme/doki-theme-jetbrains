@@ -2,6 +2,7 @@ package io.unthrottled.doki.settings.actors
 
 import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.stickers.CurrentSticker
+import io.unthrottled.doki.stickers.CustomStickerService
 import io.unthrottled.doki.stickers.StickerComponent
 import io.unthrottled.doki.stickers.StickerLevel
 import io.unthrottled.doki.stickers.StickerPaneService
@@ -32,6 +33,29 @@ object StickerActor {
         } else {
           ThemeConfig.instance.stickerLevel = StickerLevel.OFF.name
           StickerPaneService.instance.remove()
+        }
+      }
+    }
+  }
+
+  fun setCustomSticker(
+    customStickerPath: String,
+    isCustomStickers: Boolean,
+    withAnimation: Boolean
+  ) {
+    CustomStickerService.isCustomStickers = isCustomStickers
+
+    val newSticker = CustomStickerService.getCustomStickerPath()
+      .map { it != customStickerPath }
+      .orElse(true) && customStickerPath.isNotBlank()
+    if (newSticker) {
+      CustomStickerService.setCustomStickerPath(customStickerPath)
+    }
+
+    if (newSticker || isCustomStickers) {
+      performWithAnimation(withAnimation) {
+        ThemeManager.instance.currentTheme.ifPresent {
+          StickerPaneService.instance.activateForTheme(it)
         }
       }
     }

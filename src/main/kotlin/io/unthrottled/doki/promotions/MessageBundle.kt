@@ -4,6 +4,8 @@ import com.intellij.AbstractBundle
 import org.jetbrains.annotations.PropertyKey
 
 object MessageBundle : AbstractBundle(MESSAGE_BUNDLE) {
+
+  @JvmStatic
   fun message(
     @PropertyKey(resourceBundle = MESSAGE_BUNDLE) key: String,
     vararg params: Any
