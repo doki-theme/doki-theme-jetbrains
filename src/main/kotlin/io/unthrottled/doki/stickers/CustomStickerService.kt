@@ -3,6 +3,7 @@ package io.unthrottled.doki.stickers
 import com.intellij.ide.util.PropertiesComponent
 import io.unthrottled.doki.util.toOptional
 import java.util.Optional
+import java.nio.file.Paths
 
 object CustomStickerService {
   private const val CUSTOM_STICKER_PROPERTY = "io.unthrottled.doki.theme.custom-sticker"
@@ -21,7 +22,7 @@ object CustomStickerService {
 
   fun getCustomStickerUrl(): Optional<String> =
     getCustomStickerPath()
-      .map { "file://${it.replace('\\', '/')}" }
+      .map { Paths.get(it).toUri().toString() }
 
   var isCustomStickers: Boolean
     get() = PropertiesComponent.getInstance().getBoolean(CUSTOM_STICKER_ENABLED_PROPERTY, false)
