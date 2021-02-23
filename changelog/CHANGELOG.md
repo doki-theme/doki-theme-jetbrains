@@ -97,7 +97,7 @@ From the Rascal does not dream of bunny girl senpai series:
 - Restored background image functionality.
   - You can now have your own background, and your Waifu sticker now!
   - Stay tuned for official Doki-Theme background images!!
-  - ![Ishtar's Background](https://raw.githubusercontent.com/doki-theme/doki-theme-jetbrains/master/assets/doki-theme-background-ishtar-dark.png)
+  - ![Ishtar's Background](https://user-images.githubusercontent.com/15972415/104819227-b9bf7800-57f1-11eb-899d-2d8011274693.png)
 
 # 12.1.1 [Maintenance]
 
