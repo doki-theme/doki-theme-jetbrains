@@ -2,8 +2,8 @@ package io.unthrottled.doki.stickers
 
 import com.intellij.ide.util.PropertiesComponent
 import io.unthrottled.doki.util.toOptional
-import java.util.Optional
 import java.nio.file.Paths
+import java.util.Optional
 
 object CustomStickerService {
   private const val CUSTOM_STICKER_PROPERTY = "io.unthrottled.doki.theme.custom-sticker"

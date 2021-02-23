@@ -1,5 +1,6 @@
 package io.unthrottled.doki.settings;
 
+import com.intellij.ide.BrowserUtil;
 import com.intellij.openapi.options.Configurable;
 import com.intellij.openapi.options.SearchableConfigurable;
 import com.intellij.openapi.project.DumbAware;
@@ -7,6 +8,8 @@ import com.intellij.openapi.project.ProjectManager;
 import com.intellij.openapi.ui.DialogPanel;
 import com.intellij.openapi.ui.DialogWrapper;
 import com.intellij.openapi.util.NlsContexts;
+import com.intellij.ui.ColorUtil;
+import com.intellij.util.ui.JBUI;
 import com.intellij.util.ui.UIUtil;
 import io.unthrottled.doki.config.ThemeConfig;
 import io.unthrottled.doki.stickers.CurrentSticker;
@@ -14,14 +17,9 @@ import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JComboBox;
-import javax.swing.JComponent;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JRadioButton;
-import javax.swing.JTabbedPane;
+import javax.swing.*;
+import javax.swing.event.HyperlinkEvent;
+import java.net.URI;
 import java.util.Arrays;
 
 public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoScroll, DumbAware {
@@ -43,6 +41,7 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
   private JCheckBox framelessModeMacOSOnlyCheckBox;
   private JButton chooseImageButton;
   private JCheckBox useCustomStickerCheckBox;
+  private JTextPane generalLinks;
 
 
   @Override
@@ -142,6 +141,45 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
   }
 
   private void createUIComponents() {
+    generalLinks = new JTextPane();
+    String accentHex = ColorUtil.toHex(JBUI.CurrentTheme.Link.linkColor());
+    generalLinks.setEditable(false);
+    generalLinks.setContentType("text/html" );
+    generalLinks.setBackground(UIUtil.getPanelBackground());
+    generalLinks.setText(
+      "<html>\n" +
+        "<head>\n" +
+        "    <style type='text/css'>\n" +
+        "        body {\n" +
+        "            font-family: \"Open Sans\", \"Helvetica Neue\", Helvetica, Arial, sans-serif;\n" +
+        "        }\n" +
+        "\n" +
+        "        a {\n" +
+        "            color: #" + accentHex + ";\n" +
+        "            font-weight: bold;\n" +
+        "        }\n" +
+        "\n" +
+        "        p {\n" +
+        "            color: #" + ColorUtil.toHex(UIUtil.getLabelForeground()) + ";\n" +
+        "        }\n" +
+        "        .meme {\n" +
+        "            margin-top: 5;\n" +
+        "            text-align: center;\n" +
+        "        }\n" +
+        "    </style>\n" +
+        "</head>\n" +
+        "<a href='https://github.com/doki-theme/doki-theme-jetbrains#documentation'>View Documentation</a><br/><br/>\n" +
+        "<a href='https://github.com/doki-theme/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md'>See Changelog</a><br/><br/>\n" +
+        "<a href='https://github.com/doki-theme/doki-theme-jetbrains/issues'>Report Issue</a><br/><br/>\n" +
+        "</div>\n" +
+        "</html>"
+    );
+    generalLinks.addHyperlinkListener(h -> {
+      if (HyperlinkEvent.EventType.ACTIVATED.equals(h.getEventType())) {
+        BrowserUtil.browse(h.getURL());
+      }
+    });
+
     currentThemeWomboComboBox = ThemeSettings.INSTANCE.createThemeComboBoxModel(
       () -> this.themeSettingsModel == null ?
         ThemeSettings.createThemeSettingsModel() :
