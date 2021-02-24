@@ -58,6 +58,35 @@ object HackComponent : Disposable {
     enableSelectionConsistency()
     enableTitlePaneConsistency()
     enableHoverConsistency()
+    enableHintConsistency()
+  }
+
+  private fun enableHintConsistency() {
+    hackReformatHintInfoForeground()
+//    hackReformatHintBorder()
+  }
+
+  private fun hackReformatHintInfoForeground() {
+    runSafely({
+      val cp = ClassPool(true)
+      cp.insertClassPath(ClassClassPath(Class.forName("com.intellij.codeInsight.actions.DirectoryFormattingOptions")))
+      val ctClass = cp.get("com.intellij.codeInsight.actions.FileInEditorProcessor\$FormattedMessageBuilder")
+      val init = ctClass.getDeclaredMethod(
+        "getMessage"
+      )
+      init.instrument(
+        object : ExprEditor() {
+          override fun edit(e: MethodCall?) {
+            if (e?.methodName == "toHtmlColor") {
+              e.replace("{ \$1 = com.intellij.util.ui.UIUtil.getContextHelpForeground();  \$_ = \$proceed(\$\$); }")
+            }
+          }
+        }
+      )
+      ctClass.toClass()
+    }) {
+      log.warn("Unable to hackReformatHintInfoForeground for reasons")
+    }
   }
 
   private fun enableTitlePaneConsistency() {
@@ -371,7 +400,7 @@ object HackComponent : Disposable {
         object : ExprEditor() {
           override fun edit(e: NewExpr?) {
             if (e?.className == "com.intellij.ui.JBColor") {
-              e.replace("{ \$_ = com.intellij.util.ui.UIUtil.getBorderSeparatorColor(); }")
+              e.replace("{ \$_ = com.intellij.util.ui.JBUI.CurrentTheme.CustomFrameDecorations.separatorForeground(); }")
             }
           }
         }
