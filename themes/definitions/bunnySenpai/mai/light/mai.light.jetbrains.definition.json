@@ -14,5 +14,7 @@
     }
   },
   "overrides": {},
-  "ui": {}
+  "ui": {
+    "Doki.Icon.Accent.Contrast.color": "headerColor"
+  }
 }

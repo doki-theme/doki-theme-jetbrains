@@ -353,6 +353,8 @@
     "Doki.startColor": "startColor",
     "Doki.stopColor":"stopColor",
 
+    "Doki.Icon.Accent.Contrast.color": "#ffffff",
+
     "ToggleButton.buttonColor": "accentColor",
     "ToggleButton.onBackground": "accentColor",
     "ToggleButton.onForeground":"ghostColor",
