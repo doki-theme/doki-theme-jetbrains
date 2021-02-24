@@ -584,6 +584,8 @@
     "/runConfigurations/testFailed.svg": "/icons/runConfigurations/testFailed.svg",
     "/studio/icons/shell/filetree/android-module.svg": "/icons/plugins/studio/icons/shell/filetree/android-module.svg",
     "/toolwindows/toolWindowFavorites.svg": "/icons/toolwindows/toolWindowFavorites.svg",
+    "/toolwindows/infoEvents.svg": "/icons/toolwindows/infoEvents.svg",
+    "/toolwindows/infoEvents_dark.svg": "/icons/toolwindows/infoEvents_dark.svg",
     "/welcome/createNewProject.svg": "/icons/welcome/createNewProject.svg",
     "/welcome/createNewProject_dark.svg": "/icons/welcome/createNewProject_dark.svg",
     "/vcs/ignore_file.svg": "/icons/vcs/ignore_file.svg",
