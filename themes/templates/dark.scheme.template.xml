@@ -640,25 +640,25 @@
         <option name="DIFF_CONFLICT">
             <value>
                 <option name="BACKGROUND" value="$diff.conflict$" />
-                <option name="ERROR_STRIPE_COLOR" value="8f5247" />
+                <option name="ERROR_STRIPE_COLOR" value="$diff.conflict$" />
             </value>
         </option>
         <option name="DIFF_DELETED">
             <value>
                 <option name="BACKGROUND" value="$diff.deleted$" />
-                <option name="ERROR_STRIPE_COLOR" value="656e76" />
+                <option name="ERROR_STRIPE_COLOR" value="$diff.deleted$" />
             </value>
         </option>
         <option name="DIFF_INSERTED">
             <value>
                 <option name="BACKGROUND" value="$diff.inserted$" />
-                <option name="ERROR_STRIPE_COLOR" value="227125" />
+                <option name="ERROR_STRIPE_COLOR" value="$diff.inserted$" />
             </value>
         </option>
         <option name="DIFF_MODIFIED">
             <value>
                 <option name="BACKGROUND" value="$diff.modified$" />
-                <option name="ERROR_STRIPE_COLOR" value="344c69" />
+                <option name="ERROR_STRIPE_COLOR" value="$diff.modified$" />
             </value>
         </option>
         <option name="DUPLICATE_FROM_SERVER">
@@ -731,7 +731,7 @@
         <option name="GRID_ERROR_VALUE">
             <value>
                 <option name="EFFECT_COLOR" value="$errorColor$" />
-                <option name="ERROR_STRIPE_COLOR" value="cd4848" />
+                <option name="ERROR_STRIPE_COLOR" value="$errorColor$" />
                 <option name="EFFECT_TYPE" value="2" />
             </value>
         </option>
@@ -804,6 +804,7 @@
         <option name="IDENTIFIER_UNDER_CARET_ATTRIBUTES">
             <value>
                 <option name="BACKGROUND" value="$searchResultBackground$" />
+                <option name="ERROR_STRIPE_COLOR" value="$selectionBackground$" />
                 <option name="EFFECT_TYPE" value="1" />
             </value>
         </option>
@@ -2496,7 +2497,7 @@
             <value>
                 <option name="FOREGROUND" value="$startColor$" />
                 <option name="FONT_TYPE" value="2" />
-                <option name="ERROR_STRIPE_COLOR" value="977ab" />
+                <option name="ERROR_STRIPE_COLOR" value="$startColor$" />
             </value>
         </option>
         <option name="TS.PRIVATE_PUBLIC">
@@ -2539,14 +2540,14 @@
         <option name="WARNING_ATTRIBUTES">
             <value>
                 <option name="EFFECT_COLOR" value="f1fa8c" />
-                <option name="ERROR_STRIPE_COLOR" value="be9117" />
+                <option name="ERROR_STRIPE_COLOR" value="$nonProjectFileScopeColor$" />
                 <option name="EFFECT_TYPE" value="2" />
             </value>
         </option>
         <option name="WRITE_IDENTIFIER_UNDER_CARET_ATTRIBUTES">
             <value>
                 <option name="BACKGROUND" value="$searchResultBackground$" />
-                <option name="ERROR_STRIPE_COLOR" value="$accentColor$"/>
+                <option name="ERROR_STRIPE_COLOR" value="$selectionBackground$"/>
             </value>
         </option>
       <option name="LIVE_TEMPLATE_ATTRIBUTES">
@@ -2572,7 +2573,7 @@
             <value>
               <option name="FOREGROUND" value="$errorColor$" />
               <option name="EFFECT_COLOR" value="$errorColor$" />
-              <option name="ERROR_STRIPE_COLOR" value="9e2927" />
+              <option name="ERROR_STRIPE_COLOR" value="$errorColor$" />
               <option name="EFFECT_TYPE" value="2" />
             </value>
         </option>
