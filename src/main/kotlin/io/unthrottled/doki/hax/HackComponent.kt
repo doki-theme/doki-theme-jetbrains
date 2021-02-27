@@ -63,7 +63,6 @@ object HackComponent : Disposable {
 
   private fun enableHintConsistency() {
     hackReformatHintInfoForeground()
-//    hackReformatHintBorder()
   }
 
   private fun hackReformatHintInfoForeground() {
@@ -400,7 +399,10 @@ object HackComponent : Disposable {
         object : ExprEditor() {
           override fun edit(e: NewExpr?) {
             if (e?.className == "com.intellij.ui.JBColor") {
-              e.replace("{ \$_ = com.intellij.util.ui.JBUI.CurrentTheme.CustomFrameDecorations.separatorForeground(); }")
+              e.replace(
+                "{ \$_ = com.intellij.util.ui.JBUI.CurrentTheme." +
+                  "CustomFrameDecorations.separatorForeground(); }"
+              )
             }
           }
         }
