@@ -536,6 +536,7 @@
     "/icons/actions/Find.png": "/icons/plugins/buck/icons/actions/Find.svg",
     "/icons/config.png": "/icons/general/gearPlain.svg",
     "/icons/ideavim.svg": "/icons/plugins/vim/icons/ideavim.svg",
+    "/icons/main.svg": "/icons/plugins/space/space.svg",
     "/icons/actions/Project.png": "/icons/nodes/folder.svg",
     "/icons/actions/Run.png": "/icons/actions/execute.svg",
     "/icons/actions/Stop.png": "/icons/actions/suspend.svg",
