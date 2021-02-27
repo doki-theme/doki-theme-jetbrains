@@ -68,6 +68,9 @@ class ColorPatcher(
     patchAccent(svg.getAttribute("accentTintDarker"), svg) {
       ColorUtil.darker(it, 1).toHexString()
     }
+    patchAccent(svg.getAttribute("accentContrastTint"), svg) {
+      getIconAccentContrastColor().toHexString()
+    }
 
     val themedStartAttr = svg.getAttribute("themedStart")
     val themedStopAttr = svg.getAttribute("themedStop")
@@ -115,6 +118,9 @@ class ColorPatcher(
 
   private fun getAccentColor() =
     namedColor("Doki.Accent.color", Color.CYAN)
+
+  private fun getIconAccentContrastColor() =
+    namedColor("Doki.Icon.Accent.Contrast.color", Color.WHITE)
 
   private fun getThemedStartColor() =
     namedColor("Doki.startColor", Color.CYAN).toHexString()

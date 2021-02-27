@@ -1,6 +1,11 @@
 Changelog
 ---
 
+# 13.2.1 [Consistency Updates]
+
+- Updated icons so, you can read: Mai's, Zero Two's, and Echidna's event log icon.
+- Consistency updates related [to this issue](https://github.com/doki-theme/doki-theme-jetbrains/issues/340)
+
 # 13.2.0 [Custom Sticker]
 
 - You now have the ability to set your own custom sticker.

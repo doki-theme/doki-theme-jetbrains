@@ -16,5 +16,7 @@
   },
   "overrides": {},
   "uiBase": "dark dim",
-  "ui": {}
+  "ui": {
+    "Doki.Icon.Accent.Contrast.color": "headerColor"
+  }
 }
