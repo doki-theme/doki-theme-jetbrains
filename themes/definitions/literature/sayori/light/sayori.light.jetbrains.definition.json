@@ -6,5 +6,7 @@
   },
   "overrides": {},
   "uiBase": "light dim",
-  "ui": {}
+  "ui": {
+    "CompletionPopup.matchForeground":"startColor"
+  }
 }
