@@ -1,6 +1,10 @@
 Changelog
 ---
 
+# 13.2.2 [Consistency Updates]
+
+- Fixed more of the usability issues [found in this issue](https://github.com/doki-theme/doki-theme-jetbrains/issues/340).
+
 # 13.2.1 [Consistency Updates]
 
 - Updated icons so, you can read: Mai's, Zero Two's, and Echidna's event log icon.
