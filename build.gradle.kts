@@ -43,7 +43,7 @@ dependencies {
   detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.15.0")
   implementation("commons-io:commons-io:2.6")
   implementation("org.javassist:javassist:3.27.0-GA")
-  implementation("io.sentry:sentry:4.2.0")
+  implementation("io.sentry:sentry:4.3.0")
   testImplementation("org.assertj:assertj-core:3.19.0")
   testImplementation("io.mockk:mockk:1.10.6")
 }
