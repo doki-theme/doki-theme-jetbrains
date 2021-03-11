@@ -28,7 +28,7 @@ import com.intellij.ui.popup.util.MasterDetailPopupBuilder
 import com.intellij.util.ui.UIUtil
 import com.intellij.xdebugger.impl.ui.XDebuggerUIConstants
 import com.intellij.xdebugger.memory.ui.ClassesTable
-import io.unthrottled.doki.hax.FeildHacker.setFinalStatic
+import io.unthrottled.doki.hax.FieldHacker.setFinalStatic
 import io.unthrottled.doki.stickers.DOKI_BACKGROUND_PROP
 import io.unthrottled.doki.ui.TitlePaneUI.Companion.LOL_NOPE
 import io.unthrottled.doki.util.runSafely

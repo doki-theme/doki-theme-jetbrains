@@ -75,7 +75,7 @@ class TheDokiTheme : Disposable {
       ProjectManager.TOPIC,
       object : ProjectManagerListener {
         override fun projectOpened(project: Project) {
-          LegacyMigration.migrateIfNecessary(project)
+          LegacyMigration.migrateIfNecessary()
 
           ThemeManager.instance.currentTheme
             .ifPresent {
