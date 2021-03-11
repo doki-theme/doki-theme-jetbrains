@@ -1,10 +1,13 @@
 package io.unthrottled.doki.hax
 
+import com.intellij.openapi.diagnostic.Logger
 import org.jetbrains.annotations.NonNls
 import java.lang.reflect.Field
 import java.lang.reflect.Modifier
 
-object FeildHacker {
+object FieldHacker {
+
+  private val log = Logger.getInstance(javaClass)
 
   fun setFinalStatic(
     cls: Class<*>,
@@ -30,7 +33,7 @@ object FeildHacker {
       field.isAccessible = true
       field[objectToHack] = value
     } catch (e: Exception) {
-      e.printStackTrace()
+      log.warn("Unable to hack field $fieldName on $objectToHack", e)
     }
   }
 
