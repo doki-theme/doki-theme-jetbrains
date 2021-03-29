@@ -124,9 +124,9 @@ object UpdateNotification {
         buildUpdateMessage(
           AssetManager.resolveAssetUrl(
             AssetCategory.MISC,
-            "update_celebration_v3.1.gif"
+            "update_celebration_v4.gif"
           ).orElseGet {
-            "https://doki.assets.unthrottled.io/misc/update_celebration_v3.1"
+            "https://doki.assets.unthrottled.io/misc/update_celebration_v4"
           },
           Dimension(450, 253)
         ),
