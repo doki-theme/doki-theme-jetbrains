@@ -5,6 +5,12 @@
     "file": "Rei_Dark.xml"
   },
   "overrides": {},
+  "backgrounds": {
+    "default": {
+      "position": "MIDDLE_RIGHT",
+      "opacity": 7
+    }
+  },
   "ui": {
     "ScrollBar.Transparent.thumbColor": "accentColorOverrideMoreTransparent",
     "ScrollBar.Transparent.thumbBorderColor": "accentColorOverrideMoreTransparent",
