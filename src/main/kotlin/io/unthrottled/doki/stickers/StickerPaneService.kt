@@ -1,11 +1,13 @@
 package io.unthrottled.doki.stickers
 
 import com.intellij.openapi.application.ApplicationManager
+import com.intellij.openapi.wm.impl.IdeBackgroundUtil
 import io.unthrottled.doki.assets.AssetCategory
 import io.unthrottled.doki.assets.AssetManager
 import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.stickers.CustomStickerService.getCustomStickerUrl
 import io.unthrottled.doki.themes.DokiTheme
+import io.unthrottled.doki.util.runSafely
 import io.unthrottled.doki.util.toOptional
 import java.awt.AWTEvent
 import java.awt.Component
@@ -113,8 +115,13 @@ class StickerPaneService {
   fun remove() {
     ApplicationManager.getApplication().invokeLater {
       stickers.forEach { it.detach() }
+      repaintWindows() // removes sticker residue (see https://github.com/doki-theme/doki-theme-jetbrains/issues/362)
     }
   }
+
+  private fun repaintWindows() = runSafely({
+    IdeBackgroundUtil.repaintAllWindows()
+  })
 
   private fun getLocallyInstalledStickerPath(
     dokiTheme: DokiTheme
