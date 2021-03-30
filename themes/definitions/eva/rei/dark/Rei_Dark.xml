@@ -1,4 +1,4 @@
-<scheme name="Rei Dark" version="142" parent_scheme="Doki Dark">
+<scheme name="Rei Dark" version="142" parent_scheme="Doki Dim v2">
   <colors>
     <option name="ScrollBar.Mac.Transparent.hoverThumbBorderColor" value="$accentColorOverrideTransparent$" />
     <option name="ScrollBar.Mac.Transparent.hoverThumbColor" value="$accentColorOverrideTransparent$" />

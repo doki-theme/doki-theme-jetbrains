@@ -52,6 +52,7 @@
         <option name="FILESTATUS_UNKNOWN" value="$constantColor$" />
         <option name="FILESTATUS_changelistConflict" value="$accentColor$" />
         <option name="FILESTATUS_modifiedOutside" value="$constantColor$" />
+        <option name="FOLDED_TEXT_BORDER_COLOR" value="$accentColor$" />
         <option name="GUTTER_BACKGROUND" value="$textEditorBackground$" />
         <option name="INDENT_GUIDE" value="$borderColor$" />
         <option name="INFORMATION_HINT" value="$baseBackground$" />
