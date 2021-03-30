@@ -99,12 +99,6 @@
                 <option name="ERROR_STRIPE_COLOR" value="c0c0c0" deuteranopia="C0C0C0" protanopia="C0C0C0"/>
             </value>
         </option>
-        <option name="INLINE_PARAMETER_HINT">
-            <value>
-                <option name="FOREGROUND" value="A4A4A4" />
-                <option name="BACKGROUND" value="$textEditorBackground$" />
-            </value>
-        </option>
         <option name="JAVA_KEYWORD">
             <value>
                 <option name="FOREGROUND" value="C869A3" />
