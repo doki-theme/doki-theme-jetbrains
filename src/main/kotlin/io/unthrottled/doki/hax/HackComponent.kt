@@ -18,6 +18,7 @@ import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.fileEditor.impl.EditorComposite
 import com.intellij.openapi.fileEditor.impl.EditorHistoryManager
 import com.intellij.openapi.progress.util.ColorProgressBar
+import com.intellij.openapi.vcs.ex.DocumentTracker
 import com.intellij.openapi.vcs.ex.LineStatusMarkerRenderer
 import com.intellij.openapi.wm.impl.TitleInfoProvider
 import com.intellij.ui.Gray
@@ -567,6 +568,7 @@ object HackComponent : Disposable {
     hackEditorBorder()
     hackBookmarkBorder()
     hackRunAnything()
+    hackLineStatusMarkerBorder()
   }
 
   private fun hackEditorBorder() {
@@ -599,6 +601,29 @@ object HackComponent : Disposable {
       val ctClass = cp.get("com.intellij.ide.actions.runAnything.RunAnythingUtil")
       val init = ctClass.getDeclaredMethods(
         "createTitle"
+      )[0]
+      init.instrument(
+        object : ExprEditor() {
+          override fun edit(e: NewExpr?) {
+            if (e?.className == "com.intellij.ui.JBColor") {
+              e.replace("{ \$_ = com.intellij.util.ui.JBUI.CurrentTheme.Advertiser.borderColor(); }")
+            }
+          }
+        }
+      )
+      ctClass.toClass()
+    }) {
+      log.warn("Unable to hackRunAnything for reasons.")
+    }
+  }
+
+  private fun hackLineStatusMarkerBorder() {
+    runSafely({
+      val cp = ClassPool(true)
+      cp.insertClassPath(ClassClassPath(DocumentTracker::class.java))
+      val ctClass = cp.get("com.intellij.openapi.vcs.ex.LineStatusMarkerPopupPanel")
+      val init = ctClass.getDeclaredMethods(
+        "getBorderColor"
       )[0]
       init.instrument(
         object : ExprEditor() {
