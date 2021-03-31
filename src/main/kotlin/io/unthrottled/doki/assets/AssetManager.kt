@@ -17,7 +17,8 @@ import java.nio.file.StandardOpenOption
 import java.util.Optional
 
 enum class AssetCategory(val category: String) {
-  STICKERS("stickers"), BACKGROUNDS("backgrounds"), PROMOTION("promotion"),
+  STICKERS("stickers"), BACKGROUNDS("backgrounds"),
+  PROMOTION("promotion"),
   MISC("misc")
 }
 

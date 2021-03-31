@@ -5,6 +5,7 @@ import com.intellij.ide.ui.UIThemeMetadata
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil
 import io.unthrottled.doki.config.ThemeConfig
+import io.unthrottled.doki.promotions.CulturedContentManager
 import io.unthrottled.doki.stickers.CurrentSticker
 import io.unthrottled.doki.util.runSafelyWithResult
 import io.unthrottled.doki.util.toColor
@@ -50,6 +51,9 @@ class DokiTheme(private val uiTheme: JetBrainsThemeDefinition) {
     validateThemeDefinition()
   }
 
+  val stickers: Stickers
+    get() = uiTheme.stickers
+
   val id: String
     get() = uiTheme.id
 
@@ -69,9 +73,9 @@ class DokiTheme(private val uiTheme: JetBrainsThemeDefinition) {
 
   fun getStickerPath(): Optional<String> {
     return when (ThemeConfig.instance.currentSticker) {
-      CurrentSticker.DEFAULT -> uiTheme.stickers.default
-      CurrentSticker.SECONDARY -> uiTheme.stickers.secondary ?: uiTheme.stickers.default
-    }.toOptional()
+      CurrentSticker.DEFAULT -> uiTheme.stickers.default.toOptional()
+      CurrentSticker.SECONDARY -> CulturedContentManager.safelyGet(this)
+    }
   }
 
   fun getBackground(): Optional<Background> {
