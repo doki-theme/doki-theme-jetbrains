@@ -1,6 +1,7 @@
 package io.unthrottled.doki.promotions
 
 import com.intellij.openapi.application.ApplicationManager
+import io.unthrottled.doki.stickers.CurrentSticker
 import io.unthrottled.doki.themes.DokiTheme
 import io.unthrottled.doki.util.toOptional
 import java.util.Optional
@@ -22,7 +23,7 @@ object CulturedContentManager {
 
             if (dialog.exitCode == CulturedContentDialog.ALLOW_CULTURE_EXIT_CODE) {
               val currentLedger = CulturedContentLedgerMaster.readLedger()
-              currentLedger.allowedThemes.add(dokiTheme.id)
+              currentLedger.allowedCulturedContent[dokiTheme.id] = mutableSetOf(CurrentSticker.SECONDARY)
               CulturedContentLedgerMaster.persistLedger(currentLedger)
               // todo: redraw
             }
@@ -35,7 +36,7 @@ object CulturedContentManager {
     }
 
   private fun hasAccepted(dokiTheme: DokiTheme): Boolean =
-    CulturedContentLedgerMaster.readLedger().allowedThemes.contains(dokiTheme.id)
+    CulturedContentLedgerMaster.readLedger().allowedCulturedContent.containsKey(dokiTheme.id)
 
   private fun isCultured(dokiTheme: DokiTheme): Boolean =
     culturedThemes.contains(dokiTheme.id)

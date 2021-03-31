@@ -2,10 +2,10 @@ package io.unthrottled.doki.promotions
 
 import io.unthrottled.doki.assets.AssetCategory
 import io.unthrottled.doki.assets.AssetManager
-import java.util.UUID
+import io.unthrottled.doki.stickers.CurrentSticker
 
 data class CulturedContentLedger(
-  val allowedThemes: MutableSet<String>,
+  val allowedCulturedContent: MutableMap<String, MutableSet<CurrentSticker>>,
 )
 
 object CulturedContentLedgerMaster : LedgerMaster<CulturedContentLedger>(
@@ -21,5 +21,5 @@ object CulturedContentLedgerMaster : LedgerMaster<CulturedContentLedger>(
   CulturedContentLedger::class.java
 ) {
   override fun initialLedger(): CulturedContentLedger =
-    CulturedContentLedger(mutableSetOf())
+    CulturedContentLedger(mutableMapOf())
 }
