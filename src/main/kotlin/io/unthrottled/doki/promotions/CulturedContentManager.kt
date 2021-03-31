@@ -1,6 +1,8 @@
 package io.unthrottled.doki.promotions
 
 import com.intellij.openapi.application.ApplicationManager
+import io.unthrottled.doki.assets.AssetCategory
+import io.unthrottled.doki.assets.AssetManager
 import io.unthrottled.doki.stickers.CurrentSticker
 import io.unthrottled.doki.stickers.StickerComponent
 import io.unthrottled.doki.themes.Background
@@ -47,7 +49,14 @@ object CulturedContentManager {
     getFirstProject()
       .doOrElse({
         ApplicationManager.getApplication().invokeLater {
-          val dialog = CulturedContentDialog(dokiTheme, it)
+          val dialog = CulturedContentDialog(
+            dokiTheme,
+            AssetManager.resolveAssetUrl(
+              AssetCategory.MISC,
+              "suggestive/cultured.gif"
+            ).orElse("${AssetManager.ASSET_SOURCE}/misc/suggestive/cultured.gif"),
+            it
+          )
           dialog.showAndGet()
 
           if (dialog.exitCode == CulturedContentDialog.ALLOW_CULTURE_EXIT_CODE) {

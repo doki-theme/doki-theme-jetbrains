@@ -1,14 +1,15 @@
 package io.unthrottled.doki.promotions
 
+import com.intellij.icons.AllIcons
 import com.intellij.ide.BrowserUtil
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.DialogWrapper
 import com.intellij.ui.JBColor
 import com.intellij.ui.layout.panel
 import com.intellij.util.ui.UIUtil
-import io.unthrottled.doki.icon.DokiIcons
 import io.unthrottled.doki.themes.DokiTheme
 import io.unthrottled.doki.util.toHexString
+import org.intellij.lang.annotations.Language
 import java.awt.Dimension
 import java.awt.event.ActionEvent
 import javax.swing.AbstractAction
@@ -20,6 +21,7 @@ import javax.swing.event.HyperlinkEvent
 
 class CulturedContentDialog(
   private val dokiTheme: DokiTheme,
+  private val bannerUrl: String,
   project: Project,
 ) : DialogWrapper(project, true) {
 
@@ -28,8 +30,8 @@ class CulturedContentDialog(
   }
 
   init {
-    title = MessageBundle.message("amii.name")
-    setCancelButtonText(MessageBundle.message("promotion.action.cancel"))
+    title = MessageBundle.message("cultured.content.dialog.title")
+    setCancelButtonText(MessageBundle.message("cultured.content.dialog.cancel"))
     init()
   }
 
@@ -43,9 +45,9 @@ class CulturedContentDialog(
   private fun buildInstallAction(): AbstractAction {
     return object : AbstractAction() {
       init {
-        val message = MessageBundle.message("promotion.action.ok")
+        val message = MessageBundle.message("cultured.content.dialog.confirm")
         putValue(NAME, message)
-        putValue(SMALL_ICON, DokiIcons.Plugins.AMII.TOOL_WINDOW)
+        putValue(SMALL_ICON, AllIcons.Nodes.Favorite)
       }
 
       override fun actionPerformed(e: ActionEvent) {
@@ -73,13 +75,13 @@ class CulturedContentDialog(
       UIUtil.getTextAreaForeground()
     ).toHexString()
     val infoForegroundHex = UIUtil.getContextHelpForeground().toHexString()
-    val motivatorLogoURL = "file:///home/alex/Downloads/ibrowse.gif"
     pane.background = JBColor.namedColor(
       "Menu.background",
       UIUtil.getEditorPaneBackground()
     )
-    pane.text =
-      """
+
+    @Language("HTML")
+    val content = """
       <html lang="en">
       <head>
           <style type='text/css'>
@@ -129,27 +131,25 @@ class CulturedContentDialog(
           <title>Motivator</title>
       </head>
       <body>
-      <div class='logo-container'><img src="$motivatorLogoURL" class='display-image' alt='Motivator Plugin Logo'/> 
+      <div class='logo-container'><img src="$bannerUrl" class='display-image' 
+        alt='Suggestive content warning banner'/> 
       </div>
-      <h2 class='header'>Your new virtual companion!</h2>
+      <h2 class='header'>Suggestive Content Ahead</h2>
       <div style='margin: 8px 0 0 100px'>
         <p>
-          <a href='https://plugins.jetbrains.com/plugin/15865-amii'>AMII</a>
-          gives your IDE more personality by using anime memes. <br/> You will get an assistant that will interact 
-          with you as you build code.
-          <br/>Such as when your programs fail to run or tests pass/fail. Your companion<br/> 
-          has the ability to react to these events. Which will most likely take the form <br/> of a reaction gif of 
-          your favorite character(s)!
+          Hey friend! Just wanted to give you a bit of a warning.<br>
+          The content you are about to install is a bit risque.
+          Some of us are <br/> professional Otaku, who want to remain, well...professional.
+          Don't worry <br/> if you choose to continue, I won't ask you again for this specific theme.
         </p>
       </div>
       <br/>
-      <h3 class='info-foreground'>Bring Anime Memes to your IDE today!</h3>
-      <br/>
-      alt='${dokiTheme.displayName}&#39;s Promotion Asset'/></div>
+      <h3 class='info-foreground'>Do you want to continue?</h3>
       <br/>
       </body>
       </html>
-      """.trimIndent()
+      """
+    pane.text = content.trimIndent()
     pane.preferredSize = Dimension(pane.preferredSize.width + 120, pane.preferredSize.height)
     pane.addHyperlinkListener {
       if (it.eventType == HyperlinkEvent.EventType.ACTIVATED) {
