@@ -33,4 +33,3 @@ object PromotionLedgerMaster : LedgerMaster<PromotionLedger>(
   override fun initialLedger(): PromotionLedger =
     PromotionLedger(UUID.randomUUID(), mutableMapOf(), mutableMapOf(), true)
 }
-

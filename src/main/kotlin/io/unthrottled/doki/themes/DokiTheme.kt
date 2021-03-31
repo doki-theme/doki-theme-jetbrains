@@ -54,6 +54,9 @@ class DokiTheme(private val uiTheme: JetBrainsThemeDefinition) {
   val stickers: Stickers
     get() = uiTheme.stickers
 
+  val backgrounds: Backgrounds
+    get() = uiTheme.backgrounds
+
   val id: String
     get() = uiTheme.id
 
@@ -71,19 +74,17 @@ class DokiTheme(private val uiTheme: JetBrainsThemeDefinition) {
 |$name's theme.json requires "displayName" to be defined""".trimMargin()
     )
 
-  fun getStickerPath(): Optional<String> {
-    return when (ThemeConfig.instance.currentSticker) {
+  fun getStickerPath(): Optional<String> =
+    when (ThemeConfig.instance.currentSticker) {
       CurrentSticker.DEFAULT -> uiTheme.stickers.default.toOptional()
-      CurrentSticker.SECONDARY -> CulturedContentManager.safelyGet(this)
+      CurrentSticker.SECONDARY -> CulturedContentManager.safelyGetSticker(this)
     }
-  }
 
-  fun getBackground(): Optional<Background> {
-    return when (ThemeConfig.instance.currentSticker) {
-      CurrentSticker.DEFAULT -> uiTheme.backgrounds.default
-      CurrentSticker.SECONDARY -> uiTheme.backgrounds.secondary ?: uiTheme.backgrounds.default
-    }.toOptional()
-  }
+  fun getBackground(): Optional<Background> =
+    when (ThemeConfig.instance.currentSticker) {
+      CurrentSticker.DEFAULT -> uiTheme.backgrounds.default.toOptional()
+      CurrentSticker.SECONDARY -> CulturedContentManager.safelyGetBackground(this)
+    }
 
   fun getSticker(): Optional<String> =
     getStickerPath()

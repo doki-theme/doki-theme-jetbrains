@@ -7,6 +7,7 @@ import io.unthrottled.doki.assets.AssetManager
 import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.stickers.CustomStickerService.getCustomStickerUrl
 import io.unthrottled.doki.themes.DokiTheme
+import io.unthrottled.doki.util.doOrElse
 import io.unthrottled.doki.util.runSafely
 import io.unthrottled.doki.util.toOptional
 import java.awt.AWTEvent
@@ -53,10 +54,12 @@ class StickerPaneService {
     currentTheme = dokiTheme
 
     if (ThemeConfig.instance.currentStickerLevel == StickerLevel.ON) {
-      displayStickers { stickerUrl ->
+      displayStickers({ stickerUrl ->
         {
           stickers.forEach { it.displaySticker(stickerUrl) }
         }
+      }) {
+        stickers.forEach { it.detach() }
       }
     }
   }
@@ -86,14 +89,17 @@ class StickerPaneService {
       stickerPane
 
     if (ThemeConfig.instance.currentStickerLevel == StickerLevel.ON) {
-      displayStickers { stickerUrl ->
+      displayStickers({ stickerUrl ->
         { stickerPane.displaySticker(stickerUrl) }
+      }) {
+        stickerPane.detach()
       }
     }
   }
 
   private fun displayStickers(
-    stickerWorkerSupplier: (String) -> () -> Unit
+    stickerWorkerSupplier: (String) -> () -> Unit,
+    stickerRemoval: () -> Unit,
   ) {
     if (this::currentTheme.isInitialized.not()) return
 
@@ -102,9 +108,12 @@ class StickerPaneService {
         getCustomStickerUrl()
       } else {
         getLocallyInstalledStickerPath(currentTheme)
-      }.ifPresent { stickerUrl ->
+      }.doOrElse({ stickerUrl ->
         ApplicationManager.getApplication()
           .invokeLater(stickerWorkerSupplier(stickerUrl))
+      }) {
+        ApplicationManager.getApplication()
+          .invokeLater { stickerRemoval() }
       }
     }
   }
@@ -118,10 +127,6 @@ class StickerPaneService {
       repaintWindows() // removes sticker residue (see https://github.com/doki-theme/doki-theme-jetbrains/issues/362)
     }
   }
-
-  private fun repaintWindows() = runSafely({
-    IdeBackgroundUtil.repaintAllWindows()
-  })
 
   private fun getLocallyInstalledStickerPath(
     dokiTheme: DokiTheme
@@ -140,3 +145,9 @@ class StickerPaneService {
     }
   }
 }
+
+fun repaintWindows() = runSafely({
+  ApplicationManager.getApplication().invokeLater {
+    IdeBackgroundUtil.repaintAllWindows()
+  }
+})
