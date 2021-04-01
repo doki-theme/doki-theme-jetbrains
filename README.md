@@ -63,7 +63,7 @@ You can choose themes from various, Anime, Manga, or Visual Novels:
       - [Stickers](#sticker)
       - [Content Type](#content-type)
       - [Background Images](#background-images)
-      - [Suggestive Content](#background-images)
+      - [Suggestive Content](#suggestive-content)
       - [Misc Content Settings](#misc-content-settings)
 - [Miscellaneous](#miscellaneous)
   - [Theme Requests](#theme-requests)
@@ -116,6 +116,7 @@ Themes that have more than one sticker:
 - Sayori (Light/Dark)
 - Natsuki (Light/Dark)
 - Yuri (Light/Dark)
+- Rias (Onyx)
 
   ![Secondary Sticker](./assets/readmeAssets/secondary_stickers.gif)
 
