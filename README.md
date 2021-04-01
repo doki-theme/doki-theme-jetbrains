@@ -63,6 +63,7 @@ You can choose themes from various, Anime, Manga, or Visual Novels:
       - [Stickers](#sticker)
       - [Content Type](#content-type)
       - [Background Images](#background-images)
+      - [Suggestive Content](#background-images)
       - [Misc Content Settings](#misc-content-settings)
 - [Miscellaneous](#miscellaneous)
   - [Theme Requests](#theme-requests)
@@ -118,19 +119,6 @@ Themes that have more than one sticker:
 
   ![Secondary Sticker](./assets/readmeAssets/secondary_stickers.gif)
 
-**Suggestive Content**
-
-![Suggestive Content](https://doki.assets.unthrottled.io/misc/suggestive/cultured.gif)
-So I thought it was a good idea to add a bit of culture to this plugin.
-<sup><sup>Ya boi is horny on main.</sup></sup>
-
-I will give you a bit of a warning before you install suggestive content. 
-Some of us are professional Otaku, who want to remain, well...professional.
-Don't worry if you choose to continue, I won't ask you again for that specific theme.
-
-Applies for the following content:
-
-- Rias Onyx: Secondary Content
 
 #### Background Images
 
@@ -147,6 +135,22 @@ This feature will set the background image to the current theme's official wallp
 that appears when all tabs are closed, with the current theme's official wallpaper.
 
 ![Empty Frame Wallpaper](./assets/readmeAssets/empty_frame_wallpaper.png)
+
+#### Suggestive Content
+
+![Suggestive Content](https://doki.assets.unthrottled.io/misc/suggestive/cultured.gif)
+
+So I thought it was a good idea to add a bit of culture to this plugin.
+<sup><sup>Ya boi is horny on main.</sup></sup>
+
+I will give you a bit of a warning before you install suggestive content.
+Some of us are professional Otaku, who want to remain, well...professional.
+Don't worry if you choose to continue, I won't ask you again for that specific theme.
+
+Applies for the following content:
+
+- Rias Onyx: Secondary Content
+
 
 #### Misc Content Settings
 
