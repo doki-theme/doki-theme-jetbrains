@@ -74,8 +74,10 @@ data class DokiBuildMasterThemeDefinition(
 ) {
   val usableName: String
     get() = name.replace(' ', '_')
+      .replace(":", "")
   val usableGroup: String
     get() = group.replace(' ', '_')
+      .replace(":", "")
 }
 
 data class JetbrainsThemeDefinition(
