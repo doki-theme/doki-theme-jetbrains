@@ -50,7 +50,6 @@ object CulturedContentManager {
       .doOrElse({
         ApplicationManager.getApplication().invokeLater {
           val dialog = CulturedContentDialog(
-            dokiTheme,
             AssetManager.resolveAssetUrl(
               AssetCategory.MISC,
               "suggestive/cultured.gif"

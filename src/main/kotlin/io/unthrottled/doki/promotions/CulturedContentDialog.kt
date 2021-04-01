@@ -20,7 +20,6 @@ import javax.swing.JTextPane
 import javax.swing.event.HyperlinkEvent
 
 class CulturedContentDialog(
-  private val dokiTheme: DokiTheme,
   private val bannerUrl: String,
   project: Project,
 ) : DialogWrapper(project, true) {
