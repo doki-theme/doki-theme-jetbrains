@@ -1,5 +1,6 @@
 Themes grouped by album
 ---
+[Blend S](bs_album.md)
 
 [DanganRonpa Album](dr_themes.md)
 
