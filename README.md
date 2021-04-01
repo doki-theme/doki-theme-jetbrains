@@ -18,11 +18,12 @@ Themes grouped [by anime](./albums/grouping.md)
 ---
 
 This plugin is for serious Otaku programmers.
-Code with your waifu. With over **30** themes,
+Code with your waifu. With over **40** themes,
 I think you will find best girl.
 
 You can choose themes from various, Anime, Manga, or Visual Novels:
 
+- Blend S
 - DanganRonpa
 - Doki-Doki Literature Club
 - Fate
@@ -68,6 +69,7 @@ You can choose themes from various, Anime, Manga, or Visual Novels:
   - [Helping the community](#enjoying-the-plugin)
   - [Feature Requests](#contributions)
   - [Frequent Updates](#release-channel)
+  - [Changelog](#changelog)
 
 # Configuration
 
@@ -114,7 +116,21 @@ Themes that have more than one sticker:
 - Natsuki (Light/Dark)
 - Yuri (Light/Dark)
 
-![Secondary Sticker](./assets/readmeAssets/secondary_stickers.gif)
+  ![Secondary Sticker](./assets/readmeAssets/secondary_stickers.gif)
+
+**Suggestive Content**
+
+![Suggestive Content](https://doki.assets.unthrottled.io/misc/suggestive/cultured.gif)
+So I thought it was a good idea to add a bit of culture to this plugin.
+<sup><sup>Ya boi is horny on main.</sup></sup>
+
+I will give you a bit of a warning before you install suggestive content. 
+Some of us are professional Otaku, who want to remain, well...professional.
+Don't worry if you choose to continue, I won't ask you again for that specific theme.
+
+Applies for the following content:
+
+- Rias Onyx: Secondary Content
 
 #### Background Images
 
@@ -168,6 +184,11 @@ Help make this plugin better!
 ## Release channel
 
 Want updates sooner? I have a [canary release channel](https://github.com/Unthrottled/jetbrains-plugin-repository) that you can set up to get the latest and greatest!
+
+## Changelog
+
+Did you know I keep a changelog?
+[You can find it here!](./changelog/CHANGELOG.md)
 
 ---
 
