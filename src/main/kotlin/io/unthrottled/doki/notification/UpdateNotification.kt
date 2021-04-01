@@ -3,8 +3,7 @@ package io.unthrottled.doki.notification
 import com.intellij.ide.plugins.PluginManagerCore.getPlugin
 import com.intellij.ide.plugins.PluginManagerCore.getPluginOrPlatformByClassName
 import com.intellij.notification.Notification
-import com.intellij.notification.NotificationDisplayType
-import com.intellij.notification.NotificationGroup
+import com.intellij.notification.NotificationGroupManager
 import com.intellij.notification.NotificationListener
 import com.intellij.notification.NotificationType
 import com.intellij.notification.impl.NotificationsManagerImpl
@@ -14,10 +13,10 @@ import com.intellij.openapi.project.ProjectManager
 import com.intellij.openapi.ui.popup.Balloon
 import com.intellij.openapi.wm.WindowManager
 import com.intellij.ui.BalloonLayoutData
-import com.intellij.ui.IconManager
 import com.intellij.ui.awt.RelativePoint
 import io.unthrottled.doki.assets.AssetCategory
 import io.unthrottled.doki.assets.AssetManager
+import io.unthrottled.doki.icon.DokiIcons
 import io.unthrottled.doki.themes.ThemeManager
 import org.intellij.lang.annotations.Language
 import org.jetbrains.annotations.Nls
@@ -40,6 +39,7 @@ private fun buildUpdateMessage(
             <li>Ayanami Rei (Dark)</li>
         </ul>
         <li>Sticker bug fixes</li>
+        <li>Moved lowest supported build to 2020.3.2</li>
       </ul>
       Please see the <a href="https://github.com/doki-theme/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md">
       changelog</a> for more details.
@@ -56,18 +56,8 @@ private fun buildUpdateMessage(
 
 object UpdateNotification {
 
-  private val NOTIFICATION_ICON = IconManager.getInstance().getIcon(
-    "/icons/doki/Doki-Doki-Logo.svg",
-    UpdateNotification::class.java
-  )
-
-  private val notificationGroup = NotificationGroup(
-    "Doki Theme Updates",
-    NotificationDisplayType.BALLOON,
-    false,
-    "Doki Theme Updates",
-    NOTIFICATION_ICON
-  )
+  private val notificationGroup = NotificationGroupManager.getInstance()
+    .getNotificationGroup("Doki Theme Updates")
 
   private val defaultListener = NotificationListener.UrlOpeningListener(false)
 
@@ -82,7 +72,7 @@ object UpdateNotification {
       title,
       content,
       listener = listener
-    ).setIcon(NOTIFICATION_ICON)
+    ).setIcon(DokiIcons.General.PLUGIN_LOGO)
     actions.forEach {
       notification.addAction(it)
     }
@@ -138,7 +128,7 @@ object UpdateNotification {
         NotificationType.INFORMATION
       )
         .setListener(NotificationListener.UrlOpeningListener(false))
-        .setIcon(NOTIFICATION_ICON)
+        .setIcon(DokiIcons.General.PLUGIN_LOGO)
     )
   }
 

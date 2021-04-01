@@ -4,6 +4,11 @@ import com.intellij.ui.IconManager.getInstance
 import javax.swing.Icon
 
 object DokiIcons {
+  object General {
+
+    @JvmStatic
+    val PLUGIN_LOGO = load("icons/doki/Doki-Doki-Logo.svg")
+  }
   object Plugins {
     object Motivator {
       val TOOL_WINDOW = load("icons/plugins/motivator/motivator_toolwindow.svg")

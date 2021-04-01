@@ -29,6 +29,7 @@ From the Neon Genesis Evangelion series:
 - Fixed switching between custom/stock sticker [#363](https://github.com/doki-theme/doki-theme-jetbrains/issues/363) 
 - Removed residue from panels when peeling off stickers [#362](https://github.com/doki-theme/doki-theme-jetbrains/issues/362)
 - Many consistency enhancements you probably won't notice :)
+- Moved lowest supported build to 2020.3.2.
 
 ![v14 Girls](https://doki.assets.unthrottled.io/misc/v14_girls.png)
 

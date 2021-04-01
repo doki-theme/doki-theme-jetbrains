@@ -10,7 +10,7 @@ object DirectoryIconProvider : IconProvider {
   private val associator = IconAssociatiorFactory.create(Associations.DIRECTORY)
   override fun getIcon(virtualFileInfo: VirtualFileInfo): Icon? {
     return associator.findAssociation(virtualFileInfo)
-      .map { IconLoader.getIcon("$MATERIAL_DIRECTORY/folders${it.iconPath}") }
+      .map { IconLoader.getIcon("$MATERIAL_DIRECTORY/folders${it.iconPath}", DirectoryIconProvider::class.java) }
       .orElseGet { null }
   }
 }

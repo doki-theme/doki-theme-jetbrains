@@ -142,7 +142,7 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
 
   private void createUIComponents() {
     generalLinks = new JTextPane();
-    String accentHex = ColorUtil.toHex(JBUI.CurrentTheme.Link.linkColor());
+    String accentHex = ColorUtil.toHex(JBUI.CurrentTheme.Link.Foreground.ENABLED);
     generalLinks.setEditable(false);
     generalLinks.setContentType("text/html" );
     generalLinks.setBackground(UIUtil.getPanelBackground());

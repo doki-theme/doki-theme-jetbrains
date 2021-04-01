@@ -13,7 +13,7 @@ object MaterialPathPatcherFactory {
 
   val materialPathPatchers: MaterialPathPatchers = try {
     ResourceUtil.getResource(
-      MaterialPathPatcherFactory::class.java,
+      MaterialPathPatcherFactory::class.java.classLoader,
       "/patcher/",
       "patcher.json"
     ).openStream().use {

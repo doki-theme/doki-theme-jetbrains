@@ -1,13 +1,13 @@
 package io.unthrottled.doki.ui
 
 import com.intellij.ide.ui.laf.darcula.ui.DarculaRootPaneUI
-import com.intellij.openapi.util.SystemInfo.isJavaVersionAtLeast
 import com.intellij.openapi.util.SystemInfo.isLinux
 import com.intellij.openapi.util.SystemInfo.isMac
 import com.intellij.openapi.wm.IdeFrame
 import com.intellij.ui.JBColor.GRAY
 import com.intellij.ui.JBColor.namedColor
 import com.intellij.util.PlatformUtils
+import com.intellij.util.lang.JavaVersion
 import com.intellij.util.ui.GraphicsUtil
 import com.intellij.util.ui.JBUI
 import com.intellij.util.ui.JBUI.insets
@@ -184,7 +184,7 @@ class TitlePaneUI : DarculaRootPaneUI() {
     component: JComponent?,
     handleIsTransparent: (Boolean) -> () -> Unit
   ): ((Disposer) -> Unit) -> Unit {
-    return if (!isJavaVersionAtLeast(11)) {
+    return if (!JavaVersion.current().isAtLeast(11)) {
       { resolve ->
         resolve(handleIsTransparent(true))
       }
