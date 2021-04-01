@@ -139,7 +139,9 @@ that appears when all tabs are closed, with the current theme's official wallpap
 
 #### Suggestive Content
 
-![Suggestive Content](https://doki.assets.unthrottled.io/misc/suggestive/cultured.gif)
+<div align="center">
+    <img src="https://doki.assets.unthrottled.io/misc/suggestive/cultured.gif" ></img>
+</div>
 
 So I thought it was a good idea to add a bit of culture to this plugin.
 <sup><sup>Ya boi is horny on main.</sup></sup>
