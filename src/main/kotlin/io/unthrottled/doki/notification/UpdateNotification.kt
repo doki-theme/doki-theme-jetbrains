@@ -32,9 +32,14 @@ private fun buildUpdateMessage(
   """
       What's New?<br>
       <ul>
-        <li>Set your own sticker!</li>
-        <li>More content control.</li>
-        <li>New Settings UI!</li>
+        <li>4 New Themes!!
+        <ul>
+            <li>Astolfo (Dark)</li>
+            <li>Rias (extra dark). <br/> 2 Stickers (a mild one and a <b>cultured</b> one!!)</li>
+            <li>Sakuranomiya Maika (Dark)</li>
+            <li>Ayanami Rei (Dark)</li>
+        </ul>
+        <li>Sticker bug fixes</li>
       </ul>
       Please see the <a href="https://github.com/doki-theme/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md">
       changelog</a> for more details.
