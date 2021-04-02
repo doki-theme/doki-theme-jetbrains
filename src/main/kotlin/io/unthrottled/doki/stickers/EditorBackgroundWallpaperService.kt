@@ -5,7 +5,6 @@ import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.components.ServiceManager
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil.EDITOR_PROP
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil.Fill
-import com.intellij.openapi.wm.impl.IdeBackgroundUtil.repaintAllWindows
 import io.unthrottled.doki.assets.AssetCategory
 import io.unthrottled.doki.assets.AssetManager
 import io.unthrottled.doki.assets.LocalStorageService.ASSET_DIRECTORY
@@ -14,7 +13,6 @@ import io.unthrottled.doki.themes.Background
 import io.unthrottled.doki.themes.DokiTheme
 import io.unthrottled.doki.themes.ThemeManager
 import io.unthrottled.doki.util.doOrElse
-import io.unthrottled.doki.util.runSafely
 import io.unthrottled.doki.util.toOptional
 import java.util.Optional
 
@@ -44,13 +42,13 @@ internal class EditorBackgroundWallpaperService {
 
   private fun installEditorBackgroundImage(dokiTheme: DokiTheme) =
     getLocallyInstalledWallpaperImagePath(dokiTheme)
-      .filter {
-        PropertiesComponent.getInstance()
+      .doOrElse({
+        val isSameWallpaper = PropertiesComponent.getInstance()
           .getValue(EDITOR_PROP, "")
           .startsWith(it.first)
-          .not()
-      }
-      .ifPresent {
+
+        if (isSameWallpaper) return@doOrElse
+
         capturePrevious()
         setBackgroundImageProperty(
           it.first,
@@ -59,16 +57,23 @@ internal class EditorBackgroundWallpaperService {
           it.second.position.name,
           EDITOR_PROP
         )
+      }) {
+        if (getNonDokiBackground().isEmpty) {
+          remove()
+        }
       }
 
   private fun capturePrevious() {
-    PropertiesComponent.getInstance().getValue(EDITOR_PROP)
-      .toOptional()
-      .filter { it.contains(ASSET_DIRECTORY).not() }
+    getNonDokiBackground()
       .ifPresent {
         PropertiesComponent.getInstance().setValue(PREVIOUS_BACKGROUND, it)
       }
   }
+
+  private fun getNonDokiBackground() =
+    PropertiesComponent.getInstance().getValue(EDITOR_PROP)
+      .toOptional()
+      .filter { it.contains(ASSET_DIRECTORY).not() }
 
   private fun getLocallyInstalledWallpaperImagePath(
     dokiTheme: DokiTheme
@@ -105,10 +110,6 @@ internal class EditorBackgroundWallpaperService {
     removeEditorWallpaper(propertiesComponent)
     repaintWindows()
   }
-
-  private fun repaintWindows() = runSafely({
-    repaintAllWindows()
-  })
 
   fun enableEditorBackground() {
     ThemeManager.instance.currentTheme.ifPresent { dokiTheme ->

@@ -80,7 +80,7 @@ class PromotionManagerIntegrationTest {
     val promotionManager = PromotionManagerImpl()
     promotionManager.registerPromotion("Ryuko", true)
 
-    val postLedger = LedgerMaster.readLedger()
+    val postLedger = PromotionLedgerMaster.readLedger()
 
     assertThat(postLedger.allowedToPromote).isTrue
     assertThat(postLedger.user).isNotNull
@@ -111,7 +111,7 @@ class PromotionManagerIntegrationTest {
     val promotionManager = PromotionManagerImpl()
     promotionManager.registerPromotion("Ryuko", true)
 
-    val postRyukoLedger = LedgerMaster.readLedger()
+    val postRyukoLedger = PromotionLedgerMaster.readLedger()
 
     assertThat(postRyukoLedger.allowedToPromote).isTrue
     assertThat(postRyukoLedger.user).isNotNull
@@ -126,7 +126,7 @@ class PromotionManagerIntegrationTest {
 
     promotionManager.registerPromotion("Rin", true)
 
-    val postRinLedger = LedgerMaster.readLedger()
+    val postRinLedger = PromotionLedgerMaster.readLedger()
 
     assertThat(postRinLedger.allowedToPromote).isTrue
     assertThat(postRinLedger.user).isNotNull
@@ -162,12 +162,12 @@ class PromotionManagerIntegrationTest {
       mutableMapOf(),
       true
     )
-    LedgerMaster.persistLedger(currentLedger)
+    PromotionLedgerMaster.persistLedger(currentLedger)
 
     val promotionManager = PromotionManagerImpl()
     promotionManager.registerPromotion("Ryuko", true)
 
-    val postLedger = LedgerMaster.readLedger()
+    val postLedger = PromotionLedgerMaster.readLedger()
 
     assertThat(postLedger).isEqualTo(currentLedger)
 
@@ -195,12 +195,12 @@ class PromotionManagerIntegrationTest {
       true
     )
 
-    LedgerMaster.persistLedger(currentLedger)
+    PromotionLedgerMaster.persistLedger(currentLedger)
 
     val promotionManager = PromotionManagerImpl()
     promotionManager.registerPromotion("Ryuko", true)
 
-    val postLedger = LedgerMaster.readLedger()
+    val postLedger = PromotionLedgerMaster.readLedger()
 
     assertThat(postLedger).isEqualTo(currentLedger)
 
@@ -228,12 +228,12 @@ class PromotionManagerIntegrationTest {
       true
     )
 
-    LedgerMaster.persistLedger(currentLedger)
+    PromotionLedgerMaster.persistLedger(currentLedger)
 
     val promotionManager = PromotionManagerImpl()
     promotionManager.registerPromotion("Ryuko", true)
 
-    val postLedger = LedgerMaster.readLedger()
+    val postLedger = PromotionLedgerMaster.readLedger()
 
     assertThat(postLedger).isEqualTo(currentLedger)
 
@@ -261,12 +261,12 @@ class PromotionManagerIntegrationTest {
       true
     )
 
-    LedgerMaster.persistLedger(currentLedger)
+    PromotionLedgerMaster.persistLedger(currentLedger)
 
     val promotionManager = PromotionManagerImpl()
     promotionManager.registerPromotion("Ryuko", true)
 
-    val postLedger = LedgerMaster.readLedger()
+    val postLedger = PromotionLedgerMaster.readLedger()
 
     assertThat(postLedger).isEqualTo(currentLedger)
 
@@ -299,12 +299,12 @@ class PromotionManagerIntegrationTest {
       true
     )
 
-    LedgerMaster.persistLedger(currentLedger)
+    PromotionLedgerMaster.persistLedger(currentLedger)
 
     val promotionManager = PromotionManagerImpl()
     promotionManager.registerPromotion("Ryuko", true)
 
-    val postLedger = LedgerMaster.readLedger()
+    val postLedger = PromotionLedgerMaster.readLedger()
 
     assertThat(postLedger).isEqualTo(currentLedger)
 
@@ -331,12 +331,12 @@ class PromotionManagerIntegrationTest {
       true
     )
 
-    LedgerMaster.persistLedger(currentLedger)
+    PromotionLedgerMaster.persistLedger(currentLedger)
 
     val promotionManager = PromotionManagerImpl()
     promotionManager.registerPromotion("Ryuko", true)
 
-    val postLedger = LedgerMaster.readLedger()
+    val postLedger = PromotionLedgerMaster.readLedger()
 
     assertThat(postLedger).isEqualTo(currentLedger)
 
@@ -362,13 +362,13 @@ class PromotionManagerIntegrationTest {
       true
     )
 
-    LedgerMaster.persistLedger(currentLedger)
+    PromotionLedgerMaster.persistLedger(currentLedger)
 
     val promotionManager = PromotionManagerImpl()
     promotionManager.registerPromotion("Ryuko", true)
     promotionManager.registerPromotion("Ryuko", true)
 
-    val postLedger = LedgerMaster.readLedger()
+    val postLedger = PromotionLedgerMaster.readLedger()
 
     assertThat(postLedger).isEqualTo(currentLedger)
 
@@ -397,12 +397,12 @@ class PromotionManagerIntegrationTest {
       true
     )
 
-    LedgerMaster.persistLedger(currentLedger)
+    PromotionLedgerMaster.persistLedger(currentLedger)
 
     val promotionManager = PromotionManagerImpl()
     promotionManager.registerPromotion("Ryuko", true)
 
-    val postLedger = LedgerMaster.readLedger()
+    val postLedger = PromotionLedgerMaster.readLedger()
 
     assertThat(postLedger).isEqualTo(currentLedger)
 
@@ -429,12 +429,12 @@ class PromotionManagerIntegrationTest {
       false
     )
 
-    LedgerMaster.persistLedger(currentLedger)
+    PromotionLedgerMaster.persistLedger(currentLedger)
 
     val promotionManager = PromotionManagerImpl()
     promotionManager.registerPromotion("Ryuko", true)
 
-    val postLedger = LedgerMaster.readLedger()
+    val postLedger = PromotionLedgerMaster.readLedger()
 
     assertThat(postLedger).isEqualTo(currentLedger)
 
@@ -465,12 +465,12 @@ class PromotionManagerIntegrationTest {
       true
     )
 
-    LedgerMaster.persistLedger(currentLedger)
+    PromotionLedgerMaster.persistLedger(currentLedger)
 
     val promotionManager = PromotionManagerImpl()
     promotionManager.registerPromotion("Ryuko", true)
 
-    val postLedger = LedgerMaster.readLedger()
+    val postLedger = PromotionLedgerMaster.readLedger()
 
     assertThat(postLedger).isEqualTo(currentLedger)
 
@@ -502,12 +502,12 @@ class PromotionManagerIntegrationTest {
       true
     )
 
-    LedgerMaster.persistLedger(currentLedger)
+    PromotionLedgerMaster.persistLedger(currentLedger)
 
     val promotionManager = PromotionManagerImpl()
     promotionManager.registerPromotion("Ryuko", true)
 
-    val postLedger = LedgerMaster.readLedger()
+    val postLedger = PromotionLedgerMaster.readLedger()
 
     assertThat(postLedger).isEqualTo(currentLedger)
 
@@ -539,13 +539,13 @@ class PromotionManagerIntegrationTest {
       true
     )
 
-    LedgerMaster.persistLedger(currentLedger)
+    PromotionLedgerMaster.persistLedger(currentLedger)
 
     val beforePromotion = Instant.now()
     val promotionManager = PromotionManagerImpl()
     promotionManager.registerPromotion("Ryuko", true)
 
-    val postLedger = LedgerMaster.readLedger()
+    val postLedger = PromotionLedgerMaster.readLedger()
 
     assertThat(postLedger).isEqualTo(currentLedger)
 
@@ -577,13 +577,13 @@ class PromotionManagerIntegrationTest {
       true
     )
 
-    LedgerMaster.persistLedger(currentLedger)
+    PromotionLedgerMaster.persistLedger(currentLedger)
 
     val beforePromotion = Instant.now()
     val promotionManager = PromotionManagerImpl()
     promotionManager.registerPromotion("Ryuko", true)
 
-    val postLedger = LedgerMaster.readLedger()
+    val postLedger = PromotionLedgerMaster.readLedger()
 
     assertThat(postLedger).isEqualTo(currentLedger)
 
@@ -622,13 +622,13 @@ class PromotionManagerIntegrationTest {
       true
     )
 
-    LedgerMaster.persistLedger(currentLedger)
+    PromotionLedgerMaster.persistLedger(currentLedger)
 
     val beforePromotion = Instant.now()
     val promotionManager = PromotionManagerImpl()
     promotionManager.registerPromotion("Ryuko", true)
 
-    val postLedger = LedgerMaster.readLedger()
+    val postLedger = PromotionLedgerMaster.readLedger()
 
     assertThat(postLedger).isEqualTo(currentLedger)
 
@@ -663,13 +663,13 @@ class PromotionManagerIntegrationTest {
       true
     )
 
-    LedgerMaster.persistLedger(currentLedger)
+    PromotionLedgerMaster.persistLedger(currentLedger)
 
     val beforePromotion = Instant.now()
     val promotionManager = PromotionManagerImpl()
     promotionManager.registerPromotion("Ryuko", true)
 
-    val postLedger = LedgerMaster.readLedger()
+    val postLedger = PromotionLedgerMaster.readLedger()
 
     assertThat(postLedger).isEqualTo(currentLedger)
 
@@ -708,13 +708,13 @@ class PromotionManagerIntegrationTest {
       true
     )
 
-    LedgerMaster.persistLedger(currentLedger)
+    PromotionLedgerMaster.persistLedger(currentLedger)
 
     val beforePromotion = Instant.now()
     val promotionManager = PromotionManagerImpl()
     promotionManager.registerPromotion("Ryuko", true)
 
-    val postLedger = LedgerMaster.readLedger()
+    val postLedger = PromotionLedgerMaster.readLedger()
 
     assertThat(postLedger).isEqualTo(currentLedger)
 
@@ -735,7 +735,7 @@ class PromotionManagerIntegrationTest {
     promotionCallback(PromotionResults(PromotionStatus.BLOCKED))
 
     val postBlockedTime = Instant.now()
-    val postBlocked = LedgerMaster.readLedger()
+    val postBlocked = PromotionLedgerMaster.readLedger()
     assertThat(postBlocked.user).isEqualTo(currentLedger.user)
     assertThat(postBlocked.versionInstallDates).isEqualTo(currentLedger.versionInstallDates)
     assertThat(postBlocked.allowedToPromote).isFalse
@@ -749,7 +749,7 @@ class PromotionManagerIntegrationTest {
     promotionCallback(PromotionResults(PromotionStatus.REJECTED))
 
     val postRejectedTime = Instant.now()
-    val postRejected = LedgerMaster.readLedger()
+    val postRejected = PromotionLedgerMaster.readLedger()
     assertThat(postRejected.user).isEqualTo(currentLedger.user)
     assertThat(postRejected.versionInstallDates).isEqualTo(currentLedger.versionInstallDates)
     assertThat(postRejected.allowedToPromote).isTrue
@@ -763,7 +763,7 @@ class PromotionManagerIntegrationTest {
     promotionCallback(PromotionResults(PromotionStatus.ACCEPTED))
 
     val postAcceptedTime = Instant.now()
-    val postAccepted = LedgerMaster.readLedger()
+    val postAccepted = PromotionLedgerMaster.readLedger()
     assertThat(postAccepted.user).isEqualTo(currentLedger.user)
     assertThat(postAccepted.versionInstallDates).isEqualTo(currentLedger.versionInstallDates)
     assertThat(postAccepted.allowedToPromote).isTrue

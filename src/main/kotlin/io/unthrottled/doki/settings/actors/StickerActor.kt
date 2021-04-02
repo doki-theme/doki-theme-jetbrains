@@ -43,16 +43,18 @@ object StickerActor {
     isCustomStickers: Boolean,
     withAnimation: Boolean
   ) {
+    val isCustomStickersChanged = CustomStickerService.isCustomStickers != isCustomStickers
     CustomStickerService.isCustomStickers = isCustomStickers
 
-    val newSticker = CustomStickerService.getCustomStickerPath()
+    val isNewStickerPath = CustomStickerService.getCustomStickerPath()
       .map { it != customStickerPath }
       .orElse(true) && customStickerPath.isNotBlank()
-    if (newSticker) {
+    if (isNewStickerPath) {
       CustomStickerService.setCustomStickerPath(customStickerPath)
     }
 
-    if (newSticker || isCustomStickers) {
+    val shouldReDraw = isNewStickerPath || isCustomStickersChanged
+    if (shouldReDraw) {
       performWithAnimation(withAnimation) {
         ThemeManager.instance.currentTheme.ifPresent {
           StickerPaneService.instance.activateForTheme(it)

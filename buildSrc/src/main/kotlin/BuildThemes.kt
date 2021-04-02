@@ -387,7 +387,8 @@ open class BuildThemes : DefaultTask() {
         .map {
           Background(
             it.name ?: stickers.secondary?.getStickerName() ?: stickers.default.getStickerName(),
-            it.position ?: "CENTER"
+            it.position ?: "CENTER",
+              it.opacity
           )
         }
         .map { Optional.of(it) }

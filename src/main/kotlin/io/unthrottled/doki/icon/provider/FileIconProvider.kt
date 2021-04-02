@@ -12,7 +12,7 @@ object FileIconProvider : IconProvider {
 
   override fun getIcon(virtualFileInfo: VirtualFileInfo): Icon? {
     return associator.findAssociation(virtualFileInfo)
-      .map { IconLoader.getIcon("$MATERIAL_DIRECTORY/files${it.iconPath}") }
+      .map { IconLoader.getIcon("$MATERIAL_DIRECTORY/files${it.iconPath}", FileIconProvider::class.java) }
       .orElseGet { null }
   }
 }

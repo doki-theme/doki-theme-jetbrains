@@ -5,6 +5,7 @@ import com.intellij.ide.ui.UIThemeMetadata
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil
 import io.unthrottled.doki.config.ThemeConfig
+import io.unthrottled.doki.promotions.CulturedContentManager
 import io.unthrottled.doki.stickers.CurrentSticker
 import io.unthrottled.doki.util.runSafelyWithResult
 import io.unthrottled.doki.util.toColor
@@ -50,6 +51,12 @@ class DokiTheme(private val uiTheme: JetBrainsThemeDefinition) {
     validateThemeDefinition()
   }
 
+  val stickers: Stickers
+    get() = uiTheme.stickers
+
+  val backgrounds: Backgrounds
+    get() = uiTheme.backgrounds
+
   val id: String
     get() = uiTheme.id
 
@@ -67,19 +74,17 @@ class DokiTheme(private val uiTheme: JetBrainsThemeDefinition) {
 |$name's theme.json requires "displayName" to be defined""".trimMargin()
     )
 
-  fun getStickerPath(): Optional<String> {
-    return when (ThemeConfig.instance.currentSticker) {
-      CurrentSticker.DEFAULT -> uiTheme.stickers.default
-      CurrentSticker.SECONDARY -> uiTheme.stickers.secondary ?: uiTheme.stickers.default
-    }.toOptional()
-  }
+  fun getStickerPath(): Optional<String> =
+    when (ThemeConfig.instance.currentSticker) {
+      CurrentSticker.DEFAULT -> uiTheme.stickers.default.toOptional()
+      CurrentSticker.SECONDARY -> CulturedContentManager.safelyGetSticker(this)
+    }
 
-  fun getBackground(): Optional<Background> {
-    return when (ThemeConfig.instance.currentSticker) {
-      CurrentSticker.DEFAULT -> uiTheme.backgrounds.default
-      CurrentSticker.SECONDARY -> uiTheme.backgrounds.secondary ?: uiTheme.backgrounds.default
-    }.toOptional()
-  }
+  fun getBackground(): Optional<Background> =
+    when (ThemeConfig.instance.currentSticker) {
+      CurrentSticker.DEFAULT -> uiTheme.backgrounds.default.toOptional()
+      CurrentSticker.SECONDARY -> CulturedContentManager.safelyGetBackground(this)
+    }
 
   fun getSticker(): Optional<String> =
     getStickerPath()

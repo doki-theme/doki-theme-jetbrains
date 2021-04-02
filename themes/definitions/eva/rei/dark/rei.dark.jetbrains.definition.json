@@ -1,0 +1,32 @@
+{
+  "id": "c262185d-9682-413b-9143-85a2dda76b2f",
+  "editorScheme": {
+    "type": "templateExtension",
+    "file": "Rei_Dark.xml"
+  },
+  "overrides": {},
+  "backgrounds": {
+    "default": {
+      "position": "MIDDLE_RIGHT",
+      "opacity": 7
+    }
+  },
+  "ui": {
+    "ScrollBar.Transparent.thumbColor": "accentColorOverrideMoreTransparent",
+    "ScrollBar.Transparent.thumbBorderColor": "accentColorOverrideMoreTransparent",
+    "ScrollBar.Transparent.hoverThumbColor": "accentColorOverrideTransparent",
+    "ScrollBar.Transparent.hoverThumbBorderColor": "accentColorOverrideTransparent",
+    "ScrollBar.thumbBorderColor": "accentColorOverrideMoreTransparent",
+    "ScrollBar.thumbColor": "accentColorOverrideMoreTransparent",
+    "ScrollBar.hoverThumbBorderColor": "accentColorOverrideMoreTransparent",
+    "ScrollBar.hoverThumbColor": "accentColorOverrideMoreTransparent",
+    "ScrollBar.Mac.Transparent.thumbColor": "accentColorOverrideMoreTransparent",
+    "ScrollBar.Mac.Transparent.thumbBorderColor": "accentColorOverrideMoreTransparent",
+    "ScrollBar.Mac.Transparent.hoverThumbColor": "accentColorOverrideTransparent",
+    "ScrollBar.Mac.Transparent.hoverThumbBorderColor": "accentColorOverrideTransparent",
+    "ScrollBar.Mac.thumbBorderColor": "accentColorOverrideMoreTransparent",
+    "ScrollBar.Mac.thumbColor": "accentColorOverrideMoreTransparent",
+    "ScrollBar.Mac.hoverThumbBorderColor": "accentColorOverrideMoreTransparent",
+    "ScrollBar.Mac.hoverThumbColor": "accentColorOverrideMoreTransparent"
+  }
+}

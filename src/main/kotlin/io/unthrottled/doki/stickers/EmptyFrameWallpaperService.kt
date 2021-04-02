@@ -10,7 +10,7 @@ import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.themes.Background
 import io.unthrottled.doki.themes.DokiTheme
 import io.unthrottled.doki.themes.ThemeManager
-import io.unthrottled.doki.util.runSafely
+import io.unthrottled.doki.util.doOrElse
 import java.util.Optional
 
 class EmptyFrameWallpaperService {
@@ -21,9 +21,11 @@ class EmptyFrameWallpaperService {
   }
 
   fun enableEmptyFrameWallpaper() {
-    ThemeManager.instance.currentTheme.ifPresent { dokiTheme ->
+    ThemeManager.instance.currentTheme.doOrElse({ dokiTheme ->
       installFrameBackgroundImage(dokiTheme)
       repaintWindows()
+    }) {
+      remove()
     }
   }
 
@@ -43,7 +45,7 @@ class EmptyFrameWallpaperService {
 
   private fun installFrameBackgroundImage(dokiTheme: DokiTheme) =
     getLocallyInstalledBackgroundImagePath(dokiTheme)
-      .ifPresent {
+      .doOrElse({
         setBackgroundImageProperty(
           it.first,
           "100",
@@ -51,6 +53,8 @@ class EmptyFrameWallpaperService {
           it.second.position.name,
           DOKI_BACKGROUND_PROP
         )
+      }) {
+        remove()
       }
 
   private fun getLocallyInstalledBackgroundImagePath(
@@ -69,8 +73,4 @@ class EmptyFrameWallpaperService {
     propertiesComponent.unsetValue(DOKI_BACKGROUND_PROP)
     repaintWindows()
   }
-
-  private fun repaintWindows() = runSafely({
-    IdeBackgroundUtil.repaintAllWindows()
-  })
 }
