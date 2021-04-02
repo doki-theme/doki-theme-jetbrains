@@ -66,6 +66,7 @@ You can choose themes from various, Anime, Manga, or Visual Novels:
       - [Suggestive Content](#suggestive-content)
       - [Misc Content Settings](#misc-content-settings)
 - [Miscellaneous](#miscellaneous)
+  - [Quick Theme Switch](#quick-theme-switch)
   - [Theme Requests](#theme-requests)
   - [Helping the community](#enjoying-the-plugin)
   - [Feature Requests](#contributions)
@@ -169,6 +170,14 @@ Applies for the following content:
 ![Frameless mode](./assets/readmeAssets/frameless.png)
 
 # Miscellaneous
+
+## Quick Theme Switch
+
+You've got a ton of new themes now, and you want to take a quick peek at each of them.
+Well you can use the [Quick Switch Scheme](https://www.jetbrains.com/help/idea/switching-between-schemes.html)
+to browse the `Look and Feel`.
+
+![Quick Switch](./assets/readmeAssets/quick_switch.gif)
 
 ## Theme Requests
 
