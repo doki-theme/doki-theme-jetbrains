@@ -58,7 +58,7 @@ internal class EditorBackgroundWallpaperService {
           EDITOR_PROP
         )
       }) {
-        if (getNonDokiBackground().isEmpty) {
+        if (getNonDokiBackground().isEmpty()) {
           remove()
         }
       }
