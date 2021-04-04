@@ -38,6 +38,7 @@ private fun buildUpdateMessage(
             <li>Sakuranomiya Maika (Dark)</li>
             <li>Ayanami Rei (Dark)</li>
         </ul>
+        <li>Global Editor Font Size Setting.</li>
         <li>Sticker bug fixes</li>
         <li>Moved lowest supported build to 2020.3.2</li>
       </ul>

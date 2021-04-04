@@ -165,6 +165,9 @@ Applies for the following content:
 
 ### Other Settings
 
+**Global Editor Font Size** will override any/all font size settings for your code editor font size.
+This only applies to any Doki Themes. You must enable the `Override Editor Font Size` for this feature to take effect.
+
 **Frameless Mode** is a feature only available on MacOS, and gives your IDE the frameless look and feel.
 
 ![Frameless mode](./assets/readmeAssets/frameless.png)

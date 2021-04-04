@@ -19,7 +19,6 @@ import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
 import javax.swing.event.HyperlinkEvent;
-import java.net.URI;
 import java.util.Arrays;
 
 public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoScroll, DumbAware {
@@ -42,6 +41,8 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
   private JButton chooseImageButton;
   private JCheckBox useCustomStickerCheckBox;
   private JTextPane generalLinks;
+  private JSpinner customFontSize;
+  private JCheckBox overrideEditorFontSizeCheckBox;
 
 
   @Override
@@ -127,6 +128,22 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
     framelessModeMacOSOnlyCheckBox.addActionListener(e ->
       themeSettingsModel.setThemedTitleBar(framelessModeMacOSOnlyCheckBox.isSelected())
     );
+
+    overrideEditorFontSizeCheckBox.setSelected(initialThemeSettingsModel.isCustomFontSize());
+    overrideEditorFontSizeCheckBox.addActionListener(e ->
+      themeSettingsModel.setCustomFontSize(overrideEditorFontSizeCheckBox.isSelected()));
+
+    SpinnerNumberModel customFontSizeModel = new SpinnerNumberModel(
+      initialThemeSettingsModel.getCustomFontSizeValue(),
+      1,
+      Integer.MAX_VALUE,
+      1
+    );
+    customFontSize.setModel(customFontSizeModel);
+    customFontSize.addChangeListener(change ->
+      themeSettingsModel.setCustomFontSizeValue(
+        customFontSizeModel.getNumber().intValue()
+      ));
   }
 
   @Override

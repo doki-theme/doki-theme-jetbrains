@@ -34,6 +34,9 @@ class ThemeConfig : PersistentStateComponent<ThemeConfig>, Cloneable {
   var showThemeStatusBar: Boolean = true
   var currentStickerName: String = CurrentSticker.DEFAULT.name
 
+  var isGlobalFontSize: Boolean = false
+  var customFontSize: Int = 13
+
   var isMaterialDirectories: Boolean = false
   var isMaterialFiles: Boolean = false
   var isMaterialPSIIcons: Boolean = false
