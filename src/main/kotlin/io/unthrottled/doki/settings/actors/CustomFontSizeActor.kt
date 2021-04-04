@@ -6,11 +6,15 @@ import io.unthrottled.doki.service.CustomFontSizeService
 
 object CustomFontSizeActor {
   fun enableCustomFontSize(enabled: Boolean, customFontSize: Int) {
-    val previousFontSize = ThemeConfig.instance.customFontSize
+    val previousEnablement = ThemeConfig.instance.isGlobalFontSize
     ThemeConfig.instance.isGlobalFontSize = enabled
+    val previousFontSize = ThemeConfig.instance.customFontSize
     ThemeConfig.instance.customFontSize = customFontSize
     CustomFontSizeService.applyCustomFontSize()
-    if (previousFontSize != customFontSize && enabled) {
+
+    val fontSizeChanged = previousFontSize != customFontSize
+    val enablementChanged = previousEnablement != enabled
+    if (fontSizeChanged || enablementChanged) {
       ProjectManager.getInstance().openProjects.forEach {
         ProjectManager.getInstance().reloadProject(it)
       }
