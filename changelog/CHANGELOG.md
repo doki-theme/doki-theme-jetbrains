@@ -1,5 +1,8 @@
 Changelog
 ---
+# 14.1.1 [2020.3 Build Support]
+
+- Fixed compatibility issue that prevented the settings menu from displaying in the ^2020.3.2 builds [366](https://github.com/doki-theme/doki-theme-jetbrains/issues/366)
 
 # 14.1.0 [Global Editor Font Size]
 

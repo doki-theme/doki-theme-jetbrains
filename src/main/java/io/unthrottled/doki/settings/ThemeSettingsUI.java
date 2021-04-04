@@ -9,6 +9,7 @@ import com.intellij.openapi.ui.DialogPanel;
 import com.intellij.openapi.ui.DialogWrapper;
 import com.intellij.openapi.util.NlsContexts;
 import com.intellij.ui.ColorUtil;
+import com.intellij.ui.JBColor;
 import com.intellij.util.ui.JBUI;
 import com.intellij.util.ui.UIUtil;
 import io.unthrottled.doki.config.ThemeConfig;
@@ -159,7 +160,9 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
 
   private void createUIComponents() {
     generalLinks = new JTextPane();
-    String accentHex = ColorUtil.toHex(JBUI.CurrentTheme.Link.Foreground.ENABLED);
+    String accentHex = ColorUtil.toHex(
+      JBColor.namedColor("Link.activeForeground", JBColor.namedColor("link.foreground", 0x589DF6))
+    );
     generalLinks.setEditable(false);
     generalLinks.setContentType("text/html" );
     generalLinks.setBackground(UIUtil.getPanelBackground());
