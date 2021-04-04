@@ -18,6 +18,7 @@ import io.unthrottled.doki.laf.LookAndFeelInstaller.installAllUIComponents
 import io.unthrottled.doki.legacy.LegacyMigration
 import io.unthrottled.doki.notification.UpdateNotification
 import io.unthrottled.doki.promotions.PromotionManager
+import io.unthrottled.doki.service.CustomFontSizeService.applyCustomFontSize
 import io.unthrottled.doki.settings.actors.setDokiTheme
 import io.unthrottled.doki.stickers.EditorBackgroundWallpaperService
 import io.unthrottled.doki.stickers.EmptyFrameWallpaperService
@@ -65,6 +66,7 @@ class TheDokiTheme : Disposable {
             setSVGColorPatcher()
             installAllUIComponents()
             attemptToAddIcons()
+            applyCustomFontSize()
           }) {
             attemptToRemoveIcons()
           }

@@ -1,6 +1,10 @@
 Changelog
 ---
 
+# 14.1.0 [Global Editor Font Size]
+
+- Added a convenient feature that allows you to set the editor font size for all Doki Themes! [#356](https://github.com/doki-theme/doki-theme-jetbrains/issues/356)
+
 # 14.0.0 [New Themes!]
 
 ## 4 New Themes

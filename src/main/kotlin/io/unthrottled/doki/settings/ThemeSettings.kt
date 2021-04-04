@@ -8,6 +8,7 @@ import com.intellij.ui.layout.panel
 import io.unthrottled.doki.config.THEME_CONFIG_TOPIC
 import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.settings.actors.BackgroundActor
+import io.unthrottled.doki.settings.actors.CustomFontSizeActor
 import io.unthrottled.doki.settings.actors.EmptyFrameBackgroundActor
 import io.unthrottled.doki.settings.actors.LafAnimationActor
 import io.unthrottled.doki.settings.actors.MaterialIconsActor
@@ -42,6 +43,8 @@ data class ThemeSettingsModel(
   var isEmptyFrameBackground: Boolean,
   var isCustomSticker: Boolean,
   var customStickerPath: String,
+  var isCustomFontSize: Boolean,
+  var customFontSizeValue: Int,
 ) {
 
   fun duplicate(): ThemeSettingsModel = copy()
@@ -75,7 +78,9 @@ object ThemeSettings {
       isDokiBackground = ThemeConfig.instance.isDokiBackground,
       isEmptyFrameBackground = ThemeConfig.instance.isEmptyFrameBackground,
       isCustomSticker = CustomStickerService.isCustomStickers,
-      customStickerPath = CustomStickerService.getCustomStickerPath().orElse("")
+      customStickerPath = CustomStickerService.getCustomStickerPath().orElse(""),
+      isCustomFontSize = ThemeConfig.instance.isGlobalFontSize,
+      customFontSizeValue = ThemeConfig.instance.customFontSize,
     )
 
   fun apply(themeSettingsModel: ThemeSettingsModel) {
@@ -97,6 +102,10 @@ object ThemeSettings {
     MoveableStickerActor.moveableStickers(themeSettingsModel.isMoveableStickers)
     BackgroundActor.handleBackgroundUpdate(themeSettingsModel.isDokiBackground)
     EmptyFrameBackgroundActor.handleBackgroundUpdate(themeSettingsModel.isEmptyFrameBackground)
+    CustomFontSizeActor.enableCustomFontSize(
+      themeSettingsModel.isCustomFontSize,
+      themeSettingsModel.customFontSizeValue
+    )
     ApplicationManager.getApplication().messageBus.syncPublisher(
       THEME_CONFIG_TOPIC
     ).themeConfigUpdated(ThemeConfig.instance)

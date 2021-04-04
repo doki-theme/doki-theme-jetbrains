@@ -21,6 +21,7 @@ From the Neon Genesis Evangelion series:
 
 ## Other stuff
 
+- Added a convenient feature that allows you to set the editor font size for all Doki Themes! [#356](https://github.com/doki-theme/doki-theme-jetbrains/issues/356)
 - Fixed switching between custom/stock sticker [#363](https://github.com/doki-theme/doki-theme-jetbrains/issues/363)
 - Removed residue from panels when peeling off stickers [#362](https://github.com/doki-theme/doki-theme-jetbrains/issues/362)
 - Many consistency enhancements you probably won't notice :)
