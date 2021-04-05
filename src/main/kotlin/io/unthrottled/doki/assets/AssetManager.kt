@@ -1,6 +1,7 @@
 package io.unthrottled.doki.assets
 
 import com.intellij.openapi.application.ApplicationInfo
+import com.intellij.openapi.application.ApplicationManager
 import io.unthrottled.doki.assets.LocalAssetService.hasAssetChanged
 import io.unthrottled.doki.assets.LocalStorageService.createDirectories
 import io.unthrottled.doki.assets.LocalStorageService.getGlobalAssetDirectory
@@ -15,6 +16,7 @@ import java.nio.file.Path
 import java.nio.file.Paths
 import java.nio.file.StandardOpenOption
 import java.util.Optional
+import java.util.concurrent.Callable
 
 enum class AssetCategory(val category: String) {
   STICKERS("stickers"), BACKGROUNDS("backgrounds"),
@@ -138,15 +140,19 @@ object AssetManager {
     remoteAssetUrl: String
   ): Optional<String> {
     createDirectories(localAssetPath)
-    return RestTools.performRequest(remoteAssetUrl) { inputStream ->
-      Files.newOutputStream(
-        localAssetPath,
-        StandardOpenOption.CREATE,
-        StandardOpenOption.TRUNCATE_EXISTING
-      ).use { bufferedWriter ->
-        IOUtils.copy(inputStream, bufferedWriter)
+    return ApplicationManager.getApplication().executeOnPooledThread(
+      Callable {
+        RestTools.performRequest(remoteAssetUrl) { inputStream ->
+          Files.newOutputStream(
+            localAssetPath,
+            StandardOpenOption.CREATE,
+            StandardOpenOption.TRUNCATE_EXISTING
+          ).use { bufferedWriter ->
+            IOUtils.copy(inputStream, bufferedWriter)
+          }
+          localAssetPath.toUri().toString()
+        }
       }
-      localAssetPath.toUri().toString()
-    }
+    ).get()
   }
 }
