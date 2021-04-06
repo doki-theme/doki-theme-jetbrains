@@ -13,6 +13,7 @@ jobs:
       - uses: actions/setup-java@v2
         with:
           java-version: 11
+          distribution: 'zulu'
       - run: ./ciScripts/buildPlugin.sh
       - name: Copy zip file
         run: cp build/distributions/*.zip doki-theme.zip
