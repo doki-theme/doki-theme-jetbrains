@@ -196,6 +196,7 @@
     "WelcomeScreen.groupIconBorderColor": "borderColor",
     "WelcomeScreen.separatorColor": "borderColor",
     "windowBorder":"borderColor",
+    "Outline.color":"borderColor",
 
     "Notification.borderColor": "accentColorMoreTransparent",
 
@@ -447,6 +448,8 @@
     "RadioButtonMenuItem.disabledForeground": "disabledColor",
     "Label.disabledForeground": "disabledColor",
     "Label.disabledText": "disabledColor",
+    "Component.disabledBorderColor": "disabledColor",
+    "Outline.disabledColor": "disabledColor",
 
     "Component.infoForeground": "infoForeground",
     "CompletionPopup.infoForeground": "infoForeground",
