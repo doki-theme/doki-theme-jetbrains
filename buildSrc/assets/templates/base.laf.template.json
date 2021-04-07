@@ -23,10 +23,10 @@
     "WelcomeScreen.List.background": "baseBackground",
     "WelcomeScreen.Details.background": "baseBackground",
 
-    "UIDesigner.Canvas.background": "editorBackground",
-    "Content.background": "editorBackground",
-    "Table.background": "editorBackground",
-    "Viewport.background": "editorBackground",
+    "UIDesigner.Canvas.background": "textEditorBackground",
+    "Content.background": "textEditorBackground",
+    "Table.background": "textEditorBackground",
+    "Viewport.background": "textEditorBackground",
 
     "Toolbar.Floating.background": "contrastColor",
     "ToolBar.floatingForeground": "contrastColor",
@@ -312,7 +312,7 @@
     "ScrollBar.Mac.thumbColor":"accentColorTransparent",
     "ScrollBar.Mac.hoverThumbBorderColor": "accentColorTransparent",
     "ScrollBar.Mac.hoverThumbColor":"accentColorTransparent",
-    "ScrollBar.background": "editorBackground",
+    "ScrollBar.background": "textEditorBackground",
 
 
     "VersionControl": {
