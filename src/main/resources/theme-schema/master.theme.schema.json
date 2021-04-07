@@ -115,7 +115,6 @@
         "ghostColor",
         "contrastColor",
         "nonProjectFileScopeColor",
-        "editorBackground",
         "secondaryBackground",
         "selectionForeground",
         "inactiveBackground",
@@ -162,9 +161,6 @@
           "$ref": "#/definitions/color"
         },
         "nonProjectFileScopeColor": {
-          "$ref": "#/definitions/color"
-        },
-        "editorBackground": {
           "$ref": "#/definitions/color"
         },
         "secondaryBackground": {

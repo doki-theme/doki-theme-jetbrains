@@ -1,6 +1,10 @@
 Changelog
 ---
 
+# 14.2.0 [Non-Functional Changes]
+
+- Cleaned up the theme build process, everything should still look the same :)
+
 # 14.1.2 [HTTP Proxy Support]
 
 - Fixed issue with plugin content not able to be downloaded when the IDE is configured to use an [HTTP proxy](https://www.jetbrains.com/help/idea/settings-http-proxy.html)

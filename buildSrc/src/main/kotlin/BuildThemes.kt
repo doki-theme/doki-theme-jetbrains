@@ -64,11 +64,11 @@ open class BuildThemes : DefaultTask() {
 
   @TaskAction
   fun run() {
-    val themeDirectory = getThemeDirectory()
+    val buildAssetDirectory = getBuildAssetDirectory()
     val masterThemeDirectory = get(project.rootDir.absolutePath, "masterThemes")
-    val dokiThemeTemplates = createThemeDefinitions(themeDirectory, masterThemeDirectory)
+    val dokiThemeTemplates = createThemeDefinitions(buildAssetDirectory, masterThemeDirectory)
 
-    val dokiEditorThemeTemplates = createEditorThemeDefinitions(themeDirectory)
+    val dokiEditorThemeTemplates = createEditorThemeDefinitions(buildAssetDirectory)
 
     val (pluginXmlAndParsed, extension) = getPluginXmlMutationStuff()
     val (pluginXml, parsedPluginXml) = pluginXmlAndParsed
@@ -94,9 +94,9 @@ open class BuildThemes : DefaultTask() {
     writeXmlToFile(pluginXml, parsedPluginXml)
   }
 
-  private fun getThemeDefinitionDirectory() = get(getThemeDirectory().toString(), "definitions")
+  private fun getThemeDefinitionDirectory() = get(getBuildAssetDirectory().toString(), "themes")
 
-  private fun getThemeDirectory() = get(project.rootDir.absolutePath, "themes")
+  private fun getBuildAssetDirectory() = get(project.rootDir.absolutePath, "buildSrc", "assets")
 
   private fun writeProductName(pluginXml: Node) {
     val nameNodeList = pluginXml["name"] as NodeList
