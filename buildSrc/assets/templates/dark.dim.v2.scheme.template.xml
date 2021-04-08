@@ -2,17 +2,5 @@
   <colors>
   </colors>
   <attributes>
-    <option name="TEXT_SEARCH_RESULT_ATTRIBUTES">
-      <value>
-        <option name="BACKGROUND" value="$searchResultBackground$" />
-        <option name="EFFECT_COLOR" value="$borderColor$" />
-      </value>
-    </option>
-    <option name="WRITE_SEARCH_RESULT_ATTRIBUTES">
-      <value>
-        <option name="BACKGROUND" value="$searchResultBackground$" />
-        <option name="EFFECT_COLOR" value="$borderColor$" />
-      </value>
-    </option>
   </attributes>
 </scheme>
