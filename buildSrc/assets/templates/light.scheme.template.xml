@@ -26,7 +26,7 @@
         <option name="CARET_COLOR" value="%accentColor%" />
         <option name="CARET_ROW_COLOR" value="$caretRow$" />
         <option name="CONSOLE_BACKGROUND_KEY" value="$textEditorBackground$" />
-        <option name="DELETED_LINES_COLOR" value="$diff.deleted$" />
+        <option name="DELETED_LINES_COLOR" value="$disabledColor$99" />
         <option name="DOCUMENTATION_COLOR" value="$headerColor$" />
         <option name="FILESTATUS_ADDED" value="10b15a" />
         <option name="FILESTATUS_COPIED" value="10b15a" />
