@@ -622,7 +622,7 @@
     </option>
     <option name="DEFAULT_TEMPLATE_LANGUAGE_COLOR">
       <value>
-        <option name="BACKGROUND" value="$searchResultBackground$"/>
+        <option name="BACKGROUND" value="$foldedTextBackground$"/>
       </value>
     </option>
     <option name="DEFAULT_VALID_STRING_ESCAPE">
@@ -688,7 +688,7 @@
     </option>
     <option name="FOLDED_TEXT_ATTRIBUTES">
       <value>
-        <option name="BACKGROUND" value="$searchResultBackground$"/>
+        <option name="BACKGROUND" value="$foldedTextBackground$"/>
       </value>
     </option>
     <option name="FOLLOWED_HYPERLINK_ATTRIBUTES">
@@ -804,7 +804,7 @@
     </option>
     <option name="IDENTIFIER_UNDER_CARET_ATTRIBUTES">
       <value>
-        <option name="BACKGROUND" value="$searchResultBackground$"/>
+        <option name="BACKGROUND" value="$selectionInactive$"/>
         <option name="ERROR_STRIPE_COLOR" value="$selectionBackground$"/>
         <option name="EFFECT_TYPE" value="1"/>
       </value>
@@ -966,7 +966,7 @@
     <option name="JSP_DIRECTIVE_NAME" baseAttributes="DEFAULT_KEYWORD"/>
     <option name="JUPYTER_SELECTED_CELL">
       <value>
-        <option name="BACKGROUND" value="$searchResultBackground$"/>
+        <option name="BACKGROUND" value="$foldedTextBackground$"/>
       </value>
     </option>
     <option name="KOTLIN_ANNOTATION">
@@ -1916,9 +1916,9 @@
     </option>
     <option name="MATCHED_BRACE_ATTRIBUTES">
       <value>
-        <option name="BACKGROUND" value="$searchResultBackground$"/>
+        <option name="BACKGROUND" value="$foldedTextBackground$"/>
         <option name="FONT_TYPE" value="1"/>
-        <option name="EFFECT_COLOR" value="cccccc"/>
+        <option name="EFFECT_COLOR" value="%accentColor%"/>
       </value>
     </option>
     <option name="NG.EXPANSION_FORM">
@@ -2395,13 +2395,13 @@
     </option>
     <option name="SPY-JS.FUNCTION_SCOPE">
       <value>
-        <option name="BACKGROUND" value="$searchResultBackground$"/>
+        <option name="BACKGROUND" value="$foldedTextBackground$"/>
         <option name="EFFECT_TYPE" value="2"/>
       </value>
     </option>
     <option name="SPY-JS.PROGRAM_SCOPE">
       <value>
-        <option name="BACKGROUND" value="$searchResultBackground$"/>
+        <option name="BACKGROUND" value="$foldedTextBackground$"/>
         <option name="EFFECT_TYPE" value="2"/>
       </value>
     </option>
@@ -2550,7 +2550,7 @@
     </option>
     <option name="WRITE_IDENTIFIER_UNDER_CARET_ATTRIBUTES">
       <value>
-        <option name="BACKGROUND" value="$searchResultBackground$"/>
+        <option name="BACKGROUND" value="$selectionInactive$"/>
         <option name="ERROR_STRIPE_COLOR" value="$selectionBackground$"/>
       </value>
     </option>
@@ -2564,7 +2564,7 @@
     </option>
     <option name="DEFAULT_HIGHLIGHTED_REFERENCE">
       <value>
-        <option name="BACKGROUND" value="$searchResultBackground$"/>
+        <option name="BACKGROUND" value="$selectionInactive$"/>
         <option name="ERROR_STRIPE_COLOR" value="$accentColor$"/>
       </value>
     </option>

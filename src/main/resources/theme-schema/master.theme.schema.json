@@ -138,7 +138,6 @@
         "popupMask",
         "codeBlock",
         "textEditorBackground",
-        "searchResultBackground",
         "classNameColor",
         "htmlTagColor",
         "stringColor",
@@ -231,9 +230,6 @@
           "$ref": "#/definitions/color"
         },
         "textEditorBackground": {
-          "$ref": "#/definitions/color"
-        },
-        "searchResultBackground": {
           "$ref": "#/definitions/color"
         },
         "classNameColor": {
