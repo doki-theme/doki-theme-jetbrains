@@ -1,4 +1,4 @@
-<scheme name="Kanna Dark" version="142" parent_scheme="Legacy Dark">
+<scheme name="Kanna Dark" version="142" parent_scheme="Doki Dark">
   <colors>
     <option name="ScrollBar.Mac.Transparent.hoverThumbBorderColor" value="$accentColorOverrideTransparent$" />
     <option name="ScrollBar.Mac.Transparent.hoverThumbColor" value="$accentColorOverrideTransparent$" />
