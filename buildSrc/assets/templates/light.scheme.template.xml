@@ -799,8 +799,8 @@
     </option>
     <option name="IDENTIFIER_UNDER_CARET_ATTRIBUTES">
       <value>
-        <option name="BACKGROUND" value="$selectionInactive$"/>
-        <option name="ERROR_STRIPE_COLOR" value="$selectionBackground$"/>
+        <option name="BACKGROUND" value="$identifierHighlight$"/>
+        <option name="ERROR_STRIPE_COLOR" value="$identifierHighlight$"/>
         <option name="EFFECT_TYPE" value="1"/>
       </value>
     </option>
@@ -2581,14 +2581,14 @@
     </option>
     <option name="WRITE_IDENTIFIER_UNDER_CARET_ATTRIBUTES">
       <value>
-        <option name="BACKGROUND" value="$selectionInactive$"/>
-        <option name="ERROR_STRIPE_COLOR" value="$selectionBackground$"/>
+        <option name="BACKGROUND" value="$identifierHighlight$"/>
+        <option name="ERROR_STRIPE_COLOR" value="$identifierHighlight$"/>
         <option name="EFFECT_TYPE" value="1"/>
       </value>
     </option>
     <option name="DEFAULT_HIGHLIGHTED_REFERENCE">
       <value>
-        <option name="BACKGROUND" value="$selectionInactive$"/>
+        <option name="BACKGROUND" value="$identifierHighlight$"/>
         <option name="ERROR_STRIPE_COLOR" value="$accentColor$"/>
       </value>
     </option>
