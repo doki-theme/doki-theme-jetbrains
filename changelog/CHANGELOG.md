@@ -1,6 +1,14 @@
 Changelog
 ---
 
+# 14.3.0 [Contrast Updates]
+
+- [#370](https://github.com/doki-theme/doki-theme-jetbrains/issues/370) - Updated all themes to have more visible:
+  - Identifier under caret
+  - Search Result
+  - VCS Deleted Line Gutter Indicator (the Dorito)
+  
+
 # 14.2.0 [Non-Functional Changes]
 
 - Cleaned up the theme build process, everything should still look the same :)

@@ -41,6 +41,7 @@ private fun buildUpdateMessage(
         <li>Global Editor Font Size Setting.</li>
         <li>Sticker bug fixes</li>
         <li>HTTP Proxy Support</li>
+        <li>Editor color contrast updates</li>
         <li>Moved lowest supported build to 2020.3.2</li>
       </ul>
       Please see the <a href="https://github.com/doki-theme/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md">
