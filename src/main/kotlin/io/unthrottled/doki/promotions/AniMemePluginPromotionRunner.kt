@@ -5,6 +5,7 @@ import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.project.ProjectManager
 import com.intellij.openapi.wm.WindowManager
+import com.intellij.util.concurrency.EdtScheduledExecutorService
 import io.unthrottled.doki.themes.ThemeManager
 import io.unthrottled.doki.util.doOrElse
 import io.unthrottled.doki.util.toOptional
@@ -60,26 +61,31 @@ object AniMemePluginPromotion {
   ) {
     ApplicationManager.getApplication().executeOnPooledThread {
       ThemeManager.instance.currentTheme.ifPresent { dokiTheme ->
-        getFirstProject()
-          .map {
-            WindowManager.getInstance().suggestParentWindow(
-              it
-            )
-          }
-          .doOrElse(
-            {
-              val promotionAssets = PromotionAssets(dokiTheme)
-              ApplicationManager.getApplication().invokeLater {
-                AniMemePromotionDialog(
-                  dokiTheme,
-                  promotionAssets,
-                  it!!,
-                  onPromotion
-                ).show()
+        val promotionAssets = PromotionAssets(dokiTheme)
+        EdtScheduledExecutorService.getInstance().schedule(
+          {
+            getFirstProject()
+              .map {
+                WindowManager.getInstance().suggestParentWindow(
+                  it
+                )
               }
-            },
-            onReject
-          )
+              .doOrElse(
+                {
+                  ApplicationManager.getApplication().invokeLater {
+                    AniMemePromotionDialog(
+                      dokiTheme,
+                      promotionAssets,
+                      it!!,
+                      onPromotion
+                    ).show()
+                  }
+                },
+                onReject
+              )
+          },
+          0, TimeUnit.SECONDS
+        )
       }
     }
   }
