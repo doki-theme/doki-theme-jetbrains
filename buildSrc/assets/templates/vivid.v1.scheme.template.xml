@@ -1,469 +1,469 @@
 <scheme name="Doki Vivid v1" version="1" parent_scheme="Doki Light v2">
-    <colors>
-      <option name="LINE_NUMBERS_COLOR" value="$lineNumberColor$" />
-    </colors>
-    <attributes>
-      <option name="JS.LOCAL_VARIABLE">
-        <value>
-          <option name="FOREGROUND" value="fcfcfa" />
-        </value>
-      </option>
-      <option name="DEFAULT_LOCAL_VARIABLE">
-        <value>
-          <option name="FOREGROUND" value="fcfcfa"/>
-        </value>
-      </option>
-      <option name="ANNOTATION_ATTRIBUTE_NAME_ATTRIBUTES">
-        <value>
-          <option name="FOREGROUND" value="fcfcf3" />
-        </value>
-      </option>
-
-      <option name="CONSOLE_NORMAL_OUTPUT">
-        <value>
-          <option name="FOREGROUND" value="fcfcf3" />
-        </value>
-      </option>
-
-      <option name="CONSOLE_WHITE_OUTPUT">
-        <value>
-          <option name="FOREGROUND" value="fcfcf3" />
-        </value>
-      </option>
-      <option name="JSON.PROPERTY_KEY">
-        <value>
-          <option name="FOREGROUND" value="fcfcf3" />
-          <option name="FONT_TYPE" value="1" />
-        </value>
-      </option>
-
-
-      <option name="DEFAULT_IDENTIFIER">
-        <value>
-          <option name="FOREGROUND" value="fcfcf3" />
-        </value>
-      </option>
-
-      <option name="DEFAULT_REASSIGNED_LOCAL_VARIABLE">
-        <value>
-          <option name="FOREGROUND" value="fcfcf3" />
-          <option name="EFFECT_COLOR" value="a5a5a5" />
-          <option name="EFFECT_TYPE" value="1" />
-        </value>
-      </option>
-
-      <option name="DEFAULT_STATIC_FIELD">
-        <value>
-          <option name="FOREGROUND" value="fcfcf3" />
-          <option name="FONT_TYPE" value="2" />
-        </value>
-      </option>
-
-      <option name="DELETED_TEXT_ATTRIBUTES">
-        <value>
-          <option name="FOREGROUND" value="fcfcf3" />
-          <option name="BACKGROUND" value="CECAFF" />
-          <option name="EFFECT_COLOR" value="c3c3c3" />
-          <option name="EFFECT_TYPE" value="3" />
-        </value>
-      </option>
-
-      <option name="HTML_TAG">
-        <value>
-          <option name="FOREGROUND" value="fcfcf3" />
-        </value>
-      </option>
-
-      <option name="IGNORE.BRACKET">
-        <value>
-          <option name="FOREGROUND" value="fcfcf3" />
-          <option name="FONT_TYPE" value="1" />
-        </value>
-      </option>
-
-      <option name="IGNORE.SLASH">
-        <value>
-          <option name="FOREGROUND" value="fcfcf3" />
-        </value>
-      </option>
-
-      <option name="REGEXP.ESC_CHARACTER">
-        <value>
-          <option name="FOREGROUND" value="fcfcf3" />
-        </value>
-      </option>
-
-      <option name="REGEXP.INVALID_STRING_ESCAPE">
-        <value>
-          <option name="FOREGROUND" value="fcfcf3" />
-          <option name="EFFECT_COLOR" value="ff5555" />
-          <option name="EFFECT_TYPE" value="2" />
-        </value>
-      </option>
-
-      <option name="REGEXP.PARENTHS">
-        <value>
-          <option name="FOREGROUND" value="fcfcf3" />
-        </value>
-      </option>
-
-      <option name="ReSharper.EVENT_IDENTIFIER">
-        <value>
-          <option name="FOREGROUND" value="fcfcf3" />
-          <option name="FONT_TYPE" value="1" />
-        </value>
-      </option>
-
-      <option name="TEXT">
-        <value>
-          <option name="FOREGROUND" value="fcfcf3" />
-          <option name="BACKGROUND" value="$textEditorBackground$" />
-          <option name="EFFECT_TYPE" value="5" />
-        </value>
-      </option>
-
-      <option name="XML_TAG">
-        <value>
-          <option name="FOREGROUND" value="fcfcf3" />
-        </value>
-      </option>
-
-
-      <option name="CODE_VISION_DEFAULT">
-        <value>
-          <option name="FOREGROUND" value="BFDAF8" />
-        </value>
-      </option>
-
-      <option name="DEFAULT_BLOCK_COMMENT">
-        <value>
-          <option name="FOREGROUND" value="BFDAF8" />
-          <option name="FONT_TYPE" value="2" />
-        </value>
-      </option>
-
-      <option name="DEFAULT_DOC_COMMENT">
-        <value>
-          <option name="FOREGROUND" value="BFDAF8" />
-          <option name="FONT_TYPE" value="2" />
-        </value>
-      </option>
-
-      <option name="DEFAULT_LINE_COMMENT">
-        <value>
-          <option name="FOREGROUND" value="BFDAF8" />
-          <option name="FONT_TYPE" value="2" />
-        </value>
-      </option>
-
-      <option name="IGNORE.COMMENT">
-        <value>
-          <option name="FOREGROUND" value="BFDAF8" />
-        </value>
-      </option>
-
-      <option name="ReSharper.ASP_NET_COMMENT">
-        <value>
-          <option name="FOREGROUND" value="BFDAF8" />
-          <option name="FONT_TYPE" value="2" />
-        </value>
-      </option>
-
-      <option name="ReSharper.ASP_NET_RAZOR_COMMENT">
-        <value>
-          <option name="FOREGROUND" value="BFDAF8" />
-          <option name="FONT_TYPE" value="2" />
-        </value>
-      </option>
-
-      <option name="ReSharper.CPP_DOXYGEN_COMMAND">
-        <value>
-          <option name="FOREGROUND" value="BFDAF8" />
-          <option name="FONT_TYPE" value="1" />
-        </value>
-      </option>
-
-      <option name="SUGGESTION">
-        <value>
-          <option name="EFFECT_COLOR" value="BFDAF8" />
-          <option name="EFFECT_TYPE" value="2" />
-        </value>
-      </option>
-      <option name="DEFAULT_BRACES">
-        <value>
-          <option name="FOREGROUND" value="fcfcf3"/>
-        </value>
-      </option>
-      <option name="DEFAULT_BRACKETS">
-        <value>
-          <option name="FOREGROUND" value="fcfcf3"/>
-        </value>
-      </option>
-      <option name="DEFAULT_OPERATION_SIGN">
-        <value>
-          <option name="FOREGROUND" value="fcfcf3" />
-        </value>
-      </option>
-      <option name="BROWSEWORDATCARET">
-        <value>
-          <option name="EFFECT_COLOR" value="$constantColor$" />
-          <option name="ERROR_STRIPE_COLOR" value="$constantColor$" />
-        </value>
-      </option>
-
-      <option name="CONSOLE_BLUE_BRIGHT_OUTPUT">
-        <value>
-          <option name="FOREGROUND" value="$constantColor$" />
-        </value>
-      </option>
-
-      <option name="CSS.COLOR">
-        <value>
-          <option name="FOREGROUND" value="$constantColor$" />
-        </value>
-      </option>
-
-      <option name="CSS.UNICODE.RANGE">
-        <value>
-          <option name="FOREGROUND" value="$constantColor$" />
-        </value>
-      </option>
-
-      <option name="CUSTOM_KEYWORD3_ATTRIBUTES">
-        <value>
-          <option name="FOREGROUND" value="$constantColor$" />
-          <option name="FONT_TYPE" value="3" />
-        </value>
-      </option>
-
-      <option name="DEFAULT_CONSTANT">
-        <value>
-          <option name="FOREGROUND" value="$constantColor$" />
-          <option name="FONT_TYPE" value="2" />
-        </value>
-      </option>
-
-      <option name="DEFAULT_ENTITY">
-        <value>
-          <option name="FOREGROUND" value="$constantColor$" />
-        </value>
-      </option>
-
-      <option name="DEFAULT_NUMBER">
-        <value>
-          <option name="FOREGROUND" value="$constantColor$" />
-        </value>
-      </option>
-
-      <option name="FOLLOWED_HYPERLINK_ATTRIBUTES">
-        <value>
-          <option name="FOREGROUND" value="$constantColor$" />
-          <option name="EFFECT_COLOR" value="$constantColor$" />
-          <option name="EFFECT_TYPE" value="1" />
-        </value>
-      </option>
-
-      <option name="GO_PACKAGE_EXPORTED_CONSTANT">
-        <value>
-          <option name="FOREGROUND" value="$constantColor$" />
-          <option name="BACKGROUND"/>
-          <option name="EFFECT_COLOR"/>
-          <option name="FONT_TYPE" value="3"/>
-        </value>
-      </option>
-
-      <option name="GO_PACKAGE_LOCAL_CONSTANT">
-        <value>
-          <option name="FOREGROUND" value="$constantColor$" />
-          <option name="BACKGROUND"/>
-          <option name="EFFECT_COLOR"/>
-          <option name="FONT_TYPE" value="2"/>
-        </value>
-      </option>
-
-      <option name="IGNORE.SECTION">
-        <value>
-          <option name="FOREGROUND" value="$constantColor$" />
-        </value>
-      </option>
-
-      <option name="JAVA.THIS_SUPER">
-        <value>
-          <option name="FOREGROUND" value="$constantColor$" />
-          <option name="FONT_TYPE" value="2" />
-        </value>
-      </option>
-
-      <option name="JS.GLOBAL_VARIABLE">
-        <value>
-          <option name="FOREGROUND" value="$constantColor$" />
-          <option name="FONT_TYPE" value="2" />
-        </value>
-      </option>
-
-      <option name="JS.NULL_UNDEFINED">
-        <value>
-          <option name="FOREGROUND" value="$constantColor$" />
-        </value>
-      </option>
-
-      <option name="JS.THIS_SUPER">
-        <value>
-          <option name="FOREGROUND" value="$constantColor$" />
-          <option name="FONT_TYPE" value="2" />
-        </value>
-      </option>
-
-      <option name="KOTLIN_ENUM_ENTRY">
-        <value>
-          <option name="FOREGROUND" value="$constantColor$" />
-        </value>
-      </option>
-
-      <option name="KOTLIN_SMART_CONSTANT">
-        <value>
-          <option name="FOREGROUND" value="$constantColor$" />
-        </value>
-      </option>
-
-      <option name="LOG_DEBUG_OUTPUT">
-        <value>
-          <option name="FOREGROUND" value="$constantColor$" />
-        </value>
-      </option>
-
-      <option name="MARKDOWN_HEADER_LEVEL_1">
-        <value>
-          <option name="FOREGROUND" value="$constantColor$" />
-          <option name="FONT_TYPE" value="2" />
-        </value>
-      </option>
-
-      <option name="MARKDOWN_NAVIGATOR.ATX_HEADER">
-        <value>
-          <option name="FOREGROUND" value="$constantColor$" />
-          <option name="FONT_TYPE" value="1" />
-        </value>
-      </option>
-
-      <option name="MARKDOWN_NAVIGATOR.DEBUG_FORMAT_TEXT_BLOCK">
-        <value>
-          <option name="EFFECT_COLOR" value="$constantColor$" />
-        </value>
-      </option>
-
-      <option name="MARKDOWN_NAVIGATOR.HEADER_TEXT">
-        <value>
-          <option name="FOREGROUND" value="$constantColor$" />
-          <option name="FONT_TYPE" value="1" />
-        </value>
-      </option>
-
-      <option name="MARKDOWN_NAVIGATOR.REFERENCE_TEXT">
-        <value>
-          <option name="FOREGROUND" value="$constantColor$" />
-        </value>
-      </option>
-
-      <option name="OC.SELFSUPERTHIS">
-        <value>
-          <option name="FOREGROUND" value="$constantColor$" />
-          <option name="FONT_TYPE" value="2" />
-        </value>
-      </option>
-
-      <option name="PY.PREDEFINED_DEFINITION">
-        <value>
-          <option name="FOREGROUND" value="$constantColor$" />
-        </value>
-      </option>
-
-      <option name="PY.PREDEFINED_USAGE">
-        <value>
-          <option name="FOREGROUND" value="$constantColor$" />
-        </value>
-      </option>
-
-      <option name="PY.SELF_PARAMETER">
-        <value>
-          <option name="FOREGROUND" value="$constantColor$" />
-          <option name="FONT_TYPE" value="2" />
-        </value>
-      </option>
-
-      <option name="RDOC_HEADINGS">
-        <value>
-          <option name="FOREGROUND" value="$constantColor$" />
-          <option name="FONT_TYPE" value="1" />
-        </value>
-      </option>
-
-      <option name="RUBY_HEREDOC_ID">
-        <value>
-          <option name="FOREGROUND" value="$constantColor$" />
-        </value>
-      </option>
-
-      <option name="RUBY_SYMBOL">
-        <value>
-          <option name="FOREGROUND" value="$constantColor$" />
-        </value>
-      </option>
-
-      <option name="ReSharper.ASP_NET_ENTITY_REFERENCE">
-        <value>
-          <option name="FOREGROUND" value="$constantColor$" />
-        </value>
-      </option>
-
-      <option name="ReSharper.ASP_NET_MVC_AREA">
-        <value>
-          <option name="FOREGROUND" value="$constantColor$" />
-          <option name="EFFECT_TYPE" value="1" />
-        </value>
-      </option>
-
-      <option name="ReSharper.ASP_NET_RAZOR_ENTITY_REFERENCE">
-        <value>
-          <option name="FOREGROUND" value="$constantColor$" />
-        </value>
-      </option>
-
-      <option name="ReSharper.ENUM_IDENTIFIER">
-        <value>
-          <option name="FOREGROUND" value="$constantColor$" />
-        </value>
-      </option>
-
-      <option name="STATIC_FIELD_ATTRIBUTES">
-        <value>
-          <option name="FOREGROUND" value="$constantColor$" deuteranopia="1948a6" protanopia="1948a6"/>
-          <option name="BACKGROUND"/>
-          <option name="EFFECT_COLOR"/>
-          <option name="FONT_TYPE" value="2"/>
-        </value>
-      </option>
-
-      <option name="STATIC_FINAL_FIELD_ATTRIBUTES">
-        <value>
-          <option name="FOREGROUND" value="$constantColor$" />
-          <option name="BACKGROUND"/>
-          <option name="EFFECT_COLOR"/>
-          <option name="FONT_TYPE" value="3"/>
-        </value>
-      </option>
-
-      <option name="TAG_ATTR_KEY">
-        <value>
-          <option name="FOREGROUND" value="$constantColor$" />
-        </value>
-      </option>
-
-      <option name="TEMPLATE_VARIABLE_ATTRIBUTES">
-        <value>
-          <option name="FOREGROUND" value="$constantColor$" />
-        </value>
-      </option>
-
-    </attributes>
+  <colors>
+    <option name="LINE_NUMBERS_COLOR" value="$lineNumberColor$"/>
+  </colors>
+  <attributes>
+    <option name="JS.LOCAL_VARIABLE">
+      <value>
+        <option name="FOREGROUND" value="fcfcfa"/>
+      </value>
+    </option>
+    <option name="DEFAULT_LOCAL_VARIABLE">
+      <value>
+        <option name="FOREGROUND" value="fcfcfa"/>
+      </value>
+    </option>
+    <option name="ANNOTATION_ATTRIBUTE_NAME_ATTRIBUTES">
+      <value>
+        <option name="FOREGROUND" value="fcfcf3"/>
+      </value>
+    </option>
+
+    <option name="CONSOLE_NORMAL_OUTPUT">
+      <value>
+        <option name="FOREGROUND" value="fcfcf3"/>
+      </value>
+    </option>
+
+    <option name="CONSOLE_WHITE_OUTPUT">
+      <value>
+        <option name="FOREGROUND" value="fcfcf3"/>
+      </value>
+    </option>
+    <option name="JSON.PROPERTY_KEY">
+      <value>
+        <option name="FOREGROUND" value="fcfcf3"/>
+        <option name="FONT_TYPE" value="1"/>
+      </value>
+    </option>
+
+
+    <option name="DEFAULT_IDENTIFIER">
+      <value>
+        <option name="FOREGROUND" value="fcfcf3"/>
+      </value>
+    </option>
+
+    <option name="DEFAULT_REASSIGNED_LOCAL_VARIABLE">
+      <value>
+        <option name="FOREGROUND" value="fcfcf3"/>
+        <option name="EFFECT_COLOR" value="a5a5a5"/>
+        <option name="EFFECT_TYPE" value="1"/>
+      </value>
+    </option>
+
+    <option name="DEFAULT_STATIC_FIELD">
+      <value>
+        <option name="FOREGROUND" value="fcfcf3"/>
+        <option name="FONT_TYPE" value="2"/>
+      </value>
+    </option>
+
+    <option name="DELETED_TEXT_ATTRIBUTES">
+      <value>
+        <option name="FOREGROUND" value="fcfcf3"/>
+        <option name="BACKGROUND" value="CECAFF"/>
+        <option name="EFFECT_COLOR" value="c3c3c3"/>
+        <option name="EFFECT_TYPE" value="3"/>
+      </value>
+    </option>
+
+    <option name="HTML_TAG">
+      <value>
+        <option name="FOREGROUND" value="fcfcf3"/>
+      </value>
+    </option>
+
+    <option name="IGNORE.BRACKET">
+      <value>
+        <option name="FOREGROUND" value="fcfcf3"/>
+        <option name="FONT_TYPE" value="1"/>
+      </value>
+    </option>
+
+    <option name="IGNORE.SLASH">
+      <value>
+        <option name="FOREGROUND" value="fcfcf3"/>
+      </value>
+    </option>
+
+    <option name="REGEXP.ESC_CHARACTER">
+      <value>
+        <option name="FOREGROUND" value="fcfcf3"/>
+      </value>
+    </option>
+
+    <option name="REGEXP.INVALID_STRING_ESCAPE">
+      <value>
+        <option name="FOREGROUND" value="fcfcf3"/>
+        <option name="EFFECT_COLOR" value="ff5555"/>
+        <option name="EFFECT_TYPE" value="2"/>
+      </value>
+    </option>
+
+    <option name="REGEXP.PARENTHS">
+      <value>
+        <option name="FOREGROUND" value="fcfcf3"/>
+      </value>
+    </option>
+
+    <option name="ReSharper.EVENT_IDENTIFIER">
+      <value>
+        <option name="FOREGROUND" value="fcfcf3"/>
+        <option name="FONT_TYPE" value="1"/>
+      </value>
+    </option>
+
+    <option name="TEXT">
+      <value>
+        <option name="FOREGROUND" value="fcfcf3"/>
+        <option name="BACKGROUND" value="$textEditorBackground$"/>
+        <option name="EFFECT_TYPE" value="5"/>
+      </value>
+    </option>
+
+    <option name="XML_TAG">
+      <value>
+        <option name="FOREGROUND" value="fcfcf3"/>
+      </value>
+    </option>
+
+
+    <option name="CODE_VISION_DEFAULT">
+      <value>
+        <option name="FOREGROUND" value="BFDAF8"/>
+      </value>
+    </option>
+
+    <option name="DEFAULT_BLOCK_COMMENT">
+      <value>
+        <option name="FOREGROUND" value="BFDAF8"/>
+        <option name="FONT_TYPE" value="2"/>
+      </value>
+    </option>
+
+    <option name="DEFAULT_DOC_COMMENT">
+      <value>
+        <option name="FOREGROUND" value="BFDAF8"/>
+        <option name="FONT_TYPE" value="2"/>
+      </value>
+    </option>
+
+    <option name="DEFAULT_LINE_COMMENT">
+      <value>
+        <option name="FOREGROUND" value="BFDAF8"/>
+        <option name="FONT_TYPE" value="2"/>
+      </value>
+    </option>
+
+    <option name="IGNORE.COMMENT">
+      <value>
+        <option name="FOREGROUND" value="BFDAF8"/>
+      </value>
+    </option>
+
+    <option name="ReSharper.ASP_NET_COMMENT">
+      <value>
+        <option name="FOREGROUND" value="BFDAF8"/>
+        <option name="FONT_TYPE" value="2"/>
+      </value>
+    </option>
+
+    <option name="ReSharper.ASP_NET_RAZOR_COMMENT">
+      <value>
+        <option name="FOREGROUND" value="BFDAF8"/>
+        <option name="FONT_TYPE" value="2"/>
+      </value>
+    </option>
+
+    <option name="ReSharper.CPP_DOXYGEN_COMMAND">
+      <value>
+        <option name="FOREGROUND" value="BFDAF8"/>
+        <option name="FONT_TYPE" value="1"/>
+      </value>
+    </option>
+
+    <option name="SUGGESTION">
+      <value>
+        <option name="EFFECT_COLOR" value="BFDAF8"/>
+        <option name="EFFECT_TYPE" value="2"/>
+      </value>
+    </option>
+    <option name="DEFAULT_BRACES">
+      <value>
+        <option name="FOREGROUND" value="fcfcf3"/>
+      </value>
+    </option>
+    <option name="DEFAULT_BRACKETS">
+      <value>
+        <option name="FOREGROUND" value="fcfcf3"/>
+      </value>
+    </option>
+    <option name="DEFAULT_OPERATION_SIGN">
+      <value>
+        <option name="FOREGROUND" value="fcfcf3"/>
+      </value>
+    </option>
+    <option name="BROWSEWORDATCARET">
+      <value>
+        <option name="EFFECT_COLOR" value="$constantColor$"/>
+        <option name="ERROR_STRIPE_COLOR" value="$constantColor$"/>
+      </value>
+    </option>
+
+    <option name="CONSOLE_BLUE_BRIGHT_OUTPUT">
+      <value>
+        <option name="FOREGROUND" value="$constantColor$"/>
+      </value>
+    </option>
+
+    <option name="CSS.COLOR">
+      <value>
+        <option name="FOREGROUND" value="$constantColor$"/>
+      </value>
+    </option>
+
+    <option name="CSS.UNICODE.RANGE">
+      <value>
+        <option name="FOREGROUND" value="$constantColor$"/>
+      </value>
+    </option>
+
+    <option name="CUSTOM_KEYWORD3_ATTRIBUTES">
+      <value>
+        <option name="FOREGROUND" value="$constantColor$"/>
+        <option name="FONT_TYPE" value="3"/>
+      </value>
+    </option>
+
+    <option name="DEFAULT_CONSTANT">
+      <value>
+        <option name="FOREGROUND" value="$constantColor$"/>
+        <option name="FONT_TYPE" value="2"/>
+      </value>
+    </option>
+
+    <option name="DEFAULT_ENTITY">
+      <value>
+        <option name="FOREGROUND" value="$constantColor$"/>
+      </value>
+    </option>
+
+    <option name="DEFAULT_NUMBER">
+      <value>
+        <option name="FOREGROUND" value="$constantColor$"/>
+      </value>
+    </option>
+
+    <option name="FOLLOWED_HYPERLINK_ATTRIBUTES">
+      <value>
+        <option name="FOREGROUND" value="$constantColor$"/>
+        <option name="EFFECT_COLOR" value="$constantColor$"/>
+        <option name="EFFECT_TYPE" value="1"/>
+      </value>
+    </option>
+
+    <option name="GO_PACKAGE_EXPORTED_CONSTANT">
+      <value>
+        <option name="FOREGROUND" value="$constantColor$"/>
+        <option name="BACKGROUND"/>
+        <option name="EFFECT_COLOR"/>
+        <option name="FONT_TYPE" value="3"/>
+      </value>
+    </option>
+
+    <option name="GO_PACKAGE_LOCAL_CONSTANT">
+      <value>
+        <option name="FOREGROUND" value="$constantColor$"/>
+        <option name="BACKGROUND"/>
+        <option name="EFFECT_COLOR"/>
+        <option name="FONT_TYPE" value="2"/>
+      </value>
+    </option>
+
+    <option name="IGNORE.SECTION">
+      <value>
+        <option name="FOREGROUND" value="$constantColor$"/>
+      </value>
+    </option>
+
+    <option name="JAVA.THIS_SUPER">
+      <value>
+        <option name="FOREGROUND" value="$constantColor$"/>
+        <option name="FONT_TYPE" value="2"/>
+      </value>
+    </option>
+
+    <option name="JS.GLOBAL_VARIABLE">
+      <value>
+        <option name="FOREGROUND" value="$constantColor$"/>
+        <option name="FONT_TYPE" value="2"/>
+      </value>
+    </option>
+
+    <option name="JS.NULL_UNDEFINED">
+      <value>
+        <option name="FOREGROUND" value="$constantColor$"/>
+      </value>
+    </option>
+
+    <option name="JS.THIS_SUPER">
+      <value>
+        <option name="FOREGROUND" value="$constantColor$"/>
+        <option name="FONT_TYPE" value="2"/>
+      </value>
+    </option>
+
+    <option name="KOTLIN_ENUM_ENTRY">
+      <value>
+        <option name="FOREGROUND" value="$constantColor$"/>
+      </value>
+    </option>
+
+    <option name="KOTLIN_SMART_CONSTANT">
+      <value>
+        <option name="FOREGROUND" value="$constantColor$"/>
+      </value>
+    </option>
+
+    <option name="LOG_DEBUG_OUTPUT">
+      <value>
+        <option name="FOREGROUND" value="$constantColor$"/>
+      </value>
+    </option>
+
+    <option name="MARKDOWN_HEADER_LEVEL_1">
+      <value>
+        <option name="FOREGROUND" value="$constantColor$"/>
+        <option name="FONT_TYPE" value="2"/>
+      </value>
+    </option>
+
+    <option name="MARKDOWN_NAVIGATOR.ATX_HEADER">
+      <value>
+        <option name="FOREGROUND" value="$constantColor$"/>
+        <option name="FONT_TYPE" value="1"/>
+      </value>
+    </option>
+
+    <option name="MARKDOWN_NAVIGATOR.DEBUG_FORMAT_TEXT_BLOCK">
+      <value>
+        <option name="EFFECT_COLOR" value="$constantColor$"/>
+      </value>
+    </option>
+
+    <option name="MARKDOWN_NAVIGATOR.HEADER_TEXT">
+      <value>
+        <option name="FOREGROUND" value="$constantColor$"/>
+        <option name="FONT_TYPE" value="1"/>
+      </value>
+    </option>
+
+    <option name="MARKDOWN_NAVIGATOR.REFERENCE_TEXT">
+      <value>
+        <option name="FOREGROUND" value="$constantColor$"/>
+      </value>
+    </option>
+
+    <option name="OC.SELFSUPERTHIS">
+      <value>
+        <option name="FOREGROUND" value="$constantColor$"/>
+        <option name="FONT_TYPE" value="2"/>
+      </value>
+    </option>
+
+    <option name="PY.PREDEFINED_DEFINITION">
+      <value>
+        <option name="FOREGROUND" value="$constantColor$"/>
+      </value>
+    </option>
+
+    <option name="PY.PREDEFINED_USAGE">
+      <value>
+        <option name="FOREGROUND" value="$constantColor$"/>
+      </value>
+    </option>
+
+    <option name="PY.SELF_PARAMETER">
+      <value>
+        <option name="FOREGROUND" value="$constantColor$"/>
+        <option name="FONT_TYPE" value="2"/>
+      </value>
+    </option>
+
+    <option name="RDOC_HEADINGS">
+      <value>
+        <option name="FOREGROUND" value="$constantColor$"/>
+        <option name="FONT_TYPE" value="1"/>
+      </value>
+    </option>
+
+    <option name="RUBY_HEREDOC_ID">
+      <value>
+        <option name="FOREGROUND" value="$constantColor$"/>
+      </value>
+    </option>
+
+    <option name="RUBY_SYMBOL">
+      <value>
+        <option name="FOREGROUND" value="$constantColor$"/>
+      </value>
+    </option>
+
+    <option name="ReSharper.ASP_NET_ENTITY_REFERENCE">
+      <value>
+        <option name="FOREGROUND" value="$constantColor$"/>
+      </value>
+    </option>
+
+    <option name="ReSharper.ASP_NET_MVC_AREA">
+      <value>
+        <option name="FOREGROUND" value="$constantColor$"/>
+        <option name="EFFECT_TYPE" value="1"/>
+      </value>
+    </option>
+
+    <option name="ReSharper.ASP_NET_RAZOR_ENTITY_REFERENCE">
+      <value>
+        <option name="FOREGROUND" value="$constantColor$"/>
+      </value>
+    </option>
+
+    <option name="ReSharper.ENUM_IDENTIFIER">
+      <value>
+        <option name="FOREGROUND" value="$constantColor$"/>
+      </value>
+    </option>
+
+    <option name="STATIC_FIELD_ATTRIBUTES">
+      <value>
+        <option name="FOREGROUND" value="$constantColor$" deuteranopia="1948a6" protanopia="1948a6"/>
+        <option name="BACKGROUND"/>
+        <option name="EFFECT_COLOR"/>
+        <option name="FONT_TYPE" value="2"/>
+      </value>
+    </option>
+
+    <option name="STATIC_FINAL_FIELD_ATTRIBUTES">
+      <value>
+        <option name="FOREGROUND" value="$constantColor$"/>
+        <option name="BACKGROUND"/>
+        <option name="EFFECT_COLOR"/>
+        <option name="FONT_TYPE" value="3"/>
+      </value>
+    </option>
+
+    <option name="TAG_ATTR_KEY">
+      <value>
+        <option name="FOREGROUND" value="$constantColor$"/>
+      </value>
+    </option>
+
+    <option name="TEMPLATE_VARIABLE_ATTRIBUTES">
+      <value>
+        <option name="FOREGROUND" value="$constantColor$"/>
+      </value>
+    </option>
+
+  </attributes>
 </scheme>

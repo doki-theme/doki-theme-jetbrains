@@ -91,7 +91,9 @@ open class PromotionManagerImpl {
 
 object WeebService {
 
-  fun isWeebStuffOn(): Boolean = ThemeConfig.instance.currentStickerLevel == StickerLevel.ON
+  fun isWeebStuffOn(): Boolean =
+    ThemeConfig.instance.currentStickerLevel == StickerLevel.ON ||
+      ThemeConfig.instance.isDokiBackground
 }
 
 object OnlineService {

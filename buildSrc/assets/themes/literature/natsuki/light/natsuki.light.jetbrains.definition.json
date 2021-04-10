@@ -20,7 +20,7 @@
     },
     "secondary": {
       "position": "CENTER",
-      "opacity": 17
+      "opacity": 10
     }
   },
   "overrides": {

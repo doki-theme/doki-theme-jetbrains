@@ -112,7 +112,6 @@
       "required": [
         "caretRow",
         "baseIconColor",
-        "ghostColor",
         "contrastColor",
         "nonProjectFileScopeColor",
         "secondaryBackground",
@@ -124,7 +123,6 @@
         "borderColor",
         "buttonColor",
         "selectionInactive",
-        "tagColor",
         "selectionBackground",
         "buttonFont",
         "foregroundColor",
@@ -140,7 +138,6 @@
         "popupMask",
         "codeBlock",
         "textEditorBackground",
-        "searchResultBackground",
         "classNameColor",
         "htmlTagColor",
         "stringColor",
@@ -152,9 +149,6 @@
           "$ref": "#/definitions/color"
         },
         "baseIconColor": {
-          "$ref": "#/definitions/color"
-        },
-        "ghostColor": {
           "$ref": "#/definitions/color"
         },
         "contrastColor": {
@@ -188,9 +182,6 @@
           "$ref": "#/definitions/color"
         },
         "selectionInactive": {
-          "$ref": "#/definitions/color"
-        },
-        "tagColor": {
           "$ref": "#/definitions/color"
         },
         "selectionBackground": {
@@ -239,9 +230,6 @@
           "$ref": "#/definitions/color"
         },
         "textEditorBackground": {
-          "$ref": "#/definitions/color"
-        },
-        "searchResultBackground": {
           "$ref": "#/definitions/color"
         },
         "classNameColor": {
