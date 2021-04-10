@@ -34,7 +34,7 @@ private fun buildUpdateMessage(
         <li>4 New Themes!!
         <ul>
             <li>Astolfo (Dark)</li>
-            <li>Rias (extra dark). <br/> 2 Stickers (a cute one and a <b>cultured</b> one!!)</li>
+            <li>Rias (extra dark). <br/> 2 Stickers</li>
             <li>Sakuranomiya Maika (Dark)</li>
             <li>Ayanami Rei (Dark)</li>
         </ul>
