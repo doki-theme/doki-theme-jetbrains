@@ -77,11 +77,12 @@
     <themeProvider id="b0340303-0a5a-4a20-9b9c-fc8ce9880078" path="/doki/themes/literature_club/Sayori_Dark.theme.json"/>
     <themeProvider id="9a310731-ab2d-40f5-b502-fa5419f799a2" path="/doki/themes/literature_club/Monika_Light.theme.json"/>
     <themeProvider id="dce48196-ff46-470c-b5f9-d1e23f4a79d3" path="/doki/themes/literature_club/Monika_Dark.theme.json"/>
-    <themeProvider id="bc12b380-1f2a-4a9d-89d8-388a07f1e15f" path="/doki/themes/miscellaneous/Hatsune_Miku.theme.json"/>
+    <themeProvider id="bc12b380-1f2a-4a9d-89d8-388a07f1e15f" path="/doki/themes/vocaloid/Hatsune_Miku.theme.json"/>
     <themeProvider id="2d1112ac-04ab-4f78-82c4-22e5e2c1754b" path="/doki/themes/love_live/Sonoda_Umi.theme.json"/>
     <themeProvider id="be058474-b967-4afb-b6d9-bda1948b33ec" path="/doki/themes/lucky_star/Konata.theme.json"/>
     <themeProvider id="d39df813-8701-463b-a964-b8cb7714d1cc" path="/doki/themes/steins_gate/Makise_Kurisu.theme.json"/>
     <themeProvider id="6106e529-efef-444d-9db0-a9b0b444cf1b" path="/doki/themes/blend_s/Maika.theme.json"/>
+    <themeProvider id="d96c6599-ebf8-4359-ae26-19f79b69e919" path="/doki/themes/quintessential_quintuplets/Nakano_Miku.theme.json"/>
     <themeProvider id="98878c8e-9f91-4e25-930d-dd7d280d9e35" path="/doki/themes/bunny_senpai/Mai_Light.theme.json"/>
     <themeProvider id="0527c6fc-316a-4f80-9459-d92ced0e6492" path="/doki/themes/bunny_senpai/Mai_Dark.theme.json"/>
     <themeProvider id="4fd5cb34-d36e-4a3c-8639-052b19b26ba1" path="/doki/themes/darling_in_the_franxx/Zero_Two_Light.theme.json"/>
@@ -100,7 +101,10 @@
     <themeProvider id="8474d98d-7bb1-462c-82b1-dd7c512142a6" path="/doki/themes/konosuba/Darkness_Light.theme.json"/>
     <themeProvider id="774ec7ad-d6a0-4d9c-b195-2f54d72ab664" path="/doki/themes/konosuba/Darkness_Dark.theme.json"/>
     <themeProvider id="15e51483-1ccd-46b7-90cf-885cccaaaf2c" path="/doki/themes/konosuba/Aqua.theme.json"/>
+    <themeProvider id="5de1c901-2a12-411f-b75b-64e43aaf2c9d" path="/doki/themes/type-moon/Gray.theme.json"/>
     <themeProvider id="355d711c-2fa6-4df2-9504-dd44d8f5e350" path="/doki/themes/gate/Rory_Mercury.theme.json"/>
+    <themeProvider id="5903b523-ea0a-4724-85d4-f0d0652c3010" path="/doki/themes/daily_life_with_a_monster_girl/Miia.theme.json"/>
+    <themeProvider id="2d049451-6e89-4325-af38-6ce889991e5b" path="/doki/themes/miss_kobayashi's_dragon_maid/Tohru.theme.json"/>
     <themeProvider id="b93ab4ea-ff96-4459-8fa2-0caae5bc7116" path="/doki/themes/miss_kobayashi's_dragon_maid/Kanna.theme.json"/>
     <themeProvider id="35422aa4-1396-4e76-8ec6-c5560884df22" path="/doki/themes/re_zero/Beatrice.theme.json"/>
     <themeProvider id="f770dcfc-f41e-4b49-aa17-66e9ffc208fd" path="/doki/themes/re_zero/Rem.theme.json"/>

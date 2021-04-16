@@ -4,12 +4,6 @@
     "type": "templateExtension",
     "file": "Natsuki_Dark.xml"
   },
-  "backgrounds": {
-    "default": {
-      "position": "MIDDLE_RIGHT",
-      "opacity": 8
-    }
-  },
   "overrides": {},
   "ui": {
     "Plugins.lightSelectionBackground": "selectionBackground",
@@ -17,5 +11,11 @@
     "CompletionPopup.selectionInactiveBackground": "selectionInactive",
     "SearchEverywhere.Header.background": "headerColor",
     "SearchEverywhere.SearchField.background": "headerColor"
+  },
+  "backgrounds": {
+    "default": {
+      "position": "MIDDLE_RIGHT",
+      "opacity": 8
+    }
   }
 }

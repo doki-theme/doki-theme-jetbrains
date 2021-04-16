@@ -4,12 +4,12 @@
     "type": "templateExtension",
     "file": "Ibuki_Light.xml"
   },
+  "overrides": {},
+  "ui": {},
   "backgrounds": {
     "default": {
       "position": "MIDDLE_RIGHT",
       "opacity": 5
     }
-  },
-  "overrides": {},
-  "ui": {}
+  }
 }

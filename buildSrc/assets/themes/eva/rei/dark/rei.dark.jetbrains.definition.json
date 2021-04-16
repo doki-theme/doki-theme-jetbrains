@@ -5,12 +5,6 @@
     "file": "Rei_Dark.xml"
   },
   "overrides": {},
-  "backgrounds": {
-    "default": {
-      "position": "MIDDLE_RIGHT",
-      "opacity": 7
-    }
-  },
   "ui": {
     "ScrollBar.Transparent.thumbColor": "accentColorOverrideMoreTransparent",
     "ScrollBar.Transparent.thumbBorderColor": "accentColorOverrideMoreTransparent",
@@ -28,5 +22,11 @@
     "ScrollBar.Mac.thumbColor": "accentColorOverrideMoreTransparent",
     "ScrollBar.Mac.hoverThumbBorderColor": "accentColorOverrideMoreTransparent",
     "ScrollBar.Mac.hoverThumbColor": "accentColorOverrideMoreTransparent"
+  },
+  "backgrounds": {
+    "default": {
+      "position": "MIDDLE_RIGHT",
+      "opacity": 7
+    }
   }
 }

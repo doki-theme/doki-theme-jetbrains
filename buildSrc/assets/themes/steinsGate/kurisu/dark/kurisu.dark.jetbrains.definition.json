@@ -4,12 +4,12 @@
     "type": "template",
     "name": "Doki Dim"
   },
+  "overrides": {},
+  "ui": {},
   "backgrounds": {
     "default": {
       "position": "CENTER",
       "opacity": 8
     }
-  },
-  "overrides": {},
-  "ui": {}
+  }
 }

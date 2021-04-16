@@ -4,8 +4,6 @@
     "type": "templateExtension",
     "file": "Satsuki.xml"
   },
-  "ui": {},
-  "overrides": {
-
-  }
+  "overrides": {},
+  "ui": {}
 }

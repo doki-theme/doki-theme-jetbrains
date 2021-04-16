@@ -4,6 +4,10 @@
     "type": "template",
     "name": "Doki Dim"
   },
+  "overrides": {},
+  "ui": {
+    "Doki.Icon.Accent.Contrast.color": "headerColor"
+  },
   "backgrounds": {
     "default": {
       "position": "MIDDLE_RIGHT",
@@ -14,9 +18,5 @@
       "opacity": 10
     }
   },
-  "overrides": {},
-  "uiBase": "dark dim",
-  "ui": {
-    "Doki.Icon.Accent.Contrast.color": "headerColor"
-  }
+  "uiBase": "dark dim"
 }

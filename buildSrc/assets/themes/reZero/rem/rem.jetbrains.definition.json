@@ -4,11 +4,11 @@
     "type": "template",
     "name": "Doki Dark"
   },
+  "overrides": {},
+  "ui": {},
   "backgrounds": {
     "default": {
       "position": "MIDDLE_RIGHT"
     }
-  },
-  "overrides": {},
-  "ui": {}
+  }
 }

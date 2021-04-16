@@ -4,9 +4,7 @@
     "type": "templateExtension",
     "file": "Monika_Light.xml"
   },
-  "overrides": {
-
-  },
-  "uiBase": "light dim",
-  "ui": {}
+  "overrides": {},
+  "ui": {},
+  "uiBase": "light dim"
 }

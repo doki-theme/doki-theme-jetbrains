@@ -4,12 +4,6 @@
     "type": "templateExtension",
     "file": "Yuri_Dark.xml"
   },
-  "backgrounds": {
-    "default": {
-      "position": "CENTER",
-      "opacity": 7
-    }
-  },
   "overrides": {},
   "ui": {
     "Plugins.lightSelectionBackground": "selectionBackground",
@@ -17,5 +11,11 @@
     "SearchEverywhere.Header.background": "headerColor",
     "SearchEverywhere.SearchField.background": "headerColor",
     "List.selectionBackground": "#534173"
+  },
+  "backgrounds": {
+    "default": {
+      "position": "CENTER",
+      "opacity": 7
+    }
   }
 }
