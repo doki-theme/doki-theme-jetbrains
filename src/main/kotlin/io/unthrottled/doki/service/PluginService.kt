@@ -21,14 +21,16 @@ object PluginService {
   )
 
   fun canAmiiBeInstalled(): Boolean {
-    return ApplicationManager.getApplication().executeOnPooledThread(Callable {
-      val ids = AMII_PLUGIN_ID
-      val pluginId = PluginId.getId(ids)
-      MarketplaceRequests.getInstance().loadLastCompatiblePluginDescriptors(
-        Collections.singletonList(ids)
-      ).firstOrNull { pluginNode ->
-        pluginNode.pluginId == pluginId
-      } != null
-    }).get()
+    return ApplicationManager.getApplication().executeOnPooledThread(
+      Callable {
+        val ids = AMII_PLUGIN_ID
+        val pluginId = PluginId.getId(ids)
+        MarketplaceRequests.getInstance().loadLastCompatiblePluginDescriptors(
+          Collections.singletonList(ids)
+        ).firstOrNull { pluginNode ->
+          pluginNode.pluginId == pluginId
+        } != null
+      }
+    ).get()
   }
 }

@@ -31,18 +31,7 @@ private fun buildUpdateMessage(
   """
       What's New?<br>
       <ul>
-        <li>4 New Themes!!
-        <ul>
-            <li>Astolfo (Dark)</li>
-            <li>Rias (extra dark). <br/> 2 Stickers</li>
-            <li>Sakuranomiya Maika (Dark)</li>
-            <li>Ayanami Rei (Dark)</li>
-        </ul>
-        <li>Global Editor Font Size Setting.</li>
-        <li>Sticker bug fixes</li>
-        <li>HTTP Proxy Support</li>
-        <li>Editor color contrast updates</li>
-        <li>Moved lowest supported build to 2020.3.2</li>
+        <li>Better offline user experience</li>
       </ul>
       Please see the <a href="https://github.com/doki-theme/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md">
       changelog</a> for more details.
