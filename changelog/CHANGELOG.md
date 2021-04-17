@@ -1,6 +1,10 @@
 Changelog
 ---
 
+# 14.3.1 [Offline UX]
+
+- Fixed poor offline user experience. No longer propagating exceptions when offline.
+
 # 14.3.0 [Contrast Updates]
 
 - [#370](https://github.com/doki-theme/doki-theme-jetbrains/issues/370) - Updated all themes to have more visible:
