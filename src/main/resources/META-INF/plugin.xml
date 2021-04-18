@@ -82,6 +82,7 @@
     <themeProvider id="be058474-b967-4afb-b6d9-bda1948b33ec" path="/doki/themes/lucky_star/Konata.theme.json"/>
     <themeProvider id="d39df813-8701-463b-a964-b8cb7714d1cc" path="/doki/themes/steins_gate/Makise_Kurisu.theme.json"/>
     <themeProvider id="6106e529-efef-444d-9db0-a9b0b444cf1b" path="/doki/themes/blend_s/Maika.theme.json"/>
+    <themeProvider id="5e6a266f-c6d5-4891-a065-a2c2b857016a" path="/doki/themes/quintessential_quintuplets/Nakano_Nino.theme.json"/>
     <themeProvider id="d96c6599-ebf8-4359-ae26-19f79b69e919" path="/doki/themes/quintessential_quintuplets/Nakano_Miku.theme.json"/>
     <themeProvider id="98878c8e-9f91-4e25-930d-dd7d280d9e35" path="/doki/themes/bunny_senpai/Mai_Light.theme.json"/>
     <themeProvider id="0527c6fc-316a-4f80-9459-d92ced0e6492" path="/doki/themes/bunny_senpai/Mai_Dark.theme.json"/>
