@@ -6,10 +6,24 @@ Darling in the Franxx
 ![zero two code](../assets/screenshots/franxx/zero_two_dark_code.png)
 ![zero two code](../assets/screenshots/franxx/zero_two_light_code.png)
 
-Fate
+Quintessential Quintuplets
 ---
 
-## Astolfo
+### Nakano Nino
+
+![nino_dark code](../assets/screenshots/quintuplets/nino_dark_code.png)
+
+### Nakano Miku
+
+![nakano_miku_dark code](../assets/screenshots/quintuplets/nakano_miku_dark_code.png)
+
+
+Type-Moon
+---
+
+# Fate
+
+### Astolfo
 
 ![astolfo dark code](../assets/screenshots/fate/astolfo_dark_code.png)
 
@@ -19,10 +33,15 @@ Fate
 
 ### Ishtar
 
-
 ![ishtar dark code](../assets/screenshots/fate/ishtar_dark_code.png)
 
 ![ishtar light code](../assets/screenshots/fate/ishtar_light_code.png)
+
+# Lord El-Melloi II Case Files
+
+### Gray
+
+![gray_dark code](../assets/screenshots/fate/gray_dark_code.png)
 
 Blend S
 ---
@@ -44,6 +63,13 @@ Rascal does not dream of bunny girl senpai
 ![mai light code](../assets/screenshots/bunnySenpai/mai_light_code.png)
 ![mai light code](../assets/screenshots/bunnySenpai/mai_light_secondary_code.png)
 
+
+Daily Life With a Monster Girl
+---
+
+### Miia
+
+![miia_dark code](../assets/screenshots/monsterMusmue/miia_dark_code.png)
 
 
 KonoSuba
@@ -95,6 +121,7 @@ Miscellaneous
 ### Hatsune Miku
 
 ![miku code](../assets/screenshots/miscellaneous/miku_code.png)
+![miku_secondary code](../assets/screenshots/miscellaneous/miku_secondary_code.png)
 
 Re:Zero
 ---
@@ -122,6 +149,9 @@ Miss Kobayashi's Dragon Maid
 ![kanna_dark code](../assets/screenshots/dragonMaid/kanna_dark_code.png)
 ![kanna_dark_secondary code](../assets/screenshots/dragonMaid/kanna_dark_secondary_code.png)
 
+### Tohru
+
+![tohru_light code](../assets/screenshots/dragonMaid/tohru_light_code.png)
 
 DanganRonpa
 ---
