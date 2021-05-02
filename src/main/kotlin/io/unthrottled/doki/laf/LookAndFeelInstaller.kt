@@ -4,14 +4,12 @@ import com.intellij.ide.ui.laf.darcula.ui.DarculaCheckBoxMenuItemUI
 import com.intellij.ide.ui.laf.darcula.ui.DarculaRadioButtonMenuItemUI
 import com.intellij.ui.JBColor.DARK_GRAY
 import com.intellij.ui.JBColor.namedColor
-import com.intellij.util.ui.UIUtil
 import io.unthrottled.doki.icon.DokiIcons
 import io.unthrottled.doki.ui.DokiCheckboxUI
 import io.unthrottled.doki.ui.DokiRadioButtonUI
 import io.unthrottled.doki.ui.DokiTableSelectedCellHighlightBorder
 import io.unthrottled.doki.ui.TitlePaneUI
 import io.unthrottled.doki.ui.ToggleButtonUI
-import io.unthrottled.doki.util.gt
 import javax.swing.BorderFactory
 import javax.swing.UIManager
 import kotlin.collections.set
@@ -48,20 +46,6 @@ object LookAndFeelInstaller {
     defaults[DokiIcons.Tree.SELECTED_COLLAPSED_KEY] = DokiIcons.Tree.COLLAPSED
     defaults[DokiIcons.Tree.EXPANDED_KEY] = DokiIcons.Tree.EXPANDED
     defaults[DokiIcons.Tree.SELECTED_EXPANDED_KEY] = DokiIcons.Tree.EXPANDED
-
-//    defaults["grayFilter"] = object : UIUtil.GrayFilter() {
-//
-//      override fun getAlpha(): Int {
-//        return 20
-//      }
-//
-//      override fun filterRGB(x: Int, y: Int, rgb: Int): Int {
-//        return when {
-//          rgb != 0 -> namedColor("TabbedPane.disabledForeground", DARK_GRAY).rgb
-//          else -> rgb
-//        }
-//      }
-//    }
   }
 
   private fun installButtons() {
