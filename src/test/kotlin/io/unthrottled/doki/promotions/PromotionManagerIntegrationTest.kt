@@ -17,6 +17,7 @@ import io.unthrottled.doki.test.tools.TestTools
 import io.unthrottled.doki.test.tools.TestTools.setUpMocksForManager
 import io.unthrottled.doki.test.tools.TestTools.tearDownMocksForPromotionManager
 import io.unthrottled.doki.util.toOptional
+import org.assertj.core.api.Assertions
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.AfterClass
 import org.junit.Before
@@ -28,7 +29,6 @@ import java.time.Period
 import java.util.Optional
 import java.util.UUID
 import java.util.concurrent.TimeUnit
-import kotlin.test.assertTrue
 
 class PromotionManagerIntegrationTest {
 
@@ -440,7 +440,7 @@ class PromotionManagerIntegrationTest {
 
     verify { AniMemePromotionService wasNot Called }
 
-    assertTrue { LockMaster.acquireLock("Syrena") }
+    Assertions.assertThat(LockMaster.acquireLock("Syrena")).isTrue
   }
 
   @Test
@@ -476,7 +476,7 @@ class PromotionManagerIntegrationTest {
 
     verify { AniMemePromotionService wasNot Called }
 
-    assertTrue { LockMaster.acquireLock("Syrena") }
+    Assertions.assertThat(LockMaster.acquireLock("Syrena")).isTrue
   }
 
   @Test
@@ -513,7 +513,7 @@ class PromotionManagerIntegrationTest {
 
     verify { AniMemePromotionService wasNot Called }
 
-    assertTrue { LockMaster.acquireLock("Syrena") }
+    Assertions.assertThat(LockMaster.acquireLock("Syrena")).isTrue
   }
 
   @Test
@@ -551,7 +551,7 @@ class PromotionManagerIntegrationTest {
 
     validateLedgerCallback(currentLedger, beforePromotion)
 
-    assertTrue { LockMaster.acquireLock("Syrena") }
+    Assertions.assertThat(LockMaster.acquireLock("Syrena")).isTrue
   }
 
   @Test
@@ -593,12 +593,12 @@ class PromotionManagerIntegrationTest {
 
     rejectionSlot.captured()
 
-    assertTrue { LockMaster.acquireLock("Syrena") }
+    Assertions.assertThat(LockMaster.acquireLock("Syrena")).isTrue
     LockMaster.releaseLock("Syrena")
 
     validateLedgerCallback(currentLedger, beforePromotion)
 
-    assertTrue { LockMaster.acquireLock("Syrena") }
+    Assertions.assertThat(LockMaster.acquireLock("Syrena")).isTrue
   }
 
   @Test
@@ -634,7 +634,7 @@ class PromotionManagerIntegrationTest {
 
     validateLedgerCallback(currentLedger, beforePromotion)
 
-    assertTrue { LockMaster.acquireLock("Syrena") }
+    Assertions.assertThat(LockMaster.acquireLock("Syrena")).isTrue
   }
 
   @Test
@@ -675,7 +675,7 @@ class PromotionManagerIntegrationTest {
 
     validateLedgerCallback(currentLedger, beforePromotion)
 
-    assertTrue { LockMaster.acquireLock("Syrena") }
+    Assertions.assertThat(LockMaster.acquireLock("Syrena")).isTrue
   }
 
   @Test
@@ -720,7 +720,7 @@ class PromotionManagerIntegrationTest {
 
     validateLedgerCallback(currentLedger, beforePromotion)
 
-    assertTrue { LockMaster.acquireLock("Syrena") }
+    Assertions.assertThat(LockMaster.acquireLock("Syrena")).isTrue
   }
 
   private fun validateLedgerCallback(
