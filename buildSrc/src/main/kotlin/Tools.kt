@@ -1,4 +1,3 @@
-
 const val DDLC_THEME_NAME_PREFIX = "DDLC: "
 private val nameMapping =
   mapOf(
@@ -8,11 +7,15 @@ private val nameMapping =
     "Love Live" to "LoveLive: ",
     "Literature Club" to DDLC_THEME_NAME_PREFIX,
     "KonoSuba" to "KonoSuba: ",
-    "Fate" to "Fate: ",
     "Darling in the Franxx" to "Franxx: ",
     "Bunny Senpai" to "BunnySenpai: ",
     "Steins Gate" to "SG: ",
     "Gate" to "Gate: ",
+    "Quintessential Quintuplets" to "QQ: ",
+    "Fate" to "TypeMoon: ",
+    "Type-Moon" to "TypeMoon: ",
+    "Daily Life With A Monster Girl" to "MonsterMusume: ",
+    "Vocaloid" to "Vocaloid: ",
     "DanganRonpa" to "DR: ",
     "High School DxD" to "DxD: ",
     "Sword Art Online" to "SAO: ",

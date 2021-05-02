@@ -24,9 +24,10 @@ I think you will find best girl.
 You can choose themes from various, Anime, Manga, or Visual Novels:
 
 - Blend S
+- Daily Life with a Monster Girl
 - DanganRonpa
 - Doki-Doki Literature Club
-- Fate
+- Fate/Type-Moon
 - Gate
 - High School DxD
 - Kill La Kill
@@ -36,6 +37,7 @@ You can choose themes from various, Anime, Manga, or Visual Novels:
 - Miss Kobayashi's Dragon Maid
 - Neon Genesis Evangelion
 - OreGairu
+- Quintessential Quintuplets
 - Re:Zero
 - Steins Gate
 - Sword Art Online
@@ -110,6 +112,7 @@ Some themes have more than one set of images, this allows you to switch in-betwe
 
 Themes that have more than one sticker:
 
+- Hatsune Miku
 - Sakurajima Mai
 - Kanna Kamui
 - Izumi Konata

@@ -5,6 +5,6 @@
     "name": "Doki Dim Light"
   },
   "overrides": {},
-  "uiBase": "light dim",
-  "ui": {}
+  "ui": {},
+  "uiBase": "light dim"
 }

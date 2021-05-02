@@ -57,8 +57,8 @@
     <option name="INLINE_REFACTORING_SETTINGS_DEFAULT" value="%accentColorMoreTransparent%"/>
     <option name="INLINE_REFACTORING_SETTINGS_FOCUSED" value="%accentColorTransparent%"/>
     <option name="INLINE_REFACTORING_SETTINGS_HOVERED" value="%accentColorTransparent%"/>
-    <option name="LINE_NUMBERS_COLOR" value="aaaaaa"/>
-    <option name="LINE_NUMBER_ON_CARET_ROW_COLOR" value="aaaaaa"/>
+    <option name="LINE_NUMBERS_COLOR" value="$lineNumberColor$"/>
+    <option name="LINE_NUMBER_ON_CARET_ROW_COLOR" value="$lineNumberColor$"/>
     <option name="PROMOTION_PANE" value="%accentColor%5a"/>
     <option name="METHOD_SEPARATORS_COLOR" value="$borderColor$"/>
     <option name="RECENT_LOCATIONS_SELECTION" value="$codeBlock$"/>
@@ -1943,7 +1943,7 @@
     </option>
     <option name="NOT_USED_ELEMENT_ATTRIBUTES">
       <value>
-        <option name="FOREGROUND" value="B7B7B7"/>
+        <option name="FOREGROUND" value="$unusedColor$"/>
         <option name="BACKGROUND"/>
         <option name="EFFECT_COLOR"/>
       </value>

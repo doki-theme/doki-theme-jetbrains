@@ -4,11 +4,11 @@
     "type": "templateExtension",
     "file": "Ibuki_Dark.xml"
   },
+  "overrides": {},
+  "ui": {},
   "backgrounds": {
     "default": {
       "position": "MIDDLE_RIGHT"
     }
-  },
-  "overrides": {},
-  "ui": {}
+  }
 }

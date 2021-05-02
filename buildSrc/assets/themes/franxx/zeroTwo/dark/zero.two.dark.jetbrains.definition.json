@@ -4,14 +4,14 @@
     "type": "template",
     "name": "Doki Dark"
   },
+  "overrides": {},
+  "ui": {
+    "Doki.Icon.Accent.Contrast.color": "headerColor"
+  },
   "backgrounds": {
     "default": {
       "position": "CENTER",
       "opacity": 8
     }
-  },
-  "overrides": {},
-  "ui": {
-    "Doki.Icon.Accent.Contrast.color": "headerColor"
   }
 }

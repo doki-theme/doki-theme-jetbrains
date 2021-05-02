@@ -116,8 +116,6 @@
         "nonProjectFileScopeColor",
         "secondaryBackground",
         "selectionForeground",
-        "inactiveBackground",
-        "inactiveBackgroundDarker",
         "headerColor",
         "baseBackground",
         "borderColor",
@@ -161,12 +159,6 @@
           "$ref": "#/definitions/color"
         },
         "selectionForeground": {
-          "$ref": "#/definitions/color"
-        },
-        "inactiveBackground": {
-          "$ref": "#/definitions/color"
-        },
-        "inactiveBackgroundDarker": {
           "$ref": "#/definitions/color"
         },
         "headerColor": {

@@ -9,10 +9,15 @@ object LegacyMigration {
     handleThemeRenames()
   }
 
+  private val renamedThemes = setOf(
+    "bc12b380-1f2a-4a9d-89d8-388a07f1e15f", // Hatsune Miku
+    "c5e92ad9-2fa0-491e-b92a-48ab92d13597", // Rias Crimson
+  )
+
   private fun handleThemeRenames() {
     ThemeManager.instance.currentTheme
       .filter {
-        it.id == "c5e92ad9-2fa0-491e-b92a-48ab92d13597"
+        renamedThemes.contains(it.id)
       }
       .ifPresent { renamedTheme ->
         setDokiTheme(

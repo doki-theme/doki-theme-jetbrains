@@ -2,13 +2,13 @@ Themes grouped by album
 ---
 [Blend S](bs_album.md)
 
+[Daily Life with Monster Girls](mm_album.md)
+
 [DanganRonpa Album](dr_themes.md)
 
 [Darling in the Franxx](dif_album.md)
 
 [Doki-Doki Literature Club Album](theme_album.md)
-
-[Fate](fate_themes.md)
 
 [Gate](gate_themes.md)
 
@@ -30,6 +30,8 @@ Themes grouped by album
 
 [OreGairu](og_themes.md)
 
+[Quintessential Quintuplets](qq_album.md)
+
 [Rascal does not dream of bunny girl senpai](bgs_album.md)
 
 [Re:Zero Album](r0_album.md)
@@ -37,3 +39,5 @@ Themes grouped by album
 [Steins Gate](sg_themes.md)
 
 [Sword Art Online Album](sao_album.md)
+
+[Type-Moon](fate_themes.md)

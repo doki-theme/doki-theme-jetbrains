@@ -4,11 +4,6 @@
     "type": "templateExtension",
     "file": "Beatrice.xml"
   },
-  "backgrounds": {
-    "default": {
-      "position": "MIDDLE_RIGHT"
-    }
-  },
   "overrides": {},
   "ui": {
     "CompletionPopup.background": "testScopeColor",
@@ -35,5 +30,10 @@
     "ScrollBar.Mac.thumbColor": "accentColorSecondaryTransparent",
     "ScrollBar.Mac.hoverThumbBorderColor": "accentColorSecondaryTransparent",
     "ScrollBar.Mac.hoverThumbColor": "accentColorSecondaryTransparent"
+  },
+  "backgrounds": {
+    "default": {
+      "position": "MIDDLE_RIGHT"
+    }
   }
 }

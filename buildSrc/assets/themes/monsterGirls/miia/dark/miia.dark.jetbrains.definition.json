@@ -1,0 +1,15 @@
+{
+  "id": "5903b523-ea0a-4724-85d4-f0d0652c3010",
+  "editorScheme": {
+    "type": "template",
+    "name": "Doki Dark"
+  },
+  "backgrounds": {
+    "default": {
+      "position": "MIDDLE_RIGHT",
+      "opacity": 6
+    }
+  },
+  "overrides": {},
+  "ui": {}
+}

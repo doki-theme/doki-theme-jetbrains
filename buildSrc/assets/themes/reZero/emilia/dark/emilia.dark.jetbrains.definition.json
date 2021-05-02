@@ -4,12 +4,6 @@
     "type": "templateExtension",
     "file": "Emilia_Dark.xml"
   },
-  "backgrounds": {
-    "default": {
-      "position": "MIDDLE_RIGHT",
-      "opacity": 13
-    }
-  },
   "overrides": {},
   "ui": {
     "Plugins.lightSelectionBackground": "selectionBackground",
@@ -17,5 +11,11 @@
     "SearchEverywhere.Header.background": "headerColor",
     "SearchEverywhere.SearchField.background": "headerColor",
     "List.selectionBackground": "#5d3b70"
+  },
+  "backgrounds": {
+    "default": {
+      "position": "MIDDLE_RIGHT",
+      "opacity": 13
+    }
   }
 }

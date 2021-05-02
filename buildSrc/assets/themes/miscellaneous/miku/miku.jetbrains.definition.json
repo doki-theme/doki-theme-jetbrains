@@ -4,6 +4,12 @@
     "type": "template",
     "name": "Doki Dark"
   },
+  "backgrounds": {
+    "secondary": {
+      "position": "MIDDLE_RIGHT",
+      "opacity": 7
+    }
+  },
   "overrides": {},
   "ui": {}
 }

@@ -4,6 +4,10 @@
     "type": "template",
     "name": "Doki Light v2"
   },
+  "overrides": {},
+  "ui": {
+    "Doki.Icon.Accent.Contrast.color": "headerColor"
+  },
   "backgrounds": {
     "default": {
       "position": "MIDDLE_RIGHT"
@@ -12,9 +16,5 @@
       "position": "MIDDLE_RIGHT",
       "opacity": 13
     }
-  },
-  "overrides": {},
-  "ui": {
-    "Doki.Icon.Accent.Contrast.color": "headerColor"
   }
 }

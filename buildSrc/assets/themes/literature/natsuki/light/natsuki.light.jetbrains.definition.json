@@ -4,6 +4,7 @@
     "type": "templateExtension",
     "file": "Natsuki_Light.xml"
   },
+  "overrides": {},
   "ui": {
     "CompletionPopup.background": "testScopeColor",
     "CompletionPopup.selectionForeground": "selectionForeground",
@@ -22,8 +23,5 @@
       "position": "CENTER",
       "opacity": 10
     }
-  },
-  "overrides": {
-
   }
 }

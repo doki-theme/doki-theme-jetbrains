@@ -5,6 +5,6 @@
     "file": "Megumin.xml"
   },
   "overrides": {},
-  "uiBase": "dark dim",
-  "ui": {}
+  "ui": {},
+  "uiBase": "dark dim"
 }

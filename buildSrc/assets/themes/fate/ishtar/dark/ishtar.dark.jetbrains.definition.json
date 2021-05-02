@@ -5,7 +5,6 @@
     "name": "Doki Dim"
   },
   "overrides": {},
-  "uiBase": "dark dim",
-  "ui": {}
+  "ui": {},
+  "uiBase": "dark dim"
 }
-

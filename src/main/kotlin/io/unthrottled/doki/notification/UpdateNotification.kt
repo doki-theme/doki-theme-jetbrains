@@ -31,7 +31,16 @@ private fun buildUpdateMessage(
   """
       What's New?<br>
       <ul>
-        <li>Better offline user experience</li>
+          <li>5 New Themes!!
+        <ul>
+            <li>Nakano Nino (Dark)</li>
+            <li>Nakano Miku (Dark)</li>
+            <li>Miia (Dark)</li>
+            <li>Gray (Dark)</li>
+            <li>Tohru (Light)</li>
+        </ul>
+        </li>
+        <li>Hatsune Miku now has a <code>Secondary</code> sticker</li>
       </ul>
       Please see the <a href="https://github.com/doki-theme/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md">
       changelog</a> for more details.
@@ -111,9 +120,9 @@ object UpdateNotification {
         buildUpdateMessage(
           AssetManager.resolveAssetUrl(
             AssetCategory.MISC,
-            "update_celebration_v4.gif"
+            "update_celebration_v5.gif"
           ).orElseGet {
-            "https://doki.assets.unthrottled.io/misc/update_celebration_v4"
+            "https://doki.assets.unthrottled.io/misc/update_celebration_v5"
           },
           Dimension(450, 253)
         ),

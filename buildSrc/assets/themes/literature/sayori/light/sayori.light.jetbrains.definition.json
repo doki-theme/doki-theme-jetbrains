@@ -5,8 +5,8 @@
     "file": "Sayori_Light.xml"
   },
   "overrides": {},
-  "uiBase": "light dim",
   "ui": {
-    "CompletionPopup.matchForeground":"startColor"
-  }
+    "CompletionPopup.matchForeground": "startColor"
+  },
+  "uiBase": "light dim"
 }
