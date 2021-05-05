@@ -112,7 +112,7 @@ class ToggleButtonUI : BasicToggleButtonUI() {
     private val BUTTON_BORDER: Border = JBUI.Borders.empty(1, 10)
     private const val ARC = 16
 
-    @Suppress( "UNUSED", "UNUSED_PARAMETER")
+    @Suppress("UNUSED", "UNUSED_PARAMETER")
     @JvmStatic
     fun createUI(component: JComponent): ComponentUI = ToggleButtonUI()
   }
