@@ -8,11 +8,12 @@ import javax.swing.AbstractButton
 import javax.swing.JComponent
 import javax.swing.plaf.ComponentUI
 
+@Suppress("ACCIDENTAL_OVERRIDE")
 class DokiRadioButtonUI : DarculaRadioButtonUI() {
 
   companion object {
     @JvmStatic
-    @Suppress("ACCIDENTAL_OVERRIDE", "UNUSED", "UNUSED_PARAMETER")
+    @Suppress("UNUSED", "UNUSED_PARAMETER")
     fun createUI(c: JComponent?): ComponentUI = DokiRadioButtonUI()
   }
 
