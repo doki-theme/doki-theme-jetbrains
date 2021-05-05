@@ -40,6 +40,7 @@ import javax.swing.plaf.basic.BasicRootPaneUI
 
 typealias Disposer = () -> Unit
 
+@Suppress("ACCIDENTAL_OVERRIDE")
 class TitlePaneUI : DarculaRootPaneUI() {
 
   companion object {
@@ -49,7 +50,7 @@ class TitlePaneUI : DarculaRootPaneUI() {
     const val TRANSPARENT_TITLE_BAR_APPEARANCE = "jetbrains.awt.transparentTitleBarAppearance"
 
     @JvmStatic
-    @Suppress("ACCIDENTAL_OVERRIDE", "UNUSED", "UNUSED_PARAMETER")
+    @Suppress("UNUSED", "UNUSED_PARAMETER")
     fun createUI(component: JComponent): ComponentUI =
       if (hasTransparentTitleBar()) {
         TitlePaneUI()

@@ -46,6 +46,7 @@ import javax.swing.border.Border
 import javax.swing.plaf.ComponentUI
 import javax.swing.plaf.basic.BasicToggleButtonUI
 
+@Suppress("ACCIDENTAL_OVERRIDE")
 class ToggleButtonUI : BasicToggleButtonUI() {
   override fun getPreferredSize(c: JComponent): Dimension {
     val size = Dimension(BUTTON_SIZE)
@@ -111,7 +112,7 @@ class ToggleButtonUI : BasicToggleButtonUI() {
     private val BUTTON_BORDER: Border = JBUI.Borders.empty(1, 10)
     private const val ARC = 16
 
-    @Suppress("ACCIDENTAL_OVERRIDE", "UNUSED", "UNUSED_PARAMETER")
+    @Suppress( "UNUSED", "UNUSED_PARAMETER")
     @JvmStatic
     fun createUI(component: JComponent): ComponentUI = ToggleButtonUI()
   }
