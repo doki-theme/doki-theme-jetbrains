@@ -107,7 +107,6 @@ open class BuildThemes : DefaultTask() {
     val idNodeList = pluginXml["id"] as NodeList
     val idNode = idNodeList[0] as Node
     idNode.setValue(pluginId)
-    idone
   }
 
   private fun cleanPluginXml(extension: Node) {
