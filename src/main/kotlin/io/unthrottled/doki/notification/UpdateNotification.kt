@@ -31,16 +31,7 @@ private fun buildUpdateMessage(
   """
       What's New?<br>
       <ul>
-          <li>5 New Themes!!
-        <ul>
-            <li>Nakano Nino (Dark)</li>
-            <li>Nakano Miku (Dark)</li>
-            <li>Miia (Dark)</li>
-            <li>Gray (Dark)</li>
-            <li>Tohru (Light)</li>
-        </ul>
-        </li>
-        <li>Hatsune Miku now has a <code>Secondary</code> sticker</li>
+        <li>Added Notification Opacity setting</li>
       </ul>
       Please see the <a href="https://github.com/doki-theme/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md">
       changelog</a> for more details.
