@@ -1,6 +1,12 @@
 Changelog
 ---
 
+# 15.1.0 [Notification Opacity]
+
+- Added `Notification Opacity` setting that enables you to control the transparency of your notification windows.
+
+![Notification Opacity](https://raw.githubusercontent.com/doki-theme/doki-theme-jetbrains/master/assets/readmeAssets/notification_opacity.gif)
+
 # 15.0.0 [New Themes!]
 
 ## 5 New Themes
