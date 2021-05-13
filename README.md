@@ -171,6 +171,12 @@ Applies for the following content:
 **Global Editor Font Size** will override any/all font size settings for your code editor font size.
 This only applies to any Doki Themes. You must enable the `Override Editor Font Size` for this feature to take effect.
 
+**Notification Opacity:** Are you tired of pesky notifications covering up your waifu?
+I know I was, now you can fix that problem. You are free to adjust the opacity of the notification window as you please.
+You can hit `Apply` to test out your new settings!
+
+![Notification Opacity](./assets/readmeAssets/notification_opacity.gif)
+
 **Frameless Mode** is a feature only available on MacOS, and gives your IDE the frameless look and feel.
 
 ![Frameless mode](./assets/readmeAssets/frameless.png)
