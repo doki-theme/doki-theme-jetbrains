@@ -13,6 +13,7 @@ import io.unthrottled.doki.settings.actors.EmptyFrameBackgroundActor
 import io.unthrottled.doki.settings.actors.LafAnimationActor
 import io.unthrottled.doki.settings.actors.MaterialIconsActor
 import io.unthrottled.doki.settings.actors.MoveableStickerActor
+import io.unthrottled.doki.settings.actors.SeeThroughNotificationsActor
 import io.unthrottled.doki.settings.actors.ShowReadmeActor
 import io.unthrottled.doki.settings.actors.StickerActor
 import io.unthrottled.doki.settings.actors.ThemeActor
@@ -45,6 +46,8 @@ data class ThemeSettingsModel(
   var customStickerPath: String,
   var isCustomFontSize: Boolean,
   var customFontSizeValue: Int,
+  var isSeeThroughNotifications: Boolean,
+  var notificationOpacity: Int,
 ) {
 
   fun duplicate(): ThemeSettingsModel = copy()
@@ -81,6 +84,8 @@ object ThemeSettings {
       customStickerPath = CustomStickerService.getCustomStickerPath().orElse(""),
       isCustomFontSize = ThemeConfig.instance.isGlobalFontSize,
       customFontSizeValue = ThemeConfig.instance.customFontSize,
+      isSeeThroughNotifications = ThemeConfig.instance.isSeeThroughNotifications,
+      notificationOpacity = ThemeConfig.instance.notificationOpacity,
     )
 
   fun apply(themeSettingsModel: ThemeSettingsModel) {
@@ -105,6 +110,10 @@ object ThemeSettings {
     CustomFontSizeActor.enableCustomFontSize(
       themeSettingsModel.isCustomFontSize,
       themeSettingsModel.customFontSizeValue
+    )
+    SeeThroughNotificationsActor.enableSeeThroughNotifications(
+      themeSettingsModel.isSeeThroughNotifications,
+      themeSettingsModel.notificationOpacity,
     )
     ApplicationManager.getApplication().messageBus.syncPublisher(
       THEME_CONFIG_TOPIC

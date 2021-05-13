@@ -5,6 +5,7 @@ import com.intellij.ide.ui.laf.darcula.ui.DarculaRadioButtonMenuItemUI
 import com.intellij.ui.JBColor.DARK_GRAY
 import com.intellij.ui.JBColor.namedColor
 import io.unthrottled.doki.icon.DokiIcons
+import io.unthrottled.doki.service.GlassNotificationService
 import io.unthrottled.doki.ui.DokiCheckboxUI
 import io.unthrottled.doki.ui.DokiRadioButtonUI
 import io.unthrottled.doki.ui.DokiTableSelectedCellHighlightBorder
@@ -26,6 +27,7 @@ object LookAndFeelInstaller {
     installCheckboxes()
     installRadioButtons()
     installDefaults()
+    GlassNotificationService.makeNotificationSeeThrough()
   }
 
   private fun installDefaults() {
