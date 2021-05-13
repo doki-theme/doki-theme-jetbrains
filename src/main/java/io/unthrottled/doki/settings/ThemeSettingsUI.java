@@ -46,6 +46,7 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
   private JCheckBox overrideEditorFontSizeCheckBox;
   private JSlider notificationOpacitySlider;
   private JCheckBox makeNotificationsTransparentCheckBox;
+  private JCheckBox themeChangeAnimationCheckBox;
 
 
   @Override
@@ -159,6 +160,10 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
     notificationOpacitySlider.addChangeListener(change ->
       themeSettingsModel.setNotificationOpacity(notificationOpacitySlider.getValue())
     );
+
+    themeChangeAnimationCheckBox.setSelected(initialThemeSettingsModel.isLafAnimation());
+    themeChangeAnimationCheckBox.addActionListener(e ->
+      themeSettingsModel.setLafAnimation(themeChangeAnimationCheckBox.isSelected()));
   }
 
   @Override

@@ -181,6 +181,9 @@ You can hit `Apply` to test out your new settings!
 
 ![Frameless mode](./assets/readmeAssets/frameless.png)
 
+**Theme Change Animation** enables the neat fade-in animation effect as you change your theme.
+You can see a rough example in the [quick theme switch section.](#quick-theme-switch)
+
 # Miscellaneous
 
 ## Quick Theme Switch
