@@ -67,6 +67,7 @@ You can choose themes from various, Anime, Manga, or Visual Novels:
       - [Background Images](#background-images)
       - [Suggestive Content](#suggestive-content)
       - [Misc Content Settings](#misc-content-settings)
+    - [Other Settings](#other-settings)
 - [Miscellaneous](#miscellaneous)
   - [Quick Theme Switch](#quick-theme-switch)
   - [Theme Requests](#theme-requests)
