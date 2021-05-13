@@ -17,326 +17,333 @@
         <properties/>
         <border type="none"/>
         <children>
-          <grid id="736e4" layout-manager="GridLayoutManager" row-count="7" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-            <margin top="0" left="0" bottom="0" right="0"/>
+          <scrollpane id="4d15f">
             <constraints>
               <tabbedpane title-resource-bundle="messages/MessageBundle" title-key="settings.general.title"/>
             </constraints>
             <properties/>
-            <border type="none"/>
+            <border type="empty"/>
             <children>
-              <grid id="6190c" layout-manager="GridLayoutManager" row-count="1" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+              <grid id="736e4" layout-manager="GridLayoutManager" row-count="7" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                 <margin top="0" left="0" bottom="0" right="0"/>
-                <constraints>
-                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-                </constraints>
+                <constraints/>
                 <properties/>
                 <border type="none"/>
                 <children>
-                  <component id="32ace" class="javax.swing.JLabel">
+                  <grid id="6190c" layout-manager="GridLayoutManager" row-count="1" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
                     <constraints>
-                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                    </constraints>
-                    <properties>
-                      <text resource-bundle="messages/MessageBundle" key="settings.general.current.theme"/>
-                    </properties>
-                  </component>
-                  <hspacer id="da11">
-                    <constraints>
-                      <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                    </constraints>
-                  </hspacer>
-                  <component id="dc399" class="javax.swing.JComboBox" binding="currentThemeWomboComboBox" custom-create="true">
-                    <constraints>
-                      <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties/>
-                  </component>
-                </children>
-              </grid>
-              <vspacer id="90801">
-                <constraints>
-                  <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-                </constraints>
-              </vspacer>
-              <grid id="996d1" layout-manager="GridLayoutManager" row-count="13" column-count="9" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-                <margin top="0" left="0" bottom="0" right="0"/>
-                <constraints>
-                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties/>
-                <border type="etched" title-resource-bundle="messages/MessageBundle" title-key="settings.general.weeb.stuff.title"/>
-                <children>
-                  <vspacer id="90e01">
+                    <border type="none"/>
+                    <children>
+                      <component id="32ace" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text resource-bundle="messages/MessageBundle" key="settings.general.current.theme"/>
+                        </properties>
+                      </component>
+                      <hspacer id="da11">
+                        <constraints>
+                          <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                      </hspacer>
+                      <component id="dc399" class="javax.swing.JComboBox" binding="currentThemeWomboComboBox" custom-create="true">
+                        <constraints>
+                          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties/>
+                      </component>
+                    </children>
+                  </grid>
+                  <vspacer id="90801">
                     <constraints>
-                      <grid row="8" column="7" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                      <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
                     </constraints>
                   </vspacer>
-                  <hspacer id="5149a">
+                  <grid id="996d1" layout-manager="GridLayoutManager" row-count="13" column-count="9" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
                     <constraints>
-                      <grid row="6" column="8" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                      <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties/>
+                    <border type="etched" title-resource-bundle="messages/MessageBundle" title-key="settings.general.weeb.stuff.title"/>
+                    <children>
+                      <vspacer id="90e01">
+                        <constraints>
+                          <grid row="8" column="7" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                      </vspacer>
+                      <hspacer id="5149a">
+                        <constraints>
+                          <grid row="6" column="8" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                      </hspacer>
+                      <component id="a4aa5" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="1" column="0" row-span="1" col-span="5" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text resource-bundle="messages/MessageBundle" key="settings.general.weeb.sticker.title"/>
+                        </properties>
+                      </component>
+                      <vspacer id="c8c3d">
+                        <constraints>
+                          <grid row="5" column="0" row-span="1" col-span="7" vsize-policy="2" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+                            <preferred-size width="-1" height="10"/>
+                            <maximum-size width="-1" height="10"/>
+                          </grid>
+                        </constraints>
+                      </vspacer>
+                      <component id="58693" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="7" column="0" row-span="1" col-span="7" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text resource-bundle="messages/MessageBundle" key="settings.general.weeb.background.title"/>
+                        </properties>
+                      </component>
+                      <vspacer id="82f92">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="7" vsize-policy="0" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+                            <preferred-size width="-1" height="5"/>
+                            <maximum-size width="-1" height="5"/>
+                          </grid>
+                        </constraints>
+                      </vspacer>
+                      <component id="524dc" class="javax.swing.JCheckBox" binding="backgroundWallpaperCheckBox" default-binding="true">
+                        <constraints>
+                          <grid row="9" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text resource-bundle="messages/MessageBundle" key="settings.general.weeb.background.editor"/>
+                        </properties>
+                      </component>
+                      <component id="3c6e3" class="javax.swing.JLabel" binding="warningLabel">
+                        <constraints>
+                          <grid row="10" column="0" row-span="1" col-span="7" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <icon value="general/warning.png"/>
+                          <text resource-bundle="messages/MessageBundle" key="settings.general.weeb.background.editor.info"/>
+                        </properties>
+                      </component>
+                      <component id="4dfb5" class="javax.swing.JCheckBox" binding="emptyEditorBackgroundCheckBox" default-binding="true">
+                        <constraints>
+                          <grid row="9" column="4" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text resource-bundle="messages/MessageBundle" key="settings.general.weeb.background.frame"/>
+                        </properties>
+                      </component>
+                      <vspacer id="f69fc">
+                        <constraints>
+                          <grid row="12" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="0" fill="2" indent="2" use-parent-layout="false">
+                            <preferred-size width="-1" height="5"/>
+                            <maximum-size width="-1" height="5"/>
+                          </grid>
+                        </constraints>
+                      </vspacer>
+                      <component id="e28f1" class="javax.swing.JCheckBox" binding="nameInStatusBarCheckBox" default-binding="true">
+                        <constraints>
+                          <grid row="12" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text resource-bundle="messages/MessageBundle" key="settings.general.weeb.statusbar"/>
+                        </properties>
+                      </component>
+                      <vspacer id="cbc53">
+                        <constraints>
+                          <grid row="11" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+                            <preferred-size width="-1" height="10"/>
+                            <maximum-size width="-1" height="10"/>
+                          </grid>
+                        </constraints>
+                      </vspacer>
+                      <hspacer id="d35ea">
+                        <constraints>
+                          <grid row="4" column="8" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                      </hspacer>
+                      <component id="7663e" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="1" column="5" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text resource-bundle="messages/MessageBundle" key="settings.general.weeb.sticker.type.title"/>
+                        </properties>
+                      </component>
+                      <component id="84225" class="javax.swing.JRadioButton" binding="primaryRadioButton" default-binding="true">
+                        <constraints>
+                          <grid row="2" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text resource-bundle="messages/MessageBundle" key="settings.general.weeb.sticker.type.primary"/>
+                        </properties>
+                      </component>
+                      <component id="980b7" class="javax.swing.JRadioButton" binding="secondaryRadioButton" default-binding="true">
+                        <constraints>
+                          <grid row="3" column="5" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text resource-bundle="messages/MessageBundle" key="settings.general.weeb.sticker.type.secondary"/>
+                        </properties>
+                      </component>
+                      <component id="7605" class="javax.swing.JCheckBox" binding="showStickerCheckBox" default-binding="true">
+                        <constraints>
+                          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text resource-bundle="messages/MessageBundle" key="settings.general.weeb.sticker.enabled"/>
+                        </properties>
+                      </component>
+                      <component id="53639" class="javax.swing.JCheckBox" binding="allowPositioningCheckBox" default-binding="true">
+                        <constraints>
+                          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text resource-bundle="messages/MessageBundle" key="settings.general.weeb.sticker.positioning"/>
+                        </properties>
+                      </component>
+                      <hspacer id="76344">
+                        <constraints>
+                          <grid row="2" column="6" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                      </hspacer>
+                      <hspacer id="1f920">
+                        <constraints>
+                          <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                      </hspacer>
+                      <component id="f16d3" class="javax.swing.JButton" binding="chooseImageButton" default-binding="true">
+                        <constraints>
+                          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text resource-bundle="messages/MessageBundle" key="settings.general.content.sticker.custom.choose"/>
+                        </properties>
+                      </component>
+                      <component id="9ddee" class="javax.swing.JCheckBox" binding="useCustomStickerCheckBox" default-binding="true">
+                        <constraints>
+                          <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text resource-bundle="messages/MessageBundle" key="settings.general.content.custom.sticker.enabled"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                  <grid id="1eca4" layout-manager="GridLayoutManager" row-count="6" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints>
+                      <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties/>
+                    <border type="etched" title-resource-bundle="messages/MessageBundle" title-key="settings.general.other"/>
+                    <children>
+                      <hspacer id="c2504">
+                        <constraints>
+                          <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                      </hspacer>
+                      <vspacer id="26f9e">
+                        <constraints>
+                          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                      </vspacer>
+                      <component id="d8006" class="javax.swing.JCheckBox" binding="framelessModeMacOSOnlyCheckBox" default-binding="true">
+                        <constraints>
+                          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text resource-bundle="messages/MessageBundle" key="settings.general.other.themed.titlebar"/>
+                        </properties>
+                      </component>
+                      <component id="4ed76" class="javax.swing.JSpinner" binding="customFontSize">
+                        <constraints>
+                          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties/>
+                      </component>
+                      <component id="4ec6d" class="javax.swing.JCheckBox" binding="overrideEditorFontSizeCheckBox" default-binding="true">
+                        <constraints>
+                          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text resource-bundle="messages/MessageBundle" key="settings.general.other.global.font.size"/>
+                        </properties>
+                      </component>
+                      <hspacer id="e21a4">
+                        <constraints>
+                          <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                      </hspacer>
+                      <component id="97513" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text resource-bundle="messages/MessageBundle" key="settings.general.other.global.font.label"/>
+                        </properties>
+                      </component>
+                      <component id="69ec9" class="javax.swing.JSlider" binding="notificationOpacitySlider">
+                        <constraints>
+                          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <majorTickSpacing value="10"/>
+                          <minorTickSpacing value="1"/>
+                          <paintLabels value="true"/>
+                          <paintTicks value="true"/>
+                          <value value="90"/>
+                        </properties>
+                      </component>
+                      <component id="3eeb5" class="javax.swing.JCheckBox" binding="makeNotificationsTransparentCheckBox" default-binding="true">
+                        <constraints>
+                          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text resource-bundle="messages/MessageBundle" key="settings.general.other.glass-notification.enabled"/>
+                        </properties>
+                      </component>
+                      <component id="2af43" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text resource-bundle="messages/MessageBundle" key="settings.general.other.glass-notification.title"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                  <hspacer id="77636">
+                    <constraints>
+                      <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
                   </hspacer>
-                  <component id="a4aa5" class="javax.swing.JLabel">
+                  <vspacer id="83759">
                     <constraints>
-                      <grid row="1" column="0" row-span="1" col-span="5" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                    </constraints>
-                    <properties>
-                      <text resource-bundle="messages/MessageBundle" key="settings.general.weeb.sticker.title"/>
-                    </properties>
-                  </component>
-                  <vspacer id="c8c3d">
-                    <constraints>
-                      <grid row="5" column="0" row-span="1" col-span="7" vsize-policy="2" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
-                        <preferred-size width="-1" height="10"/>
-                        <maximum-size width="-1" height="10"/>
-                      </grid>
-                    </constraints>
-                  </vspacer>
-                  <component id="58693" class="javax.swing.JLabel">
-                    <constraints>
-                      <grid row="7" column="0" row-span="1" col-span="7" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                    </constraints>
-                    <properties>
-                      <text resource-bundle="messages/MessageBundle" key="settings.general.weeb.background.title"/>
-                    </properties>
-                  </component>
-                  <vspacer id="82f92">
-                    <constraints>
-                      <grid row="0" column="0" row-span="1" col-span="7" vsize-policy="0" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="2" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
                         <preferred-size width="-1" height="5"/>
                         <maximum-size width="-1" height="5"/>
                       </grid>
                     </constraints>
                   </vspacer>
-                  <component id="524dc" class="javax.swing.JCheckBox" binding="backgroundWallpaperCheckBox" default-binding="true">
+                  <component id="b3692" class="javax.swing.JTextPane" binding="generalLinks" custom-create="true">
                     <constraints>
-                      <grid row="9" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                    </constraints>
-                    <properties>
-                      <text resource-bundle="messages/MessageBundle" key="settings.general.weeb.background.editor"/>
-                    </properties>
-                  </component>
-                  <component id="3c6e3" class="javax.swing.JLabel" binding="warningLabel">
-                    <constraints>
-                      <grid row="10" column="0" row-span="1" col-span="7" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                    </constraints>
-                    <properties>
-                      <icon value="general/warning.png"/>
-                      <text resource-bundle="messages/MessageBundle" key="settings.general.weeb.background.editor.info"/>
-                    </properties>
-                  </component>
-                  <component id="4dfb5" class="javax.swing.JCheckBox" binding="emptyEditorBackgroundCheckBox" default-binding="true">
-                    <constraints>
-                      <grid row="9" column="4" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                    </constraints>
-                    <properties>
-                      <text resource-bundle="messages/MessageBundle" key="settings.general.weeb.background.frame"/>
-                    </properties>
-                  </component>
-                  <vspacer id="f69fc">
-                    <constraints>
-                      <grid row="12" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="0" fill="2" indent="2" use-parent-layout="false">
-                        <preferred-size width="-1" height="5"/>
-                        <maximum-size width="-1" height="5"/>
+                      <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                        <preferred-size width="150" height="50"/>
                       </grid>
-                    </constraints>
-                  </vspacer>
-                  <component id="e28f1" class="javax.swing.JCheckBox" binding="nameInStatusBarCheckBox" default-binding="true">
-                    <constraints>
-                      <grid row="12" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                    </constraints>
-                    <properties>
-                      <text resource-bundle="messages/MessageBundle" key="settings.general.weeb.statusbar"/>
-                    </properties>
-                  </component>
-                  <vspacer id="cbc53">
-                    <constraints>
-                      <grid row="11" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
-                        <preferred-size width="-1" height="10"/>
-                        <maximum-size width="-1" height="10"/>
-                      </grid>
-                    </constraints>
-                  </vspacer>
-                  <hspacer id="d35ea">
-                    <constraints>
-                      <grid row="4" column="8" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                    </constraints>
-                  </hspacer>
-                  <component id="7663e" class="javax.swing.JLabel">
-                    <constraints>
-                      <grid row="1" column="5" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                    </constraints>
-                    <properties>
-                      <text resource-bundle="messages/MessageBundle" key="settings.general.weeb.sticker.type.title"/>
-                    </properties>
-                  </component>
-                  <component id="84225" class="javax.swing.JRadioButton" binding="primaryRadioButton" default-binding="true">
-                    <constraints>
-                      <grid row="2" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                    </constraints>
-                    <properties>
-                      <text resource-bundle="messages/MessageBundle" key="settings.general.weeb.sticker.type.primary"/>
-                    </properties>
-                  </component>
-                  <component id="980b7" class="javax.swing.JRadioButton" binding="secondaryRadioButton" default-binding="true">
-                    <constraints>
-                      <grid row="3" column="5" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                    </constraints>
-                    <properties>
-                      <text resource-bundle="messages/MessageBundle" key="settings.general.weeb.sticker.type.secondary"/>
-                    </properties>
-                  </component>
-                  <component id="7605" class="javax.swing.JCheckBox" binding="showStickerCheckBox" default-binding="true">
-                    <constraints>
-                      <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                    </constraints>
-                    <properties>
-                      <text resource-bundle="messages/MessageBundle" key="settings.general.weeb.sticker.enabled"/>
-                    </properties>
-                  </component>
-                  <component id="53639" class="javax.swing.JCheckBox" binding="allowPositioningCheckBox" default-binding="true">
-                    <constraints>
-                      <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                    </constraints>
-                    <properties>
-                      <text resource-bundle="messages/MessageBundle" key="settings.general.weeb.sticker.positioning"/>
-                    </properties>
-                  </component>
-                  <hspacer id="76344">
-                    <constraints>
-                      <grid row="2" column="6" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                    </constraints>
-                  </hspacer>
-                  <hspacer id="1f920">
-                    <constraints>
-                      <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                    </constraints>
-                  </hspacer>
-                  <component id="f16d3" class="javax.swing.JButton" binding="chooseImageButton" default-binding="true">
-                    <constraints>
-                      <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                    </constraints>
-                    <properties>
-                      <text resource-bundle="messages/MessageBundle" key="settings.general.content.sticker.custom.choose"/>
-                    </properties>
-                  </component>
-                  <component id="9ddee" class="javax.swing.JCheckBox" binding="useCustomStickerCheckBox" default-binding="true">
-                    <constraints>
-                      <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                    </constraints>
-                    <properties>
-                      <text resource-bundle="messages/MessageBundle" key="settings.general.content.custom.sticker.enabled"/>
-                    </properties>
-                  </component>
-                </children>
-              </grid>
-              <grid id="1eca4" layout-manager="GridLayoutManager" row-count="6" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-                <margin top="0" left="0" bottom="0" right="0"/>
-                <constraints>
-                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties/>
-                <border type="etched" title-resource-bundle="messages/MessageBundle" title-key="settings.general.other"/>
-                <children>
-                  <hspacer id="c2504">
-                    <constraints>
-                      <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                    </constraints>
-                  </hspacer>
-                  <vspacer id="26f9e">
-                    <constraints>
-                      <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-                    </constraints>
-                  </vspacer>
-                  <component id="d8006" class="javax.swing.JCheckBox" binding="framelessModeMacOSOnlyCheckBox" default-binding="true">
-                    <constraints>
-                      <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                    </constraints>
-                    <properties>
-                      <text resource-bundle="messages/MessageBundle" key="settings.general.other.themed.titlebar"/>
-                    </properties>
-                  </component>
-                  <component id="4ed76" class="javax.swing.JSpinner" binding="customFontSize">
-                    <constraints>
-                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties/>
                   </component>
-                  <component id="4ec6d" class="javax.swing.JCheckBox" binding="overrideEditorFontSizeCheckBox" default-binding="true">
-                    <constraints>
-                      <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                    </constraints>
-                    <properties>
-                      <text resource-bundle="messages/MessageBundle" key="settings.general.other.global.font.size"/>
-                    </properties>
-                  </component>
-                  <hspacer id="e21a4">
-                    <constraints>
-                      <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                    </constraints>
-                  </hspacer>
-                  <component id="97513" class="javax.swing.JLabel">
-                    <constraints>
-                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                    </constraints>
-                    <properties>
-                      <text resource-bundle="messages/MessageBundle" key="settings.general.other.global.font.label"/>
-                    </properties>
-                  </component>
-                  <component id="69ec9" class="javax.swing.JSlider" binding="notificationOpacitySlider">
-                    <constraints>
-                      <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
-                    </constraints>
-                    <properties>
-                      <majorTickSpacing value="10"/>
-                      <minorTickSpacing value="1"/>
-                      <paintLabels value="true"/>
-                      <paintTicks value="true"/>
-                      <value value="90"/>
-                    </properties>
-                  </component>
-                  <component id="3eeb5" class="javax.swing.JCheckBox" binding="makeNotificationsTransparentCheckBox" default-binding="true">
-                    <constraints>
-                      <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                    </constraints>
-                    <properties>
-                      <text resource-bundle="messages/MessageBundle" key="settings.general.other.glass-notification.enabled"/>
-                    </properties>
-                  </component>
-                  <component id="2af43" class="javax.swing.JLabel">
-                    <constraints>
-                      <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                    </constraints>
-                    <properties>
-                      <text resource-bundle="messages/MessageBundle" key="settings.general.other.glass-notification.title"/>
-                    </properties>
-                  </component>
                 </children>
               </grid>
-              <hspacer id="77636">
-                <constraints>
-                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                </constraints>
-              </hspacer>
-              <vspacer id="83759">
-                <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="2" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
-                    <preferred-size width="-1" height="5"/>
-                    <maximum-size width="-1" height="5"/>
-                  </grid>
-                </constraints>
-              </vspacer>
-              <component id="b3692" class="javax.swing.JTextPane" binding="generalLinks" custom-create="true">
-                <constraints>
-                  <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                    <preferred-size width="150" height="50"/>
-                  </grid>
-                </constraints>
-                <properties/>
-              </component>
             </children>
-          </grid>
+          </scrollpane>
           <grid id="d5338" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
