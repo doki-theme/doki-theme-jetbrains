@@ -1,6 +1,7 @@
 package io.unthrottled.doki.service
 
 import com.intellij.ui.ColorUtil
+import com.intellij.ui.JBColor
 import com.intellij.util.ui.UIUtil
 import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.themes.ThemeManager
@@ -13,9 +14,21 @@ object GlassNotificationService {
       .filter { ThemeConfig.instance.isSeeThroughNotifications }
       .ifPresent {
         val defaults = UIManager.getLookAndFeelDefaults()
-        defaults["Notification.background"] = ColorUtil.toAlpha(
+        val alpha = ThemeConfig.instance.notificationOpacity / 100.0
+        val toAlpha = ColorUtil.withAlpha(
           UIUtil.getTreeBackground(),
-          ThemeConfig.instance.notificationOpacity
+          alpha
+        )
+
+        defaults["Notification.background"] = toAlpha
+        defaults["Notification.MoreButton.innerBorderColor"] = toAlpha
+
+        defaults["Notification.MoreButton.background"] = ColorUtil.withAlpha(
+          JBColor.namedColor(
+            "Table.stripeColor",
+            UIUtil.getHeaderActiveColor()
+          ),
+          alpha
         )
       }
   }

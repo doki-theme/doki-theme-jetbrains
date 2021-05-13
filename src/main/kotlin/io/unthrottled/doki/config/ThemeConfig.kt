@@ -42,7 +42,7 @@ class ThemeConfig : PersistentStateComponent<ThemeConfig>, Cloneable {
   var isMaterialPSIIcons: Boolean = false
 
   var isSeeThroughNotifications: Boolean = false
-  var notificationOpacity: Int = 80
+  var notificationOpacity: Int = 90
 
   override fun getState(): ThemeConfig? =
     createCopy(this)

@@ -44,6 +44,8 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
   private JTextPane generalLinks;
   private JSpinner customFontSize;
   private JCheckBox overrideEditorFontSizeCheckBox;
+  private JSlider notificationOpacitySlider;
+  private JCheckBox makeNotificationsTransparentCheckBox;
 
 
   @Override
@@ -145,6 +147,18 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
       themeSettingsModel.setCustomFontSizeValue(
         customFontSizeModel.getNumber().intValue()
       ));
+
+    makeNotificationsTransparentCheckBox.setSelected(initialThemeSettingsModel.isSeeThroughNotifications());
+    makeNotificationsTransparentCheckBox.addActionListener(e -> {
+      notificationOpacitySlider.setEnabled(makeNotificationsTransparentCheckBox.isSelected());
+      themeSettingsModel.setSeeThroughNotifications(makeNotificationsTransparentCheckBox.isSelected());
+    });
+    notificationOpacitySlider.setForeground(UIUtil.getContextHelpForeground());
+    notificationOpacitySlider.setEnabled(initialThemeSettingsModel.isSeeThroughNotifications());
+    notificationOpacitySlider.setValue(initialThemeSettingsModel.getNotificationOpacity());
+    notificationOpacitySlider.addChangeListener(change ->
+      themeSettingsModel.setNotificationOpacity(notificationOpacitySlider.getValue())
+    );
   }
 
   @Override
