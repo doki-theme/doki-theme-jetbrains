@@ -1,6 +1,9 @@
 import io.gitlab.arturbosch.detekt.Detekt
+import org.jetbrains.intellij.ideaDir
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.kordamp.gradle.plugin.markdown.tasks.MarkdownToHtmlTask
+
+fun properties(key: String) = project.findProperty(key).toString()
 
 plugins {
   // Custom plugin for building all of the themes
@@ -8,7 +11,7 @@ plugins {
   // Kotlin support
   id("org.jetbrains.kotlin.jvm") version "1.5.10"
   // gradle-intellij-plugin - read more: https://github.com/JetBrains/gradle-intellij-plugin
-  id("org.jetbrains.intellij") version "0.7.3"
+  id("org.jetbrains.intellij") version "1.0-SNAPSHOT"
   // detekt linter - read more: https://detekt.github.io/detekt/gradle.html
   id("io.gitlab.arturbosch.detekt") version "1.17.1"
   // ktlint linter - read more: https://github.com/JLLeitschuh/ktlint-gradle
@@ -59,19 +62,17 @@ configurations {
 // Configure gradle-intellij-plugin plugin.
 // Read more: https://github.com/JetBrains/gradle-intellij-plugin
 intellij {
-  version = platformVersion
-  type = platformType
-  downloadSources = platformDownloadSources.toBoolean()
-  updateSinceUntilBuild = true
-  alternativeIdePath = idePath
+  version.set(platformVersion)
+  type.set(platformType)
+  downloadSources.set(platformDownloadSources.toBoolean())
+  updateSinceUntilBuild.set(true)
 
   // Plugin Dependencies. Uses `platformPlugins` property from the gradle.properties file.
-  setPlugins(
-    *platformPlugins.split(',')
+  plugins.set(
+    platformPlugins.split(',')
       .filter { System.getenv("ENV") == "DEV" }
       .map(String::trim)
       .filter(String::isNotEmpty)
-      .toTypedArray()
   )
 }
 
@@ -110,14 +111,19 @@ tasks {
     outputDir = file("$projectDir/build/html")
   }
 
+  runIde {
+//    ideDirectory.set(properties("idePath"))
+    ideaDir(properties("idePath"))
+  }
+
   patchPluginXml {
-    version(pluginVersion)
-    sinceBuild(pluginSinceBuild)
-    untilBuild(pluginUntilBuild)
+    version.set(pluginVersion)
+    sinceBuild.set(pluginSinceBuild)
+    untilBuild.set(pluginUntilBuild)
 
     val releaseNotes = file("$projectDir/build/html/RELEASE-NOTES.html")
     if (releaseNotes.exists()) {
-      changeNotes(releaseNotes.readText())
+      changeNotes.set(releaseNotes.readText())
     }
 
     dependsOn("markdownToHtml", "buildThemes")

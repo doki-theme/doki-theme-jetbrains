@@ -1,10 +1,13 @@
 pluginManagement {
-    repositories {
-        maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
+  repositories {
+    maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
 
-        mavenCentral()
+    mavenCentral()
 
-        maven { url 'https://plugins.gradle.org/m2/' }
-    }
+    maven { url 'https://plugins.gradle.org/m2/' }
+
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
+    gradlePluginPortal()
+  }
 }
 rootProject.name = 'doki-theme-jetbrains'
