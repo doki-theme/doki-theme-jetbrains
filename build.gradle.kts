@@ -30,8 +30,6 @@ val platformVersion: String by project
 val platformPlugins: String by project
 val platformDownloadSources: String by project
 
-val idePath: String by project
-
 group = pluginGroup
 version = pluginVersion
 
@@ -112,8 +110,7 @@ tasks {
   }
 
   runIde {
-//    ideDirectory.set(properties("idePath"))
-    ideaDir(properties("idePath"))
+    ideDir.set(file(properties("idePath")))
   }
 
   patchPluginXml {
