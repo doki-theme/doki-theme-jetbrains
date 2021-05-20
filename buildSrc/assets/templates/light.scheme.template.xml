@@ -72,6 +72,7 @@
     <option name="SELECTION_FOREGROUND" value="$selectionForeground$"/>
     <option name="SEPARATOR_ABOVE_COLOR" value="$borderColor$"/>
     <option name="SEPARATOR_BELOW_COLOR" value="$borderColor$"/>
+    <option name="BORDER_LINES_COLOR" value="$borderColor$"/>
     <option name="SOFT_WRAP_SIGN_COLOR" value="$borderColor$"/>
     <option name="ScrollBar.Mac.Transparent.hoverThumbBorderColor" value="%accentColor%9a"/>
     <option name="ScrollBar.Mac.Transparent.hoverThumbColor" value="%accentColor%9a"/>
