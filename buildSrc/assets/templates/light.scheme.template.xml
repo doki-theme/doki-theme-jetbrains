@@ -2513,6 +2513,11 @@
         <option name="FOREGROUND" value="4C94D6"/>
       </value>
     </option>
+    <option name="TERMINAL_COMMAND_TO_RUN_USING_IDE">
+      <value>
+        <option name="BACKGROUND" value="$codeBlock$" />
+      </value>
+    </option>
     <option name="TEXT">
       <value>
         <option name="FOREGROUND" value="4D4D4A"/>
