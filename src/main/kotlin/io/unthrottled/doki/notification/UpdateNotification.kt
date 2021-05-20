@@ -31,7 +31,7 @@ private fun buildUpdateMessage(
   """
       What's New?<br>
       <ul>
-        <li>Added Notification Opacity setting</li>
+        <li>Fixed a bunch of small annoying issues!</li>
       </ul>
       Please see the <a href="https://github.com/doki-theme/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md">
       changelog</a> for more details.

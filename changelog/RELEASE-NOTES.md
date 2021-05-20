@@ -1,4 +1,2 @@
-- Added `Notification Opacity` setting that enables you to control the transparency of your notification windows.
-
-![Notification Opacity](https://raw.githubusercontent.com/doki-theme/doki-theme-jetbrains/master/assets/readmeAssets/notification_opacity.gif)
+- Fixed many small (but annoying) issues found in [#390](https://github.com/doki-theme/doki-theme-jetbrains/issues/390)
 
