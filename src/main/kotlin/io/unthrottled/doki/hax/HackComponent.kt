@@ -21,13 +21,11 @@ import com.intellij.openapi.progress.util.ColorProgressBar
 import com.intellij.openapi.vcs.ex.DocumentTracker
 import com.intellij.openapi.vcs.ex.LineStatusMarkerRenderer
 import com.intellij.openapi.wm.impl.AnchoredButton
-import com.intellij.openapi.wm.impl.IdeRootPane
 import com.intellij.openapi.wm.impl.TitleInfoProvider
 import com.intellij.ui.CaptionPanel
 import com.intellij.ui.Gray
 import com.intellij.ui.JBColor
 import com.intellij.ui.SimpleTextAttributes
-import com.intellij.ui.components.JBMenu
 import com.intellij.ui.messages.JBMacMessages
 import com.intellij.ui.popup.util.MasterDetailPopupBuilder
 import com.intellij.util.ui.UIUtil
