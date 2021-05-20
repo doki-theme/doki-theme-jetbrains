@@ -20,6 +20,8 @@ import com.intellij.openapi.fileEditor.impl.EditorHistoryManager
 import com.intellij.openapi.progress.util.ColorProgressBar
 import com.intellij.openapi.vcs.ex.DocumentTracker
 import com.intellij.openapi.vcs.ex.LineStatusMarkerRenderer
+import com.intellij.openapi.wm.impl.AnchoredButton
+import com.intellij.openapi.wm.impl.IdeRootPane
 import com.intellij.openapi.wm.impl.TitleInfoProvider
 import com.intellij.ui.CaptionPanel
 import com.intellij.ui.Gray
@@ -362,12 +364,11 @@ object HackComponent : Disposable {
   private fun hackEmptyTextPanel() {
     runSafely({
       val cp = ClassPool(true)
-      cp.insertClassPath(ClassClassPath(JBMenu::class.java))
-      val ctClass = cp.get("com.intellij.ui.components.JBPanelWithEmptyText")
+      cp.insertClassPath(ClassClassPath(AnchoredButton::class.java))
+      val ctClass = cp.get("com.intellij.openapi.wm.impl.InternalDecoratorImpl")
       ctClass.constructors.forEach {
         ctConstructor ->
-        ctConstructor.insertAfter("this.setBackground(com.intellij.ui.JBColor.RED);")
-//        ctConstructor.insertAfter("this.setBackground(com.intellij.util.ui.UIUtil.getPanelBackground());")
+        ctConstructor.insertAfter("this.setBackground(com.intellij.util.ui.UIUtil.getPanelBackground());")
       }
       ctClass.toClass()
     }) {
