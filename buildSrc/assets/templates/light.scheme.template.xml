@@ -72,6 +72,7 @@
     <option name="SELECTION_FOREGROUND" value="$selectionForeground$"/>
     <option name="SEPARATOR_ABOVE_COLOR" value="$borderColor$"/>
     <option name="SEPARATOR_BELOW_COLOR" value="$borderColor$"/>
+    <option name="BORDER_LINES_COLOR" value="$borderColor$"/>
     <option name="SOFT_WRAP_SIGN_COLOR" value="$borderColor$"/>
     <option name="ScrollBar.Mac.Transparent.hoverThumbBorderColor" value="%accentColor%9a"/>
     <option name="ScrollBar.Mac.Transparent.hoverThumbColor" value="%accentColor%9a"/>
@@ -806,7 +807,7 @@
     </option>
     <option name="IGNORE.BRACKET">
       <value>
-        <option name="FOREGROUND" value="4D4D4A"/>
+        <option name="FOREGROUND" value="$foregroundColor$"/>
         <option name="FONT_TYPE" value="1"/>
       </value>
     </option>
@@ -817,25 +818,25 @@
     </option>
     <option name="IGNORE.HEADER">
       <value>
-        <option name="FOREGROUND" value="$stringColor$"/>
-        <option name="BACKGROUND" value="c1eec9"/>
+        <option name="FOREGROUND" value="$classNameColor$"/>
+        <option name="BACKGROUND" value="$codeBlock$"/>
         <option name="FONT_TYPE" value="1"/>
       </value>
     </option>
     <option name="IGNORE.NEGATION">
       <value>
-        <option name="FOREGROUND" value="$keyColor$"/>
+        <option name="FOREGROUND" value="$htmlTagColor$"/>
         <option name="FONT_TYPE" value="1"/>
       </value>
     </option>
     <option name="IGNORE.SECTION">
       <value>
-        <option name="FOREGROUND" value="4C94D6"/>
+        <option name="FOREGROUND" value="$accentColor$"/>
       </value>
     </option>
     <option name="IGNORE.SLASH">
       <value>
-        <option name="FOREGROUND" value="4D4D4A"/>
+        <option name="FOREGROUND" value="$foregroundColor$"/>
       </value>
     </option>
     <option name="IGNORE.SYNTAX">
@@ -847,6 +848,11 @@
     <option name="IGNORE.VALUE">
       <value>
         <option name="FOREGROUND" value="$stringColor$"/>
+      </value>
+    </option>
+    <option name="IGNORE.UNUSED_ENTRY">
+      <value>
+        <option name="FOREGROUND" value="$unusedColor$"/>
       </value>
     </option>
     <option name="IMPLICIT_ANONYMOUS_CLASS_PARAMETER_ATTRIBUTES">
@@ -2506,6 +2512,11 @@
     <option name="TEMPLATE_VARIABLE_ATTRIBUTES">
       <value>
         <option name="FOREGROUND" value="4C94D6"/>
+      </value>
+    </option>
+    <option name="TERMINAL_COMMAND_TO_RUN_USING_IDE">
+      <value>
+        <option name="BACKGROUND" value="$codeBlock$" />
       </value>
     </option>
     <option name="TEXT">

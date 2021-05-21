@@ -7,8 +7,8 @@
   "overrides": {},
   "ui": {
     "Plugins.lightSelectionBackground": "selectionBackground",
-    "CompletionPopup.selectionBackground": "selectionBackground",
-    "CompletionPopup.selectionInactiveBackground": "selectionInactive",
+    "CompletionPopup.selectionBackground": "selectionBackgroundTransparent",
+    "CompletionPopup.selectionInactiveBackground": "selectionInactiveTransparent",
     "SearchEverywhere.Header.background": "headerColor",
     "SearchEverywhere.SearchField.background": "headerColor"
   },

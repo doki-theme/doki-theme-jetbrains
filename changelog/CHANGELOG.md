@@ -1,6 +1,10 @@
 Changelog
 ---
 
+# 15.1.1 [Consistency Updates]
+
+- Fixed many small (but annoying) issues found in [#390](https://github.com/doki-theme/doki-theme-jetbrains/issues/390)
+
 # 15.1.0 [Notification Opacity]
 
 - Added `Notification Opacity` setting that enables you to control the transparency of your notification windows.

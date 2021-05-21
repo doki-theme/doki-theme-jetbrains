@@ -20,7 +20,9 @@ import com.intellij.openapi.fileEditor.impl.EditorHistoryManager
 import com.intellij.openapi.progress.util.ColorProgressBar
 import com.intellij.openapi.vcs.ex.DocumentTracker
 import com.intellij.openapi.vcs.ex.LineStatusMarkerRenderer
+import com.intellij.openapi.wm.impl.AnchoredButton
 import com.intellij.openapi.wm.impl.TitleInfoProvider
+import com.intellij.ui.CaptionPanel
 import com.intellij.ui.Gray
 import com.intellij.ui.JBColor
 import com.intellij.ui.SimpleTextAttributes
@@ -119,6 +121,7 @@ object HackComponent : Disposable {
     hackSheetWindow()
     hackToolWindowDecorator()
     hackLivePreview()
+    hackEmptyTextPanel()
   }
 
   private fun hackLivePreview() {
@@ -356,6 +359,21 @@ object HackComponent : Disposable {
     }
   }
 
+  private fun hackEmptyTextPanel() {
+    runSafely({
+      val cp = ClassPool(true)
+      cp.insertClassPath(ClassClassPath(AnchoredButton::class.java))
+      val ctClass = cp.get("com.intellij.openapi.wm.impl.InternalDecoratorImpl")
+      ctClass.constructors.forEach {
+        ctConstructor ->
+        ctConstructor.insertAfter("this.setBackground(com.intellij.util.ui.UIUtil.getPanelBackground());")
+      }
+      ctClass.toClass()
+    }) {
+      log.warn("Unable to hackEmptyTextPanel for reasons.")
+    }
+  }
+
   fun hackLAF() {
     enableSwitcherLafConsistency()
     enableLafBorderConsistency()
@@ -364,6 +382,7 @@ object HackComponent : Disposable {
 
   private fun enableLafBorderConsistency() {
     hackTipBorder()
+    hackCaptionPanel()
     hackPopupBorder()
     hackLineStatusColor()
   }
@@ -443,6 +462,16 @@ object HackComponent : Disposable {
       setFinalStatic(naughtySelectionColor, namedColor)
     }) {
       log.warn("Unable to hackTipBorder for reasons.")
+    }
+  }
+
+  private fun hackCaptionPanel() {
+    runSafely({
+      val naughtySelectionColor = CaptionPanel::class.java.getDeclaredField("CNT_ACTIVE_BORDER_COLOR")
+      val namedColor = JBColor.namedColor("Borders.color", 0xf2f2f2)
+      setFinalStatic(naughtySelectionColor, namedColor)
+    }) {
+      log.warn("Unable to hackCaptionPanel for reasons.")
     }
   }
 
