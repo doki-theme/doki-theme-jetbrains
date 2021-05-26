@@ -61,6 +61,9 @@ class ThemeManagerImpl : ThemeManager {
   override val allThemes: List<DokiTheme>
     get() = themeMap.values.toList()
 
+  override val defaultTheme: DokiTheme
+    get() = themeMap[ThemeManager.DEFAULT_THEME_NAME]!!
+
   override fun processLaf(currentLaf: UIManager.LookAndFeelInfo?): Optional<DokiTheme> {
     return currentLaf.toOptional()
       .filter { it is UIThemeBasedLookAndFeelInfo }

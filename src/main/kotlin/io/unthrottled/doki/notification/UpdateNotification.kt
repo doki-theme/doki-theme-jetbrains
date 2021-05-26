@@ -5,9 +5,9 @@ import com.intellij.ide.plugins.PluginManagerCore.getPluginOrPlatformByClassName
 import com.intellij.notification.Notification
 import com.intellij.notification.NotificationGroupManager
 import com.intellij.notification.NotificationListener
-import com.intellij.notification.NotificationType
 import com.intellij.notification.impl.NotificationsManagerImpl
 import com.intellij.openapi.actionSystem.AnAction
+import com.intellij.openapi.fileEditor.impl.HTMLEditorProvider
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.project.ProjectManager
 import com.intellij.openapi.ui.popup.Balloon
@@ -107,23 +107,22 @@ object UpdateNotification {
       getPlugin(
         getPluginOrPlatformByClassName(UpdateNotification::class.java.canonicalName)
       )?.name
-    showNotification(
+    val content = buildUpdateMessage(
+      AssetManager.resolveAssetUrl(
+        AssetCategory.MISC,
+        "update_celebration_v5.gif"
+      ).orElseGet {
+        "https://doki.assets.unthrottled.io/misc/update_celebration_v5"
+      },
+      Dimension(450, 253)
+    )
+    val currentTheme = ThemeManager.instance.currentTheme.orElse(ThemeManager.instance.defaultTheme)
+
+    HTMLEditorProvider.openEditor(
       project,
-      notificationGroup.createNotification(
-        buildUpdateMessage(
-          AssetManager.resolveAssetUrl(
-            AssetCategory.MISC,
-            "update_celebration_v5.gif"
-          ).orElseGet {
-            "https://doki.assets.unthrottled.io/misc/update_celebration_v5"
-          },
-          Dimension(450, 253)
-        ),
-        NotificationType.INFORMATION
-      )
-        .setTitle("$pluginName updated to v$newVersion")
-        .setListener(NotificationListener.UrlOpeningListener(false))
-        .setIcon(DokiIcons.General.PLUGIN_LOGO)
+      "$pluginName Update",
+      "http://localhost:5000?themeId=${currentTheme.id}",
+      content
     )
   }
 
