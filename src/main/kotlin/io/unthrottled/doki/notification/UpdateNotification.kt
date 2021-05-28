@@ -31,6 +31,7 @@ private fun buildUpdateMessage(
   """
       What's New?<br>
       <ul>
+        <li>2021.2 Build Support!</li>
         <li>Fixed a bunch of small annoying issues!</li>
       </ul>
       Please see the <a href="https://github.com/doki-theme/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md">
