@@ -58,14 +58,16 @@ object UpdateNotification {
     @Nls(capitalization = Nls.Capitalization.Sentence) title: String = "",
     @Nls(capitalization = Nls.Capitalization.Sentence) content: String,
     project: Project? = null,
-    listener: NotificationListener? = defaultListener,
+    listener: NotificationListener = defaultListener,
     actions: List<AnAction> = emptyList(),
   ) {
     val notification = notificationGroup.createNotification(
       title,
       content,
-      listener = listener
-    ).setIcon(DokiIcons.General.PLUGIN_LOGO)
+      NotificationType.INFORMATION,
+    )
+      .setListener(listener)
+      .setIcon(DokiIcons.General.PLUGIN_LOGO)
     actions.forEach {
       notification.addAction(it)
     }
@@ -76,7 +78,7 @@ object UpdateNotification {
   fun showNotificationAcrossProjects(
     @Nls(capitalization = Nls.Capitalization.Sentence) title: String = "",
     @Nls(capitalization = Nls.Capitalization.Sentence) content: String,
-    listener: NotificationListener? = defaultListener,
+    listener: NotificationListener = defaultListener,
     actions: List<(Project?) -> AnAction> = emptyList()
   ) {
     ProjectManager.getInstance().openProjects.forEach { project ->
