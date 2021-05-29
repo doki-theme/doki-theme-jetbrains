@@ -28,11 +28,12 @@ object PluginService : Logging {
     PluginId.getId(AMII_PLUGIN_ID)
   )
 
-  private val PLUGIN_MANAGER_URL = ApplicationInfoImpl.getInstanceEx()
-    .pluginManagerUrl
-    .trimEnd('/')
-
-  private val COMPATIBLE_UPDATE_URL = "$PLUGIN_MANAGER_URL/api/search/compatibleUpdates"
+  private val PLUGIN_MANAGER_URL by lazy {
+    ApplicationInfoImpl.getInstanceEx()
+      .pluginManagerUrl
+      .trimEnd('/')
+  }
+  private val COMPATIBLE_UPDATE_URL by lazy { "$PLUGIN_MANAGER_URL/api/search/compatibleUpdates" }
 
   private data class CompatibleUpdateRequest(
     val build: String,
@@ -50,7 +51,8 @@ object PluginService : Logging {
       val data = objectMapper.writeValueAsString(
         CompatibleUpdateRequest(
           ApplicationInfoImpl.getInstanceEx()
-            .build.asString(), ids.map { it.idString }
+            .build.asString(),
+          ids.map { it.idString }
         )
       )
       HttpRequests
