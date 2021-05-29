@@ -1,6 +1,11 @@
 Changelog
 ---
 
+# 15.2.1 [Build Updates]
+
+- Updated the plugin's build dependencies.
+- Fixed build issues
+
 # 15.2.0 [2021.2 EAP Support]
 
 - 2021.2 build support!
