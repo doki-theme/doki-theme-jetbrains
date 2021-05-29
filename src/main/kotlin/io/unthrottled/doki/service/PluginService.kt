@@ -25,8 +25,8 @@ object PluginService {
       Callable {
         val ids = AMII_PLUGIN_ID
         val pluginId = PluginId.getId(ids)
-        MarketplaceRequests.getInstance().loadLastCompatiblePluginDescriptors(
-          Collections.singletonList(ids)
+        MarketplaceRequests.loadLastCompatiblePluginDescriptors(
+          Collections.singleton(pluginId)
         ).firstOrNull { pluginNode ->
           pluginNode.pluginId == pluginId
         } != null
