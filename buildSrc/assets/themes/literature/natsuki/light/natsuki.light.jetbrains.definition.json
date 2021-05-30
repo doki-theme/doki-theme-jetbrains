@@ -6,7 +6,6 @@
   },
   "overrides": {},
   "ui": {
-    "CompletionPopup.background": "testScopeColor",
     "CompletionPopup.selectionForeground": "selectionForeground",
     "CompletionPopup.selectionBackground": "selectionBackground",
     "CompletionPopup.selectionInactiveBackground": "selectionBackground",
