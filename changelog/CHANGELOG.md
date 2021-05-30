@@ -1,6 +1,10 @@
 Changelog
 ---
 
+# 15.2.3 [Custom Editor Scheme Lookup window support]
+
+- Fixes issue with light themes' editor lookup window not being themed on the 2021.2 build, when the user is using a customized variant of the editor color scheme.
+
 # 15.2.2 [Lookup window fix]
 
 - Fixes issue with light themes' editor lookup window not being themed on the 2021.2 build. [#400](https://github.com/doki-theme/doki-theme-jetbrains/issues/400)
