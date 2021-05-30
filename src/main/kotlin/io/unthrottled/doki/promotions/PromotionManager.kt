@@ -17,7 +17,6 @@ import io.unthrottled.doki.service.PluginService.isAmiiInstalled
 import io.unthrottled.doki.service.PluginService.isMotivatorInstalled
 import io.unthrottled.doki.stickers.StickerLevel
 import io.unthrottled.doki.util.toOptional
-import java.time.Duration
 import java.time.Instant
 import java.util.UUID
 
@@ -46,13 +45,15 @@ open class PromotionManagerImpl {
       versionInstallDates[newVersion] = Instant.now()
       persistLedger(promotionLedger)
     } else {
-      val latestInstallDate = versionInstallDates[newVersion]!!
-      if (Duration.between(latestInstallDate, Instant.now()).toDays() > 2) {
-        setupPromotion()
-      }
+//      todo: re enable when v16 is published
+//      val latestInstallDate = versionInstallDates[newVersion]!!
+//      if (Duration.between(latestInstallDate, Instant.now()).toDays() > 2) {
+//        setupPromotion()
+//      }
     }
   }
 
+  @Suppress("UnusedPrivateMember")
   private fun setupPromotion() {
     if (areAniMemePluginsInstalled().not() && shouldPromote() && isOnline()) {
       try {

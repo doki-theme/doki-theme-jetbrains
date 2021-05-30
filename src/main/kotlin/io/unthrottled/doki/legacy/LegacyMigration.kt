@@ -1,6 +1,6 @@
 package io.unthrottled.doki.legacy
 
-import io.unthrottled.doki.settings.actors.setDokiTheme
+import io.unthrottled.doki.settings.actors.ThemeActor.setDokiTheme
 import io.unthrottled.doki.themes.ThemeManager
 import io.unthrottled.doki.util.toOptional
 
