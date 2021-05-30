@@ -277,7 +277,6 @@
 
     "PopupMenuSeparator.height": 1,
 
-    "CompletionPopup.background": "baseBackground",
     "CompletionPopup.nonFocusedMask": "popupMask",
     "CompletionPopup.selectionBackground": "selectionBackgroundTransparent",
     "CompletionPopup.selectionInactiveBackground": "selectionInactive",

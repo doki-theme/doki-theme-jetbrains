@@ -62,6 +62,7 @@
     <option name="QUESTION_HINT" value="$selectionBackground$"/>
     <option name="LINE_NUMBERS_COLOR" value="$lineNumberColor$"/>
     <option name="LINE_NUMBER_ON_CARET_ROW_COLOR" value="$infoForeground$"/>
+    <option name="LOOKUP_COLOR" value="$headerColor$"/>
     <option name="PROMOTION_PANE" value="%accentColor%5a"/>
     <option name="MODIFIED_LINES_COLOR" value="$diff.modified$9A"/>
     <option name="METHOD_SEPARATORS_COLOR" value="$borderColor$"/>
