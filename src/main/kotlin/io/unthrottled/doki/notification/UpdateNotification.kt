@@ -62,10 +62,10 @@ object UpdateNotification {
     actions: List<AnAction> = emptyList(),
   ) {
     val notification = notificationGroup.createNotification(
-      title,
       content,
       NotificationType.INFORMATION,
     )
+      .setTitle(title)
       .setListener(listener)
       .setIcon(DokiIcons.General.PLUGIN_LOGO)
     actions.forEach {
@@ -110,7 +110,6 @@ object UpdateNotification {
     showNotification(
       project,
       notificationGroup.createNotification(
-        "$pluginName updated to v$newVersion",
         buildUpdateMessage(
           AssetManager.resolveAssetUrl(
             AssetCategory.MISC,
@@ -122,6 +121,7 @@ object UpdateNotification {
         ),
         NotificationType.INFORMATION
       )
+        .setTitle("$pluginName updated to v$newVersion")
         .setListener(NotificationListener.UrlOpeningListener(false))
         .setIcon(DokiIcons.General.PLUGIN_LOGO)
     )
