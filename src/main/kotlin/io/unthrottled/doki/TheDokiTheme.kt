@@ -85,6 +85,7 @@ class TheDokiTheme : Disposable {
               StickerPaneService.instance.checkForUpdates(it)
             }
 
+          val isNewUser = ThemeConfig.instance.userId.isEmpty()
           getVersion()
             .ifPresent { version ->
               if (version != ThemeConfig.instance.version) {
@@ -93,7 +94,7 @@ class TheDokiTheme : Disposable {
                   UpdateNotification.display(
                     project,
                     version,
-                    ThemeConfig.instance.userId.isEmpty(),
+                    isNewUser,
                   )
                 }
               }

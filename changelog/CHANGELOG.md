@@ -1,6 +1,10 @@
 Changelog
 ---
 
+# 15.3.0 [Doki Theme Home]
+
+- Changed update notification/user onboarding to be a browser window of the new [Doki Theme Home page](https://doki-theme.unthrottled.io)
+
 # 15.2.3 [Custom Editor Scheme Lookup window support]
 
 - Fixes issue with light themes' editor lookup window not being themed on the 2021.2 build, when the user is using a customized variant of the editor color scheme.
