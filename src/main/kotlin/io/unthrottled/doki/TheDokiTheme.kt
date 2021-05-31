@@ -49,7 +49,6 @@ class TheDokiTheme : Disposable {
   private val connection = ApplicationManager.getApplication().messageBus.connect()
 
   init {
-    registerUser()
     setSVGColorPatcher()
     hackLAF()
     installAllUIComponents()
@@ -91,7 +90,11 @@ class TheDokiTheme : Disposable {
               if (version != ThemeConfig.instance.version) {
                 ThemeConfig.instance.version = version
                 StartupManager.getInstance(project).runWhenProjectIsInitialized {
-                  UpdateNotification.display(project, version)
+                  UpdateNotification.display(
+                    project,
+                    version,
+                    ThemeConfig.instance.userId.isEmpty(),
+                  )
                 }
               }
 
@@ -99,6 +102,7 @@ class TheDokiTheme : Disposable {
                 PromotionManager.registerPromotion(version)
               }
             }
+          registerUser()
         }
       }
     )

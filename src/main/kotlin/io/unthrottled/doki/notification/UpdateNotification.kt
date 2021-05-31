@@ -5,6 +5,7 @@ import com.intellij.ide.plugins.PluginManagerCore.getPluginOrPlatformByClassName
 import com.intellij.notification.Notification
 import com.intellij.notification.NotificationGroupManager
 import com.intellij.notification.NotificationListener
+import com.intellij.notification.NotificationType
 import com.intellij.notification.impl.NotificationsManagerImpl
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.fileEditor.impl.HTMLEditorProvider
@@ -54,7 +55,7 @@ object UpdateNotification {
 
   private val defaultListener = NotificationListener.UrlOpeningListener(false)
 
-  fun showDokiNotification(
+  private fun showDokiNotification(
     @Nls(capitalization = Nls.Capitalization.Sentence) title: String = "",
     @Nls(capitalization = Nls.Capitalization.Sentence) content: String,
     project: Project? = null,
@@ -101,7 +102,8 @@ object UpdateNotification {
 
   fun display(
     project: Project,
-    newVersion: String
+    newVersion: String,
+    isNewUser: Boolean,
   ) {
     val pluginName =
       getPlugin(
@@ -118,11 +120,12 @@ object UpdateNotification {
     )
     val currentTheme = ThemeManager.instance.currentTheme.orElse(ThemeManager.instance.defaultTheme)
 
+    val urlParameters =  if(isNewUser) "" else "/products/jetbrains/updates/$newVersion"
     HTMLEditorProvider.openEditor(
       project,
       "$pluginName Update",
-      "http://localhost:5000?themeId=${currentTheme.id}",
-      content
+      "http://localhost:5000$urlParameters?themeId=${currentTheme.id}",
+      content,
     )
   }
 

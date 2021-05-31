@@ -13,7 +13,8 @@ class ShowUpdateNotification : AnAction(), DumbAware {
       .ifPresent {
         UpdateNotification.display(
           e.project!!,
-          it
+          it,
+          false,
         )
       }
   }
