@@ -21,6 +21,7 @@ import org.intellij.lang.annotations.Language
 import org.jetbrains.annotations.Nls
 import java.awt.Dimension
 
+@Suppress("LongMethod", "MaxLineLength")
 @Language("HTML")
 private fun buildUpdateMessage(
   updateAsset: String,
