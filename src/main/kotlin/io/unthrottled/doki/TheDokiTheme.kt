@@ -49,7 +49,6 @@ class TheDokiTheme : Disposable {
   private val connection = ApplicationManager.getApplication().messageBus.connect()
 
   init {
-    registerUser()
     setSVGColorPatcher()
     hackLAF()
     installAllUIComponents()
@@ -86,12 +85,17 @@ class TheDokiTheme : Disposable {
               StickerPaneService.instance.checkForUpdates(it)
             }
 
+          val isNewUser = ThemeConfig.instance.userId.isEmpty()
           getVersion()
             .ifPresent { version ->
               if (version != ThemeConfig.instance.version) {
                 ThemeConfig.instance.version = version
                 StartupManager.getInstance(project).runWhenProjectIsInitialized {
-                  UpdateNotification.display(project, version)
+                  UpdateNotification.display(
+                    project,
+                    version,
+                    isNewUser,
+                  )
                 }
               }
 
@@ -99,6 +103,7 @@ class TheDokiTheme : Disposable {
                 PromotionManager.registerPromotion(version)
               }
             }
+          registerUser()
         }
       }
     )

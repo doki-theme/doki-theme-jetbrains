@@ -19,6 +19,8 @@ interface ThemeManager : Disposable {
 
   val allThemes: List<DokiTheme>
 
+  val defaultTheme: DokiTheme
+
   fun processLaf(currentLaf: UIManager.LookAndFeelInfo?): Optional<DokiTheme>
 
   fun themeByName(selectedTheme: String): Optional<DokiTheme>
