@@ -2,51 +2,105 @@ package io.unthrottled.doki.notification
 
 import com.intellij.ide.plugins.PluginManagerCore.getPlugin
 import com.intellij.ide.plugins.PluginManagerCore.getPluginOrPlatformByClassName
-import com.intellij.notification.Notification
 import com.intellij.notification.NotificationGroupManager
 import com.intellij.notification.NotificationListener
 import com.intellij.notification.NotificationType
-import com.intellij.notification.impl.NotificationsManagerImpl
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.fileEditor.impl.HTMLEditorProvider
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.project.ProjectManager
-import com.intellij.openapi.ui.popup.Balloon
-import com.intellij.openapi.wm.WindowManager
-import com.intellij.ui.BalloonLayoutData
-import com.intellij.ui.awt.RelativePoint
+import com.intellij.ui.JBColor
+import com.intellij.util.ui.UIUtil
 import io.unthrottled.doki.assets.AssetCategory
 import io.unthrottled.doki.assets.AssetManager
 import io.unthrottled.doki.icon.DokiIcons
+import io.unthrottled.doki.themes.DokiTheme
 import io.unthrottled.doki.themes.ThemeManager
+import io.unthrottled.doki.util.toHexString
 import org.intellij.lang.annotations.Language
 import org.jetbrains.annotations.Nls
 import java.awt.Dimension
-import java.awt.Point
 
 @Language("HTML")
 private fun buildUpdateMessage(
   updateAsset: String,
   dimensions: Dimension
-): String =
-  """
-      What's New?<br>
-      <ul>
+): String {
+  val backgroundColor = UIUtil.getEditorPaneBackground().toHexString()
+  val accentHex = JBColor.namedColor(
+    DokiTheme.ACCENT_COLOR,
+    UIUtil.getTextAreaForeground()
+  ).toHexString()
+  val infoForegroundHex = UIUtil.getContextHelpForeground().toHexString()
+  return """
+    <html lang='en'>
+    <head>
+          <style>
+              body {
+                padding: 1rem;
+                background-color: $backgroundColor;
+                color: ${UIUtil.getLabelForeground().toHexString()};
+                font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+              }
+              .center {
+                text-align: center;
+              }
+              a {
+                  color: $accentHex;
+                  font-weight: bold;
+              }
+              h2 {
+                margin: 16px 0;
+                font-weight: 300;
+                font-size: 22px;
+              }
+              h3 {
+                margin: 4px 0;
+                font-weight: bold;
+                font-size: 14px;
+              }
+              .accented {
+                color: $accentHex;
+              }
+              .info-foreground {
+                color: $infoForegroundHex;
+                text-align: center;
+              }
+              .header {
+                color: $accentHex;
+                text-align: center;
+              }
+              .logo-container {
+                margin-top: 8px;
+                text-align: center;
+              }
+              .display-image {
+                max-height: 256px;
+                text-align: center;
+              }
+          </style>
+      </head>
+    <body>
+    <h2>What's New?</h2>
+    <ul>
         <li>2021.2 Build Support!</li>
         <li>Fixed a bunch of small annoying issues!</li>
-      </ul>
-      Please see the <a href="https://github.com/doki-theme/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md">
-      changelog</a> for more details.
-      <br><br>
-      Did you know the <b>Doki Theme</b> is available <a href='https://github.com/doki-theme'>on other platforms?</a>
-      <br><br>
-      Thanks for downloading!
-      <br><br>
-      <div style='text-align: center'><img alt='Thanks for downloading!' src="$updateAsset" 
-      width='${dimensions.width}' height='${dimensions.height}'><br/><br/>
-      I hope you enjoy your new themes!
-      </div>
+    </ul>
+    Please see the <a href="https://github.com/doki-theme/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md">
+        changelog</a> for more details.
+    <br><br>
+    Did you know the <b>Doki Theme</b> is available <a href='https://github.com/doki-theme'>on other platforms?</a>
+    <br><br>
+    Thanks for downloading!
+    <br><br>
+    <div style='text-align: center'><img alt='Thanks for downloading!' src="$updateAsset"
+                                         ${dimensions.width} width='missingValue'height='${dimensions.height}'><br/><br/>
+        I hope you enjoy your new themes!
+    </div>
+    </body>
+    </html>
   """.trimIndent()
+}
 
 object UpdateNotification {
 
@@ -120,36 +174,15 @@ object UpdateNotification {
     )
     val currentTheme = ThemeManager.instance.currentTheme.orElse(ThemeManager.instance.defaultTheme)
 
-    val urlParameters =  if(isNewUser) "" else "/products/jetbrains/updates/$newVersion"
+    val urlParameters =
+      if (isNewUser) ""
+      else "/products/jetbrains/updates/$newVersion"
     HTMLEditorProvider.openEditor(
       project,
       "$pluginName Update",
-      "http://localhost:5000$urlParameters?themeId=${currentTheme.id}",
+      "https://doki-theme.unthrottled.io$urlParameters?themeId=${currentTheme.id}",
       content,
     )
-  }
-
-  private fun showNotification(
-    project: Project,
-    updateNotification: Notification
-  ) {
-    try {
-      val ideFrame =
-        WindowManager.getInstance().getIdeFrame(project) ?: WindowManager.getInstance().allProjectFrames.first()
-      val frameBounds = ideFrame.component.bounds
-      val notificationPosition = RelativePoint(ideFrame.component, Point(frameBounds.x + frameBounds.width, 20))
-      val balloon = NotificationsManagerImpl.createBalloon(
-        ideFrame,
-        updateNotification,
-        true,
-        false,
-        BalloonLayoutData.fullContent(),
-        ThemeManager.instance
-      )
-      balloon.show(notificationPosition, Balloon.Position.atLeft)
-    } catch (e: Throwable) {
-      updateNotification.notify(project)
-    }
   }
 
   fun displayRestartMessage() {
