@@ -68,6 +68,7 @@
     <registryKey defaultValue="true" description="Prevent the Doki Theme plugin from updating downloaded assets" key="doki.theme.update.assets"/>
     <themeProvider id="8e8773ee-4bbb-4812-b311-005f04f6bb20" path="/doki/themes/evangelion/Katsuragi_Misato.theme.json"/>
     <themeProvider id="c262185d-9682-413b-9143-85a2dda76b2f" path="/doki/themes/evangelion/Rei.theme.json"/>
+    <themeProvider id="a1da4f2f-e736-40e7-86d9-9167a247da93" path="/doki/themes/kakegurui/Jabami_Yumeko.theme.json"/>
     <themeProvider id="ea9a13f6-fa7f-46a4-ba6e-6cefe1f55160" path="/doki/themes/high_school_dxd/Rias_Onyx.theme.json"/>
     <themeProvider id="c5e92ad9-2fa0-491e-b92a-48ab92d13597" path="/doki/themes/high_school_dxd/Rias_Crimson.theme.json"/>
     <themeProvider id="06143cbe-2d51-4423-9a93-73a02c828119" path="/doki/themes/oregairu/Yukinoshita_Yukino.theme.json"/>
@@ -98,12 +99,15 @@
     <themeProvider id="3546f7be-b84f-4b8e-8cad-effa3f4603af" path="/doki/themes/fate/Tohsaka_Rin.theme.json"/>
     <themeProvider id="3a78b13e-dbf2-410f-bb20-12b57bff7735" path="/doki/themes/kill_la_kill/Satsuki.theme.json"/>
     <themeProvider id="19b65ec8-133c-4655-a77b-13623d8e97d3" path="/doki/themes/kill_la_kill/Ryuko.theme.json"/>
+    <themeProvider id="ca45f54a-57cb-4d8c-82a6-d4b31c850bd6" path="/doki/themes/don't_toy_with_me_miss_nagatoro/Hayase_Nagatoro.theme.json"/>
     <themeProvider id="697e8564-0975-4907-a34c-51f65177ebf3" path="/doki/themes/danganronpa/Mioda_Ibuki_Light.theme.json"/>
     <themeProvider id="420b0ed5-803c-4127-97e3-dae6aa1a5972" path="/doki/themes/danganronpa/Mioda_Ibuki_Dark.theme.json"/>
+    <themeProvider id="dfd05a73-c189-4622-87c7-573fbb3a46b9" path="/doki/themes/monogatari/Hanekawa_Tsubasa.theme.json"/>
     <themeProvider id="63fe4617-4cac-47a5-9b93-6794514c35ad" path="/doki/themes/konosuba/Megumin.theme.json"/>
     <themeProvider id="8474d98d-7bb1-462c-82b1-dd7c512142a6" path="/doki/themes/konosuba/Darkness_Light.theme.json"/>
     <themeProvider id="774ec7ad-d6a0-4d9c-b195-2f54d72ab664" path="/doki/themes/konosuba/Darkness_Dark.theme.json"/>
     <themeProvider id="15e51483-1ccd-46b7-90cf-885cccaaaf2c" path="/doki/themes/konosuba/Aqua.theme.json"/>
+    <themeProvider id="5ec63d95-1e7d-4649-b3d0-0078af8f8740" path="/doki/themes/future_diary/Gasai_Yuno.theme.json"/>
     <themeProvider id="5de1c901-2a12-411f-b75b-64e43aaf2c9d" path="/doki/themes/type-moon/Gray.theme.json"/>
     <themeProvider id="355d711c-2fa6-4df2-9504-dd44d8f5e350" path="/doki/themes/gate/Rory_Mercury.theme.json"/>
     <themeProvider id="5903b523-ea0a-4724-85d4-f0d0652c3010" path="/doki/themes/daily_life_with_a_monster_girl/Miia.theme.json"/>
