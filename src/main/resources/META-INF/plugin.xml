@@ -66,6 +66,7 @@
     <editorNotificationProvider implementation="io.unthrottled.doki.internal.DokiEditorNotificationProvider"/>
     <themeMetadataProvider path="/theme-schema/DokiTheme.themeMetadata.json"/>
     <registryKey defaultValue="true" description="Prevent the Doki Theme plugin from updating downloaded assets" key="doki.theme.update.assets"/>
+    <themeProvider id="5fb9c0a4-e613-457c-97a5-6204f9076cef" path="/doki/themes/yuru_camp/Shima_Rin.theme.json"/>
     <themeProvider id="8e8773ee-4bbb-4812-b311-005f04f6bb20" path="/doki/themes/evangelion/Katsuragi_Misato.theme.json"/>
     <themeProvider id="c262185d-9682-413b-9143-85a2dda76b2f" path="/doki/themes/evangelion/Rei.theme.json"/>
     <themeProvider id="a1da4f2f-e736-40e7-86d9-9167a247da93" path="/doki/themes/kakegurui/Jabami_Yumeko.theme.json"/>

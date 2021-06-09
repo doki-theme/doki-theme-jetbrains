@@ -27,7 +27,8 @@ private val nameMapping =
     "Kakegurui" to "Kakegurui: ",
     "Monogatari" to "Monogatari: ",
     "Don't Toy with me Miss Nagatoro" to "DTWMMN: ",
-    "Miscellaneous" to "Misc: "
+    "Miscellaneous" to "Misc: ",
+    "Yuru Camp" to "YuruCamp: ",
   )
 
 fun getLafNamePrefix(groupName: String): String =
