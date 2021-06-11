@@ -5,7 +5,9 @@
     "name": "Doki Dark"
   },
   "overrides": {},
-  "ui": {},
+  "ui": {
+    "CompletionPopup.matchForeground": "editorAccentColor"
+  },
   "backgrounds": {
     "default": {
       "position": "MIDDLE_RIGHT",
