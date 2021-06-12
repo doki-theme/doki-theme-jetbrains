@@ -21,6 +21,7 @@ class DokiEditorNotificationProvider : EditorNotifications.Provider<EditorNotifi
     if (!EditorNotificationManager.shouldShowNotification()) return null
 
     val panel = EditorNotificationPanel()
+    panel.text("This is a test, bro")
     panel.createActionLabel("Link One") {
     }
     panel.createActionLabel("Link Two") {

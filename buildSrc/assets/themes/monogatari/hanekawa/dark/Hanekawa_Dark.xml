@@ -1,0 +1,9 @@
+<scheme name="Hanekawa Dark" version="142" parent_scheme="Doki Dark">
+  <colors>
+    <option name="NOTIFICATION_BACKGROUND" value="$selectionInactive$"/>
+  </colors>
+  <attributes>
+  </attributes>
+</scheme>
+
+
