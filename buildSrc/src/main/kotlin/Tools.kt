@@ -23,7 +23,12 @@ private val nameMapping =
     "Evangelion" to "EVA: ",
     "Miss Kobayashi's Dragon Maid" to "DM: ",
     "OreGairu" to "OreGairu: ",
-    "Miscellaneous" to "Misc: "
+    "Future Diary" to "FutureDiary: ",
+    "Kakegurui" to "Kakegurui: ",
+    "Monogatari" to "Monogatari: ",
+    "Don't Toy with me Miss Nagatoro" to "DTWMMN: ",
+    "Miscellaneous" to "Misc: ",
+    "Yuru Camp" to "YuruCamp: ",
   )
 
 fun getLafNamePrefix(groupName: String): String =

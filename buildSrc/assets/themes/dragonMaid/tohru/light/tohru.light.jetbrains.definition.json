@@ -4,12 +4,12 @@
     "type": "template",
     "name": "Doki Light v2"
   },
+  "overrides": {},
+  "ui": {},
   "backgrounds": {
     "default": {
       "position": "MIDDLE_RIGHT",
       "opacity": 20
     }
-  },
-  "overrides": {},
-  "ui": {}
+  }
 }

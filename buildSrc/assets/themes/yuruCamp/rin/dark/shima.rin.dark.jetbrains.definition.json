@@ -1,13 +1,15 @@
 {
-  "id": "bc12b380-1f2a-4a9d-89d8-388a07f1e15f",
+  "id": "5fb9c0a4-e613-457c-97a5-6204f9076cef",
   "editorScheme": {
     "type": "template",
     "name": "Doki Dark"
   },
   "overrides": {},
-  "ui": {},
+  "ui": {
+    "CompletionPopup.matchForeground": "editorAccentColor"
+  },
   "backgrounds": {
-    "secondary": {
+    "default": {
       "position": "MIDDLE_RIGHT",
       "opacity": 7
     }
