@@ -20,7 +20,7 @@ From the Future Diary Series
 
 - Gasai Yuno (Dark)
 
-![v16 Girls](https://doki.assets.unthrottled.io/misc/v16_girls.png)
+![v16 Girls](https://doki.assets.unthrottled.io/misc/v16_girls_smol.png)
 
 ### Other Stuff 
 
