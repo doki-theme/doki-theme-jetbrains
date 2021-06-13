@@ -18,6 +18,27 @@ Quintessential Quintuplets
 ![nakano_miku_dark code](../assets/screenshots/quintuplets/nakano_miku_dark_code.png)
 
 
+Monogatari
+---
+
+### Hanekawa Tsubasa
+
+![hanekawa_dark code](../assets/screenshots/monogatari/hanekawa_dark_code.png)
+
+Yuru Camp
+---
+
+### Shima Rin
+
+![shima_rin_dark code](../assets/screenshots/yuruCamp/shima_rin_dark_code.png)
+
+Don't Toy With Me, Miss Nagatoro
+---
+
+### Hayase Nagatoro
+
+![nagatoro_dark code](../assets/screenshots/dontToyWithMeMiss/nagatoro_dark_code.png)
+
 Type-Moon
 ---
 
@@ -171,6 +192,20 @@ Neon Genesis Evangelion
 
 ![misato_dark code](../assets/screenshots/eva/misato_dark_code.png)
 
+Kakegurui 
+---
+
+### Jabami Yumeko
+
+![yumeko_dark code](../assets/screenshots/kakegurui/yumeko_dark_code.png)
+
+
+Future Diary
+---
+
+### Gasai Yuno
+
+![yuno_dark code](../assets/screenshots/futureDiary/yuno_dark_code.png)
 
 Sword Art Online
 ---
