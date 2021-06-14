@@ -195,8 +195,8 @@ You can see a rough example in the [quick theme switch section.](#quick-theme-sw
 
 ## Contributing
 
-If you want to get your workstation set up to work on the plugin.
-Then you'll want to checkout the [CONTRIBUTING.md](./CONTRIBUTING.md) for instructions on what is needed.
+If you want to get your workstation set up to work on the plugin,
+then you'll want to check out the [CONTRIBUTING.md](./CONTRIBUTING.md) for instructions on what is needed.
 
 ## Quick Theme Switch
 

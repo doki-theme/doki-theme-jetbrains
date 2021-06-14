@@ -183,8 +183,16 @@ Once this is done, we can now run the `generateAssets` script. Which will walk t
 blank assets in the expected folder structure, inside various directories in the `<workspace-root>/doki-theme-assets/`
 directory.
 
+```shell
+yarn generateAssets
+```
+
 After that, we need run the `generateTemplates` script. Which will walk the master theme definitions and create the new
 templates in the `<repo-root>/buildSrc/assets/themes` directory (and update existing ones).
+
+```shell
+yarn generateTemplates
+```
 
 If you added a new anime, you'll need to add
 a [new group mapping](https://github.com/doki-theme/doki-theme-jetbrains/blob/10b421a915adb20b66f9246f80f563dd13ad73c0/buildSrc/src/main/kotlin/Tools.kt#L2)
