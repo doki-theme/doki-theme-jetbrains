@@ -74,6 +74,7 @@ You can choose themes from various, Anime, Manga, or Visual Novels:
       - [Misc Content Settings](#misc-content-settings)
     - [Other Settings](#other-settings)
 - [Miscellaneous](#miscellaneous)
+  - [Contributing](#contributing) 
   - [Quick Theme Switch](#quick-theme-switch)
   - [Theme Requests](#theme-requests)
   - [Helping the community](#enjoying-the-plugin)
@@ -191,6 +192,11 @@ You can hit `Apply` to test out your new settings!
 You can see a rough example in the [quick theme switch section.](#quick-theme-switch)
 
 # Miscellaneous
+
+## Contributing
+
+If you want to get your workstation set up to work on the plugin.
+Then you'll want to checkout the [CONTRIBUTING.md](./CONTRIBUTING.md) for instructions on what is needed.
 
 ## Quick Theme Switch
 
