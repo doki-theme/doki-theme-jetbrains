@@ -18,6 +18,7 @@ import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.fileEditor.impl.EditorComposite
 import com.intellij.openapi.fileEditor.impl.EditorHistoryManager
 import com.intellij.openapi.progress.util.ColorProgressBar
+import com.intellij.openapi.roots.ui.configuration.ContentRootPanel
 import com.intellij.openapi.vcs.ex.DocumentTracker
 import com.intellij.openapi.vcs.ex.LineStatusMarkerRenderer
 import com.intellij.openapi.wm.impl.AnchoredButton
@@ -35,11 +36,7 @@ import io.unthrottled.doki.hax.FieldHacker.setFinalStatic
 import io.unthrottled.doki.stickers.DOKI_BACKGROUND_PROP
 import io.unthrottled.doki.ui.TitlePaneUI.Companion.LOL_NOPE
 import io.unthrottled.doki.util.runSafely
-import javassist.CannotCompileException
-import javassist.ClassClassPath
-import javassist.ClassPool
-import javassist.CtClass
-import javassist.CtMethod
+import javassist.*
 import javassist.expr.ExprEditor
 import javassist.expr.MethodCall
 import javassist.expr.NewExpr
@@ -122,6 +119,7 @@ object HackComponent : Disposable {
     hackToolWindowDecorator()
     hackLivePreview()
     hackEmptyTextPanel()
+    hackContentRoot()
   }
 
   private fun hackLivePreview() {
@@ -189,6 +187,32 @@ object HackComponent : Disposable {
       val naughtySelectionColor = MasterDetailPopupBuilder::class.java.getDeclaredField("BORDER_COLOR")
       val namedColor = JBColor.namedColor("Borders.color", Gray._135)
       setFinalStatic(naughtySelectionColor, namedColor)
+    }) {
+      log.warn("Unable to hackBookMarkBorder  for reasons.")
+    }
+  }
+
+  /**
+   * Fixes the content root panel in the project structure window under the modules tab.
+   */
+  private fun hackContentRoot() {
+    runSafely({
+      setFinalStatic(
+        ContentRootPanel::class.java.getDeclaredField("SELECTED_HEADER_COLOR"),
+        JBColor.namedColor("TabbedPane.hoverColor", Gray._135)
+      )
+      setFinalStatic(
+        ContentRootPanel::class.java.getDeclaredField("HEADER_COLOR"),
+        JBColor.namedColor("Popup.Header.activeBackground", Gray._135)
+      )
+      setFinalStatic(
+        ContentRootPanel::class.java.getDeclaredField("SELECTED_CONTENT_COLOR"),
+        JBColor.namedColor("TabbedPane.hoverColor", Gray._135)
+      )
+      setFinalStatic(
+        ContentRootPanel::class.java.getDeclaredField("CONTENT_COLOR"),
+        com.intellij.util.ui.UIUtil.getPanelBackground(),
+      )
     }) {
       log.warn("Unable to hackBookMarkBorder  for reasons.")
     }
