@@ -2,6 +2,7 @@
   "type": "LAF",
   "name": "base",
   "ui": {
+    "TitlePane.background": "baseBackground",
     "Panel.background": "baseBackground",
     "Button.background": "baseBackground",
     "Label.background": "baseBackground",
@@ -43,6 +44,7 @@
     "NewClass.SearchField.background": "secondaryBackground",
     "FormattedTextField.background": "secondaryBackground",
 
+    "TitlePane.inactiveBackground": "headerColor",
     "UIDesigner.Panel.background": "headerColor",
     "Menu.background": "headerColor",
     "NewClass.Panel.background": "headerColor",
