@@ -39,6 +39,7 @@
     "ToolTip.borderColor": "borderColor",
 
     "TextField.background": "secondaryBackground",
+    "Plugins.SearchField.background": "secondaryBackground",
     "TextPane.background": "secondaryBackground",
     "TextArea.background": "secondaryBackground",
     "NewClass.SearchField.background": "secondaryBackground",
