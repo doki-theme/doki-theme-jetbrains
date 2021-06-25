@@ -2,6 +2,7 @@
   "type": "LAF",
   "name": "base",
   "ui": {
+    "TitlePane.background": "baseBackground",
     "Panel.background": "baseBackground",
     "Button.background": "baseBackground",
     "Label.background": "baseBackground",
@@ -38,11 +39,13 @@
     "ToolTip.borderColor": "borderColor",
 
     "TextField.background": "secondaryBackground",
+    "Plugins.SearchField.background": "secondaryBackground",
     "TextPane.background": "secondaryBackground",
     "TextArea.background": "secondaryBackground",
     "NewClass.SearchField.background": "secondaryBackground",
     "FormattedTextField.background": "secondaryBackground",
 
+    "TitlePane.inactiveBackground": "headerColor",
     "UIDesigner.Panel.background": "headerColor",
     "Menu.background": "headerColor",
     "NewClass.Panel.background": "headerColor",
@@ -127,6 +130,13 @@
     "Tree.textForeground": "foregroundColor",
     "Viewport.foreground": "foregroundColor",
 
+    "OptionPane.errorDialog.border.background": "diff.conflict",
+    "OptionPane.errorDialog.titlePane.background": "nonProjectFileScopeColor",
+    "OptionPane.questionDialog.border.background": "headerColor",
+    "OptionPane.questionDialog.titlePane.background": "headerColor",
+    "OptionPane.warningDialog.border.background": "nonProjectFileScopeColor",
+    "OptionPane.warningDialog.titlePane.background": "nonProjectFileScopeColor",
+
     "Plugins.Tab.selectedBackground": "highlightColor",
     "TabbedPane.hoverColor": "highlightColor",
     "TabbedPane.focusColor": "highlightColor",
@@ -145,6 +155,7 @@
     "ActionButton.focusedBorderColor": "highlightColor",
 
     "Borders.color": "borderColor",
+    "Separator.background": "borderColor",
     "Tree.hash": "borderColor",
     "DialogWrapper.southPanelDivider": "borderColor",
     "OnePixelDivider.background": "borderColor",
@@ -198,11 +209,16 @@
     "windowBorder":"borderColor",
     "Outline.color":"borderColor",
 
+    "TextField.disabledBackground": "nonProjectFileScopeColor",
+
     "Notification.borderColor": "accentColorMoreTransparent",
 
     "EditorTabs.underlinedTabBackground": "highlightColor",
 
+    "PasswordField.inactiveBackground": "selectionInactive",
+
     "List.selectionInactiveBackground":"selectionInactive",
+    "TextField.inactiveBackground": "selectionInactive",
     "Table.selectionInactiveBackground": "selectionInactive",
     "TextComponent.selectionBackgroundInactive": "selectionInactive",
     "Tree.selectionInactiveBackground": "selectionInactive",

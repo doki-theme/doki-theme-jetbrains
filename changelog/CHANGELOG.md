@@ -1,6 +1,10 @@
 Changelog
 ---
 
+# 16.1.0 [2021.2 Maintenance]
+
+- Better supporting the Look and Feel of the 2021.2 builds.
+
 # 16.0.0 [New Themes!]
 
 ## 5 New Themes!

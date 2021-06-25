@@ -84,18 +84,7 @@ private fun buildUpdateMessage(
     <body>
     <h2>What's New?</h2>
     <ul>
-        <li>5 New Themes!
-          <ul>
-            <li>Hanekawa Tsubasa (Dark)</li>
-            <li>Shima Rin (Dark)</li>
-            <li>Hayase Nagatoro (Dark)</li>
-            <li>Jabami Yumeko (Dark)</li>
-            <li>Gasai Yuno (Dark)</li>
-          </ul>
-        </li>
-        <li>2021.2 Build Support!</li>
-        <li>New update notification (which you can't see at the moment ): )</li>
-        <li>Fixed a bunch of small annoying issues!</li>
+        <li>Better 2021.2 Build Support.</li>
     </ul>
     Please see the <a href="https://github.com/doki-theme/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md">
         changelog</a> for more details.
