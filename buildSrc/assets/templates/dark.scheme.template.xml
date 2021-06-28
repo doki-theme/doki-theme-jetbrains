@@ -502,7 +502,7 @@
     </option>
     <option name="DEFAULT_DOC_MARKUP">
       <value>
-        <option name="FOREGROUND" value="7282b7"/>
+        <option name="FOREGROUND" value="$htmlTagColor$"/>
       </value>
     </option>
     <option name="DEFAULT_ENTITY">
