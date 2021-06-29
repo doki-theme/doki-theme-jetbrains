@@ -625,6 +625,7 @@
     "/org/jetbrains/kotlin/idea/icons/suspendCall_dark.svg":"/icons/plugins/kotlin/suspendCall_dark.svg",
     "/org/jetbrains/kotlin/idea/icons/typeAlias.svg": "/icons/plugins/kotlin/typeAlias.svg",
     "/nodes/editorConfig.svg": "/icons/nodes/editorConfig.svg",
+    "/nodes/runnableMark.svg": "/icons/nodes/runnableMark.svg",
     "/nodes/excludedFromCompile.svg": "/icons/nodes/excludedFromCompile.svg",
     "/nodes/favorite.svg": "/icons/nodes/favorite.svg",
     "/nodes/favoriteOnHover.svg": "/icons/nodes/favoriteOnHover.svg",
