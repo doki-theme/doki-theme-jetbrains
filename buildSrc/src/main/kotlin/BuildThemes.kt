@@ -495,10 +495,10 @@ open class BuildThemes : DefaultTask() {
   private fun resolveStringTemplate(value: String, colors: Map<String, String>): String =
     if (value.contains('&')) {
     val (end, replacementColor) = getReplacementColor(value, '&') { templateColor ->
-      colors[templateColor] as? String
+      colors[templateColor]
         ?: throw IllegalArgumentException("$templateColor is not in the color definition.")
     }
-    buildReplacement(replacementColor, value, end)
+    '#' + buildReplacement(replacementColor, value, end)
   } else {
     value
   }
