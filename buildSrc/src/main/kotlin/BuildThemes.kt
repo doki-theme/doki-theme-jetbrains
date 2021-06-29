@@ -7,23 +7,12 @@ import java.io.File
 import java.io.InputStreamReader
 import java.nio.charset.StandardCharsets
 import java.nio.file.Files
-import java.nio.file.Files.copy
-import java.nio.file.Files.createDirectories
-import java.nio.file.Files.delete
-import java.nio.file.Files.exists
-import java.nio.file.Files.isDirectory
-import java.nio.file.Files.newBufferedWriter
-import java.nio.file.Files.newInputStream
-import java.nio.file.Files.walk
+import java.nio.file.Files.*
 import java.nio.file.Path
 import java.nio.file.Paths.get
 import java.nio.file.StandardCopyOption
 import java.nio.file.StandardOpenOption
-import java.util.Collections
-import java.util.Comparator
-import java.util.LinkedList
-import java.util.Optional
-import java.util.TreeMap
+import java.util.*
 import java.util.regex.Pattern
 import java.util.stream.Collectors
 import java.util.stream.Stream
@@ -254,7 +243,8 @@ open class BuildThemes : DefaultTask() {
     val dokiThemeTemplates =
       dokiTemplates[LAF_TEMPLATE] ?: throw IllegalStateException("Expected the $LAF_TEMPLATE template to be present")
     val topThemeDefinition =
-      dokiThemeTemplates[jetbrainsDefinition.uiBase ?: templateName] ?: throw IllegalStateException("Theme $templateName does not exist.")
+      dokiThemeTemplates[jetbrainsDefinition.uiBase ?: templateName]
+        ?: throw IllegalStateException("Theme $templateName does not exist.")
 
     val dokiColorTemplates =
       dokiTemplates[COLOR_TEMPLATE]
@@ -265,7 +255,8 @@ open class BuildThemes : DefaultTask() {
       themeDefinition.colors
     ) {
       it.colors ?: throw IllegalArgumentException("Expected the $LAF_TEMPLATE to have a 'colors' attribute")
-    }
+    } as MutableMap<String, String>
+    val colors = validateColors(themeDefinition, resolvedNamedColors)
     val finalTheme = JetbrainsThemeDefinition(
       id = themeDefinition.id,
       name = "${getLafNamePrefix(themeDefinition.group)}${themeDefinition.name}",
@@ -289,9 +280,10 @@ open class BuildThemes : DefaultTask() {
         jetbrainsDefinition,
         dokiThemeDefinitionPath
       ),
-      colors = validateColors(themeDefinition, resolvedNamedColors),
+      colors = colors,
       ui = getUIDef(
         jetbrainsDefinition.ui,
+        colors,
         topThemeDefinition,
         dokiThemeTemplates
       ),
@@ -308,12 +300,12 @@ open class BuildThemes : DefaultTask() {
 
   private fun validateColors(
     masterThemeDefinition: DokiBuildMasterThemeDefinition,
-    colorz: Map<String, Any>
-  ): Map<String, Any> {
+    colorz: Map<String, String>
+  ): Map<String, String> {
     val colorsSchema = themeSchema.properties["colors"]?.required?.toSet()
       ?: throw IllegalStateException("doki.theme.schema.json is missing required attribute 'properties.colors.required'!")
     val missingColors = colorsSchema
-      .filter { !isColorCode(colorz[it] as? String) }
+      .filter { !isColorCode(colorz[it]) }
     return if (missingColors.isEmpty()) colorz
     else throw IllegalArgumentException(
       """Theme definition for ${masterThemeDefinition.name} is missing colors: 
@@ -388,7 +380,7 @@ open class BuildThemes : DefaultTask() {
           Background(
             it.name ?: stickers.secondary?.getStickerName() ?: stickers.default.getStickerName(),
             it.position ?: "CENTER",
-              it.opacity
+            it.opacity
           )
         }
         .map { Optional.of(it) }
@@ -423,7 +415,7 @@ open class BuildThemes : DefaultTask() {
       "doki",
       "themes"
     )
-    if (Files.notExists(themeDirectory)) {
+    if (notExists(themeDirectory)) {
       createDirectories(themeDirectory)
     } else {
       walk(themeDirectory)
@@ -473,20 +465,51 @@ open class BuildThemes : DefaultTask() {
 
   private fun getUIDef(
     ui: Map<String, Any>,
+    colors: Map<String, String>,
     dokiThemeTemplates: ThemeTemplateDefinition,
     dokiThemeTemplates1: Map<String, ThemeTemplateDefinition>
-  ): Map<String, Any> =
-    resolveAttributes(dokiThemeTemplates, dokiThemeTemplates1, ui) {
+  ): Map<String, Any> {
+    val resolveAttributes = resolveAttributes(dokiThemeTemplates, dokiThemeTemplates1, ui) {
       it.ui ?: throw IllegalArgumentException("Expected the $LAF_TEMPLATE to have a ui attribute")
     }
+    return resolveNamedColorsForMap(resolveAttributes, colors)
+
+  }
+
+  private fun resolveNamedColorsForMap(
+    resolveAttributes: MutableMap<String, Any>,
+    colors: Map<String, String>
+  ): TreeMap<String, Any> = resolveAttributes.entries
+    .stream()
+    .map {
+      it.key to when (val value = it.value) {
+        is String -> resolveStringTemplate(value, colors)
+        is Map<*, *> -> resolveNamedColorsForMap(value as MutableMap<String, Any>, colors)
+        else -> value
+      }
+    }
+    .collect(Collectors.toMap({ it.first }, { it.second }, { _, b -> b },
+      { TreeMap(Comparator.comparing { item -> item.toLowerCase() }) })
+    )
+
+  private fun resolveStringTemplate(value: String, colors: Map<String, String>): String =
+    if (value.contains('&')) {
+    val (end, replacementColor) = getReplacementColor(value, '&') { templateColor ->
+      colors[templateColor] as? String
+        ?: throw IllegalArgumentException("$templateColor is not in the color definition.")
+    }
+    buildReplacement(replacementColor, value, end)
+  } else {
+    value
+  }
 
   private fun resolveAttributes(
     childTemplate: ThemeTemplateDefinition,
     dokiTemplateDefinitions: Map<String, ThemeTemplateDefinition>,
     definitionAttributes: Map<String, Any>,
     attributeExtractor: (ThemeTemplateDefinition) -> Map<String, Any>
-  ): Map<String, Any> {
-    return Stream.of(
+  ): MutableMap<String, Any> =
+    Stream.of(
       resolveTemplate(childTemplate, dokiTemplateDefinitions, attributeExtractor),
       definitionAttributes.entries.stream()
     )
@@ -494,7 +517,6 @@ open class BuildThemes : DefaultTask() {
       .collect(Collectors.toMap({ it.key }, { it.value }, { _, b -> b },
         { TreeMap(Comparator.comparing { item -> item.toLowerCase() }) })
       )
-  }
 
   private fun resolveTemplate(
     childTemplate: ThemeTemplateDefinition,
