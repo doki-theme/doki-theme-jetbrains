@@ -418,6 +418,8 @@
 
     "Label.errorForeground":"errorColor",
 
+    "Counter.foreground": "baseBackground",
+
     "Notification.errorForeground":"foregroundColor",
     "Notification.errorBackground": "nonProjectFileScopeColor",
     "Notification.errorBorderColor": "diff.conflict",
