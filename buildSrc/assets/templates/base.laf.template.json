@@ -335,6 +335,12 @@
     "DragAndDrop.areaBackground": "codeBlock",
     "DragAndDrop.areaBorderColor": "codeBlock",
 
+    "GotItTooltip.foreground": "foregroundColor",
+    "GotItTooltip.shortcutForeground": "accentColor",
+    "GotItTooltip.background":  "secondaryBackground",
+    "GotItTooltip.borderColor": "secondaryBackground",
+    "GotItTooltip.linkForeground":  "accentColor",
+
     "ScrollBar.Transparent.thumbColor": "accentColorTransparent",
     "ScrollBar.Transparent.thumbBorderColor": "accentColorTransparent",
     "ScrollBar.Transparent.hoverThumbColor": "accentColorLessTransparent",
