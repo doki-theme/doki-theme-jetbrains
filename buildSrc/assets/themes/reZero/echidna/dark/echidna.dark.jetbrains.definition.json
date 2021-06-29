@@ -10,6 +10,8 @@
     }
   },
   "ui": {
-    "Doki.Icon.Accent.Contrast.color": "headerColor"
+    "Doki.Icon.Accent.Contrast.color": "headerColor",
+    "ActionButton.pressedBackground": "selectionBackgroundTransparent",
+    "ActionButton.pressedBorderColor": "#00000000"
   }
 }
