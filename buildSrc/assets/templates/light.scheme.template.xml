@@ -2686,6 +2686,30 @@
         <option name="EFFECT_TYPE" value="2"/>
       </value>
     </option>
+    <option name="XPATH.FUNCTION" baseAttributes="DEFAULT_FUNCTION_CALL" />
+    <option name="XPATH.KEYWORD">
+      <value>
+        <option name="FOREGROUND" value="$keywordColor$" />
+      </value>
+    </option>
+    <option name="XPATH.XPATH_NAME">
+      <value>
+        <option name="FOREGROUND" value="$classNameColor$" />
+        <option name="EFFECT_TYPE" value="5" />
+      </value>
+    </option>
+    <option name="XPATH.XPATH_PREFIX">
+      <value>
+        <option name="FOREGROUND" value="$keyColor$" />
+        <option name="EFFECT_TYPE" value="5" />
+      </value>
+    </option>
+    <option name="XPATH.XPATH_VARIABLE">
+      <value>
+        <option name="FOREGROUND" value="$startColor$" />
+        <option name="FONT_TYPE" value="1" />
+      </value>
+    </option>
     <option name="XML_ATTRIBUTE_NAME" baseAttributes="HTML_ATTRIBUTE_NAME"/>
     <option name="XML_ENTITY_REFERENCE" baseAttributes="DEFAULT_ENTITY"/>
     <option name="XML_PROLOGUE" baseAttributes="TEXT"/>
