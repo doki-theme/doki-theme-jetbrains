@@ -451,6 +451,51 @@
     <option name="CUSTOM_STRING_ATTRIBUTES" baseAttributes="DEFAULT_STRING"/>
     <option name="CUSTOM_VALID_STRING_ESCAPE_ATTRIBUTES" baseAttributes="DEFAULT_VALID_STRING_ESCAPE"/>
     <option name="Class" baseAttributes="CLASS_NAME_ATTRIBUTES"/>
+    <option name="CSV_PLUGIN_COLUMN_COLORING_ATTRIBUTE_1">
+      <value>
+        <option name="FOREGROUND" value="$terminal.ansiMagenta$" />
+      </value>
+    </option>
+    <option name="CSV_PLUGIN_COLUMN_COLORING_ATTRIBUTE_2">
+      <value>
+        <option name="FOREGROUND" value="$terminal.ansiBlue$" />
+      </value>
+    </option>
+    <option name="CSV_PLUGIN_COLUMN_COLORING_ATTRIBUTE_3">
+      <value>
+        <option name="FOREGROUND" value="$keyColor$" />
+      </value>
+    </option>
+    <option name="CSV_PLUGIN_COLUMN_COLORING_ATTRIBUTE_4">
+      <value>
+        <option name="FOREGROUND" value="$terminal.ansiCyan$" />
+      </value>
+    </option>
+    <option name="CSV_PLUGIN_COLUMN_COLORING_ATTRIBUTE_5">
+      <value>
+        <option name="FOREGROUND" value="$accentColor$" />
+      </value>
+    </option>
+    <option name="CSV_PLUGIN_COLUMN_COLORING_ATTRIBUTE_6">
+      <value>
+        <option name="FOREGROUND" value="$terminal.ansiGreen$" />
+      </value>
+    </option>
+    <option name="CSV_PLUGIN_COLUMN_COLORING_ATTRIBUTE_7">
+      <value>
+        <option name="FOREGROUND" value="$terminal.ansiYellow$" />
+      </value>
+    </option>
+    <option name="CSV_PLUGIN_COLUMN_COLORING_ATTRIBUTE_8">
+      <value>
+        <option name="FOREGROUND" value="$terminal.ansiRed$" />
+      </value>
+    </option>
+    <option name="CSV_PLUGIN_COLUMN_COLORING_ATTRIBUTE_9">
+      <value>
+        <option name="FOREGROUND" value="$accentColor$" />
+      </value>
+    </option>
     <option name="DEFAULT_ATTRIBUTE">
       <value>
         <option name="FOREGROUND" value="$accentColor$"/>
