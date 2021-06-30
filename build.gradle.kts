@@ -67,7 +67,6 @@ intellij {
   // Plugin Dependencies. Uses `platformPlugins` property from the gradle.properties file.
   plugins.set(
     platformPlugins.split(',')
-//      .filter { System.getenv("ENV") == "DEV" }
       .map(String::trim)
       .filter(String::isNotEmpty)
   )

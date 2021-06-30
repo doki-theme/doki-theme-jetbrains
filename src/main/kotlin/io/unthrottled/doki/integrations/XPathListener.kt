@@ -28,7 +28,6 @@ class XPathListener : LafManagerListener, StartupActivity {
 
       XPathAppComponent.getInstance().config.contextAttributes.backgroundColor =
         IDENTIFIER_UNDER_CARET_ATTRIBUTES.defaultAttributes.backgroundColor
-
     }) {
       val config = Config()
       XPathAppComponent.getInstance().config.attributes.backgroundColor = config.attributes.backgroundColor

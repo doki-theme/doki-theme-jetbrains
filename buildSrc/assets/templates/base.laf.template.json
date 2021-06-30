@@ -483,7 +483,6 @@
     "Plugins.Button.installBorderColor":"accentColor",
     "Plugins.Button.installForeground": "accentColor",
 
-
     "FlameGraph.ApplicationCell.background": "diff.inserted",
     "FlameGraph.ApplicationCell.foreground": "foregroundColor",
     "FlameGraph.ApplicationCell.hoverBackground": "selectionBackground",
