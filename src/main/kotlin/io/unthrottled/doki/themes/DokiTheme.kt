@@ -9,6 +9,7 @@ import io.unthrottled.doki.promotions.CulturedContentManager
 import io.unthrottled.doki.stickers.CurrentSticker
 import io.unthrottled.doki.util.runSafelyWithResult
 import io.unthrottled.doki.util.toColor
+import io.unthrottled.doki.util.toHexString
 import io.unthrottled.doki.util.toOptional
 import java.awt.Color
 import java.io.InputStreamReader
@@ -94,16 +95,22 @@ class DokiTheme(private val uiTheme: JetBrainsThemeDefinition) {
     get() = uiTheme.meta.getOrDefault("isVivid", "false") == "true"
 
   val nonProjectFileScopeColor: String
-    get() = uiTheme.colors["nonProjectFileScopeColor"] as? String
-      ?: throw IllegalStateException("Expected 'colors.nonProjectFileScopeColor' to be present in $name theme json")
-
+    get() = getColor("nonProjectFileScopeColor").toHexString()
   val testScopeColor: String
-    get() = uiTheme.colors["testScopeColor"] as? String
-      ?: throw IllegalStateException("Expected 'colors.testScopeColor' to be present in theme $name json.")
-
+    get() = getColor("testScopeColor").toHexString()
   val contrastColor: Color
-    get() = (uiTheme.colors["contrastColor"] as? String)?.toColor()
-      ?: throw IllegalStateException("Expected 'colors.contrastColor' to be present in theme $name json.")
+    get() = getColor("contrastColor")
+  val selectionBackground: Color
+    get() = getColor("selectionBackground")
+  val selectionForeground: Color
+    get() = getColor("selectionForeground")
+  val identifierHighlight: Color
+    get() = getColor("identifierHighlight")
+
+  private fun getColor(s: String) = (
+    (uiTheme.colors[s] as? String)?.toColor()
+      ?: throw IllegalStateException("Expected 'colors.$s' to be present in theme $name json.")
+    )
 
   companion object {
     const val ACCENT_COLOR = "Doki.Accent.color"

@@ -1,6 +1,16 @@
 Changelog
 ---
 
+# 16.2.0 [Maintenance]
+
+- Better supporting the Look and Feel of the 2021.2 builds...again... 
+- Added themed [XPathView Plugin](https://plugins.jetbrains.com/plugin/12478-xpathview--xslt) configurations.
+- Added themed [CSV Plugin](https://plugins.jetbrains.com/plugin/10037-csv/) configurations.
+- Themed the IntelliJ Ultimate [Flame Graph](https://blog.jetbrains.com/idea/2020/03/profiling-tools-and-intellij-idea-ultimate/).
+- Better Rider/C# Syntax Highlighting
+- Echinda's pressed "Action Button" is more visible.
+
+
 # 16.1.0 [2021.2 Maintenance]
 
 - Better supporting the Look and Feel of the 2021.2 builds.

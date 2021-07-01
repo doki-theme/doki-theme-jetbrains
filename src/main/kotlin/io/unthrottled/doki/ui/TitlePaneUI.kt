@@ -205,9 +205,9 @@ class TitlePaneUI : DarculaRootPaneUI() {
       is JDialog -> window.title
       is JFrame -> window.title
       else -> LOL_NOPE
-    }.ifEmpty {
+    }?.ifEmpty {
       " "
-    }
+    } ?: LOL_NOPE
 }
 
 private fun isInFullScreen(window: Window?): Boolean {
