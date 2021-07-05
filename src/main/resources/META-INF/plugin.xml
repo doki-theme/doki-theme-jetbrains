@@ -84,6 +84,7 @@
     <themeProvider id="dce48196-ff46-470c-b5f9-d1e23f4a79d3" path="/doki/themes/literature_club/Monika_Dark.theme.json"/>
     <themeProvider id="31d5574d-f56b-408f-81dc-9d44feeb62c2" path="/doki/themes/nekopara/Vanilla.theme.json"/>
     <themeProvider id="432fdab1-b8fa-412e-8cca-1844f18a1a43" path="/doki/themes/nekopara/Coconut.theme.json"/>
+    <themeProvider id="93035c21-9eb7-4b0e-92d0-35d66d16c8e0" path="/doki/themes/nekopara/Chocola.theme.json"/>
     <themeProvider id="bc12b380-1f2a-4a9d-89d8-388a07f1e15f" path="/doki/themes/vocaloid/Hatsune_Miku.theme.json"/>
     <themeProvider id="2d1112ac-04ab-4f78-82c4-22e5e2c1754b" path="/doki/themes/love_live/Sonoda_Umi.theme.json"/>
     <themeProvider id="be058474-b967-4afb-b6d9-bda1948b33ec" path="/doki/themes/lucky_star/Konata.theme.json"/>
