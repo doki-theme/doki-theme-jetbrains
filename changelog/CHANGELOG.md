@@ -1,6 +1,16 @@
 Changelog
 ---
 
+# 17.0.0 [NekoPara Release]
+
+## 3 New Themes!!
+
+- Chocola (Dark)
+- Vanilla (Dark)
+- Coconut (Dark)
+
+![v17 Girls](https://doki.assets.unthrottled.io/misc/v17_girls.png)
+
 # 16.2.0 [Maintenance]
 
 - Better supporting the Look and Feel of the 2021.2 builds...again... 

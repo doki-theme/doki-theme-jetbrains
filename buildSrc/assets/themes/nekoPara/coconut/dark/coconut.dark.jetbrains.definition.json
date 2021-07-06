@@ -1,5 +1,5 @@
 {
-  "id": "5ec63d95-1e7d-4649-b3d0-0078af8f8740",
+  "id": "432fdab1-b8fa-412e-8cca-1844f18a1a43",
   "editorScheme": {
     "type": "template",
     "name": "Doki Dim"
@@ -10,7 +10,8 @@
   "backgrounds": {
     "default": {
       "position": "MIDDLE_RIGHT",
-      "opacity": 8
+      "opacity": 6
     }
   }
+
 }
