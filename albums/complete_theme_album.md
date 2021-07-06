@@ -32,6 +32,24 @@ Yuru Camp
 
 ![shima_rin_dark code](../assets/screenshots/yuruCamp/shima_rin_dark_code.png)
 
+NekoPara
+---
+
+### Chocola
+
+![chocola_dark code](../assets/screenshots/nekoPara/chocola_dark_code.png)
+
+
+### Vanilla
+
+![vanilla_dark code](../assets/screenshots/nekoPara/vanilla_dark_code.png)
+
+
+### Coconut
+
+![coconut_dark code](../assets/screenshots/nekoPara/coconut_dark_code.png)
+
+
 Don't Toy With Me, Miss Nagatoro
 ---
 
