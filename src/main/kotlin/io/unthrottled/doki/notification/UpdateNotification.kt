@@ -84,6 +84,13 @@ private fun buildUpdateMessage(
     <body>
     <h2>What's New?</h2>
     <ul>
+        <li>3 NekoPara Themes!
+            <ul>
+                <li>Chocola</li>
+                <li>Vanilla</li>
+                <li>Coconut</li>
+            </ul>
+        </li>
         <li>Better 2021.2 Build Support.</li>
     </ul>
     Please see the <a href="https://github.com/doki-theme/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md">
@@ -166,9 +173,9 @@ object UpdateNotification {
     val content = buildUpdateMessage(
       AssetManager.resolveAssetUrl(
         AssetCategory.MISC,
-        "update_celebration_v6.gif"
+        "update_celebration_v7.gif"
       ).orElseGet {
-        "https://doki.assets.unthrottled.io/misc/update_celebration_v6.gif"
+        "https://doki.assets.unthrottled.io/misc/update_celebration_v7.gif"
       },
       Dimension(450, 253)
     )
