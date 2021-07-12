@@ -25,7 +25,7 @@ jobs:
       run: ./getMasterThemes.sh
     - name: Perform quality check
       run: ./gradlew clean check buildPlugin
-    - uses: ChrisCarini/intellij-platform-plugin-verifier-action@v1.0.6
+    - uses: ChrisCarini/intellij-platform-plugin-verifier-action@v1.0.7
       with:
         ide-versions: |
           ideaIC:2020.3.2
