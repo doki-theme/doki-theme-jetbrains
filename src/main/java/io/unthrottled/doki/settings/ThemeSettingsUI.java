@@ -46,6 +46,8 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
   private JCheckBox themeChangeAnimationCheckBox;
   private JSpinner customFontSize;
   private JCheckBox overrideEditorFontSizeCheckBox;
+  private JComboBox consoleFontWomboComboBox;
+  private JCheckBox overrideConsoleFont;
 
 
   @Override
@@ -136,6 +138,10 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
     overrideEditorFontSizeCheckBox.addActionListener(e ->
       themeSettingsModel.setCustomFontSize(overrideEditorFontSizeCheckBox.isSelected()));
 
+    overrideConsoleFont.setSelected(initialThemeSettingsModel.isOverrideConsoleFont());
+    overrideConsoleFont.addActionListener(e ->
+      themeSettingsModel.setOverrideConsoleFont(overrideConsoleFont.isSelected()));
+
     SpinnerNumberModel customFontSizeModel = new SpinnerNumberModel(
       initialThemeSettingsModel.getCustomFontSizeValue(),
       1,
@@ -219,6 +225,12 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
     });
 
     currentThemeWomboComboBox = ThemeSettings.INSTANCE.createThemeComboBoxModel(
+      () -> this.themeSettingsModel == null ?
+        ThemeSettings.createThemeSettingsModel() :
+        themeSettingsModel
+    );
+
+    consoleFontWomboComboBox = ThemeSettings.INSTANCE.createConsoleFontComboBoxModel(
       () -> this.themeSettingsModel == null ?
         ThemeSettings.createThemeSettingsModel() :
         themeSettingsModel
