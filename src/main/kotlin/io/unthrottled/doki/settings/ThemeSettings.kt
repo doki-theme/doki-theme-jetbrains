@@ -8,13 +8,25 @@ import com.intellij.ui.layout.panel
 import com.intellij.util.ui.FontInfo
 import io.unthrottled.doki.config.THEME_CONFIG_TOPIC
 import io.unthrottled.doki.config.ThemeConfig
-import io.unthrottled.doki.settings.actors.*
+import io.unthrottled.doki.settings.actors.BackgroundActor
+import io.unthrottled.doki.settings.actors.ConsoleFontActor
+import io.unthrottled.doki.settings.actors.CustomFontSizeActor
+import io.unthrottled.doki.settings.actors.EmptyFrameBackgroundActor
+import io.unthrottled.doki.settings.actors.LafAnimationActor
+import io.unthrottled.doki.settings.actors.MaterialIconsActor
+import io.unthrottled.doki.settings.actors.MoveableStickerActor
+import io.unthrottled.doki.settings.actors.SeeThroughNotificationsActor
+import io.unthrottled.doki.settings.actors.ShowReadmeActor
+import io.unthrottled.doki.settings.actors.StickerActor
+import io.unthrottled.doki.settings.actors.ThemeActor
+import io.unthrottled.doki.settings.actors.ThemeStatusBarActor
+import io.unthrottled.doki.settings.actors.ThemedTitleBarActor
 import io.unthrottled.doki.stickers.CurrentSticker
 import io.unthrottled.doki.stickers.CustomStickerService
 import io.unthrottled.doki.stickers.StickerLevel
 import io.unthrottled.doki.themes.ThemeManager
 import java.net.URI
-import java.util.*
+import java.util.Vector
 import javax.swing.DefaultComboBoxModel
 import javax.swing.JLabel
 

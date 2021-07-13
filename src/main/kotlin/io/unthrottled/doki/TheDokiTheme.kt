@@ -18,7 +18,6 @@ import io.unthrottled.doki.laf.LookAndFeelInstaller.installAllUIComponents
 import io.unthrottled.doki.legacy.LegacyMigration
 import io.unthrottled.doki.notification.UpdateNotification
 import io.unthrottled.doki.promotions.PromotionManager
-import io.unthrottled.doki.service.ConsoleFontService
 import io.unthrottled.doki.service.ConsoleFontService.applyConsoleFont
 import io.unthrottled.doki.service.CustomFontSizeService.applyCustomFontSize
 import io.unthrottled.doki.settings.actors.ThemeActor.setDokiTheme
