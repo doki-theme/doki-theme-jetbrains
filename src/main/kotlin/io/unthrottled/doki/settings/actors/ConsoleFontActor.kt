@@ -16,7 +16,11 @@ object ConsoleFontActor {
     val fontSizeChanged = previousFontSize != consoleFontName
     val enablementChanged = previousEnablement != enabled
     if (fontSizeChanged || enablementChanged) {
-      (EditorColorsManager.getInstance() as EditorColorsManagerImpl).schemeChangedOrSwitched(null)
+      refreshConsole()
     }
+  }
+
+  fun refreshConsole() {
+    (EditorColorsManager.getInstance() as EditorColorsManagerImpl).schemeChangedOrSwitched(null)
   }
 }
