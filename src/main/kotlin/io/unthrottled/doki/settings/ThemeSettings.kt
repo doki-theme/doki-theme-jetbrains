@@ -5,9 +5,11 @@ import com.intellij.openapi.ui.ComboBox
 import com.intellij.openapi.ui.DialogPanel
 import com.intellij.ui.IconManager
 import com.intellij.ui.layout.panel
+import com.intellij.util.ui.FontInfo
 import io.unthrottled.doki.config.THEME_CONFIG_TOPIC
 import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.settings.actors.BackgroundActor
+import io.unthrottled.doki.settings.actors.ConsoleFontActor
 import io.unthrottled.doki.settings.actors.CustomFontSizeActor
 import io.unthrottled.doki.settings.actors.EmptyFrameBackgroundActor
 import io.unthrottled.doki.settings.actors.LafAnimationActor
@@ -46,6 +48,8 @@ data class ThemeSettingsModel(
   var customStickerPath: String,
   var isCustomFontSize: Boolean,
   var customFontSizeValue: Int,
+  var isOverrideConsoleFont: Boolean,
+  var consoleFontValue: String,
   var isSeeThroughNotifications: Boolean,
   var notificationOpacity: Int,
 ) {
@@ -86,6 +90,8 @@ object ThemeSettings {
       customFontSizeValue = ThemeConfig.instance.customFontSize,
       isSeeThroughNotifications = ThemeConfig.instance.isSeeThroughNotifications,
       notificationOpacity = ThemeConfig.instance.notificationOpacity,
+      isOverrideConsoleFont = ThemeConfig.instance.isOverrideConsoleFont,
+      consoleFontValue = ThemeConfig.instance.consoleFontName,
     )
 
   fun apply(themeSettingsModel: ThemeSettingsModel) {
@@ -110,6 +116,10 @@ object ThemeSettings {
     CustomFontSizeActor.enableCustomFontSize(
       themeSettingsModel.isCustomFontSize,
       themeSettingsModel.customFontSizeValue
+    )
+    ConsoleFontActor.enableCustomFontSize(
+      themeSettingsModel.isOverrideConsoleFont,
+      themeSettingsModel.consoleFontValue,
     )
     SeeThroughNotificationsActor.enableSeeThroughNotifications(
       themeSettingsModel.isSeeThroughNotifications,
@@ -184,5 +194,21 @@ object ThemeSettings {
       settingsSupplier().currentTheme = themeComboBox.model.selectedItem as String
     }
     return themeComboBox
+  }
+
+  fun createConsoleFontComboBoxModel(settingsSupplier: () -> ThemeSettingsModel): ComboBox<String> {
+    val fontComboBox = ComboBox(
+      DefaultComboBoxModel(
+        Vector(
+          FontInfo.getAll(true)
+            .map { it.font.name }
+        )
+      )
+    )
+    fontComboBox.model.selectedItem = settingsSupplier().consoleFontValue
+    fontComboBox.addActionListener {
+      settingsSupplier().consoleFontValue = fontComboBox.model.selectedItem as String
+    }
+    return fontComboBox
   }
 }

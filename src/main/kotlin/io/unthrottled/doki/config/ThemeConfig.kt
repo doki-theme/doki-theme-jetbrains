@@ -37,6 +37,9 @@ class ThemeConfig : PersistentStateComponent<ThemeConfig>, Cloneable {
   var isGlobalFontSize: Boolean = false
   var customFontSize: Int = 13
 
+  var isOverrideConsoleFont: Boolean = false
+  var consoleFontName: String = "JetBrains Mono"
+
   var isMaterialDirectories: Boolean = false
   var isMaterialFiles: Boolean = false
   var isMaterialPSIIcons: Boolean = false

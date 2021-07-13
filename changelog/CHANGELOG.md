@@ -1,6 +1,10 @@
 Changelog
 ---
 
+# 17.1.0 [Global Console Font]
+
+- Added a convenient feature that allows you to set the console font family for all Doki Themes!
+
 # 17.0.0 [NekoPara Release]
 
 ## 3 New Themes!!
