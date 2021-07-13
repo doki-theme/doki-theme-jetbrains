@@ -1,6 +1,6 @@
 package io.unthrottled.doki.settings.actors
 
-import com.intellij.openapi.project.ProjectManager
+import com.intellij.openapi.editor.EditorFactory
 import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.service.CustomFontSizeService
 
@@ -15,9 +15,7 @@ object CustomFontSizeActor {
     val fontSizeChanged = previousFontSize != customFontSize
     val enablementChanged = previousEnablement != enabled
     if (fontSizeChanged || enablementChanged) {
-      ProjectManager.getInstance().openProjects.forEach {
-        ProjectManager.getInstance().reloadProject(it)
-      }
+      EditorFactory.getInstance().refreshAllEditors()
     }
   }
 }
