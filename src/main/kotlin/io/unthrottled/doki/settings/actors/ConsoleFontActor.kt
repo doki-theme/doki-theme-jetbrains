@@ -1,6 +1,7 @@
 package io.unthrottled.doki.settings.actors
 
-import com.intellij.openapi.project.ProjectManager
+import com.intellij.openapi.editor.colors.EditorColorsManager
+import com.intellij.openapi.editor.colors.impl.EditorColorsManagerImpl
 import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.service.ConsoleFontService
 
@@ -15,9 +16,7 @@ object ConsoleFontActor {
     val fontSizeChanged = previousFontSize != consoleFontName
     val enablementChanged = previousEnablement != enabled
     if (fontSizeChanged || enablementChanged) {
-      ProjectManager.getInstance().openProjects.forEach {
-        ProjectManager.getInstance().reloadProject(it)
-      }
+      (EditorColorsManager.getInstance() as EditorColorsManagerImpl).schemeChangedOrSwitched(null)
     }
   }
 }
