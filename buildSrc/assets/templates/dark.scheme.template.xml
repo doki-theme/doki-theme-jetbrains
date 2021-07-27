@@ -71,7 +71,7 @@
     <option name="RIGHT_MARGIN_COLOR" value="$borderColor$"/>
     <option name="SELECTED_INDENT_GUIDE" value="$borderColor$"/>
     <option name="SELECTED_TEARLINE_COLOR" value="$accentColor$"/>
-    <option name="SELECTION_BACKGROUND" value="$selectionBackground$55"/>
+    <option name="SELECTION_BACKGROUND" value="$selectionBackground$"/>
     <option name="SELECTION_FOREGROUND" value="$selectionForeground$"/>
     <option name="SEPARATOR_ABOVE_COLOR" value="$borderColor$"/>
     <option name="SEPARATOR_BELOW_COLOR" value="$borderColor$"/>
