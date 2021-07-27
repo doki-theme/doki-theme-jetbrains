@@ -1,1 +1,2 @@
+- Plugin is now supported on the `Code With Me` platform.
 - Added a convenient feature that allows you to set the console font family for all Doki Themes!

@@ -84,6 +84,7 @@ private fun buildUpdateMessage(
     <body>
     <h2>What's New?</h2>
     <ul>
+        <li>Added Code With Me Support!</li>
         <li>Added global console font config.</li>
     </ul>
     Please see the <a href="https://github.com/doki-theme/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md">
