@@ -114,6 +114,10 @@ tasks {
     }
   }
 
+  runPluginVerifier {
+    ideVersions.set(listOf("IC-2020.3.1", "IC-2021.1.3", "WS-2021.2"))
+  }
+
   patchPluginXml {
     version.set(pluginVersion)
     sinceBuild.set(pluginSinceBuild)

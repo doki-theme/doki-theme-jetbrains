@@ -1,6 +1,10 @@
 Changelog
 ---
 
+# 17.2.0 [Code With Me]
+
+- Plugin is now supported on the `Code With Me` platform.
+
 # 17.1.0 [Global Console Font]
 
 - Added a convenient feature that allows you to set the console font family for all Doki Themes!

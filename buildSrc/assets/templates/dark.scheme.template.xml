@@ -451,6 +451,72 @@
     <option name="CUSTOM_STRING_ATTRIBUTES" baseAttributes="DEFAULT_STRING"/>
     <option name="CUSTOM_VALID_STRING_ESCAPE_ATTRIBUTES" baseAttributes="DEFAULT_VALID_STRING_ESCAPE"/>
     <option name="Class" baseAttributes="CLASS_NAME_ATTRIBUTES"/>
+    <option name="CodeWithMe.USER_1_MARKER">
+      <value>
+        <option name="FOREGROUND" value="$textEditorBackground$" />
+        <option name="BACKGROUND" value="$terminal.ansiGreen$" />
+      </value>
+    </option>
+        <option name="CodeWithMe.USER_1_SELECTION">
+      <value>
+        <option name="BACKGROUND" value="$terminal.ansiGreen$44" />
+      </value>
+    </option>
+    <option name="CodeWithMe.USER_2_MARKER">
+      <value>
+        <option name="FOREGROUND" value="$textEditorBackground$" />
+        <option name="BACKGROUND" value="$terminal.ansiBlue$" />
+      </value>
+    </option>
+        <option name="CodeWithMe.USER_2_SELECTION">
+      <value>
+        <option name="BACKGROUND" value="$terminal.ansiBlue$44" />
+      </value>
+    </option>
+    <option name="CodeWithMe.USER_3_MARKER">
+      <value>
+        <option name="FOREGROUND" value="$textEditorBackground$" />
+        <option name="BACKGROUND" value="$terminal.ansiCyan$" />
+      </value>
+    </option>
+        <option name="CodeWithMe.USER_3_SELECTION">
+      <value>
+        <option name="BACKGROUND" value="$terminal.ansiCyan$44" />
+      </value>
+    </option>
+    <option name="CodeWithMe.USER_4_MARKER">
+      <value>
+        <option name="FOREGROUND" value="$textEditorBackground$" />
+        <option name="BACKGROUND" value="$terminal.ansiYellow$" />
+      </value>
+    </option>
+        <option name="CodeWithMe.USER_4_SELECTION">
+      <value>
+        <option name="BACKGROUND" value="$terminal.ansiYellow$44" />
+      </value>
+    </option>
+    <option name="CodeWithMe.USER_5_MARKER">
+      <value>
+        <option name="FOREGROUND" value="$textEditorBackground$" />
+        <option name="BACKGROUND" value="$terminal.ansiRed$" />
+      </value>
+    </option>
+        <option name="CodeWithMe.USER_5_SELECTION">
+      <value>
+        <option name="BACKGROUND" value="$terminal.ansiRed$44" />
+      </value>
+    </option>
+    <option name="CodeWithMe.USER_6_MARKER">
+      <value>
+        <option name="FOREGROUND" value="$textEditorBackground$" />
+        <option name="BACKGROUND" value="$terminal.ansiMagenta$" />
+      </value>
+    </option>
+        <option name="CodeWithMe.USER_6_SELECTION">
+      <value>
+        <option name="BACKGROUND" value="$terminal.ansiMagenta$44" />
+      </value>
+    </option>
     <option name="CSV_PLUGIN_COLUMN_COLORING_ATTRIBUTE_1">
       <value>
         <option name="FOREGROUND" value="$terminal.ansiMagenta$" />
