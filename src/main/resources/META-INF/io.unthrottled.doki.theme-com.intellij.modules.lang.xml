@@ -1,0 +1,10 @@
+<idea-plugin>
+  <extensions defaultExtensionNs="com.intellij">
+    <annotator language="JSON" implementationClass="io.unthrottled.doki.ide.DokiThemeColorAnnotator"/>
+    <themeMetadataProvider path="/theme-schema/DokiTheme.themeMetadata.json"/>
+  </extensions>
+  <extensions defaultExtensionNs="JavaScript.JsonSchema">
+    <ProviderFactory implementation="io.unthrottled.doki.schema.DokiMasterThemeJsonSchemaProvider"/>
+    <ProviderFactory implementation="io.unthrottled.doki.schema.DokiJetbrainsThemeJsonSchemaProvider"/>
+  </extensions>
+</idea-plugin>
