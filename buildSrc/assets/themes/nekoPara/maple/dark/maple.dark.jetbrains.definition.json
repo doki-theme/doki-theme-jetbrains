@@ -2,8 +2,15 @@
   "id": "13407818-da66-432b-94e3-fd2192e98118",
   "editorScheme": {
     "type": "template",
-    "name": "Doki Dark"
+    "name": "Doki Dim"
   },
   "overrides": {},
-  "ui": {}
+  "ui": {},
+  "backgrounds": {
+    "default": {
+      "position": "MIDDLE_RIGHT",
+      "opacity": 7
+    }
+  },
+  "uiBase": "dark dim"
 }
