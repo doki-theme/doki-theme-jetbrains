@@ -9,7 +9,7 @@
   "backgrounds": {
     "default": {
       "position": "MIDDLE_RIGHT",
-      "opacity": 7
+      "opacity": 5
     }
   },
   "uiBase": "dark dim"
