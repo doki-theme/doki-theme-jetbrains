@@ -84,6 +84,13 @@ private fun buildUpdateMessage(
     <body>
     <h2>What's New?</h2>
     <ul>
+        <li>4 NekoPara Themes!
+            <ul>
+                <li>Maple (Light/Dark)</li>
+                <li>Cinnamon (Dark)</li>
+                <li>Azuki (Dark)</li>
+            </ul>
+        </li>
         <li>Added Code With Me Support!</li>
         <li>Added global console font config.</li>
     </ul>
@@ -167,11 +174,11 @@ object UpdateNotification {
     val content = buildUpdateMessage(
       AssetManager.resolveAssetUrl(
         AssetCategory.MISC,
-        "update_celebration_v7.gif"
+        "update_celebration_v8.gif"
       ).orElseGet {
-        "https://doki.assets.unthrottled.io/misc/update_celebration_v7.gif"
+        "https://doki.assets.unthrottled.io/misc/update_celebration_v8.gif"
       },
-      Dimension(450, 253)
+      Dimension(640, 640)
     )
     val currentTheme = ThemeManager.instance.currentTheme.orElse(ThemeManager.instance.defaultTheme)
 
