@@ -1043,8 +1043,13 @@
     </option>
     <option name="JS.GLOBAL_VARIABLE">
       <value>
-        <option name="FOREGROUND" value="4C94D6"/>
+        <option name="FOREGROUND" value="$constantColor$"/>
         <option name="FONT_TYPE" value="2"/>
+      </value>
+    </option>
+    <option name="JS.LOCAL_VARIABLE">
+      <value>
+        <option name="FOREGROUND" value="$foregroundColor$" />
       </value>
     </option>
     <option name="JS.GLOBAL_FUNCTION">

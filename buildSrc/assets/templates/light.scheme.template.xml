@@ -746,13 +746,13 @@
     <option name="DIFF_CONFLICT">
       <value>
         <option name="FOREGROUND" value="$diff.conflict$"/>
-        <option name="BACKGROUND" value="FFC3C8"/>
+        <option name="BACKGROUND" value="$diff.conflict$"/>
         <option name="ERROR_STRIPE_COLOR" value="$diff.conflict$"/>
       </value>
     </option>
     <option name="DIFF_DELETED">
       <value>
-        <option name="FOREGROUND" value="ffffff"/>
+        <option name="FOREGROUND" value="$diff.deleted$"/>
         <option name="BACKGROUND" value="$diff.deleted$"/>
         <option name="ERROR_STRIPE_COLOR" value="$diff.deleted$"/>
       </value>
@@ -1047,8 +1047,13 @@
     </option>
     <option name="JS.GLOBAL_VARIABLE">
       <value>
-        <option name="FOREGROUND" value="4C94D6"/>
+        <option name="FOREGROUND" value="$constantColor$"/>
         <option name="FONT_TYPE" value="2"/>
+      </value>
+    </option>
+    <option name="JS.LOCAL_VARIABLE">
+      <value>
+        <option name="FOREGROUND" value="$foregroundColor$" />
       </value>
     </option>
     <option name="JS.INSTANCE_MEMBER_FUNCTION" baseAttributes="DEFAULT_INSTANCE_METHOD"/>

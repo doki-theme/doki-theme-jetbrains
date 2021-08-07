@@ -22,7 +22,6 @@ import org.assertj.core.api.Assertions.assertThat
 import org.junit.AfterClass
 import org.junit.Before
 import org.junit.BeforeClass
-import org.junit.Ignore
 import org.junit.Test
 import java.nio.file.Files
 import java.time.Instant
@@ -31,8 +30,6 @@ import java.util.Optional
 import java.util.UUID
 import java.util.concurrent.TimeUnit
 
-// todo: don't do dis
-@Ignore
 class PromotionManagerIntegrationTest {
 
   companion object {
