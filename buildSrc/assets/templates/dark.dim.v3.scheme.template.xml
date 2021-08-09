@@ -1,0 +1,27 @@
+<scheme name="Doki Dim v3" version="0" parent_scheme="Doki Dim v2">
+  <colors>
+  </colors>
+  <attributes>
+    <option name="SEARCH_RESULT_ATTRIBUTES">
+      <value>
+        <option name="BACKGROUND" value="$searchBackground$"/>
+        <option name="FOREGROUND" value="$searchForeground$"/>
+        <option name="EFFECT_COLOR" value="$searchBackground$"/>
+      </value>
+    </option>
+    <option name="TEXT_SEARCH_RESULT_ATTRIBUTES">
+      <value>
+        <option name="BACKGROUND" value="$searchBackground$"/>
+        <option name="FOREGROUND" value="$searchForeground$"/>
+        <option name="EFFECT_COLOR" value="$searchBackground$"/>
+      </value>
+    </option>
+    <option name="WRITE_SEARCH_RESULT_ATTRIBUTES">
+      <value>
+        <option name="BACKGROUND" value="$searchBackground$"/>
+        <option name="FOREGROUND" value="$searchForeground$"/>
+        <option name="EFFECT_COLOR" value="$searchBackground$"/>
+      </value>
+    </option>
+  </attributes>
+</scheme>
