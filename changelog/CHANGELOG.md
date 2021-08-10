@@ -1,7 +1,7 @@
 Changelog
 ---
 
-# 18.1.0 [Seach & Selection Usability]
+# 18.1.0 [Search & Selection Usability]
 
 - Made it easier to differentiate the search & selection background colors for all **61** themes. <sup><sup>Some days I question my current life choices....</sup></sup>
 
