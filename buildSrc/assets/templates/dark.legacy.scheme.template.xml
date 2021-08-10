@@ -12,7 +12,7 @@
     </option>
     <option name="IDENTIFIER_UNDER_CARET_ATTRIBUTES">
       <value>
-        <option name="BACKGROUND" value="$foldedTextBackground$"/>
+        <option name="BACKGROUND" value="$identifierHighlight$"/>
         <option name="EFFECT_TYPE" value="1"/>
       </value>
     </option>
@@ -30,7 +30,7 @@
     </option>
     <option name="WRITE_IDENTIFIER_UNDER_CARET_ATTRIBUTES">
       <value>
-        <option name="BACKGROUND" value="$foldedTextBackground$"/>
+        <option name="BACKGROUND" value="$identifierHighlight$"/>
         <option name="EFFECT_TYPE" value="1"/>
       </value>
     </option>
