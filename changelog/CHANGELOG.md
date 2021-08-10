@@ -1,6 +1,10 @@
 Changelog
 ---
 
+# 18.1.0 [Seach & Selection Usability]
+
+- Made it easier to differentiate the search & selection background colors for all **61** themes. <sup><sup>Some days I question my current life choices....</sup></sup>
+
 # 18.0.0 [NekoPara OneeSan Vol.]
 
 ## 4 New Themes!!
