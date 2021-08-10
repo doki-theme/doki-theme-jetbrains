@@ -84,15 +84,7 @@ private fun buildUpdateMessage(
     <body>
     <h2>What's New?</h2>
     <ul>
-        <li>4 NekoPara Themes!
-            <ul>
-                <li>Maple (Light/Dark)</li>
-                <li>Cinnamon (Dark)</li>
-                <li>Azuki (Dark)</li>
-            </ul>
-        </li>
-        <li>Added Code With Me Support!</li>
-        <li>Added global console font config.</li>
+        <li>Made it easier to differentiate seach & selection for all themes.</li>
     </ul>
     Please see the <a href="https://github.com/doki-theme/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md">
         changelog</a> for more details.
