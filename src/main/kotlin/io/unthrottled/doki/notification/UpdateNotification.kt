@@ -14,6 +14,7 @@ import com.intellij.util.ui.UIUtil
 import io.unthrottled.doki.assets.AssetCategory
 import io.unthrottled.doki.assets.AssetManager
 import io.unthrottled.doki.icon.DokiIcons
+import io.unthrottled.doki.promotions.MessageBundle
 import io.unthrottled.doki.themes.DokiTheme
 import io.unthrottled.doki.themes.ThemeManager
 import io.unthrottled.doki.util.toHexString
@@ -187,28 +188,22 @@ object UpdateNotification {
 
   fun displayRestartMessage() {
     showDokiNotification(
-      "Please restart your IDE",
-      "In order for the change to take effect, please restart your IDE. Thanks! ~"
+      MessageBundle.getMessage("notification.restart.title"),
+      MessageBundle.getMessage("notification.restart.body"),
     )
   }
 
   fun displayAnimationInstallMessage() {
     showDokiNotification(
-      "Theme Transition Animation Enabled",
-      """The animations will remain in your IDE after uninstalling the plugin.
-          |To remove them, un-check this action or toggle the action at 
-          |"Help -> Find Action -> ide.intellij.laf.enable.animation". 
-        """.trimMargin()
+      MessageBundle.getMessage("notification.animation.install.title"),
+      MessageBundle.getMessage("notification.animation.install.body"),
     )
   }
 
   fun displayReadmeInstallMessage() {
     showDokiNotification(
-      "README.md will not show on startup",
-      """This behavior will remain in your IDE after uninstalling the plugin.
-          |To re-enable it, un-check this action or toggle the action at 
-          |"Help -> Find Action -> ide.open.readme.md.on.startup". 
-        """.trimMargin()
+      MessageBundle.message("notification.no.show.readme.title"),
+      MessageBundle.message("notification.no.show.readme.body"),
     )
   }
 }

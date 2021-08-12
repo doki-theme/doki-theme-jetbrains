@@ -8,6 +8,7 @@ import com.intellij.ui.layout.panel
 import com.intellij.util.ui.FontInfo
 import io.unthrottled.doki.config.THEME_CONFIG_TOPIC
 import io.unthrottled.doki.config.ThemeConfig
+import io.unthrottled.doki.promotions.MessageBundle
 import io.unthrottled.doki.settings.actors.BackgroundActor
 import io.unthrottled.doki.settings.actors.ConsoleFontActor
 import io.unthrottled.doki.settings.actors.CustomFontSizeActor
@@ -138,12 +139,12 @@ object ThemeSettings {
     val psiIcon = JLabel()
     psiIcon.icon = IconManager.getInstance().getIcon("icons/doki/settings/psiIcon.png", javaClass)
     return panel {
-      titledRow("Doki Themed Material Icons") {
+      titledRow(MessageBundle.message("settings.material.row.title")) {
         row {
           cell {
             directoryIcon()
             checkBox(
-              "Directory Icons",
+              MessageBundle.message("settings.material.directory-icons"),
               settingsSupplier().isMaterialDirectories,
               actionListener = { _, component ->
                 settingsSupplier().isMaterialDirectories = component.isSelected
@@ -155,7 +156,7 @@ object ThemeSettings {
           cell {
             fileIcon()
             checkBox(
-              "File Icons",
+              MessageBundle.message("settings.material.file-icons"),
               settingsSupplier().isMaterialFiles,
               actionListener = { _, component ->
                 settingsSupplier().isMaterialFiles = component.isSelected
@@ -167,7 +168,7 @@ object ThemeSettings {
           cell {
             psiIcon()
             checkBox(
-              "PSI Icons",
+              MessageBundle.message("settings.material.psi-icons"),
               settingsSupplier().isMaterialPSIIcons,
               actionListener = { _, component ->
                 settingsSupplier().isMaterialPSIIcons = component.isSelected

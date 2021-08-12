@@ -2,6 +2,7 @@ package io.unthrottled.doki.settings.actors
 
 import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.notification.UpdateNotification
+import io.unthrottled.doki.promotions.MessageBundle
 import io.unthrottled.doki.stickers.StickerPaneService
 
 object MoveableStickerActor {
@@ -11,19 +12,13 @@ object MoveableStickerActor {
       StickerPaneService.instance.setStickerPositioning(enabled)
       if (enabled) {
         UpdateNotification.showNotificationAcrossProjects(
-          "Stickers are now draggable",
-          """
-            You won't be able to click through the sticker now,
-            so you'll need to move it or toggle this action.
-          """.trimIndent()
+          MessageBundle.message("stickers.movable.sticker.title"),
+          MessageBundle.message("stickers.movable.sticker.body"),
         )
       } else {
         UpdateNotification.showNotificationAcrossProjects(
-          "Stickers are now stationary",
-          """
-            You can now click through the stickers.
-            To enable re-positioning, please toggle this action
-          """.trimIndent()
+          MessageBundle.message("sticker.stationary.title"),
+          MessageBundle.message("sticker.stationary.body")
         )
       }
     }
