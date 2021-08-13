@@ -6,6 +6,7 @@ import com.intellij.openapi.actionSystem.ActionManager
 import com.intellij.openapi.actionSystem.AnActionEvent
 import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.notification.UpdateNotification
+import io.unthrottled.doki.promotions.MessageBundle
 import io.unthrottled.doki.stickers.EditorBackgroundWallpaperService
 
 object BackgroundActor {
@@ -15,13 +16,10 @@ object BackgroundActor {
       if (enabled) {
         EditorBackgroundWallpaperService.instance.enableEditorBackground()
         UpdateNotification.showNotificationAcrossProjects(
-          "Themed wallpaper set!",
-          """
-            IMPORTANT! The background will remain after uninstalling the plugin
-            You can edit/remove the background using the "Set Background Image" action.
-          """.trimIndent(),
+          MessageBundle.message("wallpaper.install.title"),
+          MessageBundle.message("wallpaper.install.body"),
           actions = listOf {
-            object : NotificationAction("Show settings") {
+            object : NotificationAction(MessageBundle.message("wallpaper.install.show-settings")) {
               override fun actionPerformed(e: AnActionEvent, notification: Notification) {
                 ActionManager.getInstance().getAction("Images.SetBackgroundImage")?.actionPerformed(e)
               }

@@ -1,6 +1,10 @@
 Changelog
 ---
 
+# 18.2.0 [Russian Localization]
+
+- Added localization for all people hanging out in the Russian Federation. Thank you @Dragon-0609 for the translations!
+
 # 18.1.0 [Search & Selection Usability]
 
 - Made it easier to differentiate the search & selection background colors for all **61** themes. <sup><sup>Some days I question my current life choices....</sup></sup>
