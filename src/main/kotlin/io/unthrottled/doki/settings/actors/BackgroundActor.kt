@@ -19,7 +19,7 @@ object BackgroundActor {
           MessageBundle.message("wallpaper.install.title"),
           MessageBundle.message("wallpaper.install.body"),
           actions = listOf {
-            object : NotificationAction("Show settings") {
+            object : NotificationAction(MessageBundle.message("wallpaper.install.show-settings")) {
               override fun actionPerformed(e: AnActionEvent, notification: Notification) {
                 ActionManager.getInstance().getAction("Images.SetBackgroundImage")?.actionPerformed(e)
               }
