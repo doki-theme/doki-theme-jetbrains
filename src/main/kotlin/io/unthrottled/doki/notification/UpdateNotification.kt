@@ -85,7 +85,8 @@ private fun buildUpdateMessage(
     <body>
     <h2>What's New?</h2>
     <ul>
-        <li>Made it easier to differentiate seach & selection for all themes.</li>
+        <li>Made it easier to differentiate search & selection for all themes.</li>
+        <li>Added Russian Localization, thank you @Dragon-0609</li>
     </ul>
     Please see the <a href="https://github.com/doki-theme/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md">
         changelog</a> for more details.
