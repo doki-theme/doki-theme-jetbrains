@@ -344,6 +344,11 @@
     "GotItTooltip.borderColor": "secondaryBackground",
     "GotItTooltip.linkForeground":  "accentColor",
 
+    "Lesson.Tooltip.background" : "secondaryBackground",
+    "Label.successForeground": "terminal.ansiGreen",
+    "Lesson.Tooltip.spanBackground": "selectionBackground",
+    "Lesson.Tooltip.foreground": "selectionForeground",
+
     "ScrollBar.Transparent.thumbColor": "accentColorTransparent",
     "ScrollBar.Transparent.thumbBorderColor": "accentColorTransparent",
     "ScrollBar.Transparent.hoverThumbColor": "accentColorLessTransparent",
