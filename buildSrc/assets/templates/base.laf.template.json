@@ -242,6 +242,9 @@
 
     "PasswordField.inactiveBackground": "selectionInactive",
 
+    "Table.lightSelectionInactiveBackground": "foldedTextBackground",
+
+    "Table.lightSelectionBackground": "selectionInactive",
     "List.selectionInactiveBackground":"selectionInactive",
     "TextField.inactiveBackground": "selectionInactive",
     "Table.selectionInactiveBackground": "selectionInactive",
