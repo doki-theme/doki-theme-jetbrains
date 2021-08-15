@@ -242,6 +242,9 @@
 
     "PasswordField.inactiveBackground": "selectionInactive",
 
+    "Table.lightSelectionInactiveBackground": "foldedTextBackground",
+
+    "Table.lightSelectionBackground": "selectionInactive",
     "List.selectionInactiveBackground":"selectionInactive",
     "TextField.inactiveBackground": "selectionInactive",
     "Table.selectionInactiveBackground": "selectionInactive",
@@ -340,6 +343,11 @@
     "GotItTooltip.background":  "secondaryBackground",
     "GotItTooltip.borderColor": "secondaryBackground",
     "GotItTooltip.linkForeground":  "accentColor",
+
+    "Lesson.Tooltip.background" : "secondaryBackground",
+    "Label.successForeground": "terminal.ansiGreen",
+    "Lesson.Tooltip.spanBackground": "selectionBackground",
+    "Lesson.Tooltip.foreground": "selectionForeground",
 
     "ScrollBar.Transparent.thumbColor": "accentColorTransparent",
     "ScrollBar.Transparent.thumbBorderColor": "accentColorTransparent",
@@ -611,6 +619,8 @@
     "/actions/checked.svg": "/icons/actions/checked.svg",
     "/actions/diffWithClipboard.svg": "/icons/actions/diffWithClipboard.svg",
     "/actions/diffWithClipboard_dark.svg": "/icons/actions/diffWithClipboard_dark.svg",
+    "/actions/lightning.svg": "/icons/actions/lightning.svg",
+    "/actions/lightning_dark.svg": "/icons/actions/lightning_dark.svg",
     "/actions/refresh.svg": "/icons/actions/refresh.svg",
     "/actions/refresh_dark.svg": "/icons/actions/refresh_dark.svg",
     "/actions/menu-saveall.svg": "/icons/actions/menu-saveall.svg",

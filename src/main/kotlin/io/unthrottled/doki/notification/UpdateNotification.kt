@@ -87,6 +87,7 @@ private fun buildUpdateMessage(
     <ul>
         <li>Made it easier to differentiate search & selection for all themes.</li>
         <li>Added Russian Localization, thank you @Dragon-0609</li>
+        <li>IDE Features Trainer theming.</li>
     </ul>
     Please see the <a href="https://github.com/doki-theme/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md">
         changelog</a> for more details.

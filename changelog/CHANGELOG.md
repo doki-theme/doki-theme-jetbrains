@@ -1,6 +1,10 @@
 Changelog
 ---
 
+# 18.2.1 [IDE Features Training Theming]
+
+- Updates the colors used by the [IDE Features Trainer](https://plugins.jetbrains.com/plugin/8554-ide-features-trainer) plugin, for a more consistent learning experience.
+
 # 18.2.0 [Russian Localization]
 
 - Added localization for all people hanging out in the Russian Federation. Thank you @Dragon-0609 for the translations!

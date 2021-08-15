@@ -7,8 +7,8 @@
   "overrides": {},
   "ui": {
     "CompletionPopup.selectionForeground": "selectionForeground",
-    "CompletionPopup.selectionBackground": "selectionBackground",
-    "CompletionPopup.selectionInactiveBackground": "selectionBackground",
+    "CompletionPopup.selectionBackground": "#fac7db",
+    "CompletionPopup.selectionInactiveBackground": "#fbcee0",
     "CompletionPopup.matchForeground": "accentColorDarker",
     "SearchEverywhere.Tab.selectedBackground": "selectionBackground",
     "SearchEverywhere.Header.background": "headerColor",
