@@ -71,6 +71,9 @@ class ColorPatcher(
     patchAccent(svg.getAttribute("accentContrastTint"), svg) {
       getIconAccentContrastColor().toHexString()
     }
+    patchAccent(svg.getAttribute("stopTint"), svg) {
+      getThemedStopColor()
+    }
 
     val themedStartAttr = svg.getAttribute("themedStart")
     val themedStopAttr = svg.getAttribute("themedStop")

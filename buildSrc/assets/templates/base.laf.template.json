@@ -619,6 +619,8 @@
     "/actions/checked.svg": "/icons/actions/checked.svg",
     "/actions/diffWithClipboard.svg": "/icons/actions/diffWithClipboard.svg",
     "/actions/diffWithClipboard_dark.svg": "/icons/actions/diffWithClipboard_dark.svg",
+    "/actions/lightning.svg": "/icons/actions/lightning.svg",
+    "/actions/lightning_dark.svg": "/icons/actions/lightning_dark.svg",
     "/actions/refresh.svg": "/icons/actions/refresh.svg",
     "/actions/refresh_dark.svg": "/icons/actions/refresh_dark.svg",
     "/actions/menu-saveall.svg": "/icons/actions/menu-saveall.svg",
