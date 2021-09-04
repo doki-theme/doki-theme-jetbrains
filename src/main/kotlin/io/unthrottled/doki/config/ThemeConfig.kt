@@ -47,6 +47,9 @@ class ThemeConfig : PersistentStateComponent<ThemeConfig>, Cloneable {
   var isSeeThroughNotifications: Boolean = false
   var notificationOpacity: Int = 90
 
+  var discreetMode = false
+  var discreetModeConfig = "{}"
+
   override fun getState(): ThemeConfig? =
     createCopy(this)
 

@@ -245,6 +245,13 @@ Did you know I keep a changelog?
 
 ---
 
+# Attributions
+
+Project uses icons from [Twemoji](https://github.com/twitter/twemoji). Graphics licensed under CC-BY
+4.0: https://creativecommons.org/licenses/by/4.0/
+
+---
+
 <div align="center">
     <img src="https://doki.assets.unthrottled.io/misc/logo.svg" ></img>
 </div>

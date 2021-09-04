@@ -58,6 +58,7 @@
     <applicationService serviceImplementation="io.unthrottled.doki.stickers.EmptyFrameWallpaperService"/>
     <applicationService serviceImplementation="io.unthrottled.doki.stickers.StickerPaneService"/>
     <applicationService serviceImplementation="io.unthrottled.doki.config.ThemeConfig"/>
+    <projectService serviceImplementation="io.unthrottled.doki.discreet.DiscreetModeService"/>
     <applicationConfigurable id="0d570cb2-96df-43cc-80da-7f777e6d0afe" instance="io.unthrottled.doki.settings.ThemeSettingsUI" groupId="appearance"/>
     <errorHandler id="9782e40c-e6d2-488f-8611-71f5cca6695e" implementation="io.unthrottled.doki.integrations.ErrorReporter"/>
     <iconProvider implementation="io.unthrottled.doki.icon.provider.MaterialIconProvider" order="first"/>
@@ -127,6 +128,13 @@
     <themeProvider id="b4d08c16-a891-4186-884d-e469cba72e99" path="/doki/themes/re_zero/Echidna.theme.json"/>
     <themeProvider id="ecb74f1c-8c84-40c4-916f-601039ba2af0" path="/doki/themes/re_zero/Ram.theme.json"/>
   </extensions>
+  <applicationListeners>
+    <listener class="io.unthrottled.doki.discreet.ApplicationDiscreetModeListener" topic="io.unthrottled.doki.discreet.DiscreetModeListener"/>
+    <listener class="io.unthrottled.doki.discreet.DiscreetModeConfigListener" topic="io.unthrottled.doki.config.ThemeConfigListener"/>
+  </applicationListeners>
+  <projectListeners>
+    <listener class="io.unthrottled.doki.discreet.ProjectDiscreetModeListener" topic="io.unthrottled.doki.discreet.DiscreetModeListener"/>
+  </projectListeners>
   <application-components>
     <component>
       <implementation-class>io.unthrottled.doki.TheDokiTheme</implementation-class>
@@ -152,6 +160,9 @@
       <add-to-group group-id="DokiThemeActions" anchor="last"/>
     </action>
     <action id="io.unthrottled.doki.actions.SwapStickerAction" class="io.unthrottled.doki.actions.SwapStickerAction" text="Swap Sticker" icon="/icons/actions/diff.svg" description="Changes the current sticker at the bottom right hand corner of the screen.">
+      <add-to-group group-id="DokiThemeActions" anchor="last"/>
+    </action>
+    <action id="io.unthrottled.doki.actions.DiscreetModeAction" class="io.unthrottled.doki.actions.DiscreetModeAction" text="Toggle Discreet Mode" icon="/icons/emojis/1f648.svg" description="Quickly hide your shame">
       <add-to-group group-id="DokiThemeActions" anchor="last"/>
     </action>
     <action id="io.unthrottled.doki.actions.ThemeAnimationToggle" class="io.unthrottled.doki.actions.ThemeAnimationToggle" text="Enable Transition Animation" icon="/icons/doki/magic.svg" description="Fancy fade transition animation when changing any look and feel.">

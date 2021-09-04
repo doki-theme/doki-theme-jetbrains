@@ -1,5 +1,6 @@
 package io.unthrottled.doki.icon
 
+import com.intellij.openapi.util.IconLoader
 import com.intellij.ui.IconManager.getInstance
 import javax.swing.Icon
 
@@ -8,6 +9,9 @@ object DokiIcons {
 
     @JvmStatic
     val PLUGIN_LOGO = load("icons/doki/Doki-Doki-Logo.svg")
+
+    @JvmField
+    val E1f648 = IconLoader.getIcon("/icons/emojis/1f648.svg", javaClass)
   }
   object Plugins {
     object Motivator {

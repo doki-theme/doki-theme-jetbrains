@@ -48,6 +48,7 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
   private JCheckBox overrideEditorFontSizeCheckBox;
   private JComboBox consoleFontWomboComboBox;
   private JCheckBox overrideConsoleFont;
+  private JCheckBox discreetModeCheckBox;
 
 
   @Override
@@ -127,6 +128,11 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
     nameInStatusBarCheckBox.setSelected(initialThemeSettingsModel.getShowThemeStatusBar());
     nameInStatusBarCheckBox.addActionListener(e ->
       themeSettingsModel.setShowThemeStatusBar(nameInStatusBarCheckBox.isSelected())
+    );
+
+    discreetModeCheckBox.setSelected(initialThemeSettingsModel.getDiscreetMode());
+    discreetModeCheckBox.addActionListener(e ->
+      themeSettingsModel.setDiscreetMode(discreetModeCheckBox.isSelected())
     );
 
     framelessModeMacOSOnlyCheckBox.setSelected(initialThemeSettingsModel.isThemedTitleBar());
