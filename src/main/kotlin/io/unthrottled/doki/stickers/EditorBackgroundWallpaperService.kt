@@ -18,6 +18,7 @@ import java.util.Optional
 const val DOKI_BACKGROUND_PROP: String = "io.unthrottled.doki.background"
 private const val PREVIOUS_BACKGROUND = "io.unthrottled.doki.previous-background"
 
+@Suppress("TooManyFunctions") // cuz I said so
 internal class EditorBackgroundWallpaperService {
 
   companion object {

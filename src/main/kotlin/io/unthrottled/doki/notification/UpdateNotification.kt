@@ -86,6 +86,7 @@ private fun buildUpdateMessage(
     <h2>What's New?</h2>
     <ul>
         <li>Made it easier to differentiate search & selection for all themes.</li>
+        <li>Added integrated <code>Discreet Mode</code></li>
         <li>Added Russian Localization, thank you @Dragon-0609</li>
         <li>IDE Features Trainer theming.</li>
     </ul>
