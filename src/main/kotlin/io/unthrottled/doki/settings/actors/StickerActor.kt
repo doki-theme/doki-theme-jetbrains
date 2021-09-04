@@ -24,16 +24,20 @@ object StickerActor {
 
   fun enableStickers(enabled: Boolean, withAnimation: Boolean = true) {
     if (enabled != (ThemeConfig.instance.currentStickerLevel == StickerLevel.ON)) {
-      performWithAnimation(withAnimation) {
-        if (enabled) {
-          ThemeConfig.instance.stickerLevel = StickerLevel.ON.name
-          ThemeManager.instance.currentTheme.ifPresent {
-            StickerPaneService.instance.activateForTheme(it)
-          }
-        } else {
-          ThemeConfig.instance.stickerLevel = StickerLevel.OFF.name
-          StickerPaneService.instance.remove()
+      setStickers(withAnimation, enabled)
+    }
+  }
+
+  fun setStickers(withAnimation: Boolean, enabled: Boolean) {
+    performWithAnimation(withAnimation) {
+      if (enabled) {
+        ThemeConfig.instance.stickerLevel = StickerLevel.ON.name
+        ThemeManager.instance.currentTheme.ifPresent {
+          StickerPaneService.instance.activateForTheme(it)
         }
+      } else {
+        ThemeConfig.instance.stickerLevel = StickerLevel.OFF.name
+        StickerPaneService.instance.remove()
       }
     }
   }

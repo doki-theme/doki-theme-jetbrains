@@ -17,7 +17,7 @@ class EmptyFrameWallpaperService {
 
   companion object {
     val instance: EmptyFrameWallpaperService
-      get() = ServiceManager.getService(EmptyFrameWallpaperService::class.java)
+      get() = ApplicationManager.getApplication().getService(EmptyFrameWallpaperService::class.java)
   }
 
   fun enableEmptyFrameWallpaper() {

@@ -8,6 +8,7 @@ import com.intellij.util.xmlb.XmlSerializerUtil.copyBean
 import com.intellij.util.xmlb.XmlSerializerUtil.createCopy
 import io.unthrottled.doki.stickers.CurrentSticker
 import io.unthrottled.doki.stickers.StickerLevel
+import java.util.Locale
 
 @State(
   name = "DokiDokiThemeConfig",
@@ -85,7 +86,7 @@ class ThemeConfig : PersistentStateComponent<ThemeConfig>, Cloneable {
 
   val currentStickerLevel: StickerLevel
     get() {
-      val theStickerLevel = stickerLevel.toUpperCase()
+      val theStickerLevel = stickerLevel.uppercase(Locale.getDefault())
       return if (StickerLevel.values().none { it.name == theStickerLevel }) {
         val defaultStickerLevel = StickerLevel.ON
         stickerLevel = defaultStickerLevel.name

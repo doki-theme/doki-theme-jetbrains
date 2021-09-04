@@ -6,6 +6,12 @@ import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.project.ProjectManager
 import io.unthrottled.doki.config.THEME_CONFIG_TOPIC
 import io.unthrottled.doki.config.ThemeConfig
+import io.unthrottled.doki.settings.actors.BackgroundActor
+import io.unthrottled.doki.settings.actors.EmptyFrameBackgroundActor
+import io.unthrottled.doki.settings.actors.StickerActor
+import io.unthrottled.doki.settings.actors.ThemeStatusBarActor
+import io.unthrottled.doki.stickers.EditorBackgroundWallpaperService
+import io.unthrottled.doki.stickers.StickerLevel
 import io.unthrottled.doki.util.Logging
 import io.unthrottled.doki.util.logger
 import io.unthrottled.doki.util.runSafelyWithResult
@@ -39,6 +45,17 @@ abstract class AbstractDiscreetModeListener : DiscreetModeListener, Logging {
     }
     ThemeConfig.instance.discreetModeConfig = "{}"
     ThemeConfig.instance.showThemeStatusBar = restorationConfig.statusBarWidgetEnabled ?: true
+
+    StickerActor.setStickers(true, restorationConfig.stickersEnabled == true)
+
+    EmptyFrameBackgroundActor.handleBackgroundUpdate(restorationConfig.emptyWallpaperEnabled == true)
+
+    ThemeConfig.instance.isDokiBackground = restorationConfig.editorWallpaperEnabled ?: true
+    val savedBackground = restorationConfig.savedBackground
+    if (savedBackground?.isNotEmpty() == true) {
+      EditorBackgroundWallpaperService.instance.setBackgroundValue(savedBackground)
+    }
+
     ThemeConfig.instance.discreetMode = false
     publishChanges()
   }
@@ -48,7 +65,10 @@ abstract class AbstractDiscreetModeListener : DiscreetModeListener, Logging {
     currentMode = DiscreetMode.ACTIVE
     val restorationConfig = gson.toJson(captureRestorationConfig())
     ThemeConfig.instance.discreetModeConfig = restorationConfig
-    ThemeConfig.instance.showThemeStatusBar = false
+    ThemeStatusBarActor.applyConfig(false)
+    BackgroundActor.handleBackgroundUpdate(false)
+    EmptyFrameBackgroundActor.handleBackgroundUpdate(false)
+    StickerActor.enableStickers(enabled = false, withAnimation = true)
     ThemeConfig.instance.discreetMode = true
     publishChanges()
   }
@@ -67,9 +87,17 @@ abstract class AbstractDiscreetModeListener : DiscreetModeListener, Logging {
 
   private fun captureRestorationConfig() = DiscreetModeRestorationConfig(
     ThemeConfig.instance.showThemeStatusBar,
+    ThemeConfig.instance.currentStickerLevel == StickerLevel.ON,
+    ThemeConfig.instance.isDokiBackground,
+    EditorBackgroundWallpaperService.instance.getCurrentBackgroundValue(),
+    ThemeConfig.instance.isEmptyFrameBackground,
   )
 }
 
 data class DiscreetModeRestorationConfig(
-  val statusBarWidgetEnabled: Boolean?
+  val statusBarWidgetEnabled: Boolean?,
+  val stickersEnabled: Boolean?,
+  val editorWallpaperEnabled: Boolean?,
+  val savedBackground: String?,
+  val emptyWallpaperEnabled: Boolean?,
 )
