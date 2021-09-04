@@ -104,11 +104,14 @@ Customize to your heart's content!
 
 ## Discreet Mode
 
+<img src="https://user-images.githubusercontent.com/15972415/132107791-3d87fa95-3b36-46b1-a49f-ff45a1fb032c.png" alt="See No Problem" align="right" />
 Are you still a closeted weeb? Do you still feel shame about liking anime? Does your job require you to not have fun?
 Instead of addressing the real problems, you can just make your problems invisible with `Discreet Mode`!
 This will clear any anime content from the IDE, and will even hide the theme name in the status bar. That way
 you do not have to explain anything to anyone (except for the heart themed folder icons). 
 When the coast is clear, just uncheck the config or toggle the action, and your previous settings will be restored.
+
+Is also integrated with the [Anime Meme Plugin](https://github.com/ani-memes/AMII#discreet-mode), for the ultimate shame hiding experience.
 
 
 #### Sticker

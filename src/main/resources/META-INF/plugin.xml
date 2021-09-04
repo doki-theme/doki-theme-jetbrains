@@ -59,7 +59,6 @@
     <applicationService serviceImplementation="io.unthrottled.doki.stickers.EmptyFrameWallpaperService"/>
     <applicationService serviceImplementation="io.unthrottled.doki.stickers.StickerPaneService"/>
     <applicationService serviceImplementation="io.unthrottled.doki.config.ThemeConfig"/>
-    <projectService serviceImplementation="io.unthrottled.doki.discreet.DiscreetModeService"/>
     <applicationConfigurable id="0d570cb2-96df-43cc-80da-7f777e6d0afe" instance="io.unthrottled.doki.settings.ThemeSettingsUI" groupId="appearance"/>
     <errorHandler id="9782e40c-e6d2-488f-8611-71f5cca6695e" implementation="io.unthrottled.doki.integrations.ErrorReporter"/>
     <iconProvider implementation="io.unthrottled.doki.icon.provider.MaterialIconProvider" order="first"/>
@@ -133,9 +132,6 @@
     <listener class="io.unthrottled.doki.discreet.ApplicationDiscreetModeListener" topic="io.unthrottled.doki.discreet.DiscreetModeListener"/>
     <listener class="io.unthrottled.doki.discreet.DiscreetModeConfigListener" topic="io.unthrottled.doki.config.ThemeConfigListener"/>
   </applicationListeners>
-  <projectListeners>
-    <listener class="io.unthrottled.doki.discreet.ProjectDiscreetModeListener" topic="io.unthrottled.doki.discreet.DiscreetModeListener"/>
-  </projectListeners>
   <application-components>
     <component>
       <implementation-class>io.unthrottled.doki.TheDokiTheme</implementation-class>
