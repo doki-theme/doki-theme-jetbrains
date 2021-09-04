@@ -68,6 +68,7 @@ You can choose themes from various, Anime, Manga, or Visual Novels:
 - [Configuration](#configuration)
   - [General Settings](#general-settings)
     - [Content Settings](#content-settings)
+      - [Discreet Mode](#discreet-mode)
       - [Stickers](#sticker)
       - [Content Type](#content-type)
       - [Background Images](#background-images)
@@ -100,6 +101,15 @@ This allows you to control the decoration of your IDE.
 
 You can be a conservative weeb or an obvious otaku. 
 Customize to your heart's content!
+
+## Discreet Mode
+
+Are you still a closeted weeb? Do you still feel shame about liking anime? Does your job require you to not have fun?
+Instead of addressing the real problems, you can just make your problems invisible with `Discreet Mode`!
+This will clear any anime content from the IDE, and will even hide the theme name in the status bar. That way
+you do not have to explain anything to anyone (except for the heart themed folder icons). 
+When the coast is clear, just uncheck the config or toggle the action, and your previous settings will be restored.
+
 
 #### Sticker
 
