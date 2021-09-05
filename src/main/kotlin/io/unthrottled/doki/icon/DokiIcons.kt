@@ -8,7 +8,6 @@ object DokiIcons {
 
     @JvmStatic
     val PLUGIN_LOGO = load("icons/doki/Doki-Doki-Logo.svg")
-
   }
   object Plugins {
     object Motivator {

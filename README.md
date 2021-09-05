@@ -105,6 +105,7 @@ Customize to your heart's content!
 ## Discreet Mode
 
 <img src="https://user-images.githubusercontent.com/15972415/132107791-3d87fa95-3b36-46b1-a49f-ff45a1fb032c.png" alt="See No Problem" align="right" />
+
 Are you still a closeted weeb? Do you still feel shame about liking anime? Does your job require you to not have fun?
 Instead of addressing the real problems, you can just make your problems invisible with `Discreet Mode`!
 This will clear any anime content from the IDE, and will even hide the theme name in the status bar. That way
