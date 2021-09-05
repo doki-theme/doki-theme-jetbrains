@@ -40,7 +40,7 @@ repositories {
 }
 
 dependencies {
-  detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.18.0")
+  detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.18.1")
   implementation("commons-io:commons-io:2.11.0")
   implementation("org.javassist:javassist:3.28.0-GA")
   implementation("io.sentry:sentry:5.1.2")
