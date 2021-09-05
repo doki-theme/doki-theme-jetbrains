@@ -1,6 +1,0 @@
-<idea-plugin>
-  <applicationListeners>
-    <listener class="io.unthrottled.doki.discreet.integrations.amii.AMIIIntegratedDiscreetModeListener"
-              topic="io.unthrottled.amii.discreet.IntegratedDiscreetModeListener" />
-  </applicationListeners>
-</idea-plugin>

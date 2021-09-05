@@ -114,7 +114,8 @@ When the coast is clear, just uncheck the config or toggle the action, and your 
 
 
 This plugin is also integrated with the [Anime Meme Plugin](https://github.com/ani-memes/AMII#discreet-mode), for the ultimate shame hiding experience.
-Enabling/disabling `Discreet Mode` for this plugin will enable/disable `Discrete Mode` in the other plugin, and vice versa.
+Enabling/disabling `Discreet Mode` for this plugin will enable/disable `Discrete Mode` in the other plugin. However, this does not work the other way around. 
+Only The Doki Theme can enable/disable modes across plugins.
 
 
 #### Sticker
