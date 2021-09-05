@@ -68,6 +68,7 @@ You can choose themes from various, Anime, Manga, or Visual Novels:
 - [Configuration](#configuration)
   - [General Settings](#general-settings)
     - [Content Settings](#content-settings)
+      - [Discreet Mode](#discreet-mode)
       - [Stickers](#sticker)
       - [Content Type](#content-type)
       - [Background Images](#background-images)
@@ -100,6 +101,22 @@ This allows you to control the decoration of your IDE.
 
 You can be a conservative weeb or an obvious otaku. 
 Customize to your heart's content!
+
+## Discreet Mode
+
+<img src="https://user-images.githubusercontent.com/15972415/132107791-3d87fa95-3b36-46b1-a49f-ff45a1fb032c.png" alt="See No Problem" align="right" />
+
+Are you still a closeted weeb? Do you still feel shame about liking anime? Does your job require you to not have fun?
+Instead of addressing the real problems, you can just make your problems invisible with `Discreet Mode`!
+This will clear any anime content from the IDE, and will even hide the theme name in the status bar. That way
+you do not have to explain anything, to anyone (except for the heart themed folder icons). 
+When the coast is clear, just uncheck the config or toggle the action, and your previous settings will be restored.
+
+
+This plugin is also integrated with the [Anime Meme Plugin](https://github.com/ani-memes/AMII#discreet-mode), for the ultimate shame hiding experience.
+Enabling/disabling `Discreet Mode` for this plugin will enable/disable `Discrete Mode` in the other plugin. However, this does not work the other way around. 
+Only The Doki Theme can enable/disable modes across plugins.
+
 
 #### Sticker
 
@@ -242,6 +259,13 @@ Want updates sooner? I have a [canary release channel](https://github.com/Unthro
 
 Did you know I keep a changelog?
 [You can find it here!](./changelog/CHANGELOG.md)
+
+---
+
+# Attributions
+
+Project uses icons from [Twemoji](https://github.com/twitter/twemoji). Graphics licensed under CC-BY
+4.0: https://creativecommons.org/licenses/by/4.0/
 
 ---
 

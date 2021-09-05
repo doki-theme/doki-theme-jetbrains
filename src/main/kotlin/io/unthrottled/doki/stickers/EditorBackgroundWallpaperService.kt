@@ -2,7 +2,6 @@ package io.unthrottled.doki.stickers
 
 import com.intellij.ide.util.PropertiesComponent
 import com.intellij.openapi.application.ApplicationManager
-import com.intellij.openapi.components.ServiceManager
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil.EDITOR_PROP
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil.Fill
 import io.unthrottled.doki.assets.AssetCategory
@@ -19,11 +18,12 @@ import java.util.Optional
 const val DOKI_BACKGROUND_PROP: String = "io.unthrottled.doki.background"
 private const val PREVIOUS_BACKGROUND = "io.unthrottled.doki.previous-background"
 
+@Suppress("TooManyFunctions") // cuz I said so
 internal class EditorBackgroundWallpaperService {
 
   companion object {
     val instance: EditorBackgroundWallpaperService
-      get() = ServiceManager.getService(EditorBackgroundWallpaperService::class.java)
+      get() = ApplicationManager.getApplication().getService(EditorBackgroundWallpaperService::class.java)
   }
 
   fun activateForTheme(dokiTheme: DokiTheme) {
@@ -43,8 +43,7 @@ internal class EditorBackgroundWallpaperService {
   private fun installEditorBackgroundImage(dokiTheme: DokiTheme) =
     getLocallyInstalledWallpaperImagePath(dokiTheme)
       .doOrElse({
-        val isSameWallpaper = PropertiesComponent.getInstance()
-          .getValue(EDITOR_PROP, "")
+        val isSameWallpaper = getCurrentBackgroundValue()
           .startsWith(it.first)
 
         if (isSameWallpaper) return@doOrElse
@@ -62,6 +61,15 @@ internal class EditorBackgroundWallpaperService {
           remove()
         }
       }
+
+  fun getCurrentBackgroundValue() = PropertiesComponent.getInstance()
+    .getValue(EDITOR_PROP, "")
+
+  fun setBackgroundValue(backgroundProperty: String) {
+    PropertiesComponent.getInstance()
+      .setValue(EDITOR_PROP, backgroundProperty)
+    repaintWindows()
+  }
 
   private fun capturePrevious() {
     getNonDokiBackground()

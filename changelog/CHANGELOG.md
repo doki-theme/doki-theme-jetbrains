@@ -1,6 +1,10 @@
 Changelog
 ---
 
+# 18.3.0 [Discreet Mode]
+
+- Added `Discreet Mode`, when enabled will clear and not show any anime in the IDE. Also, the theme name in the status bar will temporarily hide as well. Is integrated with the [Anime Meme Plugin](https://github.com/ani-memes/AMII#discreet-mode), for the ultimate shame hiding experience.
+
 # 18.2.1 [IDE Features Training Theming]
 
 - Updates the colors used by the [IDE Features Trainer](https://plugins.jetbrains.com/plugin/8554-ide-features-trainer) plugin, for a more consistent learning experience.
