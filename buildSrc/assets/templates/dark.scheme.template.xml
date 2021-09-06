@@ -766,13 +766,13 @@
     <option name="DIFF_INSERTED">
       <value>
         <option name="BACKGROUND" value="$diff.inserted$"/>
-        <option name="ERROR_STRIPE_COLOR" value="$diff.inserted$"/>
+        <option name="ERROR_STRIPE_COLOR" value="$terminal.ansiGreen$77"/>
       </value>
     </option>
     <option name="DIFF_MODIFIED">
       <value>
         <option name="BACKGROUND" value="$diff.modified$"/>
-        <option name="ERROR_STRIPE_COLOR" value="$diff.modified$"/>
+        <option name="ERROR_STRIPE_COLOR" value="$terminal.ansiCyan$77"/>
       </value>
     </option>
     <option name="DUPLICATE_FROM_SERVER">

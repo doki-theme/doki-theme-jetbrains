@@ -89,6 +89,7 @@ private fun buildUpdateMessage(
         <li>Added integrated <code>Discreet Mode</code></li>
         <li>Added Russian Localization, thank you @Dragon-0609</li>
         <li>IDE Features Trainer theming.</li>
+        <li>More distinguishing VCS markers.</li>
     </ul>
     Please see the <a href="https://github.com/doki-theme/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md">
         changelog</a> for more details.
