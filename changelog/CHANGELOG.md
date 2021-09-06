@@ -1,6 +1,10 @@
 Changelog
 ---
 
+# 18.3.1 [VCS Color Updates]
+
+- Updated the version control uncommitted line markers on the right-hand side (next the scrollbar) to be more visible. ([#446](https://github.com/doki-theme/doki-theme-jetbrains/issues/446))
+
 # 18.3.0 [Discreet Mode]
 
 - Added `Discreet Mode`, when enabled will clear and not show any anime in the IDE. Also, the theme name in the status bar will temporarily hide as well. Is integrated with the [Anime Meme Plugin](https://github.com/ani-memes/AMII#discreet-mode), for the ultimate shame hiding experience.
