@@ -41,13 +41,13 @@
     <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_CONFLICTS" value="$accentColor$"/>
     <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_PROPERTY_CONFLICTS" value="$accentColor$"/>
     <option name="FILESTATUS_IDEA_SVN_FILESTATUS_EXTERNAL" value="10b15a"/>
-    <option name="FILESTATUS_MERGED" value="6f42c1"/>
-    <option name="FILESTATUS_MODIFIED" value="5cc5"/>
+    <option name="FILESTATUS_MERGED" value="$constantColor$"/>
+    <option name="FILESTATUS_MODIFIED" value="$constantColor$"/>
     <option name="FILESTATUS_NOT_CHANGED_IMMEDIATE" value="5cc5"/>
     <option name="FILESTATUS_NOT_CHANGED_RECURSIVE" value="5cc5"/>
     <option name="FILESTATUS_OBSOLETE" value="$comments$"/>
     <option name="FILESTATUS_SWITCHED" value="e36209"/>
-    <option name="FILESTATUS_UNKNOWN" value="e36209"/>
+    <option name="FILESTATUS_UNKNOWN" value="$constantColor$"/>
     <option name="FILESTATUS_changelistConflict" value="$accentColor$"/>
     <option name="FILESTATUS_modifiedOutside" value="5cc5"/>
     <option name="GUTTER_BACKGROUND" value="$textEditorBackground$"/>
