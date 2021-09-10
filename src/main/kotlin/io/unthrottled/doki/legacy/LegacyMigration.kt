@@ -10,8 +10,8 @@ object LegacyMigration {
   }
 
   private val renamedThemes = setOf(
-    "bc12b380-1f2a-4a9d-89d8-388a07f1e15f", // Hatsune Miku
-    "c5e92ad9-2fa0-491e-b92a-48ab92d13597", // Rias Crimson
+    "19b65ec8-133c-4655-a77b-13623d8e97d3", // Ryuko Dark
+    "3a78b13e-dbf2-410f-bb20-12b57bff7735", // Satsuki Light
   )
 
   private fun handleThemeRenames() {

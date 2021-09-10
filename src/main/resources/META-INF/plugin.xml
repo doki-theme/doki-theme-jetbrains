@@ -104,8 +104,10 @@
     <themeProvider id="325c5d4d-5614-4c58-b296-18924f2f6928" path="/doki/themes/fate/Ishtar_Light.theme.json"/>
     <themeProvider id="62a4f26f-34b2-46f8-a10c-798e48c1ce9d" path="/doki/themes/fate/Ishtar_Dark.theme.json"/>
     <themeProvider id="3546f7be-b84f-4b8e-8cad-effa3f4603af" path="/doki/themes/fate/Tohsaka_Rin.theme.json"/>
-    <themeProvider id="3a78b13e-dbf2-410f-bb20-12b57bff7735" path="/doki/themes/kill_la_kill/Satsuki.theme.json"/>
-    <themeProvider id="19b65ec8-133c-4655-a77b-13623d8e97d3" path="/doki/themes/kill_la_kill/Ryuko.theme.json"/>
+    <themeProvider id="3a78b13e-dbf2-410f-bb20-12b57bff7735" path="/doki/themes/kill_la_kill/Satsuki_Light.theme.json"/>
+    <themeProvider id="12a54623-1f0b-4769-9917-d5267092a605" path="/doki/themes/kill_la_kill/Satsuki_Dark.theme.json"/>
+    <themeProvider id="3fbd90c3-859d-4618-8e31-90461ac7a556" path="/doki/themes/kill_la_kill/Ryuko_Light.theme.json"/>
+    <themeProvider id="19b65ec8-133c-4655-a77b-13623d8e97d3" path="/doki/themes/kill_la_kill/Ryuko_Dark.theme.json"/>
     <themeProvider id="ca45f54a-57cb-4d8c-82a6-d4b31c850bd6" path="/doki/themes/don't_toy_with_me_miss_nagatoro/Hayase_Nagatoro.theme.json"/>
     <themeProvider id="697e8564-0975-4907-a34c-51f65177ebf3" path="/doki/themes/danganronpa/Mioda_Ibuki_Light.theme.json"/>
     <themeProvider id="420b0ed5-803c-4127-97e3-dae6aa1a5972" path="/doki/themes/danganronpa/Mioda_Ibuki_Dark.theme.json"/>
