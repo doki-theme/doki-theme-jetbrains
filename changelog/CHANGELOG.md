@@ -8,7 +8,7 @@ Changelog
 - Ryuko Light
 - Satsuki Dark
 
-![v19 Girls](https://doki.assets.unthrottled.io/misc/v19_girls_smol.png)
+![v19 Girls](https://doki.assets.unthrottled.io/misc/v19_girls.png)
 
 # 18.3.1 [VCS Color Updates]
 
