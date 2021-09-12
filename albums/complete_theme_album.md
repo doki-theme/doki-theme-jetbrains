@@ -251,9 +251,11 @@ Kill La Kill
 
 ### Ryuko
 ![ryuko code](../assets/screenshots/killLaKill/ryuko_code.png)
+![ryuko_light code](../assets/screenshots/killLaKill/ryuko_light_code.png)
 
 ### Satsuki
 ![satsuki code](../assets/screenshots/killLaKill/satsuki_code.png)
+![satsuki_dark code](../assets/screenshots/killLaKill/satsuki_dark_code.png)
 
 High School DxD
 ---
