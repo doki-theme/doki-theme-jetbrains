@@ -8,6 +8,7 @@
   "ui": {},
   "backgrounds": {
     "default": {
+      "opacity": 7,
       "position": "MIDDLE_RIGHT"
     }
   }

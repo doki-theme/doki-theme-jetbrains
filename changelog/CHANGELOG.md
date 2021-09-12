@@ -1,6 +1,15 @@
 Changelog
 ---
 
+# 19.0.0 [KillLaKill Alt. Themes]
+
+**2 New Themes!**
+
+- Ryuko Light
+- Satsuki Dark
+
+![v19 Girls](https://doki.assets.unthrottled.io/misc/v19_girls.png)
+
 # 18.3.1 [VCS Color Updates]
 
 - Updated the version control uncommitted line markers on the right-hand side (next the scrollbar) to be more visible. ([#446](https://github.com/doki-theme/doki-theme-jetbrains/issues/446))

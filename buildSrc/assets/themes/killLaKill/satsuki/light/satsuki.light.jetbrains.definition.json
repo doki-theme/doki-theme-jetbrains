@@ -5,5 +5,10 @@
     "file": "Satsuki.xml"
   },
   "overrides": {},
-  "ui": {}
+  "ui": {},
+  "backgrounds": {
+    "default": {
+      "opacity": 13
+    }
+  }
 }

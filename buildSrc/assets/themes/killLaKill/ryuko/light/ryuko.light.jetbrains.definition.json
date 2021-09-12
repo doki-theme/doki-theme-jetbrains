@@ -1,15 +1,15 @@
 {
-  "id": "83e94920-9ae2-4838-9b85-4c3fa22b67b8",
+  "id": "3fbd90c3-859d-4618-8e31-90461ac7a556",
   "editorScheme": {
     "type": "template",
-    "name": "Doki Dark"
+    "name": "Doki Light"
   },
   "overrides": {},
   "ui": {},
   "backgrounds": {
     "default": {
-      "position": "MIDDLE_RIGHT",
-      "opacity": 7
+      "opacity": 13,
+      "position": "MIDDLE_RIGHT"
     }
   }
 }
