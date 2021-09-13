@@ -21,6 +21,7 @@ private val nameMapping =
     "Sword Art Online" to "SAO: ",
     "Lucky Star" to "LS: ",
     "Evangelion" to "EVA: ",
+    "EroManga Sensei" to "EroManga: ",
     "Miss Kobayashi's Dragon Maid" to "DM: ",
     "OreGairu" to "OreGairu: ",
     "Future Diary" to "FutureDiary: ",
