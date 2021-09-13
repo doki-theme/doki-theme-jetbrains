@@ -4,9 +4,9 @@
     "type": "template",
     "name": "Doki Dim"
   },
-  "uiBase": "dark dim",
   "overrides": {},
   "ui": {},
+  "uiBase": "dark dim",
   "backgrounds": {
     "default": {
       "opacity": 7
