@@ -5,5 +5,10 @@
     "name": "Doki Dark"
   },
   "overrides": {},
-  "ui": {}
+  "ui": {
+    "TextField.selectionBackground": "identifierHighlight",
+    "TextArea.selectionBackground": "identifierHighlight",
+    "TextPane.selectionBackground": "identifierHighlight",
+    "FormattedTextField.selectionBackground": "identifierHighlight"
+  }
 }
