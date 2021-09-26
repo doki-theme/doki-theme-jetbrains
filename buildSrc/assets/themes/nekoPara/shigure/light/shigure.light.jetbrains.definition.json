@@ -5,5 +5,11 @@
     "name": "Doki Light v2"
   },
   "overrides": {},
-  "ui": {}
+  "ui": {},
+  "backgrounds": {
+    "default": {
+      "opacity": 17,
+      "position": "MIDDLE_RIGHT"
+    }
+  }
 }
