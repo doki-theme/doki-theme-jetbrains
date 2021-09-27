@@ -86,6 +86,11 @@ private fun buildUpdateMessage(
     <h2>What's New?</h2>
     <ul>
         <li>KillLaKill Alt. Themes! Ryuko Light & Satsuki Dark.</li>
+        <li>3 New themes<ul>
+        <li>Shigure (Light Theme)</li>
+        <li>Kirino (Dark Theme)</li>
+        <li>Sagiri (Dark Theme)</li>
+        </ul></li>
         <li>Made it easier to differentiate search & selection for all themes.</li>
         <li>Added integrated <code>Discreet Mode</code></li>
         <li>Added Russian Localization, thank you @Dragon-0609</li>
@@ -172,9 +177,9 @@ object UpdateNotification {
     val content = buildUpdateMessage(
       AssetManager.resolveAssetUrl(
         AssetCategory.MISC,
-        "update_celebration_v8.gif"
+        "update_celebration_v9.gif"
       ).orElseGet {
-        "https://doki.assets.unthrottled.io/misc/update_celebration_v8.gif"
+        "https://doki.assets.unthrottled.io/misc/update_celebration_v9.gif"
       },
       Dimension(640, 640)
     )

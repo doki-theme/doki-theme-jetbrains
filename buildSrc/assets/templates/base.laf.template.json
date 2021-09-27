@@ -435,6 +435,8 @@
     "JumpToLine.dropLine.safe": "testScopeColor",
     "JumpToLine.dropLine.unsafe": "nonProjectFileScopeColor",
 
+    "BookmarkIcon.background": "accentColor",
+    "MnemonicIcon.borderColor": "accentColor",
     "TabbedPane.focus": "accentColor",
     "Notification.MoreButton.foreground": "accentColor",
     "Button.default.focusColor":"accentColor",

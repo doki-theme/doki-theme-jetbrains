@@ -21,6 +21,7 @@
     <option name="ActionButton.iconTextForeground" value="$infoForeground$"/>
     <option name="ActionButton.hoverBackground" value="$highlightColor$"/>
     <option name="ActionButton.pressedBackground" value="$highlightColor$"/>
+    <option name="BookmarkIcon.background" value="%accentColor%"/>
     <option name="ADDED_LINES_COLOR" value="$diff.inserted$9A"/>
     <option name="ANNOTATIONS_COLOR" value="$accentColor$"/>
     <option name="CARET_COLOR" value="%accentColor%"/>

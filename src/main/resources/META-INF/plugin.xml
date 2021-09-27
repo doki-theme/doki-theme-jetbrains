@@ -73,6 +73,7 @@
     <themeProvider id="ca45f54a-57cb-4d8c-82a6-d4b31c850bd6" path="/doki/themes/don't_toy_with_me_miss_nagatoro/Hayase_Nagatoro.theme.json"/>
     <themeProvider id="b93ab4ea-ff96-4459-8fa2-0caae5bc7116" path="/doki/themes/miss_kobayashi's_dragon_maid/Kanna.theme.json"/>
     <themeProvider id="2d049451-6e89-4325-af38-6ce889991e5b" path="/doki/themes/miss_kobayashi's_dragon_maid/Tohru.theme.json"/>
+    <themeProvider id="dc8e4142-c371-4107-a3c3-99dceefadac2" path="/doki/themes/eromanga_sensei/Sagiri.theme.json"/>
     <themeProvider id="8e8773ee-4bbb-4812-b311-005f04f6bb20" path="/doki/themes/evangelion/Katsuragi_Misato.theme.json"/>
     <themeProvider id="c262185d-9682-413b-9143-85a2dda76b2f" path="/doki/themes/evangelion/Rei.theme.json"/>
     <themeProvider id="930c70c8-474e-4e2d-a223-d1e2b9da4fb1" path="/doki/themes/fate/Astolfo.theme.json"/>
@@ -113,8 +114,10 @@
     <themeProvider id="432fdab1-b8fa-412e-8cca-1844f18a1a43" path="/doki/themes/nekopara/Coconut.theme.json"/>
     <themeProvider id="13407818-da66-432b-94e3-fd2192e98118" path="/doki/themes/nekopara/Maple_Dark.theme.json"/>
     <themeProvider id="ea7a8b00-2d86-4e06-81a2-5c14a46264d5" path="/doki/themes/nekopara/Maple_Light.theme.json"/>
+    <themeProvider id="67278007-b7f8-46d4-88b7-e40cac3576a7" path="/doki/themes/nekopara/Shigure.theme.json"/>
     <themeProvider id="31d5574d-f56b-408f-81dc-9d44feeb62c2" path="/doki/themes/nekopara/Vanilla.theme.json"/>
     <themeProvider id="06143cbe-2d51-4423-9a93-73a02c828119" path="/doki/themes/oregairu/Yukinoshita_Yukino.theme.json"/>
+    <themeProvider id="2f2dff01-7e0e-4ebc-ab1e-34be2486c66f" path="/doki/themes/oreimo/Kirino.theme.json"/>
     <themeProvider id="d96c6599-ebf8-4359-ae26-19f79b69e919" path="/doki/themes/quintessential_quintuplets/Nakano_Miku.theme.json"/>
     <themeProvider id="5e6a266f-c6d5-4891-a065-a2c2b857016a" path="/doki/themes/quintessential_quintuplets/Nakano_Nino.theme.json"/>
     <themeProvider id="35422aa4-1396-4e76-8ec6-c5560884df22" path="/doki/themes/re_zero/Beatrice.theme.json"/>
