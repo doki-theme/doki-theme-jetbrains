@@ -54,10 +54,13 @@ NekoPara
 ![maple_dark code](../assets/screenshots/nekoPara/maple_dark_code.png)
 ![maple_light code](../assets/screenshots/nekoPara/maple_light_code.png)
 
+### Shigure
+
+![shigure_light code](../assets/screenshots/nekoPara/shigure_light_code.png)
+
 ### Cinnamon
 
 ![cinnamon_dark code](../assets/screenshots/nekoPara/cinnamon_dark_code.png)
-
 
 ### Azuki
 
@@ -70,6 +73,22 @@ Don't Toy With Me, Miss Nagatoro
 ### Hayase Nagatoro
 
 ![nagatoro_dark code](../assets/screenshots/dontToyWithMeMiss/nagatoro_dark_code.png)
+
+OreImo
+---
+
+### Kousaka Kirino
+
+![kirino_dark code](../assets/screenshots/oreimo/kirino_dark_code.png)
+
+
+EroManga Sensei
+---
+
+### Izumi Sagiri
+
+![sagiri_dark code](../assets/screenshots/eromanga/sagiri_dark_code.png)
+
 
 Type-Moon
 ---
