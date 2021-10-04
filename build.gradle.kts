@@ -16,6 +16,7 @@ plugins {
   // ktlint linter - read more: https://github.com/JLLeitschuh/ktlint-gradle
   id("org.jlleitschuh.gradle.ktlint") version "10.2.0"
   id("org.kordamp.gradle.markdown") version "2.2.0"
+  id("org.jetbrains.qodana") version "0.1.12"
 }
 
 // Import variables from gradle.properties file
@@ -86,16 +87,27 @@ detekt {
   }
 }
 
+qodana {
+  cachePath.set(projectDir.resolve(".qodana").canonicalPath)
+  reportPath.set(projectDir.resolve("build/reports/inspections").canonicalPath)
+  saveReport.set(true)
+  showReport.set(System.getenv("QODANA_SHOW_REPORT").toBoolean())
+}
+
 tasks {
-  // Set the compatibility versions to 1.8
-  withType<JavaCompile> {
-    sourceCompatibility = "1.8"
-    targetCompatibility = "1.8"
-  }
-  listOf("compileKotlin", "compileTestKotlin").forEach {
-    getByName<KotlinCompile>(it) {
-      kotlinOptions.jvmTarget = "1.8"
+  // Set the JVM compatibility versions
+  properties("javaVersion").let {
+    withType<JavaCompile> {
+      sourceCompatibility = it
+      targetCompatibility = it
     }
+    withType<KotlinCompile> {
+      kotlinOptions.jvmTarget = it
+    }
+  }
+
+  wrapper {
+    gradleVersion = properties("gradleVersion")
   }
 
   withType<Detekt> {
@@ -130,12 +142,10 @@ tasks {
 
     dependsOn("markdownToHtml", "buildThemes")
   }
-}
-val compileKotlin: KotlinCompile by tasks
-compileKotlin.kotlinOptions {
-  jvmTarget = "1.8"
-}
-val compileTestKotlin: KotlinCompile by tasks
-compileTestKotlin.kotlinOptions {
-  jvmTarget = "1.8"
+
+  signPlugin {
+    certificateChain.set(System.getenv("CERTIFICATE_CHAIN"))
+    privateKey.set(System.getenv("PRIVATE_KEY"))
+    password.set(System.getenv("PRIVATE_KEY_PASSWORD"))
+  }
 }
