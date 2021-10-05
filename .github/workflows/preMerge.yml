@@ -55,6 +55,11 @@ jobs:
           java-version: 11
           cache: gradle
 
+      - name: Grant execute permission for scripts
+        run: chmod +x getMasterThemes.sh
+      - name: Pull down the Master Themes
+        run: ./getMasterThemes.sh
+
       # Set environment variables
       - name: Export Properties
         id: properties
@@ -111,6 +116,11 @@ jobs:
           distribution: zulu
           java-version: 11
           cache: gradle
+
+      - name: Grant execute permission for scripts
+        run: chmod +x getMasterThemes.sh
+      - name: Pull down the Master Themes
+        run: ./getMasterThemes.sh
 
       # Set environment variables
       - name: Export Properties
