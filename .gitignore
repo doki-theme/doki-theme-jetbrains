@@ -24,3 +24,4 @@ classes/
 src/test/resources/
 
 masterThemes/
+.qodana/

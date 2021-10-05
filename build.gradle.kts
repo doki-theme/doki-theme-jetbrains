@@ -16,21 +16,11 @@ plugins {
   // ktlint linter - read more: https://github.com/JLLeitschuh/ktlint-gradle
   id("org.jlleitschuh.gradle.ktlint") version "10.2.0"
   id("org.kordamp.gradle.markdown") version "2.2.0"
+  id("org.jetbrains.qodana") version "0.1.12"
 }
 
-// Import variables from gradle.properties file
-val pluginGroup: String by project
-val pluginVersion: String by project
-val pluginSinceBuild: String by project
-val pluginUntilBuild: String by project
-
-val platformType: String by project
-val platformVersion: String by project
-val platformPlugins: String by project
-val platformDownloadSources: String by project
-
-group = pluginGroup
-version = pluginVersion
+group = properties("pluginGroup")
+version = properties("pluginVersion")
 
 // Configure project's dependencies
 repositories {
@@ -59,14 +49,14 @@ configurations {
 // Configure gradle-intellij-plugin plugin.
 // Read more: https://github.com/JetBrains/gradle-intellij-plugin
 intellij {
-  version.set(platformVersion)
-  type.set(platformType)
-  downloadSources.set(platformDownloadSources.toBoolean())
+  version.set(properties("platformVersion"))
+  type.set(properties("platformType"))
+  downloadSources.set(properties("platformDownloadSources").toBoolean())
   updateSinceUntilBuild.set(true)
 
   // Plugin Dependencies. Uses `platformPlugins` property from the gradle.properties file.
   plugins.set(
-    platformPlugins.split(',')
+    properties("platformPlugins").split(',')
       .map(String::trim)
       .filter(String::isNotEmpty)
   )
@@ -86,16 +76,27 @@ detekt {
   }
 }
 
+qodana {
+  cachePath.set(projectDir.resolve(".qodana").canonicalPath)
+  reportPath.set(projectDir.resolve("build/reports/inspections").canonicalPath)
+  saveReport.set(true)
+  showReport.set(System.getenv("QODANA_SHOW_REPORT").toBoolean())
+}
+
 tasks {
-  // Set the compatibility versions to 1.8
-  withType<JavaCompile> {
-    sourceCompatibility = "1.8"
-    targetCompatibility = "1.8"
-  }
-  listOf("compileKotlin", "compileTestKotlin").forEach {
-    getByName<KotlinCompile>(it) {
-      kotlinOptions.jvmTarget = "1.8"
+  // Set the JVM compatibility versions
+  properties("javaVersion").let {
+    withType<JavaCompile> {
+      sourceCompatibility = it
+      targetCompatibility = it
     }
+    withType<KotlinCompile> {
+      kotlinOptions.jvmTarget = it
+    }
+  }
+
+  wrapper {
+    gradleVersion = properties("gradleVersion")
   }
 
   withType<Detekt> {
@@ -115,13 +116,13 @@ tasks {
   }
 
   runPluginVerifier {
-    ideVersions.set(listOf("IC-2020.3.1", "IC-2021.1.3", "WS-2021.2"))
+    ideVersions.set(properties("pluginVerifierIdeVersions").split(',').map(String::trim).filter(String::isNotEmpty))
   }
 
   patchPluginXml {
-    version.set(pluginVersion)
-    sinceBuild.set(pluginSinceBuild)
-    untilBuild.set(pluginUntilBuild)
+    version.set(properties("pluginVersion"))
+    sinceBuild.set(properties("pluginSinceBuild"))
+    untilBuild.set(properties("pluginUntilBuild"))
 
     val releaseNotes = file("$projectDir/build/html/RELEASE-NOTES.html")
     if (releaseNotes.exists()) {
@@ -130,12 +131,10 @@ tasks {
 
     dependsOn("markdownToHtml", "buildThemes")
   }
-}
-val compileKotlin: KotlinCompile by tasks
-compileKotlin.kotlinOptions {
-  jvmTarget = "1.8"
-}
-val compileTestKotlin: KotlinCompile by tasks
-compileTestKotlin.kotlinOptions {
-  jvmTarget = "1.8"
+
+  signPlugin {
+    certificateChain.set(System.getenv("CERTIFICATE_CHAIN"))
+    privateKey.set(System.getenv("PRIVATE_KEY"))
+    password.set(System.getenv("PRIVATE_KEY_PASSWORD"))
+  }
 }
