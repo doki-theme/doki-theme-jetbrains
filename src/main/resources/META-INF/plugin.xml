@@ -68,8 +68,9 @@
     <themeProvider id="5fb9c0a4-e613-457c-97a5-6204f9076cef" path="/doki/themes/yuru_camp/Shima_Rin.theme.json"/>
     <themeProvider id="8e8773ee-4bbb-4812-b311-005f04f6bb20" path="/doki/themes/evangelion/Katsuragi_Misato.theme.json"/>
     <themeProvider id="c262185d-9682-413b-9143-85a2dda76b2f" path="/doki/themes/evangelion/Rei.theme.json"/>
+    <themeProvider id="91d0931d-3e1d-4101-b923-278ce264f0f5" path="/doki/themes/the_great_jahy_will_not_be_defeated./Jahy.theme.json"/>
     <themeProvider id="a1da4f2f-e736-40e7-86d9-9167a247da93" path="/doki/themes/kakegurui/Jabami_Yumeko.theme.json"/>
-    <themeProvider id="dc8e4142-c371-4107-a3c3-99dceefadac2" path="/doki/themes/eromanga_sensei/Sagiri_Dark.theme.json"/>
+    <themeProvider id="dc8e4142-c371-4107-a3c3-99dceefadac2" path="/doki/themes/eromanga_sensei/Sagiri.theme.json"/>
     <themeProvider id="ea9a13f6-fa7f-46a4-ba6e-6cefe1f55160" path="/doki/themes/high_school_dxd/Rias_Onyx.theme.json"/>
     <themeProvider id="c5e92ad9-2fa0-491e-b92a-48ab92d13597" path="/doki/themes/high_school_dxd/Rias_Crimson.theme.json"/>
     <themeProvider id="06143cbe-2d51-4423-9a93-73a02c828119" path="/doki/themes/oregairu/Yukinoshita_Yukino.theme.json"/>
