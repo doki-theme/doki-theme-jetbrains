@@ -5,7 +5,7 @@ Changelog
 
 **1 New Theme!**
 
-Featuring the Dark World's second in command: Jahy!
+Featuring the Dark World's Second in Command: Jahy!
 
 ![v21 Girl](https://doki.assets.unthrottled.io/misc/v21_girl.png)
 
