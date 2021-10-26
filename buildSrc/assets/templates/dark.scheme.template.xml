@@ -989,7 +989,7 @@
     </option>
     <option name="INLAY_TEXT_WITHOUT_BACKGROUND">
       <value>
-        <option name="FOREGROUND" value="$infoForeground$"/>
+        <option name="FOREGROUND" value="$unusedColor$"/>
       </value>
     </option>
     <option name="INJECTED_LANGUAGE_FRAGMENT">

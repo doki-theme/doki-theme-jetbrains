@@ -3,12 +3,14 @@ package io.unthrottled.doki
 import com.intellij.ide.plugins.PluginManagerCore
 import com.intellij.ide.ui.LafManagerListener
 import com.intellij.openapi.Disposable
+import com.intellij.openapi.application.ApplicationActivationListener
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.extensions.PluginId
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.project.ProjectManager
 import com.intellij.openapi.project.ProjectManagerListener
 import com.intellij.openapi.startup.StartupManager
+import com.intellij.openapi.wm.IdeFrame
 import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.hax.HackComponent.hackLAF
 import io.unthrottled.doki.hax.SvgLoaderHacker.setSVGColorPatcher
@@ -27,8 +29,7 @@ import io.unthrottled.doki.stickers.StickerPaneService
 import io.unthrottled.doki.themes.ThemeManager
 import io.unthrottled.doki.util.doOrElse
 import io.unthrottled.doki.util.toOptional
-import java.util.Optional
-import java.util.UUID
+import java.util.*
 
 class TheDokiTheme : Disposable {
   companion object {
@@ -56,7 +57,11 @@ class TheDokiTheme : Disposable {
 
     attemptToAddIcons()
 
-    userOnBoarding()
+    connection.subscribe(ApplicationActivationListener.TOPIC, object : ApplicationActivationListener {
+      override fun applicationActivated(ideFrame: IdeFrame) {
+        userOnBoarding()
+      }
+    })
 
     connection.subscribe(
       LafManagerListener.TOPIC,

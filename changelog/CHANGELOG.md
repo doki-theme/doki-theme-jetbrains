@@ -13,7 +13,6 @@ Featuring the Dark World's second in command: Jahy!
 
 - Updated VCS inline hint color.
 - Fixed startup issue for new users.
-- Changed default theme to Shima Rin.
 
 # 20.0.0 [Only for Onii-Chan]
 
