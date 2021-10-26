@@ -998,7 +998,7 @@
     </option>
     <option name="INLAY_TEXT_WITHOUT_BACKGROUND">
     <value>
-      <option name="FOREGROUND" value="$unusedColor$"/>
+      <option name="FOREGROUND" value="$accentColor$a9"/>
     </value>
     </option>
     <option name="INLAY_DEFAULT">
