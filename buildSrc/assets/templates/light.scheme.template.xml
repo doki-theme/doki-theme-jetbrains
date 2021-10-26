@@ -996,6 +996,11 @@
         <option name="BACKGROUND" value="$codeBlock$"/>
       </value>
     </option>
+    <option name="INLAY_TEXT_WITHOUT_BACKGROUND">
+    <value>
+      <option name="FOREGROUND" value="$infoForeground$"/>
+    </value>
+    </option>
     <option name="INLAY_DEFAULT">
       <value>
         <option name="FOREGROUND" value="$accentColor$99"/>
@@ -1010,7 +1015,7 @@
     </option>
     <option name="INLINE_PARAMETER_HINT_CURRENT">
       <value>
-        <option name="FOREGROUND" value="$stringColor$"/>
+        <option name="FOREGROUND" value="$accentColor$"/>
         <option name="BACKGROUND" value="$textEditorBackground$"/>
       </value>
     </option>

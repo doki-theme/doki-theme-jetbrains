@@ -25,7 +25,7 @@ private val nameMapping =
     "Miss Kobayashi's Dragon Maid" to "DM: ",
     "OreGairu" to "OreGairu: ",
     "OreImo" to "OreImo: ",
-    "The Great Jahy Will Not Be Defeated." to "JahySama: ",
+    "The Great Jahy Will Not Be Defeated" to "JahySama: ",
     "Future Diary" to "FutureDiary: ",
     "Kakegurui" to "Kakegurui: ",
     "Monogatari" to "Monogatari: ",
