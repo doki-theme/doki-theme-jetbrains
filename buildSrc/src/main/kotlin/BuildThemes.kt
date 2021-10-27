@@ -12,11 +12,7 @@ import java.nio.file.Path
 import java.nio.file.Paths.get
 import java.nio.file.StandardCopyOption
 import java.nio.file.StandardOpenOption
-import java.util.Collections
-import java.util.Comparator
-import java.util.LinkedList
-import java.util.Optional
-import java.util.TreeMap
+import java.util.*
 import java.util.regex.Pattern
 import java.util.stream.Collectors
 import java.util.stream.Stream
@@ -284,7 +280,10 @@ open class BuildThemes : DefaultTask() {
         jetbrainsDefinition,
         dokiThemeDefinitionPath
       ),
-      colors = colors,
+      colors = createColors(
+        colors,
+        themeDefinition,
+      ),
       ui = getUIDef(
         jetbrainsDefinition.ui,
         colors,
@@ -300,6 +299,20 @@ open class BuildThemes : DefaultTask() {
         gson.toJson(finalTheme, writer)
       }
     return extractResourcesPath(themeJson)
+  }
+
+  private fun createColors(
+    colors: Map<String, String>,
+    themeDefinition: DokiBuildMasterThemeDefinition
+  ): Map<String, Any> {
+    val mapWithNewStuff = colors.toMutableMap()
+    mapWithNewStuff["editorAccentColor"] = mapWithNewStuff.getOrDefault(
+      "editorAccentColor",
+      themeDefinition.overrides?.editorScheme
+        ?.colors?.get("accentColor")?.toString() ?: colors["accentColor"]!!.toString()
+    )
+
+    return mapWithNewStuff
   }
 
   private fun validateColors(
@@ -498,14 +511,14 @@ open class BuildThemes : DefaultTask() {
 
   private fun resolveStringTemplate(value: String, colors: Map<String, String>): String =
     if (value.contains('&')) {
-    val (end, replacementColor) = getReplacementColor(value, '&') { templateColor ->
-      colors[templateColor]
-        ?: throw IllegalArgumentException("$templateColor is not in the color definition.")
+      val (end, replacementColor) = getReplacementColor(value, '&') { templateColor ->
+        colors[templateColor]
+          ?: throw IllegalArgumentException("$templateColor is not in the color definition.")
+      }
+      '#' + buildReplacement(replacementColor, value, end)
+    } else {
+      value
     }
-    '#' + buildReplacement(replacementColor, value, end)
-  } else {
-    value
-  }
 
   private fun resolveAttributes(
     childTemplate: ThemeTemplateDefinition,

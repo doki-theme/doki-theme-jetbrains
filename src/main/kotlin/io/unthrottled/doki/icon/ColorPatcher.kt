@@ -4,6 +4,7 @@ import com.intellij.ui.ColorUtil
 import com.intellij.ui.JBColor.namedColor
 import io.unthrottled.doki.hax.Patcher
 import io.unthrottled.doki.hax.PatcherProvider
+import io.unthrottled.doki.themes.ThemeManager
 import io.unthrottled.doki.util.runSafely
 import io.unthrottled.doki.util.runSafelyWithResult
 import io.unthrottled.doki.util.toHexString
@@ -73,6 +74,11 @@ class ColorPatcher(
     }
     patchAccent(svg.getAttribute("stopTint"), svg) {
       getThemedStopColor()
+    }
+    patchAccent(svg.getAttribute("editorAccentTint"), svg) {
+      ThemeManager.instance.currentTheme
+        .map { it.editorAccentColor.toHexString() }
+        .orElseGet { Color.CYAN.toHexString() }
     }
 
     val themedStartAttr = svg.getAttribute("themedStart")

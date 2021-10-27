@@ -712,6 +712,7 @@
     "/toolwindows/infoEvents_dark.svg": "/icons/toolwindows/infoEvents_dark.svg",
     "/welcome/createNewProject.svg": "/icons/welcome/createNewProject.svg",
     "/welcome/createNewProject_dark.svg": "/icons/welcome/createNewProject_dark.svg",
+    "/vcs/author.svg": "/icons/vcs/author.svg",
     "/vcs/ignore_file.svg": "/icons/vcs/ignore_file.svg",
     "/vcs/ignore_file_dark.svg": "/icons/vcs/ignore_file_dark.svg",
     "/vcs/vendors/github.svg": "/icons/vcs/vendors/github.svg",

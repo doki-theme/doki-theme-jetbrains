@@ -21,6 +21,7 @@ import io.sentry.SentryOptions
 import io.sentry.protocol.Message
 import io.sentry.protocol.User
 import io.unthrottled.doki.config.ThemeConfig
+import io.unthrottled.doki.util.runSafely
 import io.unthrottled.doki.util.runSafelyWithResult
 import java.awt.Component
 import java.lang.management.ManagementFactory
@@ -35,15 +36,6 @@ class ErrorReporter : ErrorReportSubmitter() {
   companion object {
 
     init {
-      Sentry.init { options: SentryOptions ->
-        options.dsn =
-          RestClient.performGet(
-            "https://jetbrains.assets.unthrottled.io/doki-theme/sentry-dsn.txt"
-          )
-            .map { it.trim() }
-            .orElse("https://54daf566d8854f7d98e4c09ced2d34c5@o403546.ingest.sentry.io/5266340?maxmessagelength=50000")
-      }
-
       Sentry.setUser(
         User().apply {
           this.id = ThemeConfig.instance.userId
@@ -59,6 +51,19 @@ class ErrorReporter : ErrorReportSubmitter() {
     consumer: Consumer<in SubmittedReportInfo>
   ): Boolean {
     return runSafelyWithResult({
+      runSafely({
+        Sentry.init { options: SentryOptions ->
+          options.dsn =
+            RestClient.performGet(
+              "https://jetbrains.assets.unthrottled.io/doki-theme/sentry-dsn.txt"
+            )
+              .map { it.trim() }
+              .orElse(
+                "https://54daf566d8854f7d98e4c09ced2d34c5" +
+                  "@o403546.ingest.sentry.io/5266340?maxmessagelength=50000"
+              )
+        }
+      })
       events.forEach {
         Sentry.captureEvent(
           addSystemInfo(

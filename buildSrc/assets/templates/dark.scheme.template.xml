@@ -987,6 +987,11 @@
         <option name="EFFECT_TYPE" value="1"/>
       </value>
     </option>
+    <option name="INLAY_TEXT_WITHOUT_BACKGROUND">
+      <value>
+        <option name="FOREGROUND" value="$accentColor$a9"/>
+      </value>
+    </option>
     <option name="INJECTED_LANGUAGE_FRAGMENT">
       <value>
         <option name="BACKGROUND" value="$codeBlock$"/>
@@ -1006,7 +1011,7 @@
     </option>
     <option name="INLINE_PARAMETER_HINT_CURRENT">
       <value>
-        <option name="FOREGROUND" value="$stringColor$"/>
+        <option name="FOREGROUND" value="$accentColor$"/>
         <option name="BACKGROUND" value="$textEditorBackground$"/>
       </value>
     </option>
