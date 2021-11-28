@@ -5,5 +5,11 @@
     "name": "Doki Dark"
   },
   "overrides": {},
-  "ui": {}
+  "ui": {},
+  "backgrounds": {
+    "default": {
+      "opacity": 10,
+      "position": "MIDDLE_RIGHT"
+    }
+  }
 }
