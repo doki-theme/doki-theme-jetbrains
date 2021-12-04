@@ -1,12 +1,19 @@
-# 21.0.0 [Jahy-sama will not be discouraged!]
+# 22.0.0 [Holiday Release]
 
-**1 New Theme!**
+**3 New Dark Themes!**
 
-Featuring the Dark World's Second in Command: Jahy!
+- Celebrate Christmas with Chocola from the NekoPara Series!
+  _I lied about Shigure being the last addition from NekoPara._
 
-![v21 Girl](https://doki.assets.unthrottled.io/misc/v21_girl_smol.png)
+- The 4th of July now just got even better, now that you can code with Essex from Azur Lane.
+  If you prefer a more canon experience, Essex's theme also has secondary content with the Eagle Union branding.
 
-### Other Stuff
+- Even though I missed this year's Halloween, you've got something to look forward to in 2022.
+  Yotsuba, from The Quintessential Quintuplets, isn't 2spooky4u.
 
-- Updated VCS inline hint color.
-- Fixed startup issue for new users.
+
+![v22 Girls](https://doki.assets.unthrottled.io/misc/v22_girls.png)
+
+#### Other Stuff
+
+- 

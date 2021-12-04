@@ -5,5 +5,11 @@
     "file": "Asuna_Dark.xml"
   },
   "overrides": {},
-  "ui": {}
+  "ui": {},
+  "backgrounds": {
+    "default": {
+      "opacity": 6,
+      "position": "CENTER"
+    }
+  }
 }

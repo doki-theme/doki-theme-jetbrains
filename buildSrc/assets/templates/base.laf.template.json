@@ -233,6 +233,7 @@
     "WelcomeScreen.separatorColor": "borderColor",
     "windowBorder":"borderColor",
     "Outline.color":"borderColor",
+    "DefaultTabs.borderColor": "borderColor",
 
     "TextField.disabledBackground": "nonProjectFileScopeColor",
 
@@ -298,6 +299,7 @@
     "TextPane.selectionForeground":"selectionForeground",
     "Tree.selectionForeground": "selectionForeground",
 
+    "Tag.background": "buttonColor",
     "ComboBoxButton.background": "buttonColor",
     "ComboBox.background": "buttonColor",
     "ComboBox.nonEditableBackground": "buttonColor",
@@ -434,6 +436,16 @@
 
     "JumpToLine.dropLine.safe": "testScopeColor",
     "JumpToLine.dropLine.unsafe": "nonProjectFileScopeColor",
+
+    "BookmarkMnemonicAvailable.foreground": "buttonFont",
+    "BookmarkMnemonicAvailable.background":"buttonColor",
+    "BookmarkMnemonicAvailable.borderColor": "buttonColor",
+    "BookmarkMnemonicAssigned.foreground": "selectionForeground",
+    "BookmarkMnemonicAssigned.background":"selectionBackground",
+    "BookmarkMnemonicAssigned.borderColor": "selectionBackground",
+    "BookmarkMnemonicCurrent.foreground": "selectionForeground",
+    "BookmarkMnemonicCurrent.background":"selectionBackground",
+    "BookmarkMnemonicCurrent.borderColor": "accentColor",
 
     "BookmarkIcon.background": "accentColor",
     "MnemonicIcon.borderColor": "accentColor",

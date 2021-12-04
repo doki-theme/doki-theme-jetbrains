@@ -85,11 +85,12 @@ private fun buildUpdateMessage(
     <body>
     <h2>What's New?</h2>
     <ul>
-        <li>1 New theme<ul>
-        <li>Jahy-sama (Dark Theme)</li>
+        <li>3 New Holiday Dark Themes
+        <ul>
+        <li>Chocola (Christmas)</li>
+        <li>Essex (4th of July)</li>
+        <li>Nakano Yotsuba (Halloween)</li>
         </ul></li>
-        <li>Updated VCS inlay hint color.</li>
-        <li>Fixed bug for new users.</li>
     </ul>
     Please see the <a href="https://github.com/doki-theme/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md">
         changelog</a> for more details.
@@ -171,7 +172,7 @@ object UpdateNotification {
     val content = buildUpdateMessage(
       AssetManager.resolveAssetUrl(
         AssetCategory.MISC,
-        "update_celebration_v9.gif"
+        "update_celebration_v9.gif" // todo: update this
       ).orElseGet {
         "https://doki.assets.unthrottled.io/misc/update_celebration_v9.gif"
       },
