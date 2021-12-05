@@ -446,6 +446,11 @@
     "BookmarkMnemonicCurrent.foreground": "selectionForeground",
     "BookmarkMnemonicCurrent.background":"selectionBackground",
     "BookmarkMnemonicCurrent.borderColor": "accentColor",
+    "BookmarkMnemonicIcon.foreground": "headerColor",
+    "BookmarkMnemonicIcon.background":"accentColor",
+    "BookmarkMnemonicIcon.borderColor": "accentColor",
+
+    "BrowseCourses.background" : "baseBackground",
 
     "BookmarkIcon.background": "accentColor",
     "MnemonicIcon.borderColor": "accentColor",
