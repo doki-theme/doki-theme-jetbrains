@@ -11,8 +11,6 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.project.ProjectManager
 import com.intellij.ui.JBColor
 import com.intellij.util.ui.UIUtil
-import io.unthrottled.doki.assets.AssetCategory
-import io.unthrottled.doki.assets.AssetManager
 import io.unthrottled.doki.icon.DokiIcons
 import io.unthrottled.doki.promotions.MessageBundle
 import io.unthrottled.doki.themes.DokiTheme
@@ -20,14 +18,10 @@ import io.unthrottled.doki.themes.ThemeManager
 import io.unthrottled.doki.util.toHexString
 import org.intellij.lang.annotations.Language
 import org.jetbrains.annotations.Nls
-import java.awt.Dimension
 
 @Suppress("LongMethod", "MaxLineLength")
 @Language("HTML")
-private fun buildUpdateMessage(
-  updateAsset: String,
-  dimensions: Dimension
-): String {
+private fun buildUpdateMessage(): String {
   val backgroundColor = UIUtil.getEditorPaneBackground().toHexString()
   val accentHex = JBColor.namedColor(
     DokiTheme.ACCENT_COLOR,
@@ -88,9 +82,10 @@ private fun buildUpdateMessage(
         <li>3 New Holiday Dark Themes
         <ul>
         <li>Chocola (Christmas)</li>
-        <li>Essex (4th of July)</li>
+        <li>Essex (4th of July) </li>
         <li>Nakano Yotsuba (Halloween)</li>
         </ul></li>
+        <li>Many bug fixes</li>
     </ul>
     Please see the <a href="https://github.com/doki-theme/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md">
         changelog</a> for more details.
@@ -99,8 +94,7 @@ private fun buildUpdateMessage(
     <br><br>
     Thanks for downloading!
     <br><br>
-    <div style='text-align: center'><img alt='Thanks for downloading!' src="$updateAsset"
-                                         ${dimensions.width} width='missingValue'height='${dimensions.height}'><br/><br/>
+    <div style='text-align: center'>
         I hope you enjoy your new themes!
     </div>
     </body>
@@ -169,15 +163,7 @@ object UpdateNotification {
       getPlugin(
         getPluginOrPlatformByClassName(UpdateNotification::class.java.canonicalName)
       )?.name
-    val content = buildUpdateMessage(
-      AssetManager.resolveAssetUrl(
-        AssetCategory.MISC,
-        "update_celebration_v9.gif" // todo: update this
-      ).orElseGet {
-        "https://doki.assets.unthrottled.io/misc/update_celebration_v9.gif"
-      },
-      Dimension(640, 640)
-    )
+    val content = buildUpdateMessage()
     val currentTheme = ThemeManager.instance.currentTheme.orElse(ThemeManager.instance.defaultTheme)
 
     val urlParameters =
