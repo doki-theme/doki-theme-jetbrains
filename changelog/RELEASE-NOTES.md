@@ -12,7 +12,7 @@
   Yotsuba, from The Quintessential Quintuplets, isn't 2spooky4me.
 
 
-![v22 Girls](https://doki.assets.unthrottled.io/misc/v22_girls.png)
+![v22 Girls](https://doki.assets.unthrottled.io/misc/v22_girls_smol.png)
 
 #### Other Stuff
 
