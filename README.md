@@ -13,8 +13,6 @@ The Doki Theme: Jetbrains IDEs
 
 # [Complete Theme Album.](./albums/complete_theme_album.md)
 
-Themes grouped [by anime](./albums/grouping.md)
-
 ---
 
 This plugin is for serious Otaku programmers.
@@ -23,6 +21,7 @@ I think you will find best girl.
 
 You can choose themes from various, Anime, Manga, or Visual Novels:
 
+- AzurLane
 - Blend S
 - Daily Life with a Monster Girl
 - DanganRonpa
@@ -139,6 +138,7 @@ Some themes have more than one set of images, this allows you to switch in-betwe
 
 Themes that have more than one sticker:
 
+- Essex
 - Hatsune Miku
 - Sakurajima Mai
 - Kanna Kamui

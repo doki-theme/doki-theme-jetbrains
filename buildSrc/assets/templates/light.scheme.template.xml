@@ -22,6 +22,12 @@
     <option name="ActionButton.hoverBackground" value="$highlightColor$"/>
     <option name="ActionButton.pressedBackground" value="$highlightColor$"/>
     <option name="BookmarkIcon.background" value="%accentColor%"/>
+    <option name="Bookmark.Mnemonic.iconForeground" value="$infoForeground$"/>
+    <option name="Bookmark.Mnemonic.iconBackground" value="$baseIconColor$"/>
+    <option name="Bookmark.Mnemonic.iconBorderColor" value="%accentColor%"/>
+    <option name="BookmarkMnemonicIcon.foreground" value="$textEditorBackground$"/>
+    <option name="BookmarkMnemonicIcon.background" value="%accentColor%"/>
+    <option name="BookmarkMnemonicIcon.borderColor" value="%accentColor%"/>
     <option name="ADDED_LINES_COLOR" value="$diff.inserted$AA"/>
     <option name="ANNOTATIONS_COLOR" value="$accentColor$"/>
     <option name="CARET_COLOR" value="%accentColor%"/>
@@ -112,6 +118,20 @@
     <option name="WHITESPACES_MODIFIED_LINES_COLOR" value="$diff.modified$AA"/>
   </colors>
   <attributes>
+    <option name="DEBUGGER_SMART_STEP_INTO_TARGET">
+      <value>
+        <option name="BACKGROUND" value="$searchBackground$99" />
+        <option name="FOREGROUND" value="$searchForeground$" />
+      </value>
+    </option>
+    <option name="DEBUGGER_SMART_STEP_INTO_SELECTION">
+      <value>
+        <option name="BACKGROUND" value="$searchBackground$" />
+        <option name="FOREGROUND" value="$searchForeground$" />
+        <option name="EFFECT_COLOR" value="%accentColor%"/>
+        <option name="EFFECT_TYPE" value="0"/>
+      </value>
+    </option>
     <option name="DEBUGGER_INLINED_VALUES">
       <value>
         <option name="FOREGROUND" value="$infoForeground$AA"/>

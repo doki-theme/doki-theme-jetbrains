@@ -1,6 +1,7 @@
 const val DDLC_THEME_NAME_PREFIX = "DDLC: "
 private val nameMapping =
   mapOf(
+    "Azur Lane" to "AzurLane: ",
     "Kill la Kill" to "KillLaKill: ",
     "Blend S" to "BlendS: ",
     "Re Zero" to "Re:Zero: ",

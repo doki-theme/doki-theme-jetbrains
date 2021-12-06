@@ -1,15 +1,14 @@
 {
-  "id": "3546f7be-b84f-4b8e-8cad-effa3f4603af",
+  "id": "3b11c8f4-d030-4a7e-a46f-b22d3e430a1d",
   "editorScheme": {
     "type": "template",
     "name": "Doki Dim"
   },
   "overrides": {},
   "ui": {},
-  "uiBase": "dark dim",
   "backgrounds": {
     "default": {
-      "opacity": 7,
+      "opacity": 11,
       "position": "MIDDLE_RIGHT"
     }
   }
