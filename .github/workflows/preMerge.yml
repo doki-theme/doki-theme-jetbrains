@@ -94,14 +94,4 @@ jobs:
       - name: Run Plugin Verifier
         run: ./gradlew runPluginVerifier -Pplugin.verifier.home.dir=${{ steps.properties.outputs.pluginVerifierHomeDir }}
 
-  build:
-    name: Build
-    needs: test
-    runs-on: ubuntu-latest
-    outputs:
-      version: ${{ steps.properties.outputs.version }}
-    steps:
 
-      # Check out current repository
-      - name: Fetch Sources
-        uses: actions/checkout@v2.3.4
