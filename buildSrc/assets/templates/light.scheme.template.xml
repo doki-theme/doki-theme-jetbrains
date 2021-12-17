@@ -22,8 +22,8 @@
     <option name="ActionButton.hoverBackground" value="$highlightColor$"/>
     <option name="ActionButton.pressedBackground" value="$highlightColor$"/>
     <option name="BookmarkIcon.background" value="%accentColor%"/>
-    <option name="Bookmark.Mnemonic.iconForeground" value="$infoForeground$"/>
-    <option name="Bookmark.Mnemonic.iconBackground" value="$baseIconColor$"/>
+    <option name="Bookmark.Mnemonic.iconForeground" value="$textEditorBackground$"/>
+    <option name="Bookmark.Mnemonic.iconBackground" value="%accentColor%"/>
     <option name="Bookmark.Mnemonic.iconBorderColor" value="%accentColor%"/>
     <option name="BookmarkMnemonicIcon.foreground" value="$textEditorBackground$"/>
     <option name="BookmarkMnemonicIcon.background" value="%accentColor%"/>

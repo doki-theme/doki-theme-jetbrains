@@ -449,10 +449,15 @@
     "BookmarkMnemonicIcon.foreground": "headerColor",
     "BookmarkMnemonicIcon.background":"accentColor",
     "BookmarkMnemonicIcon.borderColor": "accentColor",
+    "Bookmark.Mnemonic.iconForeground": "headerColor",
+    "Bookmark.Mnemonic.iconBackground":"accentColor",
+    "Bookmark.Mnemonic.iconBorderColor": "accentColor",
+
 
     "BrowseCourses.background" : "baseBackground",
 
     "BookmarkIcon.background": "accentColor",
+    "Bookmark.iconBackground": "accentColor",
     "MnemonicIcon.borderColor": "accentColor",
     "TabbedPane.focus": "accentColor",
     "Notification.MoreButton.foreground": "accentColor",

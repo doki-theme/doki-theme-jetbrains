@@ -6,18 +6,12 @@
   <description>
     &lt;p&gt;
     Code with anime girls! &lt;br/&gt; This is a large collection of themes built with love and care.
-    &lt;p&gt;&lt;br/&gt;&lt;img alt="Zero Two Dark" src="https://raw.githubusercontent.com/doki-theme/doki-theme-jetbrains/master/assets/screenshots/franxx/zero_two_dark_code.png" width="500"/&gt;&lt;/p&gt;
     &lt;br/&gt;
     &lt;p&gt;
-      This plugin is for serious Otaku programmers. &lt;br/&gt;
-      With over 60 themes,
-      I think you will find best girl.
-    &lt;/p&gt;&lt;br/&gt;
-    &lt;p&gt;
-      See the &lt;a href="https://github.com/doki-theme/doki-theme-jetbrains#the-doki-theme-jetbrains-ides"&gt;documentation&lt;/a&gt; for more details.
-        &lt;/p&gt;
-        &lt;br/&gt;
-        &lt;div align="center"&gt;&lt;img width="256" src="https://doki.assets.unthrottled.io/misc/logo.png" alt="Doki Theme"/&gt;&lt;/div&gt;
+    See the &lt;a href="https://github.com/doki-theme/doki-theme-jetbrains#the-doki-theme-jetbrains-ides"&gt;documentation&lt;/a&gt; for more details.
+    &lt;/p&gt;
+    &lt;p&gt;&lt;br/&gt;&lt;img alt="Zero Two Dark" src="https://raw.githubusercontent.com/doki-theme/doki-theme-jetbrains/master/assets/screenshots/franxx/zero_two_dark_code.png" width="500"/&gt;&lt;/p&gt;
+    &lt;br/&gt;
         </description>
   <idea-version since-build="201.668.113"/>
   <depends>com.intellij.modules.platform</depends>
