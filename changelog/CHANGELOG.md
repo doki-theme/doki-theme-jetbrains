@@ -1,6 +1,10 @@
 Changelog
 ---
 
+# 22.0.2 [Mnemonic Bookmark Theming]
+
+- Actually theming the Mnemonic bookmark icons this time.
+
 # 22.0.1 [Better Update UX]
 
 - Enhanced the plugin update notification to be more visually pleasing.
