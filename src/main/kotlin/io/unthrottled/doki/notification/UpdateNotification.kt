@@ -46,7 +46,7 @@ private fun buildUpdateMessage(
   val greeting = if (isNewUser) {
     //language=html
     """
-      <p>Look like you are new, <strong>welcome!</strong>You now have a <em>lot</em> of themes now.<br />
+      <p>Looks like you are new, <strong>welcome!</strong> You now have a <em>lot</em> of themes now.<br />
           Feel free to browse <br /> <a
             href="https://doki-theme.unthrottled.io/themes">https://doki-theme.unthrottled.io/themes</a></p>
     """.trimIndent()
