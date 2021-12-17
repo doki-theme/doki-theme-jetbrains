@@ -1,6 +1,10 @@
 Changelog
 ---
 
+# 22.0.1 [Better Update UX]
+
+- Enhanced the plugin update notification to be more visually pleasing.
+
 # 22.0.0 [Holiday Release]
 
 **3 New Dark Themes!**

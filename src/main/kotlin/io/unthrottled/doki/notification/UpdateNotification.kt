@@ -10,6 +10,7 @@ import com.intellij.openapi.fileEditor.impl.HTMLEditorProvider
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.project.ProjectManager
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil
+import com.intellij.ui.ColorUtil
 import com.intellij.ui.JBColor
 import com.intellij.util.ui.UIUtil
 import io.unthrottled.doki.icon.DokiIcons
@@ -20,19 +21,46 @@ import io.unthrottled.doki.themes.ThemeManager
 import io.unthrottled.doki.util.toHexString
 import org.intellij.lang.annotations.Language
 import org.jetbrains.annotations.Nls
+import java.awt.Color
 
 @Suppress("LongMethod", "MaxLineLength")
 @Language("HTML")
-private fun buildUpdateMessage(currentTheme: DokiTheme): String {
-  val backgroundColor = UIUtil.getEditorPaneBackground().toHexString()
-  val accentHex = JBColor.namedColor(
+private fun buildUpdateMessage(
+  currentTheme: DokiTheme,
+  isNewUser: Boolean,
+  versionNumber: String,
+): String {
+  val accentColor = JBColor.namedColor(
     DokiTheme.ACCENT_COLOR,
     UIUtil.getTextAreaForeground()
-  ).toHexString()
+  )
+  val darkerAccentColor = ColorUtil.darker(accentColor, 1).toHexString()
+  val accentHex = accentColor.toHexString()
+  val strokeColor = JBColor.namedColor("Doki.Icon.Accent.Contrast.color", Color.WHITE)
+    .toHexString()
   val infoForegroundHex = UIUtil.getContextHelpForeground().toHexString()
   val background = currentTheme.getBackground().orElse(
     Background("essex_dark.png", IdeBackgroundUtil.Anchor.MIDDLE_RIGHT, 1)
   )
+
+  val greeting = if (isNewUser) {
+    //language=html
+    """
+      <p>Look like you are new, <strong>welcome!</strong>You now have a <em>lot</em> of themes now.<br />
+          Feel free to browse <br /> <a
+            href="https://doki-theme.unthrottled.io/themes">https://doki-theme.unthrottled.io/themes</a></p>
+    """.trimIndent()
+  } else {
+    //language=html
+    """
+      <p><strong>Thank You</strong> for updating! I changed some things.<br />
+          You can find more information here: <br /> <a
+            href="https://doki-theme.unthrottled.io/products/jetbrains/updates/$versionNumber?themeId=${currentTheme.id}">
+              https://doki-theme.unthrottled.io/products/jetbrains/updates/$versionNumber
+      </a></p>
+    """.trimIndent()
+  }
+
   return """
   <html lang='en'>
 
@@ -205,7 +233,7 @@ private fun buildUpdateMessage(currentTheme: DokiTheme): String {
           ctx.lineTo(w, h);
           ctx.lineTo(0, h);
 
-          const color = ${currentTheme.getColor("headerColor").toHexString()}
+          const color = '${currentTheme.getColor("headerColor").toHexString()}'
           ctx.fillStyle = color;
           ctx.strokeStyle = color;
           ctx.fill();
@@ -235,30 +263,23 @@ private fun buildUpdateMessage(currentTheme: DokiTheme): String {
           xmlns="http://www.w3.org/2000/svg">
           <path
             d="m52.577 14.952c1.9095 3.3073 1.9095 26.069 0 29.375-1.9095 3.3069-21.623 14.688-25.441 14.688-3.8189 0-23.532-11.381-25.441-14.688-1.9095-3.3073-1.9095-26.069 0-29.375 1.9095-3.3073 21.623-14.688 25.441-14.688 3.8189 0 23.532 11.381 25.441 14.688z"
-            fill="#152b48" stroke-width=".1248" style="paint-order:stroke fill markers" />
+            fill="$accentHex" stroke-width=".1248" style="paint-order:stroke fill markers" />
           <path
             d="m45.854 9.5987c0.03873 0.10755 0.07804 0.21489 0.1142 0.3235 0.73834 0.6891-6.4579 32.416-45.09 26.5-0.17914-0.54128-0.34649-1.074-0.5085-1.603 0.18835 4.4957 0.62782 8.3007 1.3245 9.5074 1.909 3.307 21.623 14.688 25.441 14.688 3.8182 0 23.532-11.381 25.441-14.688 1.9095-3.3059 1.9095-26.068 0-29.376-0.6433-1.1144-3.3263-3.1501-6.7235-5.3535z"
-            fill="#0e1d31" stroke-width=".1248" style="paint-order:stroke fill markers" />
+            fill="$darkerAccentColor" stroke-width=".1248" style="paint-order:stroke fill markers" />
           <path
             d="m27.363 21.738c0.86641-0.47597 3.7877-2.4016 8.056-3.3763 9.8408-2.2472 13.623 8.603 7.8207 16.785-5.1841 5.953-10.565 8.6876-15.877 12.21-5.3114-3.5223-10.692-6.257-15.877-12.21-5.8028-8.1814-2.02-19.031 7.8207-16.785 4.2683 0.97466 7.1895 2.9003 8.056 3.3763"
-            fill="#152b48" stroke="#fff" stroke-dasharray="10.83493501, 5.41746751, 2.70873375, 5.41746751"
+            fill="$accentHex" stroke="$strokeColor" stroke-dasharray="10.83493501, 5.41746751, 2.70873375, 5.41746751"
             stroke-linecap="round" stroke-miterlimit="6" stroke-width="2.7087" style="paint-order:stroke fill markers" />
           <path transform="matrix(.26458 0 0 .26458 -.00010697 0)"
             d="m161.03 73.684c-15.8 27.92-48.546 62.403-110.91 66.361 17.508 17.666 35.507 27.145 53.301 38.945 20.077-13.313 40.414-23.648 60.008-46.148 15.276-21.541 12.97-47.97-2.4024-59.158z"
-            fill="#0e1d31" style="paint-order:stroke fill markers" />
+            fill="$darkerAccentColor" style="paint-order:stroke fill markers" />
         </svg>
         <h3>A large collection of themes built with love and care</h3>
 
         <p>Unfortunately, I was unable to load your update.<br />
           So you are stuck with me, the offline fallback.</p>
-
-        <p>If you are new, <strong>welcome!</strong>, you now have a <em>lot</em> of themes now.<br />
-          Feel free to browse <br /> <a
-            href="https://doki-theme.unthrottled.io/themes">https://doki-theme.unthrottled.io/themes</a></p>
-
-        <p>If you downloaded an update, <strong>Thank You!</strong> I changed some things.<br />
-          You can find more information here: <br /> <a
-            href="https://doki-theme.unthrottled.io/themes">https://doki-theme.unthrottled.io/themes</a></p>
+        $greeting  
       </main>
     </body>
 
@@ -267,7 +288,7 @@ private fun buildUpdateMessage(currentTheme: DokiTheme): String {
 }
 
 fun getAnchor(position: IdeBackgroundUtil.Anchor): String {
-  return when(position) {
+  return when (position) {
     IdeBackgroundUtil.Anchor.MIDDLE_LEFT -> "left"
     IdeBackgroundUtil.Anchor.MIDDLE_RIGHT -> "right"
     else -> "center"
@@ -336,7 +357,7 @@ object UpdateNotification {
         getPluginOrPlatformByClassName(UpdateNotification::class.java.canonicalName)
       )?.name
     val currentTheme = ThemeManager.instance.currentTheme.orElse(ThemeManager.instance.defaultTheme)
-    val content = buildUpdateMessage(currentTheme)
+    val content = buildUpdateMessage(currentTheme, isNewUser, newVersion)
 
     val urlParameters =
       if (isNewUser) ""
@@ -344,7 +365,7 @@ object UpdateNotification {
     HTMLEditorProvider.openEditor(
       project,
       "$pluginName Update",
-//      "https://doki-theme.unthrottled.io$urlParameters?themeId=${currentTheme.id}",
+      "https://doki-theme.unthrottled.io$urlParameters?themeId=${currentTheme.id}",
       content,
     )
   }

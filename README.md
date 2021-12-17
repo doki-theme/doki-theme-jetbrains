@@ -6,6 +6,8 @@ The Doki Theme: Jetbrains IDEs
 ![Version](https://img.shields.io/jetbrains/plugin/v/10804)
 ![Build](https://github.com/doki-theme/doki-theme-jetbrains/workflows/Release/badge.svg)
 
+### https://doki-theme.unthrottled.io/
+
 ## Quick Theme Preview
 
 ![Themes](./assets/screenshots/themes.webp)

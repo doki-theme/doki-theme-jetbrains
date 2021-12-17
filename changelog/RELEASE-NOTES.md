@@ -1,4 +1,4 @@
-# 22.0.0 [Holiday Release]
+# Holiday Release!
 
 **3 New Dark Themes!**
 
@@ -21,3 +21,4 @@
 - Themed settings tags.
 - Themed the settings menu for the EduTools plugin.
 - Updated the debugger smart step-into colors.
+- Enhanced the plugin update notification to be more visually pleasing.

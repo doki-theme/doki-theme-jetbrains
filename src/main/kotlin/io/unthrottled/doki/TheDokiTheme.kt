@@ -101,12 +101,14 @@ class TheDokiTheme : Disposable {
             .ifPresent { version ->
               if (version != ThemeConfig.instance.version) {
                 ThemeConfig.instance.version = version
-                StartupManager.getInstance(project).runWhenProjectIsInitialized {
-                  UpdateNotification.display(
-                    project,
-                    version,
-                    isNewUser,
-                  )
+                ThemeManager.instance.currentTheme.ifPresent {
+                  StartupManager.getInstance(project).runWhenProjectIsInitialized {
+                    UpdateNotification.display(
+                      project,
+                      version,
+                      isNewUser,
+                    )
+                  }
                 }
               }
 
