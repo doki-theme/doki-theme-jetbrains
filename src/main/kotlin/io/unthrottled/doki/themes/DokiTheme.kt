@@ -110,7 +110,7 @@ class DokiTheme(private val uiTheme: JetBrainsThemeDefinition) {
   val editorAccentColor: Color
     get() = getColor("editorAccentColor")
 
-  private fun getColor(s: String) = (
+  fun getColor(s: String) = (
     (uiTheme.colors[s] as? String)?.toColor()
       ?: throw IllegalStateException("Expected 'colors.$s' to be present in theme $name json.")
     )
