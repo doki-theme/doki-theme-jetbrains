@@ -67,6 +67,13 @@
     <option name="LINE_NUMBERS_COLOR" value="$lineNumberColor$"/>
     <option name="LINE_NUMBER_ON_CARET_ROW_COLOR" value="$lineNumberColor$"/>
     <option name="LOOKUP_COLOR" value="$headerColor$"/>
+    <option name="JUPYTER.CELL_UNDER_CARET_COMMAND_MODE_STRIPE_COLOR" value="%accentColor%" />
+    <option name="JUPYTER.CODE_CELL_BACKGROUND" value="$lightEditorColor$" />
+    <option name="JUPYTER.GUTTER_INPUT_EXECUTION_COUNT" value="%accentColor%" />
+    <option name="JUPYTER.CELL_UNDER_CARET_EDITOR_MODE_STRIPE_COLOR" value="$accentColor$" />
+    <option name="JUPYTER.SAUSAGE_BUTTON_BORDER_COLOR" value="$borderColor$" />
+    <option name="JUPYTER.GUTTER_OUTPUT_EXECUTION_COUNT" value="$terminal.ansiRed$" />
+    <option name="JUPYTER.PROGRESS_STATUS_RUNNING_COLOR" value="%accentColor%" />
     <option name="PROMOTION_PANE" value="%accentColor%5a"/>
     <option name="METHOD_SEPARATORS_COLOR" value="$borderColor$"/>
     <option name="RECENT_LOCATIONS_SELECTION" value="$codeBlock$"/>
@@ -1106,6 +1113,12 @@
     </option>
     <option name="JSON.PROPERTY_KEY" baseAttributes="DEFAULT_IDENTIFIER"/>
     <option name="JSP_DIRECTIVE_NAME" baseAttributes="DEFAULT_KEYWORD"/>
+    <option name="JUPYTER.SAUSAGE_BUTTON_APPEARANCE">
+      <value>
+        <option name="FOREGROUND" value="$buttonFont$" />
+        <option name="BACKGROUND" value="$buttonColor$" />
+      </value>
+    </option>
     <option name="JUPYTER_SELECTED_CELL">
       <value>
         <option name="BACKGROUND" value="$foldedTextBackground$"/>
@@ -2288,6 +2301,11 @@
     <option name="REGEXP.REDUNDANT_ESCAPE">
       <value>
         <option name="FOREGROUND" value="$htmlTagColor$"/>
+      </value>
+    </option>
+    <option name="RMARKDOWN_CHUNK">
+      <value>
+        <option name="BACKGROUND" value="$codeBlock$" />
       </value>
     </option>
     <option name="ROUND_BRACKETS_RAINBOW_COLOR0">
