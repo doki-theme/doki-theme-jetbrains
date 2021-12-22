@@ -224,7 +224,7 @@
     </option>
     <option name="BREAKPOINT_ATTRIBUTES">
       <value>
-        <option name="BACKGROUND" value="$nonProjectFileScopeColor$"/>
+        <option name="BACKGROUND" value="$breakpointColor$"/>
       </value>
     </option>
     <option name="BROWSEWORDATCARET">
