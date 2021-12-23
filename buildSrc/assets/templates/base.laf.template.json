@@ -423,6 +423,11 @@
     "EditorTabs.inactiveColoredFileBackground": "ghostColor",
     "FileColor.Green": "testScopeColor",
     "FileColor.Yellow": "nonProjectFileScopeColor",
+    "FileColor.Blue": "fileBlue",
+    "FileColor.Gray": "fileGray",
+    "FileColor.Orange": "fileOrange",
+    "FileColor.Rose": "fileRose",
+    "FileColor.Violet": "fileViolet",
 
     "SearchField.errorBackground" : "diff.conflict",
 
