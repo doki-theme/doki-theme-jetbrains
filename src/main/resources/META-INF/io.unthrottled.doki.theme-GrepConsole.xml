@@ -1,0 +1,11 @@
+<idea-plugin>
+  <extensions defaultExtensionNs="com.intellij">
+    <applicationService serviceImplementation="io.unthrottled.doki.integrations.grep.ConsoleViewService"/>
+    <consoleFilterProvider implementation="io.unthrottled.doki.integrations.grep.GrepConsole" />
+    <postStartupActivity implementation="io.unthrottled.doki.integrations.grep.GrepConsoleIntegration"/>
+  </extensions>
+  <applicationListeners>
+    <listener class="io.unthrottled.doki.integrations.grep.GrepConsoleIntegration"
+              topic="com.intellij.ide.ui.LafManagerListener"/>
+  </applicationListeners>
+</idea-plugin>

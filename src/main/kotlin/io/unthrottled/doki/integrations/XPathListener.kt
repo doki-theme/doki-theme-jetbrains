@@ -8,6 +8,7 @@ import com.intellij.openapi.editor.colors.EditorColorsManager
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.startup.StartupActivity
 import io.unthrottled.doki.themes.ThemeManager
+import io.unthrottled.doki.util.doOrElse
 import org.intellij.plugins.xpathView.Config
 import org.intellij.plugins.xpathView.XPathAppComponent
 
@@ -17,7 +18,7 @@ class XPathListener : LafManagerListener, StartupActivity {
   }
 
   private fun installColors() {
-    ThemeManager.instance.currentTheme.ifPresentOrElse({
+    ThemeManager.instance.currentTheme.doOrElse({
       val schemeForCurrentUITheme = EditorColorsManager.getInstance().schemeForCurrentUITheme
       XPathAppComponent.getInstance().config.attributes.backgroundColor = schemeForCurrentUITheme.getColor(
         EditorColors.SELECTION_BACKGROUND_COLOR

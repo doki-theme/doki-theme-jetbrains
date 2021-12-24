@@ -52,6 +52,7 @@ data class ThemeSettingsModel(
   var customFontSizeValue: Int,
   var isOverrideConsoleFont: Boolean,
   var consoleFontValue: String,
+  var allowGrepConsoleIntegration: Boolean,
   var isSeeThroughNotifications: Boolean,
   var notificationOpacity: Int,
 ) {
@@ -91,6 +92,7 @@ object ThemeSettings {
       customStickerPath = CustomStickerService.getCustomStickerPath().orElse(""),
       isCustomFontSize = ThemeConfig.instance.isGlobalFontSize,
       customFontSizeValue = ThemeConfig.instance.customFontSize,
+      allowGrepConsoleIntegration = ThemeConfig.instance.allowGrepConsoleIntegration,
       isSeeThroughNotifications = ThemeConfig.instance.isSeeThroughNotifications,
       notificationOpacity = ThemeConfig.instance.notificationOpacity,
       isOverrideConsoleFont = ThemeConfig.instance.isOverrideConsoleFont,

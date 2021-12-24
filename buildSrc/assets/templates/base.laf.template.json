@@ -429,6 +429,12 @@
     "FileColor.Rose": "fileRose",
     "FileColor.Violet": "fileViolet",
 
+    "GrepConsole.fatal.background": "fileViolet",
+    "GrepConsole.error.background":"fileOrange",
+    "GrepConsole.warn.background": "nonProjectFileScopeColor",
+    "GrepConsole.debug.foreground":"lineNumberColor",
+    "GrepConsole.trace.foreground": "infoForeground",
+
     "SearchField.errorBackground" : "diff.conflict",
 
     "Label.errorForeground":"errorColor",
