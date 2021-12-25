@@ -116,35 +116,36 @@ class GrepConsoleIntegration : LafManagerListener, StartupActivity {
     val traceForeground = JBColor.namedColor(
       "GrepConsole.trace.foreground", if (dark) JBColor.BLACK else JBColor.LIGHT_GRAY
     )
+    val enabled = true
     items.add(
-      newItem().enabled(true).style(
+      newItem(enabled).style(
         getGrepStyle(fatalBackground, null).bold(true)
       ).grepExpression(
         ".*FATAL.*"
       )
     )
     items.add(
-      newItem().enabled(true).style(getGrepStyle(errorBackground, null)).grepExpression(
+      newItem(enabled).style(getGrepStyle(errorBackground, null)).grepExpression(
         ".*ERROR.*"
       )
     )
     items.add(
-      newItem().enabled(true).style(getGrepStyle(warnBackground, null)).grepExpression(
+      newItem(enabled).style(getGrepStyle(warnBackground, null)).grepExpression(
         ".*WARN.*"
       )
     )
     items.add(
-      newItem().enabled(false).style(getGrepStyle(null, null)).grepExpression(
+      newItem(enabled).style(getGrepStyle(null, null)).grepExpression(
         ".*INFO.*"
       )
     )
     items.add(
-      newItem().enabled(true).style(getGrepStyle(null, debugForeground)).grepExpression(
+      newItem(enabled).style(getGrepStyle(null, debugForeground)).grepExpression(
         ".*DEBUG.*"
       )
     )
     items.add(
-      newItem().enabled(true).style(getGrepStyle(null, traceForeground)).grepExpression(
+      newItem(enabled).style(getGrepStyle(null, traceForeground)).grepExpression(
         ".*TRACE.*"
       )
     )
@@ -166,6 +167,6 @@ class GrepConsoleIntegration : LafManagerListener, StartupActivity {
   companion object {
     private const val DOKI_GREP_PROFILE_ID = 69420L
     private const val DOKI_GREP_PROFILE_NAME = "DokiTheme"
-    private const val OLDEST_GREP_CONSOLE_VERSION = "11.11.211.6086.0"
+    private const val OLDEST_GREP_CONSOLE_VERSION = "12.1.211.6086.0"
   }
 }
