@@ -8,18 +8,22 @@ import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.util.runSafelyWithResult
 import org.intellij.lang.annotations.Language
 import java.awt.Dimension
+import java.awt.Graphics
+import java.awt.Graphics2D
 import java.awt.Rectangle
 import java.awt.event.ComponentAdapter
 import java.awt.event.ComponentEvent
 import java.awt.event.MouseEvent
 import java.awt.event.MouseListener
 import java.awt.event.MouseMotionListener
+import java.awt.geom.AffineTransform
 import java.io.File
 import java.net.URI
 import javax.imageio.ImageIO
 import javax.swing.JComponent
 import javax.swing.JLayeredPane
 import javax.swing.JPanel
+import kotlin.math.roundToInt
 
 internal class StickerPane(
   private val drawablePane: JLayeredPane,
@@ -120,6 +124,8 @@ internal class StickerPane(
     removeMouseMotionListener(dragListener)
   }
 
+  private var positioned = false
+
   fun displaySticker(stickerUrl: String) {
     // clean up old sticker
     if (componentCount > 0) {
@@ -164,12 +170,37 @@ internal class StickerPane(
     stickerContent.layout = null
     val (width, height) = getImageDimensions(stickerUrl)
     @Language("html")
-    val stickerDisplay = JBLabel(
+    val stickerDisplay = object : JBLabel(
       """<html>
-           <img src='$stickerUrl' width='$width' height='$height' />
+           <img src='$stickerUrl' width='${width}px' height='${height}px' />
          </html>
       """
-    )
+    ) {
+
+      // Java 9+ Does automatic DPI scaling,
+      // but we want to ignore that, cause the sticker
+      // will grow to be pixelated
+      // fixes https://github.com/doki-theme/doki-theme-jetbrains/issues/465
+      override fun paintComponent(g: Graphics) {
+        if (g is Graphics2D && g.transform.scaleX.compareTo(1.0) > 0) {
+          val t: AffineTransform = g.transform
+          if (!positioned) {
+            positioned = true
+            positionStickerPanel(
+              stickerContent.size.width - ((t.scaleX - 1.0) * stickerContent.size.width).roundToInt(),
+              stickerContent.size.height - ((t.scaleY - 1.0) * stickerContent.size.height).roundToInt(),
+            )
+          }
+          val xTrans = t.translateX
+          val yTrans = t.translateY
+          t.setToScale(1.0, 1.0)
+          t.translate(xTrans, yTrans)
+          g.transform = t
+        }
+        super.paintComponent(g)
+      }
+    }
+
     val stickerSize = stickerDisplay.preferredSize
     stickerContent.size = Dimension(
       stickerSize.width,

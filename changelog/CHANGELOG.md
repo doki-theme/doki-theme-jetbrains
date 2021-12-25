@@ -1,6 +1,10 @@
 Changelog
 ---
 
+# 22.0.3 [High DPI Aware Stickers]
+
+- Stickers no longer scale up in displays who have a higher than 100% scale setting.
+
 # 22.0.2 [Mnemonic Bookmark Theming]
 
 - Actually theming the Mnemonic bookmark icons this time.
