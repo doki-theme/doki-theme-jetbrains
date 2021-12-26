@@ -429,11 +429,11 @@
     "FileColor.Rose": "fileRose",
     "FileColor.Violet": "fileViolet",
 
-    "GrepConsole.fatal.background": "fileViolet",
-    "GrepConsole.error.background":"fileOrange",
-    "GrepConsole.warn.background": "nonProjectFileScopeColor",
-    "GrepConsole.debug.foreground":"lineNumberColor",
-    "GrepConsole.trace.foreground": "infoForeground",
+    "GrepConsole.fatal.background": "filePurple",
+    "GrepConsole.error.background":"fileRed",
+    "GrepConsole.warn.background": "fileYellow",
+    "GrepConsole.debug.foreground":"infoForeground",
+    "GrepConsole.trace.foreground": "lineNumberColor",
 
     "SearchField.errorBackground" : "diff.conflict",
 
