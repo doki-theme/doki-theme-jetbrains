@@ -57,6 +57,11 @@
     <option name="FILESTATUS_UNKNOWN" value="$constantColor$"/>
     <option name="FILESTATUS_changelistConflict" value="$accentColor$"/>
     <option name="FILESTATUS_modifiedOutside" value="5cc5"/>
+    <option name="GrepConsole.fatal.background" value="$filePurple$"/>
+    <option name="GrepConsole.error.background" value="$fileRed$"/>
+    <option name="GrepConsole.warn.background" value="$fileYellow$"/>
+    <option name="GrepConsole.debug.foreground" value="$infoForeground$"/>
+    <option name="GrepConsole.trace.foreground" value="$lineNumberColor$"/>
     <option name="GUTTER_BACKGROUND" value="$textEditorBackground$"/>
     <option name="INDENT_GUIDE" value="$borderColor$"/>
     <option name="INFORMATION_HINT" value="$baseBackground$"/>
