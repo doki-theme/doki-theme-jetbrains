@@ -64,8 +64,8 @@
     <option name="GrepConsole.fatal.background" value="$filePurple$"/>
     <option name="GrepConsole.error.background" value="$fileRed$"/>
     <option name="GrepConsole.warn.background" value="$fileYellow$"/>
-    <option name="GrepConsole.debug.foreground" value="$infoForeground$"/>
-    <option name="GrepConsole.trace.foreground" value="$lineNumberColor$"/>
+    <option name="GrepConsole.debug.foreground" value="$comments$"/>
+    <option name="GrepConsole.trace.foreground" value="$unusedColor$" />
     <option name="INDENT_GUIDE" value="$borderColor$"/>
     <option name="INFORMATION_HINT" value="$baseBackground$"/>
     <option name="INLINE_REFACTORING_SETTINGS_DEFAULT" value="%accentColorMoreTransparent%"/>

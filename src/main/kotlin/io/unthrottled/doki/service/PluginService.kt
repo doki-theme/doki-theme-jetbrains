@@ -18,7 +18,6 @@ import java.util.concurrent.Callable
 
 const val MOTIVATOR_PLUGIN_ID = "zd.zero.waifu-motivator-plugin"
 const val AMII_PLUGIN_ID = "io.unthrottled.amii"
-const val GREP_CONSOLE_PLUGIN_ID = "GrepConsole"
 
 object PluginService : Logging {
 

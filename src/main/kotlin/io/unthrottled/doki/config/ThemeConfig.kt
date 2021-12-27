@@ -45,8 +45,6 @@ class ThemeConfig : PersistentStateComponent<ThemeConfig>, Cloneable {
   var isMaterialFiles: Boolean = false
   var isMaterialPSIIcons: Boolean = false
 
-  var allowGrepConsoleIntegration: Boolean = true // todo: set back to false
-
   var isSeeThroughNotifications: Boolean = false
   var notificationOpacity: Int = 90
 
