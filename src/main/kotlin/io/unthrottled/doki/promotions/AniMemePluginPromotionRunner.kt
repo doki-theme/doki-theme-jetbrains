@@ -4,7 +4,6 @@ import com.intellij.ide.IdeEventQueue
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.project.ProjectManager
-import com.intellij.openapi.wm.WindowManager
 import com.intellij.util.concurrency.EdtScheduledExecutorService
 import io.unthrottled.doki.themes.ThemeManager
 import io.unthrottled.doki.util.doOrElse
@@ -65,18 +64,13 @@ object AniMemePluginPromotion {
         EdtScheduledExecutorService.getInstance().schedule(
           {
             getFirstProject()
-              .map {
-                WindowManager.getInstance().suggestParentWindow(
-                  it
-                )
-              }
               .doOrElse(
-                {
+                { project ->
                   ApplicationManager.getApplication().invokeLater {
                     AniMemePromotionDialog(
                       dokiTheme,
                       promotionAssets,
-                      it!!,
+                      project,
                       onPromotion
                     ).show()
                   }
