@@ -423,6 +423,11 @@
     "EditorTabs.inactiveColoredFileBackground": "ghostColor",
     "FileColor.Green": "testScopeColor",
     "FileColor.Yellow": "nonProjectFileScopeColor",
+    "FileColor.Blue": "fileBlue",
+    "FileColor.Gray": "fileGray",
+    "FileColor.Orange": "fileOrange",
+    "FileColor.Rose": "fileRose",
+    "FileColor.Violet": "fileViolet",
 
     "SearchField.errorBackground" : "diff.conflict",
 
@@ -684,6 +689,9 @@
     "/icons/buck_icon.png": "/icons/plugins/buck/icons/buck.svg",
     "/icons/buck_tool_window_icon.png": "/icons/plugins/buck/icons/toolWindowBuck.svg",
     "/icons/task.svg": "/icons/icons/task.svg",
+    "/krasa/grepconsole/icons/highlight.png": "/icons/plugins/grepConsole/highlight.svg",
+    "/krasa/grepconsole/icons/tail.png": "/icons/plugins/grepConsole/tail.svg",
+    "/krasa/grepconsole/icons/disabledRun.png": "/icons/plugins/grepConsole/disabledRun.svg",
     "/images/psi.png": "/icons/plugins/psi/images/psi.svg",
     "/images/psi18x18.png": "/icons/plugins/psi/images/psi_18.svg",
     "/images/psiToolWindow.png": "/icons/plugins/psi/images/psiToolWindow.svg",

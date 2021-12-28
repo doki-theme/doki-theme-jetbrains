@@ -112,6 +112,7 @@ tasks {
     val idePath = properties("idePath")
     if (idePath.isNotEmpty()) {
       ideDir.set(file(idePath))
+      systemProperty("idea.platform.prefix", properties("idePrefix"))
     }
   }
 

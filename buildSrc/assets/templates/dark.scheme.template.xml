@@ -61,11 +61,23 @@
     <option name="FILESTATUS_modifiedOutside" value="$constantColor$"/>
     <option name="FOLDED_TEXT_BORDER_COLOR" value="$accentColor$"/>
     <option name="GUTTER_BACKGROUND" value="$textEditorBackground$"/>
+    <option name="GrepConsole.fatal.background" value="$filePurple$"/>
+    <option name="GrepConsole.error.background" value="$fileRed$"/>
+    <option name="GrepConsole.warn.background" value="$fileYellow$"/>
+    <option name="GrepConsole.debug.foreground" value="$comments$"/>
+    <option name="GrepConsole.trace.foreground" value="$unusedColor$" />
     <option name="INDENT_GUIDE" value="$borderColor$"/>
     <option name="INFORMATION_HINT" value="$baseBackground$"/>
     <option name="INLINE_REFACTORING_SETTINGS_DEFAULT" value="%accentColorMoreTransparent%"/>
     <option name="INLINE_REFACTORING_SETTINGS_FOCUSED" value="%accentColorTransparent%"/>
     <option name="INLINE_REFACTORING_SETTINGS_HOVERED" value="%accentColorTransparent%"/>
+    <option name="JUPYTER.CELL_UNDER_CARET_COMMAND_MODE_STRIPE_COLOR" value="%accentColor%" />
+    <option name="JUPYTER.CODE_CELL_BACKGROUND" value="$lightEditorColor$" />
+    <option name="JUPYTER.GUTTER_INPUT_EXECUTION_COUNT" value="%accentColor%" />
+    <option name="JUPYTER.CELL_UNDER_CARET_EDITOR_MODE_STRIPE_COLOR" value="$accentColor$" />
+    <option name="JUPYTER.SAUSAGE_BUTTON_BORDER_COLOR" value="$borderColor$" />
+    <option name="JUPYTER.GUTTER_OUTPUT_EXECUTION_COUNT" value="$terminal.ansiRed$" />
+    <option name="JUPYTER.PROGRESS_STATUS_RUNNING_COLOR" value="%accentColor%" />
     <option name="QUESTION_HINT" value="$selectionBackground$"/>
     <option name="LINE_NUMBERS_COLOR" value="$lineNumberColor$"/>
     <option name="LINE_NUMBER_ON_CARET_ROW_COLOR" value="$infoForeground$"/>
@@ -218,7 +230,7 @@
     </option>
     <option name="BREAKPOINT_ATTRIBUTES">
       <value>
-        <option name="BACKGROUND" value="$nonProjectFileScopeColor$"/>
+        <option name="BACKGROUND" value="$breakpointColor$"/>
       </value>
     </option>
     <option name="EVALUATED_EXPRESSION_EXECUTION_LINE_ATTRIBUTES">
@@ -817,7 +829,7 @@
     </option>
     <option name="EXECUTIONPOINT_ATTRIBUTES">
       <value>
-        <option name="BACKGROUND" value="$testScopeColor$"/>
+        <option name="BACKGROUND" value="$breakpointActiveColor$"/>
       </value>
     </option>
     <option name="FOLDED_TEXT_ATTRIBUTES">
@@ -1113,6 +1125,12 @@
       </value>
     </option>
     <option name="JSP_DIRECTIVE_NAME" baseAttributes="DEFAULT_KEYWORD"/>
+    <option name="JUPYTER.SAUSAGE_BUTTON_APPEARANCE">
+      <value>
+        <option name="FOREGROUND" value="$buttonFont$" />
+        <option name="BACKGROUND" value="$buttonColor$" />
+      </value>
+    </option>
     <option name="JUPYTER_SELECTED_CELL">
       <value>
         <option name="BACKGROUND" value="$foldedTextBackground$"/>
@@ -2272,6 +2290,11 @@
     <option name="REGEXP.REDUNDANT_ESCAPE">
       <value>
         <option name="FOREGROUND" value="$accentColor$"/>
+      </value>
+    </option>
+    <option name="RMARKDOWN_CHUNK">
+      <value>
+        <option name="BACKGROUND" value="$codeBlock$" />
       </value>
     </option>
     <option name="ROUND_BRACKETS_RAINBOW_COLOR0">

@@ -2,6 +2,7 @@ package io.unthrottled.doki.promotions
 
 import com.intellij.ide.BrowserUtil
 import com.intellij.openapi.extensions.PluginId
+import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.DialogWrapper
 import com.intellij.openapi.updateSettings.impl.pluginsAdvertisement.installAndEnable
 import com.intellij.ui.JBColor
@@ -16,7 +17,6 @@ import io.unthrottled.doki.service.AMII_PLUGIN_ID
 import io.unthrottled.doki.themes.DokiTheme
 import io.unthrottled.doki.util.toHexString
 import java.awt.Dimension
-import java.awt.Window
 import java.awt.event.ActionEvent
 import javax.swing.AbstractAction
 import javax.swing.Action
@@ -53,9 +53,9 @@ class PromotionAssets(
 class AniMemePromotionDialog(
   private val dokiTheme: DokiTheme,
   private val promotionAssets: PromotionAssets,
-  parent: Window,
+  project: Project,
   private val onPromotion: (PromotionResults) -> Unit
-) : DialogWrapper(parent, true) {
+) : DialogWrapper(project, true, IdeModalityType.MODELESS) {
 
   companion object {
     private const val INSTALLED_EXIT_CODE = 69

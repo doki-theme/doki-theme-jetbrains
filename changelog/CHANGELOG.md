@@ -1,6 +1,14 @@
 Changelog
 ---
 
+# 22.1.0 [Usability & Consistency Maintenance]
+
+- Added better support for the DataSpell product.
+- Themed the rest of the [file scopes](https://www.jetbrains.com/help/idea/configuring-scopes-and-file-colors.html).
+- Added [GrepConsole](https://plugins.jetbrains.com/plugin/7125-grep-console/) default colorings & icons.
+- Enhanced the usability of the debugger's breakpoint highlighting.
+- Fixed [Anime Meme Plugin](https://github.com/ani-memes/AMII) promotion issue. 
+
 # 22.0.3 [High DPI Aware Stickers]
 
 - Stickers no longer scale up in displays who have a higher than 100% scale setting.

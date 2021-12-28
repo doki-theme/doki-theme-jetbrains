@@ -1,1 +1,6 @@
+- Added better support for the DataSpell product.
+- Themed the rest of the [file scopes](https://www.jetbrains.com/help/idea/configuring-scopes-and-file-colors.html).
+- Added [GrepConsole](https://plugins.jetbrains.com/plugin/7125-grep-console/) default colorings & icons.
+- Enhanced the usability of the debugger's breakpoint highlighting.
+- Fixed [Anime Meme Plugin](https://github.com/ani-memes/AMII) promotion issue.
 - Stickers no longer scale up in displays who have a higher than 100% scale setting.
