@@ -2149,6 +2149,11 @@
         <option name="FOREGROUND" value="$stringColor$"/>
       </value>
     </option>
+    <option name="PHP_PREDEFINED SYMBOL">
+      <value>
+        <option name="FOREGROUND" value="$accentColor$" />
+      </value>
+    </option>
     <option name="PHP_VAR">
       <value>
         <option name="FOREGROUND" value="458383"/>
