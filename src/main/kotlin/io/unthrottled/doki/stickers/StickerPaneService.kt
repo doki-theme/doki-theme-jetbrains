@@ -1,6 +1,8 @@
 package io.unthrottled.doki.stickers
 
 import com.intellij.openapi.application.ApplicationManager
+import com.intellij.openapi.ui.DialogWrapper
+import com.intellij.openapi.ui.DialogWrapperDialog
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil
 import io.unthrottled.doki.assets.AssetCategory
 import io.unthrottled.doki.assets.AssetManager
@@ -11,12 +13,12 @@ import io.unthrottled.doki.util.doOrElse
 import io.unthrottled.doki.util.runSafely
 import io.unthrottled.doki.util.toOptional
 import java.awt.AWTEvent
-import java.awt.Component
 import java.awt.Toolkit
 import java.awt.event.WindowEvent
-import java.util.Optional
+import java.util.*
 import java.util.concurrent.ConcurrentHashMap
 import javax.swing.JFrame
+import javax.swing.JLayeredPane
 
 class StickerPaneService {
 
@@ -25,7 +27,7 @@ class StickerPaneService {
       get() = ApplicationManager.getApplication().getService(StickerPaneService::class.java)
   }
 
-  private val windowsToAddStickersTo = ConcurrentHashMap<Component, StickerPane>()
+  private val windowsToAddStickersTo = ConcurrentHashMap<Any, StickerPane>()
   private lateinit var currentTheme: DokiTheme
 
   init {
@@ -35,11 +37,13 @@ class StickerPaneService {
           WindowEvent.WINDOW_OPENED -> {
             when (val window = awtEvent.source) {
               is JFrame -> captureFrame(window)
+              is DialogWrapperDialog -> captureDialogWrapper(window)
             }
           }
           WindowEvent.WINDOW_CLOSED -> {
             when (val window = awtEvent.source) {
               is JFrame -> disposeFrame(window)
+              is DialogWrapper -> disposeFrame(window)
             }
           }
         }
@@ -55,9 +59,7 @@ class StickerPaneService {
 
     if (ThemeConfig.instance.currentStickerLevel == StickerLevel.ON) {
       displayStickers({ stickerUrl ->
-        {
-          stickers.forEach { it.displaySticker(stickerUrl) }
-        }
+        stickers.forEach { it.displaySticker(stickerUrl) }
       }) {
         stickers.forEach { it.detach() }
       }
@@ -68,7 +70,7 @@ class StickerPaneService {
     stickers.forEach { it.positionable = shouldPosition }
   }
 
-  private fun disposeFrame(window: JFrame) {
+  private fun disposeFrame(window: Any) {
     windowsToAddStickersTo[window].toOptional()
       .ifPresent {
         it.dispose()
@@ -78,27 +80,41 @@ class StickerPaneService {
 
   private val allowedFrames = setOf(
     "com.intellij.openapi.ui.FrameWrapper\$MyJFrame",
-    "com.intellij.openapi.wm.impl.IdeFrameImpl"
+    "com.intellij.openapi.wm.impl.IdeFrameImpl",
   )
 
   private fun captureFrame(window: JFrame) {
-    if (allowedFrames.contains(window.javaClass.name).not()) return
+    if (isRightClass(window)) return
+    val drawablePane = window.rootPane.layeredPane
+    attachSticker(drawablePane, window)
+  }
 
-    val stickerPane = StickerPane(window.rootPane.layeredPane)
+  private fun captureDialogWrapper(wrapper: DialogWrapperDialog) {
+    val drawablePane = wrapper.dialogWrapper.rootPane.layeredPane
+    attachSticker(drawablePane, wrapper)
+  }
+
+  private fun attachSticker(drawablePane: JLayeredPane, window: Any) {
+    val stickerPane = StickerPane(drawablePane)
     windowsToAddStickersTo[window] =
       stickerPane
 
     if (ThemeConfig.instance.currentStickerLevel == StickerLevel.ON) {
       displayStickers({ stickerUrl ->
-        { stickerPane.displaySticker(stickerUrl) }
+        stickerPane.displaySticker(stickerUrl)
       }) {
         stickerPane.detach()
       }
     }
   }
 
+  private fun isRightClass(window: Any): Boolean {
+    if (allowedFrames.contains(window.javaClass.name).not()) return true
+    return false
+  }
+
   private fun displayStickers(
-    stickerWorkerSupplier: (String) -> () -> Unit,
+    stickerWorkerSupplier: (String) -> Unit,
     stickerRemoval: () -> Unit,
   ) {
     if (this::currentTheme.isInitialized.not()) return
@@ -109,8 +125,7 @@ class StickerPaneService {
       } else {
         getLocallyInstalledStickerPath(currentTheme)
       }.doOrElse({ stickerUrl ->
-        ApplicationManager.getApplication()
-          .invokeLater(stickerWorkerSupplier(stickerUrl))
+        stickerWorkerSupplier(stickerUrl)
       }) {
         ApplicationManager.getApplication()
           .invokeLater { stickerRemoval() }
