@@ -68,10 +68,17 @@ object StickerActor {
     maxStickerWidth: Int,
     maxStickerHeight: Int
   ) {
+    val ogWidth = ThemeConfig.instance.maxStickerWidth
     ThemeConfig.instance.maxStickerWidth = maxStickerWidth
+    val ogHeight = ThemeConfig.instance.maxStickerHeight
     ThemeConfig.instance.maxStickerHeight = maxStickerHeight
-    if(ThemeConfig.instance.capStickerDimensions != capStickerDimensions) {
-      ThemeConfig.instance.capStickerDimensions = capStickerDimensions
+    val ogActivation = ThemeConfig.instance.capStickerDimensions
+    ThemeConfig.instance.capStickerDimensions = capStickerDimensions
+    if(
+      ogHeight != maxStickerHeight ||
+        ogWidth != maxStickerWidth ||
+        ogActivation != capStickerDimensions
+    ) {
       activateNewSticker(false)
     }
   }

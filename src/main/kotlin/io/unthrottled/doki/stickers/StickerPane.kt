@@ -169,10 +169,13 @@ internal class StickerPane(
     val stickerContent = JPanel()
     stickerContent.layout = null
     val (width, height) = getImageDimensions(stickerUrl)
+    val cappedDimension = DimensionCappingService.getCappingStyle(
+     Dimension(width, height)
+    )
     @Language("html")
     val stickerDisplay = object : JBLabel(
       """<html>
-           <img src='$stickerUrl' width='${width}px' height='${height}px' />
+           <img src='$stickerUrl' width='${cappedDimension.width}' height='${cappedDimension.height}' />
          </html>
       """
     ) {
