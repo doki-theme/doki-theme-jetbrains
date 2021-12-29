@@ -49,6 +49,9 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
   private JComboBox consoleFontWomboComboBox;
   private JCheckBox overrideConsoleFont;
   private JCheckBox discreetModeCheckBox;
+  private JCheckBox enableDimensionCappingCheckBox;
+  private JSpinner maxHeightSpinner;
+  private JSpinner maxWidthSpinner;
 
 
   @Override
@@ -175,7 +178,46 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
     themeChangeAnimationCheckBox.setSelected(initialThemeSettingsModel.isLafAnimation());
     themeChangeAnimationCheckBox.addActionListener(e ->
       themeSettingsModel.setLafAnimation(themeChangeAnimationCheckBox.isSelected()));
+
+    enableDimensionCappingCheckBox.setSelected(initialThemeSettingsModel.getCapStickerDimensions());
+    enableDimensionCappingCheckBox.addActionListener(e -> {
+      updateStickerDimensionCapComponents();
+      themeSettingsModel.setCapStickerDimensions(enableDimensionCappingCheckBox.isSelected());
+    });
+
+    SpinnerNumberModel maxMemeHeightSpinnerModel = new SpinnerNumberModel(
+      initialThemeSettingsModel.getMaxStickerHeight(),
+      -1,
+      Integer.MAX_VALUE,
+      1
+    );
+    maxHeightSpinner.setModel(maxMemeHeightSpinnerModel);
+    maxHeightSpinner.addChangeListener(change ->
+      themeSettingsModel.setMaxStickerHeight(
+        maxMemeHeightSpinnerModel.getNumber().intValue()
+      ));
+
+    SpinnerNumberModel maxMemeWidthSpinnerModel = new SpinnerNumberModel(
+      initialThemeSettingsModel.getMaxStickerWidth(),
+      -1,
+      Integer.MAX_VALUE,
+      1
+    );
+    maxWidthSpinner.setModel(maxMemeWidthSpinnerModel);
+    maxWidthSpinner.addChangeListener(change ->
+      themeSettingsModel.setMaxStickerWidth(
+        maxMemeWidthSpinnerModel.getNumber().intValue()
+      ));
+
+    updateStickerDimensionCapComponents();
+
   }
+
+  private void updateStickerDimensionCapComponents() {
+    maxHeightSpinner.setEnabled(enableDimensionCappingCheckBox.isSelected());
+    maxWidthSpinner.setEnabled(enableDimensionCappingCheckBox.isSelected());
+  }
+
 
   @Override
   public boolean isModified() {

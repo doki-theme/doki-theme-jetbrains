@@ -51,6 +51,9 @@ data class ThemeSettingsModel(
   var isCustomFontSize: Boolean,
   var customFontSizeValue: Int,
   var isOverrideConsoleFont: Boolean,
+  var capStickerDimensions: Boolean,
+  var maxStickerHeight: Int,
+  var maxStickerWidth: Int,
   var consoleFontValue: String,
   var isSeeThroughNotifications: Boolean,
   var notificationOpacity: Int,
@@ -95,6 +98,9 @@ object ThemeSettings {
       notificationOpacity = ThemeConfig.instance.notificationOpacity,
       isOverrideConsoleFont = ThemeConfig.instance.isOverrideConsoleFont,
       consoleFontValue = ThemeConfig.instance.consoleFontName,
+      maxStickerHeight = ThemeConfig.instance.maxStickerHeight,
+      maxStickerWidth = ThemeConfig.instance.maxStickerWidth,
+      capStickerDimensions = ThemeConfig.instance.capStickerDimensions,
     )
 
   fun apply(themeSettingsModel: ThemeSettingsModel) {
@@ -106,6 +112,11 @@ object ThemeSettings {
       themeSettingsModel.customStickerPath,
       themeSettingsModel.isCustomSticker,
       false
+    )
+    StickerActor.setDimensionCapping(
+      themeSettingsModel.capStickerDimensions,
+      themeSettingsModel.maxStickerWidth,
+      themeSettingsModel.maxStickerHeight,
     )
     ThemedTitleBarActor.enableThemedTitleBar(themeSettingsModel.isThemedTitleBar)
     ThemeActor.applyTheme(themeSettingsModel.currentTheme)

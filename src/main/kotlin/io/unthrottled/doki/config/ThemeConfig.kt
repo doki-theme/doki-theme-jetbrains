@@ -45,6 +45,10 @@ class ThemeConfig : PersistentStateComponent<ThemeConfig>, Cloneable {
   var isMaterialFiles: Boolean = false
   var isMaterialPSIIcons: Boolean = false
 
+  var capStickerDimensions: Boolean = false
+  var maxStickerWidth: Int = -1
+  var maxStickerHeight: Int = -1
+
   var isSeeThroughNotifications: Boolean = false
   var notificationOpacity: Int = 90
 

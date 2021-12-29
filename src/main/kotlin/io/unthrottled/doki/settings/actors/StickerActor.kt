@@ -59,10 +59,27 @@ object StickerActor {
 
     val shouldReDraw = isNewStickerPath || isCustomStickersChanged
     if (shouldReDraw) {
-      performWithAnimation(withAnimation) {
-        ThemeManager.instance.currentTheme.ifPresent {
-          StickerPaneService.instance.activateForTheme(it)
-        }
+      activateNewSticker(withAnimation)
+    }
+  }
+
+  fun setDimensionCapping(
+    capStickerDimensions: Boolean,
+    maxStickerWidth: Int,
+    maxStickerHeight: Int
+  ) {
+    ThemeConfig.instance.maxStickerWidth = maxStickerWidth
+    ThemeConfig.instance.maxStickerHeight = maxStickerHeight
+    if(ThemeConfig.instance.capStickerDimensions != capStickerDimensions) {
+      ThemeConfig.instance.capStickerDimensions = capStickerDimensions
+      activateNewSticker(false)
+    }
+  }
+
+  private fun activateNewSticker(withAnimation: Boolean) {
+    performWithAnimation(withAnimation) {
+      ThemeManager.instance.currentTheme.ifPresent {
+        StickerPaneService.instance.activateForTheme(it)
       }
     }
   }
