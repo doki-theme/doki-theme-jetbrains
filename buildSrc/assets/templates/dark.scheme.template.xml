@@ -1162,6 +1162,11 @@
     <option name="KOTLIN_IMPLICIT_EXHAUSTIVE_WHEN">
       <value/>
     </option>
+    <option name="KOTLIN_LABEL">
+      <value>
+        <option name="FOREGROUND" value="$accentColor$" />
+      </value>
+    </option>
     <option name="KOTLIN_MUTABLE_VARIABLE">
       <value>
         <option name="EFFECT_TYPE" value="1"/>
