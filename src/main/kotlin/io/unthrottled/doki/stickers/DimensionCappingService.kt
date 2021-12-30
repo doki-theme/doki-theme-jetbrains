@@ -4,6 +4,7 @@ import java.awt.Dimension
 
 object DimensionCappingService {
 
+  @Suppress("ComplexMethod") // cuz is complex...
   fun getCappingStyle(
     stickerDimensions: Dimension,
     maxDimension: Dimension,

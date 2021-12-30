@@ -29,6 +29,7 @@ enum class StickerType {
   REGULAR, SMOL, ALL
 }
 
+@Suppress("TooManyFunctions")
 internal class StickerPane(
   private val drawablePane: JLayeredPane,
   val type: StickerType,
