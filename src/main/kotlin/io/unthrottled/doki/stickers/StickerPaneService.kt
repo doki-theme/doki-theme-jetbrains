@@ -1,7 +1,6 @@
 package io.unthrottled.doki.stickers
 
 import com.intellij.openapi.application.ApplicationManager
-import com.intellij.openapi.ui.DialogWrapper
 import com.intellij.openapi.ui.DialogWrapperDialog
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil
 import io.unthrottled.doki.assets.AssetCategory
@@ -41,8 +40,8 @@ class StickerPaneService {
           }
           WindowEvent.WINDOW_CLOSED -> {
             when (val window = awtEvent.source) {
-              is JFrame -> disposeFrame(window)
-              is DialogWrapper -> disposeFrame(window)
+              is JFrame -> disposePane(window)
+              is DialogWrapperDialog -> disposePane(window)
             }
           }
         }
@@ -76,7 +75,7 @@ class StickerPaneService {
     stickers.forEach { it.positionable = shouldPosition }
   }
 
-  private fun disposeFrame(window: Any) {
+  private fun disposePane(window: Any) {
     windowsToAddStickersTo[window].toOptional()
       .ifPresent {
         it.dispose()

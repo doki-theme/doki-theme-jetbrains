@@ -1,15 +1,15 @@
 package io.unthrottled.doki.stickers
 
-import io.unthrottled.doki.config.ThemeConfig
 import java.awt.Dimension
 
 object DimensionCappingService {
 
   fun getCappingStyle(
     stickerDimensions: Dimension,
+    maxDimension: Dimension,
   ): Dimension {
-    val maxHeight = ThemeConfig.instance.maxStickerHeight
-    val maxWidth = ThemeConfig.instance.maxStickerWidth
+    val maxHeight = maxDimension.height
+    val maxWidth = maxDimension.width
     val setMaxHeight = maxHeight > 0
     val setMaxWidth = maxWidth > 0
     val stickerHeight = stickerDimensions.height
@@ -17,8 +17,7 @@ object DimensionCappingService {
     val heightIsGreaterThanOriginal = maxHeight < stickerHeight
     val widthIsGreaterThanOriginal = maxWidth < stickerWidth
     val needsToCap = heightIsGreaterThanOriginal || widthIsGreaterThanOriginal
-    val shouldCap = ThemeConfig.instance.capStickerDimensions
-    val canCap = (setMaxHeight || setMaxWidth) && shouldCap
+    val canCap = (setMaxHeight || setMaxWidth)
     return if (needsToCap && canCap) {
       val heightIsGreater = stickerHeight > stickerWidth
       val capHeightIsGreater = (setMaxWidth && setMaxHeight && maxHeight <= maxWidth) ||
