@@ -56,6 +56,8 @@ class StickerPaneService {
   fun activateForTheme(dokiTheme: DokiTheme) {
     currentTheme = dokiTheme
 
+    stickers.forEach { it.detach() }
+
     val primaryStickersOn = ThemeConfig.instance.currentStickerLevel == StickerLevel.ON
     val smolStickersOn = ThemeConfig.instance.showSmallStickers
     if (primaryStickersOn || smolStickersOn) {
