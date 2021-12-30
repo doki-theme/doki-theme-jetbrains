@@ -73,6 +73,8 @@ You can choose themes from various, Anime, Manga, or Visual Novels:
       - [Discreet Mode](#discreet-mode)
       - [Stickers](#sticker)
       - [Content Type](#content-type)
+      - [Dimension Capping](#dimension-cap)
+      - [Small Stickers](#small-stickers)
       - [Background Images](#background-images)
       - [Suggestive Content](#suggestive-content)
       - [Misc Content Settings](#misc-content-settings)
@@ -153,6 +155,24 @@ Themes that have more than one sticker:
 
   ![Secondary Sticker](./assets/readmeAssets/secondary_stickers.gif)
 
+#### Dimension Capping
+
+Stickers are sometimes big and could get in the way. Thankfully, if you find that this is the case, you can cap the maximum dimensions of the primary displayed sticker. This also works for custom stickers as well!
+
+I want to maintain the original aspect ratio of the image, so I will take the largest dimension and cap the maximum dimension to that it to
+that. That way you can still see the same image, just smaller.
+
+`-1` is the default behavior and does not constrain the dimension of the sticker
+
+#### Small Stickers
+
+With the introduction of [Dimension Capping](#dimension-capping), you can now satisfy your need to have stickers in all the places!
+
+All small stickers are put in dialog windows whose height is greater than a specified limit. That way you do not end up with a sticker getting in the way.
+
+All small stickers are also move-able by default, that way you can scoot them out of the way.
+
+https://user-images.githubusercontent.com/15972415/147772756-c64a7422-8e63-4f1b-bcd5-6fe7e27c5b45.mp4
 
 #### Background Images
 

@@ -25,8 +25,14 @@ import javax.swing.JLayeredPane
 import javax.swing.JPanel
 import kotlin.math.roundToInt
 
+enum class StickerType {
+  REGULAR, SMOL, ALL
+}
+
+@Suppress("TooManyFunctions")
 internal class StickerPane(
   private val drawablePane: JLayeredPane,
+  val type: StickerType,
 ) : HwFacadeJPanel(), Disposable {
 
   companion object {
@@ -34,15 +40,18 @@ internal class StickerPane(
     private const val STICKER_X_OFFSET = 25
   }
 
-  var positionable: Boolean = ThemeConfig.instance.isMoveableStickers
+  private val isSmol = StickerType.SMOL == type
+  var positionable: Boolean =
+    if (isSmol) true
+    else ThemeConfig.instance.isMoveableStickers
     set(value) {
-      field = value
-      if (value) {
-        addListeners()
-      } else {
-        removeListeners()
+        field = value
+        if (value) {
+          addListeners()
+        } else if (!isSmol) {
+          removeListeners()
+        }
       }
-    }
 
   @Volatile
   private var screenX = 0
@@ -132,6 +141,14 @@ internal class StickerPane(
       remove(0)
     }
 
+    // don't show on small stickers on
+    // small dialog windows
+    if (type == StickerType.SMOL &&
+      drawablePane.height < 400
+    ) {
+      return
+    }
+
     // add new sticker
     val stickerContent = createStickerContentPanel(stickerUrl)
     add(stickerContent)
@@ -168,11 +185,12 @@ internal class StickerPane(
   private fun createStickerContentPanel(stickerUrl: String): JPanel {
     val stickerContent = JPanel()
     stickerContent.layout = null
-    val (width, height) = getImageDimensions(stickerUrl)
+    val stickerDimension = getUsableStickerDimension(stickerUrl)
+
     @Language("html")
     val stickerDisplay = object : JBLabel(
       """<html>
-           <img src='$stickerUrl' width='${width}px' height='${height}px' />
+           <img src='$stickerUrl' width='${stickerDimension.width}' height='${stickerDimension.height}' />
          </html>
       """
     ) {
@@ -219,7 +237,31 @@ internal class StickerPane(
     return stickerContent
   }
 
-  private fun getImageDimensions(stickerUrl: String): Pair<Int, Int> =
+  private fun getUsableStickerDimension(stickerUrl: String): Dimension {
+    val originalDimension = getImageDimensions(stickerUrl)
+    return when {
+      type == StickerType.SMOL ->
+        DimensionCappingService.getCappingStyle(
+          originalDimension,
+          Dimension(
+            ThemeConfig.instance.smallMaxStickerWidth,
+            ThemeConfig.instance.smallMaxStickerHeight,
+          )
+        )
+      type == StickerType.REGULAR &&
+        ThemeConfig.instance.capStickerDimensions ->
+        DimensionCappingService.getCappingStyle(
+          originalDimension,
+          Dimension(
+            ThemeConfig.instance.maxStickerWidth,
+            ThemeConfig.instance.maxStickerHeight,
+          )
+        )
+      else -> originalDimension
+    }
+  }
+
+  private fun getImageDimensions(stickerUrl: String): Dimension =
     runSafelyWithResult({
       ImageIO.createImageInputStream(File(URI(stickerUrl)))
         .use {
@@ -227,12 +269,12 @@ internal class StickerPane(
           if (readers.hasNext()) {
             val reader = readers.next()
             reader.input = it
-            reader.getWidth(0) to reader.getHeight(0)
+            Dimension(reader.getWidth(0), reader.getHeight(0))
           } else {
-            0 to 0
+            Dimension(0, 0)
           }
         }
-    }) { 0 to 0 }
+    }) { Dimension(0, 0) }
 
   private fun positionStickerPanel(width: Int, height: Int) {
     val (x, y) = getPosition(

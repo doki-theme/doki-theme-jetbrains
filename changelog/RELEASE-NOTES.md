@@ -1,3 +1,7 @@
+- Added the ability to put small stickers in all windows!
+- Updated Kotlin & PHP Syntax Highlighting some.
+- You can now control the `max-width` & `max-height` of stickers.
+- Stickers now change when you hit `Apply` in the `Doki Theme Settings` menu.
 - Added better support for the DataSpell product.
 - Themed the rest of the [file scopes](https://www.jetbrains.com/help/idea/configuring-scopes-and-file-colors.html).
 - Added [GrepConsole](https://plugins.jetbrains.com/plugin/7125-grep-console/) default colorings & icons.

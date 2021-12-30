@@ -35,6 +35,8 @@
     <option name="CONSOLE_BACKGROUND_KEY" value="$textEditorBackground$"/>
     <option name="DELETED_LINES_COLOR" value="$disabledColor$99"/>
     <option name="DOCUMENTATION_COLOR" value="$headerColor$"/>
+    <option name="DOC_COMMENT_GUIDE" value="%accentColor%9a"/>
+    <option name="DOC_COMMENT_LINK" value="%accentColor%"/>
     <option name="DIFF_SEPARATORS_BACKGROUND" value="%accentColor%2a"/>
     <option name="ERROR_HINT" value="704745"/>
     <option name="FILESTATUS_ADDED" value="10b15a"/>
@@ -1162,6 +1164,11 @@
     <option name="KOTLIN_IMPLICIT_EXHAUSTIVE_WHEN">
       <value/>
     </option>
+    <option name="KOTLIN_LABEL">
+      <value>
+        <option name="FOREGROUND" value="$accentColor$" />
+      </value>
+    </option>
     <option name="KOTLIN_MUTABLE_VARIABLE">
       <value>
         <option name="EFFECT_TYPE" value="1"/>
@@ -1170,6 +1177,12 @@
     <option name="KOTLIN_NAMED_ARGUMENT">
       <value>
         <option name="FOREGROUND" value="$stringColor$"/>
+      </value>
+    </option>
+    <option name="KOTLIN_PACKAGE_PROPERTY">
+      <value>
+        <option name="FOREGROUND" value="$constantColor$" />
+        <option name="FONT_TYPE" value="2" />
       </value>
     </option>
     <option name="KOTLIN_PROPERTY_WITH_BACKING_FIELD">
@@ -2147,6 +2160,11 @@
     <option name="PHP_PARAMETER">
       <value>
         <option name="FOREGROUND" value="$stringColor$"/>
+      </value>
+    </option>
+    <option name="PHP_PREDEFINED SYMBOL">
+      <value>
+        <option name="FOREGROUND" value="$accentColor$" />
       </value>
     </option>
     <option name="PHP_VAR">
