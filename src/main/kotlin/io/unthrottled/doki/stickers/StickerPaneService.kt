@@ -18,7 +18,15 @@ import java.awt.event.WindowEvent
 import java.util.*
 import java.util.concurrent.ConcurrentHashMap
 import javax.swing.JFrame
-import javax.swing.JLayeredPane
+
+enum class StickerType {
+  REGULAR, SMOL
+}
+
+private data class StickerBundle(
+  val stickerPane: StickerPane,
+  val stickerType: StickerType,
+)
 
 class StickerPaneService {
 
@@ -27,7 +35,7 @@ class StickerPaneService {
       get() = ApplicationManager.getApplication().getService(StickerPaneService::class.java)
   }
 
-  private val windowsToAddStickersTo = ConcurrentHashMap<Any, StickerPane>()
+  private val windowsToAddStickersTo = ConcurrentHashMap<Any, StickerBundle>()
   private lateinit var currentTheme: DokiTheme
 
   init {
@@ -57,23 +65,30 @@ class StickerPaneService {
   fun activateForTheme(dokiTheme: DokiTheme) {
     currentTheme = dokiTheme
 
-    if (ThemeConfig.instance.currentStickerLevel == StickerLevel.ON) {
+    val primaryStickersOn = ThemeConfig.instance.currentStickerLevel == StickerLevel.ON
+    val smolStickersOn = ThemeConfig.instance.showSmallStickers
+    if (primaryStickersOn || smolStickersOn) {
+      val (candidateStickers, detatchableStickers) = stickers.partition {
+        (it.stickerType == StickerType.SMOL && smolStickersOn) ||
+          (it.stickerType == StickerType.REGULAR && primaryStickersOn)
+      }
       displayStickers({ stickerUrl ->
-        stickers.forEach { it.displaySticker(stickerUrl) }
+        candidateStickers.forEach { it.stickerPane.displaySticker(stickerUrl) }
+        detatchableStickers.forEach { it.stickerPane.detach() }
       }) {
-        stickers.forEach { it.detach() }
+        stickers.forEach { it.stickerPane.detach() }
       }
     }
   }
 
   fun setStickerPositioning(shouldPosition: Boolean) {
-    stickers.forEach { it.positionable = shouldPosition }
+    stickers.forEach { it.stickerPane.positionable = shouldPosition }
   }
 
   private fun disposeFrame(window: Any) {
     windowsToAddStickersTo[window].toOptional()
       .ifPresent {
-        it.dispose()
+        it.stickerPane.dispose()
         windowsToAddStickersTo.remove(window)
       }
   }
@@ -86,25 +101,27 @@ class StickerPaneService {
   private fun captureFrame(window: JFrame) {
     if (isRightClass(window)) return
     val drawablePane = window.rootPane.layeredPane
-    attachSticker(drawablePane, window)
+    val stickerPane = StickerPane(drawablePane)
+    windowsToAddStickersTo[window] = StickerBundle(stickerPane, StickerType.REGULAR)
+    if (ThemeConfig.instance.currentStickerLevel == StickerLevel.ON) {
+      showSingleSticker(stickerPane)
+    }
   }
 
   private fun captureDialogWrapper(wrapper: DialogWrapperDialog) {
     val drawablePane = wrapper.dialogWrapper.rootPane.layeredPane
-    attachSticker(drawablePane, wrapper)
+    val stickerPane = StickerPane(drawablePane)
+    windowsToAddStickersTo[wrapper] = StickerBundle(stickerPane, StickerType.SMOL)
+    if (ThemeConfig.instance.showSmallStickers) {
+      showSingleSticker(stickerPane)
+    }
   }
 
-  private fun attachSticker(drawablePane: JLayeredPane, window: Any) {
-    val stickerPane = StickerPane(drawablePane)
-    windowsToAddStickersTo[window] =
-      stickerPane
-
-    if (ThemeConfig.instance.currentStickerLevel == StickerLevel.ON) {
-      displayStickers({ stickerUrl ->
-        stickerPane.displaySticker(stickerUrl)
-      }) {
-        stickerPane.detach()
-      }
+  private fun showSingleSticker(stickerPane: StickerPane) {
+    displayStickers({ stickerUrl ->
+      stickerPane.displaySticker(stickerUrl)
+    }) {
+      stickerPane.detach()
     }
   }
 
@@ -133,12 +150,12 @@ class StickerPaneService {
     }
   }
 
-  private val stickers: List<StickerPane>
+  private val stickers: List<StickerBundle>
     get() = windowsToAddStickersTo.entries.map { it.value }
 
   fun remove() {
     ApplicationManager.getApplication().invokeLater {
-      stickers.forEach { it.detach() }
+      stickers.forEach { it.stickerPane.detach() }
       repaintWindows() // removes sticker residue (see https://github.com/doki-theme/doki-theme-jetbrains/issues/362)
     }
   }
