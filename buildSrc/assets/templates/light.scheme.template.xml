@@ -35,6 +35,8 @@
     <option name="CONSOLE_BACKGROUND_KEY" value="$textEditorBackground$"/>
     <option name="DELETED_LINES_COLOR" value="$disabledColor$99"/>
     <option name="DOCUMENTATION_COLOR" value="$headerColor$"/>
+    <option name="DOC_COMMENT_GUIDE" value="%accentColor%9a"/>
+    <option name="DOC_COMMENT_LINK" value="%accentColor%"/>
     <option name="FILESTATUS_ADDED" value="10b15a"/>
     <option name="FILESTATUS_COPIED" value="10b15a"/>
     <option name="FILESTATUS_HIJACKED" value="$comments$"/>
