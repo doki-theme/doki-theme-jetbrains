@@ -49,6 +49,10 @@ class ThemeConfig : PersistentStateComponent<ThemeConfig>, Cloneable {
   var maxStickerWidth: Int = -1
   var maxStickerHeight: Int = -1
 
+  var showSmallStickers: Boolean = false
+  var smallMaxStickerWidth: Int = 100
+  var smallMaxStickerHeight: Int = 100
+
   var isSeeThroughNotifications: Boolean = false
   var notificationOpacity: Int = 90
 

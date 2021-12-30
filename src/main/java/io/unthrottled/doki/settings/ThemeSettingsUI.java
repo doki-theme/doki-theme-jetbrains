@@ -52,6 +52,9 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
   private JCheckBox enableDimensionCappingCheckBox;
   private JSpinner maxHeightSpinner;
   private JSpinner maxWidthSpinner;
+  private JSpinner smolMaxHeightSpinner;
+  private JSpinner smolMaxWidthSpinner;
+  private JCheckBox enableSmallStickers;
 
 
   @Override
@@ -211,11 +214,48 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
 
     updateStickerDimensionCapComponents();
 
+    enableSmallStickers.setSelected(initialThemeSettingsModel.getShowSmallStickers());
+    enableSmallStickers.addActionListener(e -> {
+      updateSmolStickerDimensionCapComponents();
+      themeSettingsModel.setShowSmallStickers(enableSmallStickers.isSelected());
+    });
+
+    SpinnerNumberModel smallMaxMemeHeightSpinnerModel = new SpinnerNumberModel(
+      initialThemeSettingsModel.getSmallMaxStickerHeight(),
+      -1,
+      Integer.MAX_VALUE,
+      1
+    );
+    smolMaxHeightSpinner.setModel(smallMaxMemeHeightSpinnerModel);
+    smolMaxHeightSpinner.addChangeListener(change ->
+      themeSettingsModel.setSmallMaxStickerHeight(
+        smallMaxMemeHeightSpinnerModel.getNumber().intValue()
+      ));
+
+    SpinnerNumberModel smallMaxMemeWidthSpinnerModel = new SpinnerNumberModel(
+      initialThemeSettingsModel.getSmallMaxStickerWidth(),
+      -1,
+      Integer.MAX_VALUE,
+      1
+    );
+    smolMaxWidthSpinner.setModel(smallMaxMemeWidthSpinnerModel);
+    smolMaxWidthSpinner.addChangeListener(change ->
+      themeSettingsModel.setSmallMaxStickerWidth(
+        smallMaxMemeWidthSpinnerModel.getNumber().intValue()
+      ));
+
+    updateSmolStickerDimensionCapComponents();
+
   }
 
   private void updateStickerDimensionCapComponents() {
     maxHeightSpinner.setEnabled(enableDimensionCappingCheckBox.isSelected());
     maxWidthSpinner.setEnabled(enableDimensionCappingCheckBox.isSelected());
+  }
+
+  private void updateSmolStickerDimensionCapComponents() {
+    smolMaxHeightSpinner.setEnabled(enableSmallStickers.isSelected());
+    smolMaxWidthSpinner.setEnabled(enableSmallStickers.isSelected());
   }
 
 
