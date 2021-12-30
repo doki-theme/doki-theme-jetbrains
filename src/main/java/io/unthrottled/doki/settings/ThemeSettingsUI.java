@@ -184,35 +184,35 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
 
     enableDimensionCappingCheckBox.setSelected(initialThemeSettingsModel.getCapStickerDimensions());
     enableDimensionCappingCheckBox.addActionListener(e -> {
-      updateStickerDimensionCapComponents();
+      updatePrimaryStickerDimensionCapComponents();
       themeSettingsModel.setCapStickerDimensions(enableDimensionCappingCheckBox.isSelected());
     });
 
-    SpinnerNumberModel maxMemeHeightSpinnerModel = new SpinnerNumberModel(
+    SpinnerNumberModel maxPrimaryStickerHeightSpinnerModel = new SpinnerNumberModel(
       initialThemeSettingsModel.getMaxStickerHeight(),
       -1,
       Integer.MAX_VALUE,
       1
     );
-    maxHeightSpinner.setModel(maxMemeHeightSpinnerModel);
+    maxHeightSpinner.setModel(maxPrimaryStickerHeightSpinnerModel);
     maxHeightSpinner.addChangeListener(change ->
       themeSettingsModel.setMaxStickerHeight(
-        maxMemeHeightSpinnerModel.getNumber().intValue()
+        maxPrimaryStickerHeightSpinnerModel.getNumber().intValue()
       ));
 
-    SpinnerNumberModel maxMemeWidthSpinnerModel = new SpinnerNumberModel(
+    SpinnerNumberModel maxPrimaryStickerWidthSpinnerModel = new SpinnerNumberModel(
       initialThemeSettingsModel.getMaxStickerWidth(),
       -1,
       Integer.MAX_VALUE,
       1
     );
-    maxWidthSpinner.setModel(maxMemeWidthSpinnerModel);
+    maxWidthSpinner.setModel(maxPrimaryStickerWidthSpinnerModel);
     maxWidthSpinner.addChangeListener(change ->
       themeSettingsModel.setMaxStickerWidth(
-        maxMemeWidthSpinnerModel.getNumber().intValue()
+        maxPrimaryStickerWidthSpinnerModel.getNumber().intValue()
       ));
 
-    updateStickerDimensionCapComponents();
+    updatePrimaryStickerDimensionCapComponents();
 
     enableSmallStickers.setSelected(initialThemeSettingsModel.getShowSmallStickers());
     enableSmallStickers.addActionListener(e -> {
@@ -220,35 +220,34 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
       themeSettingsModel.setShowSmallStickers(enableSmallStickers.isSelected());
     });
 
-    SpinnerNumberModel smallMaxMemeHeightSpinnerModel = new SpinnerNumberModel(
+    SpinnerNumberModel smallStickerMaxHeightSpinnerModel = new SpinnerNumberModel(
       initialThemeSettingsModel.getSmallMaxStickerHeight(),
       -1,
       Integer.MAX_VALUE,
       1
     );
-    smolMaxHeightSpinner.setModel(smallMaxMemeHeightSpinnerModel);
+    smolMaxHeightSpinner.setModel(smallStickerMaxHeightSpinnerModel);
     smolMaxHeightSpinner.addChangeListener(change ->
       themeSettingsModel.setSmallMaxStickerHeight(
-        smallMaxMemeHeightSpinnerModel.getNumber().intValue()
+        smallStickerMaxHeightSpinnerModel.getNumber().intValue()
       ));
 
-    SpinnerNumberModel smallMaxMemeWidthSpinnerModel = new SpinnerNumberModel(
+    SpinnerNumberModel smallStickerMaxWidthSpinnerModel = new SpinnerNumberModel(
       initialThemeSettingsModel.getSmallMaxStickerWidth(),
       -1,
       Integer.MAX_VALUE,
       1
     );
-    smolMaxWidthSpinner.setModel(smallMaxMemeWidthSpinnerModel);
+    smolMaxWidthSpinner.setModel(smallStickerMaxWidthSpinnerModel);
     smolMaxWidthSpinner.addChangeListener(change ->
       themeSettingsModel.setSmallMaxStickerWidth(
-        smallMaxMemeWidthSpinnerModel.getNumber().intValue()
+        smallStickerMaxWidthSpinnerModel.getNumber().intValue()
       ));
 
     updateSmolStickerDimensionCapComponents();
-
   }
 
-  private void updateStickerDimensionCapComponents() {
+  private void updatePrimaryStickerDimensionCapComponents() {
     maxHeightSpinner.setEnabled(enableDimensionCappingCheckBox.isSelected());
     maxWidthSpinner.setEnabled(enableDimensionCappingCheckBox.isSelected());
   }

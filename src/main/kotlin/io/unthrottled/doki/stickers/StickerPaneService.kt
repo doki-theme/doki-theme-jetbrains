@@ -61,13 +61,12 @@ class StickerPaneService {
     val primaryStickersOn = ThemeConfig.instance.currentStickerLevel == StickerLevel.ON
     val smolStickersOn = ThemeConfig.instance.showSmallStickers
     if (primaryStickersOn || smolStickersOn) {
-      val (candidateStickers, detatchableStickers) = stickers.partition {
+      val candidateStickers = stickers.filter {
         (it.type == StickerType.SMOL && smolStickersOn) ||
           (it.type == StickerType.REGULAR && primaryStickersOn)
       }
       displayStickers({ stickerUrl ->
         candidateStickers.forEach { it.displaySticker(stickerUrl) }
-        detatchableStickers.forEach { it.detach() }
       }) {
         stickers.forEach { it.detach() }
       }

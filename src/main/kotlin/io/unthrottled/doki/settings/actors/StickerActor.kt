@@ -100,7 +100,7 @@ object StickerActor {
       ogWidth != smolMaxStickerWidth ||
       ogActivation != isSmolStickers
     ) {
-      if (isSmolStickers) {
+      if (ThemeConfig.instance.showSmallStickers) {
         activateNewSticker(false)
       } else {
         StickerPaneService.instance.remove(StickerType.SMOL)
