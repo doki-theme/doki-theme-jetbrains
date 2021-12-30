@@ -21,7 +21,7 @@ object DimensionCappingService {
     val canCap = (setMaxHeight || setMaxWidth) && shouldCap
     return if (needsToCap && canCap) {
       val heightIsGreater = stickerHeight > stickerWidth
-      val capHeightIsGreater = (setMaxWidth && setMaxHeight && maxHeight <= maxWidth ) ||
+      val capHeightIsGreater = (setMaxWidth && setMaxHeight && maxHeight <= maxWidth) ||
         (setMaxHeight && !setMaxWidth)
       val (width, height) =
         when {

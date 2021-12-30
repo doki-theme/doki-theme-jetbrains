@@ -15,18 +15,9 @@ import io.unthrottled.doki.util.toOptional
 import java.awt.AWTEvent
 import java.awt.Toolkit
 import java.awt.event.WindowEvent
-import java.util.*
+import java.util.Optional
 import java.util.concurrent.ConcurrentHashMap
 import javax.swing.JFrame
-
-enum class StickerType {
-  REGULAR, SMOL
-}
-
-private data class StickerBundle(
-  val stickerPane: StickerPane,
-  val stickerType: StickerType,
-)
 
 class StickerPaneService {
 
@@ -35,7 +26,7 @@ class StickerPaneService {
       get() = ApplicationManager.getApplication().getService(StickerPaneService::class.java)
   }
 
-  private val windowsToAddStickersTo = ConcurrentHashMap<Any, StickerBundle>()
+  private val windowsToAddStickersTo = ConcurrentHashMap<Any, StickerPane>()
   private lateinit var currentTheme: DokiTheme
 
   init {
@@ -69,26 +60,26 @@ class StickerPaneService {
     val smolStickersOn = ThemeConfig.instance.showSmallStickers
     if (primaryStickersOn || smolStickersOn) {
       val (candidateStickers, detatchableStickers) = stickers.partition {
-        (it.stickerType == StickerType.SMOL && smolStickersOn) ||
-          (it.stickerType == StickerType.REGULAR && primaryStickersOn)
+        (it.type == StickerType.SMOL && smolStickersOn) ||
+          (it.type == StickerType.REGULAR && primaryStickersOn)
       }
       displayStickers({ stickerUrl ->
-        candidateStickers.forEach { it.stickerPane.displaySticker(stickerUrl) }
-        detatchableStickers.forEach { it.stickerPane.detach() }
+        candidateStickers.forEach { it.displaySticker(stickerUrl) }
+        detatchableStickers.forEach { it.detach() }
       }) {
-        stickers.forEach { it.stickerPane.detach() }
+        stickers.forEach { it.detach() }
       }
     }
   }
 
   fun setStickerPositioning(shouldPosition: Boolean) {
-    stickers.forEach { it.stickerPane.positionable = shouldPosition }
+    stickers.forEach { it.positionable = shouldPosition }
   }
 
   private fun disposeFrame(window: Any) {
     windowsToAddStickersTo[window].toOptional()
       .ifPresent {
-        it.stickerPane.dispose()
+        it.dispose()
         windowsToAddStickersTo.remove(window)
       }
   }
@@ -101,8 +92,8 @@ class StickerPaneService {
   private fun captureFrame(window: JFrame) {
     if (isRightClass(window)) return
     val drawablePane = window.rootPane.layeredPane
-    val stickerPane = StickerPane(drawablePane)
-    windowsToAddStickersTo[window] = StickerBundle(stickerPane, StickerType.REGULAR)
+    val stickerPane = StickerPane(drawablePane, StickerType.REGULAR)
+    windowsToAddStickersTo[window] = stickerPane
     if (ThemeConfig.instance.currentStickerLevel == StickerLevel.ON) {
       showSingleSticker(stickerPane)
     }
@@ -110,8 +101,8 @@ class StickerPaneService {
 
   private fun captureDialogWrapper(wrapper: DialogWrapperDialog) {
     val drawablePane = wrapper.dialogWrapper.rootPane.layeredPane
-    val stickerPane = StickerPane(drawablePane)
-    windowsToAddStickersTo[wrapper] = StickerBundle(stickerPane, StickerType.SMOL)
+    val stickerPane = StickerPane(drawablePane, StickerType.SMOL)
+    windowsToAddStickersTo[wrapper] = stickerPane
     if (ThemeConfig.instance.showSmallStickers) {
       showSingleSticker(stickerPane)
     }
@@ -150,12 +141,19 @@ class StickerPaneService {
     }
   }
 
-  private val stickers: List<StickerBundle>
+  private val stickers: List<StickerPane>
     get() = windowsToAddStickersTo.entries.map { it.value }
 
-  fun remove() {
+  fun remove(type: StickerType) {
     ApplicationManager.getApplication().invokeLater {
-      stickers.forEach { it.stickerPane.detach() }
+      stickers
+        .filter {
+          when (type) {
+            StickerType.ALL -> true
+            else -> it.type == type
+          }
+        }
+        .forEach { it.detach() }
       repaintWindows() // removes sticker residue (see https://github.com/doki-theme/doki-theme-jetbrains/issues/362)
     }
   }

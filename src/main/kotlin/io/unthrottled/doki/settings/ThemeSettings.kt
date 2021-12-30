@@ -124,6 +124,11 @@ object ThemeSettings {
       themeSettingsModel.maxStickerWidth,
       themeSettingsModel.maxStickerHeight,
     )
+    StickerActor.setSmolStickers(
+      themeSettingsModel.showSmallStickers,
+      themeSettingsModel.smallMaxStickerWidth,
+      themeSettingsModel.smallMaxStickerHeight,
+    )
     ThemedTitleBarActor.enableThemedTitleBar(themeSettingsModel.isThemedTitleBar)
     ThemeActor.applyTheme(themeSettingsModel.currentTheme)
     ThemeStatusBarActor.applyConfig(themeSettingsModel.showThemeStatusBar)

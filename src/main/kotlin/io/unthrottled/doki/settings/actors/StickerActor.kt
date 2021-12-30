@@ -6,6 +6,7 @@ import io.unthrottled.doki.stickers.CustomStickerService
 import io.unthrottled.doki.stickers.StickerComponent
 import io.unthrottled.doki.stickers.StickerLevel
 import io.unthrottled.doki.stickers.StickerPaneService
+import io.unthrottled.doki.stickers.StickerType
 import io.unthrottled.doki.themes.ThemeManager
 import io.unthrottled.doki.util.performWithAnimation
 
@@ -37,7 +38,7 @@ object StickerActor {
         }
       } else {
         ThemeConfig.instance.stickerLevel = StickerLevel.OFF.name
-        StickerPaneService.instance.remove()
+        StickerPaneService.instance.remove(StickerType.ALL)
       }
     }
   }
@@ -74,12 +75,36 @@ object StickerActor {
     ThemeConfig.instance.maxStickerHeight = maxStickerHeight
     val ogActivation = ThemeConfig.instance.capStickerDimensions
     ThemeConfig.instance.capStickerDimensions = capStickerDimensions
-    if(
+    if (
       ogHeight != maxStickerHeight ||
-        ogWidth != maxStickerWidth ||
-        ogActivation != capStickerDimensions
+      ogWidth != maxStickerWidth ||
+      ogActivation != capStickerDimensions
     ) {
       activateNewSticker(false)
+    }
+  }
+
+  fun setSmolStickers(
+    isSmolStickers: Boolean,
+    smolMaxStickerWidth: Int,
+    smolMaxStickerHeight: Int
+  ) {
+    val ogWidth = ThemeConfig.instance.smallMaxStickerWidth
+    ThemeConfig.instance.smallMaxStickerWidth = smolMaxStickerWidth
+    val ogHeight = ThemeConfig.instance.smallMaxStickerHeight
+    ThemeConfig.instance.smallMaxStickerHeight = smolMaxStickerHeight
+    val ogActivation = ThemeConfig.instance.showSmallStickers
+    ThemeConfig.instance.showSmallStickers = isSmolStickers
+    if (
+      ogHeight != smolMaxStickerHeight ||
+      ogWidth != smolMaxStickerWidth ||
+      ogActivation != isSmolStickers
+    ) {
+      if (isSmolStickers) {
+        activateNewSticker(false)
+      } else {
+        StickerPaneService.instance.remove(StickerType.SMOL)
+      }
     }
   }
 

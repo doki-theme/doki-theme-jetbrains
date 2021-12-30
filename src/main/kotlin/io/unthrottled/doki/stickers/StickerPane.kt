@@ -25,8 +25,13 @@ import javax.swing.JLayeredPane
 import javax.swing.JPanel
 import kotlin.math.roundToInt
 
+enum class StickerType {
+  REGULAR, SMOL, ALL
+}
+
 internal class StickerPane(
   private val drawablePane: JLayeredPane,
+  val type: StickerType,
 ) : HwFacadeJPanel(), Disposable {
 
   companion object {
@@ -34,15 +39,18 @@ internal class StickerPane(
     private const val STICKER_X_OFFSET = 25
   }
 
-  var positionable: Boolean = ThemeConfig.instance.isMoveableStickers
+  private val isSmol = StickerType.SMOL == type
+  var positionable: Boolean =
+    if (isSmol) true
+    else ThemeConfig.instance.isMoveableStickers
     set(value) {
-      field = value
-      if (value) {
-        addListeners()
-      } else {
-        removeListeners()
+        field = value
+        if (value) {
+          addListeners()
+        } else if (!isSmol) {
+          removeListeners()
+        }
       }
-    }
 
   @Volatile
   private var screenX = 0
@@ -170,8 +178,9 @@ internal class StickerPane(
     stickerContent.layout = null
     val (width, height) = getImageDimensions(stickerUrl)
     val cappedDimension = DimensionCappingService.getCappingStyle(
-     Dimension(width, height)
+      Dimension(width, height)
     )
+
     @Language("html")
     val stickerDisplay = object : JBLabel(
       """<html>

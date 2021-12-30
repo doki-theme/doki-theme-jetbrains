@@ -36,7 +36,7 @@ class StickerComponent :
 
       EditorBackgroundWallpaperService.instance.remove()
       EmptyFrameWallpaperService.instance.remove()
-      StickerPaneService.instance.remove()
+      StickerPaneService.instance.remove(StickerType.SMOL)
     }
   }
 
