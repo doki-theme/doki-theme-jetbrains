@@ -1,6 +1,13 @@
 Changelog
 ---
 
+# 22.2.0 [Small Stickers]
+
+- Added the ability to put small stickers in all windows!
+- Updated Kotlin & PHP Syntax Highlighting some.
+- You can now control the `max-width` & `max-height` of stickers.
+- Stickers now change when you hit `Apply` in the `Doki Theme Settings` menu.
+
 # 22.1.0 [Usability & Consistency Maintenance]
 
 - Added better support for the DataSpell product.
