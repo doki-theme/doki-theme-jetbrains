@@ -28,7 +28,6 @@ import javax.swing.JLayeredPane
 import javax.swing.JPanel
 import kotlin.math.roundToInt
 
-
 enum class StickerType {
   REGULAR, SMOL, ALL
 }
@@ -56,13 +55,13 @@ internal class StickerPane(
     if (isSmol) true
     else ThemeConfig.instance.isMoveableStickers
     set(value) {
-      field = value
-      if (value) {
-        addListeners()
-      } else if (!isSmol) {
-        removeListeners()
+        field = value
+        if (value) {
+          addListeners()
+        } else if (!isSmol) {
+          removeListeners()
+        }
       }
-    }
 
   @Volatile
   private var screenX = 0
@@ -96,10 +95,12 @@ internal class StickerPane(
         )
       }
       doubleClickAlarm.cancelAllRequests()
-      doubleClickAlarm.addRequest({
-        clickCount = 0
-      }, 250)
-
+      doubleClickAlarm.addRequest(
+        {
+          clickCount = 0
+        },
+        250
+      )
     }
 
     override fun mousePressed(e: MouseEvent) {
@@ -219,9 +220,9 @@ internal class StickerPane(
     val lessGarbageImage = originalImage.getScaledInstance(
       stickerDimension.width,
       stickerDimension.height,
-      if(stickerUrl.contains(".gif")) Image.SCALE_DEFAULT else Image.SCALE_SMOOTH
+      if (stickerUrl.contains(".gif")) Image.SCALE_DEFAULT else Image.SCALE_SMOOTH
     )
-    val stickerDisplay = object: JBLabel(ImageIcon(lessGarbageImage)) {
+    val stickerDisplay = object : JBLabel(ImageIcon(lessGarbageImage)) {
 
       // Java 9+ Does automatic DPI scaling,
       // but we want to ignore that, cause the sticker
