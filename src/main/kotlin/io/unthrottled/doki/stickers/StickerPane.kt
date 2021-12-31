@@ -182,6 +182,10 @@ internal class StickerPane(
       remove(0)
     }
 
+    // allows the sticker to be
+    // re-positioned if scaling is ignored.
+    positioned = false
+
     // don't show on small stickers on
     // small dialog windows
     if (type == StickerType.SMOL &&
@@ -289,8 +293,8 @@ internal class StickerPane(
 
   private fun getScaledDimension(): Dimension {
     return Dimension(
-      (this@StickerPane.width / currentScaleX).toInt(),
-      (this@StickerPane.height / currentScaleY).toInt(),
+      (this@StickerPane.stickerContent.width / currentScaleX).toInt(),
+      (this@StickerPane.stickerContent.height / currentScaleY).toInt(),
     )
   }
 
