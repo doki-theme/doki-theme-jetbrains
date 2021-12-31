@@ -13,6 +13,7 @@ import com.intellij.ui.JBColor;
 import com.intellij.util.ui.UIUtil;
 import io.unthrottled.doki.config.ThemeConfig;
 import io.unthrottled.doki.stickers.CurrentSticker;
+import io.unthrottled.doki.stickers.StickerPaneService;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -55,6 +56,8 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
   private JSpinner smolMaxHeightSpinner;
   private JSpinner smolMaxWidthSpinner;
   private JCheckBox enableSmallStickers;
+  private JButton resetStickerMarginsButton;
+  private JLabel marginHelp;
 
 
   @Override
@@ -245,6 +248,11 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
       ));
 
     updateSmolStickerDimensionCapComponents();
+
+    resetStickerMarginsButton.addActionListener((e) -> {
+      StickerPaneService.Companion.getInstance().resetMargins();
+    });
+    marginHelp.setForeground(UIUtil.getContextHelpForeground());
   }
 
   private void updatePrimaryStickerDimensionCapComponents() {
