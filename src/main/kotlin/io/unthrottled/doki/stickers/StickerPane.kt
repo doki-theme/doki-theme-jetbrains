@@ -26,7 +26,6 @@ import javax.swing.ImageIcon
 import javax.swing.JComponent
 import javax.swing.JLayeredPane
 import javax.swing.JPanel
-import kotlin.math.roundToInt
 
 enum class StickerType {
   REGULAR, SMOL, ALL
@@ -50,20 +49,33 @@ internal class StickerPane(
   private val stickerListener: StickerListener,
 ) : HwFacadeJPanel(), Disposable {
 
+  private lateinit var stickerContent: JPanel
+
   var ignoreScaling = ThemeConfig.instance.ignoreScaling
+    set(value) {
+      field = value
+      if (value) {
+        this.size = getScaledDimension()
+      } else {
+        this.size = stickerContent.size
+      }
+      positionStickerPanel(
+        this.size.width, this.size.height
+      )
+    }
 
   private val isSmol = StickerType.SMOL == type
   var positionable: Boolean =
     if (isSmol) true
     else ThemeConfig.instance.isMoveableStickers
     set(value) {
-        field = value
-        if (value) {
-          addListeners()
-        } else if (!isSmol) {
-          removeListeners()
-        }
+      field = value
+      if (value) {
+        addListeners()
+      } else if (!isSmol) {
+        removeListeners()
       }
+    }
 
   @Volatile
   private var screenX = 0
@@ -179,7 +191,7 @@ internal class StickerPane(
     }
 
     // add new sticker
-    val stickerContent = createStickerContentPanel(stickerUrl)
+    this.stickerContent = createStickerContentPanel(stickerUrl)
     add(stickerContent)
     this.size = stickerContent.size
 
@@ -211,6 +223,10 @@ internal class StickerPane(
     drawablePane.repaint()
   }
 
+  private var currentScaleX = 1.0
+  private var currentScaleY = 1.0
+  private var positioned = false
+
   private fun createStickerContentPanel(stickerUrl: String): JPanel {
     val stickerContent = JPanel()
     stickerContent.layout = null
@@ -229,13 +245,25 @@ internal class StickerPane(
       // will grow to be pixelated
       // fixes https://github.com/doki-theme/doki-theme-jetbrains/issues/465
       override fun paintComponent(g: Graphics) {
-        if (g is Graphics2D && g.transform.scaleX.compareTo(1.0) > 0 && ignoreScaling) {
+        if (g is Graphics2D) {
           val t: AffineTransform = g.transform
-          val xTrans = t.translateX
-          val yTrans = t.translateY
-          t.setToScale(1.0, 1.0)
-          t.translate(xTrans, yTrans)
-          g.transform = t
+          currentScaleX = t.scaleX
+          currentScaleY = t.scaleY
+          if (g.transform.scaleX.compareTo(1.0) > 0 && ignoreScaling) {
+            if (!positioned) {
+              positioned = true
+              val scaledDimension = getScaledDimension()
+              this@StickerPane.size = scaledDimension
+              this@StickerPane.positionStickerPanel(
+                scaledDimension.width, scaledDimension.height
+              )
+            }
+            val xTrans = t.translateX
+            val yTrans = t.translateY
+            t.setToScale(1.0, 1.0)
+            t.translate(xTrans, yTrans)
+            g.transform = t
+          }
         }
         super.paintComponent(g)
       }
@@ -257,6 +285,13 @@ internal class StickerPane(
     )
 
     return stickerContent
+  }
+
+  private fun getScaledDimension(): Dimension {
+    return Dimension(
+      (this@StickerPane.width / currentScaleX).toInt(),
+      (this@StickerPane.height / currentScaleY).toInt(),
+    )
   }
 
   private fun getUsableStickerDimension(stickerUrl: String): Dimension {
