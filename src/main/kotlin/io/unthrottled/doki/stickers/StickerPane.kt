@@ -7,10 +7,10 @@ import com.intellij.ui.jcef.HwFacadeJPanel
 import com.intellij.util.Alarm
 import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.util.runSafelyWithResult
-import org.intellij.lang.annotations.Language
 import java.awt.Dimension
 import java.awt.Graphics
 import java.awt.Graphics2D
+import java.awt.Image
 import java.awt.Rectangle
 import java.awt.event.ComponentAdapter
 import java.awt.event.ComponentEvent
@@ -20,7 +20,9 @@ import java.awt.event.MouseMotionListener
 import java.awt.geom.AffineTransform
 import java.io.File
 import java.net.URI
+import java.net.URL
 import javax.imageio.ImageIO
+import javax.swing.ImageIcon
 import javax.swing.JComponent
 import javax.swing.JLayeredPane
 import javax.swing.JPanel
@@ -213,13 +215,13 @@ internal class StickerPane(
     stickerContent.layout = null
     val stickerDimension = getUsableStickerDimension(stickerUrl)
 
-    @Language("html")
-    val stickerDisplay = object : JBLabel(
-      """<html>
-           <img src='$stickerUrl' width='${stickerDimension.width}' height='${stickerDimension.height}' />
-         </html>
-      """
-    ) {
+    val originalImage = ImageIcon(URL(stickerUrl)).image
+    val lessGarbageImage = originalImage.getScaledInstance(
+      stickerDimension.width,
+      stickerDimension.height,
+      if(stickerUrl.contains(".gif")) Image.SCALE_DEFAULT else Image.SCALE_SMOOTH
+    )
+    val stickerDisplay = object: JBLabel(ImageIcon(lessGarbageImage)) {
 
       // Java 9+ Does automatic DPI scaling,
       // but we want to ignore that, cause the sticker
