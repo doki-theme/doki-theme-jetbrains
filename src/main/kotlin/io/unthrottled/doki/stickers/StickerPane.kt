@@ -32,8 +32,8 @@ enum class StickerType {
 }
 
 data class Margin(
-  val marginX: Int,
-  val marginY: Int,
+  val marginX: Double,
+  val marginY: Double,
 )
 
 interface StickerListener {
@@ -88,8 +88,8 @@ internal class StickerPane(
       if (clickCount > 1) {
         stickerListener.onDoubleClick(
           Margin(
-            parentX - (this@StickerPane.x + this@StickerPane.width),
-            parentY - (this@StickerPane.y + this@StickerPane.height),
+            (parentX - (this@StickerPane.x + this@StickerPane.width)) / parentX.toDouble(),
+            (parentY - (this@StickerPane.y + this@StickerPane.height)) / parentY.toDouble(),
           )
         )
       }
@@ -313,13 +313,15 @@ internal class StickerPane(
     setLocation(x, y)
   }
 
+  private var _margin = margin
+
   private fun getPosition(
     parentWidth: Int,
     parentHeight: Int,
     stickerPanelBoundingBox: Rectangle,
   ): Pair<Int, Int> =
-    parentWidth - stickerPanelBoundingBox.width - margin.marginX to
-      parentHeight - stickerPanelBoundingBox.height - margin.marginY
+    parentWidth - stickerPanelBoundingBox.width - (parentWidth * _margin.marginX).toInt() to
+      parentHeight - stickerPanelBoundingBox.height - (parentHeight * _margin.marginY).toInt()
 
   fun detach() {
     drawablePane.remove(this)
@@ -327,5 +329,13 @@ internal class StickerPane(
 
   override fun dispose() {
     detach()
+  }
+
+  fun updateMargin(margin: Margin) {
+    _margin = margin
+    positionStickerPanel(
+      size.width,
+      size.height,
+    )
   }
 }

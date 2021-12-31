@@ -156,5 +156,8 @@
       <add-to-group group-id="DokiThemeActions" anchor="last"/>
     </action>
     <action id="io.unthrottled.doki.actions.AniMemePromotion" class="io.unthrottled.doki.actions.AniMemePromotion" text="Show AniMeme Promotion" description="Shows the 'AMII' promotion dialog" icon="/icons/plugins/amii/plugin-tool-window.svg"/>
+    <action id="io.unthrottled.reset.sticker.margins" icon="AllIcons.Actions.Refresh" class="io.unthrottled.doki.actions.ResetStickerMarginsAction" text="Reset Sticker Margins" description="Restores the default margins &amp; repositions stickers.">
+      <add-to-group group-id="DokiThemeActions" anchor="after" relative-to-action="io.unthrottled.doki.actions.ShowSettingsAction"/>
+    </action>
   </actions>
 </idea-plugin>

@@ -54,6 +54,13 @@ class StickerPaneService {
 
   fun init() {}
 
+  fun resetMargins() {
+    MarginService.instance.reset()
+    windowsToAddStickersTo.forEach {
+      it.value.updateMargin(MarginService.instance.getMargin(it.key))
+    }
+  }
+
   fun activateForTheme(dokiTheme: DokiTheme) {
     currentTheme = dokiTheme
 
