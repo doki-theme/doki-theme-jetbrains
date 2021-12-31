@@ -137,6 +137,8 @@ Allowed image types: jpg, png, gif
 
 ![Custom sticker](./assets/readmeAssets/custom_sticker.gif)
 
+**Ignore Scaling** allows you to bypass automatic application up-scaling, in order to display the sticker in its true dimensions. 
+
 #### Save Positioning
 
 Any stickers that are allowed to be positioned (all small stickers are positionable), allows you to save the relative position in a certain type of window. Just by `double-clicking` the sticker, stickers for that type of window will be saved for later use.

@@ -8,4 +8,4 @@
 - Added [GrepConsole](https://plugins.jetbrains.com/plugin/7125-grep-console/) default colorings & icons.
 - Enhanced the usability of the debugger's breakpoint highlighting.
 - Fixed [Anime Meme Plugin](https://github.com/ani-memes/AMII) promotion issue.
-- Stickers no longer scale up in displays who have a higher than 100% scale setting.
+- Stickers no longer scale up in displays who have a higher than 100% scale setting when using the `Ignore Scaling` setting.
