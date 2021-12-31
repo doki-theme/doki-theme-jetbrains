@@ -1,3 +1,4 @@
+- Added the ability to double-click movable stickers to save their relative position in the window.
 - Added the ability to put small stickers in all windows!
 - Updated Kotlin & PHP Syntax Highlighting some.
 - You can now control the `max-width` & `max-height` of stickers.

@@ -73,6 +73,7 @@ You can choose themes from various, Anime, Manga, or Visual Novels:
       - [Discreet Mode](#discreet-mode)
       - [Stickers](#sticker)
       - [Content Type](#content-type)
+      - [Save Sticker Position](#sticker-positioning)
       - [Dimension Capping](#dimension-cap)
       - [Small Stickers](#small-stickers)
       - [Background Images](#background-images)
@@ -136,6 +137,20 @@ Allowed image types: jpg, png, gif
 
 ![Custom sticker](./assets/readmeAssets/custom_sticker.gif)
 
+#### Save Positioning
+
+Any stickers that are allowed to be positioned (all small stickers are positionable), allows you to save the relative position in a certain type of window. Just by `double-clicking` the sticker, stickers for that type of window will be saved for later use.
+
+Types of distinct windows:
+
+- IDE Window
+- Secondary window (the one where you drag a tab out of the IDE window)
+- Any Dialog Window
+
+**Reset Margin** allows you to restore the original default margins for all windows. 
+This will also move all active stickers back to the default position.
+
+
 #### Content Type
 
 Some themes have more than one set of images, this allows you to switch in-between each of them.
@@ -155,7 +170,7 @@ Themes that have more than one sticker:
 
   ![Secondary Sticker](./assets/readmeAssets/secondary_stickers.gif)
 
-#### Dimension Capping
+#### Dimension Cap
 
 Stickers are sometimes big and could get in the way. Thankfully, if you find that this is the case, you can cap the maximum dimensions of the primary displayed sticker. This also works for custom stickers as well!
 
@@ -166,7 +181,7 @@ that. That way you can still see the same image, just smaller.
 
 #### Small Stickers
 
-With the introduction of [Dimension Capping](#dimension-capping), you can now satisfy your need to have stickers in all the places!
+With the introduction of [Dimension Capping](#dimension-cap), you can now satisfy your need to have stickers in all the places!
 
 All small stickers are put in dialog windows whose height is greater than a specified limit. That way you do not end up with a sticker getting in the way.
 
