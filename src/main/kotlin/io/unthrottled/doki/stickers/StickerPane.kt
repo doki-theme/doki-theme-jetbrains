@@ -4,6 +4,7 @@ import com.intellij.openapi.Disposable
 import com.intellij.ui.components.JBLabel
 import com.intellij.ui.components.JBLayeredPane
 import com.intellij.ui.jcef.HwFacadeJPanel
+import com.intellij.util.Alarm
 import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.util.runSafelyWithResult
 import org.intellij.lang.annotations.Language
@@ -25,33 +26,41 @@ import javax.swing.JLayeredPane
 import javax.swing.JPanel
 import kotlin.math.roundToInt
 
+
 enum class StickerType {
   REGULAR, SMOL, ALL
+}
+
+data class Margin(
+  val marginX: Int,
+  val marginY: Int,
+)
+
+interface StickerListener {
+
+  fun onDoubleClick(margin: Margin)
 }
 
 @Suppress("TooManyFunctions")
 internal class StickerPane(
   private val drawablePane: JLayeredPane,
   val type: StickerType,
+  private val margin: Margin,
+  private val stickerListener: StickerListener,
 ) : HwFacadeJPanel(), Disposable {
-
-  companion object {
-    private const val STICKER_Y_OFFSET = 45
-    private const val STICKER_X_OFFSET = 25
-  }
 
   private val isSmol = StickerType.SMOL == type
   var positionable: Boolean =
     if (isSmol) true
     else ThemeConfig.instance.isMoveableStickers
     set(value) {
-        field = value
-        if (value) {
-          addListeners()
-        } else if (!isSmol) {
-          removeListeners()
-        }
+      field = value
+      if (value) {
+        addListeners()
+      } else if (!isSmol) {
+        removeListeners()
       }
+    }
 
   @Volatile
   private var screenX = 0
@@ -72,7 +81,24 @@ internal class StickerPane(
   private var parentY = drawablePane.height
 
   private val dragListenerInitiationListener = object : MouseListener {
-    override fun mouseClicked(e: MouseEvent?) {}
+    private val doubleClickAlarm = Alarm(this@StickerPane)
+    private var clickCount = 0
+    override fun mouseClicked(e: MouseEvent?) {
+      clickCount += 1
+      if (clickCount > 1) {
+        stickerListener.onDoubleClick(
+          Margin(
+            parentX - (this@StickerPane.x + this@StickerPane.width),
+            parentY - (this@StickerPane.y + this@StickerPane.height),
+          )
+        )
+      }
+      doubleClickAlarm.cancelAllRequests()
+      doubleClickAlarm.addRequest({
+        clickCount = 0
+      }, 250)
+
+    }
 
     override fun mousePressed(e: MouseEvent) {
       screenX = e.xOnScreen
@@ -292,8 +318,8 @@ internal class StickerPane(
     parentHeight: Int,
     stickerPanelBoundingBox: Rectangle,
   ): Pair<Int, Int> =
-    parentWidth - stickerPanelBoundingBox.width - STICKER_X_OFFSET to
-      parentHeight - stickerPanelBoundingBox.height - STICKER_Y_OFFSET
+    parentWidth - stickerPanelBoundingBox.width - margin.marginX to
+      parentHeight - stickerPanelBoundingBox.height - margin.marginY
 
   fun detach() {
     drawablePane.remove(this)
