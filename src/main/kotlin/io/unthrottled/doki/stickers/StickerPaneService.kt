@@ -18,7 +18,6 @@ import java.util.Optional
 import java.util.concurrent.ConcurrentHashMap
 import javax.swing.JFrame
 
-
 @Suppress("TooManyFunctions")
 class StickerPaneService {
 
