@@ -46,7 +46,7 @@ interface StickerListener {
 internal class StickerPane(
   private val drawablePane: JLayeredPane,
   val type: StickerType,
-  private val margin: Margin,
+  initialMargin: Margin,
   private val stickerListener: StickerListener,
 ) : HwFacadeJPanel(), Disposable {
 
@@ -316,7 +316,7 @@ internal class StickerPane(
     setLocation(x, y)
   }
 
-  private var _margin = margin
+  private var _margin = initialMargin
 
   private fun getPosition(
     parentWidth: Int,
