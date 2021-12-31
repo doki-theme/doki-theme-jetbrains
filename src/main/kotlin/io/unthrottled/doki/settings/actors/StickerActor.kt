@@ -1,5 +1,6 @@
 package io.unthrottled.doki.settings.actors
 
+import com.intellij.openapi.application.ApplicationManager
 import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.stickers.CurrentSticker
 import io.unthrottled.doki.stickers.CustomStickerService
@@ -18,6 +19,17 @@ object StickerActor {
         ThemeConfig.instance.currentSticker = newStickerType
         ThemeManager.instance.currentTheme.ifPresent {
           StickerComponent.activateForTheme(it)
+        }
+      }
+    }
+  }
+
+  fun ignoreScaling(ignoreScaling: Boolean) {
+    if (ThemeConfig.instance.ignoreScaling != ignoreScaling) {
+      ApplicationManager.getApplication().executeOnPooledThread {
+        ThemeConfig.instance.ignoreScaling = ignoreScaling
+        ThemeManager.instance.currentTheme.ifPresent {
+          StickerPaneService.instance.setIgnoreScaling(ignoreScaling)
         }
       }
     }

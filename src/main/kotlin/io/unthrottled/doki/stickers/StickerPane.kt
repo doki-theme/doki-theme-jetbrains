@@ -50,6 +50,8 @@ internal class StickerPane(
   private val stickerListener: StickerListener,
 ) : HwFacadeJPanel(), Disposable {
 
+  var ignoreScaling = ThemeConfig.instance.ignoreScaling
+
   private val isSmol = StickerType.SMOL == type
   var positionable: Boolean =
     if (isSmol) true
@@ -162,8 +164,6 @@ internal class StickerPane(
     removeMouseMotionListener(dragListener)
   }
 
-  private var positioned = false
-
   fun displaySticker(stickerUrl: String) {
     // clean up old sticker
     if (componentCount > 0) {
@@ -184,8 +184,8 @@ internal class StickerPane(
     this.size = stickerContent.size
 
     positionStickerPanel(
-      stickerContent.size.width,
-      stickerContent.size.height,
+      this.size.width,
+      this.size.height,
     )
 
     drawablePane.remove(this)
@@ -229,15 +229,8 @@ internal class StickerPane(
       // will grow to be pixelated
       // fixes https://github.com/doki-theme/doki-theme-jetbrains/issues/465
       override fun paintComponent(g: Graphics) {
-        if (g is Graphics2D && g.transform.scaleX.compareTo(1.0) > 0) {
+        if (g is Graphics2D && g.transform.scaleX.compareTo(1.0) > 0 && ignoreScaling) {
           val t: AffineTransform = g.transform
-          if (!positioned) {
-            positioned = true
-            positionStickerPanel(
-              stickerContent.size.width - ((t.scaleX - 1.0) * stickerContent.size.width).roundToInt(),
-              stickerContent.size.height - ((t.scaleY - 1.0) * stickerContent.size.height).roundToInt(),
-            )
-          }
           val xTrans = t.translateX
           val yTrans = t.translateY
           t.setToScale(1.0, 1.0)
@@ -307,8 +300,8 @@ internal class StickerPane(
 
   private fun positionStickerPanel(width: Int, height: Int) {
     val (x, y) = getPosition(
-      drawablePane.x + drawablePane.width,
-      drawablePane.y + drawablePane.height,
+      drawablePane.width,
+      drawablePane.height,
       Rectangle(width, height)
     )
     myX = x

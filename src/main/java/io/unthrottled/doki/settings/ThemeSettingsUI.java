@@ -58,6 +58,7 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
   private JCheckBox enableSmallStickers;
   private JButton resetStickerMarginsButton;
   private JLabel marginHelp;
+  private JCheckBox ignoreScalingCheckBox;
 
 
   @Override
@@ -109,6 +110,11 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
     allowPositioningCheckBox.setSelected(initialThemeSettingsModel.isMoveableStickers());
     allowPositioningCheckBox.addActionListener(e ->
       themeSettingsModel.setMoveableStickers(allowPositioningCheckBox.isSelected())
+    );
+
+    ignoreScalingCheckBox.setSelected(initialThemeSettingsModel.getIgnoreScaling());
+    ignoreScalingCheckBox.addActionListener(e ->
+      themeSettingsModel.setIgnoreScaling(ignoreScalingCheckBox.isSelected())
     );
 
     primaryRadioButton.setSelected(ThemeConfig.Companion.getInstance().getCurrentSticker() == CurrentSticker.DEFAULT);
