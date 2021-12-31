@@ -18,6 +18,7 @@
   <depends optional="true" config-file="io.unthrottled.doki.theme-com.intellij.modules.lang.xml">com.intellij.modules.lang</depends>
   <depends optional="true" config-file="io.unthrottled.doki.theme-XPathView.xml">XPathView</depends>
   <extensions defaultExtensionNs="com.intellij">
+    <applicationService serviceImplementation="io.unthrottled.doki.stickers.MarginService"/>
     <applicationService serviceInterface="io.unthrottled.doki.themes.ThemeManager" serviceImplementation="io.unthrottled.doki.themes.impl.ThemeManagerImpl"/>
     <applicationService serviceImplementation="io.unthrottled.doki.stickers.EditorBackgroundWallpaperService"/>
     <applicationService serviceImplementation="io.unthrottled.doki.stickers.EmptyFrameWallpaperService"/>

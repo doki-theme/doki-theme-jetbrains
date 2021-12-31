@@ -18,6 +18,7 @@ import java.util.Optional
 import java.util.concurrent.ConcurrentHashMap
 import javax.swing.JFrame
 
+
 @Suppress("TooManyFunctions")
 class StickerPaneService {
 
@@ -93,7 +94,16 @@ class StickerPaneService {
   private fun captureFrame(window: JFrame) {
     if (isRightClass(window)) return
     val drawablePane = window.rootPane.layeredPane
-    val stickerPane = StickerPane(drawablePane, StickerType.REGULAR)
+    val stickerPane = StickerPane(
+      drawablePane,
+      StickerType.REGULAR,
+      MarginService.instance.getMargin(window),
+      object : StickerListener {
+        override fun onDoubleClick(margin: Margin) {
+          MarginService.instance.saveMargin(window, margin)
+        }
+      }
+    )
     windowsToAddStickersTo[window] = stickerPane
     if (ThemeConfig.instance.currentStickerLevel == StickerLevel.ON) {
       showSingleSticker(stickerPane)
@@ -102,7 +112,16 @@ class StickerPaneService {
 
   private fun captureDialogWrapper(wrapper: DialogWrapperDialog) {
     val drawablePane = wrapper.dialogWrapper.rootPane.layeredPane
-    val stickerPane = StickerPane(drawablePane, StickerType.SMOL)
+    val stickerPane = StickerPane(
+      drawablePane,
+      StickerType.SMOL,
+      MarginService.instance.getMargin(wrapper),
+      object : StickerListener {
+        override fun onDoubleClick(margin: Margin) {
+          MarginService.instance.saveMargin(wrapper, margin)
+        }
+      }
+    )
     windowsToAddStickersTo[wrapper] = stickerPane
     if (ThemeConfig.instance.showSmallStickers) {
       showSingleSticker(stickerPane)
