@@ -53,6 +53,13 @@ class StickerPaneService {
 
   fun init() {}
 
+  fun resetMargins() {
+    MarginService.instance.reset()
+    windowsToAddStickersTo.forEach {
+      it.value.updateMargin(MarginService.instance.getMargin(it.key))
+    }
+  }
+
   fun activateForTheme(dokiTheme: DokiTheme) {
     currentTheme = dokiTheme
 
@@ -77,6 +84,10 @@ class StickerPaneService {
     stickers.forEach { it.positionable = shouldPosition }
   }
 
+  fun setIgnoreScaling(ignoreScaling: Boolean) {
+    stickers.forEach { it.ignoreScaling = ignoreScaling }
+  }
+
   private fun disposePane(window: Any) {
     windowsToAddStickersTo[window].toOptional()
       .ifPresent {
@@ -93,7 +104,16 @@ class StickerPaneService {
   private fun captureFrame(window: JFrame) {
     if (isRightClass(window)) return
     val drawablePane = window.rootPane.layeredPane
-    val stickerPane = StickerPane(drawablePane, StickerType.REGULAR)
+    val stickerPane = StickerPane(
+      drawablePane,
+      StickerType.REGULAR,
+      MarginService.instance.getMargin(window),
+      object : StickerListener {
+        override fun onDoubleClick(margin: Margin) {
+          MarginService.instance.saveMargin(window, margin)
+        }
+      }
+    )
     windowsToAddStickersTo[window] = stickerPane
     if (ThemeConfig.instance.currentStickerLevel == StickerLevel.ON) {
       showSingleSticker(stickerPane)
@@ -102,7 +122,16 @@ class StickerPaneService {
 
   private fun captureDialogWrapper(wrapper: DialogWrapperDialog) {
     val drawablePane = wrapper.dialogWrapper.rootPane.layeredPane
-    val stickerPane = StickerPane(drawablePane, StickerType.SMOL)
+    val stickerPane = StickerPane(
+      drawablePane,
+      StickerType.SMOL,
+      MarginService.instance.getMargin(wrapper),
+      object : StickerListener {
+        override fun onDoubleClick(margin: Margin) {
+          MarginService.instance.saveMargin(wrapper, margin)
+        }
+      }
+    )
     windowsToAddStickersTo[wrapper] = stickerPane
     if (ThemeConfig.instance.showSmallStickers) {
       showSingleSticker(stickerPane)

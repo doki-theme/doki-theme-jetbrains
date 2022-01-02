@@ -1,6 +1,13 @@
 Changelog
 ---
 
+# 22.3.0 [Sticker Position Persistence]
+
+- Added the ability to double-click movable stickers to save their relative position in the window.
+- Changed the down-scaling algorithm to make smaller stickers not look like garbage.
+- Fixed bug in the dimension capping feature.
+- Introduced a setting to ignore display scaling, and show stickers at true size.
+
 # 22.2.0 [Small Stickers]
 
 - Added the ability to put small stickers in all windows!

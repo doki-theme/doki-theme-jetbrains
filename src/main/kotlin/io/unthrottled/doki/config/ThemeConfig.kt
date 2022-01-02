@@ -20,6 +20,8 @@ class ThemeConfig : PersistentStateComponent<ThemeConfig>, Cloneable {
       get() = ServiceManager.getService(ThemeConfig::class.java)
   }
 
+  var ignoreScaling: Boolean = false
+  var savedMargins: String = "{}"
   var userId: String = ""
   var isLafAnimation: Boolean = false
   var isMoveableStickers: Boolean = false

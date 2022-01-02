@@ -1,3 +1,4 @@
+- Added the ability to double-click movable stickers to save their relative position in the window.
 - Added the ability to put small stickers in all windows!
 - Updated Kotlin & PHP Syntax Highlighting some.
 - You can now control the `max-width` & `max-height` of stickers.
@@ -7,4 +8,4 @@
 - Added [GrepConsole](https://plugins.jetbrains.com/plugin/7125-grep-console/) default colorings & icons.
 - Enhanced the usability of the debugger's breakpoint highlighting.
 - Fixed [Anime Meme Plugin](https://github.com/ani-memes/AMII) promotion issue.
-- Stickers no longer scale up in displays who have a higher than 100% scale setting.
+- Stickers no longer scale up in displays who have a higher than 100% scale setting when using the `Ignore Scaling` setting.

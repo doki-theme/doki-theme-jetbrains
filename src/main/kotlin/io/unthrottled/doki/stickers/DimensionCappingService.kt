@@ -4,32 +4,32 @@ import java.awt.Dimension
 
 object DimensionCappingService {
 
-  @Suppress("ComplexMethod") // cuz is complex...
   fun getCappingStyle(
     stickerDimensions: Dimension,
     maxDimension: Dimension,
   ): Dimension {
     val maxHeight = maxDimension.height
     val maxWidth = maxDimension.width
-    val setMaxHeight = maxHeight > 0
-    val setMaxWidth = maxWidth > 0
+    val shouldSetMaxHeight = maxHeight > 0
+    val shouldSetMaxWidth = maxWidth > 0
+    val comparisonMaxHeight = if (shouldSetMaxHeight) maxHeight else Int.MAX_VALUE
+    val comparisonMaxWidth = if (shouldSetMaxWidth) maxWidth else Int.MAX_VALUE
     val stickerHeight = stickerDimensions.height
     val stickerWidth = stickerDimensions.width
-    val heightIsGreaterThanOriginal = maxHeight < stickerHeight
-    val widthIsGreaterThanOriginal = maxWidth < stickerWidth
-    val needsToCap = heightIsGreaterThanOriginal || widthIsGreaterThanOriginal
-    val canCap = (setMaxHeight || setMaxWidth)
+    val stickerHeightGreaterThanCap = comparisonMaxHeight < stickerHeight
+    val stickerWidthGreaterThanCap = comparisonMaxWidth < stickerWidth
+    val needsToCap = stickerHeightGreaterThanCap || stickerWidthGreaterThanCap
+    val canCap = (shouldSetMaxHeight || shouldSetMaxWidth)
     return if (needsToCap && canCap) {
-      val heightIsGreater = stickerHeight > stickerWidth
-      val capHeightIsGreater = (setMaxWidth && setMaxHeight && maxHeight <= maxWidth) ||
-        (setMaxHeight && !setMaxWidth)
       val (width, height) =
         when {
-          heightIsGreaterThanOriginal &&
-            heightIsGreater &&
-            capHeightIsGreater ->
+          shouldSetMaxHeight &&
+            comparisonMaxHeight <= comparisonMaxWidth &&
+            stickerHeightGreaterThanCap ->
             (stickerWidth / stickerHeight.toDouble()) * maxHeight to maxHeight
-          widthIsGreaterThanOriginal && setMaxWidth ->
+          shouldSetMaxWidth &&
+            comparisonMaxWidth <= comparisonMaxHeight &&
+            stickerWidthGreaterThanCap ->
             maxWidth to (stickerHeight / stickerWidth.toDouble()) * maxWidth
           else -> stickerWidth to stickerHeight
         }

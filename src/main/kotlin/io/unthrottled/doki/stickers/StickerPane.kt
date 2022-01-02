@@ -4,12 +4,13 @@ import com.intellij.openapi.Disposable
 import com.intellij.ui.components.JBLabel
 import com.intellij.ui.components.JBLayeredPane
 import com.intellij.ui.jcef.HwFacadeJPanel
+import com.intellij.util.Alarm
 import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.util.runSafelyWithResult
-import org.intellij.lang.annotations.Language
 import java.awt.Dimension
 import java.awt.Graphics
 import java.awt.Graphics2D
+import java.awt.Image
 import java.awt.Rectangle
 import java.awt.event.ComponentAdapter
 import java.awt.event.ComponentEvent
@@ -19,26 +20,49 @@ import java.awt.event.MouseMotionListener
 import java.awt.geom.AffineTransform
 import java.io.File
 import java.net.URI
+import java.net.URL
 import javax.imageio.ImageIO
+import javax.swing.ImageIcon
 import javax.swing.JComponent
 import javax.swing.JLayeredPane
 import javax.swing.JPanel
-import kotlin.math.roundToInt
 
 enum class StickerType {
   REGULAR, SMOL, ALL
+}
+
+data class Margin(
+  val marginX: Double,
+  val marginY: Double,
+)
+
+interface StickerListener {
+
+  fun onDoubleClick(margin: Margin)
 }
 
 @Suppress("TooManyFunctions")
 internal class StickerPane(
   private val drawablePane: JLayeredPane,
   val type: StickerType,
+  initialMargin: Margin,
+  private val stickerListener: StickerListener,
 ) : HwFacadeJPanel(), Disposable {
 
-  companion object {
-    private const val STICKER_Y_OFFSET = 45
-    private const val STICKER_X_OFFSET = 25
-  }
+  private lateinit var stickerContent: JPanel
+
+  var ignoreScaling = ThemeConfig.instance.ignoreScaling
+    set(value) {
+      field = value
+      if (value) {
+        this.size = getScaledDimension()
+      } else {
+        this.size = stickerContent.size
+      }
+      positionStickerPanel(
+        this.size.width, this.size.height
+      )
+    }
 
   private val isSmol = StickerType.SMOL == type
   var positionable: Boolean =
@@ -72,7 +96,26 @@ internal class StickerPane(
   private var parentY = drawablePane.height
 
   private val dragListenerInitiationListener = object : MouseListener {
-    override fun mouseClicked(e: MouseEvent?) {}
+    private val doubleClickAlarm = Alarm(this@StickerPane)
+    private var clickCount = 0
+    override fun mouseClicked(e: MouseEvent?) {
+      clickCount += 1
+      if (clickCount > 1) {
+        stickerListener.onDoubleClick(
+          Margin(
+            (parentX - (this@StickerPane.x + this@StickerPane.width)) / parentX.toDouble(),
+            (parentY - (this@StickerPane.y + this@StickerPane.height)) / parentY.toDouble(),
+          )
+        )
+      }
+      doubleClickAlarm.cancelAllRequests()
+      doubleClickAlarm.addRequest(
+        {
+          clickCount = 0
+        },
+        250
+      )
+    }
 
     override fun mousePressed(e: MouseEvent) {
       screenX = e.xOnScreen
@@ -133,13 +176,15 @@ internal class StickerPane(
     removeMouseMotionListener(dragListener)
   }
 
-  private var positioned = false
-
   fun displaySticker(stickerUrl: String) {
     // clean up old sticker
     if (componentCount > 0) {
       remove(0)
     }
+
+    // allows the sticker to be
+    // re-positioned if scaling is ignored.
+    positioned = false
 
     // don't show on small stickers on
     // small dialog windows
@@ -150,13 +195,13 @@ internal class StickerPane(
     }
 
     // add new sticker
-    val stickerContent = createStickerContentPanel(stickerUrl)
+    this.stickerContent = createStickerContentPanel(stickerUrl)
     add(stickerContent)
     this.size = stickerContent.size
 
     positionStickerPanel(
-      stickerContent.size.width,
-      stickerContent.size.height,
+      this.size.width,
+      this.size.height,
     )
 
     drawablePane.remove(this)
@@ -182,38 +227,47 @@ internal class StickerPane(
     drawablePane.repaint()
   }
 
+  private var currentScaleX = 1.0
+  private var currentScaleY = 1.0
+  private var positioned = false
+
   private fun createStickerContentPanel(stickerUrl: String): JPanel {
     val stickerContent = JPanel()
     stickerContent.layout = null
     val stickerDimension = getUsableStickerDimension(stickerUrl)
 
-    @Language("html")
-    val stickerDisplay = object : JBLabel(
-      """<html>
-           <img src='$stickerUrl' width='${stickerDimension.width}' height='${stickerDimension.height}' />
-         </html>
-      """
-    ) {
+    val originalImage = ImageIcon(URL(stickerUrl)).image
+    val lessGarbageImage = originalImage.getScaledInstance(
+      stickerDimension.width,
+      stickerDimension.height,
+      if (stickerUrl.contains(".gif")) Image.SCALE_DEFAULT else Image.SCALE_SMOOTH
+    )
+    val stickerDisplay = object : JBLabel(ImageIcon(lessGarbageImage)) {
 
       // Java 9+ Does automatic DPI scaling,
       // but we want to ignore that, cause the sticker
       // will grow to be pixelated
       // fixes https://github.com/doki-theme/doki-theme-jetbrains/issues/465
       override fun paintComponent(g: Graphics) {
-        if (g is Graphics2D && g.transform.scaleX.compareTo(1.0) > 0) {
+        if (g is Graphics2D) {
           val t: AffineTransform = g.transform
-          if (!positioned) {
-            positioned = true
-            positionStickerPanel(
-              stickerContent.size.width - ((t.scaleX - 1.0) * stickerContent.size.width).roundToInt(),
-              stickerContent.size.height - ((t.scaleY - 1.0) * stickerContent.size.height).roundToInt(),
-            )
+          currentScaleX = t.scaleX
+          currentScaleY = t.scaleY
+          if (g.transform.scaleX.compareTo(1.0) > 0 && ignoreScaling) {
+            if (!positioned) {
+              positioned = true
+              val scaledDimension = getScaledDimension()
+              this@StickerPane.size = scaledDimension
+              this@StickerPane.positionStickerPanel(
+                scaledDimension.width, scaledDimension.height
+              )
+            }
+            val xTrans = t.translateX
+            val yTrans = t.translateY
+            t.setToScale(1.0, 1.0)
+            t.translate(xTrans, yTrans)
+            g.transform = t
           }
-          val xTrans = t.translateX
-          val yTrans = t.translateY
-          t.setToScale(1.0, 1.0)
-          t.translate(xTrans, yTrans)
-          g.transform = t
         }
         super.paintComponent(g)
       }
@@ -235,6 +289,13 @@ internal class StickerPane(
     )
 
     return stickerContent
+  }
+
+  private fun getScaledDimension(): Dimension {
+    return Dimension(
+      (this@StickerPane.stickerContent.width / currentScaleX).toInt(),
+      (this@StickerPane.stickerContent.height / currentScaleY).toInt(),
+    )
   }
 
   private fun getUsableStickerDimension(stickerUrl: String): Dimension {
@@ -278,8 +339,8 @@ internal class StickerPane(
 
   private fun positionStickerPanel(width: Int, height: Int) {
     val (x, y) = getPosition(
-      drawablePane.x + drawablePane.width,
-      drawablePane.y + drawablePane.height,
+      drawablePane.width,
+      drawablePane.height,
       Rectangle(width, height)
     )
     myX = x
@@ -287,13 +348,15 @@ internal class StickerPane(
     setLocation(x, y)
   }
 
+  private var _margin = initialMargin
+
   private fun getPosition(
     parentWidth: Int,
     parentHeight: Int,
     stickerPanelBoundingBox: Rectangle,
   ): Pair<Int, Int> =
-    parentWidth - stickerPanelBoundingBox.width - STICKER_X_OFFSET to
-      parentHeight - stickerPanelBoundingBox.height - STICKER_Y_OFFSET
+    parentWidth - stickerPanelBoundingBox.width - (parentWidth * _margin.marginX).toInt() to
+      parentHeight - stickerPanelBoundingBox.height - (parentHeight * _margin.marginY).toInt()
 
   fun detach() {
     drawablePane.remove(this)
@@ -301,5 +364,13 @@ internal class StickerPane(
 
   override fun dispose() {
     detach()
+  }
+
+  fun updateMargin(margin: Margin) {
+    _margin = margin
+    positionStickerPanel(
+      size.width,
+      size.height,
+    )
   }
 }

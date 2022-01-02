@@ -13,6 +13,7 @@ import com.intellij.ui.JBColor;
 import com.intellij.util.ui.UIUtil;
 import io.unthrottled.doki.config.ThemeConfig;
 import io.unthrottled.doki.stickers.CurrentSticker;
+import io.unthrottled.doki.stickers.StickerPaneService;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -55,6 +56,9 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
   private JSpinner smolMaxHeightSpinner;
   private JSpinner smolMaxWidthSpinner;
   private JCheckBox enableSmallStickers;
+  private JButton resetStickerMarginsButton;
+  private JLabel marginHelp;
+  private JCheckBox ignoreScalingCheckBox;
 
 
   @Override
@@ -106,6 +110,11 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
     allowPositioningCheckBox.setSelected(initialThemeSettingsModel.isMoveableStickers());
     allowPositioningCheckBox.addActionListener(e ->
       themeSettingsModel.setMoveableStickers(allowPositioningCheckBox.isSelected())
+    );
+
+    ignoreScalingCheckBox.setSelected(initialThemeSettingsModel.getIgnoreScaling());
+    ignoreScalingCheckBox.addActionListener(e ->
+      themeSettingsModel.setIgnoreScaling(ignoreScalingCheckBox.isSelected())
     );
 
     primaryRadioButton.setSelected(ThemeConfig.Companion.getInstance().getCurrentSticker() == CurrentSticker.DEFAULT);
@@ -245,6 +254,11 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
       ));
 
     updateSmolStickerDimensionCapComponents();
+
+    resetStickerMarginsButton.addActionListener((e) -> {
+      StickerPaneService.Companion.getInstance().resetMargins();
+    });
+    marginHelp.setForeground(UIUtil.getContextHelpForeground());
   }
 
   private void updatePrimaryStickerDimensionCapComponents() {

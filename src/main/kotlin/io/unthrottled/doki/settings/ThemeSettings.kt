@@ -58,6 +58,7 @@ data class ThemeSettingsModel(
   var smallMaxStickerHeight: Int,
   var smallMaxStickerWidth: Int,
   var consoleFontValue: String,
+  var ignoreScaling: Boolean,
   var isSeeThroughNotifications: Boolean,
   var notificationOpacity: Int,
 ) {
@@ -107,6 +108,7 @@ object ThemeSettings {
       smallMaxStickerHeight = ThemeConfig.instance.smallMaxStickerHeight,
       smallMaxStickerWidth = ThemeConfig.instance.smallMaxStickerWidth,
       showSmallStickers = ThemeConfig.instance.showSmallStickers,
+      ignoreScaling = ThemeConfig.instance.ignoreScaling,
     )
 
   fun apply(themeSettingsModel: ThemeSettingsModel) {
@@ -114,6 +116,7 @@ object ThemeSettings {
     ShowReadmeActor.dontShowReadmeOnStartup(themeSettingsModel.isNotShowReadmeAtStartup)
     StickerActor.enableStickers(themeSettingsModel.areStickersEnabled, false)
     StickerActor.swapStickers(themeSettingsModel.currentSticker, false)
+    StickerActor.ignoreScaling(themeSettingsModel.ignoreScaling)
     StickerActor.setCustomSticker(
       themeSettingsModel.customStickerPath,
       themeSettingsModel.isCustomSticker,
