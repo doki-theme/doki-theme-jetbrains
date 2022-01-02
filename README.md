@@ -73,7 +73,7 @@ You can choose themes from various, Anime, Manga, or Visual Novels:
       - [Discreet Mode](#discreet-mode)
       - [Stickers](#sticker)
       - [Content Type](#content-type)
-      - [Save Sticker Position](#sticker-positioning)
+      - [Save Sticker Position](#save-positioning)
       - [Dimension Capping](#dimension-cap)
       - [Small Stickers](#small-stickers)
       - [Background Images](#background-images)
