@@ -69,13 +69,13 @@ internal class StickerPane(
     if (isSmol) true
     else ThemeConfig.instance.isMoveableStickers
     set(value) {
-      field = value
-      if (value) {
-        addListeners()
-      } else if (!isSmol) {
-        removeListeners()
+        field = value
+        if (value) {
+          addListeners()
+        } else if (!isSmol) {
+          removeListeners()
+        }
       }
-    }
 
   @Volatile
   private var screenX = 0
