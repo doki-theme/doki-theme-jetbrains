@@ -100,6 +100,7 @@
     <themeProvider id="bac375a4-abb3-44d5-9bef-8039eb83fec0" path="/doki/themes/sword_art_online/Asuna_Dark.theme.json"/>
     <themeProvider id="546e8fb8-6082-4ef5-a5e3-44790686f02f" path="/doki/themes/sword_art_online/Asuna_Light.theme.json"/>
     <themeProvider id="5de1c901-2a12-411f-b75b-64e43aaf2c9d" path="/doki/themes/type-moon/Gray.theme.json"/>
+    <themeProvider id="d587f5ab-9334-4b7b-a99e-58461719d87b" path="/doki/themes/yuru_camp/Nadeshiko.theme.json"/>
     <themeProvider id="5fb9c0a4-e613-457c-97a5-6204f9076cef" path="/doki/themes/yuru_camp/Shima_Rin.theme.json"/>
   </extensions>
   <applicationListeners>
