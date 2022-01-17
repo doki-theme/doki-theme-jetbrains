@@ -90,6 +90,7 @@
     <themeProvider id="d96c6599-ebf8-4359-ae26-19f79b69e919" path="/doki/themes/quintessential_quintuplets/Nakano_Miku.theme.json"/>
     <themeProvider id="5e6a266f-c6d5-4891-a065-a2c2b857016a" path="/doki/themes/quintessential_quintuplets/Nakano_Nino.theme.json"/>
     <themeProvider id="3b11c8f4-d030-4a7e-a46f-b22d3e430a1d" path="/doki/themes/quintessential_quintuplets/Nakano_Yotsuba.theme.json"/>
+    <themeProvider id="01e61500-862c-41cd-b653-48d2ef7b1882" path="/doki/themes/toaru_majutsu_no_index/Misaka_Mikoto.theme.json"/>
     <themeProvider id="35422aa4-1396-4e76-8ec6-c5560884df22" path="/doki/themes/re_zero/Beatrice.theme.json"/>
     <themeProvider id="b4d08c16-a891-4186-884d-e469cba72e99" path="/doki/themes/re_zero/Echidna.theme.json"/>
     <themeProvider id="696de7c1-3a8e-4445-83ee-3eb7e9dca47f" path="/doki/themes/re_zero/Emilia_Dark.theme.json"/>

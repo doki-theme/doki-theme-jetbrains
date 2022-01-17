@@ -4,6 +4,7 @@ private val nameMapping =
     "Azur Lane" to "AzurLane: ",
     "Kill la Kill" to "KillLaKill: ",
     "Blend S" to "BlendS: ",
+    "Toaru Majutsu no Index" to "Railgun: ",
     "Re Zero" to "Re:Zero: ",
     "Love Live" to "LoveLive: ",
     "Literature Club" to DDLC_THEME_NAME_PREFIX,
