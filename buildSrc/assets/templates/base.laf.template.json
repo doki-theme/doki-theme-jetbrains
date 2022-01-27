@@ -24,6 +24,7 @@
     "WelcomeScreen.List.background": "baseBackground",
     "WelcomeScreen.Details.background": "baseBackground",
     "window": "baseBackground",
+    "StatusBar.background": "baseBackground",
 
     "UIDesigner.Canvas.background": "textEditorBackground",
     "Content.background": "textEditorBackground",
