@@ -2,6 +2,19 @@
   "type": "LAF",
   "name": "base",
   "ui": {
+    "*" : {
+      "selectionBackground": {
+        "os.default": "selectionBackground",
+        "os.windows": "selectionBackground",
+        "os.mac": "selectionBackground"
+      },
+      "selectionForeground": {
+        "os.default": "selectionForeground",
+        "os.windows": "selectionForeground",
+        "os.mac": "selectionForeground"
+      }
+    },
+
     "TitlePane.background": "baseBackground",
     "Panel.background": "baseBackground",
     "Button.background": "baseBackground",
