@@ -163,6 +163,10 @@
     "OptionPane.warningDialog.border.background": "nonProjectFileScopeColor",
     "OptionPane.warningDialog.titlePane.background": "nonProjectFileScopeColor",
 
+    "NotificationsToolwindow.newNotification.background" : "lightEditorColor",
+    "NotificationsToolwindow.newNotification.hoverBackground" : "highlightColor",
+    "NotificationsToolwindow.Notification.hoverBackground" : "highlightColor",
+
     "Plugins.Tab.selectedBackground": "highlightColor",
     "TabbedPane.hoverColor": "highlightColor",
     "TabbedPane.focusColor": "highlightColor",
