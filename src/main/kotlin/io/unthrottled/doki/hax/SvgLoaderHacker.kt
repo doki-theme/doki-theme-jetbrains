@@ -17,19 +17,19 @@ object SvgLoaderHacker {
    * Enables the ability to have more than one color patcher.
    */
   fun setSVGColorPatcher() {
-//    SVGLoader.setColorPatcherProvider(
-//      collectOtherPatcher()
-//        .map { patcher ->
-//          ColorPatcher(patcher)
-//        }
-//        .orElseGet {
-//          ColorPatcher(
-//            object : PatcherProvider {
-//              override fun forURL(url: URL?): SVGLoader.SvgElementColorPatcher? = null
-//            }
-//          )
-//        }
-//    )
+    SVGLoader.setColorPatcherProvider(
+      collectOtherPatcher()
+        .map { patcher ->
+          ColorPatcher(patcher)
+        }
+        .orElseGet {
+          ColorPatcher(
+            object : PatcherProvider {
+              override fun forURL(url: URL?): SVGLoader.SvgElementColorPatcher? = null
+            }
+          )
+        }
+    )
   }
 
   private fun collectOtherPatcher(): Optional<PatcherProvider> =
