@@ -835,6 +835,10 @@ object HackComponent : Disposable {
           override fun edit(e: NewExpr?) {
             e?.replace("{ \$_ = com.intellij.util.ui.UIUtil.getPanelBackground(); }")
           }
+
+          override fun edit(m: MethodCall?) {
+            m?.replace("{ \$_ = com.intellij.util.ui.UIUtil.getPanelBackground(); }")
+          }
         }
       )
 
