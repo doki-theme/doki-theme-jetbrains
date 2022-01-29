@@ -954,7 +954,7 @@
     </option>
     <option name="IGNORE.BRACKET">
       <value>
-        <option name="FOREGROUND" value="$foregroundColor$"/>
+        <option name="FOREGROUND" value="$foregroundColorEditor$"/>
         <option name="FONT_TYPE" value="1"/>
       </value>
     </option>
@@ -983,7 +983,7 @@
     </option>
     <option name="IGNORE.SLASH">
       <value>
-        <option name="FOREGROUND" value="$foregroundColor$"/>
+        <option name="FOREGROUND" value="$foregroundColorEditor$"/>
       </value>
     </option>
     <option name="IGNORE.SYNTAX">
@@ -1093,7 +1093,7 @@
     </option>
     <option name="JS.LOCAL_VARIABLE">
       <value>
-        <option name="FOREGROUND" value="$foregroundColor$" />
+        <option name="FOREGROUND" value="$foregroundColorEditor$" />
       </value>
     </option>
     <option name="JS.INSTANCE_MEMBER_FUNCTION" baseAttributes="DEFAULT_INSTANCE_METHOD"/>
