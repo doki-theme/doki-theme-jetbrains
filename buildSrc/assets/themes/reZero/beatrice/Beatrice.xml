@@ -18,8 +18,6 @@
         <option name="ScrollBar.hoverThumbColor" value="$accentColorSecondary$9a" />
         <option name="ScrollBar.thumbBorderColor" value="$accentColorSecondary$5a" />
         <option name="ScrollBar.thumbColor" value="$accentColorSecondary$5a" />
-        <option name="SELECTION_BACKGROUND" value="fad2f2"/>
-        <option name="SELECTION_FOREGROUND" value="f049da"/>
         <option name="VCS_ANNOTATIONS_COLOR_3" value="fbdde9"/>
         <option name="VCS_ANNOTATIONS_COLOR_4" value="f0c3e3"/>
         <option name="VCS_ANNOTATIONS_COLOR_5" value="fad2f2"/>
@@ -31,7 +29,6 @@
           <option name="BACKGROUND" value="$textEditorBackground$" />
         </value>
       </option>
-
       <option name="BREADCRUMBS_INACTIVE">
             <value>
                 <option name="FOREGROUND" value="3b3b3b"/>
@@ -41,22 +38,6 @@
         <option name="CONSOLE_GREEN_OUTPUT">
             <value>
                 <option name="FOREGROUND" value="3dd664" />
-            </value>
-        </option>
-        <option name="CSS.KEYWORD">
-            <value>
-                <option name="FOREGROUND" value="C869A3" />
-            </value>
-        </option>
-
-        <option name="CUSTOM_KEYWORD1_ATTRIBUTES">
-            <value>
-                <option name="FOREGROUND" value="C869A3" />
-            </value>
-        </option>
-        <option name="DEFAULT_KEYWORD">
-            <value>
-                <option name="FOREGROUND" value="C869A3" />
             </value>
         </option>
         <option name="DEFAULT_LABEL">
@@ -79,12 +60,6 @@
                 <option name="ERROR_STRIPE_COLOR" value="8f5247"/>
             </value>
         </option>
-        <option name="GROOVY_KEYWORD">
-            <value>
-                <option name="FOREGROUND" value="C869A3" />
-                <option name="FONT_TYPE" value="1" />
-            </value>
-        </option>
         <option name="INFO_ATTRIBUTES">
             <value>
                 <option name="FOREGROUND"/>
@@ -92,17 +67,6 @@
                 <option name="EFFECT_COLOR" value="C0C0C0"/>
                 <option name="EFFECT_TYPE" value="2"/>
                 <option name="ERROR_STRIPE_COLOR" value="c0c0c0" deuteranopia="C0C0C0" protanopia="C0C0C0"/>
-            </value>
-        </option>
-        <option name="JAVA_KEYWORD">
-            <value>
-                <option name="FOREGROUND" value="C869A3" />
-            </value>
-        </option>
-        <option name="RDOC_KEYWORD">
-            <value>
-                <option name="FOREGROUND" value="C869A3" />
-                <option name="FONT_TYPE" value="2" />
             </value>
         </option>
         <option name="STATIC_FIELD_ATTRIBUTES">
