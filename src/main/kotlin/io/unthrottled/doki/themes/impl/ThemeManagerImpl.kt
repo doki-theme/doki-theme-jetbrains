@@ -4,6 +4,7 @@ import com.google.gson.Gson
 import com.intellij.ide.ui.laf.LafManagerImpl
 import com.intellij.ide.ui.laf.UIThemeBasedLookAndFeelInfo
 import com.intellij.util.io.inputStream
+import io.unthrottled.doki.TheDokiTheme
 import io.unthrottled.doki.themes.DokiTheme
 import io.unthrottled.doki.themes.JetBrainsThemeDefinition
 import io.unthrottled.doki.themes.ThemeManager
@@ -28,6 +29,7 @@ class ThemeManagerImpl : ThemeManager {
       ?.toURI()
       .toString()
       .split("!")
+    val currentVersion = TheDokiTheme.getVersion().orElse("69")
     val fileSystem = newFileSystem(create(themeURI[0]), mapOf<String, String>())
     themeMap = walk(
       fileSystem.getPath(
@@ -42,7 +44,7 @@ class ThemeManagerImpl : ThemeManager {
           JetBrainsThemeDefinition::class.java
         )
       }
-      .map { DokiTheme(it) }
+      .map { DokiTheme(it, currentVersion) }
       .collect(
         Collectors.toMap(
           { it.name },
