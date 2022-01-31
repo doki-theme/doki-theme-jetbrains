@@ -101,12 +101,7 @@ internal class StickerPane(
     override fun mouseClicked(e: MouseEvent?) {
       clickCount += 1
       if (clickCount > 1) {
-        stickerListener.onDoubleClick(
-          Margin(
-            (parentX - (this@StickerPane.x + this@StickerPane.width)) / parentX.toDouble(),
-            (parentY - (this@StickerPane.y + this@StickerPane.height)) / parentY.toDouble(),
-          )
-        )
+        stickerListener.onDoubleClick(captureMargin())
       }
       doubleClickAlarm.cancelAllRequests()
       doubleClickAlarm.addRequest(
@@ -124,11 +119,26 @@ internal class StickerPane(
       myY = y
     }
 
-    override fun mouseReleased(e: MouseEvent?) {}
+    override fun mouseReleased(e: MouseEvent?) {
+      saveMargin()
+    }
 
     override fun mouseEntered(e: MouseEvent?) {}
 
     override fun mouseExited(e: MouseEvent?) {}
+  }
+
+  private fun saveMargin() {
+    _margin = captureMargin()
+  }
+
+  private fun captureMargin(): Margin {
+    val stickerPos = location
+    val stickerSize = stickerContent.size
+    return Margin(
+      (parentX - (stickerPos.x + stickerSize.width)) / parentX.toDouble(),
+      (parentY - (stickerPos.y + stickerSize.height)) / parentY.toDouble(),
+    )
   }
 
   private val dragListener = object : MouseMotionListener {
@@ -152,11 +162,12 @@ internal class StickerPane(
           val layer = e.component
           if (layer !is JComponent) return
 
-          val deltaX = layer.width - parentX
-          val deltaY = layer.height - parentY
-          setLocation(x + deltaX, y + deltaY)
           parentX = layer.width
           parentY = layer.height
+          positionStickerPanel(
+            stickerContent.width,
+            stickerContent.height,
+          )
         }
       }
     )
