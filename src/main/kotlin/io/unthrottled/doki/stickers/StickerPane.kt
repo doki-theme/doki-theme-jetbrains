@@ -6,6 +6,9 @@ import com.intellij.ui.components.JBLayeredPane
 import com.intellij.ui.jcef.HwFacadeJPanel
 import com.intellij.util.Alarm
 import io.unthrottled.doki.config.ThemeConfig
+import io.unthrottled.doki.util.Logging
+import io.unthrottled.doki.util.logger
+import io.unthrottled.doki.util.runSafely
 import io.unthrottled.doki.util.runSafelyWithResult
 import java.awt.Dimension
 import java.awt.Graphics
@@ -47,7 +50,7 @@ internal class StickerPane(
   val type: StickerType,
   initialMargin: Margin,
   private val stickerListener: StickerListener,
-) : HwFacadeJPanel(), Disposable {
+) : HwFacadeJPanel(), Disposable, Logging {
 
   private lateinit var stickerContent: JPanel
 
@@ -190,7 +193,11 @@ internal class StickerPane(
   fun displaySticker(stickerUrl: String) {
     // clean up old sticker
     if (componentCount > 0) {
-      remove(0)
+      runSafely({
+        remove(0)
+      }) {
+        logger().warn("Unable to remove previous sticker for raisins.", it)
+      }
     }
 
     // allows the sticker to be
