@@ -5,7 +5,9 @@
     "name": "Doki Dim v2"
   },
   "overrides": {},
-  "ui": {},
+  "ui": {
+    "CompletionPopup.matchForeground": "keywordColor"
+  },
   "uiBase": "dark dim",
   "backgrounds": {
     "default": {

@@ -1031,6 +1031,11 @@
         <option name="BACKGROUND" value="$codeBlock$"/>
       </value>
     </option>
+    <option name="INLINE_STACK_FRAMES">
+      <value>
+        <option name="BACKGROUND" value="$fileGray$"/>
+      </value>
+    </option>
     <option name="INLAY_DEFAULT">
       <value>
         <option name="FOREGROUND" value="$accentColor$a9"/>
@@ -1098,7 +1103,17 @@
         <option name="FONT_TYPE" value="2"/>
       </value>
     </option>
-    <option name="JS.INSTANCE_MEMBER_FUNCTION" baseAttributes="DEFAULT_INSTANCE_METHOD"/>
+    <option name="JS.STATIC_MEMBER_FUNCTION">
+      <value>
+        <option name="FOREGROUND" value="$classNameColor$" />
+        <option name="FONT_TYPE" value="2" />
+      </value>
+    </option>
+    <option name="JS.INSTANCE_MEMBER_FUNCTION">
+      <value>
+        <option name="FOREGROUND" value="$accentColor$"/>
+      </value>
+    </option>
     <option name="JS.NULL_UNDEFINED">
       <value>
         <option name="FOREGROUND" value="$constantColor$"/>
@@ -2618,6 +2633,7 @@
         <option name="EFFECT_TYPE" value="2"/>
       </value>
     </option>
+    <option name="SQL_SYNTHETIC_ENTITY" baseAttributes="DEFAULT_PREDEFINED_SYMBOL" />
     <option name="SQUARE_BRACKETS_RAINBOW_COLOR0">
       <value>
         <option name="FOREGROUND" value="ffd700"/>
