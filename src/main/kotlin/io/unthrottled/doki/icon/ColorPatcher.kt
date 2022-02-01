@@ -1,7 +1,5 @@
 package io.unthrottled.doki.icon
 
-import com.intellij.openapi.application.ex.ApplicationInfoEx
-import com.intellij.openapi.util.BuildNumber
 import com.intellij.ui.ColorUtil
 import com.intellij.ui.JBColor.namedColor
 import io.unthrottled.doki.hax.Patcher
@@ -46,7 +44,6 @@ class ColorPatcher(
   ): Patcher {
 
     val self = this
-      BuildNumber.fromString("221.0")!!
     return object : Patcher {
       override fun patchColors(svg: Element) {
         self.patchColors(svg, otherPatcher)
