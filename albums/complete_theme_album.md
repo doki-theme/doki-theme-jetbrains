@@ -6,6 +6,14 @@ Darling in the Franxx
 ![zero two code](../assets/screenshots/franxx/zero_two_dark_code.png)
 ![zero two code](../assets/screenshots/franxx/zero_two_light_code.png)
 
+Chuunibyou Love and Other Delusions
+---
+
+### Takanashi Rikka
+
+![rikka_dark code](../assets/screenshots/chuunibyou/rikka_dark_code.png)
+
+
 Quintessential Quintuplets
 ---
 
@@ -41,9 +49,30 @@ Monogatari
 Yuru Camp
 ---
 
+### Nadeshiko
+
+![nadeshiko_dark code](../assets/screenshots/yuruCamp/nadeshiko_dark_code.png)
+
+
 ### Shima Rin
 
 ![shima_rin_dark code](../assets/screenshots/yuruCamp/shima_rin_dark_code.png)
+
+Rising of the Shield Hero
+---
+
+### Raphtalia
+
+![raphtalia_dark code](../assets/screenshots/sheildHero/raphtalia_dark_code.png)
+
+
+A Certain Scientific RailGun
+---
+
+### Misaka Mikoto
+
+![mikoto_dark code](../assets/screenshots/railGun/mikoto_dark_code.png)
+
 
 NekoPara
 ---

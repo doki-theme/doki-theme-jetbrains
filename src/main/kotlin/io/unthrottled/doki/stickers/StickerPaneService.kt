@@ -121,7 +121,7 @@ class StickerPaneService {
   }
 
   private fun captureDialogWrapper(wrapper: DialogWrapperDialog) {
-    val drawablePane = wrapper.dialogWrapper.rootPane.layeredPane
+    val drawablePane = wrapper.dialogWrapper?.rootPane?.layeredPane ?: return
     val stickerPane = StickerPane(
       drawablePane,
       StickerType.SMOL,

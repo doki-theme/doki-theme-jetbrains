@@ -25,6 +25,7 @@ You can choose themes from various, Anime, Manga, or Visual Novels:
 
 - AzurLane
 - Blend S
+- Chuunibyou, Love, & Other Delusions
 - Daily Life with a Monster Girl
 - DanganRonpa
 - Doki-Doki Literature Club
@@ -46,8 +47,10 @@ You can choose themes from various, Anime, Manga, or Visual Novels:
 - OreGairu
 - Quintessential Quintuplets
 - Re:Zero
+- Rising of the Shield Hero
 - Steins Gate
 - Sword Art Online
+- Toaru Majutsu no Index
 - Yuru Camp
 
 ## Installation

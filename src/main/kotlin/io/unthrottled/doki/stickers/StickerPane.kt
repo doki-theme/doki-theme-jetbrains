@@ -6,6 +6,9 @@ import com.intellij.ui.components.JBLayeredPane
 import com.intellij.ui.jcef.HwFacadeJPanel
 import com.intellij.util.Alarm
 import io.unthrottled.doki.config.ThemeConfig
+import io.unthrottled.doki.util.Logging
+import io.unthrottled.doki.util.logger
+import io.unthrottled.doki.util.runSafely
 import io.unthrottled.doki.util.runSafelyWithResult
 import java.awt.Dimension
 import java.awt.Graphics
@@ -47,7 +50,7 @@ internal class StickerPane(
   val type: StickerType,
   initialMargin: Margin,
   private val stickerListener: StickerListener,
-) : HwFacadeJPanel(), Disposable {
+) : HwFacadeJPanel(), Disposable, Logging {
 
   private lateinit var stickerContent: JPanel
 
@@ -101,12 +104,7 @@ internal class StickerPane(
     override fun mouseClicked(e: MouseEvent?) {
       clickCount += 1
       if (clickCount > 1) {
-        stickerListener.onDoubleClick(
-          Margin(
-            (parentX - (this@StickerPane.x + this@StickerPane.width)) / parentX.toDouble(),
-            (parentY - (this@StickerPane.y + this@StickerPane.height)) / parentY.toDouble(),
-          )
-        )
+        stickerListener.onDoubleClick(captureMargin())
       }
       doubleClickAlarm.cancelAllRequests()
       doubleClickAlarm.addRequest(
@@ -124,11 +122,26 @@ internal class StickerPane(
       myY = y
     }
 
-    override fun mouseReleased(e: MouseEvent?) {}
+    override fun mouseReleased(e: MouseEvent?) {
+      saveMargin()
+    }
 
     override fun mouseEntered(e: MouseEvent?) {}
 
     override fun mouseExited(e: MouseEvent?) {}
+  }
+
+  private fun saveMargin() {
+    _margin = captureMargin()
+  }
+
+  private fun captureMargin(): Margin {
+    val stickerPos = location
+    val stickerSize = stickerContent.size
+    return Margin(
+      (parentX - (stickerPos.x + stickerSize.width)) / parentX.toDouble(),
+      (parentY - (stickerPos.y + stickerSize.height)) / parentY.toDouble(),
+    )
   }
 
   private val dragListener = object : MouseMotionListener {
@@ -152,11 +165,12 @@ internal class StickerPane(
           val layer = e.component
           if (layer !is JComponent) return
 
-          val deltaX = layer.width - parentX
-          val deltaY = layer.height - parentY
-          setLocation(x + deltaX, y + deltaY)
           parentX = layer.width
           parentY = layer.height
+          positionStickerPanel(
+            stickerContent.width,
+            stickerContent.height,
+          )
         }
       }
     )
@@ -179,7 +193,11 @@ internal class StickerPane(
   fun displaySticker(stickerUrl: String) {
     // clean up old sticker
     if (componentCount > 0) {
-      remove(0)
+      runSafely({
+        remove(0)
+      }) {
+        logger().warn("Unable to remove previous sticker for raisins.", it)
+      }
     }
 
     // allows the sticker to be

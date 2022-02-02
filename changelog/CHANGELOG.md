@@ -1,6 +1,24 @@
 Changelog
 ---
 
+# 74.1-1.0.0 [Synapse break. Vanishment, this world!]
+
+**4 New Dark Themes!**
+
+- Decimate errors in the code alongside the Wicked Lord Shingan. Let your inner fantasies go rampant with Rikka Takanashi from: "Love, Chuunibyou, and Other Delusions". 
+- It is comfy time! Don't let feature requests stress you out, because you can now code with Nadeshiko from Yuru Camp. 
+- A Certain Scientific RailGun go: bzzzzzzt. Zap bugs out of existence with the electromaster Mikoto Misaka.
+- Raccoon + Tanuki = one really cute cinnamon bun. Enjoy your time coding with Raphtalia from: "Rising of the Shield Hero."
+
+![v74 Girls](https://doki.assets.unthrottled.io/misc/v74_girls.png)
+
+### Other Stuff
+
+- Updated Syntax Highlight & Look and Feel changes for the following legacy themes: Ibuki Dark, Astolfo, Aqua, Natsuki Light, Hatsune Miku, Christmas Chocola, Emilia Dark, Beatrice, Ram, and Rem.
+- Added 2022.1 build support.
+- Increased the usability of the Search Highlight for light themes ([#485](https://github.com/doki-theme/doki-theme-jetbrains/issues/485)).
+- Fixed sticker re-positioning when you resize your window ([#482](https://github.com/doki-theme/doki-theme-jetbrains/issues/482)).
+
 # 22.3.0 [Sticker Position Persistence]
 
 - Added the ability to double-click movable stickers to save their relative position in the window.

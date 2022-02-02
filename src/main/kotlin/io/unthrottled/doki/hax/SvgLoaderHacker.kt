@@ -2,6 +2,7 @@ package io.unthrottled.doki.hax
 
 import com.intellij.util.SVGLoader
 import io.unthrottled.doki.icon.ColorPatcher
+import io.unthrottled.doki.themes.DokiTheme
 import java.net.URL
 import java.util.Optional
 
@@ -16,17 +17,18 @@ object SvgLoaderHacker {
   /**
    * Enables the ability to have more than one color patcher.
    */
-  fun setSVGColorPatcher() {
+  fun setSVGColorPatcher(dokiTheme: DokiTheme) {
     SVGLoader.setColorPatcherProvider(
       collectOtherPatcher()
         .map { patcher ->
-          ColorPatcher(patcher)
+          ColorPatcher(patcher, dokiTheme)
         }
         .orElseGet {
           ColorPatcher(
             object : PatcherProvider {
               override fun forURL(url: URL?): SVGLoader.SvgElementColorPatcher? = null
-            }
+            },
+            dokiTheme
           )
         }
     )

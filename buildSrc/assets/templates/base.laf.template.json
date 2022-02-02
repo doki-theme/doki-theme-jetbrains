@@ -2,8 +2,22 @@
   "type": "LAF",
   "name": "base",
   "ui": {
+    "*" : {
+      "selectionBackground": {
+        "os.default": "selectionBackground",
+        "os.windows": "selectionBackground",
+        "os.mac": "selectionBackground"
+      },
+      "selectionForeground": {
+        "os.default": "selectionForeground",
+        "os.windows": "selectionForeground",
+        "os.mac": "selectionForeground"
+      }
+    },
+
     "TitlePane.background": "baseBackground",
     "Panel.background": "baseBackground",
+    "ToolWindow.background": "baseBackground",
     "Button.background": "baseBackground",
     "Label.background": "baseBackground",
     "CheckBox.background": "baseBackground",
@@ -24,6 +38,7 @@
     "WelcomeScreen.List.background": "baseBackground",
     "WelcomeScreen.Details.background": "baseBackground",
     "window": "baseBackground",
+    "StatusBar.background": "baseBackground",
 
     "UIDesigner.Canvas.background": "textEditorBackground",
     "Content.background": "textEditorBackground",
@@ -161,6 +176,10 @@
     "OptionPane.questionDialog.titlePane.background": "headerColor",
     "OptionPane.warningDialog.border.background": "nonProjectFileScopeColor",
     "OptionPane.warningDialog.titlePane.background": "nonProjectFileScopeColor",
+
+    "NotificationsToolwindow.newNotification.background" : "lightEditorColor",
+    "NotificationsToolwindow.newNotification.hoverBackground" : "highlightColor",
+    "NotificationsToolwindow.Notification.hoverBackground" : "highlightColor",
 
     "Plugins.Tab.selectedBackground": "highlightColor",
     "TabbedPane.hoverColor": "highlightColor",

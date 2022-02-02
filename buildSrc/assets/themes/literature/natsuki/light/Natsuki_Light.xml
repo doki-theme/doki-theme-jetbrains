@@ -2,8 +2,6 @@
     <colors>
         <option name="LINE_NUMBERS_COLOR" value="$infoForeground$" />
         <option name="LINE_NUMBER_ON_CARET_ROW_COLOR" value="infoForeground" />
-        <option name="SELECTION_BACKGROUND" value="fad2f2"/>
-        <option name="SELECTION_FOREGROUND" value="f049da"/>
         <option name="VCS_ANNOTATIONS_COLOR_3" value="fbdde9"/>
         <option name="VCS_ANNOTATIONS_COLOR_4" value="f0c3e3"/>
         <option name="VCS_ANNOTATIONS_COLOR_5" value="fad2f2"/>

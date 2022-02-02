@@ -52,7 +52,6 @@ class TheDokiTheme : Disposable {
   private val connection = ApplicationManager.getApplication().messageBus.connect()
 
   init {
-    setSVGColorPatcher()
     hackLAF()
     installAllUIComponents()
 
@@ -63,6 +62,9 @@ class TheDokiTheme : Disposable {
       object : ApplicationActivationListener {
         override fun applicationActivated(ideFrame: IdeFrame) {
           userOnBoarding()
+          ThemeManager.instance.currentTheme.ifPresent {
+            setSVGColorPatcher(it)
+          }
         }
       }
     )
@@ -72,7 +74,7 @@ class TheDokiTheme : Disposable {
       LafManagerListener {
         ThemeManager.instance.currentTheme
           .doOrElse({
-            setSVGColorPatcher()
+            setSVGColorPatcher(it)
             installAllUIComponents()
             attemptToAddIcons()
             applyCustomFontSize()

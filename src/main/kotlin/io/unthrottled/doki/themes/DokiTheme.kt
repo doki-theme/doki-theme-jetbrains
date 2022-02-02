@@ -46,7 +46,10 @@ class JetBrainsThemeDefinition(
   val meta: Map<String, String>
 )
 
-class DokiTheme(private val uiTheme: JetBrainsThemeDefinition) {
+class DokiTheme(
+  private val uiTheme: JetBrainsThemeDefinition,
+  val version: String,
+) {
 
   init {
     validateThemeDefinition()

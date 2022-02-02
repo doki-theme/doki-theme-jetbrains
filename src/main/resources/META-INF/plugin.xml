@@ -35,6 +35,7 @@
     <themeProvider id="6106e529-efef-444d-9db0-a9b0b444cf1b" path="/doki/themes/blend_s/Maika.theme.json"/>
     <themeProvider id="0527c6fc-316a-4f80-9459-d92ced0e6492" path="/doki/themes/bunny_senpai/Mai_Dark.theme.json"/>
     <themeProvider id="98878c8e-9f91-4e25-930d-dd7d280d9e35" path="/doki/themes/bunny_senpai/Mai_Light.theme.json"/>
+    <themeProvider id="5412c41d-f76b-4488-85a7-1ae1a63bbfcc" path="/doki/themes/chuunibyou/Takanashi_Rikka.theme.json"/>
     <themeProvider id="420b0ed5-803c-4127-97e3-dae6aa1a5972" path="/doki/themes/danganronpa/Mioda_Ibuki_Dark.theme.json"/>
     <themeProvider id="697e8564-0975-4907-a34c-51f65177ebf3" path="/doki/themes/danganronpa/Mioda_Ibuki_Light.theme.json"/>
     <themeProvider id="ca45f54a-57cb-4d8c-82a6-d4b31c850bd6" path="/doki/themes/don't_toy_with_me_miss_nagatoro/Hayase_Nagatoro.theme.json"/>
@@ -90,16 +91,19 @@
     <themeProvider id="d96c6599-ebf8-4359-ae26-19f79b69e919" path="/doki/themes/quintessential_quintuplets/Nakano_Miku.theme.json"/>
     <themeProvider id="5e6a266f-c6d5-4891-a065-a2c2b857016a" path="/doki/themes/quintessential_quintuplets/Nakano_Nino.theme.json"/>
     <themeProvider id="3b11c8f4-d030-4a7e-a46f-b22d3e430a1d" path="/doki/themes/quintessential_quintuplets/Nakano_Yotsuba.theme.json"/>
+    <themeProvider id="01e61500-862c-41cd-b653-48d2ef7b1882" path="/doki/themes/toaru_majutsu_no_index/Misaka_Mikoto.theme.json"/>
     <themeProvider id="35422aa4-1396-4e76-8ec6-c5560884df22" path="/doki/themes/re_zero/Beatrice.theme.json"/>
     <themeProvider id="b4d08c16-a891-4186-884d-e469cba72e99" path="/doki/themes/re_zero/Echidna.theme.json"/>
     <themeProvider id="696de7c1-3a8e-4445-83ee-3eb7e9dca47f" path="/doki/themes/re_zero/Emilia_Dark.theme.json"/>
     <themeProvider id="e828aaae-aa8c-4084-8993-d64697146930" path="/doki/themes/re_zero/Emilia_Light.theme.json"/>
     <themeProvider id="ecb74f1c-8c84-40c4-916f-601039ba2af0" path="/doki/themes/re_zero/Ram.theme.json"/>
     <themeProvider id="f770dcfc-f41e-4b49-aa17-66e9ffc208fd" path="/doki/themes/re_zero/Rem.theme.json"/>
+    <themeProvider id="df23dabc-61eb-4559-a504-992786964602" path="/doki/themes/the_rising_of_shield_hero/Raphtalia.theme.json"/>
     <themeProvider id="d39df813-8701-463b-a964-b8cb7714d1cc" path="/doki/themes/steins_gate/Makise_Kurisu.theme.json"/>
     <themeProvider id="bac375a4-abb3-44d5-9bef-8039eb83fec0" path="/doki/themes/sword_art_online/Asuna_Dark.theme.json"/>
     <themeProvider id="546e8fb8-6082-4ef5-a5e3-44790686f02f" path="/doki/themes/sword_art_online/Asuna_Light.theme.json"/>
     <themeProvider id="5de1c901-2a12-411f-b75b-64e43aaf2c9d" path="/doki/themes/type-moon/Gray.theme.json"/>
+    <themeProvider id="d587f5ab-9334-4b7b-a99e-58461719d87b" path="/doki/themes/yuru_camp/Nadeshiko.theme.json"/>
     <themeProvider id="5fb9c0a4-e613-457c-97a5-6204f9076cef" path="/doki/themes/yuru_camp/Shima_Rin.theme.json"/>
   </extensions>
   <applicationListeners>

@@ -4,6 +4,7 @@ import com.intellij.ui.ColorUtil
 import com.intellij.ui.JBColor.namedColor
 import io.unthrottled.doki.hax.Patcher
 import io.unthrottled.doki.hax.PatcherProvider
+import io.unthrottled.doki.themes.DokiTheme
 import io.unthrottled.doki.themes.ThemeManager
 import io.unthrottled.doki.util.runSafely
 import io.unthrottled.doki.util.runSafelyWithResult
@@ -13,8 +14,12 @@ import java.awt.Color
 import java.net.URL
 
 class ColorPatcher(
-  private val otherColorPatcherProvider: PatcherProvider
+  private val otherColorPatcherProvider: PatcherProvider,
+  dokiTheme: DokiTheme
 ) : PatcherProvider {
+
+  private val patcherDigest =
+    (dokiTheme.id + dokiTheme.version).toByteArray(Charsets.UTF_8)
 
   override fun forPath(path: String?) =
     buildHackedPatcher(
@@ -37,6 +42,7 @@ class ColorPatcher(
   private fun buildHackedPatcher(
     otherPatcher: Patcher?
   ): Patcher {
+
     val self = this
     return object : Patcher {
       override fun patchColors(svg: Element) {
@@ -44,7 +50,7 @@ class ColorPatcher(
       }
 
       override fun digest(): ByteArray? {
-        return null
+        return patcherDigest
       }
     }
   }

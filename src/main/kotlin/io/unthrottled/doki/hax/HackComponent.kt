@@ -98,6 +98,7 @@ object HackComponent : Disposable {
 
   private fun enableSelectionConsistency() {
     hackWelcomeScreen()
+    hackSearchHighlight()
   }
 
   private fun enableHoverConsistency() {
@@ -152,6 +153,33 @@ object HackComponent : Disposable {
       ctClass.toClass()
     }) {
       log.warn("Unable to hackLivePreview for reasons.")
+    }
+  }
+
+  private fun hackSearchHighlight() {
+    runSafely({
+      val cp = ClassPool(true)
+      cp.insertClassPath(
+        ClassClassPath(
+          Class.forName("com.intellij.ui.SideBorder")
+        )
+      )
+      val ctClass = cp.get("com.intellij.ui.SimpleColoredComponent")
+      val doPaintText = ctClass.getDeclaredMethods("doPaintText")[0]
+      doPaintText.instrument(
+        object : ExprEditor() {
+          override fun edit(e: NewExpr?) {
+            if (e?.className == "com.intellij.ui.JBColor") {
+              e.replace(
+                "{ \$_ = com.intellij.ui.JBColor.namedColor(\"Panel.background\", com.intellij.ui.JBColor.BLACK); }"
+              )
+            }
+          }
+        }
+      )
+      ctClass.toClass()
+    }) {
+      log.warn("Unable to hackSearchHighlight for reasons.")
     }
   }
 
@@ -834,6 +862,10 @@ object HackComponent : Disposable {
         object : ExprEditor() {
           override fun edit(e: NewExpr?) {
             e?.replace("{ \$_ = com.intellij.util.ui.UIUtil.getPanelBackground(); }")
+          }
+
+          override fun edit(m: MethodCall?) {
+            m?.replace("{ \$_ = com.intellij.util.ui.UIUtil.getPanelBackground(); }")
           }
         }
       )

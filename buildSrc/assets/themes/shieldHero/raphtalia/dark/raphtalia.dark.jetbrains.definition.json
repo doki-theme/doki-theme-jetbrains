@@ -1,0 +1,18 @@
+{
+  "id": "df23dabc-61eb-4559-a504-992786964602",
+  "editorScheme": {
+    "type": "template",
+    "name": "Doki Dim"
+  },
+  "overrides": {},
+  "ui": {
+    "CompletionPopup.matchForeground": "keywordColor"
+  },
+  "uiBase": "dark dim",
+  "backgrounds": {
+    "default": {
+      "opacity": 11,
+      "position": "MIDDLE_RIGHT"
+    }
+  }
+}
