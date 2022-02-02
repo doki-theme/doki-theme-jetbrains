@@ -1,4 +1,4 @@
-# 74.0-1.0.0 [Synapse break. Vanishment, this world!]
+# 74.1-1.0.0 [Synapse break. Vanishment, this world!]
 
 **4 New Dark Themes!**
 
