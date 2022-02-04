@@ -1217,18 +1217,18 @@
     <option name="LESS_VARIABLE" baseAttributes="DEFAULT_INSTANCE_FIELD"/>
     <option name="LINE_FULL_COVERAGE">
       <value>
-        <option name="BACKGROUND" value="204b21"/>
+        <option name="BACKGROUND" value="$diff.inserted$"/>
       </value>
     </option>
     <option name="LINE_NONE_COVERAGE">
       <value>
-        <option name="BACKGROUND" value="673E41"/>
+        <option name="BACKGROUND" value="$diff.conflict$"/>
         <option name="EFFECT_TYPE" value="3"/>
       </value>
     </option>
     <option name="LINE_PARTIAL_COVERAGE">
       <value>
-        <option name="BACKGROUND" value="25354B"/>
+        <option name="BACKGROUND" value="$diff.modified$"/>
       </value>
     </option>
     <option name="LOG_DEBUG_OUTPUT">
