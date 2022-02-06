@@ -1,1 +1,2 @@
+- Fixed issue when sticker is turned off and window is resized, or when project starts. Thank you for all who reported the issue! ([#489](https://github.com/doki-theme/doki-theme-jetbrains/issues/489))
 - Increased usability of showing code coverage from tests in the editor.
