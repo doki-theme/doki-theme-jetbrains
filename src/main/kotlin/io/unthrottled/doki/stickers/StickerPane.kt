@@ -168,7 +168,7 @@ internal class StickerPane(
           parentX = layer.width
           parentY = layer.height
 
-          if(this@StickerPane::stickerContent.isInitialized.not()) return
+          if (this@StickerPane::stickerContent.isInitialized.not()) return
 
           positionStickerPanel(
             stickerContent.width,
@@ -314,10 +314,10 @@ internal class StickerPane(
 
   private fun getScaledDimension(): Dimension {
     val stickerContentSize =
-      if(this@StickerPane::stickerContent.isInitialized) {
-      this@StickerPane.stickerContent.size
+      if (this@StickerPane::stickerContent.isInitialized) {
+        this@StickerPane.stickerContent.size
       } else {
-        Dimension(0,0)
+        Dimension(0, 0)
       }
     return Dimension(
       (stickerContentSize.width / currentScaleX).toInt(),
