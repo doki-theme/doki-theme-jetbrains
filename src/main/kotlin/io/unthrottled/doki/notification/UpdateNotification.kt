@@ -178,7 +178,11 @@ private fun buildUpdateMessage(
           z-index: 0;
           top: 0;
           left: 0;
-          background: url('https://doki.assets.unthrottled.io/backgrounds/wallpapers/transparent/smol/${background.name}') ${getAnchor(background.position)};
+          background: url('https://doki.assets.unthrottled.io/backgrounds/wallpapers/transparent/smol/${background.name}') ${
+  getAnchor(
+    background.position
+  )
+  };
           background-size: cover;
         }
 

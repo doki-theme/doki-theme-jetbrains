@@ -59,7 +59,7 @@ internal class StickerPane(
       field = value
       if (value) {
         this.size = getScaledDimension()
-      } else {
+      } else if (this::stickerContent.isInitialized) {
         this.size = stickerContent.size
       }
       positionStickerPanel(
@@ -167,6 +167,9 @@ internal class StickerPane(
 
           parentX = layer.width
           parentY = layer.height
+
+          if (this@StickerPane::stickerContent.isInitialized.not()) return
+
           positionStickerPanel(
             stickerContent.width,
             stickerContent.height,
@@ -310,9 +313,15 @@ internal class StickerPane(
   }
 
   private fun getScaledDimension(): Dimension {
+    val stickerContentSize =
+      if (this@StickerPane::stickerContent.isInitialized) {
+        this@StickerPane.stickerContent.size
+      } else {
+        Dimension(0, 0)
+      }
     return Dimension(
-      (this@StickerPane.stickerContent.width / currentScaleX).toInt(),
-      (this@StickerPane.stickerContent.height / currentScaleY).toInt(),
+      (stickerContentSize.width / currentScaleX).toInt(),
+      (stickerContentSize.height / currentScaleY).toInt(),
     )
   }
 
