@@ -63,7 +63,7 @@ Rising of the Shield Hero
 
 ### Raphtalia
 
-![raphtalia_dark code](../assets/screenshots/sheildHero/raphtalia_dark_code.png)
+![raphtalia_dark code](../assets/screenshots/shieldHero/raphtalia_dark_code.png)
 
 
 A Certain Scientific RailGun
