@@ -26,9 +26,15 @@ data class ThemeTemplateDefinition(
   val colors: Map<String, String>?
 )
 
+data class BuildSticker(
+  val name: String,
+  val anchor: String,
+  val opacity: Int,
+)
+
 data class BuildStickers(
-  val default: String,
-  val secondary: String?
+  val default: BuildSticker,
+  val secondary: BuildSticker?
 )
 
 data class EditorSchemeOverrides(

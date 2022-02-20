@@ -354,22 +354,33 @@ open class BuildThemes : DefaultTask() {
 
     val defaultStickerPath = get(
       dokiThemeDefinitionPath.parent.toString(),
-      stickers.default
+      stickers.default.name
     ).toString()
 
     val secondarySticker = Optional.ofNullable(stickers.secondary)
 
     val secondaryStickerPath = secondarySticker
-      .map { get(localStickerPath.toString(), it) }
+      .map { get(localStickerPath.toString(), it.name) }
       .map {
-        get(dokiThemeDefinitionPath.parent.toString(), stickers.secondary).toString()
+        get(dokiThemeDefinitionPath.parent.toString(), stickers.secondary?.name).toString()
       }
 
     val defaultStickerResourcesPath =
       getStickerDefinitionPath(defaultStickerPath)
     return BuildStickers(
-      sanitizePath(defaultStickerResourcesPath),
-      secondaryStickerPath.map { sanitizePath(getStickerDefinitionPath(it)) }.orElseGet { null }
+      BuildSticker(
+        sanitizePath(defaultStickerResourcesPath),
+        stickers.default.anchor,
+        stickers.default.opacity,
+      ),
+      secondaryStickerPath.map {
+        BuildSticker(
+          sanitizePath(getStickerDefinitionPath(it)),
+          stickers.secondary!!.anchor,
+          stickers.secondary.opacity
+        )
+
+      }.orElseGet { null }
     )
   }
 
@@ -379,12 +390,14 @@ open class BuildThemes : DefaultTask() {
     dokiThemeDefinitionPath: Path
   ): Backgrounds {
     val stickers = remapStickers(masterThemeDefinition, dokiThemeDefinitionPath)
-    val defaultBackground = jetbrainsThemeDefinition.backgrounds?.default
-    val secondaryBackground = jetbrainsThemeDefinition.backgrounds?.secondary
     return Backgrounds(
       Optional.ofNullable(defaultBackground)
         .map {
-          Background(it.name ?: stickers.default.getStickerName(), it.position ?: "CENTER", it.opacity)
+          Background(
+            masterThemeDefinition.stickers.default.name,
+            stickers.default.anchor,
+            it.opacity
+          )
         }
         .orElse(
           Background(
