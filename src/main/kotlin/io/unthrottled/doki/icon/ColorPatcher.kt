@@ -14,49 +14,56 @@ import org.w3c.dom.Element
 import java.awt.Color
 import java.net.URL
 
+object NoOptPatcher: Patcher {
+  override fun patchColors(svg: Element) {}
+  val byteArray = ByteArray(0)
+  override fun digest(): ByteArray {
+    return byteArray
+  }
+}
+
 class ColorPatcher(
-  private val otherColorPatcherProviders: Collection<PatcherProvider>,
+  private val otherColorPatcherProvider: PatcherProvider,
   dokiTheme: DokiTheme
 ) : PatcherProvider {
+
+  companion object {
+    private val emptyByteArray = ByteArray(0)
+  }
 
   private val patcherDigest =
     (dokiTheme.id + dokiTheme.version).toByteArray(Charsets.UTF_8)
 
   override fun forPath(path: String?) =
     buildHackedPatcher(
-      otherColorPatcherProviders.mapNotNull { otherColorPatcherProvider ->
-        runSafelyWithResult({
-          otherColorPatcherProvider.forPath(path)
-        }) {
-          null
-        }
+      runSafelyWithResult({
+        otherColorPatcherProvider.forPath(path)
+      }) {
+        null
       }
     )
 
   override fun forURL(url: URL?) =
     buildHackedPatcher(
-      otherColorPatcherProviders.mapNotNull { otherColorPatcherProvider ->
-        runSafelyWithResult({
-          otherColorPatcherProvider.forURL(url)
-        }) {
-          null
-        }
+      runSafelyWithResult({
+        otherColorPatcherProvider.forURL(url)
+      }) {
+        null
       }
     )
-
   private fun buildHackedPatcher(
-    otherPatchers: List<Patcher>
+    otherPatcher: Patcher?
   ): Patcher {
 
     val self = this
     return object : Patcher {
       override fun patchColors(svg: Element) {
-        self.patchColors(svg, otherPatchers)
+        self.patchColors(svg, otherPatcher)
       }
 
       override fun digest(): ByteArray? {
         val shaDigest = DigestUtil.sha512()
-        otherPatchers.forEach { shaDigest.update(it.digest()) }
+        shaDigest.update(otherPatcher?.digest() ?: emptyByteArray)
         shaDigest.update(patcherDigest)
         return shaDigest.digest()
       }
@@ -65,20 +72,18 @@ class ColorPatcher(
 
   fun patchColors(
     svg: Element,
-    otherPatchers: List<Patcher>
+    otherPatcher: Patcher?
   ) {
-    otherPatchers.forEach { otherPatcher ->
-      runSafely({
-        otherPatcher?.patchColors(svg)
-      })
-    }
+    runSafely({
+      otherPatcher?.patchColors(svg)
+    })
     patchChildren(
       svg,
-      otherPatchers
+      otherPatcher
     )
   }
 
-  private fun patchChildren(svg: Element, otherPatchers: List<Patcher>) {
+  private fun patchChildren(svg: Element, otherPatcher: Patcher?) {
     patchAccent(svg.getAttribute("accentTint"), svg) {
       it.toHexString()
     }
@@ -123,7 +128,7 @@ class ColorPatcher(
     for (i in 0 until length) {
       val item = nodes.item(i)
       if (item is Element) {
-        patchColors(item, otherPatchers)
+        patchColors(item, otherPatcher)
       }
     }
   }
