@@ -41,6 +41,7 @@ val noOptPatcherProvider = object : PatcherProvider {
   }
 }
 
+@Suppress("TooManyFunctions")
 object ColorPatcher : PatcherProvider {
 
   private var otherColorPatcherProvider: PatcherProvider = noOptPatcherProvider
@@ -85,9 +86,10 @@ object ColorPatcher : PatcherProvider {
       url?.toString() ?: "ayyLmao"
     )
 
-  private val patcherCache: Cache<String, Patcher> = CacheBuilder.newBuilder()
-    .expireAfterWrite(Duration.ofMinutes(1))
-    .build()
+  private val patcherCache: Cache<String, Patcher> =
+    CacheBuilder.newBuilder()
+      .expireAfterWrite(Duration.ofMinutes(1))
+      .build()
 
   private fun buildHackedPatcher(
     otherPatchers: List<Patcher>,
@@ -111,8 +113,6 @@ object ColorPatcher : PatcherProvider {
           } finally {
             svgCache.remove(svg)
           }
-        } else {
-          println("already patching bruv")
         }
       }
 
@@ -122,7 +122,7 @@ object ColorPatcher : PatcherProvider {
           shaDigest.update(otherPatcher.digest() ?: emptyByteArray)
         }
         if (ColorPatcher::dokiTheme.isInitialized) {
-          shaDigest.update((dokiTheme.id + dokiTheme.version + "hax5").toByteArray(Charsets.UTF_8))
+          shaDigest.update((dokiTheme.id + dokiTheme.version).toByteArray(Charsets.UTF_8))
         } else {
           shaDigest.update(this.toString().toByteArray(Charsets.UTF_8))
         }
@@ -234,11 +234,16 @@ object ColorPatcher : PatcherProvider {
       .ifPresent {
         this.uiColorPatcherProvider = it.theme.colorPatcher
       }
-    this.patcherCache.invalidateAll()
+    clearCaches()
   }
 
   fun setOtherPatcher(otherPatcher: PatcherProvider) {
     this.otherColorPatcherProvider = otherPatcher
+    clearCaches()
+  }
+
+  private fun clearCaches() {
     this.patcherCache.invalidateAll()
+    this.patcherProviderCache.clear()
   }
 }

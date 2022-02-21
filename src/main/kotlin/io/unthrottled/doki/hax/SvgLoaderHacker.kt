@@ -3,14 +3,12 @@ package io.unthrottled.doki.hax
 import com.intellij.util.SVGLoader
 import io.unthrottled.doki.icon.ColorPatcher
 import io.unthrottled.doki.themes.DokiTheme
-import java.net.URL
 import java.util.Optional
 
 typealias PatcherProvider = SVGLoader.SvgElementColorPatcherProvider
 typealias Patcher = SVGLoader.SvgElementColorPatcher
 
 object SvgLoaderHacker {
-
 
   /**
    * Enables the ability to have more than one color patcher.
@@ -41,5 +39,4 @@ object SvgLoaderHacker {
         val otherPatcher = it as PatcherProvider
         otherPatcher
       }
-
 }
