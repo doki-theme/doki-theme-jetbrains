@@ -317,7 +317,7 @@ internal class StickerPane(
       if (this@StickerPane::stickerContent.isInitialized) {
         this@StickerPane.stickerContent.size
       } else {
-        Dimension(0, 0)
+        Dimension(1, 1)
       }
     return Dimension(
       (stickerContentSize.width / currentScaleX).toInt(),
@@ -359,10 +359,10 @@ internal class StickerPane(
             reader.input = it
             Dimension(reader.getWidth(0), reader.getHeight(0))
           } else {
-            Dimension(0, 0)
+            Dimension(1, 1)
           }
         }
-    }) { Dimension(0, 0) }
+    }) { Dimension(1, 1) }
 
   private fun positionStickerPanel(width: Int, height: Int) {
     val (x, y) = getPosition(

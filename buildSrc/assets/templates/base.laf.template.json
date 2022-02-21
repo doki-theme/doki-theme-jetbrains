@@ -55,6 +55,7 @@
     "ToolTip.borderColor": "borderColor",
 
     "TextField.background": "secondaryBackground",
+    "Editor.SearchField.background": "secondaryBackground",
     "Plugins.SearchField.background": "secondaryBackground",
     "TextPane.background": "secondaryBackground",
     "TextArea.background": "secondaryBackground",
