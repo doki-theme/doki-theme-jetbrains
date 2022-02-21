@@ -274,7 +274,6 @@ open class BuildThemes : DefaultTask() {
       stickers = buildJetbrainsStickers(themeDefinition, dokiThemeDefinitionPath),
       backgrounds = getBackgrounds(
         themeDefinition,
-        dokiThemeDefinitionPath
       ),
       colors = createColors(
         colors,
@@ -365,7 +364,7 @@ open class BuildThemes : DefaultTask() {
       getStickerDefinitionPath(defaultStickerPath)
     return BuildStickers(
       BuildSticker(
-      sanitizePath(defaultStickerResourcesPath),
+        sanitizePath(defaultStickerResourcesPath),
         stickers.default.anchor,
         stickers.default.opacity,
       ),
@@ -380,27 +379,24 @@ open class BuildThemes : DefaultTask() {
     )
   }
 
-  private fun translateAnchor(anchor: String): String {
-    return when(anchor) {
+  private fun translateAnchor(anchor: String): String =
+    when (anchor) {
       "right" -> "MIDDLE_RIGHT"
       "left" -> "MIDDLE_LEFT"
       else -> "CENTER"
     }
-  }
 
   private fun getBackgrounds(
     masterThemeDefinition: DokiBuildMasterThemeDefinition,
-    dokiThemeDefinitionPath: Path
   ): Backgrounds {
     val defaultSticker = masterThemeDefinition.stickers.default
     val defaultAnchor = defaultSticker.anchor
     return Backgrounds(
-          Background(
-            defaultSticker.name,
-            translateAnchor(defaultAnchor),
-            defaultSticker.opacity
-          )
-        ,
+      Background(
+        defaultSticker.name,
+        translateAnchor(defaultAnchor),
+        defaultSticker.opacity
+      ),
       Optional.ofNullable(masterThemeDefinition.stickers.secondary)
         .map {
           Background(
