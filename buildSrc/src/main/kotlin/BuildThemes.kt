@@ -274,6 +274,7 @@ open class BuildThemes : DefaultTask() {
       stickers = buildJetbrainsStickers(themeDefinition, dokiThemeDefinitionPath),
       backgrounds = getBackgrounds(
         themeDefinition,
+        jetbrainsDefinition,
       ),
       colors = createColors(
         colors,
@@ -388,12 +389,13 @@ open class BuildThemes : DefaultTask() {
 
   private fun getBackgrounds(
     masterThemeDefinition: DokiBuildMasterThemeDefinition,
+    jetbrainsDefinition: DokiBuildJetbrainsThemeDefinition,
   ): Backgrounds {
     val defaultSticker = masterThemeDefinition.stickers.default
     val defaultAnchor = defaultSticker.anchor
     return Backgrounds(
       Background(
-        defaultSticker.name,
+        jetbrainsDefinition.backgrounds?.default?.name ?: defaultSticker.name,
         translateAnchor(defaultAnchor),
         defaultSticker.opacity
       ),
