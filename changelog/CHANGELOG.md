@@ -1,6 +1,11 @@
 Changelog
 ---
 
+# 74.1-1.0.3 [Better IDE Performance]
+
+- Fixed IDE performance issue when the Doki Theme & the [SSV Normandy Progress Bar](https://plugins.jetbrains.com/plugin/12025-ssv-normandy-progress-bar/versions/stable/143942?preview=true) are installed.
+- Fixed reported issue when stickers are turned off, and dimension has a width & height of 0. 
+
 # 74.1-1.0.2 [Sticker BugFix]
 
 - Fixed issue when sticker is turned off and window is resized, or when project starts. Thank you for all who reported the issue! ([#489](https://github.com/doki-theme/doki-theme-jetbrains/issues/489)) 
