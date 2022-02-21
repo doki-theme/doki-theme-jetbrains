@@ -32,6 +32,12 @@ data class BuildSticker(
   val opacity: Int,
 )
 
+data class JetbrainsStickers(
+  val default: String,
+  val secondary: String?
+)
+
+
 data class BuildStickers(
   val default: BuildSticker,
   val secondary: BuildSticker?
@@ -94,7 +100,7 @@ data class JetbrainsThemeDefinition(
   val author: String?,
   val editorScheme: String,
   val group: String,
-  val stickers: BuildStickers,
+  val stickers: JetbrainsStickers,
   val backgrounds: Backgrounds,
   val colors: Map<String, Any>,
   val ui: Map<String, Any>,

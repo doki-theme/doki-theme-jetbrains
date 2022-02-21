@@ -11,14 +11,41 @@
       ]
     },
     "sticker": {
-      "type": "string",
-      "pattern": "^.+\\.png$",
-      "title": "Sticker File Name",
-      "description": "The name of the background image that is in the same directory as the definition",
-      "default": "just_monika.png",
-      "examples": [
-        "just_monika.png"
-      ]
+      "type": "object",
+      "required": [
+
+      ],
+      "properties": {
+       "name": {
+         "type": "string",
+         "pattern": "^.+\\.png$",
+         "title": "Sticker File Name",
+         "description": "The name of the background image that is in the same directory as the definition",
+         "default": "just_monika.png",
+         "examples": [
+           "just_monika.png"
+         ]
+       },
+        "anchor": {
+          "type": "string",
+          "pattern": "^(left)|(right)|(center)$",
+          "title": "Asset Anchor",
+          "description": "The background anchor to be used for the wallpaper asset.",
+          "default": "right",
+          "examples": [
+            "left", "right", "center"
+          ]
+        },
+        "opacity": {
+          "type": "number",
+          "title": "Asset Opacity",
+          "description": "The default opacity to be used for the wallpaper asset.",
+          "default": 10,
+          "examples": [
+            7, 10
+          ]
+        }
+      }
     }
   },
   "type": "object",

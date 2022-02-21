@@ -271,10 +271,7 @@ open class BuildThemes : DefaultTask() {
         resolvedNamedColors
       ),
       group = themeDefinition.group,
-      stickers = remapStickers(
-        themeDefinition,
-        dokiThemeDefinitionPath
-      ),
+      stickers = buildJetbrainsStickers(themeDefinition, dokiThemeDefinitionPath),
       backgrounds = getBackgrounds(
         themeDefinition,
         dokiThemeDefinitionPath
@@ -395,7 +392,6 @@ open class BuildThemes : DefaultTask() {
     masterThemeDefinition: DokiBuildMasterThemeDefinition,
     dokiThemeDefinitionPath: Path
   ): Backgrounds {
-    val stickers = remapStickers(masterThemeDefinition, dokiThemeDefinitionPath)
     val defaultSticker = masterThemeDefinition.stickers.default
     val defaultAnchor = defaultSticker.anchor
     return Backgrounds(
@@ -414,6 +410,19 @@ open class BuildThemes : DefaultTask() {
           )
         }
         .orElse(null)
+    )
+  }
+
+  private fun buildJetbrainsStickers(
+    themeDefinition: DokiBuildMasterThemeDefinition,
+    dokiThemeDefinitionPath: Path
+  ): JetbrainsStickers {
+    val remapStickers = remapStickers(
+      themeDefinition,
+      dokiThemeDefinitionPath
+    )
+    return JetbrainsStickers(
+      remapStickers.default.name, remapStickers.secondary?.name
     )
   }
 
