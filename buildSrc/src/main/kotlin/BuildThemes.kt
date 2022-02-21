@@ -277,7 +277,6 @@ open class BuildThemes : DefaultTask() {
       ),
       backgrounds = getBackgrounds(
         themeDefinition,
-        jetbrainsDefinition,
         dokiThemeDefinitionPath
       ),
       colors = createColors(
@@ -369,7 +368,7 @@ open class BuildThemes : DefaultTask() {
       getStickerDefinitionPath(defaultStickerPath)
     return BuildStickers(
       BuildSticker(
-        sanitizePath(defaultStickerResourcesPath),
+      sanitizePath(defaultStickerResourcesPath),
         stickers.default.anchor,
         stickers.default.opacity,
       ),
@@ -384,44 +383,35 @@ open class BuildThemes : DefaultTask() {
     )
   }
 
+  private fun translateAnchor(anchor: String): String {
+    return when(anchor) {
+      "right" -> "MIDDLE_RIGHT"
+      "left" -> "MIDDLE_LEFT"
+      else -> "CENTER"
+    }
+  }
+
   private fun getBackgrounds(
     masterThemeDefinition: DokiBuildMasterThemeDefinition,
-    jetbrainsThemeDefinition: DokiBuildJetbrainsThemeDefinition,
     dokiThemeDefinitionPath: Path
   ): Backgrounds {
     val stickers = remapStickers(masterThemeDefinition, dokiThemeDefinitionPath)
+    val defaultSticker = masterThemeDefinition.stickers.default
+    val defaultAnchor = defaultSticker.anchor
     return Backgrounds(
-      Optional.ofNullable(defaultBackground)
+          Background(
+            defaultSticker.name,
+            translateAnchor(defaultAnchor),
+            defaultSticker.opacity
+          )
+        ,
+      Optional.ofNullable(masterThemeDefinition.stickers.secondary)
         .map {
           Background(
-            masterThemeDefinition.stickers.default.name,
-            stickers.default.anchor,
+            it.name,
+            translateAnchor(it.anchor),
             it.opacity
           )
-        }
-        .orElse(
-          Background(
-            stickers.default.getStickerName(),
-            "CENTER"
-          )
-        ),
-      Optional.ofNullable(secondaryBackground)
-        .map {
-          Background(
-            it.name ?: stickers.secondary?.getStickerName() ?: stickers.default.getStickerName(),
-            it.position ?: "CENTER",
-            it.opacity
-          )
-        }
-        .map { Optional.of(it) }
-        .orElseGet {
-          Optional.ofNullable(stickers.secondary)
-            .map {
-              Background(
-                it?.getStickerName() ?: stickers.default.getStickerName(),
-                "CENTER"
-              )
-            }
         }
         .orElse(null)
     )
