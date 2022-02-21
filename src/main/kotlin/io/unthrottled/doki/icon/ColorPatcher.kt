@@ -53,7 +53,7 @@ object ColorPatcher : PatcherProvider {
   override fun forPath(path: String?): Patcher {
     val safeKey = path ?: "ayyLmao"
     return if (patcherProviderCache.add(safeKey)) {
-      val buildHackedPatcher = buildHackedPatcher(
+      val hackedPatcher = buildHackedPatcher(
         listOf(otherColorPatcherProvider, uiColorPatcherProvider)
           .distinct()
           .mapNotNull { patcherProvider ->
@@ -66,25 +66,33 @@ object ColorPatcher : PatcherProvider {
         safeKey
       )
       patcherProviderCache.remove(safeKey)
-      buildHackedPatcher
+      hackedPatcher
     } else {
       NoOptPatcher
     }
   }
 
-  override fun forURL(url: URL?) =
-    buildHackedPatcher(
-      listOf(otherColorPatcherProvider, uiColorPatcherProvider)
-        .distinct()
-        .mapNotNull { patcherProvider ->
-          runSafelyWithResult({
-            patcherProvider.forURL(url)
-          }) {
-            null
-          }
-        },
-      url?.toString() ?: "ayyLmao"
-    )
+  override fun forURL(url: URL?): Patcher? {
+    val safeKey = url?.toString() ?: "ayyLmao"
+    return if (patcherProviderCache.add(safeKey)) {
+      val hackedPatcher = buildHackedPatcher(
+        listOf(otherColorPatcherProvider, uiColorPatcherProvider)
+          .distinct()
+          .mapNotNull { patcherProvider ->
+            runSafelyWithResult({
+              patcherProvider.forURL(url)
+            }) {
+              null
+            }
+          },
+        safeKey
+      )
+      patcherProviderCache.remove(safeKey)
+      hackedPatcher
+    } else {
+      NoOptPatcher
+    }
+  }
 
   private val patcherCache: Cache<String, Patcher> =
     CacheBuilder.newBuilder()
@@ -95,13 +103,13 @@ object ColorPatcher : PatcherProvider {
     otherPatchers: List<Patcher>,
     patcherKey: String,
   ): Patcher {
-    val ifPresent = patcherCache.getIfPresent(patcherKey)
-    if (ifPresent !== null) {
-      return ifPresent
+    val cachedPatcher = patcherCache.getIfPresent(patcherKey)
+    if (cachedPatcher !== null) {
+      return cachedPatcher
     }
 
     val self = this
-    val value = object : Patcher {
+    val recursionResistentPatcher = object : Patcher {
       private val svgCache = HashSet<Element>()
 
       override fun patchColors(svg: Element) {
@@ -130,9 +138,9 @@ object ColorPatcher : PatcherProvider {
       }
     }
 
-    patcherCache.put(patcherKey, value)
+    patcherCache.put(patcherKey, recursionResistentPatcher)
 
-    return value
+    return recursionResistentPatcher
   }
 
   fun patchColors(
@@ -150,7 +158,10 @@ object ColorPatcher : PatcherProvider {
     )
   }
 
-  private fun patchChildren(svg: Element, otherPatchers: List<Patcher>) {
+  private fun patchChildren(
+    svg: Element,
+    otherPatchers: List<Patcher>
+  ) {
     patchAccent(svg.getAttribute("accentTint"), svg) {
       it.toHexString()
     }
