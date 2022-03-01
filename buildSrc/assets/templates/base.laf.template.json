@@ -717,6 +717,7 @@
     "/images/psiToolWindow.png": "/icons/plugins/psi/images/psiToolWindow.svg",
     "/org/jetbrains/plugins/jumpToLine/nextStatement.svg":  "/icons/plugins/jumpToLine/nextStatement.svg",
     "/org/jetbrains/plugins/jumpToLine/nextStatementFail.svg": "/icons/plugins/jumpToLine/nextStatementFail.svg",
+    "/org/jetbrains/plugins/cucumber/icons/cucumber.svg": "/icons/plugins/cucumber/cucumber.svg",
     "/org/jetbrains/kotlin/idea/icons/abstractClassKotlin.svg": "/icons/plugins/kotlin/abstractClassKotlin.svg",
     "/org/jetbrains/kotlin/idea/icons/annotationKotlin.svg":"/icons/plugins/kotlin/annotationKotlin.svg",
     "/org/jetbrains/kotlin/idea/icons/classInitializerKotlin.svg": "/icons/plugins/kotlin/classInitializerKotlin.svg",
