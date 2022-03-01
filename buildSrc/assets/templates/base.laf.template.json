@@ -761,6 +761,8 @@
     "/toolwindows/toolWindowFavorites.svg": "/icons/toolwindows/toolWindowFavorites.svg",
     "/toolwindows/infoEvents.svg": "/icons/toolwindows/infoEvents.svg",
     "/toolwindows/infoEvents_dark.svg": "/icons/toolwindows/infoEvents_dark.svg",
+    "/toolwindows/notificationsNewImportant.svg": "/icons/toolwindows/notificationsNewImportant.svg",
+    "/toolwindows/notificationsNewImportant_dark.svg": "/icons/toolwindows/notificationsNewImportant_dark.svg",
     "/welcome/createNewProject.svg": "/icons/welcome/createNewProject.svg",
     "/welcome/createNewProject_dark.svg": "/icons/welcome/createNewProject_dark.svg",
     "/vcs/author.svg": "/icons/vcs/author.svg",
