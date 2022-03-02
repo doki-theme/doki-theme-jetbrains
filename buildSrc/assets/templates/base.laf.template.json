@@ -50,9 +50,10 @@
     "SpeedSearch.background": "contrastColor",
     "SpeedSearch.borderColor": "contrastColor",
     "ToolTip.background": "contrastColor",
-    "ToolTip.Actions.background": "contrastColor",
     "Canvas.Tooltip.background": "contrastColor",
     "ToolTip.borderColor": "borderColor",
+
+    "ToolTip.Actions.background": "lightEditorColor",
 
     "TextField.background": "secondaryBackground",
     "Editor.SearchField.background": "secondaryBackground",
