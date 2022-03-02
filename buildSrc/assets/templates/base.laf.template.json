@@ -50,9 +50,10 @@
     "SpeedSearch.background": "contrastColor",
     "SpeedSearch.borderColor": "contrastColor",
     "ToolTip.background": "contrastColor",
-    "ToolTip.Actions.background": "contrastColor",
     "Canvas.Tooltip.background": "contrastColor",
     "ToolTip.borderColor": "borderColor",
+
+    "ToolTip.Actions.background": "lightEditorColor",
 
     "TextField.background": "secondaryBackground",
     "Editor.SearchField.background": "secondaryBackground",
@@ -717,6 +718,7 @@
     "/images/psiToolWindow.png": "/icons/plugins/psi/images/psiToolWindow.svg",
     "/org/jetbrains/plugins/jumpToLine/nextStatement.svg":  "/icons/plugins/jumpToLine/nextStatement.svg",
     "/org/jetbrains/plugins/jumpToLine/nextStatementFail.svg": "/icons/plugins/jumpToLine/nextStatementFail.svg",
+    "/org/jetbrains/plugins/cucumber/icons/cucumber.svg": "/icons/plugins/cucumber/cucumber.svg",
     "/org/jetbrains/kotlin/idea/icons/abstractClassKotlin.svg": "/icons/plugins/kotlin/abstractClassKotlin.svg",
     "/org/jetbrains/kotlin/idea/icons/annotationKotlin.svg":"/icons/plugins/kotlin/annotationKotlin.svg",
     "/org/jetbrains/kotlin/idea/icons/classInitializerKotlin.svg": "/icons/plugins/kotlin/classInitializerKotlin.svg",
@@ -760,6 +762,8 @@
     "/toolwindows/toolWindowFavorites.svg": "/icons/toolwindows/toolWindowFavorites.svg",
     "/toolwindows/infoEvents.svg": "/icons/toolwindows/infoEvents.svg",
     "/toolwindows/infoEvents_dark.svg": "/icons/toolwindows/infoEvents_dark.svg",
+    "/toolwindows/notificationsNewImportant.svg": "/icons/toolwindows/notificationsNewImportant.svg",
+    "/toolwindows/notificationsNewImportant_dark.svg": "/icons/toolwindows/notificationsNewImportant_dark.svg",
     "/welcome/createNewProject.svg": "/icons/welcome/createNewProject.svg",
     "/welcome/createNewProject_dark.svg": "/icons/welcome/createNewProject_dark.svg",
     "/vcs/author.svg": "/icons/vcs/author.svg",

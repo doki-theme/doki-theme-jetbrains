@@ -1,6 +1,12 @@
 Changelog
 ---
 
+# 74.2-1.0.4 [Small Enhancements]
+
+- Better Cucumber & Gherkin support
+- Enhanced [Quick Documentation](https://www.jetbrains.com/help/idea/2021.3/documentation-tool-window.html) a bit.
+- Darkened Nino's Theme some, Lightened Raphtalia's accent color a bit, and made Yukino's unused color more usable.
+
 # 74.1-1.0.3 [Better IDE Performance]
 
 - Fixed IDE performance issue when the Doki Theme & the [SSV Normandy Progress Bar](https://plugins.jetbrains.com/plugin/12025-ssv-normandy-progress-bar/versions/stable/143942?preview=true) are installed.
