@@ -1,2 +1,5 @@
+- Better Cucumber & Gherkin support
+- Enhanced [Quick Documentation](https://www.jetbrains.com/help/idea/2021.3/documentation-tool-window.html) a bit.
+- Darkened Nino's Theme some, Lightened Raphtalia's accent color a bit, and made Yukino's unused color more usable.
 - Fixed IDE performance issue when the Doki Theme & the [SSV Normandy Progress Bar](https://plugins.jetbrains.com/plugin/12025-ssv-normandy-progress-bar/versions/stable/143942?preview=true) are installed.
 - Fixed reported issue when stickers are turned off, and dimension has a width & height of 0.

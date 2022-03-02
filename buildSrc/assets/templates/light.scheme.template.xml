@@ -605,7 +605,9 @@
       </value>
     </option>
     <option name="DEFAULT_COMMA">
-      <value/>
+      <value>
+        <option name="FOREGROUND" value="$htmlTagColor$"/>
+      </value>
     </option>
     <option name="DEFAULT_CONSTANT">
       <value>
