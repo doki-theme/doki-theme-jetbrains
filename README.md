@@ -12,6 +12,10 @@ The Doki Theme: Jetbrains IDEs
 
 ![Themes](./assets/screenshots/themes.webp)
 
+<div align="center"> 
+    <h3>Code Font <a href="https://rubjo.github.io/victor-mono/">Victor Mono</a></h3>
+</div>
+
 
 # [Complete Theme Album.](./albums/complete_theme_album.md)
 
