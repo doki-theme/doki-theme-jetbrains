@@ -94,7 +94,9 @@ object WeebService {
 
   fun isWeebStuffOn(): Boolean =
     ThemeConfig.instance.currentStickerLevel == StickerLevel.ON ||
-      ThemeConfig.instance.isDokiBackground
+      isBackgroundOn()
+  fun isBackgroundOn(): Boolean =
+    ThemeConfig.instance.isDokiBackground
 }
 
 object OnlineService {
