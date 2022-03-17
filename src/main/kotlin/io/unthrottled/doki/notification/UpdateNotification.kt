@@ -11,13 +11,13 @@ import com.intellij.openapi.fileEditor.impl.HTMLEditorProvider
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.project.ProjectManager
 import com.intellij.openapi.util.BuildNumber
+import com.intellij.openapi.util.SystemInfo
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil
 import com.intellij.ui.ColorUtil
 import com.intellij.ui.JBColor
 import com.intellij.util.ui.UIUtil
 import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.icon.DokiIcons
-import io.unthrottled.doki.promotions.MessageBundle
 import io.unthrottled.doki.promotions.WeebService
 import io.unthrottled.doki.themes.Background
 import io.unthrottled.doki.themes.DokiTheme
@@ -309,8 +309,7 @@ object UpdateNotification {
     .getNotificationGroup("Doki Theme Updates")
 
   private val defaultListener = NotificationListener.UrlOpeningListener(false)
-
-  private fun showDokiNotification(
+  fun showDokiNotification(
     @Nls(capitalization = Nls.Capitalization.Sentence) title: String = "",
     @Nls(capitalization = Nls.Capitalization.Sentence) content: String,
     project: Project? = null,
@@ -375,7 +374,9 @@ object UpdateNotification {
   private val lastWorkingBuild = BuildNumber.fromString("212.5712.43")
   private fun needsToFixUpdateNotification(): Boolean {
     val build = ApplicationInfoEx.getInstanceEx().build
-    return (lastWorkingBuild?.compareTo(build) ?: 0) > 0 && WeebService.isBackgroundOn()
+    return (lastWorkingBuild?.compareTo(build) ?: 0) > 0 &&
+      WeebService.isBackgroundOn() &&
+      SystemInfo.isWindows
   }
 
   private fun buildUrl(
@@ -403,28 +404,6 @@ object UpdateNotification {
       )?.name
     return "$pluginName Update"
   }
-
-  fun displayRestartMessage() {
-    showDokiNotification(
-      MessageBundle.getMessage("notification.restart.title"),
-      MessageBundle.getMessage("notification.restart.body"),
-    )
-  }
-
-  fun displayAnimationInstallMessage() {
-    showDokiNotification(
-      MessageBundle.getMessage("notification.animation.install.title"),
-      MessageBundle.getMessage("notification.animation.install.body"),
-    )
-  }
-
-  fun displayReadmeInstallMessage() {
-    showDokiNotification(
-      MessageBundle.message("notification.no.show.readme.title"),
-      MessageBundle.message("notification.no.show.readme.body"),
-    )
-  }
-
   fun reconstructUrlAndContent(
     previousUrl: String?,
     dokiTheme: DokiTheme
