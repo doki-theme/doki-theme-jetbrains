@@ -6,15 +6,19 @@ import com.intellij.notification.NotificationGroupManager
 import com.intellij.notification.NotificationListener
 import com.intellij.notification.NotificationType
 import com.intellij.openapi.actionSystem.AnAction
+import com.intellij.openapi.application.ex.ApplicationInfoEx
 import com.intellij.openapi.fileEditor.impl.HTMLEditorProvider
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.project.ProjectManager
+import com.intellij.openapi.util.BuildNumber
+import com.intellij.openapi.util.SystemInfo
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil
 import com.intellij.ui.ColorUtil
 import com.intellij.ui.JBColor
 import com.intellij.util.ui.UIUtil
+import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.icon.DokiIcons
-import io.unthrottled.doki.promotions.MessageBundle
+import io.unthrottled.doki.promotions.WeebService
 import io.unthrottled.doki.themes.Background
 import io.unthrottled.doki.themes.DokiTheme
 import io.unthrottled.doki.themes.ThemeManager
@@ -305,8 +309,7 @@ object UpdateNotification {
     .getNotificationGroup("Doki Theme Updates")
 
   private val defaultListener = NotificationListener.UrlOpeningListener(false)
-
-  private fun showDokiNotification(
+  fun showDokiNotification(
     @Nls(capitalization = Nls.Capitalization.Sentence) title: String = "",
     @Nls(capitalization = Nls.Capitalization.Sentence) content: String,
     project: Project? = null,
@@ -356,42 +359,61 @@ object UpdateNotification {
     newVersion: String,
     isNewUser: Boolean,
   ) {
-    val pluginName =
-      getPlugin(
-        getPluginOrPlatformByClassName(UpdateNotification::class.java.canonicalName)
-      )?.name
+    val title = getPluginUpdateTitle()
     val currentTheme = ThemeManager.instance.currentTheme.orElse(ThemeManager.instance.defaultTheme)
     val content = buildUpdateMessage(currentTheme, isNewUser, newVersion)
-
-    val urlParameters =
-      if (isNewUser) ""
-      else "/products/jetbrains/updates/$newVersion"
+    val url = buildUrl(isNewUser, newVersion, currentTheme)
     HTMLEditorProvider.openEditor(
       project,
-      "$pluginName Update",
-      "https://doki-theme.unthrottled.io$urlParameters?themeId=${currentTheme.id}",
+      title,
+      url,
       content,
     )
   }
 
-  fun displayRestartMessage() {
-    showDokiNotification(
-      MessageBundle.getMessage("notification.restart.title"),
-      MessageBundle.getMessage("notification.restart.body"),
-    )
+  private val lastWorkingBuild = BuildNumber.fromString("212.5712.43")
+  private fun needsToFixUpdateNotification(): Boolean {
+    val build = ApplicationInfoEx.getInstanceEx().build
+    return (lastWorkingBuild?.compareTo(build) ?: 0) < 0 &&
+      WeebService.isBackgroundOn() &&
+      (SystemInfo.isWindows || SystemInfo.isLinux)
   }
 
-  fun displayAnimationInstallMessage() {
-    showDokiNotification(
-      MessageBundle.getMessage("notification.animation.install.title"),
-      MessageBundle.getMessage("notification.animation.install.body"),
-    )
+  private fun buildUrl(
+    isNewUser: Boolean,
+    newVersion: String,
+    currentTheme: DokiTheme
+  ): String {
+    val urlParameters =
+      if (isNewUser) ""
+      else "/products/jetbrains/updates/$newVersion"
+    val extraParams =
+      if (needsToFixUpdateNotification()) {
+        "&showWallpaper=false"
+      } else {
+        ""
+      }
+    val url = "https://doki-theme.unthrottled.io$urlParameters?themeId=${currentTheme.id}$extraParams"
+    return url
   }
 
-  fun displayReadmeInstallMessage() {
-    showDokiNotification(
-      MessageBundle.message("notification.no.show.readme.title"),
-      MessageBundle.message("notification.no.show.readme.body"),
+  fun getPluginUpdateTitle(): String {
+    val pluginName =
+      getPlugin(
+        getPluginOrPlatformByClassName(UpdateNotification::class.java.canonicalName)
+      )?.name
+    return "$pluginName Update"
+  }
+  fun reconstructUrlAndContent(
+    dokiTheme: DokiTheme
+  ): Pair<String, String> {
+    val versionNumber = ThemeConfig.instance.version.substringAfter("v")
+    val newUrl = buildUrl(false, versionNumber, dokiTheme)
+    val content = buildUpdateMessage(
+      dokiTheme,
+      false,
+      versionNumber,
     )
+    return newUrl to content
   }
 }
