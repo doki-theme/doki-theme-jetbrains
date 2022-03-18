@@ -22,6 +22,7 @@ import io.unthrottled.doki.notification.UpdateNotification
 import io.unthrottled.doki.promotions.PromotionManager
 import io.unthrottled.doki.service.ConsoleFontService.applyConsoleFont
 import io.unthrottled.doki.service.CustomFontSizeService.applyCustomFontSize
+import io.unthrottled.doki.service.UpdateNotificationUpdater
 import io.unthrottled.doki.service.UpdateNotificationUpdater.attemptToRefreshUpdateNotification
 import io.unthrottled.doki.settings.actors.ThemeActor.setDokiTheme
 import io.unthrottled.doki.stickers.EditorBackgroundWallpaperService
@@ -145,5 +146,6 @@ class TheDokiTheme : Disposable {
 
   override fun dispose() {
     connection.dispose()
+    UpdateNotificationUpdater.dispose()
   }
 }

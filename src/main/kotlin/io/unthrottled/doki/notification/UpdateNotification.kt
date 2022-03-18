@@ -405,15 +405,13 @@ object UpdateNotification {
     return "$pluginName Update"
   }
   fun reconstructUrlAndContent(
-    previousUrl: String?,
     dokiTheme: DokiTheme
   ): Pair<String, String> {
     val versionNumber = ThemeConfig.instance.version.substringAfter("v")
-    val isNewUser = previousUrl?.contains("/products/jetbrains/updates/") ?: false
-    val newUrl = buildUrl(isNewUser, versionNumber, dokiTheme)
+    val newUrl = buildUrl(false, versionNumber, dokiTheme)
     val content = buildUpdateMessage(
       dokiTheme,
-      isNewUser,
+      false,
       versionNumber,
     )
     return newUrl to content
