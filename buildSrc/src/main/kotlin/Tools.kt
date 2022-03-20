@@ -8,6 +8,7 @@ private val nameMapping =
     "The Rising of Shield Hero" to "ShieldHero: ",
     "Chuunibyou" to "Chuunibyou: ",
     "Re Zero" to "Re:Zero: ",
+    "One Punch Man" to "OPM: ",
     "Love Live" to "LoveLive: ",
     "Literature Club" to DDLC_THEME_NAME_PREFIX,
     "KonoSuba" to "KonoSuba: ",
