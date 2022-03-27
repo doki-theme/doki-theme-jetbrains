@@ -10,6 +10,7 @@ private val nameMapping =
     "Re Zero" to "Re:Zero: ",
     "One Punch Man" to "OPM: ",
     "Shokugeki no Soma" to "Shokugeki: ",
+    "Haikyu!!" to "Haikyu: ",
     "Love Live" to "LoveLive: ",
     "Literature Club" to DDLC_THEME_NAME_PREFIX,
     "KonoSuba" to "KonoSuba: ",
