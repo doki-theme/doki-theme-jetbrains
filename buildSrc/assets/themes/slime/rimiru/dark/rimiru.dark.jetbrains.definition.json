@@ -5,5 +5,7 @@
     "name": "Doki Dark"
   },
   "overrides": {},
-  "ui": {}
+  "ui": {
+    "Doki.Icon.Accent.Contrast.color": "headerColor"
+  }
 }
