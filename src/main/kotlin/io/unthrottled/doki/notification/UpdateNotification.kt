@@ -375,8 +375,7 @@ object UpdateNotification {
   private fun needsToFixUpdateNotification(): Boolean {
     val build = ApplicationInfoEx.getInstanceEx().build
     return (lastWorkingBuild?.compareTo(build) ?: 0) < 0 &&
-      WeebService.isBackgroundOn() &&
-      (SystemInfo.isWindows || SystemInfo.isLinux)
+      WeebService.isBackgroundOn()
   }
 
   private fun buildUrl(
