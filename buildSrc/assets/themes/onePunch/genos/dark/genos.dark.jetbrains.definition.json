@@ -6,6 +6,7 @@
   },
   "overrides": {},
   "ui": {
-    "CompletionPopup.matchForeground": "stringColor"
+    "CompletionPopup.matchForeground": "stringColor",
+    "Doki.Icon.Accent.Contrast.color": "headerColor"
   }
 }
