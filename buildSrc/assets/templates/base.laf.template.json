@@ -358,6 +358,8 @@
     "WelcomeScreen.Projects.actions.background": "accentColorTransparent",
     "WelcomeScreen.Projects.actions.selectionBackground": "accentColor",
 
+    "DragAndDrop.borderColor": "accentColor",
+    "DragAndDrop.rowBackground": "codeBlock",
     "DragAndDrop.areaBackground": "codeBlock",
     "DragAndDrop.areaBorderColor": "codeBlock",
 
@@ -427,8 +429,8 @@
       }
     },
 
-	  "Plugins.Button.updateForeground": "accentContrastColor",
-    "Plugins.Button.installFocusedForeground": "accentContrastColor",
+	  "Plugins.Button.updateForeground": "baseBackground",
+    "Plugins.Button.installFocusedForeground": "baseBackground",
 
     "Doki.startColor": "startColor",
     "Doki.stopColor":"stopColor",
