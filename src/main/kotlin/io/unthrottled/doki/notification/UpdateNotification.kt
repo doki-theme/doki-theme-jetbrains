@@ -11,7 +11,6 @@ import com.intellij.openapi.fileEditor.impl.HTMLEditorProvider
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.project.ProjectManager
 import com.intellij.openapi.util.BuildNumber
-import com.intellij.openapi.util.SystemInfo
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil
 import com.intellij.ui.ColorUtil
 import com.intellij.ui.JBColor
@@ -375,8 +374,7 @@ object UpdateNotification {
   private fun needsToFixUpdateNotification(): Boolean {
     val build = ApplicationInfoEx.getInstanceEx().build
     return (lastWorkingBuild?.compareTo(build) ?: 0) < 0 &&
-      WeebService.isBackgroundOn() &&
-      (SystemInfo.isWindows || SystemInfo.isLinux)
+      WeebService.isBackgroundOn()
   }
 
   private fun buildUrl(

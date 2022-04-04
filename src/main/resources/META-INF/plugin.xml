@@ -5,7 +5,7 @@
   <vendor email="alexsimons9999@gmail.com" url="https://github.com/Unthrottled">Unthrottled</vendor>
   <description>
     &lt;p&gt;
-    Code with anime girls! &lt;br/&gt; This is a large collection of themes built with love and care.
+    Cute anime character themes! &lt;br/&gt; This is a large collection of themes built with love and care.
     &lt;br/&gt;
     &lt;p&gt;
     See the &lt;a href="https://github.com/doki-theme/doki-theme-jetbrains#the-doki-theme-jetbrains-ides"&gt;documentation&lt;/a&gt; for more details.
@@ -52,6 +52,7 @@
     <themeProvider id="4fd5cb34-d36e-4a3c-8639-052b19b26ba1" path="/doki/themes/darling_in_the_franxx/Zero_Two_Light.theme.json"/>
     <themeProvider id="5ec63d95-1e7d-4649-b3d0-0078af8f8740" path="/doki/themes/future_diary/Gasai_Yuno.theme.json"/>
     <themeProvider id="355d711c-2fa6-4df2-9504-dd44d8f5e350" path="/doki/themes/gate/Rory_Mercury.theme.json"/>
+    <themeProvider id="44ed0d2d-cce8-4707-a0cf-5150e1b31c16" path="/doki/themes/haikyu!!/Hinata_Shoyo.theme.json"/>
     <themeProvider id="c5e92ad9-2fa0-491e-b92a-48ab92d13597" path="/doki/themes/high_school_dxd/Rias_Crimson.theme.json"/>
     <themeProvider id="ea9a13f6-fa7f-46a4-ba6e-6cefe1f55160" path="/doki/themes/high_school_dxd/Rias_Onyx.theme.json"/>
     <themeProvider id="91d0931d-3e1d-4101-b923-278ce264f0f5" path="/doki/themes/the_great_jahy_will_not_be_defeated/Jahy.theme.json"/>
@@ -86,6 +87,7 @@
     <themeProvider id="ea7a8b00-2d86-4e06-81a2-5c14a46264d5" path="/doki/themes/nekopara/Maple_Light.theme.json"/>
     <themeProvider id="67278007-b7f8-46d4-88b7-e40cac3576a7" path="/doki/themes/nekopara/Shigure.theme.json"/>
     <themeProvider id="31d5574d-f56b-408f-81dc-9d44feeb62c2" path="/doki/themes/nekopara/Vanilla.theme.json"/>
+    <themeProvider id="22d0250f-a33b-409a-9cef-22f5eb69fc3d" path="/doki/themes/one_punch_man/Genos.theme.json"/>
     <themeProvider id="06143cbe-2d51-4423-9a93-73a02c828119" path="/doki/themes/oregairu/Yukinoshita_Yukino.theme.json"/>
     <themeProvider id="2f2dff01-7e0e-4ebc-ab1e-34be2486c66f" path="/doki/themes/oreimo/Kirino.theme.json"/>
     <themeProvider id="d96c6599-ebf8-4359-ae26-19f79b69e919" path="/doki/themes/quintessential_quintuplets/Nakano_Miku.theme.json"/>
@@ -99,6 +101,8 @@
     <themeProvider id="ecb74f1c-8c84-40c4-916f-601039ba2af0" path="/doki/themes/re_zero/Ram.theme.json"/>
     <themeProvider id="f770dcfc-f41e-4b49-aa17-66e9ffc208fd" path="/doki/themes/re_zero/Rem.theme.json"/>
     <themeProvider id="df23dabc-61eb-4559-a504-992786964602" path="/doki/themes/the_rising_of_shield_hero/Raphtalia.theme.json"/>
+    <themeProvider id="fb25d871-4a7c-49f5-9426-1f7eb00c2699" path="/doki/themes/shokugeki_no_soma/Yukihira_Soma.theme.json"/>
+    <themeProvider id="5ca2846d-31a9-40b3-8908-965dad3c127d" path="/doki/themes/that_time_i_get_reincarnated_as_a_slime/Rimiru_Tempest.theme.json"/>
     <themeProvider id="d39df813-8701-463b-a964-b8cb7714d1cc" path="/doki/themes/steins_gate/Makise_Kurisu.theme.json"/>
     <themeProvider id="bac375a4-abb3-44d5-9bef-8039eb83fec0" path="/doki/themes/sword_art_online/Asuna_Dark.theme.json"/>
     <themeProvider id="546e8fb8-6082-4ef5-a5e3-44790686f02f" path="/doki/themes/sword_art_online/Asuna_Light.theme.json"/>

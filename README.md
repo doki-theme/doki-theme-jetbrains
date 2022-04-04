@@ -21,11 +21,12 @@ The Doki Theme: Jetbrains IDEs
 
 ---
 
-This plugin is for serious Otaku programmers.
-Code with your waifu. With over **50** themes,
-I think you will find best girl.
+Cute themes based on cute anime characters. With over **60** themes, the one you like the best is probably here.
 
-You can choose themes from various, Anime, Manga, or Visual Novels:
+You can choose themes based on characters from these variousAnime, Manga, or Visual Novels:
+
+<details>
+  <summary>All Featured Titles</summary>
 
 - AzurLane
 - Blend S
@@ -37,6 +38,7 @@ You can choose themes from various, Anime, Manga, or Visual Novels:
 - Fate/Type-Moon
 - Future Diary
 - Gate
+- Haikyu!!
 - High School DxD
 - Jahy-sama Will Not Be Discouraged!
 - Kakegurui
@@ -48,14 +50,19 @@ You can choose themes from various, Anime, Manga, or Visual Novels:
 - Monogatari
 - NekoPara
 - Neon Genesis Evangelion
+- One Punch Man
 - OreGairu
 - Quintessential Quintuplets
 - Re:Zero
 - Rising of the Shield Hero
+- Shokugeki no Soma
 - Steins Gate
 - Sword Art Online
+- That Time I Got Reincarnated as a Slime
 - Toaru Majutsu no Index
 - Yuru Camp
+
+</details>
 
 ## Installation
 
@@ -241,7 +248,7 @@ Applies for the following content:
 
 ### Other Settings
 
-**Notification Opacity:** Are you tired of pesky notifications covering up your waifu?
+**Notification Opacity:** Are you tired of pesky notifications covering up your sticker?
 I know I was, now you can fix that problem. You are free to adjust the opacity of the notification window as you please.
 You can hit `Apply` to test out your new settings!
 
@@ -256,7 +263,7 @@ You can see a rough example in the [quick theme switch section.](#quick-theme-sw
 
 ## Fonts
 
-Since the JetBrains IDEs don't have a convient way to globally apply font changes across color schemes, I had to make my own.
+Since the JetBrains IDEs don't have a convenient way to globally apply font changes across color schemes, I had to make my own.
 
 **Global Editor Font Size** will override any/all font size settings for your code editor font size.
 This only applies to any Doki Themes. You must enable the `Override Editor Font Size` for this feature to take effect.
