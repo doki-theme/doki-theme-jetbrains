@@ -11,7 +11,6 @@ import com.intellij.openapi.fileEditor.impl.HTMLEditorProvider
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.project.ProjectManager
 import com.intellij.openapi.util.BuildNumber
-import com.intellij.openapi.util.SystemInfo
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil
 import com.intellij.ui.ColorUtil
 import com.intellij.ui.JBColor
