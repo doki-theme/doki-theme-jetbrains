@@ -21,9 +21,9 @@ The Doki Theme: Jetbrains IDEs
 
 ---
 
-Cute themes based on cute anime characters. With over **60** themes, the one you like the best is probably here.
+Cute themes based on cute anime characters. With over **60** themes, the one you like the best, is probably here.
 
-You can choose themes based on characters from these variousAnime, Manga, or Visual Novels:
+You can choose themes based on characters from these various Anime, Manga, or Visual Novels:
 
 <details>
   <summary>All Featured Titles</summary>
