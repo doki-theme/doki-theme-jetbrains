@@ -18,7 +18,18 @@ import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
+import javax.swing.JComponent;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JSlider;
+import javax.swing.JSpinner;
+import javax.swing.JTabbedPane;
+import javax.swing.JTextPane;
+import javax.swing.SpinnerNumberModel;
 import javax.swing.event.HyperlinkEvent;
 import java.util.Arrays;
 
@@ -146,8 +157,10 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
     );
 
     discreetModeCheckBox.setSelected(initialThemeSettingsModel.getDiscreetMode());
-    discreetModeCheckBox.addActionListener(e ->
-      themeSettingsModel.setDiscreetMode(discreetModeCheckBox.isSelected())
+    discreetModeCheckBox.addActionListener(e -> {
+        themeSettingsModel.setDiscreetMode(discreetModeCheckBox.isSelected());
+        toggleDiscreetModeStuff(discreetModeCheckBox.isSelected());
+      }
     );
 
     framelessModeMacOSOnlyCheckBox.setSelected(initialThemeSettingsModel.isThemedTitleBar());
@@ -259,6 +272,30 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
       StickerPaneService.Companion.getInstance().resetMargins();
     });
     marginHelp.setForeground(UIUtil.getContextHelpForeground());
+
+    toggleDiscreetModeStuff(initialThemeSettingsModel.getDiscreetMode());
+  }
+
+  private void toggleDiscreetModeStuff(boolean discreetModeOn) {
+    showStickerCheckBox.setEnabled(!discreetModeOn);
+    ignoreScalingCheckBox.setEnabled(!discreetModeOn);
+    allowPositioningCheckBox.setEnabled(!discreetModeOn);
+    chooseImageButton.setEnabled(!discreetModeOn);
+    useCustomStickerCheckBox.setEnabled(!discreetModeOn);
+    resetStickerMarginsButton.setEnabled(!discreetModeOn);
+    primaryRadioButton.setEnabled(!discreetModeOn);
+    secondaryRadioButton.setEnabled(!discreetModeOn);
+    enableDimensionCappingCheckBox.setEnabled(!discreetModeOn);
+    enableSmallStickers.setEnabled(!discreetModeOn);
+    maxHeightSpinner.setEnabled(!discreetModeOn);
+    maxWidthSpinner.setEnabled(!discreetModeOn);
+    smolMaxHeightSpinner.setEnabled(!discreetModeOn);
+    smolMaxWidthSpinner.setEnabled(!discreetModeOn);
+    backgroundWallpaperCheckBox.setEnabled(!discreetModeOn);
+    emptyEditorBackgroundCheckBox.setEnabled(!discreetModeOn);
+    nameInStatusBarCheckBox.setEnabled(!discreetModeOn);
+    notificationOpacitySlider.setEnabled(!discreetModeOn);
+    makeNotificationsTransparentCheckBox.setEnabled(!discreetModeOn);
   }
 
   private void updatePrimaryStickerDimensionCapComponents() {
@@ -289,7 +326,7 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
       JBColor.namedColor("Link.activeForeground", JBColor.namedColor("link.foreground", 0x589DF6))
     );
     generalLinks.setEditable(false);
-    generalLinks.setContentType("text/html" );
+    generalLinks.setContentType("text/html");
     generalLinks.setBackground(UIUtil.getPanelBackground());
     generalLinks.setText(
       "<html>\n" +
