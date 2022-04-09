@@ -1,15 +1,21 @@
 Changelog
 ---
 
+# 78.0-1.0.7 [Sticker Bug Fixes]
+
+- Small Stickers no longer stay in dialog windows for non-Doki look and feels.
+- Discreet mode is now toggleable from the settings menu.
+
 # 78.0-1.0.6 [The Boys]
 
 I'm trying to bring in a bit of inclusion.
 
 **4 New Dark Themes!**
 
-- I can already hear you now, "Rimiru Tempest, from 'That Time I Got Reincarnated as a Slime', is not a boy. They are the best genderless slime, get your facts correct." Yeah well....shut up.
+- I can already hear you now, "Rimiru Tempest, from 'That Time I Got Reincarnated as a Slime', is not a boy. They are
+  the best genderless slime, get your facts correct." Yeah well....shut up.
 - Next, is one of the S ranked heroes in the 'One Punch Man' universe, Genos.
-- After that, is the smug smile of Yukihira Soma from Shokugeki no Soma. 
+- After that, is the smug smile of Yukihira Soma from Shokugeki no Soma.
 - Lastly, I am going to be honest, I haven't seen Haikyu. I just wanted a Indigo & Orange based theme. So here is Hinata Shoyo.
 
 ![v78 Bois](https://doki.assets.unthrottled.io/misc/v78_bois.png)
