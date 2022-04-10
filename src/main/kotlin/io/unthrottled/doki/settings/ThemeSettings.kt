@@ -12,6 +12,7 @@ import io.unthrottled.doki.promotions.MessageBundle
 import io.unthrottled.doki.settings.actors.BackgroundActor
 import io.unthrottled.doki.settings.actors.ConsoleFontActor
 import io.unthrottled.doki.settings.actors.CustomFontSizeActor
+import io.unthrottled.doki.settings.actors.DiscreetModeActor
 import io.unthrottled.doki.settings.actors.EmptyFrameBackgroundActor
 import io.unthrottled.doki.settings.actors.LafAnimationActor
 import io.unthrottled.doki.settings.actors.MaterialIconsActor
@@ -153,6 +154,7 @@ object ThemeSettings {
       themeSettingsModel.isSeeThroughNotifications,
       themeSettingsModel.notificationOpacity,
     )
+    DiscreetModeActor.enableDiscreetMode(themeSettingsModel.discreetMode)
     ApplicationManager.getApplication().messageBus.syncPublisher(
       THEME_CONFIG_TOPIC
     ).themeConfigUpdated(ThemeConfig.instance)

@@ -8,6 +8,7 @@ import io.unthrottled.doki.assets.AssetManager
 import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.stickers.CustomStickerService.getCustomStickerUrl
 import io.unthrottled.doki.themes.DokiTheme
+import io.unthrottled.doki.themes.ThemeManager
 import io.unthrottled.doki.util.doOrElse
 import io.unthrottled.doki.util.runSafely
 import io.unthrottled.doki.util.toOptional
@@ -27,7 +28,6 @@ class StickerPaneService {
   }
 
   private val windowsToAddStickersTo = ConcurrentHashMap<Any, StickerPane>()
-  private lateinit var currentTheme: DokiTheme
 
   init {
     Toolkit.getDefaultToolkit().addAWTEventListener(
@@ -61,8 +61,6 @@ class StickerPaneService {
   }
 
   fun activateForTheme(dokiTheme: DokiTheme) {
-    currentTheme = dokiTheme
-
     stickers.forEach { it.detach() }
 
     val primaryStickersOn = ThemeConfig.instance.currentStickerLevel == StickerLevel.ON
@@ -72,9 +70,12 @@ class StickerPaneService {
         (it.type == StickerType.SMOL && smolStickersOn) ||
           (it.type == StickerType.REGULAR && primaryStickersOn)
       }
-      displayStickers({ stickerUrl ->
-        candidateStickers.forEach { it.displaySticker(stickerUrl) }
-      }) {
+      displayStickers(
+        dokiTheme,
+        { stickerUrl ->
+          candidateStickers.forEach { it.displaySticker(stickerUrl) }
+        }
+      ) {
         stickers.forEach { it.detach() }
       }
     }
@@ -139,8 +140,15 @@ class StickerPaneService {
   }
 
   private fun showSingleSticker(stickerPane: StickerPane) {
-    displayStickers({ stickerUrl ->
-      stickerPane.displaySticker(stickerUrl)
+    ThemeManager.instance.currentTheme.doOrElse({ dokiTheme ->
+      displayStickers(
+        dokiTheme,
+        { stickerUrl ->
+          stickerPane.displaySticker(stickerUrl)
+        }
+      ) {
+        stickerPane.detach()
+      }
     }) {
       stickerPane.detach()
     }
@@ -152,11 +160,10 @@ class StickerPaneService {
   }
 
   private fun displayStickers(
+    currentTheme: DokiTheme,
     stickerWorkerSupplier: (String) -> Unit,
     stickerRemoval: () -> Unit,
   ) {
-    if (this::currentTheme.isInitialized.not()) return
-
     ApplicationManager.getApplication().executeOnPooledThread {
       if (CustomStickerService.isCustomStickers) {
         getCustomStickerUrl()

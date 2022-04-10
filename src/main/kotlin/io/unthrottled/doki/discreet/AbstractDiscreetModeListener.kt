@@ -21,17 +21,14 @@ abstract class AbstractDiscreetModeListener : DiscreetModeListener, Logging {
   protected var currentMode = ThemeConfig.instance.discreetMode.toDiscreetMode()
 
   override fun modeChanged(discreetMode: DiscreetMode) {
-    if (discreetMode != currentMode) {
-      if (discreetMode == DiscreetMode.ACTIVE) {
-        applyDiscreetMode()
-      } else {
-        liftDiscreetMode()
-      }
+    if (discreetMode == DiscreetMode.ACTIVE) {
+      applyDiscreetMode()
+    } else {
+      liftDiscreetMode()
     }
   }
 
   private fun liftDiscreetMode() {
-    if (currentMode == DiscreetMode.INACTIVE) return
     currentMode = DiscreetMode.INACTIVE
     val discreetModeConfig = ThemeConfig.instance.discreetModeConfig
     val restorationConfig = runSafelyWithResult({
@@ -61,7 +58,6 @@ abstract class AbstractDiscreetModeListener : DiscreetModeListener, Logging {
   }
 
   private fun applyDiscreetMode() {
-    if (currentMode == DiscreetMode.ACTIVE) return
     currentMode = DiscreetMode.ACTIVE
     val restorationConfig = gson.toJson(captureRestorationConfig())
     ThemeConfig.instance.discreetModeConfig = restorationConfig
