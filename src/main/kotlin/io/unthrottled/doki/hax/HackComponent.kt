@@ -36,6 +36,7 @@ import io.unthrottled.doki.hax.FieldHacker.setFinalStatic
 import io.unthrottled.doki.stickers.DOKI_BACKGROUND_PROP
 import io.unthrottled.doki.ui.TitlePaneUI.Companion.LOL_NOPE
 import io.unthrottled.doki.util.runSafely
+import java.awt.Color
 import javassist.CannotCompileException
 import javassist.ClassClassPath
 import javassist.ClassPool
@@ -44,7 +45,6 @@ import javassist.CtMethod
 import javassist.expr.ExprEditor
 import javassist.expr.MethodCall
 import javassist.expr.NewExpr
-import java.awt.Color
 import javax.swing.JDialog
 
 @Suppress("TooManyFunctions")
@@ -171,7 +171,7 @@ object HackComponent : Disposable {
           override fun edit(e: NewExpr?) {
             if (e?.className == "com.intellij.ui.JBColor") {
               e.replace(
-                "{ \$_ = com.intellij.ui.JBColor.namedColor(\"Panel.background\", com.intellij.ui.JBColor.BLACK); }"
+                "{ \$_ = com.intellij.ui.JBColor.namedColor(\"SearchMatch.foreground\", com.intellij.ui.JBColor.BLACK); }"
               )
             }
           }
@@ -243,7 +243,7 @@ object HackComponent : Disposable {
       )
       setFinalStatic(
         ContentRootPanel::class.java.getDeclaredField("CONTENT_COLOR"),
-        com.intellij.util.ui.UIUtil.getPanelBackground(),
+        UIUtil.getPanelBackground(),
       )
     }) {
       log.warn("Unable to hackBookMarkBorder  for reasons.")
