@@ -4,6 +4,7 @@ Changelog
 # 78.1-1.0.8 [Small Enhancements]
 
 - Made small usability updates to: Yukino, Hanekawa, Nagatoro, Rei, Astolfo, Echidna, Shima Rin, Asuna Dark, Ishtar
+  Dark, Tohsaka Rin,
   Dark,
 - Made stylistic syntax updates to: Nakano Miku,
 
