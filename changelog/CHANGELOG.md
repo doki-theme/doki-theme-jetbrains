@@ -1,6 +1,10 @@
 Changelog
 ---
 
+# 78.1-1.0.8 [Small Enhancements]
+
+- Made small usability updates to: Yukino,
+
 # 78.0-1.0.7 [Sticker Bug Fixes]
 
 - Small Stickers no longer stay in dialog windows for non-Doki look and feels.
