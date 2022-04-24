@@ -1,8 +1,10 @@
 package io.unthrottled.doki.settings;
 
 import com.intellij.ide.BrowserUtil;
+import com.intellij.ide.DataManager;
 import com.intellij.openapi.options.Configurable;
 import com.intellij.openapi.options.SearchableConfigurable;
+import com.intellij.openapi.options.ex.Settings;
 import com.intellij.openapi.project.DumbAware;
 import com.intellij.openapi.project.ProjectManager;
 import com.intellij.openapi.ui.DialogPanel;
@@ -12,6 +14,9 @@ import com.intellij.ui.ColorUtil;
 import com.intellij.ui.JBColor;
 import com.intellij.util.ui.UIUtil;
 import io.unthrottled.doki.config.ThemeConfig;
+import io.unthrottled.doki.icon.DokiIcons;
+import io.unthrottled.doki.promotions.MessageBundle;
+import io.unthrottled.doki.service.PluginService;
 import io.unthrottled.doki.stickers.CurrentSticker;
 import io.unthrottled.doki.stickers.StickerPaneService;
 import org.jetbrains.annotations.NonNls;
@@ -70,6 +75,7 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
   private JButton resetStickerMarginsButton;
   private JLabel marginHelp;
   private JCheckBox ignoreScalingCheckBox;
+  private com.intellij.ui.components.ActionLink randmizerInstallLink;
 
 
   @Override
@@ -105,6 +111,19 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
         themeSettingsModel.setCustomStickerPath(dialog.getPath());
       }
     });
+
+    if (PluginService.INSTANCE.isRandomizerInstalled()) {
+      randmizerInstallLink.setVisible(false);
+    } else {
+      randmizerInstallLink.setIcon(DokiIcons.Plugins.Randomizer.INSTANCE.getTOOL_WINDOW(), false);
+      randmizerInstallLink.setText(MessageBundle.message("settings.general.randomizer.install"));
+      randmizerInstallLink.addActionListener(e -> {
+        final var settings = Settings.KEY.getData(DataManager.getInstance().getDataContext(randmizerInstallLink));
+        if (settings != null) {
+          settings.select(settings.find("preferences.pluginManager"), "/tag:\"Editor Color Schemes\" Theme Randomizer");
+        }
+      });
+    }
 
     useCustomStickerCheckBox.setSelected(initialThemeSettingsModel.isCustomSticker());
     useCustomStickerCheckBox.addChangeListener(e ->
