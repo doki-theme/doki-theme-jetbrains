@@ -5,7 +5,9 @@
     "file": "Hanekawa_Dark.xml"
   },
   "overrides": {},
-  "ui": {},
+  "ui": {
+    "CompletionPopup.matchForeground": "accentColorBrighter"
+  },
   "backgrounds": {
     "default": {
       "position": "MIDDLE_RIGHT",
