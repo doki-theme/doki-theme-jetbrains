@@ -3,10 +3,10 @@ Changelog
 
 # 78.1-1.0.8 [Small Enhancements]
 
+- Major Updates to Syntax Highlighting: Monika Dark,
 - Made small usability updates to: Yukino, Hanekawa, Nagatoro, Rei, Astolfo, Echidna, Shima Rin, Asuna Dark, Ishtar
-  Dark, Tohsaka Rin,
-  Dark,
-- Made stylistic syntax updates to: Nakano Miku,
+  Dark, & Tohsaka Rin
+- Made stylistic syntax updates to: Nakano Miku.
 
 # 78.0-1.0.7 [Sticker Bug Fixes]
 

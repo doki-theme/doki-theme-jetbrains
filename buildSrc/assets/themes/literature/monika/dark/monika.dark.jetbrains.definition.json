@@ -1,10 +1,11 @@
 {
   "id": "dce48196-ff46-470c-b5f9-d1e23f4a79d3",
   "editorScheme": {
-    "type": "templateExtension",
-    "file": "Monika_Dark.xml"
+    "type": "template",
+    "name": "Doki Dim v2"
   },
   "overrides": {},
+  "uiBase": "dark dim",
   "ui": {
     "Plugins.lightSelectionBackground": "selectionBackground",
     "CompletionPopup.selectionBackground": "selectionBackground"
