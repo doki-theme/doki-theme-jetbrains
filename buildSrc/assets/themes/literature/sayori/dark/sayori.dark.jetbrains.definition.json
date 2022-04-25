@@ -1,10 +1,11 @@
 {
   "id": "b0340303-0a5a-4a20-9b9c-fc8ce9880078",
   "editorScheme": {
-    "type": "templateExtension",
-    "file": "Sayori_Dark.xml"
+    "type": "template",
+    "name": "Doki Dim"
   },
   "overrides": {},
+  "uiBase": "dark dim",
   "ui": {
     "Plugins.lightSelectionBackground": "selectionBackground",
     "CompletionPopup.selectionBackground": "selectionBackground",
