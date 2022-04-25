@@ -1,10 +1,11 @@
 {
   "id": "a7e0aa28-739a-4671-80ae-3980997e6b71",
   "editorScheme": {
-    "type": "templateExtension",
-    "file": "Natsuki_Dark.xml"
+    "type": "template",
+    "name": "Doki Dim v2"
   },
   "overrides": {},
+  "uiBase": "dark dim",
   "ui": {
     "Plugins.lightSelectionBackground": "selectionBackground",
     "CompletionPopup.selectionBackground": "selectionBackgroundTransparent",
