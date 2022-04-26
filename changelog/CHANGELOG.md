@@ -6,7 +6,7 @@ Changelog
 - Major Updates to Syntax Highlighting: Monika Dark, Natsuki Dark, Sayori Dark, Yuri Dark
 - Made small usability updates to: Yukino, Hanekawa, Nagatoro, Rei, Astolfo, Echidna, Shima Rin, Asuna Dark, Ishtar
   Dark, & Tohsaka Rin
-- Made stylistic syntax updates to: Nakano Miku.
+- Made stylistic syntax updates to: Nakano Miku, Megumin,
 
 # 78.0-1.0.7 [Sticker Bug Fixes]
 
