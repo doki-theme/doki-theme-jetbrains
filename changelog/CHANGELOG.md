@@ -1,9 +1,10 @@
 Changelog
 ---
 
-# 78.1-1.0.8 [Small Enhancements]
+# 78.1-1.0.8 [Major Theme Updates]
 
 - Major Updates to Syntax Highlighting: Monika Dark, Natsuki Dark, Sayori Dark, Yuri Dark, Asuna Dark, Ibuki Light,
+  Emilia Light,
 - Minor Syntax Highlighting updates to: Nakano Miku, Megumin, Mai Dark, Ryuko Dark, Tohsaka Rin, Rias: Crimson, Mai
   Light,
 - Made small usability updates to: Yukino, Hanekawa, Nagatoro, Rei, Astolfo, Echidna, Shima Rin, & Ishtar
