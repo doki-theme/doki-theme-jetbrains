@@ -1,9 +1,9 @@
-<scheme name="Ibuki Light" version="142" parent_scheme="Doki Light">
+<scheme name="Ibuki Light" version="142" parent_scheme="Doki Light v2">
   <attributes>
     <option name="INLINE_PARAMETER_HINT">
       <value>
-        <option name="FOREGROUND" value="$accentColor$ba" />
-        <option name="BACKGROUND" value="$textEditorBackground$" />
+        <option name="FOREGROUND" value="$accentColor$ba"/>
+        <option name="BACKGROUND" value="$textEditorBackground$"/>
       </value>
     </option>
   </attributes>
