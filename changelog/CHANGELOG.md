@@ -1,14 +1,14 @@
 Changelog
 ---
 
-# 78.1-1.0.8 [Major Theme Updates]
+# 78.1-1.0.8 [Major Theme Syntax Coloring Updates]
 
-- **Major Updates** to Syntax Highlighting: Monika Dark/Dark, Natsuki Dark/Light, Sayori Dark/Light, Yuri Dark/Light,
-  Asuna Dark,
-  Ibuki Light, Emilia Light,
+- **Major Updates** to Syntax Highlighting Colors: Monika Dark/Dark, Natsuki Dark/Light, Sayori Dark/Light,
+  Yuri Dark/Light, Asuna Dark, Beatrice, Ibuki Light, Emilia Light,
 - Minor Syntax Highlighting updates to: Nakano Miku, Megumin, Mai Dark, Ryuko Dark, Tohsaka Rin, Rias: Crimson, Mai
   Light,
-- Made small usability updates to: Zero Two Dark, Yukino, Hanekawa, Nagatoro, Rei, Astolfo, Echidna, Shima Rin, & Ishtar
+- Made small Syntax Highlighting usability updates to: Zero Two Dark, Yukino, Hanekawa, Nagatoro, Rei, Astolfo, Echidna,
+  Shima Rin, & Ishtar
   Dark
 
 # 78.0-1.0.7 [Sticker Bug Fixes]
@@ -26,7 +26,8 @@ I'm trying to bring in a bit of inclusion.
   the best genderless slime, get your facts correct." Yeah well....shut up.
 - Next, is one of the S ranked heroes in the 'One Punch Man' universe, Genos.
 - After that, is the smug smile of Yukihira Soma from Shokugeki no Soma.
-- Lastly, I am going to be honest, I haven't seen Haikyu. I just wanted a Indigo & Orange based theme. So here is Hinata Shoyo.
+- Lastly, I am going to be honest, I haven't seen Haikyu. I just wanted a Indigo & Orange based theme. So here is Hinata
+  Shoyo.
 
 ![v78 Bois](https://doki.assets.unthrottled.io/misc/v78_bois.png)
 
@@ -38,7 +39,8 @@ I'm trying to bring in a bit of inclusion.
 
 # 74.2-1.0.5 [Update Notification Wallpaper Fix]
 
-- Fixed issue with multiple background images displaying over the update notification when the Doki Theme's wallpaper is activated ([#499](https://github.com/doki-theme/doki-theme-jetbrains/issues/499))
+- Fixed issue with multiple background images displaying over the update notification when the Doki Theme's wallpaper is
+  activated ([#499](https://github.com/doki-theme/doki-theme-jetbrains/issues/499))
 
 # 74.2-1.0.4 [Small Enhancements]
 
@@ -48,12 +50,15 @@ I'm trying to bring in a bit of inclusion.
 
 # 74.1-1.0.3 [Better IDE Performance]
 
-- Fixed IDE performance issue when the Doki Theme & the [SSV Normandy Progress Bar](https://plugins.jetbrains.com/plugin/12025-ssv-normandy-progress-bar/versions/stable/143942?preview=true) are installed.
-- Fixed reported issue when stickers are turned off, and dimension has a width & height of 0. 
+- Fixed IDE performance issue when the Doki Theme &
+  the [SSV Normandy Progress Bar](https://plugins.jetbrains.com/plugin/12025-ssv-normandy-progress-bar/versions/stable/143942?preview=true)
+  are installed.
+- Fixed reported issue when stickers are turned off, and dimension has a width & height of 0.
 
 # 74.1-1.0.2 [Sticker BugFix]
 
-- Fixed issue when sticker is turned off and window is resized, or when project starts. Thank you for all who reported the issue! ([#489](https://github.com/doki-theme/doki-theme-jetbrains/issues/489)) 
+- Fixed issue when sticker is turned off and window is resized, or when project starts. Thank you for all who reported
+  the issue! ([#489](https://github.com/doki-theme/doki-theme-jetbrains/issues/489))
 
 # 74.1-1.0.1 [Themed Code Coverage]
 
@@ -63,19 +68,24 @@ I'm trying to bring in a bit of inclusion.
 
 **4 New Dark Themes!**
 
-- Decimate errors in the code alongside the Wicked Lord Shingan. Let your inner fantasies go rampant with Rikka Takanashi from: "Love, Chuunibyou, and Other Delusions". 
-- It is comfy time! Don't let feature requests stress you out, because you can now code with Nadeshiko from Yuru Camp. 
+- Decimate errors in the code alongside the Wicked Lord Shingan. Let your inner fantasies go rampant with Rikka
+  Takanashi from: "Love, Chuunibyou, and Other Delusions".
+- It is comfy time! Don't let feature requests stress you out, because you can now code with Nadeshiko from Yuru Camp.
 - A Certain Scientific RailGun go: bzzzzzzt. Zap bugs out of existence with the electromaster Mikoto Misaka.
-- Raccoon + Tanuki = one really cute cinnamon bun. Enjoy your time coding with Raphtalia from: "Rising of the Shield Hero."
+- Raccoon + Tanuki = one really cute cinnamon bun. Enjoy your time coding with Raphtalia from: "Rising of the Shield
+  Hero."
 
 ![v74 Girls](https://doki.assets.unthrottled.io/misc/v74_girls.png)
 
 ### Other Stuff
 
-- Updated Syntax Highlight & Look and Feel changes for the following legacy themes: Ibuki Dark, Astolfo, Aqua, Natsuki Light, Hatsune Miku, Christmas Chocola, Emilia Dark, Beatrice, Ram, and Rem.
+- Updated Syntax Highlight & Look and Feel changes for the following legacy themes: Ibuki Dark, Astolfo, Aqua, Natsuki
+  Light, Hatsune Miku, Christmas Chocola, Emilia Dark, Beatrice, Ram, and Rem.
 - Added 2022.1 build support.
-- Increased the usability of the Search Highlight for light themes ([#485](https://github.com/doki-theme/doki-theme-jetbrains/issues/485)).
-- Fixed sticker re-positioning when you resize your window ([#482](https://github.com/doki-theme/doki-theme-jetbrains/issues/482)).
+- Increased the usability of the Search Highlight for light
+  themes ([#485](https://github.com/doki-theme/doki-theme-jetbrains/issues/485)).
+- Fixed sticker re-positioning when you resize your
+  window ([#482](https://github.com/doki-theme/doki-theme-jetbrains/issues/482)).
 
 # 22.3.0 [Sticker Position Persistence]
 
@@ -97,7 +107,7 @@ I'm trying to bring in a bit of inclusion.
 - Themed the rest of the [file scopes](https://www.jetbrains.com/help/idea/configuring-scopes-and-file-colors.html).
 - Added [GrepConsole](https://plugins.jetbrains.com/plugin/7125-grep-console/) default colorings & icons.
 - Enhanced the usability of the debugger's breakpoint highlighting.
-- Fixed [Anime Meme Plugin](https://github.com/ani-memes/AMII) promotion issue. 
+- Fixed [Anime Meme Plugin](https://github.com/ani-memes/AMII) promotion issue.
 
 # 22.0.3 [High DPI Aware Stickers]
 
@@ -114,16 +124,15 @@ I'm trying to bring in a bit of inclusion.
 # 22.0.0 [Holiday Release]
 
 **3 New Dark Themes!**
- 
+
 - Celebrate Christmas with Chocola from the NekoPara Series!
-_I lied about Shigure being the last addition from NekoPara._
+  _I lied about Shigure being the last addition from NekoPara._
 
 - The 4th of July now just got even better, now that you can code with Essex from Azur Lane.
-If you prefer a more canon experience, Essex's theme also has **secondary content** with the Eagle Union branding.
+  If you prefer a more canon experience, Essex's theme also has **secondary content** with the Eagle Union branding.
 
 - Even though I missed this year's Halloween, I've got something to look forward to in 2022.
-Yotsuba, from The Quintessential Quintuplets, isn't 2spooky4me.
-
+  Yotsuba, from The Quintessential Quintuplets, isn't 2spooky4me.
 
 ![v22 Girls](https://doki.assets.unthrottled.io/misc/v22_girls.png)
 
@@ -134,7 +143,6 @@ Yotsuba, from The Quintessential Quintuplets, isn't 2spooky4me.
 - Themed settings tags.
 - Themed the settings menu for the EduTools plugin.
 - Updated the debugger smart step-into colors.
-
 
 # 21.0.0 [Jahy-sama will not be discouraged!]
 
@@ -180,15 +188,19 @@ Anime is trash...._and so am I_.
 
 # 18.3.1 [VCS Color Updates]
 
-- Updated the version control uncommitted line markers on the right-hand side (next the scrollbar) to be more visible. ([#446](https://github.com/doki-theme/doki-theme-jetbrains/issues/446))
+- Updated the version control uncommitted line markers on the right-hand side (next the scrollbar) to be more
+  visible. ([#446](https://github.com/doki-theme/doki-theme-jetbrains/issues/446))
 
 # 18.3.0 [Discreet Mode]
 
-- Added `Discreet Mode`, when enabled will clear and not show any anime in the IDE. Also, the theme name in the status bar will temporarily hide as well. Is integrated with the [Anime Meme Plugin](https://github.com/ani-memes/AMII#discreet-mode), for the ultimate shame hiding experience.
+- Added `Discreet Mode`, when enabled will clear and not show any anime in the IDE. Also, the theme name in the status
+  bar will temporarily hide as well. Is integrated with
+  the [Anime Meme Plugin](https://github.com/ani-memes/AMII#discreet-mode), for the ultimate shame hiding experience.
 
 # 18.2.1 [IDE Features Training Theming]
 
-- Updates the colors used by the [IDE Features Trainer](https://plugins.jetbrains.com/plugin/8554-ide-features-trainer) plugin, for a more consistent learning experience.
+- Updates the colors used by the [IDE Features Trainer](https://plugins.jetbrains.com/plugin/8554-ide-features-trainer)
+  plugin, for a more consistent learning experience.
 
 # 18.2.0 [Russian Localization]
 
@@ -196,7 +208,8 @@ Anime is trash...._and so am I_.
 
 # 18.1.0 [Search & Selection Usability]
 
-- Made it easier to differentiate the search & selection background colors for all **61** themes. <sup><sup>Some days I question my current life choices....</sup></sup>
+- Made it easier to differentiate the search & selection background colors for all **61** themes. <sup><sup>Some days I
+  question my current life choices....</sup></sup>
 
 # 18.0.0 [NekoPara OneeSan Vol.]
 
@@ -228,13 +241,13 @@ Anime is trash...._and so am I_.
 
 # 16.2.0 [Maintenance]
 
-- Better supporting the Look and Feel of the 2021.2 builds...again... 
+- Better supporting the Look and Feel of the 2021.2 builds...again...
 - Added themed [XPathView Plugin](https://plugins.jetbrains.com/plugin/12478-xpathview--xslt) configurations.
 - Added themed [CSV Plugin](https://plugins.jetbrains.com/plugin/10037-csv/) configurations.
-- Themed the IntelliJ Ultimate [Flame Graph](https://blog.jetbrains.com/idea/2020/03/profiling-tools-and-intellij-idea-ultimate/).
+- Themed the IntelliJ
+  Ultimate [Flame Graph](https://blog.jetbrains.com/idea/2020/03/profiling-tools-and-intellij-idea-ultimate/).
 - Better Rider/C# Syntax Highlighting
 - Echinda's pressed "Action Button" is more visible.
-
 
 # 16.1.0 [2021.2 Maintenance]
 
@@ -268,17 +281,20 @@ From the Future Diary Series
 
 # 15.3.0 [Doki Theme Home]
 
-- Changed update notification/user onboarding to be a browser window of the new [Doki Theme Home page](https://doki-theme.unthrottled.io)
+- Changed update notification/user onboarding to be a browser window of the
+  new [Doki Theme Home page](https://doki-theme.unthrottled.io)
 
 ![New Update Notification](https://user-images.githubusercontent.com/15972415/120225795-8400b600-c20b-11eb-9743-f7b954eba5a4.png)
 
 # 15.2.3 [Custom Editor Scheme Lookup window support]
 
-- Fixes issue with light themes' editor lookup window not being themed on the 2021.2 build, when the user is using a customized variant of the editor color scheme.
+- Fixes issue with light themes' editor lookup window not being themed on the 2021.2 build, when the user is using a
+  customized variant of the editor color scheme.
 
 # 15.2.2 [Lookup window fix]
 
-- Fixes issue with light themes' editor lookup window not being themed on the 2021.2 build. [#400](https://github.com/doki-theme/doki-theme-jetbrains/issues/400)
+- Fixes issue with light themes' editor lookup window not being themed on the 2021.2
+  build. [#400](https://github.com/doki-theme/doki-theme-jetbrains/issues/400)
 
 # 15.2.1 [Build Updates]
 
@@ -327,7 +343,6 @@ Addition to Miss Kobayashi's Dragon Maid:
 
 ![v15 Girls](https://doki.assets.unthrottled.io/misc/v15_girls.png)
 
-
 # 14.3.1 [Offline UX]
 
 - Fixed poor offline user experience. No longer propagating exceptions when offline.
@@ -338,7 +353,6 @@ Addition to Miss Kobayashi's Dragon Maid:
   - Identifier under caret
   - Search Result
   - VCS Deleted Line Gutter Indicator (the Dorito)
-  
 
 # 14.2.0 [Non-Functional Changes]
 
@@ -346,15 +360,18 @@ Addition to Miss Kobayashi's Dragon Maid:
 
 # 14.1.2 [HTTP Proxy Support]
 
-- Fixed issue with plugin content not able to be downloaded when the IDE is configured to use an [HTTP proxy](https://www.jetbrains.com/help/idea/settings-http-proxy.html)
+- Fixed issue with plugin content not able to be downloaded when the IDE is configured to use
+  an [HTTP proxy](https://www.jetbrains.com/help/idea/settings-http-proxy.html)
 
 # 14.1.1 [2020.3 Build Support]
 
-- Fixed compatibility issue that prevented the settings menu from displaying in the ^2020.3.2 builds [366](https://github.com/doki-theme/doki-theme-jetbrains/issues/366)
+- Fixed compatibility issue that prevented the settings menu from displaying in the ^2020.3.2
+  builds [366](https://github.com/doki-theme/doki-theme-jetbrains/issues/366)
 
 # 14.1.0 [Global Editor Font Size]
 
-- Added a convenient feature that allows you to set the editor font size for all Doki Themes! [#356](https://github.com/doki-theme/doki-theme-jetbrains/issues/356)
+- Added a convenient feature that allows you to set the editor font size for all Doki
+  Themes! [#356](https://github.com/doki-theme/doki-theme-jetbrains/issues/356)
 
 # 14.0.0 [New Themes!]
 
@@ -381,17 +398,18 @@ From the Neon Genesis Evangelion series:
 
 ## Other stuff
 
-- Fixed switching between custom/stock sticker [#363](https://github.com/doki-theme/doki-theme-jetbrains/issues/363) 
-- Removed residue from panels when peeling off stickers [#362](https://github.com/doki-theme/doki-theme-jetbrains/issues/362)
+- Fixed switching between custom/stock sticker [#363](https://github.com/doki-theme/doki-theme-jetbrains/issues/363)
+- Removed residue from panels when peeling off
+  stickers [#362](https://github.com/doki-theme/doki-theme-jetbrains/issues/362)
 - Many consistency enhancements you probably won't notice :)
 - Moved lowest supported build to 2020.3.2.
 
 ![v14 Girls](https://doki.assets.unthrottled.io/misc/v14_girls.png)
 
-
 # 13.2.2 [Consistency Updates]
 
-- Fixed more of the usability issues [found in this issue](https://github.com/doki-theme/doki-theme-jetbrains/issues/340).
+- Fixed more of the usability
+  issues [found in this issue](https://github.com/doki-theme/doki-theme-jetbrains/issues/340).
 
 # 13.2.1 [Consistency Updates]
 
@@ -401,10 +419,9 @@ From the Neon Genesis Evangelion series:
 # 13.2.0 [Custom Sticker]
 
 - You now have the ability to set your own custom sticker.
-Which will be used for any/all the Doki themes. Supported image types: jpg, png, gif.
+  Which will be used for any/all the Doki themes. Supported image types: jpg, png, gif.
 
 ![Custom sticker](../assets/readmeAssets/custom_sticker.gif)
-  
 
 # 13.1.0 [Content Settings]
 
@@ -417,11 +434,12 @@ Which will be used for any/all the Doki themes. Supported image types: jpg, png,
 # 13.0.2 [Prevent Asset Updates]
 
 - Added `doki.theme.update.assets` registry action, when disabled the plugin will not update local assets.
-  - You can toggle this feature via `help` > `Find Action...` > `doki.theme.update.assets` 
+  - You can toggle this feature via `help` > `Find Action...` > `doki.theme.update.assets`
 
 # 13.0.1 [Consistency Updates]
 
-- Fixed some small 2021.1 EAP build inconsistencies [found here](https://github.com/doki-theme/doki-theme-jetbrains/issues/333)
+- Fixed some small 2021.1 EAP build
+  inconsistencies [found here](https://github.com/doki-theme/doki-theme-jetbrains/issues/333)
 
 # 13.0.0 [New Themes!]
 
@@ -434,7 +452,7 @@ From the Darling in the Franxx series:
 From the Rascal does not dream of bunny girl senpai series:
 
 - Sakurajima Mai (Dark/light)
-  - 2 Stickers: 
+  - 2 Stickers:
     - A Mild One
     - A Spicy One
 
@@ -444,7 +462,6 @@ From the Rascal does not dream of bunny girl senpai series:
 - Updated theme wallpapers to have better default opacity.
 
 ![v13 Girls](https://doki.assets.unthrottled.io/misc/v13_girls.png)
-
 
 # 12.5.3 [2021.1 Build Support]
 
@@ -456,13 +473,15 @@ From the Rascal does not dream of bunny girl senpai series:
 
 # 12.5.1 [Consistency Updates]
 
-- Fixed a bunch of small 2021.1 EAP build inconsistencies [found here](https://github.com/doki-theme/doki-theme-jetbrains/issues/316)
+- Fixed a bunch of small 2021.1 EAP build
+  inconsistencies [found here](https://github.com/doki-theme/doki-theme-jetbrains/issues/316)
 
 # 12.5.0 [2021.1 Build Support]
 
 - Initial 2021.1 EAP build support.
 
 # 12.4.1 [Consistency Updates]
+
 - Forgot to put in the `Enable Wallpaper` action in the update message.
 
 # 12.4.0 [Official Doki-Theme Wallpapers!]
@@ -470,16 +489,16 @@ From the Rascal does not dream of bunny girl senpai series:
 - All the plugin's themes' frame backgrounds are now available at your convenience!
   - Use the `Enable Wallpaper` action or enable it in the Settings menu!
   - Warning! The installed wallpapers will remain on your IDE after uninstalling the plugin.
-    You still can edit/remove the background using the "Set Background Image" action. 
+    You still can edit/remove the background using the "Set Background Image" action.
     Turning off the setting/action will do the same thing.
   - See the [pull request for more information](https://github.com/doki-theme/doki-theme-jetbrains/pull/312)
   - ![Megumin](https://user-images.githubusercontent.com/15972415/104955009-0ee4c080-598f-11eb-9948-aaa8c5ef18d8.png)
-  
 
 # 12.3.0 [Consistency Updates]
 
 - Fixed bug where stickers disappear when attempting to close a window.
-- Many small changes to every theme's look and feel [see issue for more details](https://github.com/doki-theme/doki-theme-jetbrains/issues/306)
+- Many small changes to every theme's look and
+  feel [see issue for more details](https://github.com/doki-theme/doki-theme-jetbrains/issues/306)
 
 # 12.2.1 [Maintenance]
 
@@ -489,8 +508,8 @@ From the Rascal does not dream of bunny girl senpai series:
 
 - Stickers of your Waifu are no longer in the background
   - You can also temporarily position your sticker!
-  - See [the feature issue](https://github.com/doki-theme/doki-theme-jetbrains/issues/295) 
-  and the [pull request](https://github.com/doki-theme/doki-theme-jetbrains/pull/304) for more details!
+  - See [the feature issue](https://github.com/doki-theme/doki-theme-jetbrains/issues/295)
+    and the [pull request](https://github.com/doki-theme/doki-theme-jetbrains/pull/304) for more details!
 - Restored background image functionality.
   - You can now have your own background, and your Waifu sticker now!
   - Stay tuned for official Doki-Theme background images!!
@@ -553,14 +572,15 @@ Addition to the Sword Art Online series:
 
 ### [See pull request for more information](https://github.com/doki-theme/doki-theme-jetbrains/pull/298)
 
-
 # 11.3.3 [Promotion Bug Fix]
 
-- Fixed issue when attempting to promote the [Waifu Motivator Plugin](https://plugins.jetbrains.com/plugin/13381-waifu-motivator). 
+- Fixed issue when attempting to promote
+  the [Waifu Motivator Plugin](https://plugins.jetbrains.com/plugin/13381-waifu-motivator).
 
 # 11.3.2 [Better 2020.3]
 
-- Fixed small 2020.3 Look and Feel issues. [See issue for more details](https://github.com/doki-theme/doki-theme-jetbrains/issues/292)
+- Fixed small 2020.3 Look and Feel
+  issues. [See issue for more details](https://github.com/doki-theme/doki-theme-jetbrains/issues/292)
 
 # 11.3.1 [Compatibility Fix]
 
@@ -1328,7 +1348,11 @@ for any inconveniences this may cause.
 
 # 1.2.1
 
-> Sometimes, when you're writing a poem - or a story - your brain gets fixated on a specific point. If you try so hard to make it perfect, then you'll never make any progress. Just force yourself to get something down on the paper, and tidy it up later! Another way to think about it is this: if you keep your pen in the same spot for too long, you'll just get a big dark puddle of ink. So just move your hand, and go with the flow!
+> Sometimes, when you're writing a poem - or a story - your brain gets fixated on a specific point. If you try so hard
+> to make it perfect, then you'll never make any progress. Just force yourself to get something down on the paper, and
+> tidy it up later! Another way to think about it is this: if you keep your pen in the same spot for too long, you'll
+> just
+> get a big dark puddle of ink. So just move your hand, and go with the flow!
 
 # 1.2.0
 
