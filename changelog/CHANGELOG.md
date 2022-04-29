@@ -6,7 +6,7 @@ Changelog
 - **Major Updates** to Syntax Highlighting Colors: Monika Dark/Dark, Natsuki Dark/Light, Sayori Dark/Light,
   Yuri Dark/Light, Asuna Dark, Beatrice, Ibuki Light, Emilia Light,
 - Minor Syntax Highlighting updates to: Nakano Miku, Megumin, Mai Dark, Ryuko Dark, Tohsaka Rin, Rias: Crimson, Mai
-  Light,
+  Light, Asuna Light
 - Made small Syntax Highlighting usability updates to: Zero Two Dark, Yukino, Hanekawa, Nagatoro, Rei, Astolfo, Echidna,
   Shima Rin, & Ishtar
   Dark
