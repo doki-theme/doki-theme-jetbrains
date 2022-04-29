@@ -8,8 +8,7 @@ Changelog
 - Minor Syntax Highlighting updates to: Nakano Miku, Megumin, Mai Dark, Ryuko Dark, Tohsaka Rin, Rias: Crimson, Mai
   Light, Asuna Light
 - Made small Syntax Highlighting usability updates to: Zero Two Dark, Yukino, Hanekawa, Nagatoro, Rei, Astolfo, Echidna,
-  Shima Rin, & Ishtar
-  Dark
+  Shima Rin, Sonoda Umi, & Ishtar Dark
 
 # 78.0-1.0.7 [Sticker Bug Fixes]
 
