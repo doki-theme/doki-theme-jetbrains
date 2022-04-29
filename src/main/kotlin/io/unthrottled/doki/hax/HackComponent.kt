@@ -171,7 +171,8 @@ object HackComponent : Disposable {
           override fun edit(e: NewExpr?) {
             if (e?.className == "com.intellij.ui.JBColor") {
               e.replace(
-                "{ \$_ = com.intellij.ui.JBColor.namedColor(\"SearchMatch.foreground\", com.intellij.ui.JBColor.BLACK); }"
+                "{ \$_ = com.intellij.ui.JBColor.namedColor(\"SearchMatch.foreground\", " +
+                  "com.intellij.ui.JBColor.BLACK); }"
               )
             }
           }
