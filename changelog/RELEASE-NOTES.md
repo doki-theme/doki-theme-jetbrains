@@ -1,23 +1,23 @@
-# 78.0-1.0.6 [The Boys]
+# 78.1-1.0.8 [Major Theme Syntax Coloring Updates]
 
-I'm trying to bring in a bit of inclusion.
+- **Major Updates** to syntax highlighting colors for these themes: Monika Dark/Dark, Natsuki Dark/Light,
+  Sayori Dark/Light, Yuri Dark/Light, Asuna Dark, Beatrice, Ibuki Light, Emilia Light,
+- Minor syntax highlighting updates to these themes: Nakano Miku, Megumin, Mai Dark, Ryuko Dark, Tohsaka Rin,
+  Rias: Crimson, Mai Light, Asuna Light
+- Small syntax highlighting usability updates for these themes: Zero Two Dark, Yukino, Hanekawa,
+  Nagatoro, Rei, Astolfo, Echidna, Shima Rin, Sonoda Umi, Kurisu, & Ishtar Dark
+- The background art brighter for: Satsuki Dark & Asuna Dark
+- The background art dimmer for: Yuri Light.
+- Made `Rimiru Tempest` the default theme for new users.
+- Added a link to install [Theme Randomizer](https://plugins.jetbrains.com/plugin/16107-theme-randomizer) from settings.
 
-**4 New Dark Themes!**
+#### Motivation
 
-- I can already hear you now, "Rimiru Tempest, from 'That Time I Got Reincarnated as a Slime', is not a boy. They are the best genderless slime, get your facts correct." Yeah well....shut up.
-- Next, is one of the S ranked heroes in the 'One Punch Man' universe, Genos.
-- After that, is the smug smile of Yukihira Soma from Shokugeki no Soma.
-- Lastly, I am going to be honest, I haven't seen Haikyu. I just wanted a Indigo & Orange based theme. So here is Hinata
-  Shoyo.
+I am in a position where I will now regularly be using my light themes more often (also planning on adding more).
+Most of my light themes were created a long time ago and my tastes have evolved over time.
+I have taken the time to revisit a fair number of my legacy themes, light and dark.
+If you want the old syntax highlighting back, then feel free to reach
+out [in this discussion thread](https://github.com/doki-theme/doki-theme-jetbrains/discussions/509).
+I will provide you assets and instructions on how to revert the color scheme back.
 
-![v78 Bois](https://doki.assets.unthrottled.io/misc/v78_bois_smol.png)
-
-### Other Stuff
-
-- Updated some of Rory, Ram, & Rem's syntax highlighting colors to be more usable.
-- Update tree drag-and-drop colorings to be themed.
-- Better GO language syntax highlighting support.
-- Fixed issue with multiple background images displaying over the update notification when the Doki Theme's wallpaper is
-  activated ([#499](https://github.com/doki-theme/doki-theme-jetbrains/issues/499))
-- Small Stickers no longer stay in dialog windows for non-Doki look and feels.
-- Discreet mode is now toggleable from the settings menu.
+Thank you for your understanding!
