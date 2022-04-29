@@ -9,6 +9,7 @@ Changelog
   Light, Asuna Light
 - Made small Syntax Highlighting usability updates to: Zero Two Dark, Yukino, Hanekawa, Nagatoro, Rei, Astolfo, Echidna,
   Shima Rin, Sonoda Umi, Kurisu, & Ishtar Dark
+- Made Rimiru Tempest the default theme for new users.
 
 # 78.0-1.0.7 [Sticker Bug Fixes]
 
