@@ -7,11 +7,5 @@
   "overrides": {},
   "ui": {
     "CompletionPopup.matchForeground": "editorAccentColor"
-  },
-  "backgrounds": {
-    "default": {
-      "position": "MIDDLE_RIGHT",
-      "opacity": 7
-    }
   }
 }

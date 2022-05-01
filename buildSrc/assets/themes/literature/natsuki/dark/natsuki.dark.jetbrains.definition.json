@@ -12,11 +12,5 @@
     "CompletionPopup.selectionInactiveBackground": "selectionInactiveTransparent",
     "SearchEverywhere.Header.background": "headerColor",
     "SearchEverywhere.SearchField.background": "headerColor"
-  },
-  "backgrounds": {
-    "default": {
-      "position": "MIDDLE_RIGHT",
-      "opacity": 8
-    }
   }
 }

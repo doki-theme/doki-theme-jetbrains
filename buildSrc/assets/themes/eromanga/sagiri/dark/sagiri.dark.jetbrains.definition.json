@@ -10,11 +10,5 @@
     "TextArea.selectionBackground": "identifierHighlight",
     "TextPane.selectionBackground": "identifierHighlight",
     "FormattedTextField.selectionBackground": "identifierHighlight"
-  },
-  "backgrounds": {
-    "default": {
-      "opacity": 10,
-      "position": "MIDDLE_RIGHT"
-    }
   }
 }

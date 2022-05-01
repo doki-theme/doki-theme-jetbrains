@@ -22,11 +22,5 @@
     "ScrollBar.Mac.thumbColor": "accentColorOverrideMoreTransparent",
     "ScrollBar.Mac.hoverThumbBorderColor": "accentColorOverrideMoreTransparent",
     "ScrollBar.Mac.hoverThumbColor": "accentColorOverrideMoreTransparent"
-  },
-  "backgrounds": {
-    "default": {
-      "position": "CENTER",
-      "opacity": 20
-    }
   }
 }

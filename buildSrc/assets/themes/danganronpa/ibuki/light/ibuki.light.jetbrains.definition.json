@@ -6,11 +6,5 @@
   },
   "overrides": {},
   "uiBase": "light dim",
-  "ui": {},
-  "backgrounds": {
-    "default": {
-      "position": "MIDDLE_RIGHT",
-      "opacity": 5
-    }
-  }
+  "ui": {}
 }

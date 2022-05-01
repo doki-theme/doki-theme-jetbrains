@@ -7,11 +7,5 @@
   "overrides": {},
   "ui": {
     "SearchMatch.foreground": "selectionForeground"
-  },
-  "backgrounds": {
-    "default": {
-      "opacity": 6,
-      "position": "CENTER"
-    }
   }
 }

@@ -5,10 +5,5 @@
     "file": "Ibuki_Dark.xml"
   },
   "overrides": {},
-  "ui": {},
-  "backgrounds": {
-    "default": {
-      "position": "MIDDLE_RIGHT"
-    }
-  }
+  "ui": {}
 }

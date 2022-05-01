@@ -8,15 +8,5 @@
   "ui": {
     "Doki.Icon.Accent.Contrast.color": "headerColor"
   },
-  "backgrounds": {
-    "default": {
-      "position": "MIDDLE_RIGHT",
-      "opacity": 8
-    },
-    "secondary": {
-      "position": "MIDDLE_RIGHT",
-      "opacity": 10
-    }
-  },
   "uiBase": "dark dim"
 }

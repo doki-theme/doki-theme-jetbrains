@@ -6,10 +6,5 @@
   },
   "overrides": {},
   "ui": {},
-  "backgrounds": {
-    "default": {
-      "name": "rory_dark_jetbrains.png"
-    }
-  },
   "uiBase": "dark dim"
 }
