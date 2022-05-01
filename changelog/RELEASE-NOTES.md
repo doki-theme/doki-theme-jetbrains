@@ -8,7 +8,6 @@
   Nagatoro, Rei, Astolfo, Echidna, Shima Rin, Sonoda Umi, Kurisu, & Ishtar Dark
 - The background art brighter for: Satsuki Dark & Asuna Dark
 - The background art dimmer for: Yuri Light.
-- Made `Rimiru Tempest` the default theme for new users.
 - Added a link to install [Theme Randomizer](https://plugins.jetbrains.com/plugin/16107-theme-randomizer) from settings.
 
 #### Motivation

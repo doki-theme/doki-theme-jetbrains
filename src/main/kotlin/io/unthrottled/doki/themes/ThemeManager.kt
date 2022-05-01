@@ -7,7 +7,7 @@ import javax.swing.UIManager
 
 interface ThemeManager : Disposable {
   companion object {
-    const val DEFAULT_THEME_NAME = "Slime: Rimiru Tempest"
+    const val DEFAULT_THEME_NAME = "Re:Zero: Rem"
 
     val instance: ThemeManager
       get() = ApplicationManager.getApplication().getService(ThemeManager::class.java)
