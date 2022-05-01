@@ -231,7 +231,7 @@ object ThemeSettings {
     val fontComboBox = FontComboBox()
     fontComboBox.addActionListener {
       val fontInfo = fontComboBox.model.selectedItem as? FontInfo
-      if(fontInfo != null) {
+      if (fontInfo != null) {
         settingsSupplier().consoleFontValue = fontInfo.font.name
       }
     }
