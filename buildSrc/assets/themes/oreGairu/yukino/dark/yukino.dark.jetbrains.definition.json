@@ -5,5 +5,7 @@
     "name": "Doki Dark"
   },
   "overrides": {},
-  "ui": {}
+  "ui": {
+    "CompletionPopup.matchForeground": "accentColorBrighter"
+  }
 }

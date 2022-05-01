@@ -5,7 +5,9 @@
     "file": "Asuna_Dark.xml"
   },
   "overrides": {},
-  "ui": {},
+  "ui": {
+    "SearchMatch.foreground": "selectionForeground"
+  },
   "backgrounds": {
     "default": {
       "opacity": 6,

@@ -21,6 +21,10 @@
     {
       "key": "ColorProgress.bar.yellow",
       "description": "The yellow color used in the progress bar, such as 'Tests Ignored'"
+    },
+    {
+      "key": "SearchMatch.foreground",
+      "description": "The foreground color used for the search highlight in the search everywhere list."
     }
   ]
 }

@@ -5,6 +5,7 @@
     "file": "Ibuki_Light.xml"
   },
   "overrides": {},
+  "uiBase": "light dim",
   "ui": {},
   "backgrounds": {
     "default": {

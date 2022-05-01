@@ -18,6 +18,7 @@ import java.util.concurrent.Callable
 
 const val MOTIVATOR_PLUGIN_ID = "zd.zero.waifu-motivator-plugin"
 const val AMII_PLUGIN_ID = "io.unthrottled.amii"
+const val RANDOMIZER_PLUGIN_ID = "io.unthrottled.theme.randomizer"
 
 object PluginService : Logging {
 
@@ -29,6 +30,10 @@ object PluginService : Logging {
 
   fun isAmiiInstalled(): Boolean = PluginManagerCore.isPluginInstalled(
     PluginId.getId(AMII_PLUGIN_ID)
+  )
+
+  fun isRandomizerInstalled(): Boolean = PluginManagerCore.isPluginInstalled(
+    PluginId.getId(RANDOMIZER_PLUGIN_ID)
   )
 
   private val PLUGIN_MANAGER_URL by lazy {

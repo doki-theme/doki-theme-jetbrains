@@ -1,117 +1,43 @@
-<scheme name="Natsuki Light" version="142" parent_scheme="Doki Light">
-    <colors>
-        <option name="LINE_NUMBERS_COLOR" value="$infoForeground$" />
-        <option name="LINE_NUMBER_ON_CARET_ROW_COLOR" value="infoForeground" />
-        <option name="VCS_ANNOTATIONS_COLOR_3" value="fbdde9"/>
-        <option name="VCS_ANNOTATIONS_COLOR_4" value="f0c3e3"/>
-        <option name="VCS_ANNOTATIONS_COLOR_5" value="fad2f2"/>
-    </colors>
-    <attributes>
-      <option name="BREADCRUMBS_DEFAULT">
-        <value>
-          <option name="FOREGROUND" value="$infoForeground$" />
-          <option name="BACKGROUND" value="$textEditorBackground$" />
-        </value>
-      </option>
-      <option name="BREADCRUMBS_INACTIVE">
-            <value>
-                <option name="FOREGROUND" value="3b3b3b"/>
-                <option name="BACKGROUND" value="$selectionInactive$"/>
-            </value>
-        </option>
-        <option name="CONSOLE_GREEN_OUTPUT">
-            <value>
-                <option name="FOREGROUND" value="3dd664" />
-            </value>
-        </option>
-        <option name="CSS.KEYWORD">
-            <value>
-                <option name="FOREGROUND" value="C869A3" />
-            </value>
-        </option>
-
-        <option name="CUSTOM_KEYWORD1_ATTRIBUTES">
-            <value>
-                <option name="FOREGROUND" value="C869A3" />
-            </value>
-        </option>
-        <option name="DEFAULT_KEYWORD">
-            <value>
-                <option name="FOREGROUND" value="C869A3" />
-            </value>
-        </option>
-        <option name="DEFAULT_LABEL">
-            <value>
-                <option name="EFFECT_COLOR" value="808080"/>
-                <option name="EFFECT_TYPE" value="1"/>
-            </value>
-        </option>
-        <option name="DEFAULT_REASSIGNED_LOCAL_VARIABLE">
-            <value>
-                <option name="FOREGROUND" value="4D4D4A" />
-                <option name="EFFECT_COLOR" value="a5a5a5" />
-                <option name="EFFECT_TYPE" value="1" />
-            </value>
-        </option>
-        <option name="DIFF_CONFLICT">
-            <value>
-                <option name="FOREGROUND" value="$diff.conflict$"/>
-                <option name="BACKGROUND" value="FF8984"/>
-                <option name="ERROR_STRIPE_COLOR" value="8f5247"/>
-            </value>
-        </option>
-        <option name="GROOVY_KEYWORD">
-            <value>
-                <option name="FOREGROUND" value="C869A3" />
-                <option name="FONT_TYPE" value="1" />
-            </value>
-        </option>
-        <option name="INFO_ATTRIBUTES">
-            <value>
-                <option name="FOREGROUND"/>
-                <option name="BACKGROUND"/>
-                <option name="EFFECT_COLOR" value="C0C0C0"/>
-                <option name="EFFECT_TYPE" value="2"/>
-                <option name="ERROR_STRIPE_COLOR" value="c0c0c0" deuteranopia="C0C0C0" protanopia="C0C0C0"/>
-            </value>
-        </option>
-        <option name="JAVA_KEYWORD">
-            <value>
-                <option name="FOREGROUND" value="C869A3" />
-            </value>
-        </option>
-        <option name="RDOC_KEYWORD">
-            <value>
-                <option name="FOREGROUND" value="C869A3" />
-                <option name="FONT_TYPE" value="2" />
-            </value>
-        </option>
-        <option name="STATIC_FIELD_ATTRIBUTES">
-            <value>
-                <option name="FOREGROUND" value="4569A6" deuteranopia="1948a6" protanopia="1948a6"/>
-                <option name="BACKGROUND"/>
-                <option name="EFFECT_COLOR"/>
-            </value>
-        </option>
-        <option name="STATIC_FINAL_FIELD_ATTRIBUTES">
-            <value>
-                <option name="FOREGROUND" value="4c94d6" />
-                <option name="BACKGROUND"/>
-                <option name="EFFECT_COLOR"/>
-                <option name="FONT_TYPE" value="1"/>
-            </value>
-        </option>
-        <option name="WRONG_REFERENCES_ATTRIBUTES">
-            <value>
-                <option name="FOREGROUND" value="ff5555" />
-                <option name="EFFECT_COLOR" value="ff4444" />
-                <option name="EFFECT_TYPE" value="2" />
-            </value>
-        </option>
-        <option name="XML_ATTRIBUTE_NAME">
-            <value>
-                <option name="FOREGROUND" value="df81b8" />
-            </value>
-        </option>
-    </attributes>
+<scheme name="Natsuki Light" version="142" parent_scheme="Doki Light v2">
+  <colors>
+    <option name="VCS_ANNOTATIONS_COLOR_3" value="fbdde9"/>
+    <option name="VCS_ANNOTATIONS_COLOR_4" value="f0c3e3"/>
+    <option name="VCS_ANNOTATIONS_COLOR_5" value="fad2f2"/>
+  </colors>
+  <attributes>
+    <option name="BREADCRUMBS_DEFAULT">
+      <value>
+        <option name="FOREGROUND" value="$infoForeground$"/>
+        <option name="BACKGROUND" value="$textEditorBackground$"/>
+      </value>
+    </option>
+    <option name="BREADCRUMBS_INACTIVE">
+      <value>
+        <option name="FOREGROUND" value="3b3b3b"/>
+        <option name="BACKGROUND" value="$selectionInactive$"/>
+      </value>
+    </option>
+    <option name="DIFF_CONFLICT">
+      <value>
+        <option name="FOREGROUND" value="$diff.conflict$"/>
+        <option name="BACKGROUND" value="FF8984"/>
+        <option name="ERROR_STRIPE_COLOR" value="8f5247"/>
+      </value>
+    </option>
+    <option name="STATIC_FIELD_ATTRIBUTES">
+      <value>
+        <option name="FOREGROUND" value="4569A6" deuteranopia="1948a6" protanopia="1948a6"/>
+        <option name="BACKGROUND"/>
+        <option name="EFFECT_COLOR"/>
+      </value>
+    </option>
+    <option name="STATIC_FINAL_FIELD_ATTRIBUTES">
+      <value>
+        <option name="FOREGROUND" value="4c94d6"/>
+        <option name="BACKGROUND"/>
+        <option name="EFFECT_COLOR"/>
+        <option name="FONT_TYPE" value="1"/>
+      </value>
+    </option>
+  </attributes>
 </scheme>

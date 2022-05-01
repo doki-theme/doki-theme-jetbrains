@@ -1,7 +1,7 @@
 package io.unthrottled.doki.themes
 
 import com.intellij.openapi.Disposable
-import com.intellij.openapi.components.ServiceManager
+import com.intellij.openapi.application.ApplicationManager
 import java.util.Optional
 import javax.swing.UIManager
 
@@ -10,7 +10,7 @@ interface ThemeManager : Disposable {
     const val DEFAULT_THEME_NAME = "Re:Zero: Rem"
 
     val instance: ThemeManager
-      get() = ServiceManager.getService(ThemeManager::class.java)
+      get() = ApplicationManager.getApplication().getService(ThemeManager::class.java)
   }
 
   val isCurrentThemeDoki: Boolean
