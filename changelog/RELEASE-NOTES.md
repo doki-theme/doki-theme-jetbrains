@@ -16,6 +16,7 @@
 - Made the background art brighter for: Satsuki Dark & Asuna Dark
 - Made background art dimmer for: Yuri Light.
 - Added a link to install [Theme Randomizer](https://plugins.jetbrains.com/plugin/16107-theme-randomizer) from settings.
+- Decreased load time for settings for users who have many fonts installed on their machine.
 
 #### Motivation
 

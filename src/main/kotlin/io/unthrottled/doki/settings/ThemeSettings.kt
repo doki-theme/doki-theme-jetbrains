@@ -3,6 +3,7 @@ package io.unthrottled.doki.settings
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.ui.ComboBox
 import com.intellij.openapi.ui.DialogPanel
+import com.intellij.ui.FontComboBox
 import com.intellij.ui.IconManager
 import com.intellij.ui.layout.panel
 import com.intellij.util.ui.FontInfo
@@ -226,18 +227,13 @@ object ThemeSettings {
     return themeComboBox
   }
 
-  fun createConsoleFontComboBoxModel(settingsSupplier: () -> ThemeSettingsModel): ComboBox<String> {
-    val fontComboBox = ComboBox(
-      DefaultComboBoxModel(
-        Vector(
-          FontInfo.getAll(true)
-            .map { it.font.name }
-        )
-      )
-    )
-    fontComboBox.model.selectedItem = settingsSupplier().consoleFontValue
+  fun createConsoleFontComboBoxModel(settingsSupplier: () -> ThemeSettingsModel): FontComboBox {
+    val fontComboBox = FontComboBox()
     fontComboBox.addActionListener {
-      settingsSupplier().consoleFontValue = fontComboBox.model.selectedItem as String
+      val fontInfo = fontComboBox.model.selectedItem as? FontInfo
+      if(fontInfo != null) {
+        settingsSupplier().consoleFontValue = fontInfo.font.name
+      }
     }
     return fontComboBox
   }

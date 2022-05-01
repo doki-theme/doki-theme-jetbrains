@@ -12,6 +12,7 @@ import com.intellij.openapi.ui.DialogWrapper;
 import com.intellij.openapi.util.NlsContexts;
 import com.intellij.ui.ColorUtil;
 import com.intellij.ui.JBColor;
+import com.intellij.util.ui.FontInfo;
 import com.intellij.util.ui.UIUtil;
 import io.unthrottled.doki.config.ThemeConfig;
 import io.unthrottled.doki.icon.DokiIcons;
@@ -293,6 +294,10 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
     marginHelp.setForeground(UIUtil.getContextHelpForeground());
 
     toggleDiscreetModeStuff(initialThemeSettingsModel.getDiscreetMode());
+
+    consoleFontWomboComboBox.setSelectedItem(
+      FontInfo.get(initialThemeSettingsModel.getConsoleFontValue())
+    );
   }
 
   private void toggleDiscreetModeStuff(boolean discreetModeOn) {
