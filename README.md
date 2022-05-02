@@ -151,11 +151,20 @@ Allowed image types: jpg, png, gif
 
 ![Custom sticker](./assets/readmeAssets/custom_sticker.gif)
 
-**Ignore Scaling** allows you to bypass automatic application up-scaling, in order to display the sticker in its true dimensions. 
+**Ignore Scaling** allows you to bypass automatic application up-scaling, in order to display the sticker in its true
+dimensions.
+Mostly good getting around Windows' crummy image upscaling.
+
+**Hide on hover** when enabled, allows you to set the duration your mouse has to be hovered over the sticker before it
+hides.
+So you can see what was hiding behind it. There is also an action call `Hide on Hover` that you can invoke to toggle
+this functionality.
 
 #### Save Positioning
 
-Any stickers that are allowed to be positioned (all small stickers are positionable), allows you to save the relative position in a certain type of window. Just by `double-clicking` the sticker, stickers for that type of window will be saved for later use.
+Any stickers that are allowed to be positioned (all small stickers are positionable), allows you to save the relative
+position in a certain type of window. Just by `double-clicking` the sticker, stickers for that type of window will be
+saved for later use.
 
 Types of distinct windows:
 

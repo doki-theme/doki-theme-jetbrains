@@ -173,10 +173,13 @@
     <action id="io.unthrottled.doki.actions.SwapStickerAction" class="io.unthrottled.doki.actions.SwapStickerAction" text="Swap Sticker" icon="/icons/actions/diff.svg" description="Changes the current sticker at the bottom right hand corner of the screen.">
       <add-to-group group-id="DokiThemeActions" anchor="last"/>
     </action>
-    <action id="io.unthrottled.doki.actions.DiscreetModeAction" class="io.unthrottled.doki.actions.DiscreetModeAction" text="Toggle Discreet Mode" icon="/icons/emojis/1f648.svg" description="Quickly hide your shame">
+    <action id="io.unthrottled.doki.actions.DiscreetModeAction" class="io.unthrottled.doki.actions.DiscreetModeAction"
+            text="Toggle Discreet Mode" icon="/icons/emojis/1f648.svg" description="Quickly hide your shame">
       <add-to-group group-id="DokiThemeActions" anchor="last"/>
     </action>
-    <action id="io.unthrottled.doki.actions.ThemeAnimationToggle" class="io.unthrottled.doki.actions.ThemeAnimationToggle" text="Enable Transition Animation" icon="/icons/doki/magic.svg" description="Fancy fade transition animation when changing any look and feel.">
+    <action id="io.unthrottled.doki.actions.ThemeAnimationToggle"
+            class="io.unthrottled.doki.actions.ThemeAnimationToggle" text="Enable Transition Animation"
+            icon="/icons/doki/magic.svg" description="Fancy fade transition animation when changing any look and feel.">
       <add-to-group group-id="DokiThemeActions" anchor="last"/>
     </action>
     <action id="io.unthrottled.doki.actions.ShowSettingsAction" class="io.unthrottled.doki.actions.ShowSettingsAction"
