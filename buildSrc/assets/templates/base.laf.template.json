@@ -358,6 +358,7 @@
     "DragAndDrop.rowBackground": "accentColorMoreTransparent",
     "DragAndDrop.areaBackground": "accentColorMoreTransparent",
     "DragAndDrop.areaBorderColor": "accentColor",
+
     "GotItTooltip.foreground": "foregroundColor",
     "GotItTooltip.shortcutForeground": "accentColor",
     "GotItTooltip.background": "secondaryBackground",
@@ -445,14 +446,20 @@
     "FileColor.Orange": "fileOrange",
     "FileColor.Rose": "fileRose",
     "FileColor.Violet": "fileViolet",
+
     "SearchField.errorBackground": "diff.conflict",
+
     "Label.errorForeground": "errorColor",
+
     "Counter.foreground": "baseBackground",
+
     "Notification.errorForeground": "foregroundColor",
     "Notification.errorBackground": "fileRed",
     "Notification.errorBorderColor": "diff.conflict",
+
     "JumpToLine.dropLine.safe": "testScopeColor",
     "JumpToLine.dropLine.unsafe": "nonProjectFileScopeColor",
+
     "BookmarkMnemonicAvailable.foreground": "buttonFont",
     "BookmarkMnemonicAvailable.background": "buttonColor",
     "BookmarkMnemonicAvailable.borderColor": "buttonColor",
