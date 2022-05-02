@@ -75,15 +75,18 @@ internal class StickerPane(
       )
     }
 
+  internal var hideConfig: StickerHideConfig =
+    StickerHideConfig(ThemeConfig.instance.hideOnHover, ThemeConfig.instance.hideDelayMS)
+
   private val isSmol = StickerType.SMOL == type
   var positionable: Boolean =
     if (isSmol) true
     else ThemeConfig.instance.isMoveableStickers
     set(value) {
-        field = value
-        if (value) {
-          addListeners()
-        } else if (!isSmol) {
+      field = value
+      if (value) {
+        addListeners()
+      } else if (!isSmol) {
           removeListeners()
         }
       }
@@ -171,6 +174,7 @@ internal class StickerPane(
     var hoveredInside = false
     return AWTEventListener { event ->
       if (
+        !this.hideConfig.hideOnHover ||
         event !is InputEvent ||
         UIUtil.isDescendingFrom(event.component, drawablePane).not()
       ) return@AWTEventListener
@@ -184,7 +188,7 @@ internal class StickerPane(
               if (positionable) {
                 removeListeners()
               }
-            }, 500)
+            }, this.hideConfig.hideDelayMS)
           }
           hoveredInside = true
         } else if (event.id == MouseEvent.MOUSE_MOVED && hoveredInside && !wasInside) {

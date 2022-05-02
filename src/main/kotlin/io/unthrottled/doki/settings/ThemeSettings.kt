@@ -21,6 +21,7 @@ import io.unthrottled.doki.settings.actors.MoveableStickerActor
 import io.unthrottled.doki.settings.actors.SeeThroughNotificationsActor
 import io.unthrottled.doki.settings.actors.ShowReadmeActor
 import io.unthrottled.doki.settings.actors.StickerActor
+import io.unthrottled.doki.settings.actors.StickerHideActor
 import io.unthrottled.doki.settings.actors.ThemeActor
 import io.unthrottled.doki.settings.actors.ThemeStatusBarActor
 import io.unthrottled.doki.settings.actors.ThemedTitleBarActor
@@ -61,6 +62,8 @@ data class ThemeSettingsModel(
   var smallMaxStickerWidth: Int,
   var consoleFontValue: String,
   var ignoreScaling: Boolean,
+  var hideOnHover: Boolean,
+  var hideDelayMS: Int,
   var isSeeThroughNotifications: Boolean,
   var notificationOpacity: Int,
 ) {
@@ -111,6 +114,8 @@ object ThemeSettings {
       smallMaxStickerWidth = ThemeConfig.instance.smallMaxStickerWidth,
       showSmallStickers = ThemeConfig.instance.showSmallStickers,
       ignoreScaling = ThemeConfig.instance.ignoreScaling,
+      hideOnHover = ThemeConfig.instance.hideOnHover,
+      hideDelayMS = ThemeConfig.instance.hideDelayMS,
     )
 
   fun apply(themeSettingsModel: ThemeSettingsModel) {
@@ -156,6 +161,7 @@ object ThemeSettings {
       themeSettingsModel.notificationOpacity,
     )
     DiscreetModeActor.enableDiscreetMode(themeSettingsModel.discreetMode)
+    StickerHideActor.setStickerHideStuff(themeSettingsModel.hideOnHover, themeSettingsModel.hideDelayMS)
     ApplicationManager.getApplication().messageBus.syncPublisher(
       THEME_CONFIG_TOPIC
     ).themeConfigUpdated(ThemeConfig.instance)

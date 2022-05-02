@@ -319,7 +319,7 @@
                                   </grid>
                                 </children>
                               </grid>
-                              <grid id="3617" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                              <grid id="3617" layout-manager="GridLayoutManager" row-count="3" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                                 <margin top="0" left="0" bottom="0" right="0"/>
                                 <constraints>
                                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -330,7 +330,7 @@
                                   <grid id="bdb57" layout-manager="GridLayoutManager" row-count="3" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                                     <margin top="0" left="0" bottom="0" right="0"/>
                                     <constraints>
-                                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                                      <grid row="0" column="0" row-span="1" col-span="5" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                                     </constraints>
                                     <properties/>
                                     <border type="empty"/>
@@ -379,9 +379,32 @@
                                   </grid>
                                   <vspacer id="453fc">
                                     <constraints>
-                                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                                      <grid row="2" column="4" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
                                     </constraints>
                                   </vspacer>
+                                  <component id="35cca" class="javax.swing.JSpinner" binding="hideDelayMsSpinner" default-binding="true">
+                                    <constraints>
+                                      <grid row="2" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                                    </constraints>
+                                    <properties/>
+                                  </component>
+                                  <component id="1374e" class="javax.swing.JLabel">
+                                    <constraints>
+                                      <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                    </constraints>
+                                    <properties>
+                                      <labelFor value="35cca"/>
+                                      <text resource-bundle="messages/MessageBundle" key="settings.general.sticker.hide.delay"/>
+                                    </properties>
+                                  </component>
+                                  <component id="3ff90" class="javax.swing.JCheckBox" binding="hideOnHoverCheck">
+                                    <constraints>
+                                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                    </constraints>
+                                    <properties>
+                                      <text resource-bundle="messages/MessageBundle" key="settings.general.sticker.hide-on-hover"/>
+                                    </properties>
+                                  </component>
                                 </children>
                               </grid>
                             </children>
