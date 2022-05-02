@@ -2,6 +2,8 @@ package io.unthrottled.doki.settings;
 
 import com.intellij.ide.BrowserUtil;
 import com.intellij.ide.DataManager;
+import com.intellij.openapi.application.Application;
+import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.options.Configurable;
 import com.intellij.openapi.options.SearchableConfigurable;
 import com.intellij.openapi.options.ex.Settings;
@@ -12,6 +14,7 @@ import com.intellij.openapi.ui.DialogWrapper;
 import com.intellij.openapi.util.NlsContexts;
 import com.intellij.ui.ColorUtil;
 import com.intellij.ui.JBColor;
+import com.intellij.util.ui.FontInfo;
 import com.intellij.util.ui.UIUtil;
 import io.unthrottled.doki.config.ThemeConfig;
 import io.unthrottled.doki.icon.DokiIcons;
@@ -293,6 +296,21 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
     marginHelp.setForeground(UIUtil.getContextHelpForeground());
 
     toggleDiscreetModeStuff(initialThemeSettingsModel.getDiscreetMode());
+
+    initializeFontComboBox();
+  }
+
+  private void initializeFontComboBox() {
+    Application app = ApplicationManager.getApplication();
+    // loading fonts is an expensive operation on some
+    // other folk's machines. So delegating font loading work
+    // off of the AWT thread. Also setting the initial font is
+    // dependent on the combo box loading all fonts, so once this
+    // font is loaded, it's assumed the combo box is loaded.
+    app.executeOnPooledThread(() -> {
+      FontInfo initialFont = FontInfo.get(initialThemeSettingsModel.getConsoleFontValue());
+      consoleFontWomboComboBox.setSelectedItem(initialFont);
+    });
   }
 
   private void toggleDiscreetModeStuff(boolean discreetModeOn) {

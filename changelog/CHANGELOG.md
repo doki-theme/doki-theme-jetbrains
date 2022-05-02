@@ -1,6 +1,10 @@
 Changelog
 ---
 
+# 78.1-1.0.9 [Faster Settings Load]
+
+- Decreased load time of the settings menu for users who have many fonts installed on their machine.
+
 # 78.1-1.0.8 [Major Theme Syntax Coloring Updates]
 
 - **Major Updates** to syntax highlighting colors to these themes:
