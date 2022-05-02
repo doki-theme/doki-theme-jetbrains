@@ -160,6 +160,8 @@ hides.
 So you can see what was hiding behind it. There is also an action call `Hide on Hover` that you can invoke to toggle
 this functionality.
 
+https://user-images.githubusercontent.com/15972415/166341110-042e9bfa-08c0-49f3-8d60-02168c07ea97.mp4
+
 #### Save Positioning
 
 Any stickers that are allowed to be positioned (all small stickers are positionable), allows you to save the relative

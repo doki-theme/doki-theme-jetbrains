@@ -7,6 +7,7 @@ Changelog
   over the sticker to see what's behind it.
 - Adjusted Drag & Drop to be able to see where you are dropping.
 - Also made some more things usable in Asuna's dark theme.
+- Removed some unused theme building metadata from various asset files
 
 # 78.1-1.0.9 [Faster Settings Load]
 
