@@ -6,6 +6,7 @@
   },
   "overrides": {},
   "ui": {
-    "SearchMatch.foreground": "selectionForeground"
+    "SearchMatch.foreground": "selectionForeground",
+    "CompletionPopup.matchForeground": "accentColorBrighter"
   }
 }
