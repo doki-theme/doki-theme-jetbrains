@@ -98,9 +98,9 @@ internal class StickerPane(
       if (value) {
         addListeners()
       } else if (!isSmol) {
-          removeListeners()
-        }
+        removeListeners()
       }
+    }
 
   @Volatile
   private var screenX = 0
@@ -192,8 +192,9 @@ internal class StickerPane(
 
       if (event is MouseEvent) {
         val wasInside = isInsideMemePanel(event)
-        if (event.id == MouseEvent.MOUSE_MOVED && wasInside) {
+        if (event.id == MouseEvent.MOUSE_MOVED && wasInside && isStickerShowing()) {
           if (!hoveredInside) {
+            hoveredInside = true
             hoverAlarm.addRequest({
               runFadeAnimation(runForwards = false)
               if (positionable) {
@@ -201,20 +202,23 @@ internal class StickerPane(
               }
             }, this.hideConfig.hideDelayMS)
           }
-          hoveredInside = true
         } else if (event.id == MouseEvent.MOUSE_MOVED && hoveredInside && !wasInside) {
           hoverAlarm.cancelAllRequests()
-          hoverAlarm.addRequest({
-            hoveredInside = false
-            if (positionable) {
-              addListeners()
-            }
-            runFadeAnimation(runForwards = true)
-          }, fadeInDelay)
+          if (!isStickerShowing()) {
+            hoverAlarm.addRequest({
+              hoveredInside = false
+              if (positionable) {
+                addListeners()
+              }
+              runFadeAnimation(runForwards = true)
+            }, fadeInDelay)
+          }
         }
       }
     }
   }
+
+  private fun isStickerShowing() = alpha == VISIBLE_ALPHA
 
   private fun isInsideMemePanel(e: MouseEvent): Boolean =
     isInsideComponent(e, this)
@@ -230,7 +234,7 @@ internal class StickerPane(
       else -> {
         val point = target.screenPoint
         SwingUtilities.convertPointFromScreen(point, rootPane1)
-        rootPane1.contains(point)
+        rootPane1.contains(point) // todo: make sure sticker is in frontπ
       }
     }
   }
@@ -585,6 +589,7 @@ internal class StickerPane(
       override fun paintCycleEnd() {
         if (isForward) {
           clear()
+          alpha = VISIBLE_ALPHA
           self.repaint()
         }
 
@@ -601,5 +606,6 @@ internal class StickerPane(
     private const val CYCLE_DURATION = 250
     private const val CLEARED_ALPHA = -1f
     private const val WHITE_HEX = 0x00FFFFFF
+    private const val VISIBLE_ALPHA = 1.0f // not quite Sigma tho
   }
 }
