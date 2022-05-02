@@ -1,22 +1,28 @@
 package io.unthrottled.doki.stickers
 
 import com.intellij.openapi.Disposable
+import com.intellij.ui.awt.RelativePoint
 import com.intellij.ui.components.JBLabel
 import com.intellij.ui.components.JBLayeredPane
 import com.intellij.ui.jcef.HwFacadeJPanel
 import com.intellij.util.Alarm
+import com.intellij.util.ui.UIUtil
 import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.util.Logging
 import io.unthrottled.doki.util.logger
 import io.unthrottled.doki.util.runSafely
 import io.unthrottled.doki.util.runSafelyWithResult
+import java.awt.AWTEvent
 import java.awt.Dimension
 import java.awt.Graphics
 import java.awt.Graphics2D
 import java.awt.Image
 import java.awt.Rectangle
+import java.awt.Toolkit
+import java.awt.event.AWTEventListener
 import java.awt.event.ComponentAdapter
 import java.awt.event.ComponentEvent
+import java.awt.event.InputEvent
 import java.awt.event.MouseEvent
 import java.awt.event.MouseListener
 import java.awt.event.MouseMotionListener
@@ -29,6 +35,8 @@ import javax.swing.ImageIcon
 import javax.swing.JComponent
 import javax.swing.JLayeredPane
 import javax.swing.JPanel
+import javax.swing.MenuElement
+import javax.swing.SwingUtilities
 
 enum class StickerType {
   REGULAR, SMOL, ALL
@@ -155,9 +163,71 @@ internal class StickerPane(
     override fun mouseMoved(e: MouseEvent?) {}
   }
 
+  private val mouseListener: AWTEventListener = createMouseListener()
+
+  private val hoverAlarm = Alarm(this)
+
+  private fun createMouseListener(): AWTEventListener {
+    var hoveredInside = false
+    return AWTEventListener { event ->
+      if (
+        event !is InputEvent ||
+        UIUtil.isDescendingFrom(event.component, drawablePane).not()
+      ) return@AWTEventListener
+
+      if (event is MouseEvent) {
+        val wasInside = isInsideMemePanel(event)
+        if (event.id == MouseEvent.MOUSE_MOVED && wasInside) {
+          if (!hoveredInside) {
+            hoverAlarm.addRequest({
+              isVisible = false
+              if (positionable) {
+                removeListeners()
+              }
+            }, 500)
+          }
+          hoveredInside = true
+        } else if (event.id == MouseEvent.MOUSE_MOVED && hoveredInside && !wasInside) {
+          hoverAlarm.cancelAllRequests()
+          if (positionable) {
+            addListeners()
+          }
+          hoveredInside = false
+          isVisible = true
+        }
+      }
+    }
+  }
+
+  private fun isInsideMemePanel(e: MouseEvent): Boolean =
+    isInsideComponent(e, this)
+
+  private fun isInsideComponent(e: MouseEvent, rootPane1: JComponent): Boolean {
+    val target = RelativePoint(e)
+    val ogComponent = target.originalComponent
+    return when {
+      ogComponent.isShowing.not() -> true
+      ogComponent is MenuElement -> false
+      UIUtil.isDescendingFrom(ogComponent, rootPane1) -> true
+      this.isShowing.not() -> false
+      else -> {
+        val point = target.screenPoint
+        SwingUtilities.convertPointFromScreen(point, rootPane1)
+        rootPane1.contains(point)
+      }
+    }
+  }
+
+
   init {
     isOpaque = false
     layout = null
+
+    Toolkit.getDefaultToolkit().addAWTEventListener(
+      mouseListener,
+      AWTEvent.MOUSE_MOTION_EVENT_MASK
+    )
+
 
     drawablePane.addComponentListener(
       object : ComponentAdapter() {
