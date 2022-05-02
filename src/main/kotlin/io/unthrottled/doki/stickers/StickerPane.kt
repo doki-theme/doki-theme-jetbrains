@@ -26,6 +26,7 @@ import java.awt.Dimension
 import java.awt.Graphics
 import java.awt.Graphics2D
 import java.awt.Image
+import java.awt.Point
 import java.awt.Rectangle
 import java.awt.Toolkit
 import java.awt.event.AWTEventListener
@@ -181,8 +182,10 @@ internal class StickerPane(
 
   private val hoverAlarm = Alarm(this)
 
+  @Suppress("ComplexMethod") // it is inherently complex, sorry!
   private fun createMouseListener(): AWTEventListener {
     var hoveredInside = false
+    var makingStickerReAppear = false
     return AWTEventListener { event ->
       if (
         !this.hideConfig.hideOnHover ||
@@ -191,27 +194,49 @@ internal class StickerPane(
       ) return@AWTEventListener
 
       if (event is MouseEvent) {
-        val wasInside = isInsideMemePanel(event)
-        if (event.id == MouseEvent.MOUSE_MOVED && wasInside && isStickerShowing()) {
+        val isInsideSticker = isInsideMemePanel(event)
+        val stickerShowing = isStickerShowing()
+        if (
+          event.id == MouseEvent.MOUSE_MOVED &&
+          isInsideSticker &&
+          stickerShowing
+        ) {
           if (!hoveredInside) {
             hoveredInside = true
-            hoverAlarm.addRequest({
-              runFadeAnimation(runForwards = false)
-              if (positionable) {
-                removeListeners()
-              }
-            }, this.hideConfig.hideDelayMS)
+            hoverAlarm.addRequest(
+              {
+                runFadeAnimation(runForwards = false)
+                if (positionable) {
+                  removeListeners()
+                }
+              },
+              this.hideConfig.hideDelayMS
+            )
           }
-        } else if (event.id == MouseEvent.MOUSE_MOVED && hoveredInside && !wasInside) {
-          hoverAlarm.cancelAllRequests()
-          if (!isStickerShowing()) {
-            hoverAlarm.addRequest({
-              hoveredInside = false
-              if (positionable) {
-                addListeners()
-              }
-              runFadeAnimation(runForwards = true)
-            }, fadeInDelay)
+        } else if (
+          event.id == MouseEvent.MOUSE_MOVED &&
+          hoveredInside &&
+          !isInsideSticker
+        ) {
+          if (!makingStickerReAppear) {
+            hoverAlarm.cancelAllRequests()
+          }
+
+          if (!stickerShowing && !makingStickerReAppear) {
+            makingStickerReAppear = true
+            hoverAlarm.addRequest(
+              {
+                makingStickerReAppear = false
+                hoveredInside = false
+                if (positionable) {
+                  addListeners()
+                }
+                runFadeAnimation(runForwards = true)
+              },
+              fadeInDelay
+            )
+          } else if (stickerShowing && !makingStickerReAppear) {
+            hoveredInside = false
           }
         }
       }
@@ -232,13 +257,19 @@ internal class StickerPane(
       UIUtil.isDescendingFrom(ogComponent, rootPane1) -> true
       this.isShowing.not() -> false
       else -> {
-        val point = target.screenPoint
+        val point = target.screenPoint.clone() as Point
         SwingUtilities.convertPointFromScreen(point, rootPane1)
-        rootPane1.contains(point) // todo: make sure sticker is in frontπ
+        rootPane1.contains(point) && isOnSticker(target.screenPoint)
       }
     }
   }
 
+  private fun isOnSticker(point: Point): Boolean {
+    val layeredPane = rootPane.layeredPane
+    SwingUtilities.convertPointFromScreen(point, layeredPane)
+    val componentAt = layeredPane.getComponentAt(point)
+    return componentAt == this
+  }
 
   init {
     isOpaque = false
@@ -248,7 +279,6 @@ internal class StickerPane(
       mouseListener,
       AWTEvent.MOUSE_MOTION_EVENT_MASK
     )
-
 
     drawablePane.addComponentListener(
       object : ComponentAdapter() {
@@ -512,7 +542,6 @@ internal class StickerPane(
     )
   }
 
-
   private fun fancyPaintChildren(imageGraphics2d: Graphics2D) {
     // Paint to an image without alpha to preserve fonts subpixel antialiasing
     val image: BufferedImage = ImageUtil.createImage(
@@ -564,7 +593,6 @@ internal class StickerPane(
       StartupUiUtil.drawImage(g, overlay!!, 0, 0, null)
     }
   }
-
 
   /**
    * In short, the fade in/out animations work by first painting the
