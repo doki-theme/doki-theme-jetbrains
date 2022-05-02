@@ -348,27 +348,22 @@
     "CompletionPopup.selectionBackground": "selectionBackgroundTransparent",
     "CompletionPopup.selectionInactiveBackground": "selectionInactive",
     "CompletionPopup.foreground": "foregroundColor",
-
     "SearchEverywhere.Tab.selectedBackground": "highlightColor",
     "SearchEverywhere.Header.background": "secondaryBackground",
     "SearchEverywhere.SearchField.background": "secondaryBackground",
     "SearchEverywhere.Advertiser.background": "headerColor",
-
     "WelcomeScreen.Projects.actions.background": "accentColorTransparent",
     "WelcomeScreen.Projects.actions.selectionBackground": "accentColor",
-
     "DragAndDrop.borderColor": "accentColor",
-    "DragAndDrop.rowBackground": "codeBlock",
-    "DragAndDrop.areaBackground": "codeBlock",
-    "DragAndDrop.areaBorderColor": "codeBlock",
-
+    "DragAndDrop.rowBackground": "accentColorMoreTransparent",
+    "DragAndDrop.areaBackground": "accentColorMoreTransparent",
+    "DragAndDrop.areaBorderColor": "accentColor",
     "GotItTooltip.foreground": "foregroundColor",
     "GotItTooltip.shortcutForeground": "accentColor",
-    "GotItTooltip.background":  "secondaryBackground",
+    "GotItTooltip.background": "secondaryBackground",
     "GotItTooltip.borderColor": "secondaryBackground",
-    "GotItTooltip.linkForeground":  "accentColor",
-
-    "Lesson.Tooltip.background" : "secondaryBackground",
+    "GotItTooltip.linkForeground": "accentColor",
+    "Lesson.Tooltip.background": "secondaryBackground",
     "Label.successForeground": "terminal.ansiGreen",
     "Lesson.Tooltip.spanBackground": "selectionBackground",
     "Lesson.Tooltip.foreground": "selectionForeground",
@@ -450,25 +445,19 @@
     "FileColor.Orange": "fileOrange",
     "FileColor.Rose": "fileRose",
     "FileColor.Violet": "fileViolet",
-
-    "SearchField.errorBackground" : "diff.conflict",
-
-    "Label.errorForeground":"errorColor",
-
+    "SearchField.errorBackground": "diff.conflict",
+    "Label.errorForeground": "errorColor",
     "Counter.foreground": "baseBackground",
-
-    "Notification.errorForeground":"foregroundColor",
-    "Notification.errorBackground": "nonProjectFileScopeColor",
+    "Notification.errorForeground": "foregroundColor",
+    "Notification.errorBackground": "fileRed",
     "Notification.errorBorderColor": "diff.conflict",
-
     "JumpToLine.dropLine.safe": "testScopeColor",
     "JumpToLine.dropLine.unsafe": "nonProjectFileScopeColor",
-
     "BookmarkMnemonicAvailable.foreground": "buttonFont",
-    "BookmarkMnemonicAvailable.background":"buttonColor",
+    "BookmarkMnemonicAvailable.background": "buttonColor",
     "BookmarkMnemonicAvailable.borderColor": "buttonColor",
     "BookmarkMnemonicAssigned.foreground": "selectionForeground",
-    "BookmarkMnemonicAssigned.background":"selectionBackground",
+    "BookmarkMnemonicAssigned.background": "selectionBackground",
     "BookmarkMnemonicAssigned.borderColor": "selectionBackground",
     "BookmarkMnemonicCurrent.foreground": "selectionForeground",
     "BookmarkMnemonicCurrent.background":"selectionBackground",
