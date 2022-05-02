@@ -1,11 +1,18 @@
 package io.unthrottled.doki.stickers
 
 import com.intellij.openapi.Disposable
+import com.intellij.openapi.ui.MessageType
+import com.intellij.openapi.util.Disposer
+import com.intellij.ui.JreHiDpiUtil
 import com.intellij.ui.awt.RelativePoint
 import com.intellij.ui.components.JBLabel
 import com.intellij.ui.components.JBLayeredPane
 import com.intellij.ui.jcef.HwFacadeJPanel
+import com.intellij.ui.scale.JBUIScale
 import com.intellij.util.Alarm
+import com.intellij.util.ui.Animator
+import com.intellij.util.ui.ImageUtil
+import com.intellij.util.ui.StartupUiUtil
 import com.intellij.util.ui.UIUtil
 import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.util.Logging
@@ -13,6 +20,8 @@ import io.unthrottled.doki.util.logger
 import io.unthrottled.doki.util.runSafely
 import io.unthrottled.doki.util.runSafelyWithResult
 import java.awt.AWTEvent
+import java.awt.AlphaComposite
+import java.awt.Color
 import java.awt.Dimension
 import java.awt.Graphics
 import java.awt.Graphics2D
@@ -27,6 +36,8 @@ import java.awt.event.MouseEvent
 import java.awt.event.MouseListener
 import java.awt.event.MouseMotionListener
 import java.awt.geom.AffineTransform
+import java.awt.image.BufferedImage
+import java.awt.image.RGBImageFilter
 import java.io.File
 import java.net.URI
 import java.net.URL
@@ -184,7 +195,7 @@ internal class StickerPane(
         if (event.id == MouseEvent.MOUSE_MOVED && wasInside) {
           if (!hoveredInside) {
             hoverAlarm.addRequest({
-              isVisible = false
+              runFadeAnimation(runForwards = false)
               if (positionable) {
                 removeListeners()
               }
@@ -193,11 +204,13 @@ internal class StickerPane(
           hoveredInside = true
         } else if (event.id == MouseEvent.MOUSE_MOVED && hoveredInside && !wasInside) {
           hoverAlarm.cancelAllRequests()
-          if (positionable) {
-            addListeners()
-          }
-          hoveredInside = false
-          isVisible = true
+          hoverAlarm.addRequest({
+            hoveredInside = false
+            if (positionable) {
+              addListeners()
+            }
+            runFadeAnimation(runForwards = true)
+          }, fadeInDelay)
         }
       }
     }
@@ -473,5 +486,120 @@ internal class StickerPane(
       size.width,
       size.height,
     )
+  }
+
+  private var alpha = 1.0f
+  private var overlay: BufferedImage? = null
+  private fun clear() {
+    alpha = CLEARED_ALPHA
+    overlay = null
+  }
+
+  private fun makeColorTransparent(image: Image, color: Color): Image {
+    val markerRGB = color.rgb or -0x1000000
+    return ImageUtil.filter(
+      image,
+      object : RGBImageFilter() {
+        override fun filterRGB(x: Int, y: Int, rgb: Int): Int =
+          if (rgb or -0x1000000 == markerRGB) {
+            WHITE_HEX and rgb // set alpha to 0
+          } else rgb
+      }
+    )
+  }
+
+
+  private fun fancyPaintChildren(imageGraphics2d: Graphics2D) {
+    // Paint to an image without alpha to preserve fonts subpixel antialiasing
+    val image: BufferedImage = ImageUtil.createImage(
+      imageGraphics2d,
+      width,
+      height,
+      BufferedImage.TYPE_INT_RGB
+    )
+
+    val fillColor = MessageType.INFO.popupBackground
+    UIUtil.useSafely(image.createGraphics()) { imageGraphics: Graphics2D ->
+      imageGraphics.paint = Color(fillColor.rgb) // create a copy to remove alpha
+      imageGraphics.fillRect(0, 0, width, height)
+      super.paintChildren(imageGraphics)
+    }
+
+    val g2d = imageGraphics2d.create() as Graphics2D
+
+    try {
+      if (JreHiDpiUtil.isJreHiDPI(g2d)) {
+        val s = 1 / JBUIScale.sysScale(g2d)
+        g2d.scale(s.toDouble(), s.toDouble())
+      }
+      StartupUiUtil.drawImage(g2d, makeColorTransparent(image, fillColor), 0, 0, null)
+    } finally {
+      g2d.dispose()
+    }
+  }
+
+  private fun initComponentImage() {
+    if (overlay != null) return
+
+    overlay = UIUtil.createImage(this, width, height, BufferedImage.TYPE_INT_ARGB)
+    UIUtil.useSafely(overlay!!.graphics) { imageGraphics: Graphics2D ->
+      fancyPaintChildren(imageGraphics)
+    }
+  }
+
+  override fun paintComponent(g: Graphics?) {
+    super.paintComponent(g)
+    if (g !is Graphics2D) return
+
+    if (overlay == null && alpha != CLEARED_ALPHA) {
+      initComponentImage()
+    }
+
+    if (overlay != null && alpha != CLEARED_ALPHA) {
+      g.composite = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, alpha)
+      StartupUiUtil.drawImage(g, overlay!!, 0, 0, null)
+    }
+  }
+
+
+  /**
+   * In short, the fade in/out animations work by first painting the
+   * panel, taking an image still, then display the image over top and
+   * perform the transparency to the image, so that it looks like it
+   * fades in/out.
+   */
+  private fun runFadeAnimation(runForwards: Boolean = true) {
+    val self = this
+    val animator = object : Animator(
+      "Sticker Fadeout",
+      TOTAL_FRAMES,
+      CYCLE_DURATION,
+      false,
+      runForwards
+    ) {
+      override fun paintNow(frame: Int, totalFrames: Int, cycle: Int) {
+        alpha = frame.toFloat() / totalFrames
+        paintImmediately(0, 0, width, height)
+      }
+
+      override fun paintCycleEnd() {
+        if (isForward) {
+          clear()
+          self.repaint()
+        }
+
+        Disposer.dispose(this)
+      }
+    }
+
+    animator.resume()
+  }
+
+  companion object {
+    private const val fadeInDelay = 500
+    private const val TOTAL_FRAMES = 8
+    private const val CYCLE_DURATION = 250
+    private const val CLEARED_ALPHA = -1f
+    private const val WHITE_HEX = 0x00FFFFFF
   }
 }
