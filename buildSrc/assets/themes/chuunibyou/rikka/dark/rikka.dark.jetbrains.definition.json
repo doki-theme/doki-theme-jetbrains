@@ -6,11 +6,5 @@
   },
   "overrides": {},
   "ui": {},
-  "uiBase": "dark dim",
-  "backgrounds": {
-    "default": {
-      "opacity": 12,
-      "position": "CENTER"
-    }
-  }
+  "uiBase": "dark dim"
 }

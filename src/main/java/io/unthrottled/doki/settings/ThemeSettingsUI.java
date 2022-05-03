@@ -79,6 +79,8 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
   private JLabel marginHelp;
   private JCheckBox ignoreScalingCheckBox;
   private com.intellij.ui.components.ActionLink randmizerInstallLink;
+  private JSpinner hideDelayMsSpinner;
+  private JCheckBox hideOnHoverCheck;
 
 
   @Override
@@ -296,6 +298,23 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
     marginHelp.setForeground(UIUtil.getContextHelpForeground());
 
     toggleDiscreetModeStuff(initialThemeSettingsModel.getDiscreetMode());
+
+    hideOnHoverCheck.setSelected(initialThemeSettingsModel.getHideOnHover());
+    hideOnHoverCheck.addActionListener(e -> {
+      hideDelayMsSpinner.setEnabled(hideOnHoverCheck.isSelected());
+      themeSettingsModel.setHideOnHover(hideOnHoverCheck.isSelected());
+    });
+
+    SpinnerNumberModel hideOnHoverDelaySpinnerModel = new SpinnerNumberModel(
+      initialThemeSettingsModel.getHideDelayMS(),
+      10,
+      Integer.MAX_VALUE,
+      1
+    );
+    hideDelayMsSpinner.setModel(hideOnHoverDelaySpinnerModel);
+    hideDelayMsSpinner.addChangeListener(e ->
+      themeSettingsModel.setHideDelayMS(hideOnHoverDelaySpinnerModel.getNumber().intValue()));
+    hideDelayMsSpinner.setEnabled(hideOnHoverCheck.isSelected());
 
     initializeFontComboBox();
   }

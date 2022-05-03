@@ -19,6 +19,11 @@ import java.util.Optional
 import java.util.concurrent.ConcurrentHashMap
 import javax.swing.JFrame
 
+data class StickerHideConfig(
+  val hideOnHover: Boolean,
+  val hideDelayMS: Int,
+)
+
 @Suppress("TooManyFunctions")
 class StickerPaneService {
 
@@ -57,6 +62,12 @@ class StickerPaneService {
     MarginService.instance.reset()
     windowsToAddStickersTo.forEach {
       it.value.updateMargin(MarginService.instance.getMargin(it.key))
+    }
+  }
+
+  fun setStickerHideConfig(stickerHideConfig: StickerHideConfig) {
+    stickers.forEach {
+      it.hideConfig = stickerHideConfig
     }
   }
 

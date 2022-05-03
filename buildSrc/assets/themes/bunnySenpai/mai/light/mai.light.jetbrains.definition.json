@@ -7,14 +7,5 @@
   "overrides": {},
   "ui": {
     "Doki.Icon.Accent.Contrast.color": "headerColor"
-  },
-  "backgrounds": {
-    "default": {
-      "position": "MIDDLE_RIGHT"
-    },
-    "secondary": {
-      "position": "MIDDLE_RIGHT",
-      "opacity": 13
-    }
   }
 }

@@ -29,10 +29,5 @@
     "ScrollBar.Mac.thumbColor": "accentColorSecondaryTransparent",
     "ScrollBar.Mac.hoverThumbBorderColor": "accentColorSecondaryTransparent",
     "ScrollBar.Mac.hoverThumbColor": "accentColorSecondaryTransparent"
-  },
-  "backgrounds": {
-    "default": {
-      "position": "MIDDLE_RIGHT"
-    }
   }
 }

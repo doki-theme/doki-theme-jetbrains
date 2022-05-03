@@ -1,6 +1,14 @@
 Changelog
 ---
 
+# 78.2-1.1.0 [Hover to hide sticker]
+
+- Added a feature that can be enabled from the settings or toggled from `Hide on Hover` action, that allows you to hover
+  over the sticker to see what's behind it.
+- Adjusted Drag & Drop to be able to see where you are dropping.
+- Also made some more things usable in Asuna's dark theme.
+- Removed some unused theme building metadata from various asset files
+
 # 78.1-1.0.9 [Faster Settings Load]
 
 - Decreased load time of the settings menu for users who have many fonts installed on their machine.

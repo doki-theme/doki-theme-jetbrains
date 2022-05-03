@@ -5,11 +5,5 @@
     "name": "Doki Dim"
   },
   "overrides": {},
-  "ui": {},
-  "backgrounds": {
-    "default": {
-      "opacity": 12,
-      "position": "MIDDLE_RIGHT"
-    }
-  }
+  "ui": {}
 }

@@ -7,11 +7,5 @@
   "overrides": {},
   "ui": {
     "SearchEverywhere.SearchField.borderColor": "#1c3627"
-  },
-  "backgrounds": {
-    "default": {
-      "position": "CENTER",
-      "opacity": 7
-    }
   }
 }

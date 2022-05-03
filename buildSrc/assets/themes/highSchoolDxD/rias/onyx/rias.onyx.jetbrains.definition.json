@@ -6,10 +6,5 @@
   },
   "overrides": {},
   "ui": {},
-  "backgrounds": {
-    "secondary": {
-      "opacity": 7
-    }
-  },
   "uiBase": "dark dim"
 }

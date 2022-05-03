@@ -17,6 +17,9 @@
 - Made background art dimmer for: Yuri Light.
 - Added a link to install [Theme Randomizer](https://plugins.jetbrains.com/plugin/16107-theme-randomizer) from settings.
 - Decreased load time of the settings menu for users who have many fonts installed on their machine.
+- Added a feature that can be enabled from the settings or toggled from `Hide on Hover` action, that allows you to hover
+    over the sticker to see what's behind it.
+- Adjusted Drag & Drop to be able to see where you are dropping.
 
 #### Motivation
 

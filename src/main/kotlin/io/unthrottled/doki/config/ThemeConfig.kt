@@ -21,6 +21,8 @@ class ThemeConfig : PersistentStateComponent<ThemeConfig>, Cloneable {
   }
 
   var ignoreScaling: Boolean = false
+  var hideOnHover: Boolean = false
+  var hideDelayMS: Int = 750
   var savedMargins: String = "{}"
   var userId: String = ""
   var isLafAnimation: Boolean = false
@@ -81,7 +83,7 @@ class ThemeConfig : PersistentStateComponent<ThemeConfig>, Cloneable {
 
   var currentSticker: CurrentSticker
     get() {
-      val stickerNameType = currentStickerName.toUpperCase()
+      val stickerNameType = currentStickerName.uppercase(Locale.getDefault())
       return if (CurrentSticker.values().none { it.name == stickerNameType }) {
         val defaultSticker = CurrentSticker.DEFAULT
         currentSticker = defaultSticker

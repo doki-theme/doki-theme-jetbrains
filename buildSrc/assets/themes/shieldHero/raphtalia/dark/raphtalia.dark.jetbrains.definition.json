@@ -8,11 +8,5 @@
   "ui": {
     "CompletionPopup.matchForeground": "keywordColor"
   },
-  "uiBase": "dark dim",
-  "backgrounds": {
-    "default": {
-      "opacity": 11,
-      "position": "MIDDLE_RIGHT"
-    }
-  }
+  "uiBase": "dark dim"
 }
