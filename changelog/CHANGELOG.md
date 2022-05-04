@@ -1,6 +1,10 @@
 Changelog
 ---
 
+# 78.2-1.1.1 [Sticker Bug Fix]
+
+- Fixed issue where the previous theme's sticker would _stick around_ behind the current theme's sticker. <sup><sup>I'll see myself out</sup></sup>
+
 # 78.2-1.1.0 [Hover to hide sticker]
 
 - Added a feature that can be enabled from the settings or toggled from `Hide on Hover` action, that allows you to hover
