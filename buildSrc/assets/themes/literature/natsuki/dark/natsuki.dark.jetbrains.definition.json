@@ -5,12 +5,12 @@
     "name": "Doki Dim v2"
   },
   "overrides": {},
-  "uiBase": "dark dim",
   "ui": {
     "Plugins.lightSelectionBackground": "selectionBackground",
     "CompletionPopup.selectionBackground": "selectionBackgroundTransparent",
     "CompletionPopup.selectionInactiveBackground": "selectionInactiveTransparent",
     "SearchEverywhere.Header.background": "headerColor",
     "SearchEverywhere.SearchField.background": "headerColor"
-  }
+  },
+  "uiBase": "dark dim"
 }
