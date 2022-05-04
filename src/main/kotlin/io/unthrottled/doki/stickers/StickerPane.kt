@@ -243,7 +243,8 @@ internal class StickerPane(
     }
   }
 
-  private fun isStickerShowing() = alpha == VISIBLE_ALPHA
+  private fun isStickerShowing() = alpha == CLEARED_ALPHA ||
+    alpha == VISIBLE_ALPHA
 
   private fun isInsideMemePanel(e: MouseEvent): Boolean =
     isInsideComponent(e, this)
@@ -522,7 +523,7 @@ internal class StickerPane(
     )
   }
 
-  private var alpha = 1.0f
+  private var alpha = CLEARED_ALPHA
   private var overlay: BufferedImage? = null
   private fun clear() {
     alpha = CLEARED_ALPHA
@@ -617,7 +618,6 @@ internal class StickerPane(
       override fun paintCycleEnd() {
         if (isForward) {
           clear()
-          alpha = VISIBLE_ALPHA
           self.repaint()
         }
 
