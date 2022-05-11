@@ -39,8 +39,8 @@
     <option name="DOC_COMMENT_LINK" value="%accentColor%"/>
     <option name="DIFF_SEPARATORS_BACKGROUND" value="%accentColor%2a"/>
     <option name="ERROR_HINT" value="704745"/>
-    <option name="FILESTATUS_ADDED" value="10b15a"/>
-    <option name="FILESTATUS_COPIED" value="10b15a"/>
+    <option name="FILESTATUS_ADDED" value="$terminal.ansiGreen$"/>
+    <option name="FILESTATUS_COPIED" value="$terminal.ansiGreen$"/>
     <option name="FILESTATUS_DELETED" value="$disabledColor$"/>
     <option name="FILESTATUS_IDEA_FILESTATUS_DELETED_FROM_FILE_SYSTEM" value="$disabledColor$"/>
     <option name="FILESTATUS_IDEA_FILESTATUS_IGNORED" value="$disabledColor$"/>
@@ -51,7 +51,7 @@
     <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_BOTH_CONFLICTS" value="$accentColor$"/>
     <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_CONFLICTS" value="$accentColor$"/>
     <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_PROPERTY_CONFLICTS" value="$accentColor$"/>
-    <option name="FILESTATUS_IDEA_SVN_FILESTATUS_EXTERNAL" value="10b15a"/>
+    <option name="FILESTATUS_IDEA_SVN_FILESTATUS_EXTERNAL" value="$terminal.ansiGreen$"/>
     <option name="FILESTATUS_MERGED" value="$constantColor$"/>
     <option name="FILESTATUS_MODIFIED" value="8699ff"/>
     <option name="FILESTATUS_NOT_CHANGED_IMMEDIATE" value="8699ff"/>
@@ -782,9 +782,9 @@
     </option>
     <option name="DELETED_TEXT_ATTRIBUTES">
       <value>
-        <option name="FOREGROUND" value="f8f8f2"/>
-        <option name="BACKGROUND" value="1A401B"/>
-        <option name="EFFECT_COLOR" value="c3c3c3"/>
+        <option name="FOREGROUND" value="$foregroundColorEditor$"/>
+        <option name="BACKGROUND" value="$diff.deleted$"/>
+        <option name="EFFECT_COLOR" value="$diff.deleted$"/>
         <option name="EFFECT_TYPE" value="3"/>
       </value>
     </option>
