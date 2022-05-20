@@ -6,6 +6,7 @@ private val nameMapping =
     "Blend S" to "BlendS: ",
     "Guilty Crown" to "GuiltyCrown: ",
     "Code Geass" to "CodeGeass: ",
+    "Charlotte" to "Charlotte: ",
     "Toaru Majutsu no Index" to "Railgun: ",
     "The Rising of Shield Hero" to "ShieldHero: ",
     "Chuunibyou" to "Chuunibyou: ",
