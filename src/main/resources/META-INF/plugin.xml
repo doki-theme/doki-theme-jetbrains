@@ -60,6 +60,7 @@
     <themeProvider id="dc8e4142-c371-4107-a3c3-99dceefadac2" path="/doki/themes/eromanga_sensei/Sagiri.theme.json"/>
     <themeProvider id="926c4bf5-eafb-463e-815a-b6a101fc1f4a" path="/doki/themes/guilty_crown/Yuzuriha_Inori.theme.json"/>
     <themeProvider id="3b11c8f4-d030-4a7e-a46f-b22d3e430a1d" path="/doki/themes/quintessential_quintuplets/Nakano_Yotsuba.theme.json"/>
+    <themeProvider id="a8c6675e-7bdb-41f0-af80-4e9ebbf617d2" path="/doki/themes/quintessential_quintuplets/Nakano_Ichika.theme.json"/>
     <themeProvider id="d96c6599-ebf8-4359-ae26-19f79b69e919" path="/doki/themes/quintessential_quintuplets/Nakano_Miku.theme.json"/>
     <themeProvider id="5e6a266f-c6d5-4891-a065-a2c2b857016a" path="/doki/themes/quintessential_quintuplets/Nakano_Nino.theme.json"/>
     <themeProvider id="bc12b380-1f2a-4a9d-89d8-388a07f1e15f" path="/doki/themes/vocaloid/Hatsune_Miku.theme.json"/>
