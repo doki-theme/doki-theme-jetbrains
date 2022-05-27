@@ -72,7 +72,7 @@
     <option name="INLINE_REFACTORING_SETTINGS_FOCUSED" value="%accentColorTransparent%"/>
     <option name="INLINE_REFACTORING_SETTINGS_HOVERED" value="%accentColorTransparent%"/>
     <option name="LINE_NUMBERS_COLOR" value="$lineNumberColor$"/>
-    <option name="LINE_NUMBER_ON_CARET_ROW_COLOR" value="$lineNumberColor$"/>
+    <option name="LINE_NUMBER_ON_CARET_ROW_COLOR" value="$infoForeground$"/>
     <option name="LOOKUP_COLOR" value="$headerColor$"/>
     <option name="JUPYTER.CELL_UNDER_CARET_COMMAND_MODE_STRIPE_COLOR" value="%accentColor%" />
     <option name="JUPYTER.CODE_CELL_BACKGROUND" value="$lightEditorColor$" />
