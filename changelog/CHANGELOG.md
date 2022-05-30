@@ -1,6 +1,11 @@
 Changelog
 ---
 
+# 78.2-1.2.0 [2022.2 Build Support]
+
+- Enabled initial support for 2022.2 builds.
+- Changed frameless mode to not be on by default, as it collides with 2022.2's title pane.
+
 # 78.2-1.1.1 [Sticker Bug Fix]
 
 - Fixed issue where the previous theme's sticker would _stick around_ behind the current theme's sticker. <sup><sup>I'll see myself out</sup></sup>
