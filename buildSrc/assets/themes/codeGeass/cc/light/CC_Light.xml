@@ -9,5 +9,11 @@
         <option name="BACKGROUND" value="$textEditorBackground$"/>
       </value>
     </option>
-    </attributes>
+    <option name="INLAY_DEFAULT">
+      <value>
+        <option name="FOREGROUND" value="$stringColor$ba"/>
+        <option name="BACKGROUND" value="$textEditorBackground$"/>
+      </value>
+    </option>
+  </attributes>
 </scheme>
