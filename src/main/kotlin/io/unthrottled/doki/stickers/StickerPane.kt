@@ -95,13 +95,13 @@ internal class StickerPane(
     if (isSmol) true
     else ThemeConfig.instance.isMoveableStickers
     set(value) {
-        field = value
-        if (value) {
-          addListeners()
-        } else if (!isSmol) {
-          removeListeners()
-        }
+      field = value
+      if (value) {
+        addListeners()
+      } else if (!isSmol) {
+        removeListeners()
       }
+    }
 
   @Volatile
   private var screenX = 0
@@ -316,12 +316,15 @@ internal class StickerPane(
   }
 
   fun displaySticker(stickerUrl: String) {
-    // clean up old sticker
-    if (componentCount > 0) {
-      runSafely({
-        remove(0)
-      }) {
-        logger().warn("Unable to remove previous sticker for raisins.", it)
+    // clean up old sticker(s)
+    val components = this.components
+    if (components.isNotEmpty()) {
+      repeat(components.count()) {
+        runSafely({
+          remove(0)
+        }) {
+          logger().warn("Unable to remove previous sticker for raisins.", it)
+        }
       }
     }
 
@@ -458,6 +461,7 @@ internal class StickerPane(
             ThemeConfig.instance.smallMaxStickerHeight,
           )
         )
+
       type == StickerType.REGULAR &&
         ThemeConfig.instance.capStickerDimensions ->
         DimensionCappingService.getCappingStyle(
@@ -467,6 +471,7 @@ internal class StickerPane(
             ThemeConfig.instance.maxStickerHeight,
           )
         )
+
       else -> originalDimension
     }
   }
