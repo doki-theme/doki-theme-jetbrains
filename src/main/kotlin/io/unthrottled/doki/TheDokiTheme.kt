@@ -55,6 +55,7 @@ class TheDokiTheme : Disposable {
 
   init {
     hackLAF()
+    LegacyMigration.migrateIfNecessary()
     installAllUIComponents()
 
     attemptToAddIcons()
@@ -92,8 +93,6 @@ class TheDokiTheme : Disposable {
       ProjectManager.TOPIC,
       object : ProjectManagerListener {
         override fun projectOpened(project: Project) {
-          LegacyMigration.migrateIfNecessary()
-
           ThemeManager.instance.currentTheme
             .ifPresent {
               EditorBackgroundWallpaperService.instance.checkForUpdates(it)
