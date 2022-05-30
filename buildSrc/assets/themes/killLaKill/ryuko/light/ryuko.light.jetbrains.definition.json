@@ -5,5 +5,7 @@
     "name": "Doki Light"
   },
   "overrides": {},
-  "ui": {}
+  "ui": {
+    "CompletionPopup.matchForeground": "editorAccentColor"
+  }
 }
