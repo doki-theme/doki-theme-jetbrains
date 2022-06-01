@@ -305,7 +305,7 @@ fun getAnchor(position: IdeBackgroundUtil.Anchor): String {
   }
 }
 
-object UpdateNotification: Logging  {
+object UpdateNotification : Logging {
 
   private val notificationGroup = NotificationGroupManager.getInstance()
     .getNotificationGroup("Doki Theme Updates")
@@ -366,12 +366,12 @@ object UpdateNotification: Logging  {
     val content = buildUpdateMessage(currentTheme, isNewUser, newVersion)
     val url = buildUrl(isNewUser, newVersion, currentTheme)
     runSafely({
-    HTMLEditorProvider.openEditor(
-      project,
-      title,
-      url,
-      content,
-    )
+      HTMLEditorProvider.openEditor(
+        project,
+        title,
+        url,
+        content,
+      )
     }) {
       logger().warn("Unable to show update notification for raisins.", it)
     }

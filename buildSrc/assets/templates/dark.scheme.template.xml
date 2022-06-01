@@ -53,7 +53,7 @@
     <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_PROPERTY_CONFLICTS" value="$accentColor$"/>
     <option name="FILESTATUS_IDEA_SVN_FILESTATUS_EXTERNAL" value="$terminal.ansiGreen$"/>
     <option name="FILESTATUS_MERGED" value="$constantColor$"/>
-    <option name="FILESTATUS_MODIFIED" value="8699ff"/>
+    <option name="FILESTATUS_MODIFIED" value="$constantColor$"/>
     <option name="FILESTATUS_NOT_CHANGED_IMMEDIATE" value="8699ff"/>
     <option name="FILESTATUS_NOT_CHANGED_RECURSIVE" value="8699ff"/>
     <option name="FILESTATUS_OBSOLETE" value="$stringColor$"/>

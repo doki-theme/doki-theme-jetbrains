@@ -13,9 +13,9 @@ object LegacyMigration {
   private val nativeTitlePaneBuild = BuildNumber.fromString("222.2680.4")
   private fun migrateUsersAwayFromTitlePane() {
     val build = ApplicationInfoEx.getInstanceEx().build
-    if(SystemInfo.isMac &&
+    if (SystemInfo.isMac &&
       ThemeConfig.instance.isThemedTitleBar &&
-      //is the current build greater that the
+      // is the current build greater that the
       // build that has native titlepane support
       (nativeTitlePaneBuild?.compareTo(build) ?: 0) <= 0
     ) {
