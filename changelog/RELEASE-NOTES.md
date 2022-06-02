@@ -2,11 +2,7 @@
 
 ![v84 Girls](https://doki.assets.unthrottled.io/misc/v84_girls_small.png)
 
-This release is not for my Dark Theme Normies.
-Dark themes are nice, but I like Light Themes too (and my Dark Theme Normies).
-I'm currently trying new things out.
-Sorry in advance if I made your eyes bleed.
-I might tweak some of them as time goes on, still not 100% on what looks good & also is a fun color.
+This release is not for my Dark Theme Normies. Dark themes are nice, but I like Light Themes too (and my Dark Theme Normies). I'm currently trying new things out. Sorry in advance if I made your eyes bleed. I might tweak some of them as time goes on, still not 100% on what looks good & also is a fun color.
 
 **6 New Light Themes!**
 
