@@ -20,3 +20,4 @@ This release is not for my Dark Theme Normies. Dark themes are nice, but I like 
 - Migrating MacOS users on 2022.2 builds to not use the provided themed title bar, as it has native support now.
 - Fixed issue when opening the update notification for some users.
 - Fixed issue with stickers keeping the previously sized sticker when adjusting the size of the sticker.
+- Added more consistent support for Java module material file icons.
