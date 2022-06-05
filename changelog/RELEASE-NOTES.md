@@ -1,4 +1,4 @@
-# 84.0-1.2.1 [Light Theme Party]
+# 84.1-1.2.1 [Light Theme Party]
 
 ![v84 Girls](https://doki.assets.unthrottled.io/misc/v84_girls_small.png)
 
