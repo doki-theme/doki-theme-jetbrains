@@ -1,0 +1,19 @@
+<scheme name="CC Light" version="142" parent_scheme="Doki Light v2">
+  <colors>
+
+  </colors>
+  <attributes>
+    <option name="INLINE_PARAMETER_HINT">
+      <value>
+        <option name="FOREGROUND" value="$stringColor$ba"/>
+        <option name="BACKGROUND" value="$textEditorBackground$"/>
+      </value>
+    </option>
+    <option name="INLAY_DEFAULT">
+      <value>
+        <option name="FOREGROUND" value="$stringColor$ba"/>
+        <option name="BACKGROUND" value="$textEditorBackground$"/>
+      </value>
+    </option>
+  </attributes>
+</scheme>

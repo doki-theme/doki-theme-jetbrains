@@ -110,6 +110,7 @@
     "ToolBar.background": "headerColor",
     "ToolTip.backgroundInactive": "headerColor",
     "Tree.textBackground": "headerColor",
+    "Debugger.EvaluateExpression.background": "headerColor",
 
     "CheckBox.foreground": "foregroundColor",
     "CheckBoxMenuItem.foreground": "foregroundColor",

@@ -21,10 +21,13 @@ import io.unthrottled.doki.promotions.WeebService
 import io.unthrottled.doki.themes.Background
 import io.unthrottled.doki.themes.DokiTheme
 import io.unthrottled.doki.themes.ThemeManager
+import io.unthrottled.doki.util.Logging
+import io.unthrottled.doki.util.logger
+import io.unthrottled.doki.util.runSafely
 import io.unthrottled.doki.util.toHexString
+import java.awt.Color
 import org.intellij.lang.annotations.Language
 import org.jetbrains.annotations.Nls
-import java.awt.Color
 
 @Suppress("LongMethod", "MaxLineLength")
 @Language("HTML")
@@ -302,7 +305,7 @@ fun getAnchor(position: IdeBackgroundUtil.Anchor): String {
   }
 }
 
-object UpdateNotification {
+object UpdateNotification : Logging {
 
   private val notificationGroup = NotificationGroupManager.getInstance()
     .getNotificationGroup("Doki Theme Updates")
@@ -362,12 +365,16 @@ object UpdateNotification {
     val currentTheme = ThemeManager.instance.currentTheme.orElse(ThemeManager.instance.defaultTheme)
     val content = buildUpdateMessage(currentTheme, isNewUser, newVersion)
     val url = buildUrl(isNewUser, newVersion, currentTheme)
-    HTMLEditorProvider.openEditor(
-      project,
-      title,
-      url,
-      content,
-    )
+    runSafely({
+      HTMLEditorProvider.openEditor(
+        project,
+        title,
+        url,
+        content,
+      )
+    }) {
+      logger().warn("Unable to show update notification for raisins.", it)
+    }
   }
 
   private val lastWorkingBuild = BuildNumber.fromString("212.5712.43")

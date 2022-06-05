@@ -37,8 +37,8 @@
     <option name="DOCUMENTATION_COLOR" value="$headerColor$"/>
     <option name="DOC_COMMENT_GUIDE" value="%accentColor%9a"/>
     <option name="DOC_COMMENT_LINK" value="%accentColor%"/>
-    <option name="FILESTATUS_ADDED" value="10b15a"/>
-    <option name="FILESTATUS_COPIED" value="10b15a"/>
+    <option name="FILESTATUS_ADDED" value="$terminal.ansiGreen$"/>
+    <option name="FILESTATUS_COPIED" value="$terminal.ansiGreen$"/>
     <option name="FILESTATUS_HIJACKED" value="$comments$"/>
     <option name="FILESTATUS_DELETED" value="$disabledColor$"/>
     <option name="FILESTATUS_IDEA_FILESTATUS_DELETED_FROM_FILE_SYSTEM" value="$disabledColor$"/>
@@ -49,7 +49,7 @@
     <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_BOTH_CONFLICTS" value="$accentColor$"/>
     <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_CONFLICTS" value="$accentColor$"/>
     <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_PROPERTY_CONFLICTS" value="$accentColor$"/>
-    <option name="FILESTATUS_IDEA_SVN_FILESTATUS_EXTERNAL" value="10b15a"/>
+    <option name="FILESTATUS_IDEA_SVN_FILESTATUS_EXTERNAL" value="$terminal.ansiGreen$"/>
     <option name="FILESTATUS_MERGED" value="$constantColor$"/>
     <option name="FILESTATUS_MODIFIED" value="$constantColor$"/>
     <option name="FILESTATUS_NOT_CHANGED_IMMEDIATE" value="5cc5"/>
@@ -72,7 +72,7 @@
     <option name="INLINE_REFACTORING_SETTINGS_FOCUSED" value="%accentColorTransparent%"/>
     <option name="INLINE_REFACTORING_SETTINGS_HOVERED" value="%accentColorTransparent%"/>
     <option name="LINE_NUMBERS_COLOR" value="$lineNumberColor$"/>
-    <option name="LINE_NUMBER_ON_CARET_ROW_COLOR" value="$lineNumberColor$"/>
+    <option name="LINE_NUMBER_ON_CARET_ROW_COLOR" value="$infoForeground$"/>
     <option name="LOOKUP_COLOR" value="$headerColor$"/>
     <option name="JUPYTER.CELL_UNDER_CARET_COMMAND_MODE_STRIPE_COLOR" value="%accentColor%" />
     <option name="JUPYTER.CODE_CELL_BACKGROUND" value="$lightEditorColor$" />
@@ -236,8 +236,8 @@
     </option>
     <option name="BROWSEWORDATCARET">
       <value>
-        <option name="EFFECT_COLOR" value="4C94D6"/>
-        <option name="ERROR_STRIPE_COLOR" value="4C94D6"/>
+        <option name="EFFECT_COLOR" value="$constantColor$"/>
+        <option name="ERROR_STRIPE_COLOR" value="$constantColor$"/>
       </value>
     </option>
     <option name="CODE_VISION_DEFAULT">
@@ -263,7 +263,7 @@
     </option>
     <option name="CONSOLE_BLUE_BRIGHT_OUTPUT">
       <value>
-        <option name="FOREGROUND" value="4C94D6"/>
+        <option name="FOREGROUND" value="$constantColor$"/>
       </value>
     </option>
     <option name="CONSOLE_BLUE_OUTPUT">
@@ -375,7 +375,7 @@
     </option>
     <option name="CSS.COLOR">
       <value>
-        <option name="FOREGROUND" value="4C94D6"/>
+        <option name="FOREGROUND" value="$constantColor$"/>
       </value>
     </option>
     <option name="CSS.FUNCTION">
@@ -428,7 +428,7 @@
     </option>
     <option name="CSS.UNICODE.RANGE">
       <value>
-        <option name="FOREGROUND" value="4C94D6"/>
+        <option name="FOREGROUND" value="$constantColor$"/>
       </value>
     </option>
     <option name="CSS.URL">
@@ -456,7 +456,7 @@
     </option>
     <option name="CUSTOM_KEYWORD3_ATTRIBUTES">
       <value>
-        <option name="FOREGROUND" value="4C94D6"/>
+        <option name="FOREGROUND" value="$constantColor$"/>
         <option name="FONT_TYPE" value="3"/>
       </value>
     </option>
@@ -611,7 +611,7 @@
     </option>
     <option name="DEFAULT_CONSTANT">
       <value>
-        <option name="FOREGROUND" value="4C94D6"/>
+        <option name="FOREGROUND" value="$constantColor$"/>
         <option name="FONT_TYPE" value="2"/>
       </value>
     </option>
@@ -640,7 +640,7 @@
     </option>
     <option name="DEFAULT_ENTITY">
       <value>
-        <option name="FOREGROUND" value="4C94D6"/>
+        <option name="FOREGROUND" value="$constantColor$"/>
       </value>
     </option>
     <option name="DEFAULT_FUNCTION_CALL">
@@ -702,7 +702,7 @@
     </option>
     <option name="DEFAULT_NUMBER">
       <value>
-        <option name="FOREGROUND" value="4C94D6"/>
+        <option name="FOREGROUND" value="$constantColor$"/>
       </value>
     </option>
     <option name="DEFAULT_OPERATION_SIGN">
@@ -774,9 +774,9 @@
     </option>
     <option name="DELETED_TEXT_ATTRIBUTES">
       <value>
-        <option name="FOREGROUND" value="4D4D4A"/>
-        <option name="BACKGROUND" value="CECAFF"/>
-        <option name="EFFECT_COLOR" value="c3c3c3"/>
+        <option name="FOREGROUND" value="$foregroundColorEditor$"/>
+        <option name="BACKGROUND" value="$diff.deleted$"/>
+        <option name="EFFECT_COLOR" value="$diff.deleted$"/>
         <option name="EFFECT_TYPE" value="3"/>
       </value>
     </option>
@@ -837,8 +837,8 @@
     </option>
     <option name="FOLLOWED_HYPERLINK_ATTRIBUTES">
       <value>
-        <option name="FOREGROUND" value="4C94D6"/>
-        <option name="EFFECT_COLOR" value="4C94D6"/>
+        <option name="FOREGROUND" value="$constantColor$"/>
+        <option name="EFFECT_COLOR" value="$constantColor$"/>
         <option name="EFFECT_TYPE" value="1"/>
       </value>
     </option>
@@ -921,7 +921,7 @@
     </option>
     <option name="GO_PACKAGE_EXPORTED_CONSTANT">
       <value>
-        <option name="FOREGROUND" value="4C94D6"/>
+        <option name="FOREGROUND" value="$constantColor$"/>
         <option name="BACKGROUND"/>
         <option name="EFFECT_COLOR"/>
         <option name="FONT_TYPE" value="3"/>
@@ -929,7 +929,7 @@
     </option>
     <option name="GO_PACKAGE_LOCAL_CONSTANT">
       <value>
-        <option name="FOREGROUND" value="4C94D6"/>
+        <option name="FOREGROUND" value="$constantColor$"/>
         <option name="BACKGROUND"/>
         <option name="EFFECT_COLOR"/>
         <option name="FONT_TYPE" value="2"/>
@@ -1082,11 +1082,9 @@
     </option>
     <option name="INFO_ATTRIBUTES">
       <value>
-        <option name="FOREGROUND"/>
-        <option name="BACKGROUND"/>
-        <option name="EFFECT_COLOR" value="C0C0C0"/>
-        <option name="EFFECT_TYPE" value="2"/>
-        <option name="ERROR_STRIPE_COLOR" value="d9cfad" deuteranopia="C0C0C0" protanopia="C0C0C0"/>
+        <option name="EFFECT_COLOR" value="$unusedColor$" />
+        <option name="ERROR_STRIPE_COLOR" value="$diff.deleted$" />
+        <option name="EFFECT_TYPE" value="2" />
       </value>
     </option>
     <option name="INJECTED_LANGUAGE_FRAGMENT">
@@ -1132,7 +1130,7 @@
     <option name="Instance property reference ID" baseAttributes="INSTANCE_FIELD_ATTRIBUTES"/>
     <option name="JAVA.THIS_SUPER">
       <value>
-        <option name="FOREGROUND" value="4C94D6"/>
+        <option name="FOREGROUND" value="$constantColor$"/>
         <option name="FONT_TYPE" value="2"/>
       </value>
     </option>
@@ -1180,7 +1178,7 @@
     </option>
     <option name="JS.NULL_UNDEFINED">
       <value>
-        <option name="FOREGROUND" value="4C94D6"/>
+        <option name="FOREGROUND" value="$constantColor$"/>
       </value>
     </option>
     <option name="JS.REGEXP">
@@ -1190,7 +1188,7 @@
     </option>
     <option name="JS.THIS_SUPER">
       <value>
-        <option name="FOREGROUND" value="4C94D6"/>
+        <option name="FOREGROUND" value="$constantColor$"/>
         <option name="FONT_TYPE" value="2"/>
       </value>
     </option>
@@ -1232,7 +1230,7 @@
     </option>
     <option name="KOTLIN_ENUM_ENTRY">
       <value>
-        <option name="FOREGROUND" value="4C94D6"/>
+        <option name="FOREGROUND" value="$constantColor$"/>
       </value>
     </option>
     <option name="KOTLIN_IMPLICIT_EXHAUSTIVE_WHEN">
@@ -1270,7 +1268,7 @@
     </option>
     <option name="KOTLIN_SMART_CONSTANT">
       <value>
-        <option name="FOREGROUND" value="4C94D6"/>
+        <option name="FOREGROUND" value="$constantColor$"/>
       </value>
     </option>
     <option name="LESS_VARIABLE" baseAttributes="DEFAULT_INSTANCE_FIELD"/>
@@ -1292,7 +1290,7 @@
     </option>
     <option name="LOG_DEBUG_OUTPUT">
       <value>
-        <option name="FOREGROUND" value="4C94D6"/>
+        <option name="FOREGROUND" value="$constantColor$"/>
       </value>
     </option>
     <option name="LOG_ERROR_OUTPUT">
@@ -1328,7 +1326,7 @@
     </option>
     <option name="MARKDOWN_HEADER_LEVEL_1">
       <value>
-        <option name="FOREGROUND" value="4C94D6"/>
+        <option name="FOREGROUND" value="$constantColor$"/>
         <option name="FONT_TYPE" value="2"/>
       </value>
     </option>
@@ -1383,7 +1381,7 @@
     </option>
     <option name="MARKDOWN_NAVIGATOR.ATX_HEADER">
       <value>
-        <option name="FOREGROUND" value="4C94D6"/>
+        <option name="FOREGROUND" value="$constantColor$"/>
         <option name="FONT_TYPE" value="1"/>
       </value>
     </option>
@@ -1438,7 +1436,7 @@
     </option>
     <option name="MARKDOWN_NAVIGATOR.DEBUG_FORMAT_TEXT_BLOCK">
       <value>
-        <option name="EFFECT_COLOR" value="4C94D6"/>
+        <option name="EFFECT_COLOR" value="$constantColor$"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.DEFINITION_MARKER">
@@ -1483,7 +1481,7 @@
     </option>
     <option name="MARKDOWN_NAVIGATOR.HEADER_TEXT">
       <value>
-        <option name="FOREGROUND" value="4C94D6"/>
+        <option name="FOREGROUND" value="$constantColor$"/>
         <option name="FONT_TYPE" value="1"/>
       </value>
     </option>
@@ -1523,7 +1521,7 @@
     </option>
     <option name="MARKDOWN_NAVIGATOR.REFERENCE_TEXT">
       <value>
-        <option name="FOREGROUND" value="4C94D6"/>
+        <option name="FOREGROUND" value="$constantColor$"/>
       </value>
     </option>
     <option name="MARKDOWN_NAVIGATOR.SIM_TOC_TITLE">
@@ -2224,7 +2222,7 @@
     </option>
     <option name="OC.SELFSUPERTHIS">
       <value>
-        <option name="FOREGROUND" value="4C94D6"/>
+        <option name="FOREGROUND" value="$constantColor$"/>
         <option name="FONT_TYPE" value="2"/>
       </value>
     </option>
@@ -2298,17 +2296,17 @@
     </option>
     <option name="PY.PREDEFINED_DEFINITION">
       <value>
-        <option name="FOREGROUND" value="4C94D6"/>
+        <option name="FOREGROUND" value="$constantColor$"/>
       </value>
     </option>
     <option name="PY.PREDEFINED_USAGE">
       <value>
-        <option name="FOREGROUND" value="4C94D6"/>
+        <option name="FOREGROUND" value="$constantColor$"/>
       </value>
     </option>
     <option name="PY.SELF_PARAMETER">
       <value>
-        <option name="FOREGROUND" value="4C94D6"/>
+        <option name="FOREGROUND" value="$constantColor$"/>
         <option name="FONT_TYPE" value="2"/>
       </value>
     </option>
@@ -2329,7 +2327,7 @@
     </option>
     <option name="RDOC_HEADINGS">
       <value>
-        <option name="FOREGROUND" value="4C94D6"/>
+        <option name="FOREGROUND" value="$constantColor$"/>
         <option name="FONT_TYPE" value="1"/>
       </value>
     </option>
@@ -2428,7 +2426,7 @@
     </option>
     <option name="RUBY_HEREDOC_ID">
       <value>
-        <option name="FOREGROUND" value="4C94D6"/>
+        <option name="FOREGROUND" value="$constantColor$"/>
       </value>
     </option>
     <option name="RUBY_IVAR">
@@ -2451,7 +2449,7 @@
     </option>
     <option name="RUBY_SYMBOL">
       <value>
-        <option name="FOREGROUND" value="4C94D6"/>
+        <option name="FOREGROUND" value="$constantColor$"/>
       </value>
     </option>
     <option name="ReSharper.ASP_NET_ATTRIBUTE_NAME">
@@ -2479,7 +2477,7 @@
     </option>
     <option name="ReSharper.ASP_NET_ENTITY_REFERENCE">
       <value>
-        <option name="FOREGROUND" value="4C94D6"/>
+        <option name="FOREGROUND" value="$constantColor$"/>
       </value>
     </option>
     <option name="ReSharper.ASP_NET_MVC_ACTION">
@@ -2490,7 +2488,7 @@
     </option>
     <option name="ReSharper.ASP_NET_MVC_AREA">
       <value>
-        <option name="FOREGROUND" value="4C94D6"/>
+        <option name="FOREGROUND" value="$constantColor$"/>
         <option name="EFFECT_TYPE" value="1"/>
       </value>
     </option>
@@ -2537,7 +2535,7 @@
     </option>
     <option name="ReSharper.ASP_NET_RAZOR_ENTITY_REFERENCE">
       <value>
-        <option name="FOREGROUND" value="4C94D6"/>
+        <option name="FOREGROUND" value="$constantColor$"/>
       </value>
     </option>
     <option name="ReSharper.ASP_NET_RUN_AT_ATTRIBUTE">
@@ -2606,7 +2604,7 @@
     </option>
     <option name="ReSharper.ENUM_IDENTIFIER">
       <value>
-        <option name="FOREGROUND" value="4C94D6"/>
+        <option name="FOREGROUND" value="$constantColor$"/>
       </value>
     </option>
     <option name="ReSharper.EVENT_IDENTIFIER">
@@ -2742,7 +2740,7 @@
     </option>
     <option name="STATIC_FIELD_ATTRIBUTES">
       <value>
-        <option name="FOREGROUND" value="4C94D6" deuteranopia="1948a6" protanopia="1948a6"/>
+        <option name="FOREGROUND" value="$constantColor$" deuteranopia="1948a6" protanopia="1948a6"/>
         <option name="BACKGROUND"/>
         <option name="EFFECT_COLOR"/>
         <option name="FONT_TYPE" value="2"/>
@@ -2750,7 +2748,7 @@
     </option>
     <option name="STATIC_FINAL_FIELD_ATTRIBUTES">
       <value>
-        <option name="FOREGROUND" value="4C94D6"/>
+        <option name="FOREGROUND" value="$constantColor$"/>
         <option name="BACKGROUND"/>
         <option name="EFFECT_COLOR"/>
         <option name="FONT_TYPE" value="3"/>
@@ -2787,14 +2785,14 @@
     <option name="Static method access" baseAttributes="STATIC_METHOD_ATTRIBUTES"/>
     <option name="TAG_ATTR_KEY">
       <value>
-        <option name="FOREGROUND" value="4C94D6"/>
+        <option name="FOREGROUND" value="$constantColor$"/>
       </value>
     </option>
     <option name="TAPESTRY_COMPONENT_PARAMATER" baseAttributes="HTML_ATTRIBUTE_NAME"/>
     <option name="TAPESTRY_COMPONENT_TAG" baseAttributes="HTML_TAG_NAME"/>
     <option name="TEMPLATE_VARIABLE_ATTRIBUTES">
       <value>
-        <option name="FOREGROUND" value="4C94D6"/>
+        <option name="FOREGROUND" value="$constantColor$"/>
       </value>
     </option>
     <option name="TERMINAL_COMMAND_TO_RUN_USING_IDE">

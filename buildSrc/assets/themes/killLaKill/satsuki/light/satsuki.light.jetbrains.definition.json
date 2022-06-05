@@ -5,5 +5,7 @@
     "file": "Satsuki.xml"
   },
   "overrides": {},
-  "ui": {}
+  "ui": {
+    "CompletionPopup.matchForeground": "keywordColor"
+  }
 }

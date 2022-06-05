@@ -2116,6 +2116,11 @@
       "iconPath": "/jsmin.svg"
     },
     {
+      "name": "Java Module Stuff",
+      "associationPattern": ".*\\-info\\.java$",
+      "iconPath": "/abstractClass.svg"
+    },
+    {
       "name": "Java",
       "associationPattern": ".*\\.(java|jar|war)$",
       "iconPath": "/java.svg"

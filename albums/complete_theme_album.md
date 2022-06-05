@@ -17,6 +17,10 @@ Chuunibyou Love and Other Delusions
 Quintessential Quintuplets
 ---
 
+### Nakano Ichika
+
+![ichika_light code](../assets/screenshots/quintuplets/ichika_light_code.png)
+
 ### Nakano Nino
 
 ![nino_dark code](../assets/screenshots/quintuplets/nino_dark_code.png)
@@ -28,6 +32,10 @@ Quintessential Quintuplets
 ### Nakano Yotsuba
 
 ![yotsuba_dark code](../assets/screenshots/quintuplets/yotsuba_dark_code.png)
+
+### Nakano Itsuki
+
+![itsuki_light code](../assets/screenshots/quintuplets/itsuki_light_code.png)
 
 
 Azur Lane
@@ -145,6 +153,33 @@ Shokugeki no Soma
 
 ![soma_dark code](../assets/screenshots/shokugeki/soma_dark_code.png)
 
+Sewayaki Kitsune no Senko-san
+---
+
+### Senko
+
+![senko_light code](../assets/screenshots/senko/senko_light_code.png)
+
+Charlotte
+---
+
+### Tomori Nao
+
+![nao_light code](../assets/screenshots/charlotte/nao_light_code.png)
+
+Code Geass
+---
+
+### C.C.
+
+![cc_light code](../assets/screenshots/codeGeass/cc_light_code.png)
+
+Guilty Crown
+---
+
+### Yuzuriha Inori
+
+![inori_light code](../assets/screenshots/guiltyCrown/inori_light_code.png)
 
 
 Don't Toy With Me, Miss Nagatoro

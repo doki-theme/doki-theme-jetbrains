@@ -5,9 +5,9 @@
     "name": "Doki Dim v2"
   },
   "overrides": {},
-  "uiBase": "dark dim",
   "ui": {
     "Plugins.lightSelectionBackground": "selectionBackground",
     "CompletionPopup.selectionBackground": "selectionBackground"
-  }
+  },
+  "uiBase": "dark dim"
 }
