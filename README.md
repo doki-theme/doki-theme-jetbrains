@@ -148,6 +148,9 @@ Only The Doki Theme can enable/disable modes across plugins.
 **Allow Positioning** allows you to move your cute sticker out of the way when you need to read the logs.
 You won't be able to click through the sticker though, so you'll need to move it or toggle this action.
 
+**Note:** [small stickers](#small-stickers) will ignore this setting. All small stickers are movable by default because their windows are not uniform.
+So they may need to be moved base on which window they show up in.
+
 ![Secondary Sticker](./assets/readmeAssets/moveable_stickers.gif)
 
 **Use Custom Sticker** allows you to be able to set the image to be used for all the doki-themes.
@@ -216,7 +219,8 @@ With the introduction of [Dimension Capping](#dimension-cap), you can now satisf
 
 All small stickers are put in dialog windows whose height is greater than a specified limit. That way you do not end up with a sticker getting in the way.
 
-All small stickers are also move-able by default, that way you can scoot them out of the way.
+All small stickers are also move-able by default, that way you can scoot them out of the way. 
+Meaning that they ignore the `Allow Positioning` setting.
 
 https://user-images.githubusercontent.com/15972415/147772756-c64a7422-8e63-4f1b-bcd5-6fe7e27c5b45.mp4
 
