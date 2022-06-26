@@ -1,6 +1,10 @@
 Changelog
 ---
 
+# 84.1-1.3.0 [Small Fixes n Stuff]
+
+- Added themed [Rainbow Brackets](https://plugins.jetbrains.com/plugin/10080-rainbow-brackets) that match the [VSCode Bracket Match](https://github.com/doki-theme/doki-theme-vscode/blob/master/CHANGELOG.md#782-110-themed-bracket-pair-colorization), for the most part.
+
 # 84.1-1.2.1 [Light Theme Party]
 
 ![v84 Girls](https://doki.assets.unthrottled.io/misc/v84_girls.png)

@@ -132,6 +132,106 @@
     <option name="WHITESPACES_MODIFIED_LINES_COLOR" value="$diff.modified$AA"/>
   </colors>
   <attributes>
+    <option name="ANGLE_BRACKETS_RAINBOW_COLOR0">
+      <value>
+        <option name="FOREGROUND" value="$foregroundColorEditor$" />
+      </value>
+    </option>
+    <option name="ANGLE_BRACKETS_RAINBOW_COLOR1">
+      <value>
+        <option name="FOREGROUND" value="$keyColor$" />
+      </value>
+    </option>
+    <option name="ANGLE_BRACKETS_RAINBOW_COLOR2">
+      <value>
+        <option name="FOREGROUND" value="$classNameColor$" />
+      </value>
+    </option>
+    <option name="ANGLE_BRACKETS_RAINBOW_COLOR3">
+      <value>
+        <option name="FOREGROUND" value="$accentColor$" />
+      </value>
+    </option>
+    <option name="ANGLE_BRACKETS_RAINBOW_COLOR4">
+      <value>
+        <option name="FOREGROUND" value="$constantColor$" />
+      </value>
+    </option>
+    <option name="ROUND_BRACKETS_RAINBOW_COLOR0">
+      <value>
+        <option name="FOREGROUND" value="$foregroundColorEditor$" />
+      </value>
+    </option>
+    <option name="ROUND_BRACKETS_RAINBOW_COLOR1">
+      <value>
+        <option name="FOREGROUND" value="$keyColor$" />
+      </value>
+    </option>
+    <option name="ROUND_BRACKETS_RAINBOW_COLOR2">
+      <value>
+        <option name="FOREGROUND" value="$classNameColor$" />
+      </value>
+    </option>
+    <option name="ROUND_BRACKETS_RAINBOW_COLOR3">
+      <value>
+        <option name="FOREGROUND" value="$accentColor$" />
+      </value>
+    </option>
+    <option name="ROUND_BRACKETS_RAINBOW_COLOR4">
+      <value>
+        <option name="FOREGROUND" value="$constantColor$" />
+      </value>
+    </option>
+    <option name="SQUARE_BRACKETS_RAINBOW_COLOR0">
+      <value>
+        <option name="FOREGROUND" value="$foregroundColorEditor$" />
+      </value>
+    </option>
+    <option name="SQUARE_BRACKETS_RAINBOW_COLOR1">
+      <value>
+        <option name="FOREGROUND" value="$keyColor$" />
+      </value>
+    </option>
+    <option name="SQUARE_BRACKETS_RAINBOW_COLOR2">
+      <value>
+        <option name="FOREGROUND" value="$classNameColor$" />
+      </value>
+    </option>
+    <option name="SQUARE_BRACKETS_RAINBOW_COLOR3">
+      <value>
+        <option name="FOREGROUND" value="$accentColor$" />
+      </value>
+    </option>
+    <option name="SQUARE_BRACKETS_RAINBOW_COLOR4">
+      <value>
+        <option name="FOREGROUND" value="$constantColor$" />
+      </value>
+    </option>
+    <option name="SQUIGGLY_BRACKETS_RAINBOW_COLOR0">
+      <value>
+        <option name="FOREGROUND" value="$foregroundColorEditor$" />
+      </value>
+    </option>
+    <option name="SQUIGGLY_BRACKETS_RAINBOW_COLOR1">
+      <value>
+        <option name="FOREGROUND" value="$keyColor$" />
+      </value>
+    </option>
+    <option name="SQUIGGLY_BRACKETS_RAINBOW_COLOR2">
+      <value>
+        <option name="FOREGROUND" value="$classNameColor$" />
+      </value>
+    </option>
+    <option name="SQUIGGLY_BRACKETS_RAINBOW_COLOR3">
+      <value>
+        <option name="FOREGROUND" value="$accentColor$" />
+      </value>
+    </option>
+    <option name="SQUIGGLY_BRACKETS_RAINBOW_COLOR4">
+      <value>
+        <option name="FOREGROUND" value="$constantColor$" />
+      </value>
+    </option>
     <option name="DEBUGGER_SMART_STEP_INTO_TARGET">
       <value>
         <option name="BACKGROUND" value="$searchBackground$99" />
@@ -2404,21 +2504,6 @@
         <option name="BACKGROUND" value="$codeBlock$" />
       </value>
     </option>
-    <option name="ROUND_BRACKETS_RAINBOW_COLOR0">
-      <value>
-        <option name="FOREGROUND" value="ffd700"/>
-      </value>
-    </option>
-    <option name="ROUND_BRACKETS_RAINBOW_COLOR1">
-      <value>
-        <option name="FOREGROUND" value="da70d6"/>
-      </value>
-    </option>
-    <option name="ROUND_BRACKETS_RAINBOW_COLOR2">
-      <value>
-        <option name="FOREGROUND" value="87cefa"/>
-      </value>
-    </option>
     <option name="RUBY_CONSTANT">
       <value>
         <option name="FOREGROUND" value="$classNameColor$"/>
@@ -2708,36 +2793,6 @@
       </value>
     </option>
     <option name="SQL_SYNTHETIC_ENTITY" baseAttributes="DEFAULT_PREDEFINED_SYMBOL" />
-    <option name="SQUARE_BRACKETS_RAINBOW_COLOR0">
-      <value>
-        <option name="FOREGROUND" value="ffd700"/>
-      </value>
-    </option>
-    <option name="SQUARE_BRACKETS_RAINBOW_COLOR1">
-      <value>
-        <option name="FOREGROUND" value="da70d6"/>
-      </value>
-    </option>
-    <option name="SQUARE_BRACKETS_RAINBOW_COLOR2">
-      <value>
-        <option name="FOREGROUND" value="87cefa"/>
-      </value>
-    </option>
-    <option name="SQUIGGLY_BRACKETS_RAINBOW_COLOR0">
-      <value>
-        <option name="FOREGROUND" value="ffd700"/>
-      </value>
-    </option>
-    <option name="SQUIGGLY_BRACKETS_RAINBOW_COLOR1">
-      <value>
-        <option name="FOREGROUND" value="da70d6"/>
-      </value>
-    </option>
-    <option name="SQUIGGLY_BRACKETS_RAINBOW_COLOR2">
-      <value>
-        <option name="FOREGROUND" value="87cefa"/>
-      </value>
-    </option>
     <option name="STATIC_FIELD_ATTRIBUTES">
       <value>
         <option name="FOREGROUND" value="$constantColor$" deuteranopia="1948a6" protanopia="1948a6"/>
