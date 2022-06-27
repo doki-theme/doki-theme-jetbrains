@@ -21,7 +21,7 @@ object SvgLoaderHacker {
 
     ColorPatcher.setDokiTheme(dokiTheme)
 
-    SVGLoader.setColorPatcherProvider(ColorPatcher)
+    SVGLoader.colorPatcherProvider = ColorPatcher
   }
 
   private fun collectOtherPatcher(): Optional<PatcherProvider> =

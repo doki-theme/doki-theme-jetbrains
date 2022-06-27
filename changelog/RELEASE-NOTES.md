@@ -21,3 +21,7 @@ This release is not for my Dark Theme Normies. Dark themes are nice, but I like 
 - Fixed issue when opening the update notification for some users.
 - Fixed issue with stickers keeping the previously sized sticker when adjusting the size of the sticker.
 - Added more consistent support for Java module material file icons.
+- Added themed [Rainbow Brackets](https://plugins.jetbrains.com/plugin/10080-rainbow-brackets) that match the [VSCode Bracket Match](https://github.com/doki-theme/doki-theme-vscode/blob/master/CHANGELOG.md#782-110-themed-bracket-pair-colorization), for the most part.
+- Raised lowest supported IDE build to `211.7628.21`.
+- Fixed usability problems for: Beatrice, C.C., & Sayori Dark.
+- Fixed the VCS Log inactive color & some other stuff.

@@ -2858,7 +2858,7 @@
     </option>
     <option name="TEXT">
       <value>
-        <option name="FOREGROUND" value="4D4D4A"/>
+        <option name="FOREGROUND" value="$foregroundColorEditor$"/>
         <option name="BACKGROUND" value="$textEditorBackground$"/>
         <option name="EFFECT_TYPE" value="5"/>
       </value>
