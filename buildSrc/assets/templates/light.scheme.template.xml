@@ -539,7 +539,8 @@
     </option>
     <option name="CTRL_CLICKABLE">
       <value>
-        <option name="FOREGROUND" value="$stringColor$"/>
+        <option name="FOREGROUND" value="$accentColor$"/>
+        <option name="EFFECT_COLOR" value="$accentColor$"/>
         <option name="EFFECT_TYPE" value="1"/>
       </value>
     </option>
