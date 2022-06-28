@@ -5,7 +5,7 @@ import org.kordamp.gradle.plugin.markdown.tasks.MarkdownToHtmlTask
 fun properties(key: String) = project.findProperty(key).toString()
 
 plugins {
-  // Custom plugin for building all of the themes
+  // Custom plugin for building all the themes
   id("doki-theme-plugin")
   // Kotlin support
   id("org.jetbrains.kotlin.jvm") version "1.6.0"
