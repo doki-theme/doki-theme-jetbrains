@@ -10,6 +10,7 @@ import io.unthrottled.doki.stickers.CurrentSticker
 import io.unthrottled.doki.stickers.StickerLevel
 import java.util.Locale
 
+@OptIn(ExperimentalStdlibApi::class)
 @State(
   name = "DokiDokiThemeConfig",
   storages = [Storage("doki_doki_theme.xml")]

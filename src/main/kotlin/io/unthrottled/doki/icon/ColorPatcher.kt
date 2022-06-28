@@ -16,10 +16,9 @@ import io.unthrottled.doki.util.runSafely
 import io.unthrottled.doki.util.runSafelyWithResult
 import io.unthrottled.doki.util.toHexString
 import io.unthrottled.doki.util.toOptional
-import org.w3c.dom.Element
 import java.awt.Color
-import java.net.URL
 import java.time.Duration
+import org.w3c.dom.Element
 
 object NoOptPatcher : Patcher {
   override fun patchColors(svg: Element) {}
@@ -32,11 +31,8 @@ object NoOptPatcher : Patcher {
 val emptyByteArray = ByteArray(0)
 
 val noOptPatcherProvider = object : PatcherProvider {
-  override fun forURL(url: URL?): SVGLoader.SvgElementColorPatcher? {
-    return NoOptPatcher
-  }
 
-  override fun forPath(path: String?): SVGLoader.SvgElementColorPatcher? {
+  override fun forPath(path: String?): SVGLoader.SvgElementColorPatcher {
     return NoOptPatcher
   }
 }
@@ -59,28 +55,6 @@ object ColorPatcher : PatcherProvider {
           .mapNotNull { patcherProvider ->
             runSafelyWithResult({
               patcherProvider.forPath(path)
-            }) {
-              null
-            }
-          },
-        safeKey
-      )
-      patcherProviderCache.remove(safeKey)
-      hackedPatcher
-    } else {
-      NoOptPatcher
-    }
-  }
-
-  override fun forURL(url: URL?): Patcher? {
-    val safeKey = url?.toString() ?: "ayyLmao"
-    return if (patcherProviderCache.add(safeKey)) {
-      val hackedPatcher = buildHackedPatcher(
-        listOf(otherColorPatcherProvider, uiColorPatcherProvider)
-          .distinct()
-          .mapNotNull { patcherProvider ->
-            runSafelyWithResult({
-              patcherProvider.forURL(url)
             }) {
               null
             }
@@ -149,7 +123,7 @@ object ColorPatcher : PatcherProvider {
   ) {
     otherPatchers.forEach { otherPatcher ->
       runSafely({
-        otherPatcher?.patchColors(svg)
+        otherPatcher.patchColors(svg)
       })
     }
     patchChildren(
