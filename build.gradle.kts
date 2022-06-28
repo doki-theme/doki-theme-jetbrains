@@ -30,12 +30,12 @@ repositories {
 }
 
 dependencies {
-  detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.18.1")
+  detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.20.0")
   implementation("commons-io:commons-io:2.11.0")
-  implementation("org.javassist:javassist:3.28.0-GA")
-  implementation("io.sentry:sentry:5.2.1")
-  testImplementation("org.assertj:assertj-core:3.21.0")
-  testImplementation("io.mockk:mockk:1.12.0")
+  implementation("org.javassist:javassist:3.29.0-GA")
+  implementation("io.sentry:sentry:6.0.0")
+  testImplementation("org.assertj:assertj-core:3.23.1")
+  testImplementation("io.mockk:mockk:1.12.4")
 }
 
 configurations {

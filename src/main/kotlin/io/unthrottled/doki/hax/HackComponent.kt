@@ -36,6 +36,7 @@ import io.unthrottled.doki.hax.FieldHacker.setFinalStatic
 import io.unthrottled.doki.stickers.DOKI_BACKGROUND_PROP
 import io.unthrottled.doki.ui.TitlePaneUI.Companion.LOL_NOPE
 import io.unthrottled.doki.util.runSafely
+import java.awt.Color
 import javassist.CannotCompileException
 import javassist.ClassClassPath
 import javassist.ClassPool
@@ -44,10 +45,9 @@ import javassist.CtMethod
 import javassist.expr.ExprEditor
 import javassist.expr.MethodCall
 import javassist.expr.NewExpr
-import java.awt.Color
 import javax.swing.JDialog
 
-@Suppress("TooManyFunctions")
+@Suppress("TooManyFunctions", "LargeClass")
 object HackComponent : Disposable {
   private val log = Logger.getInstance(javaClass)
 
@@ -421,8 +421,7 @@ object HackComponent : Disposable {
       val cp = ClassPool(true)
       cp.insertClassPath(ClassClassPath(AnchoredButton::class.java))
       val ctClass = cp.get("com.intellij.openapi.wm.impl.InternalDecoratorImpl")
-      ctClass.constructors.forEach {
-        ctConstructor ->
+      ctClass.constructors.forEach { ctConstructor ->
         ctConstructor.insertAfter("this.setBackground(com.intellij.util.ui.UIUtil.getPanelBackground());")
       }
       ctClass.toClass()
