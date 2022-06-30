@@ -32,9 +32,9 @@
     <editorNotificationProvider implementation="io.unthrottled.doki.internal.DokiEditorNotificationProvider"/>
     <registryKey defaultValue="true" description="Prevent the Doki Theme plugin from updating downloaded assets" key="doki.theme.update.assets"/>
     <themeProvider id="be058474-b967-4afb-b6d9-bda1948b33ec" path="/doki/themes/lucky_star/Konata.theme.json"/>
-    <themeProvider id="13adffd9-acbe-47af-8101-fa71269a4c5c" path="/doki/themes/darling_in_the_franxx/Zero_Two_Tungsten.theme.json"/>
     <themeProvider id="8c99ec4b-fda0-4ab7-95ad-a6bf80c3924b" path="/doki/themes/darling_in_the_franxx/Zero_Two_Rose.theme.json"/>
     <themeProvider id="4fd5cb34-d36e-4a3c-8639-052b19b26ba1" path="/doki/themes/darling_in_the_franxx/Zero_Two_White_Lily.theme.json"/>
+    <themeProvider id="13adffd9-acbe-47af-8101-fa71269a4c5c" path="/doki/themes/darling_in_the_franxx/Zero_Two_Obsidian.theme.json"/>
     <themeProvider id="e55e70ea-454b-47ef-9270-d46390dd2769" path="/doki/themes/azur_lane/Essex.theme.json"/>
     <themeProvider id="c262185d-9682-413b-9143-85a2dda76b2f" path="/doki/themes/evangelion/Rei.theme.json"/>
     <themeProvider id="8e8773ee-4bbb-4812-b311-005f04f6bb20" path="/doki/themes/evangelion/Katsuragi_Misato.theme.json"/>
