@@ -1,8 +1,8 @@
 {
   "id": "2eedcc31-b5fa-4b30-b045-6a539e915581",
   "editorScheme": {
-    "type": "template",
-    "name": "Doki Dim Light"
+    "type": "templateExtension",
+    "file": "Zero_Two_Sakura.xml"
   },
   "overrides": {},
   "ui": {
