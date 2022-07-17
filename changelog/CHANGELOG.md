@@ -17,6 +17,8 @@ _Zero Two's Not Just A Cutie. ;)_
 
 ### Other Stuff
 
+- Desaturated Itsuki's theme a bit.
+- Adjusted CC's inlay color.
 
 # 84.1-1.3.0 [Small Fixes n Stuff]
 

@@ -1,27 +1,18 @@
-# 84.1-1.2.1 [Light Theme Party]
+# 88.0-1.3.0 [Darling]
 
-![v84 Girls](https://doki.assets.unthrottled.io/misc/v84_girls_small.png)
+Best Girl just got _better_. ❤️
 
-This release is not for my Dark Theme Normies. Dark themes are nice, but I like Light Themes too (and my Dark Theme Normies). I'm currently trying new things out. Sorry in advance if I made your eyes bleed. I might tweak some of them as time goes on, still not 100% on what looks good & also is a fun color.
+![Best Girl](https://doki.assets.unthrottled.io/misc/best_girl.png)
 
-**6 New Light Themes!**
+_Zero Two's Not Just A Cutie. ;)_
 
-- Tired & broken down programmers rejoice! Even though you will never be pampered by a real Fox-demigod, you can now at least code with one. Let "The Helpful Fox Senko-san" watch over you as complete your tickets. You can almost feel the "おかえりなのじゃ" you will never get 😭
-- I decided to complete my Quintessential Quintuplets collection by adding the oldest and youngest quint: Nakano Ichika & Nakano Itsuki.
-- Tomori Nao, from Charlotte, has an interesting dichotomy when it comes to her personality. She is super cute tho.
-- Have I ever seen Code Geass? No. Can I appreciate C.C. without having seen the anime? Yeah buddy.
-- Guess while I'm talking about "anime I haven't seen but, chose to make a theme because the girl is pretty." We now have Yuzuriha Inori from Guilty Crown.
+**4 New Themes!**
+
+- I decided that I didn't have enough Zero Two themes, so I fixed that. She now has new top-tier dark hacker theme: `Obsidian`. I also felt like Red Zero Two doesn't get enough attention, so I added a light `Sakura` theme which features her as she was as a child. I also renamed Zero Two's existing dark & light themes to `Rose` & `Lily` respectively.
+- It wouldn't be the _Darling_ release if I didn't include Hiro as well. (Dark Theme)
+- This is also the first release with a duo theme! (Nao's doesn't count, I just wanted the melon meme.) So just to pad my Zero Two theme stats, I added a Hiro & Zero Two couples' dark theme.
 
 ### Other Stuff
 
-- Adjusted Sayori's dark diff deleted color & updated Satsuki's light autocomplete letter match color.
-- Updated `Weak Warning` underline color for light & dark themes.
-- Changed added & modified VCS file colors to be more usable for light & dark themes.
-- Migrating MacOS users on 2022.2 builds to not use the provided themed title bar, as it has native support now.
-- Fixed issue when opening the update notification for some users.
-- Fixed issue with stickers keeping the previously sized sticker when adjusting the size of the sticker.
-- Added more consistent support for Java module material file icons.
-- Added themed [Rainbow Brackets](https://plugins.jetbrains.com/plugin/10080-rainbow-brackets) that match the [VSCode Bracket Match](https://github.com/doki-theme/doki-theme-vscode/blob/master/CHANGELOG.md#782-110-themed-bracket-pair-colorization), for the most part.
-- Raised lowest supported IDE build to `211.7628.21`.
-- Fixed usability problems for: Beatrice, C.C., & Sayori Dark.
-- Fixed the VCS Log inactive color & some other stuff.
+- Desaturated Itsuki's theme a bit.
+- Adjusted CC's inlay color.
