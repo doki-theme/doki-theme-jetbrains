@@ -2,7 +2,7 @@
 
 Best Girl just got _better_. ❤️
 
-![Best Girl](https://doki.assets.unthrottled.io/misc/best_girl.png)
+![Best Girl](https://doki.assets.unthrottled.io/misc/best_girl_smol.png)
 
 _Zero Two's Not Just A Cutie. ;)_
 
