@@ -47,7 +47,7 @@ open class PromotionManagerImpl {
       persistLedger(promotionLedger)
     } else {
       val latestInstallDate = versionInstallDates[newVersion]!!
-      if (Duration.between(latestInstallDate, Instant.now()).toDays() > 2) {
+      if (Duration.between(latestInstallDate, Instant.now()).toDays() > 7) {
         setupPromotion()
       }
     }
