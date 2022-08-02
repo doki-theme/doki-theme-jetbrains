@@ -16,3 +16,4 @@ _Zero Two's Not Just A Cutie. ;)_
 
 - Desaturated Itsuki's theme a bit.
 - Adjusted CC's inlay color.
+- Fixed differentiation fo un-versioned files in VCS.
