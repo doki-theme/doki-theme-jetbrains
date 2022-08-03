@@ -28,6 +28,7 @@
     <errorHandler id="9782e40c-e6d2-488f-8611-71f5cca6695e" implementation="io.unthrottled.doki.integrations.ErrorReporter"/>
     <iconProvider implementation="io.unthrottled.doki.icon.provider.MaterialIconProvider" order="first"/>
     <notificationGroup displayType="BALLOON" id="Doki Theme Updates" toolWindowId="Doki Theme Updates" isLogByDefault="false" icon="/icons/doki/Doki-Doki-Logo.svg"/>
+    <notificationGroup displayType="BALLOON" id="Doki Theme Promotions" toolWindowId="Doki Theme Promotions" isLogByDefault="false" icon="/icons/doki/Doki-Doki-Logo.svg"/>
     <statusBarWidgetFactory implementation="io.unthrottled.doki.ui.status.ThemeStatusBarProvider"/>
     <editorNotificationProvider implementation="io.unthrottled.doki.internal.DokiEditorNotificationProvider"/>
     <registryKey defaultValue="true" description="Prevent the Doki Theme plugin from updating downloaded assets" key="doki.theme.update.assets"/>

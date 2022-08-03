@@ -18,6 +18,7 @@ import io.unthrottled.doki.settings.actors.EmptyFrameBackgroundActor
 import io.unthrottled.doki.settings.actors.LafAnimationActor
 import io.unthrottled.doki.settings.actors.MaterialIconsActor
 import io.unthrottled.doki.settings.actors.MoveableStickerActor
+import io.unthrottled.doki.settings.actors.PromotionSettingActor
 import io.unthrottled.doki.settings.actors.SeeThroughNotificationsActor
 import io.unthrottled.doki.settings.actors.ShowReadmeActor
 import io.unthrottled.doki.settings.actors.StickerActor
@@ -50,6 +51,7 @@ data class ThemeSettingsModel(
   var discreetMode: Boolean,
   var isEmptyFrameBackground: Boolean,
   var isCustomSticker: Boolean,
+  var allowPromotionalContent: Boolean,
   var customStickerPath: String,
   var isCustomFontSize: Boolean,
   var customFontSizeValue: Int,
@@ -116,6 +118,7 @@ object ThemeSettings {
       ignoreScaling = ThemeConfig.instance.ignoreScaling,
       hideOnHover = ThemeConfig.instance.hideOnHover,
       hideDelayMS = ThemeConfig.instance.hideDelayMS,
+      allowPromotionalContent = ThemeConfig.instance.allowPromotions,
     )
 
   fun apply(themeSettingsModel: ThemeSettingsModel) {
@@ -162,6 +165,7 @@ object ThemeSettings {
     )
     DiscreetModeActor.enableDiscreetMode(themeSettingsModel.discreetMode)
     StickerHideActor.setStickerHideStuff(themeSettingsModel.hideOnHover, themeSettingsModel.hideDelayMS)
+    PromotionSettingActor.optInToPromotion(themeSettingsModel.allowPromotionalContent)
     ApplicationManager.getApplication().messageBus.syncPublisher(
       THEME_CONFIG_TOPIC
     ).themeConfigUpdated(ThemeConfig.instance)

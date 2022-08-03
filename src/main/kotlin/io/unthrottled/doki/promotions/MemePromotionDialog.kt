@@ -1,13 +1,20 @@
 package io.unthrottled.doki.promotions
 
-import com.intellij.ide.BrowserUtil
+import com.intellij.notification.Notification
+import com.intellij.notification.NotificationAction
+import com.intellij.notification.NotificationGroupManager
+import com.intellij.notification.NotificationListener
+import com.intellij.notification.NotificationType
+import com.intellij.notification.impl.NotificationsManagerImpl
+import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.extensions.PluginId
 import com.intellij.openapi.project.Project
-import com.intellij.openapi.ui.DialogWrapper
+import com.intellij.openapi.ui.popup.Balloon
+import com.intellij.openapi.ui.popup.JBPopupListener
+import com.intellij.openapi.ui.popup.LightweightWindowEvent
 import com.intellij.openapi.updateSettings.impl.pluginsAdvertisement.installAndEnable
-import com.intellij.ui.JBColor
-import com.intellij.ui.layout.panel
-import com.intellij.util.ui.UIUtil
+import com.intellij.openapi.util.Disposer
+import com.intellij.ui.BalloonLayoutData
 import io.unthrottled.doki.assets.AssetCategory
 import io.unthrottled.doki.assets.AssetManager
 import io.unthrottled.doki.assets.AssetManager.ASSET_SOURCE
@@ -15,15 +22,9 @@ import io.unthrottled.doki.assets.AssetManager.FALLBACK_ASSET_SOURCE
 import io.unthrottled.doki.icon.DokiIcons
 import io.unthrottled.doki.service.AMII_PLUGIN_ID
 import io.unthrottled.doki.themes.DokiTheme
-import io.unthrottled.doki.util.toHexString
-import java.awt.Dimension
-import java.awt.event.ActionEvent
-import javax.swing.AbstractAction
-import javax.swing.Action
-import javax.swing.JComponent
-import javax.swing.JEditorPane
-import javax.swing.JTextPane
-import javax.swing.event.HyperlinkEvent
+import io.unthrottled.doki.util.BalloonTools
+import java.util.Locale
+import org.intellij.lang.annotations.Language
 
 class PromotionAssets(
   private val dokiTheme: DokiTheme
@@ -43,7 +44,7 @@ class PromotionAssets(
   ).orElse("$ASSET_SOURCE/promotion/amii/logo.png")
 
   private fun getPromotionAsset(): String =
-    AssetManager.resolveAssetUrl(AssetCategory.PROMOTION, "motivator/${dokiTheme.displayName.toLowerCase()}.gif")
+    AssetManager.resolveAssetUrl(AssetCategory.PROMOTION, "motivator/${dokiTheme.displayName.lowercase(Locale.getDefault())}.gif")
       .orElseGet {
         AssetManager.resolveAssetUrl(AssetCategory.PROMOTION, "motivator/promotion.gif")
           .orElse("$FALLBACK_ASSET_SOURCE/promotion/motivator/promotion.gif")
@@ -51,142 +52,27 @@ class PromotionAssets(
 }
 
 class AniMemePromotionDialog(
-  private val dokiTheme: DokiTheme,
   private val promotionAssets: PromotionAssets,
-  project: Project,
+  private val project: Project,
   private val onPromotion: (PromotionResults) -> Unit
-) : DialogWrapper(project, true, IdeModalityType.MODELESS) {
-
-  companion object {
-    private const val INSTALLED_EXIT_CODE = 69
-  }
+) {
 
   init {
-    title = MessageBundle.message("amii.name")
-    setCancelButtonText(MessageBundle.message("promotion.action.cancel"))
-    setDoNotAskOption(
-      DoNotPromote { shouldContinuePromotion, exitCode ->
-        onPromotion(
-          PromotionResults(
-            when {
-              !shouldContinuePromotion -> PromotionStatus.BLOCKED
-              exitCode == INSTALLED_EXIT_CODE -> PromotionStatus.ACCEPTED
-              else -> PromotionStatus.REJECTED
-            }
-          )
-        )
-      }
-    )
-    init()
+    MessageBundle.message("amii.name")
   }
 
-  override fun createActions(): Array<Action> {
-    return arrayOf(
-      buildInstallAction(),
-      cancelAction
-    )
-  }
+  private val notificationGroup = NotificationGroupManager.getInstance()
+    .getNotificationGroup("Doki Theme Promotions")
 
-  private fun buildInstallAction(): AbstractAction {
-    return object : AbstractAction() {
-      init {
-        val message = MessageBundle.message("promotion.action.ok")
-        putValue(NAME, message)
-        putValue(SMALL_ICON, DokiIcons.Plugins.AMII.TOOL_WINDOW)
-      }
-
-      override fun actionPerformed(e: ActionEvent) {
-        installAndEnable(
-          setOf(
-            PluginId.getId(AMII_PLUGIN_ID)
-          )
-        ) {
-          close(INSTALLED_EXIT_CODE, true)
-        }
-      }
-    }
-  }
-
-  override fun createCenterPanel(): JComponent? {
-    val promotionPane = buildPromotionPane()
-    return panel {
-      row {
-        promotionPane()
-      }
-    }
-  }
-
-  @Suppress("LongMethod")
-  private fun buildPromotionPane(): JEditorPane {
-    val pane = JTextPane()
-    pane.isEditable = false
-    pane.contentType = "text/html"
-    val accentHex = JBColor.namedColor(
-      DokiTheme.ACCENT_COLOR,
-      UIUtil.getTextAreaForeground()
-    ).toHexString()
-    val infoForegroundHex = UIUtil.getContextHelpForeground().toHexString()
-    val motivatorLogoURL = promotionAssets.pluginLogoURL
-    val promotionAssetURL = promotionAssets.promotionAssetURL
-    pane.background = JBColor.namedColor(
-      "Menu.background",
-      UIUtil.getEditorPaneBackground()
-    )
-    pane.text =
-      """
+  @Suppress("MaxLineLength")
+  @Language("HTML")
+  private fun buildPromotionMessage(promotionAssets: PromotionAssets): String {
+    val amiiLogoURL = promotionAssets.pluginLogoURL
+    return """
       <html lang="en">
-      <head>
-          <style type='text/css'>
-              body {
-                font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-              }
-              .center {
-                text-align: center;
-              }
-              a {
-                  color: $accentHex;
-                  font-weight: bold;
-              }
-              p {
-                color: ${UIUtil.getLabelForeground().toHexString()};
-              }
-              h2 {
-                margin: 16px 0;
-                font-weight: bold;
-                font-size: 22px;
-              }
-              h3 {
-                margin: 4px 0;
-                font-weight: bold;
-                font-size: 14px;
-              }
-              .accented {
-                color: $accentHex;
-              }
-              .info-foreground {
-                color: $infoForegroundHex;
-                text-align: center;
-              }
-              .header {
-                color: $accentHex;
-                text-align: center;
-              }
-              .logo-container {
-                margin-top: 8px;
-                text-align: center;
-              }
-              .display-image {
-                max-height: 256px;
-                text-align: center;
-              }
-          </style>
-          <title>Motivator</title>
-      </head>
-      <body>
-      <div class='logo-container'><img src="$motivatorLogoURL" class='display-image' alt='Motivator Plugin Logo'/> 
-      </div>
-      <h2 class='header'>Your new virtual companion!</h2>
-      <div style='margin: 8px 0 0 100px'>
+      <body style='text-align: center'>
+      <h2>Your new virtual companion!</h2>
+      <div style='text-align: left'>
         <p>
           <a href='https://plugins.jetbrains.com/plugin/15865-amii'>AMII</a>
           gives your IDE more personality by using anime memes. <br/> You will get an assistant that will interact 
@@ -197,37 +83,93 @@ class AniMemePromotionDialog(
         </p>
       </div>
       <br/>
-      <h3 class='info-foreground'>Bring Anime Memes to your IDE today!</h3>
+      <h3 style='text-align: center'>Bring Anime Memes to your IDE today!</h3>
       <br/>
-      <div class='display-image'><img src='$promotionAssetURL' height="150" 
-      alt='${dokiTheme.displayName}&#39;s Promotion Asset'/></div>
+      <div style='text-align: center'>
+        <img style='text-align: center;' src="$amiiLogoURL" alt='AniMeme Plugin Logo'/>
+      </div>
       <br/>
       </body>
       </html>
-      """.trimIndent()
-    pane.preferredSize = Dimension(pane.preferredSize.width + 120, pane.preferredSize.height)
-    pane.addHyperlinkListener {
-      if (it.eventType == HyperlinkEvent.EventType.ACTIVATED) {
-        BrowserUtil.browse(it.url)
+    """.trimIndent()
+  }
+
+  fun show() {
+    val neverShowAction = object : NotificationAction(MessageBundle.message("promotions.dont.ask")) {
+      override fun actionPerformed(e: AnActionEvent, notification: Notification) {
+        emitStatus(PromotionStatus.BLOCKED)
+        notification.expire()
       }
     }
-    return pane
+    val installAction = object : NotificationAction(MessageBundle.message("promotion.action.ok")) {
+      override fun actionPerformed(e: AnActionEvent, notification: Notification) {
+        installAndEnable(
+          setOf(
+            PluginId.getId(AMII_PLUGIN_ID)
+          )
+        ) {
+          emitStatus(PromotionStatus.ACCEPTED)
+        }
+        notification.expire()
+      }
+    }
+    val updateNotification = notificationGroup.createNotification(
+      buildPromotionMessage(
+        promotionAssets
+      ),
+      NotificationType.INFORMATION
+    )
+      .setTitle("Doki Theme Promotion: ${MessageBundle.message("amii.name")}")
+      .setIcon(DokiIcons.General.PLUGIN_LOGO)
+      .addAction(installAction)
+      .addAction(neverShowAction)
+      .setListener(NotificationListener.UrlOpeningListener(false))
+
+    // todo: this
+//    updateNotification.isSuggestionType = true
+
+    updateNotification.whenExpired {
+      emitStatus(PromotionStatus.BLOCKED)
+    }
+
+    showNotification(project, updateNotification) {
+      emitStatus(PromotionStatus.BLOCKED)
+    }
   }
-}
 
-class DoNotPromote(
-  private val onToBeShown: (Boolean, Int) -> Unit
-) : DialogWrapper.DoNotAskOption {
-  override fun isToBeShown(): Boolean = true
-
-  override fun setToBeShown(toBeShown: Boolean, exitCode: Int) {
-    onToBeShown(toBeShown, exitCode)
+  private var emitted = false
+  private var savedStatus = PromotionStatus.UNKNOWN
+  private fun emitStatus(status: PromotionStatus) {
+    if (!emitted || savedStatus != status) {
+      emitted = true
+      savedStatus = status
+      onPromotion(PromotionResults(status))
+    }
   }
 
-  override fun canBeHidden(): Boolean = true
-
-  override fun shouldSaveOptionsOnCancel(): Boolean = true
-
-  override fun getDoNotShowMessage(): String =
-    MessageBundle.message("promotions.dont.ask")
+  private fun showNotification(
+    project: Project,
+    notificationToShow: Notification,
+    onClosed: () -> Unit
+  ) {
+    try {
+      val (ideFrame, notificationPosition) = BalloonTools.fetchBalloonParameters(project)
+      val balloon = NotificationsManagerImpl.createBalloon(
+        ideFrame,
+        notificationToShow,
+        true,
+        false,
+        BalloonLayoutData.fullContent(),
+        Disposer.newDisposable()
+      )
+      balloon.addListener(object : JBPopupListener {
+        override fun onClosed(event: LightweightWindowEvent) {
+          onClosed()
+        }
+      })
+      balloon.show(notificationPosition, Balloon.Position.below)
+    } catch (e: Throwable) {
+      notificationToShow.notify(project)
+    }
+  }
 }

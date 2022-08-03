@@ -54,6 +54,7 @@ class TheDokiTheme : Disposable {
   private val connection = ApplicationManager.getApplication().messageBus.connect()
 
   init {
+    PromotionManager.init()
     hackLAF()
     LegacyMigration.migrateIfNecessary()
     installAllUIComponents()

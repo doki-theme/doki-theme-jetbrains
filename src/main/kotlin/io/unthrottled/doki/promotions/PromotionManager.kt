@@ -33,11 +33,27 @@ open class PromotionManagerImpl {
 
   private val promotionLedger: PromotionLedger = getInitialLedger()
 
+  fun init() {
+    // global trumps local
+    // global is updated when local is changed by user
+    val globalShouldPromote = promotionLedger.allowedToPromote
+    val localShouldPromote = ThemeConfig.instance.allowPromotions
+    if (localShouldPromote != globalShouldPromote) {
+      ThemeConfig.instance.allowPromotions = globalShouldPromote
+      persistLedger(promotionLedger)
+    }
+  }
+
   fun registerPromotion(newVersion: String, forceRegister: Boolean = false) {
     if (initialized.not() || forceRegister) {
       promotionRegistry(newVersion)
       initialized = true
     }
+  }
+
+  fun setPromotionsEnabled(optInToPromotion: Boolean) {
+    promotionLedger.allowedToPromote = optInToPromotion
+    persistLedger(promotionLedger)
   }
 
   private fun promotionRegistry(newVersion: String) {
@@ -63,6 +79,7 @@ open class PromotionManagerImpl {
             promotionLedger.seenPromotions[MOTIVATION_PROMOTION_ID] =
               Promotion(MOTIVATION_PROMOTION_ID, Instant.now(), it.status)
             persistLedger(promotionLedger)
+            ThemeConfig.instance.allowPromotions = promotionLedger.allowedToPromote
             releaseLock(id)
           }) {
             releaseLock(id)
@@ -81,7 +98,8 @@ open class PromotionManagerImpl {
     get() = getApplicationName()
 
   private fun shouldPromote(): Boolean =
-    promotionLedger.allowedToPromote &&
+    ThemeConfig.instance.allowPromotions &&
+      promotionLedger.allowedToPromote &&
       (
         promotionLedger.seenPromotions.containsKey(MOTIVATION_PROMOTION_ID).not() ||
           promotionLedger.seenPromotions[MOTIVATION_PROMOTION_ID]?.result == PromotionStatus.ACCEPTED

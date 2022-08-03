@@ -81,6 +81,7 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
   private com.intellij.ui.components.ActionLink randmizerInstallLink;
   private JSpinner hideDelayMsSpinner;
   private JCheckBox hideOnHoverCheck;
+  private JCheckBox allowPromotionalContentCheckBox;
 
 
   @Override
@@ -133,6 +134,11 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
     useCustomStickerCheckBox.setSelected(initialThemeSettingsModel.isCustomSticker());
     useCustomStickerCheckBox.addChangeListener(e ->
       themeSettingsModel.setCustomSticker(useCustomStickerCheckBox.isSelected())
+    );
+
+    allowPromotionalContentCheckBox.setSelected(initialThemeSettingsModel.getAllowPromotionalContent());
+    allowPromotionalContentCheckBox.addChangeListener(e ->
+      themeSettingsModel.setAllowPromotionalContent(allowPromotionalContentCheckBox.isSelected())
     );
 
     warningLabel.setForeground(UIUtil.getContextHelpForeground());
