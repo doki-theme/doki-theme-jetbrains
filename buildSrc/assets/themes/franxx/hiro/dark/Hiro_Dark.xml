@@ -1,0 +1,10 @@
+<scheme name="Hiro Dark" version="142" parent_scheme="Doki Dim">
+  <colors>
+    <option name="FILESTATUS_MERGED" value="$keywordColor$"/>
+    <option name="FILESTATUS_MODIFIED" value="$keywordColor$"/>
+    <option name="FILESTATUS_modifiedOutside" value="$keywordColor$"/>
+  </colors>
+  <attributes>
+
+  </attributes>
+</scheme>

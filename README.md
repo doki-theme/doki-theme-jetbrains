@@ -98,6 +98,7 @@ You can choose themes based on characters from these various Anime, Manga, or Vi
       - [Suggestive Content](#suggestive-content)
       - [Misc Content Settings](#misc-content-settings)
     - [Other Settings](#other-settings)
+      - [Promotional Content](#promotional-content)
   - [Fonts](#fonts)
 - [Miscellaneous](#miscellaneous)
   - [Contributing](#contributing) 
@@ -280,6 +281,23 @@ Note: Since 2022.2 JetBrains platforms natively support this feature. So this im
 
 **Theme Change Animation** enables the neat fade-in animation effect as you change your theme.
 You can see a rough example in the [quick theme switch section.](#quick-theme-switch)
+
+### Promotional Content
+
+I am a weeb who builds a lot of neat weebie things. A lot of which I think you will enjoy.
+By default, I have opted you into receiving a _single_ promotion to the [AniMeme Plugin](https://github.com/ani-memes/AMII#amii-anime-meme-ide-integration).
+This notification window _will_ show up when your IDE has been idle, and you've met these following conditions:
+
+- You are online
+- You have weeb content enabled (sticker or background)
+- It's been at least 7 days since you've installed the Doki Theme.
+
+You will also only ever see the promotion once on each machine, the config is shared across IDEs on your machine.
+You can opt yourself out at any time before then. 
+**Note**: if you've opted out, for the best experience, be sure to restart any of your open IDEs (eg: Intellij, Webstorm) if you have the Doki Theme installed across IDEs.
+
+I'm only promoting one item, and that isn't going to change anytime soon.
+Thanks for your understanding and I hope you enjoy the stuff I've built!
 
 ## Fonts
 

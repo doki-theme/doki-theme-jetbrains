@@ -58,7 +58,7 @@
     <option name="FILESTATUS_NOT_CHANGED_RECURSIVE" value="8699ff"/>
     <option name="FILESTATUS_OBSOLETE" value="$stringColor$"/>
     <option name="FILESTATUS_SWITCHED" value="$stringColor$"/>
-    <option name="FILESTATUS_UNKNOWN" value="$constantColor$"/>
+    <option name="FILESTATUS_UNKNOWN" value="$classNameColor$"/>
     <option name="FILESTATUS_changelistConflict" value="$accentColor$"/>
     <option name="FILESTATUS_modifiedOutside" value="$constantColor$"/>
     <option name="FOLDED_TEXT_BORDER_COLOR" value="$accentColor$"/>

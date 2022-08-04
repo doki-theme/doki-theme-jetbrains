@@ -5,12 +5,12 @@ import org.kordamp.gradle.plugin.markdown.tasks.MarkdownToHtmlTask
 fun properties(key: String) = project.findProperty(key).toString()
 
 plugins {
-  // Custom plugin for building all of the themes
+  // Custom plugin for building all the themes
   id("doki-theme-plugin")
   // Kotlin support
   id("org.jetbrains.kotlin.jvm") version "1.6.0"
   // gradle-intellij-plugin - read more: https://github.com/JetBrains/gradle-intellij-plugin
-  id("org.jetbrains.intellij") version "1.6.0"
+  id("org.jetbrains.intellij") version "1.7.0"
   // detekt linter - read more: https://detekt.github.io/detekt/gradle.html
   id("io.gitlab.arturbosch.detekt") version "1.18.1"
   // ktlint linter - read more: https://github.com/JLLeitschuh/ktlint-gradle
@@ -30,12 +30,12 @@ repositories {
 }
 
 dependencies {
-  detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.18.1")
+  detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.20.0")
   implementation("commons-io:commons-io:2.11.0")
-  implementation("org.javassist:javassist:3.28.0-GA")
-  implementation("io.sentry:sentry:5.2.1")
-  testImplementation("org.assertj:assertj-core:3.21.0")
-  testImplementation("io.mockk:mockk:1.12.0")
+  implementation("org.javassist:javassist:3.29.0-GA")
+  implementation("io.sentry:sentry:6.0.0")
+  testImplementation("org.assertj:assertj-core:3.23.1")
+  testImplementation("io.mockk:mockk:1.12.4")
 }
 
 configurations {

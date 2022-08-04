@@ -47,7 +47,7 @@ import javassist.expr.NewExpr
 import java.awt.Color
 import javax.swing.JDialog
 
-@Suppress("TooManyFunctions")
+@Suppress("TooManyFunctions", "LargeClass")
 object HackComponent : Disposable {
   private val log = Logger.getInstance(javaClass)
 
@@ -421,8 +421,7 @@ object HackComponent : Disposable {
       val cp = ClassPool(true)
       cp.insertClassPath(ClassClassPath(AnchoredButton::class.java))
       val ctClass = cp.get("com.intellij.openapi.wm.impl.InternalDecoratorImpl")
-      ctClass.constructors.forEach {
-        ctConstructor ->
+      ctClass.constructors.forEach { ctConstructor ->
         ctConstructor.insertAfter("this.setBackground(com.intellij.util.ui.UIUtil.getPanelBackground());")
       }
       ctClass.toClass()

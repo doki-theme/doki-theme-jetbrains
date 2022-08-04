@@ -1,0 +1,27 @@
+{
+  "id": "2eedcc31-b5fa-4b30-b045-6a539e915581",
+  "editorScheme": {
+    "type": "templateExtension",
+    "file": "Zero_Two_Sakura.xml"
+  },
+  "overrides": {},
+  "ui": {
+    "ScrollBar.Transparent.thumbColor": "accentColorOverrideMoreTransparent",
+    "ScrollBar.Transparent.thumbBorderColor": "accentColorOverrideMoreTransparent",
+    "ScrollBar.Transparent.hoverThumbColor": "accentColorOverrideTransparent",
+    "ScrollBar.Transparent.hoverThumbBorderColor": "accentColorOverrideTransparent",
+    "ScrollBar.thumbBorderColor": "accentColorOverrideMoreTransparent",
+    "ScrollBar.thumbColor": "accentColorOverrideMoreTransparent",
+    "ScrollBar.hoverThumbBorderColor": "accentColorOverrideMoreTransparent",
+    "ScrollBar.hoverThumbColor": "accentColorOverrideMoreTransparent",
+    "ScrollBar.Mac.Transparent.thumbColor": "accentColorOverrideMoreTransparent",
+    "ScrollBar.Mac.Transparent.thumbBorderColor": "accentColorOverrideMoreTransparent",
+    "ScrollBar.Mac.Transparent.hoverThumbColor": "accentColorOverrideTransparent",
+    "ScrollBar.Mac.Transparent.hoverThumbBorderColor": "accentColorOverrideTransparent",
+    "ScrollBar.Mac.thumbBorderColor": "accentColorOverrideMoreTransparent",
+    "ScrollBar.Mac.thumbColor": "accentColorOverrideMoreTransparent",
+    "ScrollBar.Mac.hoverThumbBorderColor": "accentColorOverrideMoreTransparent",
+    "ScrollBar.Mac.hoverThumbColor": "accentColorOverrideMoreTransparent"
+  },
+  "uiBase": "light dim"
+}

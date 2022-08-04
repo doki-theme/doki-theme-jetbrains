@@ -1,0 +1,26 @@
+{
+  "id": "4fd5cb34-d36e-4a3c-8639-052b19b26ba1",
+  "editorScheme": {
+    "type": "templateExtension",
+    "file": "Zero_Two_Lily.xml"
+  },
+  "overrides": {},
+  "ui": {
+    "ScrollBar.Transparent.thumbColor": "accentColorOverrideMoreTransparent",
+    "ScrollBar.Transparent.thumbBorderColor": "accentColorOverrideMoreTransparent",
+    "ScrollBar.Transparent.hoverThumbColor": "accentColorOverrideTransparent",
+    "ScrollBar.Transparent.hoverThumbBorderColor": "accentColorOverrideTransparent",
+    "ScrollBar.thumbBorderColor": "accentColorOverrideMoreTransparent",
+    "ScrollBar.thumbColor": "accentColorOverrideMoreTransparent",
+    "ScrollBar.hoverThumbBorderColor": "accentColorOverrideMoreTransparent",
+    "ScrollBar.hoverThumbColor": "accentColorOverrideMoreTransparent",
+    "ScrollBar.Mac.Transparent.thumbColor": "accentColorOverrideMoreTransparent",
+    "ScrollBar.Mac.Transparent.thumbBorderColor": "accentColorOverrideMoreTransparent",
+    "ScrollBar.Mac.Transparent.hoverThumbColor": "accentColorOverrideTransparent",
+    "ScrollBar.Mac.Transparent.hoverThumbBorderColor": "accentColorOverrideTransparent",
+    "ScrollBar.Mac.thumbBorderColor": "accentColorOverrideMoreTransparent",
+    "ScrollBar.Mac.thumbColor": "accentColorOverrideMoreTransparent",
+    "ScrollBar.Mac.hoverThumbBorderColor": "accentColorOverrideMoreTransparent",
+    "ScrollBar.Mac.hoverThumbColor": "accentColorOverrideMoreTransparent"
+  }
+}

@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit
 import kotlin.random.Random
 
 enum class PromotionStatus {
-  ACCEPTED, REJECTED, BLOCKED
+  ACCEPTED, REJECTED, BLOCKED, UNKNOWN
 }
 
 data class PromotionResults(
@@ -68,7 +68,6 @@ object AniMemePluginPromotion {
                 { project ->
                   ApplicationManager.getApplication().invokeLater {
                     AniMemePromotionDialog(
-                      dokiTheme,
                       promotionAssets,
                       project,
                       onPromotion

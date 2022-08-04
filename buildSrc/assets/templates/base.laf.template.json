@@ -51,6 +51,7 @@
     "ToolTip.background": "contrastColor",
     "Canvas.Tooltip.background": "contrastColor",
     "ToolTip.borderColor": "borderColor",
+    "Plugins.borderColor": "borderColor",
 
     "ToolTip.Actions.background": "lightEditorColor",
 

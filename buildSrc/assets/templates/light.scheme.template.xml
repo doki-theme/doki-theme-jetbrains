@@ -56,7 +56,7 @@
     <option name="FILESTATUS_NOT_CHANGED_RECURSIVE" value="5cc5"/>
     <option name="FILESTATUS_OBSOLETE" value="$comments$"/>
     <option name="FILESTATUS_SWITCHED" value="e36209"/>
-    <option name="FILESTATUS_UNKNOWN" value="$constantColor$"/>
+    <option name="FILESTATUS_UNKNOWN" value="$classNameColor$"/>
     <option name="FILESTATUS_changelistConflict" value="$accentColor$"/>
     <option name="FILESTATUS_modifiedOutside" value="5cc5"/>
     <option name="GrepConsole.fatal.background" value="$filePurple$"/>

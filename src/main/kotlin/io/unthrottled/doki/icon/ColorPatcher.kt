@@ -16,9 +16,9 @@ import io.unthrottled.doki.util.runSafely
 import io.unthrottled.doki.util.runSafelyWithResult
 import io.unthrottled.doki.util.toHexString
 import io.unthrottled.doki.util.toOptional
+import org.w3c.dom.Element
 import java.awt.Color
 import java.time.Duration
-import org.w3c.dom.Element
 
 object NoOptPatcher : Patcher {
   override fun patchColors(svg: Element) {}

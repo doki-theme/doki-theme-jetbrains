@@ -54,6 +54,7 @@ class TheDokiTheme : Disposable {
   private val connection = ApplicationManager.getApplication().messageBus.connect()
 
   init {
+    PromotionManager.init()
     hackLAF()
     LegacyMigration.migrateIfNecessary()
     installAllUIComponents()
@@ -104,6 +105,7 @@ class TheDokiTheme : Disposable {
           getVersion()
             .ifPresent { version ->
               if (version != ThemeConfig.instance.version) {
+                LegacyMigration.newVersionMigration()
                 ThemeConfig.instance.version = version
                 ThemeManager.instance.currentTheme.ifPresent {
                   StartupManager.getInstance(project).runWhenProjectIsInitialized {
