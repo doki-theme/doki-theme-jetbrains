@@ -20,6 +20,8 @@ _Zero Two's Not Just A Cutie. ;)_
 - Desaturated Itsuki's theme a bit.
 - Adjusted CC's inlay color.
 - Fixed differentiation fo un-versioned files in VCS.
+- Allowed you to opt-out of promotional content.
+- Changed [Anime Meme Plugin](https://github.com/ani-memes/AMII) promotion to a notification.
 
 # 84.1-1.3.0 [Small Fixes n Stuff]
 
