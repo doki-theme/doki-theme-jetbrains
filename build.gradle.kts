@@ -16,7 +16,7 @@ plugins {
   // ktlint linter - read more: https://github.com/JLLeitschuh/ktlint-gradle
   id("org.jlleitschuh.gradle.ktlint") version "10.2.0"
   id("org.kordamp.gradle.markdown") version "2.2.0"
-  id("org.jetbrains.qodana") version "0.1.12"
+  id("org.jetbrains.qodana") version "0.1.13"
 }
 
 group = properties("pluginGroup")
@@ -35,7 +35,7 @@ dependencies {
   implementation("org.javassist:javassist:3.29.0-GA")
   implementation("io.sentry:sentry:6.0.0")
   testImplementation("org.assertj:assertj-core:3.23.1")
-  testImplementation("io.mockk:mockk:1.12.4")
+  testImplementation("io.mockk:mockk:1.12.5")
 }
 
 configurations {
