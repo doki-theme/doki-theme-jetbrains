@@ -25,9 +25,9 @@ import io.unthrottled.doki.util.Logging
 import io.unthrottled.doki.util.logger
 import io.unthrottled.doki.util.runSafely
 import io.unthrottled.doki.util.toHexString
-import java.awt.Color
 import org.intellij.lang.annotations.Language
 import org.jetbrains.annotations.Nls
+import java.awt.Color
 
 @Suppress("LongMethod", "MaxLineLength")
 @Language("HTML")

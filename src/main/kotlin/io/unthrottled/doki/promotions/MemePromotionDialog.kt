@@ -23,8 +23,8 @@ import io.unthrottled.doki.icon.DokiIcons
 import io.unthrottled.doki.service.AMII_PLUGIN_ID
 import io.unthrottled.doki.themes.DokiTheme
 import io.unthrottled.doki.util.BalloonTools
-import java.util.Locale
 import org.intellij.lang.annotations.Language
+import java.util.Locale
 
 class PromotionAssets(
   private val dokiTheme: DokiTheme
@@ -44,7 +44,10 @@ class PromotionAssets(
   ).orElse("$ASSET_SOURCE/promotion/amii/logo.png")
 
   private fun getPromotionAsset(): String =
-    AssetManager.resolveAssetUrl(AssetCategory.PROMOTION, "motivator/${dokiTheme.displayName.lowercase(Locale.getDefault())}.gif")
+    AssetManager.resolveAssetUrl(
+      AssetCategory.PROMOTION,
+      "motivator/${dokiTheme.displayName.lowercase(Locale.getDefault())}.gif"
+    )
       .orElseGet {
         AssetManager.resolveAssetUrl(AssetCategory.PROMOTION, "motivator/promotion.gif")
           .orElse("$FALLBACK_ASSET_SOURCE/promotion/motivator/promotion.gif")

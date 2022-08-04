@@ -4,20 +4,22 @@ import com.intellij.util.io.isFile
 import io.mockk.Called
 import io.mockk.clearMocks
 import io.mockk.every
+import io.mockk.just
 import io.mockk.mockkObject
+import io.mockk.runs
 import io.mockk.slot
 import io.mockk.unmockkObject
 import io.mockk.verify
 import io.unthrottled.doki.assets.AssetManager.ASSET_SOURCE
 import io.unthrottled.doki.assets.AssetManager.FALLBACK_ASSET_SOURCE
 import io.unthrottled.doki.assets.LocalStorageService
+import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.integrations.RestClient
 import io.unthrottled.doki.service.PluginService
 import io.unthrottled.doki.test.tools.TestTools
 import io.unthrottled.doki.test.tools.TestTools.setUpMocksForManager
 import io.unthrottled.doki.test.tools.TestTools.tearDownMocksForPromotionManager
 import io.unthrottled.doki.util.toOptional
-import org.assertj.core.api.Assertions
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.AfterClass
 import org.junit.Before
@@ -42,6 +44,9 @@ class PromotionManagerIntegrationTest {
       mockkObject(RestClient)
       mockkObject(PluginService)
       mockkObject(WeebService)
+      mockkObject(ThemeConfig.Companion)
+      every { ThemeConfig.instance.allowPromotions = false } just runs
+      every { ThemeConfig.instance.allowPromotions = true } just runs
     }
 
     @JvmStatic
@@ -52,6 +57,7 @@ class PromotionManagerIntegrationTest {
       unmockkObject(RestClient)
       unmockkObject(PluginService)
       unmockkObject(WeebService)
+      unmockkObject(ThemeConfig.Companion)
     }
   }
 
@@ -69,6 +75,7 @@ class PromotionManagerIntegrationTest {
       TestTools.getTestAssetPath(testDirectory).toString().toOptional()
     every { PluginService.isMotivatorInstalled() } returns false
     every { WeebService.isWeebStuffOn() } returns true
+    every { ThemeConfig.instance.allowPromotions } returns true
     every { RestClient.performGet("$ASSET_SOURCE/misc/am-i-online.txt") } returns
       """         
         yes       
@@ -100,6 +107,7 @@ class PromotionManagerIntegrationTest {
       TestTools.getTestAssetPath(testDirectory).toString().toOptional()
     every { PluginService.isMotivatorInstalled() } returns false
     every { WeebService.isWeebStuffOn() } returns true
+    every { ThemeConfig.instance.allowPromotions } returns true
     every { RestClient.performGet("$ASSET_SOURCE/misc/am-i-online.txt") } returns
       """         
         yes       
@@ -150,6 +158,7 @@ class PromotionManagerIntegrationTest {
       TestTools.getTestAssetPath(testDirectory).toString().toOptional()
     every { PluginService.isMotivatorInstalled() } returns false
     every { WeebService.isWeebStuffOn() } returns true
+    every { ThemeConfig.instance.allowPromotions } returns true
     every { RestClient.performGet("$ASSET_SOURCE/misc/am-i-online.txt") } returns
       """         
         yes       
@@ -182,6 +191,7 @@ class PromotionManagerIntegrationTest {
     every { PluginService.isMotivatorInstalled() } returns true
     every { PluginService.isAmiiInstalled() } returns false
     every { WeebService.isWeebStuffOn() } returns true
+    every { ThemeConfig.instance.allowPromotions } returns true
     every { RestClient.performGet("$ASSET_SOURCE/misc/am-i-online.txt") } returns
       """         
         yes       
@@ -190,7 +200,7 @@ class PromotionManagerIntegrationTest {
 
     val currentLedger = PromotionLedger(
       UUID.randomUUID(),
-      mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(3))),
+      mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(8))),
       mutableMapOf(),
       true
     )
@@ -215,6 +225,7 @@ class PromotionManagerIntegrationTest {
     every { PluginService.isMotivatorInstalled() } returns false
     every { PluginService.isAmiiInstalled() } returns true
     every { WeebService.isWeebStuffOn() } returns true
+    every { ThemeConfig.instance.allowPromotions } returns true
     every { RestClient.performGet("$ASSET_SOURCE/misc/am-i-online.txt") } returns
       """         
         yes       
@@ -223,7 +234,7 @@ class PromotionManagerIntegrationTest {
 
     val currentLedger = PromotionLedger(
       UUID.randomUUID(),
-      mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(3))),
+      mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(8))),
       mutableMapOf(),
       true
     )
@@ -248,6 +259,7 @@ class PromotionManagerIntegrationTest {
     every { PluginService.isMotivatorInstalled() } returns true
     every { PluginService.isAmiiInstalled() } returns true
     every { WeebService.isWeebStuffOn() } returns true
+    every { ThemeConfig.instance.allowPromotions } returns true
     every { RestClient.performGet("$ASSET_SOURCE/misc/am-i-online.txt") } returns
       """         
         yes       
@@ -256,7 +268,7 @@ class PromotionManagerIntegrationTest {
 
     val currentLedger = PromotionLedger(
       UUID.randomUUID(),
-      mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(3))),
+      mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(8))),
       mutableMapOf(),
       true
     )
@@ -280,6 +292,7 @@ class PromotionManagerIntegrationTest {
     every { PluginService.isMotivatorInstalled() } returns false
     every { PluginService.isAmiiInstalled() } returns false
     every { WeebService.isWeebStuffOn() } returns true
+    every { ThemeConfig.instance.allowPromotions } returns true
     every { RestClient.performGet("$ASSET_SOURCE/misc/am-i-online.txt") } returns
       """         
         yes       
@@ -288,7 +301,7 @@ class PromotionManagerIntegrationTest {
 
     val currentLedger = PromotionLedger(
       UUID.randomUUID(),
-      mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(3))),
+      mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(8))),
       mutableMapOf(
         MOTIVATION_PROMOTION_ID to Promotion(
           MOTIVATION_PROMOTION_ID,
@@ -318,6 +331,7 @@ class PromotionManagerIntegrationTest {
     every { PluginService.isMotivatorInstalled() } returns false
     every { PluginService.isAmiiInstalled() } returns false
     every { WeebService.isWeebStuffOn() } returns false
+    every { ThemeConfig.instance.allowPromotions } returns true
     every { RestClient.performGet("$ASSET_SOURCE/misc/am-i-online.txt") } returns
       """         
         yes       
@@ -326,7 +340,7 @@ class PromotionManagerIntegrationTest {
 
     val currentLedger = PromotionLedger(
       UUID.randomUUID(),
-      mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(3))),
+      mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(8))),
       mutableMapOf(),
       true
     )
@@ -350,6 +364,7 @@ class PromotionManagerIntegrationTest {
     every { PluginService.isMotivatorInstalled() } returns false
     every { PluginService.isAmiiInstalled() } returns false
     every { WeebService.isWeebStuffOn() } returns true
+    every { ThemeConfig.instance.allowPromotions } returns true
     every { RestClient.performGet("$ASSET_SOURCE/misc/am-i-online.txt") } returns
       "no".toOptional() andThen Optional.empty()
     every { RestClient.performGet("$FALLBACK_ASSET_SOURCE/misc/am-i-online.txt") } returns
@@ -357,7 +372,7 @@ class PromotionManagerIntegrationTest {
 
     val currentLedger = PromotionLedger(
       UUID.randomUUID(),
-      mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(3))),
+      mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(8))),
       mutableMapOf(),
       true
     )
@@ -382,6 +397,7 @@ class PromotionManagerIntegrationTest {
     every { PluginService.isMotivatorInstalled() } returns false
     every { PluginService.isAmiiInstalled() } returns false
     every { WeebService.isWeebStuffOn() } returns true
+    every { ThemeConfig.instance.allowPromotions } returns true
     every { RestClient.performGet("$ASSET_SOURCE/misc/am-i-online.txt") } returns
       """         
         yes       
@@ -392,7 +408,7 @@ class PromotionManagerIntegrationTest {
 
     val currentLedger = PromotionLedger(
       UUID.randomUUID(),
-      mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(3))),
+      mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(8))),
       mutableMapOf(),
       true
     )
@@ -416,6 +432,7 @@ class PromotionManagerIntegrationTest {
     every { PluginService.isMotivatorInstalled() } returns false
     every { PluginService.isAmiiInstalled() } returns false
     every { WeebService.isWeebStuffOn() } returns true
+    every { ThemeConfig.instance.allowPromotions } returns true
     every { RestClient.performGet("$ASSET_SOURCE/misc/am-i-online.txt") } returns
       """         
         yes       
@@ -424,7 +441,7 @@ class PromotionManagerIntegrationTest {
 
     val currentLedger = PromotionLedger(
       UUID.randomUUID(),
-      mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(3))),
+      mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(8))),
       mutableMapOf(),
       false
     )
@@ -440,7 +457,7 @@ class PromotionManagerIntegrationTest {
 
     verify { AniMemePromotionService wasNot Called }
 
-    Assertions.assertThat(LockMaster.acquireLock("Syrena")).isTrue
+    assertThat(LockMaster.acquireLock("Syrena")).isTrue
   }
 
   @Test
@@ -450,6 +467,7 @@ class PromotionManagerIntegrationTest {
     every { PluginService.isMotivatorInstalled() } returns false
     every { PluginService.isAmiiInstalled() } returns false
     every { WeebService.isWeebStuffOn() } returns true
+    every { ThemeConfig.instance.allowPromotions } returns true
     every { RestClient.performGet("$ASSET_SOURCE/misc/am-i-online.txt") } returns
       """         
         yes       
@@ -458,7 +476,7 @@ class PromotionManagerIntegrationTest {
 
     val currentLedger = PromotionLedger(
       UUID.randomUUID(),
-      mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(3))),
+      mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(8))),
       mutableMapOf(
         MOTIVATION_PROMOTION_ID to Promotion(MOTIVATION_PROMOTION_ID, Instant.now(), PromotionStatus.REJECTED)
       ),
@@ -476,7 +494,7 @@ class PromotionManagerIntegrationTest {
 
     verify { AniMemePromotionService wasNot Called }
 
-    Assertions.assertThat(LockMaster.acquireLock("Syrena")).isTrue
+    assertThat(LockMaster.acquireLock("Syrena")).isTrue
   }
 
   @Test
@@ -487,6 +505,7 @@ class PromotionManagerIntegrationTest {
     every { PluginService.isAmiiInstalled() } returns false
     every { PluginService.canAmiiBeInstalled() } returns false
     every { WeebService.isWeebStuffOn() } returns true
+    every { ThemeConfig.instance.allowPromotions } returns true
     every { RestClient.performGet("$ASSET_SOURCE/misc/am-i-online.txt") } returns
       """         
         yes       
@@ -495,7 +514,7 @@ class PromotionManagerIntegrationTest {
 
     val currentLedger = PromotionLedger(
       UUID.randomUUID(),
-      mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(3))),
+      mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(8))),
       mutableMapOf(
         MOTIVATION_PROMOTION_ID to Promotion(MOTIVATION_PROMOTION_ID, Instant.now(), PromotionStatus.ACCEPTED)
       ),
@@ -513,7 +532,45 @@ class PromotionManagerIntegrationTest {
 
     verify { AniMemePromotionService wasNot Called }
 
-    Assertions.assertThat(LockMaster.acquireLock("Syrena")).isTrue
+    assertThat(LockMaster.acquireLock("Syrena")).isTrue
+  }
+
+  @Test
+  fun `should not promote when opted out`() {
+    every { LocalStorageService.getGlobalAssetDirectory() } returns
+      TestTools.getTestAssetPath(testDirectory).toString().toOptional()
+    every { PluginService.isMotivatorInstalled() } returns false
+    every { PluginService.isAmiiInstalled() } returns false
+    every { PluginService.canAmiiBeInstalled() } returns true
+    every { WeebService.isWeebStuffOn() } returns true
+    every { ThemeConfig.instance.allowPromotions } returns false
+    every { RestClient.performGet("$ASSET_SOURCE/misc/am-i-online.txt") } returns
+      """         
+        yes       
+              
+      """.toOptional()
+
+    val currentLedger = PromotionLedger(
+      UUID.randomUUID(),
+      mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(8))),
+      mutableMapOf(
+        MOTIVATION_PROMOTION_ID to Promotion(MOTIVATION_PROMOTION_ID, Instant.now(), PromotionStatus.ACCEPTED)
+      ),
+      true
+    )
+
+    PromotionLedgerMaster.persistLedger(currentLedger)
+
+    val promotionManager = PromotionManagerImpl()
+    promotionManager.registerPromotion("Ryuko", true)
+
+    val postLedger = PromotionLedgerMaster.readLedger()
+
+    assertThat(postLedger).isEqualTo(currentLedger)
+
+    verify { AniMemePromotionService wasNot Called }
+
+    assertThat(LockMaster.acquireLock("Syrena")).isTrue
   }
 
   @Test
@@ -524,6 +581,7 @@ class PromotionManagerIntegrationTest {
     every { PluginService.isAmiiInstalled() } returns false
     every { PluginService.canAmiiBeInstalled() } returns true
     every { WeebService.isWeebStuffOn() } returns true
+    every { ThemeConfig.instance.allowPromotions } returns true
     every { RestClient.performGet("$ASSET_SOURCE/misc/am-i-online.txt") } returns
       """         
         yes       
@@ -532,7 +590,7 @@ class PromotionManagerIntegrationTest {
 
     val currentLedger = PromotionLedger(
       UUID.randomUUID(),
-      mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(3))),
+      mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(8))),
       mutableMapOf(
         MOTIVATION_PROMOTION_ID to Promotion(MOTIVATION_PROMOTION_ID, Instant.now(), PromotionStatus.ACCEPTED)
       ),
@@ -551,7 +609,7 @@ class PromotionManagerIntegrationTest {
 
     validateLedgerCallback(currentLedger, beforePromotion)
 
-    Assertions.assertThat(LockMaster.acquireLock("Syrena")).isTrue
+    assertThat(LockMaster.acquireLock("Syrena")).isTrue
   }
 
   @Test
@@ -562,6 +620,7 @@ class PromotionManagerIntegrationTest {
     every { PluginService.isAmiiInstalled() } returns false
     every { PluginService.canAmiiBeInstalled() } returns true
     every { WeebService.isWeebStuffOn() } returns true
+    every { ThemeConfig.instance.allowPromotions } returns true
     every { RestClient.performGet("$ASSET_SOURCE/misc/am-i-online.txt") } returns
       """         
         yes       
@@ -570,7 +629,7 @@ class PromotionManagerIntegrationTest {
 
     val currentLedger = PromotionLedger(
       UUID.randomUUID(),
-      mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(3))),
+      mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(8))),
       mutableMapOf(
         MOTIVATION_PROMOTION_ID to Promotion(MOTIVATION_PROMOTION_ID, Instant.now(), PromotionStatus.ACCEPTED)
       ),
@@ -593,12 +652,12 @@ class PromotionManagerIntegrationTest {
 
     rejectionSlot.captured()
 
-    Assertions.assertThat(LockMaster.acquireLock("Syrena")).isTrue
+    assertThat(LockMaster.acquireLock("Syrena")).isTrue
     LockMaster.releaseLock("Syrena")
 
     validateLedgerCallback(currentLedger, beforePromotion)
 
-    Assertions.assertThat(LockMaster.acquireLock("Syrena")).isTrue
+    assertThat(LockMaster.acquireLock("Syrena")).isTrue
   }
 
   @Test
@@ -609,6 +668,7 @@ class PromotionManagerIntegrationTest {
     every { PluginService.isAmiiInstalled() } returns false
     every { PluginService.canAmiiBeInstalled() } returns true
     every { WeebService.isWeebStuffOn() } returns true
+    every { ThemeConfig.instance.allowPromotions } returns true
     every { RestClient.performGet("$ASSET_SOURCE/misc/am-i-online.txt") } returns
       """         
         yes       
@@ -617,7 +677,7 @@ class PromotionManagerIntegrationTest {
 
     val currentLedger = PromotionLedger(
       UUID.randomUUID(),
-      mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(3))),
+      mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(8))),
       mutableMapOf(),
       true
     )
@@ -634,7 +694,7 @@ class PromotionManagerIntegrationTest {
 
     validateLedgerCallback(currentLedger, beforePromotion)
 
-    Assertions.assertThat(LockMaster.acquireLock("Syrena")).isTrue
+    assertThat(LockMaster.acquireLock("Syrena")).isTrue
   }
 
   @Test
@@ -645,6 +705,7 @@ class PromotionManagerIntegrationTest {
     every { PluginService.isAmiiInstalled() } returns false
     every { PluginService.canAmiiBeInstalled() } returns true
     every { WeebService.isWeebStuffOn() } returns true
+    every { ThemeConfig.instance.allowPromotions } returns true
     every { RestClient.performGet("$ASSET_SOURCE/misc/am-i-online.txt") } returns
       """         
         no       
@@ -658,7 +719,7 @@ class PromotionManagerIntegrationTest {
 
     val currentLedger = PromotionLedger(
       UUID.randomUUID(),
-      mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(3))),
+      mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(8))),
       mutableMapOf(),
       true
     )
@@ -675,7 +736,7 @@ class PromotionManagerIntegrationTest {
 
     validateLedgerCallback(currentLedger, beforePromotion)
 
-    Assertions.assertThat(LockMaster.acquireLock("Syrena")).isTrue
+    assertThat(LockMaster.acquireLock("Syrena")).isTrue
   }
 
   @Test
@@ -686,6 +747,7 @@ class PromotionManagerIntegrationTest {
     every { PluginService.isAmiiInstalled() } returns false
     every { PluginService.canAmiiBeInstalled() } returns true
     every { WeebService.isWeebStuffOn() } returns true
+    every { ThemeConfig.instance.allowPromotions } returns true
     every { RestClient.performGet("$ASSET_SOURCE/misc/am-i-online.txt") } returns
       """         
         yes       
@@ -703,7 +765,7 @@ class PromotionManagerIntegrationTest {
 
     val currentLedger = PromotionLedger(
       UUID.randomUUID(),
-      mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(3))),
+      mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(8))),
       mutableMapOf(),
       true
     )
@@ -720,7 +782,7 @@ class PromotionManagerIntegrationTest {
 
     validateLedgerCallback(currentLedger, beforePromotion)
 
-    Assertions.assertThat(LockMaster.acquireLock("Syrena")).isTrue
+    assertThat(LockMaster.acquireLock("Syrena")).isTrue
   }
 
   private fun validateLedgerCallback(
