@@ -16,7 +16,7 @@ plugins {
   // ktlint linter - read more: https://github.com/JLLeitschuh/ktlint-gradle
   id("org.jlleitschuh.gradle.ktlint") version "10.2.0"
   id("org.kordamp.gradle.markdown") version "2.2.0"
-  id("org.jetbrains.qodana") version "0.1.12"
+  id("org.jetbrains.qodana") version "0.1.13"
 }
 
 group = properties("pluginGroup")
