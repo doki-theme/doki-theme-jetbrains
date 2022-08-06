@@ -73,9 +73,10 @@ class DokiTheme(
     get() = uiTheme.name
 
   val displayName: String
-    get() = uiTheme.displayName ?: throw IllegalStateException(
+    get() = uiTheme.displayName ?: error(
       """
-|$name's theme.json requires "displayName" to be defined""".trimMargin()
+|$name's theme.json requires "displayName" to be defined
+      """.trimMargin()
     )
 
   fun getStickerPath(): Optional<String> =
@@ -115,7 +116,7 @@ class DokiTheme(
 
   fun getColor(s: String) = (
     (uiTheme.colors[s] as? String)?.toColor()
-      ?: throw IllegalStateException("Expected 'colors.$s' to be present in theme $name json.")
+      ?: error("Expected 'colors.$s' to be present in theme $name json.")
     )
 
   companion object {
@@ -158,7 +159,7 @@ class DokiTheme(
           (uiTheme.colors[requiredNamedColor] as String).toColor()
         }
       } catch (e: Throwable) {
-        throw IllegalStateException(
+        error(
           """
           Expected "$requiredColor" to be present in "colors" as a valid hex color in $name's theme json.
            "$requiredNamedColor" is not a valid hex color or reference to a defined color
