@@ -94,9 +94,9 @@ Rising of the Shield Hero
 That Time I Got Reincarnated As A Slime
 ---
 
-### Rimiru Tempest
+### Rimuru Tempest
 
-![rimiru_dark code](../assets/screenshots/slime/rimiru_dark_code.png)
+![rimuru_dark code](../assets/screenshots/slime/rimuru_dark_code.png)
 
 A Certain Scientific RailGun
 ---
