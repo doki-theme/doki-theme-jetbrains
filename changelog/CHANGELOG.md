@@ -1,6 +1,10 @@
 Changelog
 ---
 
+# 88.1-1.4.0 [Rimuru]
+
+- It was brought to my attention that I cannot spell "Rimuru".
+
 # 88.0-1.3.0 [Darling]
 
 Best Girl just got _better_. ❤️

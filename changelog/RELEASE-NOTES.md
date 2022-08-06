@@ -19,3 +19,4 @@ _Zero Two's Not Just A Cutie. ;)_
 - Fixed differentiation fo un-versioned files in VCS.
 - Allowed you to opt-out of promotional content.
 - Changed [Anime Meme Plugin](https://github.com/ani-memes/AMII) promotion to a notification.
+- It was brought to my attention that I cannot spell "Rimuru".

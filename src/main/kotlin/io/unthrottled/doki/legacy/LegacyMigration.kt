@@ -20,6 +20,7 @@ object LegacyMigration {
   private val renamedThemes = setOf(
     "4fd5cb34-d36e-4a3c-8639-052b19b26ba1", // Zero Two Light
     "8c99ec4b-fda0-4ab7-95ad-a6bf80c3924b", // Zero Two Dark
+    "5ca2846d-31a9-40b3-8908-965dad3c127d", // Rimiru -> Rimuru
   )
 
   private fun handleThemeRenames() {
