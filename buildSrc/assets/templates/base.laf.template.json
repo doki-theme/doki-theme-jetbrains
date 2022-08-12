@@ -40,6 +40,7 @@
     "window": "baseBackground",
     "StatusBar.background": "baseBackground",
     "SearchMatch.foreground": "baseBackground",
+    "Popup.background": "baseBackground",
     "UIDesigner.Canvas.background": "textEditorBackground",
     "Content.background": "textEditorBackground",
     "Table.background": "textEditorBackground",
@@ -63,6 +64,10 @@
     "NewClass.SearchField.background": "secondaryBackground",
     "FormattedTextField.background": "secondaryBackground",
 
+    "MainToolbar.inactiveBackground": "headerColorInactive",
+
+    "MainToolbar.background": "headerColor",
+    "ComplexPopup.Header.background": "headerColor",
     "TitlePane.inactiveBackground": "headerColor",
     "UIDesigner.Panel.background": "headerColor",
     "Menu.background": "headerColor",
