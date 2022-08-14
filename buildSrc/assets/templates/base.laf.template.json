@@ -405,6 +405,9 @@
     "ScrollBar.Mac.hoverThumbColor":"accentColorTransparent",
     "ScrollBar.background": "textEditorBackground",
 
+    "RunWidget.background": "#6cc4e8",
+    "RunWidget.foreground": "#060a1c",
+    "RunWidget.separatorColor": "#060a1c",
 
     "VersionControl": {
       "GitLog": {
