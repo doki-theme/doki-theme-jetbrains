@@ -104,7 +104,7 @@ class TheDokiTheme : Disposable {
           getVersion()
             .ifPresent { version ->
               if (version != ThemeConfig.instance.version) {
-                LegacyMigration.newVersionMigration()
+                LegacyMigration.newVersionMigration(project)
                 ThemeConfig.instance.version = version
                 ThemeManager.instance.currentTheme.ifPresent {
                   StartupManager.getInstance(project).runWhenProjectIsInitialized {

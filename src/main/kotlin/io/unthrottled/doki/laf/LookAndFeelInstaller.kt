@@ -52,12 +52,12 @@ object LookAndFeelInstaller {
       expanded = DokiIcons.Tree.EXPANDED
     )
   }
-   fun removeIcons() {
-     setTreeIcons(
-       collapsed = LafIconLookup.getSelectedIcon("treeCollapsed"),
-       expanded = LafIconLookup.getSelectedIcon("treeExpanded"),
-     )
-   }
+  fun removeIcons() {
+    setTreeIcons(
+      collapsed = LafIconLookup.getSelectedIcon("treeCollapsed"),
+      expanded = LafIconLookup.getSelectedIcon("treeExpanded"),
+    )
+  }
 
   private fun setTreeIcons(collapsed: Icon, expanded: Icon) {
     val defaults = UIManager.getLookAndFeelDefaults()
