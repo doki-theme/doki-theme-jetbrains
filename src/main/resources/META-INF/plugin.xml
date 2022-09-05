@@ -122,6 +122,7 @@
   </extensions>
   <applicationListeners>
     <listener class="io.unthrottled.doki.discreet.ApplicationDiscreetModeListener" topic="io.unthrottled.doki.discreet.DiscreetModeListener"/>
+    <listener class="io.unthrottled.doki.integrations.IDEPluginInstallListener" topic="com.intellij.ide.plugins.DynamicPluginListener"/>
   </applicationListeners>
   <application-components>
     <component>

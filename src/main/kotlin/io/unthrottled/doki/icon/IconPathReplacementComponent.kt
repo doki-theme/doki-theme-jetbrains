@@ -27,7 +27,7 @@ object IconPathReplacementComponent : LafManagerListener {
     installPatchers()
   }
 
-  private fun installPatchers() {
+  fun installPatchers() {
     iconInstallPacs.forEach { pak ->
       if (ThemeManager.instance.isCurrentThemeDoki && PluginService.areIconsInstalled().not()) {
         IconLoader.installPathPatcher(pak.iconPatcher)
@@ -40,7 +40,7 @@ object IconPathReplacementComponent : LafManagerListener {
     removePatchers()
   }
 
-  private fun removePatchers() {
+  fun removePatchers() {
     iconInstallPacs.forEach { pak ->
       IconLoader.removePathPatcher(pak.iconPatcher)
     }

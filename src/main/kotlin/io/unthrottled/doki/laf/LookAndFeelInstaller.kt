@@ -41,7 +41,7 @@ object LookAndFeelInstaller {
   }
 
   private fun installIcons() {
-    if(PluginService.areIconsInstalled()) {
+    if (PluginService.areIconsInstalled()) {
       return
     }
 
