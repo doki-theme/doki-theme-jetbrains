@@ -14,6 +14,7 @@ import com.intellij.openapi.wm.IdeFrame
 import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.hax.HackComponent.hackLAF
 import io.unthrottled.doki.hax.SvgLoaderHacker.setSVGColorPatcher
+import io.unthrottled.doki.icon.IconPathReplacementComponent
 import io.unthrottled.doki.laf.LookAndFeelInstaller.installAllUIComponents
 import io.unthrottled.doki.legacy.LegacyMigration
 import io.unthrottled.doki.notification.UpdateNotification
@@ -55,6 +56,7 @@ class TheDokiTheme : Disposable {
     PromotionManager.init()
     hackLAF()
     LegacyMigration.migrateIfNecessary()
+    IconPathReplacementComponent.initialize()
     installAllUIComponents()
 
     connection.subscribe(
