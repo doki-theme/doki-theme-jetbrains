@@ -108,8 +108,8 @@ tasks {
   }
 
   runIde {
-    val idePath = properties("idePath")
     maxHeapSize = "2g"
+    val idePath = properties("idePath")
     if (idePath.isNotEmpty()) {
       ideDir.set(file(idePath))
       systemProperty("idea.platform.prefix", properties("idePrefix"))
