@@ -14,6 +14,7 @@ import com.intellij.openapi.util.NlsContexts;
 import com.intellij.ui.ColorUtil;
 import com.intellij.ui.IconManager;
 import com.intellij.ui.JBColor;
+import com.intellij.ui.components.ActionLink;
 import com.intellij.util.ui.FontInfo;
 import com.intellij.util.ui.UIUtil;
 import io.unthrottled.doki.config.ThemeConfig;
@@ -81,13 +82,7 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
   private JSpinner hideDelayMsSpinner;
   private JCheckBox hideOnHoverCheck;
   private JCheckBox allowPromotionalContentCheckBox;
-  private JLabel materialFolders;
-  private JLabel materialFiles;
-  private JLabel materialPSI;
-  private JCheckBox directoryIconsCheckBox;
-  private JCheckBox fileIconsCheckBox;
-  private JCheckBox PSIIconsCheckBox;
-
+  private ActionLink iconLink;
 
   @Override
   public @NotNull
@@ -147,6 +142,19 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
         final var settings = Settings.KEY.getData(DataManager.getInstance().getDataContext(randmizerInstallLink));
         if (settings != null) {
           settings.select(settings.find("preferences.pluginManager"), "/tag:\"Editor Color Schemes\" Theme Randomizer");
+        }
+      });
+    }
+
+    if (PluginService.INSTANCE.areIconsInstalled()) {
+      iconLink.setVisible(false);
+    } else {
+      iconLink.setIcon(DokiIcons.Plugins.Icons.INSTANCE.getTOOL_WINDOW(), false);
+      iconLink.setText(MessageBundle.message("settings.general.icons.install"));
+      iconLink.addActionListener(e -> {
+        final var settings = Settings.KEY.getData(DataManager.getInstance().getDataContext(iconLink));
+        if (settings != null) {
+          settings.select(settings.find("preferences.pluginManager"), "/tag:\"User Interface\" Doki Theme Icons");
         }
       });
     }
