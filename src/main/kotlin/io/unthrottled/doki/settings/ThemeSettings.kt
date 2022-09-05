@@ -12,7 +12,6 @@ import io.unthrottled.doki.settings.actors.CustomFontSizeActor
 import io.unthrottled.doki.settings.actors.DiscreetModeActor
 import io.unthrottled.doki.settings.actors.EmptyFrameBackgroundActor
 import io.unthrottled.doki.settings.actors.LafAnimationActor
-import io.unthrottled.doki.settings.actors.MaterialIconsActor
 import io.unthrottled.doki.settings.actors.MoveableStickerActor
 import io.unthrottled.doki.settings.actors.PromotionSettingActor
 import io.unthrottled.doki.settings.actors.SeeThroughNotificationsActor
@@ -37,9 +36,6 @@ data class ThemeSettingsModel(
   var isThemedTitleBar: Boolean,
   var showThemeStatusBar: Boolean,
   var currentSticker: CurrentSticker,
-  var isMaterialDirectories: Boolean,
-  var isMaterialFiles: Boolean,
-  var isMaterialPSIIcons: Boolean,
   var isNotShowReadmeAtStartup: Boolean,
   var isMoveableStickers: Boolean,
   var isDokiBackground: Boolean,
@@ -88,9 +84,6 @@ object ThemeSettings {
       isThemedTitleBar = ThemeConfig.instance.isThemedTitleBar,
       showThemeStatusBar = ThemeConfig.instance.showThemeStatusBar,
       currentSticker = ThemeConfig.instance.currentSticker,
-      isMaterialDirectories = ThemeConfig.instance.isMaterialDirectories,
-      isMaterialFiles = ThemeConfig.instance.isMaterialFiles,
-      isMaterialPSIIcons = ThemeConfig.instance.isMaterialPSIIcons,
       isNotShowReadmeAtStartup = ThemeConfig.instance.isNotShowReadmeAtStartup,
       isMoveableStickers = ThemeConfig.instance.isMoveableStickers,
       isDokiBackground = ThemeConfig.instance.isDokiBackground,
@@ -140,9 +133,6 @@ object ThemeSettings {
     ThemedTitleBarActor.enableThemedTitleBar(themeSettingsModel.isThemedTitleBar)
     ThemeActor.applyTheme(themeSettingsModel.currentTheme)
     ThemeStatusBarActor.applyConfig(themeSettingsModel.showThemeStatusBar)
-    MaterialIconsActor.enableDirectoryIcons(themeSettingsModel.isMaterialDirectories)
-    MaterialIconsActor.enableFileIcons(themeSettingsModel.isMaterialFiles)
-    MaterialIconsActor.enablePSIIcons(themeSettingsModel.isMaterialPSIIcons)
     MoveableStickerActor.moveableStickers(themeSettingsModel.isMoveableStickers)
     BackgroundActor.handleBackgroundUpdate(themeSettingsModel.isDokiBackground)
     EmptyFrameBackgroundActor.handleBackgroundUpdate(themeSettingsModel.isEmptyFrameBackground)

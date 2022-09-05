@@ -8,6 +8,7 @@ import io.unthrottled.doki.settings.actors.ThemeActor.setDokiTheme
 import io.unthrottled.doki.themes.ThemeManager
 import io.unthrottled.doki.util.toOptional
 
+// todo: alert users of material icons that it gone.
 object LegacyMigration {
   fun migrateIfNecessary() {
     migrateUsersAwayFromTitlePane()

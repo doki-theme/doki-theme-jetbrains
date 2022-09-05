@@ -14,8 +14,6 @@ import com.intellij.openapi.wm.IdeFrame
 import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.hax.HackComponent.hackLAF
 import io.unthrottled.doki.hax.SvgLoaderHacker.setSVGColorPatcher
-import io.unthrottled.doki.icon.patcher.MaterialPathPatcherManager.attemptToAddIcons
-import io.unthrottled.doki.icon.patcher.MaterialPathPatcherManager.attemptToRemoveIcons
 import io.unthrottled.doki.laf.LookAndFeelInstaller.installAllUIComponents
 import io.unthrottled.doki.legacy.LegacyMigration
 import io.unthrottled.doki.notification.UpdateNotification
@@ -59,8 +57,6 @@ class TheDokiTheme : Disposable {
     LegacyMigration.migrateIfNecessary()
     installAllUIComponents()
 
-    attemptToAddIcons()
-
     connection.subscribe(
       ApplicationActivationListener.TOPIC,
       object : ApplicationActivationListener {
@@ -80,12 +76,11 @@ class TheDokiTheme : Disposable {
           .doOrElse({
             setSVGColorPatcher(it)
             installAllUIComponents()
-            attemptToAddIcons()
             applyCustomFontSize()
             applyConsoleFont()
             attemptToRefreshUpdateNotification(it)
           }) {
-            attemptToRemoveIcons()
+            // todo: remove doki patcher...
           }
       }
     )
