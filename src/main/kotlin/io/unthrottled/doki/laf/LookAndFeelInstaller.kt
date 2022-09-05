@@ -5,6 +5,7 @@ import com.intellij.ui.JBColor.DARK_GRAY
 import com.intellij.ui.JBColor.namedColor
 import io.unthrottled.doki.icon.DokiIcons
 import io.unthrottled.doki.service.GlassNotificationService
+import io.unthrottled.doki.service.PluginService
 import io.unthrottled.doki.ui.DokiCheckboxUI
 import io.unthrottled.doki.ui.DokiTableSelectedCellHighlightBorder
 import io.unthrottled.doki.ui.TitlePaneUI
@@ -40,6 +41,10 @@ object LookAndFeelInstaller {
   }
 
   private fun installIcons() {
+    if(PluginService.areIconsInstalled()) {
+      return
+    }
+
     val defaults = UIManager.getLookAndFeelDefaults()
     defaults[DokiIcons.Tree.COLLAPSED_KEY] = DokiIcons.Tree.COLLAPSED
     defaults[DokiIcons.Tree.SELECTED_COLLAPSED_KEY] = DokiIcons.Tree.COLLAPSED
