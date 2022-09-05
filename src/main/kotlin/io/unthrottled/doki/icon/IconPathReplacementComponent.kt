@@ -11,7 +11,6 @@ data class IconReplacementPack(
   val iconPatcher: DokiIconPathPatcher,
 )
 
-// todo: on doki theme icon install remove patcher.
 object IconPathReplacementComponent : LafManagerListener {
   private val iconInstallPacs =
     listOf(

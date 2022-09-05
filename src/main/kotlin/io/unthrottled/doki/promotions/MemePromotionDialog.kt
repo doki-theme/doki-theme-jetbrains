@@ -128,9 +128,6 @@ class AniMemePromotionDialog(
       .addAction(neverShowAction)
       .setListener(NotificationListener.UrlOpeningListener(false))
 
-    // todo: this
-//    updateNotification.isSuggestionType = true
-
     updateNotification.whenExpired {
       emitStatus(PromotionStatus.BLOCKED)
     }

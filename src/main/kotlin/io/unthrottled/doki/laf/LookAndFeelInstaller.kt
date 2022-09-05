@@ -3,6 +3,7 @@ package io.unthrottled.doki.laf
 import com.intellij.ide.ui.laf.darcula.ui.DarculaCheckBoxMenuItemUI
 import com.intellij.ui.JBColor.DARK_GRAY
 import com.intellij.ui.JBColor.namedColor
+import com.intellij.util.ui.LafIconLookup
 import io.unthrottled.doki.icon.DokiIcons
 import io.unthrottled.doki.service.GlassNotificationService
 import io.unthrottled.doki.service.PluginService
@@ -11,6 +12,7 @@ import io.unthrottled.doki.ui.DokiTableSelectedCellHighlightBorder
 import io.unthrottled.doki.ui.TitlePaneUI
 import io.unthrottled.doki.ui.ToggleButtonUI
 import javax.swing.BorderFactory
+import javax.swing.Icon
 import javax.swing.UIManager
 import kotlin.collections.set
 
@@ -45,11 +47,24 @@ object LookAndFeelInstaller {
       return
     }
 
+    setTreeIcons(
+      collapsed = DokiIcons.Tree.COLLAPSED,
+      expanded = DokiIcons.Tree.EXPANDED
+    )
+  }
+   fun removeIcons() {
+     setTreeIcons(
+       collapsed = LafIconLookup.getSelectedIcon("treeCollapsed"),
+       expanded = LafIconLookup.getSelectedIcon("treeExpanded"),
+     )
+   }
+
+  private fun setTreeIcons(collapsed: Icon, expanded: Icon) {
     val defaults = UIManager.getLookAndFeelDefaults()
-    defaults[DokiIcons.Tree.COLLAPSED_KEY] = DokiIcons.Tree.COLLAPSED
-    defaults[DokiIcons.Tree.SELECTED_COLLAPSED_KEY] = DokiIcons.Tree.COLLAPSED
-    defaults[DokiIcons.Tree.EXPANDED_KEY] = DokiIcons.Tree.EXPANDED
-    defaults[DokiIcons.Tree.SELECTED_EXPANDED_KEY] = DokiIcons.Tree.EXPANDED
+    defaults[DokiIcons.Tree.COLLAPSED_KEY] = collapsed
+    defaults[DokiIcons.Tree.SELECTED_COLLAPSED_KEY] = collapsed
+    defaults[DokiIcons.Tree.EXPANDED_KEY] = expanded
+    defaults[DokiIcons.Tree.SELECTED_EXPANDED_KEY] = expanded
   }
 
   private fun installButtons() {

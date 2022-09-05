@@ -15,6 +15,7 @@ import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.hax.HackComponent.hackLAF
 import io.unthrottled.doki.hax.SvgLoaderHacker.setSVGColorPatcher
 import io.unthrottled.doki.icon.IconPathReplacementComponent
+import io.unthrottled.doki.laf.LookAndFeelInstaller
 import io.unthrottled.doki.laf.LookAndFeelInstaller.installAllUIComponents
 import io.unthrottled.doki.legacy.LegacyMigration
 import io.unthrottled.doki.notification.UpdateNotification
@@ -82,7 +83,8 @@ class TheDokiTheme : Disposable {
             applyConsoleFont()
             attemptToRefreshUpdateNotification(it)
           }) {
-            // todo: remove doki patcher...
+            IconPathReplacementComponent.removePatchers()
+            LookAndFeelInstaller.removeIcons()
           }
       }
     )
