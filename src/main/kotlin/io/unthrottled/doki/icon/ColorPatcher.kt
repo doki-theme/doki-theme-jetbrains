@@ -20,7 +20,6 @@ import org.w3c.dom.Element
 import java.awt.Color
 import java.time.Duration
 
-// todo: don't need to do this if icons are installed.
 object NoOptPatcher : Patcher {
   override fun patchColors(svg: Element) {}
   val byteArray = ByteArray(0)
