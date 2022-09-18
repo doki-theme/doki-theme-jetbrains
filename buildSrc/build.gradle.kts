@@ -8,6 +8,10 @@ repositories {
   maven {
     name = "GitHubPackages"
     url = uri("https://maven.pkg.github.com/doki-theme/doki-build-source-jvm")
+    credentials {
+      username = System.getenv("GITHUB_USER")
+      password = System.getenv("GITHUB_TOKEN")
+    }
   }
 }
 
