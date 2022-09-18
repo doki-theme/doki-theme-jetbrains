@@ -94,9 +94,10 @@ tasks {
     }
   }
 
-  wrapper {
-    gradleVersion = properties("gradleVersion")
-  }
+//  comment me out when doing doki-theme-icons stuff
+//  wrapper {
+//    gradleVersion = properties("gradleVersion")
+//  }
 
   withType<Detekt> {
     jvmTarget = "11"
