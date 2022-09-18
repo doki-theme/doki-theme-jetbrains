@@ -13,5 +13,5 @@ repositories {
 
 dependencies {
   implementation("org.jsoup:jsoup:1.13.1")
-  implementation("io.unthrottled.doki.build.jvm:doki-build-source-jvm:88.0.4")
+  implementation("io.unthrottled.doki.build.jvm:doki-build-source-jvm:88.0.5")
 }

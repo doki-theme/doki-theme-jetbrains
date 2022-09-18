@@ -27,7 +27,6 @@ import io.unthrottled.doki.build.jvm.tools.resolveColor
 import java.io.File
 import java.io.InputStreamReader
 import java.nio.charset.StandardCharsets
-import java.nio.file.Files.copy
 import java.nio.file.Files.createDirectories
 import java.nio.file.Files.delete
 import java.nio.file.Files.exists
@@ -37,7 +36,6 @@ import java.nio.file.Files.newInputStream
 import java.nio.file.Files.walk
 import java.nio.file.Path
 import java.nio.file.Paths.get
-import java.nio.file.StandardCopyOption
 import java.nio.file.StandardOpenOption
 import java.util.Collections
 import java.util.LinkedList
@@ -498,7 +496,6 @@ open class BuildThemes : DefaultTask() {
     resolvedNamedColors: Map<String, Any>
   ): String {
     return when (val variant = dokiDefinitionJetbrains.editorScheme["type"]) {
-      "custom" -> copyXml(dokiDefinitionMaster, dokiDefinitionJetbrains, dokiThemeDefinitionDirectory)
       "template" -> createEditorSchemeFromTemplate(
         dokiDefinitionMaster,
         dokiDefinitionJetbrains,
@@ -532,62 +529,16 @@ open class BuildThemes : DefaultTask() {
           ?: throw IllegalArgumentException("Missing 'file' from create editor scheme from template extension definition")
       )
     )
-
-    val extendedTheme =
-      extendTheme(
-        childTheme,
-        dokiEditorThemeTemplates
-      )
-
-    val themeTemplate =
-      applyColorsToTemplate(extendedTheme, dokiDefinitionMaster, dokiDefinitionJetbrains, resolvedNamedColors)
-    return createXmlFromDefinition(dokiDefinitionMaster, themeTemplate)
+    return resolveEditorScheme(
+      childTheme,
+      dokiEditorThemeTemplates,
+      dokiDefinitionMaster,
+      dokiDefinitionJetbrains,
+      resolvedNamedColors
+    )
   }
 
   private val childrenICareAbout = listOf("colors", "attributes")
-
-  private fun extendTheme(childTheme: Node, dokiEditorThemeTemplates: Map<String, Node>): Node {
-    val parentScheme = childTheme.attribute("parent_scheme")
-    if (parentScheme == "Default" || parentScheme == "Darcula") {
-      return childTheme
-    }
-
-    val parentToExtend = (dokiEditorThemeTemplates[parentScheme]?.clone() as? Node
-      ?: throw IllegalArgumentException("Expected parent scheme $parentScheme to be valid!"))
-
-    val parentTheme = extendTheme(parentToExtend, dokiEditorThemeTemplates)
-
-    childrenICareAbout
-      .forEach { attribute ->
-        val childList = childTheme[attribute] as NodeList
-        val parentListNode = parentTheme[attribute] as NodeList
-        childList.zip(parentListNode)
-          .filter { it.first is Node && it.second is Node }
-          .map { it.first as Node to it.second as Node }
-          .flatMap {
-            (it.first.value() as NodeList).map { childNode ->
-              childNode as Node to it.second.value() as NodeList
-            }
-          }
-          .forEach { childeNodeWithParent ->
-            val (childNode, parentList) = childeNodeWithParent
-            val childName = childNode.attribute("name")
-            val parentNode = parentList.map { it as Node }
-              .indexOfFirst { parentNode ->
-                parentNode.attribute("name") == childName
-              }
-
-            if (parentNode > -1) {
-              parentList.removeAt(parentNode)
-            }
-            parentList.add(childNode)
-          }
-      }
-
-    sortXmlAttributes(parentTheme)
-
-    return parentTheme
-  }
 
   private fun sortXmlAttributes(parentTheme: Node) {
     val queue = LinkedList<Any>()
@@ -632,15 +583,78 @@ open class BuildThemes : DefaultTask() {
     dokiEditorThemeTemplates: Map<String, Node>,
     resolvedNamedColors: Map<String, Any>
   ): String {
-    val templateName = dokiDefinitionJetbrains.editorScheme["name"]
-      ?: throw IllegalArgumentException("Missing 'name' from create editor scheme from template definition")
+    val root = Node(
+      null,
+      "root",
+      mutableMapOf("parent_scheme" to dokiDefinitionJetbrains.editorScheme["name"])
+    )
+    childrenICareAbout.forEach {
+      root.appendNode(Node(root, it))
+    }
+    return resolveEditorScheme(
+      root,
+      dokiEditorThemeTemplates,
+      dokiDefinitionMaster,
+      dokiDefinitionJetbrains,
+      resolvedNamedColors
+    )
+  }
 
-    val childTheme = (dokiEditorThemeTemplates[templateName]
-      ?: throw IllegalArgumentException("Unrecognized template name $templateName"))
-    val editorTemplate = extendTheme(childTheme, dokiEditorThemeTemplates)
+  private fun resolveEditorScheme(
+    child: Node,
+    dokiEditorThemeTemplates: Map<String, Node>,
+    dokiDefinitionMaster: MasterThemeDefinition,
+    dokiDefinitionJetbrains: JetbrainsAppDefinition,
+    resolvedNamedColors: Map<String, Any>
+  ): String {
+    val composedEditorTemplate: Node =
+      BuildFunctions.composeTemplateWithCombini(
+        child,
+        dokiEditorThemeTemplates,
+        { it },
+        { childTheme ->
+          val parentScheme = childTheme.attribute("parent_scheme") as String
+          if (parentScheme == "Default" || parentScheme == "Darcula") {
+            null
+          } else {
+            parentScheme.split(",").map { it.trim() }
+          }
+        }
+      ) { _parentTheme, childTheme ->
+        val parentTheme = _parentTheme.clone() as Node
+        childrenICareAbout
+          .forEach { attribute ->
+            val childList = childTheme[attribute] as NodeList
+            val parentListNode = parentTheme[attribute] as NodeList
+            childList.zip(parentListNode)
+              .filter { it.first is Node && it.second is Node }
+              .map { it.first as Node to it.second as Node }
+              .flatMap {
+                (it.first.value() as NodeList).map { childNode ->
+                  childNode as Node to it.second.value() as NodeList
+                }
+              }
+              .forEach { childeNodeWithParent ->
+                val (childNode, parentList) = childeNodeWithParent
+                val childName = childNode.attribute("name")
+                val parentNode = parentList.map { it as Node }
+                  .indexOfFirst { parentNode ->
+                    parentNode.attribute("name") == childName
+                  }
+
+                if (parentNode > -1) {
+                  parentList.removeAt(parentNode)
+                }
+                parentList.add(childNode)
+              }
+          }
+
+        sortXmlAttributes(parentTheme)
+        parentTheme
+      }
 
     val themeTemplate =
-      applyColorsToTemplate(editorTemplate, dokiDefinitionMaster, dokiDefinitionJetbrains, resolvedNamedColors)
+      applyColorsToTemplate(composedEditorTemplate, dokiDefinitionMaster, dokiDefinitionJetbrains, resolvedNamedColors)
     return createXmlFromDefinition(dokiDefinitionMaster, themeTemplate)
   }
 
@@ -714,25 +728,6 @@ open class BuildThemes : DefaultTask() {
 
     writeXmlToFile(destination, themeTemplate)
 
-    return extractResourcesPath(destination)
-  }
-
-  private fun copyXml(
-    dokiDefinitionMaster: MasterThemeDefinition,
-    dokiDefinitionJetbrains: JetbrainsAppDefinition,
-    dokiThemeDefinitionDirectory: Path
-  ): String {
-    val customXmlFile = dokiDefinitionJetbrains.editorScheme["file"] as? String
-      ?: throw IllegalArgumentException("Missing 'file' from create editor scheme from file copy")
-    val destination = get(
-      getResourceDirectory(dokiDefinitionMaster).toString(),
-      customXmlFile
-    )
-    copy(
-      get(dokiThemeDefinitionDirectory.parent.toString(), customXmlFile),
-      destination,
-      StandardCopyOption.REPLACE_EXISTING
-    )
     return extractResourcesPath(destination)
   }
 
