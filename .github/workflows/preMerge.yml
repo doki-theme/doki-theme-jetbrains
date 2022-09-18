@@ -58,12 +58,14 @@ jobs:
       - name: Grant execute permission for scripts
         run: chmod +x getMasterThemes.sh
       - name: Pull down the Master Themes
-        run: ./getMasterThemes.sh
+        run: ./getMasteπrThemes.sh
 
       # Set environment variables
       - name: Export Properties
         id: properties
         shell: bash
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           PROPERTIES="$(./gradlew properties --console=plain -q)"
           IDE_VERSIONS="$(echo "$PROPERTIES" | grep "^pluginVerifierIdeVersions:" | base64)"
