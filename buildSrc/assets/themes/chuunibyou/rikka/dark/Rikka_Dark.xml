@@ -1,0 +1,9 @@
+<scheme name="Rikka Dark" version="142" parent_scheme="Doki Dim">
+  <colors>
+    <option name="TEARLINE_COLOR" value="$lineNumberColor$45"/>
+  </colors>
+  <attributes>
+  </attributes>
+</scheme>
+
+

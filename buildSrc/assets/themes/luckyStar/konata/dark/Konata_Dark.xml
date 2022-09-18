@@ -1,4 +1,4 @@
-<scheme name="Konata Dark" version="142" parent_scheme="Doki Dark">
+<scheme name="Konata Dark" version="142" parent_scheme="Doki Dark,Doki Dim Folding">
   <colors>
     <option name="FILESTATUS_ADDED" value="$terminal.ansiCyan$" />
     <option name="FILESTATUS_COPIED" value="$terminal.ansiCyan$" />

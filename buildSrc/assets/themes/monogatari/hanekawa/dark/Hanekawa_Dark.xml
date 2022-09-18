@@ -1,6 +1,7 @@
 <scheme name="Hanekawa Dark" version="142" parent_scheme="Doki Dark">
   <colors>
     <option name="NOTIFICATION_BACKGROUND" value="$selectionInactive$"/>
+    <option name="TEARLINE_COLOR" value="$lineNumberColor$45"/>
   </colors>
   <attributes>
   </attributes>

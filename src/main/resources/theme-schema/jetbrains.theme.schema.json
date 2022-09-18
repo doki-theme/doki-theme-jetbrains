@@ -36,8 +36,7 @@
           "default": "template",
           "examples": [
             "template",
-            "templateExtension",
-            "custom"
+            "templateExtension"
           ]
         },
         "file": {

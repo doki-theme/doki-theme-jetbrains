@@ -1396,7 +1396,7 @@
     </option>
     <option name="LOG_ERROR_OUTPUT">
       <value>
-        <option name="FOREGROUND" value="$terminal.AnsiRed$"/>
+        <option name="FOREGROUND" value="$terminal.ansiRed$"/>
       </value>
     </option>
     <option name="LOG_INFO_OUTPUT">

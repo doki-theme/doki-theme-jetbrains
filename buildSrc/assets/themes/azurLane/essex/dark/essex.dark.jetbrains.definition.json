@@ -1,8 +1,8 @@
 {
   "id": "e55e70ea-454b-47ef-9270-d46390dd2769",
   "editorScheme": {
-    "type": "template",
-    "name": "Doki Dark"
+    "type": "templateExtension",
+    "file": "Essex_Dark.xml"
   },
   "overrides": {},
   "ui": {}
