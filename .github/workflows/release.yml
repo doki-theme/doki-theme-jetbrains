@@ -15,6 +15,8 @@ jobs:
           java-version: 11
           distribution: 'zulu'
       - run: ./ciScripts/buildPlugin.sh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Copy zip file
         run: cp build/distributions/*.zip doki-theme.zip
       - uses: actions/upload-release-asset@v1.0.2
