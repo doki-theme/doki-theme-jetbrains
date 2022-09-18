@@ -1,2 +1,2 @@
 - Made the vertical code folding lines, in the gutter, visible again. If you want them gone, like they were before, you
-  can turn them off by going to the setting `Editor` > `General` > `Code Folding` > `Show code folding outline`.
+  can turn them off by going to the setting "`Editor` > `General` > `Code Folding` > `Show code folding outline`".
