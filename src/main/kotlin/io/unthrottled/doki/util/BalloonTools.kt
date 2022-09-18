@@ -47,7 +47,10 @@ object BalloonTools {
     }
   }
 
-  private fun fetchBalloonParameters(project: Project, balloonPosition: BalloonPosition): Pair<IdeFrame, RelativePoint> {
+  private fun fetchBalloonParameters(
+    project: Project,
+    balloonPosition: BalloonPosition
+  ): Pair<IdeFrame, RelativePoint> {
     val ideFrame = getIDEFrame(project)
     val frameBounds = ideFrame.component.bounds
     val xPosition = when (balloonPosition) {

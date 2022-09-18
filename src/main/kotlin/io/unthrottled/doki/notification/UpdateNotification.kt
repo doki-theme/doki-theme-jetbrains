@@ -345,6 +345,7 @@ object UpdateNotification : Logging {
     return notification
   }
 
+  @Suppress("LongParameterList") // cuz I said so
   fun showStickyDokiNotification(
     @Nls(capitalization = Nls.Capitalization.Sentence) title: String = "",
     @Nls(capitalization = Nls.Capitalization.Sentence) content: String,

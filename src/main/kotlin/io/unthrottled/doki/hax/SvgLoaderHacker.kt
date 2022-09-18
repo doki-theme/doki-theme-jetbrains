@@ -15,7 +15,7 @@ object SvgLoaderHacker {
    * Enables the ability to have more than one color patcher.
    */
   fun setSVGColorPatcher(dokiTheme: DokiTheme) {
-    if(PluginService.areIconsInstalled()) {
+    if (PluginService.areIconsInstalled()) {
       return
     }
 
