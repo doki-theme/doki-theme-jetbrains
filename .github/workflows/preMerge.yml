@@ -58,7 +58,7 @@ jobs:
       - name: Grant execute permission for scripts
         run: chmod +x getMasterThemes.sh
       - name: Pull down the Master Themes
-        run: ./getMasteπrThemes.sh
+        run: ./getMasterThemes.sh
 
       # Set environment variables
       - name: Export Properties
