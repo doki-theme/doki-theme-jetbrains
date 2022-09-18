@@ -1,6 +1,10 @@
 Changelog
 ---
 
+# 88.1-1.5.0 [Restored Cold Folding Outline]
+
+- Made the vertical code folding lines, in the gutter, visible again. If you want them gone, like they were before, you can turn them off by going to the setting "`Editor` > `General` > `Code Folding` > `Show code folding outline`". 
+
 # 88.1-1.4.0 [Rimuru]
 
 - It was brought to my attention that I cannot spell "Rimuru".

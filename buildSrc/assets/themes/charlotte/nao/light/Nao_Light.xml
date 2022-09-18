@@ -1,5 +1,6 @@
 <scheme name="Nao Light" version="142" parent_scheme="Doki Dim Light">
   <colors>
+    <option name="TEARLINE_COLOR" value="$lineNumberColor$39"/>
     <option name="FILESTATUS_MERGED" value="$htmlTagColor$"/>
     <option name="FILESTATUS_MODIFIED" value="$htmlTagColor$"/>
     <option name="FILESTATUS_UNKNOWN" value="$htmlTagColor$"/>

@@ -1,4 +1,4 @@
-<scheme name="Rias Dark" version="142" parent_scheme="Doki Dark">
+<scheme name="Rias Dark" version="142" parent_scheme="Doki Dark,Doki Dim Folding">
     <attributes>
       <option name="DIFF_CONFLICT">
         <value>

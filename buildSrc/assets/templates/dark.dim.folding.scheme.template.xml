@@ -1,0 +1,7 @@
+<scheme name="Doki Dim Folding" version="0" parent_scheme="Doki Dark">
+  <colors>
+    <option name="TEARLINE_COLOR" value="$lineNumberColor$25"/>
+  </colors>
+  <attributes>
+  </attributes>
+</scheme>

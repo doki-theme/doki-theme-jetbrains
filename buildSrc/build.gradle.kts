@@ -3,12 +3,19 @@ plugins {
 }
 
 repositories {
-  jcenter()
   mavenLocal()
   mavenCentral()
+  maven {
+    name = "GitHubPackages"
+    url = uri("https://maven.pkg.github.com/doki-theme/doki-build-source-jvm")
+    credentials {
+      username = System.getenv("GITHUB_ACTOR")
+      password = System.getenv("GITHUB_TOKEN")
+    }
+  }
 }
 
 dependencies {
-  implementation(group = "com.google.code.gson", name = "gson", version = "2.7")
   implementation("org.jsoup:jsoup:1.13.1")
+  implementation("io.unthrottled.doki.build.jvm:doki-build-source-jvm:88.0.5")
 }

@@ -1,6 +1,6 @@
 <scheme name="CC Light" version="142" parent_scheme="Doki Light v2">
   <colors>
-
+    <option name="TEARLINE_COLOR" value="$lineNumberColor$45"/>
   </colors>
   <attributes>
     <option name="INLINE_PARAMETER_HINT">
