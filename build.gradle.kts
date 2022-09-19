@@ -110,6 +110,7 @@ tasks {
 
   runIde {
     maxHeapSize = "2g"
+    enabled = false
     val idePath = properties("idePath")
     if (idePath.isNotEmpty()) {
       ideDir.set(file(idePath))
