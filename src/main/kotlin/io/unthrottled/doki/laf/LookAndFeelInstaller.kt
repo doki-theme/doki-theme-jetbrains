@@ -52,6 +52,7 @@ object LookAndFeelInstaller {
       expanded = DokiIcons.Tree.EXPANDED
     )
   }
+
   fun removeIcons() {
     setTreeIcons(
       collapsed = LafIconLookup.getSelectedIcon("treeCollapsed"),

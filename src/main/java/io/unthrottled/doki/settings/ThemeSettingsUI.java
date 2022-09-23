@@ -12,7 +12,6 @@ import com.intellij.openapi.project.ProjectManager;
 import com.intellij.openapi.ui.DialogWrapper;
 import com.intellij.openapi.util.NlsContexts;
 import com.intellij.ui.ColorUtil;
-import com.intellij.ui.IconManager;
 import com.intellij.ui.JBColor;
 import com.intellij.ui.components.ActionLink;
 import com.intellij.util.ui.FontInfo;
@@ -103,21 +102,6 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
   }
 
   private void initializeAutoCreatedComponents() {
-    directoryIconsCheckBox.setSelected(initialThemeSettingsModel.isMaterialDirectories());
-    directoryIconsCheckBox.addActionListener(e ->
-      themeSettingsModel.setMaterialDirectories(directoryIconsCheckBox.isSelected()));
-    materialFolders.setIcon(IconManager.getInstance().getIcon("icons/doki/settings/directoryIcon.png", getClass()));
-
-    fileIconsCheckBox.setSelected(initialThemeSettingsModel.isMaterialFiles());
-    fileIconsCheckBox.addActionListener(e ->
-      themeSettingsModel.setMaterialFiles(fileIconsCheckBox.isSelected()));
-    materialFiles.setIcon(IconManager.getInstance().getIcon("icons/doki/settings/fileIcon.png", getClass()));
-
-    PSIIconsCheckBox.setSelected(initialThemeSettingsModel.isMaterialPSIIcons());
-    PSIIconsCheckBox.addActionListener(e ->
-      themeSettingsModel.setMaterialPSIIcons(PSIIconsCheckBox.isSelected()));
-    materialPSI.setIcon(IconManager.getInstance().getIcon("icons/doki/settings/psiIcon.png", getClass()));
-
     chooseImageButton.addActionListener(e -> {
       CustomStickerChooser dialog = new CustomStickerChooser(
         Arrays.stream(ProjectManager.getInstance().getOpenProjects()).findFirst().orElse(
