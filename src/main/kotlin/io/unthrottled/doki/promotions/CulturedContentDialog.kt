@@ -5,7 +5,6 @@ import com.intellij.ide.BrowserUtil
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.DialogWrapper
 import com.intellij.ui.JBColor
-import com.intellij.ui.layout.panel
 import com.intellij.util.ui.UIUtil
 import io.unthrottled.doki.themes.DokiTheme
 import io.unthrottled.doki.util.toHexString
@@ -55,14 +54,7 @@ class CulturedContentDialog(
     }
   }
 
-  override fun createCenterPanel(): JComponent? {
-    val culturedContentPane = buildCulturedContentPanel()
-    return panel {
-      row {
-        culturedContentPane()
-      }
-    }
-  }
+  override fun createCenterPanel(): JComponent = buildCulturedContentPanel()
 
   @Suppress("LongMethod")
   private fun buildCulturedContentPanel(): JEditorPane {

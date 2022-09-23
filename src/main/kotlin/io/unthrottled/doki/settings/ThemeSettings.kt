@@ -2,14 +2,10 @@ package io.unthrottled.doki.settings
 
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.ui.ComboBox
-import com.intellij.openapi.ui.DialogPanel
 import com.intellij.ui.FontComboBox
-import com.intellij.ui.IconManager
-import com.intellij.ui.layout.panel
 import com.intellij.util.ui.FontInfo
 import io.unthrottled.doki.config.THEME_CONFIG_TOPIC
 import io.unthrottled.doki.config.ThemeConfig
-import io.unthrottled.doki.promotions.MessageBundle
 import io.unthrottled.doki.settings.actors.BackgroundActor
 import io.unthrottled.doki.settings.actors.ConsoleFontActor
 import io.unthrottled.doki.settings.actors.CustomFontSizeActor
@@ -33,7 +29,6 @@ import io.unthrottled.doki.themes.ThemeManager
 import java.net.URI
 import java.util.Vector
 import javax.swing.DefaultComboBoxModel
-import javax.swing.JLabel
 
 data class ThemeSettingsModel(
   var areStickersEnabled: Boolean,
@@ -169,55 +164,6 @@ object ThemeSettings {
     ApplicationManager.getApplication().messageBus.syncPublisher(
       THEME_CONFIG_TOPIC
     ).themeConfigUpdated(ThemeConfig.instance)
-  }
-
-  fun createMaterialIconsPane(settingsSupplier: () -> ThemeSettingsModel): DialogPanel {
-    val directoryIcon = JLabel()
-    directoryIcon.icon = IconManager.getInstance().getIcon("icons/doki/settings/directoryIcon.png", javaClass)
-    val fileIcon = JLabel()
-    fileIcon.icon = IconManager.getInstance().getIcon("icons/doki/settings/fileIcon.png", javaClass)
-    val psiIcon = JLabel()
-    psiIcon.icon = IconManager.getInstance().getIcon("icons/doki/settings/psiIcon.png", javaClass)
-    return panel {
-      titledRow(MessageBundle.message("settings.material.row.title")) {
-        row {
-          cell {
-            directoryIcon()
-            checkBox(
-              MessageBundle.message("settings.material.directory-icons"),
-              settingsSupplier().isMaterialDirectories,
-              actionListener = { _, component ->
-                settingsSupplier().isMaterialDirectories = component.isSelected
-              }
-            )
-          }
-        }
-        row {
-          cell {
-            fileIcon()
-            checkBox(
-              MessageBundle.message("settings.material.file-icons"),
-              settingsSupplier().isMaterialFiles,
-              actionListener = { _, component ->
-                settingsSupplier().isMaterialFiles = component.isSelected
-              }
-            )
-          }
-        }
-        row {
-          cell {
-            psiIcon()
-            checkBox(
-              MessageBundle.message("settings.material.psi-icons"),
-              settingsSupplier().isMaterialPSIIcons,
-              actionListener = { _, component ->
-                settingsSupplier().isMaterialPSIIcons = component.isSelected
-              }
-            )
-          }
-        }
-      }
-    }
   }
 
   fun createThemeComboBoxModel(settingsSupplier: () -> ThemeSettingsModel): ComboBox<String> {
