@@ -1,13 +1,11 @@
 package io.unthrottled.doki.laf
 
 import com.intellij.ide.ui.laf.darcula.ui.DarculaCheckBoxMenuItemUI
-import com.intellij.ide.ui.laf.darcula.ui.DarculaRadioButtonMenuItemUI
 import com.intellij.ui.JBColor.DARK_GRAY
 import com.intellij.ui.JBColor.namedColor
 import io.unthrottled.doki.icon.DokiIcons
 import io.unthrottled.doki.service.GlassNotificationService
 import io.unthrottled.doki.ui.DokiCheckboxUI
-import io.unthrottled.doki.ui.DokiRadioButtonUI
 import io.unthrottled.doki.ui.DokiTableSelectedCellHighlightBorder
 import io.unthrottled.doki.ui.TitlePaneUI
 import io.unthrottled.doki.ui.ToggleButtonUI
@@ -25,7 +23,6 @@ object LookAndFeelInstaller {
     installTitlePane()
     installButtons()
     installCheckboxes()
-    installRadioButtons()
     installDefaults()
     GlassNotificationService.makeNotificationSeeThrough()
   }
@@ -64,14 +61,6 @@ object LookAndFeelInstaller {
     defaults[DokiCheckboxUI::class.java.name] = DokiCheckboxUI::class.java
     defaults["CheckBoxMenuItemUI"] = DarculaCheckBoxMenuItemUI::class.java.name
     defaults[DarculaCheckBoxMenuItemUI::class.java.name] = DarculaCheckBoxMenuItemUI::class.java
-  }
-
-  private fun installRadioButtons() {
-    val defaults = UIManager.getLookAndFeelDefaults()
-    defaults["RadioButtonUI"] = DokiRadioButtonUI::class.java.name
-    defaults[DokiRadioButtonUI::class.java.name] = DokiRadioButtonUI::class.java
-    defaults["RadioButtonMenuItemUI"] = DarculaRadioButtonMenuItemUI::class.java.name
-    defaults[DarculaRadioButtonMenuItemUI::class.java.name] = DarculaRadioButtonMenuItemUI::class.java
   }
 
   private fun installTitlePane() {

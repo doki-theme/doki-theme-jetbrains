@@ -1,5 +1,8 @@
 Changelog
 ---
+# 88.1-1.5.2 [Radio Button Fix]
+
+- Fixed issue on the Windows platform where the radio button wouldn't show as checked.
 
 # 88.1-1.5.1 [Initial 2022.3 Support]
 
