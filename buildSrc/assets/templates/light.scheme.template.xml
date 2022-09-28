@@ -85,6 +85,7 @@
     <option name="METHOD_SEPARATORS_COLOR" value="$borderColor$"/>
     <option name="RECENT_LOCATIONS_SELECTION" value="$codeBlock$"/>
     <option name="DIFF_SEPARATORS_BACKGROUND" value="%accentColor%1a"/>
+    <option name="DIFF_SEPARATOR_WAVE" value="%accentColor%6a"/>
     <option name="MODIFIED_LINES_COLOR" value="$diff.modified$AA"/>
     <option name="NOTIFICATION_BACKGROUND" value="$accentColor$5a"/>
     <option name="RIGHT_MARGIN_COLOR" value="$borderColor$"/>

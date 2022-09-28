@@ -1,5 +1,10 @@
 Changelog
 ---
+
+# 88.1-1.5.3 [VCS Diff]
+
+- Themed the new `Diff & Merge` `Folded unchanged fragments` `Wave` separator.  
+
 # 88.1-1.5.2 [Radio Button Fix]
 
 - Fixed issue on the Windows platform where the radio button wouldn't show as checked.

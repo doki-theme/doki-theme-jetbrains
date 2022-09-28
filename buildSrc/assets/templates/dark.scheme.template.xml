@@ -38,6 +38,7 @@
     <option name="DOC_COMMENT_GUIDE" value="%accentColor%9a"/>
     <option name="DOC_COMMENT_LINK" value="%accentColor%"/>
     <option name="DIFF_SEPARATORS_BACKGROUND" value="%accentColor%2a"/>
+    <option name="DIFF_SEPARATOR_WAVE" value="%accentColor%6a"/>
     <option name="ERROR_HINT" value="704745"/>
     <option name="FILESTATUS_ADDED" value="$terminal.ansiGreen$"/>
     <option name="FILESTATUS_COPIED" value="$terminal.ansiGreen$"/>
