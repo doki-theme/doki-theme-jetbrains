@@ -133,49 +133,49 @@ object ColorPatcher : PatcherProvider {
   }
 
   private fun patchChildren(
-    svg: Element,
+    element: Element,
     otherPatchers: List<Patcher>
   ) {
-    patchAccent(svg.getAttribute("accentTint"), svg) {
+    patchAccent(element.getAttribute("accentTint"), element) {
       it.toHexString()
     }
-    patchAccent(svg.getAttribute("accentTintDarker"), svg) {
+    patchAccent(element.getAttribute("accentTintDarker"), element) {
       ColorUtil.darker(it, 1).toHexString()
     }
-    patchAccent(svg.getAttribute("accentContrastTint"), svg) {
+    patchAccent(element.getAttribute("accentContrastTint"), element) {
       getIconAccentContrastColor().toHexString()
     }
-    patchAccent(svg.getAttribute("stopTint"), svg) {
+    patchAccent(element.getAttribute("stopTint"), element) {
       getThemedStopColor()
     }
-    patchAccent(svg.getAttribute("editorAccentTint"), svg) {
+    patchAccent(element.getAttribute("editorAccentTint"), element) {
       ThemeManager.instance.currentTheme
         .map { it.editorAccentColor.toHexString() }
         .orElseGet { Color.CYAN.toHexString() }
     }
 
-    val themedStartAttr = svg.getAttribute("themedStart")
-    val themedStopAttr = svg.getAttribute("themedStop")
-    val themedFillAttr = svg.getAttribute("themedFill")
+    val themedStartAttr = element.getAttribute("themedStart")
+    val themedStopAttr = element.getAttribute("themedStop")
+    val themedFillAttr = element.getAttribute("themedFill")
     when {
       "true" == themedStartAttr -> {
         val themedStart = getThemedStartColor()
-        svg.setAttribute("stop-color", themedStart)
-        svg.setAttribute("fill", themedStart)
+        element.setAttribute("stop-color", themedStart)
+        element.setAttribute("fill", themedStart)
       }
       "true" == themedStopAttr -> {
         val themedStop = getThemedStopColor()
-        svg.setAttribute("stop-color", themedStop)
-        svg.setAttribute("fill", themedStop)
+        element.setAttribute("stop-color", themedStop)
+        element.setAttribute("fill", themedStop)
       }
       "true" == themedFillAttr -> {
         val themedStart = getThemedStartColor()
-        svg.setAttribute("fill", themedStart)
-        svg.setAttribute("stroke", themedStart)
+        element.setAttribute("fill", themedStart)
+        element.setAttribute("stroke", themedStart)
       }
     }
 
-    val nodes = svg.childNodes
+    val nodes = element.childNodes
     val length = nodes.length
     for (i in 0 until length) {
       val item = nodes.item(i)
