@@ -24,7 +24,7 @@ open class PatchHTML : DefaultTask() {
           .forEach {
               image ->
             image.attr("width", "700")
-              .parent().insertChildren(0, Element("br"))
+              .parent()?.insertChildren(0, Element("br"))
           }
 
         Files.newBufferedWriter(htmlFileToPatch, StandardOpenOption.TRUNCATE_EXISTING)
