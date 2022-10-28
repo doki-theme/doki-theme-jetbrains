@@ -1,6 +1,6 @@
 <idea-plugin>
   <id>io.acari.DDLCTheme</id>
-  <name>The Doki Theme</name>
+  <name>Doki Theme</name>
   <version>@version@</version>
   <vendor email="alexsimons9999@gmail.com" url="https://github.com/Unthrottled">Unthrottled</vendor>
   <description>

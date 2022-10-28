@@ -1,4 +1,4 @@
-The Doki Theme: Jetbrains IDEs
+Doki Theme: Jetbrains IDEs
 ---
 
 ![Downloads](https://img.shields.io/jetbrains/plugin/d/10804)
