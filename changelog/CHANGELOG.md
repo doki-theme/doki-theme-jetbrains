@@ -1,6 +1,10 @@
 Changelog
 ---
 
+# 88.1-1.5.4 [Better Icon Loading]
+
+- Potentially fixed icon loading issue at start up. 
+
 # 88.1-1.5.3 [VCS Diff]
 
 - Themed the new `Diff & Merge` `Folded unchanged fragments` `Wave` separator.  
