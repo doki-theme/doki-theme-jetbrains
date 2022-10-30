@@ -271,7 +271,7 @@ private fun buildUpdateMessage(
         <div class="wallpaper"></div>
       </div>
       <main>
-        <h1>The Doki Theme</h1>
+        <h1>Doki Theme</h1>
         <svg style="width: 100%; height: 100%; max-height: 145px;" version="1.1" viewBox="0 0 54.275 59.281"
           xmlns="http://www.w3.org/2000/svg">
           <path
