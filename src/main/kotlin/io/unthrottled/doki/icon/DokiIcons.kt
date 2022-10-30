@@ -15,7 +15,7 @@ object DokiIcons {
     }
 
     object Icons {
-      val TOOL_WINDOW = load("icons/doki/Doki-Doki-Logo.svg") // todo: this
+      val TOOL_WINDOW = load("icons/doki/neko_glyph.svg")
     }
 
     object AMII {
