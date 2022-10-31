@@ -94,11 +94,6 @@ tasks {
     }
   }
 
-//  comment me out when doing doki-theme-icons stuff
-//  wrapper {
-//    gradleVersion = properties("gradleVersion")
-//  }
-
   withType<Detekt> {
     jvmTarget = "11"
   }
@@ -110,7 +105,7 @@ tasks {
 
   runIde {
     maxHeapSize = "2g"
-    enabled = false
+    enabled = environment.getOrDefault("SHOULD_DOKI_THEME_RUN","true") == "true"
     val idePath = properties("idePath")
     if (idePath.isNotEmpty()) {
       ideDir.set(file(idePath))
