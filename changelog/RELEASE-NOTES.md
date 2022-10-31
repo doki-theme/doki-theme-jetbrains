@@ -1,4 +1,9 @@
-- Added the initial support for the 2022.3 platform.
-- Made the vertical code folding lines, in the gutter, visible again. If you want them gone, like they were before, you
-  can turn them off by going to the setting "`Editor` > `General` > `Code Folding` > `Show code folding outline`".
-- Potentially fixed icon loading issue at start up. 
+# 88.2-1.6.0 [Doki Theme Icons]
+
+<div align="center">
+<img src="https://doki.assets.unthrottled.io/misc/doki_icons_logo.png" width="256" height="256" alt="Doki Theme Icons"></img>
+</div>
+
+- Removed the legacy Material Icons. Please install the [Doki Theme Icons](https://github.com/doki-theme/doki-theme-icons-jetbrains) it's place.
+- Renamed plugin to `Doki Theme` & updated plugin logo.
+- Zero Two's Obsidian theme is now the default for new users.
