@@ -2,10 +2,10 @@
   "id": "6428e1ff-202c-4a43-afb3-9999ebe3b2ca",
   "editorScheme": {
     "type": "template",
-    "name": "Doki Dark"
+    "name": "Doki Dim"
   },
   "overrides": {},
+  "uiBase": "dark dim",
   "ui": {
-    "SearchEverywhere.SearchField.borderColor": "#1c3627"
   }
 }
