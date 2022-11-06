@@ -105,7 +105,7 @@ tasks {
 
   runIde {
     maxHeapSize = "2g"
-    enabled = environment.getOrDefault("SHOULD_DOKI_THEME_RUN","true") == "true"
+    enabled = environment.getOrDefault("SHOULD_DOKI_THEME_RUN", "true") == "true"
     val idePath = properties("idePath")
     if (idePath.isNotEmpty()) {
       ideDir.set(file(idePath))

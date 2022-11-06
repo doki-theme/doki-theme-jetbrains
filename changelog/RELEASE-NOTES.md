@@ -4,6 +4,8 @@
 <img src="https://doki.assets.unthrottled.io/misc/doki_icons_logo.png" width="256" height="256" alt="Doki Theme Icons"></img>
 </div>
 
-- Removed the legacy Material Icons. Please install the [Doki Theme Icons](https://github.com/doki-theme/doki-theme-icons-jetbrains) it's place.
+- Removed the legacy Material Icons. Please install the [Doki Theme Icons](https://github.com/doki-theme/doki-theme-icons-jetbrains) in its place. 
 - Renamed plugin to `Doki Theme` & updated plugin logo.
 - Zero Two's Obsidian theme is now the default for new users.
+- Updated Chocola's Xmas theme.
+- Made Natsuki's & Tohru's ANSI green color more usable.

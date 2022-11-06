@@ -10,6 +10,8 @@ Changelog
 - Removed the legacy Material Icons. Please install the [Doki Theme Icons](https://github.com/doki-theme/doki-theme-icons-jetbrains) in its place. 
 - Renamed plugin to `Doki Theme` & updated plugin logo.
 - Zero Two's Obsidian theme is now the default for new users.
+- Updated Chocola's Xmas theme.
+- Made Natsuki's & Tohru's ANSI green color more usable.
 
 # 88.1-1.5.4 [Better Icon Loading]
 
