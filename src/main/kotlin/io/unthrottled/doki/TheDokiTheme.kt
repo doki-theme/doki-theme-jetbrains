@@ -14,8 +14,8 @@ import com.intellij.openapi.wm.IdeFrame
 import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.hax.HackComponent.hackLAF
 import io.unthrottled.doki.hax.SvgLoaderHacker.setSVGColorPatcher
-import io.unthrottled.doki.icon.patcher.MaterialPathPatcherManager.attemptToAddIcons
-import io.unthrottled.doki.icon.patcher.MaterialPathPatcherManager.attemptToRemoveIcons
+import io.unthrottled.doki.icon.IconPathReplacementComponent
+import io.unthrottled.doki.laf.LookAndFeelInstaller
 import io.unthrottled.doki.laf.LookAndFeelInstaller.installAllUIComponents
 import io.unthrottled.doki.legacy.LegacyMigration
 import io.unthrottled.doki.notification.UpdateNotification
@@ -57,9 +57,8 @@ class TheDokiTheme : Disposable {
     PromotionManager.init()
     hackLAF()
     LegacyMigration.migrateIfNecessary()
+    IconPathReplacementComponent.initialize()
     installAllUIComponents()
-
-    attemptToAddIcons()
 
     connection.subscribe(
       ApplicationActivationListener.TOPIC,
@@ -80,12 +79,12 @@ class TheDokiTheme : Disposable {
           .doOrElse({
             setSVGColorPatcher(it)
             installAllUIComponents()
-            attemptToAddIcons()
             applyCustomFontSize()
             applyConsoleFont()
             attemptToRefreshUpdateNotification(it)
           }) {
-            attemptToRemoveIcons()
+            IconPathReplacementComponent.removePatchers()
+            LookAndFeelInstaller.removeIcons()
           }
       }
     )
@@ -105,7 +104,7 @@ class TheDokiTheme : Disposable {
           getVersion()
             .ifPresent { version ->
               if (version != ThemeConfig.instance.version) {
-                LegacyMigration.newVersionMigration()
+                LegacyMigration.newVersionMigration(project)
                 ThemeConfig.instance.version = version
                 ThemeManager.instance.currentTheme.ifPresent {
                   StartupManager.getInstance(project).runWhenProjectIsInitialized {

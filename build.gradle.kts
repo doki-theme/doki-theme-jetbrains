@@ -8,7 +8,7 @@ plugins {
   // Custom plugin for building all the themes
   id("doki-theme-plugin")
   // Kotlin support
-  id("org.jetbrains.kotlin.jvm") version "1.7.20"
+  kotlin("jvm") version "1.7.20"
   // gradle-intellij-plugin - read more: https://github.com/JetBrains/gradle-intellij-plugin
   id("org.jetbrains.intellij") version "1.9.0"
   // detekt linter - read more: https://detekt.github.io/detekt/gradle.html
@@ -94,10 +94,6 @@ tasks {
     }
   }
 
-  wrapper {
-    gradleVersion = properties("gradleVersion")
-  }
-
   withType<Detekt> {
     jvmTarget = "11"
   }
@@ -108,8 +104,9 @@ tasks {
   }
 
   runIde {
-    val idePath = properties("idePath")
     maxHeapSize = "2g"
+    enabled = environment.getOrDefault("SHOULD_DOKI_THEME_RUN", "true") == "true"
+    val idePath = properties("idePath")
     if (idePath.isNotEmpty()) {
       ideDir.set(file(idePath))
       systemProperty("idea.platform.prefix", properties("idePrefix"))

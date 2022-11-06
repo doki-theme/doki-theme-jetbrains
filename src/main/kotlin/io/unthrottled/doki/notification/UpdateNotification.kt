@@ -2,6 +2,7 @@ package io.unthrottled.doki.notification
 
 import com.intellij.ide.plugins.PluginManagerCore.getPlugin
 import com.intellij.ide.plugins.PluginManagerCore.getPluginOrPlatformByClassName
+import com.intellij.notification.Notification
 import com.intellij.notification.NotificationGroupManager
 import com.intellij.notification.NotificationListener
 import com.intellij.notification.NotificationType
@@ -21,6 +22,8 @@ import io.unthrottled.doki.promotions.WeebService
 import io.unthrottled.doki.themes.Background
 import io.unthrottled.doki.themes.DokiTheme
 import io.unthrottled.doki.themes.ThemeManager
+import io.unthrottled.doki.util.BalloonPosition
+import io.unthrottled.doki.util.BalloonTools
 import io.unthrottled.doki.util.Logging
 import io.unthrottled.doki.util.logger
 import io.unthrottled.doki.util.runSafely
@@ -268,7 +271,7 @@ private fun buildUpdateMessage(
         <div class="wallpaper"></div>
       </div>
       <main>
-        <h1>The Doki Theme</h1>
+        <h1>Doki Theme</h1>
         <svg style="width: 100%; height: 100%; max-height: 145px;" version="1.1" viewBox="0 0 54.275 59.281"
           xmlns="http://www.w3.org/2000/svg">
           <path
@@ -318,6 +321,16 @@ object UpdateNotification : Logging {
     listener: NotificationListener = defaultListener,
     actions: List<AnAction> = emptyList(),
   ) {
+    val notification = buildNotification(content, title, listener, actions)
+    notification.notify(project)
+  }
+
+  private fun buildNotification(
+    content: String,
+    title: String,
+    listener: NotificationListener,
+    actions: List<AnAction>
+  ): Notification {
     val notification = notificationGroup.createNotification(
       content,
       NotificationType.INFORMATION,
@@ -329,7 +342,25 @@ object UpdateNotification : Logging {
       notification.addAction(it)
     }
     notification.isImportant = true
-    notification.notify(project)
+    return notification
+  }
+
+  @Suppress("LongParameterList") // cuz I said so
+  fun showStickyDokiNotification(
+    @Nls(capitalization = Nls.Capitalization.Sentence) title: String = "",
+    @Nls(capitalization = Nls.Capitalization.Sentence) content: String,
+    project: Project,
+    listener: NotificationListener = defaultListener,
+    actions: List<AnAction> = emptyList(),
+    balloonPosition: BalloonPosition,
+  ) {
+    val notification = buildNotification(content, title, listener, actions)
+    BalloonTools.showStickyNotification(
+      project,
+      notification,
+      balloonPosition
+    ) {
+    }
   }
 
   fun showNotificationAcrossProjects(

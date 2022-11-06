@@ -1,5 +1,6 @@
 package io.unthrottled.doki.integrations
 
+import com.google.gson.Gson
 import com.intellij.ide.IdeBundle
 import com.intellij.ide.plugins.PluginManagerCore
 import com.intellij.ide.ui.LafManager
@@ -103,7 +104,8 @@ class ErrorReporter : ErrorReportSubmitter() {
       setExtra("Registry", getRegistry())
       setExtra("Non-Bundled Plugins", getNonBundledPlugins())
       setExtra("Current LAF", LafManager.getInstance().currentLookAndFeel?.name ?: "")
-      setExtra("Doki Config", ThemeConfig.instance.asJson())
+      setExtra("Doki Version", ThemeConfig.instance.version)
+      setExtra("Doki Config", Gson().toJson(ThemeConfig.instance))
     }
   }
 

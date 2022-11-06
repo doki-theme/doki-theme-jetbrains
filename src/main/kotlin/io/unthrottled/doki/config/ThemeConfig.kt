@@ -30,10 +30,8 @@ class ThemeConfig : PersistentStateComponent<ThemeConfig>, Cloneable {
   var isMoveableStickers: Boolean = false
   var isNotShowReadmeAtStartup: Boolean = false
   var version: String = "0.0.0"
-  var chibiLevel: String = StickerLevel.ON.name
   var stickerLevel: String = StickerLevel.ON.name
   var isFirstTime: Boolean = true
-  var isDokiFileColors: Boolean = false
   var isDokiBackground: Boolean = false
   var isEmptyFrameBackground: Boolean = true
   var isThemedTitleBar: Boolean = true
@@ -47,6 +45,7 @@ class ThemeConfig : PersistentStateComponent<ThemeConfig>, Cloneable {
   var isOverrideConsoleFont: Boolean = false
   var consoleFontName: String = "JetBrains Mono"
 
+  // todo remove this after release has cooked
   var isMaterialDirectories: Boolean = false
   var isMaterialFiles: Boolean = false
   var isMaterialPSIIcons: Boolean = false
@@ -71,17 +70,6 @@ class ThemeConfig : PersistentStateComponent<ThemeConfig>, Cloneable {
   override fun loadState(state: ThemeConfig) {
     copyBean(state, this)
   }
-
-  fun asJson(): Map<String, Any> = mapOf(
-    "version" to version,
-    "chibiLevel" to chibiLevel,
-    "stickerLevel" to stickerLevel,
-    "isDokiFileColors" to isDokiFileColors,
-    "currentSticker" to currentSticker,
-    "isMaterialDirectories" to isMaterialDirectories,
-    "isMaterialFiles" to isMaterialFiles,
-    "isMaterialPSIIcons" to isMaterialPSIIcons
-  )
 
   var currentSticker: CurrentSticker
     get() {

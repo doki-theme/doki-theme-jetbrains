@@ -5,16 +5,10 @@ import com.intellij.notification.NotificationAction
 import com.intellij.notification.NotificationGroupManager
 import com.intellij.notification.NotificationListener
 import com.intellij.notification.NotificationType
-import com.intellij.notification.impl.NotificationsManagerImpl
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.extensions.PluginId
 import com.intellij.openapi.project.Project
-import com.intellij.openapi.ui.popup.Balloon
-import com.intellij.openapi.ui.popup.JBPopupListener
-import com.intellij.openapi.ui.popup.LightweightWindowEvent
 import com.intellij.openapi.updateSettings.impl.pluginsAdvertisement.installAndEnable
-import com.intellij.openapi.util.Disposer
-import com.intellij.ui.BalloonLayoutData
 import io.unthrottled.doki.assets.AssetCategory
 import io.unthrottled.doki.assets.AssetManager
 import io.unthrottled.doki.assets.AssetManager.ASSET_SOURCE
@@ -22,6 +16,7 @@ import io.unthrottled.doki.assets.AssetManager.FALLBACK_ASSET_SOURCE
 import io.unthrottled.doki.icon.DokiIcons
 import io.unthrottled.doki.service.AMII_PLUGIN_ID
 import io.unthrottled.doki.themes.DokiTheme
+import io.unthrottled.doki.util.BalloonPosition
 import io.unthrottled.doki.util.BalloonTools
 import org.intellij.lang.annotations.Language
 import java.util.Locale
@@ -128,14 +123,15 @@ class AniMemePromotionDialog(
       .addAction(neverShowAction)
       .setListener(NotificationListener.UrlOpeningListener(false))
 
-    // todo: this
-//    updateNotification.isSuggestionType = true
-
     updateNotification.whenExpired {
       emitStatus(PromotionStatus.BLOCKED)
     }
 
-    showNotification(project, updateNotification) {
+    BalloonTools.showStickyNotification(
+      project,
+      updateNotification,
+      BalloonPosition.RIGHT
+    ) {
       emitStatus(PromotionStatus.BLOCKED)
     }
   }
@@ -147,32 +143,6 @@ class AniMemePromotionDialog(
       emitted = true
       savedStatus = status
       onPromotion(PromotionResults(status))
-    }
-  }
-
-  private fun showNotification(
-    project: Project,
-    notificationToShow: Notification,
-    onClosed: () -> Unit
-  ) {
-    try {
-      val (ideFrame, notificationPosition) = BalloonTools.fetchBalloonParameters(project)
-      val balloon = NotificationsManagerImpl.createBalloon(
-        ideFrame,
-        notificationToShow,
-        true,
-        false,
-        BalloonLayoutData.fullContent(),
-        Disposer.newDisposable()
-      )
-      balloon.addListener(object : JBPopupListener {
-        override fun onClosed(event: LightweightWindowEvent) {
-          onClosed()
-        }
-      })
-      balloon.show(notificationPosition, Balloon.Position.below)
-    } catch (e: Throwable) {
-      notificationToShow.notify(project)
     }
   }
 }

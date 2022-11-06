@@ -1,12 +1,14 @@
 package io.unthrottled.doki.ui.status
 
+import com.intellij.ide.lightEdit.LightEditCompatible
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.wm.StatusBar
 import com.intellij.openapi.wm.StatusBarWidget
 import com.intellij.openapi.wm.StatusBarWidgetFactory
 import io.unthrottled.doki.config.ThemeConfig
 
-class ThemeStatusBarProvider : StatusBarWidgetFactory {
+@Suppress("UnstableApiUsage")
+class ThemeStatusBarProvider : StatusBarWidgetFactory, LightEditCompatible {
 
   override fun getId(): String =
     "io.unthrottled.doki.ui.status.StatusBarFactory"

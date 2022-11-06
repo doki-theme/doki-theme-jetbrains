@@ -1,6 +1,6 @@
 <idea-plugin>
   <id>io.acari.DDLCTheme</id>
-  <name>The Doki Theme</name>
+  <name>Doki Theme</name>
   <version>@version@</version>
   <vendor email="alexsimons9999@gmail.com" url="https://github.com/Unthrottled">Unthrottled</vendor>
   <description>
@@ -26,7 +26,6 @@
     <applicationService serviceImplementation="io.unthrottled.doki.config.ThemeConfig"/>
     <applicationConfigurable id="0d570cb2-96df-43cc-80da-7f777e6d0afe" instance="io.unthrottled.doki.settings.ThemeSettingsUI" groupId="appearance"/>
     <errorHandler id="9782e40c-e6d2-488f-8611-71f5cca6695e" implementation="io.unthrottled.doki.integrations.ErrorReporter"/>
-    <iconProvider implementation="io.unthrottled.doki.icon.provider.MaterialIconProvider" order="first"/>
     <notificationGroup displayType="BALLOON" id="Doki Theme Updates" toolWindowId="Doki Theme Updates" isLogByDefault="false" icon="DokiThemeIcons.DOKI_LOGO"/>
     <notificationGroup displayType="BALLOON" id="Doki Theme Promotions" toolWindowId="Doki Theme Promotions" isLogByDefault="false" icon="DokiThemeIcons.DOKI_LOGO"/>
     <statusBarWidgetFactory implementation="io.unthrottled.doki.ui.status.ThemeStatusBarProvider"/>
@@ -123,6 +122,7 @@
   </extensions>
   <applicationListeners>
     <listener class="io.unthrottled.doki.discreet.ApplicationDiscreetModeListener" topic="io.unthrottled.doki.discreet.DiscreetModeListener"/>
+    <listener class="io.unthrottled.doki.integrations.IDEPluginInstallListener" topic="com.intellij.ide.plugins.DynamicPluginListener"/>
   </applicationListeners>
   <application-components>
     <component>
@@ -161,16 +161,7 @@
       <add-to-group group-id="DokiThemeActions" anchor="last"/>
     </action>
     <action id="io.unthrottled.doki.action.ShowEditorNotification" class="io.unthrottled.doki.actions.ShowNotification" text="Show Editor Notification" description="Shows the editor's notification"/>
-    <action id="io.unthrottled.doki.actions.MaterialDirectoryIconsAction" class="io.unthrottled.doki.actions.MaterialDirectoryIconsAction" text="Toggle Material Directory Icons" description="Enables/Disables Doki-Themed Material Icons" icon="DokiThemeIcons.DDLC_FOLDER">
-      <add-to-group group-id="DokiThemeActions" anchor="before" relative-to-action="io.unthrottled.doki.actions.ShowSettingsAction"/>
-    </action>
-    <action id="io.unthrottled.doki.actions.MaterialFilesconsAction" class="io.unthrottled.doki.actions.MaterialFilesconsAction" text="Toggle Material File Icons" description="Enables/Disables Doki-Themed Material File Icons" icon="DokiThemeIcons.MATERIAL_FILES">
-      <add-to-group group-id="DokiThemeActions" anchor="before" relative-to-action="io.unthrottled.doki.actions.ShowSettingsAction"/>
-    </action>
-    <action id="io.unthrottled.doki.actions.MaterialPSIconsAction" class="io.unthrottled.doki.actions.MaterialPSIconsAction" text="Toggle Material PSI Icons" description="Enables/Disables Doki-Theme Material PSI Icons " icon="DokiThemeIcons.MATERIAL_GLYPH">
-      <add-to-group group-id="DokiThemeActions" anchor="before" relative-to-action="io.unthrottled.doki.actions.ShowSettingsAction"/>
-    </action>
-    <action id="io.unthrottled.doki.actions.ShowUpdateNotification" class="io.unthrottled.doki.actions.ShowUpdateNotification" text="Show Update Notification" description="Shows the current update notification window." icon="DokiThemeIcons.DOKI_LOGO">
+    <action id="io.unthrottled.doki.actions.ShowUpdateNotification" class="io.unthrottled.doki.actions.ShowUpdateNotification" text="Show Update Notification" description="Shows the current update notification window." icon="/icons/doki/Doki-Doki-Logo.svg">
       <add-to-group group-id="DokiThemeActions" anchor="last"/>
     </action>
     <action id="io.unthrottled.doki.actions.AniMemePromotion" class="io.unthrottled.doki.actions.AniMemePromotion" text="Show AniMeme Promotion" description="Shows the 'AMII' promotion dialog" icon="DokiThemeIcons.AMII_LOGO"/>
