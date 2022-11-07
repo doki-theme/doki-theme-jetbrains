@@ -52,7 +52,7 @@ open class BuildThemes : DefaultTask() {
   companion object {
     private const val COMMUNITY_PLUGIN_ID = "io.acari.DDLCTheme"
     private const val ULTIMATE_PLUGIN_ID = "io.unthrottled.DokiTheme"
-    private const val PLUGIN_NAME = "The Doki Theme"
+    private const val PLUGIN_NAME = "Doki Theme"
     private const val DOKI_THEME_ULTIMATE = "ultimate"
   }
 
