@@ -1,6 +1,11 @@
 Changelog
 ---
 
+# 88.1-1.6.1 [Small Fixes]
+
+- Themed the `Version Control Marker Popup`
+- Added documentation on where to find the art used by the plugin.
+
 # 88.2-1.6.0 [Doki Theme Icons]
 
 <div align="center">

@@ -104,6 +104,7 @@ You can choose themes based on characters from these various Anime, Manga, or Vi
   - [Contributing](#contributing) 
   - [Quick Theme Switch](#quick-theme-switch)
   - [Theme Requests](#theme-requests)
+  - [Plugin Art](#plugin-art)
   - [Helping the community](#enjoying-the-plugin)
   - [Feature Requests](#contributions)
   - [Frequent Updates](#release-channel)
@@ -324,6 +325,14 @@ Well you can use the [Quick Switch Scheme](https://www.jetbrains.com/help/idea/s
 to browse the `Look and Feel`.
 
 ![Quick Switch](./assets/readmeAssets/quick_switch.gif)
+
+## Plugin Art
+
+In order to prevent this plugin from being a huge artifact, the assets used for the background and stickers are downloaded from https://doki.assets.unthrottled.io when needed.
+This allows me to update the assets without users needing to update the plugin as well.
+
+I also have them committed to GitHub as well at https://github.com/doki-theme/doki-theme-assets .
+You should be able to find what you are looking for in the `backgrounds/wallpapers` & `stickers` directories.
 
 ## Theme Requests
 

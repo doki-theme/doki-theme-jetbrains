@@ -99,6 +99,7 @@
     "MenuBar.background": "headerColor",
     "MenuBar.disabledBackground": "headerColor",
     "Popup.Toolbar.background": "headerColor",
+    "VersionControl.MarkerPopup.Toolbar.background": "headerColor",
     "PopupMenu.translucentBackground": "headerColor",
     "RadioButtonMenuItem.background": "headerColor",
     "scrollbar": "headerColor",
@@ -201,6 +202,7 @@
     "ActionButton.pressedBorderColor": "highlightColor",
     "ActionButton.focusedBorderColor": "highlightColor",
 
+    "VersionControl.MarkerPopup.borderColor": "borderColor",
     "Borders.color": "borderColor",
     "Separator.background": "borderColor",
     "Tree.hash": "borderColor",
