@@ -1,4 +1,4 @@
-# 88.2-1.6.0 [Doki Theme Icons]
+# 88.2-1.6.1 [Doki Theme Icons]
 
 <div align="center">
 <img src="https://doki.assets.unthrottled.io/misc/doki_icons_logo.png" width="256" height="256" alt="Doki Theme Icons"></img>
@@ -9,3 +9,4 @@
 - Zero Two's Obsidian theme is now the default for new users.
 - Updated Chocola's Xmas theme.
 - Made Natsuki's & Tohru's ANSI green color more usable.
+- Themed the `Version Control Marker Popup`
