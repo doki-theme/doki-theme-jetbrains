@@ -1,6 +1,10 @@
 Changelog
 ---
 
+# 88.1-1.6.2 [Radio Button Fix]
+
+- Restored the selected radio button for all light themes.
+
 # 88.1-1.6.1 [Small Fixes]
 
 - Themed the `Version Control Marker Popup`

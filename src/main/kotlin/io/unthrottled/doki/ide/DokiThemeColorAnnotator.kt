@@ -43,7 +43,9 @@ class DokiThemeColorAnnotator : Annotator {
     if (
       !isColorLineMarkerProviderEnabled ||
       !isTargetElement(element, holder.currentAnnotationSession.file)
-    ) return
+    ) {
+      return
+    }
     val annotation = holder.newAnnotation(HighlightSeverity.INFORMATION, "")
     val literal = element as JsonStringLiteral
     annotation.gutterIconRenderer(ColorBoxRenderer(literal.value, literal))
@@ -63,12 +65,18 @@ class DokiThemeColorAnnotator : Annotator {
     override fun isNavigateAction(): Boolean = canChooseColor()
 
     override fun getTooltipText(): String? =
-      if (canChooseColor()) "Choose Color"
-      else null
+      if (canChooseColor()) {
+        "Choose Color"
+      } else {
+        null
+      }
 
     override fun getClickAction(): AnAction? =
-      if (canChooseColor()) buildColorChooseAction()
-      else null
+      if (canChooseColor()) {
+        buildColorChooseAction()
+      } else {
+        null
+      }
 
     private fun buildColorChooseAction(): AnAction {
       return object : AnAction("Choose Color...") {
@@ -120,8 +128,11 @@ class DokiThemeColorAnnotator : Annotator {
       isColorCode(myColorText)
 
     private fun getColor(colorText: String): Color? =
-      if (!isColorCode(colorText)) findNamedColor(colorText)
-      else parseColor(colorText)
+      if (!isColorCode(colorText)) {
+        findNamedColor(colorText)
+      } else {
+        parseColor(colorText)
+      }
 
     private fun findNamedColor(colorText: String): Color? =
       myLiteral.containingFile.toOptional()
@@ -158,11 +169,17 @@ class DokiThemeColorAnnotator : Annotator {
           .map { isRgba ->
             try {
               val alpha = if (isRgba) colorHex.substring(HEX_COLOR_LENGTH_RGB) else null
-              val colorHexWithoutAlpha = if (isRgba) colorHex.substring(0, HEX_COLOR_LENGTH_RGB)
-              else colorHex
+              val colorHexWithoutAlpha = if (isRgba) {
+                colorHex.substring(0, HEX_COLOR_LENGTH_RGB)
+              } else {
+                colorHex
+              }
               val color = colorHexWithoutAlpha.toColor()
-              if (isRgba) toAlpha(color, alpha?.toInt(16) ?: 1)
-              else color
+              if (isRgba) {
+                toAlpha(color, alpha?.toInt(16) ?: 1)
+              } else {
+                color
+              }
             } catch (t: Throwable) {
               null
             }
@@ -204,12 +221,15 @@ class DokiThemeColorAnnotator : Annotator {
       if (!StringUtil.startsWithChar(text, '#')) return false
       return if (text!!.length != HEX_COLOR_LENGTH_RGB &&
         text.length != HEX_COLOR_LENGTH_RGBA
-      ) false
-      else COLOR_HEX_PATTERN_RGB.matcher(
-        text
-      ).matches() || COLOR_HEX_PATTERN_RGBA.matcher(
-        text
-      ).matches()
+      ) {
+        false
+      } else {
+        COLOR_HEX_PATTERN_RGB.matcher(
+          text
+        ).matches() || COLOR_HEX_PATTERN_RGBA.matcher(
+          text
+        ).matches()
+      }
     }
   }
 }

@@ -14,7 +14,8 @@ object StickerHideActor {
       ThemeConfig.instance.hideOnHover = hideOnHover
       StickerPaneService.instance.setStickerHideConfig(
         StickerHideConfig(
-          hideOnHover, hideDelayMS
+          hideOnHover,
+          hideDelayMS
         )
       )
     }
