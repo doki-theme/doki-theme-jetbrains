@@ -10,3 +10,4 @@
 - Updated Chocola's Xmas theme.
 - Made Natsuki's & Tohru's ANSI green color more usable.
 - Themed the `Version Control Marker Popup`
+- Restored the selected radio button for all light themes.

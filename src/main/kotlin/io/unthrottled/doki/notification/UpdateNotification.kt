@@ -421,8 +421,11 @@ object UpdateNotification : Logging {
     currentTheme: DokiTheme
   ): String {
     val urlParameters =
-      if (isNewUser) ""
-      else "/products/jetbrains/updates/$newVersion"
+      if (isNewUser) {
+        ""
+      } else {
+        "/products/jetbrains/updates/$newVersion"
+      }
     val extraParams =
       if (needsToFixUpdateNotification()) {
         "&showWallpaper=false"

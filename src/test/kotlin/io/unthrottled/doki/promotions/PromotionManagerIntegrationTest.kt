@@ -36,6 +36,7 @@ class PromotionManagerIntegrationTest {
 
   companion object {
     private const val testDirectory = "testOne"
+
     @JvmStatic
     @BeforeClass
     fun setUp() {

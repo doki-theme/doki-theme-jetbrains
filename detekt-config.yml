@@ -16,13 +16,11 @@ complexity:
 formatting:
   Indentation:
     active: true
-    autoCorrect: true
+    autoCorrect: false
     indentSize: 2
-    continuationIndentSize: 2
   ParameterListWrapping:
     active: true
-    autoCorrect: true
-    indentSize: 2
+    autoCorrect: false
 
 performance:
   SpreadOperator:

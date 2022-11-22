@@ -70,11 +70,15 @@ class ToggleButtonUI : BasicToggleButtonUI() {
       )
 
       g2.color =
-        if (button.isSelected) withAlpha(ON_BACKGROUND, 0.45)
-        else {
+        if (button.isSelected) {
+          withAlpha(ON_BACKGROUND, 0.45)
+        } else {
           val parentBackground = button.parent.background
-          if (isDark(parentBackground)) brighter(parentBackground, 2)
-          else darker(parentBackground.darker(), 2)
+          if (isDark(parentBackground)) {
+            brighter(parentBackground, 2)
+          } else {
+            darker(parentBackground.darker(), 2)
+          }
         }
 
       g2.fillRoundRect(origin.x, origin.y, BUTTON_SIZE.width, BUTTON_SIZE.height, ARC, ARC)

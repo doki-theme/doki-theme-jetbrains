@@ -77,7 +77,8 @@ object AniMemePluginPromotion {
                 onReject
               )
           },
-          0, TimeUnit.SECONDS
+          0,
+          TimeUnit.SECONDS
         )
       }
     }
