@@ -93,7 +93,7 @@ class StickerPaneService {
   }
 
   fun setStickerPositioning(shouldPosition: Boolean) {
-    stickers.forEach { it.positionable = shouldPosition }
+    stickers.forEach { it.setPositionable(shouldPosition) }
   }
 
   fun setIgnoreScaling(ignoreScaling: Boolean) {

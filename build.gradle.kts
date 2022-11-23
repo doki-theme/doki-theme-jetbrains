@@ -12,7 +12,7 @@ plugins {
   // gradle-intellij-plugin - read more: https://github.com/JetBrains/gradle-intellij-plugin
   id("org.jetbrains.intellij") version "1.10.0"
   // detekt linter - read more: https://detekt.github.io/detekt/gradle.html
-  id("io.gitlab.arturbosch.detekt") version "1.21.0"
+  id("io.gitlab.arturbosch.detekt") version "1.22.0"
   // ktlint linter - read more: https://github.com/JLLeitschuh/ktlint-gradle
   id("org.jlleitschuh.gradle.ktlint") version "11.0.0"
   id("org.kordamp.gradle.markdown") version "2.2.0"
@@ -29,7 +29,7 @@ repositories {
 }
 
 dependencies {
-  detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.21.0")
+  detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.22.0")
   implementation("commons-io:commons-io:2.11.0")
   implementation("org.javassist:javassist:3.29.2-GA")
   implementation("io.sentry:sentry:6.8.0")

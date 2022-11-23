@@ -14,6 +14,9 @@ complexity:
     excludes: ['**/test/**', '**/androidTest/**', '**/commonTest/**', '**/jvmTest/**', '**/jsTest/**', '**/iosTest/**']
 
 formatting:
+  MultiLineIfElse:
+    active: false
+    autoCorrect: false
   Indentation:
     active: true
     autoCorrect: false

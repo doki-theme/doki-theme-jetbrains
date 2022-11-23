@@ -83,7 +83,8 @@ internal class StickerPane(
         this.size = stickerContent.size
       }
       positionStickerPanel(
-        this.size.width, this.size.height
+        this.size.width,
+        this.size.height
       )
     }
 
@@ -91,17 +92,18 @@ internal class StickerPane(
     StickerHideConfig(ThemeConfig.instance.hideOnHover, ThemeConfig.instance.hideDelayMS)
 
   private val isSmol = StickerType.SMOL == type
-  var positionable: Boolean =
+  private var positionable: Boolean =
     if (isSmol) true
     else ThemeConfig.instance.isMoveableStickers
-    set(value) {
-        field = value
-        if (value) {
-          addListeners()
-        } else if (!isSmol) {
-          removeListeners()
-        }
-      }
+
+  fun setPositionable(shouldPosition: Boolean) {
+    positionable = shouldPosition
+    if (shouldPosition) {
+      addListeners()
+    } else if (!isSmol) {
+      removeListeners()
+    }
+  }
 
   @Volatile
   private var screenX = 0
@@ -191,7 +193,9 @@ internal class StickerPane(
         !this.hideConfig.hideOnHover ||
         event !is InputEvent ||
         UIUtil.isDescendingFrom(event.component, drawablePane).not()
-      ) return@AWTEventListener
+      ) {
+        return@AWTEventListener
+      }
 
       if (event is MouseEvent) {
         val isInsideSticker = isInsideMemePanel(event)
@@ -405,7 +409,8 @@ internal class StickerPane(
               val scaledDimension = getScaledDimension()
               this@StickerPane.size = scaledDimension
               this@StickerPane.positionStickerPanel(
-                scaledDimension.width, scaledDimension.height
+                scaledDimension.width,
+                scaledDimension.height
               )
             }
             val xTrans = t.translateX
@@ -543,7 +548,9 @@ internal class StickerPane(
         override fun filterRGB(x: Int, y: Int, rgb: Int): Int =
           if (rgb or -0x1000000 == markerRGB) {
             WHITE_HEX and rgb // set alpha to 0
-          } else rgb
+          } else {
+            rgb
+          }
       }
     )
   }
@@ -632,7 +639,6 @@ internal class StickerPane(
 
     animator.resume()
   }
-
   companion object {
     private const val fadeInDelay = 500
     private const val TOTAL_FRAMES = 8
