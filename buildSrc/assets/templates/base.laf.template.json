@@ -341,6 +341,10 @@
     "Button.default.foreground": "selectionForeground",
     "ActionButton.pressedBackground": "highlightColor",
     "SearchOption.selectedBackground": "highlightColor",
+    "SegmentedButton.selectedButtonColor": "highlightColor",
+    "SegmentedButton.focusedSelectedButtonColor": "highlightColor",
+    "SegmentedButton.selectedStartBorderColor": "iconAccent",
+    "SegmentedButton.selectedEndBorderColor": "iconAccentCompliment",
     "Button.focusedBorderColor": "baseBackground",
     "Button.arc": 2,
 
