@@ -11,3 +11,4 @@
 - Made Natsuki's & Tohru's ANSI green color more usable.
 - Themed the `Version Control Marker Popup`
 - Restored the selected radio button for all light themes.
+- Themed the segmented buttons, so various settings UI components look better.

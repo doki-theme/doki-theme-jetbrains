@@ -1,11 +1,15 @@
 Changelog
 ---
 
-# 88.1-1.6.2 [Radio Button Fix]
+# 88.2-1.6.3 [Segmented Button Styling]
+
+- Themed the segmented buttons, so various settings UI components look better.
+
+# 88.2-1.6.2 [Radio Button Fix]
 
 - Restored the selected radio button for all light themes.
 
-# 88.1-1.6.1 [Small Fixes]
+# 88.2-1.6.1 [Small Fixes]
 
 - Themed the `Version Control Marker Popup`
 - Added documentation on where to find the art used by the plugin.
