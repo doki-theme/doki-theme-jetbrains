@@ -8,7 +8,7 @@ plugins {
   // Custom plugin for building all the themes
   id("doki-theme-plugin")
   // Kotlin support
-  kotlin("jvm") version "1.7.21"
+  kotlin("jvm") version "1.7.22"
   // gradle-intellij-plugin - read more: https://github.com/JetBrains/gradle-intellij-plugin
   id("org.jetbrains.intellij") version "1.10.0"
   // detekt linter - read more: https://detekt.github.io/detekt/gradle.html
