@@ -408,7 +408,10 @@
     "RunWidget.background": "buttonColor",
     "RunWidget.foreground": "buttonFont",
     "RunWidget.separatorColor": "buttonFont",
-
+    "RunWidget.runningBackground": "breakpointActiveColor",
+    "RunWidget.StopButton.background": "diff.conflict",
+    "RunWidget.StopButton.leftHoverBackground": "fileRed",
+    "RunWidget.StopButton.leftPressedBackground": "diff.conflict",
 
 
     "VersionControl": {
