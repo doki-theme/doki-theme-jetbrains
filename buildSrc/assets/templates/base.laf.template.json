@@ -206,6 +206,7 @@
     "Notification.MoreButton.background": "highlightColor",
     "ActionButton.pressedBorderColor": "highlightColor",
     "ActionButton.focusedBorderColor": "highlightColor",
+    "MainToolbar.Dropdown.hoverBackground": "highlightColor",
 
     "VersionControl.MarkerPopup.borderColor": "borderColor",
     "Borders.color": "borderColor",
