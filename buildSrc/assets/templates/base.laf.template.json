@@ -64,7 +64,7 @@
     "NewClass.SearchField.background": "secondaryBackground",
     "FormattedTextField.background": "secondaryBackground",
 
-    "MainToolbar.inactiveBackground": "headerColorInactive",
+    "MainToolbar.inactiveBackground": "lightEditorColor",
 
     "MainToolbar.background": "headerColor",
     "ComplexPopup.Header.background": "headerColor",
@@ -405,9 +405,11 @@
     "ScrollBar.Mac.hoverThumbColor":"accentColorTransparent",
     "ScrollBar.background": "textEditorBackground",
 
-    "RunWidget.background": "#6cc4e8",
-    "RunWidget.foreground": "#060a1c",
-    "RunWidget.separatorColor": "#060a1c",
+    "RunWidget.background": "buttonColor",
+    "RunWidget.foreground": "buttonFont",
+    "RunWidget.separatorColor": "buttonFont",
+
+
 
     "VersionControl": {
       "GitLog": {
@@ -454,6 +456,8 @@
     "ToggleButton.onForeground":"ghostColor",
     "ToggleButton.offForeground":"ghostColor",
     "ToggleButton.borderColor": "accentColorTransparent",
+
+    "Banner.infoBackground": "accentColorTransparent",
 
     "EditorTabs.inactiveColoredFileBackground": "ghostColor",
     "FileColor.Green": "testScopeColor",
