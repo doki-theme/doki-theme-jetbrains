@@ -95,7 +95,7 @@ tasks {
   }
 
   withType<Detekt> {
-    jvmTarget = "11"
+    jvmTarget = "17"
   }
 
   withType<MarkdownToHtmlTask> {
