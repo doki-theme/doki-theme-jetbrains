@@ -1,6 +1,12 @@
 Changelog
 ---
 
+# 88.2-1.7.0 [Initial EXP UI Support]
+
+- Added the initial experimental UI (New UI) support.
+- Raised lowest supported build to 213.5744.223.
+- Source code is compiled for Java 17.
+
 # 88.2-1.6.3 [Segmented Button Styling]
 
 - Themed the segmented buttons, so various settings UI components look better.
