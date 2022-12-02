@@ -3,18 +3,18 @@ package io.unthrottled.doki.legacy
 import com.intellij.ide.ui.LafManager
 import com.intellij.ide.ui.LafManagerListener
 import com.intellij.openapi.Disposable
-import com.intellij.openapi.application.ApplicationManager.*
+import com.intellij.openapi.application.ApplicationManager
 import com.intellij.ui.ExperimentalUI
 import io.unthrottled.doki.themes.ThemeManager
 import javax.swing.UIDefaults
 import javax.swing.UIManager
 
-object EXPUIBastardizer: LafManagerListener, Disposable {
+object EXPUIBastardizer : LafManagerListener, Disposable {
 
-  private val connection = getApplication().messageBus.connect()
+  private val connection = ApplicationManager.getApplication().messageBus.connect()
 
   init {
-      connection.subscribe(LafManagerListener.TOPIC, this)
+    connection.subscribe(LafManagerListener.TOPIC, this)
   }
 
   @Suppress("UnstableApiUsage")
@@ -25,17 +25,17 @@ object EXPUIBastardizer: LafManagerListener, Disposable {
   }
 
   private fun overrideSetProperties(iterations: Int) {
-    if(iterations > 5) {
+    if (iterations > 5) {
       return
     }
 
-    getApplication().invokeLater {
+    ApplicationManager.getApplication().invokeLater {
       ThemeManager.instance.currentTheme.ifPresent { dokiTheme ->
         val defaults = UIManager.getDefaults()
         setUIProperty("ToolWindow.Button.selectedBackground", dokiTheme.getColor("highlightColor"), defaults)
         setUIProperty("ToolWindow.Button.selectedForeground", dokiTheme.getColor("iconAccent"), defaults)
       }
-     overrideSetProperties(iterations + 1)
+      overrideSetProperties(iterations + 1)
     }
   }
 
@@ -51,5 +51,4 @@ object EXPUIBastardizer: LafManagerListener, Disposable {
   override fun lookAndFeelChanged(source: LafManager) {
     bastardizeExperimentalUI()
   }
-
 }
