@@ -40,6 +40,7 @@
     "window": "baseBackground",
     "StatusBar.background": "baseBackground",
     "SearchMatch.foreground": "baseBackground",
+    "Popup.background": "baseBackground",
     "UIDesigner.Canvas.background": "textEditorBackground",
     "Content.background": "textEditorBackground",
     "Table.background": "textEditorBackground",
@@ -63,6 +64,10 @@
     "NewClass.SearchField.background": "secondaryBackground",
     "FormattedTextField.background": "secondaryBackground",
 
+    "MainToolbar.inactiveBackground": "lightEditorColor",
+
+    "MainToolbar.background": "headerColor",
+    "ComplexPopup.Header.background": "headerColor",
     "TitlePane.inactiveBackground": "headerColor",
     "UIDesigner.Panel.background": "headerColor",
     "Menu.background": "headerColor",
@@ -201,6 +206,7 @@
     "Notification.MoreButton.background": "highlightColor",
     "ActionButton.pressedBorderColor": "highlightColor",
     "ActionButton.focusedBorderColor": "highlightColor",
+    "MainToolbar.Dropdown.hoverBackground": "highlightColor",
 
     "VersionControl.MarkerPopup.borderColor": "borderColor",
     "Borders.color": "borderColor",
@@ -400,6 +406,14 @@
     "ScrollBar.Mac.hoverThumbColor":"accentColorTransparent",
     "ScrollBar.background": "textEditorBackground",
 
+    "RunWidget.background": "headerColor",
+    "RunWidget.foreground": "foregroundColor",
+    "RunWidget.separatorColor": "headerColor",
+    "RunWidget.runningBackground": "breakpointActiveColor",
+    "RunWidget.StopButton.background": "diff.conflict",
+    "RunWidget.StopButton.leftHoverBackground": "fileRed",
+    "RunWidget.StopButton.leftPressedBackground": "diff.conflict",
+
 
     "VersionControl": {
       "GitLog": {
@@ -446,6 +460,9 @@
     "ToggleButton.onForeground":"ghostColor",
     "ToggleButton.offForeground":"ghostColor",
     "ToggleButton.borderColor": "accentColorTransparent",
+
+    "Banner.infoBackground": "accentColorTransparent",
+    "Banner.infoBorderColor": "accentColor",
 
     "EditorTabs.inactiveColoredFileBackground": "ghostColor",
     "FileColor.Green": "testScopeColor",

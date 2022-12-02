@@ -17,6 +17,7 @@ import io.unthrottled.doki.hax.SvgLoaderHacker.setSVGColorPatcher
 import io.unthrottled.doki.icon.IconPathReplacementComponent
 import io.unthrottled.doki.laf.LookAndFeelInstaller
 import io.unthrottled.doki.laf.LookAndFeelInstaller.installAllUIComponents
+import io.unthrottled.doki.legacy.EXPUIBastardizer
 import io.unthrottled.doki.legacy.LegacyMigration
 import io.unthrottled.doki.notification.UpdateNotification
 import io.unthrottled.doki.promotions.PromotionManager
@@ -58,6 +59,7 @@ class TheDokiTheme : Disposable {
     hackLAF()
     LegacyMigration.migrateIfNecessary()
     IconPathReplacementComponent.initialize()
+    EXPUIBastardizer.bastardizeExperimentalUI()
     installAllUIComponents()
 
     connection.subscribe(
@@ -93,6 +95,7 @@ class TheDokiTheme : Disposable {
       ProjectManager.TOPIC,
       object : ProjectManagerListener {
         override fun projectOpened(project: Project) {
+          EXPUIBastardizer.bastardizeExperimentalUI()
           ThemeManager.instance.currentTheme
             .ifPresent {
               EditorBackgroundWallpaperService.instance.checkForUpdates(it)

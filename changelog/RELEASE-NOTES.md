@@ -12,3 +12,6 @@
 - Themed the `Version Control Marker Popup`
 - Restored the selected radio button for all light themes.
 - Themed the segmented buttons, so various settings UI components look better.
+- Added the initial experimental UI (New UI) support.
+- Raised lowest supported build to 213.5744.223.
+- Source code is compiled for Java 17.
