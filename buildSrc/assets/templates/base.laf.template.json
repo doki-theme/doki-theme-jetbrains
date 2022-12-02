@@ -406,9 +406,9 @@
     "ScrollBar.Mac.hoverThumbColor":"accentColorTransparent",
     "ScrollBar.background": "textEditorBackground",
 
-    "RunWidget.background": "buttonColor",
-    "RunWidget.foreground": "buttonFont",
-    "RunWidget.separatorColor": "buttonFont",
+    "RunWidget.background": "headerColor",
+    "RunWidget.foreground": "foregroundColor",
+    "RunWidget.separatorColor": "headerColor",
     "RunWidget.runningBackground": "breakpointActiveColor",
     "RunWidget.StopButton.background": "diff.conflict",
     "RunWidget.StopButton.leftHoverBackground": "fileRed",
