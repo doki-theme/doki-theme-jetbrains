@@ -101,6 +101,7 @@ You can choose themes based on characters from these various Anime, Manga, or Vi
       - [Promotional Content](#promotional-content)
   - [Fonts](#fonts)
 - [Miscellaneous](#miscellaneous)
+  - [Custom Icons](#doki-icons) 
   - [Contributing](#contributing) 
   - [Quick Theme Switch](#quick-theme-switch)
   - [Theme Requests](#theme-requests)
@@ -153,10 +154,14 @@ You won't be able to click through the sticker though, so you'll need to move it
 **Note:** [small stickers](#small-stickers) will ignore this setting. All small stickers are movable by default because their windows are not uniform.
 So they may need to be moved base on which window they show up in.
 
-![Secondary Sticker](./assets/readmeAssets/moveable_stickers.gif)
+**Mai Dark**
+
+![Moveable Sticker](./assets/readmeAssets/moveable_stickers.gif)
 
 **Use Custom Sticker** allows you to be able to set the image to be used for all the doki-themes.
 Allowed image types: jpg, png, gif
+
+**Aqua**
 
 ![Custom sticker](./assets/readmeAssets/custom_sticker.gif)
 
@@ -168,6 +173,8 @@ Mostly good getting around Windows' crummy image upscaling.
 hides.
 So you can see what was hiding behind it. There is also an action call `Hide on Hover` that you can invoke to toggle
 this functionality.
+
+**Genos**
 
 https://user-images.githubusercontent.com/15972415/166341110-042e9bfa-08c0-49f3-8d60-02168c07ea97.mp4
 
@@ -204,6 +211,8 @@ Themes that have more than one sticker:
 - Yuri (Light/Dark)
 - Rias (Onyx)
 
+**Monika Dark**
+
   ![Secondary Sticker](./assets/readmeAssets/secondary_stickers.gif)
 
 #### Dimension Cap
@@ -224,6 +233,8 @@ All small stickers are put in dialog windows whose height is greater than a spec
 All small stickers are also move-able by default, that way you can scoot them out of the way. 
 Meaning that they ignore the `Allow Positioning` setting.
 
+**Megumin**
+
 https://user-images.githubusercontent.com/15972415/147772756-c64a7422-8e63-4f1b-bcd5-6fe7e27c5b45.mp4
 
 #### Background Images
@@ -234,11 +245,15 @@ This feature will set the background image to the current theme's official wallp
 > Important: When this feature is enabled, if the plugin is uninstalled, the wallpaper will
 > remain. You can turn off this feature or use the `Set Background Image` action to adjust.
 
+**Asuna Dark**
+
 ![Editor Wallpaper](./assets/readmeAssets/wallpaper_setting.png)
 
 
 **Empty Editor Background** sets the background image of the frame, 
 that appears when all tabs are closed, with the current theme's official wallpaper.
+
+**Asuna Dark**
 
 ![Empty Frame Wallpaper](./assets/readmeAssets/empty_frame_wallpaper.png)
 
@@ -264,6 +279,8 @@ Applies for the following content:
 
 **Name in status bar** will put the name of the character, your current theme is based on, in the status bar. 
 
+**Aqua**
+
 ![image](https://user-images.githubusercontent.com/15972415/108612695-aedba280-73b0-11eb-8e59-2e3229918111.png)
 
 
@@ -273,10 +290,14 @@ Applies for the following content:
 I know I was, now you can fix that problem. You are free to adjust the opacity of the notification window as you please.
 You can hit `Apply` to test out your new settings!
 
+**Ryuko Dark**
+
 ![Notification Opacity](./assets/readmeAssets/notification_opacity.gif)
 
 **Frameless Mode** is a feature only available on MacOS, and gives your IDE the frameless look and feel.
 Note: Since 2022.2 JetBrains platforms natively support this feature. So this implementation will collide with the native one.
+
+**Tohsaka Rin**
 
 ![Frameless mode](./assets/readmeAssets/frameless.png)
 
@@ -312,6 +333,20 @@ This only applies to any Doki Themes. You must enable the `Override Console Font
 
 
 # Miscellaneous
+
+## Doki Icons
+
+<div align="center">
+    <img src="https://doki.assets.unthrottled.io/misc/doki_icons_logo.svg" ></img>
+</div>
+
+**Emilia Light**
+
+![Icons Preview](./assets/readmeAssets/doki_icons.png)
+
+Give your IDE that extra something with the [Doki Theme Icons](https://github.com/doki-theme/doki-theme-icons-jetbrains#doki-theme-icons-jetbrains).
+Custom tailored to work well with your favorite theme! 
+
 
 ## Contributing
 
