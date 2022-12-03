@@ -1,4 +1,4 @@
-# 88.2-1.6.1 [Doki Theme Icons]
+# 88.3-1.7.1 [Doki Theme Icons]
 
 <div align="center">
 <img src="https://doki.assets.unthrottled.io/misc/doki_icons_logo.png" width="256" height="256" alt="Doki Theme Icons"></img>
@@ -13,5 +13,5 @@
 - Restored the selected radio button for all light themes.
 - Themed the segmented buttons, so various settings UI components look better.
 - Added the initial experimental UI (New UI) support.
-- Raised lowest supported build to 213.5744.223.
 - Source code is compiled for Java 17.
+- Raised lowest supported build to 2022.2 to support Java 17.

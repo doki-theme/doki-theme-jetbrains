@@ -1,6 +1,10 @@
 Changelog
 ---
 
+# 88.3-1.7.1 [Min Supported Platform]
+
+- Raised lowest supported build to 2022.2 to support Java 17.
+
 # 88.2-1.7.0 [Initial EXP UI Support]
 
 - Added the initial experimental UI (New UI) support.
