@@ -63,8 +63,9 @@
     "TextArea.background": "secondaryBackground",
     "NewClass.SearchField.background": "secondaryBackground",
     "FormattedTextField.background": "secondaryBackground",
+    "CompletionPopup.Advertiser.background": "secondaryBackground",
+    "MainToolbar.inactiveBackground": "secondaryBackground",
 
-    "MainToolbar.inactiveBackground": "lightEditorColor",
 
     "MainToolbar.background": "headerColor",
     "ComplexPopup.Header.background": "headerColor",
