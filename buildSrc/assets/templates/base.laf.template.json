@@ -65,6 +65,7 @@
     "FormattedTextField.background": "secondaryBackground",
     "CompletionPopup.Advertiser.background": "secondaryBackground",
     "MainToolbar.inactiveBackground": "secondaryBackground",
+    "Editor.ToolTip.background": "secondaryBackground",
 
 
     "MainToolbar.background": "headerColor",
