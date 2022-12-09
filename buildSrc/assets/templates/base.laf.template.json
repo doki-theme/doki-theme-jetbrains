@@ -63,8 +63,10 @@
     "TextArea.background": "secondaryBackground",
     "NewClass.SearchField.background": "secondaryBackground",
     "FormattedTextField.background": "secondaryBackground",
+    "CompletionPopup.Advertiser.background": "secondaryBackground",
+    "MainToolbar.inactiveBackground": "secondaryBackground",
+    "Editor.ToolTip.background": "secondaryBackground",
 
-    "MainToolbar.inactiveBackground": "lightEditorColor",
 
     "MainToolbar.background": "headerColor",
     "ComplexPopup.Header.background": "headerColor",
@@ -268,6 +270,7 @@
     "TextField.disabledBackground": "nonProjectFileScopeColor",
 
     "Notification.borderColor": "accentColorMoreTransparent",
+    "ProgressBar.trackColor": "accentColorMoreTransparent",
 
     "EditorTabs.underlinedTabBackground": "highlightColor",
 
