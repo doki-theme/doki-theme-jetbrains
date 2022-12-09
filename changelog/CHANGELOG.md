@@ -1,5 +1,9 @@
 Changelog
 ---
+# 88.3-1.7.2 [Better EXP UI Support]
+
+- Added better EXP UI support
+- Themed the progress indicator track bar.
 
 # 88.3-1.7.1 [Min Supported Platform]
 
