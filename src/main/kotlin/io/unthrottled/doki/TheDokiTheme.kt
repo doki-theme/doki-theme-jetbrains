@@ -97,40 +97,41 @@ class TheDokiTheme : Disposable {
     connection.subscribe(
       ProjectManager.TOPIC,
       object : ProjectManagerListener {
-        override fun projectOpened(project: Project) {
-          EXPUIBastardizer.bastardizeExperimentalUI()
-          ThemeManager.instance.currentTheme
-            .ifPresent {
-              EditorBackgroundWallpaperService.instance.checkForUpdates(it)
-              EmptyFrameWallpaperService.instance.checkForUpdates(it)
-              StickerPaneService.instance.checkForUpdates(it)
-            }
-
-          val isNewUser = ThemeConfig.instance.userId.isEmpty()
-          getVersion()
-            .ifPresent { version ->
-              if (version != ThemeConfig.instance.version) {
-                LegacyMigration.newVersionMigration(project)
-                ThemeConfig.instance.version = version
-                ThemeManager.instance.currentTheme.ifPresent {
-                  StartupManager.getInstance(project).runWhenProjectIsInitialized {
-                    UpdateNotification.display(
-                      project,
-                      version,
-                      isNewUser,
-                    )
-                  }
-                }
-              }
-
-              StartupManager.getInstance(project).runWhenProjectIsInitialized {
-                PromotionManager.registerPromotion(version)
-              }
-            }
-          registerUser()
-        }
       }
     )
+  }
+
+  fun projectOpened(project: Project) {
+    EXPUIBastardizer.bastardizeExperimentalUI()
+    ThemeManager.instance.currentTheme
+      .ifPresent {
+        EditorBackgroundWallpaperService.instance.checkForUpdates(it)
+        EmptyFrameWallpaperService.instance.checkForUpdates(it)
+        StickerPaneService.instance.checkForUpdates(it)
+      }
+
+    val isNewUser = ThemeConfig.instance.userId.isEmpty()
+    getVersion()
+      .ifPresent { version ->
+        if (version != ThemeConfig.instance.version) {
+          LegacyMigration.newVersionMigration(project)
+          ThemeConfig.instance.version = version
+          ThemeManager.instance.currentTheme.ifPresent {
+            StartupManager.getInstance(project).runAfterOpened {
+              UpdateNotification.display(
+                project,
+                version,
+                isNewUser,
+              )
+            }
+          }
+        }
+
+        StartupManager.getInstance(project).runAfterOpened {
+          PromotionManager.registerPromotion(version)
+        }
+      }
+    registerUser()
   }
 
   private fun userOnBoarding() {

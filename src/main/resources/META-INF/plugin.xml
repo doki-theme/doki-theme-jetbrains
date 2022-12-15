@@ -33,6 +33,7 @@
     <statusBarWidgetFactory implementation="io.unthrottled.doki.ui.status.ThemeStatusBarProvider"/>
     <editorNotificationProvider implementation="io.unthrottled.doki.internal.DokiEditorNotificationProvider"/>
     <registryKey defaultValue="true" description="Prevent the Doki Theme plugin from updating downloaded assets" key="doki.theme.update.assets"/>
+    <postStartupActivity implementation="io.unthrottled.doki.listener.PluginPostStartUpActivity"/>
     <themeProvider id="be058474-b967-4afb-b6d9-bda1948b33ec" path="/doki/themes/lucky_star/Konata.theme.json"/>
     <themeProvider id="ceb8c11f-f736-420b-962b-fc0db26b3708" path="/doki/themes/darling_in_the_franxx/Hiro.theme.json"/>
     <themeProvider id="8c99ec4b-fda0-4ab7-95ad-a6bf80c3924b" path="/doki/themes/darling_in_the_franxx/Zero_Two_Dark_Rose.theme.json"/>
