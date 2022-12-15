@@ -1,4 +1,4 @@
-# 88.3-1.7.2 [Doki Theme Icons]
+# 88.3-1.8.0 [Doki Theme Icons]
 
 <div align="center">
 <img src="https://doki.assets.unthrottled.io/misc/doki_icons_logo.png" width="256" height="256" alt="Doki Theme Icons"></img>
@@ -16,3 +16,5 @@
 - Source code is compiled for Java 17.
 - Raised lowest supported build to 2022.2 to support Java 17.
 - Themed the progress indicator track bar.
+- Removed Frameless mode as it's supported by the platform now.
+- Migrated away from various internal methods where replacement was available.

@@ -7,8 +7,6 @@ import com.intellij.openapi.application.ApplicationActivationListener
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.extensions.PluginId
 import com.intellij.openapi.project.Project
-import com.intellij.openapi.project.ProjectManager
-import com.intellij.openapi.project.ProjectManagerListener
 import com.intellij.openapi.startup.StartupManager
 import com.intellij.openapi.wm.IdeFrame
 import io.unthrottled.doki.config.ThemeConfig
@@ -91,12 +89,6 @@ class TheDokiTheme : Disposable {
             IconPathReplacementComponent.removePatchers()
             LookAndFeelInstaller.removeIcons()
           }
-      }
-    )
-
-    connection.subscribe(
-      ProjectManager.TOPIC,
-      object : ProjectManagerListener {
       }
     )
   }
