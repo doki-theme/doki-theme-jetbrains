@@ -18,6 +18,8 @@
   <depends optional="true" config-file="io.unthrottled.doki.theme-com.intellij.modules.lang.xml">com.intellij.modules.lang</depends>
   <depends optional="true" config-file="io.unthrottled.doki.theme-XPathView.xml">XPathView</depends>
   <extensions defaultExtensionNs="com.intellij">
+    <applicationService serviceImplementation="io.unthrottled.doki.TheDokiTheme"/>
+    <applicationService serviceImplementation="io.unthrottled.doki.stickers.StickerComponent"/>
     <applicationService serviceImplementation="io.unthrottled.doki.stickers.MarginService"/>
     <applicationService serviceInterface="io.unthrottled.doki.themes.ThemeManager" serviceImplementation="io.unthrottled.doki.themes.impl.ThemeManagerImpl"/>
     <applicationService serviceImplementation="io.unthrottled.doki.stickers.EditorBackgroundWallpaperService"/>
@@ -121,20 +123,10 @@
     <themeProvider id="01e61500-862c-41cd-b653-48d2ef7b1882" path="/doki/themes/toaru_majutsu_no_index/Misaka_Mikoto.theme.json"/>
   </extensions>
   <applicationListeners>
+    <listener class="io.unthrottled.doki.listener.ApplicationLifecycleListener" topic="com.intellij.ide.AppLifecycleListener"/>
     <listener class="io.unthrottled.doki.discreet.ApplicationDiscreetModeListener" topic="io.unthrottled.doki.discreet.DiscreetModeListener"/>
     <listener class="io.unthrottled.doki.integrations.IDEPluginInstallListener" topic="com.intellij.ide.plugins.DynamicPluginListener"/>
   </applicationListeners>
-  <application-components>
-    <component>
-      <implementation-class>io.unthrottled.doki.TheDokiTheme</implementation-class>
-    </component>
-    <component>
-      <implementation-class>io.unthrottled.doki.stickers.StickerComponent</implementation-class>
-    </component>
-    <component>
-      <implementation-class>io.unthrottled.doki.hax.HackComponent</implementation-class>
-    </component>
-  </application-components>
   <actions>
     <group id="DokiThemeActions" text="Doki Theme Options" popup="true" icon="DokiThemeIcons.CONFIG">
       <action id="StickerEnabler" class="io.unthrottled.doki.actions.StickersToggleAction" text="Enable Stickers" icon="DokiThemeIcons.FAVORITES" description="Enables the sticker in the lower right hand corner"/>

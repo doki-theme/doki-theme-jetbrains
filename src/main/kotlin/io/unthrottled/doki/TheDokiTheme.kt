@@ -40,6 +40,9 @@ class TheDokiTheme : Disposable {
     const val COMMUNITY_PLUGIN_ID = "io.acari.DDLCTheme"
     private const val ULTIMATE_PLUGIN_ID = "io.unthrottled.DokiTheme"
 
+    val instance: TheDokiTheme
+      get() = ApplicationManager.getApplication().getService(TheDokiTheme::class.java)
+
     fun getVersion(): Optional<String> =
       PluginManagerCore.getPlugin(PluginId.getId(COMMUNITY_PLUGIN_ID))
         .toOptional()
@@ -150,5 +153,8 @@ class TheDokiTheme : Disposable {
   override fun dispose() {
     connection.dispose()
     UpdateNotificationUpdater.dispose()
+  }
+
+  fun init() {
   }
 }

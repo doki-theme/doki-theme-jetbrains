@@ -3,13 +3,10 @@ package io.unthrottled.doki.legacy
 import com.intellij.notification.Notification
 import com.intellij.notification.NotificationAction
 import com.intellij.openapi.actionSystem.AnActionEvent
-import com.intellij.openapi.application.ex.ApplicationInfoEx
 import com.intellij.openapi.extensions.PluginId
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.startup.StartupManager
 import com.intellij.openapi.updateSettings.impl.pluginsAdvertisement.installAndEnable
-import com.intellij.openapi.util.BuildNumber
-import com.intellij.openapi.util.SystemInfo
 import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.notification.UpdateNotification
 import io.unthrottled.doki.promotions.MessageBundle

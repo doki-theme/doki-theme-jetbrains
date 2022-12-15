@@ -61,6 +61,9 @@ object HackComponent : Disposable {
     enableHintConsistency()
   }
 
+  fun init() {
+  }
+
   private fun enableHintConsistency() {
     hackReformatHintInfoForeground()
   }
