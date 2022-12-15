@@ -27,14 +27,12 @@ import com.intellij.ui.CaptionPanel
 import com.intellij.ui.Gray
 import com.intellij.ui.JBColor
 import com.intellij.ui.SimpleTextAttributes
-import com.intellij.ui.messages.JBMacMessages
 import com.intellij.ui.popup.util.MasterDetailPopupBuilder
 import com.intellij.util.ui.UIUtil
 import com.intellij.xdebugger.impl.ui.XDebuggerUIConstants
 import com.intellij.xdebugger.memory.ui.ClassesTable
 import io.unthrottled.doki.hax.FieldHacker.setFinalStatic
 import io.unthrottled.doki.stickers.DOKI_BACKGROUND_PROP
-import io.unthrottled.doki.ui.TitlePaneUI.Companion.LOL_NOPE
 import io.unthrottled.doki.util.runSafely
 import javassist.CannotCompileException
 import javassist.ClassClassPath
@@ -45,7 +43,6 @@ import javassist.expr.ExprEditor
 import javassist.expr.MethodCall
 import javassist.expr.NewExpr
 import java.awt.Color
-import javax.swing.JDialog
 
 @Suppress("TooManyFunctions", "LargeClass")
 object HackComponent : Disposable {
@@ -60,9 +57,11 @@ object HackComponent : Disposable {
     enableAccentConsistency()
     enableBackgroundConsistency()
     enableSelectionConsistency()
-    enableTitlePaneConsistency()
     enableHoverConsistency()
     enableHintConsistency()
+  }
+
+  fun init() {
   }
 
   private fun enableHintConsistency() {
@@ -92,10 +91,6 @@ object HackComponent : Disposable {
     }
   }
 
-  private fun enableTitlePaneConsistency() {
-    hackSheetMessage()
-  }
-
   private fun enableSelectionConsistency() {
     hackWelcomeScreen()
     hackSearchHighlight()
@@ -120,7 +115,6 @@ object HackComponent : Disposable {
 
   private fun enableBackgroundConsistency() {
     hackParameterInfoBackground()
-    hackSheetWindow()
     hackToolWindowDecorator()
     hackLivePreview()
     hackEmptyTextPanel()
@@ -248,62 +242,6 @@ object HackComponent : Disposable {
       )
     }) {
       log.warn("Unable to hackBookMarkBorder  for reasons.")
-    }
-  }
-
-  private fun hackSheetMessage() {
-    runSafely({
-      val cp = ClassPool(true)
-      cp.insertClassPath(ClassClassPath(JBMacMessages::class.java))
-      val ctClass = cp.get("com.intellij.ui.messages.SheetMessage")
-      ctClass.declaredConstructors
-        .forEach { constructorDude ->
-          constructorDude.instrument(
-            object : ExprEditor() {
-              override fun edit(e: NewExpr?) {
-                if (e?.className == JDialog::class.java.name) {
-                  e?.replace("{ \$2 = \"$LOL_NOPE\"; \$_ = \$proceed(\$\$); }")
-                }
-              }
-            }
-          )
-        }
-      ctClass.toClass()
-    }) {
-      log.warn("Unable to hackSheetMessage for reasons.")
-    }
-  }
-
-  private fun hackSheetWindow() {
-    runSafely({
-      val cp = ClassPool(true)
-      cp.insertClassPath(ClassClassPath(JBMacMessages::class.java))
-      val ctClass = cp.get("com.intellij.ui.messages.SheetController")
-      ctClass.declaredClasses
-        .filter { it.declaredMethods.any { m -> m.name == "paintComponent" } }
-        .forEach { classDude ->
-          classDude.getDeclaredMethods("paintComponent").forEach {
-            it.instrument(
-              object : ExprEditor() {
-                override fun edit(e: NewExpr?) {
-                  if (e?.className == JBColor::class.java.name) {
-                    e?.replace("{ \$_ = com.intellij.util.ui.UIUtil.getPanelBackground(); }")
-                  }
-                }
-
-                override fun edit(e: MethodCall?) {
-                  if (e?.methodName == "isUnderDarcula") {
-                    e.replace("{ \$_ = true; }")
-                  }
-                }
-              }
-            )
-          }
-          classDude.toClass()
-        }
-      ctClass.toClass()
-    }) {
-      log.warn("Unable to hackSheetWindow for reasons.")
     }
   }
 

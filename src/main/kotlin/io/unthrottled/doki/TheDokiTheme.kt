@@ -7,8 +7,6 @@ import com.intellij.openapi.application.ApplicationActivationListener
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.extensions.PluginId
 import com.intellij.openapi.project.Project
-import com.intellij.openapi.project.ProjectManager
-import com.intellij.openapi.project.ProjectManagerListener
 import com.intellij.openapi.startup.StartupManager
 import com.intellij.openapi.wm.IdeFrame
 import io.unthrottled.doki.config.ThemeConfig
@@ -39,6 +37,9 @@ class TheDokiTheme : Disposable {
   companion object {
     const val COMMUNITY_PLUGIN_ID = "io.acari.DDLCTheme"
     private const val ULTIMATE_PLUGIN_ID = "io.unthrottled.DokiTheme"
+
+    val instance: TheDokiTheme
+      get() = ApplicationManager.getApplication().getService(TheDokiTheme::class.java)
 
     fun getVersion(): Optional<String> =
       PluginManagerCore.getPlugin(PluginId.getId(COMMUNITY_PLUGIN_ID))
@@ -90,44 +91,39 @@ class TheDokiTheme : Disposable {
           }
       }
     )
+  }
 
-    connection.subscribe(
-      ProjectManager.TOPIC,
-      object : ProjectManagerListener {
-        override fun projectOpened(project: Project) {
-          EXPUIBastardizer.bastardizeExperimentalUI()
-          ThemeManager.instance.currentTheme
-            .ifPresent {
-              EditorBackgroundWallpaperService.instance.checkForUpdates(it)
-              EmptyFrameWallpaperService.instance.checkForUpdates(it)
-              StickerPaneService.instance.checkForUpdates(it)
+  fun projectOpened(project: Project) {
+    EXPUIBastardizer.bastardizeExperimentalUI()
+    ThemeManager.instance.currentTheme
+      .ifPresent {
+        EditorBackgroundWallpaperService.instance.checkForUpdates(it)
+        EmptyFrameWallpaperService.instance.checkForUpdates(it)
+        StickerPaneService.instance.checkForUpdates(it)
+      }
+
+    val isNewUser = ThemeConfig.instance.userId.isEmpty()
+    getVersion()
+      .ifPresent { version ->
+        if (version != ThemeConfig.instance.version) {
+          LegacyMigration.newVersionMigration(project)
+          ThemeConfig.instance.version = version
+          ThemeManager.instance.currentTheme.ifPresent {
+            StartupManager.getInstance(project).runAfterOpened {
+              UpdateNotification.display(
+                project,
+                version,
+                isNewUser,
+              )
             }
+          }
+        }
 
-          val isNewUser = ThemeConfig.instance.userId.isEmpty()
-          getVersion()
-            .ifPresent { version ->
-              if (version != ThemeConfig.instance.version) {
-                LegacyMigration.newVersionMigration(project)
-                ThemeConfig.instance.version = version
-                ThemeManager.instance.currentTheme.ifPresent {
-                  StartupManager.getInstance(project).runWhenProjectIsInitialized {
-                    UpdateNotification.display(
-                      project,
-                      version,
-                      isNewUser,
-                    )
-                  }
-                }
-              }
-
-              StartupManager.getInstance(project).runWhenProjectIsInitialized {
-                PromotionManager.registerPromotion(version)
-              }
-            }
-          registerUser()
+        StartupManager.getInstance(project).runAfterOpened {
+          PromotionManager.registerPromotion(version)
         }
       }
-    )
+    registerUser()
   }
 
   private fun userOnBoarding() {
@@ -150,5 +146,8 @@ class TheDokiTheme : Disposable {
   override fun dispose() {
     connection.dispose()
     UpdateNotificationUpdater.dispose()
+  }
+
+  fun init() {
   }
 }

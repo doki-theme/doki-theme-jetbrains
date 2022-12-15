@@ -3,13 +3,10 @@ package io.unthrottled.doki.legacy
 import com.intellij.notification.Notification
 import com.intellij.notification.NotificationAction
 import com.intellij.openapi.actionSystem.AnActionEvent
-import com.intellij.openapi.application.ex.ApplicationInfoEx
 import com.intellij.openapi.extensions.PluginId
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.startup.StartupManager
 import com.intellij.openapi.updateSettings.impl.pluginsAdvertisement.installAndEnable
-import com.intellij.openapi.util.BuildNumber
-import com.intellij.openapi.util.SystemInfo
 import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.notification.UpdateNotification
 import io.unthrottled.doki.promotions.MessageBundle
@@ -22,7 +19,6 @@ import io.unthrottled.doki.util.toOptional
 
 object LegacyMigration {
   fun migrateIfNecessary() {
-    migrateUsersAwayFromTitlePane()
   }
 
   fun newVersionMigration(project: Project) {
@@ -52,6 +48,7 @@ object LegacyMigration {
     val installAction = object : NotificationAction(MessageBundle.message("promotion.action.ok")) {
       override fun actionPerformed(e: AnActionEvent, notification: Notification) {
         installAndEnable(
+          project,
           setOf(
             PluginId.getId(DOKI_ICONS_PLUGIN_ID)
           )
@@ -89,18 +86,5 @@ object LegacyMigration {
         )
         setDokiTheme(renamedTheme.toOptional())
       }
-  }
-
-  private val nativeTitlePaneBuild = BuildNumber.fromString("222.2680.4")
-  private fun migrateUsersAwayFromTitlePane() {
-    val build = ApplicationInfoEx.getInstanceEx().build
-    if (SystemInfo.isMac &&
-      ThemeConfig.instance.isThemedTitleBar &&
-      // is the current build greater that the
-      // build that has native titlepane support
-      (nativeTitlePaneBuild?.compareTo(build) ?: 0) <= 0
-    ) {
-      ThemeConfig.instance.isThemedTitleBar = false
-    }
   }
 }

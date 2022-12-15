@@ -56,7 +56,6 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
   private JCheckBox backgroundWallpaperCheckBox;
   private JLabel warningLabel;
   private JCheckBox nameInStatusBarCheckBox;
-  private JCheckBox framelessModeMacOSOnlyCheckBox;
   private JButton chooseImageButton;
   private JCheckBox useCustomStickerCheckBox;
   private JTextPane generalLinks;
@@ -203,11 +202,6 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
         themeSettingsModel.setDiscreetMode(discreetModeCheckBox.isSelected());
         toggleDiscreetModeStuff(discreetModeCheckBox.isSelected());
       }
-    );
-
-    framelessModeMacOSOnlyCheckBox.setSelected(initialThemeSettingsModel.isThemedTitleBar());
-    framelessModeMacOSOnlyCheckBox.addActionListener(e ->
-      themeSettingsModel.setThemedTitleBar(framelessModeMacOSOnlyCheckBox.isSelected())
     );
 
     overrideEditorFontSizeCheckBox.setSelected(initialThemeSettingsModel.isCustomFontSize());

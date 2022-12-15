@@ -23,6 +23,10 @@ class StickerComponent :
   }
 
   companion object {
+
+    val instance: StickerComponent
+      get() = ApplicationManager.getApplication().getService(StickerComponent::class.java)
+
     fun activateForTheme(dokiTheme: DokiTheme) {
       if (ThemeConfig.instance.discreetMode) return
 
@@ -54,5 +58,8 @@ class StickerComponent :
       }) {
         remove()
       }
+  }
+
+  fun init() {
   }
 }

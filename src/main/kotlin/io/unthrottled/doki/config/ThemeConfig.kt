@@ -34,7 +34,6 @@ class ThemeConfig : PersistentStateComponent<ThemeConfig>, Cloneable {
   var isFirstTime: Boolean = true
   var isDokiBackground: Boolean = false
   var isEmptyFrameBackground: Boolean = true
-  var isThemedTitleBar: Boolean = true
   var showThemeStatusBar: Boolean = true
   var allowPromotions: Boolean = true
   var currentStickerName: String = CurrentSticker.DEFAULT.name
