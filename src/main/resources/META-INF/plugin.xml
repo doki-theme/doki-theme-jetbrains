@@ -145,9 +145,6 @@
       <add-to-group group-id="MainToolBar" anchor="last"/>
       <add-to-group group-id="ToolsMenu"/>
     </group>
-    <action id="io.unthrottled.doki.actions.ThemedTitleBarAction" class="io.unthrottled.doki.actions.ThemedTitleBarAction" text="Themed Title Bar" icon="DokiThemeIcons.TITLE_BAR" description="Makes the MacOS title bar the same color as your selected theme.">
-      <add-to-group group-id="DokiThemeActions" anchor="last"/>
-    </action>
     <action id="io.unthrottled.doki.actions.SwapStickerAction" class="io.unthrottled.doki.actions.SwapStickerAction" text="Swap Sticker" icon="DokiThemeIcons.DIFF" description="Changes the current sticker at the bottom right hand corner of the screen.">
       <add-to-group group-id="DokiThemeActions" anchor="last"/>
     </action>

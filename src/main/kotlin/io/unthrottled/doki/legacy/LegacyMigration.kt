@@ -22,7 +22,6 @@ import io.unthrottled.doki.util.toOptional
 
 object LegacyMigration {
   fun migrateIfNecessary() {
-    migrateUsersAwayFromTitlePane()
   }
 
   fun newVersionMigration(project: Project) {
@@ -89,18 +88,5 @@ object LegacyMigration {
         )
         setDokiTheme(renamedTheme.toOptional())
       }
-  }
-
-  private val nativeTitlePaneBuild = BuildNumber.fromString("222.2680.4")
-  private fun migrateUsersAwayFromTitlePane() {
-    val build = ApplicationInfoEx.getInstanceEx().build
-    if (SystemInfo.isMac &&
-      ThemeConfig.instance.isThemedTitleBar &&
-      // is the current build greater that the
-      // build that has native titlepane support
-      (nativeTitlePaneBuild?.compareTo(build) ?: 0) <= 0
-    ) {
-      ThemeConfig.instance.isThemedTitleBar = false
-    }
   }
 }

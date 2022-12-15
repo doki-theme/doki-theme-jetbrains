@@ -9,7 +9,6 @@ import io.unthrottled.doki.service.GlassNotificationService
 import io.unthrottled.doki.service.PluginService
 import io.unthrottled.doki.ui.DokiCheckboxUI
 import io.unthrottled.doki.ui.DokiTableSelectedCellHighlightBorder
-import io.unthrottled.doki.ui.TitlePaneUI
 import io.unthrottled.doki.ui.ToggleButtonUI
 import javax.swing.BorderFactory
 import javax.swing.Icon
@@ -23,7 +22,6 @@ object LookAndFeelInstaller {
 
   fun installAllUIComponents() {
     installIcons()
-    installTitlePane()
     installButtons()
     installCheckboxes()
     installDefaults()
@@ -82,11 +80,5 @@ object LookAndFeelInstaller {
     defaults[DokiCheckboxUI::class.java.name] = DokiCheckboxUI::class.java
     defaults["CheckBoxMenuItemUI"] = DarculaCheckBoxMenuItemUI::class.java.name
     defaults[DarculaCheckBoxMenuItemUI::class.java.name] = DarculaCheckBoxMenuItemUI::class.java
-  }
-
-  private fun installTitlePane() {
-    val defaults = UIManager.getLookAndFeelDefaults()
-    defaults["RootPaneUI"] = TitlePaneUI::class.java.name
-    defaults[TitlePaneUI::class.java.name] = TitlePaneUI::class.java
   }
 }

@@ -20,7 +20,6 @@ import io.unthrottled.doki.settings.actors.StickerActor
 import io.unthrottled.doki.settings.actors.StickerHideActor
 import io.unthrottled.doki.settings.actors.ThemeActor
 import io.unthrottled.doki.settings.actors.ThemeStatusBarActor
-import io.unthrottled.doki.settings.actors.ThemedTitleBarActor
 import io.unthrottled.doki.stickers.CurrentSticker
 import io.unthrottled.doki.stickers.CustomStickerService
 import io.unthrottled.doki.stickers.StickerLevel
@@ -33,7 +32,6 @@ data class ThemeSettingsModel(
   var areStickersEnabled: Boolean,
   var isLafAnimation: Boolean,
   var currentTheme: String,
-  var isThemedTitleBar: Boolean,
   var showThemeStatusBar: Boolean,
   var currentSticker: CurrentSticker,
   var isNotShowReadmeAtStartup: Boolean,
@@ -81,7 +79,6 @@ object ThemeSettings {
       areStickersEnabled = ThemeConfig.instance.currentStickerLevel == StickerLevel.ON,
       isLafAnimation = ThemeConfig.instance.isLafAnimation,
       currentTheme = ThemeManager.instance.currentTheme.map { it.name }.orElseGet { ThemeManager.DEFAULT_THEME_NAME },
-      isThemedTitleBar = ThemeConfig.instance.isThemedTitleBar,
       showThemeStatusBar = ThemeConfig.instance.showThemeStatusBar,
       currentSticker = ThemeConfig.instance.currentSticker,
       isNotShowReadmeAtStartup = ThemeConfig.instance.isNotShowReadmeAtStartup,
@@ -130,7 +127,6 @@ object ThemeSettings {
       themeSettingsModel.smallMaxStickerWidth,
       themeSettingsModel.smallMaxStickerHeight,
     )
-    ThemedTitleBarActor.enableThemedTitleBar(themeSettingsModel.isThemedTitleBar)
     ThemeActor.applyTheme(themeSettingsModel.currentTheme)
     ThemeStatusBarActor.applyConfig(themeSettingsModel.showThemeStatusBar)
     MoveableStickerActor.moveableStickers(themeSettingsModel.isMoveableStickers)

@@ -1,5 +1,10 @@
 Changelog
 ---
+
+# 88.3-1.8.0 [SDK API Updates]
+
+- Removed Frameless mode as it's supported by the platform now.
+
 # 88.3-1.7.2 [Better EXP UI Support]
 
 - Added better EXP UI support

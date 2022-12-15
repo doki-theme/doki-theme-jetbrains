@@ -294,13 +294,6 @@ You can hit `Apply` to test out your new settings!
 
 ![Notification Opacity](./assets/readmeAssets/notification_opacity.gif)
 
-**Frameless Mode** is a feature only available on MacOS, and gives your IDE the frameless look and feel.
-Note: Since 2022.2 JetBrains platforms natively support this feature. So this implementation will collide with the native one.
-
-**Tohsaka Rin**
-
-![Frameless mode](./assets/readmeAssets/frameless.png)
-
 **Theme Change Animation** enables the neat fade-in animation effect as you change your theme.
 You can see a rough example in the [quick theme switch section.](#quick-theme-switch)
 
