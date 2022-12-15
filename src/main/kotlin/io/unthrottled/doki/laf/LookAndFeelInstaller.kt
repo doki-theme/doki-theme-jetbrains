@@ -1,13 +1,11 @@
 package io.unthrottled.doki.laf
 
-import com.intellij.ide.ui.laf.darcula.ui.DarculaCheckBoxMenuItemUI
 import com.intellij.ui.JBColor.DARK_GRAY
 import com.intellij.ui.JBColor.namedColor
 import com.intellij.util.ui.LafIconLookup
 import io.unthrottled.doki.icon.DokiIcons
 import io.unthrottled.doki.service.GlassNotificationService
 import io.unthrottled.doki.service.PluginService
-import io.unthrottled.doki.ui.DokiCheckboxUI
 import io.unthrottled.doki.ui.DokiTableSelectedCellHighlightBorder
 import io.unthrottled.doki.ui.ToggleButtonUI
 import javax.swing.BorderFactory
@@ -23,7 +21,6 @@ object LookAndFeelInstaller {
   fun installAllUIComponents() {
     installIcons()
     installButtons()
-    installCheckboxes()
     installDefaults()
     GlassNotificationService.makeNotificationSeeThrough()
   }
@@ -70,15 +67,5 @@ object LookAndFeelInstaller {
     val defaults = UIManager.getLookAndFeelDefaults()
     defaults["OnOffButtonUI"] = ToggleButtonUI::class.java.name
     defaults[ToggleButtonUI::class.java.name] = ToggleButtonUI::class.java
-  }
-
-  private fun installCheckboxes() {
-    val defaults = UIManager.getLookAndFeelDefaults()
-    defaults[DokiIcons.CheckBox.CHECK_MARK_KEY] = DokiIcons.CheckBox.CHECK_MARK
-    defaults["CheckBoxMenuItem.borderPainted"] = false
-    defaults["CheckBoxUI"] = DokiCheckboxUI::class.java.name
-    defaults[DokiCheckboxUI::class.java.name] = DokiCheckboxUI::class.java
-    defaults["CheckBoxMenuItemUI"] = DarculaCheckBoxMenuItemUI::class.java.name
-    defaults[DarculaCheckBoxMenuItemUI::class.java.name] = DarculaCheckBoxMenuItemUI::class.java
   }
 }
