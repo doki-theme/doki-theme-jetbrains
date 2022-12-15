@@ -102,6 +102,7 @@ class AniMemePromotionDialog(
     val installAction = object : NotificationAction(MessageBundle.message("promotion.action.ok")) {
       override fun actionPerformed(e: AnActionEvent, notification: Notification) {
         installAndEnable(
+          e.project,
           setOf(
             PluginId.getId(AMII_PLUGIN_ID)
           )

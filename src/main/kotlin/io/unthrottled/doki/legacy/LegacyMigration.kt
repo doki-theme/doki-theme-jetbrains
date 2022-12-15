@@ -48,6 +48,7 @@ object LegacyMigration {
     val installAction = object : NotificationAction(MessageBundle.message("promotion.action.ok")) {
       override fun actionPerformed(e: AnActionEvent, notification: Notification) {
         installAndEnable(
+          project,
           setOf(
             PluginId.getId(DOKI_ICONS_PLUGIN_ID)
           )
