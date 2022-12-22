@@ -1,6 +1,10 @@
 Changelog
 ---
 
+# 88.3-1.8.1 [Global Font Fix]
+
+- Fixed issue with global font override not being applied after IDE was restarted.
+
 # 88.3-1.8.0 [SDK API Updates]
 
 - Removed Frameless mode as it's supported by the platform now.

@@ -62,6 +62,7 @@ class TheDokiTheme : Disposable {
     IconPathReplacementComponent.initialize()
     EXPUIBastardizer.bastardizeExperimentalUI()
     installAllUIComponents()
+    applyFonts()
 
     connection.subscribe(
       ApplicationActivationListener.TOPIC,
@@ -82,8 +83,7 @@ class TheDokiTheme : Disposable {
           .doOrElse({
             setSVGColorPatcher(it)
             installAllUIComponents()
-            applyCustomFontSize()
-            applyConsoleFont()
+            applyFonts()
             attemptToRefreshUpdateNotification(it)
           }) {
             IconPathReplacementComponent.removePatchers()
@@ -91,6 +91,11 @@ class TheDokiTheme : Disposable {
           }
       }
     )
+  }
+
+  private fun applyFonts() {
+    applyCustomFontSize()
+    applyConsoleFont()
   }
 
   fun projectOpened(project: Project) {
