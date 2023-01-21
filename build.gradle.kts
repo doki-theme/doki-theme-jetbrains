@@ -33,7 +33,7 @@ dependencies {
   implementation("commons-io:commons-io:2.11.0")
   implementation("org.javassist:javassist:3.29.2-GA")
   implementation("io.sentry:sentry:6.12.1")
-  testImplementation("org.assertj:assertj-core:3.24.1")
+  testImplementation("org.assertj:assertj-core:3.24.2")
   testImplementation("io.mockk:mockk:1.13.3")
 }
 
