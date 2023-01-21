@@ -1,7 +1,7 @@
 package io.unthrottled.doki.themes.impl
 
 import com.google.gson.Gson
-import com.intellij.ide.ui.laf.LafManagerImpl
+import com.intellij.ide.ui.LafManager
 import com.intellij.ide.ui.laf.UIThemeBasedLookAndFeelInfo
 import com.intellij.util.io.inputStream
 import io.unthrottled.doki.TheDokiTheme
@@ -58,7 +58,7 @@ class ThemeManagerImpl : ThemeManager {
     get() = currentTheme.isPresent
 
   override val currentTheme: Optional<DokiTheme>
-    get() = processLaf(LafManagerImpl.getInstance().currentLookAndFeel)
+    get() = processLaf(LafManager.getInstance().currentLookAndFeel)
 
   override val allThemes: List<DokiTheme>
     get() = themeMap.values.toList()

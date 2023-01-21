@@ -1,1 +1,2 @@
 - Fixed issue with global font override not being applied after IDE was restarted.
+- Added the initial 2023.1 build support. 

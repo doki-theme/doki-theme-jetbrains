@@ -2,7 +2,6 @@ package io.unthrottled.doki.stickers
 
 import com.intellij.ide.ui.LafManager
 import com.intellij.ide.ui.LafManagerListener
-import com.intellij.ide.ui.laf.LafManagerImpl
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.application.ApplicationManager
 import io.unthrottled.doki.config.ThemeConfig
@@ -18,7 +17,7 @@ class StickerComponent :
 
   init {
     StickerPaneService.instance.init()
-    processLaf(LafManagerImpl.getInstance().currentLookAndFeel)
+    processLaf(LafManager.getInstance().currentLookAndFeel)
     connection.subscribe(LafManagerListener.TOPIC, this)
   }
 
