@@ -2,7 +2,6 @@ package io.unthrottled.doki.promotions
 
 import com.google.gson.GsonBuilder
 import com.intellij.openapi.diagnostic.Logger
-import com.intellij.util.io.exists
 import io.unthrottled.doki.assets.LocalStorageService
 import io.unthrottled.doki.util.runSafely
 import io.unthrottled.doki.util.runSafelyWithResult
@@ -11,6 +10,7 @@ import java.nio.charset.StandardCharsets
 import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.StandardOpenOption
+import kotlin.io.path.exists
 
 abstract class LedgerMaster<T>(
   private val ledgerPath: Path,

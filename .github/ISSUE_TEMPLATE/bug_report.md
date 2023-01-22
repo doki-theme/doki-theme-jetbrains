@@ -25,7 +25,7 @@ It should contain:
 * OS (Windows, Linux, Mac)
 * IntelliJ Product + version (IDEA, RubyMine...)
 * Plugin version 
-* If needed a list of enabled plugins -->
+* A list of enabled plugins -->
 
 
 **Screenshots**

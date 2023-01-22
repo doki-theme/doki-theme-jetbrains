@@ -1,5 +1,9 @@
 Changelog
 ---
+# 88.3-1.8.2 [Initial 2023.1 Build Support]
+
+- Added the initial 2023.1 build support. 
+
 
 # 88.3-1.8.1 [Global Font Fix]
 
