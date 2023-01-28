@@ -357,6 +357,11 @@
         <option name="ERROR_STRIPE_COLOR" value="$constantColor$"/>
       </value>
     </option>
+    <option name="CODE_LENS_BORDER_COLOR">
+      <value>
+        <option name="EFFECT_COLOR" value="%accentColor%AA"/>
+      </value>
+    </option>
     <option name="CODE_VISION_DEFAULT">
       <value>
         <option name="FOREGROUND" value="$comments$"/>

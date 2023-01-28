@@ -337,8 +337,13 @@
     </option>
     <option name="BROWSEWORDATCARET">
       <value>
-        <option name="EFFECT_COLOR" value="$constantColor$"/>
+        <option name="EFFECT_COLOR" value="$constantColor$"/> t
         <option name="ERROR_STRIPE_COLOR" value="$constantColor$"/>
+      </value>
+    </option>
+    <option name="CODE_LENS_BORDER_COLOR">
+      <value>
+        <option name="EFFECT_COLOR" value="%accentColor%AA"/>
       </value>
     </option>
     <option name="CODE_VISION_DEFAULT">
