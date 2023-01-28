@@ -56,7 +56,7 @@ Doing so requires special setup for your development environment.
 
 See this video for how to set it up to run in IntelliJ. 
 
-![IntelliJ Plugin Run](./assets/contributingAssets/run_ide_with_env.mp4)
+https://user-images.githubusercontent.com/15972415/215237933-469a5643-e8d9-4990-b47e-1db274629323.mp4
 
 ## Running Plugin
 
