@@ -337,7 +337,7 @@
     </option>
     <option name="BROWSEWORDATCARET">
       <value>
-        <option name="EFFECT_COLOR" value="$constantColor$"/> t
+        <option name="EFFECT_COLOR" value="$constantColor$"/>
         <option name="ERROR_STRIPE_COLOR" value="$constantColor$"/>
       </value>
     </option>
