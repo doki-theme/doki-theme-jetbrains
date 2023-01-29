@@ -44,7 +44,7 @@ Once that is done, for extra points, you can register the `masterThemes` directo
 
 ## Build Setup
 
-I have several codebases that I maintain which have similar build processes. 
+I have several codebases that I maintain which have a similar build processes. 
 So to reduce maintenance overhead, this repository uses https://github.com/doki-theme/doki-build-source-jvm .
 
 Doing so requires special setup for your development environment.
@@ -52,7 +52,7 @@ Doing so requires special setup for your development environment.
 - First, you'll need to [Authenticate to GitHub Packages](https://docs.github.com/en/packages/learn-github-packages/introduction-to-github-packages#authenticating-to-github-packages)
 - Next, you'll need to set your GitHub username as the environment variable `GITHUB_TOKEN` when you run the plugin.
 - After that, use the access token you created from the first step as the value of the environment variable `GITHUB_TOKEN`.
-- Run, the plugin
+- Run, the plugin.
 
 See this video for how to set it up to run in IntelliJ. 
 
