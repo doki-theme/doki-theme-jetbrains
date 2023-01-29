@@ -20,7 +20,7 @@ that are not captured by the global shared style.
 
 ## Editing Themes Required Software
 
-- Java 11
+- Java 17
 - IntellIJ 2020.3+
 
 ## Editing Themes Setup
@@ -41,6 +41,22 @@ git clone https://github.com/doki-theme/doki-master-theme.git masterThemes
 Once that is done, for extra points, you can register the `masterThemes` directory, in Intellij, as another VCS root.
 
 ![VCS Root Config](./assets/contributingAssets/vcs_root.png)
+
+## Build Setup
+
+I have several codebases that I maintain which have a similar build processes. 
+So to reduce maintenance overhead, this repository uses https://github.com/doki-theme/doki-build-source-jvm .
+
+Doing so requires special setup for your development environment.
+
+- First, you'll need to [Authenticate to GitHub Packages](https://docs.github.com/en/packages/learn-github-packages/introduction-to-github-packages#authenticating-to-github-packages)
+- Next, you'll need to set your GitHub username as the environment variable `GITHUB_TOKEN` when you run the plugin.
+- After that, use the access token you created from the first step as the value of the environment variable `GITHUB_TOKEN`.
+- Run, the plugin.
+
+See this video for how to set it up to run in IntelliJ. 
+
+https://user-images.githubusercontent.com/15972415/215237933-469a5643-e8d9-4990-b47e-1db274629323.mp4
 
 ## Running Plugin
 

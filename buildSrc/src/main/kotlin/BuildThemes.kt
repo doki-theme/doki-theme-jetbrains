@@ -666,6 +666,7 @@ open class BuildThemes : DefaultTask() {
   ): Node {
     val themeTemplate = editorTemplate.clone() as Node
     themeTemplate.breadthFirst()
+      .filterIsInstance<Node>()
       .map { it as Node }
       .forEach {
         when (it.name()) {
