@@ -44,6 +44,7 @@ class StickerPaneService {
               is DialogWrapperDialog -> captureDialogWrapper(window)
             }
           }
+
           WindowEvent.WINDOW_CLOSED -> {
             when (val window = awtEvent.source) {
               is JFrame -> disposePane(window)
@@ -151,18 +152,26 @@ class StickerPaneService {
   }
 
   private fun showSingleSticker(stickerPane: StickerPane) {
-    ThemeManager.instance.currentTheme.doOrElse({ dokiTheme ->
-      displayStickers(
-        dokiTheme,
-        { stickerUrl ->
-          stickerPane.displaySticker(stickerUrl)
+    ThemeManager.instance.currentTheme
+      .or {
+        if (CustomStickerService.isCustomStickers) {
+          ThemeManager.instance.defaultTheme.toOptional()
+        } else {
+          Optional.empty()
         }
-      ) {
+      }
+      .doOrElse({ dokiTheme ->
+        displayStickers(
+          dokiTheme,
+          { stickerUrl ->
+            stickerPane.displaySticker(stickerUrl)
+          }
+        ) {
+          stickerPane.detach()
+        }
+      }) {
         stickerPane.detach()
       }
-    }) {
-      stickerPane.detach()
-    }
   }
 
   private fun isRightClass(window: Any): Boolean {

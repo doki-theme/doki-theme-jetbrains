@@ -158,7 +158,8 @@ So they may need to be moved base on which window they show up in.
 
 ![Moveable Sticker](./assets/readmeAssets/moveable_stickers.gif)
 
-**Use Custom Sticker** allows you to be able to set the image to be used for all the doki-themes.
+**Use Custom Sticker** allows you to be able to set the image to be used for all the doki-themes. 
+Custom stickers will remain on your IDE for as long as this checkbox is activated.
 Allowed image types: jpg, png, gif
 
 **Aqua**
