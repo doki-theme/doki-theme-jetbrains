@@ -1,5 +1,10 @@
 Changelog
 ---
+# 88.3-1.8.4 [EXP UI Search Field Fix]
+
+- Vertically aligned the editor search text input on the new UI.
+
+
 # 88.3-1.8.3 [Code Lens Update]
 
 - Updated the border color of the `Code Lens` feature.

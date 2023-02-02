@@ -1,3 +1,4 @@
 - Fixed issue with global font override not being applied after IDE was restarted.
 - Added the initial 2023.1 build support. 
 - Updated the border color of the `Code Lense` feature.
+- Vertically aligned the editor search text input on the new UI.

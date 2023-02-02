@@ -5,6 +5,7 @@ import com.intellij.ide.ui.LafManagerListener
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.ui.ExperimentalUI
+import com.intellij.util.ui.JBUI
 import io.unthrottled.doki.themes.ThemeManager
 import javax.swing.UIDefaults
 import javax.swing.UIManager
@@ -34,6 +35,7 @@ object EXPUIBastardizer : LafManagerListener, Disposable {
         val defaults = UIManager.getDefaults()
         setUIProperty("ToolWindow.Button.selectedBackground", dokiTheme.getColor("highlightColor"), defaults)
         setUIProperty("ToolWindow.Button.selectedForeground", dokiTheme.getColor("iconAccent"), defaults)
+        setUIProperty("Editor.SearchField.borderInsets", JBUI.insets(7, 10, 7, 8), defaults)
       }
       overrideSetProperties(iterations + 1)
     }
