@@ -1,9 +1,9 @@
 Changelog
 ---
-# 88.3-1.8.4 [EXP UI Search Field Fix]
+# 88.3-1.9.0 [EXP UI Search Field Fix]
 
 - Vertically aligned the editor search text input on the new UI.
-
+- Allow custom stickers to remain on IDE for non-Doki themes.
 
 # 88.3-1.8.3 [Code Lens Update]
 

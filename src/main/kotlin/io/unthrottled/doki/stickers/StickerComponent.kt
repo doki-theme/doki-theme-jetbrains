@@ -17,8 +17,24 @@ class StickerComponent :
 
   init {
     StickerPaneService.instance.init()
-    processLaf(LafManager.getInstance().currentLookAndFeel)
+    initializeTheme()
     connection.subscribe(LafManagerListener.TOPIC, this)
+  }
+
+  private fun initializeTheme() {
+    val currentLaf = LafManager.getInstance().currentLookAndFeel
+    ThemeManager.instance.processLaf(
+      currentLaf
+    ).doOrElse({
+      processLaf(currentLaf) // is doki theme
+    }) {
+      // allow custom stickers to show up
+      if (CustomStickerService.isCustomStickers) {
+        StickerPaneService.instance.activateForTheme(
+          ThemeManager.instance.defaultTheme
+        )
+      }
+    }
   }
 
   companion object {
@@ -39,6 +55,8 @@ class StickerComponent :
 
       EditorBackgroundWallpaperService.instance.remove()
       EmptyFrameWallpaperService.instance.remove()
+
+      if (CustomStickerService.isCustomStickers) return
       StickerPaneService.instance.remove(StickerType.ALL)
     }
   }
