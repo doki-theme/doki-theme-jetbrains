@@ -3,3 +3,4 @@
 - Updated the border color of the `Code Lense` feature.
 - Vertically aligned the editor search text input on the new UI.
 - Allow custom stickers to remain on IDE for non-Doki themes.
+- Themed New UI Scrollbars in Rider to be consistent.

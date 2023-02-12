@@ -1,5 +1,10 @@
 Changelog
 ---
+
+# 88.3-1.9.0 [Bug Fixes]
+
+- Themed New UI Scrollbars in Rider to be consistent.
+
 # 88.3-1.9.0 [EXP UI Search Field Fix]
 
 - Vertically aligned the editor search text input on the new UI.

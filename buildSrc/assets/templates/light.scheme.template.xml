@@ -121,6 +121,7 @@
     <option name="ScrollBar.thumbBorderColor" value="%accentColor%5a"/>
     <option name="ScrollBar.thumbColor" value="%accentColor%5a"/>
     <option name="ScrollBar.trackColor" value="$textEditorBackground$"/>
+    <option name="ScrollBar.background" value="$textEditorBackground$"/>
     <option name="TEARLINE_COLOR" value="$lineNumberColor$69"/>
     <option name="TOOLTIP" value="$textEditorBackground$"/>
     <option name="VCS_ANNOTATIONS_COLOR_1" value="$headerColor$"/>
