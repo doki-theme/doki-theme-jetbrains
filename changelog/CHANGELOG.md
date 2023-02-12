@@ -1,9 +1,10 @@
 Changelog
 ---
 
-# 88.3-1.9.0 [Bug Fixes]
+# 88.3-1.9.1 [Bug Fixes]
 
 - Themed New UI Scrollbars in Rider to be consistent.
+- Fixed the settings window in builds `231.6890.12`+ 
 
 # 88.3-1.9.0 [EXP UI Search Field Fix]
 
