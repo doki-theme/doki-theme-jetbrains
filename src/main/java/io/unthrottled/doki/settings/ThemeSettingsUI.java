@@ -1,5 +1,6 @@
 package io.unthrottled.doki.settings;
 
+import com.intellij.icons.AllIcons;
 import com.intellij.ide.BrowserUtil;
 import com.intellij.ide.DataManager;
 import com.intellij.openapi.application.Application;
@@ -101,6 +102,9 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
   }
 
   private void initializeAutoCreatedComponents() {
+    warningLabel.setIcon(AllIcons.General.Warning);
+    marginHelp.setIcon(AllIcons.Actions.Help);
+
     chooseImageButton.addActionListener(e -> {
       CustomStickerChooser dialog = new CustomStickerChooser(
         Arrays.stream(ProjectManager.getInstance().getOpenProjects()).findFirst().orElse(
