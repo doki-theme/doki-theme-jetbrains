@@ -1,6 +1,11 @@
 Changelog
 ---
 
+# 88.3-1.9.2 [EXP UI Updates]
+
+- Themed EXP UI header button hover color
+- Updated EXP UI project tree spacing to mirror JetBrains' defaults.
+
 # 88.3-1.9.1 [Bug Fixes]
 
 - Themed New UI Scrollbars in Rider to be consistent.

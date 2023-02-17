@@ -5,3 +5,5 @@
 - Allow custom stickers to remain on IDE for non-Doki themes.
 - Themed New UI Scrollbars in Rider to be consistent.
 - Fixed the settings window in builds `231.6890.12`+ 
+- Themed EXP UI header button hover color
+- Updated EXP UI project tree spacing to mirror JetBrains' defaults.

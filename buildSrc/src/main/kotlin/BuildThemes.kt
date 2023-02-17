@@ -1,4 +1,5 @@
 import com.google.gson.GsonBuilder
+import com.google.gson.ToNumberPolicy
 import groovy.util.Node
 import groovy.util.NodeList
 import io.unthrottled.doki.build.jvm.models.AssetTemplateDefinition
@@ -56,7 +57,10 @@ open class BuildThemes : DefaultTask() {
     private const val DOKI_THEME_ULTIMATE = "ultimate"
   }
 
-  private val gson = GsonBuilder().setPrettyPrinting().create()
+  private val gson = GsonBuilder()
+    .setObjectToNumberStrategy(ToNumberPolicy.LONG_OR_DOUBLE)
+    .setPrettyPrinting()
+    .create()
 
   init {
     group = "doki"
