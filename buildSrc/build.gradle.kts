@@ -1,4 +1,5 @@
 plugins {
+  kotlin("jvm") version "1.8.10"
   `kotlin-dsl`
 }
 
@@ -17,5 +18,5 @@ repositories {
 
 dependencies {
   implementation("org.jsoup:jsoup:1.15.3")
-  implementation("io.unthrottled.doki.build.jvm:doki-build-source-jvm:88.0.5")
+  implementation("io.unthrottled.doki.build.jvm:doki-build-source-jvm:88.0.6")
 }
