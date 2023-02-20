@@ -20,7 +20,7 @@ import javax.swing.event.HyperlinkEvent
 
 class CulturedContentDialog(
   private val bannerUrl: String,
-  project: Project,
+  project: Project
 ) : DialogWrapper(project, true) {
 
   companion object {

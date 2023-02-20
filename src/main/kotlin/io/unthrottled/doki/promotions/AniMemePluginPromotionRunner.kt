@@ -24,7 +24,7 @@ object AniMemePromotionService {
 
   fun runPromotion(
     onPromotion: (PromotionResults) -> Unit,
-    onReject: () -> Unit,
+    onReject: () -> Unit
   ) {
     AniMemePluginPromotionRunner(onPromotion, onReject)
   }
@@ -56,7 +56,7 @@ class AniMemePluginPromotionRunner(
 object AniMemePluginPromotion {
   fun runPromotion(
     onPromotion: (PromotionResults) -> Unit,
-    onReject: () -> Unit,
+    onReject: () -> Unit
   ) {
     ApplicationManager.getApplication().executeOnPooledThread {
       ThemeManager.instance.currentTheme.ifPresent { dokiTheme ->

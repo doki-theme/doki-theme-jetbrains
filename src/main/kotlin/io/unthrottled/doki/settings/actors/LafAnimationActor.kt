@@ -13,7 +13,7 @@ object LafAnimationActor {
       if (enabled) {
         UpdateNotification.showDokiNotification(
           MessageBundle.getMessage("notification.animation.install.title"),
-          MessageBundle.getMessage("notification.animation.install.body"),
+          MessageBundle.getMessage("notification.animation.install.body")
         )
       }
     }

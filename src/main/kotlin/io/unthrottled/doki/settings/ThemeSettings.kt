@@ -56,7 +56,7 @@ data class ThemeSettingsModel(
   var hideOnHover: Boolean,
   var hideDelayMS: Int,
   var isSeeThroughNotifications: Boolean,
-  var notificationOpacity: Int,
+  var notificationOpacity: Int
 ) {
 
   fun duplicate(): ThemeSettingsModel = copy()
@@ -103,7 +103,7 @@ object ThemeSettings {
       ignoreScaling = ThemeConfig.instance.ignoreScaling,
       hideOnHover = ThemeConfig.instance.hideOnHover,
       hideDelayMS = ThemeConfig.instance.hideDelayMS,
-      allowPromotionalContent = ThemeConfig.instance.allowPromotions,
+      allowPromotionalContent = ThemeConfig.instance.allowPromotions
     )
 
   fun apply(themeSettingsModel: ThemeSettingsModel) {
@@ -120,12 +120,12 @@ object ThemeSettings {
     StickerActor.setDimensionCapping(
       themeSettingsModel.capStickerDimensions,
       themeSettingsModel.maxStickerWidth,
-      themeSettingsModel.maxStickerHeight,
+      themeSettingsModel.maxStickerHeight
     )
     StickerActor.setSmolStickers(
       themeSettingsModel.showSmallStickers,
       themeSettingsModel.smallMaxStickerWidth,
-      themeSettingsModel.smallMaxStickerHeight,
+      themeSettingsModel.smallMaxStickerHeight
     )
     ThemeActor.applyTheme(themeSettingsModel.currentTheme)
     ThemeStatusBarActor.applyConfig(themeSettingsModel.showThemeStatusBar)
@@ -138,11 +138,11 @@ object ThemeSettings {
     )
     ConsoleFontActor.enableCustomFontSize(
       themeSettingsModel.isOverrideConsoleFont,
-      themeSettingsModel.consoleFontValue,
+      themeSettingsModel.consoleFontValue
     )
     SeeThroughNotificationsActor.enableSeeThroughNotifications(
       themeSettingsModel.isSeeThroughNotifications,
-      themeSettingsModel.notificationOpacity,
+      themeSettingsModel.notificationOpacity
     )
     DiscreetModeActor.enableDiscreetMode(themeSettingsModel.discreetMode)
     StickerHideActor.setStickerHideStuff(themeSettingsModel.hideOnHover, themeSettingsModel.hideDelayMS)

@@ -24,7 +24,7 @@ class Stickers(
 class Background(
   val name: String,
   val position: IdeBackgroundUtil.Anchor,
-  val opacity: Int?,
+  val opacity: Int?
 )
 
 class Backgrounds(
@@ -48,7 +48,7 @@ class JetBrainsThemeDefinition(
 
 class DokiTheme(
   private val uiTheme: JetBrainsThemeDefinition,
-  val version: String,
+  val version: String
 ) {
 
   init {

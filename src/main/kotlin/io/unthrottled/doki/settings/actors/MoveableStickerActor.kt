@@ -13,7 +13,7 @@ object MoveableStickerActor {
       if (enabled) {
         UpdateNotification.showNotificationAcrossProjects(
           MessageBundle.message("stickers.movable.sticker.title"),
-          MessageBundle.message("stickers.movable.sticker.body"),
+          MessageBundle.message("stickers.movable.sticker.body")
         )
       } else {
         UpdateNotification.showNotificationAcrossProjects(

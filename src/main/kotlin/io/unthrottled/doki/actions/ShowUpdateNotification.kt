@@ -14,7 +14,7 @@ class ShowUpdateNotification : AnAction(), DumbAware {
         UpdateNotification.display(
           e.project!!,
           it,
-          false,
+          false
         )
       }
   }

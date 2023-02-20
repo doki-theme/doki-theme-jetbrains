@@ -238,7 +238,7 @@ object HackComponent : Disposable {
       )
       setFinalStatic(
         ContentRootPanel::class.java.getDeclaredField("CONTENT_COLOR"),
-        UIUtil.getPanelBackground(),
+        UIUtil.getPanelBackground()
       )
     }) {
       log.warn("Unable to hackBookMarkBorder  for reasons.")

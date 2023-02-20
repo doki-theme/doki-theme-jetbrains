@@ -8,7 +8,7 @@ import io.unthrottled.doki.util.logger
 
 data class PathMapping(
   val originalPath: String,
-  val replacementPath: String,
+  val replacementPath: String
 )
 
 class DokiIconPathPatcher(mappingFile: String) : IconPathPatcher(), Logging {

@@ -56,7 +56,7 @@ enum class StickerType {
 
 data class Margin(
   val marginX: Double,
-  val marginY: Double,
+  val marginY: Double
 )
 
 interface StickerListener {
@@ -69,7 +69,7 @@ internal class StickerPane(
   private val drawablePane: JLayeredPane,
   val type: StickerType,
   initialMargin: Margin,
-  private val stickerListener: StickerListener,
+  private val stickerListener: StickerListener
 ) : HwFacadeJPanel(), Disposable, Logging {
 
   private lateinit var stickerContent: JPanel
@@ -93,8 +93,11 @@ internal class StickerPane(
 
   private val isSmol = StickerType.SMOL == type
   private var positionable: Boolean =
-    if (isSmol) true
-    else ThemeConfig.instance.isMoveableStickers
+    if (isSmol) {
+      true
+    } else {
+      ThemeConfig.instance.isMoveableStickers
+    }
 
   fun setPositionable(shouldPosition: Boolean) {
     positionable = shouldPosition
@@ -165,7 +168,7 @@ internal class StickerPane(
     val stickerSize = stickerContent.size
     return Margin(
       (parentX - (stickerPos.x + stickerSize.width)) / parentX.toDouble(),
-      (parentY - (stickerPos.y + stickerSize.height)) / parentY.toDouble(),
+      (parentY - (stickerPos.y + stickerSize.height)) / parentY.toDouble()
     )
   }
 
@@ -298,7 +301,7 @@ internal class StickerPane(
 
           positionStickerPanel(
             stickerContent.width,
-            stickerContent.height,
+            stickerContent.height
           )
         }
       }
@@ -351,7 +354,7 @@ internal class StickerPane(
 
     positionStickerPanel(
       this.size.width,
-      this.size.height,
+      this.size.height
     )
 
     drawablePane.remove(this)
@@ -427,7 +430,7 @@ internal class StickerPane(
     val stickerSize = stickerDisplay.preferredSize
     stickerContent.size = Dimension(
       stickerSize.width,
-      stickerSize.height,
+      stickerSize.height
     )
     stickerContent.isOpaque = false
     stickerContent.add(stickerDisplay)
@@ -451,7 +454,7 @@ internal class StickerPane(
       }
     return Dimension(
       (stickerContentSize.width / currentScaleX).toInt(),
-      (stickerContentSize.height / currentScaleY).toInt(),
+      (stickerContentSize.height / currentScaleY).toInt()
     )
   }
 
@@ -463,7 +466,7 @@ internal class StickerPane(
           originalDimension,
           Dimension(
             ThemeConfig.instance.smallMaxStickerWidth,
-            ThemeConfig.instance.smallMaxStickerHeight,
+            ThemeConfig.instance.smallMaxStickerHeight
           )
         )
 
@@ -473,7 +476,7 @@ internal class StickerPane(
           originalDimension,
           Dimension(
             ThemeConfig.instance.maxStickerWidth,
-            ThemeConfig.instance.maxStickerHeight,
+            ThemeConfig.instance.maxStickerHeight
           )
         )
 
@@ -512,7 +515,7 @@ internal class StickerPane(
   private fun getPosition(
     parentWidth: Int,
     parentHeight: Int,
-    stickerPanelBoundingBox: Rectangle,
+    stickerPanelBoundingBox: Rectangle
   ): Pair<Int, Int> =
     parentWidth - stickerPanelBoundingBox.width - (parentWidth * _margin.marginX).toInt() to
       parentHeight - stickerPanelBoundingBox.height - (parentHeight * _margin.marginY).toInt()
@@ -529,7 +532,7 @@ internal class StickerPane(
     _margin = margin
     positionStickerPanel(
       size.width,
-      size.height,
+      size.height
     )
   }
 

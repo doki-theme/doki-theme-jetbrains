@@ -14,7 +14,7 @@ import kotlin.io.path.exists
 
 abstract class LedgerMaster<T>(
   private val ledgerPath: Path,
-  private val clazz: Class<T>,
+  private val clazz: Class<T>
 ) {
   private val log = Logger.getInstance(PromotionLedgerMaster::class.java)
 

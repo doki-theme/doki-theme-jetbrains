@@ -54,7 +54,7 @@ class MarginService : Logging {
     ThemeConfig.instance.savedMargins = gson.toJson(savedMargins.toMutableMap())
     UpdateNotification.showNotificationAcrossProjects(
       MessageBundle.message("notification.margin.saved.title"),
-      MessageBundle.message("notification.margin.saved.message"),
+      MessageBundle.message("notification.margin.saved.message")
     )
   }
 }
