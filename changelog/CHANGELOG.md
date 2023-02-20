@@ -1,6 +1,6 @@
 Changelog
 ---
-# 88.3-1.9.2 [New UI Updates]
+# 88.3-1.9.3 [New UI Updates]
 
 - Themed New UI Main Toolbar button pressed color.
 
