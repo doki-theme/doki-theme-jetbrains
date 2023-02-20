@@ -23,7 +23,7 @@ object UpdateNotificationUpdater : Disposable {
         if (updateNotifications.isNotEmpty()) {
           updateNotifications.forEach { openEditor ->
             val (newUrl, content) = UpdateNotification.reconstructUrlAndContent(
-              dokiTheme,
+              dokiTheme
             )
             instance.closeFile(openEditor)
             HTMLEditorProvider.openEditor(

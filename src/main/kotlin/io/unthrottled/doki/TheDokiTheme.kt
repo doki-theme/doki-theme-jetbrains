@@ -118,7 +118,7 @@ class TheDokiTheme : Disposable {
               UpdateNotification.display(
                 project,
                 version,
-                isNewUser,
+                isNewUser
               )
             }
           }

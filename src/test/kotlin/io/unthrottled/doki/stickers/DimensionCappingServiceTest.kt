@@ -10,7 +10,7 @@ class DimensionCappingServiceTest {
   fun getCappingStyleShouldNotCapIfBothNegativeOne() {
     val result = DimensionCappingService.getCappingStyle(
       Dimension(69, 420),
-      Dimension(-1, -1),
+      Dimension(-1, -1)
     )
 
     Assertions.assertThat(result)
@@ -21,7 +21,7 @@ class DimensionCappingServiceTest {
   fun getCappingStyleShouldMaintainAspectRationWhenScalingWidthHeightGreater() {
     val result = DimensionCappingService.getCappingStyle(
       Dimension(20, 40),
-      Dimension(10, -1),
+      Dimension(10, -1)
     )
 
     Assertions.assertThat(result)
@@ -32,7 +32,7 @@ class DimensionCappingServiceTest {
   fun getCappingStyleShouldMaintainAspectRationWhenScalingHeightHeightGreater() {
     val result = DimensionCappingService.getCappingStyle(
       Dimension(20, 40),
-      Dimension(-1, 10),
+      Dimension(-1, 10)
     )
 
     Assertions.assertThat(result)
@@ -43,7 +43,7 @@ class DimensionCappingServiceTest {
   fun getCappingStyleShouldMaintainAspectRationWhenScalingWidthWidthGreater() {
     val result = DimensionCappingService.getCappingStyle(
       Dimension(40, 20),
-      Dimension(10, -1),
+      Dimension(10, -1)
     )
 
     Assertions.assertThat(result)
@@ -54,7 +54,7 @@ class DimensionCappingServiceTest {
   fun getCappingStyleShouldMaintainAspectRationWhenScalingHeightWidthGreater() {
     val result = DimensionCappingService.getCappingStyle(
       Dimension(40, 20),
-      Dimension(-1, 10),
+      Dimension(-1, 10)
     )
 
     Assertions.assertThat(result)
@@ -65,7 +65,7 @@ class DimensionCappingServiceTest {
   fun getCappingStyleShouldMaintainAspectRatioAndRespectSmallestCapHeight() {
     val result = DimensionCappingService.getCappingStyle(
       Dimension(40, 20),
-      Dimension(4, 10),
+      Dimension(4, 10)
     )
 
     Assertions.assertThat(result)
@@ -76,7 +76,7 @@ class DimensionCappingServiceTest {
   fun getCappingStyleShouldMaintainAspectRatioAndRespectSmallestCapWidth() {
     val result = DimensionCappingService.getCappingStyle(
       Dimension(40, 20),
-      Dimension(10, 4),
+      Dimension(10, 4)
     )
 
     Assertions.assertThat(result)

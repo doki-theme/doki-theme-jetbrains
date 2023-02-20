@@ -6,7 +6,7 @@ import io.unthrottled.doki.promotions.PromotionManager
 object PromotionSettingActor {
 
   fun optInToPromotion(
-    allowedToPromote: Boolean,
+    allowedToPromote: Boolean
   ) {
     if (allowedToPromote != ThemeConfig.instance.allowPromotions) {
       ThemeConfig.instance.allowPromotions = allowedToPromote

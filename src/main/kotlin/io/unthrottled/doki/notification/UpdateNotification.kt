@@ -37,7 +37,7 @@ import java.awt.Color
 private fun buildUpdateMessage(
   currentTheme: DokiTheme,
   isNewUser: Boolean,
-  versionNumber: String,
+  versionNumber: String
 ): String {
   val accentColor = JBColor.namedColor(
     DokiTheme.ACCENT_COLOR,
@@ -319,7 +319,7 @@ object UpdateNotification : Logging {
     @Nls(capitalization = Nls.Capitalization.Sentence) content: String,
     project: Project? = null,
     listener: NotificationListener = defaultListener,
-    actions: List<AnAction> = emptyList(),
+    actions: List<AnAction> = emptyList()
   ) {
     val notification = buildNotification(content, title, listener, actions)
     notification.notify(project)
@@ -333,7 +333,7 @@ object UpdateNotification : Logging {
   ): Notification {
     val notification = notificationGroup.createNotification(
       content,
-      NotificationType.INFORMATION,
+      NotificationType.INFORMATION
     )
       .setTitle(title)
       .setListener(listener)
@@ -352,7 +352,7 @@ object UpdateNotification : Logging {
     project: Project,
     listener: NotificationListener = defaultListener,
     actions: List<AnAction> = emptyList(),
-    balloonPosition: BalloonPosition,
+    balloonPosition: BalloonPosition
   ) {
     val notification = buildNotification(content, title, listener, actions)
     BalloonTools.showStickyNotification(
@@ -390,7 +390,7 @@ object UpdateNotification : Logging {
   fun display(
     project: Project,
     newVersion: String,
-    isNewUser: Boolean,
+    isNewUser: Boolean
   ) {
     val title = getPluginUpdateTitle()
     val currentTheme = ThemeManager.instance.currentTheme.orElse(ThemeManager.instance.defaultTheme)
@@ -401,7 +401,7 @@ object UpdateNotification : Logging {
         project,
         title,
         url,
-        content,
+        content
       )
     }) {
       logger().warn("Unable to show update notification for raisins.", it)
@@ -451,7 +451,7 @@ object UpdateNotification : Logging {
     val content = buildUpdateMessage(
       dokiTheme,
       false,
-      versionNumber,
+      versionNumber
     )
     return newUrl to content
   }

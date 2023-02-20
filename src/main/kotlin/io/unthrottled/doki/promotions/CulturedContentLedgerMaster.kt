@@ -5,7 +5,7 @@ import io.unthrottled.doki.assets.AssetManager
 import io.unthrottled.doki.stickers.CurrentSticker
 
 data class CulturedContentLedger(
-  val allowedCulturedContent: MutableMap<String, MutableSet<CurrentSticker>>,
+  val allowedCulturedContent: MutableMap<String, MutableSet<CurrentSticker>>
 )
 
 object CulturedContentLedgerMaster : LedgerMaster<CulturedContentLedger>(

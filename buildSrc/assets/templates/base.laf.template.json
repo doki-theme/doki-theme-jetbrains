@@ -196,6 +196,7 @@
     "TabbedPane.hoverColor": "highlightColor",
     "TabbedPane.focusColor": "highlightColor",
     "EditorTabs.hoverBackground": "highlightColor",
+    "SearchOption.selectedPressedBackground": "highlightColor",
     "ActionButton.hoverBackground": "highlightColor",
     "ActionButton.hoverBorderColor": "highlightColor",
     "ActionButton.hoverSeparatorColor": "highlightColor",
@@ -209,6 +210,7 @@
     "ActionButton.pressedBorderColor": "highlightColor",
     "ActionButton.focusedBorderColor": "highlightColor",
     "MainToolbar.Dropdown.hoverBackground": "highlightColor",
+    "MainToolbar.Icon.pressedBackground": "highlightColor",
 
     "VersionControl.MarkerPopup.borderColor": "borderColor",
     "Borders.color": "borderColor",
@@ -417,6 +419,8 @@
     "RunWidget.StopButton.background": "diff.conflict",
     "RunWidget.StopButton.leftHoverBackground": "fileRed",
     "RunWidget.StopButton.leftPressedBackground": "diff.conflict",
+    "RunWidget.hoverBackground": "highlightColor",
+    "RunWidget.pressedBackground": "highlightColor",
 
 
     "VersionControl": {

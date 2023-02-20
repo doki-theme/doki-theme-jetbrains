@@ -86,7 +86,7 @@ abstract class AbstractDiscreetModeListener : DiscreetModeListener, Logging {
     ThemeConfig.instance.currentStickerLevel == StickerLevel.ON,
     ThemeConfig.instance.isDokiBackground,
     EditorBackgroundWallpaperService.instance.getCurrentBackgroundValue(),
-    ThemeConfig.instance.isEmptyFrameBackground,
+    ThemeConfig.instance.isEmptyFrameBackground
   )
 }
 
@@ -95,5 +95,5 @@ data class DiscreetModeRestorationConfig(
   val stickersEnabled: Boolean?,
   val editorWallpaperEnabled: Boolean?,
   val savedBackground: String?,
-  val emptyWallpaperEnabled: Boolean?,
+  val emptyWallpaperEnabled: Boolean?
 )

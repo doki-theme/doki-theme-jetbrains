@@ -75,7 +75,7 @@ object ColorPatcher : PatcherProvider {
 
   private fun buildHackedPatcher(
     otherPatchers: List<Patcher>,
-    patcherKey: String,
+    patcherKey: String
   ): Patcher {
     val cachedPatcher = patcherCache.getIfPresent(patcherKey)
     if (cachedPatcher !== null) {

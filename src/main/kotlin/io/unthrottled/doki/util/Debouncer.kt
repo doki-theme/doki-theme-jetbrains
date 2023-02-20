@@ -13,7 +13,7 @@ fun interface BufferedDebouncer<T> {
 }
 
 class AlarmDebouncer<T>(
-  private val interval: Int,
+  private val interval: Int
 ) :
   Debouncer,
   BufferedDebouncer<T>,

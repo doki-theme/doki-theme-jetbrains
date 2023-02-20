@@ -21,7 +21,7 @@ import javax.swing.JFrame
 
 data class StickerHideConfig(
   val hideOnHover: Boolean,
-  val hideDelayMS: Int,
+  val hideDelayMS: Int
 )
 
 @Suppress("TooManyFunctions")
@@ -111,7 +111,7 @@ class StickerPaneService {
 
   private val allowedFrames = setOf(
     "com.intellij.openapi.ui.FrameWrapper\$MyJFrame",
-    "com.intellij.openapi.wm.impl.IdeFrameImpl",
+    "com.intellij.openapi.wm.impl.IdeFrameImpl"
   )
 
   private fun captureFrame(window: JFrame) {
@@ -182,7 +182,7 @@ class StickerPaneService {
   private fun displayStickers(
     currentTheme: DokiTheme,
     stickerWorkerSupplier: (String) -> Unit,
-    stickerRemoval: () -> Unit,
+    stickerRemoval: () -> Unit
   ) {
     ApplicationManager.getApplication().executeOnPooledThread {
       if (CustomStickerService.isCustomStickers) {

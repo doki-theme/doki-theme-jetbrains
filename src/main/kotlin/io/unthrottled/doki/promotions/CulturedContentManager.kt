@@ -14,7 +14,7 @@ import java.util.Optional
 object CulturedContentManager {
 
   private val culturedThemes = setOf(
-    "ea9a13f6-fa7f-46a4-ba6e-6cefe1f55160",
+    "ea9a13f6-fa7f-46a4-ba6e-6cefe1f55160"
   )
 
   private var isAsking = false

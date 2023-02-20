@@ -8,7 +8,7 @@ object StickerHideActor {
 
   fun setStickerHideStuff(
     hideOnHover: Boolean,
-    hideDelayMS: Int,
+    hideDelayMS: Int
   ) {
     if (hideOnHover != ThemeConfig.instance.hideOnHover) {
       ThemeConfig.instance.hideOnHover = hideOnHover
