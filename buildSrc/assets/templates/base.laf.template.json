@@ -41,7 +41,7 @@
     "StatusBar.background": "baseBackground",
     "SearchMatch.foreground": "baseBackground",
     "Popup.background": "baseBackground",
-    "Plugins.Button.installBackground": "#baseBackground",
+    "Plugins.Button.installBackground": "baseBackground",
 
     "UIDesigner.Canvas.background": "textEditorBackground",
     "Content.background": "textEditorBackground",
