@@ -7,5 +7,17 @@
     "Notification.ToolWindow.informativeForeground": "#33412e",
     "Notification.ToolWindow.warningForeground": "#5a5221",
     "Notification.ToolWindow.errorForeground": "#704745"
+  },
+  "icons": {
+    "ColorPalette": {
+      "Checkbox.Foreground.Selected": "baseBackground",
+      "Checkbox.Background.Selected": "accentColor",
+      "Checkbox.Border.Selected": "accentColor",
+      "Checkbox.Focus.Thin.Default": "baseBackground",
+      "Checkbox.Focus.Thin.Selected": "baseBackground",
+      "Checkbox.Focus.Wide": "accentColor",
+      "Checkbox.Foreground.Disabled": "baseBackground",
+      "Checkbox.Background.Disabled": "disabledColor"
+    }
   }
 }
