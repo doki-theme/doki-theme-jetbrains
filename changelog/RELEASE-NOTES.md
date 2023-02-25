@@ -7,3 +7,6 @@
 - Fixed the settings window in builds `231.6890.12`+ 
 - Themed New UI header button hover & pressed color 
 - Updated New UI project tree spacing to mirror JetBrains' defaults.
+- Made Light Theme's checkboxes & radio buttons more usable.
+- Sigure's list item selection is readable now.
+- Updated Sagiri's syntax highlight to avoid looking like an error.

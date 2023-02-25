@@ -5,5 +5,8 @@
     "name": "Doki Light v2,Doki Dim Light Folding"
   },
   "overrides": {},
-  "ui": {}
+  "ui": {
+    "Plugins.lightSelectionBackground": "secondaryBackground",
+    "Plugins.hoverBackground": "secondaryBackground"
+  }
 }

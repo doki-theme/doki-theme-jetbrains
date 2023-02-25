@@ -264,7 +264,7 @@ open class BuildThemes : DefaultTask() {
         constructableLookAndFeel,
         initialParentTemplateName,
       ),
-      icons = getIcons(resolvedNamedColors, constructableLookAndFeel),
+      icons = getIcons(resolvedNamedColors, constructableLookAndFeel, initialParentTemplateName),
       meta = masterThemeDefinition.meta ?: Collections.emptyMap()
     )
 
@@ -425,12 +425,22 @@ open class BuildThemes : DefaultTask() {
   @Suppress("UNCHECKED_CAST")
   private fun getIcons(
     colors: Map<String, String>,
-    constructableAsset: ConstructableAsset
+    constructableAsset: ConstructableAsset,
+    initialParentTemplateName: String
   ): Map<String, Any> {
     val template = constructableAsset.definitions["base"]
       ?: throw IllegalArgumentException("Expected constructable type '${constructableAsset.type}' to have type 'base'!")
+    val parentTemplate = constructableAsset.definitions[initialParentTemplateName]
+      ?: throw IllegalArgumentException("Expected constructable type '${constructableAsset.type}' to have type '${initialParentTemplateName}'!")
+    val parentIcons = template.icons?.toMutableMap() ?: mutableMapOf()
+    val childIcons = parentTemplate.icons?.toMutableMap() ?: mutableMapOf()
+    val combinedPalette = combineMaps(
+      (parentIcons["ColorPalette"] ?: emptyMap<String, String>()) as StringDictionary<Any>,
+      (childIcons["ColorPalette"] ?: emptyMap<String, String>()) as StringDictionary<Any>
+    )
+    parentIcons["ColorPalette"] = combinedPalette
     return resolveNamedColorsForMap(
-      template.icons ?: emptyMap(),
+      parentIcons,
       colors,
     )
   }

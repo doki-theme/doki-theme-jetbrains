@@ -1,5 +1,11 @@
 Changelog
 ---
+# 88.4-1.9.4 [Usability Updates]
+
+- Made Light Theme's checkboxes & radio buttons more usable.
+- Sigure's list item selection is readable now.
+- Updated Sagiri's syntax highlight to avoid looking like an error.
+
 # 88.3-1.9.3 [New UI Updates]
 
 - Themed New UI Main Toolbar button pressed color.
