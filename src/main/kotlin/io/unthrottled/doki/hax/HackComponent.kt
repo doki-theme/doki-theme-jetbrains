@@ -1,10 +1,8 @@
 package io.unthrottled.doki.hax
 
-import com.intellij.codeInsight.actions.DirectoryFormattingOptions
 import com.intellij.codeInsight.hint.HintUtil
 import com.intellij.codeInsight.hint.TooltipRenderer
 import com.intellij.execution.runners.ProcessProxy
-import com.intellij.ide.IdeTooltipManager
 import com.intellij.ide.actions.runAnything.RunAnythingAction
 import com.intellij.ide.plugins.newui.PluginLogo
 import com.intellij.ide.util.ChooseElementsDialog
@@ -15,14 +13,8 @@ import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.fileEditor.impl.EditorComposite
 import com.intellij.openapi.fileEditor.impl.EditorHistoryManager
 import com.intellij.openapi.vcs.ex.DocumentTracker
-import com.intellij.ui.JBColor
-import com.intellij.ui.SimpleTextAttributes
-import com.intellij.util.ui.UIUtil
-import com.intellij.xdebugger.memory.ui.ClassesTable
-import io.unthrottled.doki.hax.FieldHacker.setFinalStatic
 import io.unthrottled.doki.stickers.DOKI_BACKGROUND_PROP
 import io.unthrottled.doki.util.runSafely
-import java.awt.Color
 import javassist.CannotCompileException
 import javassist.ClassClassPath
 import javassist.ClassPool
