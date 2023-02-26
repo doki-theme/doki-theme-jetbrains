@@ -223,7 +223,7 @@ When making changes to the JetBrains templates, there are two options for the ed
 - `template` - which expects the name of the initial parent, and outputs an editor scheme evaluted for the master theme
   definition.
 - `templateExtension` - takes the name of the `file` in the same
-  directory. [Here is an example](https://github.com/doki-theme/doki-theme-jetbrains/blob/master/buildSrc/assets/themes/swordArtOnline/asuna/dark/asuna.dark.jetbrains.definition.json)
+  directory. [Here is an example](https://github.com/doki-theme/doki-theme-jetbrains/blob/main/buildSrc/assets/themes/swordArtOnline/asuna/dark/asuna.dark.jetbrains.definition.json)
   .
 
 Once you have completed all of those steps, you've got all the things available to you to create a brand-new theme!

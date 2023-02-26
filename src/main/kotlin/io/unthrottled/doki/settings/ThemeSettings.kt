@@ -67,7 +67,7 @@ object ThemeSettings {
   const val SETTINGS_ID = "io.unthrottled.doki.settings.ThemeSettings"
   const val THEME_SETTINGS_DISPLAY_NAME = "Doki Theme Settings"
   val CHANGELOG_URI =
-    URI("https://github.com/doki-theme/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md")
+    URI("https://github.com/doki-theme/doki-theme-jetbrains/blob/main/changelog/CHANGELOG.md")
   private const val REPOSITORY = "https://github.com/doki-theme/doki-theme-jetbrains"
   const val ULTIMATE_INSTRUCTIONS = "$REPOSITORY/wiki/Ultimate-Theme-Setup"
   val ISSUES_URI = URI("$REPOSITORY/issues")
