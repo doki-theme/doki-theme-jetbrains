@@ -1,5 +1,10 @@
 Changelog
 ---
+
+# 88.5-1.9.5 [Cleanup]
+
+- Made Non-Functional & Non-User-facing code cleanup updates.
+
 # 88.4-1.9.4 [Usability Updates]
 
 - Made Light Theme's checkboxes & radio buttons more usable.
