@@ -1,5 +1,10 @@
 Changelog
 ---
+
+# 88.5-1.9.5 [Cleanup]
+
+- Made Non-Functional & Non-User-facing code cleanup updates.
+
 # 88.4-1.9.4 [Usability Updates]
 
 - Made Light Theme's checkboxes & radio buttons more usable.
@@ -132,7 +137,7 @@ _Zero Two's Not Just A Cutie. ;)_
 
 # 84.1-1.3.0 [Small Fixes n Stuff]
 
-- Added themed [Rainbow Brackets](https://plugins.jetbrains.com/plugin/10080-rainbow-brackets) that match the [VSCode Bracket Match](https://github.com/doki-theme/doki-theme-vscode/blob/master/CHANGELOG.md#782-110-themed-bracket-pair-colorization), for the most part.
+- Added themed [Rainbow Brackets](https://plugins.jetbrains.com/plugin/10080-rainbow-brackets) that match the [VSCode Bracket Match](https://github.com/doki-theme/doki-theme-vscode/blob/main/CHANGELOG.md#782-110-themed-bracket-pair-colorization), for the most part.
 - Raised lowest supported IDE build to `211.7628.21`.
 - Fixed usability problems for: Beatrice, C.C., & Sayori Dark.
 - Fixed the VCS Log inactive color & some other stuff.
@@ -514,7 +519,7 @@ From the Future Diary Series
 
 - Added `Notification Opacity` setting that enables you to control the transparency of your notification windows.
 
-![Notification Opacity](https://raw.githubusercontent.com/doki-theme/doki-theme-jetbrains/master/assets/readmeAssets/notification_opacity.gif)
+![Notification Opacity](https://raw.githubusercontent.com/doki-theme/doki-theme-jetbrains/main/assets/readmeAssets/notification_opacity.gif)
 
 # 15.0.0 [New Themes!]
 

@@ -423,7 +423,7 @@ public class ThemeSettingsUI implements SearchableConfigurable, Configurable.NoS
         "    </style>\n" +
         "</head>\n" +
         "<a href='https://github.com/doki-theme/doki-theme-jetbrains#documentation'>View Documentation</a><br/><br/>\n" +
-        "<a href='https://github.com/doki-theme/doki-theme-jetbrains/blob/master/changelog/CHANGELOG.md'>See Changelog</a><br/><br/>\n" +
+        "<a href='https://github.com/doki-theme/doki-theme-jetbrains/blob/main/changelog/CHANGELOG.md'>See Changelog</a><br/><br/>\n" +
         "<a href='https://github.com/doki-theme/doki-theme-jetbrains/issues'>Report Issue</a><br/><br/>\n" +
         "</div>\n" +
         "</html>"

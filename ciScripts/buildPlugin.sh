@@ -4,8 +4,8 @@
 git add .
 git stash
 git fetch
-git checkout master
-git pull origin master
+git checkout main
+git pull origin main
 ./gradlew markdownToHtml
 
 # Build

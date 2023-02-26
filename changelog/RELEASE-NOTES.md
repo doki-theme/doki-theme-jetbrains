@@ -10,3 +10,4 @@
 - Made Light Theme's checkboxes & radio buttons more usable.
 - Sigure's list item selection is readable now.
 - Updated Sagiri's syntax highlight to avoid looking like an error.
+- Made Non-Functional & Non-User-facing code cleanup updates.
