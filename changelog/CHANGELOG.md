@@ -3,7 +3,7 @@ Changelog
 
 # 88.5-1.9.6 [Maintenance]
 
-- Updated migrated to newer platform APIs
+- Migrated to newer platform APIs
 - Raised the lowest supported version to 2022.3
 
 # 88.5-1.9.5 [Cleanup]
