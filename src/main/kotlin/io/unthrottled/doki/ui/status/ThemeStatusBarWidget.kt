@@ -89,6 +89,4 @@ class ThemeStatusBarWidget(private val project: Project) :
       ModalityState.NON_MODAL
     )
   }
-
-  override fun getPopupStep(): ListPopup? = null
 }
