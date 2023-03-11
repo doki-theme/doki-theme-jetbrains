@@ -6,7 +6,6 @@ import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.application.ModalityState
 import com.intellij.openapi.options.ShowSettingsUtil
 import com.intellij.openapi.project.Project
-import com.intellij.openapi.ui.popup.ListPopup
 import com.intellij.openapi.wm.StatusBar
 import com.intellij.openapi.wm.StatusBarWidget
 import com.intellij.openapi.wm.WindowManager
@@ -89,6 +88,4 @@ class ThemeStatusBarWidget(private val project: Project) :
       ModalityState.NON_MODAL
     )
   }
-
-  override fun getPopupStep(): ListPopup? = null
 }

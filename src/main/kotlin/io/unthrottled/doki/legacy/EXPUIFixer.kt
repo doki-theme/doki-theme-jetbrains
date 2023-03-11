@@ -10,7 +10,7 @@ import io.unthrottled.doki.themes.ThemeManager
 import javax.swing.UIDefaults
 import javax.swing.UIManager
 
-object EXPUIBastardizer : LafManagerListener, Disposable {
+object EXPUIFixer : LafManagerListener, Disposable {
 
   private val connection = ApplicationManager.getApplication().messageBus.connect()
 
@@ -19,7 +19,7 @@ object EXPUIBastardizer : LafManagerListener, Disposable {
   }
 
   @Suppress("UnstableApiUsage")
-  fun bastardizeExperimentalUI() {
+  fun fixExperimentalUI() {
     if (!ExperimentalUI.isNewUI()) return
 
     overrideSetProperties(0)
@@ -53,6 +53,6 @@ object EXPUIBastardizer : LafManagerListener, Disposable {
   }
 
   override fun lookAndFeelChanged(source: LafManager) {
-    bastardizeExperimentalUI()
+    fixExperimentalUI()
   }
 }

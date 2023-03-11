@@ -1079,6 +1079,11 @@
     <option name="HTML_CODE">
       <value/>
     </option>
+    <option name="HTML_CUSTOM_TAG_NAME">
+      <value>
+        <option name="FOREGROUND" value="$htmlTagColor$" />
+      </value>
+    </option>
     <option name="HTML_ENTITY_REFERENCE" baseAttributes="DEFAULT_ENTITY"/>
     <option name="HTML_TAG">
       <value>

@@ -13,7 +13,7 @@
     &lt;p&gt;&lt;br/&gt;&lt;img alt="Zero Two Dark" src="https://raw.githubusercontent.com/doki-theme/doki-theme-jetbrains/main/assets/screenshots/franxx/zero_two_dark_code.png" width="500"/&gt;&lt;/p&gt;
     &lt;br/&gt;
         </description>
-  <idea-version since-build="222"/>
+  <idea-version since-build="223"/>
   <depends>com.intellij.modules.platform</depends>
   <depends optional="true" config-file="io.unthrottled.doki.theme-com.intellij.modules.lang.xml">com.intellij.modules.lang</depends>
   <depends optional="true" config-file="io.unthrottled.doki.theme-XPathView.xml">XPathView</depends>
