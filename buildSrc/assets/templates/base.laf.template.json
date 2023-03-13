@@ -508,7 +508,7 @@
     "BookmarkMnemonicIcon.foreground": "headerColor",
     "BookmarkMnemonicIcon.background":"accentColor",
     "BookmarkMnemonicIcon.borderColor": "accentColor",
-    "Bookmark.Mnemonic.iconForeground": "headerColor",
+    "Bookmark.Mnemonic.iconForeground": "accentColor",
     "Bookmark.Mnemonic.iconBackground":"accentColor",
     "Bookmark.Mnemonic.iconBorderColor": "accentColor",
 

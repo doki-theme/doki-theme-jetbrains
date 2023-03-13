@@ -1,6 +1,10 @@
 Changelog
 ---
 
+# 88.5-1.9.7 [Mnemonics]
+
+- More usable Mnemonic Bookmarks
+
 # 88.5-1.9.6 [Maintenance]
 
 - Migrated to newer platform APIs

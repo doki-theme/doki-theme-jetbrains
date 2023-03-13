@@ -13,4 +13,5 @@
 - Made Non-Functional & Non-User-facing code cleanup updates.
 - Migrated to newer platform APIs
 - Raised the lowest supported version to 2022.3
+- More usable Mnemonic Bookmarks
 
