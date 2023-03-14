@@ -438,5 +438,21 @@
   {
     "originalPath": "/vcs/vendors/github_dark.svg",
     "replacementPath": "/icons/vcs/vendors/github_dark.svg"
+  },
+  {
+    "originalPath": "/gutter/mnemonic.svg",
+    "replacementPath": "/icons/gutter/mnemonic.svg"
+  },
+  {
+    "originalPath": "/gutter/mnemonic_dark.svg",
+    "replacementPath": "/icons/gutter/mnemonic_dark.svg"
+  },
+  {
+    "originalPath": "/nodes/mnemonic.svg",
+    "replacementPath": "/icons/nodes/mnemonic.svg"
+  },
+  {
+    "originalPath": "/nodes/mnemonic_dark.svg",
+    "replacementPath": "/icons/nodes/mnemonic_dark.svg"
   }
 ]
