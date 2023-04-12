@@ -34,7 +34,7 @@ dependencies {
   implementation("org.javassist:javassist:3.29.2-GA")
   implementation("io.sentry:sentry:6.16.0")
   testImplementation("org.assertj:assertj-core:3.24.2")
-  testImplementation("io.mockk:mockk:1.13.4")
+  testImplementation("io.mockk:mockk:1.13.5")
 }
 
 configurations {
