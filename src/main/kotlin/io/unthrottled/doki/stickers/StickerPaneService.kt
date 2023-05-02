@@ -111,11 +111,12 @@ class StickerPaneService {
 
   private val allowedFrames = setOf(
     "com.intellij.openapi.ui.FrameWrapper\$MyJFrame",
-    "com.intellij.openapi.wm.impl.IdeFrameImpl"
+    "com.intellij.openapi.wm.impl.IdeFrameImpl",
+    "com.intellij.openapi.wm.impl.welcomeScreen.FlatWelcomeFrame"
   )
 
   private fun captureFrame(window: JFrame) {
-    if (isRightClass(window)) return
+    if (!isRightClass(window)) return
     val drawablePane = window.rootPane.layeredPane
     val stickerPane = StickerPane(
       drawablePane,
@@ -174,10 +175,8 @@ class StickerPaneService {
       }
   }
 
-  private fun isRightClass(window: Any): Boolean {
-    if (allowedFrames.contains(window.javaClass.name).not()) return true
-    return false
-  }
+  private fun isRightClass(window: Any): Boolean =
+    allowedFrames.contains(window.javaClass.name)
 
   private fun displayStickers(
     currentTheme: DokiTheme,

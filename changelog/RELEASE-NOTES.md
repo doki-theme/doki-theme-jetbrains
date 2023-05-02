@@ -1,17 +1,1 @@
-- Fixed issue with global font override not being applied after IDE was restarted.
-- Added the initial 2023.1 build support. 
-- Updated the border color of the `Code Lense` feature.
-- Vertically aligned the editor search text input on the new UI.
-- Allow custom stickers to remain on IDE for non-Doki themes.
-- Themed New UI Scrollbars in Rider to be consistent.
-- Fixed the settings window in builds `231.6890.12`+ 
-- Themed New UI header button hover & pressed color 
-- Updated New UI project tree spacing to mirror JetBrains' defaults.
-- Made Light Theme's checkboxes & radio buttons more usable.
-- Sigure's list item selection is readable now.
-- Updated Sagiri's syntax highlight to avoid looking like an error.
-- Made Non-Functional & Non-User-facing code cleanup updates.
-- Migrated to newer platform APIs
-- Raised the lowest supported version to 2022.3
-- More usable Mnemonic Bookmarks
-
+- Added sticker placement to the welcome window.

@@ -1,6 +1,10 @@
 Changelog
 ---
 
+# 88.5-1.10.0 [Welcome Screen Sticker]
+
+- Added sticker placement to the welcome window.
+
 # 88.5-1.9.7 [Mnemonics]
 
 - More usable Mnemonic Bookmarks
