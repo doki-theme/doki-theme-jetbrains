@@ -1,458 +1,458 @@
 [
   {
     "originalPath": "/alliance.svg",
-    "replacementPath": "/icons/plugins/normandy/alliance.svg"
+    "replacementPath": "icons/plugins/normandy/alliance.svg"
   },
   {
     "originalPath": "/actions/new.svg",
-    "replacementPath": "/icons/actions/new.svg"
+    "replacementPath": "icons/actions/new.svg"
   },
   {
     "originalPath": "/actions/deleteTag.svg",
-    "replacementPath": "/icons/actions/deleteTag.svg"
+    "replacementPath": "icons/actions/deleteTag.svg"
   },
   {
     "originalPath": "/actions/deleteTag_dark.svg",
-    "replacementPath": "/icons/actions/deleteTag_dark.svg"
+    "replacementPath": "icons/actions/deleteTag_dark.svg"
   },
   {
     "originalPath": "/actions/deleteTagHover.svg",
-    "replacementPath": "/icons/actions/deleteTagHover.svg"
+    "replacementPath": "icons/actions/deleteTagHover.svg"
   },
   {
     "originalPath": "/actions/deleteTagHover_dark.svg",
-    "replacementPath": "/icons/actions/deleteTagHover_dark.svg"
+    "replacementPath": "icons/actions/deleteTagHover_dark.svg"
   },
   {
     "originalPath": "/actions/checked.svg",
-    "replacementPath": "/icons/actions/checked.svg"
+    "replacementPath": "icons/actions/checked.svg"
   },
   {
     "originalPath": "/actions/diffWithClipboard.svg",
-    "replacementPath": "/icons/actions/diffWithClipboard.svg"
+    "replacementPath": "icons/actions/diffWithClipboard.svg"
   },
   {
     "originalPath": "/actions/diffWithClipboard_dark.svg",
-    "replacementPath": "/icons/actions/diffWithClipboard_dark.svg"
+    "replacementPath": "icons/actions/diffWithClipboard_dark.svg"
   },
   {
     "originalPath": "/actions/lightning.svg",
-    "replacementPath": "/icons/actions/lightning.svg"
+    "replacementPath": "icons/actions/lightning.svg"
   },
   {
     "originalPath": "/actions/lightning_dark.svg",
-    "replacementPath": "/icons/actions/lightning_dark.svg"
+    "replacementPath": "icons/actions/lightning_dark.svg"
   },
   {
     "originalPath": "/actions/refresh.svg",
-    "replacementPath": "/icons/actions/refresh.svg"
+    "replacementPath": "icons/actions/refresh.svg"
   },
   {
     "originalPath": "/actions/refresh_dark.svg",
-    "replacementPath": "/icons/actions/refresh_dark.svg"
+    "replacementPath": "icons/actions/refresh_dark.svg"
   },
   {
     "originalPath": "/actions/menu-saveall.svg",
-    "replacementPath": "/icons/actions/menu-saveall.svg"
+    "replacementPath": "icons/actions/menu-saveall.svg"
   },
   {
     "originalPath": "/actions/menu-saveall_dark.svg",
-    "replacementPath": "/icons/actions/menu-saveall_dark.svg"
+    "replacementPath": "icons/actions/menu-saveall_dark.svg"
   },
   {
     "originalPath": "/de/halirutan/keypromoterx/icons/kpx.svg",
-    "replacementPath": "/icons/plugins/key/promoter/icons/kpx.svg"
+    "replacementPath": "icons/plugins/key/promoter/icons/kpx.svg"
   },
   {
     "originalPath": "/de/halirutan/keypromoterx/icons/kpx_dark.svg",
-    "replacementPath": "/icons/plugins/key/promoter/icons/kpx_dark.svg"
+    "replacementPath": "icons/plugins/key/promoter/icons/kpx_dark.svg"
   },
   {
     "originalPath": "/de/halirutan/keypromoterx/icons/kpxToolwindow.svg",
-    "replacementPath": "/icons/plugins/key/promoter/icons/kpxToolwindow.svg"
+    "replacementPath": "icons/plugins/key/promoter/icons/kpxToolwindow.svg"
   },
   {
     "originalPath": "/de/halirutan/keypromoterx/icons/kpxToolwindow_dark.svg",
-    "replacementPath": "/icons/plugins/key/promoter/icons/kpxToolwindow_dark.svg"
+    "replacementPath": "icons/plugins/key/promoter/icons/kpxToolwindow_dark.svg"
   },
   {
     "originalPath": "/debugger/watch.svg",
-    "replacementPath": "/icons/debugger/watch.svg"
+    "replacementPath": "icons/debugger/watch.svg"
   },
   {
     "originalPath": "/debugger/db_watch.svg",
-    "replacementPath": "/icons/debugger/watch.svg"
+    "replacementPath": "icons/debugger/watch.svg"
   },
   {
     "originalPath": "/fileTypes/properties.svg",
-    "replacementPath": "/icons/fileTypes/properties.svg"
+    "replacementPath": "icons/fileTypes/properties.svg"
   },
   {
     "originalPath": "/fileTypes/json.svg",
-    "replacementPath": "/icons/fileTypes/json.svg"
+    "replacementPath": "icons/fileTypes/json.svg"
   },
   {
     "originalPath": "/fileTypes/json_dark.svg",
-    "replacementPath": "/icons/fileTypes/json_dark.svg"
+    "replacementPath": "icons/fileTypes/json_dark.svg"
   },
   {
     "originalPath": "/fileTypes/jsonSchema.svg",
-    "replacementPath": "/icons/fileTypes/jsonSchema.svg"
+    "replacementPath": "icons/fileTypes/jsonSchema.svg"
   },
   {
     "originalPath": "/fileTypes/jsonSchema_dark.svg",
-    "replacementPath": "/icons/fileTypes/jsonSchema_dark.svg"
+    "replacementPath": "icons/fileTypes/jsonSchema_dark.svg"
   },
   {
     "originalPath": "/general/add.svg",
-    "replacementPath": "/icons/general/add.svg"
+    "replacementPath": "icons/general/add.svg"
   },
   {
     "originalPath": "/general/add_dark.svg",
-    "replacementPath": "/icons/general/add_dark.svg"
+    "replacementPath": "icons/general/add_dark.svg"
   },
   {
     "originalPath": "/general/gearPlain.svg",
-    "replacementPath": "/icons/general/gearPlain.svg"
+    "replacementPath": "icons/general/gearPlain.svg"
   },
   {
     "originalPath": "/general/gearPlain_dark.svg",
-    "replacementPath": "/icons/general/gearPlain_dark.svg"
+    "replacementPath": "icons/general/gearPlain_dark.svg"
   },
   {
     "originalPath": "/ide/rating.svg",
-    "replacementPath": "/icons/ide/rating.svg"
+    "replacementPath": "icons/ide/rating.svg"
   },
   {
     "originalPath": "/ide/rating1.svg",
-    "replacementPath": "/icons/ide/rating1.svg"
+    "replacementPath": "icons/ide/rating1.svg"
   },
   {
     "originalPath": "/ide/rating2.svg",
-    "replacementPath": "/icons/ide/rating2.svg"
+    "replacementPath": "icons/ide/rating2.svg"
   },
   {
     "originalPath": "/ide/rating3.svg",
-    "replacementPath": "/icons/ide/rating3.svg"
+    "replacementPath": "icons/ide/rating3.svg"
   },
   {
     "originalPath": "/ide/rating4.svg",
-    "replacementPath": "/icons/ide/rating4.svg"
+    "replacementPath": "icons/ide/rating4.svg"
   },
   {
     "originalPath": "/ide/notification/pluginUpdate.svg",
-    "replacementPath": "/icons/ide/notification/pluginUpdate.svg"
+    "replacementPath": "icons/ide/notification/pluginUpdate.svg"
   },
   {
     "originalPath": "/ide/notification/ideUpdate.svg",
-    "replacementPath": "/icons/ide/notification/pluginUpdate.svg"
+    "replacementPath": "icons/ide/notification/pluginUpdate.svg"
   },
   {
     "originalPath": "/ide/notification/pluginUpdate_dark.svg",
-    "replacementPath": "/icons/ide/notification/pluginUpdate_dark.svg"
+    "replacementPath": "icons/ide/notification/pluginUpdate_dark.svg"
   },
   {
     "originalPath": "/ide/notification/ideUpdate_dark.svg",
-    "replacementPath": "/icons/ide/notification/pluginUpdate_dark.svg"
+    "replacementPath": "icons/ide/notification/pluginUpdate_dark.svg"
   },
   {
     "originalPath": "/icons/actions/GoTo.png",
-    "replacementPath": "/icons/plugins/buck/icons/actions/GoTo.svg"
+    "replacementPath": "icons/plugins/buck/icons/actions/GoTo.svg"
   },
   {
     "originalPath": "/icons/actions/Find.png",
-    "replacementPath": "/icons/plugins/buck/icons/actions/Find.svg"
+    "replacementPath": "icons/plugins/buck/icons/actions/Find.svg"
   },
   {
     "originalPath": "/icons/config.png",
-    "replacementPath": "/icons/general/gearPlain.svg"
+    "replacementPath": "icons/general/gearPlain.svg"
   },
   {
     "originalPath": "/icons/ideavim.svg",
-    "replacementPath": "/icons/plugins/vim/icons/ideavim.svg"
+    "replacementPath": "icons/plugins/vim/icons/ideavim.svg"
   },
   {
     "originalPath": "/icons/main.svg",
-    "replacementPath": "/icons/plugins/space/space.svg"
+    "replacementPath": "icons/plugins/space/space.svg"
   },
   {
     "originalPath": "/icons/actions/Project.png",
-    "replacementPath": "/icons/nodes/folder.svg"
+    "replacementPath": "icons/nodes/folder.svg"
   },
   {
     "originalPath": "/icons/actions/Run.png",
-    "replacementPath": "/icons/actions/execute.svg"
+    "replacementPath": "icons/actions/execute.svg"
   },
   {
     "originalPath": "/icons/actions/Stop.png",
-    "replacementPath": "/icons/actions/suspend.svg"
+    "replacementPath": "icons/actions/suspend.svg"
   },
   {
     "originalPath": "/icons/buck_icon.png",
-    "replacementPath": "/icons/plugins/buck/icons/buck.svg"
+    "replacementPath": "icons/plugins/buck/icons/buck.svg"
   },
   {
     "originalPath": "/icons/buck_tool_window_icon.png",
-    "replacementPath": "/icons/plugins/buck/icons/toolWindowBuck.svg"
+    "replacementPath": "icons/plugins/buck/icons/toolWindowBuck.svg"
   },
   {
     "originalPath": "/icons/task.svg",
-    "replacementPath": "/icons/icons/task.svg"
+    "replacementPath": "icons/icons/task.svg"
   },
   {
     "originalPath": "/krasa/grepconsole/icons/highlight.png",
-    "replacementPath": "/icons/plugins/grepConsole/highlight.svg"
+    "replacementPath": "icons/plugins/grepConsole/highlight.svg"
   },
   {
     "originalPath": "/krasa/grepconsole/icons/tail.png",
-    "replacementPath": "/icons/plugins/grepConsole/tail.svg"
+    "replacementPath": "icons/plugins/grepConsole/tail.svg"
   },
   {
     "originalPath": "/krasa/grepconsole/icons/disabledRun.png",
-    "replacementPath": "/icons/plugins/grepConsole/disabledRun.svg"
+    "replacementPath": "icons/plugins/grepConsole/disabledRun.svg"
   },
   {
     "originalPath": "/images/psi.png",
-    "replacementPath": "/icons/plugins/psi/images/psi.svg"
+    "replacementPath": "icons/plugins/psi/images/psi.svg"
   },
   {
     "originalPath": "/images/psi18x18.png",
-    "replacementPath": "/icons/plugins/psi/images/psi_18.svg"
+    "replacementPath": "icons/plugins/psi/images/psi_18.svg"
   },
   {
     "originalPath": "/images/psiToolWindow.png",
-    "replacementPath": "/icons/plugins/psi/images/psiToolWindow.svg"
+    "replacementPath": "icons/plugins/psi/images/psiToolWindow.svg"
   },
   {
     "originalPath": "/org/jetbrains/plugins/jumpToLine/nextStatement.svg",
-    "replacementPath": "/icons/plugins/jumpToLine/nextStatement.svg"
+    "replacementPath": "icons/plugins/jumpToLine/nextStatement.svg"
   },
   {
     "originalPath": "/org/jetbrains/plugins/jumpToLine/nextStatementFail.svg",
-    "replacementPath": "/icons/plugins/jumpToLine/nextStatementFail.svg"
+    "replacementPath": "icons/plugins/jumpToLine/nextStatementFail.svg"
   },
   {
     "originalPath": "/org/jetbrains/plugins/cucumber/icons/cucumber.svg",
-    "replacementPath": "/icons/plugins/cucumber/cucumber.svg"
+    "replacementPath": "icons/plugins/cucumber/cucumber.svg"
   },
   {
     "originalPath": "/org/jetbrains/kotlin/idea/icons/abstractClassKotlin.svg",
-    "replacementPath": "/icons/plugins/kotlin/abstractClassKotlin.svg"
+    "replacementPath": "icons/plugins/kotlin/abstractClassKotlin.svg"
   },
   {
     "originalPath": "/org/jetbrains/kotlin/idea/icons/annotationKotlin.svg",
-    "replacementPath": "/icons/plugins/kotlin/annotationKotlin.svg"
+    "replacementPath": "icons/plugins/kotlin/annotationKotlin.svg"
   },
   {
     "originalPath": "/org/jetbrains/kotlin/idea/icons/classInitializerKotlin.svg",
-    "replacementPath": "/icons/plugins/kotlin/classInitializerKotlin.svg"
+    "replacementPath": "icons/plugins/kotlin/classInitializerKotlin.svg"
   },
   {
     "originalPath": "/org/jetbrains/kotlin/idea/icons/classKotlin.svg",
-    "replacementPath": "/icons/plugins/kotlin/classKotlin.svg"
+    "replacementPath": "icons/plugins/kotlin/classKotlin.svg"
   },
   {
     "originalPath": "/org/jetbrains/kotlin/idea/icons/enumKotlin.svg",
-    "replacementPath": "/icons/plugins/kotlin/enumKotlin.svg"
+    "replacementPath": "icons/plugins/kotlin/enumKotlin.svg"
   },
   {
     "originalPath": "/org/jetbrains/kotlin/idea/icons/field_value.svg",
-    "replacementPath": "/icons/plugins/kotlin/field_value.svg"
+    "replacementPath": "icons/plugins/kotlin/field_value.svg"
   },
   {
     "originalPath": "/org/jetbrains/kotlin/idea/icons/field_variable.svg",
-    "replacementPath": "/icons/plugins/kotlin/field_variable.svg"
+    "replacementPath": "icons/plugins/kotlin/field_variable.svg"
   },
   {
     "originalPath": "/org/jetbrains/kotlin/idea/icons/interfaceKotlin.svg",
-    "replacementPath": "/icons/plugins/kotlin/interfaceKotlin.svg"
+    "replacementPath": "icons/plugins/kotlin/interfaceKotlin.svg"
   },
   {
     "originalPath": "/org/jetbrains/kotlin/idea/icons/interfaceKotlin@2x.svg",
-    "replacementPath": "/icons/plugins/kotlin/interfaceKotlin@2x.svg"
+    "replacementPath": "icons/plugins/kotlin/interfaceKotlin@2x.svg"
   },
   {
     "originalPath": "/org/jetbrains/kotlin/idea/icons/kotlin.svg",
-    "replacementPath": "/icons/plugins/kotlin/kotlin.svg"
+    "replacementPath": "icons/plugins/kotlin/kotlin.svg"
   },
   {
     "originalPath": "/org/jetbrains/kotlin/idea/icons/kotlin13.svg",
-    "replacementPath": "/icons/plugins/kotlin/kotlin13.svg"
+    "replacementPath": "icons/plugins/kotlin/kotlin13.svg"
   },
   {
     "originalPath": "/org/jetbrains/kotlin/idea/icons/kotlin_file.svg",
-    "replacementPath": "/icons/plugins/kotlin/kotlin_file.svg"
+    "replacementPath": "icons/plugins/kotlin/kotlin_file.svg"
   },
   {
     "originalPath": "/org/jetbrains/kotlin/idea/icons/kotlin_gradle_script.svg",
-    "replacementPath": "/icons/plugins/kotlin/kotlin_gradle_script.svg"
+    "replacementPath": "icons/plugins/kotlin/kotlin_gradle_script.svg"
   },
   {
     "originalPath": "/org/jetbrains/kotlin/idea/icons/kotlin_js.svg",
-    "replacementPath": "/icons/plugins/kotlin/kotlin_js.svg"
+    "replacementPath": "icons/plugins/kotlin/kotlin_js.svg"
   },
   {
     "originalPath": "/org/jetbrains/kotlin/idea/icons/kotlin_launch_configuration.svg",
-    "replacementPath": "/icons/plugins/kotlin/kotlin_launch_configuration.svg"
+    "replacementPath": "icons/plugins/kotlin/kotlin_launch_configuration.svg"
   },
   {
     "originalPath": "/org/jetbrains/kotlin/idea/icons/kotlin_multiplatform_project.svg",
-    "replacementPath": "/icons/plugins/kotlin/kotlin_multiplatform_project.svg"
+    "replacementPath": "icons/plugins/kotlin/kotlin_multiplatform_project.svg"
   },
   {
     "originalPath": "/org/jetbrains/kotlin/idea/icons/kotlin_native.svg",
-    "replacementPath": "/icons/plugins/kotlin/kotlin_native.svg"
+    "replacementPath": "icons/plugins/kotlin/kotlin_native.svg"
   },
   {
     "originalPath": "/org/jetbrains/kotlin/idea/icons/kotlin_script.svg",
-    "replacementPath": "/icons/plugins/kotlin/kotlin_script.svg"
+    "replacementPath": "icons/plugins/kotlin/kotlin_script.svg"
   },
   {
     "originalPath": "/org/jetbrains/kotlin/idea/icons/lambda.svg",
-    "replacementPath": "/icons/plugins/kotlin/lambda.svg"
+    "replacementPath": "icons/plugins/kotlin/lambda.svg"
   },
   {
     "originalPath": "/org/jetbrains/kotlin/idea/icons/objectKotlin.svg",
-    "replacementPath": "/icons/plugins/kotlin/objectKotlin.svg"
+    "replacementPath": "icons/plugins/kotlin/objectKotlin.svg"
   },
   {
     "originalPath": "/org/jetbrains/kotlin/idea/icons/suspendCall.svg",
-    "replacementPath": "/icons/plugins/kotlin/suspendCall.svg"
+    "replacementPath": "icons/plugins/kotlin/suspendCall.svg"
   },
   {
     "originalPath": "/org/jetbrains/kotlin/idea/icons/suspendCall_dark.svg",
-    "replacementPath": "/icons/plugins/kotlin/suspendCall_dark.svg"
+    "replacementPath": "icons/plugins/kotlin/suspendCall_dark.svg"
   },
   {
     "originalPath": "/org/jetbrains/kotlin/idea/icons/typeAlias.svg",
-    "replacementPath": "/icons/plugins/kotlin/typeAlias.svg"
+    "replacementPath": "icons/plugins/kotlin/typeAlias.svg"
   },
   {
     "originalPath": "/nodes/editorConfig.svg",
-    "replacementPath": "/icons/nodes/editorConfig.svg"
+    "replacementPath": "icons/nodes/editorConfig.svg"
   },
   {
     "originalPath": "/nodes/runnableMark.svg",
-    "replacementPath": "/icons/nodes/runnableMark.svg"
+    "replacementPath": "icons/nodes/runnableMark.svg"
   },
   {
     "originalPath": "/nodes/excludedFromCompile.svg",
-    "replacementPath": "/icons/nodes/excludedFromCompile.svg"
+    "replacementPath": "icons/nodes/excludedFromCompile.svg"
   },
   {
     "originalPath": "/nodes/favorite.svg",
-    "replacementPath": "/icons/nodes/favorite.svg"
+    "replacementPath": "icons/nodes/favorite.svg"
   },
   {
     "originalPath": "/nodes/favoriteOnHover.svg",
-    "replacementPath": "/icons/nodes/favoriteOnHover.svg"
+    "replacementPath": "icons/nodes/favoriteOnHover.svg"
   },
   {
     "originalPath": "/nodes/finalMark.svg",
-    "replacementPath": "/icons/nodes/finalMark.svg"
+    "replacementPath": "icons/nodes/finalMark.svg"
   },
   {
     "originalPath": "/nodes/locked.svg",
-    "replacementPath": "/icons/nodes/locked.svg"
+    "replacementPath": "icons/nodes/locked.svg"
   },
   {
     "originalPath": "/nodes/Module.svg",
-    "replacementPath": "/icons/nodes/Module.svg"
+    "replacementPath": "icons/nodes/Module.svg"
   },
   {
     "originalPath": "/nodes/package.svg",
-    "replacementPath": "/icons/nodes/package.svg"
+    "replacementPath": "icons/nodes/package.svg"
   },
   {
     "originalPath": "/nodes/notFavoriteOnHover.svg",
-    "replacementPath": "/icons/nodes/notFavoriteOnHover.svg"
+    "replacementPath": "icons/nodes/notFavoriteOnHover.svg"
   },
   {
     "originalPath": "/nodes/shared.svg",
-    "replacementPath": "/icons/nodes/shared.svg"
+    "replacementPath": "icons/nodes/shared.svg"
   },
   {
     "originalPath": "/nodes/staticMark.svg",
-    "replacementPath": "/icons/nodes/staticMark.svg"
+    "replacementPath": "icons/nodes/staticMark.svg"
   },
   {
     "originalPath": "/nodes/symlink.svg",
-    "replacementPath": "/icons/nodes/symlink.svg"
+    "replacementPath": "icons/nodes/symlink.svg"
   },
   {
     "originalPath": "/plugins/rating.svg",
-    "replacementPath": "/icons/plugins/rating.svg"
+    "replacementPath": "icons/plugins/rating.svg"
   },
   {
     "originalPath": "/runConfigurations/testFailed.svg",
-    "replacementPath": "/icons/runConfigurations/testFailed.svg"
+    "replacementPath": "icons/runConfigurations/testFailed.svg"
   },
   {
     "originalPath": "/studio/icons/shell/filetree/android-module.svg",
-    "replacementPath": "/icons/plugins/studio/icons/shell/filetree/android-module.svg"
+    "replacementPath": "icons/plugins/studio/icons/shell/filetree/android-module.svg"
   },
   {
     "originalPath": "/toolwindows/toolWindowFavorites.svg",
-    "replacementPath": "/icons/toolwindows/toolWindowFavorites.svg"
+    "replacementPath": "icons/toolwindows/toolWindowFavorites.svg"
   },
   {
     "originalPath": "/toolwindows/infoEvents.svg",
-    "replacementPath": "/icons/toolwindows/infoEvents.svg"
+    "replacementPath": "icons/toolwindows/infoEvents.svg"
   },
   {
     "originalPath": "/toolwindows/infoEvents_dark.svg",
-    "replacementPath": "/icons/toolwindows/infoEvents_dark.svg"
+    "replacementPath": "icons/toolwindows/infoEvents_dark.svg"
   },
   {
     "originalPath": "/toolwindows/notificationsNewImportant.svg",
-    "replacementPath": "/icons/toolwindows/notificationsNewImportant.svg"
+    "replacementPath": "icons/toolwindows/notificationsNewImportant.svg"
   },
   {
     "originalPath": "/toolwindows/notificationsNewImportant_dark.svg",
-    "replacementPath": "/icons/toolwindows/notificationsNewImportant_dark.svg"
+    "replacementPath": "icons/toolwindows/notificationsNewImportant_dark.svg"
   },
   {
     "originalPath": "/welcome/createNewProject.svg",
-    "replacementPath": "/icons/welcome/createNewProject.svg"
+    "replacementPath": "icons/welcome/createNewProject.svg"
   },
   {
     "originalPath": "/welcome/createNewProject_dark.svg",
-    "replacementPath": "/icons/welcome/createNewProject_dark.svg"
+    "replacementPath": "icons/welcome/createNewProject_dark.svg"
   },
   {
     "originalPath": "/vcs/author.svg",
-    "replacementPath": "/icons/vcs/author.svg"
+    "replacementPath": "icons/vcs/author.svg"
   },
   {
     "originalPath": "/vcs/ignore_file.svg",
-    "replacementPath": "/icons/vcs/ignore_file.svg"
+    "replacementPath": "icons/vcs/ignore_file.svg"
   },
   {
     "originalPath": "/vcs/ignore_file_dark.svg",
-    "replacementPath": "/icons/vcs/ignore_file_dark.svg"
+    "replacementPath": "icons/vcs/ignore_file_dark.svg"
   },
   {
     "originalPath": "/vcs/vendors/github.svg",
-    "replacementPath": "/icons/vcs/vendors/github.svg"
+    "replacementPath": "icons/vcs/vendors/github.svg"
   },
   {
     "originalPath": "/vcs/vendors/github_dark.svg",
-    "replacementPath": "/icons/vcs/vendors/github_dark.svg"
+    "replacementPath": "icons/vcs/vendors/github_dark.svg"
   },
   {
     "originalPath": "/gutter/mnemonic.svg",
-    "replacementPath": "/icons/gutter/mnemonic.svg"
+    "replacementPath": "icons/gutter/mnemonic.svg"
   },
   {
     "originalPath": "/gutter/mnemonic_dark.svg",
-    "replacementPath": "/icons/gutter/mnemonic_dark.svg"
+    "replacementPath": "icons/gutter/mnemonic_dark.svg"
   },
   {
     "originalPath": "/nodes/mnemonic.svg",
-    "replacementPath": "/icons/nodes/mnemonic.svg"
+    "replacementPath": "icons/nodes/mnemonic.svg"
   },
   {
     "originalPath": "/nodes/mnemonic_dark.svg",
-    "replacementPath": "/icons/nodes/mnemonic_dark.svg"
+    "replacementPath": "icons/nodes/mnemonic_dark.svg"
   }
 ]

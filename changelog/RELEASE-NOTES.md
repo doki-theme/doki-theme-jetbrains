@@ -1,1 +1,2 @@
 - Added sticker placement to the welcome window.
+- Added initial 2023.2 build support
