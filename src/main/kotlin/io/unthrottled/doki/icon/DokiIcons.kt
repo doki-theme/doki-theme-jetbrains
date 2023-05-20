@@ -1,6 +1,6 @@
 package io.unthrottled.doki.icon
 
-import com.intellij.ui.IconManager.getInstance
+import com.intellij.openapi.util.IconLoader
 import javax.swing.Icon
 
 object DokiIcons {
@@ -42,5 +42,5 @@ object DokiIcons {
   }
 
   private fun load(path: String): Icon =
-    getInstance().getIcon(path, DokiIcons::class.java)
+    IconLoader.getIcon(path, DokiIcons::class.java)
 }

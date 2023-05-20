@@ -1,5 +1,8 @@
 Changelog
 ---
+# 88.5-1.11.0 [2023.2 Build Support]
+
+- Added initial 2023.2 build support
 
 # 88.5-1.10.0 [Welcome Screen Sticker]
 
