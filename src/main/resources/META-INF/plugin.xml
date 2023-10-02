@@ -26,7 +26,7 @@
     <applicationService serviceImplementation="io.unthrottled.doki.stickers.EmptyFrameWallpaperService"/>
     <applicationService serviceImplementation="io.unthrottled.doki.stickers.StickerPaneService"/>
     <applicationService serviceImplementation="io.unthrottled.doki.config.ThemeConfig"/>
-    <applicationConfigurable id="0d570cb2-96df-43cc-80da-7f777e6d0afe" instance="io.unthrottled.doki.settings.ThemeSettingsUI" groupId="appearance"/>
+    <applicationConfigurable id="0d570cb2-96df-43cc-80da-7f777e6d0afe" displayName="Doki Theme Settings" instance="io.unthrottled.doki.settings.ThemeSettingsUI" groupId="appearance"/>
     <errorHandler id="9782e40c-e6d2-488f-8611-71f5cca6695e" implementation="io.unthrottled.doki.integrations.ErrorReporter"/>
     <notificationGroup displayType="BALLOON" id="Doki Theme Updates" toolWindowId="Doki Theme Updates" isLogByDefault="false" icon="DokiThemeIcons.DOKI_LOGO"/>
     <notificationGroup displayType="BALLOON" id="Doki Theme Promotions" toolWindowId="Doki Theme Promotions" isLogByDefault="false" icon="DokiThemeIcons.DOKI_LOGO"/>
