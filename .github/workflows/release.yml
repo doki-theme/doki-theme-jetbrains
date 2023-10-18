@@ -7,7 +7,7 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3.5.3
+      - uses: actions/checkout@v4.1.1
       - name: Pull down the Master Themes
         run: ./getMasterThemes.sh
       - uses: actions/setup-java@v3
