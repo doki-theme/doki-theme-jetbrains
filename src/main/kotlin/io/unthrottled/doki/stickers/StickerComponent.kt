@@ -2,13 +2,13 @@ package io.unthrottled.doki.stickers
 
 import com.intellij.ide.ui.LafManager
 import com.intellij.ide.ui.LafManagerListener
+import com.intellij.ide.ui.laf.UIThemeLookAndFeelInfo
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.application.ApplicationManager
 import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.themes.DokiTheme
 import io.unthrottled.doki.themes.ThemeManager
 import io.unthrottled.doki.util.doOrElse
-import javax.swing.UIManager
 
 class StickerComponent :
   LafManagerListener,
@@ -22,7 +22,7 @@ class StickerComponent :
   }
 
   private fun initializeTheme() {
-    val currentLaf = LafManager.getInstance().currentLookAndFeel
+    val currentLaf = LafManager.getInstance().currentUIThemeLookAndFeel
     ThemeManager.instance.processLaf(
       currentLaf
     ).doOrElse({
@@ -62,13 +62,13 @@ class StickerComponent :
   }
 
   override fun lookAndFeelChanged(source: LafManager) =
-    processLaf(source.currentLookAndFeel)
+    processLaf(source.currentUIThemeLookAndFeel)
 
   override fun dispose() {
     connection.dispose()
   }
 
-  private fun processLaf(currentLaf: UIManager.LookAndFeelInfo?) {
+  private fun processLaf(currentLaf: UIThemeLookAndFeelInfo) {
     ThemeManager.instance.processLaf(currentLaf)
       .doOrElse({
         activateForTheme(it)
