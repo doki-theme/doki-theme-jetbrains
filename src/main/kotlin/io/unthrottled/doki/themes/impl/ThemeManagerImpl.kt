@@ -3,6 +3,7 @@ package io.unthrottled.doki.themes.impl
 import com.google.gson.Gson
 import com.intellij.ide.ui.LafManager
 import com.intellij.ide.ui.laf.UIThemeBasedLookAndFeelInfo
+import com.intellij.ide.ui.laf.UIThemeLookAndFeelInfoImpl
 import com.intellij.util.io.inputStream
 import io.unthrottled.doki.TheDokiTheme
 import io.unthrottled.doki.themes.DokiTheme
@@ -68,8 +69,8 @@ class ThemeManagerImpl : ThemeManager {
 
   override fun processLaf(currentLaf: UIManager.LookAndFeelInfo?): Optional<DokiTheme> {
     return currentLaf.toOptional()
-      .filter { it is UIThemeBasedLookAndFeelInfo }
-      .map { it as UIThemeBasedLookAndFeelInfo }
+      .filter { it is UIThemeLookAndFeelInfoImpl }
+      .map { it as UIThemeLookAndFeelInfoImpl }
       .map { themeMap[it.name] }
   }
 
