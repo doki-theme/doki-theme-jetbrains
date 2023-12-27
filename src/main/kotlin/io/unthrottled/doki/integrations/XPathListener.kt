@@ -6,13 +6,14 @@ import com.intellij.openapi.editor.colors.EditorColors
 import com.intellij.openapi.editor.colors.EditorColors.IDENTIFIER_UNDER_CARET_ATTRIBUTES
 import com.intellij.openapi.editor.colors.EditorColorsManager
 import com.intellij.openapi.project.Project
+import com.intellij.openapi.startup.ProjectActivity
 import com.intellij.openapi.startup.StartupActivity
 import io.unthrottled.doki.themes.ThemeManager
 import io.unthrottled.doki.util.doOrElse
 import org.intellij.plugins.xpathView.Config
 import org.intellij.plugins.xpathView.XPathAppComponent
 
-class XPathListener : LafManagerListener, StartupActivity {
+class XPathListener : LafManagerListener, ProjectActivity {
   override fun lookAndFeelChanged(source: LafManager) {
     installColors()
   }
@@ -41,7 +42,7 @@ class XPathListener : LafManagerListener, StartupActivity {
     }
   }
 
-  override fun runActivity(project: Project) {
+  override suspend fun execute(project: Project) {
     installColors()
   }
 }

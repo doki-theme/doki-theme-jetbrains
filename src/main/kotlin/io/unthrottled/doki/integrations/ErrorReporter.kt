@@ -100,7 +100,6 @@ class ErrorReporter : ErrorReportSubmitter() {
       setExtra("GC", getGC())
       setExtra("Memory", Runtime.getRuntime().maxMemory() / FileUtilRt.MEGABYTE)
       setExtra("Cores", Runtime.getRuntime().availableProcessors())
-      setExtra("Non-Bundled Plugins", getNonBundledPlugins())
       setExtra("Current LAF", LafManager.getInstance().currentLookAndFeel?.name ?: "")
       setExtra("Doki Version", ThemeConfig.instance.version)
       setExtra("Doki Config", Gson().toJson(ThemeConfig.instance))
@@ -118,13 +117,6 @@ class ErrorReporter : ErrorReportSubmitter() {
     val vmVendor = properties.getProperty("java.vendor", "unknown")
     return IdeBundle.message("about.box.vm", vmVersion, vmVendor)
   }
-
-  private fun getNonBundledPlugins(): String {
-    return Arrays.stream(PluginManagerCore.getPlugins())
-      .filter { p -> !p.isBundled && p.isEnabled }
-      .map { p -> p.pluginId.idString }.collect(Collectors.joining(","))
-  }
-
   private fun getGC() = ManagementFactory.getGarbageCollectorMXBeans().stream()
     .map { it.name }.collect(Collectors.joining(","))
 

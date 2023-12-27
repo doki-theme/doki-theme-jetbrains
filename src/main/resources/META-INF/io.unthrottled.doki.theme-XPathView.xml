@@ -1,6 +1,7 @@
 <idea-plugin>
   <extensions defaultExtensionNs="com.intellij">
     <postStartupActivity implementation="io.unthrottled.doki.integrations.XPathListener" />
+
   </extensions>
   <applicationListeners>
     <listener class="io.unthrottled.doki.integrations.XPathListener"
