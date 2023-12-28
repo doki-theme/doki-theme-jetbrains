@@ -9,6 +9,7 @@ import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.themes.DokiTheme
 import io.unthrottled.doki.themes.ThemeManager
 import io.unthrottled.doki.util.doOrElse
+import io.unthrottled.doki.util.toOptional
 
 class StickerComponent :
   LafManagerListener,
@@ -22,19 +23,21 @@ class StickerComponent :
   }
 
   private fun initializeTheme() {
-    val currentLaf = LafManager.getInstance().currentUIThemeLookAndFeel
-    ThemeManager.instance.processLaf(
-      currentLaf
-    ).doOrElse({
-      processLaf(currentLaf) // is doki theme
-    }) {
-      // allow custom stickers to show up
-      if (CustomStickerService.isCustomStickers) {
-        StickerPaneService.instance.activateForTheme(
-          ThemeManager.instance.defaultTheme
-        )
+    LafManager.getInstance()?.currentUIThemeLookAndFeel.toOptional()
+      .ifPresent { currentLaf ->
+        ThemeManager.instance.processLaf(
+          currentLaf
+        ).doOrElse({
+          processLaf(currentLaf) // is doki theme
+        }) {
+          // allow custom stickers to show up
+          if (CustomStickerService.isCustomStickers) {
+            StickerPaneService.instance.activateForTheme(
+              ThemeManager.instance.defaultTheme
+            )
+          }
+        }
       }
-    }
   }
 
   companion object {

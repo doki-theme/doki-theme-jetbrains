@@ -100,7 +100,7 @@ class ErrorReporter : ErrorReportSubmitter() {
       setExtra("GC", getGC())
       setExtra("Memory", Runtime.getRuntime().maxMemory() / FileUtilRt.MEGABYTE)
       setExtra("Cores", Runtime.getRuntime().availableProcessors())
-      setExtra("Current LAF", LafManager.getInstance().currentLookAndFeel?.name ?: "")
+      setExtra("Current LAF", LafManager.getInstance()?.currentLookAndFeel?.name ?: "")
       setExtra("Doki Version", ThemeConfig.instance.version)
       setExtra("Doki Config", Gson().toJson(ThemeConfig.instance))
     }

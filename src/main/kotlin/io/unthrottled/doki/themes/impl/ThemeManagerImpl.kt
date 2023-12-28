@@ -58,7 +58,8 @@ class ThemeManagerImpl : ThemeManager {
     get() = currentTheme.isPresent
 
   override val currentTheme: Optional<DokiTheme>
-    get() = processLaf(LafManager.getInstance().currentUIThemeLookAndFeel)
+    get() = LafManager.getInstance()?.currentUIThemeLookAndFeel.toOptional()
+      .flatMap { processLaf(it) }
 
   override val allThemes: List<DokiTheme>
     get() = themeMap.values.toList()
