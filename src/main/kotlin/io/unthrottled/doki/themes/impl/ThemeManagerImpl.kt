@@ -36,7 +36,7 @@ class ThemeManagerImpl : ThemeManager {
         themeURI[1]
       )
     )
-      .filter { it.fileName.toString().endsWith(".theme.json") }
+      .filter { it.fileName.toString().endsWith(".theme.meta.json") }
       .map { it.inputStream() }
       .map {
         gson.fromJson(
