@@ -112,6 +112,7 @@ class StickerPaneService {
   private val allowedFrames = setOf(
     "com.intellij.openapi.ui.FrameWrapper\$MyJFrame",
     "com.intellij.openapi.wm.impl.IdeFrameImpl",
+    "com.intellij.openapi.ui.MyJFrame",
     "com.intellij.openapi.wm.impl.welcomeScreen.FlatWelcomeFrame"
   )
 
