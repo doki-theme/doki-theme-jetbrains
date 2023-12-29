@@ -1,5 +1,6 @@
 package io.unthrottled.doki.hax
 
+import com.intellij.ui.svg.setSelectionColorPatcherProvider
 import com.intellij.util.SVGLoader
 import io.unthrottled.doki.icon.ColorPatcher
 // import io.unthrottled.doki.icon.ColorPatcher
@@ -28,6 +29,7 @@ object SvgLoaderHacker {
     ColorPatcher.setDokiTheme(dokiTheme)
 
     SVGLoader.colorPatcherProvider = ColorPatcher
+    setSelectionColorPatcherProvider(ColorPatcher)
   }
 
   private fun collectOtherPatcher(): Optional<PatcherProvider> =
