@@ -7,7 +7,6 @@ import com.intellij.openapi.editor.colors.EditorColors.IDENTIFIER_UNDER_CARET_AT
 import com.intellij.openapi.editor.colors.EditorColorsManager
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.startup.ProjectActivity
-import com.intellij.openapi.startup.StartupActivity
 import io.unthrottled.doki.themes.ThemeManager
 import io.unthrottled.doki.util.doOrElse
 import org.intellij.plugins.xpathView.Config

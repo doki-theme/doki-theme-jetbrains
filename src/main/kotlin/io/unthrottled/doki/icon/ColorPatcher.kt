@@ -5,6 +5,7 @@ import com.google.common.cache.CacheBuilder
 import com.intellij.ide.ui.LafManager
 import com.intellij.ide.ui.laf.UIThemeLookAndFeelInfoImpl
 import com.intellij.ui.ColorUtil
+import com.intellij.ui.JBColor
 import com.intellij.ui.JBColor.namedColor
 import com.intellij.ui.svg.SvgAttributePatcher
 import com.intellij.util.io.DigestUtil
@@ -15,7 +16,6 @@ import io.unthrottled.doki.util.runSafely
 import io.unthrottled.doki.util.runSafelyWithResult
 import io.unthrottled.doki.util.toHexString
 import io.unthrottled.doki.util.toOptional
-import org.w3c.dom.Element
 import java.awt.Color
 import java.time.Duration
 
@@ -31,13 +31,12 @@ val noOptPatcherProvider = object : PatcherProvider {
   }
 }
 
-object DokiColorPatcher : PatcherProvider {
+object ColorPatcher : PatcherProvider {
 
   private var otherColorPatcherProvider: PatcherProvider = noOptPatcherProvider
   private var uiColorPatcherProvider: PatcherProvider = noOptPatcherProvider
   private lateinit var dokiTheme: DokiTheme
   private val patcherProviderCache = HashSet<String>()
-
 
   fun setDokiTheme(dokiTheme: DokiTheme) {
     this.dokiTheme = dokiTheme
@@ -51,7 +50,6 @@ object DokiColorPatcher : PatcherProvider {
     clearCaches()
   }
 
-
   fun setOtherPatcher(otherPatcher: PatcherProvider) {
     this.otherColorPatcherProvider = otherPatcher
     clearCaches()
@@ -64,10 +62,8 @@ object DokiColorPatcher : PatcherProvider {
 
   override fun digest(): LongArray {
     val shaDigest = DigestUtil.sha512()
-//        otherPatchers.forEach { otherPatcher ->
-//          shaDigest.update(otherPatcher.digest() ?: emptyByteArray)
-//        }
-    if (DokiColorPatcher::dokiTheme.isInitialized) {
+    // todo calculate digest once.
+    if (ColorPatcher::dokiTheme.isInitialized) {
       shaDigest.update((dokiTheme.id + dokiTheme.version).toByteArray(Charsets.UTF_8))
     } else {
       shaDigest.update(this.toString().toByteArray(Charsets.UTF_8))
@@ -114,101 +110,102 @@ object DokiColorPatcher : PatcherProvider {
       return cachedPatcher
     }
 
-    val self = this
-    val recursionResistentPatcher = object : SvgAttributePatcher {
-      private val svgCache = HashSet<Element>()
+    val recursionResistantPatcher = object : SvgAttributePatcher {
+      private val svgCache = HashSet<MutableMap<String, String>>()
       override fun patchColors(attributes: MutableMap<String, String>) {
-//        if (svgCache.add(svg)) {
-//          try {
-//            runSafely({
-//              self.patchColors(svg, otherPatchers)
-//            })
-//          } finally {
-//            svgCache.remove(svg)
-//          }
-//        }
+        if (svgCache.add(attributes)) {
+          try {
+            runSafely({
+              patchAttributes(attributes)
+            })
+          } finally {
+            svgCache.remove(attributes)
+          }
+        }
+        patchAttributes(attributes)
+      }
+
+      private fun patchAttributes(attributes: MutableMap<String, String>) {
         otherPatchers.forEach { otherPatcher ->
           runSafely({
             otherPatcher.patchColors(attributes)
           })
         }
 
-        patchAccent("accentTint", attributes) {
+        patchAccent(attributes["accentTint"], attributes) {
           it.toHexString()
         }
-        patchAccent("accentTintDarker", attributes) {
+        patchAccent(attributes["accentTintDarker"], attributes) {
           ColorUtil.darker(it, 1).toHexString()
         }
-        patchAccent("accentContrastTint", attributes) {
+        patchAccent(attributes["accentContrastTint"], attributes) {
           getIconAccentContrastColor().toHexString()
         }
-        patchAccent("stopTint", attributes) {
+        patchAccent(attributes["stopTint"], attributes) {
           getThemedStopColor()
         }
-        patchAccent("editorAccentTint", attributes) {
+        patchAccent(attributes["editorAccentTint"], attributes) {
           ThemeManager.instance.currentTheme
             .map { it.editorAccentColor.toHexString() }
-            .orElseGet { Color.CYAN.toHexString() }
+            .orElseGet { JBColor.CYAN.toHexString() }
         }
 
-        val themedStartAttr = attributes.get("themedStart")
-        val themedStopAttr = attributes.get("themedStop")
-        val themedFillAttr = attributes.get("themedFill")
+        val themedStartAttr = attributes["themedStart"]
+        val themedStopAttr = attributes["themedStop"]
+        val themedFillAttr = attributes["themedFill"]
         when {
           "true" == themedStartAttr -> {
             val themedStart = getThemedStartColor()
-            attributes.set("stop-color", themedStart)
-            attributes.set("fill", themedStart)
+            attributes["stop-color"] = themedStart
+            attributes["fill"] = themedStart
           }
 
           "true" == themedStopAttr -> {
             val themedStop = getThemedStopColor()
-            attributes.set("stop-color", themedStop)
-            attributes.set("fill", themedStop)
+            attributes["stop-color"] = themedStop
+            attributes["fill"] = themedStop
           }
 
           "true" == themedFillAttr -> {
             val themedStart = getThemedStartColor()
-            attributes.set("fill", themedStart)
-            attributes.set("stroke", themedStart)
+            attributes["fill"] = themedStart
+            attributes["stroke"] = themedStart
           }
         }
       }
     }
 
-    patcherCache.put(patcherKey, recursionResistentPatcher)
+    patcherCache.put(patcherKey, recursionResistantPatcher)
 
-    return recursionResistentPatcher
+    return recursionResistantPatcher
   }
 
   private fun patchAccent(
-    attribute: String,
+    attribute: String?,
     attributes: MutableMap<String, String>,
     colorDecorator: (Color) -> String
   ) {
     when (attribute) {
-      "fill" -> attributes.set("fill", colorDecorator(getAccentColor()))
-      "stroke" -> attributes.set("stroke", colorDecorator(getAccentColor()))
+      "fill" -> attributes["fill"] = colorDecorator(getAccentColor())
+      "stroke" -> attributes["stroke"] = colorDecorator(getAccentColor())
       "both", "partialFill" -> {
         val accentColor = colorDecorator(getAccentColor())
-        attributes.set("stroke", accentColor)
-        attributes.set("stroke-opacity", if (attribute == "both") "1" else "0.25")
-        attributes.set("fill", accentColor)
+        attributes["stroke"] = accentColor
+        attributes["stroke-opacity"] = if (attribute == "both") "1" else "0.25"
+        attributes["fill"] = accentColor
       }
     }
   }
 
   private fun getAccentColor() =
-    namedColor("Doki.Accent.color", Color.CYAN)
+    namedColor("Doki.Accent.color", JBColor.CYAN)
 
   private fun getIconAccentContrastColor() =
-    namedColor("Doki.Icon.Accent.Contrast.color", Color.WHITE)
+    namedColor("Doki.Icon.Accent.Contrast.color", JBColor.WHITE)
 
   private fun getThemedStartColor() =
-    namedColor("Doki.startColor", Color.CYAN).toHexString()
+    namedColor("Doki.startColor", JBColor.CYAN).toHexString()
 
   private fun getThemedStopColor() =
-    namedColor("Doki.stopColor", Color.CYAN).toHexString()
-
-
+    namedColor("Doki.stopColor", JBColor.CYAN).toHexString()
 }

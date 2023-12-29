@@ -1,14 +1,14 @@
 package io.unthrottled.doki.hax
 
 import com.intellij.util.SVGLoader
-import io.unthrottled.doki.icon.DokiColorPatcher
-//import io.unthrottled.doki.icon.ColorPatcher
+import io.unthrottled.doki.icon.ColorPatcher
+// import io.unthrottled.doki.icon.ColorPatcher
 import io.unthrottled.doki.service.PluginService
 import io.unthrottled.doki.themes.DokiTheme
 import java.util.Optional
 
 typealias PatcherProvider = SVGLoader.SvgElementColorPatcherProvider
-//typealias Patcher = SVGLoader.SvgElementColorPatcher
+// typealias Patcher = SVGLoader.SvgElementColorPatcher
 
 object SvgLoaderHacker {
 
@@ -22,12 +22,12 @@ object SvgLoaderHacker {
 
     collectOtherPatcher()
       .ifPresent { otherPatcher ->
-        DokiColorPatcher.setOtherPatcher(otherPatcher)
+        ColorPatcher.setOtherPatcher(otherPatcher)
       }
 
-    DokiColorPatcher.setDokiTheme(dokiTheme)
+    ColorPatcher.setDokiTheme(dokiTheme)
 
-    SVGLoader.colorPatcherProvider = DokiColorPatcher
+    SVGLoader.colorPatcherProvider = ColorPatcher
   }
 
   private fun collectOtherPatcher(): Optional<PatcherProvider> =
@@ -40,7 +40,7 @@ object SvgLoaderHacker {
         ourColorPatcherField.get(null)
       }
       .filter { it is PatcherProvider }
-      .filter { it !is DokiColorPatcher }
+      .filter { it !is ColorPatcher }
       .map {
         val otherPatcher = it as PatcherProvider
         otherPatcher
