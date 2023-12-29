@@ -2,7 +2,6 @@ package io.unthrottled.doki.integrations
 
 import com.google.gson.Gson
 import com.intellij.ide.IdeBundle
-import com.intellij.ide.plugins.PluginManagerCore
 import com.intellij.ide.ui.LafManager
 import com.intellij.openapi.application.ApplicationNamesInfo
 import com.intellij.openapi.application.ex.ApplicationInfoEx
@@ -26,7 +25,6 @@ import io.unthrottled.doki.util.runSafelyWithResult
 import java.awt.Component
 import java.lang.management.ManagementFactory
 import java.text.SimpleDateFormat
-import java.util.Arrays
 import java.util.Properties
 import java.util.stream.Collectors
 
@@ -100,8 +98,7 @@ class ErrorReporter : ErrorReportSubmitter() {
       setExtra("GC", getGC())
       setExtra("Memory", Runtime.getRuntime().maxMemory() / FileUtilRt.MEGABYTE)
       setExtra("Cores", Runtime.getRuntime().availableProcessors())
-      setExtra("Non-Bundled Plugins", getNonBundledPlugins())
-      setExtra("Current LAF", LafManager.getInstance().currentLookAndFeel?.name ?: "")
+      setExtra("Current LAF", LafManager.getInstance()?.currentLookAndFeel?.name ?: "")
       setExtra("Doki Version", ThemeConfig.instance.version)
       setExtra("Doki Config", Gson().toJson(ThemeConfig.instance))
     }
@@ -118,13 +115,6 @@ class ErrorReporter : ErrorReportSubmitter() {
     val vmVendor = properties.getProperty("java.vendor", "unknown")
     return IdeBundle.message("about.box.vm", vmVersion, vmVendor)
   }
-
-  private fun getNonBundledPlugins(): String {
-    return Arrays.stream(PluginManagerCore.getPlugins())
-      .filter { p -> !p.isBundled && p.isEnabled }
-      .map { p -> p.pluginId.idString }.collect(Collectors.joining(","))
-  }
-
   private fun getGC() = ManagementFactory.getGarbageCollectorMXBeans().stream()
     .map { it.name }.collect(Collectors.joining(","))
 

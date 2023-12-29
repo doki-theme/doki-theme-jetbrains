@@ -1,9 +1,9 @@
 package io.unthrottled.doki.themes
 
+import com.intellij.ide.ui.laf.UIThemeLookAndFeelInfo
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.application.ApplicationManager
 import java.util.Optional
-import javax.swing.UIManager
 
 interface ThemeManager : Disposable {
   companion object {
@@ -21,7 +21,7 @@ interface ThemeManager : Disposable {
 
   val defaultTheme: DokiTheme
 
-  fun processLaf(currentLaf: UIManager.LookAndFeelInfo?): Optional<DokiTheme>
+  fun processLaf(currentLaf: UIThemeLookAndFeelInfo): Optional<DokiTheme>
 
   fun themeByName(selectedTheme: String): Optional<DokiTheme>
 }

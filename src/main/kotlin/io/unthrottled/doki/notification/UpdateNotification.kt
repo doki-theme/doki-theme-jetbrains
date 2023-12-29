@@ -7,6 +7,7 @@ import com.intellij.notification.NotificationGroupManager
 import com.intellij.notification.NotificationListener
 import com.intellij.notification.NotificationType
 import com.intellij.openapi.actionSystem.AnAction
+import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.application.ex.ApplicationInfoEx
 import com.intellij.openapi.fileEditor.impl.HTMLEditorProvider
 import com.intellij.openapi.project.Project
@@ -32,7 +33,7 @@ import org.intellij.lang.annotations.Language
 import org.jetbrains.annotations.Nls
 import java.awt.Color
 
-@Suppress("LongMethod", "MaxLineLength")
+@Suppress("LongMethod", "MaxLineLength", "UnexpectedIndentation")
 @Language("HTML")
 private fun buildUpdateMessage(
   currentTheme: DokiTheme,
@@ -70,6 +71,9 @@ private fun buildUpdateMessage(
     """.trimIndent()
   }
 
+  val anchor = getAnchor(
+    background.position
+  )
   return """
   <html lang='en'>
 
@@ -187,11 +191,7 @@ private fun buildUpdateMessage(
           z-index: 0;
           top: 0;
           left: 0;
-          background: url('https://doki.assets.unthrottled.io/backgrounds/wallpapers/transparent/smol/${background.name}') ${
-  getAnchor(
-    background.position
-  )
-  };
+          background: url('https://doki.assets.unthrottled.io/backgrounds/wallpapers/transparent/smol/${background.name}') $anchor;
           background-size: cover;
         }
 
@@ -396,15 +396,17 @@ object UpdateNotification : Logging {
     val currentTheme = ThemeManager.instance.currentTheme.orElse(ThemeManager.instance.defaultTheme)
     val content = buildUpdateMessage(currentTheme, isNewUser, newVersion)
     val url = buildUrl(isNewUser, newVersion, currentTheme)
-    runSafely({
-      HTMLEditorProvider.openEditor(
-        project,
-        title,
-        url,
-        content
-      )
-    }) {
-      logger().warn("Unable to show update notification for raisins.", it)
+    ApplicationManager.getApplication().invokeLater {
+      runSafely({
+        HTMLEditorProvider.openEditor(
+          project,
+          title,
+          url,
+          content
+        )
+      }) {
+        logger().warn("Unable to show update notification for raisins.", it)
+      }
     }
   }
 
@@ -445,6 +447,7 @@ object UpdateNotification : Logging {
       )?.name
     return "$pluginName Update"
   }
+
   fun reconstructUrlAndContent(
     dokiTheme: DokiTheme
   ): Pair<String, String> {

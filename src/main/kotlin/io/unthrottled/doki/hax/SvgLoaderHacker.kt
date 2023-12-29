@@ -1,5 +1,6 @@
 package io.unthrottled.doki.hax
 
+import com.intellij.ui.svg.setSelectionColorPatcherProvider
 import com.intellij.util.SVGLoader
 import io.unthrottled.doki.icon.ColorPatcher
 import io.unthrottled.doki.service.PluginService
@@ -7,7 +8,6 @@ import io.unthrottled.doki.themes.DokiTheme
 import java.util.Optional
 
 typealias PatcherProvider = SVGLoader.SvgElementColorPatcherProvider
-typealias Patcher = SVGLoader.SvgElementColorPatcher
 
 object SvgLoaderHacker {
 
@@ -27,12 +27,13 @@ object SvgLoaderHacker {
     ColorPatcher.setDokiTheme(dokiTheme)
 
     SVGLoader.colorPatcherProvider = ColorPatcher
+    setSelectionColorPatcherProvider(ColorPatcher)
   }
 
   private fun collectOtherPatcher(): Optional<PatcherProvider> =
     Optional.ofNullable(
       SVGLoader::class.java.declaredFields
-        .firstOrNull { it.name == "ourColorPatcher" }
+        .firstOrNull { it.name == "colorPatcherProvider" }
     )
       .map { ourColorPatcherField ->
         ourColorPatcherField.isAccessible = true

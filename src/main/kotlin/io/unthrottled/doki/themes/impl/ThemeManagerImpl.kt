@@ -2,7 +2,8 @@ package io.unthrottled.doki.themes.impl
 
 import com.google.gson.Gson
 import com.intellij.ide.ui.LafManager
-import com.intellij.ide.ui.laf.UIThemeBasedLookAndFeelInfo
+import com.intellij.ide.ui.laf.UIThemeLookAndFeelInfo
+import com.intellij.ide.ui.laf.UIThemeLookAndFeelInfoImpl
 import com.intellij.util.io.inputStream
 import io.unthrottled.doki.TheDokiTheme
 import io.unthrottled.doki.themes.DokiTheme
@@ -16,7 +17,6 @@ import java.nio.file.FileSystems.newFileSystem
 import java.nio.file.Files.walk
 import java.util.Optional
 import java.util.stream.Collectors
-import javax.swing.UIManager
 
 class ThemeManagerImpl : ThemeManager {
 
@@ -36,7 +36,7 @@ class ThemeManagerImpl : ThemeManager {
         themeURI[1]
       )
     )
-      .filter { it.fileName.toString().endsWith(".theme.json") }
+      .filter { it.fileName.toString().endsWith(".theme.meta.json") }
       .map { it.inputStream() }
       .map {
         gson.fromJson(
@@ -58,7 +58,8 @@ class ThemeManagerImpl : ThemeManager {
     get() = currentTheme.isPresent
 
   override val currentTheme: Optional<DokiTheme>
-    get() = processLaf(LafManager.getInstance().currentLookAndFeel)
+    get() = LafManager.getInstance()?.currentUIThemeLookAndFeel.toOptional()
+      .flatMap { processLaf(it) }
 
   override val allThemes: List<DokiTheme>
     get() = themeMap.values.toList()
@@ -66,10 +67,10 @@ class ThemeManagerImpl : ThemeManager {
   override val defaultTheme: DokiTheme
     get() = themeMap[ThemeManager.DEFAULT_THEME_NAME]!!
 
-  override fun processLaf(currentLaf: UIManager.LookAndFeelInfo?): Optional<DokiTheme> {
+  override fun processLaf(currentLaf: UIThemeLookAndFeelInfo): Optional<DokiTheme> {
     return currentLaf.toOptional()
-      .filter { it is UIThemeBasedLookAndFeelInfo }
-      .map { it as UIThemeBasedLookAndFeelInfo }
+      .filter { it is UIThemeLookAndFeelInfoImpl }
+      .map { it as UIThemeLookAndFeelInfoImpl }
       .map { themeMap[it.name] }
   }
 

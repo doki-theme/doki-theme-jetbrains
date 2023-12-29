@@ -25,6 +25,8 @@ import io.unthrottled.doki.build.jvm.tools.DokiProduct
 import io.unthrottled.doki.build.jvm.tools.GroupToNameMapping.getLafNamePrefix
 import io.unthrottled.doki.build.jvm.tools.PathTools.cleanDirectory
 import io.unthrottled.doki.build.jvm.tools.resolveColor
+import org.gradle.api.DefaultTask
+import org.gradle.api.tasks.TaskAction
 import java.io.File
 import java.io.InputStreamReader
 import java.nio.charset.StandardCharsets
@@ -43,8 +45,18 @@ import java.util.LinkedList
 import java.util.Optional
 import java.util.TreeMap
 import java.util.stream.Collectors
-import org.gradle.api.DefaultTask
-import org.gradle.api.tasks.TaskAction
+
+data class JetbrainsThemeOnlyDefinition(
+  val id: String,
+  val name: String,
+  val dark: Boolean,
+  val author: String?,
+  val editorScheme: String,
+  val colors: StringDictionary<Any>,
+  val ui: StringDictionary<Any>,
+  val icons: StringDictionary<Any>,
+)
+
 
 fun String.getStickerName(): String = this.substring(this.lastIndexOf("/") + 1)
 
@@ -204,11 +216,10 @@ open class BuildThemes : DefaultTask() {
     }
 
     val themeJson = get(resourceDirectory.toString(), "${masterThemeDefinition.usableName}.theme.json")
+    deleteIfExists(themeJson)
 
-    if (exists(themeJson)) {
-      delete(themeJson)
-    }
-
+    val themeMetadataJson = get(resourceDirectory.toString(), "${masterThemeDefinition.usableName}.theme.meta.json")
+    deleteIfExists(themeMetadataJson)
 
     val initialParentTemplateName = if (masterThemeDefinition.dark) "dark" else "light"
     val constructableLookAndFeel =
@@ -235,7 +246,32 @@ open class BuildThemes : DefaultTask() {
       )
 
     val colors = validateColors(masterThemeDefinition, resolvedNamedColors)
-    val finalTheme = JetbrainsThemeDefinition(
+    val finalTheme = JetbrainsThemeOnlyDefinition(
+      id = masterThemeDefinition.id,
+      name = "${getLafNamePrefix(masterThemeDefinition.group)}${masterThemeDefinition.name}",
+      dark = masterThemeDefinition.dark,
+      author = masterThemeDefinition.author,
+      editorScheme = createEditorScheme(
+        masterThemeDefinition,
+        jetbrainsDefinition,
+        dokiThemeDefinitionPath,
+        dokiEditorThemeTemplates,
+        resolvedNamedColors
+      ),
+      colors = createColors(
+        colors,
+        masterThemeDefinition,
+      ),
+      ui = getUIDef(
+        jetbrainsDefinition,
+        colors,
+        constructableLookAndFeel,
+        initialParentTemplateName,
+      ),
+      icons = getIcons(resolvedNamedColors, constructableLookAndFeel, initialParentTemplateName),
+    )
+
+    val fullMetaTheme = JetbrainsThemeDefinition(
       id = masterThemeDefinition.id,
       name = "${getLafNamePrefix(masterThemeDefinition.group)}${masterThemeDefinition.name}",
       displayName = masterThemeDefinition.displayName,
@@ -268,11 +304,18 @@ open class BuildThemes : DefaultTask() {
       meta = masterThemeDefinition.meta ?: Collections.emptyMap()
     )
 
-    newBufferedWriter(themeJson, StandardOpenOption.CREATE_NEW)
-      .use { writer ->
-        gson.toJson(finalTheme, writer)
-      }
+
+    writeJson(themeJson, finalTheme)
+    writeJson(themeMetadataJson, fullMetaTheme)
+
     return extractResourcesPath(themeJson)
+  }
+
+  private fun <T> writeJson(themePath: Path?, themeMap: T) {
+    newBufferedWriter(themePath, StandardOpenOption.CREATE_NEW)
+      .use { writer ->
+        gson.toJson(themeMap, writer)
+      }
   }
 
   private fun createColors(
@@ -737,13 +780,17 @@ open class BuildThemes : DefaultTask() {
       "$themeName.xml"
     )
 
-    if (exists(destination)) {
-      delete(destination)
-    }
+    deleteIfExists(destination)
 
     writeXmlToFile(destination, themeTemplate)
 
     return extractResourcesPath(destination)
+  }
+
+  private fun deleteIfExists(themeJson: Path) {
+    if (exists(themeJson)) {
+      delete(themeJson)
+    }
   }
 
   private fun extractResourcesPath(destination: Path): String {
