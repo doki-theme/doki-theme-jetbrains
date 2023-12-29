@@ -41,6 +41,7 @@ object ColorPatcher : PatcherProvider {
 
   fun setDokiTheme(dokiTheme: DokiTheme) {
     this.dokiTheme = dokiTheme
+    calculateAndSetNewDigest()
     LafManager.getInstance()
       ?.currentUIThemeLookAndFeel.toOptional()
       .filter { it is UIThemeLookAndFeelInfoImpl }
@@ -61,9 +62,22 @@ object ColorPatcher : PatcherProvider {
     this.patcherProviderCache.clear()
   }
 
+  private lateinit var _digest: LongArray
   override fun digest(): LongArray {
+    return if (this::_digest.isInitialized) {
+      _digest
+    } else {
+      calculateAndSetNewDigest()
+    }
+  }
+
+  private fun calculateAndSetNewDigest(): LongArray {
+    _digest = calculateDigest()
+    return _digest
+  }
+
+  private fun calculateDigest(): LongArray {
     val shaDigest = DigestUtil.sha512()
-    // todo calculate digest once.
     if (ColorPatcher::dokiTheme.isInitialized) {
       shaDigest.update((dokiTheme.id + dokiTheme.version).toByteArray(Charsets.UTF_8))
     } else {
