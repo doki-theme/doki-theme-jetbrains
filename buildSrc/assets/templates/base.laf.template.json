@@ -98,6 +98,7 @@
     "WelcomeScreen.background": "headerColor",
     "AvailableMnemonic.background": "headerColor",
     "CheckBoxMenuItem.background": "headerColor",
+    "MenuItem.background": "headerColor",
     "ColorChooser.background": "headerColor",
     "ColorChooser.swatchesDefaultRecentColor": "headerColor",
     "ComboBox.buttonBackground": "headerColor",
