@@ -31,6 +31,7 @@ val noOptPatcherProvider = object : PatcherProvider {
   }
 }
 
+@Suppress("TooManyFunctions")
 object ColorPatcher : PatcherProvider {
 
   private var otherColorPatcherProvider: PatcherProvider = noOptPatcherProvider

@@ -33,7 +33,7 @@ import org.intellij.lang.annotations.Language
 import org.jetbrains.annotations.Nls
 import java.awt.Color
 
-@Suppress("LongMethod", "MaxLineLength")
+@Suppress("LongMethod", "MaxLineLength", "UnexpectedIndentation")
 @Language("HTML")
 private fun buildUpdateMessage(
   currentTheme: DokiTheme,
@@ -71,6 +71,9 @@ private fun buildUpdateMessage(
     """.trimIndent()
   }
 
+  val anchor = getAnchor(
+    background.position
+  )
   return """
   <html lang='en'>
 
@@ -188,11 +191,7 @@ private fun buildUpdateMessage(
           z-index: 0;
           top: 0;
           left: 0;
-          background: url('https://doki.assets.unthrottled.io/backgrounds/wallpapers/transparent/smol/${background.name}') ${
-    getAnchor(
-      background.position
-    )
-  };
+          background: url('https://doki.assets.unthrottled.io/backgrounds/wallpapers/transparent/smol/${background.name}') $anchor;
           background-size: cover;
         }
 
