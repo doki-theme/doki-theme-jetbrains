@@ -5,10 +5,12 @@ import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.settings.actors.LafAnimationActor
 
 class ThemeAnimationToggle : BaseToggleAction() {
-  override fun isSelected(e: AnActionEvent): Boolean =
-    ThemeConfig.instance.isLafAnimation
+  override fun isSelected(e: AnActionEvent): Boolean = ThemeConfig.instance.isLafAnimation
 
-  override fun setSelected(e: AnActionEvent, state: Boolean) {
+  override fun setSelected(
+    e: AnActionEvent,
+    state: Boolean,
+  ) {
     LafAnimationActor.enableAnimation(state)
   }
 }

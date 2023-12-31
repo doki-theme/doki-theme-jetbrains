@@ -12,7 +12,6 @@ import io.unthrottled.doki.util.runSafelyWithResult
 import java.util.concurrent.ConcurrentHashMap
 
 class MarginService : Logging {
-
   companion object {
     private const val STICKER_Y_OFFSET = 0.05
     private const val STICKER_X_OFFSET = 0.03
@@ -21,8 +20,9 @@ class MarginService : Logging {
       ApplicationManager.getApplication().getService(MarginService::class.java)
   }
 
-  private val gson = GsonBuilder()
-    .create()
+  private val gson =
+    GsonBuilder()
+      .create()
 
   private val savedMargins: MutableMap<String, Margin> = readMargins()
 
@@ -30,7 +30,7 @@ class MarginService : Logging {
     return runSafelyWithResult({
       gson.fromJson(
         ThemeConfig.instance.savedMargins,
-        object : TypeToken<ConcurrentHashMap<String, Margin>>() {}.type
+        object : TypeToken<ConcurrentHashMap<String, Margin>>() {}.type,
       )
     }) {
       logger().warn("Unable to read saved margins!", it)
@@ -49,12 +49,15 @@ class MarginService : Logging {
 
   private fun getWindowKey(windowBro: Any) = windowBro::class.java.canonicalName
 
-  fun saveMargin(window: Any, margin: Margin) {
+  fun saveMargin(
+    window: Any,
+    margin: Margin,
+  ) {
     savedMargins[getWindowKey(window)] = margin
     ThemeConfig.instance.savedMargins = gson.toJson(savedMargins.toMutableMap())
     UpdateNotification.showNotificationAcrossProjects(
       MessageBundle.message("notification.margin.saved.title"),
-      MessageBundle.message("notification.margin.saved.message")
+      MessageBundle.message("notification.margin.saved.message"),
     )
   }
 }

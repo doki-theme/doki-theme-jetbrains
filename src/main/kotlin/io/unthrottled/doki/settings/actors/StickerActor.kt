@@ -12,8 +12,10 @@ import io.unthrottled.doki.themes.ThemeManager
 import io.unthrottled.doki.util.performWithAnimation
 
 object StickerActor {
-
-  fun swapStickers(newStickerType: CurrentSticker, withAnimation: Boolean = true) {
+  fun swapStickers(
+    newStickerType: CurrentSticker,
+    withAnimation: Boolean = true,
+  ) {
     if (ThemeConfig.instance.currentSticker != newStickerType) {
       performWithAnimation(withAnimation) {
         ThemeConfig.instance.currentSticker = newStickerType
@@ -35,13 +37,19 @@ object StickerActor {
     }
   }
 
-  fun enableStickers(enabled: Boolean, withAnimation: Boolean = true) {
+  fun enableStickers(
+    enabled: Boolean,
+    withAnimation: Boolean = true,
+  ) {
     if (enabled != (ThemeConfig.instance.currentStickerLevel == StickerLevel.ON)) {
       setStickers(withAnimation, enabled)
     }
   }
 
-  fun setStickers(withAnimation: Boolean, enabled: Boolean) {
+  fun setStickers(
+    withAnimation: Boolean,
+    enabled: Boolean,
+  ) {
     performWithAnimation(withAnimation) {
       if (enabled) {
         ThemeConfig.instance.stickerLevel = StickerLevel.ON.name
@@ -58,14 +66,15 @@ object StickerActor {
   fun setCustomSticker(
     customStickerPath: String,
     isCustomStickers: Boolean,
-    withAnimation: Boolean
+    withAnimation: Boolean,
   ) {
     val isCustomStickersChanged = CustomStickerService.isCustomStickers != isCustomStickers
     CustomStickerService.isCustomStickers = isCustomStickers
 
-    val isNewStickerPath = CustomStickerService.getCustomStickerPath()
-      .map { it != customStickerPath }
-      .orElse(true) && customStickerPath.isNotBlank()
+    val isNewStickerPath =
+      CustomStickerService.getCustomStickerPath()
+        .map { it != customStickerPath }
+        .orElse(true) && customStickerPath.isNotBlank()
     if (isNewStickerPath) {
       CustomStickerService.setCustomStickerPath(customStickerPath)
     }
@@ -79,7 +88,7 @@ object StickerActor {
   fun setDimensionCapping(
     capStickerDimensions: Boolean,
     maxStickerWidth: Int,
-    maxStickerHeight: Int
+    maxStickerHeight: Int,
   ) {
     val ogWidth = ThemeConfig.instance.maxStickerWidth
     ThemeConfig.instance.maxStickerWidth = maxStickerWidth
@@ -99,7 +108,7 @@ object StickerActor {
   fun setSmolStickers(
     isSmolStickers: Boolean,
     smolMaxStickerWidth: Int,
-    smolMaxStickerHeight: Int
+    smolMaxStickerHeight: Int,
   ) {
     val ogWidth = ThemeConfig.instance.smallMaxStickerWidth
     ThemeConfig.instance.smallMaxStickerWidth = smolMaxStickerWidth

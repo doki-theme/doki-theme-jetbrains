@@ -33,75 +33,82 @@ class LAFAnimator {
         val window = rootPaneContainer as Window
         val bounds = window.bounds
         val layeredPane = rootPaneContainer.layeredPane
-        val image: BufferedImage = ImageUtil.createImage(
-          window.graphicsConfiguration,
-          bounds.width,
-          bounds.height,
-          BufferedImage.TYPE_INT_ARGB
-        )
+        val image: BufferedImage =
+          ImageUtil.createImage(
+            window.graphicsConfiguration,
+            bounds.width,
+            bounds.height,
+            BufferedImage.TYPE_INT_ARGB,
+          )
         val imageGraphics = image.graphics
         GraphicsUtil.setupAntialiasing(imageGraphics)
         rootPaneContainer.rootPane.paint(imageGraphics)
-        val imageLayer = object : JComponent() {
-          override fun updateUI() {}
+        val imageLayer =
+          object : JComponent() {
+            override fun updateUI() {}
 
-          override fun paint(g: Graphics) {
-            val newG = g.create() as Graphics2D
-            newG.composite = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, myAlpha)
-            UIUtil.drawImage(
-              newG,
-              image,
-              0,
-              0,
-              this
-            )
+            override fun paint(g: Graphics) {
+              val newG = g.create() as Graphics2D
+              newG.composite = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, myAlpha)
+              UIUtil.drawImage(
+                newG,
+                image,
+                0,
+                0,
+                this,
+              )
+            }
+
+            override fun getBounds(): Rectangle = layeredPane.bounds
           }
-
-          override fun getBounds(): Rectangle = layeredPane.bounds
-        }
 
         imageLayer.size = layeredPane.size
         layeredPane.add(imageLayer, JLayeredPane.DRAG_LAYER)
         myMap[layeredPane] = imageLayer
       }
 
-    myAnimator = object : Animator(
-      "ChangeLAF",
-      60,
-      800,
-      false
-    ) {
-      override fun paintNow(frame: Int, totalFrames: Int, cycle: Int) {
-        myAlpha =
-          1 - (1 - Math.cos(Math.PI * frame / totalFrames.toFloat())).toFloat() / 2
-        doPaint()
-      }
+    myAnimator =
+      object : Animator(
+        "ChangeLAF",
+        60,
+        800,
+        false,
+      ) {
+        override fun paintNow(
+          frame: Int,
+          totalFrames: Int,
+          cycle: Int,
+        ) {
+          myAlpha =
+            1 - (1 - Math.cos(Math.PI * frame / totalFrames.toFloat())).toFloat() / 2
+          doPaint()
+        }
 
-      override fun resume() {
-        doPaint()
-        super.resume()
-      }
+        override fun resume() {
+          doPaint()
+          super.resume()
+        }
 
-      override fun dispose() {
-        try {
-          super.dispose()
-          for ((layeredPane, value) in myMap) {
-            layeredPane.remove(value)
-            layeredPane.revalidate()
-            layeredPane.repaint()
+        override fun dispose() {
+          try {
+            super.dispose()
+            for ((layeredPane, value) in myMap) {
+              layeredPane.remove(value)
+              layeredPane.revalidate()
+              layeredPane.repaint()
+            }
+          } finally {
+            myMap.clear()
           }
-        } finally {
-          myMap.clear()
         }
-      }
 
-      override fun paintCycleEnd() {
-        if (!isDisposed) {
-          Disposer.dispose(this)
+        override fun paintCycleEnd() {
+          if (!isDisposed) {
+            Disposer.dispose(this)
+          }
+          super.paintCycleEnd()
         }
-        super.paintCycleEnd()
       }
-    }
   }
 
   fun hideSnapshotWithAnimation() {
@@ -118,7 +125,10 @@ class LAFAnimator {
   }
 }
 
-fun performWithAnimation(animate: Boolean, actionToPerform: () -> Unit) {
+fun performWithAnimation(
+  animate: Boolean,
+  actionToPerform: () -> Unit,
+) {
   val animator = if (animate) LAFAnimator.showSnapshot() else null
   actionToPerform()
   animator?.hideSnapshotWithAnimation()

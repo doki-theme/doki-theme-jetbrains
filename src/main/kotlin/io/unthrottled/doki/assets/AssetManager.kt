@@ -19,9 +19,10 @@ import java.util.Optional
 import java.util.concurrent.Callable
 
 enum class AssetCategory(val category: String) {
-  STICKERS("stickers"), BACKGROUNDS("backgrounds"),
+  STICKERS("stickers"),
+  BACKGROUNDS("backgrounds"),
   PROMOTION("promotion"),
-  MISC("misc")
+  MISC("misc"),
 }
 
 object HttpClientFactory {
@@ -41,7 +42,10 @@ object AssetManager {
    * file:// url to the local asset. If it was not able to get the asset then it
    * will return empty if the asset is not available locally.
    */
-  fun resolveAssetUrl(assetCategory: AssetCategory, assetPath: String): Optional<String> =
+  fun resolveAssetUrl(
+    assetCategory: AssetCategory,
+    assetPath: String,
+  ): Optional<String> =
     cachedResolve(assetCategory, assetPath, ASSET_SOURCE)
       .map { it.toOptional() }
       .orElseGet {
@@ -52,7 +56,10 @@ object AssetManager {
    * Works just like <code>resolveAssetUrl</code> except that it will always
    * download the remote asset.
    */
-  fun forceResolveAssetUrl(assetCategory: AssetCategory, assetPath: String): Optional<String> =
+  fun forceResolveAssetUrl(
+    assetCategory: AssetCategory,
+    assetPath: String,
+  ): Optional<String> =
     forceResolve(assetCategory, assetPath, ASSET_SOURCE)
       .map { it.toOptional() }
       .orElseGet {
@@ -62,7 +69,7 @@ object AssetManager {
   private fun cachedResolve(
     assetCategory: AssetCategory,
     assetPath: String,
-    assetSource: String
+    assetSource: String,
   ): Optional<String> =
     resolveAsset(assetCategory, assetPath, assetSource) { localAssetPath, remoteAssetUrl ->
       resolveTheAssetUrl(localAssetPath, remoteAssetUrl)
@@ -71,7 +78,7 @@ object AssetManager {
   private fun forceResolve(
     assetCategory: AssetCategory,
     assetPath: String,
-    assetSource: String
+    assetSource: String,
   ): Optional<String> =
     resolveAsset(assetCategory, assetPath, assetSource) { localAssetPath, remoteAssetUrl ->
       downloadAndGetAssetUrl(localAssetPath, remoteAssetUrl)
@@ -81,29 +88,34 @@ object AssetManager {
     assetCategory: AssetCategory,
     assetPath: String,
     assetSource: String,
-    resolveAsset: (Path, String) -> Optional<String>
+    resolveAsset: (Path, String) -> Optional<String>,
   ): Optional<String> =
     constructLocalAssetPath(assetCategory, assetPath)
       .toOptional()
       .flatMap {
-        val remoteAssetUrl = constructRemoteAssetUrl(
-          assetCategory,
-          assetPath,
-          assetSource
-        )
+        val remoteAssetUrl =
+          constructRemoteAssetUrl(
+            assetCategory,
+            assetPath,
+            assetSource,
+          )
         resolveAsset(it, remoteAssetUrl)
       }
 
   private fun constructRemoteAssetUrl(
     assetCategory: AssetCategory,
     assetPath: String,
-    assetSource: String
-  ): String = when (assetCategory) {
-    AssetCategory.STICKERS -> "$assetSource/${assetCategory.category}/jetbrains/v2$assetPath"
-    else -> "$assetSource/${assetCategory.category}/$assetPath"
-  }
+    assetSource: String,
+  ): String =
+    when (assetCategory) {
+      AssetCategory.STICKERS -> "$assetSource/${assetCategory.category}/jetbrains/v2$assetPath"
+      else -> "$assetSource/${assetCategory.category}/$assetPath"
+    }
 
-  private fun resolveTheAssetUrl(localAssetPath: Path, remoteAssetUrl: String): Optional<String> =
+  private fun resolveTheAssetUrl(
+    localAssetPath: Path,
+    remoteAssetUrl: String,
+  ): Optional<String> =
     when {
       hasAssetChanged(localAssetPath, remoteAssetUrl) ->
         downloadAndGetAssetUrl(localAssetPath, remoteAssetUrl)
@@ -114,30 +126,30 @@ object AssetManager {
 
   fun constructLocalAssetPath(
     assetCategory: AssetCategory,
-    assetPath: String
+    assetPath: String,
   ): Path =
     Paths.get(
       getLocalAssetDirectory(),
       assetCategory.category,
-      assetPath
+      assetPath,
     ).normalize().toAbsolutePath()
 
   fun constructGlobalAssetPath(
     assetCategory: AssetCategory,
-    assetPath: String
+    assetPath: String,
   ): Optional<Path> =
     getGlobalAssetDirectory()
       .map {
         Paths.get(
           it,
           assetCategory.category,
-          assetPath
+          assetPath,
         )
       }
 
   private fun downloadAndGetAssetUrl(
     localAssetPath: Path,
-    remoteAssetUrl: String
+    remoteAssetUrl: String,
   ): Optional<String> {
     createDirectories(localAssetPath)
     return ApplicationManager.getApplication().executeOnPooledThread(
@@ -146,13 +158,13 @@ object AssetManager {
           Files.newOutputStream(
             localAssetPath,
             StandardOpenOption.CREATE,
-            StandardOpenOption.TRUNCATE_EXISTING
+            StandardOpenOption.TRUNCATE_EXISTING,
           ).use { bufferedWriter ->
             IOUtils.copy(inputStream, bufferedWriter)
           }
           localAssetPath.toUri().toString()
         }
-      }
+      },
     ).get()
   }
 }

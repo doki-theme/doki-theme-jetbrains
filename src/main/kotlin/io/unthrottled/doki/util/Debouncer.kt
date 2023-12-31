@@ -9,15 +9,18 @@ fun interface Debouncer {
 }
 
 fun interface BufferedDebouncer<T> {
-  fun debounceAndBuffer(t: T, onDebounced: (List<T>) -> Unit)
+  fun debounceAndBuffer(
+    t: T,
+    onDebounced: (List<T>) -> Unit,
+  )
 }
 
 class AlarmDebouncer<T>(
-  private val interval: Int
+  private val interval: Int,
 ) :
   Debouncer,
-  BufferedDebouncer<T>,
-  Disposable {
+    BufferedDebouncer<T>,
+    Disposable {
   private val alarm: Alarm = Alarm()
 
   override fun debounce(toDebounce: () -> Unit) {
@@ -28,7 +31,10 @@ class AlarmDebouncer<T>(
 
   private val buffer = LinkedList<T>()
 
-  override fun debounceAndBuffer(t: T, onDebounced: (List<T>) -> Unit) {
+  override fun debounceAndBuffer(
+    t: T,
+    onDebounced: (List<T>) -> Unit,
+  ) {
     performDebounce({
       alarm.addRequest(
         {
@@ -37,7 +43,7 @@ class AlarmDebouncer<T>(
           buffer.clear()
           previousOnDebounce = null
         },
-        interval
+        interval,
       )
     }) {
       buffer.push(t)
@@ -47,7 +53,10 @@ class AlarmDebouncer<T>(
   @Volatile
   private var previousOnDebounce: (() -> Unit)? = null
 
-  private fun performDebounce(setupDebounce: () -> Unit, onDebounced: () -> Unit = {}) {
+  private fun performDebounce(
+    setupDebounce: () -> Unit,
+    onDebounced: () -> Unit = {},
+  ) {
     previousOnDebounce?.invoke()
     previousOnDebounce = onDebounced
     alarm.cancelAllRequests()

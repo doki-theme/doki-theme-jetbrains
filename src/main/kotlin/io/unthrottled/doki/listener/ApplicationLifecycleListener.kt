@@ -7,7 +7,6 @@ import io.unthrottled.doki.hax.HackComponent
 import io.unthrottled.doki.stickers.StickerComponent
 
 class ApplicationLifecycleListener : AppLifecycleListener, DumbAware {
-
   companion object {
     init {
       HackComponent.init()

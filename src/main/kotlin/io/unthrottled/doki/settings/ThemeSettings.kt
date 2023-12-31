@@ -56,14 +56,12 @@ data class ThemeSettingsModel(
   var hideOnHover: Boolean,
   var hideDelayMS: Int,
   var isSeeThroughNotifications: Boolean,
-  var notificationOpacity: Int
+  var notificationOpacity: Int,
 ) {
-
   fun duplicate(): ThemeSettingsModel = copy()
 }
 
 object ThemeSettings {
-
   const val SETTINGS_ID = "io.unthrottled.doki.settings.ThemeSettings"
   const val THEME_SETTINGS_DISPLAY_NAME = "Doki Theme Settings"
   val CHANGELOG_URI =
@@ -103,7 +101,7 @@ object ThemeSettings {
       ignoreScaling = ThemeConfig.instance.ignoreScaling,
       hideOnHover = ThemeConfig.instance.hideOnHover,
       hideDelayMS = ThemeConfig.instance.hideDelayMS,
-      allowPromotionalContent = ThemeConfig.instance.allowPromotions
+      allowPromotionalContent = ThemeConfig.instance.allowPromotions,
     )
 
   fun apply(themeSettingsModel: ThemeSettingsModel) {
@@ -115,17 +113,17 @@ object ThemeSettings {
     StickerActor.setCustomSticker(
       themeSettingsModel.customStickerPath,
       themeSettingsModel.isCustomSticker,
-      false
+      false,
     )
     StickerActor.setDimensionCapping(
       themeSettingsModel.capStickerDimensions,
       themeSettingsModel.maxStickerWidth,
-      themeSettingsModel.maxStickerHeight
+      themeSettingsModel.maxStickerHeight,
     )
     StickerActor.setSmolStickers(
       themeSettingsModel.showSmallStickers,
       themeSettingsModel.smallMaxStickerWidth,
-      themeSettingsModel.smallMaxStickerHeight
+      themeSettingsModel.smallMaxStickerHeight,
     )
     ThemeActor.applyTheme(themeSettingsModel.currentTheme)
     ThemeStatusBarActor.applyConfig(themeSettingsModel.showThemeStatusBar)
@@ -134,34 +132,35 @@ object ThemeSettings {
     EmptyFrameBackgroundActor.handleBackgroundUpdate(themeSettingsModel.isEmptyFrameBackground)
     CustomFontSizeActor.enableCustomFontSize(
       themeSettingsModel.isCustomFontSize,
-      themeSettingsModel.customFontSizeValue
+      themeSettingsModel.customFontSizeValue,
     )
     ConsoleFontActor.enableCustomFontSize(
       themeSettingsModel.isOverrideConsoleFont,
-      themeSettingsModel.consoleFontValue
+      themeSettingsModel.consoleFontValue,
     )
     SeeThroughNotificationsActor.enableSeeThroughNotifications(
       themeSettingsModel.isSeeThroughNotifications,
-      themeSettingsModel.notificationOpacity
+      themeSettingsModel.notificationOpacity,
     )
     DiscreetModeActor.enableDiscreetMode(themeSettingsModel.discreetMode)
     StickerHideActor.setStickerHideStuff(themeSettingsModel.hideOnHover, themeSettingsModel.hideDelayMS)
     PromotionSettingActor.optInToPromotion(themeSettingsModel.allowPromotionalContent)
     ApplicationManager.getApplication().messageBus.syncPublisher(
-      THEME_CONFIG_TOPIC
+      THEME_CONFIG_TOPIC,
     ).themeConfigUpdated(ThemeConfig.instance)
   }
 
   fun createThemeComboBoxModel(settingsSupplier: () -> ThemeSettingsModel): ComboBox<String> {
-    val themeComboBox = ComboBox(
-      DefaultComboBoxModel(
-        Vector(
-          ThemeManager.instance.allThemes
-            .sortedBy { theme -> theme.name }
-            .map { it.name }
-        )
+    val themeComboBox =
+      ComboBox(
+        DefaultComboBoxModel(
+          Vector(
+            ThemeManager.instance.allThemes
+              .sortedBy { theme -> theme.name }
+              .map { it.name },
+          ),
+        ),
       )
-    )
     themeComboBox.model.selectedItem = settingsSupplier().currentTheme
     themeComboBox.addActionListener {
       settingsSupplier().currentTheme = themeComboBox.model.selectedItem as String

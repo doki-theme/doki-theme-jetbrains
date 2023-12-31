@@ -20,13 +20,14 @@ class DokiMasterThemeJsonSchemaProvider : JsonSchemaProviderFactory {
         override fun getName(): String = "Doki Master Themes"
 
         override fun isAvailable(file: VirtualFile): Boolean =
-          StringUtil.endsWithIgnoreCase(file.name, ".master.definition.json")
+          StringUtil.endsWithIgnoreCase(
+            file.name,
+            ".master.definition.json",
+          )
 
-        override fun getSchemaFile(): VirtualFile? =
-          VfsUtil.findFileByURL(javaClass.getResource(THEME_SCHEMA))
+        override fun getSchemaFile(): VirtualFile? = VfsUtil.findFileByURL(javaClass.getResource(THEME_SCHEMA))
 
-        override fun getSchemaType(): SchemaType =
-          SchemaType.embeddedSchema
-      }
+        override fun getSchemaType(): SchemaType = SchemaType.embeddedSchema
+      },
     )
 }

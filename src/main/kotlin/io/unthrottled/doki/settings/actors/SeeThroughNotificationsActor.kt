@@ -7,8 +7,10 @@ import io.unthrottled.doki.promotions.MessageBundle
 import io.unthrottled.doki.service.GlassNotificationService
 
 object SeeThroughNotificationsActor {
-
-  fun enableSeeThroughNotifications(enabled: Boolean, notificationOpacity: Int) {
+  fun enableSeeThroughNotifications(
+    enabled: Boolean,
+    notificationOpacity: Int,
+  ) {
     val previousEnablement = ThemeConfig.instance.isSeeThroughNotifications
     ThemeConfig.instance.isSeeThroughNotifications = enabled
     val previousOpacity = ThemeConfig.instance.notificationOpacity
@@ -21,7 +23,7 @@ object SeeThroughNotificationsActor {
       UpdateNotification.sendMessage(
         MessageBundle.message("notification.glass.notification.title"),
         MessageBundle.message("notification.glass.notification.body"),
-        ProjectManager.getInstance().openProjects.firstOrNull()
+        ProjectManager.getInstance().openProjects.firstOrNull(),
       )
     }
   }

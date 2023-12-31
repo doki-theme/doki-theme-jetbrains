@@ -57,7 +57,7 @@ intellij {
   plugins.set(
     properties("platformPlugins").split(',')
       .map(String::trim)
-      .filter(String::isNotEmpty)
+      .filter(String::isNotEmpty),
   )
 }
 

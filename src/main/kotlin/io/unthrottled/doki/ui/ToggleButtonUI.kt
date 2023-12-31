@@ -58,16 +58,20 @@ class ToggleButtonUI : BasicToggleButtonUI() {
 
   override fun getMinimumSize(c: JComponent): Dimension = getPreferredSize(c)
 
-  override fun paint(g: Graphics, button: JComponent) {
+  override fun paint(
+    g: Graphics,
+    button: JComponent,
+  ) {
     if (button !is OnOffButton) return
     val g2 = g.create() as Graphics2D
     val config = GraphicsUtil.setupAAPainting(g2)
     try {
       val insets = button.getInsets()
-      val origin = Point(
-        (button.getWidth() - BUTTON_SIZE.width) / 2 + insets.left,
-        (button.getHeight() - BUTTON_SIZE.height) / 2 + insets.top
-      )
+      val origin =
+        Point(
+          (button.getWidth() - BUTTON_SIZE.width) / 2 + insets.left,
+          (button.getHeight() - BUTTON_SIZE.height) / 2 + insets.top,
+        )
 
       g2.color =
         if (button.isSelected) {
@@ -85,10 +89,11 @@ class ToggleButtonUI : BasicToggleButtonUI() {
 
       g2.color = BUTTON_COLOR
       val halfWay = BUTTON_SIZE.width / 2
-      val location = Point(
-        (if (button.isSelected) JBUI.scale(halfWay) else JBUI.scale(0)) + origin.x,
-        origin.y
-      )
+      val location =
+        Point(
+          (if (button.isSelected) JBUI.scale(halfWay) else JBUI.scale(0)) + origin.x,
+          origin.y,
+        )
       g2.fillRoundRect(location.x, location.y, halfWay, BUTTON_SIZE.height, ARC, ARC)
       config.restore()
     } finally {
@@ -97,20 +102,22 @@ class ToggleButtonUI : BasicToggleButtonUI() {
   }
 
   companion object {
-    val BUTTON_COLOR: Color = JBColor.namedColor(
-      "ToggleButton.buttonColor",
-      JBColor(
-        Gray._200,
-        Gray._100
+    val BUTTON_COLOR: Color =
+      JBColor.namedColor(
+        "ToggleButton.buttonColor",
+        JBColor(
+          Gray._200,
+          Gray._100,
+        ),
       )
-    )
-    val ON_BACKGROUND: Color = JBColor.namedColor(
-      "ToggleButton.onBackground",
-      JBColor(
-        Color(74, 146, 73),
-        Color(77, 105, 76)
+    val ON_BACKGROUND: Color =
+      JBColor.namedColor(
+        "ToggleButton.onBackground",
+        JBColor(
+          Color(74, 146, 73),
+          Color(77, 105, 76),
+        ),
       )
-    )
 
     private val BUTTON_SIZE: Dimension = JBDimension(42, 14)
     private val BUTTON_BORDER: Border = JBUI.Borders.empty(1, 10)

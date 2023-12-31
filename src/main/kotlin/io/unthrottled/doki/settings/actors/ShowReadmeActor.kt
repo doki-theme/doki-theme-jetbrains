@@ -13,7 +13,7 @@ object ShowReadmeActor {
       if (enabled) {
         UpdateNotification.showDokiNotification(
           MessageBundle.message("notification.no.show.readme.title"),
-          MessageBundle.message("notification.no.show.readme.body")
+          MessageBundle.message("notification.no.show.readme.body"),
         )
       }
     }
