@@ -20,12 +20,14 @@ class XPathListener : LafManagerListener, ProjectActivity {
   private fun installColors() {
     ThemeManager.instance.currentTheme.doOrElse({
       val schemeForCurrentUITheme = EditorColorsManager.getInstance().schemeForCurrentUITheme
-      XPathAppComponent.getInstance().config.attributes.backgroundColor = schemeForCurrentUITheme.getColor(
-        EditorColors.SELECTION_BACKGROUND_COLOR
-      )
-      XPathAppComponent.getInstance().config.attributes.foregroundColor = schemeForCurrentUITheme.getColor(
-        EditorColors.SELECTION_FOREGROUND_COLOR
-      )
+      XPathAppComponent.getInstance().config.attributes.backgroundColor =
+        schemeForCurrentUITheme.getColor(
+          EditorColors.SELECTION_BACKGROUND_COLOR,
+        )
+      XPathAppComponent.getInstance().config.attributes.foregroundColor =
+        schemeForCurrentUITheme.getColor(
+          EditorColors.SELECTION_FOREGROUND_COLOR,
+        )
 
       XPathAppComponent.getInstance().config.contextAttributes.backgroundColor =
         IDENTIFIER_UNDER_CARET_ATTRIBUTES.defaultAttributes.backgroundColor

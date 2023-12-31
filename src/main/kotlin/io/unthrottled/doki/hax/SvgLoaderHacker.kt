@@ -10,7 +10,6 @@ import java.util.Optional
 typealias PatcherProvider = SVGLoader.SvgElementColorPatcherProvider
 
 object SvgLoaderHacker {
-
   /**
    * Enables the ability to have more than one color patcher.
    */
@@ -33,7 +32,7 @@ object SvgLoaderHacker {
   private fun collectOtherPatcher(): Optional<PatcherProvider> =
     Optional.ofNullable(
       SVGLoader::class.java.declaredFields
-        .firstOrNull { it.name == "colorPatcherProvider" }
+        .firstOrNull { it.name == "colorPatcherProvider" },
     )
       .map { ourColorPatcherField ->
         ourColorPatcherField.isAccessible = true

@@ -21,12 +21,11 @@ import javax.swing.JFrame
 
 data class StickerHideConfig(
   val hideOnHover: Boolean,
-  val hideDelayMS: Int
+  val hideDelayMS: Int,
 )
 
 @Suppress("TooManyFunctions")
 class StickerPaneService {
-
   companion object {
     val instance: StickerPaneService
       get() = ApplicationManager.getApplication().getService(StickerPaneService::class.java)
@@ -53,7 +52,7 @@ class StickerPaneService {
           }
         }
       },
-      AWTEvent.WINDOW_EVENT_MASK
+      AWTEvent.WINDOW_EVENT_MASK,
     )
   }
 
@@ -78,15 +77,16 @@ class StickerPaneService {
     val primaryStickersOn = ThemeConfig.instance.currentStickerLevel == StickerLevel.ON
     val smolStickersOn = ThemeConfig.instance.showSmallStickers
     if (primaryStickersOn || smolStickersOn) {
-      val candidateStickers = stickers.filter {
-        (it.type == StickerType.SMOL && smolStickersOn) ||
-          (it.type == StickerType.REGULAR && primaryStickersOn)
-      }
+      val candidateStickers =
+        stickers.filter {
+          (it.type == StickerType.SMOL && smolStickersOn) ||
+            (it.type == StickerType.REGULAR && primaryStickersOn)
+        }
       displayStickers(
         dokiTheme,
         { stickerUrl ->
           candidateStickers.forEach { it.displaySticker(stickerUrl) }
-        }
+        },
       ) {
         stickers.forEach { it.detach() }
       }
@@ -109,26 +109,28 @@ class StickerPaneService {
       }
   }
 
-  private val allowedFrames = setOf(
-    "com.intellij.openapi.ui.FrameWrapper\$MyJFrame",
-    "com.intellij.openapi.wm.impl.IdeFrameImpl",
-    "com.intellij.openapi.ui.MyJFrame",
-    "com.intellij.openapi.wm.impl.welcomeScreen.FlatWelcomeFrame"
-  )
+  private val allowedFrames =
+    setOf(
+      "com.intellij.openapi.ui.FrameWrapper\$MyJFrame",
+      "com.intellij.openapi.wm.impl.IdeFrameImpl",
+      "com.intellij.openapi.ui.MyJFrame",
+      "com.intellij.openapi.wm.impl.welcomeScreen.FlatWelcomeFrame",
+    )
 
   private fun captureFrame(window: JFrame) {
     if (!isRightClass(window)) return
     val drawablePane = window.rootPane.layeredPane
-    val stickerPane = StickerPane(
-      drawablePane,
-      StickerType.REGULAR,
-      MarginService.instance.getMargin(window),
-      object : StickerListener {
-        override fun onDoubleClick(margin: Margin) {
-          MarginService.instance.saveMargin(window, margin)
-        }
-      }
-    )
+    val stickerPane =
+      StickerPane(
+        drawablePane,
+        StickerType.REGULAR,
+        MarginService.instance.getMargin(window),
+        object : StickerListener {
+          override fun onDoubleClick(margin: Margin) {
+            MarginService.instance.saveMargin(window, margin)
+          }
+        },
+      )
     windowsToAddStickersTo[window] = stickerPane
     if (ThemeConfig.instance.currentStickerLevel == StickerLevel.ON) {
       showSingleSticker(stickerPane)
@@ -137,16 +139,17 @@ class StickerPaneService {
 
   private fun captureDialogWrapper(wrapper: DialogWrapperDialog) {
     val drawablePane = wrapper.dialogWrapper?.rootPane?.layeredPane ?: return
-    val stickerPane = StickerPane(
-      drawablePane,
-      StickerType.SMOL,
-      MarginService.instance.getMargin(wrapper),
-      object : StickerListener {
-        override fun onDoubleClick(margin: Margin) {
-          MarginService.instance.saveMargin(wrapper, margin)
-        }
-      }
-    )
+    val stickerPane =
+      StickerPane(
+        drawablePane,
+        StickerType.SMOL,
+        MarginService.instance.getMargin(wrapper),
+        object : StickerListener {
+          override fun onDoubleClick(margin: Margin) {
+            MarginService.instance.saveMargin(wrapper, margin)
+          }
+        },
+      )
     windowsToAddStickersTo[wrapper] = stickerPane
     if (ThemeConfig.instance.showSmallStickers) {
       showSingleSticker(stickerPane)
@@ -167,7 +170,7 @@ class StickerPaneService {
           dokiTheme,
           { stickerUrl ->
             stickerPane.displaySticker(stickerUrl)
-          }
+          },
         ) {
           stickerPane.detach()
         }
@@ -176,13 +179,12 @@ class StickerPaneService {
       }
   }
 
-  private fun isRightClass(window: Any): Boolean =
-    allowedFrames.contains(window.javaClass.name)
+  private fun isRightClass(window: Any): Boolean = allowedFrames.contains(window.javaClass.name)
 
   private fun displayStickers(
     currentTheme: DokiTheme,
     stickerWorkerSupplier: (String) -> Unit,
-    stickerRemoval: () -> Unit
+    stickerRemoval: () -> Unit,
   ) {
     ApplicationManager.getApplication().executeOnPooledThread {
       if (CustomStickerService.isCustomStickers) {
@@ -215,14 +217,12 @@ class StickerPaneService {
     }
   }
 
-  private fun getLocallyInstalledStickerPath(
-    dokiTheme: DokiTheme
-  ): Optional<String> =
+  private fun getLocallyInstalledStickerPath(dokiTheme: DokiTheme): Optional<String> =
     dokiTheme.getStickerPath()
       .flatMap {
         AssetManager.resolveAssetUrl(
           AssetCategory.STICKERS,
-          it
+          it,
         )
       }
 
@@ -233,8 +233,9 @@ class StickerPaneService {
   }
 }
 
-fun repaintWindows() = runSafely({
-  ApplicationManager.getApplication().invokeLater {
-    IdeBackgroundUtil.repaintAllWindows()
-  }
-})
+fun repaintWindows() =
+  runSafely({
+    ApplicationManager.getApplication().invokeLater {
+      IdeBackgroundUtil.repaintAllWindows()
+    }
+  })

@@ -7,7 +7,6 @@ import io.unthrottled.doki.settings.actors.ConsoleFontActor
 import io.unthrottled.doki.themes.ThemeManager
 
 object ConsoleFontService {
-
   fun applyConsoleFont() {
     ThemeManager.instance.currentTheme
       .filter { ThemeConfig.instance.isOverrideConsoleFont }

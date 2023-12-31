@@ -47,7 +47,7 @@ class TheDokiTheme : Disposable {
         .map { it.toOptional() }
         .orElseGet {
           PluginManagerCore.getPlugin(
-            PluginId.getId(ULTIMATE_PLUGIN_ID)
+            PluginId.getId(ULTIMATE_PLUGIN_ID),
           ).toOptional()
         }
         .map { it.version }
@@ -73,7 +73,7 @@ class TheDokiTheme : Disposable {
             setSVGColorPatcher(it)
           }
         }
-      }
+      },
     )
 
     connection.subscribe(
@@ -89,7 +89,7 @@ class TheDokiTheme : Disposable {
             IconPathReplacementComponent.removePatchers()
             LookAndFeelInstaller.removeIcons()
           }
-      }
+      },
     )
   }
 
@@ -118,7 +118,7 @@ class TheDokiTheme : Disposable {
               UpdateNotification.display(
                 project,
                 version,
-                isNewUser
+                isNewUser,
               )
             }
           }

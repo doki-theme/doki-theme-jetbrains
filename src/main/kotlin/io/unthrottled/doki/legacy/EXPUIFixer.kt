@@ -11,7 +11,6 @@ import javax.swing.UIDefaults
 import javax.swing.UIManager
 
 object EXPUIFixer : LafManagerListener, Disposable {
-
   private val connection = ApplicationManager.getApplication().messageBus.connect()
 
   init {
@@ -43,7 +42,11 @@ object EXPUIFixer : LafManagerListener, Disposable {
     }
   }
 
-  private fun setUIProperty(key: String, value: Any, defaults: UIDefaults) {
+  private fun setUIProperty(
+    key: String,
+    value: Any,
+    defaults: UIDefaults,
+  ) {
     defaults.remove(key)
     defaults[key] = value
   }

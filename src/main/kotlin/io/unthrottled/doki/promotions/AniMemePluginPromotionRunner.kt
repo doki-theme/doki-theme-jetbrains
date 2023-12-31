@@ -13,18 +13,20 @@ import java.util.concurrent.TimeUnit
 import kotlin.random.Random
 
 enum class PromotionStatus {
-  ACCEPTED, REJECTED, BLOCKED, UNKNOWN
+  ACCEPTED,
+  REJECTED,
+  BLOCKED,
+  UNKNOWN,
 }
 
 data class PromotionResults(
-  val status: PromotionStatus
+  val status: PromotionStatus,
 )
 
 object AniMemePromotionService {
-
   fun runPromotion(
     onPromotion: (PromotionResults) -> Unit,
-    onReject: () -> Unit
+    onReject: () -> Unit,
   ) {
     AniMemePluginPromotionRunner(onPromotion, onReject)
   }
@@ -32,18 +34,17 @@ object AniMemePromotionService {
 
 class AniMemePluginPromotionRunner(
   private val onPromotion: (PromotionResults) -> Unit,
-  private val onReject: () -> Unit
+  private val onReject: () -> Unit,
 ) : Runnable {
-
   init {
     IdeEventQueue.getInstance().addIdleListener(
       this,
       TimeUnit.MILLISECONDS.convert(
         5,
-        TimeUnit.MINUTES
-      ).toInt() + Random(System.currentTimeMillis())
-        .nextInt(0, 2000)
-
+        TimeUnit.MINUTES,
+      ).toInt() +
+        Random(System.currentTimeMillis())
+          .nextInt(0, 2000),
     )
   }
 
@@ -56,7 +57,7 @@ class AniMemePluginPromotionRunner(
 object AniMemePluginPromotion {
   fun runPromotion(
     onPromotion: (PromotionResults) -> Unit,
-    onReject: () -> Unit
+    onReject: () -> Unit,
   ) {
     ApplicationManager.getApplication().executeOnPooledThread {
       ThemeManager.instance.currentTheme.ifPresent { dokiTheme ->
@@ -70,22 +71,23 @@ object AniMemePluginPromotion {
                     AniMemePromotionDialog(
                       promotionAssets,
                       project,
-                      onPromotion
+                      onPromotion,
                     ).show()
                   }
                 },
-                onReject
+                onReject,
               )
           },
           0,
-          TimeUnit.SECONDS
+          TimeUnit.SECONDS,
         )
       }
     }
   }
 }
 
-fun getFirstProject(): Optional<Project> = ProjectManager.getInstance().openProjects
-  .toOptional()
-  .filter { it.isNotEmpty() }
-  .map { it.first() }
+fun getFirstProject(): Optional<Project> =
+  ProjectManager.getInstance().openProjects
+    .toOptional()
+    .filter { it.isNotEmpty() }
+    .map { it.first() }

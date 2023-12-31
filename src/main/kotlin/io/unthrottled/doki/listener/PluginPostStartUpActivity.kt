@@ -5,7 +5,6 @@ import com.intellij.openapi.startup.ProjectActivity
 import io.unthrottled.doki.TheDokiTheme
 
 class PluginPostStartUpActivity : ProjectActivity {
-
   override suspend fun execute(project: Project) {
     doStuff(project)
   }

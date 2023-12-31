@@ -14,15 +14,16 @@ import kotlin.io.path.exists
 
 abstract class LedgerMaster<T>(
   private val ledgerPath: Path,
-  private val clazz: Class<T>
+  private val clazz: Class<T>,
 ) {
   private val log = Logger.getInstance(PromotionLedgerMaster::class.java)
 
   abstract fun initialLedger(): T
 
-  private val gson = GsonBuilder()
-    .setPrettyPrinting()
-    .create()
+  private val gson =
+    GsonBuilder()
+      .setPrettyPrinting()
+      .create()
 
   fun getInitialLedger(): T =
     if (ledgerPath.exists()) {
@@ -37,7 +38,7 @@ abstract class LedgerMaster<T>(
         .use {
           gson.fromJson(
             InputStreamReader(it, StandardCharsets.UTF_8),
-            clazz
+            clazz,
           )
         }
     }) {
@@ -54,10 +55,10 @@ abstract class LedgerMaster<T>(
       Files.newBufferedWriter(
         ledgerPath,
         StandardOpenOption.CREATE,
-        StandardOpenOption.TRUNCATE_EXISTING
+        StandardOpenOption.TRUNCATE_EXISTING,
       ).use {
         it.write(
-          gson.toJson(promotionLedger)
+          gson.toJson(promotionLedger),
         )
       }
     }) {

@@ -14,17 +14,17 @@ object AssetTools : Logging {
   fun <T : Any> readJsonFromResources(
     basePath: String,
     filePath: String,
-    type: Type
+    type: Type,
   ): Optional<T> {
     return runSafelyWithResult({
       ResourceUtil.getResourceAsStream(
         AssetTools::class.java.classLoader,
         basePath,
-        filePath
+        filePath,
       ).use { inputStream ->
         gson.fromJson<T>(
           InputStreamReader(inputStream, StandardCharsets.UTF_8),
-          type
+          type,
         ).toOptional()
       }
     }) {

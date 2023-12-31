@@ -21,7 +21,9 @@ import java.util.Optional
 import java.util.concurrent.ConcurrentHashMap
 
 private enum class AssetChangedStatus {
-  SAME, DIFFERENT, LUL_DUNNO
+  SAME,
+  DIFFERENT,
+  LUL_DUNNO,
 }
 
 object LocalAssetService {
@@ -31,14 +33,14 @@ object LocalAssetService {
 
   fun hasAssetChanged(
     localInstallPath: Path,
-    remoteAssetUrl: String
+    remoteAssetUrl: String,
   ): Boolean =
     !Files.exists(localInstallPath) ||
       (
         Registry.`is`("doki.theme.update.assets", true) &&
           !hasBeenCheckedToday(localInstallPath) &&
           isLocalDifferentFromRemote(localInstallPath, remoteAssetUrl) == AssetChangedStatus.DIFFERENT
-        )
+      )
 
   private fun computeCheckSum(byteArray: ByteArray): String {
     val messageDigest = MessageDigest.getInstance("MD5")
@@ -47,11 +49,13 @@ object LocalAssetService {
   }
 
   private fun getRemoteAssetChecksum(remoteAssetUrl: String): Optional<String> =
-    RestClient.performGet("$remoteAssetUrl.checksum.txt")
+    RestClient.performGet(
+      "$remoteAssetUrl.checksum.txt",
+    )
 
   private fun isLocalDifferentFromRemote(
     localInstallPath: Path,
-    remoteAssetUrl: String
+    remoteAssetUrl: String,
   ): AssetChangedStatus =
     getRemoteAssetChecksum(remoteAssetUrl)
       .map {
@@ -62,11 +66,11 @@ object LocalAssetService {
         } else {
           log.warn(
             """
-                      Local asset: $localInstallPath
-                      is different from remote asset $remoteAssetUrl
-                      Local Checksum: $onDiskCheckSum
-                      Remote Checksum: $it
-            """.trimIndent()
+            Local asset: $localInstallPath
+            is different from remote asset $remoteAssetUrl
+            Local Checksum: $onDiskCheckSum
+            Remote Checksum: $it
+            """.trimIndent(),
           )
           AssetChangedStatus.DIFFERENT
         }
@@ -85,7 +89,7 @@ object LocalAssetService {
         assetCheckPath,
         Charset.defaultCharset(),
         StandardOpenOption.CREATE,
-        StandardOpenOption.TRUNCATE_EXISTING
+        StandardOpenOption.TRUNCATE_EXISTING,
       ).use { writer ->
         writer.write(gson.toJson(assetChecks))
       }
@@ -102,7 +106,7 @@ object LocalAssetService {
           Files.newBufferedReader(it).use { reader ->
             gson.fromJson<ConcurrentHashMap<String, Instant>>(
               reader,
-              object : TypeToken<ConcurrentHashMap<String, Instant>>() {}.type
+              object : TypeToken<ConcurrentHashMap<String, Instant>>() {}.type,
             )
           }
         }.orElseGet { ConcurrentHashMap() }
@@ -111,9 +115,7 @@ object LocalAssetService {
       ConcurrentHashMap()
     }
 
-  private fun getAssetChecksFile() =
-    Paths.get(LocalStorageService.getLocalAssetDirectory(), "assetChecks.json")
+  private fun getAssetChecksFile() = Paths.get(LocalStorageService.getLocalAssetDirectory(), "assetChecks.json")
 
-  private fun getAssetCheckKey(localInstallPath: Path) =
-    localInstallPath.toAbsolutePath().toString()
+  private fun getAssetCheckKey(localInstallPath: Path) = localInstallPath.toAbsolutePath().toString()
 }

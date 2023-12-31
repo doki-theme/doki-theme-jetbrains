@@ -33,9 +33,8 @@ import java.util.UUID
 import java.util.concurrent.TimeUnit
 
 class PromotionManagerIntegrationTest {
-
   companion object {
-    private const val testDirectory = "testOne"
+    private const val TEST_DIRECTORY = "testOne"
 
     @JvmStatic
     @BeforeClass
@@ -65,7 +64,7 @@ class PromotionManagerIntegrationTest {
   @Before
   fun cleanUp() {
     clearMocks(AniMemePromotionService)
-    Files.walk(TestTools.getTestAssetPath(testDirectory))
+    Files.walk(TestTools.getTestAssetPath(TEST_DIRECTORY))
       .filter { it.isFile() }
       .forEach { Files.deleteIfExists(it) }
   }
@@ -73,7 +72,7 @@ class PromotionManagerIntegrationTest {
   @Test
   fun `should write new version`() {
     every { LocalStorageService.getGlobalAssetDirectory() } returns
-      TestTools.getTestAssetPath(testDirectory).toString().toOptional()
+      TestTools.getTestAssetPath(TEST_DIRECTORY).toString().toOptional()
     every { PluginService.isMotivatorInstalled() } returns false
     every { WeebService.isWeebStuffOn() } returns true
     every { ThemeConfig.instance.allowPromotions } returns true
@@ -96,7 +95,7 @@ class PromotionManagerIntegrationTest {
     assertThat(postLedger.versionInstallDates.size).isEqualTo(1)
     assertThat(postLedger.versionInstallDates["Ryuko"]).isBetween(
       beforePromotion,
-      Instant.now()
+      Instant.now(),
     )
 
     verify { AniMemePromotionService wasNot Called }
@@ -105,7 +104,7 @@ class PromotionManagerIntegrationTest {
   @Test
   fun `should always write new version`() {
     every { LocalStorageService.getGlobalAssetDirectory() } returns
-      TestTools.getTestAssetPath(testDirectory).toString().toOptional()
+      TestTools.getTestAssetPath(TEST_DIRECTORY).toString().toOptional()
     every { PluginService.isMotivatorInstalled() } returns false
     every { WeebService.isWeebStuffOn() } returns true
     every { ThemeConfig.instance.allowPromotions } returns true
@@ -128,7 +127,7 @@ class PromotionManagerIntegrationTest {
     assertThat(postRyukoLedger.versionInstallDates.size).isEqualTo(1)
     assertThat(postRyukoLedger.versionInstallDates["Ryuko"]).isBetween(
       beforeRyuko,
-      Instant.now()
+      Instant.now(),
     )
 
     val beforeRin = Instant.now()
@@ -143,11 +142,11 @@ class PromotionManagerIntegrationTest {
     assertThat(postRinLedger.versionInstallDates.size).isEqualTo(2)
     assertThat(postRyukoLedger.versionInstallDates["Ryuko"]).isBetween(
       beforeRyuko,
-      Instant.now()
+      Instant.now(),
     )
     assertThat(postRinLedger.versionInstallDates["Rin"]).isBetween(
       beforeRin,
-      Instant.now()
+      Instant.now(),
     )
 
     verify { AniMemePromotionService wasNot Called }
@@ -156,7 +155,7 @@ class PromotionManagerIntegrationTest {
   @Test
   fun `should not do anything when install is less than a day old`() {
     every { LocalStorageService.getGlobalAssetDirectory() } returns
-      TestTools.getTestAssetPath(testDirectory).toString().toOptional()
+      TestTools.getTestAssetPath(TEST_DIRECTORY).toString().toOptional()
     every { PluginService.isMotivatorInstalled() } returns false
     every { WeebService.isWeebStuffOn() } returns true
     every { ThemeConfig.instance.allowPromotions } returns true
@@ -166,12 +165,13 @@ class PromotionManagerIntegrationTest {
               
       """.toOptional()
 
-    val currentLedger = PromotionLedger(
-      UUID.randomUUID(),
-      mutableMapOf("Ryuko" to Instant.now()),
-      mutableMapOf(),
-      true
-    )
+    val currentLedger =
+      PromotionLedger(
+        UUID.randomUUID(),
+        mutableMapOf("Ryuko" to Instant.now()),
+        mutableMapOf(),
+        true,
+      )
     PromotionLedgerMaster.persistLedger(currentLedger)
 
     val promotionManager = PromotionManagerImpl()
@@ -187,7 +187,7 @@ class PromotionManagerIntegrationTest {
   @Test
   fun `should not do anything when motivator is installed`() {
     every { LocalStorageService.getGlobalAssetDirectory() } returns
-      TestTools.getTestAssetPath(testDirectory).toString().toOptional()
+      TestTools.getTestAssetPath(TEST_DIRECTORY).toString().toOptional()
 
     every { PluginService.isMotivatorInstalled() } returns true
     every { PluginService.isAmiiInstalled() } returns false
@@ -199,12 +199,13 @@ class PromotionManagerIntegrationTest {
               
       """.toOptional()
 
-    val currentLedger = PromotionLedger(
-      UUID.randomUUID(),
-      mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(8))),
-      mutableMapOf(),
-      true
-    )
+    val currentLedger =
+      PromotionLedger(
+        UUID.randomUUID(),
+        mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(8))),
+        mutableMapOf(),
+        true,
+      )
 
     PromotionLedgerMaster.persistLedger(currentLedger)
 
@@ -221,7 +222,7 @@ class PromotionManagerIntegrationTest {
   @Test
   fun `should not do anything when AMII is installed`() {
     every { LocalStorageService.getGlobalAssetDirectory() } returns
-      TestTools.getTestAssetPath(testDirectory).toString().toOptional()
+      TestTools.getTestAssetPath(TEST_DIRECTORY).toString().toOptional()
 
     every { PluginService.isMotivatorInstalled() } returns false
     every { PluginService.isAmiiInstalled() } returns true
@@ -233,12 +234,13 @@ class PromotionManagerIntegrationTest {
               
       """.toOptional()
 
-    val currentLedger = PromotionLedger(
-      UUID.randomUUID(),
-      mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(8))),
-      mutableMapOf(),
-      true
-    )
+    val currentLedger =
+      PromotionLedger(
+        UUID.randomUUID(),
+        mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(8))),
+        mutableMapOf(),
+        true,
+      )
 
     PromotionLedgerMaster.persistLedger(currentLedger)
 
@@ -255,7 +257,7 @@ class PromotionManagerIntegrationTest {
   @Test
   fun `should not do anything when AMII and Motivator are installed`() {
     every { LocalStorageService.getGlobalAssetDirectory() } returns
-      TestTools.getTestAssetPath(testDirectory).toString().toOptional()
+      TestTools.getTestAssetPath(TEST_DIRECTORY).toString().toOptional()
 
     every { PluginService.isMotivatorInstalled() } returns true
     every { PluginService.isAmiiInstalled() } returns true
@@ -267,12 +269,13 @@ class PromotionManagerIntegrationTest {
               
       """.toOptional()
 
-    val currentLedger = PromotionLedger(
-      UUID.randomUUID(),
-      mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(8))),
-      mutableMapOf(),
-      true
-    )
+    val currentLedger =
+      PromotionLedger(
+        UUID.randomUUID(),
+        mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(8))),
+        mutableMapOf(),
+        true,
+      )
 
     PromotionLedgerMaster.persistLedger(currentLedger)
 
@@ -289,7 +292,7 @@ class PromotionManagerIntegrationTest {
   @Test
   fun `should not do anything when has been promoted before`() {
     every { LocalStorageService.getGlobalAssetDirectory() } returns
-      TestTools.getTestAssetPath(testDirectory).toString().toOptional()
+      TestTools.getTestAssetPath(TEST_DIRECTORY).toString().toOptional()
     every { PluginService.isMotivatorInstalled() } returns false
     every { PluginService.isAmiiInstalled() } returns false
     every { WeebService.isWeebStuffOn() } returns true
@@ -300,18 +303,20 @@ class PromotionManagerIntegrationTest {
               
       """.toOptional()
 
-    val currentLedger = PromotionLedger(
-      UUID.randomUUID(),
-      mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(8))),
-      mutableMapOf(
-        MOTIVATION_PROMOTION_ID to Promotion(
-          MOTIVATION_PROMOTION_ID,
-          Instant.now(),
-          PromotionStatus.REJECTED
-        )
-      ),
-      true
-    )
+    val currentLedger =
+      PromotionLedger(
+        UUID.randomUUID(),
+        mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(8))),
+        mutableMapOf(
+          MOTIVATION_PROMOTION_ID to
+            Promotion(
+              MOTIVATION_PROMOTION_ID,
+              Instant.now(),
+              PromotionStatus.REJECTED,
+            ),
+        ),
+        true,
+      )
 
     PromotionLedgerMaster.persistLedger(currentLedger)
 
@@ -328,7 +333,7 @@ class PromotionManagerIntegrationTest {
   @Test
   fun `should not do anything when weeb stuff is not on`() {
     every { LocalStorageService.getGlobalAssetDirectory() } returns
-      TestTools.getTestAssetPath(testDirectory).toString().toOptional()
+      TestTools.getTestAssetPath(TEST_DIRECTORY).toString().toOptional()
     every { PluginService.isMotivatorInstalled() } returns false
     every { PluginService.isAmiiInstalled() } returns false
     every { WeebService.isWeebStuffOn() } returns false
@@ -339,12 +344,13 @@ class PromotionManagerIntegrationTest {
               
       """.toOptional()
 
-    val currentLedger = PromotionLedger(
-      UUID.randomUUID(),
-      mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(8))),
-      mutableMapOf(),
-      true
-    )
+    val currentLedger =
+      PromotionLedger(
+        UUID.randomUUID(),
+        mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(8))),
+        mutableMapOf(),
+        true,
+      )
 
     PromotionLedgerMaster.persistLedger(currentLedger)
 
@@ -361,7 +367,7 @@ class PromotionManagerIntegrationTest {
   @Test
   fun `should not do anything when not online`() {
     every { LocalStorageService.getGlobalAssetDirectory() } returns
-      TestTools.getTestAssetPath(testDirectory).toString().toOptional()
+      TestTools.getTestAssetPath(TEST_DIRECTORY).toString().toOptional()
     every { PluginService.isMotivatorInstalled() } returns false
     every { PluginService.isAmiiInstalled() } returns false
     every { WeebService.isWeebStuffOn() } returns true
@@ -371,12 +377,13 @@ class PromotionManagerIntegrationTest {
     every { RestClient.performGet("$FALLBACK_ASSET_SOURCE/misc/am-i-online.txt") } returns
       "no".toOptional() andThen Optional.empty()
 
-    val currentLedger = PromotionLedger(
-      UUID.randomUUID(),
-      mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(8))),
-      mutableMapOf(),
-      true
-    )
+    val currentLedger =
+      PromotionLedger(
+        UUID.randomUUID(),
+        mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(8))),
+        mutableMapOf(),
+        true,
+      )
 
     PromotionLedgerMaster.persistLedger(currentLedger)
 
@@ -394,7 +401,7 @@ class PromotionManagerIntegrationTest {
   @Test
   fun `should not do anything when not owner of lock`() {
     every { LocalStorageService.getGlobalAssetDirectory() } returns
-      TestTools.getTestAssetPath(testDirectory).toString().toOptional()
+      TestTools.getTestAssetPath(TEST_DIRECTORY).toString().toOptional()
     every { PluginService.isMotivatorInstalled() } returns false
     every { PluginService.isAmiiInstalled() } returns false
     every { WeebService.isWeebStuffOn() } returns true
@@ -407,12 +414,13 @@ class PromotionManagerIntegrationTest {
 
     assertThat(LockMaster.acquireLock("Misato")).isTrue
 
-    val currentLedger = PromotionLedger(
-      UUID.randomUUID(),
-      mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(8))),
-      mutableMapOf(),
-      true
-    )
+    val currentLedger =
+      PromotionLedger(
+        UUID.randomUUID(),
+        mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(8))),
+        mutableMapOf(),
+        true,
+      )
 
     PromotionLedgerMaster.persistLedger(currentLedger)
 
@@ -429,7 +437,7 @@ class PromotionManagerIntegrationTest {
   @Test
   fun `should not promote when not allowed`() {
     every { LocalStorageService.getGlobalAssetDirectory() } returns
-      TestTools.getTestAssetPath(testDirectory).toString().toOptional()
+      TestTools.getTestAssetPath(TEST_DIRECTORY).toString().toOptional()
     every { PluginService.isMotivatorInstalled() } returns false
     every { PluginService.isAmiiInstalled() } returns false
     every { WeebService.isWeebStuffOn() } returns true
@@ -440,12 +448,13 @@ class PromotionManagerIntegrationTest {
               
       """.toOptional()
 
-    val currentLedger = PromotionLedger(
-      UUID.randomUUID(),
-      mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(8))),
-      mutableMapOf(),
-      false
-    )
+    val currentLedger =
+      PromotionLedger(
+        UUID.randomUUID(),
+        mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(8))),
+        mutableMapOf(),
+        false,
+      )
 
     PromotionLedgerMaster.persistLedger(currentLedger)
 
@@ -464,7 +473,7 @@ class PromotionManagerIntegrationTest {
   @Test
   fun `should not promote when previous promotion was rejected`() {
     every { LocalStorageService.getGlobalAssetDirectory() } returns
-      TestTools.getTestAssetPath(testDirectory).toString().toOptional()
+      TestTools.getTestAssetPath(TEST_DIRECTORY).toString().toOptional()
     every { PluginService.isMotivatorInstalled() } returns false
     every { PluginService.isAmiiInstalled() } returns false
     every { WeebService.isWeebStuffOn() } returns true
@@ -475,14 +484,15 @@ class PromotionManagerIntegrationTest {
               
       """.toOptional()
 
-    val currentLedger = PromotionLedger(
-      UUID.randomUUID(),
-      mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(8))),
-      mutableMapOf(
-        MOTIVATION_PROMOTION_ID to Promotion(MOTIVATION_PROMOTION_ID, Instant.now(), PromotionStatus.REJECTED)
-      ),
-      true
-    )
+    val currentLedger =
+      PromotionLedger(
+        UUID.randomUUID(),
+        mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(8))),
+        mutableMapOf(
+          MOTIVATION_PROMOTION_ID to Promotion(MOTIVATION_PROMOTION_ID, Instant.now(), PromotionStatus.REJECTED),
+        ),
+        true,
+      )
 
     PromotionLedgerMaster.persistLedger(currentLedger)
 
@@ -501,7 +511,7 @@ class PromotionManagerIntegrationTest {
   @Test
   fun `should not promote when AniMeme plugin is not compatible`() {
     every { LocalStorageService.getGlobalAssetDirectory() } returns
-      TestTools.getTestAssetPath(testDirectory).toString().toOptional()
+      TestTools.getTestAssetPath(TEST_DIRECTORY).toString().toOptional()
     every { PluginService.isMotivatorInstalled() } returns false
     every { PluginService.isAmiiInstalled() } returns false
     every { PluginService.canAmiiBeInstalled() } returns false
@@ -513,14 +523,15 @@ class PromotionManagerIntegrationTest {
               
       """.toOptional()
 
-    val currentLedger = PromotionLedger(
-      UUID.randomUUID(),
-      mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(8))),
-      mutableMapOf(
-        MOTIVATION_PROMOTION_ID to Promotion(MOTIVATION_PROMOTION_ID, Instant.now(), PromotionStatus.ACCEPTED)
-      ),
-      true
-    )
+    val currentLedger =
+      PromotionLedger(
+        UUID.randomUUID(),
+        mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(8))),
+        mutableMapOf(
+          MOTIVATION_PROMOTION_ID to Promotion(MOTIVATION_PROMOTION_ID, Instant.now(), PromotionStatus.ACCEPTED),
+        ),
+        true,
+      )
 
     PromotionLedgerMaster.persistLedger(currentLedger)
 
@@ -539,7 +550,7 @@ class PromotionManagerIntegrationTest {
   @Test
   fun `should not promote when opted out`() {
     every { LocalStorageService.getGlobalAssetDirectory() } returns
-      TestTools.getTestAssetPath(testDirectory).toString().toOptional()
+      TestTools.getTestAssetPath(TEST_DIRECTORY).toString().toOptional()
     every { PluginService.isMotivatorInstalled() } returns false
     every { PluginService.isAmiiInstalled() } returns false
     every { PluginService.canAmiiBeInstalled() } returns true
@@ -551,14 +562,15 @@ class PromotionManagerIntegrationTest {
               
       """.toOptional()
 
-    val currentLedger = PromotionLedger(
-      UUID.randomUUID(),
-      mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(8))),
-      mutableMapOf(
-        MOTIVATION_PROMOTION_ID to Promotion(MOTIVATION_PROMOTION_ID, Instant.now(), PromotionStatus.ACCEPTED)
-      ),
-      true
-    )
+    val currentLedger =
+      PromotionLedger(
+        UUID.randomUUID(),
+        mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(8))),
+        mutableMapOf(
+          MOTIVATION_PROMOTION_ID to Promotion(MOTIVATION_PROMOTION_ID, Instant.now(), PromotionStatus.ACCEPTED),
+        ),
+        true,
+      )
 
     PromotionLedgerMaster.persistLedger(currentLedger)
 
@@ -577,7 +589,7 @@ class PromotionManagerIntegrationTest {
   @Test
   fun `should promote when previous promotion was accepted`() {
     every { LocalStorageService.getGlobalAssetDirectory() } returns
-      TestTools.getTestAssetPath(testDirectory).toString().toOptional()
+      TestTools.getTestAssetPath(TEST_DIRECTORY).toString().toOptional()
     every { PluginService.isMotivatorInstalled() } returns false
     every { PluginService.isAmiiInstalled() } returns false
     every { PluginService.canAmiiBeInstalled() } returns true
@@ -589,14 +601,15 @@ class PromotionManagerIntegrationTest {
               
       """.toOptional()
 
-    val currentLedger = PromotionLedger(
-      UUID.randomUUID(),
-      mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(8))),
-      mutableMapOf(
-        MOTIVATION_PROMOTION_ID to Promotion(MOTIVATION_PROMOTION_ID, Instant.now(), PromotionStatus.ACCEPTED)
-      ),
-      true
-    )
+    val currentLedger =
+      PromotionLedger(
+        UUID.randomUUID(),
+        mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(8))),
+        mutableMapOf(
+          MOTIVATION_PROMOTION_ID to Promotion(MOTIVATION_PROMOTION_ID, Instant.now(), PromotionStatus.ACCEPTED),
+        ),
+        true,
+      )
 
     PromotionLedgerMaster.persistLedger(currentLedger)
 
@@ -616,7 +629,7 @@ class PromotionManagerIntegrationTest {
   @Test
   fun `should promote when previous promotion was not shown`() {
     every { LocalStorageService.getGlobalAssetDirectory() } returns
-      TestTools.getTestAssetPath(testDirectory).toString().toOptional()
+      TestTools.getTestAssetPath(TEST_DIRECTORY).toString().toOptional()
     every { PluginService.isMotivatorInstalled() } returns false
     every { PluginService.isAmiiInstalled() } returns false
     every { PluginService.canAmiiBeInstalled() } returns true
@@ -628,14 +641,15 @@ class PromotionManagerIntegrationTest {
               
       """.toOptional()
 
-    val currentLedger = PromotionLedger(
-      UUID.randomUUID(),
-      mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(8))),
-      mutableMapOf(
-        MOTIVATION_PROMOTION_ID to Promotion(MOTIVATION_PROMOTION_ID, Instant.now(), PromotionStatus.ACCEPTED)
-      ),
-      true
-    )
+    val currentLedger =
+      PromotionLedger(
+        UUID.randomUUID(),
+        mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(8))),
+        mutableMapOf(
+          MOTIVATION_PROMOTION_ID to Promotion(MOTIVATION_PROMOTION_ID, Instant.now(), PromotionStatus.ACCEPTED),
+        ),
+        true,
+      )
 
     PromotionLedgerMaster.persistLedger(currentLedger)
 
@@ -664,7 +678,7 @@ class PromotionManagerIntegrationTest {
   @Test
   fun `should promote when not locked`() {
     every { LocalStorageService.getGlobalAssetDirectory() } returns
-      TestTools.getTestAssetPath(testDirectory).toString().toOptional()
+      TestTools.getTestAssetPath(TEST_DIRECTORY).toString().toOptional()
     every { PluginService.isMotivatorInstalled() } returns false
     every { PluginService.isAmiiInstalled() } returns false
     every { PluginService.canAmiiBeInstalled() } returns true
@@ -676,12 +690,13 @@ class PromotionManagerIntegrationTest {
               
       """.toOptional()
 
-    val currentLedger = PromotionLedger(
-      UUID.randomUUID(),
-      mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(8))),
-      mutableMapOf(),
-      true
-    )
+    val currentLedger =
+      PromotionLedger(
+        UUID.randomUUID(),
+        mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(8))),
+        mutableMapOf(),
+        true,
+      )
 
     PromotionLedgerMaster.persistLedger(currentLedger)
 
@@ -701,7 +716,7 @@ class PromotionManagerIntegrationTest {
   @Test
   fun `should promote when primary assets are down`() {
     every { LocalStorageService.getGlobalAssetDirectory() } returns
-      TestTools.getTestAssetPath(testDirectory).toString().toOptional()
+      TestTools.getTestAssetPath(TEST_DIRECTORY).toString().toOptional()
     every { PluginService.isMotivatorInstalled() } returns false
     every { PluginService.isAmiiInstalled() } returns false
     every { PluginService.canAmiiBeInstalled() } returns true
@@ -718,12 +733,13 @@ class PromotionManagerIntegrationTest {
               
       """.toOptional()
 
-    val currentLedger = PromotionLedger(
-      UUID.randomUUID(),
-      mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(8))),
-      mutableMapOf(),
-      true
-    )
+    val currentLedger =
+      PromotionLedger(
+        UUID.randomUUID(),
+        mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(8))),
+        mutableMapOf(),
+        true,
+      )
 
     PromotionLedgerMaster.persistLedger(currentLedger)
 
@@ -743,7 +759,7 @@ class PromotionManagerIntegrationTest {
   @Test
   fun `should break old lock`() {
     every { LocalStorageService.getGlobalAssetDirectory() } returns
-      TestTools.getTestAssetPath(testDirectory).toString().toOptional()
+      TestTools.getTestAssetPath(TEST_DIRECTORY).toString().toOptional()
     every { PluginService.isMotivatorInstalled() } returns false
     every { PluginService.isAmiiInstalled() } returns false
     every { PluginService.canAmiiBeInstalled() } returns true
@@ -759,17 +775,18 @@ class PromotionManagerIntegrationTest {
       Lock(
         "Misato",
         Instant.now().minusMillis(
-          TimeUnit.MILLISECONDS.convert(3, TimeUnit.HOURS)
-        )
-      )
+          TimeUnit.MILLISECONDS.convert(3, TimeUnit.HOURS),
+        ),
+      ),
     )
 
-    val currentLedger = PromotionLedger(
-      UUID.randomUUID(),
-      mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(8))),
-      mutableMapOf(),
-      true
-    )
+    val currentLedger =
+      PromotionLedger(
+        UUID.randomUUID(),
+        mutableMapOf("Ryuko" to Instant.now().minus(Period.ofDays(8))),
+        mutableMapOf(),
+        true,
+      )
 
     PromotionLedgerMaster.persistLedger(currentLedger)
 
@@ -788,7 +805,7 @@ class PromotionManagerIntegrationTest {
 
   private fun validateLedgerCallback(
     currentLedger: PromotionLedger,
-    beforePromotion: Instant?
+    beforePromotion: Instant?,
   ) {
     val promotionSlot = slot<(PromotionResults) -> Unit>()
     val rejectionSlot = slot<() -> Unit>()
@@ -806,7 +823,7 @@ class PromotionManagerIntegrationTest {
     assertThat(postBlocked.seenPromotions[MOTIVATION_PROMOTION_ID]?.id).isEqualTo(MOTIVATION_PROMOTION_ID)
     assertThat(postBlocked.seenPromotions[MOTIVATION_PROMOTION_ID]?.datePromoted).isBetween(
       beforePromotion,
-      postBlockedTime
+      postBlockedTime,
     )
 
     promotionCallback(PromotionResults(PromotionStatus.REJECTED))
@@ -820,7 +837,7 @@ class PromotionManagerIntegrationTest {
     assertThat(postRejected.seenPromotions[MOTIVATION_PROMOTION_ID]?.id).isEqualTo(MOTIVATION_PROMOTION_ID)
     assertThat(postRejected.seenPromotions[MOTIVATION_PROMOTION_ID]?.datePromoted).isBetween(
       postBlockedTime,
-      postRejectedTime
+      postRejectedTime,
     )
 
     promotionCallback(PromotionResults(PromotionStatus.ACCEPTED))
@@ -834,7 +851,7 @@ class PromotionManagerIntegrationTest {
     assertThat(postAccepted.seenPromotions[MOTIVATION_PROMOTION_ID]?.id).isEqualTo(MOTIVATION_PROMOTION_ID)
     assertThat(postAccepted.seenPromotions[MOTIVATION_PROMOTION_ID]?.datePromoted).isBetween(
       postRejectedTime,
-      postAcceptedTime
+      postAcceptedTime,
     )
   }
 }

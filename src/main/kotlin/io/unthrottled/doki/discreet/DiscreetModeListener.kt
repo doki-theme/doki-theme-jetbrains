@@ -4,11 +4,11 @@ import com.intellij.util.messages.Topic
 import java.util.EventListener
 
 enum class DiscreetMode {
-  ACTIVE, INACTIVE
+  ACTIVE,
+  INACTIVE,
 }
 
-fun Boolean.toDiscreetMode(): DiscreetMode =
-  if (this) DiscreetMode.ACTIVE else DiscreetMode.INACTIVE
+fun Boolean.toDiscreetMode(): DiscreetMode = if (this) DiscreetMode.ACTIVE else DiscreetMode.INACTIVE
 
 fun interface DiscreetModeListener : EventListener {
   companion object {

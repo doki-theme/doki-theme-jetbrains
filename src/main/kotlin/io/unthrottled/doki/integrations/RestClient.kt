@@ -14,7 +14,6 @@ import java.util.Optional
 import java.util.concurrent.Callable
 
 object RestClient : Logging {
-
   fun performGet(url: String): Optional<String> =
     ApplicationManager.getApplication().executeOnPooledThread(
       Callable {
@@ -26,7 +25,7 @@ object RestClient : Logging {
           logger().warn("Unable to complete request for $url for raisins.", it)
           Optional.empty()
         }
-      }
+      },
     ).get()
 }
 
@@ -35,8 +34,8 @@ object RestTools {
 
   fun <T> performRequest(
     url: String,
-    bodyExtractor: (InputStream) -> T
-  ): Optional<T> {
+    bodyExtractor: (InputStream) -> T,
+  ): Optional<T & Any> {
     log.info("Attempting to download remote asset: $url")
     return runSafelyWithResult({
       HttpRequests.request(url)

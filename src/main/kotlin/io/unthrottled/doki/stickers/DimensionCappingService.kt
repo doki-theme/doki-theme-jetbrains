@@ -3,10 +3,9 @@ package io.unthrottled.doki.stickers
 import java.awt.Dimension
 
 object DimensionCappingService {
-
   fun getCappingStyle(
     stickerDimensions: Dimension,
-    maxDimension: Dimension
+    maxDimension: Dimension,
   ): Dimension {
     val maxHeight = maxDimension.height
     val maxWidth = maxDimension.width

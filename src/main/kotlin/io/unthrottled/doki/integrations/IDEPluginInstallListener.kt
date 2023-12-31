@@ -8,13 +8,12 @@ import io.unthrottled.doki.service.DOKI_ICONS_PLUGIN_ID
 import io.unthrottled.doki.util.Logging
 
 class IDEPluginInstallListener : DynamicPluginListener, Logging {
-
   override fun beforePluginLoaded(pluginDescriptor: IdeaPluginDescriptor) {
   }
 
   override fun beforePluginUnload(
     pluginDescriptor: IdeaPluginDescriptor,
-    isUpdate: Boolean
+    isUpdate: Boolean,
   ) {
   }
 
@@ -28,12 +27,11 @@ class IDEPluginInstallListener : DynamicPluginListener, Logging {
     }
   }
 
-  private fun isDokiIconPlugin(pluginDescriptor: IdeaPluginDescriptor) =
-    pluginDescriptor.pluginId.idString == DOKI_ICONS_PLUGIN_ID
+  private fun isDokiIconPlugin(pluginDescriptor: IdeaPluginDescriptor) = pluginDescriptor.pluginId.idString == DOKI_ICONS_PLUGIN_ID
 
   override fun pluginUnloaded(
     pluginDescriptor: IdeaPluginDescriptor,
-    isUpdate: Boolean
+    isUpdate: Boolean,
   ) {
     if (isDokiIconPlugin(pluginDescriptor)) {
       IconPathReplacementComponent.installPatchers()

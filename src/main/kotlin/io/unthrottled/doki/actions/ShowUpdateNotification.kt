@@ -7,14 +7,13 @@ import io.unthrottled.doki.TheDokiTheme
 import io.unthrottled.doki.notification.UpdateNotification
 
 class ShowUpdateNotification : AnAction(), DumbAware {
-
   override fun actionPerformed(e: AnActionEvent) {
     TheDokiTheme.getVersion()
       .ifPresent {
         UpdateNotification.display(
           e.project!!,
           it,
-          false
+          false,
         )
       }
   }

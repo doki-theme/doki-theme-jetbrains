@@ -16,25 +16,27 @@ import java.util.Optional
 
 data class Lock(
   val lockedBy: String,
-  val lockedDate: Instant
+  val lockedDate: Instant,
 )
 
 object LockMaster {
   private val log = Logger.getInstance(LockMaster::class.java)
 
-  private val gson = GsonBuilder()
-    .setPrettyPrinting()
-    .create()
+  private val gson =
+    GsonBuilder()
+      .setPrettyPrinting()
+      .create()
 
-  private val lockPath = AssetManager.constructGlobalAssetPath(
-    AssetCategory.PROMOTION,
-    "lock.json"
-  ).orElseGet {
-    AssetManager.constructLocalAssetPath(
+  private val lockPath =
+    AssetManager.constructGlobalAssetPath(
       AssetCategory.PROMOTION,
-      "lock.json"
-    )
-  }
+      "lock.json",
+    ).orElseGet {
+      AssetManager.constructLocalAssetPath(
+        AssetCategory.PROMOTION,
+        "lock.json",
+      )
+    }
 
   fun acquireLock(id: String): Boolean =
     when {
@@ -48,7 +50,7 @@ object LockMaster {
       .map {
         Duration.between(
           it.lockedDate,
-          Instant.now()
+          Instant.now(),
         ).toHours() > 1
       }
       .orElse(true)
@@ -84,8 +86,7 @@ object LockMaster {
       true
     }
 
-  private fun lockPromotion(id: String): Boolean =
-    writeLock(Lock(id, Instant.now()))
+  private fun lockPromotion(id: String): Boolean = writeLock(Lock(id, Instant.now()))
 
   private fun readLock(): Optional<Lock> =
     runSafelyWithResult({
@@ -93,7 +94,7 @@ object LockMaster {
         .use {
           gson.fromJson(
             InputStreamReader(it, StandardCharsets.UTF_8),
-            Lock::class.java
+            Lock::class.java,
           )
         }.toOptional()
     }) {
