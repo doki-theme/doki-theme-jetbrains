@@ -15,8 +15,10 @@ import java.net.URI.create
 import java.nio.charset.StandardCharsets
 import java.nio.file.FileSystems.newFileSystem
 import java.nio.file.Files.walk
+import java.nio.file.StandardOpenOption
 import java.util.Optional
 import java.util.stream.Collectors
+import kotlin.io.path.inputStream
 
 class ThemeManagerImpl : ThemeManager {
 
@@ -37,7 +39,7 @@ class ThemeManagerImpl : ThemeManager {
       )
     )
       .filter { it.fileName.toString().endsWith(".theme.meta.json") }
-      .map { it.inputStream() }
+      .map { it.inputStream(StandardOpenOption.READ) }
       .map {
         gson.fromJson(
           InputStreamReader(it, StandardCharsets.UTF_8),
