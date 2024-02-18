@@ -1,5 +1,9 @@
 Changelog
 ---
+# 88.5-1.13.0 [2024.1 Build Support]
+
+- Added initial 2024.1 build support
+
 # 88.5-1.12.0 [2023.3 Build Support]
 
 - Added initial 2023.3 build support
