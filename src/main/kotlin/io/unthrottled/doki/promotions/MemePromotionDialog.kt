@@ -122,7 +122,6 @@ class AniMemePromotionDialog(
       .setIcon(DokiIcons.General.PLUGIN_LOGO)
       .addAction(installAction)
       .addAction(neverShowAction)
-      .setListener { notification, hyperlinkEvent ->  }
       .setListener(NotificationListener.UrlOpeningListener(false))
 
     updateNotification.whenExpired {
