@@ -20,9 +20,8 @@ import javax.swing.event.HyperlinkEvent
 
 class CulturedContentDialog(
   private val bannerUrl: String,
-  project: Project
+  project: Project,
 ) : DialogWrapper(project, true) {
-
   companion object {
     const val ALLOW_CULTURE_EXIT_CODE = 69
   }
@@ -36,7 +35,7 @@ class CulturedContentDialog(
   override fun createActions(): Array<Action> {
     return arrayOf(
       cancelAction,
-      buildInstallAction()
+      buildInstallAction(),
     )
   }
 
@@ -61,15 +60,17 @@ class CulturedContentDialog(
     val pane = JTextPane()
     pane.isEditable = false
     pane.contentType = "text/html"
-    val accentHex = JBColor.namedColor(
-      DokiTheme.ACCENT_COLOR,
-      UIUtil.getTextAreaForeground()
-    ).toHexString()
+    val accentHex =
+      JBColor.namedColor(
+        DokiTheme.ACCENT_COLOR,
+        UIUtil.getTextAreaForeground(),
+      ).toHexString()
     val infoForegroundHex = UIUtil.getContextHelpForeground().toHexString()
-    pane.background = JBColor.namedColor(
-      "Menu.background",
-      UIUtil.getEditorPaneBackground()
-    )
+    pane.background =
+      JBColor.namedColor(
+        "Menu.background",
+        UIUtil.getEditorPaneBackground(),
+      )
 
     @Language("HTML")
     val content = """

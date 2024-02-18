@@ -45,33 +45,41 @@ object LegacyMigration {
   }
 
   private fun showMaterialMigrationMessage(project: Project) {
-    val installAction = object : NotificationAction(MessageBundle.message("promotion.action.ok")) {
-      override fun actionPerformed(e: AnActionEvent, notification: Notification) {
-        installAndEnable(
-          project,
-          setOf(
-            PluginId.getId(DOKI_ICONS_PLUGIN_ID)
-          )
+    val installAction =
+      object : NotificationAction(MessageBundle.message("promotion.action.ok")) {
+        override fun actionPerformed(
+          e: AnActionEvent,
+          notification: Notification,
         ) {
+          installAndEnable(
+            project,
+            setOf(
+              PluginId.getId(DOKI_ICONS_PLUGIN_ID),
+            ),
+          ) {
+          }
+          notification.expire()
         }
-        notification.expire()
       }
-    }
 
     UpdateNotification.showStickyDokiNotification(
       MessageBundle.message("migration.material.title"),
       MessageBundle.message("migration.material.body"),
       actions = listOf(installAction),
       balloonPosition = BalloonPosition.LEFT,
-      project = project
+      project = project,
     )
   }
 
-  private val renamedThemes = setOf(
-    "4fd5cb34-d36e-4a3c-8639-052b19b26ba1", // Zero Two Light
-    "8c99ec4b-fda0-4ab7-95ad-a6bf80c3924b", // Zero Two Dark
-    "5ca2846d-31a9-40b3-8908-965dad3c127d" // Rimiru -> Rimuru
-  )
+  private val renamedThemes =
+    setOf(
+      // Zero Two Light
+      "4fd5cb34-d36e-4a3c-8639-052b19b26ba1",
+      // Zero Two Dark
+      "8c99ec4b-fda0-4ab7-95ad-a6bf80c3924b",
+      // Rimiru -> Rimuru
+      "5ca2846d-31a9-40b3-8908-965dad3c127d",
+    )
 
   private fun handleThemeRenames() {
     ThemeManager.instance.currentTheme
@@ -82,7 +90,7 @@ object LegacyMigration {
         setDokiTheme(
           ThemeManager.instance.allThemes.first {
             renamedTheme.id != it.id
-          }.toOptional()
+          }.toOptional(),
         )
         setDokiTheme(renamedTheme.toOptional())
       }

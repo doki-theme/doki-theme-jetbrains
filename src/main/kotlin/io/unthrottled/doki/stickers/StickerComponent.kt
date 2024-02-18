@@ -26,14 +26,14 @@ class StickerComponent :
     LafManager.getInstance()?.currentUIThemeLookAndFeel.toOptional()
       .ifPresent { currentLaf ->
         ThemeManager.instance.processLaf(
-          currentLaf
+          currentLaf,
         ).doOrElse({
           processLaf(currentLaf) // is doki theme
         }) {
           // allow custom stickers to show up
           if (CustomStickerService.isCustomStickers) {
             StickerPaneService.instance.activateForTheme(
-              ThemeManager.instance.defaultTheme
+              ThemeManager.instance.defaultTheme,
             )
           }
         }
@@ -41,7 +41,6 @@ class StickerComponent :
   }
 
   companion object {
-
     val instance: StickerComponent
       get() = ApplicationManager.getApplication().getService(StickerComponent::class.java)
 
@@ -64,8 +63,7 @@ class StickerComponent :
     }
   }
 
-  override fun lookAndFeelChanged(source: LafManager) =
-    processLaf(source.currentUIThemeLookAndFeel)
+  override fun lookAndFeelChanged(source: LafManager) = processLaf(source.currentUIThemeLookAndFeel)
 
   override fun dispose() {
     connection.dispose()

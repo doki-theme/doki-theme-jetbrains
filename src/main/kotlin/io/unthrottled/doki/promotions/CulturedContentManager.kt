@@ -12,50 +12,50 @@ import io.unthrottled.doki.util.toOptional
 import java.util.Optional
 
 object CulturedContentManager {
-
-  private val culturedThemes = setOf(
-    "ea9a13f6-fa7f-46a4-ba6e-6cefe1f55160"
-  )
+  private val culturedThemes =
+    setOf(
+      "ea9a13f6-fa7f-46a4-ba6e-6cefe1f55160",
+    )
 
   private var isAsking = false
 
   fun safelyGetSticker(dokiTheme: DokiTheme): Optional<String> =
     safelyGetContent(
       dokiTheme,
-      dokiTheme.stickers.secondary ?: dokiTheme.stickers.default
+      dokiTheme.stickers.secondary ?: dokiTheme.stickers.default,
     )
 
   fun safelyGetBackground(dokiTheme: DokiTheme): Optional<Background> =
     safelyGetContent(
       dokiTheme,
-      dokiTheme.backgrounds.secondary ?: dokiTheme.backgrounds.default
+      dokiTheme.backgrounds.secondary ?: dokiTheme.backgrounds.default,
     )
 
   private fun <T> safelyGetContent(
     dokiTheme: DokiTheme,
-    content: T
-  ) =
-    if (isCultured(dokiTheme) && !hasAccepted(dokiTheme)) {
-      if (!isAsking) {
-        askToShowCulturedContent(dokiTheme)
-      }
-      Optional.empty()
-    } else {
-      content.toOptional()
+    content: T,
+  ) = if (isCultured(dokiTheme) && !hasAccepted(dokiTheme)) {
+    if (!isAsking) {
+      askToShowCulturedContent(dokiTheme)
     }
+    Optional.empty()
+  } else {
+    content.toOptional()
+  }
 
   private fun askToShowCulturedContent(dokiTheme: DokiTheme) {
     isAsking = true
     getFirstProject()
       .doOrElse({
         ApplicationManager.getApplication().invokeLater {
-          val dialog = CulturedContentDialog(
-            AssetManager.resolveAssetUrl(
-              AssetCategory.MISC,
-              "suggestive/cultured.gif"
-            ).orElse("${AssetManager.ASSET_SOURCE}/misc/suggestive/cultured.gif"),
-            it
-          )
+          val dialog =
+            CulturedContentDialog(
+              AssetManager.resolveAssetUrl(
+                AssetCategory.MISC,
+                "suggestive/cultured.gif",
+              ).orElse("${AssetManager.ASSET_SOURCE}/misc/suggestive/cultured.gif"),
+              it,
+            )
           dialog.showAndGet()
 
           if (dialog.exitCode == CulturedContentDialog.ALLOW_CULTURE_EXIT_CODE) {
@@ -74,6 +74,5 @@ object CulturedContentManager {
   private fun hasAccepted(dokiTheme: DokiTheme): Boolean =
     CulturedContentLedgerMaster.readLedger().allowedCulturedContent.containsKey(dokiTheme.id)
 
-  private fun isCultured(dokiTheme: DokiTheme): Boolean =
-    culturedThemes.contains(dokiTheme.id)
+  private fun isCultured(dokiTheme: DokiTheme): Boolean = culturedThemes.contains(dokiTheme.id)
 }

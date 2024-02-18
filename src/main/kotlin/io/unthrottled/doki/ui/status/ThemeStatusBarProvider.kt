@@ -9,25 +9,19 @@ import io.unthrottled.doki.config.ThemeConfig
 
 @Suppress("UnstableApiUsage")
 class ThemeStatusBarProvider : StatusBarWidgetFactory, LightEditCompatible {
+  override fun getId(): String = "io.unthrottled.doki.ui.status.StatusBarFactory"
 
-  override fun getId(): String =
-    "io.unthrottled.doki.ui.status.StatusBarFactory"
-
-  override fun getDisplayName(): String =
-    "Doki Theme Display"
+  override fun getDisplayName(): String = "Doki Theme Display"
 
   override fun disposeWidget(widget: StatusBarWidget) {
     widget.dispose()
   }
 
-  override fun isAvailable(project: Project): Boolean =
-    true
+  override fun isAvailable(project: Project): Boolean = true
 
-  override fun createWidget(project: Project): StatusBarWidget =
-    ThemeStatusBarWidget(project)
+  override fun createWidget(project: Project): StatusBarWidget = ThemeStatusBarWidget(project)
 
-  override fun canBeEnabledOn(statusBar: StatusBar): Boolean =
-    true
+  override fun canBeEnabledOn(statusBar: StatusBar): Boolean = true
 
   override fun isConfigurable(): Boolean = true
 

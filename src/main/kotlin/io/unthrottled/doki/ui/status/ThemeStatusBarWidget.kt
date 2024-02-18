@@ -33,7 +33,7 @@ class ThemeStatusBarWidget(private val project: Project) :
       LafManagerListener.TOPIC,
       LafManagerListener {
         updateWidget()
-      }
+      },
     )
     connect.subscribe(
       THEME_CONFIG_TOPIC,
@@ -41,7 +41,7 @@ class ThemeStatusBarWidget(private val project: Project) :
         override fun themeConfigUpdated(themeConfig: ThemeConfig) {
           updateWidget()
         }
-      }
+      },
     )
   }
 
@@ -77,15 +77,16 @@ class ThemeStatusBarWidget(private val project: Project) :
       .map { AllIcons.Nodes.Favorite }
       .orElseGet { null }
 
-  override fun getClickConsumer(): Consumer<MouseEvent> = Consumer {
-    ApplicationManager.getApplication().invokeLater(
-      {
-        ShowSettingsUtil.getInstance().showSettingsDialog(
-          project,
-          THEME_SETTINGS_DISPLAY_NAME
-        )
-      },
-      ModalityState.NON_MODAL
-    )
-  }
+  override fun getClickConsumer(): Consumer<MouseEvent> =
+    Consumer {
+      ApplicationManager.getApplication().invokeLater(
+        {
+          ShowSettingsUtil.getInstance().showSettingsDialog(
+            project,
+            THEME_SETTINGS_DISPLAY_NAME,
+          )
+        },
+        ModalityState.NON_MODAL,
+      )
+    }
 }

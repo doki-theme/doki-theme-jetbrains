@@ -6,10 +6,12 @@ import io.unthrottled.doki.settings.actors.StickerActor
 import io.unthrottled.doki.stickers.StickerLevel.ON
 
 class StickersToggleAction : BaseToggleAction() {
-  override fun isSelected(e: AnActionEvent): Boolean =
-    ThemeConfig.instance.currentStickerLevel == ON
+  override fun isSelected(e: AnActionEvent): Boolean = ThemeConfig.instance.currentStickerLevel == ON
 
-  override fun setSelected(e: AnActionEvent, state: Boolean) {
+  override fun setSelected(
+    e: AnActionEvent,
+    state: Boolean,
+  ) {
     StickerActor.enableStickers(state)
   }
 }

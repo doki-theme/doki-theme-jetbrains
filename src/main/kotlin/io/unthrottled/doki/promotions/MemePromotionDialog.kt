@@ -22,9 +22,8 @@ import org.intellij.lang.annotations.Language
 import java.util.Locale
 
 class PromotionAssets(
-  private val dokiTheme: DokiTheme
+  private val dokiTheme: DokiTheme,
 ) {
-
   val pluginLogoURL: String
   val promotionAssetURL: String
 
@@ -33,15 +32,16 @@ class PromotionAssets(
     promotionAssetURL = getPromotionAsset()
   }
 
-  private fun getPluginLogo(): String = AssetManager.resolveAssetUrl(
-    AssetCategory.PROMOTION,
-    "amii/logo.png"
-  ).orElse("$ASSET_SOURCE/promotion/amii/logo.png")
+  private fun getPluginLogo(): String =
+    AssetManager.resolveAssetUrl(
+      AssetCategory.PROMOTION,
+      "amii/logo.png",
+    ).orElse("$ASSET_SOURCE/promotion/amii/logo.png")
 
   private fun getPromotionAsset(): String =
     AssetManager.resolveAssetUrl(
       AssetCategory.PROMOTION,
-      "motivator/${dokiTheme.displayName.lowercase(Locale.getDefault())}.gif"
+      "motivator/${dokiTheme.displayName.lowercase(Locale.getDefault())}.gif",
     )
       .orElseGet {
         AssetManager.resolveAssetUrl(AssetCategory.PROMOTION, "motivator/promotion.gif")
@@ -52,15 +52,15 @@ class PromotionAssets(
 class AniMemePromotionDialog(
   private val promotionAssets: PromotionAssets,
   private val project: Project,
-  private val onPromotion: (PromotionResults) -> Unit
+  private val onPromotion: (PromotionResults) -> Unit,
 ) {
-
   init {
     MessageBundle.message("amii.name")
   }
 
-  private val notificationGroup = NotificationGroupManager.getInstance()
-    .getNotificationGroup("Doki Theme Promotions")
+  private val notificationGroup =
+    NotificationGroupManager.getInstance()
+      .getNotificationGroup("Doki Theme Promotions")
 
   @Suppress("MaxLineLength")
   @Language("HTML")
@@ -89,40 +89,49 @@ class AniMemePromotionDialog(
       <br/>
       </body>
       </html>
-    """.trimIndent()
+      """.trimIndent()
   }
 
   fun show() {
-    val neverShowAction = object : NotificationAction(MessageBundle.message("promotions.dont.ask")) {
-      override fun actionPerformed(e: AnActionEvent, notification: Notification) {
-        emitStatus(PromotionStatus.BLOCKED)
-        notification.expire()
-      }
-    }
-    val installAction = object : NotificationAction(MessageBundle.message("promotion.action.ok")) {
-      override fun actionPerformed(e: AnActionEvent, notification: Notification) {
-        installAndEnable(
-          e.project,
-          setOf(
-            PluginId.getId(AMII_PLUGIN_ID)
-          )
+    val neverShowAction =
+      object : NotificationAction(MessageBundle.message("promotions.dont.ask")) {
+        override fun actionPerformed(
+          e: AnActionEvent,
+          notification: Notification,
         ) {
-          emitStatus(PromotionStatus.ACCEPTED)
+          emitStatus(PromotionStatus.BLOCKED)
+          notification.expire()
         }
-        notification.expire()
       }
-    }
-    val updateNotification = notificationGroup.createNotification(
-      buildPromotionMessage(
-        promotionAssets
-      ),
-      NotificationType.INFORMATION
-    )
-      .setTitle("Doki Theme Promotion: ${MessageBundle.message("amii.name")}")
-      .setIcon(DokiIcons.General.PLUGIN_LOGO)
-      .addAction(installAction)
-      .addAction(neverShowAction)
-      .setListener(NotificationListener.UrlOpeningListener(false))
+    val installAction =
+      object : NotificationAction(MessageBundle.message("promotion.action.ok")) {
+        override fun actionPerformed(
+          e: AnActionEvent,
+          notification: Notification,
+        ) {
+          installAndEnable(
+            e.project,
+            setOf(
+              PluginId.getId(AMII_PLUGIN_ID),
+            ),
+          ) {
+            emitStatus(PromotionStatus.ACCEPTED)
+          }
+          notification.expire()
+        }
+      }
+    val updateNotification =
+      notificationGroup.createNotification(
+        buildPromotionMessage(
+          promotionAssets,
+        ),
+        NotificationType.INFORMATION,
+      )
+        .setTitle("Doki Theme Promotion: ${MessageBundle.message("amii.name")}")
+        .setIcon(DokiIcons.General.PLUGIN_LOGO)
+        .addAction(installAction)
+        .addAction(neverShowAction)
+        .setListener(NotificationListener.UrlOpeningListener(false))
 
     updateNotification.whenExpired {
       emitStatus(PromotionStatus.BLOCKED)
@@ -131,7 +140,7 @@ class AniMemePromotionDialog(
     BalloonTools.showStickyNotification(
       project,
       updateNotification,
-      BalloonPosition.RIGHT
+      BalloonPosition.RIGHT,
     ) {
       emitStatus(PromotionStatus.BLOCKED)
     }
@@ -139,6 +148,7 @@ class AniMemePromotionDialog(
 
   private var emitted = false
   private var savedStatus = PromotionStatus.UNKNOWN
+
   private fun emitStatus(status: PromotionStatus) {
     if (!emitted || savedStatus != status) {
       emitted = true

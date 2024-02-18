@@ -9,34 +9,37 @@ import io.unthrottled.doki.themes.DokiTheme
 import io.unthrottled.doki.util.AlarmDebouncer
 
 object UpdateNotificationUpdater : Disposable {
-
   private val debouncer = AlarmDebouncer<Unit>(80)
+
   fun attemptToRefreshUpdateNotification(dokiTheme: DokiTheme) {
     debouncer.debounce {
       ProjectManager.getInstance().openProjects.forEach { project ->
         val instance = FileEditorManager.getInstance(project)
         val title = UpdateNotification.getPluginUpdateTitle()
-        val updateNotifications = instance.openFiles.filter {
-          it.name == title
-        }
+        val updateNotifications =
+          instance.openFiles.filter {
+            it.name == title
+          }
 
         if (updateNotifications.isNotEmpty()) {
           updateNotifications.forEach { openEditor ->
-            val (newUrl, content) = UpdateNotification.reconstructUrlAndContent(
-              dokiTheme
-            )
+            val (newUrl, content) =
+              UpdateNotification.reconstructUrlAndContent(
+                dokiTheme,
+              )
             instance.closeFile(openEditor)
             HTMLEditorProvider.openEditor(
               project,
               title,
               newUrl,
-              content
+              content,
             )
           }
         }
       }
     }
   }
+
   override fun dispose() {
     this.debouncer.dispose()
   }

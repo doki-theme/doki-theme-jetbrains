@@ -35,10 +35,9 @@ import java.util.regex.Pattern
 import javax.swing.Icon
 
 class DokiThemeColorAnnotator : Annotator {
-
   override fun annotate(
     element: PsiElement,
-    holder: AnnotationHolder
+    holder: AnnotationHolder,
   ) {
     if (
       !isColorLineMarkerProviderEnabled ||
@@ -54,9 +53,8 @@ class DokiThemeColorAnnotator : Annotator {
 
   private class ColorBoxRenderer(
     private val myColorText: String,
-    private var myLiteral: JsonStringLiteral
+    private var myLiteral: JsonStringLiteral,
   ) : GutterIconRenderer() {
-
     override fun getIcon(): Icon =
       getColor(myColorText)
         ?.let { ColorIcon(ICON_SIZE, it) }
@@ -91,16 +89,17 @@ class DokiThemeColorAnnotator : Annotator {
               if (Registry.`is`("ide.new.color.picker")) {
                 showColorPickerPopup(
                   e.project,
-                  currentColor
+                  currentColor,
                 ) { c: Color?, _ -> applyColor(currentColor, withAlpha, c) }
               } else {
-                val newColor = ColorChooser.chooseColor(
-                  editor.project,
-                  editor.component,
-                  "Choose Color",
-                  currentColor,
-                  withAlpha
-                )
+                val newColor =
+                  ColorChooser.chooseColor(
+                    editor.project,
+                    editor.component,
+                    "Choose Color",
+                    currentColor,
+                    withAlpha,
+                  )
                 applyColor(currentColor, withAlpha, newColor)
               }
             }
@@ -109,7 +108,7 @@ class DokiThemeColorAnnotator : Annotator {
         private fun applyColor(
           currentColor: Color,
           withAlpha: Boolean,
-          newColor: Color?
+          newColor: Color?,
         ) {
           newColor.toOptional()
             .filter { it != currentColor }
@@ -124,8 +123,7 @@ class DokiThemeColorAnnotator : Annotator {
       }
     }
 
-    private fun canChooseColor(): Boolean =
-      isColorCode(myColorText)
+    private fun canChooseColor(): Boolean = isColorCode(myColorText)
 
     private fun getColor(colorText: String): Color? =
       if (!isColorCode(colorText)) {
@@ -157,11 +155,11 @@ class DokiThemeColorAnnotator : Annotator {
         myLiteral == renderer.myLiteral
     }
 
-    override fun hashCode(): Int =
-      Objects.hash(myColorText, myLiteral)
+    override fun hashCode(): Int = Objects.hash(myColorText, myLiteral)
 
     companion object {
       private const val ICON_SIZE = 10
+
       private fun parseColor(colorHex: String): Color? =
         colorHex.toOptional()
           .map { isRgbaColorHex(it) }
@@ -169,11 +167,12 @@ class DokiThemeColorAnnotator : Annotator {
           .map { isRgba ->
             try {
               val alpha = if (isRgba) colorHex.substring(HEX_COLOR_LENGTH_RGB) else null
-              val colorHexWithoutAlpha = if (isRgba) {
-                colorHex.substring(0, HEX_COLOR_LENGTH_RGB)
-              } else {
-                colorHex
-              }
+              val colorHexWithoutAlpha =
+                if (isRgba) {
+                  colorHex.substring(0, HEX_COLOR_LENGTH_RGB)
+                } else {
+                  colorHex
+                }
               val color = colorHexWithoutAlpha.toColor()
               if (isRgba) {
                 toAlpha(color, alpha?.toInt(16) ?: 1)
@@ -186,11 +185,9 @@ class DokiThemeColorAnnotator : Annotator {
           }
           .orElseGet { null }
 
-      private fun isRgbaColorHex(colorHex: String): Boolean =
-        colorHex.length == HEX_COLOR_LENGTH_RGBA
+      private fun isRgbaColorHex(colorHex: String): Boolean = colorHex.length == HEX_COLOR_LENGTH_RGBA
 
-      private fun isRgbColorHex(colorHex: String): Boolean =
-        colorHex.length == HEX_COLOR_LENGTH_RGB
+      private fun isRgbColorHex(colorHex: String): Boolean = colorHex.length == HEX_COLOR_LENGTH_RGB
     }
   }
 
@@ -203,7 +200,10 @@ class DokiThemeColorAnnotator : Annotator {
     private val isColorLineMarkerProviderEnabled: Boolean
       get() = LineMarkerSettings.getSettings().isEnabled(ColorLineMarkerProvider.INSTANCE)
 
-    private fun isTargetElement(element: PsiElement, containingFile: PsiFile): Boolean {
+    private fun isTargetElement(
+      element: PsiElement,
+      containingFile: PsiFile,
+    ): Boolean {
       return element.toOptional()
         .filter { it is JsonStringLiteral }
         .map { it as JsonStringLiteral }
@@ -214,8 +214,7 @@ class DokiThemeColorAnnotator : Annotator {
         .orElse(false)
     }
 
-    private fun isNamedColor(text: String): Boolean =
-      StringUtil.isLatinAlphanumeric(text)
+    private fun isNamedColor(text: String): Boolean = StringUtil.isLatinAlphanumeric(text)
 
     private fun isColorCode(text: String?): Boolean {
       if (!StringUtil.startsWithChar(text, '#')) return false
@@ -225,10 +224,11 @@ class DokiThemeColorAnnotator : Annotator {
         false
       } else {
         COLOR_HEX_PATTERN_RGB.matcher(
-          text
-        ).matches() || COLOR_HEX_PATTERN_RGBA.matcher(
-          text
-        ).matches()
+          text,
+        ).matches() ||
+          COLOR_HEX_PATTERN_RGBA.matcher(
+            text,
+          ).matches()
       }
     }
   }

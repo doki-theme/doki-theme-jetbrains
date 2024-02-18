@@ -24,14 +24,12 @@ class DokiJetbrainsThemeJsonSchemaProvider :
         override fun isAvailable(file: VirtualFile): Boolean =
           StringUtil.endsWithIgnoreCase(
             file.name,
-            ".jetbrains.definition.json"
+            ".jetbrains.definition.json",
           )
 
-        override fun getSchemaFile(): VirtualFile? =
-          VfsUtil.findFileByURL(javaClass.getResource(THEME_SCHEMA))
+        override fun getSchemaFile(): VirtualFile? = VfsUtil.findFileByURL(javaClass.getResource(THEME_SCHEMA))
 
-        override fun getSchemaType(): SchemaType =
-          SchemaType.embeddedSchema
-      }
+        override fun getSchemaType(): SchemaType = SchemaType.embeddedSchema
+      },
     )
 }

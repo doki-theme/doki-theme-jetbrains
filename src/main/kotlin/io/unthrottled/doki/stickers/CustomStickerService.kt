@@ -8,10 +8,11 @@ import java.util.Optional
 object CustomStickerService {
   private const val CUSTOM_STICKER_PROPERTY = "io.unthrottled.doki.theme.custom-sticker"
   private const val CUSTOM_STICKER_ENABLED_PROPERTY = "io.unthrottled.doki.theme.custom-sticker.enabled"
+
   fun setCustomStickerPath(path: String) {
     PropertiesComponent.getInstance().setValue(
       CUSTOM_STICKER_PROPERTY,
-      path
+      path,
     )
   }
 

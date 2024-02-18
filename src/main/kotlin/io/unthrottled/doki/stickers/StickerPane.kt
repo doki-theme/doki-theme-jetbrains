@@ -51,16 +51,17 @@ import javax.swing.MenuElement
 import javax.swing.SwingUtilities
 
 enum class StickerType {
-  REGULAR, SMOL, ALL
+  REGULAR,
+  SMOL,
+  ALL,
 }
 
 data class Margin(
   val marginX: Double,
-  val marginY: Double
+  val marginY: Double,
 )
 
 interface StickerListener {
-
   fun onDoubleClick(margin: Margin)
 }
 
@@ -69,9 +70,8 @@ internal class StickerPane(
   private val drawablePane: JLayeredPane,
   val type: StickerType,
   initialMargin: Margin,
-  private val stickerListener: StickerListener
+  private val stickerListener: StickerListener,
 ) : HwFacadeJPanel(), Disposable, Logging {
-
   private lateinit var stickerContent: JPanel
 
   var ignoreScaling = ThemeConfig.instance.ignoreScaling
@@ -84,7 +84,7 @@ internal class StickerPane(
       }
       positionStickerPanel(
         this.size.width,
-        this.size.height
+        this.size.height,
       )
     }
 
@@ -126,41 +126,43 @@ internal class StickerPane(
   @Volatile
   private var parentY = drawablePane.height
 
-  private val dragListenerInitiationListener = object : MouseListener {
-    private val doubleClickAlarm = Alarm(this@StickerPane)
-    private var clickCount = 0
-    override fun mouseClicked(e: MouseEvent?) {
-      clickCount += 1
-      if (clickCount > 1) {
-        stickerListener.onDoubleClick(captureMargin())
+  private val dragListenerInitiationListener =
+    object : MouseListener {
+      private val doubleClickAlarm = Alarm(this@StickerPane)
+      private var clickCount = 0
+
+      override fun mouseClicked(e: MouseEvent?) {
+        clickCount += 1
+        if (clickCount > 1) {
+          stickerListener.onDoubleClick(captureMargin())
+        }
+        doubleClickAlarm.cancelAllRequests()
+        doubleClickAlarm.addRequest(
+          {
+            clickCount = 0
+          },
+          250,
+        )
       }
-      doubleClickAlarm.cancelAllRequests()
-      doubleClickAlarm.addRequest(
-        {
-          clickCount = 0
-        },
-        250
-      )
+
+      override fun mousePressed(e: MouseEvent) {
+        screenX = e.xOnScreen
+        screenY = e.yOnScreen
+        myX = x
+        myY = y
+      }
+
+      override fun mouseReleased(e: MouseEvent?) {
+        saveMargin()
+      }
+
+      override fun mouseEntered(e: MouseEvent?) {}
+
+      override fun mouseExited(e: MouseEvent?) {}
     }
-
-    override fun mousePressed(e: MouseEvent) {
-      screenX = e.xOnScreen
-      screenY = e.yOnScreen
-      myX = x
-      myY = y
-    }
-
-    override fun mouseReleased(e: MouseEvent?) {
-      saveMargin()
-    }
-
-    override fun mouseEntered(e: MouseEvent?) {}
-
-    override fun mouseExited(e: MouseEvent?) {}
-  }
 
   private fun saveMargin() {
-    _margin = captureMargin()
+    myMargin = captureMargin()
   }
 
   private fun captureMargin(): Margin {
@@ -168,20 +170,21 @@ internal class StickerPane(
     val stickerSize = stickerContent.size
     return Margin(
       (parentX - (stickerPos.x + stickerSize.width)) / parentX.toDouble(),
-      (parentY - (stickerPos.y + stickerSize.height)) / parentY.toDouble()
+      (parentY - (stickerPos.y + stickerSize.height)) / parentY.toDouble(),
     )
   }
 
-  private val dragListener = object : MouseMotionListener {
-    override fun mouseDragged(e: MouseEvent) {
-      val deltaX = e.xOnScreen - screenX
-      val deltaY = e.yOnScreen - screenY
+  private val dragListener =
+    object : MouseMotionListener {
+      override fun mouseDragged(e: MouseEvent) {
+        val deltaX = e.xOnScreen - screenX
+        val deltaY = e.yOnScreen - screenY
 
-      setLocation(myX + deltaX, myY + deltaY)
+        setLocation(myX + deltaX, myY + deltaY)
+      }
+
+      override fun mouseMoved(e: MouseEvent?) {}
     }
-
-    override fun mouseMoved(e: MouseEvent?) {}
-  }
 
   private val mouseListener: AWTEventListener = createMouseListener()
 
@@ -217,7 +220,7 @@ internal class StickerPane(
                   removeListeners()
                 }
               },
-              this.hideConfig.hideDelayMS
+              this.hideConfig.hideDelayMS,
             )
           }
         } else if (
@@ -240,7 +243,7 @@ internal class StickerPane(
                 }
                 runFadeAnimation(runForwards = true)
               },
-              fadeInDelay
+              FADE_IN_DELAY,
             )
           } else if (stickerShowing && !makingStickerReAppear) {
             hoveredInside = false
@@ -250,13 +253,16 @@ internal class StickerPane(
     }
   }
 
-  private fun isStickerShowing() = alpha == CLEARED_ALPHA ||
-    alpha == VISIBLE_ALPHA
+  private fun isStickerShowing() =
+    alpha == CLEARED_ALPHA ||
+      alpha == VISIBLE_ALPHA
 
-  private fun isInsideMemePanel(e: MouseEvent): Boolean =
-    isInsideComponent(e, this)
+  private fun isInsideMemePanel(e: MouseEvent): Boolean = isInsideComponent(e, this)
 
-  private fun isInsideComponent(e: MouseEvent, rootPane1: JComponent): Boolean {
+  private fun isInsideComponent(
+    e: MouseEvent,
+    rootPane1: JComponent,
+  ): Boolean {
     val target = RelativePoint(e)
     val ogComponent = target.originalComponent
     return when {
@@ -285,7 +291,7 @@ internal class StickerPane(
 
     Toolkit.getDefaultToolkit().addAWTEventListener(
       mouseListener,
-      AWTEvent.MOUSE_MOTION_EVENT_MASK
+      AWTEvent.MOUSE_MOTION_EVENT_MASK,
     )
 
     drawablePane.addComponentListener(
@@ -301,10 +307,10 @@ internal class StickerPane(
 
           positionStickerPanel(
             stickerContent.width,
-            stickerContent.height
+            stickerContent.height,
           )
         }
-      }
+      },
     )
 
     if (positionable) {
@@ -354,7 +360,7 @@ internal class StickerPane(
 
     positionStickerPanel(
       this.size.width,
-      this.size.height
+      this.size.height,
     )
 
     drawablePane.remove(this)
@@ -390,48 +396,50 @@ internal class StickerPane(
     val stickerDimension = getUsableStickerDimension(stickerUrl)
 
     val originalImage = ImageIcon(URL(stickerUrl)).image
-    val lessGarbageImage = originalImage.getScaledInstance(
-      stickerDimension.width,
-      stickerDimension.height,
-      if (stickerUrl.contains(".gif")) Image.SCALE_DEFAULT else Image.SCALE_SMOOTH
-    )
-    val stickerDisplay = object : JBLabel(ImageIcon(lessGarbageImage)) {
-
-      // Java 9+ Does automatic DPI scaling,
-      // but we want to ignore that, cause the sticker
-      // will grow to be pixelated
-      // fixes https://github.com/doki-theme/doki-theme-jetbrains/issues/465
-      override fun paintComponent(g: Graphics) {
-        if (g is Graphics2D) {
-          val t: AffineTransform = g.transform
-          currentScaleX = t.scaleX
-          currentScaleY = t.scaleY
-          if (g.transform.scaleX.compareTo(1.0) > 0 && ignoreScaling) {
-            if (!positioned) {
-              positioned = true
-              val scaledDimension = getScaledDimension()
-              this@StickerPane.size = scaledDimension
-              this@StickerPane.positionStickerPanel(
-                scaledDimension.width,
-                scaledDimension.height
-              )
+    val lessGarbageImage =
+      originalImage.getScaledInstance(
+        stickerDimension.width,
+        stickerDimension.height,
+        if (stickerUrl.contains(".gif")) Image.SCALE_DEFAULT else Image.SCALE_SMOOTH,
+      )
+    val stickerDisplay =
+      object : JBLabel(ImageIcon(lessGarbageImage)) {
+        // Java 9+ Does automatic DPI scaling,
+        // but we want to ignore that, cause the sticker
+        // will grow to be pixelated
+        // fixes https://github.com/doki-theme/doki-theme-jetbrains/issues/465
+        override fun paintComponent(g: Graphics) {
+          if (g is Graphics2D) {
+            val t: AffineTransform = g.transform
+            currentScaleX = t.scaleX
+            currentScaleY = t.scaleY
+            if (g.transform.scaleX.compareTo(1.0) > 0 && ignoreScaling) {
+              if (!positioned) {
+                positioned = true
+                val scaledDimension = getScaledDimension()
+                this@StickerPane.size = scaledDimension
+                this@StickerPane.positionStickerPanel(
+                  scaledDimension.width,
+                  scaledDimension.height,
+                )
+              }
+              val xTrans = t.translateX
+              val yTrans = t.translateY
+              t.setToScale(1.0, 1.0)
+              t.translate(xTrans, yTrans)
+              g.transform = t
             }
-            val xTrans = t.translateX
-            val yTrans = t.translateY
-            t.setToScale(1.0, 1.0)
-            t.translate(xTrans, yTrans)
-            g.transform = t
           }
+          super.paintComponent(g)
         }
-        super.paintComponent(g)
       }
-    }
 
     val stickerSize = stickerDisplay.preferredSize
-    stickerContent.size = Dimension(
-      stickerSize.width,
-      stickerSize.height
-    )
+    stickerContent.size =
+      Dimension(
+        stickerSize.width,
+        stickerSize.height,
+      )
     stickerContent.isOpaque = false
     stickerContent.add(stickerDisplay)
     val parentInsets = stickerDisplay.insets
@@ -439,7 +447,7 @@ internal class StickerPane(
       parentInsets.left,
       parentInsets.top,
       stickerSize.width,
-      stickerSize.height
+      stickerSize.height,
     )
 
     return stickerContent
@@ -454,7 +462,7 @@ internal class StickerPane(
       }
     return Dimension(
       (stickerContentSize.width / currentScaleX).toInt(),
-      (stickerContentSize.height / currentScaleY).toInt()
+      (stickerContentSize.height / currentScaleY).toInt(),
     )
   }
 
@@ -466,8 +474,8 @@ internal class StickerPane(
           originalDimension,
           Dimension(
             ThemeConfig.instance.smallMaxStickerWidth,
-            ThemeConfig.instance.smallMaxStickerHeight
-          )
+            ThemeConfig.instance.smallMaxStickerHeight,
+          ),
         )
 
       type == StickerType.REGULAR &&
@@ -476,8 +484,8 @@ internal class StickerPane(
           originalDimension,
           Dimension(
             ThemeConfig.instance.maxStickerWidth,
-            ThemeConfig.instance.maxStickerHeight
-          )
+            ThemeConfig.instance.maxStickerHeight,
+          ),
         )
 
       else -> originalDimension
@@ -499,26 +507,30 @@ internal class StickerPane(
         }
     }) { Dimension(1, 1) }
 
-  private fun positionStickerPanel(width: Int, height: Int) {
-    val (x, y) = getPosition(
-      drawablePane.width,
-      drawablePane.height,
-      Rectangle(width, height)
-    )
+  private fun positionStickerPanel(
+    width: Int,
+    height: Int,
+  ) {
+    val (x, y) =
+      getPosition(
+        drawablePane.width,
+        drawablePane.height,
+        Rectangle(width, height),
+      )
     myX = x
     myY = y
     setLocation(x, y)
   }
 
-  private var _margin = initialMargin
+  private var myMargin = initialMargin
 
   private fun getPosition(
     parentWidth: Int,
     parentHeight: Int,
-    stickerPanelBoundingBox: Rectangle
+    stickerPanelBoundingBox: Rectangle,
   ): Pair<Int, Int> =
-    parentWidth - stickerPanelBoundingBox.width - (parentWidth * _margin.marginX).toInt() to
-      parentHeight - stickerPanelBoundingBox.height - (parentHeight * _margin.marginY).toInt()
+    parentWidth - stickerPanelBoundingBox.width - (parentWidth * myMargin.marginX).toInt() to
+      parentHeight - stickerPanelBoundingBox.height - (parentHeight * myMargin.marginY).toInt()
 
   fun detach() {
     drawablePane.remove(this)
@@ -529,43 +541,52 @@ internal class StickerPane(
   }
 
   fun updateMargin(margin: Margin) {
-    _margin = margin
+    myMargin = margin
     positionStickerPanel(
       size.width,
-      size.height
+      size.height,
     )
   }
 
   private var alpha = CLEARED_ALPHA
   private var overlay: BufferedImage? = null
+
   private fun clear() {
     alpha = CLEARED_ALPHA
     overlay = null
   }
 
-  private fun makeColorTransparent(image: Image, color: Color): Image {
+  private fun makeColorTransparent(
+    image: Image,
+    color: Color,
+  ): Image {
     val markerRGB = color.rgb or -0x1000000
     return ImageUtil.filter(
       image,
       object : RGBImageFilter() {
-        override fun filterRGB(x: Int, y: Int, rgb: Int): Int =
+        override fun filterRGB(
+          x: Int,
+          y: Int,
+          rgb: Int,
+        ): Int =
           if (rgb or -0x1000000 == markerRGB) {
             WHITE_HEX and rgb // set alpha to 0
           } else {
             rgb
           }
-      }
+      },
     )
   }
 
   private fun fancyPaintChildren(imageGraphics2d: Graphics2D) {
     // Paint to an image without alpha to preserve fonts subpixel antialiasing
-    val image: BufferedImage = ImageUtil.createImage(
-      imageGraphics2d,
-      width,
-      height,
-      BufferedImage.TYPE_INT_RGB
-    )
+    val image: BufferedImage =
+      ImageUtil.createImage(
+        imageGraphics2d,
+        width,
+        height,
+        BufferedImage.TYPE_INT_RGB,
+      )
 
     val fillColor = MessageType.INFO.popupBackground
     UIUtil.useSafely(image.createGraphics()) { imageGraphics: Graphics2D ->
@@ -618,32 +639,38 @@ internal class StickerPane(
    */
   private fun runFadeAnimation(runForwards: Boolean = true) {
     val self = this
-    val animator = object : Animator(
-      "Sticker Fadeout",
-      TOTAL_FRAMES,
-      CYCLE_DURATION,
-      false,
-      runForwards
-    ) {
-      override fun paintNow(frame: Int, totalFrames: Int, cycle: Int) {
-        alpha = frame.toFloat() / totalFrames
-        paintImmediately(0, 0, width, height)
-      }
-
-      override fun paintCycleEnd() {
-        if (isForward) {
-          clear()
-          self.repaint()
+    val animator =
+      object : Animator(
+        "Sticker Fadeout",
+        TOTAL_FRAMES,
+        CYCLE_DURATION,
+        false,
+        runForwards,
+      ) {
+        override fun paintNow(
+          frame: Int,
+          totalFrames: Int,
+          cycle: Int,
+        ) {
+          alpha = frame.toFloat() / totalFrames
+          paintImmediately(0, 0, width, height)
         }
 
-        Disposer.dispose(this)
+        override fun paintCycleEnd() {
+          if (isForward) {
+            clear()
+            self.repaint()
+          }
+
+          Disposer.dispose(this)
+        }
       }
-    }
 
     animator.resume()
   }
+
   companion object {
-    private const val fadeInDelay = 500
+    private const val FADE_IN_DELAY = 500
     private const val TOTAL_FRAMES = 8
     private const val CYCLE_DURATION = 250
     private const val CLEARED_ALPHA = -1f

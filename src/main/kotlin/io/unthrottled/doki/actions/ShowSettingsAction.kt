@@ -15,10 +15,10 @@ class ShowSettingsAction : AnAction(), DumbAware {
       {
         ShowSettingsUtil.getInstance().showSettingsDialog(
           ProjectManager.getInstance().defaultProject,
-          THEME_SETTINGS_DISPLAY_NAME
+          THEME_SETTINGS_DISPLAY_NAME,
         )
       },
-      ModalityState.NON_MODAL
+      ModalityState.NON_MODAL,
     )
   }
 }

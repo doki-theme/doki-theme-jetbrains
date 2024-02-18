@@ -15,14 +15,20 @@ fun <T> getSafely(callable: Callable<T>): Optional<T> =
     Optional.empty()
   }
 
-fun runSafely(runner: () -> Unit, onError: (Throwable) -> Unit = {}): Unit =
+fun runSafely(
+  runner: () -> Unit,
+  onError: (Throwable) -> Unit = {},
+): Unit =
   try {
     runner()
   } catch (e: Throwable) {
     onError(e)
   }
 
-fun <T> runSafelyWithResult(runner: () -> T, onError: (Throwable) -> T): T =
+fun <T> runSafelyWithResult(
+  runner: () -> T,
+  onError: (Throwable) -> T,
+): T =
   try {
     runner()
   } catch (e: Throwable) {
@@ -33,20 +39,22 @@ fun <T> T?.toOptional() = Optional.ofNullable(this)
 
 fun <T> T?.toStream(): Stream<T> = Stream.of(this)
 
-fun <T> Optional<T>.doOrElse(present: (T) -> Unit, notThere: () -> Unit) =
-  this.map {
-    it to true
-  }.map {
-    it.toOptional()
-  }.orElseGet {
-    (null to false).toOptional()
-  }.ifPresent {
-    if (it.second) {
-      present(it.first)
-    } else {
-      notThere()
-    }
+fun <T> Optional<T>.doOrElse(
+  present: (T) -> Unit,
+  notThere: () -> Unit,
+) = this.map {
+  it to true
+}.map {
+  it.toOptional()
+}.orElseGet {
+  (null to false).toOptional()
+}.ifPresent {
+  if (it.second) {
+    present(it.first)
+  } else {
+    notThere()
   }
+}
 
 interface Runner {
   fun run()

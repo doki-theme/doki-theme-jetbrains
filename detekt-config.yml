@@ -18,7 +18,7 @@ formatting:
     active: false
     autoCorrect: false
   Indentation:
-    active: true
+    active: false
     autoCorrect: false
     indentSize: 2
   ParameterListWrapping:

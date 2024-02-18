@@ -8,7 +8,10 @@ import io.unthrottled.doki.util.logger
 import io.unthrottled.doki.util.runSafely
 
 object ConsoleFontActor : Logging {
-  fun enableCustomFontSize(enabled: Boolean, consoleFontName: String) {
+  fun enableCustomFontSize(
+    enabled: Boolean,
+    consoleFontName: String,
+  ) {
     val previousEnablement = ThemeConfig.instance.isOverrideConsoleFont
     ThemeConfig.instance.isOverrideConsoleFont = enabled
     val previousFontSize = ThemeConfig.instance.consoleFontName
