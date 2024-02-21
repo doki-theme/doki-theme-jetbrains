@@ -32,12 +32,11 @@ class ErrorReporter : ErrorReportSubmitter() {
   override fun getReportActionText(): String = "Report Anonymously"
 
   companion object {
-
     init {
       Sentry.setUser(
         User().apply {
           this.id = ThemeConfig.instance.userId
-        }
+        },
       )
     }
   }
@@ -46,19 +45,19 @@ class ErrorReporter : ErrorReportSubmitter() {
     events: Array<out IdeaLoggingEvent>,
     additionalInfo: String?,
     parentComponent: Component,
-    consumer: Consumer<in SubmittedReportInfo>
+    consumer: Consumer<in SubmittedReportInfo>,
   ): Boolean {
     return runSafelyWithResult({
       runSafely({
         Sentry.init { options: SentryOptions ->
           options.dsn =
             RestClient.performGet(
-              "https://jetbrains.assets.unthrottled.io/doki-theme/sentry-dsn.txt"
+              "https://jetbrains.assets.unthrottled.io/doki-theme/sentry-dsn.txt",
             )
               .map { it.trim() }
               .orElse(
                 "https://54daf566d8854f7d98e4c09ced2d34c5" +
-                  "@o403546.ingest.sentry.io/5266340?maxmessagelength=50000"
+                  "@o403546.ingest.sentry.io/5266340?maxmessagelength=50000",
               )
         }
       })
@@ -70,12 +69,13 @@ class ErrorReporter : ErrorReportSubmitter() {
                 this.level = SentryLevel.ERROR
                 this.serverName = getAppName().second
                 this.setExtra("Additional Info", additionalInfo ?: "None")
-              }
+              },
           ).apply {
-            this.message = Message().apply {
-              this.message = it.throwableText
-            }
-          }
+            this.message =
+              Message().apply {
+                this.message = it.throwableText
+              }
+          },
         )
       }
       true
@@ -115,8 +115,10 @@ class ErrorReporter : ErrorReportSubmitter() {
     val vmVendor = properties.getProperty("java.vendor", "unknown")
     return IdeBundle.message("about.box.vm", vmVersion, vmVendor)
   }
-  private fun getGC() = ManagementFactory.getGarbageCollectorMXBeans().stream()
-    .map { it.name }.collect(Collectors.joining(","))
+
+  private fun getGC() =
+    ManagementFactory.getGarbageCollectorMXBeans().stream()
+      .map { it.name }.collect(Collectors.joining(","))
 
   private fun getBuildInfo(appInfo: ApplicationInfoImpl): String {
     var buildInfo = IdeBundle.message("about.box.build.number", appInfo.build.asString())

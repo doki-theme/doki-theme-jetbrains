@@ -8,10 +8,13 @@ import io.unthrottled.doki.settings.actors.StickerHideActor
 class HideOnHoverAction : BaseToggleAction(), DumbAware {
   override fun isSelected(e: AnActionEvent): Boolean = ThemeConfig.instance.hideOnHover
 
-  override fun setSelected(e: AnActionEvent, state: Boolean) {
+  override fun setSelected(
+    e: AnActionEvent,
+    state: Boolean,
+  ) {
     StickerHideActor.setStickerHideStuff(
       state,
-      ThemeConfig.instance.hideDelayMS
+      ThemeConfig.instance.hideDelayMS,
     )
   }
 }

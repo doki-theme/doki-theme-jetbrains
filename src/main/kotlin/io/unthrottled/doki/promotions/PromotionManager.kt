@@ -26,7 +26,6 @@ val MOTIVATION_PROMOTION_ID: UUID = UUID.fromString("63e1da85-1285-40c4-873a-3ed
 object PromotionManager : PromotionManagerImpl()
 
 open class PromotionManagerImpl {
-
   private val log = Logger.getInstance(PromotionManager::class.java)
 
   private var initialized = false
@@ -44,7 +43,10 @@ open class PromotionManagerImpl {
     }
   }
 
-  fun registerPromotion(newVersion: String, forceRegister: Boolean = false) {
+  fun registerPromotion(
+    newVersion: String,
+    forceRegister: Boolean = false,
+  ) {
     if (initialized.not() || forceRegister) {
       promotionRegistry(newVersion)
       initialized = true
@@ -91,8 +93,7 @@ open class PromotionManagerImpl {
     }
   }
 
-  private fun areAniMemePluginsInstalled() =
-    isMotivatorInstalled() || isAmiiInstalled()
+  private fun areAniMemePluginsInstalled() = isMotivatorInstalled() || isAmiiInstalled()
 
   private val id: String
     get() = getApplicationName()
@@ -103,22 +104,20 @@ open class PromotionManagerImpl {
       (
         promotionLedger.seenPromotions.containsKey(MOTIVATION_PROMOTION_ID).not() ||
           promotionLedger.seenPromotions[MOTIVATION_PROMOTION_ID]?.result == PromotionStatus.ACCEPTED
-        ) &&
+      ) &&
       WeebService.isWeebStuffOn() &&
       canAmiiBeInstalled()
 }
 
 object WeebService {
-
   fun isWeebStuffOn(): Boolean =
     ThemeConfig.instance.currentStickerLevel == StickerLevel.ON ||
       isBackgroundOn()
-  fun isBackgroundOn(): Boolean =
-    ThemeConfig.instance.isDokiBackground
+
+  fun isBackgroundOn(): Boolean = ThemeConfig.instance.isDokiBackground
 }
 
 object OnlineService {
-
   fun isOnline(): Boolean =
     isOnlineCheck(ASSET_SOURCE)
       .map { it.toOptional() }

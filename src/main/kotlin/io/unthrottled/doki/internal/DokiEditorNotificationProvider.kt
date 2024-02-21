@@ -9,7 +9,6 @@ import com.intellij.ui.EditorNotifications
 import io.unthrottled.doki.actions.EditorNotificationManager
 
 class DokiEditorNotificationProvider : EditorNotifications.Provider<EditorNotificationPanel>() {
-
   companion object {
     private const val KEY = "io.unthrottled.doki.editor.notification"
     private val PROVIDER_KEY = Key.create<EditorNotificationPanel>(KEY)
@@ -32,6 +31,6 @@ class DokiEditorNotificationProvider : EditorNotifications.Provider<EditorNotifi
   override fun createNotificationPanel(
     file: VirtualFile,
     fileEditor: FileEditor,
-    project: Project
+    project: Project,
   ): EditorNotificationPanel? = buildNotification()
 }

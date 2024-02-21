@@ -14,8 +14,10 @@ import com.intellij.ui.awt.RelativePoint
 import java.awt.Point
 
 enum class BalloonPosition {
-  LEFT, RIGHT,
+  LEFT,
+  RIGHT,
 }
+
 object BalloonTools {
   private const val NOTIFICATION_Y_OFFSET = 20
   private const val NOTIFICATION_X_OFFSET = 10
@@ -24,23 +26,26 @@ object BalloonTools {
     project: Project,
     notificationToShow: Notification,
     balloonPosition: BalloonPosition,
-    onClosed: () -> Unit
+    onClosed: () -> Unit,
   ) {
     try {
       val (ideFrame, notificationPosition) = fetchBalloonParameters(project, balloonPosition)
-      val balloon = NotificationsManagerImpl.createBalloon(
-        ideFrame,
-        notificationToShow,
-        true,
-        false,
-        BalloonLayoutData.fullContent(),
-        Disposer.newDisposable()
+      val balloon =
+        NotificationsManagerImpl.createBalloon(
+          ideFrame,
+          notificationToShow,
+          true,
+          false,
+          BalloonLayoutData.fullContent(),
+          Disposer.newDisposable(),
+        )
+      balloon.addListener(
+        object : JBPopupListener {
+          override fun onClosed(event: LightweightWindowEvent) {
+            onClosed()
+          }
+        },
       )
-      balloon.addListener(object : JBPopupListener {
-        override fun onClosed(event: LightweightWindowEvent) {
-          onClosed()
-        }
-      })
       balloon.show(notificationPosition, Balloon.Position.below)
     } catch (e: Throwable) {
       notificationToShow.notify(project)
@@ -49,19 +54,21 @@ object BalloonTools {
 
   private fun fetchBalloonParameters(
     project: Project,
-    balloonPosition: BalloonPosition
+    balloonPosition: BalloonPosition,
   ): Pair<IdeFrame, RelativePoint> {
     val ideFrame = getIDEFrame(project)
     val frameBounds = ideFrame.component.bounds
-    val xPosition = when (balloonPosition) {
-      BalloonPosition.RIGHT -> frameBounds.x + frameBounds.width
-      BalloonPosition.LEFT -> frameBounds.x + NOTIFICATION_X_OFFSET
-    }
+    val xPosition =
+      when (balloonPosition) {
+        BalloonPosition.RIGHT -> frameBounds.x + frameBounds.width
+        BalloonPosition.LEFT -> frameBounds.x + NOTIFICATION_X_OFFSET
+      }
 
-    val notificationPosition = RelativePoint(
-      ideFrame.component,
-      Point(xPosition, NOTIFICATION_Y_OFFSET)
-    )
+    val notificationPosition =
+      RelativePoint(
+        ideFrame.component,
+        Point(xPosition, NOTIFICATION_Y_OFFSET),
+      )
     return Pair(ideFrame, notificationPosition)
   }
 
@@ -69,5 +76,5 @@ object BalloonTools {
     (
       WindowManager.getInstance().getIdeFrame(project)
         ?: WindowManager.getInstance().allProjectFrames.first()
-      )
+    )
 }

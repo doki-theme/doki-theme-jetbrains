@@ -13,9 +13,10 @@ import java.nio.file.Paths
 
 object TestTools {
   fun getTestAssetPath(vararg extraDirectories: String): Path {
-    val testAssetDirectory = Paths.get(".", "testAssets", *extraDirectories)
-      .normalize()
-      .toAbsolutePath()
+    val testAssetDirectory =
+      Paths.get(".", "testAssets", *extraDirectories)
+        .normalize()
+        .toAbsolutePath()
     if (Files.exists(testAssetDirectory).not()) {
       Files.createDirectories(testAssetDirectory)
     }

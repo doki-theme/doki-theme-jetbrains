@@ -6,10 +6,12 @@ import io.unthrottled.doki.settings.actors.StickerActor
 import io.unthrottled.doki.stickers.CurrentSticker
 
 class SwapStickerAction : BaseToggleAction() {
-  override fun isSelected(e: AnActionEvent): Boolean =
-    ThemeConfig.instance.currentSticker == CurrentSticker.SECONDARY
+  override fun isSelected(e: AnActionEvent): Boolean = ThemeConfig.instance.currentSticker == CurrentSticker.SECONDARY
 
-  override fun setSelected(e: AnActionEvent, state: Boolean) {
+  override fun setSelected(
+    e: AnActionEvent,
+    state: Boolean,
+  ) {
     StickerActor.swapStickers(if (state) CurrentSticker.SECONDARY else CurrentSticker.DEFAULT)
   }
 }

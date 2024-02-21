@@ -32,9 +32,10 @@ object LookAndFeelInstaller {
     defaults["Table.focusSelectedCellHighlightBorder"] = tableSelectedBorder
     defaults["Table.focusCellHighlightBorder"] = tableSelectedBorder
     defaults["List.focusCellHighlightBorder"] = BorderFactory.createEmptyBorder()
-    defaults["TitledBorder.border"] = BorderFactory.createLineBorder(
-      namedColor("Doki.Accent.color", DARK_GRAY)
-    )
+    defaults["TitledBorder.border"] =
+      BorderFactory.createLineBorder(
+        namedColor("Doki.Accent.color", DARK_GRAY),
+      )
   }
 
   private fun installIcons() {
@@ -44,18 +45,21 @@ object LookAndFeelInstaller {
 
     setTreeIcons(
       collapsed = DokiIcons.Tree.COLLAPSED,
-      expanded = DokiIcons.Tree.EXPANDED
+      expanded = DokiIcons.Tree.EXPANDED,
     )
   }
 
   fun removeIcons() {
     setTreeIcons(
       collapsed = LafIconLookup.getSelectedIcon("treeCollapsed"),
-      expanded = LafIconLookup.getSelectedIcon("treeExpanded")
+      expanded = LafIconLookup.getSelectedIcon("treeExpanded"),
     )
   }
 
-  private fun setTreeIcons(collapsed: Icon, expanded: Icon) {
+  private fun setTreeIcons(
+    collapsed: Icon,
+    expanded: Icon,
+  ) {
     val defaults = UIManager.getLookAndFeelDefaults()
     defaults[DokiIcons.Tree.COLLAPSED_KEY] = collapsed
     defaults[DokiIcons.Tree.SELECTED_COLLAPSED_KEY] = collapsed

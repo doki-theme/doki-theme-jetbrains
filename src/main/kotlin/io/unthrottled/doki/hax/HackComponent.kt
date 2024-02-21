@@ -52,9 +52,10 @@ object HackComponent : Disposable {
       val cp = ClassPool(true)
       cp.insertClassPath(ClassClassPath(Class.forName("com.intellij.codeInsight.actions.DirectoryFormattingOptions")))
       val ctClass = cp.get("com.intellij.codeInsight.actions.FileInEditorProcessor\$FormattedMessageBuilder")
-      val init = ctClass.getDeclaredMethod(
-        "getMessage"
-      )
+      val init =
+        ctClass.getDeclaredMethod(
+          "getMessage",
+        )
       init.instrument(
         object : ExprEditor() {
           override fun edit(e: MethodCall?) {
@@ -62,7 +63,7 @@ object HackComponent : Disposable {
               e.replace("{ \$1 = com.intellij.util.ui.UIUtil.getContextHelpForeground();  \$_ = \$proceed(\$\$); }")
             }
           }
-        }
+        },
       )
       ctClass.toClass()
     }) {
@@ -92,7 +93,7 @@ object HackComponent : Disposable {
               e.replace("{ \$1 = com.intellij.util.ui.UIUtil.getLabelForeground(); \$_ = \$proceed(\$\$);}")
             }
           }
-        }
+        },
       )
       ctClass.toClass()
     }) {
@@ -105,8 +106,8 @@ object HackComponent : Disposable {
       val cp = ClassPool(true)
       cp.insertClassPath(
         ClassClassPath(
-          Class.forName("com.intellij.ui.SideBorder")
-        )
+          Class.forName("com.intellij.ui.SideBorder"),
+        ),
       )
       val ctClass = cp.get("com.intellij.ui.SimpleColoredComponent")
       val doPaintText = ctClass.getDeclaredMethods("doPaintText")[0]
@@ -116,11 +117,11 @@ object HackComponent : Disposable {
             if (e?.className == "com.intellij.ui.JBColor") {
               e.replace(
                 "{ \$_ = com.intellij.ui.JBColor.namedColor(\"SearchMatch.foreground\", " +
-                  "com.intellij.ui.JBColor.BLACK); }"
+                  "com.intellij.ui.JBColor.BLACK); }",
               )
             }
           }
-        }
+        },
       )
       ctClass.toClass()
     }) {
@@ -140,11 +141,11 @@ object HackComponent : Disposable {
               if (e?.methodName == "setBackground") {
                 e.replace(
                   "{ \$1 = com.intellij.ui.JBColor.namedColor(\"ParameterInfo.background\", " +
-                    "com.intellij.codeInsight.hint.HintUtil.getInformationColor()); \$_ = \$proceed(\$\$); }"
+                    "com.intellij.codeInsight.hint.HintUtil.getInformationColor()); \$_ = \$proceed(\$\$); }",
                 )
               }
             }
-          }
+          },
         )
       }
       ctClass.getDeclaredMethods("setup").forEach(hackBackground)
@@ -166,20 +167,21 @@ object HackComponent : Disposable {
       val cp = ClassPool(true)
       cp.insertClassPath(ClassClassPath(ProcessProxy::class.java))
       val ctClass = cp.get("com.intellij.execution.runners.ExecutionUtil")
-      val init = ctClass.getDeclaredMethods(
-        "getLiveIndicator"
-      )[1]
+      val init =
+        ctClass.getDeclaredMethods(
+          "getLiveIndicator",
+        )[1]
       init.instrument(
         object : ExprEditor() {
           override fun edit(e: MethodCall?) {
             if (e?.methodName == "getIndicator") {
               e.replace(
                 "{ \$4 = com.intellij.ui.JBColor.namedColor(\"Doki.Accent.color\", " +
-                  "java.awt.Color.GREEN); \$_ = \$proceed(\$\$); }"
+                  "java.awt.Color.GREEN); \$_ = \$proceed(\$\$); }",
               )
             }
           }
-        }
+        },
       )
       ctClass.toClass()
     }) {
@@ -196,9 +198,10 @@ object HackComponent : Disposable {
       val cp = ClassPool(true)
       cp.insertClassPath(ClassClassPath(CustomMatcherModel::class.java))
       val ctClass = cp.get("com.intellij.ide.util.gotoByName.GotoActionModel\$GotoActionListCellRenderer")
-      val init = ctClass.getDeclaredMethods(
-        "getListCellRendererComponent"
-      )[0]
+      val init =
+        ctClass.getDeclaredMethods(
+          "getListCellRendererComponent",
+        )[0]
       init.instrument(
         object : ExprEditor() {
           override fun edit(e: MethodCall?) {
@@ -206,7 +209,7 @@ object HackComponent : Disposable {
               e.replace("{ \$_ = true; }")
             }
           }
-        }
+        },
       )
       ctClass.toClass()
     }) {
@@ -234,11 +237,11 @@ object HackComponent : Disposable {
             if (e?.className == "com.intellij.ui.JBColor") {
               e.replace(
                 "{ \$_ = com.intellij.util.ui.JBUI.CurrentTheme." +
-                  "CustomFrameDecorations.separatorForeground(); }"
+                  "CustomFrameDecorations.separatorForeground(); }",
               )
             }
           }
-        }
+        },
       )
       ctClass.toClass()
     }) {
@@ -257,9 +260,10 @@ object HackComponent : Disposable {
       val cp = ClassPool(true)
       cp.insertClassPath(ClassClassPath(EditorHistoryManager::class.java))
       val ctClass = cp.get("com.intellij.openapi.fileEditor.impl.EditorsSplitters")
-      val init = ctClass.getDeclaredMethods(
-        "paintComponent"
-      )[0]
+      val init =
+        ctClass.getDeclaredMethods(
+          "paintComponent",
+        )[0]
       init.instrument(
         object : ExprEditor() {
           override fun edit(e: MethodCall?) {
@@ -267,7 +271,7 @@ object HackComponent : Disposable {
               e.replace("{ \$_ = true; }")
             }
           }
-        }
+        },
       )
       ctClass.toClass()
     }) {
@@ -280,9 +284,10 @@ object HackComponent : Disposable {
       val cp = ClassPool(true)
       cp.insertClassPath(ClassClassPath(RunAnythingAction::class.java))
       val ctClass = cp.get("com.intellij.ide.actions.runAnything.RunAnythingUtil")
-      val init = ctClass.getDeclaredMethods(
-        "createTitle"
-      )[0]
+      val init =
+        ctClass.getDeclaredMethods(
+          "createTitle",
+        )[0]
       init.instrument(
         object : ExprEditor() {
           override fun edit(e: NewExpr?) {
@@ -290,7 +295,7 @@ object HackComponent : Disposable {
               e.replace("{ \$_ = com.intellij.util.ui.JBUI.CurrentTheme.Advertiser.borderColor(); }")
             }
           }
-        }
+        },
       )
       ctClass.toClass()
     }) {
@@ -303,9 +308,10 @@ object HackComponent : Disposable {
       val cp = ClassPool(true)
       cp.insertClassPath(ClassClassPath(DocumentTracker::class.java))
       val ctClass = cp.get("com.intellij.openapi.vcs.ex.LineStatusMarkerPopupPanel")
-      val init = ctClass.getDeclaredMethods(
-        "getBorderColor"
-      )[0]
+      val init =
+        ctClass.getDeclaredMethods(
+          "getBorderColor",
+        )[0]
       init.instrument(
         object : ExprEditor() {
           override fun edit(e: NewExpr?) {
@@ -313,7 +319,7 @@ object HackComponent : Disposable {
               e.replace("{ \$_ = com.intellij.util.ui.JBUI.CurrentTheme.Advertiser.borderColor(); }")
             }
           }
-        }
+        },
       )
       ctClass.toClass()
     }) {
@@ -338,7 +344,7 @@ object HackComponent : Disposable {
               e.replace("{ \$_ = com.intellij.ide.plugins.PluginManagerConfigurable.SEARCH_FIELD_BORDER_COLOR; }")
             }
           }
-        }
+        },
       )
       ctClass.toClass()
     }) {
@@ -388,7 +394,7 @@ object HackComponent : Disposable {
               m.replace("{ \$_ = \"Show \\\"Monika's Writing Tip of the Day\\\" on Startup!\"; }")
             }
           }
-        }
+        },
       )
       ctClass.toClass()
     }) {
@@ -421,7 +427,7 @@ object HackComponent : Disposable {
           override fun edit(m: MethodCall?) {
             m?.replace("{ \$_ = com.intellij.util.ui.UIUtil.getPanelBackground(); }")
           }
-        }
+        },
       )
 
       // enable disposable stickers
@@ -434,7 +440,7 @@ object HackComponent : Disposable {
               m.replace("{ \$2 = \"$DOKI_BACKGROUND_PROP\"; \$_ = \$proceed(\$\$); }")
             }
           }
-        }
+        },
       )
 
       val initFramePaintersMethod = ctClass2.getDeclaredMethod("initFramePainters")
@@ -448,7 +454,7 @@ object HackComponent : Disposable {
               m.replace("{ \$1 = \"$DOKI_BACKGROUND_PROP\"; \$_ = \$proceed(\$\$); }")
             }
           }
-        }
+        },
       )
 
       ctClass2.toClass()

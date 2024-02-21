@@ -20,7 +20,6 @@ private const val PREVIOUS_BACKGROUND = "io.unthrottled.doki.previous-background
 
 @Suppress("TooManyFunctions") // cuz I said so
 internal class EditorBackgroundWallpaperService {
-
   companion object {
     val instance: EditorBackgroundWallpaperService
       get() = ApplicationManager.getApplication().getService(EditorBackgroundWallpaperService::class.java)
@@ -43,8 +42,9 @@ internal class EditorBackgroundWallpaperService {
   private fun installEditorBackgroundImage(dokiTheme: DokiTheme) =
     getLocallyInstalledWallpaperImagePath(dokiTheme)
       .doOrElse({
-        val isSameWallpaper = getCurrentBackgroundValue()
-          .startsWith(it.first)
+        val isSameWallpaper =
+          getCurrentBackgroundValue()
+            .startsWith(it.first)
 
         if (isSameWallpaper) return@doOrElse
 
@@ -54,7 +54,7 @@ internal class EditorBackgroundWallpaperService {
           it.second.opacity?.toString() ?: if (dokiTheme.isDark) "5" else "10",
           Fill.SCALE.name,
           it.second.position.name,
-          EDITOR_PROP
+          EDITOR_PROP,
         )
       }) {
         if (getNonDokiBackground().isPresent().not()) { // y u no like isEmpty() ???
@@ -62,8 +62,9 @@ internal class EditorBackgroundWallpaperService {
         }
       }
 
-  fun getCurrentBackgroundValue() = PropertiesComponent.getInstance()
-    .getValue(EDITOR_PROP, "")
+  fun getCurrentBackgroundValue() =
+    PropertiesComponent.getInstance()
+      .getValue(EDITOR_PROP, "")
 
   fun setBackgroundValue(backgroundProperty: String) {
     PropertiesComponent.getInstance()
@@ -83,14 +84,12 @@ internal class EditorBackgroundWallpaperService {
       .toOptional()
       .filter { it.contains(ASSET_DIRECTORY).not() }
 
-  private fun getLocallyInstalledWallpaperImagePath(
-    dokiTheme: DokiTheme
-  ): Optional<Pair<String, Background>> =
+  private fun getLocallyInstalledWallpaperImagePath(dokiTheme: DokiTheme): Optional<Pair<String, Background>> =
     dokiTheme.getBackground()
       .flatMap { background ->
         AssetManager.resolveAssetUrl(
           AssetCategory.BACKGROUNDS,
-          "wallpapers/${background.name}"
+          "wallpapers/${background.name}",
         ).map { it to background }
       }
 
@@ -132,16 +131,20 @@ internal fun setBackgroundImageProperty(
   opacity: String,
   fill: String,
   anchor: String,
-  propertyKey: String
+  propertyKey: String,
 ) {
   // org.intellij.images.editor.actions.SetBackgroundImageDialog has all of the answers
   // as to why this looks this way
-  val propertyValue = listOf(imagePath, opacity, fill, anchor)
-    .reduceRight { a, b -> "$a,$b" }
+  val propertyValue =
+    listOf(imagePath, opacity, fill, anchor)
+      .reduceRight { a, b -> "$a,$b" }
   setPropertyValue(propertyKey, propertyValue)
 }
 
-private fun setPropertyValue(propertyKey: String, propertyValue: String) {
+private fun setPropertyValue(
+  propertyKey: String,
+  propertyValue: String,
+) {
   PropertiesComponent.getInstance().unsetValue(propertyKey)
   PropertiesComponent.getInstance().setValue(propertyKey, propertyValue)
 }

@@ -18,18 +18,18 @@ import java.util.Optional
 
 class Stickers(
   val default: String,
-  val secondary: String?
+  val secondary: String?,
 )
 
 class Background(
   val name: String,
   val position: IdeBackgroundUtil.Anchor,
-  val opacity: Int?
+  val opacity: Int?,
 )
 
 class Backgrounds(
   val default: Background,
-  val secondary: Background?
+  val secondary: Background?,
 )
 
 @Suppress("LongParameterList")
@@ -43,14 +43,13 @@ class JetBrainsThemeDefinition(
   val group: String,
   val colors: Map<String, Any>,
   val ui: Map<String, Any>,
-  val meta: Map<String, String>
+  val meta: Map<String, String>,
 )
 
 class DokiTheme(
   private val uiTheme: JetBrainsThemeDefinition,
-  val version: String
+  val version: String,
 ) {
-
   init {
     validateThemeDefinition()
   }
@@ -73,11 +72,12 @@ class DokiTheme(
     get() = uiTheme.name
 
   val displayName: String
-    get() = uiTheme.displayName ?: error(
-      """
+    get() =
+      uiTheme.displayName ?: error(
+        """
 |$name's theme.json requires "displayName" to be defined
-      """.trimMargin()
-    )
+        """.trimMargin(),
+      )
 
   fun getStickerPath(): Optional<String> =
     when (ThemeConfig.instance.currentSticker) {
@@ -114,9 +114,10 @@ class DokiTheme(
   val editorAccentColor: Color
     get() = getColor("editorAccentColor")
 
-  fun getColor(s: String) = (
-    (uiTheme.colors[s] as? String)?.toColor()
-      ?: error("Expected 'colors.$s' to be present in theme $name json.")
+  fun getColor(s: String) =
+    (
+      (uiTheme.colors[s] as? String)?.toColor()
+        ?: error("Expected 'colors.$s' to be present in theme $name json.")
     )
 
   companion object {
@@ -127,21 +128,22 @@ class DokiTheme(
 
     init {
       val gson = Gson()
-      requiredNamedColors = runSafelyWithResult({
-        this::class.java.classLoader
-          .getResourceAsStream("theme-schema/DokiTheme.themeMetadata.json")
-          .use {
-            gson.fromJson(
-              InputStreamReader(it!!, StandardCharsets.UTF_8),
-              UIThemeMetadata::class.java
-            )
-          }.uiKeyMetadata.map {
-            it.key
-          }.toMutableList().plus(ACCENT_COLOR)
-      }) {
-        log.warn("Unable to get required named colors for raisins", it)
-        listOf()
-      }
+      requiredNamedColors =
+        runSafelyWithResult({
+          this::class.java.classLoader
+            .getResourceAsStream("theme-schema/DokiTheme.themeMetadata.json")
+            .use {
+              gson.fromJson(
+                InputStreamReader(it!!, StandardCharsets.UTF_8),
+                UIThemeMetadata::class.java,
+              )
+            }.uiKeyMetadata.map {
+              it.key
+            }.toMutableList().plus(ACCENT_COLOR)
+        }) {
+          log.warn("Unable to get required named colors for raisins", it)
+          listOf()
+        }
     }
   }
 
@@ -163,7 +165,7 @@ class DokiTheme(
           """
           Expected "$requiredColor" to be present in "colors" as a valid hex color in $name's theme json.
            "$requiredNamedColor" is not a valid hex color or reference to a defined color
-          """.trimIndent()
+          """.trimIndent(),
         )
       }
     }

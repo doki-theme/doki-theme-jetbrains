@@ -18,13 +18,17 @@ object BackgroundActor {
         UpdateNotification.showNotificationAcrossProjects(
           MessageBundle.message("wallpaper.install.title"),
           MessageBundle.message("wallpaper.install.body"),
-          actions = listOf {
-            object : NotificationAction(MessageBundle.message("wallpaper.install.show-settings")) {
-              override fun actionPerformed(e: AnActionEvent, notification: Notification) {
-                ActionManager.getInstance().getAction("Images.SetBackgroundImage")?.actionPerformed(e)
+          actions =
+            listOf {
+              object : NotificationAction(MessageBundle.message("wallpaper.install.show-settings")) {
+                override fun actionPerformed(
+                  e: AnActionEvent,
+                  notification: Notification,
+                ) {
+                  ActionManager.getInstance().getAction("Images.SetBackgroundImage")?.actionPerformed(e)
+                }
               }
-            }
-          }
+            },
         )
       } else {
         EditorBackgroundWallpaperService.instance.removeEditorBackground()

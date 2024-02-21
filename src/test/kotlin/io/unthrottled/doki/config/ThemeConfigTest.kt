@@ -6,7 +6,6 @@ import org.assertj.core.api.Assertions.assertThat
 import org.junit.Test
 
 class ThemeConfigTest {
-
   @Test
   fun getCurrentStickerShouldCorrectBadSettings() {
     val themeConfig = ThemeConfig()
@@ -21,7 +20,7 @@ class ThemeConfigTest {
       Triple("off", StickerLevel.OFF, "off"),
       Triple("oFF", StickerLevel.OFF, "oFF"),
       Triple("OFF", StickerLevel.OFF, "OFF"),
-      Triple("Off", StickerLevel.OFF, "Off")
+      Triple("Off", StickerLevel.OFF, "Off"),
     ).forEach {
       themeConfig.stickerLevel = it.first
       assertThat(themeConfig.currentStickerLevel).isEqualTo(it.second)
@@ -40,7 +39,7 @@ class ThemeConfigTest {
       Triple("Default", CurrentSticker.DEFAULT, "Default"),
       Triple("Secondary", CurrentSticker.SECONDARY, "Secondary"),
       Triple("secondary", CurrentSticker.SECONDARY, "secondary"),
-      Triple("SECONDARY", CurrentSticker.SECONDARY, "SECONDARY")
+      Triple("SECONDARY", CurrentSticker.SECONDARY, "SECONDARY"),
     ).forEach {
       themeConfig.currentStickerName = it.first
       assertThat(themeConfig.currentSticker).isEqualTo(it.second)

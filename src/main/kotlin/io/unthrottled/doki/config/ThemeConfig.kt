@@ -13,7 +13,7 @@ import java.util.Locale
 @OptIn(ExperimentalStdlibApi::class)
 @State(
   name = "DokiDokiThemeConfig",
-  storages = [Storage("doki_doki_theme.xml")]
+  storages = [Storage("doki_doki_theme.xml")],
 )
 class ThemeConfig : PersistentStateComponent<ThemeConfig>, Cloneable {
   companion object {
@@ -63,8 +63,7 @@ class ThemeConfig : PersistentStateComponent<ThemeConfig>, Cloneable {
   var discreetMode = false
   var discreetModeConfig = "{}"
 
-  override fun getState(): ThemeConfig? =
-    createCopy(this)
+  override fun getState(): ThemeConfig? = createCopy(this)
 
   override fun loadState(state: ThemeConfig) {
     copyBean(state, this)

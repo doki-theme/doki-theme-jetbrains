@@ -9,7 +9,6 @@ import java.awt.Color
 import javax.swing.UIManager
 
 object GlassNotificationService {
-
   fun makeNotificationSeeThrough() {
     ThemeManager.instance.currentTheme
       .filter { ThemeConfig.instance.isSeeThroughNotifications }
@@ -21,24 +20,27 @@ object GlassNotificationService {
         defaults["Notification.background"] = newNotificationBackground
         defaults["Notification.MoreButton.innerBorderColor"] = newNotificationBackground
 
-        defaults["Notification.MoreButton.background"] = toAlpha(
-          JBColor.namedColor(
-            "Table.stripeColor",
-            UIUtil.getHeaderActiveColor()
+        defaults["Notification.MoreButton.background"] =
+          toAlpha(
+            JBColor.namedColor(
+              "Table.stripeColor",
+              UIUtil.getHeaderActiveColor(),
+            ),
           )
-        )
 
-        defaults["Notification.errorBackground"] = toAlpha(
-          JBColor.namedColor(
-            "FileColor.Yellow",
-            defaultNotificationBackground
+        defaults["Notification.errorBackground"] =
+          toAlpha(
+            JBColor.namedColor(
+              "FileColor.Yellow",
+              defaultNotificationBackground,
+            ),
           )
-        )
       }
   }
 
-  private fun toAlpha(treeBackground: Color) = ColorUtil.withAlpha(
-    treeBackground,
-    ThemeConfig.instance.notificationOpacity / 100.0
-  )
+  private fun toAlpha(treeBackground: Color) =
+    ColorUtil.withAlpha(
+      treeBackground,
+      ThemeConfig.instance.notificationOpacity / 100.0,
+    )
 }

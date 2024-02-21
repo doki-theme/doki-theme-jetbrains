@@ -5,7 +5,6 @@ import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.themes.ThemeManager
 
 object CustomFontSizeService {
-
   fun applyCustomFontSize() {
     ThemeManager.instance.currentTheme
       .filter { ThemeConfig.instance.isGlobalFontSize }

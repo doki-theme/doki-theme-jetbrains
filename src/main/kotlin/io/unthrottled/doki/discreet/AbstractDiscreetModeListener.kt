@@ -31,15 +31,16 @@ abstract class AbstractDiscreetModeListener : DiscreetModeListener, Logging {
   private fun liftDiscreetMode() {
     currentMode = DiscreetMode.INACTIVE
     val discreetModeConfig = ThemeConfig.instance.discreetModeConfig
-    val restorationConfig = runSafelyWithResult({
-      gson.fromJson(
-        discreetModeConfig,
-        object : TypeToken<DiscreetModeRestorationConfig>() {}.type
-      )
-    }) {
-      logger().warn("Unable to read discreet mode restoration config $discreetModeConfig", it)
-      captureRestorationConfig()
-    }
+    val restorationConfig =
+      runSafelyWithResult({
+        gson.fromJson(
+          discreetModeConfig,
+          object : TypeToken<DiscreetModeRestorationConfig>() {}.type,
+        )
+      }) {
+        logger().warn("Unable to read discreet mode restoration config $discreetModeConfig", it)
+        captureRestorationConfig()
+      }
     ThemeConfig.instance.discreetModeConfig = "{}"
     ThemeConfig.instance.showThemeStatusBar = restorationConfig.statusBarWidgetEnabled ?: true
 
@@ -81,13 +82,14 @@ abstract class AbstractDiscreetModeListener : DiscreetModeListener, Logging {
 
   abstract fun dispatchExtraEvents()
 
-  private fun captureRestorationConfig() = DiscreetModeRestorationConfig(
-    ThemeConfig.instance.showThemeStatusBar,
-    ThemeConfig.instance.currentStickerLevel == StickerLevel.ON,
-    ThemeConfig.instance.isDokiBackground,
-    EditorBackgroundWallpaperService.instance.getCurrentBackgroundValue(),
-    ThemeConfig.instance.isEmptyFrameBackground
-  )
+  private fun captureRestorationConfig() =
+    DiscreetModeRestorationConfig(
+      ThemeConfig.instance.showThemeStatusBar,
+      ThemeConfig.instance.currentStickerLevel == StickerLevel.ON,
+      ThemeConfig.instance.isDokiBackground,
+      EditorBackgroundWallpaperService.instance.getCurrentBackgroundValue(),
+      ThemeConfig.instance.isEmptyFrameBackground,
+    )
 }
 
 data class DiscreetModeRestorationConfig(
@@ -95,5 +97,5 @@ data class DiscreetModeRestorationConfig(
   val stickersEnabled: Boolean?,
   val editorWallpaperEnabled: Boolean?,
   val savedBackground: String?,
-  val emptyWallpaperEnabled: Boolean?
+  val emptyWallpaperEnabled: Boolean?,
 )

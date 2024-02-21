@@ -13,7 +13,6 @@ import io.unthrottled.doki.util.doOrElse
 import java.util.Optional
 
 class EmptyFrameWallpaperService {
-
   companion object {
     val instance: EmptyFrameWallpaperService
       get() = ApplicationManager.getApplication().getService(EmptyFrameWallpaperService::class.java)
@@ -50,20 +49,18 @@ class EmptyFrameWallpaperService {
           "100",
           IdeBackgroundUtil.Fill.SCALE.name,
           it.second.position.name,
-          DOKI_BACKGROUND_PROP
+          DOKI_BACKGROUND_PROP,
         )
       }) {
         remove()
       }
 
-  private fun getLocallyInstalledBackgroundImagePath(
-    dokiTheme: DokiTheme
-  ): Optional<Pair<String, Background>> =
+  private fun getLocallyInstalledBackgroundImagePath(dokiTheme: DokiTheme): Optional<Pair<String, Background>> =
     dokiTheme.getBackground()
       .flatMap { background ->
         AssetManager.resolveAssetUrl(
           AssetCategory.BACKGROUNDS,
-          background.name
+          background.name,
         ).map { it to background }
       }
 

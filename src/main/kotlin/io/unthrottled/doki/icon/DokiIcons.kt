@@ -5,10 +5,10 @@ import javax.swing.Icon
 
 object DokiIcons {
   object General {
-
     @JvmStatic
     val PLUGIN_LOGO = load("icons/doki/Doki-Doki-Logo.svg")
   }
+
   object Plugins {
     object Motivator {
       val TOOL_WINDOW = load("icons/plugins/motivator/motivator_toolwindow.svg")
@@ -41,6 +41,5 @@ object DokiIcons {
     val EXPANDED = load("icons/tree/treeExpanded.svg")
   }
 
-  private fun load(path: String): Icon =
-    IconLoader.getIcon(path, DokiIcons::class.java)
+  private fun load(path: String): Icon = IconLoader.getIcon(path, DokiIcons::class.java)
 }

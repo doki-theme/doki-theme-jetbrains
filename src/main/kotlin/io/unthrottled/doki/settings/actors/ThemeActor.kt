@@ -19,13 +19,13 @@ object ThemeActor : Logging {
 
   private fun getDokiTheme(
     currentTheme: Optional<DokiTheme>,
-    selectedTheme: String
+    selectedTheme: String,
   ) = getTheme(currentTheme, selectedTheme)
     .flatMap { ThemeManager.instance.themeByName(selectedTheme) }
 
   private fun getTheme(
     currentTheme: Optional<DokiTheme>,
-    selectedTheme: String
+    selectedTheme: String,
   ): Optional<String> {
     return if (currentTheme.isPresent) {
       currentTheme
@@ -49,7 +49,7 @@ object ThemeActor : Logging {
           QuickChangeLookAndFeel.switchLafAndUpdateUI(
             LafManager.getInstance(),
             it,
-            true
+            true,
           )
         }) {
           logger().warn("Unable to set doki theme for reasons", it)
