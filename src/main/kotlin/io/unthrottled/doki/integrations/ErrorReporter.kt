@@ -3,9 +3,8 @@ package io.unthrottled.doki.integrations
 import com.google.gson.Gson
 import com.intellij.ide.IdeBundle
 import com.intellij.ide.ui.LafManager
+import com.intellij.openapi.application.ApplicationInfo
 import com.intellij.openapi.application.ApplicationNamesInfo
-import com.intellij.openapi.application.ex.ApplicationInfoEx
-import com.intellij.openapi.application.impl.ApplicationInfoImpl
 import com.intellij.openapi.diagnostic.ErrorReportSubmitter
 import com.intellij.openapi.diagnostic.IdeaLoggingEvent
 import com.intellij.openapi.diagnostic.SubmittedReportInfo
@@ -25,7 +24,7 @@ import io.unthrottled.doki.util.runSafelyWithResult
 import java.awt.Component
 import java.lang.management.ManagementFactory
 import java.text.SimpleDateFormat
-import java.util.Properties
+import java.util.*
 import java.util.stream.Collectors
 
 class ErrorReporter : ErrorReportSubmitter() {
@@ -120,7 +119,7 @@ class ErrorReporter : ErrorReportSubmitter() {
     ManagementFactory.getGarbageCollectorMXBeans().stream()
       .map { it.name }.collect(Collectors.joining(","))
 
-  private fun getBuildInfo(appInfo: ApplicationInfoImpl): String {
+  private fun getBuildInfo(appInfo: ApplicationInfo): String {
     var buildInfo = IdeBundle.message("about.box.build.number", appInfo.build.asString())
     val cal = appInfo.buildDate
     var buildDate = ""
@@ -132,8 +131,8 @@ class ErrorReporter : ErrorReportSubmitter() {
     return buildInfo
   }
 
-  private fun getAppName(): Pair<ApplicationInfoImpl, String> {
-    val appInfo = ApplicationInfoEx.getInstanceEx() as ApplicationInfoImpl
+  private fun getAppName(): Pair<ApplicationInfo, String> {
+    val appInfo = ApplicationInfo.getInstance()
     var appName = appInfo.fullApplicationName
     val edition = ApplicationNamesInfo.getInstance().editionName
     if (edition != null) appName += " ($edition)"
