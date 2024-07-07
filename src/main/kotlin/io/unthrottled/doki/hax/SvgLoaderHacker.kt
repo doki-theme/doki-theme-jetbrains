@@ -1,7 +1,7 @@
 package io.unthrottled.doki.hax
 
-import com.intellij.ui.svg.setSelectionColorPatcherProvider
-import io.unthrottled.doki.hax.SVGLoader
+import io.unthrottled.doki.hax.svg.setSelectionColorPatcherProvider
+import io.unthrottled.doki.hax.svg.SVGLoader
 //import com.intellij.ui.svg.setSelectionColorPatcherProvider
 //import com.intellij.util.SVGLoader
 import io.unthrottled.doki.icon.ColorPatcher

@@ -1,4 +1,4 @@
-package io.unthrottled.doki.hax;
+package io.unthrottled.doki.hax.svg;
 
 import com.intellij.openapi.util.IconLoader
 import com.intellij.ui.svg.*
