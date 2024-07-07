@@ -34,8 +34,8 @@ object RestTools {
 
   fun <T> performRequest(
     url: String,
-    bodyExtractor: (InputStream) -> T,
-  ): Optional<T> {
+    bodyExtractor: (InputStream) -> T & Any,
+  ): Optional<T & Any> {
     log.info("Attempting to download remote asset: $url")
     return runSafelyWithResult({
       HttpRequests.request(url)
@@ -46,7 +46,7 @@ object RestTools {
             body.toOptional()
           }) {
             log.warn("Unable to get remote asset: $url for raisins", it)
-            Optional.empty<T>()
+            Optional.empty<T & Any>()
           }
         }
     }) {
