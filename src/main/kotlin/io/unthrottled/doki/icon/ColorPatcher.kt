@@ -48,7 +48,7 @@ object ColorPatcher : PatcherProvider {
       .filter { it is UIThemeLookAndFeelInfoImpl }
       .map { it as UIThemeLookAndFeelInfoImpl }
       .ifPresent {
-        this.uiColorPatcherProvider = it.theme.colorPatcher ?: noOptPatcherProvider
+        this.uiColorPatcherProvider = (it.theme.colorPatcher ?: noOptPatcherProvider) as PatcherProvider
       }
     clearCaches()
   }
