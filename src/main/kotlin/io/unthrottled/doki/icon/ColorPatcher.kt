@@ -1,5 +1,6 @@
 package io.unthrottled.doki.icon
 
+import io.unthrottled.doki.hax.svg.SvgElementColorPatcherProvider
 import com.google.common.cache.Cache
 import com.google.common.cache.CacheBuilder
 import com.intellij.ide.ui.LafManager
@@ -9,7 +10,6 @@ import com.intellij.ui.JBColor
 import com.intellij.ui.JBColor.namedColor
 import com.intellij.ui.svg.SvgAttributePatcher
 import com.intellij.util.io.DigestUtil
-import io.unthrottled.doki.hax.PatcherProvider
 import io.unthrottled.doki.themes.DokiTheme
 import io.unthrottled.doki.themes.ThemeManager
 import io.unthrottled.doki.util.runSafely
@@ -19,13 +19,14 @@ import io.unthrottled.doki.util.toOptional
 import java.awt.Color
 import java.time.Duration
 
+
 object NoOptPatcher : SvgAttributePatcher {
   override fun patchColors(attributes: MutableMap<String, String>) {
   }
 }
 
 val noOptPatcherProvider =
-  object : PatcherProvider {
+  object : SvgElementColorPatcherProvider {
     val longArray = longArrayOf(0)
 
     override fun digest(): LongArray {
@@ -34,9 +35,9 @@ val noOptPatcherProvider =
   }
 
 @Suppress("TooManyFunctions")
-object ColorPatcher : PatcherProvider {
-  private var otherColorPatcherProvider: PatcherProvider = noOptPatcherProvider
-  private var uiColorPatcherProvider: PatcherProvider = noOptPatcherProvider
+object ColorPatcher : SvgElementColorPatcherProvider {
+  private var otherColorPatcherProvider: SvgElementColorPatcherProvider = noOptPatcherProvider
+  private var uiColorPatcherProvider: SvgElementColorPatcherProvider = noOptPatcherProvider
   private lateinit var dokiTheme: DokiTheme
   private val patcherProviderCache = HashSet<String>()
 
@@ -48,12 +49,12 @@ object ColorPatcher : PatcherProvider {
       .filter { it is UIThemeLookAndFeelInfoImpl }
       .map { it as UIThemeLookAndFeelInfoImpl }
       .ifPresent {
-        this.uiColorPatcherProvider = (it.theme.colorPatcher ?: noOptPatcherProvider) as PatcherProvider
+//        this.uiColorPatcherProvider = it.theme.colorPatcher ?: noOptPatcherProvider)
       }
     clearCaches()
   }
 
-  fun setOtherPatcher(otherPatcher: PatcherProvider) {
+  fun setOtherPatcher(otherPatcher: SvgElementColorPatcherProvider) {
     this.otherColorPatcherProvider = otherPatcher
     clearCaches()
   }

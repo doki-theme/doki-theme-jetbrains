@@ -38,7 +38,6 @@ object HackComponent : Disposable {
     enableBackgroundConsistency()
     enableSelectionConsistency()
     enableHintConsistency()
-    enableMarketplaceCompatability()
   }
 
   fun init() {
@@ -46,10 +45,6 @@ object HackComponent : Disposable {
 
   private fun enableHintConsistency() {
     hackReformatHintInfoForeground()
-  }
-
-  private fun enableMarketplaceCompatability() {
-    hackSVGLoader()
   }
 
   private fun hackReformatHintInfoForeground() {
@@ -131,31 +126,6 @@ object HackComponent : Disposable {
       ctClass.toClass()
     }) {
       log.warn("Unable to hackSearchHighlight for reasons.")
-    }
-  }
-
-  private fun hackSVGLoader() {
-    runSafely({
-      val cp = ClassPool(true)
-      cp.insertClassPath(
-        ClassClassPath(
-          Class.forName("io.unthrottled.doki.hax.FieldHacker"),
-        ),
-      )
-      val ctClass = cp.get("io.unthrottled.doki.hax.SvgLoaderHacker")
-      ctClass.replaceClassName(
-        "io.unthrottled.doki.hax.svg.setSelectionColorPatcherProvider",
-        "com.intellij.ui.svg.setSelectionColorPatcherProvider",
-
-      )
-      ctClass.replaceClassName(
-        "io.unthrottled.doki.hax.svg.SVGLoader",
-        "com.intellij.util.SVGLoader",
-
-      )
-      ctClass.toClass()
-    }) {
-      log.warn("Unable to hackSVGLoader for reasons.")
     }
   }
 
