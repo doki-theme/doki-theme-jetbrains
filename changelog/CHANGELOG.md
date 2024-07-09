@@ -1,5 +1,10 @@
 Changelog
 ---
+# 88.5-1.14.0 [Marketplace Support]
+
+- Added initial 2024.2 build support
+- Should be able to be published to marketplace now.
+
 # 88.5-1.13.0 [2024.1 Build Support]
 
 - Added initial 2024.1 build support

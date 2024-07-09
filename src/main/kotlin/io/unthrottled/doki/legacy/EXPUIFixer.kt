@@ -4,7 +4,7 @@ import com.intellij.ide.ui.LafManager
 import com.intellij.ide.ui.LafManagerListener
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.application.ApplicationManager
-import com.intellij.ui.ExperimentalUI
+import com.intellij.ui.NewUI
 import com.intellij.util.ui.JBUI
 import io.unthrottled.doki.themes.ThemeManager
 import javax.swing.UIDefaults
@@ -17,9 +17,8 @@ object EXPUIFixer : LafManagerListener, Disposable {
     connection.subscribe(LafManagerListener.TOPIC, this)
   }
 
-  @Suppress("UnstableApiUsage")
   fun fixExperimentalUI() {
-    if (!ExperimentalUI.isNewUI()) return
+    if (!NewUI.isEnabled()) return
 
     overrideSetProperties(0)
   }

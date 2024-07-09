@@ -16,8 +16,8 @@ class MarginService : Logging {
     private const val STICKER_Y_OFFSET = 0.05
     private const val STICKER_X_OFFSET = 0.03
 
-    val instance: MarginService =
-      ApplicationManager.getApplication().getService(MarginService::class.java)
+    val instance: MarginService
+      get() = ApplicationManager.getApplication().getService(MarginService::class.java)
   }
 
   private val gson =
