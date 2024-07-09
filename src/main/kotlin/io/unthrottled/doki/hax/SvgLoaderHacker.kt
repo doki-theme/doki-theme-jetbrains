@@ -1,7 +1,5 @@
 package io.unthrottled.doki.hax
 
-import io.unthrottled.doki.hax.svg.SVGLoader
-import io.unthrottled.doki.hax.svg.SvgElementColorPatcherProvider
 import io.unthrottled.doki.icon.ColorPatcher
 import io.unthrottled.doki.service.PluginService
 import io.unthrottled.doki.themes.DokiTheme
@@ -9,7 +7,6 @@ import io.unthrottled.doki.util.runSafely
 import java.lang.reflect.InvocationHandler
 import java.lang.reflect.Method
 import java.lang.reflect.Proxy
-import java.util.*
 
 
 object SvgLoaderHacker {
@@ -20,11 +17,6 @@ object SvgLoaderHacker {
     if (PluginService.areIconsInstalled()) {
       return
     }
-
-    collectOtherPatcher()
-      .ifPresent { otherPatcher ->
-        ColorPatcher.setOtherPatcher(otherPatcher)
-      }
 
     ColorPatcher.setDokiTheme(dokiTheme)
 
@@ -61,22 +53,4 @@ object SvgLoaderHacker {
     val setPatcherProvdier = clazz.declaredMethods.firstOrNull { it.name == "setSelectionColorPatcherProvider" }
     setPatcherProvdier?.invoke(null, proxyClass)
   }
-
-  private fun collectOtherPatcher(): Optional<SvgElementColorPatcherProvider> =
-    Optional.ofNullable(
-      SVGLoader::class.java.declaredFields
-        .firstOrNull { it.name == "colorPatcherProvider" },
-    )
-      .map { ourColorPatcherField ->
-        ourColorPatcherField.isAccessible = true
-        ourColorPatcherField.get(null)
-      }
-      .filter { it is SvgElementColorPatcherProvider }
-      .filter { it !is ColorPatcher }
-      .map {
-        val otherPatcher = it as SvgElementColorPatcherProvider
-        otherPatcher
-      }
 }
-
-

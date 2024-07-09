@@ -4,7 +4,6 @@ import com.google.gson.Gson
 import com.intellij.ide.ui.LafManager
 import com.intellij.ide.ui.laf.UIThemeLookAndFeelInfo
 import com.intellij.ide.ui.laf.UIThemeLookAndFeelInfoImpl
-import com.intellij.util.io.inputStream
 import io.unthrottled.doki.TheDokiTheme
 import io.unthrottled.doki.themes.DokiTheme
 import io.unthrottled.doki.themes.JetBrainsThemeDefinition

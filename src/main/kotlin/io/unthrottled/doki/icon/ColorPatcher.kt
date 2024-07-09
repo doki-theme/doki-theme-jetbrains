@@ -1,15 +1,15 @@
 package io.unthrottled.doki.icon
 
-import io.unthrottled.doki.hax.svg.SvgElementColorPatcherProvider
 import com.google.common.cache.Cache
 import com.google.common.cache.CacheBuilder
 import com.intellij.ide.ui.LafManager
-import com.intellij.ide.ui.laf.UIThemeLookAndFeelInfoImpl
+import com.intellij.ide.ui.UITheme
 import com.intellij.ui.ColorUtil
 import com.intellij.ui.JBColor
 import com.intellij.ui.JBColor.namedColor
 import com.intellij.ui.svg.SvgAttributePatcher
 import com.intellij.util.io.DigestUtil
+import io.unthrottled.doki.hax.svg.SvgElementColorPatcherProvider
 import io.unthrottled.doki.themes.DokiTheme
 import io.unthrottled.doki.themes.ThemeManager
 import io.unthrottled.doki.util.runSafely
@@ -46,16 +46,32 @@ object ColorPatcher : SvgElementColorPatcherProvider {
     calculateAndSetNewDigest()
     LafManager.getInstance()
       ?.currentUIThemeLookAndFeel.toOptional()
-      .filter { it is UIThemeLookAndFeelInfoImpl }
-      .map { it as UIThemeLookAndFeelInfoImpl }
-      .ifPresent {
-//        this.uiColorPatcherProvider = it.theme.colorPatcher ?: noOptPatcherProvider)
+      .map {
+        it to it.javaClass.methods.firstOrNull { method -> method.name == "getTheme" }
       }
-    clearCaches()
-  }
+      .filter { it.second != null }
+      .ifPresent {
+        val themePatcher = ((it.second?.invoke(it.first)) as UITheme)
+        val javaClass = UITheme::class.java
+        val attr = javaClass.methods.firstOrNull { method -> method.name == "attributeForPath" }
+        val digest = javaClass.methods.firstOrNull { method -> method.name == "digest" }
+        this.uiColorPatcherProvider = object : SvgElementColorPatcherProvider {
+          override fun attributeForPath(path: String): SvgAttributePatcher? {
+            val invoke = attr?.invoke(digest, path)
+            return object : SvgAttributePatcher {
+              override fun patchColors(attributes: MutableMap<String, String>) {
+                invoke?.javaClass
+                  ?.methods?.firstOrNull { method -> method.name == "patchColors" }
+                  ?.invoke(invoke, attributes)
+              }
+            }
+          }
 
-  fun setOtherPatcher(otherPatcher: SvgElementColorPatcherProvider) {
-    this.otherColorPatcherProvider = otherPatcher
+          override fun digest(): LongArray {
+            return digest?.invoke(themePatcher) as LongArray
+          }
+        }
+      }
     clearCaches()
   }
 

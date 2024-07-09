@@ -29,7 +29,8 @@ import io.unthrottled.doki.stickers.StickerPaneService
 import io.unthrottled.doki.themes.ThemeManager
 import io.unthrottled.doki.util.doOrElse
 import io.unthrottled.doki.util.toOptional
-import java.util.*
+import java.util.Optional
+import java.util.UUID
 
 class TheDokiTheme : Disposable {
   companion object {
