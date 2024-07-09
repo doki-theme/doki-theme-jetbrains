@@ -65,7 +65,7 @@ object SvgLoaderHacker : Logging {
     setPatcher?.invoke(null, proxiedSVGElementColorProvider)
 
     val clazz = Class.forName("com.intellij.ui.svg.SvgKt")
-    val setPatcherProvdier = clazz.declaredMethods.firstOrNull { it.name == "setSelectionColorPatcherProvider" }
-    setPatcherProvdier?.invoke(null, proxiedSVGElementColorProvider)
+    val setPatcherProvider = clazz.declaredMethods.firstOrNull { it.name == "setSelectionColorPatcherProvider" }
+    setPatcherProvider?.invoke(null, proxiedSVGElementColorProvider)
   }
 }
