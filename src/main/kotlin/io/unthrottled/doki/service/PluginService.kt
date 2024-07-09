@@ -15,7 +15,7 @@ import io.unthrottled.doki.util.Logging
 import io.unthrottled.doki.util.logger
 import io.unthrottled.doki.util.runSafelyWithResult
 import io.unthrottled.doki.util.toOptional
-import java.util.*
+import java.util.Collections
 import java.util.concurrent.Callable
 
 const val MOTIVATOR_PLUGIN_ID = "zd.zero.waifu-motivator-plugin"
@@ -89,8 +89,8 @@ object PluginService : Logging {
           CompatibleUpdateRequest(
             ApplicationInfo.getInstance()
               .build.asString(),
-            ids.map { it.idString }
-          )
+            ids.map { it.idString },
+          ),
         )
       HttpRequests
         .post(Urls.newFromEncoded(COMPATIBLE_UPDATE_URL).toExternalForm(), HttpRequests.JSON_CONTENT_TYPE)

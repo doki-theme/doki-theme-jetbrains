@@ -12,13 +12,14 @@ import com.intellij.util.io.DigestUtil
 import io.unthrottled.doki.hax.svg.SvgElementColorPatcherProvider
 import io.unthrottled.doki.themes.DokiTheme
 import io.unthrottled.doki.themes.ThemeManager
+import io.unthrottled.doki.util.Logging
+import io.unthrottled.doki.util.logger
 import io.unthrottled.doki.util.runSafely
 import io.unthrottled.doki.util.runSafelyWithResult
 import io.unthrottled.doki.util.toHexString
 import io.unthrottled.doki.util.toOptional
 import java.awt.Color
 import java.time.Duration
-
 
 object NoOptPatcher : SvgAttributePatcher {
   override fun patchColors(attributes: MutableMap<String, String>) {
@@ -51,26 +52,44 @@ object ColorPatcher : SvgElementColorPatcherProvider {
       }
       .filter { it.second != null }
       .ifPresent {
-        val themePatcher = ((it.second?.invoke(it.first)) as UITheme)
-        val javaClass = UITheme::class.java
-        val attr = javaClass.methods.firstOrNull { method -> method.name == "attributeForPath" }
-        val digest = javaClass.methods.firstOrNull { method -> method.name == "digest" }
-        this.uiColorPatcherProvider = object : SvgElementColorPatcherProvider {
-          override fun attributeForPath(path: String): SvgAttributePatcher? {
-            val invoke = attr?.invoke(digest, path)
-            return object : SvgAttributePatcher {
-              override fun patchColors(attributes: MutableMap<String, String>) {
-                invoke?.javaClass
-                  ?.methods?.firstOrNull { method -> method.name == "patchColors" }
-                  ?.invoke(invoke, attributes)
+        val theme = ((it.second?.invoke(it.first)) as UITheme)
+        val themeClass = UITheme::class.java
+        val themeClassMethods = themeClass.methods
+        val attr = themeClassMethods.firstOrNull { method -> method.name == "attributeForPath" }
+        val digest = themeClassMethods.firstOrNull { method -> method.name == "digest" }
+        this.uiColorPatcherProvider =
+          object : SvgElementColorPatcherProvider, Logging {
+            override fun attributeForPath(path: String): SvgAttributePatcher? {
+              return runSafelyWithResult({
+                val patcherForPath = attr?.invoke(digest, path)
+                val patchColorsMethod =
+                  patcherForPath?.javaClass
+                    ?.methods?.firstOrNull { method -> method.name == "patchColors" }
+                object : SvgAttributePatcher {
+                  override fun patchColors(attributes: MutableMap<String, String>) {
+                    runSafelyWithResult({
+                      patchColorsMethod
+                        ?.invoke(patcherForPath, attributes)
+                    }) { patchingError ->
+                      logger().warn("unable to patch colors", patchingError)
+                    }
+                  }
+                }
+              }) {
+                logger().warn("Unable to patch path for raisins", it)
+                null
+              }
+            }
+
+            override fun digest(): LongArray {
+              return runSafelyWithResult({
+                digest?.invoke(theme) as LongArray
+              }) { digestError ->
+                logger().warn("Unable to get digest", digestError)
+                longArrayOf()
               }
             }
           }
-
-          override fun digest(): LongArray {
-            return digest?.invoke(themePatcher) as LongArray
-          }
-        }
       }
     clearCaches()
   }
