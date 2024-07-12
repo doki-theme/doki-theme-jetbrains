@@ -3,7 +3,7 @@ package io.unthrottled.doki.icon
 import com.google.common.cache.Cache
 import com.google.common.cache.CacheBuilder
 import com.intellij.ide.ui.LafManager
-import com.intellij.ide.ui.UITheme
+import com.intellij.ide.ui.laf.UIThemeLookAndFeelInfo
 import com.intellij.ui.ColorUtil
 import com.intellij.ui.JBColor
 import com.intellij.ui.JBColor.namedColor
@@ -20,6 +20,47 @@ import io.unthrottled.doki.util.toHexString
 import io.unthrottled.doki.util.toOptional
 import java.awt.Color
 import java.time.Duration
+
+private fun buildThemeColorPatcher(themeLookAndFeel: UIThemeLookAndFeelInfo): SvgElementColorPatcherProvider? {
+  val themeLookAndFeelMethods = themeLookAndFeel.javaClass.methods
+  val themeGetter = themeLookAndFeelMethods.firstOrNull { method -> method.name == "getTheme" }
+  val theme = themeGetter?.invoke(themeLookAndFeel)
+  val themeClassMethods = theme?.javaClass?.methods ?: return null
+  val colorPatcherGetter = themeClassMethods.firstOrNull { method -> method.name == "getColorPatcher" }
+  val colorPatcherProvider = colorPatcherGetter?.invoke(theme)
+  val colorPatcherMethods = colorPatcherProvider?.javaClass?.methods ?: return null
+  val attr = colorPatcherMethods.firstOrNull { method -> method.name == "attributeForPath" }
+  val digest = colorPatcherMethods.firstOrNull { method -> method.name == "digest" }
+  return object : SvgElementColorPatcherProvider, Logging {
+    override fun attributeForPath(path: String): SvgAttributePatcher? =
+      runSafelyWithResult({
+        val patcherForPath = attr?.invoke(colorPatcherProvider, path) ?: return@runSafelyWithResult null
+        val patchColorsMethod =
+          patcherForPath.javaClass
+            .methods.firstOrNull { method -> method.name == "patchColors" } ?: return@runSafelyWithResult null
+        object : SvgAttributePatcher {
+          override fun patchColors(attributes: MutableMap<String, String>) {
+            runSafelyWithResult({
+              patchColorsMethod.invoke(patcherForPath, attributes)
+            }) { patchingError ->
+              logger().warn("unable to patch colors", patchingError)
+            }
+          }
+        }
+      }) {
+        logger().warn("Unable to patch path for raisins", it)
+        null
+      }
+
+    override fun digest(): LongArray =
+      runSafelyWithResult({
+        digest?.invoke(colorPatcherProvider) as LongArray
+      }) { digestError ->
+        logger().warn("Unable to get digest", digestError)
+        longArrayOf()
+      }
+  }
+}
 
 object NoOptPatcher : SvgAttributePatcher {
   override fun patchColors(attributes: MutableMap<String, String>) {
@@ -48,49 +89,10 @@ object ColorPatcher : SvgElementColorPatcherProvider {
     LafManager.getInstance()
       ?.currentUIThemeLookAndFeel.toOptional()
       .map {
-        it to it.javaClass.methods.firstOrNull { method -> method.name == "getTheme" }
+        buildThemeColorPatcher(it)
       }
-      .filter { it.second != null }
       .ifPresent {
-        val theme = ((it.second?.invoke(it.first)) as UITheme)
-        // todo fix
-        val themeClass = UITheme::class.java
-        val themeClassMethods = themeClass.methods
-        val attr = themeClassMethods.firstOrNull { method -> method.name == "attributeForPath" }
-        val digest = themeClassMethods.firstOrNull { method -> method.name == "digest" }
-        this.uiColorPatcherProvider =
-          object : SvgElementColorPatcherProvider, Logging {
-            override fun attributeForPath(path: String): SvgAttributePatcher? {
-              return runSafelyWithResult({
-                val patcherForPath = attr?.invoke(digest, path)
-                val patchColorsMethod =
-                  patcherForPath?.javaClass
-                    ?.methods?.firstOrNull { method -> method.name == "patchColors" }
-                object : SvgAttributePatcher {
-                  override fun patchColors(attributes: MutableMap<String, String>) {
-                    runSafelyWithResult({
-                      patchColorsMethod
-                        ?.invoke(patcherForPath, attributes)
-                    }) { patchingError ->
-                      logger().warn("unable to patch colors", patchingError)
-                    }
-                  }
-                }
-              }) {
-                logger().warn("Unable to patch path for raisins", it)
-                null
-              }
-            }
-
-            override fun digest(): LongArray {
-              return runSafelyWithResult({
-                digest?.invoke(theme) as LongArray
-              }) { digestError ->
-                logger().warn("Unable to get digest", digestError)
-                longArrayOf()
-              }
-            }
-          }
+        this.uiColorPatcherProvider = it
       }
     clearCaches()
   }

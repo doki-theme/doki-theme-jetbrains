@@ -417,14 +417,6 @@ object UpdateNotification : Logging {
     }
   }
 
-  private val lastWorkingBuild = BuildNumber.fromString("212.5712.43")
-
-  private fun needsToFixUpdateNotification(): Boolean {
-    val build = ApplicationInfoEx.getInstanceEx().build
-    return (lastWorkingBuild?.compareTo(build) ?: 0) < 0 &&
-      WeebService.isBackgroundOn()
-  }
-
   private fun buildUrl(
     isNewUser: Boolean,
     newVersion: String,
