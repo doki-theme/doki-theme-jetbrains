@@ -436,13 +436,7 @@ object UpdateNotification : Logging {
       } else {
         "/products/jetbrains/updates/$newVersion"
       }
-    val extraParams =
-      if (needsToFixUpdateNotification()) {
-        "&showWallpaper=false"
-      } else {
-        ""
-      }
-    val url = "https://doki-theme.unthrottled.io$urlParameters?themeId=${currentTheme.id}$extraParams"
+    val url = "https://doki-theme.unthrottled.io$urlParameters?themeId=${currentTheme.id}"
     return url
   }
 

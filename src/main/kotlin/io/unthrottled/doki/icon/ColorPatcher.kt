@@ -53,6 +53,7 @@ object ColorPatcher : SvgElementColorPatcherProvider {
       .filter { it.second != null }
       .ifPresent {
         val theme = ((it.second?.invoke(it.first)) as UITheme)
+        // todo fix
         val themeClass = UITheme::class.java
         val themeClassMethods = themeClass.methods
         val attr = themeClassMethods.firstOrNull { method -> method.name == "attributeForPath" }
