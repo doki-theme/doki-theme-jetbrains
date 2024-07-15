@@ -25,16 +25,18 @@ private fun buildThemeColorPatcher(themeLookAndFeel: UIThemeLookAndFeelInfo): Sv
   val themeLookAndFeelMethods = themeLookAndFeel.javaClass.methods
   val themeGetter = themeLookAndFeelMethods.firstOrNull { method -> method.name == "getTheme" }
   val theme = themeGetter?.invoke(themeLookAndFeel)
-  val themeClassMethods = theme?.javaClass?.methods ?: return null
-  val colorPatcherGetter = themeClassMethods.firstOrNull { method -> method.name == "getColorPatcher" }
+  val themeClassMethods = theme?.javaClass?.methods
+  val colorPatcherGetter = themeClassMethods?.firstOrNull { method -> method.name == "getColorPatcher" }
   val colorPatcherProvider = colorPatcherGetter?.invoke(theme)
   val colorPatcherMethods = colorPatcherProvider?.javaClass?.methods ?: return null
-  val attr = colorPatcherMethods.firstOrNull { method -> method.name == "attributeForPath" }
-  val digest = colorPatcherMethods.firstOrNull { method -> method.name == "digest" }
+  val getAttributeForPath = colorPatcherMethods.firstOrNull { method -> method.name == "attributeForPath" }
+  val getDigest = colorPatcherMethods.firstOrNull { method -> method.name == "digest" }
   return object : SvgElementColorPatcherProvider, Logging {
     override fun attributeForPath(path: String): SvgAttributePatcher? =
       runSafelyWithResult({
-        val patcherForPath = attr?.invoke(colorPatcherProvider, path) ?: return@runSafelyWithResult null
+        val patcherForPath =
+          getAttributeForPath?.invoke(colorPatcherProvider, path)
+            ?: return@runSafelyWithResult null
         val patchColorsMethod =
           patcherForPath.javaClass
             .methods.firstOrNull { method -> method.name == "patchColors" } ?: return@runSafelyWithResult null
@@ -54,7 +56,7 @@ private fun buildThemeColorPatcher(themeLookAndFeel: UIThemeLookAndFeelInfo): Sv
 
     override fun digest(): LongArray =
       runSafelyWithResult({
-        digest?.invoke(colorPatcherProvider) as LongArray
+        getDigest?.invoke(colorPatcherProvider) as LongArray
       }) { digestError ->
         logger().warn("Unable to get digest", digestError)
         longArrayOf()
