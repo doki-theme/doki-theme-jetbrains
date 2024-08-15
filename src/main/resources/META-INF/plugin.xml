@@ -15,6 +15,7 @@
         </description>
   <idea-version since-build="241"/>
   <depends>com.intellij.modules.platform</depends>
+  <depends optional="true" config-file="io.unthrottled.doki.theme-com.intellij.modules.json.xml">com.intellij.modules.json</depends>
   <depends optional="true" config-file="io.unthrottled.doki.theme-com.intellij.modules.lang.xml">com.intellij.modules.lang</depends>
   <depends optional="true" config-file="io.unthrottled.doki.theme-XPathView.xml">XPathView</depends>
   <extensions defaultExtensionNs="com.intellij">
@@ -97,7 +98,7 @@
     <themeProvider id="bac375a4-abb3-44d5-9bef-8039eb83fec0" path="/doki/themes/sword_art_online/Asuna_Dark.theme.json"/>
     <themeProvider id="a1da4f2f-e736-40e7-86d9-9167a247da93" path="/doki/themes/kakegurui/Jabami_Yumeko.theme.json"/>
     <themeProvider id="98878c8e-9f91-4e25-930d-dd7d280d9e35" path="/doki/themes/bunny_senpai/Mai_Light.theme.json"/>
-    <themeProvider id="0527c6fc-316a-4f80-9459-d92ced0e6492" path="/doki/themes/bunny_senpai/Mai_Dark.theme.json"/>
+    <themeProvider id="0527c6fc-316πa-4f80-9459-d92ced0e6492" path="/doki/themes/bunny_senpai/Mai_Dark.theme.json"/>
     <themeProvider id="5ec63d95-1e7d-4649-b3d0-0078af8f8740" path="/doki/themes/future_diary/Gasai_Yuno.theme.json"/>
     <themeProvider id="3a78b13e-dbf2-410f-bb20-12b57bff7735" path="/doki/themes/kill_la_kill/Satsuki_Light.theme.json"/>
     <themeProvider id="12a54623-1f0b-4769-9917-d5267092a605" path="/doki/themes/kill_la_kill/Satsuki_Dark.theme.json"/>
