@@ -26,6 +26,7 @@ version = properties("pluginVersion")
 repositories {
   mavenCentral()
   mavenLocal()
+  maven(url = "https://repo.spring.io/plugins-release/)")
 }
 
 dependencies {
