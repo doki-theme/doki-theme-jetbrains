@@ -6,6 +6,7 @@ plugins {
 repositories {
   mavenLocal()
   mavenCentral()
+  maven(url = "https://repo.spring.io/plugins-release/)")
   maven {
     name = "GitHubPackages"
     url = uri("https://maven.pkg.github.com/doki-theme/doki-build-source-jvm")
