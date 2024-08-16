@@ -34,7 +34,7 @@ jobs:
 
       # Validate wrapper
       - name: Gradle Wrapper Validation
-        uses: gradle/wrapper-validation-action@v2.1.2
+        uses: gradle/wrapper-validation-action@v3.5.0
 
   # Run verifyPlugin and test Gradle tasks
   test:
