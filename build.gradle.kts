@@ -29,6 +29,16 @@ repositories {
   gradlePluginPortal()
 }
 
+buildscript {
+  configurations.all {
+    resolutionStrategy.dependencySubstitution {
+      substitute(module("com.overzealous:remark:1.1.0"))
+        .using(module("com.wavefront:remark:2023-07.07"))
+        .because("not available on maven central anymore")
+    }
+  }
+}
+
 dependencies {
   detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.23.1")
   implementation("commons-io:commons-io:2.15.1")

@@ -1,5 +1,11 @@
 Changelog
 ---
+
+# 88.5-1.15.0 [2024.3 Build Support]
+
+- Added initial 2024.3 build support
+- Minor fix at CONTRIBUTING.md
+
 # 88.5-1.14.0 [Marketplace Support]
 
 - Added initial 2024.2 build support
