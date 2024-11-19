@@ -121,7 +121,7 @@ tasks {
       changeNotes.set(releaseNotes.readText())
     }
 
-    dependsOn( "buildThemes")
+    dependsOn("buildThemes")
   }
 
   signPlugin {

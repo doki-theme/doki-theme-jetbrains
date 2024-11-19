@@ -69,12 +69,14 @@ class LAFAnimator {
       }
 
     myAnimator =
-      object : Animator(
-        "ChangeLAF",
-        60,
-        800,
-        false,
-      ), Disposable {
+      object :
+        Animator(
+          "ChangeLAF",
+          60,
+          800,
+          false,
+        ),
+        Disposable {
         override fun paintNow(
           frame: Int,
           totalFrames: Int,
