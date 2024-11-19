@@ -8,7 +8,7 @@ import java.util.Optional
 import java.util.concurrent.Callable
 import java.util.stream.Stream
 
-fun <T> getSafely(callable: Callable<T>): Optional<T> =
+fun <T: Any> getSafely(callable: Callable<T>): Optional<T> =
   try {
     callable.call().toOptional()
   } catch (e: Throwable) {

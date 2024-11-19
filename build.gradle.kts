@@ -1,6 +1,5 @@
 import io.gitlab.arturbosch.detekt.Detekt
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-import org.kordamp.gradle.plugin.markdown.tasks.MarkdownToHtmlTask
 
 fun properties(key: String) = project.findProperty(key).toString()
 
@@ -8,14 +7,13 @@ plugins {
   // Custom plugin for building all the themes
   id("doki-theme-plugin")
   // Kotlin support
-  kotlin("jvm") version "1.8.10"
+  kotlin("jvm") version "2.0.0"
   // gradle-intellij-plugin - read more: https://github.com/JetBrains/gradle-intellij-plugin
   id("org.jetbrains.intellij") version "1.16.1"
   // detekt linter - read more: https://detekt.github.io/detekt/gradle.html
   id("io.gitlab.arturbosch.detekt") version "1.23.6"
   // ktlint linter - read more: https://github.com/JLLeitschuh/ktlint-gradle
   id("org.jlleitschuh.gradle.ktlint") version "12.0.3"
-  id("org.kordamp.gradle.markdown") version "2.2.0"
   id("org.jetbrains.qodana") version "0.1.13"
 }
 
@@ -99,11 +97,6 @@ tasks {
     jvmTarget = "17"
   }
 
-  withType<MarkdownToHtmlTask> {
-    sourceDir = file("$projectDir/changelog")
-    outputDir = file("$projectDir/build/html")
-  }
-
   runIde {
     maxHeapSize = "2g"
     enabled = environment.getOrDefault("SHOULD_DOKI_THEME_RUN", "true") == "true"
@@ -128,7 +121,7 @@ tasks {
       changeNotes.set(releaseNotes.readText())
     }
 
-    dependsOn("markdownToHtml", "buildThemes")
+    dependsOn( "buildThemes")
   }
 
   signPlugin {

@@ -646,7 +646,7 @@ internal class StickerPane(
         CYCLE_DURATION,
         false,
         runForwards,
-      ) {
+      ), Disposable {
         override fun paintNow(
           frame: Int,
           totalFrames: Int,
