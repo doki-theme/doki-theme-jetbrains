@@ -1,5 +1,6 @@
 package io.unthrottled.doki.util
 
+import com.intellij.openapi.Disposable
 import com.intellij.openapi.util.Disposer
 import com.intellij.util.ui.Animator
 import com.intellij.util.ui.GraphicsUtil
@@ -68,12 +69,14 @@ class LAFAnimator {
       }
 
     myAnimator =
-      object : Animator(
-        "ChangeLAF",
-        60,
-        800,
-        false,
-      ) {
+      object :
+        Animator(
+          "ChangeLAF",
+          60,
+          800,
+          false,
+        ),
+        Disposable {
         override fun paintNow(
           frame: Int,
           totalFrames: Int,

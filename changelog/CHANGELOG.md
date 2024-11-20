@@ -1,5 +1,10 @@
 Changelog
 ---
+#  88.5-1.15.0 [2024.3 Build Support]
+
+- Lowest supported version is now 2024.3
+- Compiles to the 2024.3 build
+
 # 88.5-1.14.0 [Marketplace Support]
 
 - Added initial 2024.2 build support

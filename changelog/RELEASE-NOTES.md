@@ -1,2 +1,0 @@
-- Added initial 2024.2 build support
-- Should be able to be published to marketplace now.

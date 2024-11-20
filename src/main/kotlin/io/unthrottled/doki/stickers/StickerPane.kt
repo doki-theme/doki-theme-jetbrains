@@ -195,10 +195,9 @@ internal class StickerPane(
     var hoveredInside = false
     var makingStickerReAppear = false
     return AWTEventListener { event ->
-      if (
-        !this.hideConfig.hideOnHover ||
-        event !is InputEvent ||
-        UIUtil.isDescendingFrom(event.component, drawablePane).not()
+      if (!this.hideConfig.hideOnHover || event !is InputEvent ||
+        UIUtil.isDescendingFrom(event.component, drawablePane)
+          .not()
       ) {
         return@AWTEventListener
       }
@@ -206,11 +205,7 @@ internal class StickerPane(
       if (event is MouseEvent) {
         val isInsideSticker = isInsideMemePanel(event)
         val stickerShowing = isStickerShowing()
-        if (
-          event.id == MouseEvent.MOUSE_MOVED &&
-          isInsideSticker &&
-          stickerShowing
-        ) {
+        if (event.id == MouseEvent.MOUSE_MOVED && isInsideSticker && stickerShowing) {
           if (!hoveredInside) {
             hoveredInside = true
             hoverAlarm.addRequest(
@@ -223,11 +218,7 @@ internal class StickerPane(
               this.hideConfig.hideDelayMS,
             )
           }
-        } else if (
-          event.id == MouseEvent.MOUSE_MOVED &&
-          hoveredInside &&
-          !isInsideSticker
-        ) {
+        } else if (event.id == MouseEvent.MOUSE_MOVED && hoveredInside && !isInsideSticker) {
           if (!makingStickerReAppear) {
             hoverAlarm.cancelAllRequests()
           }
@@ -253,9 +244,7 @@ internal class StickerPane(
     }
   }
 
-  private fun isStickerShowing() =
-    alpha == CLEARED_ALPHA ||
-      alpha == VISIBLE_ALPHA
+  private fun isStickerShowing() = alpha == CLEARED_ALPHA || alpha == VISIBLE_ALPHA
 
   private fun isInsideMemePanel(e: MouseEvent): Boolean = isInsideComponent(e, this)
 
@@ -347,9 +336,7 @@ internal class StickerPane(
 
     // don't show on small stickers on
     // small dialog windows
-    if (type == StickerType.SMOL &&
-      drawablePane.height < 400
-    ) {
+    if (type == StickerType.SMOL && drawablePane.height < 400) {
       return
     }
 
@@ -478,8 +465,7 @@ internal class StickerPane(
           ),
         )
 
-      type == StickerType.REGULAR &&
-        ThemeConfig.instance.capStickerDimensions ->
+      type == StickerType.REGULAR && ThemeConfig.instance.capStickerDimensions ->
         DimensionCappingService.getCappingStyle(
           originalDimension,
           Dimension(
@@ -494,17 +480,16 @@ internal class StickerPane(
 
   private fun getImageDimensions(stickerUrl: String): Dimension =
     runSafelyWithResult({
-      ImageIO.createImageInputStream(File(URI(stickerUrl)))
-        .use {
-          val readers = ImageIO.getImageReaders(it)
-          if (readers.hasNext()) {
-            val reader = readers.next()
-            reader.input = it
-            Dimension(reader.getWidth(0), reader.getHeight(0))
-          } else {
-            Dimension(1, 1)
-          }
+      ImageIO.createImageInputStream(File(URI(stickerUrl))).use {
+        val readers = ImageIO.getImageReaders(it)
+        if (readers.hasNext()) {
+          val reader = readers.next()
+          reader.input = it
+          Dimension(reader.getWidth(0), reader.getHeight(0))
+        } else {
+          Dimension(1, 1)
         }
+      }
     }) { Dimension(1, 1) }
 
   private fun positionStickerPanel(
@@ -528,9 +513,10 @@ internal class StickerPane(
     parentWidth: Int,
     parentHeight: Int,
     stickerPanelBoundingBox: Rectangle,
-  ): Pair<Int, Int> =
-    parentWidth - stickerPanelBoundingBox.width - (parentWidth * myMargin.marginX).toInt() to
-      parentHeight - stickerPanelBoundingBox.height - (parentHeight * myMargin.marginY).toInt()
+  ): Pair<Int, Int> {
+    val i = parentWidth - stickerPanelBoundingBox.width - (parentWidth * myMargin.marginX).toInt()
+    return i to parentHeight - stickerPanelBoundingBox.height - (parentHeight * myMargin.marginY).toInt()
+  }
 
   fun detach() {
     drawablePane.remove(this)
@@ -640,13 +626,15 @@ internal class StickerPane(
   private fun runFadeAnimation(runForwards: Boolean = true) {
     val self = this
     val animator =
-      object : Animator(
-        "Sticker Fadeout",
-        TOTAL_FRAMES,
-        CYCLE_DURATION,
-        false,
-        runForwards,
-      ) {
+      object :
+        Animator(
+          "Sticker Fadeout",
+          TOTAL_FRAMES,
+          CYCLE_DURATION,
+          false,
+          runForwards,
+        ),
+        Disposable {
         override fun paintNow(
           frame: Int,
           totalFrames: Int,
