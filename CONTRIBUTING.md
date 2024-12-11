@@ -50,7 +50,7 @@ So to reduce maintenance overhead, this repository uses https://github.com/doki-
 Doing so requires special setup for your development environment.
 
 - First, you'll need to [Authenticate to GitHub Packages](https://docs.github.com/en/packages/learn-github-packages/introduction-to-github-packages#authenticating-to-github-packages)
-- Next, you'll need to set your GitHub username as the environment variable `GITHUB_TOKEN` when you run the plugin.
+- Next, you'll need to set your GitHub username as the environment variable `GITHUB_ACTOR` when you run the plugin.
 - After that, use the access token you created from the first step as the value of the environment variable `GITHUB_TOKEN`.
 - Run, the plugin.
 
