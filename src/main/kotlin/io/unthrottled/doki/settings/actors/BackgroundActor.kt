@@ -8,6 +8,7 @@ import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.notification.UpdateNotification
 import io.unthrottled.doki.promotions.MessageBundle
 import io.unthrottled.doki.stickers.EditorBackgroundWallpaperService
+import kotlin.reflect.full.functions
 
 object BackgroundActor {
   fun handleBackgroundUpdate(enabled: Boolean) {
@@ -25,7 +26,12 @@ object BackgroundActor {
                   e: AnActionEvent,
                   notification: Notification,
                 ) {
-                  ActionManager.getInstance().getAction("Images.SetBackgroundImage")?.actionPerformed(e)
+                  val action = ActionManager.getInstance().getAction("Images.SetBackgroundImage")
+                  action.javaClass.methods.firstOrNull {
+                    it.name == "actionPerformed" && it.parameterCount == 1
+                  }?.apply {
+                    invoke(action, e)
+                  }
                 }
               }
             },
