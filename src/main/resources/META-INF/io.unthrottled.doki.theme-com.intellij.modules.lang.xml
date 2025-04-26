@@ -1,6 +1,5 @@
 <idea-plugin>
   <extensions defaultExtensionNs="com.intellij">
-    <annotator language="JSON" implementationClass="io.unthrottled.doki.ide.DokiThemeColorAnnotator"/>
     <themeMetadataProvider path="/theme-schema/DokiTheme.themeMetadata.json"/>
   </extensions>
 </idea-plugin>
