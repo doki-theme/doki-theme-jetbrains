@@ -57,8 +57,12 @@ jobs:
 
       # Run tests
       - name: Run Tests
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: ./gradlew check
 
       # Run verifyPlugin Gradle task
       - name: Verify Plugin
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: ./gradlew verifyPlugin
