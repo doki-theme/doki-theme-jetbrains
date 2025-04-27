@@ -12,7 +12,7 @@ jobs:
         run: ./getMasterThemes.sh
       - uses: actions/setup-java@v4
         with:
-          java-version: 17
+          java-version: 21
           distribution: 'zulu'
       - run: ./ciScripts/buildPlugin.sh
         env:
