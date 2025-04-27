@@ -55,19 +55,6 @@ jobs:
       - name: Pull down the Master Themes
         run: ./getMasterThemes.sh
 
-      # Set environment variables
-#      - name: Export Properties
-#        id: properties
-#        shell: bash
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#        run: |
-#          PROPERTIES="$(./gradlew properties --console=plain -q)"
-#          IDE_VERSIONS="$(echo "$PROPERTIES" | grep "^pluginVerifierIdeVersions:" | base64)"
-#
-#          echo "::set-output name=ideVersions::$IDE_VERSIONS"
-#          echo "::set-output name=pluginVerifierHomeDir::~/.pluginVerifier"
-
       # Run tests
       - name: Run Tests
         run: ./gradlew check
