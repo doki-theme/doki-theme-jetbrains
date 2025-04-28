@@ -1,6 +1,0 @@
-<idea-plugin>
-  <extensions defaultExtensionNs="JavaScript.JsonSchema">
-    <ProviderFactory implementation="io.unthrottled.doki.schema.DokiMasterThemeJsonSchemaProvider"/>
-    <ProviderFactory implementation="io.unthrottled.doki.schema.DokiJetbrainsThemeJsonSchemaProvider"/>
-  </extensions>
-</idea-plugin>

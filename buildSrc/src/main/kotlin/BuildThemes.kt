@@ -83,16 +83,18 @@ open class BuildThemes : DefaultTask() {
 
   private fun getThemeSchema(): ThemeDefinitionSchema =
     newInputStream(get(getResourcesDirectory().toString(), "theme-schema", "master.theme.schema.json")).use {
-      gson.fromJson(
-        InputStreamReader(it, StandardCharsets.UTF_8),
+      val inputStreamReader: InputStreamReader = InputStreamReader(it, StandardCharsets.UTF_8)
+      val fromJson: ThemeDefinitionSchema = gson.fromJson(
+        inputStreamReader,
         ThemeDefinitionSchema::class.java
       )
+      fromJson
     }
 
   @TaskAction
   fun run() {
     val buildSourceAssetDirectory = getBuildSourceAssetDirectory()
-    val masterThemesDirectory = get(project.rootDir.absolutePath, "masterThemes")
+    val masterThemesDirectory = get(project.projectDir.toString(), "masterThemes")
     val constructableAssetSupplier =
       ConstructableAssetSupplierFactory.createCommonAssetsTemplate(
         buildSourceAssetDirectory,
@@ -459,7 +461,7 @@ open class BuildThemes : DefaultTask() {
   )
 
   private fun getResourcesDirectory(): Path = get(
-    project.rootDir.absolutePath,
+    project.getRootDir().toString(),
     "src",
     "main",
     "resources"
