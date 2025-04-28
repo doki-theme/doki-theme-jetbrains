@@ -473,6 +473,7 @@
     "ToggleButton.borderColor": "accentColorTransparent",
 
     "Banner.infoBackground": "accentColorTransparent",
+    "Banner.warningBackground": "nonProjectFileScopeColor",
     "Banner.infoBorderColor": "accentColor",
 
     "EditorTabs.inactiveColoredFileBackground": "ghostColor",
@@ -672,8 +673,10 @@
       "Objects.Blue": "accentColor",
       "Actions.Grey": "baseIconColor",
       "Actions.GreyInline": "baseIconColor",
+      "Gray.Fill": "baseIconColor",
       "Actions.GreyInline.Dark": "baseIconColor",
       "Objects.Grey": "baseIconColor",
+      "Gray.Stroke": "iconAccent",
       "Checkbox.Background.Default": "baseBackground",
       "Checkbox.Border.Default":"baseIconColor",
       "Checkbox.Background.Selected": "accentColor",

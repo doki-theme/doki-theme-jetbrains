@@ -24,8 +24,12 @@
     "replacementPath": "icons/actions/deleteTagHover_dark.svg"
   },
   {
-    "originalPath": "/actions/checked.svg",
-    "replacementPath": "icons/actions/checked.svg"
+    "originalPath": "/expui/nodes/folder.svg",
+    "replacementPath": "icons/nodes/folder.svg"
+  },
+  {
+    "originalPath": "/expui/nodes/folder_dark.svg",
+    "replacementPath": "icons/nodes/folder_dark.svg"
   },
   {
     "originalPath": "/actions/diffWithClipboard.svg",
