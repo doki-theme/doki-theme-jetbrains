@@ -451,13 +451,13 @@ open class BuildThemes : DefaultTask() {
   }
 
   private fun buildStickerPath(separator: String?, masterThemeDefinition: MasterThemeDefinition) =
-    "${separator}stickers${separator}${masterThemeDefinition.usableGroup.toLowerCase()}${separator}${masterThemeDefinition.usableName}${separator}"
+    "${separator}stickers${separator}${masterThemeDefinition.usableGroup.lowercase()}${separator}${masterThemeDefinition.usableName}${separator}"
 
   private fun getResourceDirectory(masterThemeDefinition: MasterThemeDefinition): Path = get(
     getResourcesDirectory().toString(),
     "doki",
     "themes",
-    masterThemeDefinition.usableGroup.toLowerCase()
+    masterThemeDefinition.usableGroup.lowercase()
   )
 
   private fun getResourcesDirectory(): Path = get(
@@ -499,7 +499,7 @@ open class BuildThemes : DefaultTask() {
     val resolveAttributes =
       BuildFunctions.resolveTemplateWithCombini(
         AssetTemplateDefinition(
-          ui = jetbrainsAppDefinition.ui ?: emptyMap(),
+          ui = jetbrainsAppDefinition.ui,
           name = "jetbrains UI",
           extends = jetbrainsAppDefinition.uiBase ?: initialParentTemplateName,
         ),
@@ -544,7 +544,7 @@ open class BuildThemes : DefaultTask() {
       }
     }
     .collect(Collectors.toMap({ it.first }, { it.second }, { _, b -> b },
-      { TreeMap(Comparator.comparing { item -> item.toLowerCase() }) })
+      { TreeMap(Comparator.comparing { item -> item.lowercase() }) })
     )
 
   private fun createEditorScheme(
@@ -726,7 +726,6 @@ open class BuildThemes : DefaultTask() {
     val themeTemplate = editorTemplate.clone() as Node
     themeTemplate.breadthFirst()
       .filterIsInstance<Node>()
-      .map { it as Node }
       .forEach {
         when (it.name()) {
           "scheme" -> {
@@ -737,8 +736,8 @@ open class BuildThemes : DefaultTask() {
             val value = it.attribute("value") as? String
             if (value?.contains('$') == true) {
               val (end, replacementColor) = getReplacementColor(value, '$') { templateColor ->
-                dokiDefinitionMaster.overrides?.editorScheme?.colors?.get(templateColor) as? String
-                  ?: dokiDefinitionJetbrains.overrides?.editorScheme?.colors?.get(templateColor) as? String
+                dokiDefinitionMaster.overrides?.editorScheme?.colors?.get(templateColor)
+                  ?: dokiDefinitionJetbrains.overrides?.editorScheme?.colors?.get(templateColor)
                   ?: resolvedNamedColors[templateColor] as? String
                   ?: throw IllegalArgumentException("$templateColor is not in ${dokiDefinitionMaster.name}'s color definition.")
               }

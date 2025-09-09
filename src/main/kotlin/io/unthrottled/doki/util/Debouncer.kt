@@ -21,7 +21,7 @@ class AlarmDebouncer<T>(
   Debouncer,
     BufferedDebouncer<T>,
     Disposable {
-  private val alarm: Alarm = Alarm()
+  private val alarm: Alarm by lazy { Alarm() }
 
   override fun debounce(toDebounce: () -> Unit) {
     performDebounce({
