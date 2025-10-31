@@ -34,7 +34,6 @@ object EXPUIFixer : LafManagerListener, Disposable {
         setUIProperty("ToolWindow.Button.selectedBackground", dokiTheme.getColor("highlightColor"), defaults)
         setUIProperty("ToolWindow.Button.selectedForeground", dokiTheme.getColor("iconAccent"), defaults)
         setUIProperty("Editor.SearchField.borderInsets", JBUI.insets(7, 10, 7, 8), defaults)
-        setUIProperty("Tree.rowHeight", 24, defaults)
         setUIProperty("Tree.border", JBUI.insets(4, 12), defaults)
       }
       overrideSetProperties(iterations + 1)
