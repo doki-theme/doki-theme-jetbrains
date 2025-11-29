@@ -18,6 +18,7 @@
     "TitlePane.background": "baseBackground",
     "Panel.background": "baseBackground",
     "ToolWindow.background": "baseBackground",
+    "ToolWindow.Stripe.background": "baseBackground",
     "Button.background": "baseBackground",
     "Label.background": "baseBackground",
     "CheckBox.background": "baseBackground",

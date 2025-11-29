@@ -9,7 +9,7 @@ import io.unthrottled.doki.themes.DokiTheme
 import io.unthrottled.doki.util.AlarmDebouncer
 
 object UpdateNotificationUpdater : Disposable {
-  private val debouncer = AlarmDebouncer<Unit>(80)
+  private val debouncer: AlarmDebouncer<Unit> by lazy { AlarmDebouncer<Unit>(80) }
 
   fun attemptToRefreshUpdateNotification(dokiTheme: DokiTheme) {
     debouncer.debounce {

@@ -311,9 +311,10 @@ fun getAnchor(position: IdeBackgroundUtil.Anchor): String {
 }
 
 object UpdateNotification : Logging {
-  private val notificationGroup =
+  private val notificationGroup by lazy {
     NotificationGroupManager.getInstance()
       .getNotificationGroup("Doki Theme Updates")
+  }
 
   private val defaultListener = NotificationListener.UrlOpeningListener(false)
 
