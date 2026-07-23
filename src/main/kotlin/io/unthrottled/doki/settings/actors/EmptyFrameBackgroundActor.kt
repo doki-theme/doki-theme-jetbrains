@@ -5,12 +5,12 @@ import io.unthrottled.doki.stickers.EmptyFrameWallpaperService
 
 object EmptyFrameBackgroundActor {
   fun handleBackgroundUpdate(enabled: Boolean) {
-    if (enabled != ThemeConfig.instance.isEmptyFrameBackground) {
-      ThemeConfig.instance.isEmptyFrameBackground = enabled
+    if (enabled != ThemeConfig.getInstance().isEmptyFrameBackground) {
+      ThemeConfig.getInstance().isEmptyFrameBackground = enabled
       if (enabled) {
-        EmptyFrameWallpaperService.instance.enableEmptyFrameWallpaper()
+        EmptyFrameWallpaperService.getInstance().enableEmptyFrameWallpaper()
       } else {
-        EmptyFrameWallpaperService.instance.remove()
+        EmptyFrameWallpaperService.getInstance().remove()
       }
     }
   }

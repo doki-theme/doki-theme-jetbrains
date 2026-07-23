@@ -9,9 +9,9 @@ object StickerHideActor {
     hideOnHover: Boolean,
     hideDelayMS: Int,
   ) {
-    if (hideOnHover != ThemeConfig.instance.hideOnHover) {
-      ThemeConfig.instance.hideOnHover = hideOnHover
-      StickerPaneService.instance.setStickerHideConfig(
+    if (hideOnHover != ThemeConfig.getInstance().hideOnHover) {
+      ThemeConfig.getInstance().hideOnHover = hideOnHover
+      StickerPaneService.getInstance().setStickerHideConfig(
         StickerHideConfig(
           hideOnHover,
           hideDelayMS,

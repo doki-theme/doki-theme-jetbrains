@@ -2,7 +2,7 @@
 name: Bug Report
 about: Create a report to help me improve
 title: ''
-labels: ''
+labels: bug
 assignees: ''
 
 ---
@@ -17,16 +17,11 @@ assignees: ''
 **Expected Behavior**
 <!-- A clear and concise description of what you expected to happen. -->
 
-**Environment**
-<!-- Please go to *IntelliJ IDEA -> About IntelliJ IDEA (Mac)* or *Help -> About IntelliJ IDEA (Windows)* and copy the infos
-to the clipboard and paste it here.
+**Environment:**
+<!--(please complete the following information)-->
+ - OS: <!--[e.g. Mac, Windows, Linux]-->
+ - Jetbrains IDE: <!--[e.g. IntelliJ IDEA, Android Studio]-->
+ - Plugin Version: <!--[e.g. v2.2.0]-->
 
-It should contain:
-* OS (Windows, Linux, Mac)
-* IntelliJ Product + version (IDEA, RubyMine...)
-* Plugin version 
-* A list of enabled plugins -->
-
-
-**Screenshots**
+**Screenshots/Video**
 <!-- If applicable, add screenshots to help explain your problem. -->

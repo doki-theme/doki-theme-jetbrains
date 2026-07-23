@@ -4,8 +4,8 @@ import io.unthrottled.doki.config.ThemeConfig
 
 object ThemeStatusBarActor {
   fun applyConfig(showThemeStatusBar: Boolean) {
-    if (ThemeConfig.instance.showThemeStatusBar != showThemeStatusBar) {
-      ThemeConfig.instance.showThemeStatusBar = showThemeStatusBar
+    if (ThemeConfig.getInstance().showThemeStatusBar != showThemeStatusBar) {
+      ThemeConfig.getInstance().showThemeStatusBar = showThemeStatusBar
     }
   }
 }

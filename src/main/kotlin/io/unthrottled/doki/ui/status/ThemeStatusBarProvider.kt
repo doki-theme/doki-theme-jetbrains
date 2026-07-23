@@ -25,5 +25,5 @@ class ThemeStatusBarProvider : StatusBarWidgetFactory, LightEditCompatible {
 
   override fun isConfigurable(): Boolean = true
 
-  override fun isEnabledByDefault(): Boolean = ThemeConfig.instance.showThemeStatusBar
+  override fun isEnabledByDefault(): Boolean = ThemeConfig.getInstance().showThemeStatusBar
 }

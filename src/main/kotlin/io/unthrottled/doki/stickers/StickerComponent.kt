@@ -5,19 +5,21 @@ import com.intellij.ide.ui.LafManagerListener
 import com.intellij.ide.ui.laf.UIThemeLookAndFeelInfo
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.application.ApplicationManager
+import com.intellij.openapi.components.Service
 import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.themes.DokiTheme
 import io.unthrottled.doki.themes.ThemeManager
 import io.unthrottled.doki.util.doOrElse
 import io.unthrottled.doki.util.toOptional
 
+@Service
 class StickerComponent :
   LafManagerListener,
   Disposable {
   private val connection = ApplicationManager.getApplication().messageBus.connect()
 
   init {
-    StickerPaneService.instance.init()
+    StickerPaneService.getInstance().init()
     initializeTheme()
     connection.subscribe(LafManagerListener.TOPIC, this)
   }
@@ -25,15 +27,15 @@ class StickerComponent :
   private fun initializeTheme() {
     LafManager.getInstance()?.currentUIThemeLookAndFeel.toOptional()
       .ifPresent { currentLaf ->
-        ThemeManager.instance.processLaf(
+        ThemeManager.getInstance().processLaf(
           currentLaf,
         ).doOrElse({
           processLaf(currentLaf) // is doki theme
         }) {
           // allow custom stickers to show up
           if (CustomStickerService.isCustomStickers) {
-            StickerPaneService.instance.activateForTheme(
-              ThemeManager.instance.defaultTheme,
+            StickerPaneService.getInstance().activateForTheme(
+              ThemeManager.getInstance().defaultTheme,
             )
           }
         }
@@ -41,25 +43,24 @@ class StickerComponent :
   }
 
   companion object {
-    val instance: StickerComponent
-      get() = ApplicationManager.getApplication().getService(StickerComponent::class.java)
+    fun getInstance(): StickerComponent = ApplicationManager.getApplication().getService(StickerComponent::class.java)
 
     fun activateForTheme(dokiTheme: DokiTheme) {
-      if (ThemeConfig.instance.discreetMode) return
+      if (ThemeConfig.getInstance().discreetMode) return
 
-      EditorBackgroundWallpaperService.instance.activateForTheme(dokiTheme)
-      EmptyFrameWallpaperService.instance.activateForTheme(dokiTheme)
-      StickerPaneService.instance.activateForTheme(dokiTheme)
+      EditorBackgroundWallpaperService.getInstance().activateForTheme(dokiTheme)
+      EmptyFrameWallpaperService.getInstance().activateForTheme(dokiTheme)
+      StickerPaneService.getInstance().activateForTheme(dokiTheme)
     }
 
     fun remove() {
-      if (ThemeConfig.instance.discreetMode) return
+      if (ThemeConfig.getInstance().discreetMode) return
 
-      EditorBackgroundWallpaperService.instance.remove()
-      EmptyFrameWallpaperService.instance.remove()
+      EditorBackgroundWallpaperService.getInstance().remove()
+      EmptyFrameWallpaperService.getInstance().remove()
 
       if (CustomStickerService.isCustomStickers) return
-      StickerPaneService.instance.remove(StickerType.ALL)
+      StickerPaneService.getInstance().remove(StickerType.ALL)
     }
   }
 
@@ -70,7 +71,7 @@ class StickerComponent :
   }
 
   private fun processLaf(currentLaf: UIThemeLookAndFeelInfo) {
-    ThemeManager.instance.processLaf(currentLaf)
+    ThemeManager.getInstance().processLaf(currentLaf)
       .doOrElse({
         activateForTheme(it)
       }) {

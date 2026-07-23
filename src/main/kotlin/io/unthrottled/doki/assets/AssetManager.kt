@@ -21,7 +21,6 @@ import java.util.concurrent.Callable
 enum class AssetCategory(val category: String) {
   STICKERS("stickers"),
   BACKGROUNDS("backgrounds"),
-  PROMOTION("promotion"),
   MISC("misc"),
 }
 
@@ -34,11 +33,11 @@ object HttpClientFactory {
 
 object AssetManager {
   const val ASSET_SOURCE = "https://doki.assets.unthrottled.io"
-  const val FALLBACK_ASSET_SOURCE = "https://raw.githubusercontent.com/doki-theme/doki-theme-assets/master"
+  const val FALLBACK_ASSET_SOURCE = "https://raw.githubusercontent.com/ZimCodes/doki-theme-assets/main"
 
   /**
    * Will return a resolvable URL that can be used to reference an asset.
-   * If the asset was able to be downloaded on the local machine it will return a
+   * If the asset was  downloaded on the local machine it will return a
    * file:// url to the local asset. If it was not able to get the asset then it
    * will return empty if the asset is not available locally.
    */
@@ -119,8 +118,10 @@ object AssetManager {
     when {
       hasAssetChanged(localAssetPath, remoteAssetUrl) ->
         downloadAndGetAssetUrl(localAssetPath, remoteAssetUrl)
+
       Files.exists(localAssetPath) ->
         localAssetPath.toUri().toString().toOptional()
+
       else -> Optional.empty()
     }
 

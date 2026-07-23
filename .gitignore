@@ -1,5 +1,4 @@
 scripts/
-testAssets/
 
 # Generated Themes Directory
 src/main/resources/doki/themes
@@ -14,17 +13,33 @@ out/
 
 # Gradle
 .gradle/
-build/
+build/*
+doki-build-plugin/build/
+# Keeps doki-build-plugin files
+!build/plugin/
+!build/plugin/**
 classes/
 
 ./club_members/
 
 #gradle.properties
 *.icls
-src/test/resources/
 
 masterThemes/
 masterThemes
 _masterThemes/
 .qodana/
 .intellijPlatform/
+.kotlin
+doki-build-source-jvm/
+doki-build-source/
+
+# Generated doki theme variant templates
+doki-build-plugin/assets/themes/**/*.json
+doki-build-plugin/assets/themes/**/!*.darcula*.json
+
+# Generated base templates
+doki-build-plugin/assets/templates/*.islands*.json
+
+# Generated plugins.xml
+src/main/resources/META-INF/plugin.xml

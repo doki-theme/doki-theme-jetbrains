@@ -18,7 +18,7 @@ class ShowSettingsAction : AnAction(), DumbAware {
           THEME_SETTINGS_DISPLAY_NAME,
         )
       },
-      ModalityState.NON_MODAL,
+      ModalityState.nonModal(),
     )
   }
 }

@@ -10,20 +10,8 @@ object DokiIcons {
   }
 
   object Plugins {
-    object Motivator {
-      val TOOL_WINDOW = load("icons/plugins/motivator/motivator_toolwindow.svg")
-    }
-
     object Icons {
       val TOOL_WINDOW = load("icons/doki/neko_glyph.svg")
-    }
-
-    object AMII {
-      val TOOL_WINDOW = load("icons/plugins/amii/plugin-tool-window.svg")
-    }
-
-    object Randomizer {
-      val TOOL_WINDOW = load("icons/plugins/randomizer/randomizer-plugin-tool-window.svg")
     }
   }
 

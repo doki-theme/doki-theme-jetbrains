@@ -52,11 +52,11 @@ class ThemeStatusBarWidget(private val project: Project) :
       }
   }
 
-  override fun getTooltipText(): String? = "Current Theme"
+  override fun getTooltipText(): String = "Current Theme"
 
   override fun getSelectedValue(): String? =
-    ThemeManager.instance.currentTheme
-      .filter { ThemeConfig.instance.showThemeStatusBar }
+    ThemeManager.getInstance().currentTheme
+      .filter { ThemeConfig.getInstance().showThemeStatusBar }
       .map { it.displayName }
       .orElseGet { null }
 
@@ -72,8 +72,8 @@ class ThemeStatusBarWidget(private val project: Project) :
   }
 
   override fun getIcon(): Icon? =
-    ThemeManager.instance.currentTheme
-      .filter { ThemeConfig.instance.showThemeStatusBar }
+    ThemeManager.getInstance().currentTheme
+      .filter { ThemeConfig.getInstance().showThemeStatusBar }
       .map { AllIcons.Nodes.Favorite }
       .orElseGet { null }
 
@@ -86,7 +86,7 @@ class ThemeStatusBarWidget(private val project: Project) :
             THEME_SETTINGS_DISPLAY_NAME,
           )
         },
-        ModalityState.NON_MODAL,
+        ModalityState.nonModal(),
       )
     }
 }

@@ -17,9 +17,6 @@ class IDEPluginInstallListener : DynamicPluginListener, Logging {
   ) {
   }
 
-  override fun checkUnloadPlugin(pluginDescriptor: IdeaPluginDescriptor) {
-  }
-
   override fun pluginLoaded(pluginDescriptor: IdeaPluginDescriptor) {
     if (isDokiIconPlugin(pluginDescriptor)) {
       IconPathReplacementComponent.removePatchers()

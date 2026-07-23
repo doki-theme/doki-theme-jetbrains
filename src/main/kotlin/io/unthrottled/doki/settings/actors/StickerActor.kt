@@ -2,12 +2,7 @@ package io.unthrottled.doki.settings.actors
 
 import com.intellij.openapi.application.ApplicationManager
 import io.unthrottled.doki.config.ThemeConfig
-import io.unthrottled.doki.stickers.CurrentSticker
-import io.unthrottled.doki.stickers.CustomStickerService
-import io.unthrottled.doki.stickers.StickerComponent
-import io.unthrottled.doki.stickers.StickerLevel
-import io.unthrottled.doki.stickers.StickerPaneService
-import io.unthrottled.doki.stickers.StickerType
+import io.unthrottled.doki.stickers.*
 import io.unthrottled.doki.themes.ThemeManager
 import io.unthrottled.doki.util.performWithAnimation
 
@@ -16,10 +11,10 @@ object StickerActor {
     newStickerType: CurrentSticker,
     withAnimation: Boolean = true,
   ) {
-    if (ThemeConfig.instance.currentSticker != newStickerType) {
+    if (ThemeConfig.getInstance().currentSticker != newStickerType) {
       performWithAnimation(withAnimation) {
-        ThemeConfig.instance.currentSticker = newStickerType
-        ThemeManager.instance.currentTheme.ifPresent {
+        ThemeConfig.getInstance().currentSticker = newStickerType
+        ThemeManager.getInstance().currentTheme.ifPresent {
           StickerComponent.activateForTheme(it)
         }
       }
@@ -27,11 +22,11 @@ object StickerActor {
   }
 
   fun ignoreScaling(ignoreScaling: Boolean) {
-    if (ThemeConfig.instance.ignoreScaling != ignoreScaling) {
+    if (ThemeConfig.getInstance().ignoreScaling != ignoreScaling) {
       ApplicationManager.getApplication().executeOnPooledThread {
-        ThemeConfig.instance.ignoreScaling = ignoreScaling
-        ThemeManager.instance.currentTheme.ifPresent {
-          StickerPaneService.instance.setIgnoreScaling(ignoreScaling)
+        ThemeConfig.getInstance().ignoreScaling = ignoreScaling
+        ThemeManager.getInstance().currentTheme.ifPresent {
+          StickerPaneService.getInstance().setIgnoreScaling(ignoreScaling)
         }
       }
     }
@@ -41,7 +36,7 @@ object StickerActor {
     enabled: Boolean,
     withAnimation: Boolean = true,
   ) {
-    if (enabled != (ThemeConfig.instance.currentStickerLevel == StickerLevel.ON)) {
+    if (enabled != (ThemeConfig.getInstance().currentStickerLevel == StickerLevel.ON)) {
       setStickers(withAnimation, enabled)
     }
   }
@@ -52,13 +47,13 @@ object StickerActor {
   ) {
     performWithAnimation(withAnimation) {
       if (enabled) {
-        ThemeConfig.instance.stickerLevel = StickerLevel.ON.name
-        ThemeManager.instance.currentTheme.ifPresent {
-          StickerPaneService.instance.activateForTheme(it)
+        ThemeConfig.getInstance().stickerLevel = StickerLevel.ON.name
+        ThemeManager.getInstance().currentTheme.ifPresent {
+          StickerPaneService.getInstance().activateForTheme(it)
         }
       } else {
-        ThemeConfig.instance.stickerLevel = StickerLevel.OFF.name
-        StickerPaneService.instance.remove(StickerType.ALL)
+        ThemeConfig.getInstance().stickerLevel = StickerLevel.OFF.name
+        StickerPaneService.getInstance().remove(StickerType.ALL)
       }
     }
   }
@@ -90,17 +85,16 @@ object StickerActor {
     maxStickerWidth: Int,
     maxStickerHeight: Int,
   ) {
-    val ogWidth = ThemeConfig.instance.maxStickerWidth
-    ThemeConfig.instance.maxStickerWidth = maxStickerWidth
-    val ogHeight = ThemeConfig.instance.maxStickerHeight
-    ThemeConfig.instance.maxStickerHeight = maxStickerHeight
-    val ogActivation = ThemeConfig.instance.capStickerDimensions
-    ThemeConfig.instance.capStickerDimensions = capStickerDimensions
-    if (
-      ogHeight != maxStickerHeight ||
-      ogWidth != maxStickerWidth ||
-      ogActivation != capStickerDimensions
-    ) {
+    val config = ThemeConfig.getInstance()
+    val isDifferentDimensions =
+      config.maxStickerWidth != maxStickerWidth
+        || config.maxStickerHeight != maxStickerHeight
+        || config.capStickerDimensions != capStickerDimensions
+
+    config.maxStickerWidth = maxStickerWidth
+    config.maxStickerHeight = maxStickerHeight
+    config.capStickerDimensions = capStickerDimensions
+    if (isDifferentDimensions) {
       activateNewSticker(false)
     }
   }
@@ -110,29 +104,28 @@ object StickerActor {
     smolMaxStickerWidth: Int,
     smolMaxStickerHeight: Int,
   ) {
-    val ogWidth = ThemeConfig.instance.smallMaxStickerWidth
-    ThemeConfig.instance.smallMaxStickerWidth = smolMaxStickerWidth
-    val ogHeight = ThemeConfig.instance.smallMaxStickerHeight
-    ThemeConfig.instance.smallMaxStickerHeight = smolMaxStickerHeight
-    val ogActivation = ThemeConfig.instance.showSmallStickers
-    ThemeConfig.instance.showSmallStickers = isSmolStickers
-    if (
-      ogHeight != smolMaxStickerHeight ||
-      ogWidth != smolMaxStickerWidth ||
-      ogActivation != isSmolStickers
-    ) {
-      if (ThemeConfig.instance.showSmallStickers) {
+    val config = ThemeConfig.getInstance()
+    val isDifferentDimensions = config.smallMaxStickerWidth != smolMaxStickerWidth
+      || config.smallMaxStickerHeight != smolMaxStickerHeight
+      || config.showSmallStickers != isSmolStickers
+
+    config.smallMaxStickerWidth = smolMaxStickerWidth
+    config.smallMaxStickerHeight = smolMaxStickerHeight
+    config.showSmallStickers = isSmolStickers
+
+    if (isDifferentDimensions) {
+      if (ThemeConfig.getInstance().showSmallStickers) {
         activateNewSticker(false)
       } else {
-        StickerPaneService.instance.remove(StickerType.SMOL)
+        StickerPaneService.getInstance().remove(StickerType.SMOL)
       }
     }
   }
 
   private fun activateNewSticker(withAnimation: Boolean) {
     performWithAnimation(withAnimation) {
-      ThemeManager.instance.currentTheme.ifPresent {
-        StickerPaneService.instance.activateForTheme(it)
+      ThemeManager.getInstance().currentTheme.ifPresent {
+        StickerPaneService.getInstance().activateForTheme(it)
       }
     }
   }

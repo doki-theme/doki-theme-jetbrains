@@ -3,21 +3,20 @@ package io.unthrottled.doki.stickers
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
 import com.intellij.openapi.application.ApplicationManager
+import com.intellij.openapi.components.Service
 import io.unthrottled.doki.config.ThemeConfig
-import io.unthrottled.doki.notification.UpdateNotification
-import io.unthrottled.doki.promotions.MessageBundle
 import io.unthrottled.doki.util.Logging
 import io.unthrottled.doki.util.logger
 import io.unthrottled.doki.util.runSafelyWithResult
 import java.util.concurrent.ConcurrentHashMap
 
+@Service
 class MarginService : Logging {
   companion object {
     private const val STICKER_Y_OFFSET = 0.05
     private const val STICKER_X_OFFSET = 0.03
 
-    val instance: MarginService
-      get() = ApplicationManager.getApplication().getService(MarginService::class.java)
+    fun getInstance(): MarginService = ApplicationManager.getApplication().getService(MarginService::class.java)
   }
 
   private val gson =
@@ -29,7 +28,7 @@ class MarginService : Logging {
   private fun readMargins(): ConcurrentHashMap<String, Margin> {
     return runSafelyWithResult({
       gson.fromJson(
-        ThemeConfig.instance.savedMargins,
+        ThemeConfig.getInstance().savedMargins,
         object : TypeToken<ConcurrentHashMap<String, Margin>>() {}.type,
       )
     }) {
@@ -40,7 +39,7 @@ class MarginService : Logging {
 
   fun reset() {
     savedMargins.clear()
-    ThemeConfig.instance.savedMargins = "{}"
+    ThemeConfig.getInstance().savedMargins = "{}"
   }
 
   fun getMargin(windowGuy: Any): Margin {
@@ -54,10 +53,6 @@ class MarginService : Logging {
     margin: Margin,
   ) {
     savedMargins[getWindowKey(window)] = margin
-    ThemeConfig.instance.savedMargins = gson.toJson(savedMargins.toMutableMap())
-    UpdateNotification.showNotificationAcrossProjects(
-      MessageBundle.message("notification.margin.saved.title"),
-      MessageBundle.message("notification.margin.saved.message"),
-    )
+    ThemeConfig.getInstance().savedMargins = gson.toJson(savedMargins.toMutableMap())
   }
 }

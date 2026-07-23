@@ -38,14 +38,14 @@ object LocalStorageService {
       .normalize()
       .toOptional()
       .filter { Files.isWritable(it.parent) }
-      .map {
-        if (Files.exists(it).not()) {
+      .map { path ->
+        if (Files.exists(path).not()) {
           runSafely({
-            Files.createDirectories(it)
+            Files.createDirectories(path)
           }) {
             log.warn("Unable to create global directory for raisins", it)
           }
         }
-        it.toString()
+        path.toString()
       }
 }

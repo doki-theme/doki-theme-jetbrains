@@ -1,7 +1,6 @@
 package io.unthrottled.doki.promotions
 
 import com.google.gson.GsonBuilder
-import com.intellij.openapi.diagnostic.Logger
 import io.unthrottled.doki.assets.LocalStorageService
 import io.unthrottled.doki.util.runSafely
 import io.unthrottled.doki.util.runSafelyWithResult
@@ -16,7 +15,6 @@ abstract class LedgerMaster<T>(
   private val ledgerPath: Path,
   private val clazz: Class<T>,
 ) {
-  private val log = Logger.getInstance(PromotionLedgerMaster::class.java)
 
   abstract fun initialLedger(): T
 
@@ -42,7 +40,6 @@ abstract class LedgerMaster<T>(
           )
         }
     }) {
-      log.warn("Unable to read promotion ledger for raisins.", it)
       initialLedger()
     }
 
@@ -61,8 +58,6 @@ abstract class LedgerMaster<T>(
           gson.toJson(promotionLedger),
         )
       }
-    }) {
-      log.warn("Unable to persist ledger for raisins", it)
-    }
+    }) {}
   }
 }

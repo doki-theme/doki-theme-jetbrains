@@ -12,10 +12,10 @@ object ConsoleFontActor : Logging {
     enabled: Boolean,
     consoleFontName: String,
   ) {
-    val previousEnablement = ThemeConfig.instance.isOverrideConsoleFont
-    ThemeConfig.instance.isOverrideConsoleFont = enabled
-    val previousFontSize = ThemeConfig.instance.consoleFontName
-    ThemeConfig.instance.consoleFontName = consoleFontName
+    val previousEnablement = ThemeConfig.getInstance().isOverrideConsoleFont
+    ThemeConfig.getInstance().isOverrideConsoleFont = enabled
+    val previousFontSize = ThemeConfig.getInstance().consoleFontName
+    ThemeConfig.getInstance().consoleFontName = consoleFontName
     ConsoleFontService.applyConsoleFont()
 
     val fontSizeChanged = previousFontSize != consoleFontName

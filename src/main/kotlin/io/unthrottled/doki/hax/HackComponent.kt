@@ -51,7 +51,7 @@ object HackComponent : Disposable {
     runSafely({
       val cp = ClassPool(true)
       cp.insertClassPath(ClassClassPath(Class.forName("com.intellij.codeInsight.actions.DirectoryFormattingOptions")))
-      val ctClass = cp.get("com.intellij.codeInsight.actions.FileInEditorProcessor\$FormattedMessageBuilder")
+      val ctClass = cp.get($$"com.intellij.codeInsight.actions.FileInEditorProcessor$FormattedMessageBuilder")
       val init =
         ctClass.getDeclaredMethod(
           "getMessage",
@@ -60,7 +60,7 @@ object HackComponent : Disposable {
         object : ExprEditor() {
           override fun edit(e: MethodCall?) {
             if (e?.methodName == "toHtmlColor") {
-              e.replace("{ \$1 = com.intellij.util.ui.UIUtil.getContextHelpForeground();  \$_ = \$proceed(\$\$); }")
+              e.replace($$"{ $1 = com.intellij.util.ui.UIUtil.getContextHelpForeground();  $_ = $proceed($$); }")
             }
           }
         },
@@ -90,7 +90,7 @@ object HackComponent : Disposable {
         object : ExprEditor() {
           override fun edit(e: MethodCall?) {
             if (e?.methodName == "setForeground") {
-              e.replace("{ \$1 = com.intellij.util.ui.UIUtil.getLabelForeground(); \$_ = \$proceed(\$\$);}")
+              e.replace($$"{ $1 = com.intellij.util.ui.UIUtil.getLabelForeground(); $_ = $proceed($$);}")
             }
           }
         },
@@ -116,7 +116,7 @@ object HackComponent : Disposable {
           override fun edit(e: NewExpr?) {
             if (e?.className == "com.intellij.ui.JBColor") {
               e.replace(
-                "{ \$_ = com.intellij.ui.JBColor.namedColor(\"SearchMatch.foreground\", " +
+                $$"{ $_ = com.intellij.ui.JBColor.namedColor(\"SearchMatch.foreground\", " +
                   "com.intellij.ui.JBColor.BLACK); }",
               )
             }
@@ -133,15 +133,15 @@ object HackComponent : Disposable {
     runSafely({
       val cp = ClassPool(true)
       cp.insertClassPath(ClassClassPath(HintUtil::class.java))
-      val ctClass = cp.get("com.intellij.codeInsight.hint.ParameterInfoComponent\$OneElementComponent")
+      val ctClass = cp.get($$"com.intellij.codeInsight.hint.ParameterInfoComponent$OneElementComponent")
       val hackBackground: (CtMethod) -> Unit = {
         it.instrument(
           object : ExprEditor() {
             override fun edit(e: MethodCall?) {
               if (e?.methodName == "setBackground") {
                 e.replace(
-                  "{ \$1 = com.intellij.ui.JBColor.namedColor(\"ParameterInfo.background\", " +
-                    "com.intellij.codeInsight.hint.HintUtil.getInformationColor()); \$_ = \$proceed(\$\$); }",
+                  $$"{ $1 = com.intellij.ui.JBColor.namedColor(\"ParameterInfo.background\", " +
+                    $$"com.intellij.codeInsight.hint.HintUtil.getInformationColor()); $_ = $proceed($$); }",
                 )
               }
             }
@@ -150,7 +150,7 @@ object HackComponent : Disposable {
       }
       ctClass.getDeclaredMethods("setup").forEach(hackBackground)
       ctClass.toClass()
-      val bitchassClass = cp.get("com.intellij.codeInsight.hint.ParameterInfoComponent\$OneLineComponent")
+      val bitchassClass = cp.get($$"com.intellij.codeInsight.hint.ParameterInfoComponent$OneLineComponent")
       bitchassClass.getDeclaredMethods("doSetup").forEach(hackBackground)
       bitchassClass.toClass()
     }) {
@@ -176,8 +176,8 @@ object HackComponent : Disposable {
           override fun edit(e: MethodCall?) {
             if (e?.methodName == "getIndicator") {
               e.replace(
-                "{ \$4 = com.intellij.ui.JBColor.namedColor(\"Doki.Accent.color\", " +
-                  "java.awt.Color.GREEN); \$_ = \$proceed(\$\$); }",
+                $$"{ $4 = com.intellij.ui.JBColor.namedColor(\"Doki.Accent.color\", " +
+                  $$"java.awt.Color.GREEN); $_ = $proceed($$); }",
               )
             }
           }
@@ -197,7 +197,7 @@ object HackComponent : Disposable {
     runSafely({
       val cp = ClassPool(true)
       cp.insertClassPath(ClassClassPath(CustomMatcherModel::class.java))
-      val ctClass = cp.get("com.intellij.ide.util.gotoByName.GotoActionModel\$GotoActionListCellRenderer")
+      val ctClass = cp.get($$"com.intellij.ide.util.gotoByName.GotoActionModel$GotoActionListCellRenderer")
       val init =
         ctClass.getDeclaredMethods(
           "getListCellRendererComponent",
@@ -205,8 +205,8 @@ object HackComponent : Disposable {
       init.instrument(
         object : ExprEditor() {
           override fun edit(e: MethodCall?) {
-            if (e?.methodName == "isUnderDarcula") { // dis for OptionDescription
-              e.replace("{ \$_ = true; }")
+            if (e?.methodName == "isUnderDarcula") { // this for OptionDescription
+              e.replace($$"{ $_ = true; }")
             }
           }
         },
@@ -236,7 +236,7 @@ object HackComponent : Disposable {
           override fun edit(e: NewExpr?) {
             if (e?.className == "com.intellij.ui.JBColor") {
               e.replace(
-                "{ \$_ = com.intellij.util.ui.JBUI.CurrentTheme." +
+                $$"{ $_ = com.intellij.util.ui.JBUI.CurrentTheme." +
                   "CustomFrameDecorations.separatorForeground(); }",
               )
             }
@@ -268,7 +268,7 @@ object HackComponent : Disposable {
         object : ExprEditor() {
           override fun edit(e: MethodCall?) {
             if (e?.methodName == "isUnderDarcula") {
-              e.replace("{ \$_ = true; }")
+              e.replace($$"{ $_ = true; }")
             }
           }
         },
@@ -292,14 +292,14 @@ object HackComponent : Disposable {
         object : ExprEditor() {
           override fun edit(e: NewExpr?) {
             if (e?.className == "com.intellij.ui.JBColor") {
-              e.replace("{ \$_ = com.intellij.util.ui.JBUI.CurrentTheme.Advertiser.borderColor(); }")
+              e.replace($$"{ $_ = com.intellij.util.ui.JBUI.CurrentTheme.Advertiser.borderColor(); }")
             }
           }
         },
       )
       ctClass.toClass()
     }) {
-      log.warn("Unable to hackRunAnything for reasons.")
+      log.warn("Unable to hackRunAnything for reasons unknown.")
     }
   }
 
@@ -316,14 +316,14 @@ object HackComponent : Disposable {
         object : ExprEditor() {
           override fun edit(e: NewExpr?) {
             if (e?.className == "com.intellij.ui.JBColor") {
-              e.replace("{ \$_ = com.intellij.util.ui.JBUI.CurrentTheme.Advertiser.borderColor(); }")
+              e.replace($$"{ $_ = com.intellij.util.ui.JBUI.CurrentTheme.Advertiser.borderColor(); }")
             }
           }
         },
       )
       ctClass.toClass()
     }) {
-      log.warn("Unable to hackRunAnything for reasons.")
+      log.warn("Unable to hackLineStatusMarkerBorder for reasons.")
     }
   }
 
@@ -341,7 +341,7 @@ object HackComponent : Disposable {
         object : ExprEditor() {
           override fun edit(e: NewExpr?) {
             if (e?.className == "com.intellij.ui.JBColor") {
-              e.replace("{ \$_ = com.intellij.ide.plugins.PluginManagerConfigurable.SEARCH_FIELD_BORDER_COLOR; }")
+              e.replace($$"{ $_ = com.intellij.ide.plugins.PluginManagerConfigurable.SEARCH_FIELD_BORDER_COLOR; }")
             }
           }
         },
@@ -391,7 +391,7 @@ object HackComponent : Disposable {
           @Throws(CannotCompileException::class)
           override fun edit(m: MethodCall?) {
             if (m!!.methodName == "message") {
-              m.replace("{ \$_ = \"Show \\\"Monika's Writing Tip of the Day\\\" on Startup!\"; }")
+              m.replace($$"{ $_ = \"Show \\\"Monika's Writing Tip of the Day\\\" on Startup!\"; }")
             }
           }
         },
@@ -421,11 +421,11 @@ object HackComponent : Disposable {
       backgroundMethod.instrument(
         object : ExprEditor() {
           override fun edit(e: NewExpr?) {
-            e?.replace("{ \$_ = com.intellij.util.ui.UIUtil.getPanelBackground(); }")
+            e?.replace($$"{ $_ = com.intellij.util.ui.UIUtil.getPanelBackground(); }")
           }
 
           override fun edit(m: MethodCall?) {
-            m?.replace("{ \$_ = com.intellij.util.ui.UIUtil.getPanelBackground(); }")
+            m?.replace($$"{ $_ = com.intellij.util.ui.UIUtil.getPanelBackground(); }")
           }
         },
       )
@@ -437,7 +437,7 @@ object HackComponent : Disposable {
           @Throws(CannotCompileException::class)
           override fun edit(m: MethodCall?) {
             if (m!!.methodName == "withNamedPainters") {
-              m.replace("{ \$2 = \"$DOKI_BACKGROUND_PROP\"; \$_ = \$proceed(\$\$); }")
+              m.replace($$"{ $2 = \"$$DOKI_BACKGROUND_PROP\"; $_ = $proceed($$); }")
             }
           }
         },
@@ -449,9 +449,9 @@ object HackComponent : Disposable {
           @Throws(CannotCompileException::class)
           override fun edit(m: MethodCall?) {
             if (m!!.methodName == "initWallpaperPainter") {
-              m.replace("{ \$1 = \"$DOKI_BACKGROUND_PROP\"; \$_ = \$proceed(\$\$); }")
+              m.replace($$"{ $1 = \"$$DOKI_BACKGROUND_PROP\"; $_ = $proceed($$); }")
             } else if (m.methodName == "getNamedPainters") {
-              m.replace("{ \$1 = \"$DOKI_BACKGROUND_PROP\"; \$_ = \$proceed(\$\$); }")
+              m.replace($$"{ $1 = \"$$DOKI_BACKGROUND_PROP\"; $_ = $proceed($$); }")
             }
           }
         },

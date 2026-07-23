@@ -28,7 +28,7 @@ object IconPathReplacementComponent : LafManagerListener {
 
   fun installPatchers() {
     iconInstallPacs.forEach { pak ->
-      if (ThemeManager.instance.isCurrentThemeDoki && PluginService.areIconsInstalled().not()) {
+      if (ThemeManager.getInstance().isCurrentThemeDoki && PluginService.areIconsInstalled().not()) {
         IconLoader.installPathPatcher(pak.iconPatcher)
       }
     }
@@ -46,7 +46,7 @@ object IconPathReplacementComponent : LafManagerListener {
   }
 
   override fun lookAndFeelChanged(source: LafManager) {
-    if (ThemeManager.instance.isCurrentThemeDoki) {
+    if (ThemeManager.getInstance().isCurrentThemeDoki) {
       installPatchers()
     } else {
       removePatchers()

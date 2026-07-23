@@ -8,11 +8,11 @@ import io.unthrottled.doki.themes.ThemeManager
 
 object ConsoleFontService {
   fun applyConsoleFont() {
-    ThemeManager.instance.currentTheme
-      .filter { ThemeConfig.instance.isOverrideConsoleFont }
+    ThemeManager.getInstance().currentTheme
+      .filter { ThemeConfig.getInstance().isOverrideConsoleFont }
       .ifPresent {
         EditorColorsManager.getInstance().schemeForCurrentUITheme
-          .consoleFontName = ThemeConfig.instance.consoleFontName
+          .consoleFontName = ThemeConfig.getInstance().consoleFontName
         ApplicationManager.getApplication().invokeLater {
           ConsoleFontActor.refreshConsole()
         }

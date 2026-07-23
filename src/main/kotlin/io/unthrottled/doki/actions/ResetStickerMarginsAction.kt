@@ -7,6 +7,6 @@ import io.unthrottled.doki.stickers.StickerPaneService
 
 class ResetStickerMarginsAction : AnAction(), DumbAware {
   override fun actionPerformed(e: AnActionEvent) {
-    StickerPaneService.instance.resetMargins()
+    StickerPaneService.getInstance().resetMargins()
   }
 }

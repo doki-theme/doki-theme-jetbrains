@@ -1,0 +1,50 @@
+<idea-plugin require-restart="true">
+  <id>io.acari.DDLCTheme</id>
+  <name>Doki Theme</name>
+  <version>@version@</version>
+  <vendor email="alexsimons9999@gmail.com" url="https://github.com/Unthrottled">Unthrottled</vendor>
+  <idea-version since-build="251"/>
+  <depends>com.intellij.modules.platform</depends>
+  <depends optional="true" config-file="io.unthrottled.doki.theme-com.intellij.modules.lang.xml">com.intellij.modules.lang</depends>
+  <depends optional="true" config-file="io.unthrottled.doki.theme-XPathView.xml">XPathView</depends>
+  <extensions defaultExtensionNs="com.intellij">
+    <applicationService serviceInterface="io.unthrottled.doki.themes.ThemeManager" serviceImplementation="io.unthrottled.doki.themes.impl.ThemeManagerImpl"/>
+    <applicationConfigurable id="0d570cb2-96df-43cc-80da-7f777e6d0afe" displayName="Doki Theme Settings" instance="io.unthrottled.doki.settings.ThemeSettingsView" groupId="appearance"/>
+    <statusBarWidgetFactory implementation="io.unthrottled.doki.ui.status.ThemeStatusBarProvider" id="io.unthrottled.doki.ui.status.StatusBarFactory"/>
+    <editorNotificationProvider implementation="io.unthrottled.doki.internal.DokiEditorNotificationProvider"/>
+    <registryKey defaultValue="true" description="Prevent the Doki Theme plugin from updating downloaded assets" key="doki.theme.update.assets"/>
+    <postStartupActivity implementation="io.unthrottled.doki.activity.PluginPostStartUpActivity"/>
+  </extensions>
+  <applicationListeners>
+    <listener class="io.unthrottled.doki.listener.ApplicationLifecycleListener" topic="com.intellij.ide.AppLifecycleListener"/>
+    <listener class="io.unthrottled.doki.discreet.ApplicationDiscreetModeListener" topic="io.unthrottled.doki.discreet.DiscreetModeListener"/>
+    <listener class="io.unthrottled.doki.integrations.IDEPluginInstallListener" topic="com.intellij.ide.plugins.DynamicPluginListener"/>
+  </applicationListeners>
+  <actions>
+    <group id="DokiThemeActions" text="Doki Theme Options" popup="true" icon="io.unthrottled.doki.icon.DokiThemeIcons.CONFIG">
+      <action id="StickerEnabler" class="io.unthrottled.doki.actions.StickersToggleAction" text="Enable Stickers" icon="io.unthrottled.doki.icon.DokiThemeIcons.FAVORITES" description="Enables the sticker in the lower right hand corner"/>
+      <action id="io.unthrottled.doki.themed.background" class="io.unthrottled.doki.actions.BackgroundToggleAction" text="Enable Wallpaper" icon="io.unthrottled.doki.icon.DokiThemeIcons.WALLPAPER" description="Enables themed editor background image"/>
+      <action id="io.unthrottled.doki.moveable-sticker" class="io.unthrottled.doki.actions.MoveableStickerToggleAction" text="Enable Stickers Positioning" icon="AllIcons.Actions.MoveTo2" description="Enables the stickers to be dragged and repositioned temporarily">
+        <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt 3"/>
+      </action>
+      <add-to-group group-id="MainToolBar" anchor="last"/>
+      <add-to-group group-id="ToolsMenu"/>
+    </group>
+    <action id="io.unthrottled.doki.actions.SwapStickerAction" class="io.unthrottled.doki.actions.SwapStickerAction" text="Swap Sticker" icon="io.unthrottled.doki.icon.DokiThemeIcons.DIFF" description="Changes the current sticker at the bottom right hand corner of the screen.">
+      <add-to-group group-id="DokiThemeActions" anchor="last"/>
+    </action>
+    <action id="io.unthrottled.doki.actions.DiscreetModeAction" class="io.unthrottled.doki.actions.DiscreetModeAction" text="Toggle Discreet Mode" icon="io.unthrottled.doki.icon.DokiThemeIcons.SHAME" description="Quickly hide your shame">
+      <add-to-group group-id="DokiThemeActions" anchor="last"/>
+    </action>
+    <action id="io.unthrottled.doki.actions.ShowSettingsAction" class="io.unthrottled.doki.actions.ShowSettingsAction" text="Show Settings" icon="io.unthrottled.doki.icon.DokiThemeIcons.GEAR_PLAIN" description="Shows the Doki Theme's settings window.">
+      <add-to-group group-id="DokiThemeActions" anchor="last"/>
+    </action>
+    <action id="io.unthrottled.doki.action.ShowEditorNotification" class="io.unthrottled.doki.actions.ShowNotification" text="Show Editor Notification" description="Shows the editor's notification"/>
+    <action id="io.unthrottled.reset.sticker.margins" icon="AllIcons.Actions.Refresh" class="io.unthrottled.doki.actions.ResetStickerMarginsAction" text="Reset Sticker Margins" description="Restores the default margins &amp; repositions stickers.">
+      <add-to-group group-id="DokiThemeActions" anchor="after" relative-to-action="io.unthrottled.doki.actions.ShowSettingsAction"/>
+    </action>
+    <action id="io.unthrottled.doki.theme.hide-on-hover" class="io.unthrottled.doki.actions.HideOnHoverAction" text="Hide on Hover" icon="AllIcons.General.InspectionsEye" description="Hide the sticker when you hover over it.">
+      <add-to-group group-id="DokiThemeActions" anchor="after" relative-to-action="io.unthrottled.doki.actions.SwapStickerAction"/>
+    </action>
+  </actions>
+</idea-plugin>

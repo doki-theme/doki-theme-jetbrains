@@ -6,11 +6,11 @@ import io.unthrottled.doki.themes.ThemeManager
 
 object CustomFontSizeService {
   fun applyCustomFontSize() {
-    ThemeManager.instance.currentTheme
-      .filter { ThemeConfig.instance.isGlobalFontSize }
+    ThemeManager.getInstance().currentTheme
+      .filter { ThemeConfig.getInstance().isGlobalFontSize }
       .ifPresent {
         EditorColorsManager.getInstance().schemeForCurrentUITheme
-          .editorFontSize = ThemeConfig.instance.customFontSize
+          .editorFontSize = ThemeConfig.getInstance().customFontSize
       }
   }
 }

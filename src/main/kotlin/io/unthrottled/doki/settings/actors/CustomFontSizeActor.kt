@@ -9,10 +9,10 @@ object CustomFontSizeActor {
     enabled: Boolean,
     customFontSize: Int,
   ) {
-    val previousEnablement = ThemeConfig.instance.isGlobalFontSize
-    ThemeConfig.instance.isGlobalFontSize = enabled
-    val previousFontSize = ThemeConfig.instance.customFontSize
-    ThemeConfig.instance.customFontSize = customFontSize
+    val previousEnablement = ThemeConfig.getInstance().isGlobalFontSize
+    ThemeConfig.getInstance().isGlobalFontSize = enabled
+    val previousFontSize = ThemeConfig.getInstance().customFontSize
+    ThemeConfig.getInstance().customFontSize = customFontSize
     CustomFontSizeService.applyCustomFontSize()
 
     val fontSizeChanged = previousFontSize != customFontSize

@@ -8,8 +8,8 @@ import io.unthrottled.doki.discreet.toDiscreetMode
 
 object DiscreetModeActor {
   fun enableDiscreetMode(discreetMode: Boolean) {
-    if (ThemeConfig.instance.discreetMode != discreetMode) {
-      ThemeConfig.instance.discreetMode = discreetMode
+    if (ThemeConfig.getInstance().discreetMode != discreetMode) {
+      ThemeConfig.getInstance().discreetMode = discreetMode
       dispatchDiscreetMode(discreetMode.toDiscreetMode())
     }
   }

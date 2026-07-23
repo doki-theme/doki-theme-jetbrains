@@ -1,0 +1,6 @@
+<scheme name="Miku" version="142" parent_scheme="Doki Dark">
+    <colors>
+        <option name="RIGHT_MARGIN_COLOR" value="$startColor$"/>
+        <option name="VISUAL_INDENT_GUIDE" value="$startColor$"/>
+    </colors>
+</scheme>

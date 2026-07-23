@@ -78,7 +78,4 @@ class ThemeManagerImpl : ThemeManager {
   }
 
   override fun themeByName(selectedTheme: String): Optional<DokiTheme> = themeMap[selectedTheme].toOptional()
-
-  override fun dispose() {
-  }
 }

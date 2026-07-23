@@ -15,6 +15,7 @@ import java.awt.image.BufferedImage
 import javax.swing.JComponent
 import javax.swing.JLayeredPane
 import javax.swing.RootPaneContainer
+import kotlin.math.cos
 
 class LAFAnimator {
   private var myAlpha = 1f
@@ -83,7 +84,7 @@ class LAFAnimator {
           cycle: Int,
         ) {
           myAlpha =
-            1 - (1 - Math.cos(Math.PI * frame / totalFrames.toFloat())).toFloat() / 2
+            1 - (1 - cos(Math.PI * frame / totalFrames.toFloat())).toFloat() / 2
           doPaint()
         }
 

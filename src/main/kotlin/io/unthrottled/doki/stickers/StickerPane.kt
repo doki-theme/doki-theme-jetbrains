@@ -7,9 +7,14 @@ import com.intellij.ui.JreHiDpiUtil
 import com.intellij.ui.awt.RelativePoint
 import com.intellij.ui.components.JBLabel
 import com.intellij.ui.components.JBLayeredPane
-import com.intellij.ui.jcef.HwFacadeJPanel
 import com.intellij.ui.scale.JBUIScale
-import com.intellij.util.Alarm
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.cancel
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import com.intellij.util.ui.Animator
 import com.intellij.util.ui.ImageUtil
 import com.intellij.util.ui.StartupUiUtil
@@ -41,7 +46,6 @@ import java.awt.image.BufferedImage
 import java.awt.image.RGBImageFilter
 import java.io.File
 import java.net.URI
-import java.net.URL
 import javax.imageio.ImageIO
 import javax.swing.ImageIcon
 import javax.swing.JComponent
@@ -49,6 +53,7 @@ import javax.swing.JLayeredPane
 import javax.swing.JPanel
 import javax.swing.MenuElement
 import javax.swing.SwingUtilities
+import kotlin.time.Duration.Companion.milliseconds
 
 enum class StickerType {
   REGULAR,
@@ -71,10 +76,10 @@ internal class StickerPane(
   val type: StickerType,
   initialMargin: Margin,
   private val stickerListener: StickerListener,
-) : HwFacadeJPanel(), Disposable, Logging {
+) : JPanel(), Disposable, Logging {
   private lateinit var stickerContent: JPanel
 
-  var ignoreScaling = ThemeConfig.instance.ignoreScaling
+  var ignoreScaling = ThemeConfig.getInstance().ignoreScaling
     set(value) {
       field = value
       if (value) {
@@ -89,15 +94,11 @@ internal class StickerPane(
     }
 
   internal var hideConfig: StickerHideConfig =
-    StickerHideConfig(ThemeConfig.instance.hideOnHover, ThemeConfig.instance.hideDelayMS)
+    StickerHideConfig(ThemeConfig.getInstance().hideOnHover, ThemeConfig.getInstance().hideDelayMS)
 
   private val isSmol = StickerType.SMOL == type
   private var positionable: Boolean =
-    if (isSmol) {
-      true
-    } else {
-      ThemeConfig.instance.isMoveableStickers
-    }
+    isSmol || ThemeConfig.getInstance().isMoveableStickers
 
   fun setPositionable(shouldPosition: Boolean) {
     positionable = shouldPosition
@@ -128,21 +129,19 @@ internal class StickerPane(
 
   private val dragListenerInitiationListener =
     object : MouseListener {
-      private val doubleClickAlarm = Alarm(this@StickerPane)
       private var clickCount = 0
+      private var doubleClickResetJob: Job? = null
 
       override fun mouseClicked(e: MouseEvent?) {
         clickCount += 1
         if (clickCount > 1) {
           stickerListener.onDoubleClick(captureMargin())
         }
-        doubleClickAlarm.cancelAllRequests()
-        doubleClickAlarm.addRequest(
-          {
-            clickCount = 0
-          },
-          250,
-        )
+        doubleClickResetJob?.cancel()
+        doubleClickResetJob = coroutineScope.launch(Dispatchers.Default) {
+          delay(250.milliseconds)
+          SwingUtilities.invokeLater { clickCount = 0 }
+        }
       }
 
       override fun mousePressed(e: MouseEvent) {
@@ -188,7 +187,8 @@ internal class StickerPane(
 
   private val mouseListener: AWTEventListener = createMouseListener()
 
-  private val hoverAlarm = Alarm(this)
+  private val coroutineScope: CoroutineScope = CoroutineScope(SupervisorJob())
+  private var hoverJob: Job? = null
 
   @Suppress("ComplexMethod") // it is inherently complex, sorry!
   private fun createMouseListener(): AWTEventListener {
@@ -208,34 +208,35 @@ internal class StickerPane(
         if (event.id == MouseEvent.MOUSE_MOVED && isInsideSticker && stickerShowing) {
           if (!hoveredInside) {
             hoveredInside = true
-            hoverAlarm.addRequest(
-              {
+            hoverJob?.cancel()
+            hoverJob = coroutineScope.launch(Dispatchers.Default) {
+              delay(this@StickerPane.hideConfig.hideDelayMS.toLong().milliseconds)
+              SwingUtilities.invokeLater {
                 runFadeAnimation(runForwards = false)
                 if (positionable) {
                   removeListeners()
                 }
-              },
-              this.hideConfig.hideDelayMS,
-            )
+              }
+            }
           }
         } else if (event.id == MouseEvent.MOUSE_MOVED && hoveredInside && !isInsideSticker) {
           if (!makingStickerReAppear) {
-            hoverAlarm.cancelAllRequests()
+            hoverJob?.cancel()
           }
 
           if (!stickerShowing && !makingStickerReAppear) {
             makingStickerReAppear = true
-            hoverAlarm.addRequest(
-              {
+            hoverJob = coroutineScope.launch(Dispatchers.Default) {
+              delay(FADE_IN_DELAY.toLong().milliseconds)
+              SwingUtilities.invokeLater {
                 makingStickerReAppear = false
                 hoveredInside = false
                 if (positionable) {
                   addListeners()
                 }
                 runFadeAnimation(runForwards = true)
-              },
-              FADE_IN_DELAY,
-            )
+              }
+            }
           } else if (stickerShowing && !makingStickerReAppear) {
             hoveredInside = false
           }
@@ -382,7 +383,7 @@ internal class StickerPane(
     stickerContent.layout = null
     val stickerDimension = getUsableStickerDimension(stickerUrl)
 
-    val originalImage = ImageIcon(URL(stickerUrl)).image
+    val originalImage = ImageIcon(URI(stickerUrl).toURL()).image
     val lessGarbageImage =
       originalImage.getScaledInstance(
         stickerDimension.width,
@@ -455,22 +456,22 @@ internal class StickerPane(
 
   private fun getUsableStickerDimension(stickerUrl: String): Dimension {
     val originalDimension = getImageDimensions(stickerUrl)
-    return when {
-      type == StickerType.SMOL ->
+    return when (type) {
+      StickerType.SMOL ->
         DimensionCappingService.getCappingStyle(
           originalDimension,
           Dimension(
-            ThemeConfig.instance.smallMaxStickerWidth,
-            ThemeConfig.instance.smallMaxStickerHeight,
+            ThemeConfig.getInstance().smallMaxStickerWidth,
+            ThemeConfig.getInstance().smallMaxStickerHeight,
           ),
         )
 
-      type == StickerType.REGULAR && ThemeConfig.instance.capStickerDimensions ->
+      StickerType.REGULAR if ThemeConfig.getInstance().capStickerDimensions ->
         DimensionCappingService.getCappingStyle(
           originalDimension,
           Dimension(
-            ThemeConfig.instance.maxStickerWidth,
-            ThemeConfig.instance.maxStickerHeight,
+            ThemeConfig.getInstance().maxStickerWidth,
+            ThemeConfig.getInstance().maxStickerHeight,
           ),
         )
 
@@ -523,6 +524,15 @@ internal class StickerPane(
   }
 
   override fun dispose() {
+    try {
+      hoverJob?.cancel()
+    } catch (_: Throwable) {}
+    try {
+      // doubleClick job is nested inside listener; cancel via scope
+    } catch (_: Throwable) {}
+    try {
+      coroutineScope.cancel()
+    } catch (_: Throwable) {}
     detach()
   }
 

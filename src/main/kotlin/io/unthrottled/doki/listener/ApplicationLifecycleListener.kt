@@ -14,8 +14,8 @@ class ApplicationLifecycleListener : AppLifecycleListener, DumbAware {
   }
 
   override fun appFrameCreated(commandLineArgs: MutableList<String>) {
-    TheDokiTheme.instance.init()
-    StickerComponent.instance.init()
+    TheDokiTheme.getInstance().init()
+    StickerComponent.getInstance().init()
   }
 
   override fun appClosing() {

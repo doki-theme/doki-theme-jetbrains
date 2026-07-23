@@ -6,7 +6,7 @@ import io.unthrottled.doki.discreet.toDiscreetMode
 import io.unthrottled.doki.settings.actors.DiscreetModeActor
 
 class DiscreetModeAction : BaseToggleAction() {
-  override fun isSelected(e: AnActionEvent): Boolean = ThemeConfig.instance.discreetMode
+  override fun isSelected(e: AnActionEvent): Boolean = ThemeConfig.getInstance().discreetMode
 
   override fun setSelected(
     e: AnActionEvent,

@@ -5,7 +5,7 @@ import io.unthrottled.doki.config.ThemeConfig
 import io.unthrottled.doki.settings.actors.BackgroundActor
 
 class BackgroundToggleAction : BaseToggleAction() {
-  override fun isSelected(e: AnActionEvent): Boolean = ThemeConfig.instance.isDokiBackground
+  override fun isSelected(e: AnActionEvent): Boolean = ThemeConfig.getInstance().isDokiBackground
 
   override fun setSelected(
     e: AnActionEvent,

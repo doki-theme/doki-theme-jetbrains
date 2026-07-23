@@ -138,8 +138,7 @@ object ColorPatcher : SvgElementColorPatcherProvider {
       .build()
 
   override fun attributeForPath(path: String): SvgAttributePatcher? {
-    val safeKey = path ?: "ayyLmao"
-    return if (patcherProviderCache.add(safeKey)) {
+    return if (patcherProviderCache.add(path)) {
       val hackedPatcher =
         buildHackedPatcher(
           listOf(otherColorPatcherProvider, uiColorPatcherProvider)
@@ -151,9 +150,9 @@ object ColorPatcher : SvgElementColorPatcherProvider {
                 null
               }
             },
-          safeKey,
+          path,
         )
-      patcherProviderCache.remove(safeKey)
+      patcherProviderCache.remove(path)
       hackedPatcher
     } else {
       NoOptPatcher
@@ -206,7 +205,7 @@ object ColorPatcher : SvgElementColorPatcherProvider {
             getThemedStopColor()
           }
           patchAccent(attributes["editorAccentTint"], attributes) {
-            ThemeManager.instance.currentTheme
+            ThemeManager.getInstance().currentTheme
               .map { it.editorAccentColor.toHexString() }
               .orElseGet { JBColor.CYAN.toHexString() }
           }

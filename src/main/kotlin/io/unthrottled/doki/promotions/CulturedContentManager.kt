@@ -1,6 +1,8 @@
 package io.unthrottled.doki.promotions
 
 import com.intellij.openapi.application.ApplicationManager
+import com.intellij.openapi.project.Project
+import com.intellij.openapi.project.ProjectManager
 import io.unthrottled.doki.assets.AssetCategory
 import io.unthrottled.doki.assets.AssetManager
 import io.unthrottled.doki.stickers.CurrentSticker
@@ -42,6 +44,8 @@ object CulturedContentManager {
   } else {
     content.toOptional()
   }
+  private fun getFirstProject(): Optional<Project> =
+    ProjectManager.getInstance().openProjects.toOptional().filter {it.isNotEmpty()}.map {it.first()}
 
   private fun askToShowCulturedContent(dokiTheme: DokiTheme) {
     isAsking = true

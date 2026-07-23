@@ -2,6 +2,7 @@ package io.unthrottled.doki.stickers
 
 import com.intellij.ide.util.PropertiesComponent
 import com.intellij.openapi.application.ApplicationManager
+import com.intellij.openapi.components.Service
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil.EDITOR_PROP
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil.Fill
 import io.unthrottled.doki.assets.AssetCategory
@@ -18,16 +19,17 @@ import java.util.Optional
 const val DOKI_BACKGROUND_PROP: String = "io.unthrottled.doki.background"
 private const val PREVIOUS_BACKGROUND = "io.unthrottled.doki.previous-background"
 
+@Service
 @Suppress("TooManyFunctions") // cuz I said so
 internal class EditorBackgroundWallpaperService {
   companion object {
-    val instance: EditorBackgroundWallpaperService
-      get() = ApplicationManager.getApplication().getService(EditorBackgroundWallpaperService::class.java)
+    fun getInstance(): EditorBackgroundWallpaperService =
+      ApplicationManager.getApplication().getService(EditorBackgroundWallpaperService::class.java)
   }
 
   fun activateForTheme(dokiTheme: DokiTheme) {
     ApplicationManager.getApplication().executeOnPooledThread {
-      if (ThemeConfig.instance.isDokiBackground) {
+      if (ThemeConfig.getInstance().isDokiBackground) {
         installEditorBackgroundImage(dokiTheme)
       }
     }
@@ -57,7 +59,7 @@ internal class EditorBackgroundWallpaperService {
           EDITOR_PROP,
         )
       }) {
-        if (getNonDokiBackground().isPresent().not()) { // y u no like isEmpty() ???
+        if (getNonDokiBackground().isPresent.not()) { // y u no like isEmpty() ???
           remove()
         }
       }
@@ -119,7 +121,7 @@ internal class EditorBackgroundWallpaperService {
   }
 
   fun enableEditorBackground() {
-    ThemeManager.instance.currentTheme.ifPresent { dokiTheme ->
+    ThemeManager.getInstance().currentTheme.ifPresent { dokiTheme ->
       installEditorBackgroundImage(dokiTheme)
       repaintWindows()
     }
@@ -133,7 +135,7 @@ internal fun setBackgroundImageProperty(
   anchor: String,
   propertyKey: String,
 ) {
-  // org.intellij.images.editor.actions.SetBackgroundImageDialog has all of the answers
+  // org.intellij.images.editor.actions.SetBackgroundImageDialog has all the answers
   // as to why this looks this way
   val propertyValue =
     listOf(imagePath, opacity, fill, anchor)

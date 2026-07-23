@@ -80,13 +80,13 @@ class DokiTheme(
       )
 
   fun getStickerPath(): Optional<String> =
-    when (ThemeConfig.instance.currentSticker) {
+    when (ThemeConfig.getInstance().currentSticker) {
       CurrentSticker.DEFAULT -> uiTheme.stickers.default.toOptional()
       CurrentSticker.SECONDARY -> CulturedContentManager.safelyGetSticker(this)
     }
 
   fun getBackground(): Optional<Background> =
-    when (ThemeConfig.instance.currentSticker) {
+    when (ThemeConfig.getInstance().currentSticker) {
       CurrentSticker.DEFAULT -> uiTheme.backgrounds.default.toOptional()
       CurrentSticker.SECONDARY -> CulturedContentManager.safelyGetBackground(this)
     }

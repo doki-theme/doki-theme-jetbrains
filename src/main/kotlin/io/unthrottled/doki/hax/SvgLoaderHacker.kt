@@ -53,7 +53,7 @@ object SvgLoaderHacker : Logging {
           }
         }
       }
-    val patcherProviderClass = Class.forName("com.intellij.util.SVGLoader\$SvgElementColorPatcherProvider")
+    val patcherProviderClass = Class.forName($$"com.intellij.util.SVGLoader$SvgElementColorPatcherProvider")
     val proxiedSVGElementColorProvider =
       Proxy.newProxyInstance(
         patcherProviderClass.classLoader,

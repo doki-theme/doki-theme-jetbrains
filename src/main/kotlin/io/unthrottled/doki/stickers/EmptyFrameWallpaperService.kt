@@ -2,6 +2,7 @@ package io.unthrottled.doki.stickers
 
 import com.intellij.ide.util.PropertiesComponent
 import com.intellij.openapi.application.ApplicationManager
+import com.intellij.openapi.components.Service
 import com.intellij.openapi.wm.impl.IdeBackgroundUtil
 import io.unthrottled.doki.assets.AssetCategory
 import io.unthrottled.doki.assets.AssetManager
@@ -12,14 +13,15 @@ import io.unthrottled.doki.themes.ThemeManager
 import io.unthrottled.doki.util.doOrElse
 import java.util.Optional
 
+@Service
 class EmptyFrameWallpaperService {
   companion object {
-    val instance: EmptyFrameWallpaperService
-      get() = ApplicationManager.getApplication().getService(EmptyFrameWallpaperService::class.java)
+    fun getInstance(): EmptyFrameWallpaperService =
+      ApplicationManager.getApplication().getService(EmptyFrameWallpaperService::class.java)
   }
 
   fun enableEmptyFrameWallpaper() {
-    ThemeManager.instance.currentTheme.doOrElse({ dokiTheme ->
+    ThemeManager.getInstance().currentTheme.doOrElse({ dokiTheme ->
       installFrameBackgroundImage(dokiTheme)
       repaintWindows()
     }) {
@@ -29,7 +31,7 @@ class EmptyFrameWallpaperService {
 
   fun activateForTheme(dokiTheme: DokiTheme) {
     ApplicationManager.getApplication().executeOnPooledThread {
-      if (ThemeConfig.instance.isEmptyFrameBackground) {
+      if (ThemeConfig.getInstance().isEmptyFrameBackground) {
         installFrameBackgroundImage(dokiTheme)
       }
     }
